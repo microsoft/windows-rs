@@ -774,6 +774,30 @@ mod tests {
     }
 
     #[test]
+    fn gamma_ratios() {
+        let mut params = RenderingParams::system();
+
+        params.gamma = 1.8;
+        let expected = [0.148_054_42, -0.894_594_55, 1.475_908, -0.324_668_26];
+        for (ratio, expected) in params.gamma_ratios().into_iter().zip(expected) {
+            assert!((ratio - expected).abs() < 1e-6, "{ratio} != {expected}");
+        }
+
+        params.gamma = 1.0;
+        assert_eq!(params.gamma_ratios(), [0.0; 4]);
+
+        // Values outside 1.0 to 2.2 use the nearest supported gamma.
+        params.gamma = 0.5;
+        assert_eq!(params.gamma_ratios(), [0.0; 4]);
+        let highest = {
+            params.gamma = 2.2;
+            params.gamma_ratios()
+        };
+        params.gamma = 3.0;
+        assert_eq!(params.gamma_ratios(), highest);
+    }
+
+    #[test]
     fn shared_across_threads() {
         let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\consola.ttf").unwrap();
         let loaded = FontCollection::from_data([data.as_slice()]).unwrap();

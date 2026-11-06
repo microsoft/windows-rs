@@ -46,8 +46,8 @@ const ATLAS_SIZE: u32 = 1024;
 const MAX_ATLAS_SIZE: u32 = 16384;
 
 // One rectangle to draw: where on the screen, which atlas texels, the straight color, and the
-// enhanced contrast and ClearType level for its coverage. The layout matches `Instance` in the
-// shader.
+// enhanced contrast, ClearType level, and whether the coverage is ClearType. The layout matches
+// `Instance` in the shader.
 #[repr(C)]
 #[derive(Copy, Clone)]
 struct Instance {
@@ -271,7 +271,7 @@ impl Atlas {
         // frame.
         let grayscale = [params.grayscale_enhanced_contrast, 1.0, 0.0, 0.0];
         let text = if cleartype {
-            [params.enhanced_contrast, params.cleartype_level, 0.0, 0.0]
+            [params.enhanced_contrast, params.cleartype_level, 1.0, 0.0]
         } else {
             grayscale
         };
@@ -507,7 +507,7 @@ impl Renderer {
                 .CreateBlendState(&blend_desc, Some(&mut blend))
                 .ok()?;
 
-            let constants = create_buffer(&device, 16, D3D11_BIND_CONSTANT_BUFFER, 0, 0)?;
+            let constants = create_buffer(&device, 32, D3D11_BIND_CONSTANT_BUFFER, 0, 0)?;
 
             let atlas = Atlas::new(&device, &context)?;
 
@@ -581,7 +581,7 @@ impl Renderer {
         Ok(())
     }
 
-    fn draw(&mut self, instances: &[Instance], constants: [f32; 4]) -> Result<()> {
+    fn draw(&mut self, instances: &[Instance], constants: [f32; 8]) -> Result<()> {
         self.reserve(instances.len())?;
         let (buffer, view) = self.instances.as_ref().unwrap();
         write(&self.context, buffer, instances)?;
@@ -843,9 +843,11 @@ impl State {
 
         let build_time = start.elapsed();
 
+        let [g0, g1, g2, g3] = self.params.gamma_ratios();
+        let constants = [width as f32, height as f32, 0.0, 0.0, g0, g1, g2, g3];
         let result = renderer
             .resize(width, height)
-            .and_then(|()| renderer.draw(&instances, [width as f32, height as f32, 0.0, 0.0]));
+            .and_then(|()| renderer.draw(&instances, constants));
 
         match result {
             Ok(()) => self.dirty = false,
