@@ -354,14 +354,23 @@ mod tests {
         text.set_font_weight(.., FontWeight::BLACK);
         assert!(text.metrics().width > width);
 
-        let mut text = layout("Hello");
-        let collection = FontCollection::system();
-        text.set_font_collection(.., &collection);
-        text.set_font_style(..2, FontStyle::Italic);
-        text.set_underline(1..3, true);
-        text.set_strikethrough(2.., true);
-        text.set_underline(.., false);
-        assert_eq!(text.metrics().line_count, 1);
+        let mut text = layout("Slanted text");
+        let width = text.metrics().width;
+        text.set_font_style(.., FontStyle::Italic);
+        assert_ne!(text.metrics().width, width);
+
+        // Consolas is missing from a Segoe UI collection until the range uses the system fonts.
+        let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\segoeui.ttf").unwrap();
+        let segoe = FontCollection::from_data([data.as_slice()]).unwrap();
+        let format = TextFormat::new("Consolas", 24.0)
+            .unwrap()
+            .with_collection(&segoe);
+        let mut text = TextLayout::new("iiiiWWWW", &format, 400.0, 200.0).unwrap();
+        let (narrow, wide) = widths(&text);
+        assert!(narrow < wide);
+        text.set_font_collection(.., &FontCollection::system());
+        let (narrow, wide) = widths(&text);
+        assert_eq!(narrow, wide);
     }
 
     #[test]

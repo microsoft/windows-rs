@@ -22,6 +22,7 @@
     DWRITE_FONT_FEATURE
     DWRITE_HIT_TEST_METRICS
     DWriteCreateFactory
+    E_NOT_SUFFICIENT_BUFFER
     GetUserDefaultLocaleName
     LOCALE_NAME_MAX_LENGTH
     IDWriteFactory::{CreateTextFormat, CreateTextLayout, CreateTypography, RegisterFontFileLoader}

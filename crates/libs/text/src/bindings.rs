@@ -163,6 +163,8 @@ pub struct DWRITE_UNICODE_RANGE {
 pub type DWRITE_WORD_WRAPPING = i32;
 pub const DWRITE_WORD_WRAPPING_NO_WRAP: DWRITE_WORD_WRAPPING = 1;
 pub const DWRITE_WORD_WRAPPING_WRAP: DWRITE_WORD_WRAPPING = 0;
+pub const E_NOT_SUFFICIENT_BUFFER: windows_core::HRESULT =
+    windows_core::HRESULT(0x8007007A_u32 as _);
 pub type FLOAT = f32;
 windows_core::imp::define_interface!(
     IDWriteFactory,

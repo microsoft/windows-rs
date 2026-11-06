@@ -41,6 +41,14 @@ impl Offsets {
         &self.text
     }
 
+    /// Returns the length of the text in UTF-16 code units.
+    pub fn utf16_len(&self) -> u32 {
+        match self.checkpoints.last() {
+            Some(&len) => len,
+            None => self.text.len().try_into().unwrap(),
+        }
+    }
+
     /// Encodes the text as UTF-16 for DirectWrite.
     pub fn to_utf16(&self) -> Vec<u16> {
         if self.checkpoints.is_empty() {

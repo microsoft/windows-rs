@@ -1265,10 +1265,11 @@ mod tests {
         struck.set_strikethrough(1..5, true);
         let rows = lit(&Ink::render(200, 40, &struck, origin));
         assert!(!rows.is_empty());
+        // The line crosses the glyphs above the baseline.
+        let baseline = struck.line_metrics()[0].baseline;
         assert!(
-            rows.iter()
-                .all(|y| *y > spaces.top && *y < spaces.bottom - 8.0),
-            "{rows:?}"
+            rows.iter().all(|y| *y > spaces.top && *y < baseline),
+            "{rows:?} {baseline}"
         );
     }
 

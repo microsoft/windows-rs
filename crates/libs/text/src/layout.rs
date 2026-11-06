@@ -68,8 +68,6 @@ pub struct LineMetrics {
     pub height: f32,
     /// Distance from the top of the line to its baseline.
     pub baseline: f32,
-    /// `true` if the line is trimmed.
-    pub is_trimmed: bool,
 }
 
 /// The metrics of one cluster in a [`TextLayout`].
@@ -223,8 +221,9 @@ impl TextLayout {
 
     /// Returns the metrics of each line, in order.
     pub fn line_metrics(&self) -> Vec<LineMetrics> {
-        let lines =
-            read_array(|buffer, len, count| unsafe { self.raw.GetLineMetrics(buffer, len, count) });
+        let lines = read_array(self.metrics().line_count, |buffer, len, count| unsafe {
+            self.raw.GetLineMetrics(buffer, len, count)
+        });
 
         let mut utf8 = self.offsets.utf8_cursor();
         let mut start = 0;
@@ -245,7 +244,6 @@ impl TextLayout {
                     newline_length: text_end - newline,
                     height: line.height,
                     baseline: line.baseline,
-                    is_trimmed: line.isTrimmed.as_bool(),
                 }
             })
             .collect()
@@ -254,7 +252,8 @@ impl TextLayout {
     /// Returns the metrics of each cluster, in text order. A cluster is the smallest unit of text
     /// a caret can move across, such as a character with its combining marks or a ligature.
     pub fn cluster_metrics(&self) -> Vec<ClusterMetrics> {
-        let clusters = read_array(|buffer, len, count| unsafe {
+        // A cluster spans at least one UTF-16 code unit.
+        let clusters = read_array(self.offsets.utf16_len(), |buffer, len, count| unsafe {
             self.raw.GetClusterMetrics(buffer, len, count)
         });
 
@@ -282,11 +281,12 @@ impl TextLayout {
     }
 
     /// Returns the rectangles covering `range`, a UTF-8 byte range, relative to the layout box.
-    /// A range that spans lines or changes direction has more than one rectangle. Use this to
-    /// draw a selection.
+    /// A range that spans lines or changes direction has more than one rectangle, and an empty
+    /// range has one zero-width rectangle at its position. Use this to draw a selection.
     pub fn range_bounds(&self, range: impl RangeBounds<usize>) -> Vec<Rect> {
         let range = self.offsets.range(range);
-        let hits = read_array(|buffer, len, count| unsafe {
+        // A selection usually covers a few lines.
+        let hits = read_array(4, |buffer, len, count| unsafe {
             self.raw.HitTestTextRange(
                 range.startPosition,
                 range.length,
@@ -395,20 +395,22 @@ impl TextLayout {
     }
 }
 
-// Calls a DirectWrite method that fills a caller-supplied array, first to get the length and then
-// to fill it.
+// Calls a DirectWrite method that fills a caller-supplied array. `capacity` is the expected
+// length; if the array needs more, the method reports the length and is called again.
 fn read_array<T: Clone + Default>(
+    capacity: u32,
     read: impl Fn(Option<*mut T>, u32, *mut u32) -> HRESULT,
 ) -> Vec<T> {
+    let mut buffer = vec![T::default(); capacity as usize];
     let mut len = 0;
-    let result = read(None, 0, &mut len);
-    if len == 0 {
-        result.unwrap();
-        return Vec::new();
+    let mut result = read(Some(buffer.as_mut_ptr()), capacity, &mut len);
+
+    if result == E_NOT_SUFFICIENT_BUFFER {
+        buffer.resize(len as usize, T::default());
+        result = read(Some(buffer.as_mut_ptr()), len, &mut len);
     }
 
-    let mut buffer = vec![T::default(); len as usize];
-    read(Some(buffer.as_mut_ptr()), len, &mut len).unwrap();
+    result.unwrap();
     buffer.truncate(len as usize);
     buffer
 }
