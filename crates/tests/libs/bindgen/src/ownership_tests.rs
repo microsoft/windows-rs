@@ -3,7 +3,7 @@ use std::sync::{
     Arc,
     atomic::{AtomicUsize, Ordering},
 };
-use windows_core::{Array, Interface};
+use windows_core::{Array, InRef, Interface, OutParam, OutRef, Param, ParamValue};
 
 struct Lifetime(Arc<AtomicUsize>);
 
@@ -84,6 +84,147 @@ fn interface_outputs() {
     output.as_ref().unwrap().Invoke().unwrap();
     drop(output);
     assert_eq!(output_drops.load(Ordering::Relaxed), 1);
+}
+
+#[test]
+fn direct_out_ref_replacement() {
+    let old_drops = Arc::new(AtomicUsize::new(0));
+    let new_drops = Arc::new(AtomicUsize::new(0));
+    let mut output = Some(tracked(&old_drops));
+    OutRef::<Tracked>::from(&mut output)
+        .write(Some(tracked(&new_drops)))
+        .unwrap();
+    assert_eq!(old_drops.load(Ordering::Relaxed), 1);
+    assert_eq!(new_drops.load(Ordering::Relaxed), 0);
+    output.as_ref().unwrap().Invoke().unwrap();
+    OutRef::<Tracked>::from(&mut output).write(None).unwrap();
+    assert!(output.is_none());
+    assert_eq!(new_drops.load(Ordering::Relaxed), 1);
+}
+
+#[test]
+fn direct_out_param_replacement() {
+    let old_drops = Arc::new(AtomicUsize::new(0));
+    let new_drops = Arc::new(AtomicUsize::new(0));
+    let mut output = Some(tracked(&old_drops));
+    unsafe {
+        OutParam::<Tracked>::borrow_mut(&&mut output)
+            .write(Some(tracked(&new_drops)))
+            .unwrap();
+    }
+    assert_eq!(old_drops.load(Ordering::Relaxed), 1);
+    assert_eq!(new_drops.load(Ordering::Relaxed), 0);
+    output.as_ref().unwrap().Invoke().unwrap();
+    drop(output);
+    assert_eq!(new_drops.load(Ordering::Relaxed), 1);
+}
+
+#[derive(Clone, Default)]
+struct TrackedValue(Option<Tracked>);
+
+impl windows_core::imp::TypeKind for TrackedValue {
+    type TypeKind = windows_core::imp::CloneType;
+}
+
+#[test]
+fn optional_out_param_replacement() {
+    let old_drops = Arc::new(AtomicUsize::new(0));
+    let new_drops = Arc::new(AtomicUsize::new(0));
+    let mut output = TrackedValue(Some(tracked(&old_drops)));
+    unsafe {
+        OutParam::<TrackedValue>::borrow_mut(&Some(&mut output))
+            .write(TrackedValue(Some(tracked(&new_drops))))
+            .unwrap();
+    }
+    assert_eq!(old_drops.load(Ordering::Relaxed), 1);
+    assert_eq!(new_drops.load(Ordering::Relaxed), 0);
+    output.0.as_ref().unwrap().Invoke().unwrap();
+    {
+        let _output = OutRef::<TrackedValue>::from(&mut output);
+    }
+    assert!(output.0.is_none());
+    drop(output);
+    assert_eq!(new_drops.load(Ordering::Relaxed), 1);
+}
+
+#[test]
+fn optional_interface_output() {
+    let drops = Arc::new(AtomicUsize::new(0));
+    let mut output = Some(tracked(&drops));
+    unsafe {
+        OutParam::<Tracked>::borrow_mut(&Some(&mut output))
+            .write(None)
+            .unwrap();
+        assert!(OutParam::<Tracked>::borrow_mut(&None::<&mut Option<Tracked>>).is_null());
+    }
+    assert!(output.is_none());
+    assert_eq!(drops.load(Ordering::Relaxed), 1);
+}
+
+#[test]
+fn copy_output_storage() {
+    let mut output = 7u32;
+    {
+        let _output = OutRef::<u32>::from(&mut output);
+    }
+    assert_eq!(output, 7);
+    unsafe {
+        let _output = OutParam::<u32>::borrow_mut(&Some(&mut output));
+    }
+    assert_eq!(output, 7);
+    OutRef::<u32>::from(&mut output).write(11).unwrap();
+    assert_eq!(output, 11);
+}
+
+#[test]
+fn borrowed_input_lifetimes() {
+    let drops = Arc::new(AtomicUsize::new(0));
+    let owner = Some(tracked(&drops));
+    let cloned = {
+        let borrowed = InRef::<Tracked>::from(&owner);
+        assert_eq!(borrowed.unwrap().as_raw(), owner.as_ref().unwrap().as_raw());
+        let from_ref = InRef::from(owner.as_ref().unwrap());
+        from_ref.unwrap().Invoke().unwrap();
+        let optional = InRef::<Tracked>::from(owner.as_ref());
+        optional.unwrap().Invoke().unwrap();
+        borrowed.cloned().unwrap()
+    };
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    drop(owner);
+    cloned.Invoke().unwrap();
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    drop(cloned);
+    assert_eq!(drops.load(Ordering::Relaxed), 1);
+    assert!(InRef::<Tracked>::from(&None).is_null());
+    assert!(InRef::<Tracked>::from(None).is_null());
+}
+
+#[test]
+fn parameter_value_lifetimes() {
+    let drops = Arc::new(AtomicUsize::new(0));
+    let value = tracked(&drops);
+    let retained = {
+        let borrowed: ParamValue<Tracked> = unsafe { (&value).param() };
+        assert!(matches!(borrowed, ParamValue::Borrowed(_)));
+        assert_eq!(borrowed.abi(), value.as_raw());
+        borrowed.borrow().unwrap().Invoke().unwrap();
+        let optional: ParamValue<Tracked> = unsafe { Some(&value).param() };
+        optional.borrow().unwrap().Invoke().unwrap();
+        borrowed.borrow().cloned().unwrap()
+    };
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    drop(value);
+    let retained = {
+        let owned = ParamValue::Owned(retained);
+        owned.borrow().unwrap().Invoke().unwrap();
+        owned.borrow().cloned().unwrap()
+    };
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    retained.Invoke().unwrap();
+    drop(retained);
+    assert_eq!(drops.load(Ordering::Relaxed), 1);
+    let absent: ParamValue<Tracked> = unsafe { None::<&Tracked>.param() };
+    assert!(absent.borrow().is_null());
 }
 
 #[test]

@@ -86,6 +86,8 @@ fn test() {
         // `output` will be dropped before receiving value, avoiding a leak.
         assert_eq!(test.hstring(h!("hello"), &mut output), S_OK);
         assert_eq!(&output, h!("hello"));
+        assert_eq!(test.hstring(h!("replacement"), Some(&mut output)), S_OK);
+        assert_eq!(&output, h!("replacement"));
 
         let mut output = None;
         assert_eq!(test.interface(&test, &mut output), S_OK);
@@ -96,6 +98,8 @@ fn test() {
         assert_eq!(output.as_ref(), Some(&test));
 
         assert_eq!(test.optional_output(&test, None), S_FALSE);
+        assert_eq!(test.optional_output(None, Some(&mut output)), S_OK);
+        assert!(output.is_none());
         assert_eq!(test.optional_output(&test, &mut output), S_OK);
         assert_eq!(output, Some(test));
     }
