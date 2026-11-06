@@ -1230,6 +1230,8 @@ pub struct windows_reactor::CommandBarFlyout
 impl windows_reactor::CommandBarFlyout
 pub fn windows_reactor::CommandBarFlyout::new(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl windows_reactor::IntoPayloadCallback<windows_reactor::Key>) -> Self
 pub struct windows_reactor::ComponentCompletion<M>(_)
+impl<M: 'static> windows_reactor::ComponentCompletion<M>
+pub fn windows_reactor::ComponentCompletion<M>::complete_with(self, impl core::ops::function::FnOnce() -> M + core::marker::Send + 'static) -> bool
 impl<M: core::marker::Send + 'static> windows_reactor::ComponentCompletion<M>
 pub fn windows_reactor::ComponentCompletion<M>::complete(self, M) -> bool
 impl<M> core::clone::Clone for windows_reactor::ComponentCompletion<M>
@@ -1239,6 +1241,7 @@ impl<C: windows_reactor::Component> windows_reactor::ComponentContext<'_, C>
 pub fn windows_reactor::ComponentContext<'_, C>::activate_window(&self) -> bool
 pub fn windows_reactor::ComponentContext<'_, C>::callback<T>(&self, impl core::ops::function::Fn(T) -> <C as windows_reactor::Component>::Message + 'static) -> windows_reactor::Callback<T>
 pub fn windows_reactor::ComponentContext<'_, C>::close_window(&self) -> bool
+pub fn windows_reactor::ComponentContext<'_, C>::completion(&self) -> windows_reactor::ComponentCompletion<<C as windows_reactor::Component>::Message>
 pub fn windows_reactor::ComponentContext<'_, C>::forward(&self) -> windows_reactor::Callback<<C as windows_reactor::Component>::Message>
 pub fn windows_reactor::ComponentContext<'_, C>::input(&self) -> &<C as windows_reactor::Component>::Input
 pub fn windows_reactor::ComponentContext<'_, C>::message(&self, <C as windows_reactor::Component>::Message) -> windows_reactor::Callback<()> where <C as windows_reactor::Component>::Message: core::clone::Clone
@@ -1249,7 +1252,6 @@ pub fn windows_reactor::ComponentContext<'_, C>::run_window(&self, impl for<'a> 
 pub fn windows_reactor::ComponentContext<'_, C>::sender(&self) -> windows_reactor::LocalSender<<C as windows_reactor::Component>::Message>
 pub fn windows_reactor::ComponentContext<'_, C>::set_local_timeout(&self, core::time::Duration, impl core::ops::function::FnOnce() -> <C as windows_reactor::Component>::Message + core::marker::Send + 'static) -> windows_reactor::ComponentTimer
 impl<C> windows_reactor::ComponentContext<'_, C> where C: windows_reactor::Component, <C as windows_reactor::Component>::Message: core::marker::Send
-pub fn windows_reactor::ComponentContext<'_, C>::completion(&self) -> windows_reactor::ComponentCompletion<<C as windows_reactor::Component>::Message>
 pub fn windows_reactor::ComponentContext<'_, C>::set_timeout(&self, core::time::Duration, <C as windows_reactor::Component>::Message) -> windows_reactor::ComponentTimer
 pub fn windows_reactor::ComponentContext<'_, C>::spawn_background(&self, impl core::ops::function::FnOnce(windows_reactor::CancellationToken) -> <C as windows_reactor::Component>::Message + core::marker::Send + 'static) -> windows_reactor::ComponentTask
 pub struct windows_reactor::ComponentNode
@@ -1262,9 +1264,10 @@ pub fn windows_reactor::ComponentNode::eq(&self, &Self) -> bool
 impl core::convert::From<windows_reactor::ComponentNode> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ComponentNode) -> Self
 pub struct windows_reactor::ComponentSender<M>
+impl<M: 'static> windows_reactor::ComponentSender<M>
+pub fn windows_reactor::ComponentSender<M>::completion(&self) -> windows_reactor::ComponentCompletion<M>
 impl<M: core::marker::Send + 'static> windows_reactor::ComponentSender<M>
 pub fn windows_reactor::ComponentSender<M>::callback<T, F>(&self, F) -> windows_reactor::Callback<T> where F: core::ops::function::Fn(T) -> M + 'static
-pub fn windows_reactor::ComponentSender<M>::completion(&self) -> windows_reactor::ComponentCompletion<M>
 pub fn windows_reactor::ComponentSender<M>::forward(&self) -> windows_reactor::Callback<M>
 pub fn windows_reactor::ComponentSender<M>::message(&self, M) -> windows_reactor::Callback<()> where M: core::clone::Clone
 pub fn windows_reactor::ComponentSender<M>::send(&self, M) -> bool
@@ -4462,6 +4465,7 @@ pub fn windows_reactor::View::from(windows_reactor::WebView2) -> Self
 pub struct windows_reactor::ViewContext<'a, C: windows_reactor::Component>
 impl<C: windows_reactor::Component> windows_reactor::ViewContext<'_, C>
 pub fn windows_reactor::ViewContext<'_, C>::callback<T>(&self, impl core::ops::function::Fn(T) -> <C as windows_reactor::Component>::Message + 'static) -> windows_reactor::Callback<T>
+pub fn windows_reactor::ViewContext<'_, C>::completion(&self) -> windows_reactor::ComponentCompletion<<C as windows_reactor::Component>::Message>
 pub fn windows_reactor::ViewContext<'_, C>::forward(&self) -> windows_reactor::Callback<<C as windows_reactor::Component>::Message>
 pub fn windows_reactor::ViewContext<'_, C>::message(&self, <C as windows_reactor::Component>::Message) -> windows_reactor::Callback<()> where <C as windows_reactor::Component>::Message: core::clone::Clone
 pub fn windows_reactor::ViewContext<'_, C>::on_color_scheme(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::ColorScheme>)
@@ -4475,8 +4479,6 @@ pub fn windows_reactor::ViewContext<'_, C>::use_effect_guard<D, G>(&mut self, im
 pub fn windows_reactor::ViewContext<'_, C>::window_frame(&mut self, impl core::convert::Into<alloc::string::String>, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
 pub fn windows_reactor::ViewContext<'_, C>::window_title(&mut self, impl core::convert::Into<alloc::string::String>)
 pub fn windows_reactor::ViewContext<'_, C>::window_visuals(&mut self, windows_reactor::WindowVisuals)
-impl<C> windows_reactor::ViewContext<'_, C> where C: windows_reactor::Component, <C as windows_reactor::Component>::Message: core::marker::Send
-pub fn windows_reactor::ViewContext<'_, C>::completion(&self) -> windows_reactor::ComponentCompletion<<C as windows_reactor::Component>::Message>
 pub struct windows_reactor::Viewbox(_)
 impl windows_reactor::Viewbox
 pub fn windows_reactor::Viewbox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
