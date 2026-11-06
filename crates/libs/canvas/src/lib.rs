@@ -25,7 +25,6 @@ mod reactor_bindings;
 mod render_target;
 mod session;
 mod swap_chain;
-mod text;
 mod types;
 
 pub use bindings::ID2D1DeviceContext;
@@ -47,8 +46,11 @@ pub use reactor::*;
 pub use render_target::RenderTarget;
 pub use session::DrawingSession;
 pub use swap_chain::SwapChain;
-pub use text::*;
 pub use types::*;
+pub use windows_text::{
+    FontWeight as CanvasFontWeight, HitTest, ParagraphAlignment, Rect, TextAlignment, TextFormat,
+    TextLayout, TextMetrics, WordWrapping,
+};
 
 pub use windows_core::Result;
 pub use windows_numerics::{Matrix3x2, Vector2};

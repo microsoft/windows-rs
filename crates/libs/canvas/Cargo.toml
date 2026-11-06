@@ -18,6 +18,7 @@ reactor = ["dep:windows-reactor", "windows-composition?/reactor"]
 [dependencies]
 windows-core = { workspace = true }
 windows-numerics = { workspace = true }
+windows-text = { workspace = true }
 
 [dependencies.windows-composition]
 workspace = true

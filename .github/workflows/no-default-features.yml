@@ -126,6 +126,8 @@ jobs:
         run:  cargo check -p windows-strings --no-default-features
       - name: Check windows-sys
         run:  cargo check -p windows-sys --no-default-features
+      - name: Check windows-text
+        run:  cargo check -p windows-text --no-default-features
       - name: Check windows-threading
         run:  cargo check -p windows-threading --no-default-features
       - name: Check windows-time

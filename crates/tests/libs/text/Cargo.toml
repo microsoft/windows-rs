@@ -1,0 +1,11 @@
+[package]
+name = "test_text"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dev-dependencies]
+windows-text = { workspace = true }
+
+[lints]
+workspace = true

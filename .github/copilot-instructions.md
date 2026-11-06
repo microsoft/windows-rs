@@ -13,7 +13,8 @@ commits manually. Make changes locally, run fmt/clippy/tests to verify, and repo
 Cargo workspace (`resolver = "3"`). Members are globbed from:
 
 - `crates/libs/*` - the published/library crates (`windows`, `windows-sys`, `windows-core`, plus
-  `windows-bindgen`, `metadata`, `rdl`, and the newer `reactor`/`canvas`/`webview`/`window` crates).
+  `windows-bindgen`, `metadata`, `rdl`, and the newer `reactor`/`canvas`/`text`/`webview`/`window`
+  crates).
   See `docs/readme.md` for the categorized index and each crate's `readme.md` for getting started.
 - `crates/tools/*` - code generators and CI helpers, run via `cargo run -p tool-*`.
 - `crates/tests/*/*` - test crates; `crates/tests/libs/<crate>` mirrors each library crate. Check
@@ -24,9 +25,9 @@ The crates fall into rough groups (see `docs/readme.md` for the authoritative li
 (`windows-core`, `windows-result`, `windows-strings`); values & collections (`numerics`,
 `collections`, `reference`, `time`); async & threading (`future`, `threading`); system services
 (`registry`, `services`, `version`); COM macros & linking (`implement`, `interface`, `link`); UI &
-graphics (`reactor`, `canvas`, `webview`, `window`, `animation`, `reactor-setup`); codegen &
-metadata tooling (`bindgen`, `metadata`, `rdl`, `cppwinrt`); and the full API projection (`windows`,
-`windows-sys`).
+graphics (`reactor`, `canvas`, `text`, `webview`, `window`, `animation`, `reactor-setup`);
+codegen & metadata tooling (`bindgen`, `metadata`, `rdl`, `cppwinrt`); and the full API projection
+(`windows`, `windows-sys`).
 
 ## Before Finalizing Changes
 
@@ -91,6 +92,14 @@ cargo test -p windows-canvas --quiet
 cargo clippy -p windows-canvas --all-targets
 ```
 
+### Text
+
+```sh
+cargo check -p windows-text --quiet
+cargo test -p test_text --quiet
+cargo clippy -p windows-text -p test_text --all-targets
+```
+
 ### Full workspace
 
 ```sh
@@ -121,6 +130,7 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 3. **`tool-bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs
    `windows-bindgen` -> generates `bindings.rs` in each crate:
    - `crates/libs/canvas/src/bindings.rs` (from `canvas.txt`)
+   - `crates/libs/text/src/bindings.rs` (from `text.txt`)
    - `crates/libs/time/src/bindings.rs`, `numerics`, `reference`, etc.
 
 4. **`tool-package`** - generates the published `windows` and `windows-sys` package crates using
@@ -137,7 +147,11 @@ After regenerating, verify: `cargo check -p <affected-crate> --quiet`.
   `windows-time`, `windows-collections`, `windows-reference`, etc.
 - `windows-reactor` depends on `windows-core` (not `windows`) and uses minimal bindings generated
   with `--minimal --flat` mode.
-- `windows-canvas` similarly uses minimal bindings for D2D/DXGI/DWrite/WIC.
+- `windows-canvas` similarly uses minimal bindings for D2D/DXGI/WIC.
+- `windows-text` wraps DirectWrite text layout with its own minimal bindings. Canvas depends on it,
+  re-exports its text types and `Rect`, and casts with `to_interface` to its own
+  `IDWriteTextFormat`/`IDWriteTextLayout` bindings for Direct2D calls. Text positions in the public
+  API are UTF-8 byte offsets.
 - `windows-animation` wraps Win32 UIAnimation Manager COM APIs.
 
 ### Reactor architecture
