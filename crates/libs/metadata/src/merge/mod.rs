@@ -158,7 +158,7 @@ impl Merger {
                         // Remaining non-enum collisions are not expected within one arch (the `km`
                         // scrape excludes reference types other than extended enums); keep the
                         // first deterministically.
-                        write_type(&mut file, &index, arch_copies[0], None, None);
+                        write_type(&mut file, &index, arch_copies[0], None, None, None);
                     }
                 }
             }
@@ -167,7 +167,7 @@ impl Merger {
             types.sort_by(|a, b| (a.namespace(), a.name()).cmp(&(b.namespace(), b.name())));
 
             for ty in types {
-                write_type(&mut file, &index, ty, None, None);
+                write_type(&mut file, &index, ty, None, None, None);
             }
         }
 
@@ -202,14 +202,7 @@ impl Merger {
                 } else if let Some(signature) = merge_native_sized_callback(copies) {
                     let bits = copies.iter().fold(0, |acc, (_, _, bits)| acc | bits);
                     let arch = if bits == all_arches_mask { 0 } else { bits };
-                    write_type_with_signature(
-                        &mut file,
-                        idx,
-                        ty,
-                        None,
-                        Some(arch),
-                        Some(&signature),
-                    );
+                    write_type(&mut file, idx, ty, None, Some(arch), Some(&signature));
                 } else {
                     // Split value types by shape so arch-specific layouts are not lost.
                     let mut by_sig: Vec<(String, &reader::Index, reader::TypeDef, i32)> = vec![];
@@ -223,7 +216,7 @@ impl Merger {
                     }
                     for (_, cidx, c, bits) in &by_sig {
                         let arch = if *bits == all_arches_mask { 0 } else { *bits };
-                        write_type(&mut file, cidx, *c, None, Some(arch));
+                        write_type(&mut file, cidx, *c, None, Some(arch), None);
                     }
                 }
             }
@@ -287,16 +280,6 @@ fn write_type(
     def: reader::TypeDef,
     outer: Option<writer::TypeDef>,
     arch_override: Option<i32>,
-) {
-    write_type_with_signature(file, index, def, outer, arch_override, None);
-}
-
-fn write_type_with_signature(
-    file: &mut writer::File,
-    index: &reader::Index,
-    def: reader::TypeDef,
-    outer: Option<writer::TypeDef>,
-    arch_override: Option<i32>,
     signature_override: Option<&Signature>,
 ) {
     let extends = def
@@ -330,7 +313,7 @@ fn write_type_with_signature(
         .map(|param| Type::Generic(param.name().to_string(), param.sequence()))
         .collect();
 
-    write_attributes_with_arch(
+    write_attributes(
         file,
         writer::HasAttribute::TypeDef(type_def),
         def,
@@ -343,6 +326,7 @@ fn write_type_with_signature(
             file,
             writer::HasAttribute::InterfaceImpl(interface_impl),
             map,
+            None,
         );
     }
 
@@ -360,7 +344,7 @@ fn write_type_with_signature(
 
     if !is_winrt_class {
         for method in def.methods() {
-            write_method_with_signature(
+            write_method(
                 file,
                 method,
                 &generics,
@@ -381,7 +365,7 @@ fn write_type_with_signature(
     for inner_def in index.nested(def) {
         debug_assert!(inner_def.namespace().is_empty());
         debug_assert!(inner_def.flags().is_nested());
-        write_type(file, index, inner_def, Some(type_def), arch_override);
+        write_type(file, index, inner_def, Some(type_def), arch_override, None);
     }
 }
 
@@ -393,7 +377,7 @@ fn write_field(file: &mut writer::File, field: reader::Field, arch_override: Opt
     if let Some(constant) = field.constant() {
         file.Constant(writer::HasConstant::Field(field_def), &constant.value());
     }
-    write_attributes_with_arch(
+    write_attributes(
         file,
         writer::HasAttribute::Field(field_def),
         field,
@@ -444,7 +428,7 @@ fn write_class_union(file: &mut writer::File, index: &reader::Index, copies: &[r
         .unwrap_or_default();
     let type_def = file.TypeDef(def.namespace(), def.name(), extends, def.flags());
 
-    write_attributes_with_arch(file, writer::HasAttribute::TypeDef(type_def), def, None);
+    write_attributes(file, writer::HasAttribute::TypeDef(type_def), def, None);
 
     let generics: Vec<_> = def
         .generic_params()
@@ -466,13 +450,13 @@ fn write_class_union(file: &mut writer::File, index: &reader::Index, copies: &[r
         for method in copy.methods() {
             let key = method_sig(method, &generics, false);
             if seen_methods.insert(key) {
-                write_method(file, method, &generics, None);
+                write_method(file, method, &generics, None, None);
             }
         }
     }
 
     for inner_def in index.nested(def) {
-        write_type(file, index, inner_def, Some(type_def), None);
+        write_type(file, index, inner_def, Some(type_def), None, None);
     }
 }
 
@@ -586,7 +570,7 @@ fn write_enum_union(file: &mut writer::File, copies: &[reader::TypeDef]) -> Resu
         .unwrap_or_default();
 
     let type_def = file.TypeDef(base.namespace(), base.name(), extends, base.flags());
-    write_attributes_with_arch(file, writer::HasAttribute::TypeDef(type_def), base, None);
+    write_attributes(file, writer::HasAttribute::TypeDef(type_def), base, None);
 
     for field in base.fields() {
         write_field(file, field, None);
@@ -599,15 +583,6 @@ fn write_enum_union(file: &mut writer::File, copies: &[reader::TypeDef]) -> Resu
 }
 
 fn write_method(
-    file: &mut writer::File,
-    method: reader::MethodDef,
-    generics: &[Type],
-    arch_override: Option<i32>,
-) {
-    write_method_with_signature(file, method, generics, arch_override, None);
-}
-
-fn write_method_with_signature(
     file: &mut writer::File,
     method: reader::MethodDef,
     generics: &[Type],
@@ -629,9 +604,9 @@ fn write_method_with_signature(
     );
     for param_def in method.params() {
         let param = file.Param(param_def.name(), param_def.sequence(), param_def.flags());
-        write_attributes(file, writer::HasAttribute::Param(param), param_def);
+        write_attributes(file, writer::HasAttribute::Param(param), param_def, None);
     }
-    write_attributes_with_arch(
+    write_attributes(
         file,
         writer::HasAttribute::MethodDef(method_def),
         method,
@@ -868,13 +843,14 @@ fn write_type_arch_merged(
         .map(|p| Type::Generic(p.name().to_string(), p.sequence()))
         .collect();
 
-    write_attributes_with_arch(file, writer::HasAttribute::TypeDef(type_def), def, Some(0));
+    write_attributes(file, writer::HasAttribute::TypeDef(type_def), def, Some(0));
     for map in def.interface_impls() {
         let interface_impl = file.InterfaceImpl(type_def, &map.interface(&generics));
         write_attributes(
             file,
             writer::HasAttribute::InterfaceImpl(interface_impl),
             map,
+            None,
         );
     }
     for generic in def.generic_params() {
@@ -913,6 +889,7 @@ fn write_type_arch_merged(
                 method,
                 &generics,
                 Some(if bits == all_mask { 0 } else { bits }),
+                None,
             );
         }
     }
@@ -926,7 +903,7 @@ fn write_type_arch_merged(
     }
 
     for inner_def in index.nested(def) {
-        write_type(file, index, inner_def, Some(type_def), Some(0));
+        write_type(file, index, inner_def, Some(type_def), Some(0), None);
     }
 }
 
@@ -965,16 +942,8 @@ fn write_attribute(
     file.Attribute(parent, writer::AttributeType::MemberRef(ctor_ref), values);
 }
 
-fn write_attributes<'a, R: HasAttributes<'a>>(
-    file: &mut writer::File,
-    parent: writer::HasAttribute,
-    row: R,
-) {
-    write_attributes_with_arch(file, parent, row, None);
-}
-
 /// Copies attributes, optionally replacing `SupportedArchitectureAttribute`.
-fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
+fn write_attributes<'a, R: HasAttributes<'a>>(
     file: &mut writer::File,
     parent: writer::HasAttribute,
     row: R,

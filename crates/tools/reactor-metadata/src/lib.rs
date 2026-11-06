@@ -435,12 +435,6 @@ impl MetadataResolver {
         }
     }
 
-    /// Check if a method exists for a class in metadata.
-    pub fn has_method(&self, class_name: &str, method_name: &str) -> bool {
-        self.lookup
-            .contains_key(&(class_name.to_string(), method_name.to_string()))
-    }
-
     /// If a method's parameter is an enum, return `(short_name, [variant_names])`.
     /// Used to auto-generate `enum_map` from metadata without explicit TOML overrides.
     pub fn enum_info(&self, class_name: &str, method_name: &str) -> Option<(&str, &[String])> {

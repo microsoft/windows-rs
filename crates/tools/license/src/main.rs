@@ -1,11 +1,5 @@
 fn main() -> std::io::Result<()> {
-    copy("crates/libs")?;
-
-    Ok(())
-}
-
-fn copy<P: AsRef<std::path::Path>>(to: P) -> std::io::Result<()> {
-    for entry in std::fs::read_dir(to)? {
+    for entry in std::fs::read_dir("crates/libs")? {
         let entry = entry?;
         if entry.file_type()?.is_dir() {
             let path = entry.path();
