@@ -244,7 +244,7 @@ impl IVisualTreeService_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typename: *mut core::ffi::c_void, value: *mut core::ffi::c_void, pinstancehandle: *mut InstanceHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVisualTreeService_Impl::CreateInstance(this, core::mem::transmute(&typename), core::mem::transmute(&value)) {
+                match IVisualTreeService_Impl::CreateInstance(this, &*(&raw const typename).cast(), &*(&raw const value).cast()) {
                     Ok(ok__) => {
                         pinstancehandle.write(ok__);
                         windows_core::HRESULT(0)
@@ -376,7 +376,7 @@ impl IVisualTreeService2_Vtbl {
         unsafe extern "system" fn GetPropertyIndex<Identity: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: InstanceHandle, propertyname: windows_core::PCWSTR, ppropertyindex: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService2_Impl::GetPropertyIndex(this, core::mem::transmute_copy(&object), core::mem::transmute(&propertyname), core::mem::transmute_copy(&ppropertyindex))
+                IVisualTreeService2_Impl::GetPropertyIndex(this, core::mem::transmute_copy(&object), &*(&raw const propertyname).cast(), core::mem::transmute_copy(&ppropertyindex))
             }
         }
         unsafe extern "system" fn GetProperty<Identity: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: InstanceHandle, propertyindex: u32, pvalue: *mut InstanceHandle) -> windows_core::HRESULT {
@@ -396,7 +396,7 @@ impl IVisualTreeService2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVisualTreeService2_Impl::RenderTargetBitmap(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&options), core::mem::transmute_copy(&maxpixelwidth), core::mem::transmute_copy(&maxpixelheight)) {
                     Ok(ok__) => {
-                        ppbitmapdata.write(core::mem::transmute(ok__));
+                        ppbitmapdata.cast::<IBitmapData>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -470,13 +470,13 @@ impl IVisualTreeService3_Vtbl {
         unsafe extern "system" fn ResolveResource<Identity: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcecontext: InstanceHandle, resourcename: windows_core::PCWSTR, resourcetype: ResourceType, propertyindex: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService3_Impl::ResolveResource(this, core::mem::transmute_copy(&resourcecontext), core::mem::transmute(&resourcename), core::mem::transmute_copy(&resourcetype), core::mem::transmute_copy(&propertyindex))
+                IVisualTreeService3_Impl::ResolveResource(this, core::mem::transmute_copy(&resourcecontext), &*(&raw const resourcename).cast(), core::mem::transmute_copy(&resourcetype), core::mem::transmute_copy(&propertyindex))
             }
         }
         unsafe extern "system" fn GetDictionaryItem<Identity: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionaryhandle: InstanceHandle, resourcename: windows_core::PCWSTR, resourceisimplicitstyle: windows_core::BOOL, resourcehandle: *mut InstanceHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeService3_Impl::GetDictionaryItem(this, core::mem::transmute_copy(&dictionaryhandle), core::mem::transmute(&resourcename), core::mem::transmute_copy(&resourceisimplicitstyle), core::mem::transmute_copy(&resourcehandle))
+                IVisualTreeService3_Impl::GetDictionaryItem(this, core::mem::transmute_copy(&dictionaryhandle), &*(&raw const resourcename).cast(), core::mem::transmute_copy(&resourceisimplicitstyle), core::mem::transmute_copy(&resourcehandle))
             }
         }
         unsafe extern "system" fn AddDictionaryItem<Identity: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionaryhandle: InstanceHandle, resourcekey: InstanceHandle, resourcehandle: InstanceHandle) -> windows_core::HRESULT {
@@ -526,7 +526,7 @@ impl IVisualTreeServiceCallback_Vtbl {
         unsafe extern "system" fn OnVisualTreeChange<Identity: IVisualTreeServiceCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, relation: ParentChildRelation, element: VisualElement, mutationtype: VisualMutationType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeServiceCallback_Impl::OnVisualTreeChange(this, core::mem::transmute(&relation), core::mem::transmute(&element), core::mem::transmute_copy(&mutationtype))
+                IVisualTreeServiceCallback_Impl::OnVisualTreeChange(this, &*(&raw const relation).cast(), &*(&raw const element).cast(), core::mem::transmute_copy(&mutationtype))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnVisualTreeChange: OnVisualTreeChange::<Identity, OFFSET> }
@@ -566,7 +566,7 @@ impl IVisualTreeServiceCallback2_Vtbl {
         unsafe extern "system" fn OnElementStateChanged<Identity: IVisualTreeServiceCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: InstanceHandle, elementstate: VisualElementState, context: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVisualTreeServiceCallback2_Impl::OnElementStateChanged(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&elementstate), core::mem::transmute(&context))
+                IVisualTreeServiceCallback2_Impl::OnElementStateChanged(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&elementstate), &*(&raw const context).cast())
             }
         }
         Self { base__: IVisualTreeServiceCallback_Vtbl::new::<Identity, OFFSET>(), OnElementStateChanged: OnElementStateChanged::<Identity, OFFSET> }
@@ -667,7 +667,7 @@ impl IXamlDiagnostics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXamlDiagnostics_Impl::GetDispatcher(this) {
                     Ok(ok__) => {
-                        ppdispatcher.write(core::mem::transmute(ok__));
+                        ppdispatcher.cast::<windows_core::IInspectable>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -682,7 +682,7 @@ impl IXamlDiagnostics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXamlDiagnostics_Impl::GetUiLayer(this) {
                     Ok(ok__) => {
-                        pplayer.write(core::mem::transmute(ok__));
+                        pplayer.cast::<windows_core::IInspectable>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -697,7 +697,7 @@ impl IXamlDiagnostics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXamlDiagnostics_Impl::GetApplication(this) {
                     Ok(ok__) => {
-                        ppapplication.write(core::mem::transmute(ok__));
+                        ppapplication.cast::<windows_core::IInspectable>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -712,7 +712,7 @@ impl IXamlDiagnostics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXamlDiagnostics_Impl::GetIInspectableFromHandle(this, core::mem::transmute_copy(&instancehandle)) {
                     Ok(ok__) => {
-                        ppinstance.write(core::mem::transmute(ok__));
+                        ppinstance.cast::<windows_core::IInspectable>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -740,7 +740,7 @@ impl IXamlDiagnostics_Vtbl {
         unsafe extern "system" fn HitTest<Identity: IXamlDiagnostics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: super::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut InstanceHandle) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXamlDiagnostics_Impl::HitTest(this, core::mem::transmute(&rect), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&ppinstancehandles))
+                IXamlDiagnostics_Impl::HitTest(this, &*(&raw const rect).cast(), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&ppinstancehandles))
             }
         }
         unsafe extern "system" fn RegisterInstance<Identity: IXamlDiagnostics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinstance: *mut core::ffi::c_void, pinstancehandle: *mut InstanceHandle) -> windows_core::HRESULT {
@@ -763,7 +763,7 @@ impl IXamlDiagnostics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXamlDiagnostics_Impl::GetInitializationData(this) {
                     Ok(ok__) => {
-                        pinitializationdata.write(core::mem::transmute(ok__));
+                        pinitializationdata.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

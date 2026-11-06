@@ -609,7 +609,7 @@ impl IWebAccountProviderTokenOperation_Vtbl {
         unsafe extern "system" fn SetCacheExpirationTime<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebAccountProviderTokenOperation_Impl::SetCacheExpirationTime(this, core::mem::transmute(&value)).into()
+                IWebAccountProviderTokenOperation_Impl::SetCacheExpirationTime(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn CacheExpirationTime<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::DateTime) -> windows_core::HRESULT {

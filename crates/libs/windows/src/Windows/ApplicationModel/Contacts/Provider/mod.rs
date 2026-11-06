@@ -173,7 +173,7 @@ impl IContactProvider_Vtbl {
         unsafe extern "system" fn GetContactFromRemoteIdAsync<Identity: IContactProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contactremoteid: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IContactProvider_Impl::GetContactFromRemoteIdAsync(this, core::mem::transmute(&contactremoteid)) {
+                match IContactProvider_Impl::GetContactFromRemoteIdAsync(this, &*(&raw const contactremoteid).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

@@ -49,7 +49,7 @@ impl<F: Fn(&Value) -> windows_core::Result<()> + Send + 'static> HandlerBox<F> {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void
                 as *mut windows_core::imp::DelegateBox<Handler, F>);
-            (this.invoke)(core::mem::transmute(&value)).into()
+            (this.invoke)(&*(&raw const value).cast()).into()
         }
     }
 }

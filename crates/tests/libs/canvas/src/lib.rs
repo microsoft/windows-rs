@@ -1091,29 +1091,150 @@ mod tests {
         chain.present().unwrap();
     }
 
+    // Pixels covered by white text drawn on black.
+    struct Ink {
+        width: usize,
+        coverage: Vec<u8>,
+    }
+
+    impl Ink {
+        fn render(width: u32, height: u32, layout: &TextLayout, origin: Vector2) -> Self {
+            let device = GpuDevice::new_warp().unwrap();
+            let target = device.create_render_target(width, height).unwrap();
+            target
+                .draw(|session| {
+                    session.clear(ColorF::BLACK);
+                    let brush = session.create_solid_brush(ColorF::WHITE)?;
+                    session.draw_text_layout(origin, layout, &brush);
+                    Ok(())
+                })
+                .unwrap();
+            #[allow(clippy::chunks_exact_to_as_chunks)]
+            let coverage = target
+                .read_pixels()
+                .unwrap()
+                .chunks_exact(4)
+                .map(|p| p[0].max(p[1]).max(p[2]))
+                .collect();
+            Self {
+                width: width as usize,
+                coverage,
+            }
+        }
+
+        // The smallest pixel rectangle containing every lit pixel.
+        fn bounds(&self) -> Rect {
+            let mut bounds: Option<(usize, usize, usize, usize)> = None;
+            for (i, _) in self.coverage.iter().enumerate().filter(|(_, c)| **c > 0) {
+                let (x, y) = (i % self.width, i / self.width);
+                let b = bounds.get_or_insert((x, y, x, y));
+                *b = (b.0.min(x), b.1.min(y), b.2.max(x + 1), b.3.max(y + 1));
+            }
+            let (left, top, right, bottom) = bounds.unwrap();
+            Rect::new(left as f32, top as f32, right as f32, bottom as f32)
+        }
+
+        fn total(&self) -> u32 {
+            self.coverage.iter().map(|c| *c as u32).sum()
+        }
+    }
+
+    fn text_layout(text: &str, format: &TextFormat, width: f32) -> TextLayout {
+        TextLayout::new(text, format, width, 100.0).unwrap()
+    }
+
     #[test]
-    fn text_layout_renders_pixels() {
-        let device = GpuDevice::new_warp().unwrap();
-        let target = device.create_render_target(64, 32).unwrap();
-
+    fn text_ink_matches_layout_metrics() {
         let format = TextFormat::new("Segoe UI", 24.0).unwrap();
-        let layout = TextLayout::new("X", &format, 64.0, 32.0).unwrap();
+        let layout = text_layout("Hello", &format, 200.0);
+        let origin = Vector2::new(10.0, 5.0);
+        let ink = Ink::render(220, 60, &layout, origin).bounds();
+        let metrics = layout.metrics();
+        let left = origin.x + metrics.left;
+        let right = left + metrics.width;
+        let top = origin.y + metrics.top;
+        let bottom = top + metrics.height;
 
-        target
-            .draw(|session| {
-                session.clear(ColorF::BLACK);
-                let brush = session.create_solid_brush(ColorF::WHITE)?;
-                session.draw_text_layout(Vector2::new(0.0, 0.0), &layout, &brush);
-                Ok(())
-            })
-            .unwrap();
+        // Glyphs stay inside the line box, apart from antialiasing at the edges.
+        assert!(
+            ink.left >= left - 1.0 && ink.right <= right + 1.0,
+            "{ink:?}"
+        );
+        assert!(
+            ink.top >= top - 1.0 && ink.bottom <= bottom + 1.0,
+            "{ink:?}"
+        );
 
-        // At least one pixel must be lit by the glyph.
-        let pixels = target.read_pixels().unwrap();
-        #[allow(clippy::chunks_exact_to_as_chunks)]
-        let any_lit = pixels
-            .chunks_exact(4)
-            .any(|p| p[0] > 0 || p[1] > 0 || p[2] > 0);
-        assert!(any_lit, "expected the glyph to light some pixels");
+        // Side bearings are small, so the ink spans most of the reported width.
+        assert!(ink.right - ink.left > metrics.width - 6.0, "{ink:?}");
+
+        // The trailing caret sits just past the last glyph.
+        let caret = layout.caret_bounds(5, false);
+        assert!(
+            (origin.x + caret.left - ink.right).abs() <= 3.0,
+            "{caret:?} {ink:?}"
+        );
+    }
+
+    #[test]
+    fn text_ink_follows_origin() {
+        let format = TextFormat::new("Segoe UI", 20.0).unwrap();
+        let layout = text_layout("Move", &format, 100.0);
+        let a = Ink::render(140, 60, &layout, Vector2::new(0.0, 0.0)).bounds();
+        let b = Ink::render(140, 60, &layout, Vector2::new(20.0, 10.0)).bounds();
+        assert_eq!(b.left - a.left, 20.0);
+        assert_eq!(b.top - a.top, 10.0);
+        assert_eq!(b.right - b.left, a.right - a.left);
+        assert_eq!(b.bottom - b.top, a.bottom - a.top);
+    }
+
+    #[test]
+    fn text_ink_follows_alignment() {
+        let ink = |alignment| {
+            let format = TextFormat::new("Segoe UI", 20.0)
+                .unwrap()
+                .with_alignment(alignment);
+            let layout = text_layout("Align", &format, 200.0);
+            Ink::render(200, 40, &layout, Vector2::new(0.0, 0.0)).bounds()
+        };
+        let leading = ink(TextAlignment::Leading);
+        let center = ink(TextAlignment::Center);
+        let trailing = ink(TextAlignment::Trailing);
+
+        assert!(leading.left < 4.0, "{leading:?}");
+        assert!(trailing.right > 196.0, "{trailing:?}");
+        let middle = (center.left + center.right) / 2.0;
+        assert!((middle - 100.0).abs() <= 3.0, "{center:?}");
+    }
+
+    #[test]
+    fn text_ink_wraps_onto_lines() {
+        let format = TextFormat::new("Segoe UI", 20.0)
+            .unwrap()
+            .with_word_wrapping(WordWrapping::Wrap);
+        let wide = text_layout("one two three", &format, 300.0);
+        let narrow = text_layout("one two three", &format, 60.0);
+        assert_eq!(wide.metrics().line_count, 1);
+        let lines = narrow.metrics().line_count;
+        assert!(lines >= 2);
+
+        let ink = Ink::render(100, 120, &narrow, Vector2::new(0.0, 0.0)).bounds();
+        let metrics = narrow.metrics();
+        assert!(ink.right <= 61.0, "{ink:?}");
+        assert!(ink.bottom <= metrics.height + 1.0, "{ink:?}");
+
+        // The last line has ink.
+        let line_height = metrics.height / lines as f32;
+        assert!(ink.bottom > metrics.height - line_height, "{ink:?}");
+    }
+
+    #[test]
+    fn bold_text_has_more_ink() {
+        let normal = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let bold = TextFormat::new_bold("Segoe UI", 24.0).unwrap();
+        let origin = Vector2::new(0.0, 0.0);
+        let normal = Ink::render(200, 40, &text_layout("Weight", &normal, 200.0), origin);
+        let bold = Ink::render(200, 40, &text_layout("Weight", &bold, 200.0), origin);
+        assert!(bold.total() > normal.total() * 5 / 4);
     }
 }

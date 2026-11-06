@@ -178,7 +178,7 @@ impl ISpatialAudioClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioClient_Impl::GetSupportedAudioObjectFormatEnumerator(this) {
                     Ok(ok__) => {
-                        enumerator.write(core::mem::transmute(ok__));
+                        enumerator.cast::<IAudioFormatEnumerator>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -463,7 +463,7 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioObjectRenderStream_Impl::ActivateSpatialAudioObject(this, core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        audioobject.write(core::mem::transmute(ok__));
+                        audioobject.cast::<ISpatialAudioObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

@@ -248,7 +248,7 @@ impl IGetActivationFactory_Vtbl {
         unsafe extern "system" fn GetActivationFactory<Identity: IGetActivationFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activatableclassid: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGetActivationFactory_Impl::GetActivationFactory(this, core::mem::transmute(&activatableclassid)) {
+                match IGetActivationFactory_Impl::GetActivationFactory(this, &*(&raw const activatableclassid).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1261,7 +1261,7 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray<T> {
     pub fn Value(&self) -> windows_core::Result<windows_core::Array<T>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), windows_core::Array::<T>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), windows_core::Array::<T>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn Type(&self) -> windows_core::Result<PropertyType> {
@@ -2043,13 +2043,13 @@ impl PropertyValue {
     pub fn CreateStringArray(value: &[windows_core::HSTRING]) -> windows_core::Result<windows_core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStringArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateStringArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateInspectableArray(value: &[Option<windows_core::IInspectable>]) -> windows_core::Result<windows_core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInspectableArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInspectableArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateGuidArray(value: &[windows_core::GUID]) -> windows_core::Result<windows_core::IInspectable> {

@@ -221,7 +221,7 @@ impl IEnumSTATPROPSETSTG_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumSTATPROPSETSTG_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumSTATPROPSETSTG>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -314,7 +314,7 @@ impl IEnumSTATPROPSTG_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumSTATPROPSTG_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumSTATPROPSTG>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -399,7 +399,7 @@ impl IPropertySetStorage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertySetStorage_Impl::Create(this, core::mem::transmute_copy(&rfmtid), core::mem::transmute_copy(&pclsid), core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&grfmode)) {
                     Ok(ok__) => {
-                        ppprstg.write(core::mem::transmute(ok__));
+                        ppprstg.cast::<IPropertyStorage>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -414,7 +414,7 @@ impl IPropertySetStorage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertySetStorage_Impl::Open(this, core::mem::transmute_copy(&rfmtid), core::mem::transmute_copy(&grfmode)) {
                     Ok(ok__) => {
-                        ppprstg.write(core::mem::transmute(ok__));
+                        ppprstg.cast::<IPropertyStorage>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -435,7 +435,7 @@ impl IPropertySetStorage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertySetStorage_Impl::Enum(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumSTATPROPSETSTG>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -630,7 +630,7 @@ impl IPropertyStorage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyStorage_Impl::Enum(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumSTATPROPSTG>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

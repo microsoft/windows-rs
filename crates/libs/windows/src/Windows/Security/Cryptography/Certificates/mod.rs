@@ -25,19 +25,19 @@ impl Certificate {
     pub fn SerialNumber(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).SerialNumber)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).SerialNumber)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn GetHashValue(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetHashValue)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetHashValue)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn GetHashValueWithAlgorithm(&self, hashalgorithmname: &windows_core::HSTRING) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetHashValueWithAlgorithm)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(hashalgorithmname), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetHashValueWithAlgorithm)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(hashalgorithmname), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -339,7 +339,7 @@ impl CertificateExtension {
     pub fn Value(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn SetValue(&self, value: &[u8]) -> windows_core::Result<()> {
@@ -494,7 +494,7 @@ impl CertificateQuery {
     pub fn Thumbprint(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).Thumbprint)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).Thumbprint)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn SetThumbprint(&self, value: &[u8]) -> windows_core::Result<()> {
@@ -702,7 +702,7 @@ impl CertificateRequestProperties {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).CurveParameters)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).CurveParameters)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn SetCurveParameters(&self, value: &[u8]) -> windows_core::Result<()> {
@@ -1036,7 +1036,7 @@ impl CmsAttachedSignature {
     pub fn Content(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).Content)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).Content)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn Signers(&self) -> windows_core::Result<windows_collections::IVectorView<CmsSignerInfo>> {

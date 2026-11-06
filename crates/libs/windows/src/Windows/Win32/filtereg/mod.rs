@@ -65,13 +65,13 @@ impl ILoadFilter_Vtbl {
         unsafe extern "system" fn LoadIFilter<Identity: ILoadFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcspath: windows_core::PCWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut core::ffi::c_void, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoadFilter_Impl::LoadIFilter(this, core::mem::transmute(&pwcspath), core::mem::transmute_copy(&pfilteredsources), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&fusedefault), core::mem::transmute_copy(&pfilterclsid), core::mem::transmute_copy(&searchdecsize), core::mem::transmute_copy(&pwcssearchdesc), core::mem::transmute_copy(&ppifilt))
+                ILoadFilter_Impl::LoadIFilter(this, &*(&raw const pwcspath).cast(), core::mem::transmute_copy(&pfilteredsources), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&fusedefault), core::mem::transmute_copy(&pfilterclsid), core::mem::transmute_copy(&searchdecsize), core::mem::transmute_copy(&pwcssearchdesc), core::mem::transmute_copy(&ppifilt))
             }
         }
         unsafe extern "system" fn LoadIFilterFromStorage<Identity: ILoadFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstg: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pwcsoverride: windows_core::PCWSTR, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILoadFilter_Impl::LoadIFilterFromStorage(this, core::mem::transmute_copy(&pstg), core::mem::transmute_copy(&punkouter), core::mem::transmute(&pwcsoverride), core::mem::transmute_copy(&fusedefault), core::mem::transmute_copy(&pfilterclsid), core::mem::transmute_copy(&searchdecsize), core::mem::transmute_copy(&pwcssearchdesc), core::mem::transmute_copy(&ppifilt))
+                ILoadFilter_Impl::LoadIFilterFromStorage(this, core::mem::transmute_copy(&pstg), core::mem::transmute_copy(&punkouter), &*(&raw const pwcsoverride).cast(), core::mem::transmute_copy(&fusedefault), core::mem::transmute_copy(&pfilterclsid), core::mem::transmute_copy(&searchdecsize), core::mem::transmute_copy(&pwcssearchdesc), core::mem::transmute_copy(&ppifilt))
             }
         }
         unsafe extern "system" fn LoadIFilterFromStream<Identity: ILoadFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut core::ffi::c_void, fusedefault: windows_core::BOOL, pfilterclsid: *mut super::CLSID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut super::WCHAR, ppifilt: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

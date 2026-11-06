@@ -863,7 +863,7 @@ impl IXmlCharacterData_Vtbl {
         unsafe extern "system" fn SetData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlCharacterData_Impl::SetData(this, core::mem::transmute(&value)).into()
+                IXmlCharacterData_Impl::SetData(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Length<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
@@ -900,13 +900,13 @@ impl IXmlCharacterData_Vtbl {
         unsafe extern "system" fn AppendData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlCharacterData_Impl::AppendData(this, core::mem::transmute(&data)).into()
+                IXmlCharacterData_Impl::AppendData(this, &*(&raw const data).cast()).into()
             }
         }
         unsafe extern "system" fn InsertData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlCharacterData_Impl::InsertData(this, offset, core::mem::transmute(&data)).into()
+                IXmlCharacterData_Impl::InsertData(this, offset, &*(&raw const data).cast()).into()
             }
         }
         unsafe extern "system" fn DeleteData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, count: u32) -> windows_core::HRESULT {
@@ -918,7 +918,7 @@ impl IXmlCharacterData_Vtbl {
         unsafe extern "system" fn ReplaceData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, count: u32, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlCharacterData_Impl::ReplaceData(this, offset, count, core::mem::transmute(&data)).into()
+                IXmlCharacterData_Impl::ReplaceData(this, offset, count, &*(&raw const data).cast()).into()
             }
         }
         Self {
@@ -1845,7 +1845,7 @@ impl IXmlNodeSelector_Vtbl {
         unsafe extern "system" fn SelectSingleNode<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXmlNodeSelector_Impl::SelectSingleNode(this, core::mem::transmute(&xpath)) {
+                match IXmlNodeSelector_Impl::SelectSingleNode(this, &*(&raw const xpath).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1861,7 +1861,7 @@ impl IXmlNodeSelector_Vtbl {
         unsafe extern "system" fn SelectNodes<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXmlNodeSelector_Impl::SelectNodes(this, core::mem::transmute(&xpath)) {
+                match IXmlNodeSelector_Impl::SelectNodes(this, &*(&raw const xpath).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1877,7 +1877,7 @@ impl IXmlNodeSelector_Vtbl {
         unsafe extern "system" fn SelectSingleNodeNS<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: *mut core::ffi::c_void, namespaces: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXmlNodeSelector_Impl::SelectSingleNodeNS(this, core::mem::transmute(&xpath), core::mem::transmute_copy(&namespaces)) {
+                match IXmlNodeSelector_Impl::SelectSingleNodeNS(this, &*(&raw const xpath).cast(), core::mem::transmute_copy(&namespaces)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1893,7 +1893,7 @@ impl IXmlNodeSelector_Vtbl {
         unsafe extern "system" fn SelectNodesNS<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: *mut core::ffi::c_void, namespaces: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXmlNodeSelector_Impl::SelectNodesNS(this, core::mem::transmute(&xpath), core::mem::transmute_copy(&namespaces)) {
+                match IXmlNodeSelector_Impl::SelectNodesNS(this, &*(&raw const xpath).cast(), core::mem::transmute_copy(&namespaces)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1995,7 +1995,7 @@ impl IXmlNodeSerializer_Vtbl {
         unsafe extern "system" fn SetInnerText<Identity: IXmlNodeSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlNodeSerializer_Impl::SetInnerText(this, core::mem::transmute(&value)).into()
+                IXmlNodeSerializer_Impl::SetInnerText(this, &*(&raw const value).cast()).into()
             }
         }
         Self {

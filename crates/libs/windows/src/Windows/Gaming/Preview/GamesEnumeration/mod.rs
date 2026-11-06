@@ -301,7 +301,7 @@ impl<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static>
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, identifier: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<GameListRemovedEventHandler, F>);
-            (this.invoke)(core::mem::transmute(&identifier)).into()
+            (this.invoke)(&*(&raw const identifier).cast()).into()
         }
     }
 }

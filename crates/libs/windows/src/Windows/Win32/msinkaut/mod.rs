@@ -745,7 +745,7 @@ impl IInkCollector {
         }
     }
     pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWindowInputRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(windowinputrectangle)) }
+        unsafe { (windows_core::Interface::vtable(self).GetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle as _) }
     }
     pub unsafe fn SetWindowInputRectangle<P0>(&self, windowinputrectangle: P0) -> windows_core::HRESULT
     where
@@ -977,7 +977,7 @@ impl IInkCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCollector_Impl::DefaultDrawingAttributes(this) {
                     Ok(ok__) => {
-                        currentattributes.write(core::mem::transmute(ok__));
+                        currentattributes.cast::<IInkDrawingAttributes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -998,7 +998,7 @@ impl IInkCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCollector_Impl::Renderer(this) {
                     Ok(ok__) => {
-                        currentinkrenderer.write(core::mem::transmute(ok__));
+                        currentinkrenderer.cast::<IInkRenderer>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1019,7 +1019,7 @@ impl IInkCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCollector_Impl::Ink(this) {
                     Ok(ok__) => {
-                        ink.write(core::mem::transmute(ok__));
+                        ink.cast::<IInkDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1118,7 +1118,7 @@ impl IInkCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCollector_Impl::DesiredPacketDescription(this) {
                     Ok(ok__) => {
-                        packetguids.write(core::mem::transmute(ok__));
+                        packetguids.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1131,7 +1131,7 @@ impl IInkCollector_Vtbl {
         unsafe extern "system" fn SetDesiredPacketDescription<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetDesiredPacketDescription(this, core::mem::transmute(&packetguids))
+                IInkCollector_Impl::SetDesiredPacketDescription(this, &*(&raw const packetguids).cast())
             }
         }
         unsafe extern "system" fn MouseIcon<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1139,7 +1139,7 @@ impl IInkCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCollector_Impl::MouseIcon(this) {
                     Ok(ok__) => {
-                        mouseicon.write(core::mem::transmute(ok__));
+                        mouseicon.cast::<super::IPictureDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1187,7 +1187,7 @@ impl IInkCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCollector_Impl::Cursors(this) {
                     Ok(ok__) => {
-                        cursors.write(core::mem::transmute(ok__));
+                        cursors.cast::<IInkCursors>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1244,7 +1244,7 @@ impl IInkCollector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCollector_Impl::Tablet(this) {
                     Ok(ok__) => {
-                        singletablet.write(core::mem::transmute(ok__));
+                        singletablet.cast::<IInkTablet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1482,7 +1482,7 @@ impl IInkCursor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCursor_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1527,7 +1527,7 @@ impl IInkCursor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCursor_Impl::DrawingAttributes(this) {
                     Ok(ok__) => {
-                        attributes.write(core::mem::transmute(ok__));
+                        attributes.cast::<IInkDrawingAttributes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1548,7 +1548,7 @@ impl IInkCursor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCursor_Impl::Tablet(this) {
                     Ok(ok__) => {
-                        tablet.write(core::mem::transmute(ok__));
+                        tablet.cast::<IInkTablet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1563,7 +1563,7 @@ impl IInkCursor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCursor_Impl::Buttons(this) {
                     Ok(ok__) => {
-                        buttons.write(core::mem::transmute(ok__));
+                        buttons.cast::<IInkCursorButtons>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1645,7 +1645,7 @@ impl IInkCursorButton_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCursorButton_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1660,7 +1660,7 @@ impl IInkCursorButton_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCursorButton_Impl::Id(this) {
                     Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
+                        id.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1772,7 +1772,7 @@ impl IInkCursorButtons_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCursorButtons_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        _newenum.write(core::mem::transmute(ok__));
+                        _newenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1785,9 +1785,9 @@ impl IInkCursorButtons_Vtbl {
         unsafe extern "system" fn Item<Identity: IInkCursorButtons_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: super::VARIANT, button: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursorButtons_Impl::Item(this, core::mem::transmute(&identifier)) {
+                match IInkCursorButtons_Impl::Item(this, &*(&raw const identifier).cast()) {
                     Ok(ok__) => {
-                        button.write(core::mem::transmute(ok__));
+                        button.cast::<IInkCursorButton>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1880,7 +1880,7 @@ impl IInkCursors_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCursors_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        _newenum.write(core::mem::transmute(ok__));
+                        _newenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1895,7 +1895,7 @@ impl IInkCursors_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCursors_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        cursor.write(core::mem::transmute(ok__));
+                        cursor.cast::<IInkCursor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2014,7 +2014,7 @@ impl IInkCustomStrokes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkCustomStrokes_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        _newenum.write(core::mem::transmute(ok__));
+                        _newenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2027,9 +2027,9 @@ impl IInkCustomStrokes_Vtbl {
         unsafe extern "system" fn Item<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: super::VARIANT, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCustomStrokes_Impl::Item(this, core::mem::transmute(&identifier)) {
+                match IInkCustomStrokes_Impl::Item(this, &*(&raw const identifier).cast()) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2042,13 +2042,13 @@ impl IInkCustomStrokes_Vtbl {
         unsafe extern "system" fn Add<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCustomStrokes_Impl::Add(this, core::mem::transmute(&name), core::mem::transmute_copy(&strokes))
+                IInkCustomStrokes_Impl::Add(this, &*(&raw const name).cast(), core::mem::transmute_copy(&strokes))
             }
         }
         unsafe extern "system" fn Remove<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCustomStrokes_Impl::Remove(this, core::mem::transmute(&identifier))
+                IInkCustomStrokes_Impl::Remove(this, &*(&raw const identifier).cast())
             }
         }
         unsafe extern "system" fn Clear<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2364,7 +2364,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::Strokes(this) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2379,7 +2379,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::ExtendedProperties(this) {
                     Ok(ok__) => {
-                        properties.write(core::mem::transmute(ok__));
+                        properties.cast::<IInkExtendedProperties>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2415,7 +2415,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::CustomStrokes(this) {
                     Ok(ok__) => {
-                        ppunkinkcustomstrokes.write(core::mem::transmute(ok__));
+                        ppunkinkcustomstrokes.cast::<IInkCustomStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2430,7 +2430,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::GetBoundingBox(this, core::mem::transmute_copy(&boundingboxmode)) {
                     Ok(ok__) => {
-                        rectangle.write(core::mem::transmute(ok__));
+                        rectangle.cast::<IInkRectangle>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2457,7 +2457,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::ExtractStrokes(this, core::mem::transmute_copy(&strokes), core::mem::transmute_copy(&extractflags)) {
                     Ok(ok__) => {
-                        extractedink.write(core::mem::transmute(ok__));
+                        extractedink.cast::<IInkDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2472,7 +2472,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::ExtractWithRectangle(this, core::mem::transmute_copy(&rectangle), core::mem::transmute_copy(&extractflags)) {
                     Ok(ok__) => {
-                        extractedink.write(core::mem::transmute(ok__));
+                        extractedink.cast::<IInkDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2493,7 +2493,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::Clone(this) {
                     Ok(ok__) => {
-                        newink.write(core::mem::transmute(ok__));
+                        newink.cast::<IInkDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2508,7 +2508,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::HitTestCircle(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&radius)) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2523,7 +2523,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::HitTestWithRectangle(this, core::mem::transmute_copy(&selectionrectangle), core::mem::transmute_copy(&intersectpercent)) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2536,9 +2536,9 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn HitTestWithLasso<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, points: super::VARIANT, intersectpercent: f32, lassopoints: *mut super::VARIANT, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::HitTestWithLasso(this, core::mem::transmute(&points), core::mem::transmute_copy(&intersectpercent), core::mem::transmute_copy(&lassopoints)) {
+                match IInkDisp_Impl::HitTestWithLasso(this, &*(&raw const points).cast(), core::mem::transmute_copy(&intersectpercent), core::mem::transmute_copy(&lassopoints)) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2553,7 +2553,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::NearestPoint(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&pointonstroke), core::mem::transmute_copy(&distancefrompacket)) {
                     Ok(ok__) => {
-                        stroke.write(core::mem::transmute(ok__));
+                        stroke.cast::<IInkStrokeDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2566,9 +2566,9 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn CreateStrokes<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokeids: super::VARIANT, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::CreateStrokes(this, core::mem::transmute(&strokeids)) {
+                match IInkDisp_Impl::CreateStrokes(this, &*(&raw const strokeids).cast()) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2589,7 +2589,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::Save(this, core::mem::transmute_copy(&persistenceformat), core::mem::transmute_copy(&compressionmode)) {
                     Ok(ok__) => {
-                        data.write(core::mem::transmute(ok__));
+                        data.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2602,15 +2602,15 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn Load<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDisp_Impl::Load(this, core::mem::transmute(&data))
+                IInkDisp_Impl::Load(this, &*(&raw const data).cast())
             }
         }
         unsafe extern "system" fn CreateStroke<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetdata: super::VARIANT, packetdescription: super::VARIANT, stroke: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::CreateStroke(this, core::mem::transmute(&packetdata), core::mem::transmute(&packetdescription)) {
+                match IInkDisp_Impl::CreateStroke(this, &*(&raw const packetdata).cast(), &*(&raw const packetdescription).cast()) {
                     Ok(ok__) => {
-                        stroke.write(core::mem::transmute(ok__));
+                        stroke.cast::<IInkStrokeDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2625,7 +2625,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::ClipboardCopyWithRectangle(this, core::mem::transmute_copy(&rectangle), core::mem::transmute_copy(&clipboardformats), core::mem::transmute_copy(&clipboardmodes)) {
                     Ok(ok__) => {
-                        dataobject.write(core::mem::transmute(ok__));
+                        dataobject.cast::<super::IDataObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2640,7 +2640,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::ClipboardCopy(this, core::mem::transmute_copy(&strokes), core::mem::transmute_copy(&clipboardformats), core::mem::transmute_copy(&clipboardmodes)) {
                     Ok(ok__) => {
-                        dataobject.write(core::mem::transmute(ok__));
+                        dataobject.cast::<super::IDataObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2670,7 +2670,7 @@ impl IInkDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDisp_Impl::ClipboardPaste(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&dataobject)) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3092,7 +3092,7 @@ impl IInkDrawingAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDrawingAttributes_Impl::ExtendedProperties(this) {
                     Ok(ok__) => {
-                        properties.write(core::mem::transmute(ok__));
+                        properties.cast::<IInkExtendedProperties>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3107,7 +3107,7 @@ impl IInkDrawingAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkDrawingAttributes_Impl::Clone(this) {
                     Ok(ok__) => {
-                        drawingattributes.write(core::mem::transmute(ok__));
+                        drawingattributes.cast::<IInkDrawingAttributes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3259,7 +3259,7 @@ impl IInkExtendedProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkExtendedProperties_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        _newenum.write(core::mem::transmute(ok__));
+                        _newenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3272,9 +3272,9 @@ impl IInkExtendedProperties_Vtbl {
         unsafe extern "system" fn Item<Identity: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: super::VARIANT, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkExtendedProperties_Impl::Item(this, core::mem::transmute(&identifier)) {
+                match IInkExtendedProperties_Impl::Item(this, &*(&raw const identifier).cast()) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<IInkExtendedProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3287,9 +3287,9 @@ impl IInkExtendedProperties_Vtbl {
         unsafe extern "system" fn Add<Identity: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut core::ffi::c_void, data: super::VARIANT, inkextendedproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkExtendedProperties_Impl::Add(this, core::mem::transmute(&guid), core::mem::transmute(&data)) {
+                match IInkExtendedProperties_Impl::Add(this, &*(&raw const guid).cast(), &*(&raw const data).cast()) {
                     Ok(ok__) => {
-                        inkextendedproperty.write(core::mem::transmute(ok__));
+                        inkextendedproperty.cast::<IInkExtendedProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3302,7 +3302,7 @@ impl IInkExtendedProperties_Vtbl {
         unsafe extern "system" fn Remove<Identity: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkExtendedProperties_Impl::Remove(this, core::mem::transmute(&identifier))
+                IInkExtendedProperties_Impl::Remove(this, &*(&raw const identifier).cast())
             }
         }
         unsafe extern "system" fn Clear<Identity: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3314,7 +3314,7 @@ impl IInkExtendedProperties_Vtbl {
         unsafe extern "system" fn DoesPropertyExist<Identity: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut core::ffi::c_void, doespropertyexist: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkExtendedProperties_Impl::DoesPropertyExist(this, core::mem::transmute(&guid)) {
+                match IInkExtendedProperties_Impl::DoesPropertyExist(this, &*(&raw const guid).cast()) {
                     Ok(ok__) => {
                         doespropertyexist.write(ok__);
                         windows_core::HRESULT(0)
@@ -3403,7 +3403,7 @@ impl IInkExtendedProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkExtendedProperty_Impl::Guid(this) {
                     Ok(ok__) => {
-                        guid.write(core::mem::transmute(ok__));
+                        guid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3418,7 +3418,7 @@ impl IInkExtendedProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkExtendedProperty_Impl::Data(this) {
                     Ok(ok__) => {
-                        data.write(core::mem::transmute(ok__));
+                        data.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3431,7 +3431,7 @@ impl IInkExtendedProperty_Vtbl {
         unsafe extern "system" fn SetData<Identity: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkExtendedProperty_Impl::SetData(this, core::mem::transmute(&data))
+                IInkExtendedProperty_Impl::SetData(this, &*(&raw const data).cast())
             }
         }
         Self {
@@ -3635,13 +3635,13 @@ impl IInkLineInfo_Vtbl {
         unsafe extern "system" fn GetCandidate<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncandidatenum: super::UINT, pwcrecogword: windows_core::PCWSTR, pcwcrecogword: *const super::UINT, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkLineInfo_Impl::GetCandidate(this, core::mem::transmute_copy(&ncandidatenum), core::mem::transmute(&pwcrecogword), core::mem::transmute_copy(&pcwcrecogword), core::mem::transmute_copy(&dwflags))
+                IInkLineInfo_Impl::GetCandidate(this, core::mem::transmute_copy(&ncandidatenum), &*(&raw const pwcrecogword).cast(), core::mem::transmute_copy(&pcwcrecogword), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn SetCandidate<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncandidatenum: super::UINT, strrecogword: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkLineInfo_Impl::SetCandidate(this, core::mem::transmute_copy(&ncandidatenum), core::mem::transmute(&strrecogword))
+                IInkLineInfo_Impl::SetCandidate(this, core::mem::transmute_copy(&ncandidatenum), &*(&raw const strrecogword).cast())
             }
         }
         unsafe extern "system" fn Recognize<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3940,7 +3940,7 @@ impl IInkOverlay {
         }
     }
     pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWindowInputRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(windowinputrectangle)) }
+        unsafe { (windows_core::Interface::vtable(self).GetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle as _) }
     }
     pub unsafe fn SetWindowInputRectangle<P0>(&self, windowinputrectangle: P0) -> windows_core::HRESULT
     where
@@ -4206,7 +4206,7 @@ impl IInkOverlay_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkOverlay_Impl::DefaultDrawingAttributes(this) {
                     Ok(ok__) => {
-                        currentattributes.write(core::mem::transmute(ok__));
+                        currentattributes.cast::<IInkDrawingAttributes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4227,7 +4227,7 @@ impl IInkOverlay_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkOverlay_Impl::Renderer(this) {
                     Ok(ok__) => {
-                        currentinkrenderer.write(core::mem::transmute(ok__));
+                        currentinkrenderer.cast::<IInkRenderer>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4248,7 +4248,7 @@ impl IInkOverlay_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkOverlay_Impl::Ink(this) {
                     Ok(ok__) => {
-                        ink.write(core::mem::transmute(ok__));
+                        ink.cast::<IInkDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4347,7 +4347,7 @@ impl IInkOverlay_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkOverlay_Impl::DesiredPacketDescription(this) {
                     Ok(ok__) => {
-                        packetguids.write(core::mem::transmute(ok__));
+                        packetguids.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4360,7 +4360,7 @@ impl IInkOverlay_Vtbl {
         unsafe extern "system" fn SetDesiredPacketDescription<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetDesiredPacketDescription(this, core::mem::transmute(&packetguids))
+                IInkOverlay_Impl::SetDesiredPacketDescription(this, &*(&raw const packetguids).cast())
             }
         }
         unsafe extern "system" fn MouseIcon<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4368,7 +4368,7 @@ impl IInkOverlay_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkOverlay_Impl::MouseIcon(this) {
                     Ok(ok__) => {
-                        mouseicon.write(core::mem::transmute(ok__));
+                        mouseicon.cast::<super::IPictureDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4437,7 +4437,7 @@ impl IInkOverlay_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkOverlay_Impl::Selection(this) {
                     Ok(ok__) => {
-                        selection.write(core::mem::transmute(ok__));
+                        selection.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4521,7 +4521,7 @@ impl IInkOverlay_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkOverlay_Impl::Cursors(this) {
                     Ok(ok__) => {
-                        cursors.write(core::mem::transmute(ok__));
+                        cursors.cast::<IInkCursors>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4578,7 +4578,7 @@ impl IInkOverlay_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkOverlay_Impl::Tablet(this) {
                     Ok(ok__) => {
-                        singletablet.write(core::mem::transmute(ok__));
+                        singletablet.cast::<IInkTablet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5066,7 +5066,7 @@ impl IInkPicture {
         }
     }
     pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWindowInputRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(windowinputrectangle)) }
+        unsafe { (windows_core::Interface::vtable(self).GetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle as _) }
     }
     pub unsafe fn SetWindowInputRectangle<P0>(&self, windowinputrectangle: P0) -> windows_core::HRESULT
     where
@@ -5355,7 +5355,7 @@ impl IInkPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkPicture_Impl::DefaultDrawingAttributes(this) {
                     Ok(ok__) => {
-                        currentattributes.write(core::mem::transmute(ok__));
+                        currentattributes.cast::<IInkDrawingAttributes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5376,7 +5376,7 @@ impl IInkPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkPicture_Impl::Renderer(this) {
                     Ok(ok__) => {
-                        currentinkrenderer.write(core::mem::transmute(ok__));
+                        currentinkrenderer.cast::<IInkRenderer>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5397,7 +5397,7 @@ impl IInkPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkPicture_Impl::Ink(this) {
                     Ok(ok__) => {
-                        ink.write(core::mem::transmute(ok__));
+                        ink.cast::<IInkDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5496,7 +5496,7 @@ impl IInkPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkPicture_Impl::DesiredPacketDescription(this) {
                     Ok(ok__) => {
-                        packetguids.write(core::mem::transmute(ok__));
+                        packetguids.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5509,7 +5509,7 @@ impl IInkPicture_Vtbl {
         unsafe extern "system" fn SetDesiredPacketDescription<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetDesiredPacketDescription(this, core::mem::transmute(&packetguids))
+                IInkPicture_Impl::SetDesiredPacketDescription(this, &*(&raw const packetguids).cast())
             }
         }
         unsafe extern "system" fn MouseIcon<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5517,7 +5517,7 @@ impl IInkPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkPicture_Impl::MouseIcon(this) {
                     Ok(ok__) => {
-                        mouseicon.write(core::mem::transmute(ok__));
+                        mouseicon.cast::<super::IPictureDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5586,7 +5586,7 @@ impl IInkPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkPicture_Impl::Selection(this) {
                     Ok(ok__) => {
-                        selection.write(core::mem::transmute(ok__));
+                        selection.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5661,7 +5661,7 @@ impl IInkPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkPicture_Impl::Picture(this) {
                     Ok(ok__) => {
-                        pppicture.write(core::mem::transmute(ok__));
+                        pppicture.cast::<super::IPictureDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5718,7 +5718,7 @@ impl IInkPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkPicture_Impl::Cursors(this) {
                     Ok(ok__) => {
-                        cursors.write(core::mem::transmute(ok__));
+                        cursors.cast::<IInkCursors>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5775,7 +5775,7 @@ impl IInkPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkPicture_Impl::Tablet(this) {
                     Ok(ok__) => {
-                        singletablet.write(core::mem::transmute(ok__));
+                        singletablet.cast::<IInkTablet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6193,7 +6193,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternate_Impl::String(this) {
                     Ok(ok__) => {
-                        recostring.write(core::mem::transmute(ok__));
+                        recostring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6223,7 +6223,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternate_Impl::Baseline(this) {
                     Ok(ok__) => {
-                        baseline.write(core::mem::transmute(ok__));
+                        baseline.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6238,7 +6238,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternate_Impl::Midline(this) {
                     Ok(ok__) => {
-                        midline.write(core::mem::transmute(ok__));
+                        midline.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6253,7 +6253,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternate_Impl::Ascender(this) {
                     Ok(ok__) => {
-                        ascender.write(core::mem::transmute(ok__));
+                        ascender.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6268,7 +6268,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternate_Impl::Descender(this) {
                     Ok(ok__) => {
-                        descender.write(core::mem::transmute(ok__));
+                        descender.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6298,7 +6298,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternate_Impl::Strokes(this) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6313,7 +6313,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternate_Impl::LineAlternates(this) {
                     Ok(ok__) => {
-                        linealternates.write(core::mem::transmute(ok__));
+                        linealternates.cast::<IInkRecognitionAlternates>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6328,7 +6328,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternate_Impl::ConfidenceAlternates(this) {
                     Ok(ok__) => {
-                        confidencealternates.write(core::mem::transmute(ok__));
+                        confidencealternates.cast::<IInkRecognitionAlternates>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6343,7 +6343,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternate_Impl::GetStrokesFromStrokeRanges(this, core::mem::transmute_copy(&strokes)) {
                     Ok(ok__) => {
-                        getstrokesfromstrokeranges.write(core::mem::transmute(ok__));
+                        getstrokesfromstrokeranges.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6358,7 +6358,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternate_Impl::GetStrokesFromTextRange(this, core::mem::transmute_copy(&selectionstart), core::mem::transmute_copy(&selectionlength)) {
                     Ok(ok__) => {
-                        getstrokesfromtextrange.write(core::mem::transmute(ok__));
+                        getstrokesfromtextrange.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6377,9 +6377,9 @@ impl IInkRecognitionAlternate_Vtbl {
         unsafe extern "system" fn AlternatesWithConstantPropertyValues<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertytype: *mut core::ffi::c_void, alternateswithconstantpropertyvalues: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::AlternatesWithConstantPropertyValues(this, core::mem::transmute(&propertytype)) {
+                match IInkRecognitionAlternate_Impl::AlternatesWithConstantPropertyValues(this, &*(&raw const propertytype).cast()) {
                     Ok(ok__) => {
-                        alternateswithconstantpropertyvalues.write(core::mem::transmute(ok__));
+                        alternateswithconstantpropertyvalues.cast::<IInkRecognitionAlternates>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6392,9 +6392,9 @@ impl IInkRecognitionAlternate_Vtbl {
         unsafe extern "system" fn GetPropertyValue<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertytype: *mut core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::GetPropertyValue(this, core::mem::transmute(&propertytype)) {
+                match IInkRecognitionAlternate_Impl::GetPropertyValue(this, &*(&raw const propertytype).cast()) {
                     Ok(ok__) => {
-                        propertyvalue.write(core::mem::transmute(ok__));
+                        propertyvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6507,7 +6507,7 @@ impl IInkRecognitionAlternates_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternates_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        _newenum.write(core::mem::transmute(ok__));
+                        _newenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6522,7 +6522,7 @@ impl IInkRecognitionAlternates_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternates_Impl::Strokes(this) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6537,7 +6537,7 @@ impl IInkRecognitionAlternates_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionAlternates_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        inkrecoalternate.write(core::mem::transmute(ok__));
+                        inkrecoalternate.cast::<IInkRecognitionAlternate>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6645,7 +6645,7 @@ impl IInkRecognitionResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionResult_Impl::TopString(this) {
                     Ok(ok__) => {
-                        topstring.write(core::mem::transmute(ok__));
+                        topstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6660,7 +6660,7 @@ impl IInkRecognitionResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionResult_Impl::TopAlternate(this) {
                     Ok(ok__) => {
-                        topalternate.write(core::mem::transmute(ok__));
+                        topalternate.cast::<IInkRecognitionAlternate>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6690,7 +6690,7 @@ impl IInkRecognitionResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionResult_Impl::Strokes(this) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6705,7 +6705,7 @@ impl IInkRecognitionResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognitionResult_Impl::AlternatesFromSelection(this, core::mem::transmute_copy(&selectionstart), core::mem::transmute_copy(&selectionlength), core::mem::transmute_copy(&maximumalternates)) {
                     Ok(ok__) => {
-                        alternatesfromselection.write(core::mem::transmute(ok__));
+                        alternatesfromselection.cast::<IInkRecognitionAlternates>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6843,7 +6843,7 @@ impl IInkRecognizer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizer_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6858,7 +6858,7 @@ impl IInkRecognizer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizer_Impl::Vendor(this) {
                     Ok(ok__) => {
-                        vendor.write(core::mem::transmute(ok__));
+                        vendor.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6888,7 +6888,7 @@ impl IInkRecognizer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizer_Impl::Languages(this) {
                     Ok(ok__) => {
-                        languages.write(core::mem::transmute(ok__));
+                        languages.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6903,7 +6903,7 @@ impl IInkRecognizer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizer_Impl::SupportedProperties(this) {
                     Ok(ok__) => {
-                        supportedproperties.write(core::mem::transmute(ok__));
+                        supportedproperties.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6918,7 +6918,7 @@ impl IInkRecognizer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizer_Impl::PreferredPacketDescription(this) {
                     Ok(ok__) => {
-                        preferredpacketdescription.write(core::mem::transmute(ok__));
+                        preferredpacketdescription.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6933,7 +6933,7 @@ impl IInkRecognizer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizer_Impl::CreateRecognizerContext(this) {
                     Ok(ok__) => {
-                        context.write(core::mem::transmute(ok__));
+                        context.cast::<IInkRecognizerContext>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7011,7 +7011,7 @@ impl IInkRecognizer2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizer2_Impl::Id(this) {
                     Ok(ok__) => {
-                        pbstrid.write(core::mem::transmute(ok__));
+                        pbstrid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7026,7 +7026,7 @@ impl IInkRecognizer2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizer2_Impl::UnicodeRanges(this) {
                     Ok(ok__) => {
-                        unicoderanges.write(core::mem::transmute(ok__));
+                        unicoderanges.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7252,7 +7252,7 @@ impl IInkRecognizerContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerContext_Impl::Strokes(this) {
                     Ok(ok__) => {
-                        strokes.write(core::mem::transmute(ok__));
+                        strokes.cast::<IInkStrokes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7294,7 +7294,7 @@ impl IInkRecognizerContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerContext_Impl::Factoid(this) {
                     Ok(ok__) => {
-                        factoid.write(core::mem::transmute(ok__));
+                        factoid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7307,7 +7307,7 @@ impl IInkRecognizerContext_Vtbl {
         unsafe extern "system" fn SetFactoid<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factoid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::SetFactoid(this, core::mem::transmute(&factoid))
+                IInkRecognizerContext_Impl::SetFactoid(this, &*(&raw const factoid).cast())
             }
         }
         unsafe extern "system" fn Guide<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizerguide: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7315,7 +7315,7 @@ impl IInkRecognizerContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerContext_Impl::Guide(this) {
                     Ok(ok__) => {
-                        recognizerguide.write(core::mem::transmute(ok__));
+                        recognizerguide.cast::<IInkRecognizerGuide>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7336,7 +7336,7 @@ impl IInkRecognizerContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerContext_Impl::PrefixText(this) {
                     Ok(ok__) => {
-                        prefix.write(core::mem::transmute(ok__));
+                        prefix.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7349,7 +7349,7 @@ impl IInkRecognizerContext_Vtbl {
         unsafe extern "system" fn SetPrefixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::SetPrefixText(this, core::mem::transmute(&prefix))
+                IInkRecognizerContext_Impl::SetPrefixText(this, &*(&raw const prefix).cast())
             }
         }
         unsafe extern "system" fn SuffixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, suffix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7357,7 +7357,7 @@ impl IInkRecognizerContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerContext_Impl::SuffixText(this) {
                     Ok(ok__) => {
-                        suffix.write(core::mem::transmute(ok__));
+                        suffix.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7370,7 +7370,7 @@ impl IInkRecognizerContext_Vtbl {
         unsafe extern "system" fn SetSuffixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, suffix: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::SetSuffixText(this, core::mem::transmute(&suffix))
+                IInkRecognizerContext_Impl::SetSuffixText(this, &*(&raw const suffix).cast())
             }
         }
         unsafe extern "system" fn RecognitionFlags<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modes: *mut InkRecognitionModes) -> windows_core::HRESULT {
@@ -7399,7 +7399,7 @@ impl IInkRecognizerContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerContext_Impl::WordList(this) {
                     Ok(ok__) => {
-                        wordlist.write(core::mem::transmute(ok__));
+                        wordlist.cast::<IInkWordList>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7420,7 +7420,7 @@ impl IInkRecognizerContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerContext_Impl::Recognizer(this) {
                     Ok(ok__) => {
-                        recognizer.write(core::mem::transmute(ok__));
+                        recognizer.cast::<IInkRecognizer>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7435,7 +7435,7 @@ impl IInkRecognizerContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerContext_Impl::Recognize(this, core::mem::transmute_copy(&recognitionstatus)) {
                     Ok(ok__) => {
-                        recognitionresult.write(core::mem::transmute(ok__));
+                        recognitionresult.cast::<IInkRecognitionResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7460,13 +7460,13 @@ impl IInkRecognizerContext_Vtbl {
         unsafe extern "system" fn BackgroundRecognize<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, customdata: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::BackgroundRecognize(this, core::mem::transmute(&customdata))
+                IInkRecognizerContext_Impl::BackgroundRecognize(this, &*(&raw const customdata).cast())
             }
         }
         unsafe extern "system" fn BackgroundRecognizeWithAlternates<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, customdata: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::BackgroundRecognizeWithAlternates(this, core::mem::transmute(&customdata))
+                IInkRecognizerContext_Impl::BackgroundRecognizeWithAlternates(this, &*(&raw const customdata).cast())
             }
         }
         unsafe extern "system" fn Clone<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recocontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7474,7 +7474,7 @@ impl IInkRecognizerContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerContext_Impl::Clone(this) {
                     Ok(ok__) => {
-                        recocontext.write(core::mem::transmute(ok__));
+                        recocontext.cast::<IInkRecognizerContext>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7487,7 +7487,7 @@ impl IInkRecognizerContext_Vtbl {
         unsafe extern "system" fn IsStringSupported<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, string: *mut core::ffi::c_void, supported: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext_Impl::IsStringSupported(this, core::mem::transmute(&string)) {
+                match IInkRecognizerContext_Impl::IsStringSupported(this, &*(&raw const string).cast()) {
                     Ok(ok__) => {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
@@ -7585,7 +7585,7 @@ impl IInkRecognizerContext2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerContext2_Impl::EnabledUnicodeRanges(this) {
                     Ok(ok__) => {
-                        unicoderanges.write(core::mem::transmute(ok__));
+                        unicoderanges.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7598,7 +7598,7 @@ impl IInkRecognizerContext2_Vtbl {
         unsafe extern "system" fn SetEnabledUnicodeRanges<Identity: IInkRecognizerContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicoderanges: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext2_Impl::SetEnabledUnicodeRanges(this, core::mem::transmute(&unicoderanges))
+                IInkRecognizerContext2_Impl::SetEnabledUnicodeRanges(this, &*(&raw const unicoderanges).cast())
             }
         }
         Self {
@@ -7736,7 +7736,7 @@ impl IInkRecognizerGuide_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerGuide_Impl::WritingBox(this) {
                     Ok(ok__) => {
-                        rectangle.write(core::mem::transmute(ok__));
+                        rectangle.cast::<IInkRectangle>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7757,7 +7757,7 @@ impl IInkRecognizerGuide_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizerGuide_Impl::DrawnBox(this) {
                     Ok(ok__) => {
-                        rectangle.write(core::mem::transmute(ok__));
+                        rectangle.cast::<IInkRectangle>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7854,7 +7854,7 @@ impl IInkRecognizerGuide_Vtbl {
         unsafe extern "system" fn SetGuideData<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recoguide: InkRecoGuide) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerGuide_Impl::SetGuideData(this, core::mem::transmute(&recoguide))
+                IInkRecognizerGuide_Impl::SetGuideData(this, &*(&raw const recoguide).cast())
             }
         }
         Self {
@@ -7957,7 +7957,7 @@ impl IInkRecognizers_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizers_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        _newenum.write(core::mem::transmute(ok__));
+                        _newenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7972,7 +7972,7 @@ impl IInkRecognizers_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizers_Impl::GetDefaultRecognizer(this, core::mem::transmute_copy(&lcid)) {
                     Ok(ok__) => {
-                        defaultrecognizer.write(core::mem::transmute(ok__));
+                        defaultrecognizer.cast::<IInkRecognizer>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7987,7 +7987,7 @@ impl IInkRecognizers_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRecognizers_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        inkrecognizer.write(core::mem::transmute(ok__));
+                        inkrecognizer.cast::<IInkRecognizer>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8222,7 +8222,7 @@ impl IInkRectangle_Vtbl {
         unsafe extern "system" fn SetData<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRectangle_Impl::SetData(this, core::mem::transmute(&rect))
+                IInkRectangle_Impl::SetData(this, &*(&raw const rect).cast())
             }
         }
         unsafe extern "system" fn GetRectangle<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> windows_core::HRESULT {
@@ -8485,7 +8485,7 @@ impl IInkRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRenderer_Impl::Measure(this, core::mem::transmute_copy(&strokes)) {
                     Ok(ok__) => {
-                        rectangle.write(core::mem::transmute(ok__));
+                        rectangle.cast::<IInkRectangle>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8500,7 +8500,7 @@ impl IInkRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkRenderer_Impl::MeasureStroke(this, core::mem::transmute_copy(&stroke), core::mem::transmute_copy(&drawingattributes)) {
                     Ok(ok__) => {
-                        rectangle.write(core::mem::transmute(ok__));
+                        rectangle.cast::<IInkRectangle>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8918,7 +8918,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::BezierPoints(this) {
                     Ok(ok__) => {
-                        points.write(core::mem::transmute(ok__));
+                        points.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8933,7 +8933,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::DrawingAttributes(this) {
                     Ok(ok__) => {
-                        drawattrs.write(core::mem::transmute(ok__));
+                        drawattrs.cast::<IInkDrawingAttributes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8954,7 +8954,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::Ink(this) {
                     Ok(ok__) => {
-                        ink.write(core::mem::transmute(ok__));
+                        ink.cast::<IInkDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8969,7 +8969,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::ExtendedProperties(this) {
                     Ok(ok__) => {
-                        properties.write(core::mem::transmute(ok__));
+                        properties.cast::<IInkExtendedProperties>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8984,7 +8984,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::PolylineCusps(this) {
                     Ok(ok__) => {
-                        cusps.write(core::mem::transmute(ok__));
+                        cusps.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8999,7 +8999,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::BezierCusps(this) {
                     Ok(ok__) => {
-                        cusps.write(core::mem::transmute(ok__));
+                        cusps.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9014,7 +9014,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::SelfIntersections(this) {
                     Ok(ok__) => {
-                        intersections.write(core::mem::transmute(ok__));
+                        intersections.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9059,7 +9059,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::PacketDescription(this) {
                     Ok(ok__) => {
-                        packetdescription.write(core::mem::transmute(ok__));
+                        packetdescription.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9089,7 +9089,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::GetBoundingBox(this, core::mem::transmute_copy(&boundingboxmode)) {
                     Ok(ok__) => {
-                        rectangle.write(core::mem::transmute(ok__));
+                        rectangle.cast::<IInkRectangle>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9104,7 +9104,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::FindIntersections(this, core::mem::transmute_copy(&strokes)) {
                     Ok(ok__) => {
-                        intersections.write(core::mem::transmute(ok__));
+                        intersections.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9119,7 +9119,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::GetRectangleIntersections(this, core::mem::transmute_copy(&rectangle)) {
                     Ok(ok__) => {
-                        intersections.write(core::mem::transmute(ok__));
+                        intersections.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9170,7 +9170,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::Split(this, core::mem::transmute_copy(&splitat)) {
                     Ok(ok__) => {
-                        newstroke.write(core::mem::transmute(ok__));
+                        newstroke.cast::<IInkStrokeDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9183,7 +9183,7 @@ impl IInkStrokeDisp_Vtbl {
         unsafe extern "system" fn GetPacketDescriptionPropertyMetrics<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokeDisp_Impl::GetPacketDescriptionPropertyMetrics(this, core::mem::transmute(&propertyname), core::mem::transmute_copy(&minimum), core::mem::transmute_copy(&maximum), core::mem::transmute_copy(&units), core::mem::transmute_copy(&resolution))
+                IInkStrokeDisp_Impl::GetPacketDescriptionPropertyMetrics(this, &*(&raw const propertyname).cast(), core::mem::transmute_copy(&minimum), core::mem::transmute_copy(&maximum), core::mem::transmute_copy(&units), core::mem::transmute_copy(&resolution))
             }
         }
         unsafe extern "system" fn GetPoints<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, count: i32, points: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -9191,7 +9191,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::GetPoints(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
-                        points.write(core::mem::transmute(ok__));
+                        points.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9204,7 +9204,7 @@ impl IInkStrokeDisp_Vtbl {
         unsafe extern "system" fn SetPoints<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, points: super::VARIANT, index: i32, count: i32, numberofpointsset: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::SetPoints(this, core::mem::transmute(&points), core::mem::transmute_copy(&index), core::mem::transmute_copy(&count)) {
+                match IInkStrokeDisp_Impl::SetPoints(this, &*(&raw const points).cast(), core::mem::transmute_copy(&index), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         numberofpointsset.write(ok__);
                         windows_core::HRESULT(0)
@@ -9221,7 +9221,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::GetPacketData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
-                        packetdata.write(core::mem::transmute(ok__));
+                        packetdata.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9234,9 +9234,9 @@ impl IInkStrokeDisp_Vtbl {
         unsafe extern "system" fn GetPacketValuesByProperty<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, index: i32, count: i32, packetvalues: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::GetPacketValuesByProperty(this, core::mem::transmute(&propertyname), core::mem::transmute_copy(&index), core::mem::transmute_copy(&count)) {
+                match IInkStrokeDisp_Impl::GetPacketValuesByProperty(this, &*(&raw const propertyname).cast(), core::mem::transmute_copy(&index), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
-                        packetvalues.write(core::mem::transmute(ok__));
+                        packetvalues.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9249,7 +9249,7 @@ impl IInkStrokeDisp_Vtbl {
         unsafe extern "system" fn SetPacketValuesByProperty<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: *mut core::ffi::c_void, packetvalues: super::VARIANT, index: i32, count: i32, numberofpacketsset: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::SetPacketValuesByProperty(this, core::mem::transmute(&bstrpropertyname), core::mem::transmute(&packetvalues), core::mem::transmute_copy(&index), core::mem::transmute_copy(&count)) {
+                match IInkStrokeDisp_Impl::SetPacketValuesByProperty(this, &*(&raw const bstrpropertyname).cast(), &*(&raw const packetvalues).cast(), core::mem::transmute_copy(&index), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         numberofpacketsset.write(ok__);
                         windows_core::HRESULT(0)
@@ -9266,7 +9266,7 @@ impl IInkStrokeDisp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokeDisp_Impl::GetFlattenedBezierPoints(this, core::mem::transmute_copy(&fittingerror)) {
                     Ok(ok__) => {
-                        flattenedbezierpoints.write(core::mem::transmute(ok__));
+                        flattenedbezierpoints.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9550,7 +9550,7 @@ impl IInkStrokes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokes_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        _newenum.write(core::mem::transmute(ok__));
+                        _newenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9565,7 +9565,7 @@ impl IInkStrokes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokes_Impl::Ink(this) {
                     Ok(ok__) => {
-                        ink.write(core::mem::transmute(ok__));
+                        ink.cast::<IInkDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9580,7 +9580,7 @@ impl IInkStrokes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokes_Impl::RecognitionResult(this) {
                     Ok(ok__) => {
-                        recognitionresult.write(core::mem::transmute(ok__));
+                        recognitionresult.cast::<IInkRecognitionResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9595,7 +9595,7 @@ impl IInkStrokes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokes_Impl::ToString(this) {
                     Ok(ok__) => {
-                        tostring.write(core::mem::transmute(ok__));
+                        tostring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9610,7 +9610,7 @@ impl IInkStrokes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokes_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        stroke.write(core::mem::transmute(ok__));
+                        stroke.cast::<IInkStrokeDisp>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9655,7 +9655,7 @@ impl IInkStrokes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkStrokes_Impl::GetBoundingBox(this, core::mem::transmute_copy(&boundingboxmode)) {
                     Ok(ok__) => {
-                        boundingbox.write(core::mem::transmute(ok__));
+                        boundingbox.cast::<IInkRectangle>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9823,7 +9823,7 @@ impl IInkTablet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkTablet_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9838,7 +9838,7 @@ impl IInkTablet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkTablet_Impl::PlugAndPlayId(this) {
                     Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
+                        id.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9853,7 +9853,7 @@ impl IInkTablet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkTablet_Impl::MaximumInputRectangle(this) {
                     Ok(ok__) => {
-                        rectangle.write(core::mem::transmute(ok__));
+                        rectangle.cast::<IInkRectangle>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9881,7 +9881,7 @@ impl IInkTablet_Vtbl {
         unsafe extern "system" fn IsPacketPropertySupported<Identity: IInkTablet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetpropertyname: *mut core::ffi::c_void, supported: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablet_Impl::IsPacketPropertySupported(this, core::mem::transmute(&packetpropertyname)) {
+                match IInkTablet_Impl::IsPacketPropertySupported(this, &*(&raw const packetpropertyname).cast()) {
                     Ok(ok__) => {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
@@ -9896,7 +9896,7 @@ impl IInkTablet_Vtbl {
         unsafe extern "system" fn GetPropertyMetrics<Identity: IInkTablet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkTablet_Impl::GetPropertyMetrics(this, core::mem::transmute(&propertyname), core::mem::transmute_copy(&minimum), core::mem::transmute_copy(&maximum), core::mem::transmute_copy(&units), core::mem::transmute_copy(&resolution))
+                IInkTablet_Impl::GetPropertyMetrics(this, &*(&raw const propertyname).cast(), core::mem::transmute_copy(&minimum), core::mem::transmute_copy(&maximum), core::mem::transmute_copy(&units), core::mem::transmute_copy(&resolution))
             }
         }
         Self {
@@ -10154,7 +10154,7 @@ impl IInkTablets_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkTablets_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        _newenum.write(core::mem::transmute(ok__));
+                        _newenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10169,7 +10169,7 @@ impl IInkTablets_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkTablets_Impl::DefaultTablet(this) {
                     Ok(ok__) => {
-                        defaulttablet.write(core::mem::transmute(ok__));
+                        defaulttablet.cast::<IInkTablet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10184,7 +10184,7 @@ impl IInkTablets_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInkTablets_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        tablet.write(core::mem::transmute(ok__));
+                        tablet.cast::<IInkTablet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10197,7 +10197,7 @@ impl IInkTablets_Vtbl {
         unsafe extern "system" fn IsPacketPropertySupported<Identity: IInkTablets_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetpropertyname: *mut core::ffi::c_void, supported: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablets_Impl::IsPacketPropertySupported(this, core::mem::transmute(&packetpropertyname)) {
+                match IInkTablets_Impl::IsPacketPropertySupported(this, &*(&raw const packetpropertyname).cast()) {
                     Ok(ok__) => {
                         supported.write(ok__);
                         windows_core::HRESULT(0)
@@ -10585,7 +10585,7 @@ impl IInkTransform_Vtbl {
         unsafe extern "system" fn SetData<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xform: super::XFORM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkTransform_Impl::SetData(this, core::mem::transmute(&xform))
+                IInkTransform_Impl::SetData(this, &*(&raw const xform).cast())
             }
         }
         Self {
@@ -10667,13 +10667,13 @@ impl IInkWordList_Vtbl {
         unsafe extern "system" fn AddWord<Identity: IInkWordList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newword: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkWordList_Impl::AddWord(this, core::mem::transmute(&newword))
+                IInkWordList_Impl::AddWord(this, &*(&raw const newword).cast())
             }
         }
         unsafe extern "system" fn RemoveWord<Identity: IInkWordList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, removeword: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkWordList_Impl::RemoveWord(this, core::mem::transmute(&removeword))
+                IInkWordList_Impl::RemoveWord(this, &*(&raw const removeword).cast())
             }
         }
         unsafe extern "system" fn Merge<Identity: IInkWordList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mergewordlist: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10729,7 +10729,7 @@ impl IInkWordList2_Vtbl {
         unsafe extern "system" fn AddWords<Identity: IInkWordList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwords: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkWordList2_Impl::AddWords(this, core::mem::transmute(&newwords))
+                IInkWordList2_Impl::AddWords(this, &*(&raw const newwords).cast())
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), AddWords: AddWords::<Identity, OFFSET> }

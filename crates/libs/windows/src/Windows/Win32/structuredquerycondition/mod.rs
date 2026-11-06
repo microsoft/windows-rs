@@ -172,7 +172,7 @@ impl ICondition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICondition_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppc.write(core::mem::transmute(ok__));
+                        ppc.cast::<ICondition>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

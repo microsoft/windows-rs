@@ -103,7 +103,7 @@ impl Interface_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                Interface_Impl::SetName(this, core::mem::transmute(&value)).into()
+                Interface_Impl::SetName(this, &*(&raw const value).cast()).into()
             }
         }
         Self {

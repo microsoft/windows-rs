@@ -352,7 +352,8 @@ impl CppMethod {
                 {
                     quote! { #result.write(ok__); }
                 } else {
-                    quote! { #result.write(core::mem::transmute(ok__)); }
+                    let ty = last_param.projection_pointee(reader).write_name(config);
+                    quote! { #result.cast::<#ty>().write(ok__); }
                 };
                 quote! {
                     match #parent_impl::#name(this, #(#invoke_args,)*) {
@@ -614,6 +615,8 @@ impl CppMethod {
                                 == param.write_abi(config).to_string()
                             {
                                 quote! { #name, }
+                            } else if param.projection_type(config.reader).is_pointer() {
+                                quote! { #name as _, }
                             } else {
                                 quote! { core::mem::transmute(#name), }
                             }
@@ -649,6 +652,8 @@ impl CppMethod {
                                 == param.write_abi(config).to_string()
                             {
                                 quote! { #name, }
+                            } else if param.projection_type(config.reader).is_pointer() {
+                                quote! { #name as _, }
                             } else {
                                 quote! { core::mem::transmute(#name), }
                             }
@@ -712,7 +717,7 @@ fn write_invoke_arg(param: &Param, reader: &Reader) -> TokenStream {
     if ty.is_interface_with_reader(reader) {
         quote! { core::mem::transmute_copy(&#name) }
     } else if param.is_input_only() && !ty.is_primitive(reader) {
-        quote! { core::mem::transmute(&#name) }
+        quote! { &*(&raw const #name).cast() }
     } else {
         quote! { core::mem::transmute_copy(&#name) }
     }

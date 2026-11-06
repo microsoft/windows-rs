@@ -841,7 +841,7 @@ impl ID3DInclude_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3DInclude_Impl::Open(this, core::mem::transmute_copy(&includetype), core::mem::transmute(&pfilename), core::mem::transmute_copy(&pparentdata), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pbytes))
+                ID3DInclude_Impl::Open(this, core::mem::transmute_copy(&includetype), &*(&raw const pfilename).cast(), core::mem::transmute_copy(&pparentdata), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pbytes))
             }
         }
         unsafe extern "system" fn Close<Identity: ID3DInclude_Impl>(this: *mut core::ffi::c_void, pdata: super::LPCVOID) -> windows_core::HRESULT {
@@ -865,7 +865,7 @@ impl ID3DInclude {
     pub fn new<'a, T: ID3DInclude_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3DInclude_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
         let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
+        unsafe { windows_core::ScopedInterface::new(<Self as windows_core::Interface>::from_raw(this as *mut _)) }
     }
 }
 pub const IID_ID3D10Blob: windows_core::GUID = windows_core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);

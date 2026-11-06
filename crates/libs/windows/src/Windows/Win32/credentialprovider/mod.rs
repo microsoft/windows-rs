@@ -266,7 +266,7 @@ impl ICredentialProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICredentialProvider_Impl::GetCredentialAt(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        ppcpc.write(core::mem::transmute(ok__));
+                        ppcpc.cast::<ICredentialProviderCredential>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -517,7 +517,7 @@ impl ICredentialProviderCredential_Vtbl {
         unsafe extern "system" fn SetStringValue<Identity: ICredentialProviderCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldid: super::DWORD, psz: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICredentialProviderCredential_Impl::SetStringValue(this, core::mem::transmute_copy(&dwfieldid), core::mem::transmute(&psz))
+                ICredentialProviderCredential_Impl::SetStringValue(this, core::mem::transmute_copy(&dwfieldid), &*(&raw const psz).cast())
             }
         }
         unsafe extern "system" fn SetCheckboxValue<Identity: ICredentialProviderCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldid: super::DWORD, bchecked: windows_core::BOOL) -> windows_core::HRESULT {
@@ -767,13 +767,13 @@ impl ICredentialProviderCredentialEvents_Vtbl {
         unsafe extern "system" fn SetFieldString<Identity: ICredentialProviderCredentialEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcpc: *mut core::ffi::c_void, dwfieldid: super::DWORD, psz: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICredentialProviderCredentialEvents_Impl::SetFieldString(this, core::mem::transmute_copy(&pcpc), core::mem::transmute_copy(&dwfieldid), core::mem::transmute(&psz))
+                ICredentialProviderCredentialEvents_Impl::SetFieldString(this, core::mem::transmute_copy(&pcpc), core::mem::transmute_copy(&dwfieldid), &*(&raw const psz).cast())
             }
         }
         unsafe extern "system" fn SetFieldCheckbox<Identity: ICredentialProviderCredentialEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcpc: *mut core::ffi::c_void, dwfieldid: super::DWORD, bchecked: windows_core::BOOL, pszlabel: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICredentialProviderCredentialEvents_Impl::SetFieldCheckbox(this, core::mem::transmute_copy(&pcpc), core::mem::transmute_copy(&dwfieldid), core::mem::transmute_copy(&bchecked), core::mem::transmute(&pszlabel))
+                ICredentialProviderCredentialEvents_Impl::SetFieldCheckbox(this, core::mem::transmute_copy(&pcpc), core::mem::transmute_copy(&dwfieldid), core::mem::transmute_copy(&bchecked), &*(&raw const pszlabel).cast())
             }
         }
         unsafe extern "system" fn SetFieldBitmap<Identity: ICredentialProviderCredentialEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcpc: *mut core::ffi::c_void, dwfieldid: super::DWORD, hbmp: super::HBITMAP) -> windows_core::HRESULT {
@@ -797,7 +797,7 @@ impl ICredentialProviderCredentialEvents_Vtbl {
         unsafe extern "system" fn AppendFieldComboBoxItem<Identity: ICredentialProviderCredentialEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcpc: *mut core::ffi::c_void, dwfieldid: super::DWORD, pszitem: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICredentialProviderCredentialEvents_Impl::AppendFieldComboBoxItem(this, core::mem::transmute_copy(&pcpc), core::mem::transmute_copy(&dwfieldid), core::mem::transmute(&pszitem))
+                ICredentialProviderCredentialEvents_Impl::AppendFieldComboBoxItem(this, core::mem::transmute_copy(&pcpc), core::mem::transmute_copy(&dwfieldid), &*(&raw const pszitem).cast())
             }
         }
         unsafe extern "system" fn SetFieldSubmitButton<Identity: ICredentialProviderCredentialEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcpc: *mut core::ffi::c_void, dwfieldid: super::DWORD, dwadjacentto: super::DWORD) -> windows_core::HRESULT {
@@ -1223,7 +1223,7 @@ impl ICredentialProviderUserArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICredentialProviderUserArray_Impl::GetAt(this, core::mem::transmute_copy(&userindex)) {
                     Ok(ok__) => {
-                        user.write(core::mem::transmute(ok__));
+                        user.cast::<ICredentialProviderUser>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1284,7 +1284,7 @@ impl IQueryContinueWithStatus_Vtbl {
         unsafe extern "system" fn SetStatusMessage<Identity: IQueryContinueWithStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psz: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueryContinueWithStatus_Impl::SetStatusMessage(this, core::mem::transmute(&psz))
+                IQueryContinueWithStatus_Impl::SetStatusMessage(this, &*(&raw const psz).cast())
             }
         }
         Self { base__: super::IQueryContinue_Vtbl::new::<Identity, OFFSET>(), SetStatusMessage: SetStatusMessage::<Identity, OFFSET> }

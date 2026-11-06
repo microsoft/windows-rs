@@ -136,7 +136,7 @@ impl IFilter_Vtbl {
         unsafe extern "system" fn BindRegion<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origpos: FILTERREGION, riid: *const super::IID, ppunk: *mut *mut core::ffi::c_void) -> super::SCODE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFilter_Impl::BindRegion(this, core::mem::transmute(&origpos), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk))
+                IFilter_Impl::BindRegion(this, &*(&raw const origpos).cast(), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk))
             }
         }
         Self {

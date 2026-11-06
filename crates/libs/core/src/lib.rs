@@ -2,11 +2,7 @@
 #![doc(html_no_source)]
 #![debugger_visualizer(natvis_file = "../windows-core.natvis")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
-#![expect(
-    non_snake_case,
-    non_camel_case_types,
-    clippy::missing_transmute_annotations
-)]
+#![expect(non_snake_case, non_camel_case_types)]
 
 #[cfg(windows)]
 include!("windows.rs");

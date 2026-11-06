@@ -559,7 +559,7 @@ impl IDirect3DDeviceManager9 {
     }
     #[cfg(all(feature = "d3d9", feature = "winnt"))]
     pub unsafe fn LockDevice(&self, hdevice: super::HANDLE, ppdevice: *mut Option<super::IDirect3DDevice9>, fblock: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), hdevice, core::mem::transmute(ppdevice), fblock.into()) }
+        unsafe { (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), hdevice, ppdevice as _, fblock.into()) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn UnlockDevice(&self, hdevice: super::HANDLE, fsavestate: bool) -> windows_core::HRESULT {
@@ -680,7 +680,7 @@ windows_core::imp::interface_hierarchy!(IDirectXVideoAccelerationService, window
 impl IDirectXVideoAccelerationService {
     #[cfg(all(feature = "d3d9", feature = "shared", feature = "winnt"))]
     pub unsafe fn CreateSurface(&self, width: super::UINT, height: super::UINT, backbuffers: super::UINT, format: super::D3DFORMAT, pool: super::D3DPOOL, usage: super::DWORD, dxvatype: super::DWORD, ppsurface: *mut Option<super::IDirect3DSurface9>, psharedhandle: Option<*mut super::HANDLE>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, backbuffers, format, pool, usage, dxvatype, core::mem::transmute(ppsurface), psharedhandle.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, backbuffers, format, pool, usage, dxvatype, ppsurface as _, psharedhandle.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -798,7 +798,7 @@ impl IDirectXVideoDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectXVideoDecoder_Impl::GetVideoDecoderService(this) {
                     Ok(ok__) => {
-                        ppservice.write(core::mem::transmute(ok__));
+                        ppservice.cast::<IDirectXVideoDecoderService>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -886,7 +886,7 @@ impl IDirectXVideoDecoderService {
     pub unsafe fn CreateVideoDecoder(&self, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const Option<super::IDirect3DSurface9>, numrendertargets: super::UINT) -> windows_core::Result<IDirectXVideoDecoder> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVideoDecoder)(windows_core::Interface::as_raw(self), guid, pvideodesc, pconfig, core::mem::transmute(ppdecoderrendertargets), numrendertargets, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateVideoDecoder)(windows_core::Interface::as_raw(self), guid, pvideodesc, pconfig, ppdecoderrendertargets as _, numrendertargets, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -944,7 +944,7 @@ impl IDirectXVideoDecoderService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectXVideoDecoderService_Impl::CreateVideoDecoder(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&pconfig), core::mem::transmute_copy(&ppdecoderrendertargets), core::mem::transmute_copy(&numrendertargets)) {
                     Ok(ok__) => {
-                        ppdecode.write(core::mem::transmute(ok__));
+                        ppdecode.cast::<IDirectXVideoDecoder>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1097,7 +1097,7 @@ impl IDirectXVideoProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectXVideoProcessor_Impl::GetVideoProcessorService(this) {
                     Ok(ok__) => {
-                        ppservice.write(core::mem::transmute(ok__));
+                        ppservice.cast::<IDirectXVideoProcessorService>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1292,7 +1292,7 @@ impl IDirectXVideoProcessorService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectXVideoProcessorService_Impl::CreateVideoProcessor(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&maxnumsubstreams)) {
                     Ok(ok__) => {
-                        ppvidprocess.write(core::mem::transmute(ok__));
+                        ppvidprocess.cast::<IDirectXVideoProcessor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

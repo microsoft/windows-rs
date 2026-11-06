@@ -890,7 +890,11 @@ impl Buffers {
             this: this as *const _ as *const _,
         };
         let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
+        unsafe {
+            windows_core::ScopedInterface::new(<Self as windows_core::Interface>::from_raw(
+                this as *mut _,
+            ))
+        }
     }
 }
 pub type ConstObject = *const core::ffi::c_void;
@@ -993,7 +997,11 @@ impl ObjectContracts {
             this: this as *const _ as *const _,
         };
         let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
+        unsafe {
+            windows_core::ScopedInterface::new(<Self as windows_core::Interface>::from_raw(
+                this as *mut _,
+            ))
+        }
     }
 }
 pub type RawObject = *mut core::ffi::c_void;

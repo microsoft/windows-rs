@@ -197,7 +197,7 @@ impl IBrowserService {
     pub unsafe fn GetHistoryObject(&self, ppole: *mut Option<super::IOleObject>, pstm: *mut Option<super::IStream>) -> windows_core::Result<super::IBindCtx> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHistoryObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppole), core::mem::transmute(pstm), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetHistoryObject)(windows_core::Interface::as_raw(self), ppole as _, pstm as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "oleidl")]
@@ -375,7 +375,7 @@ impl IBrowserService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBrowserService_Impl::GetParentSite(this) {
                     Ok(ok__) => {
-                        ppipsite.write(core::mem::transmute(ok__));
+                        ppipsite.cast::<super::IOleInPlaceSite>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -388,7 +388,7 @@ impl IBrowserService_Vtbl {
         unsafe extern "system" fn SetTitle<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psv: *mut core::ffi::c_void, pszname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBrowserService_Impl::SetTitle(this, core::mem::transmute_copy(&psv), core::mem::transmute(&pszname))
+                IBrowserService_Impl::SetTitle(this, core::mem::transmute_copy(&psv), &*(&raw const pszname).cast())
             }
         }
         unsafe extern "system" fn GetTitle<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psv: *mut core::ffi::c_void, pszname: windows_core::PWSTR, cchname: super::DWORD) -> windows_core::HRESULT {
@@ -402,7 +402,7 @@ impl IBrowserService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBrowserService_Impl::GetOleObject(this) {
                     Ok(ok__) => {
-                        ppobjv.write(core::mem::transmute(ok__));
+                        ppobjv.cast::<super::IOleObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -417,7 +417,7 @@ impl IBrowserService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBrowserService_Impl::GetTravelLog(this) {
                     Ok(ok__) => {
-                        pptl.write(core::mem::transmute(ok__));
+                        pptl.cast::<ITravelLog>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -448,13 +448,13 @@ impl IBrowserService_Vtbl {
         unsafe extern "system" fn IEParseDisplayName<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicp: super::UINT, pwszpath: windows_core::PCWSTR, ppidlout: *mut super::LPITEMIDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBrowserService_Impl::IEParseDisplayName(this, core::mem::transmute_copy(&uicp), core::mem::transmute(&pwszpath), core::mem::transmute_copy(&ppidlout))
+                IBrowserService_Impl::IEParseDisplayName(this, core::mem::transmute_copy(&uicp), &*(&raw const pwszpath).cast(), core::mem::transmute_copy(&ppidlout))
             }
         }
         unsafe extern "system" fn DisplayParseError<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hres: windows_core::HRESULT, pwszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBrowserService_Impl::DisplayParseError(this, core::mem::transmute_copy(&hres), core::mem::transmute(&pwszpath))
+                IBrowserService_Impl::DisplayParseError(this, core::mem::transmute_copy(&hres), &*(&raw const pwszpath).cast())
             }
         }
         unsafe extern "system" fn NavigateToPidl<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, grfhlnf: super::DWORD) -> windows_core::HRESULT {
@@ -534,7 +534,7 @@ impl IBrowserService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBrowserService_Impl::GetBrowserByIndex(this, core::mem::transmute_copy(&dwid)) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -549,7 +549,7 @@ impl IBrowserService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBrowserService_Impl::GetHistoryObject(this, core::mem::transmute_copy(&ppole), core::mem::transmute_copy(&pstm)) {
                     Ok(ok__) => {
-                        ppbc.write(core::mem::transmute(ok__));
+                        ppbc.cast::<super::IBindCtx>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1442,7 +1442,7 @@ impl IBrowserService2_Vtbl {
         unsafe extern "system" fn v_GetViewStream<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, grfmode: super::DWORD, pwszname: windows_core::PCWSTR) -> Option<super::IStream> {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBrowserService2_Impl::v_GetViewStream(this, core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&grfmode), core::mem::transmute(&pwszname))
+                IBrowserService2_Impl::v_GetViewStream(this, core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&grfmode), &*(&raw const pwszname).cast())
             }
         }
         unsafe extern "system" fn ForwardViewMsg<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> super::LRESULT {
@@ -1652,7 +1652,7 @@ impl IBrowserService3_Vtbl {
         unsafe extern "system" fn IEParseDisplayNameEx<Identity: IBrowserService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicp: super::UINT, pwszpath: windows_core::PCWSTR, dwflags: super::DWORD, ppidlout: *mut super::LPITEMIDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBrowserService3_Impl::IEParseDisplayNameEx(this, core::mem::transmute_copy(&uicp), core::mem::transmute(&pwszpath), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppidlout))
+                IBrowserService3_Impl::IEParseDisplayNameEx(this, core::mem::transmute_copy(&uicp), &*(&raw const pwszpath).cast(), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppidlout))
             }
         }
         Self {
@@ -1786,7 +1786,7 @@ impl IExpDispSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IExpDispSupport_Impl::FindConnectionPoint(this, core::mem::transmute_copy(&riid)) {
                     Ok(ok__) => {
-                        ppccp.write(core::mem::transmute(ok__));
+                        ppccp.cast::<super::IConnectionPoint>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2150,7 +2150,7 @@ impl ITravelLog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITravelLog_Impl::FindTravelEntry(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&pidl)) {
                     Ok(ok__) => {
-                        ppte.write(core::mem::transmute(ok__));
+                        ppte.cast::<ITravelEntry>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2177,7 +2177,7 @@ impl ITravelLog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITravelLog_Impl::Clone(this) {
                     Ok(ok__) => {
-                        pptl.write(core::mem::transmute(ok__));
+                        pptl.cast::<ITravelLog>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

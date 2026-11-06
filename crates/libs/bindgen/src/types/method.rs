@@ -66,7 +66,7 @@ impl Method {
             Type::Array(element_type) => {
                 // Pointer-ABI arrays need transmute; value arrays already match their ABI type.
                 let write_result = if element_type.has_pointer_abi() {
-                    quote! { result__.write(core::mem::transmute(ok_data__)); }
+                    quote! { result__.write(ok_data__.cast()); }
                 } else {
                     quote! { result__.write(ok_data__); }
                 };
@@ -173,7 +173,7 @@ impl Method {
                     {
                         quote! { core::mem::transmute_copy(&#name) }
                     } else {
-                        quote! { core::mem::transmute(&#name) }
+                        quote! { &*(&raw const #name).cast() }
                     }
                 } else if param.is_winrt_array() {
                     quote! { windows_core::imp::array_slice_mut(core::mem::transmute_copy(&#name), #abi_size_name) }
@@ -388,7 +388,7 @@ impl Method {
                     if param.is_copyable(config.reader) {
                         quote! { #name.len().try_into().unwrap(), #name.as_ptr() }
                     } else {
-                        quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
+                        quote! { #name.len().try_into().unwrap(), #name.as_ptr().cast() }
                     }
                 } else if param.ireference_inner(config.reader).is_some() {
                     // Sugared `Option<T>` is materialized as `Option<IReference<T>>` in the
@@ -429,7 +429,7 @@ impl Method {
             ty => {
                 if ty.is_winrt_array() {
                     let ty = ty.write_name(config);
-                    quote! { windows_core::Array::<#ty>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
+                    quote! { windows_core::Array::<#ty>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _ }
                 } else {
                     quote! { &mut result__ }
                 }
@@ -700,11 +700,18 @@ impl Method {
                                 hstring.to_string_lossy()
                             }
                         } else {
+                            let abi = self.signature.return_type.write_abi(config);
+                            let name = self.signature.return_type.write_name(config);
+                            let name = if self.signature.return_type.is_interface() {
+                                quote! { Option<#name> }
+                            } else {
+                                name
+                            };
                             quote! {
                                 let mut result__ = core::mem::zeroed();
                                 let hresult__ = #vcall;
                                 #assert_success
-                                core::mem::transmute(result__)
+                                core::mem::transmute::<#abi, #name>(result__)
                             }
                         }
                     } else {

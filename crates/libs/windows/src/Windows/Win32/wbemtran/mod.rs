@@ -28,7 +28,7 @@ impl IWbemAddressResolution_Vtbl {
         unsafe extern "system" fn Resolve<Identity: IWbemAddressResolution_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wsznamespacepath: windows_core::PCWSTR, wszaddresstype: windows_core::PWSTR, pdwaddresslength: *mut super::DWORD, pabbinaryaddress: *mut *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemAddressResolution_Impl::Resolve(this, core::mem::transmute(&wsznamespacepath), core::mem::transmute_copy(&wszaddresstype), core::mem::transmute_copy(&pdwaddresslength), core::mem::transmute_copy(&pabbinaryaddress))
+                IWbemAddressResolution_Impl::Resolve(this, &*(&raw const wsznamespacepath).cast(), core::mem::transmute_copy(&wszaddresstype), core::mem::transmute_copy(&pdwaddresslength), core::mem::transmute_copy(&pabbinaryaddress))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, OFFSET> }
@@ -49,7 +49,7 @@ impl IWbemClientConnectionTransport {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(straddresstype), dwbinaryaddresslength, abbinaryaddress, core::mem::transmute_copy(strobject), core::mem::transmute_copy(struser), core::mem::transmute_copy(strpassword), core::mem::transmute_copy(strlocale), lflags, pctx.param().abi(), &T::IID, &mut result__, core::mem::transmute(pcallres)).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(straddresstype), dwbinaryaddresslength, abbinaryaddress, core::mem::transmute_copy(strobject), core::mem::transmute_copy(struser), core::mem::transmute_copy(strpassword), core::mem::transmute_copy(strlocale), lflags, pctx.param().abi(), &T::IID, &mut result__, pcallres as _).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared", feature = "wbemcli"))]
     pub unsafe fn OpenAsync<P8, P10>(&self, straddresstype: &windows_core::BSTR, dwbinaryaddresslength: super::DWORD, abbinaryaddress: *const super::BYTE, strobject: &windows_core::BSTR, struser: &windows_core::BSTR, strpassword: &windows_core::BSTR, strlocale: &windows_core::BSTR, lflags: i32, pctx: P8, riid: *const super::IID, presponsehandler: P10) -> windows_core::HRESULT
@@ -96,13 +96,13 @@ impl IWbemClientConnectionTransport_Vtbl {
         unsafe extern "system" fn Open<Identity: IWbemClientConnectionTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: *mut core::ffi::c_void, dwbinaryaddresslength: super::DWORD, abbinaryaddress: *const super::BYTE, strobject: *mut core::ffi::c_void, struser: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void, strlocale: *mut core::ffi::c_void, lflags: i32, pctx: *mut core::ffi::c_void, riid: *const super::IID, pinterface: *mut *mut core::ffi::c_void, pcallres: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemClientConnectionTransport_Impl::Open(this, core::mem::transmute(&straddresstype), core::mem::transmute_copy(&dwbinaryaddresslength), core::mem::transmute_copy(&abbinaryaddress), core::mem::transmute(&strobject), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pinterface), core::mem::transmute_copy(&pcallres)).into()
+                IWbemClientConnectionTransport_Impl::Open(this, &*(&raw const straddresstype).cast(), core::mem::transmute_copy(&dwbinaryaddresslength), core::mem::transmute_copy(&abbinaryaddress), &*(&raw const strobject).cast(), &*(&raw const struser).cast(), &*(&raw const strpassword).cast(), &*(&raw const strlocale).cast(), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pinterface), core::mem::transmute_copy(&pcallres)).into()
             }
         }
         unsafe extern "system" fn OpenAsync<Identity: IWbemClientConnectionTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: *mut core::ffi::c_void, dwbinaryaddresslength: super::DWORD, abbinaryaddress: *const super::BYTE, strobject: *mut core::ffi::c_void, struser: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void, strlocale: *mut core::ffi::c_void, lflags: i32, pctx: *mut core::ffi::c_void, riid: *const super::IID, presponsehandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemClientConnectionTransport_Impl::OpenAsync(this, core::mem::transmute(&straddresstype), core::mem::transmute_copy(&dwbinaryaddresslength), core::mem::transmute_copy(&abbinaryaddress), core::mem::transmute(&strobject), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&presponsehandler))
+                IWbemClientConnectionTransport_Impl::OpenAsync(this, &*(&raw const straddresstype).cast(), core::mem::transmute_copy(&dwbinaryaddresslength), core::mem::transmute_copy(&abbinaryaddress), &*(&raw const strobject).cast(), &*(&raw const struser).cast(), &*(&raw const strpassword).cast(), &*(&raw const strlocale).cast(), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&presponsehandler))
             }
         }
         unsafe extern "system" fn Cancel<Identity: IWbemClientConnectionTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, phandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -132,7 +132,7 @@ impl IWbemClientTransport {
     where
         P9: windows_core::Param<super::IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ConnectServer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(straddresstype), dwbinaryaddresslength, abbinaryaddress, core::mem::transmute_copy(strnetworkresource), core::mem::transmute_copy(struser), core::mem::transmute_copy(strpassword), core::mem::transmute_copy(strlocale), lsecurityflags, core::mem::transmute_copy(strauthority), pctx.param().abi(), core::mem::transmute(ppnamespace)) }
+        unsafe { (windows_core::Interface::vtable(self).ConnectServer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(straddresstype), dwbinaryaddresslength, abbinaryaddress, core::mem::transmute_copy(strnetworkresource), core::mem::transmute_copy(struser), core::mem::transmute_copy(strpassword), core::mem::transmute_copy(strlocale), lsecurityflags, core::mem::transmute_copy(strauthority), pctx.param().abi(), ppnamespace as _) }
     }
 }
 #[repr(C)]
@@ -154,7 +154,7 @@ impl IWbemClientTransport_Vtbl {
         unsafe extern "system" fn ConnectServer<Identity: IWbemClientTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straddresstype: *mut core::ffi::c_void, dwbinaryaddresslength: super::DWORD, abbinaryaddress: *const super::BYTE, strnetworkresource: *mut core::ffi::c_void, struser: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void, strlocale: *mut core::ffi::c_void, lsecurityflags: i32, strauthority: *mut core::ffi::c_void, pctx: *mut core::ffi::c_void, ppnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemClientTransport_Impl::ConnectServer(this, core::mem::transmute(&straddresstype), core::mem::transmute_copy(&dwbinaryaddresslength), core::mem::transmute_copy(&abbinaryaddress), core::mem::transmute(&strnetworkresource), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute_copy(&lsecurityflags), core::mem::transmute(&strauthority), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&ppnamespace))
+                IWbemClientTransport_Impl::ConnectServer(this, &*(&raw const straddresstype).cast(), core::mem::transmute_copy(&dwbinaryaddresslength), core::mem::transmute_copy(&abbinaryaddress), &*(&raw const strnetworkresource).cast(), &*(&raw const struser).cast(), &*(&raw const strpassword).cast(), &*(&raw const strlocale).cast(), core::mem::transmute_copy(&lsecurityflags), &*(&raw const strauthority).cast(), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&ppnamespace))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ConnectServer: ConnectServer::<Identity, OFFSET> }
@@ -199,7 +199,7 @@ impl IWbemConnectorLogin_Vtbl {
         unsafe extern "system" fn ConnectorLogin<Identity: IWbemConnectorLogin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wsznetworkresource: windows_core::PCWSTR, wszpreferredlocale: windows_core::PCWSTR, lflags: i32, pctx: *mut core::ffi::c_void, riid: *const super::IID, pinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemConnectorLogin_Impl::ConnectorLogin(this, core::mem::transmute(&wsznetworkresource), core::mem::transmute(&wszpreferredlocale), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pinterface)).into()
+                IWbemConnectorLogin_Impl::ConnectorLogin(this, &*(&raw const wsznetworkresource).cast(), &*(&raw const wszpreferredlocale).cast(), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pinterface)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ConnectorLogin: ConnectorLogin::<Identity, OFFSET> }
@@ -262,19 +262,19 @@ impl IWbemConstructClassObject_Vtbl {
         unsafe extern "system" fn SetPropertyOrigin<Identity: IWbemConstructClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpropertyname: windows_core::PCWSTR, loriginindex: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemConstructClassObject_Impl::SetPropertyOrigin(this, core::mem::transmute(&wszpropertyname), core::mem::transmute_copy(&loriginindex))
+                IWbemConstructClassObject_Impl::SetPropertyOrigin(this, &*(&raw const wszpropertyname).cast(), core::mem::transmute_copy(&loriginindex))
             }
         }
         unsafe extern "system" fn SetMethodOrigin<Identity: IWbemConstructClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszmethodname: windows_core::PCWSTR, loriginindex: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemConstructClassObject_Impl::SetMethodOrigin(this, core::mem::transmute(&wszmethodname), core::mem::transmute_copy(&loriginindex))
+                IWbemConstructClassObject_Impl::SetMethodOrigin(this, &*(&raw const wszmethodname).cast(), core::mem::transmute_copy(&loriginindex))
             }
         }
         unsafe extern "system" fn SetServerNamespace<Identity: IWbemConstructClassObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszserver: windows_core::PCWSTR, wsznamespace: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemConstructClassObject_Impl::SetServerNamespace(this, core::mem::transmute(&wszserver), core::mem::transmute(&wsznamespace))
+                IWbemConstructClassObject_Impl::SetServerNamespace(this, &*(&raw const wszserver).cast(), &*(&raw const wsznamespace).cast())
             }
         }
         Self {
@@ -362,21 +362,21 @@ impl IWbemLevel1Login_Vtbl {
         unsafe extern "system" fn EstablishPosition<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszlocalelist: windows_core::PCWSTR, dwnumlocales: super::DWORD, reserved: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemLevel1Login_Impl::EstablishPosition(this, core::mem::transmute(&wszlocalelist), core::mem::transmute_copy(&dwnumlocales), core::mem::transmute_copy(&reserved))
+                IWbemLevel1Login_Impl::EstablishPosition(this, &*(&raw const wszlocalelist).cast(), core::mem::transmute_copy(&dwnumlocales), core::mem::transmute_copy(&reserved))
             }
         }
         unsafe extern "system" fn RequestChallenge<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wsznetworkresource: windows_core::PCWSTR, wszuser: windows_core::PCWSTR, nonce: WBEM_128BITS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemLevel1Login_Impl::RequestChallenge(this, core::mem::transmute(&wsznetworkresource), core::mem::transmute(&wszuser), core::mem::transmute_copy(&nonce))
+                IWbemLevel1Login_Impl::RequestChallenge(this, &*(&raw const wsznetworkresource).cast(), &*(&raw const wszuser).cast(), core::mem::transmute_copy(&nonce))
             }
         }
         unsafe extern "system" fn WBEMLogin<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpreferredlocale: windows_core::PCWSTR, accesstoken: WBEM_128BITS, lflags: i32, pctx: *mut core::ffi::c_void, ppnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWbemLevel1Login_Impl::WBEMLogin(this, core::mem::transmute(&wszpreferredlocale), core::mem::transmute_copy(&accesstoken), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx)) {
+                match IWbemLevel1Login_Impl::WBEMLogin(this, &*(&raw const wszpreferredlocale).cast(), core::mem::transmute_copy(&accesstoken), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx)) {
                     Ok(ok__) => {
-                        ppnamespace.write(core::mem::transmute(ok__));
+                        ppnamespace.cast::<super::IWbemServices>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -389,9 +389,9 @@ impl IWbemLevel1Login_Vtbl {
         unsafe extern "system" fn NTLMLogin<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wsznetworkresource: windows_core::PCWSTR, wszpreferredlocale: windows_core::PCWSTR, lflags: i32, pctx: *mut core::ffi::c_void, ppnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWbemLevel1Login_Impl::NTLMLogin(this, core::mem::transmute(&wsznetworkresource), core::mem::transmute(&wszpreferredlocale), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx)) {
+                match IWbemLevel1Login_Impl::NTLMLogin(this, &*(&raw const wsznetworkresource).cast(), &*(&raw const wszpreferredlocale).cast(), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx)) {
                     Ok(ok__) => {
-                        ppnamespace.write(core::mem::transmute(ok__));
+                        ppnamespace.cast::<super::IWbemServices>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

@@ -11,7 +11,7 @@ where
 #[inline]
 pub unsafe fn MQBeginTransaction(pptransaction: *mut Option<super::ITransaction>) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQBeginTransaction(pptransaction : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MQBeginTransaction(core::mem::transmute(pptransaction)) }
+    unsafe { MQBeginTransaction(pptransaction as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

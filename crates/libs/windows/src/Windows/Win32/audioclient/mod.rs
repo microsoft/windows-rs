@@ -125,7 +125,7 @@ impl IAcousticEchoCancellationControl_Vtbl {
         unsafe extern "system" fn SetEchoCancellationRenderEndpoint<Identity: IAcousticEchoCancellationControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpointid: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAcousticEchoCancellationControl_Impl::SetEchoCancellationRenderEndpoint(this, core::mem::transmute(&endpointid))
+                IAcousticEchoCancellationControl_Impl::SetEchoCancellationRenderEndpoint(this, &*(&raw const endpointid).cast())
             }
         }
         Self {
@@ -928,7 +928,7 @@ impl IAudioEffectsManager_Vtbl {
         unsafe extern "system" fn SetAudioEffectState<Identity: IAudioEffectsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effectid: windows_core::GUID, state: AUDIO_EFFECT_STATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioEffectsManager_Impl::SetAudioEffectState(this, core::mem::transmute(&effectid), core::mem::transmute_copy(&state))
+                IAudioEffectsManager_Impl::SetAudioEffectState(this, &*(&raw const effectid).cast(), core::mem::transmute_copy(&state))
             }
         }
         Self {

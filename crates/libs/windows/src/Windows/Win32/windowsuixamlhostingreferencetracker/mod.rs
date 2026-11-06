@@ -48,7 +48,7 @@ impl IReferenceTracker {
         unsafe { (windows_core::Interface::vtable(self).FindTrackerTargets)(windows_core::Interface::as_raw(self), callback.param().abi()) }
     }
     pub unsafe fn GetReferenceTrackerManager(&self, value: *mut Option<IReferenceTrackerManager>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetReferenceTrackerManager)(windows_core::Interface::as_raw(self), core::mem::transmute(value)) }
+        unsafe { (windows_core::Interface::vtable(self).GetReferenceTrackerManager)(windows_core::Interface::as_raw(self), value as _) }
     }
     pub unsafe fn AddRefFromTrackerSource(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddRefFromTrackerSource)(windows_core::Interface::as_raw(self)) }
@@ -447,7 +447,7 @@ impl ITrackerOwner {
     }
     #[cfg(feature = "rpc")]
     pub unsafe fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, returnvalue: *mut Option<windows_core::IUnknown>) -> super::boolean {
-        unsafe { (windows_core::Interface::vtable(self).TryGetSafeTrackerValue)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(returnvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).TryGetSafeTrackerValue)(windows_core::Interface::as_raw(self), handle, returnvalue as _) }
     }
 }
 #[repr(C)]

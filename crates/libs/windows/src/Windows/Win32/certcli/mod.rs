@@ -248,9 +248,9 @@ impl ICertConfig_Vtbl {
         unsafe extern "system" fn GetField<Identity: ICertConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfieldname: *mut core::ffi::c_void, pstrout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertConfig_Impl::GetField(this, core::mem::transmute(&strfieldname)) {
+                match ICertConfig_Impl::GetField(this, &*(&raw const strfieldname).cast()) {
                     Ok(ok__) => {
-                        pstrout.write(core::mem::transmute(ok__));
+                        pstrout.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -265,7 +265,7 @@ impl ICertConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertConfig_Impl::GetConfig(this, core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pstrout.write(core::mem::transmute(ok__));
+                        pstrout.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -323,7 +323,7 @@ impl ICertConfig2_Vtbl {
         unsafe extern "system" fn SetSharedFolder<Identity: ICertConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsharedfolder: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertConfig2_Impl::SetSharedFolder(this, core::mem::transmute(&strsharedfolder))
+                ICertConfig2_Impl::SetSharedFolder(this, &*(&raw const strsharedfolder).cast())
             }
         }
         Self { base__: ICertConfig_Vtbl::new::<Identity, OFFSET>(), SetSharedFolder: SetSharedFolder::<Identity, OFFSET> }
@@ -377,7 +377,7 @@ impl ICertGetConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertGetConfig_Impl::GetConfig(this, core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pstrout.write(core::mem::transmute(ok__));
+                        pstrout.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -504,7 +504,7 @@ impl ICertRequest_Vtbl {
         unsafe extern "system" fn Submit<Identity: ICertRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::LONG, strrequest: *mut core::ffi::c_void, strattributes: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, pdisposition: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertRequest_Impl::Submit(this, core::mem::transmute_copy(&flags), core::mem::transmute(&strrequest), core::mem::transmute(&strattributes), core::mem::transmute(&strconfig)) {
+                match ICertRequest_Impl::Submit(this, core::mem::transmute_copy(&flags), &*(&raw const strrequest).cast(), &*(&raw const strattributes).cast(), &*(&raw const strconfig).cast()) {
                     Ok(ok__) => {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
@@ -519,7 +519,7 @@ impl ICertRequest_Vtbl {
         unsafe extern "system" fn RetrievePending<Identity: ICertRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestid: super::LONG, strconfig: *mut core::ffi::c_void, pdisposition: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertRequest_Impl::RetrievePending(this, core::mem::transmute_copy(&requestid), core::mem::transmute(&strconfig)) {
+                match ICertRequest_Impl::RetrievePending(this, core::mem::transmute_copy(&requestid), &*(&raw const strconfig).cast()) {
                     Ok(ok__) => {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
@@ -566,7 +566,7 @@ impl ICertRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest_Impl::GetDispositionMessage(this) {
                     Ok(ok__) => {
-                        pstrdispositionmessage.write(core::mem::transmute(ok__));
+                        pstrdispositionmessage.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -579,9 +579,9 @@ impl ICertRequest_Vtbl {
         unsafe extern "system" fn GetCACertificate<Identity: ICertRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fexchangecertificate: super::LONG, strconfig: *mut core::ffi::c_void, flags: super::LONG, pstrcertificate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertRequest_Impl::GetCACertificate(this, core::mem::transmute_copy(&fexchangecertificate), core::mem::transmute(&strconfig), core::mem::transmute_copy(&flags)) {
+                match ICertRequest_Impl::GetCACertificate(this, core::mem::transmute_copy(&fexchangecertificate), &*(&raw const strconfig).cast(), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pstrcertificate.write(core::mem::transmute(ok__));
+                        pstrcertificate.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -596,7 +596,7 @@ impl ICertRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest_Impl::GetCertificate(this, core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pstrcertificate.write(core::mem::transmute(ok__));
+                        pstrcertificate.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -724,7 +724,7 @@ impl ICertRequest2_Vtbl {
         unsafe extern "system" fn GetIssuedCertificate<Identity: ICertRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, strserialnumber: *mut core::ffi::c_void, pdisposition: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertRequest2_Impl::GetIssuedCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute(&strserialnumber)) {
+                match ICertRequest2_Impl::GetIssuedCertificate(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&requestid), &*(&raw const strserialnumber).cast()) {
                     Ok(ok__) => {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
@@ -741,7 +741,7 @@ impl ICertRequest2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest2_Impl::GetErrorMessageText(this, core::mem::transmute_copy(&hrmessage), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pstrerrormessagetext.write(core::mem::transmute(ok__));
+                        pstrerrormessagetext.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -754,9 +754,9 @@ impl ICertRequest2_Vtbl {
         unsafe extern "system" fn GetCAProperty<Identity: ICertRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, propindex: super::LONG, proptype: super::LONG, flags: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertRequest2_Impl::GetCAProperty(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&flags)) {
+                match ICertRequest2_Impl::GetCAProperty(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pvarpropertyvalue.write(core::mem::transmute(ok__));
+                        pvarpropertyvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -769,7 +769,7 @@ impl ICertRequest2_Vtbl {
         unsafe extern "system" fn GetCAPropertyFlags<Identity: ICertRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, ppropflags: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertRequest2_Impl::GetCAPropertyFlags(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid)) {
+                match ICertRequest2_Impl::GetCAPropertyFlags(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&propid)) {
                     Ok(ok__) => {
                         ppropflags.write(ok__);
                         windows_core::HRESULT(0)
@@ -784,9 +784,9 @@ impl ICertRequest2_Vtbl {
         unsafe extern "system" fn GetCAPropertyDisplayName<Identity: ICertRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, pstrdisplayname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertRequest2_Impl::GetCAPropertyDisplayName(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid)) {
+                match ICertRequest2_Impl::GetCAPropertyDisplayName(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&propid)) {
                     Ok(ok__) => {
-                        pstrdisplayname.write(core::mem::transmute(ok__));
+                        pstrdisplayname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -801,7 +801,7 @@ impl ICertRequest2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest2_Impl::GetFullResponseProperty(this, core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pvarpropertyvalue.write(core::mem::transmute(ok__));
+                        pvarpropertyvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -897,7 +897,7 @@ impl ICertRequest3_Vtbl {
         unsafe extern "system" fn SetCredential<Identity: ICertRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::LONG, authtype: X509EnrollmentAuthFlags, strcredential: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertRequest3_Impl::SetCredential(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&authtype), core::mem::transmute(&strcredential), core::mem::transmute(&strpassword))
+                ICertRequest3_Impl::SetCredential(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&authtype), &*(&raw const strcredential).cast(), &*(&raw const strpassword).cast())
             }
         }
         unsafe extern "system" fn GetRequestIdString<Identity: ICertRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrrequestid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -905,7 +905,7 @@ impl ICertRequest3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest3_Impl::GetRequestIdString(this) {
                     Ok(ok__) => {
-                        pstrrequestid.write(core::mem::transmute(ok__));
+                        pstrrequestid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -918,7 +918,7 @@ impl ICertRequest3_Vtbl {
         unsafe extern "system" fn GetIssuedCertificate2<Identity: ICertRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strrequestid: *mut core::ffi::c_void, strserialnumber: *mut core::ffi::c_void, pdisposition: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertRequest3_Impl::GetIssuedCertificate2(this, core::mem::transmute(&strconfig), core::mem::transmute(&strrequestid), core::mem::transmute(&strserialnumber)) {
+                match ICertRequest3_Impl::GetIssuedCertificate2(this, &*(&raw const strconfig).cast(), &*(&raw const strrequestid).cast(), &*(&raw const strserialnumber).cast()) {
                     Ok(ok__) => {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)

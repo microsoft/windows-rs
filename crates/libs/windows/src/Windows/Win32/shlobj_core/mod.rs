@@ -886,7 +886,7 @@ where
     P0: windows_core::Param<super::IPropertySetStorage>,
 {
     windows_core::link!("shell32.dll" "system" fn SHPropStgCreate(psstg : *mut core::ffi::c_void, fmtid : *const super::IID, pclsid : *const super::CLSID, grfflags : super::DWORD, grfmode : super::DWORD, dwdisposition : super::DWORD, ppstg : *mut *mut core::ffi::c_void, pucodepage : *mut super::UINT) -> windows_core::HRESULT);
-    unsafe { SHPropStgCreate(psstg.param().abi(), fmtid, pclsid.unwrap_or(core::mem::zeroed()) as _, grfflags, grfmode, dwdisposition, core::mem::transmute(ppstg), pucodepage.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SHPropStgCreate(psstg.param().abi(), fmtid, pclsid.unwrap_or(core::mem::zeroed()) as _, grfflags, grfmode, dwdisposition, ppstg as _, pucodepage.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -1792,7 +1792,7 @@ impl IACList_Vtbl {
         unsafe extern "system" fn Expand<Identity: IACList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszexpand: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IACList_Impl::Expand(this, core::mem::transmute(&pszexpand))
+                IACList_Impl::Expand(this, &*(&raw const pszexpand).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Expand: Expand::<Identity, OFFSET> }
@@ -2077,7 +2077,7 @@ impl IActiveDesktop_Vtbl {
         unsafe extern "system" fn SetWallpaper<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszwallpaper: windows_core::PCWSTR, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktop_Impl::SetWallpaper(this, core::mem::transmute(&pwszwallpaper), core::mem::transmute_copy(&dwreserved))
+                IActiveDesktop_Impl::SetWallpaper(this, &*(&raw const pwszwallpaper).cast(), core::mem::transmute_copy(&dwreserved))
             }
         }
         unsafe extern "system" fn GetWallpaperOptions<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwpo: LPWALLPAPEROPT, dwreserved: super::DWORD) -> windows_core::HRESULT {
@@ -2101,7 +2101,7 @@ impl IActiveDesktop_Vtbl {
         unsafe extern "system" fn SetPattern<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpattern: windows_core::PCWSTR, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktop_Impl::SetPattern(this, core::mem::transmute(&pwszpattern), core::mem::transmute_copy(&dwreserved))
+                IActiveDesktop_Impl::SetPattern(this, &*(&raw const pwszpattern).cast(), core::mem::transmute_copy(&dwreserved))
             }
         }
         unsafe extern "system" fn GetDesktopItemOptions<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pco: LPCOMPONENTSOPT, dwreserved: super::DWORD) -> windows_core::HRESULT {
@@ -2161,19 +2161,19 @@ impl IActiveDesktop_Vtbl {
         unsafe extern "system" fn GenerateDesktopItemHtml<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilename: windows_core::PCWSTR, pcomp: LPCOMPONENT, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktop_Impl::GenerateDesktopItemHtml(this, core::mem::transmute(&pwszfilename), core::mem::transmute_copy(&pcomp), core::mem::transmute_copy(&dwreserved))
+                IActiveDesktop_Impl::GenerateDesktopItemHtml(this, &*(&raw const pwszfilename).cast(), core::mem::transmute_copy(&pcomp), core::mem::transmute_copy(&dwreserved))
             }
         }
         unsafe extern "system" fn AddUrl<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, pszsource: windows_core::PCWSTR, pcomp: LPCOMPONENT, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktop_Impl::AddUrl(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&pszsource), core::mem::transmute_copy(&pcomp), core::mem::transmute_copy(&dwflags))
+                IActiveDesktop_Impl::AddUrl(this, core::mem::transmute_copy(&hwnd), &*(&raw const pszsource).cast(), core::mem::transmute_copy(&pcomp), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn GetDesktopItemBySource<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszsource: windows_core::PCWSTR, pcomp: LPCOMPONENT, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktop_Impl::GetDesktopItemBySource(this, core::mem::transmute(&pwszsource), core::mem::transmute_copy(&pcomp), core::mem::transmute_copy(&dwreserved))
+                IActiveDesktop_Impl::GetDesktopItemBySource(this, &*(&raw const pwszsource).cast(), core::mem::transmute_copy(&pcomp), core::mem::transmute_copy(&dwreserved))
             }
         }
         Self {
@@ -2373,7 +2373,7 @@ impl IExtractIconA_Vtbl {
         unsafe extern "system" fn Extract<Identity: IExtractIconA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfile: windows_core::PCSTR, niconindex: super::UINT, phiconlarge: *mut super::HICON, phiconsmall: *mut super::HICON, niconsize: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExtractIconA_Impl::Extract(this, core::mem::transmute(&pszfile), core::mem::transmute_copy(&niconindex), core::mem::transmute_copy(&phiconlarge), core::mem::transmute_copy(&phiconsmall), core::mem::transmute_copy(&niconsize))
+                IExtractIconA_Impl::Extract(this, &*(&raw const pszfile).cast(), core::mem::transmute_copy(&niconindex), core::mem::transmute_copy(&phiconlarge), core::mem::transmute_copy(&phiconsmall), core::mem::transmute_copy(&niconsize))
             }
         }
         Self {
@@ -2433,7 +2433,7 @@ impl IExtractIconW_Vtbl {
         unsafe extern "system" fn Extract<Identity: IExtractIconW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfile: windows_core::PCWSTR, niconindex: super::UINT, phiconlarge: *mut super::HICON, phiconsmall: *mut super::HICON, niconsize: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExtractIconW_Impl::Extract(this, core::mem::transmute(&pszfile), core::mem::transmute_copy(&niconindex), core::mem::transmute_copy(&phiconlarge), core::mem::transmute_copy(&phiconsmall), core::mem::transmute_copy(&niconsize))
+                IExtractIconW_Impl::Extract(this, &*(&raw const pszfile).cast(), core::mem::transmute_copy(&niconindex), core::mem::transmute_copy(&phiconlarge), core::mem::transmute_copy(&phiconsmall), core::mem::transmute_copy(&niconsize))
             }
         }
         Self {
@@ -2501,19 +2501,19 @@ impl INamedPropertyBag_Vtbl {
         unsafe extern "system" fn ReadPropertyNPB<Identity: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbagname: windows_core::PCWSTR, pszpropname: windows_core::PCWSTR, pvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INamedPropertyBag_Impl::ReadPropertyNPB(this, core::mem::transmute(&pszbagname), core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar))
+                INamedPropertyBag_Impl::ReadPropertyNPB(this, &*(&raw const pszbagname).cast(), &*(&raw const pszpropname).cast(), core::mem::transmute_copy(&pvar))
             }
         }
         unsafe extern "system" fn WritePropertyNPB<Identity: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbagname: windows_core::PCWSTR, pszpropname: windows_core::PCWSTR, pvar: *const super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INamedPropertyBag_Impl::WritePropertyNPB(this, core::mem::transmute(&pszbagname), core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar))
+                INamedPropertyBag_Impl::WritePropertyNPB(this, &*(&raw const pszbagname).cast(), &*(&raw const pszpropname).cast(), core::mem::transmute_copy(&pvar))
             }
         }
         unsafe extern "system" fn RemovePropertyNPB<Identity: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszbagname: windows_core::PCWSTR, pszpropname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INamedPropertyBag_Impl::RemovePropertyNPB(this, core::mem::transmute(&pszbagname), core::mem::transmute(&pszpropname))
+                INamedPropertyBag_Impl::RemovePropertyNPB(this, &*(&raw const pszbagname).cast(), &*(&raw const pszpropname).cast())
             }
         }
         Self {
@@ -2697,7 +2697,7 @@ impl IProgressDialog_Vtbl {
         unsafe extern "system" fn SetTitle<Identity: IProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwztitle: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProgressDialog_Impl::SetTitle(this, core::mem::transmute(&pwztitle))
+                IProgressDialog_Impl::SetTitle(this, &*(&raw const pwztitle).cast())
             }
         }
         unsafe extern "system" fn SetAnimation<Identity: IProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hinstanimation: super::HINSTANCE, idanimation: super::UINT) -> windows_core::HRESULT {
@@ -2727,13 +2727,13 @@ impl IProgressDialog_Vtbl {
         unsafe extern "system" fn SetLine<Identity: IProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlinenum: super::DWORD, pwzstring: windows_core::PCWSTR, fcompactpath: windows_core::BOOL, pvresevered: super::LPCVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProgressDialog_Impl::SetLine(this, core::mem::transmute_copy(&dwlinenum), core::mem::transmute(&pwzstring), core::mem::transmute_copy(&fcompactpath), core::mem::transmute_copy(&pvresevered))
+                IProgressDialog_Impl::SetLine(this, core::mem::transmute_copy(&dwlinenum), &*(&raw const pwzstring).cast(), core::mem::transmute_copy(&fcompactpath), core::mem::transmute_copy(&pvresevered))
             }
         }
         unsafe extern "system" fn SetCancelMsg<Identity: IProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzcancelmsg: windows_core::PCWSTR, pvresevered: super::LPCVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProgressDialog_Impl::SetCancelMsg(this, core::mem::transmute(&pwzcancelmsg), core::mem::transmute_copy(&pvresevered))
+                IProgressDialog_Impl::SetCancelMsg(this, &*(&raw const pwzcancelmsg).cast(), core::mem::transmute_copy(&pvresevered))
             }
         }
         unsafe extern "system" fn Timer<Identity: IProgressDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwtimeraction: super::DWORD, pvresevered: super::LPCVOID) -> windows_core::HRESULT {
@@ -2832,10 +2832,10 @@ windows_core::imp::define_interface!(ISearchContext, ISearchContext_Vtbl, 0x09f6
 windows_core::imp::interface_hierarchy!(ISearchContext, windows_core::IUnknown);
 impl ISearchContext {
     pub unsafe fn GetSearchUrl(&self, pbstrsearchurl: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSearchUrl)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsearchurl)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSearchUrl)(windows_core::Interface::as_raw(self), pbstrsearchurl as _) }
     }
     pub unsafe fn GetSearchText(&self, pbstrsearchtext: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSearchText)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsearchtext)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSearchText)(windows_core::Interface::as_raw(self), pbstrsearchtext as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetSearchStyle(&self, pdwsearchstyle: *mut super::DWORD) -> windows_core::HRESULT {
@@ -3173,7 +3173,7 @@ impl IShellFolderView {
     where
         P0: windows_core::Param<IShellFolderViewCB>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCallback)(windows_core::Interface::as_raw(self), pnewcb.param().abi(), core::mem::transmute(ppoldcb)) }
+        unsafe { (windows_core::Interface::vtable(self).SetCallback)(windows_core::Interface::as_raw(self), pnewcb.param().abi(), ppoldcb as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Select(&self, dwflags: super::UINT) -> windows_core::HRESULT {
@@ -3683,13 +3683,13 @@ impl IShellIconOverlayManager_Vtbl {
         unsafe extern "system" fn GetFileOverlayInfo<Identity: IShellIconOverlayManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpath: windows_core::PCWSTR, dwattrib: super::DWORD, pindex: *mut i32, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellIconOverlayManager_Impl::GetFileOverlayInfo(this, core::mem::transmute(&pwszpath), core::mem::transmute_copy(&dwattrib), core::mem::transmute_copy(&pindex), core::mem::transmute_copy(&dwflags))
+                IShellIconOverlayManager_Impl::GetFileOverlayInfo(this, &*(&raw const pwszpath).cast(), core::mem::transmute_copy(&dwattrib), core::mem::transmute_copy(&pindex), core::mem::transmute_copy(&dwflags))
             }
         }
         unsafe extern "system" fn GetReservedOverlayInfo<Identity: IShellIconOverlayManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpath: windows_core::PCWSTR, dwattrib: super::DWORD, pindex: *mut i32, dwflags: super::DWORD, ireservedid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IShellIconOverlayManager_Impl::GetReservedOverlayInfo(this, core::mem::transmute(&pwszpath), core::mem::transmute_copy(&dwattrib), core::mem::transmute_copy(&pindex), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ireservedid))
+                IShellIconOverlayManager_Impl::GetReservedOverlayInfo(this, &*(&raw const pwszpath).cast(), core::mem::transmute_copy(&dwattrib), core::mem::transmute_copy(&pindex), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ireservedid))
             }
         }
         unsafe extern "system" fn RefreshOverlayImages<Identity: IShellIconOverlayManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {

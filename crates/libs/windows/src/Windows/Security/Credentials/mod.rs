@@ -181,7 +181,7 @@ impl IKeyCredentialCacheConfigurationFactory_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: IKeyCredentialCacheConfigurationFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacheoption: KeyCredentialCacheOption, timeout: windows_time::TimeSpan, usagecount: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IKeyCredentialCacheConfigurationFactory_Impl::CreateInstance(this, cacheoption, core::mem::transmute(&timeout), usagecount) {
+                match IKeyCredentialCacheConfigurationFactory_Impl::CreateInstance(this, cacheoption, &*(&raw const timeout).cast(), usagecount) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

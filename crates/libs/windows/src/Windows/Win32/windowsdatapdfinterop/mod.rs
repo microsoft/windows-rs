@@ -5,7 +5,7 @@ where
     P0: windows_core::Param<super::IDXGIDevice>,
 {
     windows_core::link!("windows.data.pdf.dll" "system" fn PdfCreateRenderer(pdevice : *mut core::ffi::c_void, pprenderer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PdfCreateRenderer(pdevice.param().abi(), core::mem::transmute(pprenderer)) }
+    unsafe { PdfCreateRenderer(pdevice.param().abi(), pprenderer as _) }
 }
 windows_core::imp::define_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl, 0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 windows_core::imp::interface_hierarchy!(IPdfRendererNative, windows_core::IUnknown);
@@ -51,7 +51,7 @@ impl IPdfRendererNative_Vtbl {
         unsafe extern "system" fn RenderPageToSurface<Identity: IPdfRendererNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdfpage: *mut core::ffi::c_void, psurface: *mut core::ffi::c_void, offset: super::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPdfRendererNative_Impl::RenderPageToSurface(this, core::mem::transmute_copy(&pdfpage), core::mem::transmute_copy(&psurface), core::mem::transmute(&offset), core::mem::transmute_copy(&prenderparams))
+                IPdfRendererNative_Impl::RenderPageToSurface(this, core::mem::transmute_copy(&pdfpage), core::mem::transmute_copy(&psurface), &*(&raw const offset).cast(), core::mem::transmute_copy(&prenderparams))
             }
         }
         unsafe extern "system" fn RenderPageToDeviceContext<Identity: IPdfRendererNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdfpage: *mut core::ffi::c_void, pd2ddevicecontext: *mut core::ffi::c_void, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::HRESULT {

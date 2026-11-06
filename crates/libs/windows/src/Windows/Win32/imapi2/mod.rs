@@ -242,13 +242,13 @@ impl DDiscMaster2Events_Vtbl {
         unsafe extern "system" fn NotifyDeviceAdded<Identity: DDiscMaster2Events_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, uniqueid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                DDiscMaster2Events_Impl::NotifyDeviceAdded(this, core::mem::transmute_copy(&object), core::mem::transmute(&uniqueid))
+                DDiscMaster2Events_Impl::NotifyDeviceAdded(this, core::mem::transmute_copy(&object), &*(&raw const uniqueid).cast())
             }
         }
         unsafe extern "system" fn NotifyDeviceRemoved<Identity: DDiscMaster2Events_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, uniqueid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                DDiscMaster2Events_Impl::NotifyDeviceRemoved(this, core::mem::transmute_copy(&object), core::mem::transmute(&uniqueid))
+                DDiscMaster2Events_Impl::NotifyDeviceRemoved(this, core::mem::transmute_copy(&object), &*(&raw const uniqueid).cast())
             }
         }
         Self {
@@ -1236,7 +1236,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::Recorder(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IDiscRecorder2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1453,7 +1453,7 @@ impl IDiscFormat2Data_Vtbl {
         unsafe extern "system" fn SetClientName<Identity: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiscFormat2Data_Impl::SetClientName(this, core::mem::transmute(&value))
+                IDiscFormat2Data_Impl::SetClientName(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn ClientName<Identity: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1461,7 +1461,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::ClientName(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1901,7 +1901,7 @@ impl IDiscFormat2Erase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Erase_Impl::Recorder(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IDiscRecorder2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1950,7 +1950,7 @@ impl IDiscFormat2Erase_Vtbl {
         unsafe extern "system" fn SetClientName<Identity: IDiscFormat2Erase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiscFormat2Erase_Impl::SetClientName(this, core::mem::transmute(&value))
+                IDiscFormat2Erase_Impl::SetClientName(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn ClientName<Identity: IDiscFormat2Erase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1958,7 +1958,7 @@ impl IDiscFormat2Erase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Erase_Impl::ClientName(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2292,7 +2292,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::Recorder(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IDiscRecorder2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2407,7 +2407,7 @@ impl IDiscFormat2RawCD_Vtbl {
         unsafe extern "system" fn SetClientName<Identity: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiscFormat2RawCD_Impl::SetClientName(this, core::mem::transmute(&value))
+                IDiscFormat2RawCD_Impl::SetClientName(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn ClientName<Identity: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2415,7 +2415,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::ClientName(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2979,7 +2979,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::Recorder(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IDiscRecorder2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3124,7 +3124,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
         unsafe extern "system" fn SetClientName<Identity: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiscFormat2TrackAtOnce_Impl::SetClientName(this, core::mem::transmute(&value))
+                IDiscFormat2TrackAtOnce_Impl::SetClientName(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn ClientName<Identity: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3132,7 +3132,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::ClientName(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3486,7 +3486,7 @@ impl IDiscMaster2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscMaster2_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<super::IEnumVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3501,7 +3501,7 @@ impl IDiscMaster2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscMaster2_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3779,7 +3779,7 @@ impl IDiscRecorder2_Vtbl {
         unsafe extern "system" fn AcquireExclusiveAccess<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, force: super::VARIANT_BOOL, __midl__idiscrecorder20000: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiscRecorder2_Impl::AcquireExclusiveAccess(this, core::mem::transmute_copy(&force), core::mem::transmute(&__midl__idiscrecorder20000))
+                IDiscRecorder2_Impl::AcquireExclusiveAccess(this, core::mem::transmute_copy(&force), &*(&raw const __midl__idiscrecorder20000).cast())
             }
         }
         unsafe extern "system" fn ReleaseExclusiveAccess<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3803,7 +3803,7 @@ impl IDiscRecorder2_Vtbl {
         unsafe extern "system" fn InitializeDiscRecorder<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recorderuniqueid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiscRecorder2_Impl::InitializeDiscRecorder(this, core::mem::transmute(&recorderuniqueid))
+                IDiscRecorder2_Impl::InitializeDiscRecorder(this, &*(&raw const recorderuniqueid).cast())
             }
         }
         unsafe extern "system" fn ActiveDiscRecorder<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3811,7 +3811,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::ActiveDiscRecorder(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3826,7 +3826,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::VendorId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3841,7 +3841,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::ProductId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3856,7 +3856,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::ProductRevision(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3871,7 +3871,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::VolumeName(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4006,7 +4006,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::ExclusiveAccessOwner(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4697,7 +4697,7 @@ impl IMultisession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisession_Impl::ImportRecorder(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IDiscRecorder2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5309,7 +5309,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::CreateResultImage(this) {
                     Ok(ok__) => {
-                        resultstream.write(core::mem::transmute(ok__));
+                        resultstream.cast::<super::IStream>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5427,7 +5427,7 @@ impl IRawCDImageCreator_Vtbl {
         unsafe extern "system" fn SetMediaCatalogNumber<Identity: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRawCDImageCreator_Impl::SetMediaCatalogNumber(this, core::mem::transmute(&value))
+                IRawCDImageCreator_Impl::SetMediaCatalogNumber(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn MediaCatalogNumber<Identity: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5435,7 +5435,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::MediaCatalogNumber(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5471,7 +5471,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::TrackInfo(this, core::mem::transmute_copy(&trackindex)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IRawCDImageTrackInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5767,7 +5767,7 @@ impl IRawCDImageTrackInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageTrackInfo_Impl::ISRC(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5780,7 +5780,7 @@ impl IRawCDImageTrackInfo_Vtbl {
         unsafe extern "system" fn SetISRC<Identity: IRawCDImageTrackInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRawCDImageTrackInfo_Impl::SetISRC(this, core::mem::transmute(&value))
+                IRawCDImageTrackInfo_Impl::SetISRC(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn DigitalAudioCopySetting<Identity: IRawCDImageTrackInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> windows_core::HRESULT {
@@ -5897,7 +5897,7 @@ impl IStreamConcatenate {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Initialize2(&self, streams: *const Option<super::IStream>, streamcount: super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize2)(windows_core::Interface::as_raw(self), core::mem::transmute(streams), streamcount) }
+        unsafe { (windows_core::Interface::vtable(self).Initialize2)(windows_core::Interface::as_raw(self), streams as _, streamcount) }
     }
     pub unsafe fn Append<P0>(&self, stream: P0) -> windows_core::HRESULT
     where
@@ -5907,7 +5907,7 @@ impl IStreamConcatenate {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Append2(&self, streams: *const Option<super::IStream>, streamcount: super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Append2)(windows_core::Interface::as_raw(self), core::mem::transmute(streams), streamcount) }
+        unsafe { (windows_core::Interface::vtable(self).Append2)(windows_core::Interface::as_raw(self), streams as _, streamcount) }
     }
 }
 #[cfg(feature = "objidlbase")]
@@ -5989,7 +5989,7 @@ windows_core::imp::interface_hierarchy!(IStreamInterleave, windows_core::IUnknow
 impl IStreamInterleave {
     #[cfg(feature = "shared")]
     pub unsafe fn Initialize(&self, streams: *const Option<super::IStream>, interleavesizes: *const super::ULONG, streamcount: super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(streams), interleavesizes, streamcount) }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), streams as _, interleavesizes, streamcount) }
     }
 }
 #[cfg(feature = "objidlbase")]
@@ -6301,7 +6301,7 @@ impl IWriteEngine2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2_Impl::Recorder(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<IDiscRecorder2Ex>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

@@ -214,13 +214,13 @@ impl INSSBuffer3_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: INSSBuffer3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidbufferproperty: windows_core::GUID, pvbufferproperty: *const core::ffi::c_void, dwbufferpropertysize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer3_Impl::SetProperty(this, core::mem::transmute(&guidbufferproperty), core::mem::transmute_copy(&pvbufferproperty), core::mem::transmute_copy(&dwbufferpropertysize))
+                INSSBuffer3_Impl::SetProperty(this, &*(&raw const guidbufferproperty).cast(), core::mem::transmute_copy(&pvbufferproperty), core::mem::transmute_copy(&dwbufferpropertysize))
             }
         }
         unsafe extern "system" fn GetProperty<Identity: INSSBuffer3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidbufferproperty: windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INSSBuffer3_Impl::GetProperty(this, core::mem::transmute(&guidbufferproperty), core::mem::transmute_copy(&pvbufferproperty), core::mem::transmute_copy(&pdwbufferpropertysize))
+                INSSBuffer3_Impl::GetProperty(this, &*(&raw const guidbufferproperty).cast(), core::mem::transmute_copy(&pvbufferproperty), core::mem::transmute_copy(&pdwbufferpropertysize))
             }
         }
         Self { base__: INSSBuffer2_Vtbl::new::<Identity, OFFSET>(), SetProperty: SetProperty::<Identity, OFFSET>, GetProperty: GetProperty::<Identity, OFFSET> }
@@ -299,11 +299,11 @@ windows_core::imp::interface_hierarchy!(IWMSBufferAllocator, windows_core::IUnkn
 impl IWMSBufferAllocator {
     #[cfg(feature = "shared")]
     pub unsafe fn AllocateBuffer(&self, dwmaxbuffersize: super::DWORD, ppbuffer: *mut Option<INSSBuffer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AllocateBuffer)(windows_core::Interface::as_raw(self), dwmaxbuffersize, core::mem::transmute(ppbuffer)) }
+        unsafe { (windows_core::Interface::vtable(self).AllocateBuffer)(windows_core::Interface::as_raw(self), dwmaxbuffersize, ppbuffer as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn AllocatePageSizeBuffer(&self, dwmaxbuffersize: super::DWORD, ppbuffer: *mut Option<INSSBuffer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AllocatePageSizeBuffer)(windows_core::Interface::as_raw(self), dwmaxbuffersize, core::mem::transmute(ppbuffer)) }
+        unsafe { (windows_core::Interface::vtable(self).AllocatePageSizeBuffer)(windows_core::Interface::as_raw(self), dwmaxbuffersize, ppbuffer as _) }
     }
 }
 #[repr(C)]

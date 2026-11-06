@@ -12,13 +12,13 @@ windows_core::imp::define_interface!(IMFPMediaItem, IMFPMediaItem_Vtbl, 0x90eb3e
 windows_core::imp::interface_hierarchy!(IMFPMediaItem, windows_core::IUnknown);
 impl IMFPMediaItem {
     pub unsafe fn GetMediaPlayer(&self, ppmediaplayer: *mut Option<IMFPMediaPlayer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMediaPlayer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmediaplayer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetMediaPlayer)(windows_core::Interface::as_raw(self), ppmediaplayer as _) }
     }
     pub unsafe fn GetURL(&self, ppwszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetURL)(windows_core::Interface::as_raw(self), ppwszurl as _) }
     }
     pub unsafe fn GetObject(&self, ppiunknown: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppiunknown)) }
+        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), ppiunknown as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetUserData(&self, pdwuserdata: *mut super::DWORD_PTR) -> windows_core::HRESULT {
@@ -81,7 +81,7 @@ impl IMFPMediaItem {
     }
     #[cfg(feature = "propsys")]
     pub unsafe fn GetMetadata(&self, ppmetadatastore: *mut Option<super::IPropertyStore>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmetadatastore)) }
+        unsafe { (windows_core::Interface::vtable(self).GetMetadata)(windows_core::Interface::as_raw(self), ppmetadatastore as _) }
     }
 }
 #[repr(C)]
@@ -375,7 +375,7 @@ impl IMFPMediaPlayer {
         unsafe { (windows_core::Interface::vtable(self).ClearMediaItem)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetMediaItem(&self, ppimfpmediaitem: *mut Option<IMFPMediaItem>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMediaItem)(windows_core::Interface::as_raw(self), core::mem::transmute(ppimfpmediaitem)) }
+        unsafe { (windows_core::Interface::vtable(self).GetMediaItem)(windows_core::Interface::as_raw(self), ppimfpmediaitem as _) }
     }
     pub unsafe fn GetVolume(&self, pflvolume: *mut f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVolume)(windows_core::Interface::as_raw(self), pflvolume as _) }
@@ -647,7 +647,7 @@ impl IMFPMediaPlayer_Vtbl {
         unsafe extern "system" fn CreateMediaItemFromURL<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: windows_core::PCWSTR, fsync: windows_core::BOOL, dwuserdata: super::DWORD_PTR, ppmediaitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayer_Impl::CreateMediaItemFromURL(this, core::mem::transmute(&pwszurl), core::mem::transmute_copy(&fsync), core::mem::transmute_copy(&dwuserdata), core::mem::transmute_copy(&ppmediaitem))
+                IMFPMediaPlayer_Impl::CreateMediaItemFromURL(this, &*(&raw const pwszurl).cast(), core::mem::transmute_copy(&fsync), core::mem::transmute_copy(&dwuserdata), core::mem::transmute_copy(&ppmediaitem))
             }
         }
         unsafe extern "system" fn CreateMediaItemFromObject<Identity: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piunknownobj: *mut core::ffi::c_void, fsync: windows_core::BOOL, dwuserdata: super::DWORD_PTR, ppmediaitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

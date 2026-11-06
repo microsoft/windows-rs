@@ -45,7 +45,7 @@ impl ISurfaceImageSourceNative {
     }
     #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
     pub unsafe fn BeginDraw(&self, updaterect: super::RECT, surface: *mut Option<super::IDXGISurface>, offset: *mut super::POINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect, core::mem::transmute(surface), offset as _) }
+        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect, surface as _, offset as _) }
     }
     pub unsafe fn EndDraw(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)) }
@@ -83,7 +83,7 @@ impl ISurfaceImageSourceNative_Vtbl {
         unsafe extern "system" fn BeginDraw<Identity: ISurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: super::RECT, surface: *mut *mut core::ffi::c_void, offset: *mut super::POINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISurfaceImageSourceNative_Impl::BeginDraw(this, core::mem::transmute(&updaterect), core::mem::transmute_copy(&surface), core::mem::transmute_copy(&offset))
+                ISurfaceImageSourceNative_Impl::BeginDraw(this, &*(&raw const updaterect).cast(), core::mem::transmute_copy(&surface), core::mem::transmute_copy(&offset))
             }
         }
         unsafe extern "system" fn EndDraw<Identity: ISurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -404,7 +404,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
         unsafe extern "system" fn Invalidate<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVirtualSurfaceImageSourceNative_Impl::Invalidate(this, core::mem::transmute(&updaterect))
+                IVirtualSurfaceImageSourceNative_Impl::Invalidate(this, &*(&raw const updaterect).cast())
             }
         }
         unsafe extern "system" fn GetUpdateRectCount<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut super::DWORD) -> windows_core::HRESULT {

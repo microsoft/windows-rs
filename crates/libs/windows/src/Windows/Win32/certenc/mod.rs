@@ -102,7 +102,7 @@ impl ICertEncodeAltName_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeAltName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeAltName_Impl::Decode(this, core::mem::transmute(&strbinary))
+                ICertEncodeAltName_Impl::Decode(this, &*(&raw const strbinary).cast())
             }
         }
         unsafe extern "system" fn GetNameCount<Identity: ICertEncodeAltName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamecount: *mut super::LONG) -> windows_core::HRESULT {
@@ -140,7 +140,7 @@ impl ICertEncodeAltName_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeAltName_Impl::GetName(this, core::mem::transmute_copy(&nameindex)) {
                     Ok(ok__) => {
-                        pstrname.write(core::mem::transmute(ok__));
+                        pstrname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -159,7 +159,7 @@ impl ICertEncodeAltName_Vtbl {
         unsafe extern "system" fn SetNameEntry<Identity: ICertEncodeAltName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nameindex: super::LONG, namechoice: super::LONG, strname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeAltName_Impl::SetNameEntry(this, core::mem::transmute_copy(&nameindex), core::mem::transmute_copy(&namechoice), core::mem::transmute(&strname))
+                ICertEncodeAltName_Impl::SetNameEntry(this, core::mem::transmute_copy(&nameindex), core::mem::transmute_copy(&namechoice), &*(&raw const strname).cast())
             }
         }
         unsafe extern "system" fn Encode<Identity: ICertEncodeAltName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrbinary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -167,7 +167,7 @@ impl ICertEncodeAltName_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeAltName_Impl::Encode(this) {
                     Ok(ok__) => {
-                        pstrbinary.write(core::mem::transmute(ok__));
+                        pstrbinary.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -265,7 +265,7 @@ impl ICertEncodeAltName2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeAltName2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeAltName2_Impl::DecodeBlob(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding))
+                ICertEncodeAltName2_Impl::DecodeBlob(this, &*(&raw const strencodeddata).cast(), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn EncodeBlob<Identity: ICertEncodeAltName2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: super::EncodingType, pstrencodeddata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -273,7 +273,7 @@ impl ICertEncodeAltName2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeAltName2_Impl::EncodeBlob(this, core::mem::transmute_copy(&encoding)) {
                     Ok(ok__) => {
-                        pstrencodeddata.write(core::mem::transmute(ok__));
+                        pstrencodeddata.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -288,7 +288,7 @@ impl ICertEncodeAltName2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeAltName2_Impl::GetNameBlob(this, core::mem::transmute_copy(&nameindex), core::mem::transmute_copy(&encoding)) {
                     Ok(ok__) => {
-                        pstrname.write(core::mem::transmute(ok__));
+                        pstrname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -301,7 +301,7 @@ impl ICertEncodeAltName2_Vtbl {
         unsafe extern "system" fn SetNameEntryBlob<Identity: ICertEncodeAltName2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nameindex: super::LONG, namechoice: super::LONG, strname: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeAltName2_Impl::SetNameEntryBlob(this, core::mem::transmute_copy(&nameindex), core::mem::transmute_copy(&namechoice), core::mem::transmute(&strname), core::mem::transmute_copy(&encoding))
+                ICertEncodeAltName2_Impl::SetNameEntryBlob(this, core::mem::transmute_copy(&nameindex), core::mem::transmute_copy(&namechoice), &*(&raw const strname).cast(), core::mem::transmute_copy(&encoding))
             }
         }
         Self {
@@ -384,7 +384,7 @@ impl ICertEncodeBitString_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeBitString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeBitString_Impl::Decode(this, core::mem::transmute(&strbinary))
+                ICertEncodeBitString_Impl::Decode(this, &*(&raw const strbinary).cast())
             }
         }
         unsafe extern "system" fn GetBitCount<Identity: ICertEncodeBitString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbitcount: *mut super::LONG) -> windows_core::HRESULT {
@@ -407,7 +407,7 @@ impl ICertEncodeBitString_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeBitString_Impl::GetBitString(this) {
                     Ok(ok__) => {
-                        pstrbitstring.write(core::mem::transmute(ok__));
+                        pstrbitstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -420,9 +420,9 @@ impl ICertEncodeBitString_Vtbl {
         unsafe extern "system" fn Encode<Identity: ICertEncodeBitString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitcount: super::LONG, strbitstring: *mut core::ffi::c_void, pstrbinary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertEncodeBitString_Impl::Encode(this, core::mem::transmute_copy(&bitcount), core::mem::transmute(&strbitstring)) {
+                match ICertEncodeBitString_Impl::Encode(this, core::mem::transmute_copy(&bitcount), &*(&raw const strbitstring).cast()) {
                     Ok(ok__) => {
-                        pstrbinary.write(core::mem::transmute(ok__));
+                        pstrbinary.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -508,15 +508,15 @@ impl ICertEncodeBitString2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeBitString2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeBitString2_Impl::DecodeBlob(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding))
+                ICertEncodeBitString2_Impl::DecodeBlob(this, &*(&raw const strencodeddata).cast(), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn EncodeBlob<Identity: ICertEncodeBitString2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitcount: super::LONG, strbitstring: *mut core::ffi::c_void, encodingin: super::EncodingType, encoding: super::EncodingType, pstrencodeddata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertEncodeBitString2_Impl::EncodeBlob(this, core::mem::transmute_copy(&bitcount), core::mem::transmute(&strbitstring), core::mem::transmute_copy(&encodingin), core::mem::transmute_copy(&encoding)) {
+                match ICertEncodeBitString2_Impl::EncodeBlob(this, core::mem::transmute_copy(&bitcount), &*(&raw const strbitstring).cast(), core::mem::transmute_copy(&encodingin), core::mem::transmute_copy(&encoding)) {
                     Ok(ok__) => {
-                        pstrencodeddata.write(core::mem::transmute(ok__));
+                        pstrencodeddata.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -531,7 +531,7 @@ impl ICertEncodeBitString2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeBitString2_Impl::GetBitStringBlob(this, core::mem::transmute_copy(&encoding)) {
                     Ok(ok__) => {
-                        pstrbitstring.write(core::mem::transmute(ok__));
+                        pstrbitstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -671,7 +671,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeCRLDistInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeCRLDistInfo_Impl::Decode(this, core::mem::transmute(&strbinary))
+                ICertEncodeCRLDistInfo_Impl::Decode(this, &*(&raw const strbinary).cast())
             }
         }
         unsafe extern "system" fn GetDistPointCount<Identity: ICertEncodeCRLDistInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdistpointcount: *mut super::LONG) -> windows_core::HRESULT {
@@ -724,7 +724,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeCRLDistInfo_Impl::GetName(this, core::mem::transmute_copy(&distpointindex), core::mem::transmute_copy(&nameindex)) {
                     Ok(ok__) => {
-                        pstrname.write(core::mem::transmute(ok__));
+                        pstrname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -749,7 +749,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
         unsafe extern "system" fn SetNameEntry<Identity: ICertEncodeCRLDistInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, distpointindex: super::LONG, nameindex: super::LONG, namechoice: super::LONG, strname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeCRLDistInfo_Impl::SetNameEntry(this, core::mem::transmute_copy(&distpointindex), core::mem::transmute_copy(&nameindex), core::mem::transmute_copy(&namechoice), core::mem::transmute(&strname))
+                ICertEncodeCRLDistInfo_Impl::SetNameEntry(this, core::mem::transmute_copy(&distpointindex), core::mem::transmute_copy(&nameindex), core::mem::transmute_copy(&namechoice), &*(&raw const strname).cast())
             }
         }
         unsafe extern "system" fn Encode<Identity: ICertEncodeCRLDistInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrbinary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -757,7 +757,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeCRLDistInfo_Impl::Encode(this) {
                     Ok(ok__) => {
-                        pstrbinary.write(core::mem::transmute(ok__));
+                        pstrbinary.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -836,7 +836,7 @@ impl ICertEncodeCRLDistInfo2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeCRLDistInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeCRLDistInfo2_Impl::DecodeBlob(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding))
+                ICertEncodeCRLDistInfo2_Impl::DecodeBlob(this, &*(&raw const strencodeddata).cast(), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn EncodeBlob<Identity: ICertEncodeCRLDistInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: super::EncodingType, pstrencodeddata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -844,7 +844,7 @@ impl ICertEncodeCRLDistInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeCRLDistInfo2_Impl::EncodeBlob(this, core::mem::transmute_copy(&encoding)) {
                     Ok(ok__) => {
-                        pstrencodeddata.write(core::mem::transmute(ok__));
+                        pstrencodeddata.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -950,7 +950,7 @@ impl ICertEncodeDateArray_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeDateArray_Impl::Decode(this, core::mem::transmute(&strbinary))
+                ICertEncodeDateArray_Impl::Decode(this, &*(&raw const strbinary).cast())
             }
         }
         unsafe extern "system" fn GetCount<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::LONG) -> windows_core::HRESULT {
@@ -1000,7 +1000,7 @@ impl ICertEncodeDateArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeDateArray_Impl::Encode(this) {
                     Ok(ok__) => {
-                        pstrbinary.write(core::mem::transmute(ok__));
+                        pstrbinary.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1076,7 +1076,7 @@ impl ICertEncodeDateArray2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeDateArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeDateArray2_Impl::DecodeBlob(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding))
+                ICertEncodeDateArray2_Impl::DecodeBlob(this, &*(&raw const strencodeddata).cast(), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn EncodeBlob<Identity: ICertEncodeDateArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: super::EncodingType, pstrencodeddata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1084,7 +1084,7 @@ impl ICertEncodeDateArray2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeDateArray2_Impl::EncodeBlob(this, core::mem::transmute_copy(&encoding)) {
                     Ok(ok__) => {
-                        pstrencodeddata.write(core::mem::transmute(ok__));
+                        pstrencodeddata.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1190,7 +1190,7 @@ impl ICertEncodeLongArray_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeLongArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeLongArray_Impl::Decode(this, core::mem::transmute(&strbinary))
+                ICertEncodeLongArray_Impl::Decode(this, &*(&raw const strbinary).cast())
             }
         }
         unsafe extern "system" fn GetCount<Identity: ICertEncodeLongArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::LONG) -> windows_core::HRESULT {
@@ -1240,7 +1240,7 @@ impl ICertEncodeLongArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeLongArray_Impl::Encode(this) {
                     Ok(ok__) => {
-                        pstrbinary.write(core::mem::transmute(ok__));
+                        pstrbinary.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1316,7 +1316,7 @@ impl ICertEncodeLongArray2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeLongArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeLongArray2_Impl::DecodeBlob(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding))
+                ICertEncodeLongArray2_Impl::DecodeBlob(this, &*(&raw const strencodeddata).cast(), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn EncodeBlob<Identity: ICertEncodeLongArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: super::EncodingType, pstrencodeddata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1324,7 +1324,7 @@ impl ICertEncodeLongArray2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeLongArray2_Impl::EncodeBlob(this, core::mem::transmute_copy(&encoding)) {
                     Ok(ok__) => {
-                        pstrencodeddata.write(core::mem::transmute(ok__));
+                        pstrencodeddata.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1442,7 +1442,7 @@ impl ICertEncodeStringArray_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeStringArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeStringArray_Impl::Decode(this, core::mem::transmute(&strbinary))
+                ICertEncodeStringArray_Impl::Decode(this, &*(&raw const strbinary).cast())
             }
         }
         unsafe extern "system" fn GetStringType<Identity: ICertEncodeStringArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstringtype: *mut super::LONG) -> windows_core::HRESULT {
@@ -1480,7 +1480,7 @@ impl ICertEncodeStringArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeStringArray_Impl::GetValue(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pstr.write(core::mem::transmute(ok__));
+                        pstr.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1499,7 +1499,7 @@ impl ICertEncodeStringArray_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ICertEncodeStringArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG, str: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeStringArray_Impl::SetValue(this, core::mem::transmute_copy(&index), core::mem::transmute(&str))
+                ICertEncodeStringArray_Impl::SetValue(this, core::mem::transmute_copy(&index), &*(&raw const str).cast())
             }
         }
         unsafe extern "system" fn Encode<Identity: ICertEncodeStringArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrbinary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1507,7 +1507,7 @@ impl ICertEncodeStringArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeStringArray_Impl::Encode(this) {
                     Ok(ok__) => {
-                        pstrbinary.write(core::mem::transmute(ok__));
+                        pstrbinary.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1584,7 +1584,7 @@ impl ICertEncodeStringArray2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeStringArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertEncodeStringArray2_Impl::DecodeBlob(this, core::mem::transmute(&strencodeddata), core::mem::transmute_copy(&encoding))
+                ICertEncodeStringArray2_Impl::DecodeBlob(this, &*(&raw const strencodeddata).cast(), core::mem::transmute_copy(&encoding))
             }
         }
         unsafe extern "system" fn EncodeBlob<Identity: ICertEncodeStringArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: super::EncodingType, pstrencodeddata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1592,7 +1592,7 @@ impl ICertEncodeStringArray2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeStringArray2_Impl::EncodeBlob(this, core::mem::transmute_copy(&encoding)) {
                     Ok(ok__) => {
-                        pstrencodeddata.write(core::mem::transmute(ok__));
+                        pstrencodeddata.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

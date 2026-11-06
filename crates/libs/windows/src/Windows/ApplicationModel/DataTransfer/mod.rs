@@ -2761,11 +2761,11 @@ impl TransferTargetDiscoveryOptions {
     pub fn AllowedTargetAppIds(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).AllowedTargetAppIds)(windows_core::Interface::as_raw(self), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).AllowedTargetAppIds)(windows_core::Interface::as_raw(self), windows_core::Array::<windows_core::HSTRING>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn SetAllowedTargetAppIds(&self, value: &[windows_core::HSTRING]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetAllowedTargetAppIds)(windows_core::Interface::as_raw(self), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetAllowedTargetAppIds)(windows_core::Interface::as_raw(self), value.len().try_into().unwrap(), value.as_ptr().cast()).ok() }
     }
     pub fn CreateInstance<P0>(datapackage: P0) -> windows_core::Result<Self>
     where

@@ -3058,7 +3058,7 @@ impl WindowsUpdateManager {
         let this = &windows_core::Interface::cast::<IWindowsUpdateManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).ProviderIds)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).ProviderIds)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::HSTRING>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn GetApplicableSoftwareUpdates(&self) -> windows_core::Result<windows_collections::IVectorView<WindowsSoftwareUpdate>> {
@@ -3084,7 +3084,7 @@ impl WindowsUpdateManager {
     pub fn CreateInstance2(clientid: &windows_core::HSTRING, provideridfilter: &[windows_core::HSTRING]) -> windows_core::Result<Self> {
         Self::IWindowsUpdateManagerFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(clientid), provideridfilter.len().try_into().unwrap(), core::mem::transmute(provideridfilter.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(clientid), provideridfilter.len().try_into().unwrap(), provideridfilter.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IWindowsUpdateManagerFactory<R, F: FnOnce(&IWindowsUpdateManagerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

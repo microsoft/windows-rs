@@ -55,7 +55,7 @@ impl IWTSBitmapRenderService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSBitmapRenderService_Impl::GetMappedRenderer(this, core::mem::transmute_copy(&mappingid), core::mem::transmute_copy(&pmappedrenderercallback)) {
                     Ok(ok__) => {
-                        ppmappedrenderer.write(core::mem::transmute(ok__));
+                        ppmappedrenderer.cast::<IWTSBitmapRenderer>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -114,7 +114,7 @@ impl IWTSBitmapRenderer_Vtbl {
         unsafe extern "system" fn Render<Identity: IWTSBitmapRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageformat: windows_core::GUID, dwwidth: super::DWORD, dwheight: super::DWORD, cbstride: super::LONG, cbimagebuffer: super::DWORD, pimagebuffer: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSBitmapRenderer_Impl::Render(this, core::mem::transmute(&imageformat), core::mem::transmute_copy(&dwwidth), core::mem::transmute_copy(&dwheight), core::mem::transmute_copy(&cbstride), core::mem::transmute_copy(&cbimagebuffer), core::mem::transmute_copy(&pimagebuffer))
+                IWTSBitmapRenderer_Impl::Render(this, &*(&raw const imageformat).cast(), core::mem::transmute_copy(&dwwidth), core::mem::transmute_copy(&dwheight), core::mem::transmute_copy(&cbstride), core::mem::transmute_copy(&cbimagebuffer), core::mem::transmute_copy(&pimagebuffer))
             }
         }
         unsafe extern "system" fn GetRendererStatistics<Identity: IWTSBitmapRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatistics: *mut BITMAP_RENDERER_STATISTICS) -> windows_core::HRESULT {
@@ -169,7 +169,7 @@ impl IWTSBitmapRendererCallback_Vtbl {
         unsafe extern "system" fn OnTargetSizeChanged<Identity: IWTSBitmapRendererCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rcnewsize: super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWTSBitmapRendererCallback_Impl::OnTargetSizeChanged(this, core::mem::transmute(&rcnewsize))
+                IWTSBitmapRendererCallback_Impl::OnTargetSizeChanged(this, &*(&raw const rcnewsize).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnTargetSizeChanged: OnTargetSizeChanged::<Identity, OFFSET> }
@@ -212,7 +212,7 @@ impl IWTSListener_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSListener_Impl::GetConfiguration(this) {
                     Ok(ok__) => {
-                        pppropertybag.write(core::mem::transmute(ok__));
+                        pppropertybag.cast::<super::IPropertyBag>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -257,9 +257,9 @@ impl IWTSListenerCallback_Vtbl {
         unsafe extern "system" fn OnNewChannelConnection<Identity: IWTSListenerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchannel: *mut core::ffi::c_void, data: *mut core::ffi::c_void, pbaccept: *mut windows_core::BOOL, ppcallback: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWTSListenerCallback_Impl::OnNewChannelConnection(this, core::mem::transmute_copy(&pchannel), core::mem::transmute(&data), core::mem::transmute_copy(&pbaccept)) {
+                match IWTSListenerCallback_Impl::OnNewChannelConnection(this, core::mem::transmute_copy(&pchannel), &*(&raw const data).cast(), core::mem::transmute_copy(&pbaccept)) {
                     Ok(ok__) => {
-                        ppcallback.write(core::mem::transmute(ok__));
+                        ppcallback.cast::<IWTSVirtualChannelCallback>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -380,9 +380,9 @@ impl IWTSPluginServiceProvider_Vtbl {
         unsafe extern "system" fn GetService<Identity: IWTSPluginServiceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: windows_core::GUID, ppunkobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWTSPluginServiceProvider_Impl::GetService(this, core::mem::transmute(&serviceid)) {
+                match IWTSPluginServiceProvider_Impl::GetService(this, &*(&raw const serviceid).cast()) {
                     Ok(ok__) => {
-                        ppunkobject.write(core::mem::transmute(ok__));
+                        ppunkobject.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -539,7 +539,7 @@ impl IWTSVirtualChannelManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSVirtualChannelManager_Impl::CreateListener(this, core::mem::transmute_copy(&pszchannelname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&plistenercallback)) {
                     Ok(ok__) => {
-                        pplistener.write(core::mem::transmute(ok__));
+                        pplistener.cast::<IWTSListener>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

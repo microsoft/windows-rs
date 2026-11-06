@@ -251,7 +251,7 @@ impl IWICBitmap_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmap_Impl::Lock(this, core::mem::transmute_copy(&prclock), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        ppilock.write(core::mem::transmute(ok__));
+                        ppilock.cast::<IWICBitmapLock>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -510,7 +510,7 @@ impl IWICBitmapCodecInfo_Vtbl {
         unsafe extern "system" fn MatchesMimeType<Identity: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzmimetype: windows_core::PCWSTR, pfmatches: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWICBitmapCodecInfo_Impl::MatchesMimeType(this, core::mem::transmute(&wzmimetype), core::mem::transmute_copy(&pfmatches))
+                IWICBitmapCodecInfo_Impl::MatchesMimeType(this, &*(&raw const wzmimetype).cast(), core::mem::transmute_copy(&pfmatches))
             }
         }
         Self {
@@ -710,7 +710,7 @@ impl IWICBitmapDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoder_Impl::GetDecoderInfo(this) {
                     Ok(ok__) => {
-                        ppidecoderinfo.write(core::mem::transmute(ok__));
+                        ppidecoderinfo.cast::<IWICBitmapDecoderInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -731,7 +731,7 @@ impl IWICBitmapDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoder_Impl::GetMetadataQueryReader(this) {
                     Ok(ok__) => {
-                        ppimetadataqueryreader.write(core::mem::transmute(ok__));
+                        ppimetadataqueryreader.cast::<IWICMetadataQueryReader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -746,7 +746,7 @@ impl IWICBitmapDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoder_Impl::GetPreview(this) {
                     Ok(ok__) => {
-                        ppibitmapsource.write(core::mem::transmute(ok__));
+                        ppibitmapsource.cast::<IWICBitmapSource>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -767,7 +767,7 @@ impl IWICBitmapDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoder_Impl::GetThumbnail(this) {
                     Ok(ok__) => {
-                        ppithumbnail.write(core::mem::transmute(ok__));
+                        ppithumbnail.cast::<IWICBitmapSource>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -788,7 +788,7 @@ impl IWICBitmapDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoder_Impl::GetFrame(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        ppibitmapframe.write(core::mem::transmute(ok__));
+                        ppibitmapframe.cast::<IWICBitmapFrameDecode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -886,7 +886,7 @@ impl IWICBitmapDecoderInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoderInfo_Impl::CreateInstance(this) {
                     Ok(ok__) => {
-                        ppibitmapdecoder.write(core::mem::transmute(ok__));
+                        ppibitmapdecoder.cast::<IWICBitmapDecoder>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -930,7 +930,7 @@ impl IWICBitmapEncoder {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetColorContexts(&self, ccount: super::UINT, ppicolorcontext: *const Option<IWICColorContext>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetColorContexts)(windows_core::Interface::as_raw(self), ccount, core::mem::transmute(ppicolorcontext)) }
+        unsafe { (windows_core::Interface::vtable(self).SetColorContexts)(windows_core::Interface::as_raw(self), ccount, ppicolorcontext as _) }
     }
     pub unsafe fn SetPalette<P0>(&self, pipalette: P0) -> windows_core::HRESULT
     where
@@ -952,7 +952,7 @@ impl IWICBitmapEncoder {
     }
     #[cfg(feature = "ocidl")]
     pub unsafe fn CreateNewFrame(&self, ppiframeencode: *mut Option<IWICBitmapFrameEncode>, ppiencoderoptions: Option<*mut Option<super::IPropertyBag2>>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateNewFrame)(windows_core::Interface::as_raw(self), core::mem::transmute(ppiframeencode), ppiencoderoptions.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateNewFrame)(windows_core::Interface::as_raw(self), ppiframeencode as _, ppiencoderoptions.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Commit(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self)) }
@@ -1021,7 +1021,7 @@ impl IWICBitmapEncoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapEncoder_Impl::GetEncoderInfo(this) {
                     Ok(ok__) => {
-                        ppiencoderinfo.write(core::mem::transmute(ok__));
+                        ppiencoderinfo.cast::<IWICBitmapEncoderInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1072,7 +1072,7 @@ impl IWICBitmapEncoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapEncoder_Impl::GetMetadataQueryWriter(this) {
                     Ok(ok__) => {
-                        ppimetadataquerywriter.write(core::mem::transmute(ok__));
+                        ppimetadataquerywriter.cast::<IWICMetadataQueryWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1136,7 +1136,7 @@ impl IWICBitmapEncoderInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapEncoderInfo_Impl::CreateInstance(this) {
                     Ok(ok__) => {
-                        ppibitmapencoder.write(core::mem::transmute(ok__));
+                        ppibitmapencoder.cast::<IWICBitmapEncoder>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1244,7 +1244,7 @@ impl IWICBitmapFrameChainReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapFrameChainReader_Impl::GetChainedFrame(this, core::mem::transmute_copy(&chaintype), core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        ppibitmapframe.write(core::mem::transmute(ok__));
+                        ppibitmapframe.cast::<IWICBitmapFrameDecode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1271,7 +1271,7 @@ windows_core::imp::interface_hierarchy!(IWICBitmapFrameChainWriter, windows_core
 impl IWICBitmapFrameChainWriter {
     #[cfg(feature = "ocidl")]
     pub unsafe fn AppendFrameToChain(&self, chaintype: WICBitmapChainType, ppiframeencode: *mut Option<IWICBitmapFrameEncode>, ppiencoderoptions: Option<*mut Option<super::IPropertyBag2>>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AppendFrameToChain)(windows_core::Interface::as_raw(self), chaintype, core::mem::transmute(ppiframeencode), ppiencoderoptions.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).AppendFrameToChain)(windows_core::Interface::as_raw(self), chaintype, ppiframeencode as _, ppiencoderoptions.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn DoesSupportChainType(&self, chaintype: WICBitmapChainType, pfissupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DoesSupportChainType)(windows_core::Interface::as_raw(self), chaintype, pfissupported as _) }
@@ -1370,7 +1370,7 @@ impl IWICBitmapFrameDecode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapFrameDecode_Impl::GetMetadataQueryReader(this) {
                     Ok(ok__) => {
-                        ppimetadataqueryreader.write(core::mem::transmute(ok__));
+                        ppimetadataqueryreader.cast::<IWICMetadataQueryReader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1391,7 +1391,7 @@ impl IWICBitmapFrameDecode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapFrameDecode_Impl::GetThumbnail(this) {
                     Ok(ok__) => {
-                        ppithumbnail.write(core::mem::transmute(ok__));
+                        ppithumbnail.cast::<IWICBitmapSource>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1436,7 +1436,7 @@ impl IWICBitmapFrameEncode {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SetColorContexts(&self, ccount: super::UINT, ppicolorcontext: *const Option<IWICColorContext>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetColorContexts)(windows_core::Interface::as_raw(self), ccount, core::mem::transmute(ppicolorcontext)) }
+        unsafe { (windows_core::Interface::vtable(self).SetColorContexts)(windows_core::Interface::as_raw(self), ccount, ppicolorcontext as _) }
     }
     pub unsafe fn SetPalette<P0>(&self, pipalette: P0) -> windows_core::HRESULT
     where
@@ -1584,7 +1584,7 @@ impl IWICBitmapFrameEncode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapFrameEncode_Impl::GetMetadataQueryWriter(this) {
                     Ok(ok__) => {
-                        ppimetadataquerywriter.write(core::mem::transmute(ok__));
+                        ppimetadataquerywriter.cast::<IWICMetadataQueryWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2103,7 +2103,7 @@ impl IWICColorContext_Vtbl {
         unsafe extern "system" fn InitializeFromFilename<Identity: IWICColorContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzfilename: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWICColorContext_Impl::InitializeFromFilename(this, core::mem::transmute(&wzfilename))
+                IWICColorContext_Impl::InitializeFromFilename(this, &*(&raw const wzfilename).cast())
             }
         }
         unsafe extern "system" fn InitializeFromMemory<Identity: IWICColorContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbbuffer: *const super::BYTE, cbbuffersize: super::UINT) -> windows_core::HRESULT {
@@ -2427,7 +2427,7 @@ impl IWICD3DTextureSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICD3DTextureSource_Impl::GetD3DTextureOptions(this) {
                     Ok(ok__) => {
-                        ppid3dtextureoptions.write(core::mem::transmute(ok__));
+                        ppid3dtextureoptions.cast::<super::IPropertyBag2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2498,7 +2498,7 @@ impl IWICDdsDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDdsDecoder_Impl::GetFrame(this, core::mem::transmute_copy(&arrayindex), core::mem::transmute_copy(&miplevel), core::mem::transmute_copy(&sliceindex)) {
                     Ok(ok__) => {
-                        ppibitmapframe.write(core::mem::transmute(ok__));
+                        ppibitmapframe.cast::<IWICBitmapFrameDecode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2533,7 +2533,7 @@ impl IWICDdsEncoder {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CreateNewFrame(&self, ppiframeencode: *mut Option<IWICBitmapFrameEncode>, parrayindex: Option<*mut super::UINT>, pmiplevel: Option<*mut super::UINT>, psliceindex: Option<*mut super::UINT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateNewFrame)(windows_core::Interface::as_raw(self), core::mem::transmute(ppiframeencode), parrayindex.unwrap_or(core::mem::zeroed()) as _, pmiplevel.unwrap_or(core::mem::zeroed()) as _, psliceindex.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateNewFrame)(windows_core::Interface::as_raw(self), ppiframeencode as _, parrayindex.unwrap_or(core::mem::zeroed()) as _, pmiplevel.unwrap_or(core::mem::zeroed()) as _, psliceindex.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -2909,7 +2909,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetCurrentParameterSet(this) {
                     Ok(ok__) => {
-                        ppcurrentparameterset.write(core::mem::transmute(ok__));
+                        ppcurrentparameterset.cast::<super::IPropertyBag2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3446,7 +3446,7 @@ impl IWICEnumMetadataItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICEnumMetadataItem_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppienummetadataitem.write(core::mem::transmute(ok__));
+                        ppienummetadataitem.cast::<IWICEnumMetadataItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3507,7 +3507,7 @@ impl IWICFastMetadataEncoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICFastMetadataEncoder_Impl::GetMetadataQueryWriter(this) {
                     Ok(ok__) => {
-                        ppimetadataquerywriter.write(core::mem::transmute(ok__));
+                        ppimetadataquerywriter.cast::<IWICMetadataQueryWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3632,7 +3632,7 @@ impl IWICFormatConverterInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICFormatConverterInfo_Impl::CreateInstance(this) {
                     Ok(ok__) => {
-                        ppiconverter.write(core::mem::transmute(ok__));
+                        ppiconverter.cast::<IWICFormatConverter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4022,9 +4022,9 @@ impl IWICImagingFactory_Vtbl {
         unsafe extern "system" fn CreateDecoderFromFilename<Identity: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzfilename: windows_core::PCWSTR, pguidvendor: *const windows_core::GUID, dwdesiredaccess: super::DWORD, metadataoptions: WICDecodeOptions, ppidecoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICImagingFactory_Impl::CreateDecoderFromFilename(this, core::mem::transmute(&wzfilename), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwdesiredaccess), core::mem::transmute_copy(&metadataoptions)) {
+                match IWICImagingFactory_Impl::CreateDecoderFromFilename(this, &*(&raw const wzfilename).cast(), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwdesiredaccess), core::mem::transmute_copy(&metadataoptions)) {
                     Ok(ok__) => {
-                        ppidecoder.write(core::mem::transmute(ok__));
+                        ppidecoder.cast::<IWICBitmapDecoder>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4039,7 +4039,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateDecoderFromStream(this, core::mem::transmute_copy(&pistream), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&metadataoptions)) {
                     Ok(ok__) => {
-                        ppidecoder.write(core::mem::transmute(ok__));
+                        ppidecoder.cast::<IWICBitmapDecoder>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4054,7 +4054,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateDecoderFromFileHandle(this, core::mem::transmute_copy(&hfile), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&metadataoptions)) {
                     Ok(ok__) => {
-                        ppidecoder.write(core::mem::transmute(ok__));
+                        ppidecoder.cast::<IWICBitmapDecoder>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4069,7 +4069,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateComponentInfo(this, core::mem::transmute_copy(&clsidcomponent)) {
                     Ok(ok__) => {
-                        ppiinfo.write(core::mem::transmute(ok__));
+                        ppiinfo.cast::<IWICComponentInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4084,7 +4084,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateDecoder(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pguidvendor)) {
                     Ok(ok__) => {
-                        ppidecoder.write(core::mem::transmute(ok__));
+                        ppidecoder.cast::<IWICBitmapDecoder>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4099,7 +4099,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateEncoder(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pguidvendor)) {
                     Ok(ok__) => {
-                        ppiencoder.write(core::mem::transmute(ok__));
+                        ppiencoder.cast::<IWICBitmapEncoder>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4114,7 +4114,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreatePalette(this) {
                     Ok(ok__) => {
-                        ppipalette.write(core::mem::transmute(ok__));
+                        ppipalette.cast::<IWICPalette>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4129,7 +4129,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateFormatConverter(this) {
                     Ok(ok__) => {
-                        ppiformatconverter.write(core::mem::transmute(ok__));
+                        ppiformatconverter.cast::<IWICFormatConverter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4144,7 +4144,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateBitmapScaler(this) {
                     Ok(ok__) => {
-                        ppibitmapscaler.write(core::mem::transmute(ok__));
+                        ppibitmapscaler.cast::<IWICBitmapScaler>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4159,7 +4159,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateBitmapClipper(this) {
                     Ok(ok__) => {
-                        ppibitmapclipper.write(core::mem::transmute(ok__));
+                        ppibitmapclipper.cast::<IWICBitmapClipper>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4174,7 +4174,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateBitmapFlipRotator(this) {
                     Ok(ok__) => {
-                        ppibitmapfliprotator.write(core::mem::transmute(ok__));
+                        ppibitmapfliprotator.cast::<IWICBitmapFlipRotator>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4189,7 +4189,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateStream(this) {
                     Ok(ok__) => {
-                        ppiwicstream.write(core::mem::transmute(ok__));
+                        ppiwicstream.cast::<IWICStream>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4204,7 +4204,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateColorContext(this) {
                     Ok(ok__) => {
-                        ppiwiccolorcontext.write(core::mem::transmute(ok__));
+                        ppiwiccolorcontext.cast::<IWICColorContext>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4219,7 +4219,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateColorTransformer(this) {
                     Ok(ok__) => {
-                        ppiwiccolortransform.write(core::mem::transmute(ok__));
+                        ppiwiccolortransform.cast::<IWICColorTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4234,7 +4234,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateBitmap(this, core::mem::transmute_copy(&uiwidth), core::mem::transmute_copy(&uiheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&option)) {
                     Ok(ok__) => {
-                        ppibitmap.write(core::mem::transmute(ok__));
+                        ppibitmap.cast::<IWICBitmap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4249,7 +4249,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateBitmapFromSource(this, core::mem::transmute_copy(&pibitmapsource), core::mem::transmute_copy(&option)) {
                     Ok(ok__) => {
-                        ppibitmap.write(core::mem::transmute(ok__));
+                        ppibitmap.cast::<IWICBitmap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4264,7 +4264,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateBitmapFromSourceRect(this, core::mem::transmute_copy(&pibitmapsource), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)) {
                     Ok(ok__) => {
-                        ppibitmap.write(core::mem::transmute(ok__));
+                        ppibitmap.cast::<IWICBitmap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4279,7 +4279,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateBitmapFromMemory(this, core::mem::transmute_copy(&uiwidth), core::mem::transmute_copy(&uiheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&cbstride), core::mem::transmute_copy(&cbbuffersize), core::mem::transmute_copy(&pbbuffer)) {
                     Ok(ok__) => {
-                        ppibitmap.write(core::mem::transmute(ok__));
+                        ppibitmap.cast::<IWICBitmap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4294,7 +4294,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateBitmapFromHBITMAP(this, core::mem::transmute_copy(&hbitmap), core::mem::transmute_copy(&hpalette), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        ppibitmap.write(core::mem::transmute(ok__));
+                        ppibitmap.cast::<IWICBitmap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4309,7 +4309,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateBitmapFromHICON(this, core::mem::transmute_copy(&hicon)) {
                     Ok(ok__) => {
-                        ppibitmap.write(core::mem::transmute(ok__));
+                        ppibitmap.cast::<IWICBitmap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4324,7 +4324,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateComponentEnumerator(this, core::mem::transmute_copy(&componenttypes), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        ppienumunknown.write(core::mem::transmute(ok__));
+                        ppienumunknown.cast::<super::IEnumUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4339,7 +4339,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateFastMetadataEncoderFromDecoder(this, core::mem::transmute_copy(&pidecoder)) {
                     Ok(ok__) => {
-                        ppifastencoder.write(core::mem::transmute(ok__));
+                        ppifastencoder.cast::<IWICFastMetadataEncoder>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4354,7 +4354,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateFastMetadataEncoderFromFrameDecode(this, core::mem::transmute_copy(&piframedecoder)) {
                     Ok(ok__) => {
-                        ppifastencoder.write(core::mem::transmute(ok__));
+                        ppifastencoder.cast::<IWICFastMetadataEncoder>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4369,7 +4369,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateQueryWriter(this, core::mem::transmute_copy(&guidmetadataformat), core::mem::transmute_copy(&pguidvendor)) {
                     Ok(ok__) => {
-                        ppiquerywriter.write(core::mem::transmute(ok__));
+                        ppiquerywriter.cast::<IWICMetadataQueryWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4384,7 +4384,7 @@ impl IWICImagingFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory_Impl::CreateQueryWriterFromReader(this, core::mem::transmute_copy(&piqueryreader), core::mem::transmute_copy(&pguidvendor)) {
                     Ok(ok__) => {
-                        ppiquerywriter.write(core::mem::transmute(ok__));
+                        ppiquerywriter.cast::<IWICMetadataQueryWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4443,7 +4443,7 @@ impl IWICImagingFactory2 {
     where
         P0: windows_core::Param<super::ID2D1Device>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateImageEncoder)(windows_core::Interface::as_raw(self), pd2ddevice.param().abi(), core::mem::transmute(ppwicimageencoder)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateImageEncoder)(windows_core::Interface::as_raw(self), pd2ddevice.param().abi(), ppwicimageencoder as _) }
     }
 }
 #[repr(C)]
@@ -4510,7 +4510,7 @@ impl IWICImagingFactory3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICImagingFactory3_Impl::CreateBitmapToneMapper(this) {
                     Ok(ok__) => {
-                        pptonemapper.write(core::mem::transmute(ok__));
+                        pptonemapper.cast::<IWICBitmapToneMapper>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4862,7 +4862,7 @@ impl IWICMetadataQueryReader_Vtbl {
         unsafe extern "system" fn GetMetadataByName<Identity: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWICMetadataQueryReader_Impl::GetMetadataByName(this, core::mem::transmute(&wzname), core::mem::transmute_copy(&pvarvalue))
+                IWICMetadataQueryReader_Impl::GetMetadataByName(this, &*(&raw const wzname).cast(), core::mem::transmute_copy(&pvarvalue))
             }
         }
         unsafe extern "system" fn GetEnumerator<Identity: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppienumstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4870,7 +4870,7 @@ impl IWICMetadataQueryReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataQueryReader_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
-                        ppienumstring.write(core::mem::transmute(ok__));
+                        ppienumstring.cast::<super::IEnumString>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4938,13 +4938,13 @@ impl IWICMetadataQueryWriter_Vtbl {
         unsafe extern "system" fn SetMetadataByName<Identity: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *const super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWICMetadataQueryWriter_Impl::SetMetadataByName(this, core::mem::transmute(&wzname), core::mem::transmute_copy(&pvarvalue))
+                IWICMetadataQueryWriter_Impl::SetMetadataByName(this, &*(&raw const wzname).cast(), core::mem::transmute_copy(&pvarvalue))
             }
         }
         unsafe extern "system" fn RemoveMetadataByName<Identity: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWICMetadataQueryWriter_Impl::RemoveMetadataByName(this, core::mem::transmute(&wzname))
+                IWICMetadataQueryWriter_Impl::RemoveMetadataByName(this, &*(&raw const wzname).cast())
             }
         }
         Self {
@@ -5198,7 +5198,7 @@ impl IWICPixelFormatInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPixelFormatInfo_Impl::GetColorContext(this) {
                     Ok(ok__) => {
-                        ppicolorcontext.write(core::mem::transmute(ok__));
+                        ppicolorcontext.cast::<IWICColorContext>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5305,7 +5305,7 @@ impl IWICPlanarBitmapFrameEncode {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn WriteSource(&self, ppplanes: *const Option<IWICBitmapSource>, cplanes: super::UINT, prcsource: Option<*const WICRect>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteSource)(windows_core::Interface::as_raw(self), core::mem::transmute(ppplanes), cplanes, prcsource.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).WriteSource)(windows_core::Interface::as_raw(self), ppplanes as _, cplanes, prcsource.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -5424,7 +5424,7 @@ impl IWICPlanarFormatConverter {
     where
         P4: windows_core::Param<IWICPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(ppplanes), cplanes, dstformat, dither, pipalette.param().abi(), alphathresholdpercent, palettetranslate) }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), ppplanes as _, cplanes, dstformat, dither, pipalette.param().abi(), alphathresholdpercent, palettetranslate) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn CanConvert(&self, psrcpixelformats: *const WICPixelFormatGUID, csrcplanes: super::UINT, dstpixelformat: *const windows_core::GUID, pfcanconvert: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -5683,7 +5683,7 @@ impl IWICStream_Vtbl {
         unsafe extern "system" fn InitializeFromFilename<Identity: IWICStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzfilename: windows_core::PCWSTR, dwdesiredaccess: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWICStream_Impl::InitializeFromFilename(this, core::mem::transmute(&wzfilename), core::mem::transmute_copy(&dwdesiredaccess))
+                IWICStream_Impl::InitializeFromFilename(this, &*(&raw const wzfilename).cast(), core::mem::transmute_copy(&dwdesiredaccess))
             }
         }
         unsafe extern "system" fn InitializeFromMemory<Identity: IWICStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbbuffer: WICInProcPointer, cbbuffersize: super::DWORD) -> windows_core::HRESULT {
@@ -5695,7 +5695,7 @@ impl IWICStream_Vtbl {
         unsafe extern "system" fn InitializeFromIStreamRegion<Identity: IWICStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, uloffset: super::ULARGE_INTEGER, ulmaxsize: super::ULARGE_INTEGER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWICStream_Impl::InitializeFromIStreamRegion(this, core::mem::transmute_copy(&pistream), core::mem::transmute(&uloffset), core::mem::transmute(&ulmaxsize))
+                IWICStream_Impl::InitializeFromIStreamRegion(this, core::mem::transmute_copy(&pistream), &*(&raw const uloffset).cast(), &*(&raw const ulmaxsize).cast())
             }
         }
         Self {

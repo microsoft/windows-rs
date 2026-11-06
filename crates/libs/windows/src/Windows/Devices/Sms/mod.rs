@@ -76,7 +76,7 @@ impl ISmsBinaryMessage {
     pub fn GetData(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn SetData(&self, value: &[u8]) -> windows_core::Result<()> {
@@ -1118,7 +1118,7 @@ impl ISmsTextMessage_Vtbl {
         unsafe extern "system" fn SetTo<Identity: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmsTextMessage_Impl::SetTo(this, core::mem::transmute(&value)).into()
+                ISmsTextMessage_Impl::SetTo(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn From<Identity: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1140,7 +1140,7 @@ impl ISmsTextMessage_Vtbl {
         unsafe extern "system" fn SetFrom<Identity: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmsTextMessage_Impl::SetFrom(this, core::mem::transmute(&value)).into()
+                ISmsTextMessage_Impl::SetFrom(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Body<Identity: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1162,7 +1162,7 @@ impl ISmsTextMessage_Vtbl {
         unsafe extern "system" fn SetBody<Identity: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmsTextMessage_Impl::SetBody(this, core::mem::transmute(&value)).into()
+                ISmsTextMessage_Impl::SetBody(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Encoding<Identity: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut SmsEncoding) -> windows_core::HRESULT {
@@ -1507,7 +1507,7 @@ impl SmsBinaryMessage {
     pub fn GetData(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn SetData(&self, value: &[u8]) -> windows_core::Result<()> {

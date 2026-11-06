@@ -1530,7 +1530,7 @@ impl IBDACreateTuneRequestEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBDACreateTuneRequestEx_Impl::CreateTuneRequestEx(this, core::mem::transmute_copy(&tunerequestiid)) {
                     Ok(ok__) => {
-                        tunerequest.write(core::mem::transmute(ok__));
+                        tunerequest.cast::<ITuneRequest>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1592,7 +1592,7 @@ impl IChannelIDTuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IChannelIDTuneRequest_Impl::ChannelID(this) {
                     Ok(ok__) => {
-                        channelid.write(core::mem::transmute(ok__));
+                        channelid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1605,7 +1605,7 @@ impl IChannelIDTuneRequest_Vtbl {
         unsafe extern "system" fn SetChannelID<Identity: IChannelIDTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channelid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChannelIDTuneRequest_Impl::SetChannelID(this, core::mem::transmute(&channelid))
+                IChannelIDTuneRequest_Impl::SetChannelID(this, &*(&raw const channelid).cast())
             }
         }
         Self { base__: ITuneRequest_Vtbl::new::<Identity, OFFSET>(), ChannelID: ChannelID::<Identity, OFFSET>, SetChannelID: SetChannelID::<Identity, OFFSET> }
@@ -1786,7 +1786,7 @@ impl IComponent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponent_Impl::Type(this) {
                     Ok(ok__) => {
-                        ct.write(core::mem::transmute(ok__));
+                        ct.cast::<IComponentType>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1849,7 +1849,7 @@ impl IComponent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponent_Impl::Description(this) {
                     Ok(ok__) => {
-                        description.write(core::mem::transmute(ok__));
+                        description.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1862,7 +1862,7 @@ impl IComponent_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponent_Impl::SetDescription(this, core::mem::transmute(&description))
+                IComponent_Impl::SetDescription(this, &*(&raw const description).cast())
             }
         }
         unsafe extern "system" fn Clone<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1870,7 +1870,7 @@ impl IComponent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponent_Impl::Clone(this) {
                     Ok(ok__) => {
-                        newcomponent.write(core::mem::transmute(ok__));
+                        newcomponent.cast::<IComponent>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2091,7 +2091,7 @@ impl IComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentType_Impl::MediaMajorType(this) {
                     Ok(ok__) => {
-                        mediamajortype.write(core::mem::transmute(ok__));
+                        mediamajortype.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2104,7 +2104,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn SetMediaMajorType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediamajortype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::SetMediaMajorType(this, core::mem::transmute(&mediamajortype))
+                IComponentType_Impl::SetMediaMajorType(this, &*(&raw const mediamajortype).cast())
             }
         }
         unsafe extern "system" fn _MediaMajorType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediamajortypeguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2133,7 +2133,7 @@ impl IComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentType_Impl::MediaSubType(this) {
                     Ok(ok__) => {
-                        mediasubtype.write(core::mem::transmute(ok__));
+                        mediasubtype.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2146,7 +2146,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn SetMediaSubType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediasubtype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::SetMediaSubType(this, core::mem::transmute(&mediasubtype))
+                IComponentType_Impl::SetMediaSubType(this, &*(&raw const mediasubtype).cast())
             }
         }
         unsafe extern "system" fn _MediaSubType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediasubtypeguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2175,7 +2175,7 @@ impl IComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentType_Impl::MediaFormatType(this) {
                     Ok(ok__) => {
-                        mediaformattype.write(core::mem::transmute(ok__));
+                        mediaformattype.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2188,7 +2188,7 @@ impl IComponentType_Vtbl {
         unsafe extern "system" fn SetMediaFormatType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediaformattype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentType_Impl::SetMediaFormatType(this, core::mem::transmute(&mediaformattype))
+                IComponentType_Impl::SetMediaFormatType(this, &*(&raw const mediaformattype).cast())
             }
         }
         unsafe extern "system" fn _MediaFormatType<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediaformattypeguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2217,7 +2217,7 @@ impl IComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentType_Impl::MediaType(this) {
                     Ok(ok__) => {
-                        mediatype.write(core::mem::transmute(ok__));
+                        mediatype.cast::<super::AM_MEDIA_TYPE>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2238,7 +2238,7 @@ impl IComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentType_Impl::Clone(this) {
                     Ok(ok__) => {
-                        newct.write(core::mem::transmute(ok__));
+                        newct.cast::<IComponentType>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2401,7 +2401,7 @@ impl IComponentTypes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentTypes_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppnewenum.write(core::mem::transmute(ok__));
+                        ppnewenum.cast::<super::IEnumVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2416,7 +2416,7 @@ impl IComponentTypes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentTypes_Impl::EnumComponentTypes(this) {
                     Ok(ok__) => {
-                        ppnewenum.write(core::mem::transmute(ok__));
+                        ppnewenum.cast::<IEnumComponentTypes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2429,9 +2429,9 @@ impl IComponentTypes_Vtbl {
         unsafe extern "system" fn Item<Identity: IComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, componenttype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IComponentTypes_Impl::Item(this, core::mem::transmute(&index)) {
+                match IComponentTypes_Impl::Item(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        componenttype.write(core::mem::transmute(ok__));
+                        componenttype.cast::<IComponentType>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2444,7 +2444,7 @@ impl IComponentTypes_Vtbl {
         unsafe extern "system" fn SetItem<Identity: IComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, componenttype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentTypes_Impl::SetItem(this, core::mem::transmute(&index), core::mem::transmute_copy(&componenttype))
+                IComponentTypes_Impl::SetItem(this, &*(&raw const index).cast(), core::mem::transmute_copy(&componenttype))
             }
         }
         unsafe extern "system" fn Add<Identity: IComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, componenttype: *mut core::ffi::c_void, newindex: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -2452,7 +2452,7 @@ impl IComponentTypes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentTypes_Impl::Add(this, core::mem::transmute_copy(&componenttype)) {
                     Ok(ok__) => {
-                        newindex.write(core::mem::transmute(ok__));
+                        newindex.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2465,7 +2465,7 @@ impl IComponentTypes_Vtbl {
         unsafe extern "system" fn Remove<Identity: IComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentTypes_Impl::Remove(this, core::mem::transmute(&index))
+                IComponentTypes_Impl::Remove(this, &*(&raw const index).cast())
             }
         }
         unsafe extern "system" fn Clone<Identity: IComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2473,7 +2473,7 @@ impl IComponentTypes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentTypes_Impl::Clone(this) {
                     Ok(ok__) => {
-                        newlist.write(core::mem::transmute(ok__));
+                        newlist.cast::<IComponentTypes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2627,7 +2627,7 @@ impl IComponents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponents_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppnewenum.write(core::mem::transmute(ok__));
+                        ppnewenum.cast::<super::IEnumVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2642,7 +2642,7 @@ impl IComponents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponents_Impl::EnumComponents(this) {
                     Ok(ok__) => {
-                        ppnewenum.write(core::mem::transmute(ok__));
+                        ppnewenum.cast::<IEnumComponents>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2655,9 +2655,9 @@ impl IComponents_Vtbl {
         unsafe extern "system" fn Item<Identity: IComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, ppcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IComponents_Impl::Item(this, core::mem::transmute(&index)) {
+                match IComponents_Impl::Item(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        ppcomponent.write(core::mem::transmute(ok__));
+                        ppcomponent.cast::<IComponent>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2672,7 +2672,7 @@ impl IComponents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponents_Impl::Add(this, core::mem::transmute_copy(&component)) {
                     Ok(ok__) => {
-                        newindex.write(core::mem::transmute(ok__));
+                        newindex.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2685,7 +2685,7 @@ impl IComponents_Vtbl {
         unsafe extern "system" fn Remove<Identity: IComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponents_Impl::Remove(this, core::mem::transmute(&index))
+                IComponents_Impl::Remove(this, &*(&raw const index).cast())
             }
         }
         unsafe extern "system" fn Clone<Identity: IComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2693,7 +2693,7 @@ impl IComponents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponents_Impl::Clone(this) {
                     Ok(ok__) => {
-                        newlist.write(core::mem::transmute(ok__));
+                        newlist.cast::<IComponents>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2706,7 +2706,7 @@ impl IComponents_Vtbl {
         unsafe extern "system" fn SetItem<Identity: IComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, ppcomponent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponents_Impl::SetItem(this, core::mem::transmute(&index), core::mem::transmute_copy(&ppcomponent))
+                IComponents_Impl::SetItem(this, &*(&raw const index).cast(), core::mem::transmute_copy(&ppcomponent))
             }
         }
         Self {
@@ -2841,7 +2841,7 @@ impl IComponentsOld_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentsOld_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppnewenum.write(core::mem::transmute(ok__));
+                        ppnewenum.cast::<super::IEnumVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2856,7 +2856,7 @@ impl IComponentsOld_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentsOld_Impl::EnumComponents(this) {
                     Ok(ok__) => {
-                        ppnewenum.write(core::mem::transmute(ok__));
+                        ppnewenum.cast::<IEnumComponents>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2869,9 +2869,9 @@ impl IComponentsOld_Vtbl {
         unsafe extern "system" fn Item<Identity: IComponentsOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, ppcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IComponentsOld_Impl::Item(this, core::mem::transmute(&index)) {
+                match IComponentsOld_Impl::Item(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        ppcomponent.write(core::mem::transmute(ok__));
+                        ppcomponent.cast::<IComponent>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2886,7 +2886,7 @@ impl IComponentsOld_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentsOld_Impl::Add(this, core::mem::transmute_copy(&component)) {
                     Ok(ok__) => {
-                        newindex.write(core::mem::transmute(ok__));
+                        newindex.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2899,7 +2899,7 @@ impl IComponentsOld_Vtbl {
         unsafe extern "system" fn Remove<Identity: IComponentsOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentsOld_Impl::Remove(this, core::mem::transmute(&index))
+                IComponentsOld_Impl::Remove(this, &*(&raw const index).cast())
             }
         }
         unsafe extern "system" fn Clone<Identity: IComponentsOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2907,7 +2907,7 @@ impl IComponentsOld_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentsOld_Impl::Clone(this) {
                     Ok(ok__) => {
-                        newlist.write(core::mem::transmute(ok__));
+                        newlist.cast::<IComponents>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3683,7 +3683,7 @@ impl IDVBSTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSTuningSpace_Impl::InputRange(this) {
                     Ok(ok__) => {
-                        inputrange.write(core::mem::transmute(ok__));
+                        inputrange.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3696,7 +3696,7 @@ impl IDVBSTuningSpace_Vtbl {
         unsafe extern "system" fn SetInputRange<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputrange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDVBSTuningSpace_Impl::SetInputRange(this, core::mem::transmute(&inputrange))
+                IDVBSTuningSpace_Impl::SetInputRange(this, &*(&raw const inputrange).cast())
             }
         }
         unsafe extern "system" fn SpectralInversion<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spectralinversionval: *mut super::SpectralInversion) -> windows_core::HRESULT {
@@ -4887,9 +4887,9 @@ impl IESEventFactory_Vtbl {
         unsafe extern "system" fn CreateESEvent<Identity: IESEventFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pserviceprovider: *mut core::ffi::c_void, dweventid: super::DWORD, guideventtype: windows_core::GUID, dweventdatalength: super::DWORD, peventdata: *const super::BYTE, bstrbaseurl: *mut core::ffi::c_void, pinitcontext: *mut core::ffi::c_void, ppesevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IESEventFactory_Impl::CreateESEvent(this, core::mem::transmute_copy(&pserviceprovider), core::mem::transmute_copy(&dweventid), core::mem::transmute(&guideventtype), core::mem::transmute_copy(&dweventdatalength), core::mem::transmute_copy(&peventdata), core::mem::transmute(&bstrbaseurl), core::mem::transmute_copy(&pinitcontext)) {
+                match IESEventFactory_Impl::CreateESEvent(this, core::mem::transmute_copy(&pserviceprovider), core::mem::transmute_copy(&dweventid), &*(&raw const guideventtype).cast(), core::mem::transmute_copy(&dweventdatalength), core::mem::transmute_copy(&peventdata), &*(&raw const bstrbaseurl).cast(), core::mem::transmute_copy(&pinitcontext)) {
                     Ok(ok__) => {
-                        ppesevent.write(core::mem::transmute(ok__));
+                        ppesevent.cast::<super::IESEvent>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5571,7 +5571,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::GetFileName(this) {
                     Ok(ok__) => {
-                        pbstrfilename.write(core::mem::transmute(ok__));
+                        pbstrfilename.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5773,7 +5773,7 @@ impl IESOpenMmiEvent {
     pub unsafe fn GetDialogStringData(&self, pbstrbaseurl: *mut windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDialogStringData)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrbaseurl), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetDialogStringData)(windows_core::Interface::as_raw(self), pbstrbaseurl as _, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -5853,7 +5853,7 @@ impl IESOpenMmiEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESOpenMmiEvent_Impl::GetDialogStringData(this, core::mem::transmute_copy(&pbstrbaseurl)) {
                     Ok(ok__) => {
-                        pbstrdata.write(core::mem::transmute(ok__));
+                        pbstrdata.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6091,7 +6091,7 @@ windows_core::imp::interface_hierarchy!(IEnumComponentTypes, windows_core::IUnkn
 impl IEnumComponentTypes {
     #[cfg(all(feature = "oaidl", feature = "shared"))]
     pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IComponentType>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -6155,7 +6155,7 @@ impl IEnumComponentTypes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumComponentTypes_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumComponentTypes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6184,7 +6184,7 @@ windows_core::imp::interface_hierarchy!(IEnumComponents, windows_core::IUnknown)
 impl IEnumComponents {
     #[cfg(all(feature = "oaidl", feature = "shared"))]
     pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IComponent>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -6248,7 +6248,7 @@ impl IEnumComponents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumComponents_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumComponents>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6277,7 +6277,7 @@ windows_core::imp::interface_hierarchy!(IEnumTuningSpaces, windows_core::IUnknow
 impl IEnumTuningSpaces {
     #[cfg(all(feature = "oaidl", feature = "shared"))]
     pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<ITuningSpace>, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
@@ -6341,7 +6341,7 @@ impl IEnumTuningSpaces_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumTuningSpaces_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumTuningSpaces>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6391,7 +6391,7 @@ impl IGpnvsCommonBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGpnvsCommonBase_Impl::GetValueUpdateName(this) {
                     Ok(ok__) => {
-                        pbstrname.write(core::mem::transmute(ok__));
+                        pbstrname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6823,7 +6823,7 @@ impl ILocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocator_Impl::Clone(this) {
                     Ok(ok__) => {
-                        newlocator.write(core::mem::transmute(ok__));
+                        newlocator.cast::<ILocator>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7232,7 +7232,7 @@ impl IMPEG2TuneRequestFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMPEG2TuneRequestFactory_Impl::CreateTuneRequest(this, core::mem::transmute_copy(&tuningspace)) {
                     Ok(ok__) => {
-                        tunerequest.write(core::mem::transmute(ok__));
+                        tunerequest.cast::<IMPEG2TuneRequest>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7325,7 +7325,7 @@ impl IPersistTuneXml_Vtbl {
         unsafe extern "system" fn Load<Identity: IPersistTuneXml_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPersistTuneXml_Impl::Load(this, core::mem::transmute(&varvalue))
+                IPersistTuneXml_Impl::Load(this, &*(&raw const varvalue).cast())
             }
         }
         unsafe extern "system" fn Save<Identity: IPersistTuneXml_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarfragment: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -7377,9 +7377,9 @@ impl IPersistTuneXmlUtility_Vtbl {
         unsafe extern "system" fn Deserialize<Identity: IPersistTuneXmlUtility_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: super::VARIANT, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPersistTuneXmlUtility_Impl::Deserialize(this, core::mem::transmute(&varvalue)) {
+                match IPersistTuneXmlUtility_Impl::Deserialize(this, &*(&raw const varvalue).cast()) {
                     Ok(ok__) => {
-                        ppobject.write(core::mem::transmute(ok__));
+                        ppobject.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7438,7 +7438,7 @@ impl IPersistTuneXmlUtility2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPersistTuneXmlUtility2_Impl::Serialize(this, core::mem::transmute_copy(&pitunerequest)) {
                     Ok(ok__) => {
-                        pstring.write(core::mem::transmute(ok__));
+                        pstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7616,7 +7616,7 @@ windows_core::imp::interface_hierarchy!(IScanningTunerEx, windows_core::IUnknown
 impl IScanningTunerEx {
     #[cfg(feature = "oaidl")]
     pub unsafe fn GetCurrentLocator(&self, pilocator: *const Option<ILocator>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentLocator)(windows_core::Interface::as_raw(self), core::mem::transmute(pilocator)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentLocator)(windows_core::Interface::as_raw(self), pilocator as _) }
     }
     #[cfg(all(feature = "strmif", feature = "wtypes"))]
     pub unsafe fn PerformExhaustiveScan(&self, dwlowerfreq: i32, dwhigherfreq: i32, bfinetune: super::VARIANT_BOOL, hevent: super::HEVENT) -> windows_core::HRESULT {
@@ -7729,7 +7729,7 @@ impl IScanningTunerEx_Vtbl {
         unsafe extern "system" fn GetCurrentTunerStandardCapability<Identity: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentbroadcaststandard: windows_core::GUID, settlingtime: *mut i32, tvstandardssupported: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScanningTunerEx_Impl::GetCurrentTunerStandardCapability(this, core::mem::transmute(&currentbroadcaststandard), core::mem::transmute_copy(&settlingtime), core::mem::transmute_copy(&tvstandardssupported))
+                IScanningTunerEx_Impl::GetCurrentTunerStandardCapability(this, &*(&raw const currentbroadcaststandard).cast(), core::mem::transmute_copy(&settlingtime), core::mem::transmute_copy(&tvstandardssupported))
             }
         }
         unsafe extern "system" fn SetScanSignalTypeFilter<Identity: IScanningTunerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanmodulationtypes: i32, analogvideostandard: i32) -> windows_core::HRESULT {
@@ -7827,7 +7827,7 @@ impl ITuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuneRequest_Impl::TuningSpace(this) {
                     Ok(ok__) => {
-                        tuningspace.write(core::mem::transmute(ok__));
+                        tuningspace.cast::<ITuningSpace>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7842,7 +7842,7 @@ impl ITuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuneRequest_Impl::Components(this) {
                     Ok(ok__) => {
-                        components.write(core::mem::transmute(ok__));
+                        components.cast::<IComponents>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7857,7 +7857,7 @@ impl ITuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuneRequest_Impl::Clone(this) {
                     Ok(ok__) => {
-                        newtunerequest.write(core::mem::transmute(ok__));
+                        newtunerequest.cast::<ITuneRequest>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7872,7 +7872,7 @@ impl ITuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuneRequest_Impl::Locator(this) {
                     Ok(ok__) => {
-                        locator.write(core::mem::transmute(ok__));
+                        locator.cast::<ILocator>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8028,7 +8028,7 @@ impl ITuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuner_Impl::TuningSpace(this) {
                     Ok(ok__) => {
-                        tuningspace.write(core::mem::transmute(ok__));
+                        tuningspace.cast::<ITuningSpace>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8049,7 +8049,7 @@ impl ITuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuner_Impl::EnumTuningSpaces(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumTuningSpaces>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8064,7 +8064,7 @@ impl ITuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuner_Impl::TuneRequest(this) {
                     Ok(ok__) => {
-                        tunerequest.write(core::mem::transmute(ok__));
+                        tunerequest.cast::<ITuneRequest>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8091,7 +8091,7 @@ impl ITuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuner_Impl::PreferredComponentTypes(this) {
                     Ok(ok__) => {
-                        componenttypes.write(core::mem::transmute(ok__));
+                        componenttypes.cast::<IComponentTypes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8451,7 +8451,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::UniqueName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8464,7 +8464,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn SetUniqueName<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::SetUniqueName(this, core::mem::transmute(&name))
+                ITuningSpace_Impl::SetUniqueName(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn FriendlyName<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8472,7 +8472,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::FriendlyName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8485,7 +8485,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::SetFriendlyName(this, core::mem::transmute(&name))
+                ITuningSpace_Impl::SetFriendlyName(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn CLSID<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spaceclsid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8493,7 +8493,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::CLSID(this) {
                     Ok(ok__) => {
-                        spaceclsid.write(core::mem::transmute(ok__));
+                        spaceclsid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8508,7 +8508,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::NetworkType(this) {
                     Ok(ok__) => {
-                        networktypeguid.write(core::mem::transmute(ok__));
+                        networktypeguid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8521,7 +8521,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn SetNetworkType<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networktypeguid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::SetNetworkType(this, core::mem::transmute(&networktypeguid))
+                ITuningSpace_Impl::SetNetworkType(this, &*(&raw const networktypeguid).cast())
             }
         }
         unsafe extern "system" fn _NetworkType<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networktypeguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -8550,7 +8550,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::CreateTuneRequest(this) {
                     Ok(ok__) => {
-                        tunerequest.write(core::mem::transmute(ok__));
+                        tunerequest.cast::<ITuneRequest>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8565,7 +8565,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::EnumCategoryGUIDs(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<super::IEnumGUID>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8580,7 +8580,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::EnumDeviceMonikers(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<super::IEnumMoniker>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8595,7 +8595,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::DefaultPreferredComponentTypes(this) {
                     Ok(ok__) => {
-                        componenttypes.write(core::mem::transmute(ok__));
+                        componenttypes.cast::<IComponentTypes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8616,7 +8616,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::FrequencyMapping(this) {
                     Ok(ok__) => {
-                        pmapping.write(core::mem::transmute(ok__));
+                        pmapping.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8629,7 +8629,7 @@ impl ITuningSpace_Vtbl {
         unsafe extern "system" fn SetFrequencyMapping<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mapping: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpace_Impl::SetFrequencyMapping(this, core::mem::transmute(&mapping))
+                ITuningSpace_Impl::SetFrequencyMapping(this, &*(&raw const mapping).cast())
             }
         }
         unsafe extern "system" fn DefaultLocator<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locatorval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8637,7 +8637,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::DefaultLocator(this) {
                     Ok(ok__) => {
-                        locatorval.write(core::mem::transmute(ok__));
+                        locatorval.cast::<ILocator>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8658,7 +8658,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::Clone(this) {
                     Ok(ok__) => {
-                        newts.write(core::mem::transmute(ok__));
+                        newts.cast::<ITuningSpace>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8867,7 +8867,7 @@ impl ITuningSpaceContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpaceContainer_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        newenum.write(core::mem::transmute(ok__));
+                        newenum.cast::<super::IEnumVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8880,9 +8880,9 @@ impl ITuningSpaceContainer_Vtbl {
         unsafe extern "system" fn Item<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::VARIANT, tuningspace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITuningSpaceContainer_Impl::Item(this, core::mem::transmute(&varindex)) {
+                match ITuningSpaceContainer_Impl::Item(this, &*(&raw const varindex).cast()) {
                     Ok(ok__) => {
-                        tuningspace.write(core::mem::transmute(ok__));
+                        tuningspace.cast::<ITuningSpace>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8895,15 +8895,15 @@ impl ITuningSpaceContainer_Vtbl {
         unsafe extern "system" fn SetItem<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::VARIANT, tuningspace: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpaceContainer_Impl::SetItem(this, core::mem::transmute(&varindex), core::mem::transmute_copy(&tuningspace))
+                ITuningSpaceContainer_Impl::SetItem(this, &*(&raw const varindex).cast(), core::mem::transmute_copy(&tuningspace))
             }
         }
         unsafe extern "system" fn TuningSpacesForCLSID<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spaceclsid: *mut core::ffi::c_void, newcoll: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITuningSpaceContainer_Impl::TuningSpacesForCLSID(this, core::mem::transmute(&spaceclsid)) {
+                match ITuningSpaceContainer_Impl::TuningSpacesForCLSID(this, &*(&raw const spaceclsid).cast()) {
                     Ok(ok__) => {
-                        newcoll.write(core::mem::transmute(ok__));
+                        newcoll.cast::<ITuningSpaces>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8918,7 +8918,7 @@ impl ITuningSpaceContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpaceContainer_Impl::_TuningSpacesForCLSID(this, core::mem::transmute_copy(&spaceclsid)) {
                     Ok(ok__) => {
-                        newcoll.write(core::mem::transmute(ok__));
+                        newcoll.cast::<ITuningSpaces>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8931,9 +8931,9 @@ impl ITuningSpaceContainer_Vtbl {
         unsafe extern "system" fn TuningSpacesForName<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, newcoll: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITuningSpaceContainer_Impl::TuningSpacesForName(this, core::mem::transmute(&name)) {
+                match ITuningSpaceContainer_Impl::TuningSpacesForName(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        newcoll.write(core::mem::transmute(ok__));
+                        newcoll.cast::<ITuningSpaces>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8963,7 +8963,7 @@ impl ITuningSpaceContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpaceContainer_Impl::Add(this, core::mem::transmute_copy(&tuningspace)) {
                     Ok(ok__) => {
-                        newindex.write(core::mem::transmute(ok__));
+                        newindex.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8978,7 +8978,7 @@ impl ITuningSpaceContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpaceContainer_Impl::EnumTuningSpaces(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumTuningSpaces>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8991,7 +8991,7 @@ impl ITuningSpaceContainer_Vtbl {
         unsafe extern "system" fn Remove<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITuningSpaceContainer_Impl::Remove(this, core::mem::transmute(&index))
+                ITuningSpaceContainer_Impl::Remove(this, &*(&raw const index).cast())
             }
         }
         unsafe extern "system" fn MaxCount<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxcount: *mut i32) -> windows_core::HRESULT {
@@ -9120,7 +9120,7 @@ impl ITuningSpaces_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpaces_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        newenum.write(core::mem::transmute(ok__));
+                        newenum.cast::<super::IEnumVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9133,9 +9133,9 @@ impl ITuningSpaces_Vtbl {
         unsafe extern "system" fn Item<Identity: ITuningSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::VARIANT, tuningspace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITuningSpaces_Impl::Item(this, core::mem::transmute(&varindex)) {
+                match ITuningSpaces_Impl::Item(this, &*(&raw const varindex).cast()) {
                     Ok(ok__) => {
-                        tuningspace.write(core::mem::transmute(ok__));
+                        tuningspace.cast::<ITuningSpace>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9150,7 +9150,7 @@ impl ITuningSpaces_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpaces_Impl::EnumTuningSpaces(this) {
                     Ok(ok__) => {
-                        newenum.write(core::mem::transmute(ok__));
+                        newenum.cast::<IEnumTuningSpaces>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

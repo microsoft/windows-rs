@@ -323,7 +323,7 @@ impl IDirectDrawVideo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectDrawVideo_Impl::GetDirectDraw(this) {
                     Ok(ok__) => {
-                        ppdirectdraw.write(core::mem::transmute(ok__));
+                        ppdirectdraw.cast::<super::LPDIRECTDRAW>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -458,7 +458,7 @@ impl IFullScreenVideo {
         unsafe { (windows_core::Interface::vtable(self).SetCaption)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strcaption)) }
     }
     pub unsafe fn GetCaption(&self, pstrcaption: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCaption)(windows_core::Interface::as_raw(self), core::mem::transmute(pstrcaption)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCaption)(windows_core::Interface::as_raw(self), pstrcaption as _) }
     }
     pub unsafe fn SetDefault(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDefault)(windows_core::Interface::as_raw(self)) }
@@ -602,7 +602,7 @@ impl IFullScreenVideo_Vtbl {
         unsafe extern "system" fn SetCaption<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFullScreenVideo_Impl::SetCaption(this, core::mem::transmute(&strcaption))
+                IFullScreenVideo_Impl::SetCaption(this, &*(&raw const strcaption).cast())
             }
         }
         unsafe extern "system" fn GetCaption<Identity: IFullScreenVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcaption: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

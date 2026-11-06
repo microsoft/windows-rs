@@ -46,7 +46,7 @@ impl Interface {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(self).Values)(
                 windows_core::Interface::as_raw(self),
-                windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)),
+                windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()),
                 result__.as_mut_ptr() as *mut _ as _,
             )
             .map(|| result__.assume_init())

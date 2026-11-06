@@ -384,7 +384,7 @@ impl IIndexableContent_Vtbl {
         unsafe extern "system" fn SetId<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IIndexableContent_Impl::SetId(this, core::mem::transmute(&value)).into()
+                IIndexableContent_Impl::SetId(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Properties<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -444,7 +444,7 @@ impl IIndexableContent_Vtbl {
         unsafe extern "system" fn SetStreamContentType<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IIndexableContent_Impl::SetStreamContentType(this, core::mem::transmute(&value)).into()
+                IIndexableContent_Impl::SetStreamContentType(this, &*(&raw const value).cast()).into()
             }
         }
         Self {
@@ -1678,7 +1678,7 @@ impl SortEntryVector {
         }
     }
     pub fn ReplaceAll(&self, items: &[SortEntry]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReplaceAll)(windows_core::Interface::as_raw(self), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReplaceAll)(windows_core::Interface::as_raw(self), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
 }
 impl windows_core::RuntimeType for SortEntryVector {

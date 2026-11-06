@@ -2262,11 +2262,11 @@ impl IDMLDevice {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Evict(&self, count: super::UINT, ppobjects: *const Option<IDMLPageable>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), count, core::mem::transmute(ppobjects)) }
+        unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), count, ppobjects as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn MakeResident(&self, count: super::UINT, ppobjects: *const Option<IDMLPageable>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).MakeResident)(windows_core::Interface::as_raw(self), count, core::mem::transmute(ppobjects)) }
+        unsafe { (windows_core::Interface::vtable(self).MakeResident)(windows_core::Interface::as_raw(self), count, ppobjects as _) }
     }
     pub unsafe fn GetDeviceRemovedReason(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceRemovedReason)(windows_core::Interface::as_raw(self)) }
@@ -2631,7 +2631,7 @@ impl IDMLObject_Vtbl {
         unsafe extern "system" fn SetName<Identity: IDMLObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLObject_Impl::SetName(this, core::mem::transmute(&name))
+                IDMLObject_Impl::SetName(this, &*(&raw const name).cast())
             }
         }
         Self {

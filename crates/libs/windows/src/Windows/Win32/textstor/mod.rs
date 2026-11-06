@@ -173,7 +173,7 @@ impl IAnchor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnchor_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppaclone.write(core::mem::transmute(ok__));
+                        ppaclone.cast::<IAnchor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -257,7 +257,7 @@ impl ITextStoreACP {
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn GetEmbedded(&self, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), acppos, rguidservice, riid, core::mem::transmute(ppunk)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), acppos, rguidservice, riid, ppunk as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypes"))]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -519,7 +519,7 @@ impl ITextStoreACP_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoreACP_Impl::GetFormattedText(this, core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend)) {
                     Ok(ok__) => {
-                        ppdataobject.write(core::mem::transmute(ok__));
+                        ppdataobject.cast::<super::IDataObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -714,7 +714,7 @@ impl ITextStoreACP2 {
     }
     #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn GetEmbedded(&self, acppos: super::LONG, rguidservice: *const windows_core::GUID, riid: *const super::IID, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), acppos, rguidservice, riid, core::mem::transmute(ppunk)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), acppos, rguidservice, riid, ppunk as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared", feature = "wtypes"))]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const windows_core::GUID, pformatetc: *const super::FORMATETC, pfinsertable: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -967,7 +967,7 @@ impl ITextStoreACP2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoreACP2_Impl::GetFormattedText(this, core::mem::transmute_copy(&acpstart), core::mem::transmute_copy(&acpend)) {
                     Ok(ok__) => {
-                        ppdataobject.write(core::mem::transmute(ok__));
+                        ppdataobject.cast::<super::IDataObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1271,7 +1271,7 @@ impl ITextStoreAnchor {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryInsert)(windows_core::Interface::as_raw(self), pateststart.param().abi(), patestend.param().abi(), cch, core::mem::transmute(pparesultstart), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).QueryInsert)(windows_core::Interface::as_raw(self), pateststart.param().abi(), patestend.param().abi(), cch, pparesultstart as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
@@ -1314,7 +1314,7 @@ impl ITextStoreAnchor {
     where
         P1: windows_core::Param<IAnchor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), dwflags, papos.param().abi(), rguidservice, riid, core::mem::transmute(ppunk)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), dwflags, papos.param().abi(), rguidservice, riid, ppunk as _) }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
     pub unsafe fn InsertEmbedded<P1, P2, P3>(&self, dwflags: super::DWORD, pastart: P1, paend: P2, pdataobject: P3) -> windows_core::HRESULT
@@ -1401,7 +1401,7 @@ impl ITextStoreAnchor {
     pub unsafe fn InsertTextAtSelection(&self, dwflags: super::DWORD, pchtext: *const super::WCHAR, cch: super::ULONG, ppastart: *mut Option<IAnchor>) -> windows_core::Result<IAnchor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext, cch, core::mem::transmute(ppastart), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, pchtext, cch, ppastart as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "objidl", feature = "shared"))]
@@ -1411,7 +1411,7 @@ impl ITextStoreAnchor {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), dwflags, pdataobject.param().abi(), core::mem::transmute(ppastart), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), dwflags, pdataobject.param().abi(), ppastart as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1578,7 +1578,7 @@ impl ITextStoreAnchor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoreAnchor_Impl::QueryInsert(this, core::mem::transmute_copy(&pateststart), core::mem::transmute_copy(&patestend), core::mem::transmute_copy(&cch), core::mem::transmute_copy(&pparesultstart)) {
                     Ok(ok__) => {
-                        pparesultend.write(core::mem::transmute(ok__));
+                        pparesultend.cast::<IAnchor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1617,7 +1617,7 @@ impl ITextStoreAnchor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoreAnchor_Impl::GetFormattedText(this, core::mem::transmute_copy(&pastart), core::mem::transmute_copy(&paend)) {
                     Ok(ok__) => {
-                        ppdataobject.write(core::mem::transmute(ok__));
+                        ppdataobject.cast::<super::IDataObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1674,7 +1674,7 @@ impl ITextStoreAnchor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoreAnchor_Impl::GetStart(this) {
                     Ok(ok__) => {
-                        ppastart.write(core::mem::transmute(ok__));
+                        ppastart.cast::<IAnchor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1689,7 +1689,7 @@ impl ITextStoreAnchor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoreAnchor_Impl::GetEnd(this) {
                     Ok(ok__) => {
-                        ppaend.write(core::mem::transmute(ok__));
+                        ppaend.cast::<IAnchor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1710,7 +1710,7 @@ impl ITextStoreAnchor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoreAnchor_Impl::GetAnchorFromPoint(this, core::mem::transmute_copy(&vcview), core::mem::transmute_copy(&ptscreen), core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        ppasite.write(core::mem::transmute(ok__));
+                        ppasite.cast::<IAnchor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1749,7 +1749,7 @@ impl ITextStoreAnchor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoreAnchor_Impl::InsertTextAtSelection(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pchtext), core::mem::transmute_copy(&cch), core::mem::transmute_copy(&ppastart)) {
                     Ok(ok__) => {
-                        ppaend.write(core::mem::transmute(ok__));
+                        ppaend.cast::<IAnchor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1764,7 +1764,7 @@ impl ITextStoreAnchor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextStoreAnchor_Impl::InsertEmbeddedAtSelection(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdataobject), core::mem::transmute_copy(&ppastart)) {
                     Ok(ok__) => {
-                        ppaend.write(core::mem::transmute(ok__));
+                        ppaend.cast::<IAnchor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

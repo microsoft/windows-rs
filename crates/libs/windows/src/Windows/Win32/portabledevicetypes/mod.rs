@@ -669,7 +669,7 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetStringValue<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, value: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPortableDeviceValues_Impl::SetStringValue(this, core::mem::transmute_copy(&key), core::mem::transmute(&value))
+                IPortableDeviceValues_Impl::SetStringValue(this, core::mem::transmute_copy(&key), &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn GetStringValue<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, pvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -785,7 +785,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetIUnknownValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        ppvalue.write(core::mem::transmute(ok__));
+                        ppvalue.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -830,7 +830,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetIPortableDeviceValuesValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        ppvalue.write(core::mem::transmute(ok__));
+                        ppvalue.cast::<IPortableDeviceValues>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -851,7 +851,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetIPortableDevicePropVariantCollectionValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        ppvalue.write(core::mem::transmute(ok__));
+                        ppvalue.cast::<IPortableDevicePropVariantCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -872,7 +872,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetIPortableDeviceKeyCollectionValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        ppvalue.write(core::mem::transmute(ok__));
+                        ppvalue.cast::<IPortableDeviceKeyCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -893,7 +893,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetIPortableDeviceValuesCollectionValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        ppvalue.write(core::mem::transmute(ok__));
+                        ppvalue.cast::<IPortableDeviceValuesCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1046,7 +1046,7 @@ impl IPortableDeviceValuesCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValuesCollection_Impl::GetAt(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        ppvalues.write(core::mem::transmute(ok__));
+                        ppvalues.cast::<IPortableDeviceValues>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1157,7 +1157,7 @@ impl IWpdSerializer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWpdSerializer_Impl::GetIPortableDeviceValuesFromBuffer(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwinputbufferlength)) {
                     Ok(ok__) => {
-                        ppparams.write(core::mem::transmute(ok__));
+                        ppparams.cast::<IPortableDeviceValues>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

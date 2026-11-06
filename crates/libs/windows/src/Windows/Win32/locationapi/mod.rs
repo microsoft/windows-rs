@@ -89,7 +89,7 @@ impl ICivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICivicAddressReport_Impl::GetAddressLine1(this) {
                     Ok(ok__) => {
-                        pbstraddress1.write(core::mem::transmute(ok__));
+                        pbstraddress1.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -104,7 +104,7 @@ impl ICivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICivicAddressReport_Impl::GetAddressLine2(this) {
                     Ok(ok__) => {
-                        pbstraddress2.write(core::mem::transmute(ok__));
+                        pbstraddress2.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -119,7 +119,7 @@ impl ICivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICivicAddressReport_Impl::GetCity(this) {
                     Ok(ok__) => {
-                        pbstrcity.write(core::mem::transmute(ok__));
+                        pbstrcity.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -134,7 +134,7 @@ impl ICivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICivicAddressReport_Impl::GetStateProvince(this) {
                     Ok(ok__) => {
-                        pbstrstateprovince.write(core::mem::transmute(ok__));
+                        pbstrstateprovince.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -149,7 +149,7 @@ impl ICivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICivicAddressReport_Impl::GetPostalCode(this) {
                     Ok(ok__) => {
-                        pbstrpostalcode.write(core::mem::transmute(ok__));
+                        pbstrpostalcode.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -164,7 +164,7 @@ impl ICivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICivicAddressReport_Impl::GetCountryRegion(this) {
                     Ok(ok__) => {
-                        pbstrcountryregion.write(core::mem::transmute(ok__));
+                        pbstrcountryregion.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -245,7 +245,7 @@ impl ICivicAddressReportFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICivicAddressReportFactory_Impl::CivicAddressReport(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<IDispCivicAddressReport>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -313,7 +313,7 @@ impl IDefaultLocation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDefaultLocation_Impl::GetReport(this, core::mem::transmute_copy(&reporttype)) {
                     Ok(ok__) => {
-                        pplocationreport.write(core::mem::transmute(ok__));
+                        pplocationreport.cast::<ILocationReport>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -438,7 +438,7 @@ impl IDispCivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispCivicAddressReport_Impl::AddressLine1(this) {
                     Ok(ok__) => {
-                        paddress1.write(core::mem::transmute(ok__));
+                        paddress1.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -453,7 +453,7 @@ impl IDispCivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispCivicAddressReport_Impl::AddressLine2(this) {
                     Ok(ok__) => {
-                        paddress2.write(core::mem::transmute(ok__));
+                        paddress2.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -468,7 +468,7 @@ impl IDispCivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispCivicAddressReport_Impl::City(this) {
                     Ok(ok__) => {
-                        pcity.write(core::mem::transmute(ok__));
+                        pcity.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -483,7 +483,7 @@ impl IDispCivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispCivicAddressReport_Impl::StateProvince(this) {
                     Ok(ok__) => {
-                        pstateprovince.write(core::mem::transmute(ok__));
+                        pstateprovince.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -498,7 +498,7 @@ impl IDispCivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispCivicAddressReport_Impl::PostalCode(this) {
                     Ok(ok__) => {
-                        ppostalcode.write(core::mem::transmute(ok__));
+                        ppostalcode.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -513,7 +513,7 @@ impl IDispCivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispCivicAddressReport_Impl::CountryRegion(this) {
                     Ok(ok__) => {
-                        pcountryregion.write(core::mem::transmute(ok__));
+                        pcountryregion.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -985,7 +985,7 @@ impl ILatLongReportFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILatLongReportFactory_Impl::LatLongReport(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<IDispLatLongReport>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1131,7 +1131,7 @@ impl ILocation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocation_Impl::GetReport(this, core::mem::transmute_copy(&reporttype)) {
                     Ok(ok__) => {
-                        pplocationreport.write(core::mem::transmute(ok__));
+                        pplocationreport.cast::<ILocationReport>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1411,7 +1411,7 @@ impl ILocationReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocationReport_Impl::GetValue(this, core::mem::transmute_copy(&pkey)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.cast::<super::PROPVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

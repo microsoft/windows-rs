@@ -464,7 +464,7 @@ impl IPenInputPanel_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPenInputPanel_Impl::Factoid(this) {
                     Ok(ok__) => {
-                        factoid.write(core::mem::transmute(ok__));
+                        factoid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -477,7 +477,7 @@ impl IPenInputPanel_Vtbl {
         unsafe extern "system" fn SetFactoid<Identity: IPenInputPanel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factoid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPenInputPanel_Impl::SetFactoid(this, core::mem::transmute(&factoid))
+                IPenInputPanel_Impl::SetFactoid(this, &*(&raw const factoid).cast())
             }
         }
         unsafe extern "system" fn AttachedEditWindow<Identity: IPenInputPanel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attachededitwindow: *mut super::LONG32) -> windows_core::HRESULT {
@@ -1355,13 +1355,13 @@ impl ITextInputPanelEventSink_Vtbl {
         unsafe extern "system" fn InPlaceSizeChanging<Identity: ITextInputPanelEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldboundingrectangle: super::RECT, newboundingrectangle: super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextInputPanelEventSink_Impl::InPlaceSizeChanging(this, core::mem::transmute(&oldboundingrectangle), core::mem::transmute(&newboundingrectangle))
+                ITextInputPanelEventSink_Impl::InPlaceSizeChanging(this, &*(&raw const oldboundingrectangle).cast(), &*(&raw const newboundingrectangle).cast())
             }
         }
         unsafe extern "system" fn InPlaceSizeChanged<Identity: ITextInputPanelEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldboundingrectangle: super::RECT, newboundingrectangle: super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextInputPanelEventSink_Impl::InPlaceSizeChanged(this, core::mem::transmute(&oldboundingrectangle), core::mem::transmute(&newboundingrectangle))
+                ITextInputPanelEventSink_Impl::InPlaceSizeChanged(this, &*(&raw const oldboundingrectangle).cast(), &*(&raw const newboundingrectangle).cast())
             }
         }
         unsafe extern "system" fn InputAreaChanging<Identity: ITextInputPanelEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> windows_core::HRESULT {

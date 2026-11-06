@@ -64,7 +64,7 @@ impl ISensor {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), psensortype as _) }
     }
     pub unsafe fn GetFriendlyName(&self, pfriendlyname: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), core::mem::transmute(pfriendlyname)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), pfriendlyname as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetProperty(&self, key: *const super::PROPERTYKEY, pproperty: *mut super::PROPVARIANT) -> windows_core::HRESULT {
@@ -229,7 +229,7 @@ impl ISensor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensor_Impl::GetProperties(this, core::mem::transmute_copy(&pkeys)) {
                     Ok(ok__) => {
-                        ppproperties.write(core::mem::transmute(ok__));
+                        ppproperties.cast::<super::IPortableDeviceValues>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -244,7 +244,7 @@ impl ISensor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensor_Impl::GetSupportedDataFields(this) {
                     Ok(ok__) => {
-                        ppdatafields.write(core::mem::transmute(ok__));
+                        ppdatafields.cast::<super::IPortableDeviceKeyCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -259,7 +259,7 @@ impl ISensor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensor_Impl::SetProperties(this, core::mem::transmute_copy(&pproperties)) {
                     Ok(ok__) => {
-                        ppresults.write(core::mem::transmute(ok__));
+                        ppresults.cast::<super::IPortableDeviceValues>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -286,7 +286,7 @@ impl ISensor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensor_Impl::GetData(this) {
                     Ok(ok__) => {
-                        ppdatareport.write(core::mem::transmute(ok__));
+                        ppdatareport.cast::<ISensorDataReport>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -412,7 +412,7 @@ impl ISensorCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensorCollection_Impl::GetAt(this, core::mem::transmute_copy(&ulindex)) {
                     Ok(ok__) => {
-                        ppsensor.write(core::mem::transmute(ok__));
+                        ppsensor.cast::<ISensor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -533,7 +533,7 @@ impl ISensorDataReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensorDataReport_Impl::GetSensorValues(this, core::mem::transmute_copy(&pkeys)) {
                     Ok(ok__) => {
-                        ppvalues.write(core::mem::transmute(ok__));
+                        ppvalues.cast::<super::IPortableDeviceValues>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -708,7 +708,7 @@ impl ISensorManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensorManager_Impl::GetSensorsByCategory(this, core::mem::transmute_copy(&sensorcategory)) {
                     Ok(ok__) => {
-                        ppsensorsfound.write(core::mem::transmute(ok__));
+                        ppsensorsfound.cast::<ISensorCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -723,7 +723,7 @@ impl ISensorManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensorManager_Impl::GetSensorsByType(this, core::mem::transmute_copy(&sensortype)) {
                     Ok(ok__) => {
-                        ppsensorsfound.write(core::mem::transmute(ok__));
+                        ppsensorsfound.cast::<ISensorCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -738,7 +738,7 @@ impl ISensorManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensorManager_Impl::GetSensorByID(this, core::mem::transmute_copy(&sensorid)) {
                     Ok(ok__) => {
-                        ppsensor.write(core::mem::transmute(ok__));
+                        ppsensor.cast::<ISensor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

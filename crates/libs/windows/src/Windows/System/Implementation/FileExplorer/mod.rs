@@ -121,7 +121,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
         unsafe extern "system" fn GetHttpRequestProvider<Identity: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISysStorageProviderHandlerFactory_Impl::GetHttpRequestProvider(this, core::mem::transmute(&syncrootid)) {
+                match ISysStorageProviderHandlerFactory_Impl::GetHttpRequestProvider(this, &*(&raw const syncrootid).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -137,7 +137,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
         unsafe extern "system" fn GetEventSource<Identity: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISysStorageProviderHandlerFactory_Impl::GetEventSource(this, core::mem::transmute(&syncrootid), core::mem::transmute(&eventname)) {
+                match ISysStorageProviderHandlerFactory_Impl::GetEventSource(this, &*(&raw const syncrootid).cast(), &*(&raw const eventname).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

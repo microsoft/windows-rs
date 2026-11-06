@@ -40,7 +40,7 @@ where
     P5: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFBeginCreateFile(accessmode : super::MF_FILE_ACCESSMODE, openmode : super::MF_FILE_OPENMODE, fflags : super::MF_FILE_FLAGS, pwszfilepath : windows_core::PCWSTR, pcallback : *mut core::ffi::c_void, pstate : *mut core::ffi::c_void, ppcancelcookie : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFBeginCreateFile(accessmode, openmode, fflags, pwszfilepath.param().abi(), pcallback.param().abi(), pstate.param().abi(), core::mem::transmute(ppcancelcookie)) }
+    unsafe { MFBeginCreateFile(accessmode, openmode, fflags, pwszfilepath.param().abi(), pcallback.param().abi(), pstate.param().abi(), ppcancelcookie as _) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
@@ -153,7 +153,7 @@ pub unsafe fn MFCopyImage(pdest: *mut super::BYTE, ldeststride: super::LONG, psr
 #[inline]
 pub unsafe fn MFCreate2DMediaBuffer(dwwidth: super::DWORD, dwheight: super::DWORD, dwfourcc: super::DWORD, fbottomup: bool, ppbuffer: *mut Option<super::IMFMediaBuffer>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreate2DMediaBuffer(dwwidth : super::DWORD, dwheight : super::DWORD, dwfourcc : super::DWORD, fbottomup : windows_core::BOOL, ppbuffer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreate2DMediaBuffer(dwwidth, dwheight, dwfourcc, fbottomup.into(), core::mem::transmute(ppbuffer)) }
+    unsafe { MFCreate2DMediaBuffer(dwwidth, dwheight, dwfourcc, fbottomup.into(), ppbuffer as _) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "strmif"))]
 #[inline]
@@ -168,7 +168,7 @@ where
 #[inline]
 pub unsafe fn MFCreateAlignedMemoryBuffer(cbmaxlength: super::DWORD, cbaligment: super::DWORD, ppbuffer: *mut Option<super::IMFMediaBuffer>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateAlignedMemoryBuffer(cbmaxlength : super::DWORD, cbaligment : super::DWORD, ppbuffer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateAlignedMemoryBuffer(cbmaxlength, cbaligment, core::mem::transmute(ppbuffer)) }
+    unsafe { MFCreateAlignedMemoryBuffer(cbmaxlength, cbaligment, ppbuffer as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -179,25 +179,25 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateAsyncResult(punkobject : *mut core::ffi::c_void, pcallback : *mut core::ffi::c_void, punkstate : *mut core::ffi::c_void, ppasyncresult : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateAsyncResult(punkobject.param().abi(), pcallback.param().abi(), punkstate.param().abi(), core::mem::transmute(ppasyncresult)) }
+    unsafe { MFCreateAsyncResult(punkobject.param().abi(), pcallback.param().abi(), punkstate.param().abi(), ppasyncresult as _) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
 pub unsafe fn MFCreateAttributes(ppmfattributes: *mut Option<super::IMFAttributes>, cinitialsize: super::UINT32) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateAttributes(ppmfattributes : *mut *mut core::ffi::c_void, cinitialsize : super::UINT32) -> windows_core::HRESULT);
-    unsafe { MFCreateAttributes(core::mem::transmute(ppmfattributes), cinitialsize) }
+    unsafe { MFCreateAttributes(ppmfattributes as _, cinitialsize) }
 }
 #[cfg(all(feature = "mfobjects", feature = "mmeapi", feature = "shared"))]
 #[inline]
 pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::WAVEFORMATEX, ppiaudiomediatype: *mut Option<super::IMFAudioMediaType>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateAudioMediaType(paudioformat : *const super::WAVEFORMATEX, ppiaudiomediatype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateAudioMediaType(paudioformat, core::mem::transmute(ppiaudiomediatype)) }
+    unsafe { MFCreateAudioMediaType(paudioformat, ppiaudiomediatype as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
 pub unsafe fn MFCreateCollection(ppimfcollection: *mut Option<super::IMFCollection>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateCollection(ppimfcollection : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateCollection(core::mem::transmute(ppimfcollection)) }
+    unsafe { MFCreateCollection(ppimfcollection as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]
 #[inline]
@@ -249,7 +249,7 @@ where
 #[inline]
 pub unsafe fn MFCreateEventQueue(ppmediaeventqueue: *mut Option<super::IMFMediaEventQueue>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateEventQueue(ppmediaeventqueue : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateEventQueue(core::mem::transmute(ppmediaeventqueue)) }
+    unsafe { MFCreateEventQueue(ppmediaeventqueue as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -258,7 +258,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateFile(accessmode : super::MF_FILE_ACCESSMODE, openmode : super::MF_FILE_OPENMODE, fflags : super::MF_FILE_FLAGS, pwszfileurl : windows_core::PCWSTR, ppibytestream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateFile(accessmode, openmode, fflags, pwszfileurl.param().abi(), core::mem::transmute(ppibytestream)) }
+    unsafe { MFCreateFile(accessmode, openmode, fflags, pwszfileurl.param().abi(), ppibytestream as _) }
 }
 #[cfg(all(feature = "mediaobj", feature = "mfobjects", feature = "shared"))]
 #[inline]
@@ -280,7 +280,7 @@ where
     P0: windows_core::Param<super::IMFByteStream>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMFByteStreamWrapper(pstream : *mut core::ffi::c_void, ppstreamwrapper : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMFByteStreamWrapper(pstream.param().abi(), core::mem::transmute(ppstreamwrapper)) }
+    unsafe { MFCreateMFByteStreamWrapper(pstream.param().abi(), ppstreamwrapper as _) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "windef"))]
 #[inline]
@@ -310,13 +310,13 @@ where
     P0: windows_core::Param<super::IMFMediaBuffer>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMediaBufferWrapper(pbuffer : *mut core::ffi::c_void, cboffset : super::DWORD, dwlength : super::DWORD, ppbuffer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMediaBufferWrapper(pbuffer.param().abi(), cboffset, dwlength, core::mem::transmute(ppbuffer)) }
+    unsafe { MFCreateMediaBufferWrapper(pbuffer.param().abi(), cboffset, dwlength, ppbuffer as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn MFCreateMediaEvent(met: super::MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: Option<*const super::PROPVARIANT>, ppevent: *mut Option<super::IMFMediaEvent>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMediaEvent(met : super::MediaEventType, guidextendedtype : *const windows_core::GUID, hrstatus : windows_core::HRESULT, pvvalue : *const super::PROPVARIANT, ppevent : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMediaEvent(met, guidextendedtype, hrstatus, pvvalue.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppevent)) }
+    unsafe { MFCreateMediaEvent(met, guidextendedtype, hrstatus, pvvalue.unwrap_or(core::mem::zeroed()) as _, ppevent as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef"))]
 #[inline]
@@ -341,13 +341,13 @@ pub unsafe fn MFCreateMediaType() -> windows_core::Result<super::IMFMediaType> {
 #[inline]
 pub unsafe fn MFCreateMediaTypeFromRepresentation(guidrepresentation: windows_core::GUID, pvrepresentation: super::LPVOID, ppimediatype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMediaTypeFromRepresentation(guidrepresentation : windows_core::GUID, pvrepresentation : super::LPVOID, ppimediatype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMediaTypeFromRepresentation(guidrepresentation, pvrepresentation, core::mem::transmute(ppimediatype)) }
+    unsafe { MFCreateMediaTypeFromRepresentation(guidrepresentation, pvrepresentation, ppimediatype as _) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
 pub unsafe fn MFCreateMemoryBuffer(cbmaxlength: super::DWORD, ppbuffer: *mut Option<super::IMFMediaBuffer>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMemoryBuffer(cbmaxlength : super::DWORD, ppbuffer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMemoryBuffer(cbmaxlength, core::mem::transmute(ppbuffer)) }
+    unsafe { MFCreateMemoryBuffer(cbmaxlength, ppbuffer as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -389,37 +389,37 @@ where
 #[inline]
 pub unsafe fn MFCreateSample(ppimfsample: *mut Option<super::IMFSample>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateSample(ppimfsample : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateSample(core::mem::transmute(ppimfsample)) }
+    unsafe { MFCreateSample(ppimfsample as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
 pub unsafe fn MFCreateTempFile(accessmode: super::MF_FILE_ACCESSMODE, openmode: super::MF_FILE_OPENMODE, fflags: super::MF_FILE_FLAGS, ppibytestream: *mut Option<super::IMFByteStream>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateTempFile(accessmode : super::MF_FILE_ACCESSMODE, openmode : super::MF_FILE_OPENMODE, fflags : super::MF_FILE_FLAGS, ppibytestream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateTempFile(accessmode, openmode, fflags, core::mem::transmute(ppibytestream)) }
+    unsafe { MFCreateTempFile(accessmode, openmode, fflags, ppibytestream as _) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const super::MFVIDEOFORMAT, ppivideomediatype: *mut Option<super::IMFVideoMediaType>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateVideoMediaType(pvideoformat : *const super::MFVIDEOFORMAT, ppivideomediatype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateVideoMediaType(pvideoformat, core::mem::transmute(ppivideomediatype)) }
+    unsafe { MFCreateVideoMediaType(pvideoformat, ppivideomediatype as _) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "wingdi"))]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::BITMAPINFOHEADER, dwpixelaspectratiox: super::DWORD, dwpixelaspectratioy: super::DWORD, interlacemode: super::MFVideoInterlaceMode, videoflags: super::QWORD, qwframespersecondnumerator: super::QWORD, qwframesperseconddenominator: super::QWORD, dwmaxbitrate: super::DWORD, ppivideomediatype: *mut Option<super::IMFVideoMediaType>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader : *const super::BITMAPINFOHEADER, dwpixelaspectratiox : super::DWORD, dwpixelaspectratioy : super::DWORD, interlacemode : super::MFVideoInterlaceMode, videoflags : super::QWORD, qwframespersecondnumerator : super::QWORD, qwframesperseconddenominator : super::QWORD, dwmaxbitrate : super::DWORD, ppivideomediatype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, qwframespersecondnumerator, qwframesperseconddenominator, dwmaxbitrate, core::mem::transmute(ppivideomediatype)) }
+    unsafe { MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, qwframespersecondnumerator, qwframesperseconddenominator, dwmaxbitrate, ppivideomediatype as _) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared", feature = "wingdi"))]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::BITMAPINFOHEADER, cbbitmapinfoheader: super::UINT32, dwpixelaspectratiox: super::DWORD, dwpixelaspectratioy: super::DWORD, interlacemode: super::MFVideoInterlaceMode, videoflags: super::QWORD, dwframespersecondnumerator: super::DWORD, dwframesperseconddenominator: super::DWORD, dwmaxbitrate: super::DWORD, ppivideomediatype: *mut Option<super::IMFVideoMediaType>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader : *const super::BITMAPINFOHEADER, cbbitmapinfoheader : super::UINT32, dwpixelaspectratiox : super::DWORD, dwpixelaspectratioy : super::DWORD, interlacemode : super::MFVideoInterlaceMode, videoflags : super::QWORD, dwframespersecondnumerator : super::DWORD, dwframesperseconddenominator : super::DWORD, dwmaxbitrate : super::DWORD, ppivideomediatype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader, cbbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, dwframespersecondnumerator, dwframesperseconddenominator, dwmaxbitrate, core::mem::transmute(ppivideomediatype)) }
+    unsafe { MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader, cbbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, dwframespersecondnumerator, dwframesperseconddenominator, dwmaxbitrate, ppivideomediatype as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const windows_core::GUID, ppivideomediatype: *mut Option<super::IMFVideoMediaType>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFCreateVideoMediaTypeFromSubtype(pamsubtype : *const windows_core::GUID, ppivideomediatype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateVideoMediaTypeFromSubtype(pamsubtype, core::mem::transmute(ppivideomediatype)) }
+    unsafe { MFCreateVideoMediaTypeFromSubtype(pamsubtype, ppivideomediatype as _) }
 }
 #[cfg(feature = "guiddef")]
 #[inline]
@@ -455,7 +455,7 @@ where
     P0: windows_core::Param<super::IMFAsyncResult>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFEndCreateFile(presult : *mut core::ffi::c_void, ppfile : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFEndCreateFile(presult.param().abi(), core::mem::transmute(ppfile)) }
+    unsafe { MFEndCreateFile(presult.param().abi(), ppfile as _) }
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
 #[inline]
@@ -533,7 +533,7 @@ pub unsafe fn MFGetPlaneSize(format: super::DWORD, dwwidth: super::DWORD, dwheig
 #[inline]
 pub unsafe fn MFGetPluginControl(ppplugincontrol: *mut Option<super::IMFPluginControl>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFGetPluginControl(ppplugincontrol : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFGetPluginControl(core::mem::transmute(ppplugincontrol)) }
+    unsafe { MFGetPluginControl(ppplugincontrol as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -845,7 +845,7 @@ where
     P0: windows_core::Param<super::IMFSample>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFSplitSample(psample : *mut core::ffi::c_void, poutputsamples : *mut *mut core::ffi::c_void, dwoutputsamplemaxcount : super::DWORD, pdwoutputsamplecount : *mut super::DWORD) -> windows_core::HRESULT);
-    unsafe { MFSplitSample(psample.param().abi(), core::mem::transmute(poutputsamples), dwoutputsamplemaxcount, pdwoutputsamplecount as _) }
+    unsafe { MFSplitSample(psample.param().abi(), poutputsamples as _, dwoutputsamplemaxcount, pdwoutputsamplecount as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -961,7 +961,7 @@ where
     P0: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFUnwrapMediaType(pwrap : *mut core::ffi::c_void, pporig : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFUnwrapMediaType(pwrap.param().abi(), core::mem::transmute(pporig)) }
+    unsafe { MFUnwrapMediaType(pwrap.param().abi(), pporig as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -976,7 +976,7 @@ where
     P0: windows_core::Param<super::IMFMediaType>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFWrapMediaType(porig : *mut core::ffi::c_void, majortype : *const windows_core::GUID, subtype : *const windows_core::GUID, ppwrap : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFWrapMediaType(porig.param().abi(), majortype, subtype, core::mem::transmute(ppwrap)) }
+    unsafe { MFWrapMediaType(porig.param().abi(), majortype, subtype, ppwrap as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]

@@ -2977,7 +2977,7 @@ impl TensorString {
     {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<Self>
@@ -2993,7 +2993,7 @@ impl TensorString {
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[windows_core::HSTRING]) -> windows_core::Result<Self> {
         Self::ITensorStringStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITensorStringStatics<R, F: FnOnce(&ITensorStringStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

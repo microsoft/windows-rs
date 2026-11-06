@@ -65,7 +65,7 @@ impl IDDEInitializer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDDEInitializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileextensionorprotocol: windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: windows_core::PCWSTR, exectarget: *mut core::ffi::c_void, site: *mut core::ffi::c_void, application: windows_core::PCWSTR, targetfile: windows_core::PCWSTR, arguments: windows_core::PCWSTR, verb: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDDEInitializer_Impl::Initialize(this, core::mem::transmute(&fileextensionorprotocol), core::mem::transmute_copy(&method), core::mem::transmute(&currentdirectory), core::mem::transmute_copy(&exectarget), core::mem::transmute_copy(&site), core::mem::transmute(&application), core::mem::transmute(&targetfile), core::mem::transmute(&arguments), core::mem::transmute(&verb))
+                IDDEInitializer_Impl::Initialize(this, &*(&raw const fileextensionorprotocol).cast(), core::mem::transmute_copy(&method), &*(&raw const currentdirectory).cast(), core::mem::transmute_copy(&exectarget), core::mem::transmute_copy(&site), &*(&raw const application).cast(), &*(&raw const targetfile).cast(), &*(&raw const arguments).cast(), &*(&raw const verb).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
@@ -179,7 +179,7 @@ impl IStorageFolderHandleAccess_Vtbl {
         unsafe extern "system" fn Create<Identity: IStorageFolderHandleAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: *mut core::ffi::c_void, interophandle: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFolderHandleAccess_Impl::Create(this, core::mem::transmute(&filename), core::mem::transmute_copy(&creationoptions), core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), core::mem::transmute_copy(&oplockbreakinghandler)) {
+                match IStorageFolderHandleAccess_Impl::Create(this, &*(&raw const filename).cast(), core::mem::transmute_copy(&creationoptions), core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), core::mem::transmute_copy(&oplockbreakinghandler)) {
                     Ok(ok__) => {
                         interophandle.write(ok__);
                         windows_core::HRESULT(0)

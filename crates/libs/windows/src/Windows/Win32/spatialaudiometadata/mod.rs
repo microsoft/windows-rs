@@ -63,7 +63,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioMetadataClient_Impl::ActivateSpatialAudioMetadataItems(this, core::mem::transmute_copy(&maxitemcount), core::mem::transmute_copy(&framecount), core::mem::transmute_copy(&metadataitemsbuffer)) {
                     Ok(ok__) => {
-                        metadataitems.write(core::mem::transmute(ok__));
+                        metadataitems.cast::<ISpatialAudioMetadataItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -84,7 +84,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioMetadataClient_Impl::ActivateSpatialAudioMetadataWriter(this, core::mem::transmute_copy(&overflowmode)) {
                     Ok(ok__) => {
-                        metadatawriter.write(core::mem::transmute(ok__));
+                        metadatawriter.cast::<ISpatialAudioMetadataWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -99,7 +99,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioMetadataClient_Impl::ActivateSpatialAudioMetadataCopier(this) {
                     Ok(ok__) => {
-                        metadatacopier.write(core::mem::transmute(ok__));
+                        metadatacopier.cast::<ISpatialAudioMetadataCopier>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -114,7 +114,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioMetadataClient_Impl::ActivateSpatialAudioMetadataReader(this) {
                     Ok(ok__) => {
-                        metadatareader.write(core::mem::transmute(ok__));
+                        metadatareader.cast::<ISpatialAudioMetadataReader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -640,7 +640,7 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioObjectForMetadataItems_Impl::GetSpatialAudioMetadataItems(this) {
                     Ok(ok__) => {
-                        metadataitems.write(core::mem::transmute(ok__));
+                        metadataitems.cast::<ISpatialAudioMetadataItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -708,7 +708,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioObjectRenderStreamForMetadata_Impl::ActivateSpatialAudioObjectForMetadataCommands(this, core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        audioobject.write(core::mem::transmute(ok__));
+                        audioobject.cast::<ISpatialAudioObjectForMetadataCommands>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -723,7 +723,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioObjectRenderStreamForMetadata_Impl::ActivateSpatialAudioObjectForMetadataItems(this, core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        audioobject.write(core::mem::transmute(ok__));
+                        audioobject.cast::<ISpatialAudioObjectForMetadataItems>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

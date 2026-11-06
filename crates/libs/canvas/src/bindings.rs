@@ -577,7 +577,7 @@ impl ID2D1DeviceContext {
         unsafe {
             (windows_core::Interface::vtable(self).GetTarget)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(image),
+                image as _,
             );
         }
     }
@@ -731,7 +731,7 @@ impl ID2D1Effect {
         unsafe {
             (windows_core::Interface::vtable(self).GetOutput)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(outputimage),
+                outputimage as _,
             );
         }
     }

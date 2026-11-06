@@ -481,7 +481,7 @@ impl IVpnCustomPrompt_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVpnCustomPrompt_Impl::SetLabel(this, core::mem::transmute(&value)).into()
+                IVpnCustomPrompt_Impl::SetLabel(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Label<Identity: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -631,7 +631,7 @@ impl IVpnCustomPromptElement_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVpnCustomPromptElement_Impl::SetDisplayName(this, core::mem::transmute(&value)).into()
+                IVpnCustomPromptElement_Impl::SetDisplayName(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn DisplayName<Identity: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -837,7 +837,7 @@ impl IVpnDomainNameInfoFactory_Vtbl {
         unsafe extern "system" fn CreateVpnDomainNameInfo<Identity: IVpnDomainNameInfoFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, nametype: VpnDomainNameType, dnsserverlist: *mut core::ffi::c_void, proxyserverlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVpnDomainNameInfoFactory_Impl::CreateVpnDomainNameInfo(this, core::mem::transmute(&name), nametype, core::mem::transmute_copy(&dnsserverlist), core::mem::transmute_copy(&proxyserverlist)) {
+                match IVpnDomainNameInfoFactory_Impl::CreateVpnDomainNameInfo(this, &*(&raw const name).cast(), nametype, core::mem::transmute_copy(&dnsserverlist), core::mem::transmute_copy(&proxyserverlist)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1054,7 +1054,7 @@ impl IVpnNamespaceInfoFactory_Vtbl {
         unsafe extern "system" fn CreateVpnNamespaceInfo<Identity: IVpnNamespaceInfoFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, dnsserverlist: *mut core::ffi::c_void, proxyserverlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVpnNamespaceInfoFactory_Impl::CreateVpnNamespaceInfo(this, core::mem::transmute(&name), core::mem::transmute_copy(&dnsserverlist), core::mem::transmute_copy(&proxyserverlist)) {
+                match IVpnNamespaceInfoFactory_Impl::CreateVpnNamespaceInfo(this, &*(&raw const name).cast(), core::mem::transmute_copy(&dnsserverlist), core::mem::transmute_copy(&proxyserverlist)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1539,7 +1539,7 @@ impl IVpnProfile_Vtbl {
         unsafe extern "system" fn SetProfileName<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVpnProfile_Impl::SetProfileName(this, core::mem::transmute(&value)).into()
+                IVpnProfile_Impl::SetProfileName(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn AppTriggers<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

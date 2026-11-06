@@ -55,7 +55,7 @@ impl IUniformResourceLocatorA_Vtbl {
         unsafe extern "system" fn SetURL<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszurl: windows_core::PCSTR, dwinflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorA_Impl::SetURL(this, core::mem::transmute(&pcszurl), core::mem::transmute_copy(&dwinflags))
+                IUniformResourceLocatorA_Impl::SetURL(this, &*(&raw const pcszurl).cast(), core::mem::transmute_copy(&dwinflags))
             }
         }
         unsafe extern "system" fn GetURL<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszurl: *mut windows_core::PSTR) -> windows_core::HRESULT {
@@ -127,7 +127,7 @@ impl IUniformResourceLocatorW_Vtbl {
         unsafe extern "system" fn SetURL<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszurl: windows_core::PCWSTR, dwinflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorW_Impl::SetURL(this, core::mem::transmute(&pcszurl), core::mem::transmute_copy(&dwinflags))
+                IUniformResourceLocatorW_Impl::SetURL(this, &*(&raw const pcszurl).cast(), core::mem::transmute_copy(&dwinflags))
             }
         }
         unsafe extern "system" fn GetURL<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszurl: *mut windows_core::PWSTR) -> windows_core::HRESULT {

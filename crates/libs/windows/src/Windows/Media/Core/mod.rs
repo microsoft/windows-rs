@@ -1725,7 +1725,7 @@ impl IMediaCue_Vtbl {
         unsafe extern "system" fn SetStartTime<Identity: IMediaCue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaCue_Impl::SetStartTime(this, core::mem::transmute(&value)).into()
+                IMediaCue_Impl::SetStartTime(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn StartTime<Identity: IMediaCue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::TimeSpan) -> windows_core::HRESULT {
@@ -1746,7 +1746,7 @@ impl IMediaCue_Vtbl {
         unsafe extern "system" fn SetDuration<Identity: IMediaCue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaCue_Impl::SetDuration(this, core::mem::transmute(&value)).into()
+                IMediaCue_Impl::SetDuration(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Duration<Identity: IMediaCue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::TimeSpan) -> windows_core::HRESULT {
@@ -1767,7 +1767,7 @@ impl IMediaCue_Vtbl {
         unsafe extern "system" fn SetId<Identity: IMediaCue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaCue_Impl::SetId(this, core::mem::transmute(&value)).into()
+                IMediaCue_Impl::SetId(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Id<Identity: IMediaCue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2127,7 +2127,7 @@ impl IMediaStreamDescriptor_Vtbl {
         unsafe extern "system" fn SetName<Identity: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaStreamDescriptor_Impl::SetName(this, core::mem::transmute(&value)).into()
+                IMediaStreamDescriptor_Impl::SetName(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Name<Identity: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2149,7 +2149,7 @@ impl IMediaStreamDescriptor_Vtbl {
         unsafe extern "system" fn SetLanguage<Identity: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaStreamDescriptor_Impl::SetLanguage(this, core::mem::transmute(&value)).into()
+                IMediaStreamDescriptor_Impl::SetLanguage(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Language<Identity: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2250,7 +2250,7 @@ impl IMediaStreamDescriptor2_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: IMediaStreamDescriptor2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaStreamDescriptor2_Impl::SetLabel(this, core::mem::transmute(&value)).into()
+                IMediaStreamDescriptor2_Impl::SetLabel(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Label<Identity: IMediaStreamDescriptor2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2714,7 +2714,7 @@ impl IMediaTrack_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: IMediaTrack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaTrack_Impl::SetLabel(this, core::mem::transmute(&value)).into()
+                IMediaTrack_Impl::SetLabel(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Label<Identity: IMediaTrack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
