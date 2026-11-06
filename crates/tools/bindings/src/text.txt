@@ -9,10 +9,14 @@
     DWRITE_FACTORY_TYPE_SHARED
     DWRITE_MEASURING_MODE_NATURAL
     DWRITE_OUTLINE_THRESHOLD_ANTIALIASED
+    DWRITE_PIXEL_GEOMETRY_BGR
+    DWRITE_PIXEL_GEOMETRY_RGB
     DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC
     DWRITE_RENDERING_MODE1_OUTLINE
+    DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE
     DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE
     DWRITE_TEXTURE_ALIASED_1x1
+    DWRITE_TEXTURE_CLEARTYPE_3x1
     DWRITE_FONT_STRETCH_NORMAL
     DWRITE_FONT_STYLE_ITALIC
     DWRITE_FONT_STYLE_NORMAL
@@ -33,8 +37,12 @@
     DWRITE_HIT_TEST_METRICS
     DWriteCreateFactory
     E_NOT_SUFFICIENT_BUFFER
+    FE_FONTSMOOTHINGCLEARTYPE
     GetUserDefaultLocaleName
     LOCALE_NAME_MAX_LENGTH
+    SPI_GETFONTSMOOTHING
+    SPI_GETFONTSMOOTHINGTYPE
+    SystemParametersInfoW
     IDWriteFactory::{CreateRenderingParams, CreateTextFormat, CreateTextLayout, CreateTypography, RegisterFontFileLoader}
     IDWriteFactory2::{CreateFontFallbackBuilder, GetSystemFontFallback, TranslateColorGlyphRun}
     IDWriteFactory3::{CreateFontCollectionFromFontSet, CreateGlyphRunAnalysis, GetSystemFontCollection}
@@ -53,7 +61,7 @@
     IDWriteGlyphRunAnalysis::{CreateAlphaTexture, GetAlphaTextureBounds}
     IDWriteInMemoryFontFileLoader::CreateInMemoryFontFileReference
     IDWriteLocalizedStrings::{FindLocaleName, GetString, GetStringLength}
-    IDWriteRenderingParams::GetGamma
+    IDWriteRenderingParams::{GetEnhancedContrast, GetGamma, GetPixelGeometry}
     IDWriteRenderingParams1::GetGrayscaleEnhancedContrast
     IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment, SetWordWrapping}
     IDWriteTextFormat1::SetFontFallback

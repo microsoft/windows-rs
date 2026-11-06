@@ -689,6 +689,28 @@ mod tests {
         let face = face("Segoe UI");
         let glyph = face.glyph_index(' ').unwrap();
         assert_eq!(face.rasterize(glyph, 32.0, Vector2::zero()), None);
+        assert_eq!(face.rasterize_cleartype(glyph, 32.0, Vector2::zero()), None);
+    }
+
+    #[test]
+    fn rasterize_cleartype() {
+        let face = face("Segoe UI");
+        let glyph = face.glyph_index('H').unwrap();
+        let gray = face.rasterize(glyph, 16.0, Vector2::zero()).unwrap();
+        let image = face
+            .rasterize_cleartype(glyph, 16.0, Vector2::zero())
+            .unwrap();
+        assert_eq!(image.data.len(), (image.width * image.height * 3) as usize);
+        assert!(image.left.abs_diff(gray.left) <= 1 && image.top.abs_diff(gray.top) <= 1);
+        assert!(image.width.abs_diff(gray.width) <= 2 && image.height.abs_diff(gray.height) <= 1);
+
+        // The stripes of an edge pixel are covered unequally.
+        assert!(image.data.chunks(3).any(|rgb| rgb[0] != rgb[2]));
+
+        let half = face
+            .rasterize_cleartype(glyph, 16.0, Vector2::new(0.5, 0.0))
+            .unwrap();
+        assert_ne!(image.data, half.data);
     }
 
     #[test]
@@ -729,6 +751,8 @@ mod tests {
         let params = RenderingParams::system();
         assert!(params.gamma > 0.0);
         assert!(params.grayscale_enhanced_contrast >= 0.0);
+        assert!(params.enhanced_contrast >= 0.0);
+        assert_eq!(params, RenderingParams::system());
     }
 
     #[test]
