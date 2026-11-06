@@ -4867,6 +4867,9 @@ impl XmlNamedNodeMap {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<IXmlNode>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVectorView<IXmlNode>>(self)?;
+        if core::mem::needs_drop::<Option<IXmlNode>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -4998,6 +5001,9 @@ impl XmlNodeList {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<IXmlNode>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVectorView<IXmlNode>>(self)?;
+        if core::mem::needs_drop::<Option<IXmlNode>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)

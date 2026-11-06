@@ -251,6 +251,9 @@ impl GpioController {
         }
     }
     pub fn TryOpenPin(&self, pinnumber: i32, sharingmode: GpioSharingMode, pin: &mut Option<GpioPin>, openstatus: &mut GpioOpenStatus) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<GpioPin>>() {
+            *pin = unsafe { core::mem::zeroed() };
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TryOpenPin)(windows_core::Interface::as_raw(self), pinnumber, sharingmode, pin as *mut _ as _, openstatus, &mut result__).map(|| result__)

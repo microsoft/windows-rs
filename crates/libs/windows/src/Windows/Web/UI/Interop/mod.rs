@@ -247,6 +247,9 @@ impl WebViewControl {
         }
     }
     pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut Option<super::WebViewControlDeferredPermissionRequest>) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<Option<super::WebViewControlDeferredPermissionRequest>>() {
+            *result = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(self).GetDeferredPermissionRequestById)(windows_core::Interface::as_raw(self), id, result as *mut _ as _).ok() }
     }
     pub fn NavigationStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>

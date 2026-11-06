@@ -387,6 +387,9 @@ impl ResourceCandidateVectorView {
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<ResourceCandidate>]) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<Option<ResourceCandidate>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(windows_core::Interface::as_raw(self), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -577,6 +580,9 @@ impl ResourceContextLanguagesVectorView {
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [windows_core::HSTRING]) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<windows_core::HSTRING>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(windows_core::Interface::as_raw(self), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -741,6 +747,12 @@ impl ResourceMap {
     }
     pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>(self)?;
+        if core::mem::needs_drop::<Option<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>>() {
+            *first = unsafe { core::mem::zeroed() };
+        }
+        if core::mem::needs_drop::<Option<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>>() {
+            *second = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
@@ -821,6 +833,9 @@ impl ResourceMapIterator {
         }
     }
     pub fn GetMany(&self, items: &mut [Option<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>]) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<Option<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(windows_core::Interface::as_raw(self), items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -871,6 +886,12 @@ impl ResourceMapMapView {
         }
     }
     pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, ResourceMap>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, ResourceMap>>) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<Option<windows_collections::IMapView<windows_core::HSTRING, ResourceMap>>>() {
+            *first = unsafe { core::mem::zeroed() };
+        }
+        if core::mem::needs_drop::<Option<windows_collections::IMapView<windows_core::HSTRING, ResourceMap>>>() {
+            *second = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(self).Split)(windows_core::Interface::as_raw(self), first as *mut _ as _, second as *mut _ as _).ok() }
     }
 }
@@ -924,6 +945,9 @@ impl ResourceMapMapViewIterator {
         }
     }
     pub fn GetMany(&self, items: &mut [Option<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>]) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<Option<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(windows_core::Interface::as_raw(self), items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -1022,6 +1046,12 @@ impl ResourceQualifierMapView {
         }
     }
     pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>>() {
+            *first = unsafe { core::mem::zeroed() };
+        }
+        if core::mem::needs_drop::<Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>>() {
+            *second = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(self).Split)(windows_core::Interface::as_raw(self), first as *mut _ as _, second as *mut _ as _).ok() }
     }
 }
@@ -1197,6 +1227,9 @@ impl ResourceQualifierVectorView {
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<ResourceQualifier>]) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<Option<ResourceQualifier>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(windows_core::Interface::as_raw(self), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)

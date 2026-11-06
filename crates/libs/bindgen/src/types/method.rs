@@ -531,16 +531,34 @@ impl Method {
             TokenStream::new()
         };
 
-        // Prelude statements that materialize IReference<T> wrappers for sugared
-        // `Option<T>` parameters. Bound just outside the unsafe block so the
-        // wrapper is dropped *after* the vtable call returns.
+        // Release owned output values before native code overwrites them. Materialize
+        // IReference<T> input wrappers outside the unsafe block so they outlive the call.
         let prelude = {
             let lines: Vec<_> = params
                 .iter()
                 .enumerate()
                 .filter_map(|(position, param)| {
-                    param.ireference_inner(config.reader)?;
                     let name = param.write_ident();
+                    if param.is_metadata_output_only() {
+                        if param.is_winrt_array_ref() {
+                            return Some(quote! { #name.clear(); });
+                        } else if !param.is_copyable(config.reader) {
+                            let ty = param.write_default(config);
+                            // WinRT defaults are zero-initialized, including generic defaults
+                            // that do not have a Rust Default bound.
+                            let reset = if param.is_winrt_array() {
+                                quote! { #name.fill_with(|| unsafe { core::mem::zeroed() }); }
+                            } else {
+                                quote! { *#name = unsafe { core::mem::zeroed() }; }
+                            };
+                            return Some(quote! {
+                                if core::mem::needs_drop::<#ty>() {
+                                    #reset
+                                }
+                            });
+                        }
+                    }
+                    param.ireference_inner(config.reader)?;
                     let local: TokenStream = format!("{name}__").parse().unwrap();
                     let iref = param.ty.write_name(config);
                     if is_ireference_string(param) {

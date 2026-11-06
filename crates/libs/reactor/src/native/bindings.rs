@@ -18203,6 +18203,9 @@ impl ITextDocument {
         options: TextGetOptions,
         value: &mut windows_core::HSTRING,
     ) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<windows_core::HSTRING>() {
+            *value = unsafe { core::mem::zeroed() };
+        }
         unsafe {
             (windows_core::Interface::vtable(self).GetText)(
                 windows_core::Interface::as_raw(self),
