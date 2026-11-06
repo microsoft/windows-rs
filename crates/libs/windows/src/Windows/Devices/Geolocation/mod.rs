@@ -503,7 +503,7 @@ impl Geolocator {
     }
     pub fn PositionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PositionChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PositionChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PositionChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -517,7 +517,7 @@ impl Geolocator {
     }
     pub fn StatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<StatusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<StatusChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, StatusChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -860,7 +860,7 @@ impl GeovisitMonitor {
     }
     pub fn VisitStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GeovisitStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GeovisitStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, GeovisitStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

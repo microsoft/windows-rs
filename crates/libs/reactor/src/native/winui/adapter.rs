@@ -356,9 +356,9 @@ impl WinUiAdapter {
         match element.Focus(native::FocusState::Programmatic) {
             Ok(true) => {
                 let pending_focus_states = Rc::clone(&self.pending_focus_states);
-                let cleanup = native::DispatcherQueueHandler::new(move || {
+                let cleanup = native::DispatcherQueueHandler::new(local::task(move || {
                     pending_focus_states.borrow_mut().remove(&object);
-                });
+                }));
                 let accepted = native::DispatcherQueue::GetForCurrentThread()?
                     .TryEnqueueWithPriority(native::DispatcherQueuePriority::Low, &cleanup)?;
                 // A dispatcher that is shutting down rejects the cleanup; clear the state now.
@@ -415,15 +415,18 @@ impl WinUiAdapter {
                 }
                 let setup = (|| {
                     let initializations = Rc::clone(&self.webview_initializations);
-                    let initialized = control.CoreWebView2Initialized(move |sender, _| {
-                        let result = sender
-                            .as_ref()
-                            .ok_or_else(windows_core::Error::empty)
-                            .and_then(|control| control.CoreWebView2())
-                            .map(Into::into)
-                            .map_err(integration_error);
-                        complete_webview_initialization(&initializations, object, result);
-                    })?;
+                    let initialized =
+                        control.CoreWebView2Initialized(
+                            local::handler::<native::WebView2, _, _>(move |sender, _| {
+                                let result = sender
+                                    .as_ref()
+                                    .ok_or_else(windows_core::Error::empty)
+                                    .and_then(|control| control.CoreWebView2())
+                                    .map(Into::into)
+                                    .map_err(integration_error);
+                                complete_webview_initialization(&initializations, object, result);
+                            }),
+                        )?;
                     let framework = control.cast::<native::IFrameworkElement>()?;
                     let is_loaded = framework.IsLoaded()?;
                     Ok::<_, windows_core::Error>((initialized, framework, is_loaded))
@@ -440,7 +443,7 @@ impl WinUiAdapter {
                 } else {
                     let control = control.clone();
                     let initializations = Rc::clone(&self.webview_initializations);
-                    let loaded = framework.Loaded(move |_, _| {
+                    let loaded = framework.Loaded(local::handler(move |_, _| {
                         let result = control.EnsureCoreWebView2Async();
                         match result {
                             Ok(action) => {
@@ -456,7 +459,7 @@ impl WinUiAdapter {
                                 Err(integration_error(error)),
                             ),
                         }
-                    });
+                    }));
                     match loaded {
                         Ok(loaded) => Some(loaded),
                         Err(error) => {
@@ -512,36 +515,45 @@ impl WinUiAdapter {
                 });
                 let size_callback = callback.clone();
                 let size_control = control.clone();
-                let size = element.SizeChanged(move |_, args| {
-                    if let Some(args) = args.as_ref()
-                        && let Ok(size) = args.NewSize()
-                    {
-                        size_callback.call(SwapChainPanelEvent::Metrics {
-                            binding: SwapChainPanelBinding::new(binding),
-                            width: f64::from(size.width),
-                            height: f64::from(size.height),
-                            scale_x: size_control.CompositionScaleX().unwrap_or(1.0),
-                            scale_y: size_control.CompositionScaleY().unwrap_or(1.0),
-                        });
-                    }
-                })?;
+                let size =
+                    element.SizeChanged(local::handler::<_, native::SizeChangedEventArgs, _>(
+                        move |_, args| {
+                            if let Some(args) = args.as_ref()
+                                && let Ok(size) = args.NewSize()
+                            {
+                                size_callback.call(SwapChainPanelEvent::Metrics {
+                                    binding: SwapChainPanelBinding::new(binding),
+                                    width: f64::from(size.width),
+                                    height: f64::from(size.height),
+                                    scale_x: size_control.CompositionScaleX().unwrap_or(1.0),
+                                    scale_y: size_control.CompositionScaleY().unwrap_or(1.0),
+                                });
+                            }
+                        },
+                    ))?;
                 let scale_callback = callback.clone();
                 let scale_element = element;
-                let scale = control.CompositionScaleChanged(move |sender, _| {
-                    if let Some(sender) = sender.as_ref() {
-                        scale_callback.call(SwapChainPanelEvent::Metrics {
-                            binding: SwapChainPanelBinding::new(binding),
-                            width: scale_element.ActualWidth().unwrap_or(0.0),
-                            height: scale_element.ActualHeight().unwrap_or(0.0),
-                            scale_x: sender.CompositionScaleX().unwrap_or(1.0),
-                            scale_y: sender.CompositionScaleY().unwrap_or(1.0),
-                        });
-                    }
-                })?;
+                let scale =
+                    control.CompositionScaleChanged(local::handler::<
+                        native::SwapChainPanel,
+                        _,
+                        _,
+                    >(move |sender, _| {
+                        if let Some(sender) = sender.as_ref() {
+                            scale_callback.call(SwapChainPanelEvent::Metrics {
+                                binding: SwapChainPanelBinding::new(binding),
+                                width: scale_element.ActualWidth().unwrap_or(0.0),
+                                height: scale_element.ActualHeight().unwrap_or(0.0),
+                                scale_x: sender.CompositionScaleX().unwrap_or(1.0),
+                                scale_y: sender.CompositionScaleY().unwrap_or(1.0),
+                            });
+                        }
+                    }))?;
                 let rendering_callback = callback;
-                let rendering = native::CompositionTarget::Rendering(move |_, _| {
-                    rendering_callback.call(SwapChainPanelEvent::Rendering);
-                })?;
+                let rendering =
+                    native::CompositionTarget::Rendering(local::handler(move |_, _| {
+                        rendering_callback.call(SwapChainPanelEvent::Rendering);
+                    }))?;
                 self.observations.insert(
                     (object, observation),
                     ObservationSubscription::SwapChainPanel {
@@ -563,9 +575,9 @@ impl WinUiAdapter {
                 let queued = native::DispatcherQueue::GetForCurrentThread().and_then(|queue| {
                     queue.TryEnqueueWithPriority(
                         native::DispatcherQueuePriority::Normal,
-                        &native::DispatcherQueueHandler::new(move || {
+                        &native::DispatcherQueueHandler::new(local::task(move || {
                             queued_completion.call(Ok(()));
-                        }),
+                        })),
                     )
                 });
                 match queued {
@@ -644,9 +656,9 @@ impl WinUiAdapter {
                 observe_xaml_scale(&element, &changed, callback.clone())?;
                 let loaded_element = element;
                 let loaded_changed = Rc::clone(&changed);
-                let loaded = framework.Loaded(move |_, _| {
+                let loaded = framework.Loaded(local::handler(move |_, _| {
                     observe_xaml_scale(&loaded_element, &loaded_changed, callback.clone()).unwrap();
-                })?;
+                }))?;
                 self.observations.insert(
                     (object, observation),
                     ObservationSubscription::ImageScale {
@@ -677,17 +689,20 @@ impl WinUiAdapter {
                 });
                 let size_callback = callback.clone();
                 let size_element = element.clone();
-                let size = framework.SizeChanged(move |_, args| {
-                    if let Some(args) = args.as_ref()
-                        && let Ok(value) = args.NewSize()
-                    {
-                        size_callback.call(CompositionHostEvent::Metrics {
-                            width: f64::from(value.width),
-                            height: f64::from(value.height),
-                            scale: xaml_scale(&size_element).unwrap(),
-                        });
-                    }
-                })?;
+                let size =
+                    framework.SizeChanged(local::handler::<_, native::SizeChangedEventArgs, _>(
+                        move |_, args| {
+                            if let Some(args) = args.as_ref()
+                                && let Ok(value) = args.NewSize()
+                            {
+                                size_callback.call(CompositionHostEvent::Metrics {
+                                    width: f64::from(value.width),
+                                    height: f64::from(value.height),
+                                    scale: xaml_scale(&size_element).unwrap(),
+                                });
+                            }
+                        },
+                    ))?;
                 let changed = Rc::new(RefCell::new(None));
                 let scale_callback = callback.clone();
                 let scale_framework = framework.clone();
@@ -706,24 +721,26 @@ impl WinUiAdapter {
                 let loaded_changed = Rc::clone(&changed);
                 let loaded_callback = callback;
                 let loaded_framework = framework;
-                let loaded = loaded_framework.clone().Loaded(move |_, _| {
-                    let framework = loaded_framework.clone();
-                    observe_xaml_scale(
-                        &loaded_element,
-                        &loaded_changed,
-                        Callback::new({
-                            let callback = loaded_callback.clone();
-                            move |scale| {
-                                callback.call(CompositionHostEvent::Metrics {
-                                    width: framework.ActualWidth().unwrap_or(0.0),
-                                    height: framework.ActualHeight().unwrap_or(0.0),
-                                    scale,
-                                });
-                            }
-                        }),
-                    )
-                    .unwrap();
-                })?;
+                let loaded = loaded_framework
+                    .clone()
+                    .Loaded(local::handler(move |_, _| {
+                        let framework = loaded_framework.clone();
+                        observe_xaml_scale(
+                            &loaded_element,
+                            &loaded_changed,
+                            Callback::new({
+                                let callback = loaded_callback.clone();
+                                move |scale| {
+                                    callback.call(CompositionHostEvent::Metrics {
+                                        width: framework.ActualWidth().unwrap_or(0.0),
+                                        height: framework.ActualHeight().unwrap_or(0.0),
+                                        scale,
+                                    });
+                                }
+                            }),
+                        )
+                        .unwrap();
+                    }))?;
                 self.observations.insert(
                     (object, observation),
                     ObservationSubscription::CompositionHost {

@@ -755,7 +755,7 @@ impl SecondaryTile {
     }
     pub fn VisualElementsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VisualElementsRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VisualElementsRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, VisualElementsRequestedEventArgs>>::new(move |a0, a1| {

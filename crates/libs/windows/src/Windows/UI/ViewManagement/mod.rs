@@ -26,7 +26,7 @@ impl AccessibilitySettings {
     }
     pub fn HighContrastChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -148,7 +148,7 @@ impl ApplicationView {
     }
     pub fn Consolidated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ApplicationViewConsolidatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ApplicationViewConsolidatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ApplicationViewConsolidatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -180,7 +180,7 @@ impl ApplicationView {
     }
     pub fn VisibleBoundsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -1564,7 +1564,7 @@ windows_core::imp::interface_hierarchy!(InputPane, windows_core::IUnknown, windo
 impl InputPane {
     pub fn Showing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputPaneVisibilityEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputPaneVisibilityEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, InputPaneVisibilityEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1578,7 +1578,7 @@ impl InputPane {
     }
     pub fn Hiding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputPaneVisibilityEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputPaneVisibilityEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, InputPaneVisibilityEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1714,7 +1714,7 @@ impl ProjectionManager {
     }
     pub fn ProjectionDisplayAvailableChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1940,7 +1940,7 @@ impl UISettings {
     }
     pub fn TextScaleFactorChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -1962,7 +1962,7 @@ impl UISettings {
     }
     pub fn ColorValuesChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings3>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -1984,7 +1984,7 @@ impl UISettings {
     }
     pub fn AdvancedEffectsEnabledChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings4>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -2006,7 +2006,7 @@ impl UISettings {
     }
     pub fn AutoHideScrollBarsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UISettingsAutoHideScrollBarsChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UISettingsAutoHideScrollBarsChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings5>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, UISettingsAutoHideScrollBarsChangedEventArgs>>::new(move |a0, a1| {
@@ -2021,7 +2021,7 @@ impl UISettings {
     }
     pub fn AnimationsEnabledChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UISettingsAnimationsEnabledChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UISettingsAnimationsEnabledChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, UISettingsAnimationsEnabledChangedEventArgs>>::new(move |a0, a1| {
@@ -2036,7 +2036,7 @@ impl UISettings {
     }
     pub fn MessageDurationChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UISettingsMessageDurationChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UISettingsMessageDurationChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, UISettingsMessageDurationChangedEventArgs>>::new(move |a0, a1| {
@@ -2130,7 +2130,7 @@ impl UIViewSettings {
     }
     pub fn PreferredInteractionModeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IUIViewSettingsPreferredInteractionMode>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {

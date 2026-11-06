@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(ContactDataProviderConnection, windows_c
 impl ContactDataProviderConnection {
     pub fn SyncRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListSyncManagerSyncRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListSyncManagerSyncRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, ContactListSyncManagerSyncRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -19,7 +19,7 @@ impl ContactDataProviderConnection {
     }
     pub fn ServerSearchReadBatchRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListServerSearchReadBatchRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListServerSearchReadBatchRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, ContactListServerSearchReadBatchRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -36,7 +36,7 @@ impl ContactDataProviderConnection {
     }
     pub fn CreateOrUpdateContactRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListCreateOrUpdateContactRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListCreateOrUpdateContactRequestEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IContactDataProviderConnection2>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, ContactListCreateOrUpdateContactRequestEventArgs>>::new(move |a0, a1| {
@@ -51,7 +51,7 @@ impl ContactDataProviderConnection {
     }
     pub fn DeleteContactRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListDeleteContactRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListDeleteContactRequestEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IContactDataProviderConnection2>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, ContactListDeleteContactRequestEventArgs>>::new(move |a0, a1| {

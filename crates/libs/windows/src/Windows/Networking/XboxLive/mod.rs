@@ -234,7 +234,7 @@ windows_core::imp::interface_hierarchy!(XboxLiveDeviceAddress, windows_core::IUn
 impl XboxLiveDeviceAddress {
     pub fn SnapshotChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -347,7 +347,7 @@ windows_core::imp::interface_hierarchy!(XboxLiveEndpointPair, windows_core::IUnk
 impl XboxLiveEndpointPair {
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<XboxLiveEndpointPairStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<XboxLiveEndpointPairStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, XboxLiveEndpointPairStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -612,7 +612,7 @@ windows_core::imp::interface_hierarchy!(XboxLiveEndpointPairTemplate, windows_co
 impl XboxLiveEndpointPairTemplate {
     pub fn InboundEndpointPairCreated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<XboxLiveInboundEndpointPairCreatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<XboxLiveInboundEndpointPairCreatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, XboxLiveInboundEndpointPairCreatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

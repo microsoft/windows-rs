@@ -61,7 +61,7 @@ impl IPropertySet {
     }
     pub fn MapChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         let handler = <windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -174,7 +174,7 @@ impl PropertySet {
     }
     pub fn MapChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         let handler = <windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -272,7 +272,7 @@ impl StringMap {
     }
     pub fn MapChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         let handler = <windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>::new(move |a0, a1| {
@@ -380,7 +380,7 @@ impl ValueSet {
     }
     pub fn MapChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         let handler = <windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>::new(move |a0, a1| {

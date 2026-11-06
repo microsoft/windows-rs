@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(EmailDataProviderConnection, windows_cor
 impl EmailDataProviderConnection {
     pub fn MailboxSyncRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxSyncManagerSyncRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxSyncManagerSyncRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxSyncManagerSyncRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -19,7 +19,7 @@ impl EmailDataProviderConnection {
     }
     pub fn DownloadMessageRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxDownloadMessageRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxDownloadMessageRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDownloadMessageRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -33,7 +33,7 @@ impl EmailDataProviderConnection {
     }
     pub fn DownloadAttachmentRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxDownloadAttachmentRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxDownloadAttachmentRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDownloadAttachmentRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -47,7 +47,7 @@ impl EmailDataProviderConnection {
     }
     pub fn CreateFolderRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxCreateFolderRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxCreateFolderRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxCreateFolderRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -61,7 +61,7 @@ impl EmailDataProviderConnection {
     }
     pub fn DeleteFolderRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxDeleteFolderRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxDeleteFolderRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDeleteFolderRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -75,7 +75,7 @@ impl EmailDataProviderConnection {
     }
     pub fn EmptyFolderRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxEmptyFolderRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxEmptyFolderRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxEmptyFolderRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -89,7 +89,7 @@ impl EmailDataProviderConnection {
     }
     pub fn MoveFolderRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxMoveFolderRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxMoveFolderRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxMoveFolderRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -103,7 +103,7 @@ impl EmailDataProviderConnection {
     }
     pub fn UpdateMeetingResponseRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxUpdateMeetingResponseRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxUpdateMeetingResponseRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxUpdateMeetingResponseRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -117,7 +117,7 @@ impl EmailDataProviderConnection {
     }
     pub fn ForwardMeetingRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxForwardMeetingRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxForwardMeetingRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxForwardMeetingRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -131,7 +131,7 @@ impl EmailDataProviderConnection {
     }
     pub fn ProposeNewTimeForMeetingRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxProposeNewTimeForMeetingRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxProposeNewTimeForMeetingRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxProposeNewTimeForMeetingRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -145,7 +145,7 @@ impl EmailDataProviderConnection {
     }
     pub fn SetAutoReplySettingsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxSetAutoReplySettingsRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxSetAutoReplySettingsRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxSetAutoReplySettingsRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -159,7 +159,7 @@ impl EmailDataProviderConnection {
     }
     pub fn GetAutoReplySettingsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxGetAutoReplySettingsRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxGetAutoReplySettingsRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxGetAutoReplySettingsRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -173,7 +173,7 @@ impl EmailDataProviderConnection {
     }
     pub fn ResolveRecipientsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxResolveRecipientsRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxResolveRecipientsRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxResolveRecipientsRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -187,7 +187,7 @@ impl EmailDataProviderConnection {
     }
     pub fn ValidateCertificatesRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxValidateCertificatesRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxValidateCertificatesRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxValidateCertificatesRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -201,7 +201,7 @@ impl EmailDataProviderConnection {
     }
     pub fn ServerSearchReadBatchRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxServerSearchReadBatchRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxServerSearchReadBatchRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxServerSearchReadBatchRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

@@ -103,13 +103,13 @@ impl TransientMenuHost {
             generation: 0,
         }));
         let loaded_state = Rc::downgrade(&state);
-        let loaded = anchor_element.Loaded(move |_, _| {
+        let loaded = anchor_element.Loaded(local::handler(move |_, _| {
             let Some(state) = loaded_state.upgrade() else {
                 return;
             };
             state.borrow_mut().loaded = true;
             show_pending(&state).unwrap();
-        })?;
+        }))?;
 
         Ok(Self {
             state,
@@ -168,13 +168,13 @@ impl MenuThemeState {
             return Ok(());
         }
         let target = Rc::downgrade(self);
-        let refresh = DispatcherQueueHandler::new(move || {
+        let refresh = DispatcherQueueHandler::new(local::task(move || {
             if let Some(theme) = target.upgrade() {
                 // A notification during refresh must be able to enqueue the next refresh.
                 theme.refresh_pending.set(false);
                 theme.refresh().unwrap();
             }
-        });
+        }));
         // A dispatcher that is shutting down rejects the refresh; no menu will show again.
         if !dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &refresh)? {
             self.refresh_pending.set(false);
@@ -289,7 +289,7 @@ fn build_menu_items(
                 item.cast::<IControl>()?.SetIsEnabled(*enabled)?;
                 let callback = callback.clone();
                 let key = key.clone();
-                revokers.push(item.Click(move |_, _| callback.call(key.clone()))?);
+                revokers.push(item.Click(local::handler(move |_, _| callback.call(key.clone())))?);
                 item.cast()?
             }
             MenuItem::Separator { .. } => MenuFlyoutSeparator::new()?.cast()?,
@@ -353,13 +353,13 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
 
         let closed_state = Rc::downgrade(state);
         let closed_live = Rc::clone(&live);
-        revokers.push(flyout_base.Closed(move |_, _| {
+        revokers.push(flyout_base.Closed(local::handler(move |_, _| {
             closed_live.set(false);
             let Some(state) = closed_state.upgrade() else {
                 return;
             };
             let cleanup_state = Rc::downgrade(&state);
-            let cleanup = DispatcherQueueHandler::new(move || {
+            let cleanup = DispatcherQueueHandler::new(local::task(move || {
                 let Some(state) = cleanup_state.upgrade() else {
                     return;
                 };
@@ -368,12 +368,12 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
                     return;
                 }
                 state.menu = None;
-            });
+            }));
             // A dispatcher that is shutting down rejects the cleanup and drops the menu itself.
             dispatcher
                 .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &cleanup)
                 .unwrap();
-        })?);
+        }))?);
 
         state.borrow_mut().menu = Some(ActiveMenu {
             flyout: flyout_base.clone(),

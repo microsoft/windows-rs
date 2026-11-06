@@ -926,7 +926,7 @@ impl StorageItemMostRecentlyUsedList {
     }
     pub fn ItemRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ItemRemovedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ItemRemovedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ItemRemovedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

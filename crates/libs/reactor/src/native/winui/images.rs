@@ -227,16 +227,16 @@ impl NativeImageSource {
         };
         let (value, opened, failed) = if svg {
             let image = native::SvgImageSource::new()?;
-            let opened = image.Opened(move |_, _| opened.complete(true))?;
-            let failed = image.OpenFailed(move |_, _| failed.complete(false))?;
+            let opened = image.Opened(local::handler(move |_, _| opened.complete(true)))?;
+            let failed = image.OpenFailed(local::handler(move |_, _| failed.complete(false)))?;
             if let ImageSourceValue::Uri(uri) = source {
                 image.SetUriSource(&native::Uri::CreateUri(uri)?)?;
             }
             (image.cast()?, opened, failed)
         } else {
             let image = native::BitmapImage::new()?;
-            let opened = image.ImageOpened(move |_, _| opened.complete(true))?;
-            let failed = image.ImageFailed(move |_, _| failed.complete(false))?;
+            let opened = image.ImageOpened(local::handler(move |_, _| opened.complete(true)))?;
+            let failed = image.ImageFailed(local::handler(move |_, _| failed.complete(false)))?;
             if let ImageSourceValue::Uri(uri) = source {
                 image.SetUriSource(&native::Uri::CreateUri(uri)?)?;
             }
@@ -288,11 +288,11 @@ impl NativeImageSource {
             return start(self);
         }
         let image = Rc::downgrade(self);
-        let loaded = element.Loaded(move |_, _| {
+        let loaded = element.Loaded(local::handler(move |_, _| {
             if let Some(image) = image.upgrade() {
                 start(&image).unwrap();
             }
-        })?;
+        }))?;
         // Replaces the observer of a previous user that left before loading.
         if let Some(deferred) = self.deferred.borrow_mut().as_mut() {
             deferred._loaded = Some(loaded);
@@ -486,11 +486,11 @@ impl WinUiAdapter {
         );
         if let (Some(result), Some(replay)) = (result, replay) {
             // Replay a completed load after the current batch applies event handlers.
-            let handler = native::DispatcherQueueHandler::new(move || {
+            let handler = native::DispatcherQueueHandler::new(local::task(move || {
                 if let Some(callback) = replay.upgrade() {
                     callback(result);
                 }
-            });
+            }));
             // The replay is dropped if the dispatcher is shutting down.
             native::DispatcherQueue::GetForCurrentThread()?
                 .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;

@@ -485,7 +485,7 @@ impl RemoteAutomationClientSession {
     }
     pub fn ConnectionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteAutomationConnectionRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteAutomationConnectionRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, RemoteAutomationConnectionRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -499,7 +499,7 @@ impl RemoteAutomationClientSession {
     }
     pub fn Disconnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteAutomationDisconnectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteAutomationDisconnectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, RemoteAutomationDisconnectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

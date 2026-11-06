@@ -470,7 +470,7 @@ impl SpatialAnchor {
     }
     pub fn RawCoordinateSystemAdjusted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialAnchorRawCoordinateSystemAdjustedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialAnchorRawCoordinateSystemAdjustedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SpatialAnchorRawCoordinateSystemAdjustedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1106,7 +1106,7 @@ impl SpatialEntityWatcher {
     }
     pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialEntityAddedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialEntityAddedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SpatialEntityAddedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1120,7 +1120,7 @@ impl SpatialEntityWatcher {
     }
     pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialEntityUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialEntityUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SpatialEntityUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1134,7 +1134,7 @@ impl SpatialEntityWatcher {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialEntityRemovedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialEntityRemovedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SpatialEntityRemovedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1148,7 +1148,7 @@ impl SpatialEntityWatcher {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1298,7 +1298,7 @@ impl SpatialLocator {
     }
     pub fn LocatabilityChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1312,7 +1312,7 @@ impl SpatialLocator {
     }
     pub fn PositionalTrackingDeactivating<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialLocatorPositionalTrackingDeactivatingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialLocatorPositionalTrackingDeactivatingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SpatialLocatorPositionalTrackingDeactivatingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1602,7 +1602,7 @@ impl SpatialStageFrameOfReference {
     }
     pub fn CurrentChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);

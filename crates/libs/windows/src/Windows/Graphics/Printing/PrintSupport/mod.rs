@@ -651,7 +651,7 @@ impl PrintSupportExtensionSession {
     }
     pub fn PrintTicketValidationRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintSupportPrintTicketValidationRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintSupportPrintTicketValidationRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintSupportPrintTicketValidationRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -665,7 +665,7 @@ impl PrintSupportExtensionSession {
     }
     pub fn PrintDeviceCapabilitiesChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintSupportPrintDeviceCapabilitiesChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintSupportPrintDeviceCapabilitiesChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -682,7 +682,7 @@ impl PrintSupportExtensionSession {
     }
     pub fn PrinterSelected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintSupportPrinterSelectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintSupportPrinterSelectedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession2>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintSupportPrinterSelectedEventArgs>>::new(move |a0, a1| {
@@ -697,7 +697,7 @@ impl PrintSupportExtensionSession {
     }
     pub fn CommunicationErrorDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintSupportCommunicationErrorDetectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintSupportCommunicationErrorDetectedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession3>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintSupportCommunicationErrorDetectedEventArgs>>::new(move |a0, a1| {

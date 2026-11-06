@@ -73,7 +73,7 @@ impl ScreenReaderService {
     }
     pub fn ScreenReaderPositionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ScreenReaderPositionChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ScreenReaderPositionChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ScreenReaderPositionChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

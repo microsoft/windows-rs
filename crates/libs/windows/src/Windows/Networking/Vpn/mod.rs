@@ -1970,7 +1970,7 @@ impl VpnChannel {
     }
     pub fn ActivityChange<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VpnChannelActivityEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VpnChannelActivityEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, VpnChannelActivityEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2040,7 +2040,7 @@ impl VpnChannel {
     }
     pub fn ActivityStateChange<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VpnChannelActivityStateChangedArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VpnChannelActivityStateChangedArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, VpnChannelActivityStateChangedArgs>>::new(move |a0, a1| {

@@ -93,7 +93,7 @@ impl AdaptiveMediaSource {
     }
     pub fn DownloadBitrateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadBitrateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadBitrateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadBitrateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -107,7 +107,7 @@ impl AdaptiveMediaSource {
     }
     pub fn PlaybackBitrateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -121,7 +121,7 @@ impl AdaptiveMediaSource {
     }
     pub fn DownloadRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -135,7 +135,7 @@ impl AdaptiveMediaSource {
     }
     pub fn DownloadCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -149,7 +149,7 @@ impl AdaptiveMediaSource {
     }
     pub fn DownloadFailed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadFailedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadFailedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadFailedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -551,7 +551,7 @@ windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDiagnostics, windows_
 impl AdaptiveMediaSourceDiagnostics {
     pub fn DiagnosticAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDiagnosticAvailableEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDiagnosticAvailableEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDiagnosticAvailableEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

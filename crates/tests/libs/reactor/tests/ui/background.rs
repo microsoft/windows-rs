@@ -1,6 +1,20 @@
 use super::*;
 
 #[test]
+fn native_delegate_lifetime_and_shutdown() -> Result<()> {
+    process::run_to_exit("callback-lifetime")
+}
+
+#[test]
+fn background_completion_constructs_non_send_message_on_ui_thread() -> Result<()> {
+    process::run("background", |ui| {
+        ui.name("factory-result", "Waiting for factory")?;
+        ui.invoke("factory-start")?;
+        ui.name("factory-result", "Created on UI thread")
+    })
+}
+
+#[test]
 fn background_delivery_and_cancellation_on_component_replacement() -> Result<()> {
     process::run("background", |ui| {
         ui.name("delivered", "Delivered [0]")?;

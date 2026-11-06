@@ -145,7 +145,11 @@ impl NativeWindow {
                     .AppWindow()?
                     .cast::<native::IAppWindow2>()?;
                 let hwnd = self.raw_handle()?;
-                self.state.root_element.SizeChanged(move |_, args| {
+                self.state.root_element.SizeChanged(local::handler::<
+                    _,
+                    native::SizeChangedEventArgs,
+                    _,
+                >(move |_, args| {
                     if args.as_ref().is_none() {
                         return;
                     }
@@ -157,7 +161,7 @@ impl NativeWindow {
                         width: f64::from(size.width) * dips,
                         height: f64::from(size.height) * dips,
                     });
-                })
+                }))
             })
             .transpose()?;
         Ok(())
@@ -176,20 +180,22 @@ impl NativeWindow {
                 };
                 let last = Cell::new(initial);
                 observer(initial);
-                self.state
-                    .root_element
-                    .ActualThemeChanged(move |sender, _| {
-                        let Some(sender) = sender.as_ref() else {
-                            return;
-                        };
-                        let scheme = match sender.ActualTheme().unwrap() {
-                            native::ElementTheme::Dark => ColorScheme::Dark,
-                            _ => ColorScheme::Light,
-                        };
-                        if last.replace(scheme) != scheme {
-                            observer(scheme);
-                        }
-                    })
+                self.state.root_element.ActualThemeChanged(local::handler::<
+                    native::FrameworkElement,
+                    _,
+                    _,
+                >(move |sender, _| {
+                    let Some(sender) = sender.as_ref() else {
+                        return;
+                    };
+                    let scheme = match sender.ActualTheme().unwrap() {
+                        native::ElementTheme::Dark => ColorScheme::Dark,
+                        _ => ColorScheme::Light,
+                    };
+                    if last.replace(scheme) != scheme {
+                        observer(scheme);
+                    }
+                }))
             })
             .transpose()?;
 
@@ -359,11 +365,11 @@ impl NativeWindow {
                     .window
                     .cast::<native::IWindow2>()?
                     .AppWindow()?
-                    .Changed(move |_, _| {
+                    .Changed(local::handler(move |_, _| {
                         if let Some(state) = state.upgrade() {
                             state.observe_placement().unwrap();
                         }
-                    })?,
+                    }))?,
             );
             self.state.observe_placement()?;
         }
@@ -376,12 +382,12 @@ impl NativeWindow {
 
     pub fn set_closed(&mut self, callback: impl Fn() + 'static) -> Result<(), WinUiError> {
         let state = Rc::downgrade(&self.state);
-        self.closed = Some(self.state.window.Closed(move |_, _| {
+        self.closed = Some(self.state.window.Closed(local::handler(move |_, _| {
             if let Some(state) = state.upgrade() {
                 state.closed.set(true);
             }
             callback();
-        })?);
+        }))?);
         Ok(())
     }
 }

@@ -193,7 +193,7 @@ impl PushNotificationChannel {
     }
     pub fn PushNotificationReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PushNotificationReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PushNotificationReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PushNotificationReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -256,7 +256,7 @@ impl PushNotificationChannelManager {
     }
     pub fn ChannelsRevoked<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PushNotificationChannelsRevokedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PushNotificationChannelsRevokedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<PushNotificationChannelsRevokedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

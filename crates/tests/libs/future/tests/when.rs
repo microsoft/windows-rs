@@ -6,6 +6,26 @@ use windows_result::*;
 const E_FAIL: HRESULT = HRESULT(0x80004005_u32 as _);
 
 #[test]
+fn pending_non_sync_capture() -> Result<()> {
+    let (release, pending) = channel();
+    let operation = IAsyncOperation::<i32>::spawn(move || {
+        pending.recv().unwrap();
+        Ok(42)
+    });
+    assert_eq!(operation.Status()?, AsyncStatus::Started);
+    let (send, received) = channel();
+    let capture = std::cell::Cell::new(0);
+    operation.when(move |result| {
+        capture.set(result.unwrap());
+        send.send(capture.get()).unwrap();
+    })?;
+    assert!(received.try_recv().is_err());
+    release.send(()).unwrap();
+    assert_eq!(received.recv().unwrap(), 42);
+    Ok(())
+}
+
+#[test]
 fn ok() -> Result<()> {
     let a = IAsyncAction::ready(Ok(()));
 

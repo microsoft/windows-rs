@@ -8,7 +8,9 @@ impl windows_core::RuntimeType for Handler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Handler {
-    pub fn new<F: Fn(&Value) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(&Value) -> windows_core::Result<()> + Send + Sync + 'static>(
+        invoke: F,
+    ) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&HandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -30,10 +32,10 @@ pub struct Handler_Vtbl {
         value: Value,
     ) -> windows_core::HRESULT,
 }
-struct HandlerBox<F: Fn(&Value) -> windows_core::Result<()> + Send + 'static>(
+struct HandlerBox<F: Fn(&Value) -> windows_core::Result<()> + Send + Sync + 'static>(
     core::marker::PhantomData<(fn() -> F,)>,
 );
-impl<F: Fn(&Value) -> windows_core::Result<()> + Send + 'static> HandlerBox<F> {
+impl<F: Fn(&Value) -> windows_core::Result<()> + Send + Sync + 'static> HandlerBox<F> {
     const VTABLE: Handler_Vtbl = Handler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<Handler, F>::QueryInterface,
@@ -72,7 +74,7 @@ windows_core::imp::interface_hierarchy!(
 impl ISource {
     pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(&Value) + Send + 'static,
+        F: Fn(&Value) + Send + Sync + 'static,
     {
         let handler = <Handler>::new(move |a0| {
             handler(a0);

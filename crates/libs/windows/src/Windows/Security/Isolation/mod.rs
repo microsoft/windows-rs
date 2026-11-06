@@ -3,7 +3,7 @@ impl windows_core::RuntimeType for HostMessageReceivedCallback {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl HostMessageReceivedCallback {
-    pub fn new<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&HostMessageReceivedCallbackBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -20,8 +20,8 @@ pub struct HostMessageReceivedCallback_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct HostMessageReceivedCallbackBox<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> HostMessageReceivedCallbackBox<F> {
+struct HostMessageReceivedCallbackBox<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + Sync + 'static> HostMessageReceivedCallbackBox<F> {
     const VTABLE: HostMessageReceivedCallback_Vtbl = HostMessageReceivedCallback_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<HostMessageReceivedCallback, F>::QueryInterface,
@@ -1735,7 +1735,7 @@ impl windows_core::RuntimeType for MessageReceivedCallback {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MessageReceivedCallback {
-    pub fn new<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&MessageReceivedCallbackBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -1752,8 +1752,8 @@ pub struct MessageReceivedCallback_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct MessageReceivedCallbackBox<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> MessageReceivedCallbackBox<F> {
+struct MessageReceivedCallbackBox<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + Sync + 'static> MessageReceivedCallbackBox<F> {
     const VTABLE: MessageReceivedCallback_Vtbl = MessageReceivedCallback_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<MessageReceivedCallback, F>::QueryInterface,

@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(CoreFrameworkInputView, windows_core::IU
 impl CoreFrameworkInputView {
     pub fn PrimaryViewAnimationStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreFrameworkInputViewAnimationStartingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreFrameworkInputViewAnimationStartingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreFrameworkInputViewAnimationStartingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -19,7 +19,7 @@ impl CoreFrameworkInputView {
     }
     pub fn OcclusionsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreFrameworkInputViewOcclusionsChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreFrameworkInputViewOcclusionsChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreFrameworkInputViewOcclusionsChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -136,7 +136,7 @@ windows_core::imp::interface_hierarchy!(CoreInputView, windows_core::IUnknown, w
 impl CoreInputView {
     pub fn OcclusionsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreInputViewOcclusionsChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreInputViewOcclusionsChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreInputViewOcclusionsChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -168,7 +168,7 @@ impl CoreInputView {
     }
     pub fn XYFocusTransferringFromPrimaryView<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreInputViewTransferringXYFocusEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreInputViewTransferringXYFocusEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView2>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreInputViewTransferringXYFocusEventArgs>>::new(move |a0, a1| {
@@ -183,7 +183,7 @@ impl CoreInputView {
     }
     pub fn XYFocusTransferredToPrimaryView<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView2>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -226,7 +226,7 @@ impl CoreInputView {
     }
     pub fn PrimaryViewShowing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreInputViewShowingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreInputViewShowingEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView4>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreInputViewShowingEventArgs>>::new(move |a0, a1| {
@@ -241,7 +241,7 @@ impl CoreInputView {
     }
     pub fn PrimaryViewHiding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreInputViewHidingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreInputViewHidingEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView4>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreInputViewHidingEventArgs>>::new(move |a0, a1| {
@@ -263,7 +263,7 @@ impl CoreInputView {
     }
     pub fn SupportedKindsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView5>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -278,7 +278,7 @@ impl CoreInputView {
     }
     pub fn PrimaryViewAnimationStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreInputViewAnimationStartingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreInputViewAnimationStartingEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView5>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreInputViewAnimationStartingEventArgs>>::new(move |a0, a1| {

@@ -69,7 +69,7 @@ impl AdvancedPhotoCapture {
     }
     pub fn OptionalReferencePhotoCaptured<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<OptionalReferencePhotoCapturedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<OptionalReferencePhotoCapturedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, OptionalReferencePhotoCapturedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -83,7 +83,7 @@ impl AdvancedPhotoCapture {
     }
     pub fn AllPhotosCaptured<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -178,7 +178,7 @@ impl AppBroadcastBackgroundService {
     }
     pub fn HeartbeatRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastHeartbeatRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastHeartbeatRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppBroadcastHeartbeatRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -224,7 +224,7 @@ impl AppBroadcastBackgroundService {
     }
     pub fn BroadcastTitleChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -239,7 +239,7 @@ impl AppBroadcastBackgroundService {
     }
     pub fn BroadcastLanguageChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -254,7 +254,7 @@ impl AppBroadcastBackgroundService {
     }
     pub fn BroadcastChannelChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -331,7 +331,7 @@ impl AppBroadcastBackgroundServiceSignInInfo {
     }
     pub fn SignInStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastSignInStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastSignInStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppBroadcastSignInStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -345,7 +345,7 @@ impl AppBroadcastBackgroundServiceSignInInfo {
     }
     pub fn UserNameChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundServiceSignInInfo2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -415,7 +415,7 @@ impl AppBroadcastBackgroundServiceStreamInfo {
     }
     pub fn StreamStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastStreamStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastStreamStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppBroadcastStreamStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -429,7 +429,7 @@ impl AppBroadcastBackgroundServiceStreamInfo {
     }
     pub fn VideoEncodingResolutionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -443,7 +443,7 @@ impl AppBroadcastBackgroundServiceStreamInfo {
     }
     pub fn VideoEncodingBitrateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -985,7 +985,7 @@ impl AppBroadcastPreview {
     }
     pub fn PreviewStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastPreviewStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastPreviewStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppBroadcastPreviewStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1106,7 +1106,7 @@ impl AppBroadcastPreviewStreamReader {
     }
     pub fn VideoFrameArrived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1567,7 +1567,7 @@ impl AppBroadcastState {
     }
     pub fn ViewerCountChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastViewerCountChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastViewerCountChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppBroadcastViewerCountChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1581,7 +1581,7 @@ impl AppBroadcastState {
     }
     pub fn MicrophoneCaptureStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastMicrophoneCaptureStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastMicrophoneCaptureStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppBroadcastMicrophoneCaptureStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1595,7 +1595,7 @@ impl AppBroadcastState {
     }
     pub fn CameraCaptureStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastCameraCaptureStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastCameraCaptureStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppBroadcastCameraCaptureStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1609,7 +1609,7 @@ impl AppBroadcastState {
     }
     pub fn PlugInStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastPlugInStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastPlugInStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppBroadcastPlugInStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1623,7 +1623,7 @@ impl AppBroadcastState {
     }
     pub fn StreamStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastStreamStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppBroadcastStreamStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppBroadcastStreamStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1637,7 +1637,7 @@ impl AppBroadcastState {
     }
     pub fn CaptureTargetClosed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1799,7 +1799,7 @@ impl AppBroadcastStreamReader {
     }
     pub fn AudioFrameArrived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1813,7 +1813,7 @@ impl AppBroadcastStreamReader {
     }
     pub fn VideoFrameArrived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2071,7 +2071,7 @@ impl AppCapture {
     }
     pub fn CapturingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2462,7 +2462,7 @@ impl AppCaptureMetadataWriter {
     }
     pub fn MetadataPurged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2577,7 +2577,7 @@ impl AppCaptureRecordOperation {
     }
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppCaptureRecordingStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppCaptureRecordingStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppCaptureRecordingStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2591,7 +2591,7 @@ impl AppCaptureRecordOperation {
     }
     pub fn DurationGenerated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppCaptureDurationGeneratedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppCaptureDurationGeneratedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppCaptureDurationGeneratedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2605,7 +2605,7 @@ impl AppCaptureRecordOperation {
     }
     pub fn FileGenerated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppCaptureFileGeneratedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppCaptureFileGeneratedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppCaptureFileGeneratedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3045,7 +3045,7 @@ impl AppCaptureState {
     }
     pub fn MicrophoneCaptureStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppCaptureMicrophoneCaptureStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppCaptureMicrophoneCaptureStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppCaptureMicrophoneCaptureStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3059,7 +3059,7 @@ impl AppCaptureState {
     }
     pub fn CaptureTargetClosed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3779,7 +3779,7 @@ impl GameBarServices {
     }
     pub fn CommandReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GameBarServicesCommandEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GameBarServicesCommandEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, GameBarServicesCommandEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3855,7 +3855,7 @@ windows_core::imp::interface_hierarchy!(GameBarServicesManager, windows_core::IU
 impl GameBarServicesManager {
     pub fn GameBarServicesCreated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GameBarServicesManagerGameBarServicesCreatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GameBarServicesManagerGameBarServicesCreatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, GameBarServicesManagerGameBarServicesCreatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -6133,7 +6133,7 @@ impl LowLagPhotoSequenceCapture {
     }
     pub fn PhotoCaptured<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PhotoCapturedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PhotoCapturedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PhotoCapturedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -6290,7 +6290,7 @@ impl MediaCapture {
     }
     pub fn Failed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaCaptureFailedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaCaptureFailedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <MediaCaptureFailedEventHandler>::new(move |a0, a1| {
             handler(a0, a1);
@@ -6304,7 +6304,7 @@ impl MediaCapture {
     }
     pub fn RecordLimitationExceeded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <RecordLimitationExceededEventHandler>::new(move |a0| {
             handler(a0);
@@ -6458,7 +6458,7 @@ impl MediaCapture {
     }
     pub fn FocusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaCaptureFocusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaCaptureFocusChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture3>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaCaptureFocusChangedEventArgs>>::new(move |a0, a1| {
@@ -6473,7 +6473,7 @@ impl MediaCapture {
     }
     pub fn PhotoConfirmationCaptured<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PhotoConfirmationCapturedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PhotoConfirmationCapturedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture3>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, PhotoConfirmationCapturedEventArgs>>::new(move |a0, a1| {
@@ -6525,7 +6525,7 @@ impl MediaCapture {
     }
     pub fn CameraStreamStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -6565,7 +6565,7 @@ impl MediaCapture {
     }
     pub fn ThermalStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -6664,7 +6664,7 @@ impl MediaCapture {
     }
     pub fn CaptureDeviceExclusiveControlStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture6>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>>::new(move |a0, a1| {
@@ -6867,7 +6867,7 @@ impl windows_core::RuntimeType for MediaCaptureFailedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MediaCaptureFailedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<MediaCapture>, windows_core::Ref<MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<MediaCapture>, windows_core::Ref<MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&MediaCaptureFailedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -6885,8 +6885,8 @@ pub struct MediaCaptureFailedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, erroreventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct MediaCaptureFailedEventHandlerBox<F: Fn(windows_core::Ref<MediaCapture>, windows_core::Ref<MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<MediaCapture>, windows_core::Ref<MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> MediaCaptureFailedEventHandlerBox<F> {
+struct MediaCaptureFailedEventHandlerBox<F: Fn(windows_core::Ref<MediaCapture>, windows_core::Ref<MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<MediaCapture>, windows_core::Ref<MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static> MediaCaptureFailedEventHandlerBox<F> {
     const VTABLE: MediaCaptureFailedEventHandler_Vtbl = MediaCaptureFailedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<MediaCaptureFailedEventHandler, F>::QueryInterface,
@@ -7243,7 +7243,7 @@ impl MediaCaptureRelativePanelWatcher {
     }
     pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -7749,7 +7749,7 @@ impl windows_core::RuntimeType for RecordLimitationExceededEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl RecordLimitationExceededEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<MediaCapture>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<MediaCapture>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&RecordLimitationExceededEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -7766,8 +7766,8 @@ pub struct RecordLimitationExceededEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct RecordLimitationExceededEventHandlerBox<F: Fn(windows_core::Ref<MediaCapture>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<MediaCapture>) -> windows_core::Result<()> + Send + 'static> RecordLimitationExceededEventHandlerBox<F> {
+struct RecordLimitationExceededEventHandlerBox<F: Fn(windows_core::Ref<MediaCapture>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<MediaCapture>) -> windows_core::Result<()> + Send + Sync + 'static> RecordLimitationExceededEventHandlerBox<F> {
     const VTABLE: RecordLimitationExceededEventHandler_Vtbl = RecordLimitationExceededEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<RecordLimitationExceededEventHandler, F>::QueryInterface,

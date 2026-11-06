@@ -234,7 +234,7 @@ impl DialDevicePicker {
     }
     pub fn DialDeviceSelected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DialDeviceSelectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DialDeviceSelectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DialDeviceSelectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -248,7 +248,7 @@ impl DialDevicePicker {
     }
     pub fn DisconnectButtonClicked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DialDisconnectButtonClickedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DialDisconnectButtonClickedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DialDisconnectButtonClickedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -262,7 +262,7 @@ impl DialDevicePicker {
     }
     pub fn DialDevicePickerDismissed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);

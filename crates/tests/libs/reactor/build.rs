@@ -155,4 +155,22 @@ fn main() {
         .flat()
         .minimal()
         .write();
+
+    println!("cargo:rerun-if-changed=../../../tools/reactor-metadata/winmd");
+    windows_bindgen::builder()
+        .input("../../../tools/reactor-metadata/winmd")
+        .input_default()
+        .output(
+            std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap())
+                .join("callback_bindings.rs"),
+        )
+        .filters([
+            "Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread",
+            "Microsoft.UI.Dispatching.DispatcherQueueHandler",
+            "Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal",
+            "Microsoft.UI.Dispatching.IDispatcherQueue.TryEnqueueWithPriority",
+        ])
+        .flat()
+        .minimal()
+        .write();
 }

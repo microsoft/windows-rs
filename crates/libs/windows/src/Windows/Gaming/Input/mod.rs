@@ -24,7 +24,7 @@ impl ArcadeStick {
     }
     pub fn ArcadeStickAdded<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -38,7 +38,7 @@ impl ArcadeStick {
     }
     pub fn ArcadeStickRemoved<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -67,7 +67,7 @@ impl ArcadeStick {
     }
     pub fn HeadsetConnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -82,7 +82,7 @@ impl ArcadeStick {
     }
     pub fn HeadsetDisconnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -98,7 +98,7 @@ impl ArcadeStick {
     #[cfg(feature = "System")]
     pub fn UserChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>::new(move |a0, a1| {
@@ -259,7 +259,7 @@ impl FlightStick {
     }
     pub fn FlightStickAdded<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -273,7 +273,7 @@ impl FlightStick {
     }
     pub fn FlightStickRemoved<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -302,7 +302,7 @@ impl FlightStick {
     }
     pub fn HeadsetConnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -317,7 +317,7 @@ impl FlightStick {
     }
     pub fn HeadsetDisconnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -333,7 +333,7 @@ impl FlightStick {
     #[cfg(feature = "System")]
     pub fn UserChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>::new(move |a0, a1| {
@@ -584,7 +584,7 @@ windows_core::imp::required_hierarchy!(Gamepad, IGameController, IGameController
 impl Gamepad {
     pub fn HeadsetConnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -599,7 +599,7 @@ impl Gamepad {
     }
     pub fn HeadsetDisconnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -615,7 +615,7 @@ impl Gamepad {
     #[cfg(feature = "System")]
     pub fn UserChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>::new(move |a0, a1| {
@@ -682,7 +682,7 @@ impl Gamepad {
     }
     pub fn GamepadAdded<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -696,7 +696,7 @@ impl Gamepad {
     }
     pub fn GamepadRemoved<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -957,7 +957,7 @@ windows_core::imp::interface_hierarchy!(IGameController, windows_core::IUnknown,
 impl IGameController {
     pub fn HeadsetConnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, Headset>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -971,7 +971,7 @@ impl IGameController {
     }
     pub fn HeadsetDisconnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, Headset>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -986,7 +986,7 @@ impl IGameController {
     #[cfg(feature = "System")]
     pub fn UserChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, super::super::System::UserChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1512,7 +1512,7 @@ windows_core::imp::required_hierarchy!(RacingWheel, IGameController, IGameContro
 impl RacingWheel {
     pub fn HeadsetConnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -1527,7 +1527,7 @@ impl RacingWheel {
     }
     pub fn HeadsetDisconnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -1543,7 +1543,7 @@ impl RacingWheel {
     #[cfg(feature = "System")]
     pub fn UserChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>::new(move |a0, a1| {
@@ -1637,7 +1637,7 @@ impl RacingWheel {
     }
     pub fn RacingWheelAdded<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1651,7 +1651,7 @@ impl RacingWheel {
     }
     pub fn RacingWheelRemoved<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1794,7 +1794,7 @@ windows_core::imp::required_hierarchy!(RawGameController, IGameController, IGame
 impl RawGameController {
     pub fn HeadsetConnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -1809,7 +1809,7 @@ impl RawGameController {
     }
     pub fn HeadsetDisconnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -1825,7 +1825,7 @@ impl RawGameController {
     #[cfg(feature = "System")]
     pub fn UserChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>::new(move |a0, a1| {
@@ -1947,7 +1947,7 @@ impl RawGameController {
     }
     pub fn RawGameControllerAdded<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1961,7 +1961,7 @@ impl RawGameController {
     }
     pub fn RawGameControllerRemoved<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2067,7 +2067,7 @@ windows_core::imp::required_hierarchy!(UINavigationController, IGameController, 
 impl UINavigationController {
     pub fn HeadsetConnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -2082,7 +2082,7 @@ impl UINavigationController {
     }
     pub fn HeadsetDisconnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<Headset>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, Headset>>::new(move |a0, a1| {
@@ -2098,7 +2098,7 @@ impl UINavigationController {
     #[cfg(feature = "System")]
     pub fn UserChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<IGameController>, windows_core::Ref<super::super::System::UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IGameController>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>::new(move |a0, a1| {
@@ -2161,7 +2161,7 @@ impl UINavigationController {
     }
     pub fn UINavigationControllerAdded<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2175,7 +2175,7 @@ impl UINavigationController {
     }
     pub fn UINavigationControllerRemoved<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);

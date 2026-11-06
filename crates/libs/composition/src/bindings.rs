@@ -1664,7 +1664,9 @@ impl ICompositionScopedBatch {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<CompositionBatchCompletedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<
             windows_core::IInspectable,
@@ -3306,7 +3308,7 @@ where
 struct TypedEventHandlerBox<
     TSender,
     TResult,
-    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + 'static,
+    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + Send + Sync + 'static,
 >(core::marker::PhantomData<(TSender, TResult, fn() -> F)>)
 where
     TSender: windows_core::RuntimeType + 'static,
@@ -3314,7 +3316,7 @@ where
 impl<
     TSender: windows_core::RuntimeType + 'static,
     TResult: windows_core::RuntimeType + 'static,
-    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + 'static,
+    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + Send + Sync + 'static,
 > TypedEventHandlerBox<TSender, TResult, F>
 {
     const VTABLE : TypedEventHandler_Vtbl < TSender , TResult , > = TypedEventHandler_Vtbl::< TSender , TResult , > { base__ : windows_core::IUnknown_Vtbl { QueryInterface : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::QueryInterface , AddRef : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::AddRef , Release : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::Release , } , Invoke : Self::Invoke , TSender : core::marker::PhantomData::< TSender > , TResult : core::marker::PhantomData::< TResult > } ;

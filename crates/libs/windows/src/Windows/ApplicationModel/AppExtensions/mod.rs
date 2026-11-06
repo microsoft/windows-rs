@@ -109,7 +109,7 @@ impl AppExtensionCatalog {
     }
     pub fn PackageInstalled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppExtensionPackageInstalledEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppExtensionPackageInstalledEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppExtensionPackageInstalledEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -123,7 +123,7 @@ impl AppExtensionCatalog {
     }
     pub fn PackageUpdating<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppExtensionPackageUpdatingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppExtensionPackageUpdatingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppExtensionPackageUpdatingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -137,7 +137,7 @@ impl AppExtensionCatalog {
     }
     pub fn PackageUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppExtensionPackageUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppExtensionPackageUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppExtensionPackageUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -151,7 +151,7 @@ impl AppExtensionCatalog {
     }
     pub fn PackageUninstalling<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppExtensionPackageUninstallingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppExtensionPackageUninstallingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppExtensionPackageUninstallingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -165,7 +165,7 @@ impl AppExtensionCatalog {
     }
     pub fn PackageStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppExtensionPackageStatusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppExtensionPackageStatusChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AppExtensionPackageStatusChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

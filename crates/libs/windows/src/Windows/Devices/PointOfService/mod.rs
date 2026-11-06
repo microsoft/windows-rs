@@ -66,7 +66,7 @@ impl BarcodeScanner {
     }
     pub fn StatusUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerStatusUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerStatusUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, BarcodeScannerStatusUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1114,7 +1114,7 @@ impl CashDrawer {
     }
     pub fn StatusUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CashDrawerStatusUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CashDrawerStatusUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CashDrawerStatusUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1272,7 +1272,7 @@ impl CashDrawerCloseAlarm {
     }
     pub fn AlarmTimeoutExpired<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1334,7 +1334,7 @@ windows_core::imp::interface_hierarchy!(CashDrawerEventSource, windows_core::IUn
 impl CashDrawerEventSource {
     pub fn DrawerClosed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CashDrawerClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CashDrawerClosedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CashDrawerClosedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1348,7 +1348,7 @@ impl CashDrawerEventSource {
     }
     pub fn DrawerOpened<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CashDrawerOpenedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CashDrawerOpenedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CashDrawerOpenedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1554,7 +1554,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn DataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerDataReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerDataReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, BarcodeScannerDataReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1568,7 +1568,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn TriggerPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1582,7 +1582,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn TriggerReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1596,7 +1596,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn ReleaseDeviceRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1610,7 +1610,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn ImagePreviewReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerImagePreviewReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerImagePreviewReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, BarcodeScannerImagePreviewReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1624,7 +1624,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn ErrorOccurred<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerErrorOccurredEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerErrorOccurredEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, BarcodeScannerErrorOccurredEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1691,7 +1691,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClaimedBarcodeScannerClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClaimedBarcodeScannerClosedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IClaimedBarcodeScanner4>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, ClaimedBarcodeScannerClosedEventArgs>>::new(move |a0, a1| {
@@ -1811,7 +1811,7 @@ impl ClaimedCashDrawer {
     }
     pub fn ReleaseDeviceRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1825,7 +1825,7 @@ impl ClaimedCashDrawer {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClaimedCashDrawerClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClaimedCashDrawerClosedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IClaimedCashDrawer2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, ClaimedCashDrawerClosedEventArgs>>::new(move |a0, a1| {
@@ -2073,7 +2073,7 @@ impl ClaimedLineDisplay {
     }
     pub fn ReleaseDeviceRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2111,7 +2111,7 @@ impl ClaimedLineDisplay {
     }
     pub fn StatusUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LineDisplayStatusUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LineDisplayStatusUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, LineDisplayStatusUpdatedEventArgs>>::new(move |a0, a1| {
@@ -2225,7 +2225,7 @@ impl ClaimedLineDisplay {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClaimedLineDisplayClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClaimedLineDisplayClosedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay3>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, ClaimedLineDisplayClosedEventArgs>>::new(move |a0, a1| {
@@ -2425,7 +2425,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn BankCardDataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagneticStripeReaderBankCardDataReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagneticStripeReaderBankCardDataReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MagneticStripeReaderBankCardDataReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2439,7 +2439,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn AamvaCardDataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagneticStripeReaderAamvaCardDataReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagneticStripeReaderAamvaCardDataReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2453,7 +2453,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn VendorSpecificDataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2467,7 +2467,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn ReleaseDeviceRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<Self>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2481,7 +2481,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn ErrorOccurred<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagneticStripeReaderErrorOccurredEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagneticStripeReaderErrorOccurredEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MagneticStripeReaderErrorOccurredEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2495,7 +2495,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClaimedMagneticStripeReaderClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClaimedMagneticStripeReaderClosedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IClaimedMagneticStripeReader2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, ClaimedMagneticStripeReaderClosedEventArgs>>::new(move |a0, a1| {
@@ -2648,7 +2648,7 @@ impl ClaimedPosPrinter {
     }
     pub fn ReleaseDeviceRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PosPrinterReleaseDeviceRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PosPrinterReleaseDeviceRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PosPrinterReleaseDeviceRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2662,7 +2662,7 @@ impl ClaimedPosPrinter {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClaimedPosPrinterClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClaimedPosPrinterClosedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IClaimedPosPrinter2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, ClaimedPosPrinterClosedEventArgs>>::new(move |a0, a1| {
@@ -7486,7 +7486,7 @@ impl MagneticStripeReader {
     }
     pub fn StatusUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagneticStripeReaderStatusUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagneticStripeReaderStatusUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MagneticStripeReaderStatusUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -8319,7 +8319,7 @@ impl PosPrinter {
     }
     pub fn StatusUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PosPrinterStatusUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PosPrinterStatusUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PosPrinterStatusUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

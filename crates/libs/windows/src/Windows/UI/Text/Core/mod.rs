@@ -137,7 +137,7 @@ impl CoreTextEditContext {
     }
     pub fn TextRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextTextRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextTextRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextTextRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -151,7 +151,7 @@ impl CoreTextEditContext {
     }
     pub fn SelectionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextSelectionRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextSelectionRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextSelectionRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -165,7 +165,7 @@ impl CoreTextEditContext {
     }
     pub fn LayoutRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextLayoutRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextLayoutRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextLayoutRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -179,7 +179,7 @@ impl CoreTextEditContext {
     }
     pub fn TextUpdating<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextTextUpdatingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextTextUpdatingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextTextUpdatingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -193,7 +193,7 @@ impl CoreTextEditContext {
     }
     pub fn SelectionUpdating<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextSelectionUpdatingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextSelectionUpdatingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextSelectionUpdatingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -207,7 +207,7 @@ impl CoreTextEditContext {
     }
     pub fn FormatUpdating<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextFormatUpdatingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextFormatUpdatingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextFormatUpdatingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -221,7 +221,7 @@ impl CoreTextEditContext {
     }
     pub fn CompositionStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextCompositionStartedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextCompositionStartedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextCompositionStartedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -235,7 +235,7 @@ impl CoreTextEditContext {
     }
     pub fn CompositionCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextCompositionCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextCompositionCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextCompositionCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -249,7 +249,7 @@ impl CoreTextEditContext {
     }
     pub fn FocusRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -278,7 +278,7 @@ impl CoreTextEditContext {
     }
     pub fn NotifyFocusLeaveCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreTextEditContext2>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -780,7 +780,7 @@ impl CoreTextServicesManager {
     }
     pub fn InputLanguageChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);

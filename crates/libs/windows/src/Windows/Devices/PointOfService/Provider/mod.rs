@@ -178,7 +178,7 @@ impl BarcodeScannerFrameReader {
     }
     pub fn FrameArrived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerFrameReaderFrameArrivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerFrameReaderFrameArrivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerFrameReaderFrameArrivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -478,7 +478,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn EnableScannerRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerEnableScannerRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerEnableScannerRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerEnableScannerRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -492,7 +492,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn DisableScannerRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerDisableScannerRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerDisableScannerRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerDisableScannerRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -506,7 +506,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn SetActiveSymbologiesRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerSetActiveSymbologiesRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerSetActiveSymbologiesRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerSetActiveSymbologiesRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -520,7 +520,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn StartSoftwareTriggerRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerStartSoftwareTriggerRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerStartSoftwareTriggerRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerStartSoftwareTriggerRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -534,7 +534,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn StopSoftwareTriggerRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerStopSoftwareTriggerRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerStopSoftwareTriggerRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerStopSoftwareTriggerRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -548,7 +548,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn GetBarcodeSymbologyAttributesRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerGetSymbologyAttributesRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerGetSymbologyAttributesRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerGetSymbologyAttributesRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -562,7 +562,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn SetBarcodeSymbologyAttributesRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerSetSymbologyAttributesRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerSetSymbologyAttributesRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerSetSymbologyAttributesRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -576,7 +576,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn HideVideoPreviewRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerHideVideoPreviewRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerHideVideoPreviewRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerHideVideoPreviewRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

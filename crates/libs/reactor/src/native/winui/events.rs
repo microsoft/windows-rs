@@ -242,7 +242,7 @@ impl WinUiAdapter {
         if focus_on_release {
             let element = element.clone();
             let pending_focus_states = Rc::clone(pending_focus_states);
-            let handler = native::DispatcherQueueHandler::new(move || {
+            let handler = native::DispatcherQueueHandler::new(local::task(move || {
                 pending_focus_states
                     .borrow_mut()
                     .insert(object, ElementFocusState::Pointer);
@@ -251,9 +251,9 @@ impl WinUiAdapter {
                     return;
                 }
                 let cleanup_states = Rc::clone(&pending_focus_states);
-                let cleanup = native::DispatcherQueueHandler::new(move || {
+                let cleanup = native::DispatcherQueueHandler::new(local::task(move || {
                     cleanup_states.borrow_mut().remove(&object);
-                });
+                }));
                 // The dispatcher rejects work only once it is shutting down.
                 if !native::DispatcherQueue::GetForCurrentThread()
                     .unwrap()
@@ -262,7 +262,7 @@ impl WinUiAdapter {
                 {
                     pending_focus_states.borrow_mut().remove(&object);
                 }
-            });
+            }));
             // The focus request is dropped if the dispatcher is shutting down.
             native::DispatcherQueue::GetForCurrentThread()?
                 .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;

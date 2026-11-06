@@ -2140,7 +2140,7 @@ impl InkPresenter {
     }
     pub fn StrokesCollected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InkStrokesCollectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InkStrokesCollectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, InkStrokesCollectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2154,7 +2154,7 @@ impl InkPresenter {
     }
     pub fn StrokesErased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InkStrokesErasedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InkStrokesErasedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, InkStrokesErasedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2967,7 +2967,7 @@ impl InkStrokeInput {
     #[cfg(feature = "UI_Core")]
     pub fn StrokeStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2982,7 +2982,7 @@ impl InkStrokeInput {
     #[cfg(feature = "UI_Core")]
     pub fn StrokeContinued<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2997,7 +2997,7 @@ impl InkStrokeInput {
     #[cfg(feature = "UI_Core")]
     pub fn StrokeEnded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3012,7 +3012,7 @@ impl InkStrokeInput {
     #[cfg(feature = "UI_Core")]
     pub fn StrokeCanceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3180,7 +3180,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3195,7 +3195,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerHovered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3210,7 +3210,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerExited<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3225,7 +3225,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3240,7 +3240,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3255,7 +3255,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3270,7 +3270,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

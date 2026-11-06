@@ -104,11 +104,7 @@ impl Delegate {
                 method.write_impl_signature(config, false, false)
             };
 
-            if config.bindgen.style.is_minimal() {
-                quote! { F: Fn #signature + 'static }
-            } else {
-                quote! { F: Fn #signature + Send + 'static }
-            }
+            quote! { F: Fn #signature + Send + Sync + 'static }
         };
 
         let new_method = if is_event_only {

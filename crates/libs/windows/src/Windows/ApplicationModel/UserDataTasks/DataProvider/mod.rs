@@ -166,7 +166,7 @@ windows_core::imp::interface_hierarchy!(UserDataTaskDataProviderConnection, wind
 impl UserDataTaskDataProviderConnection {
     pub fn CreateOrUpdateTaskRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataTaskListCreateOrUpdateTaskRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataTaskListCreateOrUpdateTaskRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, UserDataTaskListCreateOrUpdateTaskRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -180,7 +180,7 @@ impl UserDataTaskDataProviderConnection {
     }
     pub fn SyncRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataTaskListSyncManagerSyncRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataTaskListSyncManagerSyncRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, UserDataTaskListSyncManagerSyncRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -194,7 +194,7 @@ impl UserDataTaskDataProviderConnection {
     }
     pub fn SkipOccurrenceRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataTaskListSkipOccurrenceRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataTaskListSkipOccurrenceRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, UserDataTaskListSkipOccurrenceRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -208,7 +208,7 @@ impl UserDataTaskDataProviderConnection {
     }
     pub fn CompleteTaskRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataTaskListCompleteTaskRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataTaskListCompleteTaskRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, UserDataTaskListCompleteTaskRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -222,7 +222,7 @@ impl UserDataTaskDataProviderConnection {
     }
     pub fn DeleteTaskRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataTaskListDeleteTaskRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataTaskListDeleteTaskRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, UserDataTaskListDeleteTaskRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

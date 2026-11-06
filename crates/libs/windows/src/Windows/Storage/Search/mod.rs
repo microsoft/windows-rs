@@ -1125,7 +1125,7 @@ impl IStorageQueryResultBase {
     }
     pub fn ContentsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1139,7 +1139,7 @@ impl IStorageQueryResultBase {
     }
     pub fn OptionsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1755,7 +1755,7 @@ impl StorageFileQueryResult {
     }
     pub fn ContentsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -1770,7 +1770,7 @@ impl StorageFileQueryResult {
     }
     pub fn OptionsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -1852,7 +1852,7 @@ impl StorageFolderQueryResult {
     }
     pub fn ContentsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -1867,7 +1867,7 @@ impl StorageFolderQueryResult {
     }
     pub fn OptionsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -1949,7 +1949,7 @@ impl StorageItemQueryResult {
     }
     pub fn ContentsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -1964,7 +1964,7 @@ impl StorageItemQueryResult {
     }
     pub fn OptionsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {

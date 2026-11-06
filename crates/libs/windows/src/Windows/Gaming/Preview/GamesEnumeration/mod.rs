@@ -14,7 +14,7 @@ impl GameList {
     }
     pub fn GameAdded<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<GameListEntry>) + Send + 'static,
+        F: Fn(windows_core::Ref<GameListEntry>) + Send + Sync + 'static,
     {
         let handler = <GameListChangedEventHandler>::new(move |a0| {
             handler(a0);
@@ -28,7 +28,7 @@ impl GameList {
     }
     pub fn GameRemoved<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(&windows_core::HSTRING) + Send + 'static,
+        F: Fn(&windows_core::HSTRING) + Send + Sync + 'static,
     {
         let handler = <GameListRemovedEventHandler>::new(move |a0| {
             handler(a0);
@@ -42,7 +42,7 @@ impl GameList {
     }
     pub fn GameUpdated<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<GameListEntry>) + Send + 'static,
+        F: Fn(windows_core::Ref<GameListEntry>) + Send + Sync + 'static,
     {
         let handler = <GameListChangedEventHandler>::new(move |a0| {
             handler(a0);
@@ -105,7 +105,7 @@ impl windows_core::RuntimeType for GameListChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl GameListChangedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<GameListEntry>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<GameListEntry>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&GameListChangedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -122,8 +122,8 @@ pub struct GameListChangedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, game: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct GameListChangedEventHandlerBox<F: Fn(windows_core::Ref<GameListEntry>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<GameListEntry>) -> windows_core::Result<()> + Send + 'static> GameListChangedEventHandlerBox<F> {
+struct GameListChangedEventHandlerBox<F: Fn(windows_core::Ref<GameListEntry>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<GameListEntry>) -> windows_core::Result<()> + Send + Sync + 'static> GameListChangedEventHandlerBox<F> {
     const VTABLE: GameListChangedEventHandler_Vtbl = GameListChangedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<GameListChangedEventHandler, F>::QueryInterface,
@@ -274,7 +274,7 @@ impl windows_core::RuntimeType for GameListRemovedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl GameListRemovedEventHandler {
-    pub fn new<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&GameListRemovedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -288,8 +288,8 @@ pub struct GameListRemovedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, identifier: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct GameListRemovedEventHandlerBox<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static> GameListRemovedEventHandlerBox<F> {
+struct GameListRemovedEventHandlerBox<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + Sync + 'static> GameListRemovedEventHandlerBox<F> {
     const VTABLE: GameListRemovedEventHandler_Vtbl = GameListRemovedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<GameListRemovedEventHandler, F>::QueryInterface,

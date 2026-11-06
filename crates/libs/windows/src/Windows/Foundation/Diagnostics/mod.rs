@@ -17,7 +17,7 @@ impl AsyncCausalityTracer {
     }
     pub fn TracingStatusChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<TracingStatusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<TracingStatusChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::EventHandler<TracingStatusChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -238,7 +238,7 @@ impl FileLoggingSession {
     }
     pub fn LogFileGenerated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IFileLoggingSession>, windows_core::Ref<LogFileGeneratedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<IFileLoggingSession>, windows_core::Ref<LogFileGeneratedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -419,7 +419,7 @@ impl IFileLoggingSession {
     }
     pub fn LogFileGenerated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LogFileGeneratedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LogFileGeneratedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::TypedEventHandler<Self, LogFileGeneratedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -657,7 +657,7 @@ impl ILoggingChannel {
     }
     pub fn LoggingEnabled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1691,7 +1691,7 @@ impl LoggingChannel {
     }
     pub fn LoggingEnabled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<ILoggingChannel>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<ILoggingChannel>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::TypedEventHandler<ILoggingChannel, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);

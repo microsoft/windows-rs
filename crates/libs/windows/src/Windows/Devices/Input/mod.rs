@@ -361,7 +361,7 @@ windows_core::imp::interface_hierarchy!(MouseDevice, windows_core::IUnknown, win
 impl MouseDevice {
     pub fn MouseMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MouseEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MouseEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MouseEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -429,7 +429,7 @@ impl PenButtonListener {
     }
     pub fn IsSupportedChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -443,7 +443,7 @@ impl PenButtonListener {
     }
     pub fn TailButtonClicked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PenTailButtonClickedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PenTailButtonClickedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PenTailButtonClickedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -457,7 +457,7 @@ impl PenButtonListener {
     }
     pub fn TailButtonDoubleClicked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PenTailButtonDoubleClickedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PenTailButtonDoubleClickedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PenTailButtonDoubleClickedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -471,7 +471,7 @@ impl PenButtonListener {
     }
     pub fn TailButtonLongPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PenTailButtonLongPressedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PenTailButtonLongPressedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PenTailButtonLongPressedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -561,7 +561,7 @@ impl PenDockListener {
     }
     pub fn IsSupportedChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -575,7 +575,7 @@ impl PenDockListener {
     }
     pub fn Docked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PenDockedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PenDockedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PenDockedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -589,7 +589,7 @@ impl PenDockListener {
     }
     pub fn Undocked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PenUndockedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PenUndockedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PenUndockedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

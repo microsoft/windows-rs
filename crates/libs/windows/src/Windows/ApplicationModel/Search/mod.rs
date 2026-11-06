@@ -444,7 +444,7 @@ impl SearchPane {
     }
     pub fn VisibilityChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SearchPaneVisibilityChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SearchPaneVisibilityChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SearchPaneVisibilityChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -458,7 +458,7 @@ impl SearchPane {
     }
     pub fn QueryChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SearchPaneQueryChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SearchPaneQueryChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SearchPaneQueryChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -472,7 +472,7 @@ impl SearchPane {
     }
     pub fn SuggestionsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SearchPaneSuggestionsRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SearchPaneSuggestionsRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SearchPaneSuggestionsRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -486,7 +486,7 @@ impl SearchPane {
     }
     pub fn QuerySubmitted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SearchPaneQuerySubmittedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SearchPaneQuerySubmittedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SearchPaneQuerySubmittedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -500,7 +500,7 @@ impl SearchPane {
     }
     pub fn ResultSuggestionChosen<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SearchPaneResultSuggestionChosenEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SearchPaneResultSuggestionChosenEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SearchPaneResultSuggestionChosenEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

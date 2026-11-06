@@ -15,6 +15,7 @@ impl ArrayRoundtrip {
                 &mut windows_core::Array<Tracked>,
             ) -> windows_core::Result<windows_core::Array<Tracked>>
             + Send
+            + Sync
             + 'static,
     >(
         invoke: F,
@@ -73,6 +74,7 @@ struct ArrayRoundtripBox<
             &mut windows_core::Array<Tracked>,
         ) -> windows_core::Result<windows_core::Array<Tracked>>
         + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
@@ -82,6 +84,7 @@ impl<
             &mut windows_core::Array<Tracked>,
         ) -> windows_core::Result<windows_core::Array<Tracked>>
         + Send
+        + Sync
         + 'static,
 > ArrayRoundtripBox<F>
 {
@@ -143,7 +146,9 @@ impl windows_core::RuntimeType for EmptyArray {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl EmptyArray {
-    pub fn new<F: Fn() -> windows_core::Result<windows_core::Array<u32>> + Send + 'static>(
+    pub fn new<
+        F: Fn() -> windows_core::Result<windows_core::Array<u32>> + Send + Sync + 'static,
+    >(
         invoke: F,
     ) -> Self {
         let com =
@@ -172,10 +177,12 @@ pub struct EmptyArray_Vtbl {
         result__: *mut *mut u32,
     ) -> windows_core::HRESULT,
 }
-struct EmptyArrayBox<F: Fn() -> windows_core::Result<windows_core::Array<u32>> + Send + 'static>(
-    core::marker::PhantomData<(fn() -> F,)>,
-);
-impl<F: Fn() -> windows_core::Result<windows_core::Array<u32>> + Send + 'static> EmptyArrayBox<F> {
+struct EmptyArrayBox<
+    F: Fn() -> windows_core::Result<windows_core::Array<u32>> + Send + Sync + 'static,
+>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn() -> windows_core::Result<windows_core::Array<u32>> + Send + Sync + 'static>
+    EmptyArrayBox<F>
+{
     const VTABLE: EmptyArray_Vtbl = EmptyArray_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<EmptyArray, F>::QueryInterface,
@@ -232,6 +239,7 @@ impl<T: windows_core::RuntimeType + 'static> GenericOutputs<T> {
                 &mut <T as windows_core::imp::Type<T>>::Default,
             ) -> windows_core::Result<()>
             + Send
+            + Sync
             + 'static,
     >(
         invoke: F,
@@ -285,6 +293,7 @@ struct GenericOutputsBox<
             &mut <T as windows_core::imp::Type<T>>::Default,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(T, fn() -> F)>)
 where
@@ -296,6 +305,7 @@ impl<
             &mut <T as windows_core::imp::Type<T>>::Default,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 > GenericOutputsBox<T, F>
 {
@@ -339,7 +349,7 @@ impl windows_core::RuntimeType for InterfaceOutputs {
 }
 impl InterfaceOutputs {
     pub fn new<
-        F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Send + 'static,
+        F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Send + Sync + 'static,
     >(
         invoke: F,
     ) -> Self {
@@ -374,9 +384,9 @@ pub struct InterfaceOutputs_Vtbl {
     ) -> windows_core::HRESULT,
 }
 struct InterfaceOutputsBox<
-    F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Send + 'static,
+    F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Send + Sync + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Send + 'static>
+impl<F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Send + Sync + 'static>
     InterfaceOutputsBox<F>
 {
     const VTABLE: InterfaceOutputs_Vtbl = InterfaceOutputs_Vtbl {
@@ -419,7 +429,7 @@ impl windows_core::RuntimeType for Tracked {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Tracked {
-    pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&TrackedBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -435,10 +445,10 @@ pub struct Tracked_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct TrackedBox<F: Fn() -> windows_core::Result<()> + Send + 'static>(
+struct TrackedBox<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static>(
     core::marker::PhantomData<(fn() -> F,)>,
 );
-impl<F: Fn() -> windows_core::Result<()> + Send + 'static> TrackedBox<F> {
+impl<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static> TrackedBox<F> {
     const VTABLE: Tracked_Vtbl = Tracked_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<Tracked, F>::QueryInterface,

@@ -60,6 +60,15 @@ jobs:
       - name: Check scoped interface macro
         if: contains(matrix.target, 'windows')
         run: cargo +nightly miri test --target ${{ matrix.target }} -p test_interface --test non_com_new
+      - name: Check one-shot completion ownership
+        if: contains(matrix.target, 'windows')
+        run: cargo +nightly miri test --target ${{ matrix.target }} -p windows-future --features std --lib once_
+      - name: Check UI callback ownership
+        if: contains(matrix.target, 'windows')
+        run: >-
+          cargo +nightly miri test --target ${{ matrix.target }} -p windows-reactor --lib --
+          native::local::tests callback_cancellation_can_cancel_owned_registrations completion_factory
+          shutdown_releases_callbacks_outside_queues
       - name: Check HSTRING ownership and allocation
         if: contains(matrix.target, 'linux')
         # Exercise the real cross-platform allocator; native Windows interoperability stays in test.yml.

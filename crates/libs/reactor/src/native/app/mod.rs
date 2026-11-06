@@ -43,7 +43,7 @@ pub(crate) struct UiCallback {
 }
 
 impl UiCallback {
-    fn new(dispatcher: &DispatcherQueue, callback: impl Fn() + 'static) -> Self {
+    pub(crate) fn new(dispatcher: &DispatcherQueue, callback: impl Fn() + 'static) -> Self {
         let id = NEXT_UI_CALLBACK.fetch_add(1, Ordering::Relaxed);
         Self::register(dispatcher.clone(), id, callback)
     }
@@ -90,10 +90,13 @@ impl UiCallback {
     }
 
     pub(crate) fn cancel(self) {
-        UI_CALLBACKS.with(|callbacks| {
-            callbacks.borrow_mut().remove(&self.id);
-        });
+        remove_ui_callback(self.id);
     }
+}
+
+fn remove_ui_callback(id: u64) {
+    let callback = UI_CALLBACKS.with(|callbacks| callbacks.borrow_mut().remove(&id));
+    drop(callback);
 }
 
 fn invoke_ui_callback(id: u64) {
@@ -640,7 +643,7 @@ fn run<T: 'static>(
     let lifetime = Rc::new(RefCell::new(None::<(T, Application)>));
     let callback_result = Rc::clone(&result);
     let callback_lifetime = Rc::clone(&lifetime);
-    let start = Application::Start(&ApplicationInitializationCallback::new(move |_| {
+    let initialize = move || {
         let application = Rc::new(RefCell::new(None));
         let launch_application = Rc::clone(&application);
         let launch_startup = Rc::clone(&startup);
@@ -672,6 +675,18 @@ fn run<T: 'static>(
                 exit_ui_thread();
             }
         }
+    };
+    let id = NEXT_UI_CALLBACK.fetch_add(1, Ordering::Relaxed);
+    UI_CALLBACKS.with(|callbacks| {
+        assert!(
+            callbacks
+                .borrow_mut()
+                .insert(id, Rc::new(initialize))
+                .is_none()
+        );
+    });
+    let start = Application::Start(&ApplicationInitializationCallback::new(move |_| {
+        invoke_ui_callback(id);
     }));
 
     let callback_result = std::mem::replace(&mut *result.borrow_mut(), Ok(()));
@@ -680,8 +695,11 @@ fn run<T: 'static>(
         drop(host);
         application
     });
-    UI_CALLBACKS.with(|callbacks| callbacks.borrow_mut().clear());
-    UI_TIMERS.with(|timers| timers.borrow_mut().clear());
+    let callbacks = UI_CALLBACKS.with(|callbacks| std::mem::take(&mut *callbacks.borrow_mut()));
+    drop(callbacks);
+    let timers = UI_TIMERS.with(|timers| std::mem::take(&mut *timers.borrow_mut()));
+    drop(timers);
+    local::clear();
     drop(application);
     #[cfg(windows_cast_diagnostics)]
     report_casts();

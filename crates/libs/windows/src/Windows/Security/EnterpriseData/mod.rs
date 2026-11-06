@@ -1286,7 +1286,7 @@ impl ProtectionPolicyManager {
     }
     pub fn ProtectedAccessSuspending<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<ProtectedAccessSuspendingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<ProtectedAccessSuspendingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<ProtectedAccessSuspendingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1300,7 +1300,7 @@ impl ProtectionPolicyManager {
     }
     pub fn ProtectedAccessResumed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<ProtectedAccessResumedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<ProtectedAccessResumedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<ProtectedAccessResumedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1314,7 +1314,7 @@ impl ProtectionPolicyManager {
     }
     pub fn ProtectedContentRevoked<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<ProtectedContentRevokedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<ProtectedContentRevokedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<ProtectedContentRevokedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1376,7 +1376,7 @@ impl ProtectionPolicyManager {
     }
     pub fn PolicyChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);

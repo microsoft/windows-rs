@@ -4,6 +4,7 @@ use windows_reactor::*;
 mod accessibility;
 mod application;
 mod background;
+mod callback_lifetime;
 mod canvas;
 mod canvas_image;
 mod controlled;
@@ -285,6 +286,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "accessibility" => App::run_component::<accessibility::AccessibilityFixture>(())?,
         "application" => App::run_application::<application::ApplicationFixture>(())?,
         "background" => App::run_component::<background::BackgroundFixture>(())?,
+        "callback-lifetime" => callback_lifetime::run()?,
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
         "exit-with-window" => App::run_application::<application::ExitFixture>(())?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,

@@ -353,13 +353,21 @@ fn emit_event(
             "let property_{field} = native::{owner}::{native}Property()?;\n\
                          let object_{field} = value.cast::<native::DependencyObject>()?;\n\
                          let callback_{field} = native::DependencyPropertyChangedCallback::new(\
-                         move |_, _| {{\n"
+                         local::handler(move |_, _| {{\n"
         ));
     } else {
         let event_target =
             native_interface_value("value", &native_name(object), interface.unwrap(), metadata);
+        let args = if args == "_" {
+            args.to_string()
+        } else {
+            let name = metadata
+                .event_args_name(&native_name(object), &format!("add_{}", event.name))
+                .unwrap();
+            format!("args: windows_core::InRef<'_, native::{name}>")
+        };
         code.push_str(&format!(
-            "let revoker = {event_target}.{}(move |_, {args}| {{\n",
+            "let revoker = {event_target}.{}(local::handler(move |_, {args}| {{\n",
             event.name,
         ));
     }
@@ -486,7 +494,7 @@ fn emit_event(
         "observed"
     };
     if selection.is_some() {
-        code.push_str("})?;\n");
+        code.push_str("}))?;\n");
         code.push_str(&format!(
             "let _{field} = GeneratedRevoker::Event(revoker);\n"
         ));
@@ -596,7 +604,7 @@ fn emit_event(
     }
     if event.property_changed {
         code.push_str(&format!(
-            "}});\n\
+            "}}));\n\
                          let token_{field} = object_{field}.RegisterPropertyChangedCallback(\
                          &property_{field}, &callback_{field})?;\n\
                          let _{field} = GeneratedRevoker::Property(PropertyChangedRevoker {{ \
@@ -604,12 +612,12 @@ fn emit_event(
                          }});\n"
         ));
     } else if lazy {
-        code.push_str("})?;\n");
+        code.push_str("}))?;\n");
         code.push_str(&format!(
             "self._{field} = Some(GeneratedRevoker::Event(revoker));\n"
         ));
     } else {
-        code.push_str("})?;\n");
+        code.push_str("}))?;\n");
         code.push_str(&format!(
             "let _{field} = GeneratedRevoker::Event(revoker);\n"
         ));

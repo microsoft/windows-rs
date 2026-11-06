@@ -608,7 +608,7 @@ windows_core::imp::interface_hierarchy!(Print3DManager, windows_core::IUnknown, 
 impl Print3DManager {
     pub fn TaskRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DTaskRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DTaskRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, Print3DTaskRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -662,7 +662,7 @@ impl Print3DTask {
     }
     pub fn Submitting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -676,7 +676,7 @@ impl Print3DTask {
     }
     pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DTaskCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DTaskCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, Print3DTaskCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -690,7 +690,7 @@ impl Print3DTask {
     }
     pub fn SourceChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DTaskSourceChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DTaskSourceChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, Print3DTaskSourceChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -885,7 +885,7 @@ impl windows_core::RuntimeType for Print3DTaskSourceRequestedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Print3DTaskSourceRequestedHandler {
-    pub fn new<F: Fn(windows_core::Ref<Print3DTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<Print3DTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&Print3DTaskSourceRequestedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -902,8 +902,8 @@ pub struct Print3DTaskSourceRequestedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct Print3DTaskSourceRequestedHandlerBox<F: Fn(windows_core::Ref<Print3DTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<Print3DTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static> Print3DTaskSourceRequestedHandlerBox<F> {
+struct Print3DTaskSourceRequestedHandlerBox<F: Fn(windows_core::Ref<Print3DTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<Print3DTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + Sync + 'static> Print3DTaskSourceRequestedHandlerBox<F> {
     const VTABLE: Print3DTaskSourceRequestedHandler_Vtbl = Print3DTaskSourceRequestedHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<Print3DTaskSourceRequestedHandler, F>::QueryInterface,

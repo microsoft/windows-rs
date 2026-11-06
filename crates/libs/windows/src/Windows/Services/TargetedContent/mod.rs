@@ -729,7 +729,7 @@ impl TargetedContentSubscription {
     }
     pub fn ContentChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TargetedContentChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TargetedContentChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, TargetedContentChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -743,7 +743,7 @@ impl TargetedContentSubscription {
     }
     pub fn AvailabilityChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TargetedContentAvailabilityChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TargetedContentAvailabilityChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, TargetedContentAvailabilityChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -757,7 +757,7 @@ impl TargetedContentSubscription {
     }
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TargetedContentStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TargetedContentStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, TargetedContentStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

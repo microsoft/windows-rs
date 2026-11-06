@@ -130,7 +130,7 @@ windows_core::imp::interface_hierarchy!(SystemNavigationManagerPreview, windows_
 impl SystemNavigationManagerPreview {
     pub fn CloseRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<SystemNavigationCloseRequestedPreviewEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<SystemNavigationCloseRequestedPreviewEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

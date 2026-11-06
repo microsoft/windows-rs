@@ -289,7 +289,7 @@ impl SerialDevice {
     }
     pub fn ErrorReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ErrorReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ErrorReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ErrorReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -303,7 +303,7 @@ impl SerialDevice {
     }
     pub fn PinChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PinChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PinChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PinChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

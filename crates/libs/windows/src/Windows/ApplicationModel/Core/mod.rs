@@ -79,7 +79,7 @@ impl CoreApplication {
     }
     pub fn Suspending<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::SuspendingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::SuspendingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<super::SuspendingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -93,7 +93,7 @@ impl CoreApplication {
     }
     pub fn Resuming<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -133,7 +133,7 @@ impl CoreApplication {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn BackgroundActivated<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::Activation::BackgroundActivatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::Activation::BackgroundActivatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<super::Activation::BackgroundActivatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -147,7 +147,7 @@ impl CoreApplication {
     }
     pub fn LeavingBackground<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::LeavingBackgroundEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::LeavingBackgroundEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<super::LeavingBackgroundEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -161,7 +161,7 @@ impl CoreApplication {
     }
     pub fn EnteredBackground<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::EnteredBackgroundEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::EnteredBackgroundEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<super::EnteredBackgroundEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -197,7 +197,7 @@ impl CoreApplication {
     }
     pub fn Exiting<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -211,7 +211,7 @@ impl CoreApplication {
     }
     pub fn UnhandledErrorDetected<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<UnhandledErrorDetectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<UnhandledErrorDetectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -317,7 +317,7 @@ impl CoreApplicationView {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Activated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Activation::IActivatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Activation::IActivatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, super::Activation::IActivatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -365,7 +365,7 @@ impl CoreApplicationView {
     }
     pub fn HostedViewClosing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HostedViewClosingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HostedViewClosingEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreApplicationView3>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, HostedViewClosingEventArgs>>::new(move |a0, a1| {
@@ -439,7 +439,7 @@ impl CoreApplicationViewTitleBar {
     }
     pub fn LayoutMetricsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -459,7 +459,7 @@ impl CoreApplicationViewTitleBar {
     }
     pub fn IsVisibleChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -633,7 +633,7 @@ windows_core::imp::interface_hierarchy!(ICoreApplicationUnhandledError, windows_
 impl ICoreApplicationUnhandledError {
     pub fn UnhandledErrorDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<UnhandledErrorDetectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<UnhandledErrorDetectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

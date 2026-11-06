@@ -462,7 +462,7 @@ windows_core::imp::interface_hierarchy!(WebAccountMonitor, windows_core::IUnknow
 impl WebAccountMonitor {
     pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebAccountEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebAccountEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, WebAccountEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -476,7 +476,7 @@ impl WebAccountMonitor {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebAccountEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebAccountEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, WebAccountEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -490,7 +490,7 @@ impl WebAccountMonitor {
     }
     pub fn DefaultSignInAccountChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -504,7 +504,7 @@ impl WebAccountMonitor {
     }
     pub fn AccountPictureUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebAccountEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebAccountEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IWebAccountMonitor2>(self)?;
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, WebAccountEventArgs>>::new(move |a0, a1| {

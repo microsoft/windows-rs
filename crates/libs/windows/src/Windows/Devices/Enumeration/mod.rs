@@ -45,7 +45,7 @@ windows_core::imp::interface_hierarchy!(DeviceAccessInformation, windows_core::I
 impl DeviceAccessInformation {
     pub fn AccessChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceAccessChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceAccessChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DeviceAccessChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -518,7 +518,7 @@ impl DeviceInformationCustomPairing {
     }
     pub fn PairingRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DevicePairingRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DevicePairingRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DevicePairingRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -539,7 +539,7 @@ impl DeviceInformationCustomPairing {
     }
     pub fn PairingSetMembersRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DevicePairingSetMembersRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DevicePairingSetMembersRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IDeviceInformationCustomPairing2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, DevicePairingSetMembersRequestedEventArgs>>::new(move |a0, a1| {
@@ -993,7 +993,7 @@ impl DevicePicker {
     }
     pub fn DeviceSelected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceSelectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceSelectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DeviceSelectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1007,7 +1007,7 @@ impl DevicePicker {
     }
     pub fn DisconnectButtonClicked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceDisconnectButtonClickedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceDisconnectButtonClickedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DeviceDisconnectButtonClickedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1021,7 +1021,7 @@ impl DevicePicker {
     }
     pub fn DevicePickerDismissed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1442,7 +1442,7 @@ windows_core::imp::interface_hierarchy!(DeviceWatcher, windows_core::IUnknown, w
 impl DeviceWatcher {
     pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceInformation>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceInformation>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DeviceInformation>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1456,7 +1456,7 @@ impl DeviceWatcher {
     }
     pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceInformationUpdate>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceInformationUpdate>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DeviceInformationUpdate>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1470,7 +1470,7 @@ impl DeviceWatcher {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceInformationUpdate>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeviceInformationUpdate>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DeviceInformationUpdate>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1484,7 +1484,7 @@ impl DeviceWatcher {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1498,7 +1498,7 @@ impl DeviceWatcher {
     }
     pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);

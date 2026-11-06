@@ -689,7 +689,7 @@ impl VoiceCommandServiceConnection {
     }
     pub fn VoiceCommandCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VoiceCommandCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VoiceCommandCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, VoiceCommandCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

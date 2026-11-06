@@ -1630,7 +1630,7 @@ impl RemoteSystemSession {
     }
     pub fn Disconnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionDisconnectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionDisconnectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemSessionDisconnectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1711,7 +1711,7 @@ windows_core::imp::interface_hierarchy!(RemoteSystemSessionController, windows_c
 impl RemoteSystemSessionController {
     pub fn JoinRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionJoinRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionJoinRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemSessionJoinRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1934,7 +1934,7 @@ impl RemoteSystemSessionInvitationListener {
     }
     pub fn InvitationReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionInvitationReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionInvitationReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemSessionInvitationReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2132,7 +2132,7 @@ impl RemoteSystemSessionMessageChannel {
     }
     pub fn ValueSetReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionValueSetReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionValueSetReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemSessionValueSetReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2325,7 +2325,7 @@ impl RemoteSystemSessionParticipantWatcher {
     }
     pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionParticipantAddedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionParticipantAddedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemSessionParticipantAddedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2339,7 +2339,7 @@ impl RemoteSystemSessionParticipantWatcher {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionParticipantRemovedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionParticipantRemovedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemSessionParticipantRemovedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2353,7 +2353,7 @@ impl RemoteSystemSessionParticipantWatcher {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2494,7 +2494,7 @@ impl RemoteSystemSessionWatcher {
     }
     pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionAddedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionAddedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemSessionAddedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2508,7 +2508,7 @@ impl RemoteSystemSessionWatcher {
     }
     pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemSessionUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2522,7 +2522,7 @@ impl RemoteSystemSessionWatcher {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionRemovedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemSessionRemovedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemSessionRemovedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2667,7 +2667,7 @@ impl RemoteSystemWatcher {
     }
     pub fn RemoteSystemAdded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemAddedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemAddedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemAddedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2681,7 +2681,7 @@ impl RemoteSystemWatcher {
     }
     pub fn RemoteSystemUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2695,7 +2695,7 @@ impl RemoteSystemWatcher {
     }
     pub fn RemoteSystemRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemRemovedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemRemovedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemRemovedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2709,7 +2709,7 @@ impl RemoteSystemWatcher {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemEnumerationCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemEnumerationCompletedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemEnumerationCompletedEventArgs>>::new(move |a0, a1| {
@@ -2724,7 +2724,7 @@ impl RemoteSystemWatcher {
     }
     pub fn ErrorOccurred<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemWatcherErrorOccurredEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteSystemWatcherErrorOccurredEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteSystemWatcherErrorOccurredEventArgs>>::new(move |a0, a1| {

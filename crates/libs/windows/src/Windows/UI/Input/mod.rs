@@ -169,7 +169,7 @@ windows_core::imp::interface_hierarchy!(EdgeGesture, windows_core::IUnknown, win
 impl EdgeGesture {
     pub fn Starting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EdgeGestureEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EdgeGestureEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -183,7 +183,7 @@ impl EdgeGesture {
     }
     pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EdgeGestureEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EdgeGestureEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -197,7 +197,7 @@ impl EdgeGesture {
     }
     pub fn Canceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EdgeGestureEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EdgeGestureEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -517,7 +517,7 @@ impl GestureRecognizer {
     }
     pub fn Tapped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TappedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TappedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, TappedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -531,7 +531,7 @@ impl GestureRecognizer {
     }
     pub fn RightTapped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RightTappedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RightTappedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RightTappedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -545,7 +545,7 @@ impl GestureRecognizer {
     }
     pub fn Holding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HoldingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HoldingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, HoldingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -559,7 +559,7 @@ impl GestureRecognizer {
     }
     pub fn Dragging<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DraggingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DraggingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DraggingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -573,7 +573,7 @@ impl GestureRecognizer {
     }
     pub fn ManipulationStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationStartedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationStartedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationStartedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -587,7 +587,7 @@ impl GestureRecognizer {
     }
     pub fn ManipulationUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -601,7 +601,7 @@ impl GestureRecognizer {
     }
     pub fn ManipulationInertiaStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationInertiaStartingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationInertiaStartingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationInertiaStartingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -615,7 +615,7 @@ impl GestureRecognizer {
     }
     pub fn ManipulationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -629,7 +629,7 @@ impl GestureRecognizer {
     }
     pub fn CrossSliding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CrossSlidingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CrossSlidingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CrossSlidingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2136,7 +2136,7 @@ impl InputActivationListener {
     }
     pub fn InputActivationChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputActivationListenerActivationChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputActivationListenerActivationChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, InputActivationListenerActivationChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2218,7 +2218,7 @@ impl KeyboardDeliveryInterceptor {
     #[cfg(feature = "UI_Core")]
     pub fn KeyDown<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::KeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::KeyEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, super::Core::KeyEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2233,7 +2233,7 @@ impl KeyboardDeliveryInterceptor {
     #[cfg(feature = "UI_Core")]
     pub fn KeyUp<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::KeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::KeyEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, super::Core::KeyEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2683,7 +2683,7 @@ impl PhysicalGestureRecognizer {
     }
     pub fn ManipulationStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationStartedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationStartedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationStartedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2697,7 +2697,7 @@ impl PhysicalGestureRecognizer {
     }
     pub fn ManipulationUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2711,7 +2711,7 @@ impl PhysicalGestureRecognizer {
     }
     pub fn ManipulationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2725,7 +2725,7 @@ impl PhysicalGestureRecognizer {
     }
     pub fn Tapped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TappedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TappedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, TappedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2739,7 +2739,7 @@ impl PhysicalGestureRecognizer {
     }
     pub fn Holding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HoldingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HoldingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, HoldingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3142,7 +3142,7 @@ impl RadialController {
     }
     pub fn ScreenContactStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerScreenContactStartedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerScreenContactStartedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerScreenContactStartedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3156,7 +3156,7 @@ impl RadialController {
     }
     pub fn ScreenContactEnded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3170,7 +3170,7 @@ impl RadialController {
     }
     pub fn ScreenContactContinued<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerScreenContactContinuedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerScreenContactContinuedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerScreenContactContinuedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3184,7 +3184,7 @@ impl RadialController {
     }
     pub fn ControlLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3198,7 +3198,7 @@ impl RadialController {
     }
     pub fn RotationChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerRotationChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerRotationChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerRotationChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3212,7 +3212,7 @@ impl RadialController {
     }
     pub fn ButtonClicked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonClickedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonClickedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonClickedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3226,7 +3226,7 @@ impl RadialController {
     }
     pub fn ControlAcquired<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerControlAcquiredEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerControlAcquiredEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerControlAcquiredEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3240,7 +3240,7 @@ impl RadialController {
     }
     pub fn ButtonPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonPressedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonPressedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonPressedEventArgs>>::new(move |a0, a1| {
@@ -3255,7 +3255,7 @@ impl RadialController {
     }
     pub fn ButtonHolding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonHoldingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonHoldingEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonHoldingEventArgs>>::new(move |a0, a1| {
@@ -3270,7 +3270,7 @@ impl RadialController {
     }
     pub fn ButtonReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonReleasedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonReleasedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonReleasedEventArgs>>::new(move |a0, a1| {
@@ -3645,7 +3645,7 @@ impl RadialControllerMenuItem {
     }
     pub fn Invoked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3979,7 +3979,7 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionButtonPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionButtonEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionButtonEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SystemFunctionButtonEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3993,7 +3993,7 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionButtonReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionButtonEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionButtonEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SystemFunctionButtonEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4007,7 +4007,7 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionLockChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionLockChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionLockChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SystemFunctionLockChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4021,7 +4021,7 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionLockIndicatorChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionLockIndicatorChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionLockIndicatorChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SystemFunctionLockIndicatorChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4239,7 +4239,7 @@ impl TouchpadGesturesController {
     #[cfg(feature = "UI_Core")]
     pub fn PointerPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4254,7 +4254,7 @@ impl TouchpadGesturesController {
     #[cfg(feature = "UI_Core")]
     pub fn PointerMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4269,7 +4269,7 @@ impl TouchpadGesturesController {
     #[cfg(feature = "UI_Core")]
     pub fn PointerReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4283,7 +4283,7 @@ impl TouchpadGesturesController {
     }
     pub fn GlobalActionPerformed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TouchpadGlobalActionEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TouchpadGlobalActionEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, TouchpadGlobalActionEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

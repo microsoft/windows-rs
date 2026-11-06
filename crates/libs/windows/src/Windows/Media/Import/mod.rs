@@ -642,7 +642,7 @@ impl PhotoImportFindItemsResult {
     }
     pub fn SelectionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PhotoImportSelectionChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PhotoImportSelectionChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PhotoImportSelectionChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -662,7 +662,7 @@ impl PhotoImportFindItemsResult {
     }
     pub fn ItemImported<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PhotoImportItemImportedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PhotoImportItemImportedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PhotoImportItemImportedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

@@ -22,6 +22,7 @@ pub(super) struct LocalMessage {
 
 pub(super) enum LocalMessageValue {
     Message(Box<dyn Any>),
+    Factory(Box<dyn FnOnce() -> Box<dyn Any> + Send>),
     Input(ComponentNode),
 }
 
@@ -193,11 +194,7 @@ impl<M> Clone for ComponentSender<M> {
 impl<M: Send + 'static> ComponentSender<M> {
     #[must_use]
     pub fn send(&self, value: M) -> bool {
-        self.enqueue(value, None)
-    }
-
-    pub fn completion(&self) -> ComponentCompletion<M> {
-        ComponentCompletion(self.clone())
+        self.enqueue(MessageValue::Send(Box::new(value)), None)
     }
 
     pub fn callback<T, F>(&self, map: F) -> Callback<T>
@@ -234,10 +231,16 @@ impl<M: Send + 'static> ComponentSender<M> {
     }
 
     pub(super) fn send_controlled(&self, value: M, control: Arc<TaskControl>) -> bool {
-        self.enqueue(value, Some(control))
+        self.enqueue(MessageValue::Send(Box::new(value)), Some(control))
+    }
+}
+
+impl<M: 'static> ComponentSender<M> {
+    pub fn completion(&self) -> ComponentCompletion<M> {
+        ComponentCompletion(self.clone())
     }
 
-    fn enqueue(&self, value: M, control: Option<Arc<TaskControl>>) -> bool {
+    pub(super) fn enqueue(&self, value: MessageValue, control: Option<Arc<TaskControl>>) -> bool {
         let mut queue = self.queue.lock().unwrap();
         if queue.closed || queue.messages.len() >= MESSAGE_CAPACITY {
             if let Some(control) = control {
@@ -251,7 +254,7 @@ impl<M: Send + 'static> ComponentSender<M> {
             component: self.component,
             control,
             sequence,
-            value: MessageValue::Send(Box::new(value)),
+            value,
         });
         let wake = (!queue.wake_pending).then(|| queue.waker.clone()).flatten();
         queue.wake_pending |= wake.is_some();
@@ -275,5 +278,23 @@ impl<M: Send + 'static> ComponentCompletion<M> {
     #[must_use]
     pub fn complete(self, value: M) -> bool {
         self.0.send(value)
+    }
+}
+
+impl<M: 'static> ComponentCompletion<M> {
+    /// Queues a factory that constructs the message on the component's thread.
+    ///
+    /// The factory may be submitted from any thread, even when `M` is not `Send`. It runs when
+    /// the message is delivered, without holding the message queue lock. If the component is
+    /// removed before delivery, the factory is dropped without being called.
+    ///
+    /// Returns `false` if the host has closed or its message queue is full. Factory captures
+    /// may be dropped on the submitting thread when the message is rejected.
+    #[must_use]
+    pub fn complete_with(self, factory: impl FnOnce() -> M + Send + 'static) -> bool {
+        self.0.enqueue(
+            MessageValue::Local(Box::new(move || Box::new(factory()))),
+            None,
+        )
     }
 }
