@@ -15,6 +15,7 @@ pub struct DrawContext<'a> {
     device: &'a GpuDevice,
     pub width: f32,
     pub height: f32,
+    scale: f32,
     changed: bool,
 }
 
@@ -22,6 +23,11 @@ impl DrawContext<'_> {
     /// Returns the device used by this frame.
     pub fn device(&self) -> &GpuDevice {
         self.device
+    }
+
+    /// Returns the number of physical pixels per DIP.
+    pub fn scale(&self) -> f32 {
+        self.scale
     }
 
     /// Returns `true` on the first frame and after device-loss recovery or a surface rebuild.
@@ -703,6 +709,7 @@ impl CanvasRuntime {
                 device: &state.device,
                 width: state.metrics.width,
                 height: state.metrics.height,
+                scale: state.metrics.scale,
                 changed: std::mem::replace(&mut state.changed, false),
             };
             let result = draw(&context);

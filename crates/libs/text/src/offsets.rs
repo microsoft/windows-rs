@@ -100,50 +100,55 @@ impl Offsets {
         start..end
     }
 
-    /// Converts a UTF-16 offset to a UTF-8 byte offset, rounding down to a character boundary
-    /// and clamping to the end of the text.
-    pub fn utf8(&self, offset: u32) -> usize {
-        if self.checkpoints.is_empty() {
-            return (offset as usize).min(self.text.len());
+    /// Returns a cursor that converts increasing UTF-16 offsets to UTF-8 byte offsets without
+    /// rescanning the text.
+    pub fn cursor(&self) -> Cursor<'_> {
+        Cursor {
+            offsets: self,
+            index: 0,
+            units: 0,
         }
-
-        let chunk = self.checkpoints.partition_point(|&units| units <= offset) - 1;
-        let start = chunk * CHUNK;
-        let mut units = self.checkpoints[chunk];
-
-        for (index, &byte) in self.text.as_bytes().iter().enumerate().skip(start) {
-            let len = utf16_len(byte);
-            if len > 0 && units + len > offset {
-                return index;
-            }
-            units += len;
-        }
-
-        self.text.len()
     }
+}
 
-    /// Returns a function that converts UTF-16 offsets to UTF-8 byte offsets in one pass. The
-    /// offsets passed to it must not decrease.
-    pub fn utf8_cursor(&self) -> impl FnMut(u32) -> usize + '_ {
-        let mut index = 0;
-        let mut units = 0;
+/// Converts UTF-16 offsets to UTF-8 byte offsets, moving forward through the text.
+pub(crate) struct Cursor<'a> {
+    offsets: &'a Offsets,
+    // The byte offset of the cursor and its UTF-16 offset.
+    index: usize,
+    units: u32,
+}
 
-        move |offset| {
-            if self.checkpoints.is_empty() {
-                return (offset as usize).min(self.text.len());
-            }
+impl Cursor<'_> {
+    /// Converts a UTF-16 offset to a UTF-8 byte offset, rounding down to a character boundary
+    /// and clamping to the end of the text. Offsets must not decrease between calls.
+    pub fn utf8(&mut self, offset: u32) -> usize {
+        let Offsets { text, checkpoints } = self.offsets;
 
-            while let Some(&byte) = self.text.as_bytes().get(index) {
-                let len = utf16_len(byte);
-                if len > 0 && units + len > offset {
-                    break;
-                }
-                units += len;
-                index += 1;
-            }
-
-            index
+        if checkpoints.is_empty() {
+            return (offset as usize).min(text.len());
         }
+
+        // Jump to the chunk holding `offset` when it lies beyond the cursor's chunk.
+        if checkpoints
+            .get(self.index / CHUNK + 1)
+            .is_some_and(|&units| units <= offset)
+        {
+            let chunk = checkpoints.partition_point(|&units| units <= offset) - 1;
+            self.index = (chunk * CHUNK).min(text.len());
+            self.units = checkpoints[chunk];
+        }
+
+        while let Some(&byte) = text.as_bytes().get(self.index) {
+            let len = utf16_len(byte);
+            if len > 0 && self.units + len > offset {
+                break;
+            }
+            self.units += len;
+            self.index += 1;
+        }
+
+        self.index
     }
 }
 
