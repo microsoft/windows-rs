@@ -1,0 +1,32 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    extern fn AbiCallback(#[in] #[out] context: *mut void, #[in] #[out] #[buffer(count)] values: *mut u32, #[in] count: u32) -> u64;
+    extern "C" fn AbiCdeclCallback(#[in] #[out] context: *mut void, #[in] #[out] #[buffer(count)] values: *mut u32, #[in] count: u32) -> u64;
+
+    #[library("bindgen_abi.dll")]
+    extern fn AbiFill(#[out] #[opt] #[buffer(count)] values: *mut u32, #[in] count: u32, #[out] written: *mut u32) -> u32;
+    #[library("bindgen_abi.dll")]
+    extern fn AbiSum(#[in] count: u32, #[in] #[opt] #[buffer(count)] values: *const u32) -> u32;
+    #[library("bindgen_abi.dll")]
+    extern fn AbiSelect(#[in] #[out] #[buffer(count)] values: *mut u32, #[in] count: u32, #[out] selected: *mut *mut u32) -> u32;
+    #[library("bindgen_abi.dll")]
+    extern fn AbiInvoke(#[in] callback: AbiCallback, #[in] #[out] context: *mut void, #[in] #[out] #[buffer(count)] values: *mut u32, #[in] count: u32) -> u64;
+    #[library("bindgen_abi.dll")]
+    extern "C" fn AbiInvokeCdecl(#[in] callback: AbiCdeclCallback, #[in] #[out] context: *mut void, #[in] #[out] #[buffer(count)] values: *mut u32, #[in] count: u32) -> u64;
+}
+
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute BufferAttribute {
+                fn();
+                CountConst: u64,
+                CountParamIndex: u16,
+                Dereference: bool,
+                Bytes: bool,
+            }
+        }
+    }
+}

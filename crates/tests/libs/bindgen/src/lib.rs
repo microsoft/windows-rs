@@ -8,6 +8,12 @@
 
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
 
+#[cfg(all(test, windows, miri))]
+mod abi_exports;
+
+#[cfg(all(test, windows))]
+mod abi_tests;
+
 #[test]
 fn associated_enum_storage_and_sign_extension() {
     use associated_enum::*;
