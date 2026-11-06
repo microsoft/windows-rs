@@ -500,9 +500,13 @@ fn observe_xaml_scale(
         Err(error) => return Err(error),
     };
     callback.call(root.RasterizationScale()?);
-    changed.replace(Some(root.Changed(move |sender, _| {
+    changed.replace(Some(root.Changed(local::handler::<
+        native::XamlRoot,
+        _,
+        _,
+    >(move |sender, _| {
         callback.call(sender.as_ref().unwrap().RasterizationScale().unwrap());
-    })?));
+    }))?));
     Ok(())
 }
 

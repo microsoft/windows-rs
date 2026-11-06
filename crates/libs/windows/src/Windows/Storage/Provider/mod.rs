@@ -100,7 +100,7 @@ impl CachedFileUpdaterUI {
     }
     pub fn FileUpdateRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FileUpdateRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FileUpdateRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, FileUpdateRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -114,7 +114,7 @@ impl CachedFileUpdaterUI {
     }
     pub fn UIRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -569,7 +569,7 @@ impl IStorageProviderKnownFolderSyncInfoSource {
     }
     pub fn KnownFolderSyncInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1350,7 +1350,7 @@ impl IStorageProviderStatusUISource {
     }
     pub fn StatusUIChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2525,7 +2525,7 @@ impl windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestedHandle
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl StorageProviderKnownFolderSyncRequestedHandler {
-    pub fn new<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&StorageProviderKnownFolderSyncRequestedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -2542,8 +2542,8 @@ pub struct StorageProviderKnownFolderSyncRequestedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct StorageProviderKnownFolderSyncRequestedHandlerBox<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static> StorageProviderKnownFolderSyncRequestedHandlerBox<F> {
+struct StorageProviderKnownFolderSyncRequestedHandlerBox<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + Sync + 'static> StorageProviderKnownFolderSyncRequestedHandlerBox<F> {
     const VTABLE: StorageProviderKnownFolderSyncRequestedHandler_Vtbl = StorageProviderKnownFolderSyncRequestedHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<StorageProviderKnownFolderSyncRequestedHandler, F>::QueryInterface,

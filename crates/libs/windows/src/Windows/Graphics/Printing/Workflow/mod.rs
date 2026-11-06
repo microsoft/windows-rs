@@ -812,7 +812,7 @@ windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSession, windows_
 impl PrintWorkflowBackgroundSession {
     pub fn SetupRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowBackgroundSetupRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowBackgroundSetupRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowBackgroundSetupRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -826,7 +826,7 @@ impl PrintWorkflowBackgroundSession {
     }
     pub fn Submitted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowSubmittedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowSubmittedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowSubmittedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -947,7 +947,7 @@ windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSession, windows_
 impl PrintWorkflowForegroundSession {
     pub fn SetupRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowForegroundSetupRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowForegroundSetupRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowForegroundSetupRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -961,7 +961,7 @@ impl PrintWorkflowForegroundSession {
     }
     pub fn XpsDataAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowXpsDataAvailableEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowXpsDataAvailableEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowXpsDataAvailableEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1122,7 +1122,7 @@ impl PrintWorkflowJobBackgroundSession {
     }
     pub fn JobStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowJobStartingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowJobStartingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobStartingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1136,7 +1136,7 @@ impl PrintWorkflowJobBackgroundSession {
     }
     pub fn PdlModificationRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowPdlModificationRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowPdlModificationRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPdlModificationRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1153,7 +1153,7 @@ impl PrintWorkflowJobBackgroundSession {
     }
     pub fn JobIssueDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowJobIssueDetectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowJobIssueDetectedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobBackgroundSession2>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobIssueDetectedEventArgs>>::new(move |a0, a1| {
@@ -1168,7 +1168,7 @@ impl PrintWorkflowJobBackgroundSession {
     }
     pub fn JobStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowPrinterJobStatusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowPrinterJobStatusChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobBackgroundSession3>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPrinterJobStatusChangedEventArgs>>::new(move |a0, a1| {
@@ -1415,7 +1415,7 @@ impl PrintWorkflowJobUISession {
     }
     pub fn PdlDataAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowPdlDataAvailableEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowPdlDataAvailableEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPdlDataAvailableEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1429,7 +1429,7 @@ impl PrintWorkflowJobUISession {
     }
     pub fn JobNotification<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowJobNotificationEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowJobNotificationEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobNotificationEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1446,7 +1446,7 @@ impl PrintWorkflowJobUISession {
     }
     pub fn VirtualPrinterUIDataAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowVirtualPrinterUIEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowVirtualPrinterUIEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobUISession2>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowVirtualPrinterUIEventArgs>>::new(move |a0, a1| {
@@ -2412,7 +2412,7 @@ impl PrintWorkflowVirtualPrinterSession {
     }
     pub fn VirtualPrinterDataAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowVirtualPrinterDataAvailableEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowVirtualPrinterDataAvailableEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowVirtualPrinterDataAvailableEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

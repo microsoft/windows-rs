@@ -363,19 +363,21 @@ impl WinUiAdapter {
                 }
                 let clicked_key = key.clone();
                 let clicked_queue = Rc::clone(&self.event_queue);
-                revokers.push(button.cast::<native::IButtonBase>()?.Click(move |_, _| {
-                    clicked_queue.queue(
-                        None,
-                        Some(QueuedEvent {
-                            object: target,
-                            event: EventId::CommandInvoked,
-                            handler: QueuedHandler::Presentation {
-                                revision,
-                                key: clicked_key.clone(),
-                            },
-                        }),
-                    );
-                })?);
+                revokers.push(button.cast::<native::IButtonBase>()?.Click(local::handler(
+                    move |_, _| {
+                        clicked_queue.queue(
+                            None,
+                            Some(QueuedEvent {
+                                object: target,
+                                event: EventId::CommandInvoked,
+                                handler: QueuedHandler::Presentation {
+                                    revision,
+                                    key: clicked_key.clone(),
+                                },
+                            }),
+                        );
+                    },
+                ))?);
                 Ok(button.cast()?)
             }
             CommandBarCommand::Separator { .. } => Ok(native::AppBarSeparator::new()?.cast()?),
@@ -403,7 +405,7 @@ fn build_menu_items(
                 item.cast::<native::IControl>()?.SetIsEnabled(*enabled)?;
                 let clicked_key = key.clone();
                 let clicked_queue = Rc::clone(event_queue);
-                revokers.push(item.Click(move |_, _| {
+                revokers.push(item.Click(local::handler(move |_, _| {
                     clicked_queue.queue(
                         None,
                         Some(QueuedEvent {
@@ -415,7 +417,7 @@ fn build_menu_items(
                             },
                         }),
                     );
-                })?);
+                }))?);
                 item.cast()?
             }
             MenuItem::Separator { .. } => native::MenuFlyoutSeparator::new()?.cast()?,

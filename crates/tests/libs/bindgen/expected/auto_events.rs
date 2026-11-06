@@ -8,7 +8,7 @@ impl windows_core::RuntimeType for CompletedCallback {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl CompletedCallback {
-    pub fn new<F: Fn(i32) + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(i32) + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &CompletedCallbackBox::<F>::VTABLE,
             invoke,
@@ -24,8 +24,10 @@ pub struct CompletedCallback_Vtbl {
         result: i32,
     ) -> windows_core::HRESULT,
 }
-struct CompletedCallbackBox<F: Fn(i32) + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(i32) + 'static> CompletedCallbackBox<F> {
+struct CompletedCallbackBox<F: Fn(i32) + Send + Sync + 'static>(
+    core::marker::PhantomData<(fn() -> F,)>,
+);
+impl<F: Fn(i32) + Send + Sync + 'static> CompletedCallbackBox<F> {
     const VTABLE: CompletedCallback_Vtbl = CompletedCallback_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<CompletedCallback, F>::QueryInterface,
@@ -64,10 +66,10 @@ pub struct Handler_Vtbl {
         args: i32,
     ) -> windows_core::HRESULT,
 }
-struct HandlerBox<F: Fn(windows_core::Ref<IFoo>, i32) + 'static>(
+struct HandlerBox<F: Fn(windows_core::Ref<IFoo>, i32) + Send + Sync + 'static>(
     core::marker::PhantomData<(fn() -> F,)>,
 );
-impl<F: Fn(windows_core::Ref<IFoo>, i32) + 'static> HandlerBox<F> {
+impl<F: Fn(windows_core::Ref<IFoo>, i32) + Send + Sync + 'static> HandlerBox<F> {
     const VTABLE: Handler_Vtbl = Handler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<Handler, F>::QueryInterface,
@@ -108,7 +110,7 @@ impl IFoo {
     }
     pub fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, i32) + 'static,
+        F: Fn(windows_core::Ref<Self>, i32) + Send + Sync + 'static,
     {
         let handler: Handler = {
             let com = windows_core::imp::DelegateBox::<Handler, F>::new(

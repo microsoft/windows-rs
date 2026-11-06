@@ -152,7 +152,7 @@ impl Print3DWorkflow {
     }
     pub fn PrintRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DWorkflowPrintRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DWorkflowPrintRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, Print3DWorkflowPrintRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -166,7 +166,7 @@ impl Print3DWorkflow {
     }
     pub fn PrinterChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DWorkflowPrinterChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DWorkflowPrinterChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IPrint3DWorkflow2>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, Print3DWorkflowPrinterChangedEventArgs>>::new(move |a0, a1| {
@@ -350,7 +350,7 @@ impl PrintTaskConfiguration {
     }
     pub fn SaveRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintTaskConfigurationSaveRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintTaskConfigurationSaveRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintTaskConfigurationSaveRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

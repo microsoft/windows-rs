@@ -172,7 +172,7 @@ impl windows_core::RuntimeType for RemoteTextConnectionDataHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl RemoteTextConnectionDataHandler {
-    pub fn new<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&RemoteTextConnectionDataHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -189,8 +189,8 @@ pub struct RemoteTextConnectionDataHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, pdudata_array_size: u32, pdudata: *const u8, result__: *mut bool) -> windows_core::HRESULT,
 }
-struct RemoteTextConnectionDataHandlerBox<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextConnectionDataHandlerBox<F> {
+struct RemoteTextConnectionDataHandlerBox<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + Sync + 'static> RemoteTextConnectionDataHandlerBox<F> {
     const VTABLE: RemoteTextConnectionDataHandler_Vtbl = RemoteTextConnectionDataHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<RemoteTextConnectionDataHandler, F>::QueryInterface,

@@ -28,7 +28,7 @@ impl Accelerometer {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AccelerometerReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AccelerometerReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AccelerometerReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -42,7 +42,7 @@ impl Accelerometer {
     }
     pub fn Shaken<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AccelerometerShakenEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AccelerometerShakenEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AccelerometerShakenEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -362,7 +362,7 @@ impl ActivitySensor {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ActivitySensorReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ActivitySensorReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ActivitySensorReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -624,7 +624,7 @@ impl Altimeter {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AltimeterReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AltimeterReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AltimeterReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -779,7 +779,7 @@ impl Barometer {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarometerReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarometerReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, BarometerReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -978,7 +978,7 @@ impl Compass {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CompassReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CompassReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CompassReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1258,7 +1258,7 @@ impl Gyrometer {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GyrometerReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GyrometerReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, GyrometerReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1615,7 +1615,7 @@ impl HingeAngleSensor {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HingeAngleSensorReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HingeAngleSensorReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, HingeAngleSensorReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1815,7 +1815,7 @@ impl HumanPresenceSensor {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HumanPresenceSensorReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HumanPresenceSensorReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, HumanPresenceSensorReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2258,7 +2258,7 @@ impl HumanPresenceSettings {
     }
     pub fn SettingsChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4534,7 +4534,7 @@ impl Inclinometer {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InclinometerReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InclinometerReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, InclinometerReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4817,7 +4817,7 @@ impl LightSensor {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LightSensorReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LightSensorReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, LightSensorReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5097,7 +5097,7 @@ impl Magnetometer {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagnetometerReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MagnetometerReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MagnetometerReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5435,7 +5435,7 @@ impl OrientationSensor {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<OrientationSensorReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<OrientationSensorReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, OrientationSensorReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5678,7 +5678,7 @@ impl Pedometer {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PedometerReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PedometerReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PedometerReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5900,7 +5900,7 @@ impl ProximitySensor {
     }
     pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ProximitySensorReadingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ProximitySensorReadingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ProximitySensorReadingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -6301,7 +6301,7 @@ impl SimpleOrientationSensor {
     }
     pub fn OrientationChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SimpleOrientationSensorOrientationChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SimpleOrientationSensorOrientationChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SimpleOrientationSensorOrientationChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

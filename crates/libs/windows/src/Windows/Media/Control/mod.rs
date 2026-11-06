@@ -135,7 +135,7 @@ impl GlobalSystemMediaTransportControlsSession {
     }
     pub fn TimelinePropertiesChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TimelinePropertiesChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TimelinePropertiesChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, TimelinePropertiesChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -149,7 +149,7 @@ impl GlobalSystemMediaTransportControlsSession {
     }
     pub fn PlaybackInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackInfoChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackInfoChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PlaybackInfoChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -163,7 +163,7 @@ impl GlobalSystemMediaTransportControlsSession {
     }
     pub fn MediaPropertiesChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaPropertiesChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaPropertiesChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaPropertiesChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -207,7 +207,7 @@ impl GlobalSystemMediaTransportControlsSessionManager {
     }
     pub fn CurrentSessionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CurrentSessionChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CurrentSessionChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CurrentSessionChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -221,7 +221,7 @@ impl GlobalSystemMediaTransportControlsSessionManager {
     }
     pub fn SessionsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SessionsChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SessionsChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SessionsChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

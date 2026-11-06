@@ -1332,7 +1332,7 @@ pub struct MediaControl;
 impl MediaControl {
     pub fn SoundLevelChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1346,7 +1346,7 @@ impl MediaControl {
     }
     pub fn PlayPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1360,7 +1360,7 @@ impl MediaControl {
     }
     pub fn PausePressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1374,7 +1374,7 @@ impl MediaControl {
     }
     pub fn StopPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1388,7 +1388,7 @@ impl MediaControl {
     }
     pub fn PlayPauseTogglePressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1402,7 +1402,7 @@ impl MediaControl {
     }
     pub fn RecordPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1416,7 +1416,7 @@ impl MediaControl {
     }
     pub fn NextTrackPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1430,7 +1430,7 @@ impl MediaControl {
     }
     pub fn PreviousTrackPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1444,7 +1444,7 @@ impl MediaControl {
     }
     pub fn FastForwardPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1458,7 +1458,7 @@ impl MediaControl {
     }
     pub fn RewindPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1472,7 +1472,7 @@ impl MediaControl {
     }
     pub fn ChannelUpPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1486,7 +1486,7 @@ impl MediaControl {
     }
     pub fn ChannelDownPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1794,7 +1794,7 @@ impl MediaTimelineController {
     }
     pub fn PositionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1808,7 +1808,7 @@ impl MediaTimelineController {
     }
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1845,7 +1845,7 @@ impl MediaTimelineController {
     }
     pub fn Failed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaTimelineControllerFailedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaTimelineControllerFailedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
         let handler = <super::Foundation::TypedEventHandler<Self, MediaTimelineControllerFailedEventArgs>>::new(move |a0, a1| {
@@ -1860,7 +1860,7 @@ impl MediaTimelineController {
     }
     pub fn Ended<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -2225,7 +2225,7 @@ impl SystemMediaTransportControls {
     }
     pub fn ButtonPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemMediaTransportControlsButtonPressedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemMediaTransportControlsButtonPressedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, SystemMediaTransportControlsButtonPressedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2239,7 +2239,7 @@ impl SystemMediaTransportControls {
     }
     pub fn PropertyChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemMediaTransportControlsPropertyChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemMediaTransportControlsPropertyChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, SystemMediaTransportControlsPropertyChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2293,7 +2293,7 @@ impl SystemMediaTransportControls {
     }
     pub fn PlaybackPositionChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackPositionChangeRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackPositionChangeRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         let handler = <super::Foundation::TypedEventHandler<Self, PlaybackPositionChangeRequestedEventArgs>>::new(move |a0, a1| {
@@ -2308,7 +2308,7 @@ impl SystemMediaTransportControls {
     }
     pub fn PlaybackRateChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackRateChangeRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackRateChangeRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         let handler = <super::Foundation::TypedEventHandler<Self, PlaybackRateChangeRequestedEventArgs>>::new(move |a0, a1| {
@@ -2323,7 +2323,7 @@ impl SystemMediaTransportControls {
     }
     pub fn ShuffleEnabledChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ShuffleEnabledChangeRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ShuffleEnabledChangeRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         let handler = <super::Foundation::TypedEventHandler<Self, ShuffleEnabledChangeRequestedEventArgs>>::new(move |a0, a1| {
@@ -2338,7 +2338,7 @@ impl SystemMediaTransportControls {
     }
     pub fn AutoRepeatModeChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AutoRepeatModeChangeRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AutoRepeatModeChangeRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         let handler = <super::Foundation::TypedEventHandler<Self, AutoRepeatModeChangeRequestedEventArgs>>::new(move |a0, a1| {

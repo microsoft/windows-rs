@@ -22,15 +22,18 @@ fn default_services_cancel_timers_and_release_callbacks() {
     );
 }
 
-#[derive(Clone)]
+#[derive(Clone, Default)]
 struct LocalMessageInput {
     seen: Rc<Cell<usize>>,
     sender: Rc<RefCell<Option<LocalSender<Rc<Cell<usize>>>>>>,
+    completion: Rc<RefCell<Option<ComponentCompletion<Rc<Cell<usize>>>>>>,
 }
 
 impl PartialEq for LocalMessageInput {
     fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.seen, &other.seen) && Rc::ptr_eq(&self.sender, &other.sender)
+        Rc::ptr_eq(&self.seen, &other.seen)
+            && Rc::ptr_eq(&self.sender, &other.sender)
+            && Rc::ptr_eq(&self.completion, &other.completion)
     }
 }
 
@@ -45,6 +48,7 @@ impl Component for LocalMessageProbe {
 
     fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
         input.sender.replace(Some(context.sender()));
+        input.completion.replace(Some(context.completion()));
         Self {
             _timer: context.set_local_timeout(Duration::ZERO, || Rc::new(Cell::new(2))),
             seen: Rc::clone(&input.seen),
@@ -336,10 +340,7 @@ fn retirement_cancels_background_delivery() {
 #[test]
 fn local_messages_and_timers_support_ui_thread_values() {
     let services = Arc::new(TestServices::default());
-    let input = LocalMessageInput {
-        seen: Rc::new(Cell::new(0)),
-        sender: Rc::new(RefCell::new(None)),
-    };
+    let input = LocalMessageInput::default();
     let mut host = ComponentHost::mount_with_services(
         RecordingAdapter::default(),
         services.clone(),
@@ -354,6 +355,72 @@ fn local_messages_and_timers_support_ui_thread_values() {
     services.fire_timer();
     assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(input.seen.get(), 2);
+}
+
+#[test]
+fn completion_factory_runs_on_owner_without_queue_locks() {
+    let input = LocalMessageInput::default();
+    let mut host = ComponentHost::mount_with_services(
+        RecordingAdapter::default(),
+        Arc::new(TestServices::default()),
+        [component::<LocalMessageProbe>("probe", input.clone())],
+    );
+    let completion = input.completion.borrow().as_ref().unwrap().clone();
+    let nested = completion.clone();
+    let owner = std::thread::current().id();
+    let queue = Arc::clone(&host.queue);
+    std::thread::spawn(move || {
+        assert!(completion.complete_with(move || {
+            assert_eq!(std::thread::current().id(), owner);
+            assert!(queue.try_lock().is_ok());
+            assert!(nested.complete_with(|| Rc::new(Cell::new(3))));
+            Rc::new(Cell::new(1))
+        }));
+    })
+    .join()
+    .unwrap();
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(Rc::new(Cell::new(2)))
+    );
+    assert_eq!(input.seen.get(), 0);
+    assert_eq!(host.drain(1).dispatched, 1);
+    assert_eq!(input.seen.get(), 1);
+    assert_eq!(host.drain(1).dispatched, 1);
+    assert_eq!(input.seen.get(), 2);
+    assert_eq!(host.drain(1).dispatched, 1);
+    assert_eq!(input.seen.get(), 3);
+}
+
+#[test]
+fn completion_factory_cancellation_releases_uninvoked_captures() {
+    let input = LocalMessageInput::default();
+    let mut host = ComponentHost::mount_with_services(
+        RecordingAdapter::default(),
+        Arc::new(TestServices::default()),
+        [component::<LocalMessageProbe>("probe", input.clone())],
+    );
+    let completion = input.completion.borrow().as_ref().unwrap().clone();
+    let drops = Arc::new(AtomicUsize::new(0));
+    let capture = DropPayload(drops.clone());
+    assert!(completion.clone().complete_with(move || {
+        drop(capture);
+        panic!("removed component's factory was invoked");
+    }));
+    host.remove(&Key::from("probe"));
+    assert_eq!(host.drain(1).dropped, 1);
+    assert_eq!(drops.load(Ordering::Relaxed), 1);
+    drop(host);
+    let capture = DropPayload(drops.clone());
+    assert!(!completion.complete_with(move || {
+        drop(capture);
+        panic!("rejected factory was invoked");
+    }));
+    assert_eq!(drops.load(Ordering::Relaxed), 2);
 }
 
 #[test]
@@ -760,6 +827,79 @@ fn drain_budget_counts_native_work_and_rearms() {
     assert_eq!(continuations.get(), 1);
     assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(seen.borrow().len(), 2);
+}
+
+#[test]
+fn shutdown_releases_callbacks_outside_queues() {
+    struct Capture {
+        queue: SharedQueue,
+        completion: ComponentCompletion<u8>,
+        drops: Arc<AtomicUsize>,
+    }
+
+    impl Drop for Capture {
+        fn drop(&mut self) {
+            let queue = self.queue.try_lock().unwrap();
+            assert!(queue.closed);
+            drop(queue);
+            assert!(!self.completion.clone().complete(0));
+            self.drops.fetch_add(1, Ordering::Relaxed);
+        }
+    }
+
+    struct LocalCapture {
+        capture: Capture,
+        queue: LocalQueue,
+    }
+
+    impl Drop for LocalCapture {
+        fn drop(&mut self) {
+            let _ = &self.capture;
+            assert!(self.queue.try_borrow_mut().is_ok());
+        }
+    }
+
+    for destination in ["factory", "waker", "local"] {
+        let input = MessageOrderInput {
+            local: Rc::new(RefCell::new(None)),
+            seen: Rc::new(RefCell::new(Vec::new())),
+        };
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<MessageOrderProbe>("probe", input.clone())],
+        );
+        let completion = host
+            .sender::<MessageOrderProbe>(&Key::from("probe"))
+            .unwrap()
+            .completion();
+        let drops = Arc::new(AtomicUsize::new(0));
+        let capture = Capture {
+            queue: Arc::clone(&host.queue),
+            completion: completion.clone(),
+            drops: drops.clone(),
+        };
+        match destination {
+            "factory" => assert!(completion.complete_with(move || {
+                let _ = &capture;
+                panic!("shutdown must discard this factory");
+            })),
+            "waker" => host.set_waker(move || {
+                let _ = &capture;
+            }),
+            "local" => host.local_queue.borrow_mut().push_back(LocalMessage {
+                component: input.local.borrow().as_ref().unwrap().component,
+                sequence: 0,
+                value: LocalMessageValue::Message(Box::new(LocalCapture {
+                    capture,
+                    queue: Rc::clone(&host.local_queue),
+                })),
+            }),
+            _ => unreachable!(),
+        }
+        drop(host);
+        assert_eq!(drops.load(Ordering::Relaxed), 1, "{destination}");
+        assert!(input.seen.borrow().is_empty());
+    }
 }
 
 #[test]

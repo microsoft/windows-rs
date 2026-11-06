@@ -2885,7 +2885,7 @@ impl ToastNotification {
     }
     pub fn Dismissed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ToastDismissedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ToastDismissedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ToastDismissedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2899,7 +2899,7 @@ impl ToastNotification {
     }
     pub fn Activated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2913,7 +2913,7 @@ impl ToastNotification {
     }
     pub fn Failed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ToastFailedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ToastFailedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ToastFailedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3295,7 +3295,7 @@ impl ToastNotificationManagerForUser {
     }
     pub fn NotificationModeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IToastNotificationManagerForUser3>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -3413,7 +3413,7 @@ impl ToastNotifier {
     }
     pub fn ScheduledToastNotificationShowing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ScheduledToastNotificationShowingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ScheduledToastNotificationShowingEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IToastNotifier3>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, ScheduledToastNotificationShowingEventArgs>>::new(move |a0, a1| {

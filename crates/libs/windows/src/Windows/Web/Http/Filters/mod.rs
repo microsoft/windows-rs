@@ -145,7 +145,7 @@ impl HttpBaseProtocolFilter {
     }
     pub fn ServerCustomValidationRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HttpServerCustomValidationRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HttpServerCustomValidationRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, HttpServerCustomValidationRequestedEventArgs>>::new(move |a0, a1| {

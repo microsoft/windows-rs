@@ -442,15 +442,11 @@ impl<A: Adapter> ComponentHost<A> {
                             .map(|message| (message.component, None, message.value))
                     } else {
                         queue.messages.pop_front().map(|message| {
-                            let value: Box<dyn Any> = match message.value {
-                                MessageValue::Send(value) => value,
-                                MessageValue::Local(factory) => factory(),
+                            let value = match message.value {
+                                MessageValue::Send(value) => LocalMessageValue::Message(value),
+                                MessageValue::Local(factory) => LocalMessageValue::Factory(factory),
                             };
-                            (
-                                message.component,
-                                message.control,
-                                LocalMessageValue::Message(value),
-                            )
+                            (message.component, message.control, value)
                         })
                     }
                 })
@@ -478,6 +474,9 @@ impl<A: Adapter> ComponentHost<A> {
                 let render = match value {
                     LocalMessageValue::Message(value) => {
                         Some(scope.component.dispatch(value, reference, &contexts))
+                    }
+                    LocalMessageValue::Factory(factory) => {
+                        Some(scope.component.dispatch(factory(), reference, &contexts))
                     }
                     LocalMessageValue::Input(node) => {
                         scope
@@ -571,6 +570,14 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     fn shutdown(&mut self) {
+        let (messages, waker) = {
+            let mut queue = self.queue.lock().unwrap_or_else(|error| error.into_inner());
+            queue.closed = true;
+            queue.wake_pending = false;
+            (std::mem::take(&mut queue.messages), queue.waker.take())
+        };
+        let local_messages = std::mem::take(&mut *self.local_queue.borrow_mut());
+
         self.window_color_scheme = WindowObserverLifetime::default();
         self.window_size = WindowObserverLifetime::default();
         self.window_placement = WindowObserverLifetime::default();
@@ -585,19 +592,12 @@ impl<A: Adapter> ComponentHost<A> {
             effects.discard();
         }
         self.free_scopes.clear();
-        self.local_queue.borrow_mut().clear();
-
-        let controls = {
-            let mut queue = self.queue.lock().unwrap_or_else(|error| error.into_inner());
-            queue.closed = true;
-            queue.wake_pending = false;
-            queue.waker = None;
-            queue
-                .messages
-                .drain(..)
-                .filter_map(|message| message.control)
-                .collect::<Vec<_>>()
-        };
+        drop(local_messages);
+        drop(waker);
+        let controls = messages
+            .into_iter()
+            .filter_map(|message| message.control)
+            .collect::<Vec<_>>();
         let mut scopes = Vec::new();
         for (index, slot) in self.scopes.iter_mut().enumerate().rev() {
             let Some(mut scope) = slot.scope.take() else {

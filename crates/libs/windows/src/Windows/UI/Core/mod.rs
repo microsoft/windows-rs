@@ -245,7 +245,7 @@ windows_core::imp::interface_hierarchy!(CoreAcceleratorKeys, windows_core::IUnkn
 impl CoreAcceleratorKeys {
     pub fn AcceleratorKeyActivated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreDispatcher>, windows_core::Ref<AcceleratorKeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreDispatcher>, windows_core::Ref<AcceleratorKeyEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -278,7 +278,7 @@ windows_core::imp::required_hierarchy!(CoreComponentInputSource, ICorePointerInp
 impl CoreComponentInputSource {
     pub fn ClosestInteractiveBoundsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClosestInteractiveBoundsRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClosestInteractiveBoundsRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreClosestInteractiveBoundsRequested>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, ClosestInteractiveBoundsRequestedEventArgs>>::new(move |a0, a1| {
@@ -300,7 +300,7 @@ impl CoreComponentInputSource {
     }
     pub fn GotFocus<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<CoreWindowEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<CoreWindowEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreComponentFocusable>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CoreWindowEventArgs>>::new(move |a0, a1| {
@@ -315,7 +315,7 @@ impl CoreComponentInputSource {
     }
     pub fn LostFocus<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<CoreWindowEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<CoreWindowEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreComponentFocusable>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CoreWindowEventArgs>>::new(move |a0, a1| {
@@ -345,7 +345,7 @@ impl CoreComponentInputSource {
     }
     pub fn InputEnabled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<InputEnabledEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<InputEnabledEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -367,7 +367,7 @@ impl CoreComponentInputSource {
     }
     pub fn CharacterReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<CharacterReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<CharacterReceivedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CharacterReceivedEventArgs>>::new(move |a0, a1| {
@@ -382,7 +382,7 @@ impl CoreComponentInputSource {
     }
     pub fn KeyDown<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<KeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<KeyEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, KeyEventArgs>>::new(move |a0, a1| {
@@ -397,7 +397,7 @@ impl CoreComponentInputSource {
     }
     pub fn KeyUp<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<KeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<KeyEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, KeyEventArgs>>::new(move |a0, a1| {
@@ -455,7 +455,7 @@ impl CoreComponentInputSource {
     }
     pub fn PointerCaptureLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -470,7 +470,7 @@ impl CoreComponentInputSource {
     }
     pub fn PointerEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -485,7 +485,7 @@ impl CoreComponentInputSource {
     }
     pub fn PointerExited<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -500,7 +500,7 @@ impl CoreComponentInputSource {
     }
     pub fn PointerMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -515,7 +515,7 @@ impl CoreComponentInputSource {
     }
     pub fn PointerPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -530,7 +530,7 @@ impl CoreComponentInputSource {
     }
     pub fn PointerReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -545,7 +545,7 @@ impl CoreComponentInputSource {
     }
     pub fn PointerWheelChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -568,7 +568,7 @@ impl CoreComponentInputSource {
     }
     pub fn TouchHitTesting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<TouchHitTestingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<TouchHitTestingEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreTouchHitTesting>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, TouchHitTestingEventArgs>>::new(move |a0, a1| {
@@ -670,7 +670,7 @@ windows_core::imp::required_hierarchy!(CoreDispatcher, ICoreAcceleratorKeys);
 impl CoreDispatcher {
     pub fn AcceleratorKeyActivated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AcceleratorKeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AcceleratorKeyEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreAcceleratorKeys>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, AcceleratorKeyEventArgs>>::new(move |a0, a1| {
@@ -862,7 +862,7 @@ impl CoreIndependentInputSource {
     }
     pub fn InputEnabled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<InputEnabledEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<InputEnabledEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -912,7 +912,7 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerCaptureLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -927,7 +927,7 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -942,7 +942,7 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerExited<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -957,7 +957,7 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -972,7 +972,7 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -987,7 +987,7 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -1002,7 +1002,7 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerWheelChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -1025,7 +1025,7 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerRoutedAway<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>::new(move |a0, a1| {
@@ -1040,7 +1040,7 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerRoutedTo<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>::new(move |a0, a1| {
@@ -1055,7 +1055,7 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerRoutedReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>::new(move |a0, a1| {
@@ -1303,7 +1303,7 @@ windows_core::imp::required_hierarchy!(CoreWindow, ICorePointerRedirector);
 impl CoreWindow {
     pub fn PointerRoutedAway<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>::new(move |a0, a1| {
@@ -1318,7 +1318,7 @@ impl CoreWindow {
     }
     pub fn PointerRoutedTo<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>::new(move |a0, a1| {
@@ -1333,7 +1333,7 @@ impl CoreWindow {
     }
     pub fn PointerRoutedReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<ICorePointerRedirector>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>::new(move |a0, a1| {
@@ -1441,7 +1441,7 @@ impl CoreWindow {
     }
     pub fn Activated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowActivatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowActivatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WindowActivatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1455,7 +1455,7 @@ impl CoreWindow {
     }
     pub fn AutomationProviderRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AutomationProviderRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AutomationProviderRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, AutomationProviderRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1469,7 +1469,7 @@ impl CoreWindow {
     }
     pub fn CharacterReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CharacterReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CharacterReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CharacterReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1483,7 +1483,7 @@ impl CoreWindow {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWindowEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWindowEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CoreWindowEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1497,7 +1497,7 @@ impl CoreWindow {
     }
     pub fn InputEnabled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputEnabledEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputEnabledEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, InputEnabledEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1511,7 +1511,7 @@ impl CoreWindow {
     }
     pub fn KeyDown<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<KeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<KeyEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, KeyEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1525,7 +1525,7 @@ impl CoreWindow {
     }
     pub fn KeyUp<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<KeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<KeyEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, KeyEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1539,7 +1539,7 @@ impl CoreWindow {
     }
     pub fn PointerCaptureLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1553,7 +1553,7 @@ impl CoreWindow {
     }
     pub fn PointerEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1567,7 +1567,7 @@ impl CoreWindow {
     }
     pub fn PointerExited<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1581,7 +1581,7 @@ impl CoreWindow {
     }
     pub fn PointerMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1595,7 +1595,7 @@ impl CoreWindow {
     }
     pub fn PointerPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1609,7 +1609,7 @@ impl CoreWindow {
     }
     pub fn PointerReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1623,7 +1623,7 @@ impl CoreWindow {
     }
     pub fn TouchHitTesting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TouchHitTestingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TouchHitTestingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, TouchHitTestingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1637,7 +1637,7 @@ impl CoreWindow {
     }
     pub fn PointerWheelChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1651,7 +1651,7 @@ impl CoreWindow {
     }
     pub fn SizeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowSizeChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowSizeChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WindowSizeChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1665,7 +1665,7 @@ impl CoreWindow {
     }
     pub fn VisibilityChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VisibilityChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VisibilityChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, VisibilityChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1683,7 +1683,7 @@ impl CoreWindow {
     }
     pub fn ClosestInteractiveBoundsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClosestInteractiveBoundsRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ClosestInteractiveBoundsRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreWindow3>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, ClosestInteractiveBoundsRequestedEventArgs>>::new(move |a0, a1| {
@@ -1705,7 +1705,7 @@ impl CoreWindow {
     }
     pub fn ResizeStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreWindow4>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -1720,7 +1720,7 @@ impl CoreWindow {
     }
     pub fn ResizeCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreWindow4>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -1821,7 +1821,7 @@ impl CoreWindowDialog {
     }
     pub fn Showing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<CoreWindowPopupShowingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<CoreWindowPopupShowingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1976,7 +1976,7 @@ windows_core::imp::interface_hierarchy!(CoreWindowFlyout, windows_core::IUnknown
 impl CoreWindowFlyout {
     pub fn Showing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<CoreWindowPopupShowingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<CoreWindowPopupShowingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2148,7 +2148,7 @@ impl windows_core::RuntimeType for DispatchedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DispatchedHandler {
-    pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&DispatchedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -2162,8 +2162,8 @@ pub struct DispatchedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct DispatchedHandlerBox<F: Fn() -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DispatchedHandlerBox<F> {
+struct DispatchedHandlerBox<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static> DispatchedHandlerBox<F> {
     const VTABLE: DispatchedHandler_Vtbl = DispatchedHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<DispatchedHandler, F>::QueryInterface,
@@ -2265,7 +2265,7 @@ windows_core::imp::interface_hierarchy!(ICoreAcceleratorKeys, windows_core::IUnk
 impl ICoreAcceleratorKeys {
     pub fn AcceleratorKeyActivated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreDispatcher>, windows_core::Ref<AcceleratorKeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreDispatcher>, windows_core::Ref<AcceleratorKeyEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2467,7 +2467,7 @@ impl ICoreInputSourceBase {
     }
     pub fn InputEnabled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<InputEnabledEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<InputEnabledEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2643,7 +2643,7 @@ impl ICorePointerInputSource {
     }
     pub fn PointerCaptureLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2657,7 +2657,7 @@ impl ICorePointerInputSource {
     }
     pub fn PointerEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2671,7 +2671,7 @@ impl ICorePointerInputSource {
     }
     pub fn PointerExited<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2685,7 +2685,7 @@ impl ICorePointerInputSource {
     }
     pub fn PointerMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2699,7 +2699,7 @@ impl ICorePointerInputSource {
     }
     pub fn PointerPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2713,7 +2713,7 @@ impl ICorePointerInputSource {
     }
     pub fn PointerReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2727,7 +2727,7 @@ impl ICorePointerInputSource {
     }
     pub fn PointerWheelChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3084,7 +3084,7 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerCaptureLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -3099,7 +3099,7 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -3114,7 +3114,7 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerExited<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -3129,7 +3129,7 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -3144,7 +3144,7 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -3159,7 +3159,7 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -3174,7 +3174,7 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerWheelChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>::new(move |a0, a1| {
@@ -3242,7 +3242,7 @@ windows_core::imp::interface_hierarchy!(ICorePointerRedirector, windows_core::IU
 impl ICorePointerRedirector {
     pub fn PointerRoutedAway<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3256,7 +3256,7 @@ impl ICorePointerRedirector {
     }
     pub fn PointerRoutedTo<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3270,7 +3270,7 @@ impl ICorePointerRedirector {
     }
     pub fn PointerRoutedReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3498,7 +3498,7 @@ impl ICoreWindow {
     }
     pub fn Activated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<WindowActivatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<WindowActivatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3512,7 +3512,7 @@ impl ICoreWindow {
     }
     pub fn AutomationProviderRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<AutomationProviderRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<AutomationProviderRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3526,7 +3526,7 @@ impl ICoreWindow {
     }
     pub fn CharacterReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<CharacterReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<CharacterReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3540,7 +3540,7 @@ impl ICoreWindow {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<CoreWindowEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<CoreWindowEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3554,7 +3554,7 @@ impl ICoreWindow {
     }
     pub fn InputEnabled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<InputEnabledEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<InputEnabledEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3568,7 +3568,7 @@ impl ICoreWindow {
     }
     pub fn KeyDown<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<KeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<KeyEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3582,7 +3582,7 @@ impl ICoreWindow {
     }
     pub fn KeyUp<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<KeyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<KeyEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3596,7 +3596,7 @@ impl ICoreWindow {
     }
     pub fn PointerCaptureLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3610,7 +3610,7 @@ impl ICoreWindow {
     }
     pub fn PointerEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3624,7 +3624,7 @@ impl ICoreWindow {
     }
     pub fn PointerExited<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3638,7 +3638,7 @@ impl ICoreWindow {
     }
     pub fn PointerMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3652,7 +3652,7 @@ impl ICoreWindow {
     }
     pub fn PointerPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3666,7 +3666,7 @@ impl ICoreWindow {
     }
     pub fn PointerReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3680,7 +3680,7 @@ impl ICoreWindow {
     }
     pub fn TouchHitTesting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<TouchHitTestingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<TouchHitTestingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3694,7 +3694,7 @@ impl ICoreWindow {
     }
     pub fn PointerWheelChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3708,7 +3708,7 @@ impl ICoreWindow {
     }
     pub fn SizeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<WindowSizeChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<WindowSizeChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3722,7 +3722,7 @@ impl ICoreWindow {
     }
     pub fn VisibilityChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<VisibilityChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<CoreWindow>, windows_core::Ref<VisibilityChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4971,7 +4971,7 @@ impl windows_core::RuntimeType for IdleDispatchedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IdleDispatchedHandler {
-    pub fn new<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&IdleDispatchedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -4988,8 +4988,8 @@ pub struct IdleDispatchedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct IdleDispatchedHandlerBox<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static> IdleDispatchedHandlerBox<F> {
+struct IdleDispatchedHandlerBox<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + Sync + 'static> IdleDispatchedHandlerBox<F> {
     const VTABLE: IdleDispatchedHandler_Vtbl = IdleDispatchedHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<IdleDispatchedHandler, F>::QueryInterface,
@@ -5165,7 +5165,7 @@ windows_core::imp::interface_hierarchy!(SystemNavigationManager, windows_core::I
 impl SystemNavigationManager {
     pub fn BackRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<BackRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<BackRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<BackRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

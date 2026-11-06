@@ -2206,7 +2206,7 @@ windows_core::imp::required_hierarchy!(PackageCatalog, IPackageCatalogStatics2);
 impl PackageCatalog {
     pub fn PackageStaging<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageStagingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageStagingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, PackageStagingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2220,7 +2220,7 @@ impl PackageCatalog {
     }
     pub fn PackageInstalling<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageInstallingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageInstallingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, PackageInstallingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2234,7 +2234,7 @@ impl PackageCatalog {
     }
     pub fn PackageUpdating<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageUpdatingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageUpdatingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, PackageUpdatingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2248,7 +2248,7 @@ impl PackageCatalog {
     }
     pub fn PackageUninstalling<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageUninstallingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageUninstallingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, PackageUninstallingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2262,7 +2262,7 @@ impl PackageCatalog {
     }
     pub fn PackageStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageStatusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageStatusChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, PackageStatusChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2276,7 +2276,7 @@ impl PackageCatalog {
     }
     pub fn PackageContentGroupStaging<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageContentGroupStagingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageContentGroupStagingEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;
         let handler = <super::Foundation::TypedEventHandler<Self, PackageContentGroupStagingEventArgs>>::new(move |a0, a1| {

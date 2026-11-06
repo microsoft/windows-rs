@@ -1,6 +1,108 @@
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
 #[test]
+fn delegate_thread_safety() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("delegate_thread_safety");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/event.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap()
+        .join("libs")
+        .join("core");
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"delegate-thread-safety\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n[lib]\npath = \"lib.rs\"\n\
+             [dependencies]\nwindows-core = {{ path = '{}', default-features = false }}\n",
+            core.display()
+        ),
+    )
+    .unwrap();
+    for minimal in [false, true] {
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&winmd)
+            .filter("Test")
+            .flat()
+            .output(scratch.join("bindings.rs"));
+        if minimal {
+            builder.minimal();
+        }
+        builder.write();
+        for event in [false, true] {
+            for (capture, rejection) in [
+                ("core::sync::atomic::AtomicUsize::new(0)", None),
+                (
+                    "core::cell::Cell::new(0)",
+                    Some("cannot be shared between threads safely"),
+                ),
+                (
+                    "std::rc::Rc::new(0)",
+                    Some("cannot be shared between threads safely"),
+                ),
+                (
+                    "NotSend(core::marker::PhantomData)",
+                    Some("cannot be sent between threads safely"),
+                ),
+            ] {
+                let result = if minimal || event { "" } else { "Ok(())" };
+                let parameters = if event {
+                    "source: &bindings::Interface"
+                } else {
+                    ""
+                };
+                let call = if event {
+                    "source.Changed"
+                } else {
+                    "bindings::Delegate::new"
+                };
+                std::fs::write(
+                    scratch.join("lib.rs"),
+                    format!(
+                        "#![allow(dead_code, nonstandard_style)]\nmod bindings;\n\
+                     struct NotSend(core::marker::PhantomData<*const ()>);\n\
+                     unsafe impl Sync for NotSend {{}}\n\
+                     pub fn construct({parameters}) {{\n\
+                         let capture = {capture};\n\
+                         let _ = {call}(move |_| {{\n\
+                             let _ = &capture;\n\
+                             {result}\n\
+                         }});\n\
+                     }}\n"
+                    ),
+                )
+                .unwrap();
+                let output = std::process::Command::new("cargo")
+                    .args(["check", "--quiet", "--offline", "--manifest-path"])
+                    .arg(&manifest)
+                    .arg("--target-dir")
+                    .arg(scratch.join("target"))
+                    .output()
+                    .unwrap();
+                let stderr = String::from_utf8_lossy(&output.stderr);
+                assert_eq!(
+                    output.status.success(),
+                    rejection.is_none(),
+                    "minimal={minimal}, event={event}, capture={capture}: {stderr}"
+                );
+                if let Some(rejection) = rejection {
+                    assert!(stderr.contains(rejection), "{stderr}");
+                }
+            }
+        }
+    }
+}
+
+#[test]
 fn minimal_interface_implementation_selection() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("minimal_interface_implementations");
     std::fs::create_dir_all(&scratch).unwrap();

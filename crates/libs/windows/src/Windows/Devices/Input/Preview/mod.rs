@@ -108,7 +108,7 @@ windows_core::imp::interface_hierarchy!(GazeDeviceWatcherPreview, windows_core::
 impl GazeDeviceWatcherPreview {
     pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeDeviceWatcherAddedPreviewEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeDeviceWatcherAddedPreviewEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GazeDeviceWatcherAddedPreviewEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -122,7 +122,7 @@ impl GazeDeviceWatcherPreview {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeDeviceWatcherRemovedPreviewEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeDeviceWatcherRemovedPreviewEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GazeDeviceWatcherRemovedPreviewEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -136,7 +136,7 @@ impl GazeDeviceWatcherPreview {
     }
     pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeDeviceWatcherUpdatedPreviewEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeDeviceWatcherUpdatedPreviewEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GazeDeviceWatcherUpdatedPreviewEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -150,7 +150,7 @@ impl GazeDeviceWatcherPreview {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -302,7 +302,7 @@ windows_core::imp::interface_hierarchy!(GazeInputSourcePreview, windows_core::IU
 impl GazeInputSourcePreview {
     pub fn GazeMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeMovedPreviewEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeMovedPreviewEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GazeMovedPreviewEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -316,7 +316,7 @@ impl GazeInputSourcePreview {
     }
     pub fn GazeEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeEnteredPreviewEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeEnteredPreviewEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GazeEnteredPreviewEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -330,7 +330,7 @@ impl GazeInputSourcePreview {
     }
     pub fn GazeExited<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeExitedPreviewEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GazeExitedPreviewEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GazeExitedPreviewEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

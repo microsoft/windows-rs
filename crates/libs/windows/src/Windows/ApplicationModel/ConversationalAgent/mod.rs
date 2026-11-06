@@ -45,7 +45,7 @@ impl ActivationSignalDetectionConfiguration {
     }
     pub fn AvailabilityChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DetectionConfigurationAvailabilityChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DetectionConfigurationAvailabilityChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DetectionConfigurationAvailabilityChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -635,7 +635,7 @@ impl ConversationalAgentSession {
     }
     pub fn SessionInterrupted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ConversationalAgentSessionInterruptedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ConversationalAgentSessionInterruptedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ConversationalAgentSessionInterruptedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -649,7 +649,7 @@ impl ConversationalAgentSession {
     }
     pub fn SignalDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ConversationalAgentSignalDetectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ConversationalAgentSignalDetectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ConversationalAgentSignalDetectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -663,7 +663,7 @@ impl ConversationalAgentSession {
     }
     pub fn SystemStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ConversationalAgentSystemStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ConversationalAgentSystemStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ConversationalAgentSystemStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

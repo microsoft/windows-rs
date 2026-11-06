@@ -19,6 +19,7 @@ mod bindings;
 mod app;
 mod app_shim;
 mod bootstrap;
+mod local;
 mod notifyicon;
 mod transient_menu;
 mod winui;

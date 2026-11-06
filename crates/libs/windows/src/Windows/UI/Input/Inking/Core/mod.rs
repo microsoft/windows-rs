@@ -70,7 +70,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerEntering<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -85,7 +85,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerHovering<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -100,7 +100,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerExiting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -115,7 +115,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerPressing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -130,7 +130,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerMoving<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -145,7 +145,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerReleasing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -160,7 +160,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::super::super::Core::PointerEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -312,7 +312,7 @@ windows_core::imp::interface_hierarchy!(CoreWetStrokeUpdateSource, windows_core:
 impl CoreWetStrokeUpdateSource {
     pub fn WetStrokeStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWetStrokeUpdateEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWetStrokeUpdateEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, CoreWetStrokeUpdateEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -326,7 +326,7 @@ impl CoreWetStrokeUpdateSource {
     }
     pub fn WetStrokeContinuing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWetStrokeUpdateEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWetStrokeUpdateEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, CoreWetStrokeUpdateEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -340,7 +340,7 @@ impl CoreWetStrokeUpdateSource {
     }
     pub fn WetStrokeStopping<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWetStrokeUpdateEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWetStrokeUpdateEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, CoreWetStrokeUpdateEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -354,7 +354,7 @@ impl CoreWetStrokeUpdateSource {
     }
     pub fn WetStrokeCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWetStrokeUpdateEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWetStrokeUpdateEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, CoreWetStrokeUpdateEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -368,7 +368,7 @@ impl CoreWetStrokeUpdateSource {
     }
     pub fn WetStrokeCanceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWetStrokeUpdateEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreWetStrokeUpdateEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, CoreWetStrokeUpdateEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

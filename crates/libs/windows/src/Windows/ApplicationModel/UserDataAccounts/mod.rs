@@ -548,7 +548,7 @@ impl UserDataAccountStore {
     }
     pub fn StoreChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataAccountStoreChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataAccountStoreChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IUserDataAccountStore2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, UserDataAccountStoreChangedEventArgs>>::new(move |a0, a1| {

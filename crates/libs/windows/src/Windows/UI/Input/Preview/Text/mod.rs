@@ -544,7 +544,7 @@ impl KeyboardInputProcessor {
     }
     pub fn Activated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -558,7 +558,7 @@ impl KeyboardInputProcessor {
     }
     pub fn Deactivated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -572,7 +572,7 @@ impl KeyboardInputProcessor {
     }
     pub fn KeyEventReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<KeyEventReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<KeyEventReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, KeyEventReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -586,7 +586,7 @@ impl KeyboardInputProcessor {
     }
     pub fn FocusEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FocusEnteredEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FocusEnteredEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, FocusEnteredEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -600,7 +600,7 @@ impl KeyboardInputProcessor {
     }
     pub fn FocusRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -614,7 +614,7 @@ impl KeyboardInputProcessor {
     }
     pub fn ConversionModeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ConversionModeChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ConversionModeChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, ConversionModeChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -628,7 +628,7 @@ impl KeyboardInputProcessor {
     }
     pub fn TextBoxInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxInfoChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxInfoChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxInfoChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -642,7 +642,7 @@ impl KeyboardInputProcessor {
     }
     pub fn TextBoxContentChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxContentChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxContentChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxContentChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -656,7 +656,7 @@ impl KeyboardInputProcessor {
     }
     pub fn CompositionTerminated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -670,7 +670,7 @@ impl KeyboardInputProcessor {
     }
     pub fn ReconversionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ReconversionRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ReconversionRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, ReconversionRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1338,7 +1338,7 @@ impl TextInputProvider {
     }
     pub fn FocusEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FocusEnteredEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FocusEnteredEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, FocusEnteredEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1352,7 +1352,7 @@ impl TextInputProvider {
     }
     pub fn FocusRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1366,7 +1366,7 @@ impl TextInputProvider {
     }
     pub fn TextBoxInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxInfoChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxInfoChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxInfoChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1380,7 +1380,7 @@ impl TextInputProvider {
     }
     pub fn TextBoxContentChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxContentChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxContentChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxContentChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1394,7 +1394,7 @@ impl TextInputProvider {
     }
     pub fn CompositionTerminated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1408,7 +1408,7 @@ impl TextInputProvider {
     }
     pub fn ReconversionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ReconversionRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ReconversionRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, ReconversionRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1422,7 +1422,7 @@ impl TextInputProvider {
     }
     pub fn InputDelegationModeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputDelegationModeChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputDelegationModeChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, InputDelegationModeChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

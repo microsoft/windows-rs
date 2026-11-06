@@ -349,7 +349,7 @@ impl LampArrayBitmapEffect {
     }
     pub fn BitmapRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LampArrayBitmapRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LampArrayBitmapRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, LampArrayBitmapRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -653,7 +653,7 @@ impl LampArrayCustomEffect {
     }
     pub fn UpdateRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LampArrayUpdateRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LampArrayUpdateRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, LampArrayUpdateRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

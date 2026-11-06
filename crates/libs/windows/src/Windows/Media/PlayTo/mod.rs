@@ -340,7 +340,7 @@ impl PlayToConnection {
     }
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToConnectionStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToConnectionStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PlayToConnectionStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -354,7 +354,7 @@ impl PlayToConnection {
     }
     pub fn Transferred<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToConnectionTransferredEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToConnectionTransferredEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PlayToConnectionTransferredEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -368,7 +368,7 @@ impl PlayToConnection {
     }
     pub fn Error<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToConnectionErrorEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToConnectionErrorEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PlayToConnectionErrorEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -522,7 +522,7 @@ windows_core::imp::interface_hierarchy!(PlayToManager, windows_core::IUnknown, w
 impl PlayToManager {
     pub fn SourceRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToSourceRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToSourceRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PlayToSourceRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -536,7 +536,7 @@ impl PlayToManager {
     }
     pub fn SourceSelected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToSourceSelectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToSourceSelectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PlayToSourceSelectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -597,7 +597,7 @@ impl PlayToReceiver {
     }
     pub fn PlayRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -611,7 +611,7 @@ impl PlayToReceiver {
     }
     pub fn PauseRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -625,7 +625,7 @@ impl PlayToReceiver {
     }
     pub fn SourceChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SourceChangeRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SourceChangeRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SourceChangeRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -639,7 +639,7 @@ impl PlayToReceiver {
     }
     pub fn PlaybackRateChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackRateChangeRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackRateChangeRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PlaybackRateChangeRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -653,7 +653,7 @@ impl PlayToReceiver {
     }
     pub fn CurrentTimeChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CurrentTimeChangeRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CurrentTimeChangeRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CurrentTimeChangeRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -667,7 +667,7 @@ impl PlayToReceiver {
     }
     pub fn MuteChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MuteChangeRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MuteChangeRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MuteChangeRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -681,7 +681,7 @@ impl PlayToReceiver {
     }
     pub fn VolumeChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VolumeChangeRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VolumeChangeRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, VolumeChangeRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -695,7 +695,7 @@ impl PlayToReceiver {
     }
     pub fn TimeUpdateRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -709,7 +709,7 @@ impl PlayToReceiver {
     }
     pub fn StopRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);

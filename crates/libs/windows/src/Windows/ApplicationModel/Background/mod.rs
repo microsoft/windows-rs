@@ -558,7 +558,7 @@ impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskCanceledEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -575,8 +575,8 @@ pub struct BackgroundTaskCanceledEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT,
 }
-struct BackgroundTaskCanceledEventHandlerBox<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
+struct BackgroundTaskCanceledEventHandlerBox<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + Sync + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCanceledEventHandler_Vtbl = BackgroundTaskCanceledEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<BackgroundTaskCanceledEventHandler, F>::QueryInterface,
@@ -648,7 +648,7 @@ impl windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskCompletedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -666,8 +666,8 @@ pub struct BackgroundTaskCompletedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct BackgroundTaskCompletedEventHandlerBox<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
+struct BackgroundTaskCompletedEventHandlerBox<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCompletedEventHandler_Vtbl = BackgroundTaskCompletedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<BackgroundTaskCompletedEventHandler, F>::QueryInterface,
@@ -739,7 +739,7 @@ impl windows_core::RuntimeType for BackgroundTaskProgressEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskProgressEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -757,8 +757,8 @@ pub struct BackgroundTaskProgressEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct BackgroundTaskProgressEventHandlerBox<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
+struct BackgroundTaskProgressEventHandlerBox<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static> BackgroundTaskProgressEventHandlerBox<F> {
     const VTABLE: BackgroundTaskProgressEventHandler_Vtbl = BackgroundTaskProgressEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<BackgroundTaskProgressEventHandler, F>::QueryInterface,
@@ -794,7 +794,7 @@ impl BackgroundTaskRegistration {
     }
     pub fn Progress<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BackgroundTaskProgressEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BackgroundTaskProgressEventArgs>) + Send + Sync + 'static,
     {
         let handler = <BackgroundTaskProgressEventHandler>::new(move |a0, a1| {
             handler(a0, a1);
@@ -808,7 +808,7 @@ impl BackgroundTaskRegistration {
     }
     pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <BackgroundTaskCompletedEventHandler>::new(move |a0, a1| {
             handler(a0, a1);
@@ -910,7 +910,7 @@ impl BackgroundTaskRegistrationGroup {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn BackgroundActivated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Activation::BackgroundActivatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Activation::BackgroundActivatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, super::Activation::BackgroundActivatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2342,7 +2342,7 @@ impl IBackgroundTaskInstance {
     }
     pub fn Canceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, BackgroundTaskCancellationReason) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, BackgroundTaskCancellationReason) + Send + Sync + 'static,
     {
         let handler = <BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2582,7 +2582,7 @@ impl IBackgroundTaskInstance2 {
     }
     pub fn Canceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) + Send + 'static,
+        F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         let handler = <BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
@@ -2697,7 +2697,7 @@ impl IBackgroundTaskInstance4 {
     }
     pub fn Canceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) + Send + 'static,
+        F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         let handler = <BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
@@ -2800,7 +2800,7 @@ impl IBackgroundTaskRegistration {
     }
     pub fn Progress<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) + Send + Sync + 'static,
     {
         let handler = <BackgroundTaskProgressEventHandler>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2814,7 +2814,7 @@ impl IBackgroundTaskRegistration {
     }
     pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <BackgroundTaskCompletedEventHandler>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2980,7 +2980,7 @@ impl IBackgroundTaskRegistration2 {
     }
     pub fn Progress<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         let handler = <BackgroundTaskProgressEventHandler>::new(move |a0, a1| {
@@ -2995,7 +2995,7 @@ impl IBackgroundTaskRegistration2 {
     }
     pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         let handler = <BackgroundTaskCompletedEventHandler>::new(move |a0, a1| {
@@ -3079,7 +3079,7 @@ impl IBackgroundTaskRegistration3 {
     }
     pub fn Progress<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         let handler = <BackgroundTaskProgressEventHandler>::new(move |a0, a1| {
@@ -3094,7 +3094,7 @@ impl IBackgroundTaskRegistration3 {
     }
     pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         let handler = <BackgroundTaskCompletedEventHandler>::new(move |a0, a1| {

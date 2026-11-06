@@ -8,7 +8,7 @@ impl windows_core::RuntimeType for AttestationChallengeHandler {
 }
 #[cfg(feature = "Storage_Streams")]
 impl AttestationChallengeHandler {
-    pub fn new<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&AttestationChallengeHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -30,9 +30,9 @@ pub struct AttestationChallengeHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, challenge: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
-struct AttestationChallengeHandlerBox<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+struct AttestationChallengeHandlerBox<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
 #[cfg(feature = "Storage_Streams")]
-impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static> AttestationChallengeHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + Sync + 'static> AttestationChallengeHandlerBox<F> {
     const VTABLE: AttestationChallengeHandler_Vtbl = AttestationChallengeHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<AttestationChallengeHandler, F>::QueryInterface,
@@ -1054,7 +1054,7 @@ impl PasswordCredentialPropertyStore {
     }
     pub fn MapChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         let handler = <windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>::new(move |a0, a1| {

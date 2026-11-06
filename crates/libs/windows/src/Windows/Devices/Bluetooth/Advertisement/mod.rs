@@ -489,7 +489,7 @@ impl BluetoothLEAdvertisementPublisher {
     }
     pub fn StatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BluetoothLEAdvertisementPublisherStatusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BluetoothLEAdvertisementPublisherStatusChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BluetoothLEAdvertisementPublisherStatusChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -907,7 +907,7 @@ impl BluetoothLEAdvertisementWatcher {
     }
     pub fn Received<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BluetoothLEAdvertisementReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BluetoothLEAdvertisementReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BluetoothLEAdvertisementReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -921,7 +921,7 @@ impl BluetoothLEAdvertisementWatcher {
     }
     pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BluetoothLEAdvertisementWatcherStoppedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BluetoothLEAdvertisementWatcherStoppedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, BluetoothLEAdvertisementWatcherStoppedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

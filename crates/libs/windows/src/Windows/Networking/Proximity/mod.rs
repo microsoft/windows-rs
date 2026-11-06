@@ -27,7 +27,7 @@ impl windows_core::RuntimeType for DeviceArrivedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DeviceArrivedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&DeviceArrivedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -44,8 +44,8 @@ pub struct DeviceArrivedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct DeviceArrivedEventHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> DeviceArrivedEventHandlerBox<F> {
+struct DeviceArrivedEventHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + Sync + 'static> DeviceArrivedEventHandlerBox<F> {
     const VTABLE: DeviceArrivedEventHandler_Vtbl = DeviceArrivedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<DeviceArrivedEventHandler, F>::QueryInterface,
@@ -66,7 +66,7 @@ impl windows_core::RuntimeType for DeviceDepartedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DeviceDepartedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&DeviceDepartedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -83,8 +83,8 @@ pub struct DeviceDepartedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct DeviceDepartedEventHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> DeviceDepartedEventHandlerBox<F> {
+struct DeviceDepartedEventHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + Sync + 'static> DeviceDepartedEventHandlerBox<F> {
     const VTABLE: DeviceDepartedEventHandler_Vtbl = DeviceDepartedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<DeviceDepartedEventHandler, F>::QueryInterface,
@@ -308,7 +308,7 @@ impl windows_core::RuntimeType for MessageReceivedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MessageReceivedHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&MessageReceivedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -326,8 +326,8 @@ pub struct MessageReceivedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct MessageReceivedHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static> MessageReceivedHandlerBox<F> {
+struct MessageReceivedHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + Sync + 'static> MessageReceivedHandlerBox<F> {
     const VTABLE: MessageReceivedHandler_Vtbl = MessageReceivedHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<MessageReceivedHandler, F>::QueryInterface,
@@ -348,7 +348,7 @@ impl windows_core::RuntimeType for MessageTransmittedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MessageTransmittedHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&MessageTransmittedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -365,8 +365,8 @@ pub struct MessageTransmittedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, messageid: i64) -> windows_core::HRESULT,
 }
-struct MessageTransmittedHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static> MessageTransmittedHandlerBox<F> {
+struct MessageTransmittedHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + Sync + 'static> MessageTransmittedHandlerBox<F> {
     const VTABLE: MessageTransmittedHandler_Vtbl = MessageTransmittedHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<MessageTransmittedHandler, F>::QueryInterface,
@@ -491,7 +491,7 @@ impl PeerFinder {
     }
     pub fn TriggeredConnectionStateChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<TriggeredConnectionStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<TriggeredConnectionStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, TriggeredConnectionStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -505,7 +505,7 @@ impl PeerFinder {
     }
     pub fn ConnectionRequested<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<ConnectionRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<ConnectionRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, ConnectionRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -649,7 +649,7 @@ windows_core::imp::interface_hierarchy!(PeerWatcher, windows_core::IUnknown, win
 impl PeerWatcher {
     pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PeerInformation>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PeerInformation>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PeerInformation>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -663,7 +663,7 @@ impl PeerWatcher {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PeerInformation>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PeerInformation>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PeerInformation>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -677,7 +677,7 @@ impl PeerWatcher {
     }
     pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PeerInformation>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PeerInformation>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, PeerInformation>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -691,7 +691,7 @@ impl PeerWatcher {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -705,7 +705,7 @@ impl PeerWatcher {
     }
     pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -837,7 +837,7 @@ impl ProximityDevice {
     }
     pub fn DeviceArrived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <DeviceArrivedEventHandler>::new(move |a0| {
             handler(a0);
@@ -851,7 +851,7 @@ impl ProximityDevice {
     }
     pub fn DeviceDeparted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <DeviceDepartedEventHandler>::new(move |a0| {
             handler(a0);

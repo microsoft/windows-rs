@@ -79,7 +79,7 @@ impl FocusSessionManager {
     }
     pub fn IsFocusActiveChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -693,7 +693,7 @@ impl ShareWindowCommandSource {
     }
     pub fn CommandRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ShareWindowCommandEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ShareWindowCommandEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ShareWindowCommandEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -707,7 +707,7 @@ impl ShareWindowCommandSource {
     }
     pub fn CommandInvoked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ShareWindowCommandEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ShareWindowCommandEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ShareWindowCommandEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1181,7 +1181,7 @@ impl WindowTabManager {
     }
     pub fn TabSwitchRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabSwitchRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabSwitchRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WindowTabSwitchRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1195,7 +1195,7 @@ impl WindowTabManager {
     }
     pub fn TabCloseRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabCloseRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabCloseRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WindowTabCloseRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1209,7 +1209,7 @@ impl WindowTabManager {
     }
     pub fn TabTearOutRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabTearOutRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabTearOutRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WindowTabTearOutRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1223,7 +1223,7 @@ impl WindowTabManager {
     }
     pub fn TabThumbnailRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabThumbnailRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabThumbnailRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WindowTabThumbnailRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

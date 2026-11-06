@@ -50,9 +50,10 @@ fn switch_context() -> Result<()> {
 
     let mut pool = LocalPool::new();
     let (sender, receiver) = std::sync::mpsc::channel::<()>();
+    let receiver = std::sync::Mutex::new(receiver);
 
     let async_future = ThreadPool::RunAsync(&WorkItemHandler::new(move |_| {
-        receiver.recv().unwrap();
+        receiver.lock().unwrap().recv().unwrap();
         Ok(())
     }))?
     .into_future();

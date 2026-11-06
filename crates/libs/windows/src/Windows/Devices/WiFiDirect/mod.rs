@@ -347,7 +347,7 @@ impl WiFiDirectAdvertisementPublisher {
     }
     pub fn StatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WiFiDirectAdvertisementPublisherStatusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WiFiDirectAdvertisementPublisherStatusChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WiFiDirectAdvertisementPublisherStatusChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -453,7 +453,7 @@ impl WiFiDirectConnectionListener {
     }
     pub fn ConnectionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WiFiDirectConnectionRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WiFiDirectConnectionRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WiFiDirectConnectionRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -642,7 +642,7 @@ impl WiFiDirectDevice {
     }
     pub fn ConnectionStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);

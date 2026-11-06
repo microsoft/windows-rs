@@ -15,8 +15,8 @@ pub struct Handler_Vtbl {
         value: i32,
     ) -> windows_core::HRESULT,
 }
-struct HandlerBox<F: Fn(i32) + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(i32) + 'static> HandlerBox<F> {
+struct HandlerBox<F: Fn(i32) + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(i32) + Send + Sync + 'static> HandlerBox<F> {
     const VTABLE: Handler_Vtbl = Handler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<Handler, F>::QueryInterface,
@@ -54,7 +54,7 @@ windows_core::imp::interface_hierarchy!(
 impl ISource {
     pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(i32) + 'static,
+        F: Fn(i32) + Send + Sync + 'static,
     {
         let handler: Handler = {
             let com = windows_core::imp::DelegateBox::<Handler, F>::new(

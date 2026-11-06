@@ -147,7 +147,7 @@ windows_core::imp::interface_hierarchy!(AppDiagnosticInfoWatcher, windows_core::
 impl AppDiagnosticInfoWatcher {
     pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppDiagnosticInfoWatcherEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppDiagnosticInfoWatcherEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, AppDiagnosticInfoWatcherEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -161,7 +161,7 @@ impl AppDiagnosticInfoWatcher {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppDiagnosticInfoWatcherEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppDiagnosticInfoWatcherEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, AppDiagnosticInfoWatcherEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -175,7 +175,7 @@ impl AppDiagnosticInfoWatcher {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -189,7 +189,7 @@ impl AppDiagnosticInfoWatcher {
     }
     pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -544,7 +544,7 @@ windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcher, windows_cor
 impl AppResourceGroupInfoWatcher {
     pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppResourceGroupInfoWatcherEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppResourceGroupInfoWatcherEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, AppResourceGroupInfoWatcherEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -558,7 +558,7 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppResourceGroupInfoWatcherEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppResourceGroupInfoWatcherEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, AppResourceGroupInfoWatcherEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -572,7 +572,7 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -586,7 +586,7 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -600,7 +600,7 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn ExecutionStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1058,7 +1058,7 @@ impl DispatcherQueue {
     }
     pub fn ShutdownStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DispatcherQueueShutdownStartingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DispatcherQueueShutdownStartingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, DispatcherQueueShutdownStartingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1072,7 +1072,7 @@ impl DispatcherQueue {
     }
     pub fn ShutdownCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1159,7 +1159,7 @@ impl windows_core::RuntimeType for DispatcherQueueHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DispatcherQueueHandler {
-    pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&DispatcherQueueHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -1173,8 +1173,8 @@ pub struct DispatcherQueueHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct DispatcherQueueHandlerBox<F: Fn() -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DispatcherQueueHandlerBox<F> {
+struct DispatcherQueueHandlerBox<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static> DispatcherQueueHandlerBox<F> {
     const VTABLE: DispatcherQueueHandler_Vtbl = DispatcherQueueHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<DispatcherQueueHandler, F>::QueryInterface,
@@ -1266,7 +1266,7 @@ impl DispatcherQueueTimer {
     }
     pub fn Tick<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3289,7 +3289,7 @@ impl MemoryManager {
     }
     pub fn AppMemoryUsageIncreased<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3303,7 +3303,7 @@ impl MemoryManager {
     }
     pub fn AppMemoryUsageDecreased<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3317,7 +3317,7 @@ impl MemoryManager {
     }
     pub fn AppMemoryUsageLimitChanging<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<AppMemoryUsageLimitChangingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<AppMemoryUsageLimitChangingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<AppMemoryUsageLimitChangingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4104,7 +4104,7 @@ impl UserDeviceAssociation {
     }
     pub fn UserDeviceAssociationChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<UserDeviceAssociationChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<UserDeviceAssociationChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::EventHandler<UserDeviceAssociationChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4274,7 +4274,7 @@ impl UserWatcher {
     }
     pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, UserChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4288,7 +4288,7 @@ impl UserWatcher {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, UserChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4302,7 +4302,7 @@ impl UserWatcher {
     }
     pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, UserChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4316,7 +4316,7 @@ impl UserWatcher {
     }
     pub fn AuthenticationStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, UserChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4330,7 +4330,7 @@ impl UserWatcher {
     }
     pub fn AuthenticationStatusChanging<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserAuthenticationStatusChangingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserAuthenticationStatusChangingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, UserAuthenticationStatusChangingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4344,7 +4344,7 @@ impl UserWatcher {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4358,7 +4358,7 @@ impl UserWatcher {
     }
     pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);

@@ -34,23 +34,28 @@ impl WinUiAdapter {
                     let item_event = Rc::clone(&item_invoked);
                     let item_queue = Rc::clone(&self.event_queue);
                     let item_texts = Rc::clone(&self.tree_node_texts);
-                    let _item_invoked = value.ItemInvoked(move |_, args| {
-                        let args = args.unwrap();
-                        let node = args
-                            .InvokedItem()
-                            .and_then(|value| value.cast::<native::ITreeViewNode>())
-                            .unwrap();
-                        let identity = com_identity(&node).unwrap();
-                        let value = item_texts.borrow().get(&identity).cloned().unwrap();
-                        Self::dispatch(
-                            &item_event,
-                            &item_queue,
-                            object,
-                            EventId::ItemInvoked,
-                            None,
-                            value,
-                        );
-                    })?;
+                    let _item_invoked =
+                        value.ItemInvoked(local::handler::<
+                            _,
+                            native::TreeViewItemInvokedEventArgs,
+                            _,
+                        >(move |_, args| {
+                            let args = args.unwrap();
+                            let node = args
+                                .InvokedItem()
+                                .and_then(|value| value.cast::<native::ITreeViewNode>())
+                                .unwrap();
+                            let identity = com_identity(&node).unwrap();
+                            let value = item_texts.borrow().get(&identity).cloned().unwrap();
+                            Self::dispatch(
+                                &item_event,
+                                &item_queue,
+                                object,
+                                EventId::ItemInvoked,
+                                None,
+                                value,
+                            );
+                        }))?;
                     Handle::TreeView(NativeTreeView {
                         value,
                         item_invoked,
@@ -517,12 +522,16 @@ impl WinUiAdapter {
             })?;
             let callback = accelerator.callback.clone();
             value
-                .Invoked(move |_, args| {
+                .Invoked(local::handler::<
+                    _,
+                    native::KeyboardAcceleratorInvokedEventArgs,
+                    _,
+                >(move |_, args| {
                     if let Some(args) = args.as_ref() {
                         _ = args.SetHandled(true);
                     }
                     callback.call(());
-                })?
+                }))?
                 .into_token();
             values.Append(&value)?;
         }

@@ -394,7 +394,7 @@ impl windows_core::RuntimeType for ApplicationInitializationCallback {
 }
 impl ApplicationInitializationCallback {
     pub(crate) fn new<
-        F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) + 'static,
+        F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) + Send + Sync + 'static,
     >(
         invoke: F,
     ) -> Self {
@@ -414,9 +414,9 @@ pub struct ApplicationInitializationCallback_Vtbl {
     ) -> windows_core::HRESULT,
 }
 struct ApplicationInitializationCallbackBox<
-    F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) + 'static,
+    F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) + Send + Sync + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) + 'static>
+impl<F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) + Send + Sync + 'static>
     ApplicationInitializationCallbackBox<F>
 {
     const VTABLE: ApplicationInitializationCallback_Vtbl = ApplicationInitializationCallback_Vtbl {
@@ -2321,7 +2321,9 @@ impl CompositionTarget {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<windows_core::IInspectable>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: EventHandler<windows_core::IInspectable> = {
             let com =
@@ -3154,7 +3156,10 @@ impl windows_core::RuntimeType for DependencyPropertyChangedCallback {
 }
 impl DependencyPropertyChangedCallback {
     pub(crate) fn new<
-        F: Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProperty>) + 'static,
+        F: Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProperty>)
+            + Send
+            + Sync
+            + 'static,
     >(
         invoke: F,
     ) -> Self {
@@ -3175,10 +3180,17 @@ pub struct DependencyPropertyChangedCallback_Vtbl {
     ) -> windows_core::HRESULT,
 }
 struct DependencyPropertyChangedCallbackBox<
-    F: Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProperty>) + 'static,
+    F: Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProperty>)
+        + Send
+        + Sync
+        + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProperty>) + 'static>
-    DependencyPropertyChangedCallbackBox<F>
+impl<
+    F: Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProperty>)
+        + Send
+        + Sync
+        + 'static,
+> DependencyPropertyChangedCallbackBox<F>
 {
     const VTABLE: DependencyPropertyChangedCallback_Vtbl = DependencyPropertyChangedCallback_Vtbl {
         base__:
@@ -3431,7 +3443,7 @@ impl windows_core::RuntimeType for DispatcherQueueHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DispatcherQueueHandler {
-    pub(crate) fn new<F: Fn() + 'static>(invoke: F) -> Self {
+    pub(crate) fn new<F: Fn() + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &DispatcherQueueHandlerBox::<F>::VTABLE,
             invoke,
@@ -3444,8 +3456,10 @@ pub struct DispatcherQueueHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct DispatcherQueueHandlerBox<F: Fn() + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn() + 'static> DispatcherQueueHandlerBox<F> {
+struct DispatcherQueueHandlerBox<F: Fn() + Send + Sync + 'static>(
+    core::marker::PhantomData<(fn() -> F,)>,
+);
+impl<F: Fn() + Send + Sync + 'static> DispatcherQueueHandlerBox<F> {
     const VTABLE: DispatcherQueueHandler_Vtbl = DispatcherQueueHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface:
@@ -3568,10 +3582,16 @@ pub struct DragEventHandler_Vtbl {
     ) -> windows_core::HRESULT,
 }
 struct DragEventHandlerBox<
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>) + 'static,
+    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
+        + Send
+        + Sync
+        + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>) + 'static,
+    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
+        + Send
+        + Sync
+        + 'static,
 > DragEventHandlerBox<F>
 {
     const VTABLE: DragEventHandler_Vtbl = DragEventHandler_Vtbl {
@@ -3962,13 +3982,13 @@ where
 }
 struct EventHandlerBox<
     T,
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) + 'static,
+    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) + Send + Sync + 'static,
 >(core::marker::PhantomData<(T, fn() -> F)>)
 where
     T: windows_core::RuntimeType + 'static;
 impl<
     T: windows_core::RuntimeType + 'static,
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) + 'static,
+    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) + Send + Sync + 'static,
 > EventHandlerBox<T, F>
 {
     const VTABLE: EventHandler_Vtbl<T> = EventHandler_Vtbl::<T> {
@@ -4046,13 +4066,17 @@ struct ExceptionRoutedEventHandlerBox<
     F: Fn(
             windows_core::Ref<windows_core::IInspectable>,
             windows_core::Ref<ExceptionRoutedEventArgs>,
-        ) + 'static,
+        ) + Send
+        + Sync
+        + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
     F: Fn(
             windows_core::Ref<windows_core::IInspectable>,
             windows_core::Ref<ExceptionRoutedEventArgs>,
-        ) + 'static,
+        ) + Send
+        + Sync
+        + 'static,
 > ExceptionRoutedEventHandlerBox<F>
 {
     const VTABLE: ExceptionRoutedEventHandler_Vtbl = ExceptionRoutedEventHandler_Vtbl {
@@ -5425,7 +5449,10 @@ impl IAppWindow {
     }
     pub(crate) fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<AppWindow>, windows_core::Ref<AppWindowChangedEventArgs>) + 'static,
+        F: Fn(windows_core::Ref<AppWindow>, windows_core::Ref<AppWindowChangedEventArgs>)
+            + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<AppWindow, AppWindowChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::<
@@ -5871,7 +5898,9 @@ impl IAutoSuggestBox {
         F: Fn(
                 windows_core::Ref<AutoSuggestBox>,
                 windows_core::Ref<AutoSuggestBoxSuggestionChosenEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<AutoSuggestBox, AutoSuggestBoxSuggestionChosenEventArgs> = {
             let com =
@@ -5911,7 +5940,9 @@ impl IAutoSuggestBox {
         F: Fn(
                 windows_core::Ref<AutoSuggestBox>,
                 windows_core::Ref<AutoSuggestBoxTextChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<AutoSuggestBox, AutoSuggestBoxTextChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < AutoSuggestBox , AutoSuggestBoxTextChangedEventArgs > , F >::new (& TypedEventHandlerBox::< AutoSuggestBox , AutoSuggestBoxTextChangedEventArgs , F >::VTABLE , handler) ;
@@ -6486,6 +6517,8 @@ impl IBitmapImage {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -6518,7 +6551,9 @@ impl IBitmapImage {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<ExceptionRoutedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: ExceptionRoutedEventHandler = {
             let com = windows_core::imp::DelegateBox::<ExceptionRoutedEventHandler, F>::new(
@@ -6725,7 +6760,9 @@ impl IBreadcrumbBar {
         F: Fn(
                 windows_core::Ref<BreadcrumbBar>,
                 windows_core::Ref<BreadcrumbBarItemClickedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<BreadcrumbBar, BreadcrumbBarItemClickedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < BreadcrumbBar , BreadcrumbBarItemClickedEventArgs > , F >::new (& TypedEventHandlerBox::< BreadcrumbBar , BreadcrumbBarItemClickedEventArgs , F >::VTABLE , handler) ;
@@ -6882,6 +6919,8 @@ impl IButtonBase {
     pub(crate) fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -6988,7 +7027,9 @@ impl ICalendarDatePicker {
         F: Fn(
                 windows_core::Ref<CalendarDatePicker>,
                 windows_core::Ref<CalendarDatePickerDateChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<CalendarDatePicker, CalendarDatePickerDateChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::<
@@ -7185,7 +7226,9 @@ impl ICalendarView {
         F: Fn(
                 windows_core::Ref<CalendarView>,
                 windows_core::Ref<CalendarViewSelectedDatesChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<CalendarView, CalendarViewSelectedDatesChangedEventArgs> = {
             let com =
@@ -7630,7 +7673,10 @@ impl IColorPicker {
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<ColorPicker>, windows_core::Ref<ColorChangedEventArgs>) + 'static,
+        F: Fn(windows_core::Ref<ColorPicker>, windows_core::Ref<ColorChangedEventArgs>)
+            + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<ColorPicker, ColorChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::<
@@ -8193,6 +8239,8 @@ impl IContentDialog {
     pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<ContentDialog>, windows_core::Ref<ContentDialogClosedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<ContentDialog, ContentDialogClosedEventArgs> = {
@@ -8709,7 +8757,9 @@ impl IDatePicker {
         F: Fn(
                 windows_core::Ref<DatePicker>,
                 windows_core::Ref<DatePickerSelectedValueChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<DatePicker, DatePickerSelectedValueChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < DatePicker , DatePickerSelectedValueChangedEventArgs > , F >::new (& TypedEventHandlerBox::< DatePicker , DatePickerSelectedValueChangedEventArgs , F >::VTABLE , handler) ;
@@ -9274,7 +9324,9 @@ impl IDispatcherQueueTimer {
         F: Fn(
                 windows_core::Ref<DispatcherQueueTimer>,
                 windows_core::Ref<windows_core::IInspectable>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<DispatcherQueueTimer, windows_core::IInspectable> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < DispatcherQueueTimer , windows_core::IInspectable > , F >::new (& TypedEventHandlerBox::< DispatcherQueueTimer , windows_core::IInspectable , F >::VTABLE , handler) ;
@@ -9956,7 +10008,9 @@ impl IFlyoutBase {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<windows_core::IInspectable>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: EventHandler<windows_core::IInspectable> = {
             let com =
@@ -10371,6 +10425,8 @@ impl IFrameworkElement {
     pub(crate) fn Loaded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -10403,7 +10459,9 @@ impl IFrameworkElement {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<SizeChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: SizeChangedEventHandler = {
             let com = windows_core::imp::DelegateBox::<SizeChangedEventHandler, F>::new(
@@ -10433,6 +10491,8 @@ impl IFrameworkElement {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<FrameworkElement>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<FrameworkElement, windows_core::IInspectable> = {
@@ -11015,7 +11075,9 @@ impl IImage {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<ExceptionRoutedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: ExceptionRoutedEventHandler = {
             let com = windows_core::imp::DelegateBox::<ExceptionRoutedEventHandler, F>::new(
@@ -11045,6 +11107,8 @@ impl IImage {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -11321,7 +11385,10 @@ impl IInfoBar {
     }
     pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<InfoBar>, windows_core::Ref<InfoBarClosedEventArgs>) + 'static,
+        F: Fn(windows_core::Ref<InfoBar>, windows_core::Ref<InfoBarClosedEventArgs>)
+            + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<InfoBar, InfoBarClosedEventArgs> = {
             let com = windows_core::imp::DelegateBox::<
@@ -11863,7 +11930,9 @@ impl IKeyboardAccelerator {
         F: Fn(
                 windows_core::Ref<KeyboardAccelerator>,
                 windows_core::Ref<KeyboardAcceleratorInvokedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<KeyboardAccelerator, KeyboardAcceleratorInvokedEventArgs> = {
             let com =
@@ -12155,6 +12224,8 @@ impl IListViewBase {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<ListViewBase>, windows_core::Ref<DragItemsCompletedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<ListViewBase, DragItemsCompletedEventArgs> = {
@@ -12490,6 +12561,8 @@ impl IMenuFlyoutItem {
     pub(crate) fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -12795,7 +12868,9 @@ impl INavigationView {
         F: Fn(
                 windows_core::Ref<NavigationView>,
                 windows_core::Ref<NavigationViewSelectionChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<NavigationView, NavigationViewSelectionChangedEventArgs> = {
             let com =
@@ -12835,7 +12910,9 @@ impl INavigationView {
         F: Fn(
                 windows_core::Ref<NavigationView>,
                 windows_core::Ref<NavigationViewDisplayModeChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<NavigationView, NavigationViewDisplayModeChangedEventArgs> = {
             let com =
@@ -13365,6 +13442,8 @@ impl INumberBox {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<NumberBox>, windows_core::Ref<NumberBoxValueChangedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<NumberBox, NumberBoxValueChangedEventArgs> = {
@@ -13723,6 +13802,8 @@ impl IPasswordBox {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -14028,7 +14109,9 @@ impl IPivot {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<SelectionChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: SelectionChangedEventHandler = {
             let com = windows_core::imp::DelegateBox::<SelectionChangedEventHandler, F>::new(
@@ -14576,7 +14659,9 @@ impl IRadioButtons {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<SelectionChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: SelectionChangedEventHandler = {
             let com = windows_core::imp::DelegateBox::<SelectionChangedEventHandler, F>::new(
@@ -14735,7 +14820,9 @@ impl IRangeBase {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<RangeBaseValueChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: RangeBaseValueChangedEventHandler = {
             let com = windows_core::imp::DelegateBox::<RangeBaseValueChangedEventHandler, F>::new(
@@ -14862,6 +14949,8 @@ impl IRatingControl {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<RatingControl>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<RatingControl, windows_core::IInspectable> = {
@@ -15252,6 +15341,8 @@ impl IRichEditBox {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -15826,7 +15917,9 @@ impl ISelector {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<SelectionChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: SelectionChangedEventHandler = {
             let com = windows_core::imp::DelegateBox::<SelectionChangedEventHandler, F>::new(
@@ -15931,7 +16024,9 @@ impl ISelectorBar {
         F: Fn(
                 windows_core::Ref<SelectorBar>,
                 windows_core::Ref<SelectorBarSelectionChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<SelectorBar, SelectorBarSelectionChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < SelectorBar , SelectorBarSelectionChangedEventArgs > , F >::new (& TypedEventHandlerBox::< SelectorBar , SelectorBarSelectionChangedEventArgs , F >::VTABLE , handler) ;
@@ -16400,6 +16495,8 @@ impl ISplitButton {
     pub(crate) fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<SplitButton>, windows_core::Ref<SplitButtonClickEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<SplitButton, SplitButtonClickEventArgs> = {
@@ -16530,6 +16627,8 @@ impl ISplitView {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<SplitView>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<SplitView, windows_core::IInspectable> = {
@@ -16825,6 +16924,8 @@ impl ISvgImageSource {
     pub(crate) fn Opened<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<SvgImageSource>, windows_core::Ref<SvgImageSourceOpenedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<SvgImageSource, SvgImageSourceOpenedEventArgs> = {
@@ -16858,6 +16959,8 @@ impl ISvgImageSource {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<SvgImageSource>, windows_core::Ref<SvgImageSourceFailedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<SvgImageSource, SvgImageSourceFailedEventArgs> = {
@@ -17016,6 +17119,8 @@ impl ISwapChainPanel {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<SwapChainPanel>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<SwapChainPanel, windows_core::IInspectable> = {
@@ -17224,6 +17329,8 @@ impl ITabView {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<TabView>, windows_core::Ref<TabViewTabCloseRequestedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<TabView, TabViewTabCloseRequestedEventArgs> = {
@@ -17256,7 +17363,10 @@ impl ITabView {
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<TabView>, windows_core::Ref<windows_core::IInspectable>) + 'static,
+        F: Fn(windows_core::Ref<TabView>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<TabView, windows_core::IInspectable> = {
             let com = windows_core::imp::DelegateBox::<
@@ -17291,7 +17401,9 @@ impl ITabView {
         F: Fn(
                 windows_core::Ref<TabView>,
                 windows_core::Ref<windows_collections::IVectorChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<TabView, windows_collections::IVectorChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < TabView , windows_collections::IVectorChangedEventArgs > , F >::new (& TypedEventHandlerBox::< TabView , windows_collections::IVectorChangedEventArgs , F >::VTABLE , handler) ;
@@ -17342,7 +17454,9 @@ impl ITabView {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<SelectionChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: SelectionChangedEventHandler = {
             let com = windows_core::imp::DelegateBox::<SelectionChangedEventHandler, F>::new(
@@ -17611,6 +17725,8 @@ impl ITeachingTip {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<TeachingTip>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<TeachingTip, windows_core::IInspectable> = {
@@ -17641,6 +17757,8 @@ impl ITeachingTip {
     pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<TeachingTip>, windows_core::Ref<TeachingTipClosedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<TeachingTip, TeachingTipClosedEventArgs> = {
@@ -18005,7 +18123,9 @@ impl ITextBox {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<TextChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TextChangedEventHandler = {
             let com = windows_core::imp::DelegateBox::<TextChangedEventHandler, F>::new(
@@ -18465,7 +18585,9 @@ impl ITimePicker {
         F: Fn(
                 windows_core::Ref<TimePicker>,
                 windows_core::Ref<TimePickerSelectedValueChangedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<TimePicker, TimePickerSelectedValueChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < TimePicker , TimePickerSelectedValueChangedEventArgs > , F >::new (& TypedEventHandlerBox::< TimePicker , TimePickerSelectedValueChangedEventArgs , F >::VTABLE , handler) ;
@@ -18663,7 +18785,10 @@ impl ITitleBar {
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<TitleBar>, windows_core::Ref<windows_core::IInspectable>) + 'static,
+        F: Fn(windows_core::Ref<TitleBar>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<TitleBar, windows_core::IInspectable> = {
             let com = windows_core::imp::DelegateBox::<
@@ -18695,7 +18820,10 @@ impl ITitleBar {
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<TitleBar>, windows_core::Ref<windows_core::IInspectable>) + 'static,
+        F: Fn(windows_core::Ref<TitleBar>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<TitleBar, windows_core::IInspectable> = {
             let com = windows_core::imp::DelegateBox::<
@@ -18911,6 +19039,8 @@ impl IToggleButton {
     pub(crate) fn Checked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -18941,6 +19071,8 @@ impl IToggleButton {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -19086,6 +19218,8 @@ impl IToggleSwitch {
     pub(crate) fn Toggled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -19279,6 +19413,8 @@ impl ITreeView {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<TreeView>, windows_core::Ref<TreeViewItemInvokedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<TreeView, TreeViewItemInvokedEventArgs> = {
@@ -19689,6 +19825,8 @@ impl IUIElement {
     pub(crate) fn KeyUp<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<KeyRoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: KeyEventHandler = {
@@ -19716,6 +19854,8 @@ impl IUIElement {
     pub(crate) fn GotFocus<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -19746,6 +19886,8 @@ impl IUIElement {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: RoutedEventHandler = {
@@ -19776,6 +19918,8 @@ impl IUIElement {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<UIElement>, windows_core::Ref<CharacterReceivedRoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<UIElement, CharacterReceivedRoutedEventArgs> = {
@@ -19809,6 +19953,8 @@ impl IUIElement {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: DragEventHandler = {
@@ -19839,6 +19985,8 @@ impl IUIElement {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: DragEventHandler = {
@@ -19866,6 +20014,8 @@ impl IUIElement {
     pub(crate) fn DragOver<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: DragEventHandler = {
@@ -19893,6 +20043,8 @@ impl IUIElement {
     pub(crate) fn Drop<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: DragEventHandler = {
@@ -19925,7 +20077,9 @@ impl IUIElement {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<PointerRoutedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: PointerEventHandler = {
             let com = windows_core::imp::DelegateBox::<PointerEventHandler, F>::new(
@@ -19957,7 +20111,9 @@ impl IUIElement {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<PointerRoutedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: PointerEventHandler = {
             let com = windows_core::imp::DelegateBox::<PointerEventHandler, F>::new(
@@ -19989,7 +20145,9 @@ impl IUIElement {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<PointerRoutedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: PointerEventHandler = {
             let com = windows_core::imp::DelegateBox::<PointerEventHandler, F>::new(
@@ -20021,7 +20179,9 @@ impl IUIElement {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<PointerRoutedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: PointerEventHandler = {
             let com = windows_core::imp::DelegateBox::<PointerEventHandler, F>::new(
@@ -20053,7 +20213,9 @@ impl IUIElement {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<PointerRoutedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: PointerEventHandler = {
             let com = windows_core::imp::DelegateBox::<PointerEventHandler, F>::new(
@@ -20085,7 +20247,9 @@ impl IUIElement {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<PointerRoutedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: PointerEventHandler = {
             let com = windows_core::imp::DelegateBox::<PointerEventHandler, F>::new(
@@ -20117,7 +20281,9 @@ impl IUIElement {
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
                 windows_core::Ref<PointerRoutedEventArgs>,
-            ) + 'static,
+            ) + Send
+            + Sync
+            + 'static,
     {
         let handler: PointerEventHandler = {
             let com = windows_core::imp::DelegateBox::<PointerEventHandler, F>::new(
@@ -20147,6 +20313,8 @@ impl IUIElement {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<KeyRoutedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: KeyEventHandler = {
@@ -20926,6 +21094,8 @@ impl IWebView2 {
     ) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<WebView2>, windows_core::Ref<CoreWebView2InitializedEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<WebView2, CoreWebView2InitializedEventArgs> = {
@@ -21057,6 +21227,8 @@ impl IWindow {
     pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<WindowEventArgs>)
+            + Send
+            + Sync
             + 'static,
     {
         let handler: TypedEventHandler<windows_core::IInspectable, WindowEventArgs> = {
@@ -21537,7 +21709,10 @@ impl IXamlRoot {
     }
     pub(crate) fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<XamlRoot>, windows_core::Ref<XamlRootChangedEventArgs>) + 'static,
+        F: Fn(windows_core::Ref<XamlRoot>, windows_core::Ref<XamlRootChangedEventArgs>)
+            + Send
+            + Sync
+            + 'static,
     {
         let handler: TypedEventHandler<XamlRoot, XamlRootChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::<
@@ -22412,10 +22587,14 @@ pub struct KeyEventHandler_Vtbl {
 }
 struct KeyEventHandlerBox<
     F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<KeyRoutedEventArgs>)
+        + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
     F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<KeyRoutedEventArgs>)
+        + Send
+        + Sync
         + 'static,
 > KeyEventHandlerBox<F>
 {
@@ -24865,10 +25044,14 @@ pub struct PointerEventHandler_Vtbl {
 }
 struct PointerEventHandlerBox<
     F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerRoutedEventArgs>)
+        + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
     F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerRoutedEventArgs>)
+        + Send
+        + Sync
         + 'static,
 > PointerEventHandlerBox<F>
 {
@@ -25486,13 +25669,17 @@ struct RangeBaseValueChangedEventHandlerBox<
     F: Fn(
             windows_core::Ref<windows_core::IInspectable>,
             windows_core::Ref<RangeBaseValueChangedEventArgs>,
-        ) + 'static,
+        ) + Send
+        + Sync
+        + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
     F: Fn(
             windows_core::Ref<windows_core::IInspectable>,
             windows_core::Ref<RangeBaseValueChangedEventArgs>,
-        ) + 'static,
+        ) + Send
+        + Sync
+        + 'static,
 > RangeBaseValueChangedEventHandlerBox<F>
 {
     const VTABLE: RangeBaseValueChangedEventHandler_Vtbl = RangeBaseValueChangedEventHandler_Vtbl {
@@ -26224,10 +26411,16 @@ pub struct RoutedEventHandler_Vtbl {
     ) -> windows_core::HRESULT,
 }
 struct RoutedEventHandlerBox<
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>) + 'static,
+    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+        + Send
+        + Sync
+        + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>) + 'static,
+    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+        + Send
+        + Sync
+        + 'static,
 > RoutedEventHandlerBox<F>
 {
     const VTABLE: RoutedEventHandler_Vtbl = RoutedEventHandler_Vtbl {
@@ -26678,13 +26871,17 @@ struct SelectionChangedEventHandlerBox<
     F: Fn(
             windows_core::Ref<windows_core::IInspectable>,
             windows_core::Ref<SelectionChangedEventArgs>,
-        ) + 'static,
+        ) + Send
+        + Sync
+        + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
     F: Fn(
             windows_core::Ref<windows_core::IInspectable>,
             windows_core::Ref<SelectionChangedEventArgs>,
-        ) + 'static,
+        ) + Send
+        + Sync
+        + 'static,
 > SelectionChangedEventHandlerBox<F>
 {
     const VTABLE: SelectionChangedEventHandler_Vtbl = SelectionChangedEventHandler_Vtbl {
@@ -27106,10 +27303,14 @@ pub struct SizeChangedEventHandler_Vtbl {
 }
 struct SizeChangedEventHandlerBox<
     F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<SizeChangedEventArgs>)
+        + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
     F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<SizeChangedEventArgs>)
+        + Send
+        + Sync
         + 'static,
 > SizeChangedEventHandlerBox<F>
 {
@@ -28919,10 +29120,14 @@ pub struct TextChangedEventHandler_Vtbl {
 }
 struct TextChangedEventHandlerBox<
     F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<TextChangedEventArgs>)
+        + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
     F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<TextChangedEventArgs>)
+        + Send
+        + Sync
         + 'static,
 > TextChangedEventHandlerBox<F>
 {
@@ -29990,7 +30195,7 @@ where
 struct TypedEventHandlerBox<
     TSender,
     TResult,
-    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + 'static,
+    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + Send + Sync + 'static,
 >(core::marker::PhantomData<(TSender, TResult, fn() -> F)>)
 where
     TSender: windows_core::RuntimeType + 'static,
@@ -29998,7 +30203,7 @@ where
 impl<
     TSender: windows_core::RuntimeType + 'static,
     TResult: windows_core::RuntimeType + 'static,
-    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + 'static,
+    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + Send + Sync + 'static,
 > TypedEventHandlerBox<TSender, TResult, F>
 {
     const VTABLE : TypedEventHandler_Vtbl < TSender , TResult , > = TypedEventHandler_Vtbl::< TSender , TResult , > { base__ : windows_core::IUnknown_Vtbl { QueryInterface : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::QueryInterface , AddRef : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::AddRef , Release : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::Release , } , Invoke : Self::Invoke , TSender : core::marker::PhantomData::< TSender > , TResult : core::marker::PhantomData::< TResult > } ;

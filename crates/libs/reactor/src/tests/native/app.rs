@@ -1,6 +1,35 @@
 use super::*;
 use crate::{StackPanel, TextBlock};
 
+#[test]
+fn callback_cancellation_can_cancel_owned_registrations() {
+    struct Cancel(u64);
+    impl Drop for Cancel {
+        fn drop(&mut self) {
+            remove_ui_callback(self.0);
+        }
+    }
+
+    let nested = NEXT_UI_CALLBACK.fetch_add(1, Ordering::Relaxed);
+    let parent = NEXT_UI_CALLBACK.fetch_add(1, Ordering::Relaxed);
+    let capture = Cancel(nested);
+    UI_CALLBACKS.with(|callbacks| {
+        let mut callbacks = callbacks.borrow_mut();
+        callbacks.insert(nested, Rc::new(|| panic!("canceled callback")));
+        callbacks.insert(
+            parent,
+            Rc::new(move || {
+                let _ = &capture;
+            }),
+        );
+    });
+    remove_ui_callback(parent);
+    UI_CALLBACKS.with(|callbacks| {
+        assert!(!callbacks.borrow().contains_key(&parent));
+        assert!(!callbacks.borrow().contains_key(&nested));
+    });
+}
+
 struct ObserverUiServices(Rc<LiveWindowServices>);
 
 impl ComponentUiServices for ObserverUiServices {

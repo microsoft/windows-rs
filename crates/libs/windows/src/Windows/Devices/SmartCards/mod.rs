@@ -2410,7 +2410,7 @@ impl SmartCardEmulator {
     }
     pub fn ApduReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmartCardEmulatorApduReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmartCardEmulatorApduReceivedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, SmartCardEmulatorApduReceivedEventArgs>>::new(move |a0, a1| {
@@ -2425,7 +2425,7 @@ impl SmartCardEmulator {
     }
     pub fn ConnectionDeactivated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmartCardEmulatorConnectionDeactivatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmartCardEmulatorConnectionDeactivatedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, SmartCardEmulatorConnectionDeactivatedEventArgs>>::new(move |a0, a1| {
@@ -2845,7 +2845,7 @@ impl windows_core::RuntimeType for SmartCardPinResetHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SmartCardPinResetHandler {
-    pub fn new<F: Fn(windows_core::Ref<SmartCardProvisioning>, windows_core::Ref<SmartCardPinResetRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<SmartCardProvisioning>, windows_core::Ref<SmartCardPinResetRequest>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&SmartCardPinResetHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -2863,8 +2863,8 @@ pub struct SmartCardPinResetHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct SmartCardPinResetHandlerBox<F: Fn(windows_core::Ref<SmartCardProvisioning>, windows_core::Ref<SmartCardPinResetRequest>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<SmartCardProvisioning>, windows_core::Ref<SmartCardPinResetRequest>) -> windows_core::Result<()> + Send + 'static> SmartCardPinResetHandlerBox<F> {
+struct SmartCardPinResetHandlerBox<F: Fn(windows_core::Ref<SmartCardProvisioning>, windows_core::Ref<SmartCardPinResetRequest>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<SmartCardProvisioning>, windows_core::Ref<SmartCardPinResetRequest>) -> windows_core::Result<()> + Send + Sync + 'static> SmartCardPinResetHandlerBox<F> {
     const VTABLE: SmartCardPinResetHandler_Vtbl = SmartCardPinResetHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<SmartCardPinResetHandler, F>::QueryInterface,
@@ -3095,7 +3095,7 @@ impl SmartCardReader {
     }
     pub fn CardAdded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CardAddedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CardAddedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CardAddedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3109,7 +3109,7 @@ impl SmartCardReader {
     }
     pub fn CardRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CardRemovedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CardRemovedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, CardRemovedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

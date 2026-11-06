@@ -1,8 +1,8 @@
 #![windows_subsystem = "windows"]
 
-use std::cell::{Cell, RefCell};
+use std::cell::RefCell;
 use std::rc::Rc;
-use std::sync::atomic::{AtomicU64, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 
 use tracelogging as tlg;
 use windows_core::Result;
@@ -154,19 +154,19 @@ impl Component for Sample {
         context.window_title("BlankWindowsReactor");
         context.window_visuals(WindowVisuals::new().client_size(1000.0, 1000.0));
         let rendering = Rc::clone(&self.rendering);
+        let completion = context.completion();
         context.use_effect("startup-tracing", (), move || {
             trace_window_loaded();
-            let first_rendered = Rc::new(Cell::new(false));
-            let rendering_for_callback = Rc::clone(&rendering);
+            let first_rendered = AtomicBool::new(false);
             let revoker = bindings::CompositionTarget::Rendering(move |_, _| {
-                if first_rendered.replace(true) {
+                if first_rendered.swap(true, Ordering::Relaxed) {
                     return;
                 }
                 trace_first_render();
-                let rendering = Rc::clone(&rendering_for_callback);
+                let completion = completion.clone();
                 let idle = bindings::DispatcherQueueHandler::new(move || {
                     trace_first_idle();
-                    rendering.borrow_mut().take();
+                    _ = completion.clone().complete(());
                 });
                 let dispatcher = bindings::DispatcherQueue::GetForCurrentThread().unwrap();
                 assert!(
@@ -190,6 +190,10 @@ impl Component for Sample {
                     .font_size(14.0),
             )
             .into()
+    }
+
+    fn update(&mut self, _: (), _: &ComponentContext<Self>) {
+        self.rendering.borrow_mut().take();
     }
 }
 

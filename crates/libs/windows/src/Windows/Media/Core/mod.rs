@@ -149,7 +149,7 @@ windows_core::imp::interface_hierarchy!(AudioTrack, windows_core::IUnknown, wind
 impl AudioTrack {
     pub fn OpenFailed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AudioTrackOpenFailedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AudioTrackOpenFailedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IAudioTrack>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, AudioTrackOpenFailedEventArgs>>::new(move |a0, a1| {
@@ -930,7 +930,7 @@ impl FaceDetectionEffect {
     }
     pub fn FaceDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FaceDetectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FaceDetectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, FaceDetectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2923,7 +2923,7 @@ windows_core::imp::interface_hierarchy!(ISingleSelectMediaTrackList, windows_cor
 impl ISingleSelectMediaTrackList {
     pub fn SelectedIndexChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3780,7 +3780,7 @@ impl MediaBinder {
     }
     pub fn Binding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaBindingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaBindingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaBindingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3828,7 +3828,7 @@ windows_core::imp::interface_hierarchy!(MediaBindingEventArgs, windows_core::IUn
 impl MediaBindingEventArgs {
     pub fn Canceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3965,7 +3965,7 @@ impl MediaSource {
     }
     pub fn OpenOperationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaSourceOpenOperationCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaSourceOpenOperationCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaSourceOpenOperationCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4010,7 +4010,7 @@ impl MediaSource {
     }
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaSourceStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaSourceStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMediaSource3>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaSourceStateChangedEventArgs>>::new(move |a0, a1| {
@@ -4224,7 +4224,7 @@ windows_core::imp::interface_hierarchy!(MediaSourceAppServiceConnection, windows
 impl MediaSourceAppServiceConnection {
     pub fn InitializeMediaStreamSourceRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InitializeMediaStreamSourceRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InitializeMediaStreamSourceRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, InitializeMediaStreamSourceRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4380,7 +4380,7 @@ windows_core::imp::interface_hierarchy!(MediaStreamSample, windows_core::IUnknow
 impl MediaStreamSample {
     pub fn Processed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4638,7 +4638,7 @@ windows_core::imp::required_hierarchy!(MediaStreamSource, IMediaSource);
 impl MediaStreamSource {
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaStreamSourceClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaStreamSourceClosedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaStreamSourceClosedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4652,7 +4652,7 @@ impl MediaStreamSource {
     }
     pub fn Starting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaStreamSourceStartingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaStreamSourceStartingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaStreamSourceStartingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4666,7 +4666,7 @@ impl MediaStreamSource {
     }
     pub fn Paused<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4680,7 +4680,7 @@ impl MediaStreamSource {
     }
     pub fn SampleRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaStreamSourceSampleRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaStreamSourceSampleRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaStreamSourceSampleRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4694,7 +4694,7 @@ impl MediaStreamSource {
     }
     pub fn SwitchStreamsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaStreamSourceSwitchStreamsRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaStreamSourceSwitchStreamsRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaStreamSourceSwitchStreamsRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4795,7 +4795,7 @@ impl MediaStreamSource {
     }
     pub fn SampleRendered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaStreamSourceSampleRenderedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaStreamSourceSampleRenderedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMediaStreamSource2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaStreamSourceSampleRenderedEventArgs>>::new(move |a0, a1| {
@@ -5294,7 +5294,7 @@ windows_core::imp::interface_hierarchy!(MseSourceBuffer, windows_core::IUnknown,
 impl MseSourceBuffer {
     pub fn UpdateStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5308,7 +5308,7 @@ impl MseSourceBuffer {
     }
     pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5322,7 +5322,7 @@ impl MseSourceBuffer {
     }
     pub fn UpdateEnded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5336,7 +5336,7 @@ impl MseSourceBuffer {
     }
     pub fn ErrorOccurred<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5350,7 +5350,7 @@ impl MseSourceBuffer {
     }
     pub fn Aborted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5459,7 +5459,7 @@ windows_core::imp::interface_hierarchy!(MseSourceBufferList, windows_core::IUnkn
 impl MseSourceBufferList {
     pub fn SourceBufferAdded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5473,7 +5473,7 @@ impl MseSourceBufferList {
     }
     pub fn SourceBufferRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5519,7 +5519,7 @@ impl MseStreamSource {
     }
     pub fn Opened<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5533,7 +5533,7 @@ impl MseStreamSource {
     }
     pub fn Ended<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5547,7 +5547,7 @@ impl MseStreamSource {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5681,7 +5681,7 @@ impl SceneAnalysisEffect {
     }
     pub fn SceneAnalyzed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SceneAnalyzedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SceneAnalyzedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SceneAnalyzedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -6134,7 +6134,7 @@ impl TimedMetadataTrack {
     }
     pub fn CueEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaCueEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaCueEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaCueEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -6148,7 +6148,7 @@ impl TimedMetadataTrack {
     }
     pub fn CueExited<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaCueEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaCueEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MediaCueEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -6162,7 +6162,7 @@ impl TimedMetadataTrack {
     }
     pub fn TrackFailed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TimedMetadataTrackFailedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TimedMetadataTrackFailedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, TimedMetadataTrackFailedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -6905,7 +6905,7 @@ windows_core::imp::interface_hierarchy!(TimedTextSource, windows_core::IUnknown,
 impl TimedTextSource {
     pub fn Resolved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TimedTextSourceResolveResultEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TimedTextSourceResolveResultEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, TimedTextSourceResolveResultEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -7408,7 +7408,7 @@ impl VideoStabilizationEffect {
     }
     pub fn EnabledChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VideoStabilizationEffectEnabledChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VideoStabilizationEffectEnabledChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, VideoStabilizationEffectEnabledChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -7650,7 +7650,7 @@ impl VideoTrack {
     }
     pub fn OpenFailed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VideoTrackOpenFailedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VideoTrackOpenFailedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IVideoTrack>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, VideoTrackOpenFailedEventArgs>>::new(move |a0, a1| {

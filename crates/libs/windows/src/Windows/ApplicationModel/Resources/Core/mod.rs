@@ -1139,7 +1139,7 @@ impl ResourceQualifierObservableMap {
     }
     pub fn MapChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + Sync + 'static,
     {
         let handler = <windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>::new(move |a0, a1| {
             handler(a0, a1);

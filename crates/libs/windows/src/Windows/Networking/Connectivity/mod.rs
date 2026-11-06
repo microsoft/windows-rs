@@ -1565,7 +1565,7 @@ impl NetworkInformation {
     }
     pub fn NetworkStatusChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <NetworkStatusChangedEventHandler>::new(move |a0| {
             handler(a0);
@@ -1731,7 +1731,7 @@ impl windows_core::RuntimeType for NetworkStatusChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl NetworkStatusChangedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&NetworkStatusChangedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -1748,8 +1748,8 @@ pub struct NetworkStatusChangedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct NetworkStatusChangedEventHandlerBox<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> NetworkStatusChangedEventHandlerBox<F> {
+struct NetworkStatusChangedEventHandlerBox<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + Sync + 'static> NetworkStatusChangedEventHandlerBox<F> {
     const VTABLE: NetworkStatusChangedEventHandler_Vtbl = NetworkStatusChangedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<NetworkStatusChangedEventHandler, F>::QueryInterface,

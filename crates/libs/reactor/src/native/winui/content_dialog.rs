@@ -366,14 +366,17 @@ impl WinUiAdapter {
                 .clone();
             let dialog_element = value.cast::<native::IFrameworkElement>()?;
             let themed_dialog = dialog_element.clone();
-            let theme_changed = framework.ActualThemeChanged(move |sender, _| {
-                let Some(sender) = sender.as_ref() else {
-                    return;
-                };
-                themed_dialog
-                    .SetRequestedTheme(sender.ActualTheme().unwrap())
-                    .unwrap();
-            })?;
+            let theme_changed =
+                framework.ActualThemeChanged(local::handler::<native::FrameworkElement, _, _>(
+                    move |sender, _| {
+                        let Some(sender) = sender.as_ref() else {
+                            return;
+                        };
+                        themed_dialog
+                            .SetRequestedTheme(sender.ActualTheme().unwrap())
+                            .unwrap();
+                    },
+                ))?;
             dialog_element.SetRequestedTheme(framework.ActualTheme()?)?;
             {
                 let mut scheduler = self.event_queue.content_dialogs.borrow_mut();
@@ -393,12 +396,12 @@ impl WinUiAdapter {
                 Err(error) if error.code().is_ok() => {
                     let event_queue = Rc::clone(&self.event_queue);
                     let loaded_element = owner_element;
-                    let loaded = framework.Loaded(move |_, _| {
+                    let loaded = framework.Loaded(local::handler(move |_, _| {
                         let root = loaded_element.XamlRoot().unwrap();
                         let mut scheduler = event_queue.content_dialogs.borrow_mut();
                         scheduler.set_root(dialog, root).unwrap();
                         scheduler.start_next_for_dialog(dialog).unwrap();
-                    })?;
+                    }))?;
                     self.event_queue
                         .content_dialogs
                         .borrow_mut()
@@ -479,13 +482,13 @@ impl WinUiAdapter {
             .closed(dialog, generation)?;
         let queue = native::DispatcherQueue::GetForCurrentThread()?;
         let deferred_queue = Rc::clone(event_queue);
-        let handler = native::DispatcherQueueHandler::new(move || {
+        let handler = native::DispatcherQueueHandler::new(local::task(move || {
             let mut scheduler = deferred_queue.content_dialogs.borrow_mut();
             scheduler.cleanup_retired();
             if let Some(root) = &root {
                 scheduler.start_next(root).unwrap();
             }
-        });
+        }));
         // A dispatcher that is shutting down rejects the continuation; no dialog will show again.
         queue.TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;
         Ok(dispatch)

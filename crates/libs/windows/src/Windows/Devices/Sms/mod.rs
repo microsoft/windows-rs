@@ -246,7 +246,7 @@ impl ISmsDevice {
     }
     pub fn SmsMessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <SmsMessageReceivedEventHandler>::new(move |a0, a1| {
             handler(a0, a1);
@@ -260,7 +260,7 @@ impl ISmsDevice {
     }
     pub fn SmsDeviceStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<SmsDevice>) + Send + 'static,
+        F: Fn(windows_core::Ref<SmsDevice>) + Send + Sync + 'static,
     {
         let handler = <SmsDeviceStatusChangedEventHandler>::new(move |a0| {
             handler(a0);
@@ -1749,7 +1749,7 @@ impl SmsDevice {
     }
     pub fn SmsMessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmsMessageReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmsMessageReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <SmsMessageReceivedEventHandler>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1763,7 +1763,7 @@ impl SmsDevice {
     }
     pub fn SmsDeviceStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>) + Send + Sync + 'static,
     {
         let handler = <SmsDeviceStatusChangedEventHandler>::new(move |a0| {
             handler(a0);
@@ -1882,7 +1882,7 @@ impl SmsDevice2 {
     }
     pub fn DeviceStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2004,7 +2004,7 @@ impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SmsDeviceStatusChangedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&SmsDeviceStatusChangedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -2021,8 +2021,8 @@ pub struct SmsDeviceStatusChangedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct SmsDeviceStatusChangedEventHandlerBox<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
+struct SmsDeviceStatusChangedEventHandlerBox<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + Sync + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
     const VTABLE: SmsDeviceStatusChangedEventHandler_Vtbl = SmsDeviceStatusChangedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<SmsDeviceStatusChangedEventHandler, F>::QueryInterface,
@@ -2326,7 +2326,7 @@ impl windows_core::RuntimeType for SmsMessageReceivedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SmsMessageReceivedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&SmsMessageReceivedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -2344,8 +2344,8 @@ pub struct SmsMessageReceivedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct SmsMessageReceivedEventHandlerBox<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> SmsMessageReceivedEventHandlerBox<F> {
+struct SmsMessageReceivedEventHandlerBox<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + Sync + 'static> SmsMessageReceivedEventHandlerBox<F> {
     const VTABLE: SmsMessageReceivedEventHandler_Vtbl = SmsMessageReceivedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<SmsMessageReceivedEventHandler, F>::QueryInterface,
@@ -2443,7 +2443,7 @@ impl SmsMessageRegistration {
     }
     pub fn MessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmsMessageReceivedTriggerDetails>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmsMessageReceivedTriggerDetails>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SmsMessageReceivedTriggerDetails>>::new(move |a0, a1| {
             handler(a0, a1);

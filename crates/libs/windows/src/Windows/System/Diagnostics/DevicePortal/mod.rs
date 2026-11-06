@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(DevicePortalConnection, windows_core::IU
 impl DevicePortalConnection {
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DevicePortalConnectionClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DevicePortalConnectionClosedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, DevicePortalConnectionClosedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -19,7 +19,7 @@ impl DevicePortalConnection {
     }
     pub fn RequestReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DevicePortalConnectionRequestReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DevicePortalConnectionRequestReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, DevicePortalConnectionRequestReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

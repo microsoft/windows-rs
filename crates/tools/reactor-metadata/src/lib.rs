@@ -549,28 +549,33 @@ impl MetadataResolver {
         add_event: &str,
         property: &str,
     ) -> Option<&MethodRef> {
+        let args_class = self.event_args_name(class_name, add_event)?;
+        let getter = format!("get_{property}");
+        self.lookup.get(&(args_class.to_string(), getter))
+    }
+
+    pub fn event_args_name(&self, class_name: &str, add_event: &str) -> Option<&str> {
         let add_ref = self
             .lookup
             .get(&(class_name.to_string(), add_event.to_string()))?;
         let delegate_type = add_ref.param_types.first()?;
-        let args_class = match delegate_type {
+        match delegate_type {
             Type::ClassName(tn) if tn.generics.len() == 2 => match &tn.generics[1] {
-                Type::ClassName(args_tn) => args_tn.name.clone(),
-                Type::ValueName(args_tn) => args_tn.name.clone(),
-                _ => return None,
+                Type::ClassName(args_tn) | Type::ValueName(args_tn) => Some(args_tn.name.as_str()),
+                _ => None,
             },
             Type::ClassName(tn) => {
                 let key = (tn.namespace.clone(), tn.name.clone());
                 let (_, args) = self.delegate_params.get(&key)?;
                 match args {
-                    Type::ClassName(args_tn) | Type::ValueName(args_tn) => args_tn.name.clone(),
-                    _ => return None,
+                    Type::ClassName(args_tn) | Type::ValueName(args_tn) => {
+                        Some(args_tn.name.as_str())
+                    }
+                    _ => None,
                 }
             }
-            _ => return None,
-        };
-        let getter = format!("get_{property}");
-        self.lookup.get(&(args_class, getter))
+            _ => None,
+        }
     }
 
     /// Returns true if a metadata `Type` is Copy (primitive or value type).

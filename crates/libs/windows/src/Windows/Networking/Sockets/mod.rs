@@ -266,7 +266,7 @@ impl DatagramSocket {
     }
     pub fn MessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DatagramSocketMessageReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DatagramSocketMessageReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, DatagramSocketMessageReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1507,7 +1507,7 @@ impl IWebSocket {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2283,7 +2283,7 @@ impl MessageWebSocket {
     }
     pub fn MessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MessageWebSocketMessageReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MessageWebSocketMessageReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MessageWebSocketMessageReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2297,7 +2297,7 @@ impl MessageWebSocket {
     }
     pub fn ServerCustomValidationRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketServerCustomValidationRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketServerCustomValidationRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMessageWebSocket2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebSocketServerCustomValidationRequestedEventArgs>>::new(move |a0, a1| {
@@ -2356,7 +2356,7 @@ impl MessageWebSocket {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IWebSocket>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<IWebSocket>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IWebSocket>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>::new(move |a0, a1| {
@@ -2680,7 +2680,7 @@ impl ServerMessageWebSocket {
     }
     pub fn MessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MessageWebSocketMessageReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MessageWebSocketMessageReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MessageWebSocketMessageReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2713,7 +2713,7 @@ impl ServerMessageWebSocket {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2836,7 +2836,7 @@ impl ServerStreamWebSocket {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3644,7 +3644,7 @@ impl StreamSocketListener {
     }
     pub fn ConnectionReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<StreamSocketListenerConnectionReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<StreamSocketListenerConnectionReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, StreamSocketListenerConnectionReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3870,7 +3870,7 @@ impl StreamWebSocket {
     }
     pub fn ServerCustomValidationRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketServerCustomValidationRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketServerCustomValidationRequestedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IStreamWebSocket2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebSocketServerCustomValidationRequestedEventArgs>>::new(move |a0, a1| {
@@ -3907,7 +3907,7 @@ impl StreamWebSocket {
     }
     pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IWebSocket>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<IWebSocket>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IWebSocket>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>::new(move |a0, a1| {

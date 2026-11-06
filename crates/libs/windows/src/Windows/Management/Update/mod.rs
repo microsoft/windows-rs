@@ -1933,7 +1933,7 @@ windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateProviderStatus, win
 impl WindowsSoftwareUpdateProviderStatus {
     pub fn CancelRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2926,7 +2926,7 @@ windows_core::imp::interface_hierarchy!(WindowsUpdateManager, windows_core::IUnk
 impl WindowsUpdateManager {
     pub fn ScanningStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2940,7 +2940,7 @@ impl WindowsUpdateManager {
     }
     pub fn WorkingStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2954,7 +2954,7 @@ impl WindowsUpdateManager {
     }
     pub fn ProgressChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowsUpdateProgressChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowsUpdateProgressChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WindowsUpdateProgressChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2968,7 +2968,7 @@ impl WindowsUpdateManager {
     }
     pub fn AttentionRequiredReasonChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowsUpdateAttentionRequiredReasonChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowsUpdateAttentionRequiredReasonChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WindowsUpdateAttentionRequiredReasonChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2982,7 +2982,7 @@ impl WindowsUpdateManager {
     }
     pub fn ActionCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowsUpdateActionCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowsUpdateActionCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WindowsUpdateActionCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2996,7 +2996,7 @@ impl WindowsUpdateManager {
     }
     pub fn ScanCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowsUpdateScanCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowsUpdateScanCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WindowsUpdateScanCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

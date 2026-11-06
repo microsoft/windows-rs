@@ -418,7 +418,11 @@ impl Scene {
         }
     }
 
-    fn commit(&mut self, settlement: &Settlement, sender: LocalSender<Message>) -> Result<()> {
+    fn commit(
+        &mut self,
+        settlement: &Settlement,
+        sender: ComponentCompletion<Message>,
+    ) -> Result<()> {
         for (x, y) in cells(settlement.piece.kind, settlement.piece.rot) {
             let row = (settlement.piece.row + y) as usize;
             let col = (settlement.piece.col + x) as usize;
@@ -474,7 +478,9 @@ impl Scene {
             let id = self.next_fade;
             self.next_fade = self.next_fade.wrapping_add(1);
             let completion = batch.on_completed(move || {
-                _ = sender.send(Message::FadeCompleted(id));
+                _ = sender
+                    .clone()
+                    .complete_with(move || Message::FadeCompleted(id));
             });
             batch.end();
             let completion = completion?;
@@ -626,7 +632,7 @@ impl Stacker {
     fn settle(&mut self, context: &ComponentContext<Self>) {
         let settlement = self.game.settle();
         if let Some(scene) = &mut self.scene
-            && let Err(error) = scene.commit(&settlement, context.sender())
+            && let Err(error) = scene.commit(&settlement, context.completion())
         {
             eprintln!("failed to animate cleared Stacker rows: {error}");
             scene.rebuild(&self.game.board);

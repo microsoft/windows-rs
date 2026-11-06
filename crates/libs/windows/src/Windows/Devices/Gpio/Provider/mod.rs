@@ -118,7 +118,7 @@ windows_core::imp::interface_hierarchy!(IGpioPinProvider, windows_core::IUnknown
 impl IGpioPinProvider {
     pub fn ValueChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GpioPinProviderValueChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GpioPinProviderValueChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GpioPinProviderValueChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

@@ -94,7 +94,7 @@ impl GattCharacteristic {
     }
     pub fn ValueChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattValueChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattValueChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattValueChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1385,7 +1385,7 @@ impl GattLocalCharacteristic {
     }
     pub fn SubscribedClientsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1399,7 +1399,7 @@ impl GattLocalCharacteristic {
     }
     pub fn ReadRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattReadRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattReadRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattReadRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1413,7 +1413,7 @@ impl GattLocalCharacteristic {
     }
     pub fn WriteRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattWriteRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattWriteRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattWriteRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1602,7 +1602,7 @@ impl GattLocalDescriptor {
     }
     pub fn ReadRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattReadRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattReadRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattReadRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1616,7 +1616,7 @@ impl GattLocalDescriptor {
     }
     pub fn WriteRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattWriteRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattWriteRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattWriteRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2215,7 +2215,7 @@ impl GattReadRequest {
     }
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattRequestStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattRequestStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattRequestStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2434,7 +2434,7 @@ impl GattServiceProvider {
     }
     pub fn AdvertisementStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattServiceProviderAdvertisementStatusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattServiceProviderAdvertisementStatusChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattServiceProviderAdvertisementStatusChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2837,7 +2837,7 @@ impl GattSession {
     }
     pub fn MaxPduSizeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2851,7 +2851,7 @@ impl GattSession {
     }
     pub fn SessionStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattSessionStatusChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattSessionStatusChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattSessionStatusChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2968,7 +2968,7 @@ impl GattSubscribedClient {
     }
     pub fn MaxNotificationSizeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3070,7 +3070,7 @@ impl GattWriteRequest {
     }
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattRequestStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattRequestStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattRequestStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

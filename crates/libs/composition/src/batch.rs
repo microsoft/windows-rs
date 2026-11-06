@@ -36,7 +36,10 @@ impl CompositionScopedBatch {
     ///
     /// The returned revoker keeps the callback registered. Dropping it before
     /// completion cancels the subscription.
-    pub fn on_completed(&self, handler: impl Fn() + 'static) -> Result<windows_core::EventRevoker> {
+    pub fn on_completed(
+        &self,
+        handler: impl Fn() + Send + Sync + 'static,
+    ) -> Result<windows_core::EventRevoker> {
         self.0.Completed(move |_, _| handler())
     }
 

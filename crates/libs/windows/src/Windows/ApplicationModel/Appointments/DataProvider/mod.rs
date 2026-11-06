@@ -560,7 +560,7 @@ windows_core::imp::interface_hierarchy!(AppointmentDataProviderConnection, windo
 impl AppointmentDataProviderConnection {
     pub fn SyncRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarSyncManagerSyncRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarSyncManagerSyncRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarSyncManagerSyncRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -574,7 +574,7 @@ impl AppointmentDataProviderConnection {
     }
     pub fn CreateOrUpdateAppointmentRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -588,7 +588,7 @@ impl AppointmentDataProviderConnection {
     }
     pub fn CancelMeetingRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarCancelMeetingRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarCancelMeetingRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarCancelMeetingRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -602,7 +602,7 @@ impl AppointmentDataProviderConnection {
     }
     pub fn ForwardMeetingRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarForwardMeetingRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarForwardMeetingRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarForwardMeetingRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -616,7 +616,7 @@ impl AppointmentDataProviderConnection {
     }
     pub fn ProposeNewTimeForMeetingRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -630,7 +630,7 @@ impl AppointmentDataProviderConnection {
     }
     pub fn UpdateMeetingResponseRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarUpdateMeetingResponseRequestEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentCalendarUpdateMeetingResponseRequestEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarUpdateMeetingResponseRequestEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

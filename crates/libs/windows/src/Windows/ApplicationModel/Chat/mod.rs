@@ -176,7 +176,7 @@ impl ChatConversation {
     }
     pub fn RemoteParticipantComposingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteParticipantComposingChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RemoteParticipantComposingChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RemoteParticipantComposingChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1199,7 +1199,7 @@ impl ChatMessageStore {
     }
     pub fn MessageChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ChatMessageChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ChatMessageChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ChatMessageChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1342,7 +1342,7 @@ impl ChatMessageStore {
     }
     pub fn StoreChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ChatMessageStoreChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ChatMessageStoreChangedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IChatMessageStore2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, ChatMessageStoreChangedEventArgs>>::new(move |a0, a1| {
@@ -2895,7 +2895,7 @@ windows_core::imp::interface_hierarchy!(RcsEndUserMessageManager, windows_core::
 impl RcsEndUserMessageManager {
     pub fn MessageAvailableChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RcsEndUserMessageAvailableEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RcsEndUserMessageAvailableEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RcsEndUserMessageAvailableEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2951,7 +2951,7 @@ impl RcsManager {
     }
     pub fn TransportListChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3064,7 +3064,7 @@ impl RcsTransport {
     }
     pub fn ServiceKindSupportedChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RcsServiceKindSupportedChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RcsServiceKindSupportedChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, RcsServiceKindSupportedChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

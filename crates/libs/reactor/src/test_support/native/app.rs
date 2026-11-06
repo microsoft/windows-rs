@@ -19,11 +19,11 @@ pub fn subscribe_live_interval(
     let timer = dispatcher.CreateTimer()?;
     timer.SetInterval(TimeSpan::try_from(interval).unwrap())?;
     timer.SetIsRepeating(true)?;
-    let tick = timer.Tick(move |_, _| {
+    let tick = timer.Tick(local::handler(move |_, _| {
         if std::panic::catch_unwind(std::panic::AssertUnwindSafe(&tick_callback)).is_err() {
             std::process::abort();
         }
-    })?;
+    }))?;
     timer.Start()?;
     Ok(LiveTickSubscription { _tick: tick, timer })
 }
@@ -36,11 +36,11 @@ pub struct LiveRenderingSubscription {
 pub fn subscribe_live_rendering(
     rendering_callback: impl Fn() + 'static,
 ) -> windows_core::Result<LiveRenderingSubscription> {
-    let rendering = CompositionTarget::Rendering(move |_, _| {
+    let rendering = CompositionTarget::Rendering(local::handler(move |_, _| {
         if std::panic::catch_unwind(std::panic::AssertUnwindSafe(&rendering_callback)).is_err() {
             std::process::abort();
         }
-    })?;
+    }))?;
     Ok(LiveRenderingSubscription {
         _rendering: rendering,
     })

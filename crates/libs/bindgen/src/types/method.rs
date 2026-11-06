@@ -882,18 +882,8 @@ impl Method {
                         })
                         .collect();
 
-                    let event_where_clause = {
-                        // Local minimal delegates inline `DelegateBox`; referenced delegates need
-                        // `Send`.
-                        if delegate_is_local_minimal {
-                            quote! {
-                                where #(#other_constraints)* F: Fn #fn_sig_no_return + 'static,
-                            }
-                        } else {
-                            quote! {
-                                where #(#other_constraints)* F: Fn #fn_sig_no_return + Send + 'static,
-                            }
-                        }
+                    let event_where_clause = quote! {
+                        where #(#other_constraints)* F: Fn #fn_sig_no_return + Send + Sync + 'static,
                     };
 
                     // Replace only the delegate parameter declaration with `handler: F`.
@@ -911,8 +901,7 @@ impl Method {
                         .collect();
 
                     let event_prelude = if delegate_is_local_minimal {
-                        // Inline `DelegateBox` so the wrapper's where clause controls the `Send`
-                        // bound.
+                        // Local minimal delegates can omit their public constructor.
                         let boxed_name: TokenStream =
                             format!("{}Box", trim_tick(d.def.name())).parse().unwrap();
                         let generic_names = d.generics.iter().map(|ty| ty.write_name(config));

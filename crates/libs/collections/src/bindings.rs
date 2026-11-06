@@ -1443,7 +1443,10 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 {
     pub fn MapChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<IMapChangedEventArgs<K>>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<IMapChangedEventArgs<K>>)
+            + Send
+            + Sync
+            + 'static,
     {
         let handler = <MapChangedEventHandler<K, V>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1719,7 +1722,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IVector<
 impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
     pub fn VectorChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<IVectorChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<IVectorChangedEventArgs>)
+            + Send
+            + Sync
+            + 'static,
     {
         let handler = <VectorChangedEventHandler<T>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -2985,6 +2991,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 windows_core::Ref<IMapChangedEventArgs<K>>,
             ) -> windows_core::Result<()>
             + Send
+            + Sync
             + 'static,
     >(
         invoke: F,
@@ -3033,6 +3040,7 @@ struct MapChangedEventHandlerBox<
             windows_core::Ref<IMapChangedEventArgs<K>>,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(K, V, fn() -> F)>)
 where
@@ -3046,6 +3054,7 @@ impl<
             windows_core::Ref<IMapChangedEventArgs<K>>,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 > MapChangedEventHandlerBox<K, V, F>
 {
@@ -3104,6 +3113,7 @@ impl<T: windows_core::RuntimeType + 'static> VectorChangedEventHandler<T> {
                 windows_core::Ref<IVectorChangedEventArgs>,
             ) -> windows_core::Result<()>
             + Send
+            + Sync
             + 'static,
     >(
         invoke: F,
@@ -3149,6 +3159,7 @@ struct VectorChangedEventHandlerBox<
             windows_core::Ref<IVectorChangedEventArgs>,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(T, fn() -> F)>)
 where
@@ -3160,6 +3171,7 @@ impl<
             windows_core::Ref<IVectorChangedEventArgs>,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 > VectorChangedEventHandlerBox<T, F>
 {

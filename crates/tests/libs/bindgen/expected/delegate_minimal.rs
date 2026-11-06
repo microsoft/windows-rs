@@ -8,7 +8,7 @@ impl windows_core::RuntimeType for Delegate {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Delegate {
-    pub fn new<F: Fn(i32, i32) + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(i32, i32) + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&DelegateBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -22,8 +22,10 @@ pub struct Delegate_Vtbl {
         args: i32,
     ) -> windows_core::HRESULT,
 }
-struct DelegateBox<F: Fn(i32, i32) + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(i32, i32) + 'static> DelegateBox<F> {
+struct DelegateBox<F: Fn(i32, i32) + Send + Sync + 'static>(
+    core::marker::PhantomData<(fn() -> F,)>,
+);
+impl<F: Fn(i32, i32) + Send + Sync + 'static> DelegateBox<F> {
     const VTABLE: Delegate_Vtbl = Delegate_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<Delegate, F>::QueryInterface,

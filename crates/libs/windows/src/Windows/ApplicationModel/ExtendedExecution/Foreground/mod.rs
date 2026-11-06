@@ -94,7 +94,7 @@ impl ExtendedExecutionForegroundSession {
     }
     pub fn Revoked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<ExtendedExecutionForegroundRevokedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<ExtendedExecutionForegroundRevokedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<windows_core::IInspectable, ExtendedExecutionForegroundRevokedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

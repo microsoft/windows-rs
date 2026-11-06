@@ -127,7 +127,7 @@ impl ESim {
     }
     pub fn ProfileChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -359,7 +359,7 @@ impl ESimManager {
     }
     pub fn ServiceInfoChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -655,7 +655,7 @@ impl ESimProfileMetadata {
     }
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -865,7 +865,7 @@ impl ESimWatcher {
     }
     pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ESimAddedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ESimAddedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ESimAddedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -879,7 +879,7 @@ impl ESimWatcher {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -893,7 +893,7 @@ impl ESimWatcher {
     }
     pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ESimRemovedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ESimRemovedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ESimRemovedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -907,7 +907,7 @@ impl ESimWatcher {
     }
     pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -921,7 +921,7 @@ impl ESimWatcher {
     }
     pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ESimUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ESimUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, ESimUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3096,7 +3096,7 @@ impl MobileBroadbandAccountWatcher {
     }
     pub fn AccountAdded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandAccountEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandAccountEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3110,7 +3110,7 @@ impl MobileBroadbandAccountWatcher {
     }
     pub fn AccountUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandAccountUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandAccountUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3124,7 +3124,7 @@ impl MobileBroadbandAccountWatcher {
     }
     pub fn AccountRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandAccountEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandAccountEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3138,7 +3138,7 @@ impl MobileBroadbandAccountWatcher {
     }
     pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3152,7 +3152,7 @@ impl MobileBroadbandAccountWatcher {
     }
     pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4052,7 +4052,7 @@ impl MobileBroadbandDeviceServiceCommandSession {
     }
     pub fn CommandReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandDeviceServiceCommandEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandDeviceServiceCommandEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceCommandSession2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandDeviceServiceCommandEventArgs>>::new(move |a0, a1| {
@@ -4123,7 +4123,7 @@ impl MobileBroadbandDeviceServiceDataSession {
     }
     pub fn DataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandDeviceServiceDataReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandDeviceServiceDataReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandDeviceServiceDataReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -4339,7 +4339,7 @@ impl MobileBroadbandModem {
     }
     pub fn IsInEmergencyCallModeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
@@ -5104,7 +5104,7 @@ impl MobileBroadbandSarManager {
     }
     pub fn TransmissionStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandTransmissionStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandTransmissionStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandTransmissionStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5266,7 +5266,7 @@ impl MobileBroadbandSlotManager {
     }
     pub fn SlotInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandSlotInfoChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandSlotInfoChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandSlotInfoChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -5280,7 +5280,7 @@ impl MobileBroadbandSlotManager {
     }
     pub fn CurrentSlotIndexChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandCurrentSlotIndexChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandCurrentSlotIndexChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandCurrentSlotIndexChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

@@ -108,7 +108,7 @@ impl windows_core::RuntimeType for SignalHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SignalHandler {
-    pub fn new<F: Fn(windows_core::Ref<SignalNotifier>, bool) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<SignalNotifier>, bool) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&SignalHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -125,8 +125,8 @@ pub struct SignalHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, signalnotifier: *mut core::ffi::c_void, timedout: bool) -> windows_core::HRESULT,
 }
-struct SignalHandlerBox<F: Fn(windows_core::Ref<SignalNotifier>, bool) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<SignalNotifier>, bool) -> windows_core::Result<()> + Send + 'static> SignalHandlerBox<F> {
+struct SignalHandlerBox<F: Fn(windows_core::Ref<SignalNotifier>, bool) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<SignalNotifier>, bool) -> windows_core::Result<()> + Send + Sync + 'static> SignalHandlerBox<F> {
     const VTABLE: SignalHandler_Vtbl = SignalHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<SignalHandler, F>::QueryInterface,

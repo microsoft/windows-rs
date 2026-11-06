@@ -156,7 +156,7 @@ impl OverlayApp {
     }
     pub fn VisualStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -194,7 +194,7 @@ impl OverlayApp {
     }
     pub fn Activated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<OverlayActivatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<OverlayActivatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<OverlayActivatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -208,7 +208,7 @@ impl OverlayApp {
     }
     pub fn VisualTransition<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<OverlayVisualTransitionEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<OverlayVisualTransitionEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<OverlayVisualTransitionEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -222,7 +222,7 @@ impl OverlayApp {
     }
     pub fn Disconnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<OverlayDisconnectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<OverlayDisconnectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::EventHandler<OverlayDisconnectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

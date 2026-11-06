@@ -141,7 +141,7 @@ impl IWebViewControl {
     }
     pub fn NavigationStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlNavigationStartingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlNavigationStartingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlNavigationStartingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -155,7 +155,7 @@ impl IWebViewControl {
     }
     pub fn ContentLoading<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlContentLoadingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlContentLoadingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlContentLoadingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -169,7 +169,7 @@ impl IWebViewControl {
     }
     pub fn DOMContentLoaded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlDOMContentLoadedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlDOMContentLoadedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlDOMContentLoadedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -183,7 +183,7 @@ impl IWebViewControl {
     }
     pub fn NavigationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlNavigationCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlNavigationCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlNavigationCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -197,7 +197,7 @@ impl IWebViewControl {
     }
     pub fn FrameNavigationStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlNavigationStartingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlNavigationStartingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlNavigationStartingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -211,7 +211,7 @@ impl IWebViewControl {
     }
     pub fn FrameContentLoading<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlContentLoadingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlContentLoadingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlContentLoadingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -225,7 +225,7 @@ impl IWebViewControl {
     }
     pub fn FrameDOMContentLoaded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlDOMContentLoadedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlDOMContentLoadedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlDOMContentLoadedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -239,7 +239,7 @@ impl IWebViewControl {
     }
     pub fn FrameNavigationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlNavigationCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlNavigationCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlNavigationCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -253,7 +253,7 @@ impl IWebViewControl {
     }
     pub fn ScriptNotify<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlScriptNotifyEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlScriptNotifyEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlScriptNotifyEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -267,7 +267,7 @@ impl IWebViewControl {
     }
     pub fn LongRunningScriptDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlLongRunningScriptDetectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlLongRunningScriptDetectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlLongRunningScriptDetectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -281,7 +281,7 @@ impl IWebViewControl {
     }
     pub fn UnsafeContentWarningDisplaying<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -295,7 +295,7 @@ impl IWebViewControl {
     }
     pub fn UnviewableContentIdentified<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlUnviewableContentIdentifiedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlUnviewableContentIdentifiedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlUnviewableContentIdentifiedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -309,7 +309,7 @@ impl IWebViewControl {
     }
     pub fn PermissionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlPermissionRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlPermissionRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlPermissionRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -323,7 +323,7 @@ impl IWebViewControl {
     }
     pub fn UnsupportedUriSchemeIdentified<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -337,7 +337,7 @@ impl IWebViewControl {
     }
     pub fn NewWindowRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlNewWindowRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlNewWindowRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlNewWindowRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -351,7 +351,7 @@ impl IWebViewControl {
     }
     pub fn ContainsFullScreenElementChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -365,7 +365,7 @@ impl IWebViewControl {
     }
     pub fn WebResourceRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlWebResourceRequestedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebViewControlWebResourceRequestedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, WebViewControlWebResourceRequestedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

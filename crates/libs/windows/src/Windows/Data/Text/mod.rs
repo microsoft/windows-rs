@@ -342,7 +342,7 @@ impl windows_core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SelectableWordSegmentsTokenizingHandler {
-    pub fn new<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -360,8 +360,8 @@ pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, precedingwords: *mut core::ffi::c_void, words: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct SelectableWordSegmentsTokenizingHandlerBox<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static> SelectableWordSegmentsTokenizingHandlerBox<F> {
+struct SelectableWordSegmentsTokenizingHandlerBox<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + Sync + 'static> SelectableWordSegmentsTokenizingHandlerBox<F> {
     const VTABLE: SelectableWordSegmentsTokenizingHandler_Vtbl = SelectableWordSegmentsTokenizingHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<SelectableWordSegmentsTokenizingHandler, F>::QueryInterface,
@@ -964,7 +964,7 @@ impl windows_core::RuntimeType for WordSegmentsTokenizingHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl WordSegmentsTokenizingHandler {
-    pub fn new<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&WordSegmentsTokenizingHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -982,8 +982,8 @@ pub struct WordSegmentsTokenizingHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, precedingwords: *mut core::ffi::c_void, words: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-struct WordSegmentsTokenizingHandlerBox<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static> WordSegmentsTokenizingHandlerBox<F> {
+struct WordSegmentsTokenizingHandlerBox<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + Sync + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + Sync + 'static> WordSegmentsTokenizingHandlerBox<F> {
     const VTABLE: WordSegmentsTokenizingHandler_Vtbl = WordSegmentsTokenizingHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: windows_core::imp::DelegateBox::<WordSegmentsTokenizingHandler, F>::QueryInterface,

@@ -683,7 +683,7 @@ windows_core::imp::interface_hierarchy!(SpatialGestureRecognizer, windows_core::
 impl SpatialGestureRecognizer {
     pub fn RecognitionStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialRecognitionStartedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialRecognitionStartedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialRecognitionStartedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -697,7 +697,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn RecognitionEnded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialRecognitionEndedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialRecognitionEndedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialRecognitionEndedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -711,7 +711,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn Tapped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialTappedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialTappedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialTappedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -725,7 +725,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn HoldStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialHoldStartedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialHoldStartedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldStartedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -739,7 +739,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn HoldCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialHoldCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialHoldCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -753,7 +753,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn HoldCanceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialHoldCanceledEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialHoldCanceledEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldCanceledEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -767,7 +767,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationStartedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationStartedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationStartedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -781,7 +781,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -795,7 +795,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -809,7 +809,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationCanceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationCanceledEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationCanceledEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationCanceledEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -823,7 +823,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationStartedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationStartedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationStartedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -837,7 +837,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationUpdatedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationUpdatedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationUpdatedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -851,7 +851,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -865,7 +865,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationCanceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationCanceledEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationCanceledEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationCanceledEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1268,7 +1268,7 @@ windows_core::imp::interface_hierarchy!(SpatialInteractionManager, windows_core:
 impl SpatialInteractionManager {
     pub fn SourceDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1282,7 +1282,7 @@ impl SpatialInteractionManager {
     }
     pub fn SourceLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1296,7 +1296,7 @@ impl SpatialInteractionManager {
     }
     pub fn SourceUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1310,7 +1310,7 @@ impl SpatialInteractionManager {
     }
     pub fn SourcePressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1324,7 +1324,7 @@ impl SpatialInteractionManager {
     }
     pub fn SourceReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1338,7 +1338,7 @@ impl SpatialInteractionManager {
     }
     pub fn InteractionDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionDetectedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionDetectedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionDetectedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

@@ -11,6 +11,7 @@ impl AsyncActionCompletedHandler {
     pub fn new<
         F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
             + Send
+            + Sync
             + 'static,
     >(
         invoke: F,
@@ -45,10 +46,16 @@ pub struct AsyncActionCompletedHandler_Vtbl {
     ) -> windows_core::HRESULT,
 }
 struct AsyncActionCompletedHandlerBox<
-    F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static,
+    F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
+        + Send
+        + Sync
+        + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static,
+    F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
+        + Send
+        + Sync
+        + 'static,
 > AsyncActionCompletedHandlerBox<F>
 {
     const VTABLE: AsyncActionCompletedHandler_Vtbl = AsyncActionCompletedHandler_Vtbl {
@@ -103,6 +110,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<
                 windows_core::Ref<TProgress>,
             ) -> windows_core::Result<()>
             + Send
+            + Sync
             + 'static,
     >(
         invoke: F,
@@ -148,6 +156,7 @@ struct AsyncActionProgressHandlerBox<
             windows_core::Ref<TProgress>,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(TProgress, fn() -> F)>)
 where
@@ -159,6 +168,7 @@ impl<
             windows_core::Ref<TProgress>,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 > AsyncActionProgressHandlerBox<TProgress, F>
 {
@@ -227,6 +237,7 @@ impl<TProgress: windows_core::RuntimeType + 'static>
                 AsyncStatus,
             ) -> windows_core::Result<()>
             + Send
+            + Sync
             + 'static,
     >(
         invoke: F,
@@ -271,6 +282,7 @@ struct AsyncActionWithProgressCompletedHandlerBox<
             AsyncStatus,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(TProgress, fn() -> F)>)
 where
@@ -282,6 +294,7 @@ impl<
             AsyncStatus,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 > AsyncActionWithProgressCompletedHandlerBox<TProgress, F>
 {
@@ -347,6 +360,7 @@ impl<TResult: windows_core::RuntimeType + 'static> AsyncOperationCompletedHandle
     pub fn new<
         F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
             + Send
+            + Sync
             + 'static,
     >(
         invoke: F,
@@ -388,6 +402,7 @@ struct AsyncOperationCompletedHandlerBox<
     TResult,
     F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(TResult, fn() -> F)>)
 where
@@ -396,6 +411,7 @@ impl<
     TResult: windows_core::RuntimeType + 'static,
     F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 > AsyncOperationCompletedHandlerBox<TResult, F>
 {
@@ -470,6 +486,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
                 windows_core::Ref<TProgress>,
             ) -> windows_core::Result<()>
             + Send
+            + Sync
             + 'static,
     >(
         invoke: F,
@@ -518,6 +535,7 @@ struct AsyncOperationProgressHandlerBox<
             windows_core::Ref<TProgress>,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(TResult, TProgress, fn() -> F)>)
 where
@@ -531,6 +549,7 @@ impl<
             windows_core::Ref<TProgress>,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 > AsyncOperationProgressHandlerBox<TResult, TProgress, F>
 {
@@ -612,6 +631,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
                 AsyncStatus,
             ) -> windows_core::Result<()>
             + Send
+            + Sync
             + 'static,
     >(
         invoke: F,
@@ -659,6 +679,7 @@ struct AsyncOperationWithProgressCompletedHandlerBox<
             AsyncStatus,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 >(core::marker::PhantomData<(TResult, TProgress, fn() -> F)>)
 where
@@ -672,6 +693,7 @@ impl<
             AsyncStatus,
         ) -> windows_core::Result<()>
         + Send
+        + Sync
         + 'static,
 > AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F>
 {

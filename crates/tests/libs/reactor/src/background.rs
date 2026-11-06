@@ -96,6 +96,64 @@ impl Component for BackgroundFixture {
                     .automation_id("release")
                     .content("Release worker")
                     .on_click(context.callback(|_| Message::Release)),
+                View::component::<LocalFactory>(()),
+            ))
+            .into()
+    }
+}
+
+struct LocalFactory {
+    value: Rc<str>,
+    owner: ThreadId,
+}
+
+enum LocalFactoryMessage {
+    Start,
+    Completed(Rc<str>),
+}
+
+impl Component for LocalFactory {
+    type Input = ();
+    type Message = LocalFactoryMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            value: Rc::from("Waiting for factory"),
+            owner: thread::current().id(),
+        }
+    }
+
+    fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
+        assert_eq!(thread::current().id(), self.owner);
+        match message {
+            LocalFactoryMessage::Start => {
+                let completion = context.completion();
+                let owner = self.owner;
+                assert!(
+                    thread::spawn(move || {
+                        completion.complete_with(move || {
+                            assert_eq!(thread::current().id(), owner);
+                            LocalFactoryMessage::Completed(Rc::from("Created on UI thread"))
+                        })
+                    })
+                    .join()
+                    .unwrap()
+                );
+            }
+            LocalFactoryMessage::Completed(value) => self.value = value,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        StackPanel::new()
+            .children((
+                TextBlock::new()
+                    .automation_id("factory-result")
+                    .text(self.value.clone()),
+                Button::new()
+                    .automation_id("factory-start")
+                    .content("Submit message factory")
+                    .on_click(context.callback(|_| LocalFactoryMessage::Start)),
             ))
             .into()
     }

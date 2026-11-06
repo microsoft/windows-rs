@@ -3311,7 +3311,7 @@ windows_core::imp::interface_hierarchy!(NDClient, windows_core::IUnknown, window
 impl NDClient {
     pub fn RegistrationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDRegistrationCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDRegistrationCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDRegistrationCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3325,7 +3325,7 @@ impl NDClient {
     }
     pub fn ProximityDetectionCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDProximityDetectionCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDProximityDetectionCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDProximityDetectionCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3339,7 +3339,7 @@ impl NDClient {
     }
     pub fn LicenseFetchCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDLicenseFetchCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDLicenseFetchCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDLicenseFetchCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3353,7 +3353,7 @@ impl NDClient {
     }
     pub fn ReRegistrationNeeded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -3367,7 +3367,7 @@ impl NDClient {
     }
     pub fn ClosedCaptionDataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDClosedCaptionDataReceivedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDClosedCaptionDataReceivedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDClosedCaptionDataReceivedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);

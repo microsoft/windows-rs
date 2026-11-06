@@ -16,7 +16,9 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Handl
         .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> Handler<T> {
-    pub fn new<F: Fn(windows_core::Ref<T>, i32) -> windows_core::Result<()> + Send + 'static>(
+    pub fn new<
+        F: Fn(windows_core::Ref<T>, i32) -> windows_core::Result<()> + Send + Sync + 'static,
+    >(
         invoke: F,
     ) -> Self {
         let com =
@@ -50,14 +52,15 @@ where
     ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }
-struct HandlerBox<T, F: Fn(windows_core::Ref<T>, i32) -> windows_core::Result<()> + Send + 'static>(
-    core::marker::PhantomData<(T, fn() -> F)>,
-)
+struct HandlerBox<
+    T,
+    F: Fn(windows_core::Ref<T>, i32) -> windows_core::Result<()> + Send + Sync + 'static,
+>(core::marker::PhantomData<(T, fn() -> F)>)
 where
     T: windows_core::RuntimeType + 'static;
 impl<
     T: windows_core::RuntimeType + 'static,
-    F: Fn(windows_core::Ref<T>, i32) -> windows_core::Result<()> + Send + 'static,
+    F: Fn(windows_core::Ref<T>, i32) -> windows_core::Result<()> + Send + Sync + 'static,
 > HandlerBox<T, F>
 {
     const VTABLE: Handler_Vtbl<T> = Handler_Vtbl::<T> {
@@ -100,7 +103,7 @@ windows_core::imp::interface_hierarchy!(
 impl ISource {
     pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, i32) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, i32) + Send + Sync + 'static,
     {
         let handler = <Handler<Self>>::new(move |a0, a1| {
             handler(a0, a1);

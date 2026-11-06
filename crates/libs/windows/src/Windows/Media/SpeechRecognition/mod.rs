@@ -622,7 +622,7 @@ impl SpeechContinuousRecognitionSession {
     }
     pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpeechContinuousRecognitionCompletedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpeechContinuousRecognitionCompletedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SpeechContinuousRecognitionCompletedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -636,7 +636,7 @@ impl SpeechContinuousRecognitionSession {
     }
     pub fn ResultGenerated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpeechContinuousRecognitionResultGeneratedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpeechContinuousRecognitionResultGeneratedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SpeechContinuousRecognitionResultGeneratedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1350,7 +1350,7 @@ impl SpeechRecognizer {
     }
     pub fn RecognitionQualityDegrading<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpeechRecognitionQualityDegradingEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpeechRecognitionQualityDegradingEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SpeechRecognitionQualityDegradingEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1364,7 +1364,7 @@ impl SpeechRecognizer {
     }
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpeechRecognizerStateChangedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpeechRecognizerStateChangedEventArgs>) + Send + Sync + 'static,
     {
         let handler = <super::super::Foundation::TypedEventHandler<Self, SpeechRecognizerStateChangedEventArgs>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -1399,7 +1399,7 @@ impl SpeechRecognizer {
     }
     pub fn HypothesisGenerated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpeechRecognitionHypothesisGeneratedEventArgs>) + Send + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpeechRecognitionHypothesisGeneratedEventArgs>) + Send + Sync + 'static,
     {
         let this = &windows_core::Interface::cast::<ISpeechRecognizer2>(self)?;
         let handler = <super::super::Foundation::TypedEventHandler<Self, SpeechRecognitionHypothesisGeneratedEventArgs>>::new(move |a0, a1| {
