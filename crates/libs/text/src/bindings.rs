@@ -663,21 +663,6 @@ impl IDWriteFontFace1 {
             );
         }
     }
-    pub(crate) unsafe fn GetUnicodeRanges(
-        &self,
-        maxrangecount: UINT32,
-        unicoderanges: Option<*mut DWRITE_UNICODE_RANGE>,
-        actualrangecount: *mut UINT32,
-    ) -> windows_core::HRESULT {
-        unsafe {
-            (windows_core::Interface::vtable(self).GetUnicodeRanges)(
-                windows_core::Interface::as_raw(self),
-                maxrangecount,
-                unicoderanges.unwrap_or(core::mem::zeroed()) as _,
-                actualrangecount as _,
-            )
-        }
-    }
 }
 #[repr(C)]
 pub struct IDWriteFontFace1_Vtbl {
@@ -685,12 +670,7 @@ pub struct IDWriteFontFace1_Vtbl {
     pub GetMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_FONT_METRICS1),
     GetGdiCompatibleMetrics: usize,
     GetCaretMetrics: usize,
-    pub GetUnicodeRanges: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        UINT32,
-        *mut DWRITE_UNICODE_RANGE,
-        *mut UINT32,
-    ) -> windows_core::HRESULT,
+    GetUnicodeRanges: usize,
     IsMonospacedFont: usize,
     GetDesignGlyphAdvances: usize,
     GetGdiCompatibleGlyphAdvances: usize,

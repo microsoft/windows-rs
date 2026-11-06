@@ -218,19 +218,6 @@ impl FontFace {
     pub fn to_interface<T: Interface>(&self) -> Result<T> {
         self.0.cast()
     }
-
-    pub(crate) fn unicode_ranges(&self) -> Vec<DWRITE_UNICODE_RANGE> {
-        unsafe {
-            let mut count = 0;
-            // Fails with E_NOT_SUFFICIENT_BUFFER while reporting the count.
-            _ = self.0.GetUnicodeRanges(0, None, &mut count);
-            let mut ranges = vec![DWRITE_UNICODE_RANGE::default(); count as usize];
-            self.0
-                .GetUnicodeRanges(count, Some(ranges.as_mut_ptr()), &mut count)
-                .unwrap();
-            ranges
-        }
-    }
 }
 
 impl PartialEq for FontFace {
@@ -308,6 +295,6 @@ pub struct GlyphMetrics {
     pub advance_height: u32,
     /// Distance from the bottom of the black box to the vertical advance.
     pub bottom_side_bearing: i32,
-    /// Vertical origin, measured from the top of the em box.
+    /// Vertical origin, measured upward from the baseline.
     pub vertical_origin_y: i32,
 }

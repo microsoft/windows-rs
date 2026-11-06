@@ -27,7 +27,7 @@
     IDWriteFont::CreateFontFace
     IDWriteFontCollection::{FindFamilyName, GetFontFamily, GetFontFamilyCount}
     IDWriteFontFace::{GetDesignGlyphMetrics, GetGlyphIndices}
-    IDWriteFontFace1::{GetMetrics, GetUnicodeRanges}
+    IDWriteFontFace1::GetMetrics
     IDWriteFontFace2::IsColorFont
     IDWriteFontFace3::{GetFamilyNames, GetStyle, GetWeight}
     IDWriteFontFallbackBuilder::{AddMapping, AddMappings, CreateFontFallback}
