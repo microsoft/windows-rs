@@ -47,8 +47,8 @@ fn draw(ctx: &DrawContext, loaded: &FontCollection) -> Result<()> {
     let families = system.family_names();
 
     // A format draws with the loaded collection instead of the system's fonts.
-    let format = TextFormat::new("Gabriola", 44.0)?.with_collection(loaded);
-    let layout = TextLayout::new("Gabriola, loaded from data", &format, ctx.width, HEADER)?;
+    let format = TextFormat::new("Gabriola", 44.0).with_collection(loaded);
+    let layout = TextLayout::new("Gabriola, loaded from data", &format, ctx.width, HEADER);
     ctx.draw_text_layout(Vector2::new(MARGIN, MARGIN - 12.0), &layout, &accent);
 
     let face = loaded
@@ -62,8 +62,8 @@ fn draw(ctx: &DrawContext, loaded: &FontCollection) -> Result<()> {
         metrics.design_units_per_em,
         families.len()
     );
-    let format = TextFormat::new("Segoe UI", 15.0)?;
-    let layout = TextLayout::new(&summary, &format, ctx.width, ROW)?;
+    let format = TextFormat::new("Segoe UI", 15.0);
+    let layout = TextLayout::new(&summary, &format, ctx.width, ROW);
     ctx.draw_text_layout(Vector2::new(MARGIN, MARGIN + 64.0), &layout, &white);
 
     // Each installed family, drawn in its own font, in columns that fill the window.
@@ -78,8 +78,8 @@ fn draw(ctx: &DrawContext, loaded: &FontCollection) -> Result<()> {
             break;
         }
 
-        let format = TextFormat::new(family, 18.0)?.with_word_wrapping(WordWrapping::NoWrap);
-        let layout = TextLayout::new(family, &format, COLUMN, ROW)?;
+        let format = TextFormat::new(family, 18.0).with_word_wrapping(WordWrapping::NoWrap);
+        let layout = TextLayout::new(family, &format, COLUMN, ROW);
         ctx.draw_text_layout(origin, &layout, &white);
         origin.y += ROW;
     }

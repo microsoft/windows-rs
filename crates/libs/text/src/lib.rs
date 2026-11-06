@@ -16,7 +16,6 @@ mod glyph_run;
 mod layout;
 mod offsets;
 mod raster;
-mod types;
 
 use bindings::*;
 use factory::{factory, localized, memory_loader, user_locale, wide};
@@ -30,7 +29,6 @@ pub use format::*;
 pub use glyph_run::*;
 pub use layout::*;
 pub use raster::*;
-pub use types::*;
 
 pub use windows_core::Result;
 pub use windows_numerics::{Rect, Vector2};

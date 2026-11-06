@@ -20,7 +20,8 @@ pub struct GlyphRun {
     pub baseline_origin: Vector2,
     /// `true` if the run is read right to left.
     pub is_right_to_left: bool,
-    /// UTF-8 byte range of the text the run displays.
+    /// UTF-8 byte range of the text the run displays. The ellipsis of trimmed text has an empty
+    /// range where the visible text before it ends.
     pub text_range: Range<usize>,
     /// The glyphs in text order.
     pub glyphs: Vec<Glyph>,
@@ -73,6 +74,10 @@ pub(crate) struct Collector<'a> {
     // The face of the previous run and the face DirectWrite passed for it. Adjacent runs often
     // share a face, which saves a query per run.
     face: Option<(*mut c_void, FontFace)>,
+    // The end of the previous run, and whether an inline object, such as a trimming ellipsis, is
+    // drawing runs whose text is not part of the layout's text.
+    end: usize,
+    inline: bool,
 }
 
 impl<'a> Collector<'a> {
@@ -82,6 +87,8 @@ impl<'a> Collector<'a> {
             runs: Some(Vec::new()),
             decorations: None,
             face: None,
+            end: 0,
+            inline: false,
         };
         collector.draw(layout);
         collector.runs.unwrap()
@@ -93,6 +100,8 @@ impl<'a> Collector<'a> {
             runs: None,
             decorations: Some(Vec::new()),
             face: None,
+            end: 0,
+            inline: false,
         };
         collector.draw(layout);
         collector.decorations.unwrap()
@@ -122,7 +131,7 @@ impl<'a> Collector<'a> {
 }
 
 fn glyph_run(
-    text: &Offsets,
+    collector: &mut Collector,
     font_face: FontFace,
     origin: Vector2,
     run: &DWRITE_GLYPH_RUN,
@@ -164,12 +173,27 @@ fn glyph_run(
         })
         .collect();
 
+    if collector.inline {
+        let end = collector.end;
+        for glyph in &mut glyphs {
+            glyph.text_position = end;
+        }
+        return GlyphRun {
+            font_face,
+            font_size: run.fontEmSize,
+            baseline_origin: origin,
+            is_right_to_left,
+            text_range: end..end,
+            glyphs,
+        };
+    }
+
     // The cluster map gives the first glyph of the cluster at each UTF-16 position in the
     // run. A cluster owns the glyphs up to the first glyph of the next cluster.
     let start = description.textPosition;
     let length = description.stringLength as usize;
     let map = unsafe { slice(description.clusterMap, length) };
-    let mut cursor = text.cursor();
+    let mut cursor = collector.offsets.cursor();
     let run_start = cursor.utf8(start);
     let mut position = 0;
 
@@ -189,12 +213,15 @@ fn glyph_run(
         position = next;
     }
 
+    let end = cursor.utf8(start + length as u32);
+    collector.end = end;
+
     GlyphRun {
         font_face,
         font_size: run.fontEmSize,
         baseline_origin: origin,
         is_right_to_left,
-        text_range: run_start..cursor.utf8(start + length as u32),
+        text_range: run_start..end,
         glyphs,
     }
 }
@@ -262,7 +289,7 @@ impl IDWriteTextRenderer_Impl for Renderer_Impl {
             let (run, description) =
                 unsafe { (run.as_ref().unwrap(), description.as_ref().unwrap()) };
             let face = collector.font_face(run.fontFace.as_ref().unwrap());
-            let run = glyph_run(collector.offsets, face, origin, run, description);
+            let run = glyph_run(collector, face, origin, run, description);
             collector.runs.as_mut().unwrap().push(run);
         }
         HRESULT(0)
@@ -306,16 +333,36 @@ impl IDWriteTextRenderer_Impl for Renderer_Impl {
         HRESULT(0)
     }
 
+    // The only inline object a layout can hold is the trimming ellipsis, which draws its own
+    // glyph runs back through this renderer.
     fn DrawInlineObject(
         &self,
-        _context: *const c_void,
-        _x: f32,
-        _y: f32,
-        _object: Ref<IDWriteInlineObject>,
-        _is_sideways: BOOL,
-        _is_right_to_left: BOOL,
-        _effect: Ref<IUnknown>,
+        context: *const c_void,
+        x: f32,
+        y: f32,
+        object: Ref<IDWriteInlineObject>,
+        is_sideways: BOOL,
+        is_right_to_left: BOOL,
+        effect: Ref<IUnknown>,
     ) -> HRESULT {
-        HRESULT(0)
+        if unsafe { collector(context) }.runs.is_none() {
+            return HRESULT(0);
+        }
+
+        unsafe { collector(context) }.inline = true;
+        let renderer: IDWriteTextRenderer = self.to_interface();
+        let result = unsafe {
+            object.ok().unwrap().Draw(
+                Some(context),
+                &renderer,
+                x,
+                y,
+                is_sideways.as_bool(),
+                is_right_to_left.as_bool(),
+                effect.as_ref(),
+            )
+        };
+        unsafe { collector(context) }.inline = false;
+        result
     }
 }

@@ -114,9 +114,7 @@ mod tests {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(128, 64).unwrap();
 
-        let format = TextFormat::new("Segoe UI", 16.0)
-            .unwrap()
-            .with_alignment(TextAlignment::Center);
+        let format = TextFormat::new("Segoe UI", 16.0).with_alignment(TextAlignment::Center);
         let brush = chain.create_solid_brush(ColorF::WHITE).unwrap();
 
         let session = chain.begin_draw().unwrap();
@@ -368,8 +366,8 @@ mod tests {
     }
 
     #[test]
-    fn text_format_new_bold() {
-        let format = TextFormat::new_bold("Segoe UI", 20.0).unwrap();
+    fn bold_text() {
+        let format = TextFormat::new("Segoe UI", 20.0).with_weight(windows_text::FontWeight::BOLD);
 
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(128, 64).unwrap();
@@ -709,8 +707,8 @@ mod tests {
 
     #[test]
     fn text_format_with_weight_and_paragraph_alignment() {
-        let format = TextFormat::new_bold("Segoe UI", 18.0)
-            .unwrap()
+        let format = TextFormat::new("Segoe UI", 18.0)
+            .with_weight(windows_text::FontWeight::BOLD)
             .with_paragraph_alignment(ParagraphAlignment::Center);
 
         let device = GpuDevice::new_warp().unwrap();
@@ -1106,10 +1104,8 @@ mod tests {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(256, 64).unwrap();
 
-        let format = TextFormat::new("Segoe UI", 20.0)
-            .unwrap()
-            .with_alignment(TextAlignment::Center);
-        let layout = TextLayout::new("Layout", &format, 256.0, 64.0).unwrap();
+        let format = TextFormat::new("Segoe UI", 20.0).with_alignment(TextAlignment::Center);
+        let layout = TextLayout::new("Layout", &format, 256.0, 64.0);
         let brush = chain.create_solid_brush(ColorF::WHITE).unwrap();
 
         let session = chain.begin_draw().unwrap();
@@ -1168,12 +1164,12 @@ mod tests {
     }
 
     fn text_layout(text: &str, format: &TextFormat, width: f32) -> TextLayout {
-        TextLayout::new(text, format, width, 100.0).unwrap()
+        TextLayout::new(text, format, width, 100.0)
     }
 
     #[test]
     fn text_ink_matches_layout_metrics() {
-        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let format = TextFormat::new("Segoe UI", 24.0);
         let layout = text_layout("Hello", &format, 200.0);
         let origin = Vector2::new(10.0, 5.0);
         let ink = Ink::render(220, 60, &layout, origin).bounds();
@@ -1206,7 +1202,7 @@ mod tests {
 
     #[test]
     fn text_ink_follows_origin() {
-        let format = TextFormat::new("Segoe UI", 20.0).unwrap();
+        let format = TextFormat::new("Segoe UI", 20.0);
         let layout = text_layout("Move", &format, 100.0);
         let a = Ink::render(140, 60, &layout, Vector2::new(0.0, 0.0)).bounds();
         let b = Ink::render(140, 60, &layout, Vector2::new(20.0, 10.0)).bounds();
@@ -1219,9 +1215,7 @@ mod tests {
     #[test]
     fn text_ink_follows_alignment() {
         let ink = |alignment| {
-            let format = TextFormat::new("Segoe UI", 20.0)
-                .unwrap()
-                .with_alignment(alignment);
+            let format = TextFormat::new("Segoe UI", 20.0).with_alignment(alignment);
             let layout = text_layout("Align", &format, 200.0);
             Ink::render(200, 40, &layout, Vector2::new(0.0, 0.0)).bounds()
         };
@@ -1237,9 +1231,7 @@ mod tests {
 
     #[test]
     fn text_ink_wraps_onto_lines() {
-        let format = TextFormat::new("Segoe UI", 20.0)
-            .unwrap()
-            .with_word_wrapping(WordWrapping::Wrap);
+        let format = TextFormat::new("Segoe UI", 20.0).with_word_wrapping(WordWrapping::Wrap);
         let wide = text_layout("one two three", &format, 300.0);
         let narrow = text_layout("one two three", &format, 60.0);
         assert_eq!(wide.metrics().line_count, 1);
@@ -1258,8 +1250,8 @@ mod tests {
 
     #[test]
     fn bold_text_has_more_ink() {
-        let normal = TextFormat::new("Segoe UI", 24.0).unwrap();
-        let bold = TextFormat::new_bold("Segoe UI", 24.0).unwrap();
+        let normal = TextFormat::new("Segoe UI", 24.0);
+        let bold = TextFormat::new("Segoe UI", 24.0).with_weight(windows_text::FontWeight::BOLD);
         let origin = Vector2::new(0.0, 0.0);
         let normal = Ink::render(200, 40, &text_layout("Weight", &normal, 200.0), origin);
         let bold = Ink::render(200, 40, &text_layout("Weight", &bold, 200.0), origin);
@@ -1268,7 +1260,7 @@ mod tests {
 
     #[test]
     fn underline_and_strikethrough_have_ink() {
-        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let format = TextFormat::new("Segoe UI", 24.0);
         let origin = Vector2::new(0.0, 0.0);
         let plain = Ink::render(200, 40, &text_layout("aaaa", &format, 200.0), origin).bounds();
 
@@ -1303,7 +1295,7 @@ mod tests {
 
     #[test]
     fn range_weight_has_more_ink() {
-        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let format = TextFormat::new("Segoe UI", 24.0);
         let origin = Vector2::new(0.0, 0.0);
         let ink = |bold: std::ops::Range<usize>| {
             let mut layout = text_layout("WeightWeight", &format, 300.0);

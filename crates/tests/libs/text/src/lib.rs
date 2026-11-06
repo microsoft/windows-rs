@@ -5,15 +5,14 @@ mod tests {
     use windows_text::*;
 
     fn layout(text: &str) -> TextLayout {
-        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
-        TextLayout::new(text, &format, 400.0, 200.0).unwrap()
+        let format = TextFormat::new("Segoe UI", 24.0);
+        TextLayout::new(text, &format, 400.0, 200.0)
     }
 
     #[test]
     fn text_layout_metrics() {
         let layout = layout("Hello, Canvas!");
         assert_eq!(layout.text(), "Hello, Canvas!");
-        assert_eq!(layout.max_size(), (400.0, 200.0));
 
         let m = layout.metrics();
         assert_eq!(m.line_count, 1);
@@ -28,30 +27,22 @@ mod tests {
 
     #[test]
     fn bold_is_wider_than_normal() {
-        let normal = TextFormat::new("Segoe UI", 24.0).unwrap();
-        let bold = TextFormat::new_bold("Segoe UI", 24.0).unwrap();
-        let light = TextFormat::new("Segoe UI", 24.0)
-            .unwrap()
-            .with_weight(FontWeight::LIGHT);
-        let width = |f| {
-            TextLayout::new("Weight", f, 400.0, 200.0)
-                .unwrap()
-                .metrics()
-                .width
-        };
+        let normal = TextFormat::new("Segoe UI", 24.0);
+        let bold = TextFormat::new("Segoe UI", 24.0).with_weight(FontWeight::BOLD);
+        let light = TextFormat::new("Segoe UI", 24.0).with_weight(FontWeight::LIGHT);
+        let width = |f| TextLayout::new("Weight", f, 400.0, 200.0).metrics().width;
         assert!(width(&bold) > width(&normal));
         assert!(width(&normal) > width(&light));
     }
 
     #[test]
     fn alignment_moves_text() {
-        let leading = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let leading = TextFormat::new("Segoe UI", 24.0);
         let centered = TextFormat::new("Segoe UI", 24.0)
-            .unwrap()
             .with_alignment(TextAlignment::Center)
             .with_paragraph_alignment(ParagraphAlignment::Bottom);
-        let leading = TextLayout::new("Hi", &leading, 400.0, 200.0).unwrap();
-        let centered = TextLayout::new("Hi", &centered, 400.0, 200.0).unwrap();
+        let leading = TextLayout::new("Hi", &leading, 400.0, 200.0);
+        let centered = TextLayout::new("Hi", &centered, 400.0, 200.0);
         assert_eq!(leading.metrics().left, 0.0);
         assert!(centered.metrics().left > 100.0);
         assert!(centered.metrics().top > 100.0);
@@ -59,14 +50,9 @@ mod tests {
 
     #[test]
     fn format_clones_are_independent() {
-        let left = |format: &TextFormat| {
-            TextLayout::new("Hi", format, 400.0, 200.0)
-                .unwrap()
-                .metrics()
-                .left
-        };
+        let left = |format: &TextFormat| TextLayout::new("Hi", format, 400.0, 200.0).metrics().left;
 
-        let base = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let base = TextFormat::new("Segoe UI", 24.0);
         let centered = base.clone().with_alignment(TextAlignment::Center);
         let trailing = centered.clone().with_alignment(TextAlignment::Trailing);
         assert_eq!(left(&base), 0.0);
@@ -74,21 +60,19 @@ mod tests {
         assert!(left(&trailing) > left(&centered));
 
         // A layout keeps the settings its format had when the layout was created.
-        let layout = TextLayout::new("Hi", &base, 400.0, 200.0).unwrap();
+        let layout = TextLayout::new("Hi", &base, 400.0, 200.0);
         let _ = base.with_alignment(TextAlignment::Trailing);
         assert_eq!(layout.metrics().left, 0.0);
     }
 
     #[test]
     fn text_layout_wraps_when_narrow() {
-        let format = TextFormat::new("Segoe UI", 24.0)
-            .unwrap()
-            .with_word_wrapping(WordWrapping::Wrap);
+        let format = TextFormat::new("Segoe UI", 24.0).with_word_wrapping(WordWrapping::Wrap);
 
-        let mut wide = TextLayout::new("word word word word word", &format, 1000.0, 500.0).unwrap();
+        let mut wide = TextLayout::new("word word word word word", &format, 1000.0, 500.0);
         assert_eq!(wide.metrics().line_count, 1);
 
-        let narrow = TextLayout::new("word word word word word", &format, 60.0, 500.0).unwrap();
+        let narrow = TextLayout::new("word word word word word", &format, 60.0, 500.0);
         assert!(narrow.metrics().line_count > 1);
 
         wide.set_max_size(60.0, 500.0);
@@ -97,10 +81,8 @@ mod tests {
 
     #[test]
     fn text_layout_no_wrap_stays_one_line() {
-        let format = TextFormat::new("Segoe UI", 24.0)
-            .unwrap()
-            .with_word_wrapping(WordWrapping::NoWrap);
-        let layout = TextLayout::new("word word word word word", &format, 40.0, 500.0).unwrap();
+        let format = TextFormat::new("Segoe UI", 24.0).with_word_wrapping(WordWrapping::NoWrap);
+        let layout = TextLayout::new("word word word word word", &format, 40.0, 500.0);
         assert_eq!(layout.metrics().line_count, 1);
     }
 
@@ -109,14 +91,13 @@ mod tests {
         let layout = layout("Hello");
 
         let first = layout.hit_test_point(Vector2::new(0.0, 5.0));
-        assert_eq!(first.text_position, 0);
-        assert_eq!(first.length, 1);
+        assert_eq!(first.text_range, 0..1);
         assert!(first.bounds.width() > 0.0);
 
         let past = layout.hit_test_point(Vector2::new(1000.0, 1000.0));
         assert!(!past.is_inside);
         assert!(past.is_trailing_hit);
-        assert_eq!(past.text_position + past.length, 5);
+        assert_eq!(past.text_range.end, 5);
         assert_eq!(past.caret_position(), 5);
         assert_eq!(first.caret_position(), 0);
 
@@ -151,8 +132,7 @@ mod tests {
         for (start, ch) in text.char_indices() {
             let caret = layout.caret_bounds(start, false);
             let hit = layout.hit_test_point(Vector2::new(caret.left + 1.0, caret.top + 1.0));
-            assert_eq!(hit.text_position, start);
-            assert_eq!(hit.length, ch.len_utf8());
+            assert_eq!(hit.text_range, start..start + ch.len_utf8());
             assert!(!hit.is_trailing_hit);
         }
     }
@@ -225,27 +205,15 @@ mod tests {
         );
 
         // A format that uses the collection lays out with its font: Consolas is monospaced.
-        let format = TextFormat::new("Consolas", 24.0)
-            .unwrap()
-            .with_collection(&collection);
-        let width = |text| {
-            TextLayout::new(text, &format, 400.0, 200.0)
-                .unwrap()
-                .metrics()
-                .width
-        };
+        let format = TextFormat::new("Consolas", 24.0).with_collection(&collection);
+        let width = |text| TextLayout::new(text, &format, 400.0, 200.0).metrics().width;
         assert_eq!(width("iiii"), width("WWWW"));
 
         // A collection without Consolas cannot supply it, so the text is no longer monospaced.
         let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\segoeui.ttf").unwrap();
         let collection = FontCollection::from_data([data.as_slice()]).unwrap();
         let format = format.with_collection(&collection);
-        let width = |text| {
-            TextLayout::new(text, &format, 400.0, 200.0)
-                .unwrap()
-                .metrics()
-                .width
-        };
+        let width = |text| TextLayout::new(text, &format, 400.0, 200.0).metrics().width;
         assert!(width("iiii") < width("WWWW") / 2.0);
 
         assert!(FontCollection::from_data([b"not a font".as_slice()]).is_err());
@@ -255,11 +223,10 @@ mod tests {
     fn format_style_and_locale() {
         let width = |format: &TextFormat| {
             TextLayout::new("Slanted text", format, 400.0, 200.0)
-                .unwrap()
                 .metrics()
                 .width
         };
-        let normal = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let normal = TextFormat::new("Segoe UI", 24.0);
         let italic = normal.clone().with_style(FontStyle::Italic);
         assert_ne!(width(&normal), width(&italic));
 
@@ -268,7 +235,7 @@ mod tests {
             .with_alignment(TextAlignment::Center)
             .with_locale("en-gb")
             .with_style(FontStyle::Italic);
-        let layout = TextLayout::new("Hi", &centered, 400.0, 200.0).unwrap();
+        let layout = TextLayout::new("Hi", &centered, 400.0, 200.0);
         assert!(layout.metrics().left > 100.0);
     }
 
@@ -284,12 +251,11 @@ mod tests {
         assert_eq!(face("Consolas").glyph_index(SNOWMAN), None);
 
         let width = |fallback: Option<&FontFallback>| {
-            let mut format = TextFormat::new("Consolas", 100.0).unwrap();
+            let mut format = TextFormat::new("Consolas", 100.0);
             if let Some(fallback) = fallback {
                 format = format.with_fallback(fallback);
             }
             TextLayout::new(&SNOWMAN.to_string(), &format, 1000.0, 1000.0)
-                .unwrap()
                 .metrics()
                 .width
         };
@@ -353,10 +319,8 @@ mod tests {
         // Consolas is missing from a Segoe UI collection until the range uses the system fonts.
         let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\segoeui.ttf").unwrap();
         let segoe = FontCollection::from_data([data.as_slice()]).unwrap();
-        let format = TextFormat::new("Consolas", 24.0)
-            .unwrap()
-            .with_collection(&segoe);
-        let mut text = TextLayout::new("iiiiWWWW", &format, 400.0, 200.0).unwrap();
+        let format = TextFormat::new("Consolas", 24.0).with_collection(&segoe);
+        let mut text = TextLayout::new("iiiiWWWW", &format, 400.0, 200.0);
         let (narrow, wide) = widths(&text);
         assert!(narrow < wide);
         text.set_font_collection(.., &FontCollection::system());
@@ -366,8 +330,8 @@ mod tests {
 
     #[test]
     fn font_features() {
-        let format = TextFormat::new("Calibri", 24.0).unwrap();
-        let mut layout = TextLayout::new("fi", &format, 400.0, 200.0).unwrap();
+        let format = TextFormat::new("Calibri", 24.0);
+        let mut layout = TextLayout::new("fi", &format, 400.0, 200.0);
         assert_eq!(ranges(&layout.cluster_metrics()), [(0, 2)]);
 
         layout.set_font_features(.., &[FontFeature::new(b"liga", 0)]);
@@ -408,8 +372,8 @@ mod tests {
                 .all(|line| line.height > 0.0 && line.baseline > 0.0)
         );
 
-        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
-        let wrapped = TextLayout::new("aaaa bbbb", &format, 70.0, 200.0).unwrap();
+        let format = TextFormat::new("Segoe UI", 24.0);
+        let wrapped = TextLayout::new("aaaa bbbb", &format, 70.0, 200.0);
         let lines = wrapped.line_metrics();
         assert_eq!(lines.len(), 2);
         assert_eq!(lines[0].text_range, 0..5);
@@ -423,7 +387,7 @@ mod tests {
 
         // Lines stack from the top of the text, which moves when the paragraph is centered.
         let format = format.with_paragraph_alignment(ParagraphAlignment::Center);
-        let mut centered = TextLayout::new("aaaa bbbb cccc", &format, 120.0, 400.0).unwrap();
+        let mut centered = TextLayout::new("aaaa bbbb cccc", &format, 120.0, 400.0);
         centered.set_font_size(5..9, 48.0);
         let metrics = centered.metrics();
         let lines = centered.line_metrics();
@@ -453,8 +417,8 @@ mod tests {
     fn long_text_offsets() {
         // Characters of every UTF-8 length, so that chunks of the offset index split them.
         let text = "a\u{e9}\u{20ac}\u{1f600}".repeat(100);
-        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
-        let layout = TextLayout::new(&text, &format, 1e6, 200.0).unwrap();
+        let format = TextFormat::new("Segoe UI", 24.0);
+        let layout = TextLayout::new(&text, &format, 1e6, 200.0);
 
         let clusters = layout.cluster_metrics();
         let expected: Vec<_> = text
@@ -470,15 +434,12 @@ mod tests {
             assert!((caret.left - left).abs() < 0.01);
 
             let hit = layout.hit_test_point(Vector2::new(left + cluster.width / 2.0, 10.0));
-            assert_eq!(
-                hit.text_position..hit.text_position + hit.length,
-                cluster.text_range
-            );
+            assert_eq!(hit.text_range, cluster.text_range);
             left += cluster.width;
         }
 
         // Wrapped lines and their glyph runs start beyond the first chunk.
-        let wrapped = TextLayout::new(&text, &format, 300.0, 1e6).unwrap();
+        let wrapped = TextLayout::new(&text, &format, 300.0, 1e6);
         let lines = wrapped.line_metrics();
         assert!(lines.len() > 1);
         let mut end = 0;
@@ -804,7 +765,6 @@ mod tests {
         let system = FontCollection::system();
         let fallback = FontFallback::new(&system, &["Segoe UI Symbol"]);
         let format = TextFormat::new("Consolas", 24.0)
-            .unwrap()
             .with_collection(&loaded)
             .with_fallback(&fallback);
         let face = loaded
@@ -813,7 +773,7 @@ mod tests {
 
         let work = |face: &FontFace| {
             let glyph = face.glyph_index('W').unwrap();
-            let layout = TextLayout::new("\u{2603} snow", &format, 400.0, 200.0).unwrap();
+            let layout = TextLayout::new("\u{2603} snow", &format, 400.0, 200.0);
             (
                 face.metrics(),
                 face.glyph_metrics(glyph),
@@ -840,10 +800,125 @@ mod tests {
         });
 
         // A layout can move to another thread.
-        let layout = TextLayout::new("snow", &format, 400.0, 200.0).unwrap();
+        let layout = TextLayout::new("snow", &format, 400.0, 200.0);
         let width = std::thread::spawn(move || layout.metrics().width)
             .join()
             .unwrap();
         assert!(width > 0.0);
+    }
+
+    #[test]
+    fn justified_fills_wrapped_lines() {
+        let text = "word word word word word word word word";
+        let width = |alignment| {
+            let format = TextFormat::new("Segoe UI", 24.0).with_alignment(alignment);
+            TextLayout::new(text, &format, 200.0, 400.0).metrics().width
+        };
+        assert_eq!(width(TextAlignment::Justified), 200.0);
+        assert!(width(TextAlignment::Leading) < 190.0);
+    }
+
+    #[test]
+    fn reading_direction() {
+        let format =
+            TextFormat::new("Segoe UI", 24.0).with_reading_direction(ReadingDirection::RightToLeft);
+        let layout = TextLayout::new("Hi", &format, 400.0, 100.0);
+
+        // The leading edge is on the right, so the text aligns there.
+        let metrics = layout.metrics();
+        assert!(close(metrics.left + metrics.width, 400.0));
+        assert_eq!(layout.caret_bounds(0, false).left, metrics.left);
+    }
+
+    #[test]
+    fn trimming_ends_with_ellipsis() {
+        let text = "The quick brown fox jumps over the lazy dog";
+        let format = TextFormat::new("Segoe UI", 24.0).with_word_wrapping(WordWrapping::NoWrap);
+        assert!(TextLayout::new(text, &format, 150.0, 100.0).metrics().width > 150.0);
+
+        let format = format.with_trimming(Trimming::Word);
+        let layout = TextLayout::new(text, &format, 150.0, 100.0);
+        assert!(layout.metrics().width <= 150.0);
+
+        // The visible words, then the ellipsis with an empty range where they end.
+        let runs = layout.glyph_runs();
+        assert_eq!(runs.len(), 2);
+        assert_eq!(runs[0].text_range, 0..9);
+        assert_eq!(runs[1].text_range, 9..9);
+        assert_eq!(runs[1].font_face, segoe());
+        let ellipsis = runs[1].glyphs[0];
+        assert_eq!(Some(ellipsis.id), segoe().glyph_index('\u{2026}'));
+        assert_eq!(ellipsis.text_position, 9);
+        assert!(ellipsis.position.x >= runs[0].glyphs[8].position.x);
+
+        // Text that fits is not trimmed.
+        let layout = TextLayout::new("The quick", &format, 150.0, 100.0);
+        assert_eq!(layout.glyph_runs().len(), 1);
+
+        // Trimming applies to the last line that fits in the height.
+        let format = TextFormat::new("Segoe UI", 24.0).with_trimming(Trimming::Character);
+        let layout = TextLayout::new(text, &format, 150.0, 40.0);
+        let runs = layout.glyph_runs();
+        assert!(runs.last().unwrap().text_range.is_empty());
+    }
+
+    #[test]
+    fn line_spacing() {
+        let lines = |spacing| {
+            let format = TextFormat::new("Segoe UI", 20.0).with_line_spacing(spacing);
+            TextLayout::new("one\ntwo\nthree", &format, 400.0, 400.0).line_metrics()
+        };
+
+        let default = lines(LineSpacing::Default);
+        assert_eq!(lines(LineSpacing::Proportional(1.0)), default);
+
+        // Proportional spacing splits the extra space evenly above and below the text.
+        let double = lines(LineSpacing::Proportional(2.0));
+        let (height, baseline) = (default[0].height, default[0].baseline);
+        for (index, line) in double.iter().enumerate() {
+            assert!(close(line.height, 2.0 * height));
+            assert!(close(line.baseline, baseline + height / 2.0));
+            assert!(close(line.top, index as f32 * 2.0 * height));
+        }
+
+        let uniform = lines(LineSpacing::Uniform {
+            height: 40.0,
+            baseline: 30.0,
+        });
+        for (index, line) in uniform.iter().enumerate() {
+            assert_eq!(
+                (line.top, line.height, line.baseline),
+                (index as f32 * 40.0, 40.0, 30.0)
+            );
+        }
+    }
+
+    #[test]
+    fn tab_width() {
+        let tab = |format: TextFormat| {
+            TextLayout::new("a\tb", &format, 400.0, 100.0)
+                .caret_bounds(2, false)
+                .left
+        };
+        assert_eq!(tab(TextFormat::new("Segoe UI", 24.0)), 96.0);
+        assert_eq!(
+            tab(TextFormat::new("Segoe UI", 24.0).with_tab_width(100.0)),
+            100.0
+        );
+    }
+
+    #[test]
+    fn range_locale() {
+        // Cambria has a Serbian form of the Cyrillic be.
+        let format = TextFormat::new("Cambria", 24.0);
+        let mut layout = TextLayout::new("\u{431} \u{431}", &format, 400.0, 100.0);
+        layout.set_locale(3.., "sr-Cyrl-RS");
+        let ids: Vec<u16> = layout
+            .glyph_runs()
+            .iter()
+            .flat_map(|run| run.glyphs.iter().map(|glyph| glyph.id))
+            .collect();
+        assert_eq!(ids.len(), 3);
+        assert_ne!(ids[0], ids[2]);
     }
 }

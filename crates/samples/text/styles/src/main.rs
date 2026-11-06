@@ -50,13 +50,13 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     text.add(", without: 1/2 3/4");
 
     // Each setter styles a UTF-8 byte range of the text.
-    let format = TextFormat::new("Calibri", 26.0)?;
+    let format = TextFormat::new("Calibri", 26.0);
     let mut layout = TextLayout::new(
         &text.text,
         &format,
         (ctx.width - 2.0 * MARGIN).max(0.0),
         (ctx.height - 2.0 * MARGIN).max(0.0),
-    )?;
+    );
     layout.set_font_weight(bold, FontWeight::BOLD);
     layout.set_font_style(italic, FontStyle::Italic);
     layout.set_font_size(larger, 38.0);

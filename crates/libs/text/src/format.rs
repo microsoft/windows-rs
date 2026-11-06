@@ -12,6 +12,9 @@ pub enum TextAlignment {
     Center,
     /// Align to the trailing edge (right in LTR).
     Trailing,
+    /// Stretch each wrapped line to fill the width by widening the spaces between words. The last
+    /// line of a paragraph aligns to the leading edge.
+    Justified,
 }
 
 /// Vertical paragraph alignment.
@@ -36,6 +39,49 @@ pub enum WordWrapping {
     Wrap,
     /// Do not wrap; text may extend past the layout width.
     NoWrap,
+}
+
+/// The direction in which a paragraph reads.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+#[non_exhaustive]
+pub enum ReadingDirection {
+    /// Left to right, as in English. The leading edge is on the left.
+    #[default]
+    LeftToRight,
+    /// Right to left, as in Arabic and Hebrew. The leading edge is on the right.
+    RightToLeft,
+}
+
+/// Where text that overflows the layout box is cut off and replaced by an ellipsis.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+#[non_exhaustive]
+pub enum Trimming {
+    /// Do not trim; text may extend past the layout box.
+    #[default]
+    None,
+    /// End the visible text with an ellipsis at a character boundary.
+    Character,
+    /// End the visible text with an ellipsis at a word boundary.
+    Word,
+}
+
+/// The distance between lines of text.
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[non_exhaustive]
+pub enum LineSpacing {
+    /// Each line is as tall as its fonts and inline content need.
+    #[default]
+    Default,
+    /// Each line is this many times its default height, with the extra space split evenly above
+    /// and below the text, as in CSS `line-height`.
+    Proportional(f32),
+    /// Every line is `height` tall, with its baseline `baseline` below the top of the line.
+    Uniform {
+        /// The height of each line in device-independent pixels.
+        height: f32,
+        /// The distance from the top of each line to its baseline.
+        baseline: f32,
+    },
 }
 
 /// A text format describing font family, size, weight, style, and alignment.
@@ -66,38 +112,39 @@ struct Settings {
     alignment: TextAlignment,
     paragraph_alignment: ParagraphAlignment,
     word_wrapping: WordWrapping,
+    reading_direction: ReadingDirection,
+    trimming: Trimming,
+    line_spacing: LineSpacing,
+    tab_width: Option<f32>,
     fallback: Option<FontFallback>,
 }
 
 impl TextFormat {
-    /// Creates a text format with normal weight and style from the system fonts.
-    pub fn new(family: &str, size: f32) -> Result<Self> {
-        Self::create(family, size, FontWeight::NORMAL)
-    }
-
-    /// Creates a text format with bold weight and normal style from the system fonts.
-    pub fn new_bold(family: &str, size: f32) -> Result<Self> {
-        Self::create(family, size, FontWeight::BOLD)
-    }
-
-    fn create(family: &str, size: f32, weight: FontWeight) -> Result<Self> {
+    /// Creates a text format for `family` at an em size of `size` device-independent pixels, with
+    /// normal weight and style from the system fonts. If the family is not installed, text uses
+    /// the fallback fonts. Panics if `size` is not positive.
+    pub fn new(family: &str, size: f32) -> Self {
         let settings = Settings {
             family: wide(family),
             size,
-            weight,
+            weight: FontWeight::NORMAL,
             style: FontStyle::Normal,
             collection: None,
             locale: None,
             alignment: TextAlignment::default(),
             paragraph_alignment: ParagraphAlignment::default(),
             word_wrapping: WordWrapping::default(),
+            reading_direction: ReadingDirection::default(),
+            trimming: Trimming::default(),
+            line_spacing: LineSpacing::default(),
+            tab_width: None,
             fallback: None,
         };
-        let raw = settings.create()?;
-        Ok(Self(Arc::new(Inner { raw, settings })))
+        let raw = settings.create();
+        Self(Arc::new(Inner { raw, settings }))
     }
 
-    /// Sets the font weight.
+    /// Sets the font weight. Panics if the weight is not from 1 to 999.
     pub fn with_weight(self, weight: FontWeight) -> Self {
         self.recreate(|settings| settings.weight = weight)
     }
@@ -133,6 +180,28 @@ impl TextFormat {
         self.update(|settings| settings.word_wrapping = wrapping)
     }
 
+    /// Sets the reading direction of each paragraph, which also decides which edge is leading.
+    pub fn with_reading_direction(self, direction: ReadingDirection) -> Self {
+        self.update(|settings| settings.reading_direction = direction)
+    }
+
+    /// Sets how text that overflows the layout box is trimmed. Combine with
+    /// [`WordWrapping::NoWrap`] to trim a single line to the width.
+    pub fn with_trimming(self, trimming: Trimming) -> Self {
+        self.update(|settings| settings.trimming = trimming)
+    }
+
+    /// Sets the distance between lines.
+    pub fn with_line_spacing(self, spacing: LineSpacing) -> Self {
+        self.update(|settings| settings.line_spacing = spacing)
+    }
+
+    /// Sets the distance between tab stops in device-independent pixels. The default is four
+    /// times the font size. Panics if `width` is not positive.
+    pub fn with_tab_width(self, width: f32) -> Self {
+        self.update(|settings| settings.tab_width = Some(width))
+    }
+
     /// Sets the fonts to try for characters the format's font cannot display. The default is the
     /// system fallback.
     pub fn with_fallback(self, fallback: &FontFallback) -> Self {
@@ -165,7 +234,7 @@ impl TextFormat {
     fn recreate(self, change: impl FnOnce(&mut Settings)) -> Self {
         let mut settings = self.0.settings.clone();
         change(&mut settings);
-        let raw = settings.create().unwrap();
+        let raw = settings.create();
         settings.apply(&raw);
         Self(Arc::new(Inner { raw, settings }))
     }
@@ -184,7 +253,7 @@ impl TextFormat {
 }
 
 impl Settings {
-    fn create(&self) -> Result<IDWriteTextFormat1> {
+    fn create(&self) -> IDWriteTextFormat1 {
         let locale = self.locale.as_deref().unwrap_or(user_locale());
 
         unsafe {
@@ -197,8 +266,10 @@ impl Settings {
                     DWRITE_FONT_STRETCH_NORMAL,
                     self.size,
                     locale.as_ptr(),
-                )?
+                )
+                .unwrap()
                 .cast()
+                .unwrap()
         }
     }
 
@@ -207,6 +278,7 @@ impl Settings {
             TextAlignment::Leading => DWRITE_TEXT_ALIGNMENT_LEADING,
             TextAlignment::Center => DWRITE_TEXT_ALIGNMENT_CENTER,
             TextAlignment::Trailing => DWRITE_TEXT_ALIGNMENT_TRAILING,
+            TextAlignment::Justified => DWRITE_TEXT_ALIGNMENT_JUSTIFIED,
         };
         let paragraph_alignment = match self.paragraph_alignment {
             ParagraphAlignment::Top => DWRITE_PARAGRAPH_ALIGNMENT_NEAR,
@@ -217,11 +289,55 @@ impl Settings {
             WordWrapping::Wrap => DWRITE_WORD_WRAPPING_WRAP,
             WordWrapping::NoWrap => DWRITE_WORD_WRAPPING_NO_WRAP,
         };
+        let reading_direction = match self.reading_direction {
+            ReadingDirection::LeftToRight => DWRITE_READING_DIRECTION_LEFT_TO_RIGHT,
+            ReadingDirection::RightToLeft => DWRITE_READING_DIRECTION_RIGHT_TO_LEFT,
+        };
+        let granularity = match self.trimming {
+            Trimming::None => DWRITE_TRIMMING_GRANULARITY_NONE,
+            Trimming::Character => DWRITE_TRIMMING_GRANULARITY_CHARACTER,
+            Trimming::Word => DWRITE_TRIMMING_GRANULARITY_WORD,
+        };
+        let (method, height, baseline, leading_before) = match self.line_spacing {
+            LineSpacing::Default => (DWRITE_LINE_SPACING_METHOD_DEFAULT, 0.0, 0.0, 0.0),
+            LineSpacing::Proportional(height) => {
+                (DWRITE_LINE_SPACING_METHOD_PROPORTIONAL, height, 1.0, 0.5)
+            }
+            LineSpacing::Uniform { height, baseline } => {
+                (DWRITE_LINE_SPACING_METHOD_UNIFORM, height, baseline, 0.0)
+            }
+        };
 
         unsafe {
             raw.SetTextAlignment(alignment).unwrap();
             raw.SetParagraphAlignment(paragraph_alignment).unwrap();
             raw.SetWordWrapping(word_wrapping).unwrap();
+            raw.SetReadingDirection(reading_direction).unwrap();
+
+            // The ellipsis is drawn in the format's font, so it is created from the format.
+            let sign = (self.trimming != Trimming::None)
+                .then(|| factory().CreateEllipsisTrimmingSign(raw).unwrap());
+            let trimming = DWRITE_TRIMMING {
+                granularity,
+                ..Default::default()
+            };
+            raw.SetTrimming(&trimming, sign.as_ref()).unwrap();
+
+            raw.cast::<IDWriteTextFormat2>()
+                .unwrap()
+                .SetLineSpacing(&DWRITE_LINE_SPACING {
+                    method,
+                    height,
+                    baseline,
+                    leadingBefore: leading_before,
+                    fontLineGapUsage: DWRITE_FONT_LINE_GAP_USAGE_DEFAULT,
+                })
+                .unwrap();
+
+            if let Some(width) = self.tab_width {
+                raw.SetIncrementalTabStop(width).unwrap();
+            }
+
             raw.SetFontFallback(self.fallback.as_ref().map(FontFallback::raw))
                 .unwrap();
         }

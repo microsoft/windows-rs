@@ -48,6 +48,14 @@ impl FontFallback {
         }
     }
 
+    /// Borrows the underlying `IDWriteFontFallback` as `T` without a `QueryInterface` call.
+    ///
+    /// `T` is `IDWriteFontFallback` from other bindings, such as the `windows` crate; other
+    /// interfaces fail to build.
+    pub fn as_interface<T: Interface>(&self) -> &T {
+        self.0.as_interface()
+    }
+
     /// Casts the underlying `IDWriteFontFallback` to `T`.
     pub fn to_interface<T: Interface>(&self) -> Result<T> {
         self.0.cast()

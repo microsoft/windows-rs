@@ -187,7 +187,7 @@ fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
         }
     }
 
-    let format = TextFormat::new("Segoe UI", 16.0)?.with_alignment(TextAlignment::Center);
+    let format = TextFormat::new("Segoe UI", 16.0).with_alignment(TextAlignment::Center);
     session.draw_text(
         &format!("{i}"),
         &format,

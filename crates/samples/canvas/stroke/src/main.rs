@@ -39,7 +39,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
         ),
     ];
 
-    let label_fmt = TextFormat::new("Segoe UI", 14.0)?;
+    let label_fmt = TextFormat::new("Segoe UI", 14.0);
 
     for (i, (name, builder)) in styles.iter().enumerate() {
         let style = device.create_stroke_style(builder)?;

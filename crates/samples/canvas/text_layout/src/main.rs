@@ -47,22 +47,18 @@ impl Component for Sample {
 
             if ctx.device_changed() {
                 let format =
-                    TextFormat::new("Segoe UI", 28.0)?.with_word_wrapping(WordWrapping::Wrap);
-                let layout = TextLayout::new(
-                    TEXT,
-                    &format,
-                    ctx.width - 2.0 * MARGIN,
-                    ctx.height - 2.0 * MARGIN,
-                )?;
+                    TextFormat::new("Segoe UI", 28.0).with_word_wrapping(WordWrapping::Wrap);
+                let width = (ctx.width - 2.0 * MARGIN).max(0.0);
+                let height = (ctx.height - 2.0 * MARGIN).max(0.0);
+                let layout = TextLayout::new(TEXT, &format, width, height);
                 let metrics = layout.metrics();
 
                 let readout = format!(
                     "{} lines  -  {:.0} x {:.0} px",
                     metrics.line_count, metrics.width, metrics.height
                 );
-                let label_format = TextFormat::new("Consolas", 16.0)?;
-                let label =
-                    TextLayout::new(&readout, &label_format, ctx.width - 2.0 * MARGIN, MARGIN)?;
+                let label_format = TextFormat::new("Consolas", 16.0);
+                let label = TextLayout::new(&readout, &label_format, width, MARGIN);
 
                 *resources.borrow_mut() = Some(Resources {
                     layout,

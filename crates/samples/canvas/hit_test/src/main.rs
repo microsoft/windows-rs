@@ -84,8 +84,9 @@ impl Component for Sample {
                     ColorF::new(1.0, 0.8, 0.0, 1.0)
                 };
                 ctx.fill_path(path, &ctx.create_solid_brush(fill)?);
-                let format =
-                    TextFormat::new_bold("Segoe UI", 18.0)?.with_alignment(TextAlignment::Center);
+                let format = TextFormat::new("Segoe UI", 18.0)
+                    .with_weight(windows_text::FontWeight::BOLD)
+                    .with_alignment(TextAlignment::Center);
                 let label = if inside {
                     "Inside the star"
                 } else {

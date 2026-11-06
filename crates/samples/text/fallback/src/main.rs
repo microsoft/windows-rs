@@ -18,7 +18,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let white = ctx.create_solid_brush(ColorF::WHITE)?;
     let dim = ctx.create_solid_brush(ColorF::from_rgb8(140, 150, 170))?;
     let accent = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
-    let label_format = TextFormat::new("Segoe UI", 14.0)?;
+    let label_format = TextFormat::new("Segoe UI", 14.0);
     let width = (ctx.width - 2.0 * MARGIN).max(0.0);
 
     // Consolas covers only a few scripts. The system fallback picks fonts for the rest, and a
@@ -27,21 +27,21 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let system = FontCollection::system();
     let custom = FontFallback::new(&system, &["Segoe UI Symbol", "SimSun"]);
     let rows = [
-        ("System fallback", TextFormat::new("Consolas", 26.0)?),
+        ("System fallback", TextFormat::new("Consolas", 26.0)),
         (
             "Segoe UI Symbol and SimSun first",
-            TextFormat::new("Consolas", 26.0)?.with_fallback(&custom),
+            TextFormat::new("Consolas", 26.0).with_fallback(&custom),
         ),
     ];
 
     let mut y = MARGIN;
 
     for (label, format) in &rows {
-        let layout = TextLayout::new(label, &label_format, width, 24.0)?;
+        let layout = TextLayout::new(label, &label_format, width, 24.0);
         ctx.draw_text_layout(Vector2::new(MARGIN, y), &layout, &dim);
         y += 24.0;
 
-        let layout = TextLayout::new(TEXT, format, width, ctx.height)?;
+        let layout = TextLayout::new(TEXT, format, width, ctx.height);
         ctx.draw_text_layout(Vector2::new(MARGIN, y), &layout, &white);
         y += layout.metrics().height + 8.0;
 
@@ -67,7 +67,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
             .map(|(family, texts)| format!("{family}: {}", texts.join(" ")))
             .collect::<Vec<_>>()
             .join("\n");
-        let layout = TextLayout::new(&summary, &label_format, width, ctx.height)?;
+        let layout = TextLayout::new(&summary, &label_format, width, ctx.height);
         ctx.draw_text_layout(Vector2::new(MARGIN, y), &layout, &accent);
         y += layout.metrics().height + 32.0;
     }

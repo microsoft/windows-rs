@@ -2,9 +2,9 @@ use windows_text::*;
 
 const TEXT: &str = "Caf\u{e9} \u{1f600} wraps across lines in a narrow box.";
 
-fn main() -> Result<()> {
-    let format = TextFormat::new("Segoe UI", 20.0)?.with_word_wrapping(WordWrapping::Wrap);
-    let layout = TextLayout::new(TEXT, &format, 160.0, 400.0)?;
+fn main() {
+    let format = TextFormat::new("Segoe UI", 20.0).with_word_wrapping(WordWrapping::Wrap);
+    let layout = TextLayout::new(TEXT, &format, 160.0, 400.0);
 
     let m = layout.metrics();
     println!(
@@ -21,9 +21,5 @@ fn main() -> Result<()> {
     }
 
     let hit = layout.hit_test_point(Vector2::new(m.width, m.height));
-    println!(
-        "last line ends with {:?}",
-        &TEXT[hit.text_position..hit.text_position + hit.length]
-    );
-    Ok(())
+    println!("last line ends with {:?}", &TEXT[hit.text_range]);
 }

@@ -51,7 +51,7 @@ fn draw(context: &DrawContext, points: &[Vector2]) -> Result<()> {
     context.clear(ColorF::from_rgb8(0x10, 0x12, 0x18));
     let brush = context.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
     if points.is_empty() {
-        let format = TextFormat::new("Segoe UI", 24.0)?
+        let format = TextFormat::new("Segoe UI", 24.0)
             .with_alignment(TextAlignment::Center)
             .with_paragraph_alignment(ParagraphAlignment::Center);
         context.draw_text(
