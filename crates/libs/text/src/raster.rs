@@ -43,12 +43,14 @@ const FOREGROUND: u16 = 0xFFFF;
 /// The text rendering settings Windows applies when blending glyph coverage.
 ///
 /// Returned by [`RenderingParams::system`]. A renderer that blends coverage from
-/// [`FontFace::rasterize`] or [`FontFace::rasterize_cleartype`] with these values matches the
-/// weight and contrast of native Windows text.
+/// [`FontFace::rasterize`] or [`FontFace::rasterize_cleartype`] with these values, as described
+/// for [`gamma_ratios`](Self::gamma_ratios), matches the weight and contrast of native Windows
+/// text.
 #[derive(Copy, Clone, Debug, PartialEq)]
 #[non_exhaustive]
 pub struct RenderingParams {
-    /// The gamma used when blending text with the background, such as 1.8.
+    /// The gamma used when blending text with the background, such as 1.8. See
+    /// [`gamma_ratios`](Self::gamma_ratios).
     pub gamma: f32,
     /// The contrast added to grayscale coverage before blending, where 0.0 adds none.
     pub grayscale_enhanced_contrast: f32,
@@ -107,6 +109,49 @@ impl RenderingParams {
                 pixel_geometry,
             }
         }
+    }
+
+    /// Returns the constants of DirectWrite's alpha correction for [`gamma`](Self::gamma).
+    ///
+    /// Glyph coverage is linear, but Windows blends text as if it were gamma corrected, which
+    /// depends on the text color. To match it, adjust each coverage value `a` from 0.0 to 1.0
+    /// before blending the straight text color `color` over the background with alpha `a`:
+    ///
+    /// | Step | Grayscale | ClearType, for each channel |
+    /// | --- | --- | --- |
+    /// | Level | - | `a = level * a + (1 - level) * average`, with [`cleartype_level`](Self::cleartype_level) |
+    /// | Contrast | `k = grayscale_enhanced_contrast * s` | `k = enhanced_contrast * s` |
+    /// | | `a = a * (k + 1) / (a * k + 1)` | the same |
+    /// | Gamma | `f = 0.25 * red + 0.5 * green + 0.25 * blue` | `f` is the channel of `color` |
+    /// | | `a = a + a * (1 - a) * ((g[0] * f + g[1]) * a + g[2] * f + g[3])` | the same |
+    ///
+    /// Here `g` is the result of this method, and `s = clamp(4 * (0.75 - lightness), 0, 1)`
+    /// with `lightness = 0.30 * red + 0.59 * green + 0.11 * blue` reduces the contrast for
+    /// light text. Gamma values from 1.0 to 2.2 are supported, rounded to a tenth; 1.0 returns
+    /// zeros, which leave the coverage as is.
+    pub fn gamma_ratios(&self) -> [f32; 4] {
+        // Ratios for gamma 1.0 to 2.2 in steps of 0.1, before the scaling below.
+        const RATIOS: [[f32; 4]; 13] = [
+            [0.0, 0.0, 0.0, 0.0],
+            [0.0166, -0.0807, 0.2227, -0.0751],
+            [0.0350, -0.1760, 0.4325, -0.1370],
+            [0.0543, -0.2821, 0.6302, -0.1876],
+            [0.0739, -0.3963, 0.8167, -0.2287],
+            [0.0933, -0.5161, 0.9926, -0.2616],
+            [0.1121, -0.6395, 1.1588, -0.2877],
+            [0.1300, -0.7649, 1.3159, -0.3080],
+            [0.1469, -0.8911, 1.4644, -0.3234],
+            [0.1627, -1.0170, 1.6051, -0.3347],
+            [0.1773, -1.1420, 1.7385, -0.3426],
+            [0.1908, -1.2652, 1.8650, -0.3476],
+            [0.2031, -1.3864, 1.9851, -0.3501],
+        ];
+
+        let index = ((self.gamma * 10.0).round().clamp(10.0, 22.0) - 10.0) as usize;
+        let [a, b, c, d] = RATIOS[index];
+        let squared = 65536.0 / (255.0 * 255.0);
+        let linear = 256.0 / 255.0;
+        [a * squared, b * linear, c * squared, d * linear]
     }
 }
 

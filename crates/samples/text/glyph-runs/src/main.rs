@@ -19,17 +19,22 @@ struct Target {
     width: usize,
     height: usize,
     pixels: Vec<u8>,
+    params: RenderingParams,
+    gamma: [f32; 4],
 }
 
 impl Target {
     fn new(width: usize, height: usize) -> Self {
         let [red, green, blue] = BACKGROUND;
         let pixels = [blue, green, red, 255].repeat(width * height);
+        let params = RenderingParams::system();
 
         Self {
             width,
             height,
             pixels,
+            params,
+            gamma: params.gamma_ratios(),
         }
     }
 
@@ -52,6 +57,8 @@ impl Target {
                     }
                 }
 
+                let coverage = self.correct(coverage, color, channels == 3);
+
                 self.blend(
                     x + image.left + column,
                     y + image.top + row,
@@ -68,13 +75,40 @@ impl Target {
 
         for y in top..bottom {
             for x in bounds.left.round() as i32..bounds.right.round() as i32 {
-                self.blend(x, y, color, [255; 3]);
+                self.blend(x, y, color, [1.0; 3]);
             }
         }
     }
 
-    // Blends each color channel with its own coverage, given in red, green, blue order.
-    fn blend(&mut self, x: i32, y: i32, color: [f32; 4], coverage: [u8; 3]) {
+    // Adjusts coverage for `color` as DirectWrite does, as described for
+    // `RenderingParams::gamma_ratios`, and returns it from 0.0 to 1.0.
+    fn correct(&self, coverage: [u8; 3], color: [f32; 4], cleartype: bool) -> [f32; 3] {
+        let coverage = coverage.map(|value| f32::from(value) / 255.0);
+        let [red, green, blue, _] = color;
+
+        let (contrast, level) = if cleartype {
+            (self.params.enhanced_contrast, self.params.cleartype_level)
+        } else {
+            (self.params.grayscale_enhanced_contrast, 1.0)
+        };
+
+        let lightness = 0.30 * red + 0.59 * green + 0.11 * blue;
+        let contrast = contrast * (4.0 * (0.75 - lightness)).clamp(0.0, 1.0);
+        let average = coverage.iter().sum::<f32>() / 3.0;
+        let gray = 0.25 * red + 0.5 * green + 0.25 * blue;
+        let [g0, g1, g2, g3] = self.gamma;
+
+        std::array::from_fn(|channel| {
+            let mut alpha = level * coverage[channel] + (1.0 - level) * average;
+            alpha = alpha * (contrast + 1.0) / (alpha * contrast + 1.0);
+            let intensity = if cleartype { color[channel] } else { gray };
+            alpha + alpha * (1.0 - alpha) * ((g0 * intensity + g1) * alpha + g2 * intensity + g3)
+        })
+    }
+
+    // Blends each color channel with its own coverage from 0.0 to 1.0, given in red, green, blue
+    // order.
+    fn blend(&mut self, x: i32, y: i32, color: [f32; 4], coverage: [f32; 3]) {
         if x < 0 || y < 0 || x as usize >= self.width || y as usize >= self.height {
             return;
         }
@@ -90,7 +124,7 @@ impl Target {
         .into_iter()
         .enumerate()
         {
-            let alpha = color[3] * f32::from(coverage) / 255.0;
+            let alpha = color[3] * coverage;
             let target = f32::from(pixel[channel]) / 255.0;
             pixel[channel] = ((source * alpha + target * (1.0 - alpha)) * 255.0).round() as u8;
         }
