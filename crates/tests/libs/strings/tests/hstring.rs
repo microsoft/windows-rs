@@ -1,4 +1,4 @@
-#![cfg(windows)]
+#[cfg(windows)]
 use windows::core::Result;
 use windows_strings::*;
 
@@ -61,6 +61,7 @@ fn from_empty_string() {
 }
 
 #[test]
+#[cfg(windows)]
 fn from_os_string_string() {
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
     use std::os::windows::prelude::OsStringExt;
@@ -71,6 +72,7 @@ fn from_os_string_string() {
 }
 
 #[test]
+#[cfg(windows)]
 fn from_os_str_string() {
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
     use std::os::windows::prelude::OsStringExt;
@@ -82,6 +84,7 @@ fn from_os_str_string() {
 }
 
 #[test]
+#[cfg(windows)]
 fn from_path() {
     let p = std::path::Path::new("/foo/bar");
     let h = HSTRING::from(p);
@@ -114,6 +117,7 @@ fn hstring_to_string_lossy() {
 }
 
 #[test]
+#[cfg(windows)]
 fn hstring_to_os_string() {
     // The invalid sequence is between valid UTF-16 text.
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
@@ -193,6 +197,7 @@ fn hstring_equality_combinations() {
 }
 
 #[test]
+#[cfg(windows)]
 fn hstring_osstring_equality_combinations() {
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
     let h = HSTRING::from_wide(wide_data);
@@ -222,6 +227,7 @@ fn hstring_osstring_equality_combinations() {
 }
 
 #[test]
+#[cfg(windows)]
 fn hstring_compat() -> Result<()> {
     unsafe {
         use windows::Win32::*;
@@ -307,11 +313,11 @@ fn deref_as_slice() {
     assert_eq!(HSTRING::from_wide(&deref[..=3]), "0123");
     assert!(deref.ends_with(&deref[7..=9]));
     assert_eq!(deref.get(5), Some(b'5' as u16).as_ref());
-    let ptr = PCWSTR(deref.as_ptr());
     assert_eq!(deref.cmp(&deref), std::cmp::Ordering::Equal);
 
+    #[cfg(windows)]
     unsafe {
-        assert_eq!(*ptr.as_wide(), *deref);
+        assert_eq!(*PCWSTR(deref.as_ptr()).as_wide(), *deref);
     }
 
     let empty = HSTRING::new();
@@ -320,14 +326,83 @@ fn deref_as_slice() {
     assert_eq!(*empty, []);
 
     unsafe {
-        assert_eq!(wcslen(empty.as_ptr()), 0);
+        assert_eq!(*empty.as_ptr(), 0);
     }
 }
 
-unsafe extern "C" {
-    pub fn wcslen(s: *const u16) -> usize;
+#[test]
+fn clone_outlives_original() {
+    let original = HSTRING::from_wide(&[65]);
+    let clone = original.clone();
+    drop(original);
+    assert_eq!(clone, "A");
+    drop(clone);
 }
 
+#[test]
+#[cfg(windows)]
+fn native_clone_outlives_original() -> Result<()> {
+    use windows::Win32::*;
+
+    let wide = [65, 0, 0xd800, 66];
+    let mut original = HSTRING::new();
+    unsafe {
+        WindowsCreateString(Some(wide.as_ptr()), wide.len() as u32, &mut original).ok()?;
+    }
+    let clone = original.clone();
+    drop(original);
+
+    let mut native = HSTRING::new();
+    unsafe {
+        WindowsDuplicateString(&clone, &mut native).ok()?;
+    }
+    drop(clone);
+    assert_eq!(*native, wide);
+
+    let clone = native.clone();
+    unsafe {
+        let native = std::mem::ManuallyDrop::new(native);
+        assert_eq!(
+            sys::WindowsDeleteString(std::mem::transmute_copy(&*native)),
+            0
+        );
+        let mut len = 0;
+        let buffer = WindowsGetStringRawBuffer(&clone, Some(&mut len));
+        assert_eq!(len as usize, wide.len());
+        assert_eq!(
+            std::slice::from_raw_parts(buffer.0, len as usize + 1),
+            [65, 0, 0xd800, 66, 0]
+        );
+    }
+    drop(clone);
+    Ok(())
+}
+
+#[test]
+fn utf8_allocation() {
+    for text in ["hello", "\u{e9}", "\u{1f600}", "a\u{e9}\u{1f600}"] {
+        let value = HSTRING::from(text);
+        assert_eq!(value.to_string_lossy(), text);
+        assert_eq!(value.len(), text.encode_utf16().count());
+    }
+}
+
+#[test]
+fn null_terminated_pointer() {
+    for value in [h!(""), h!("hello")] {
+        unsafe {
+            assert_eq!(*value.as_ptr().add(value.len()), 0);
+        }
+    }
+
+    let value = h!("hello").clone();
+    assert_eq!(value, "hello");
+    unsafe {
+        assert_eq!(*value.as_ptr().add(value.len()), 0);
+    }
+}
+
+#[cfg(windows)]
 #[expect(clippy::upper_case_acronyms)]
 mod sys {
     windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring: PCWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut HSTRING) -> HRESULT);

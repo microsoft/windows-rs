@@ -1,6 +1,33 @@
 use windows_metadata::*;
 
 #[test]
+fn in_memory_roundtrip() {
+    let mut file = writer::File::new("test");
+    let value_type = file.TypeRef("System", "ValueType");
+    file.TypeDef(
+        "Test",
+        "Record",
+        writer::TypeDefOrRef::TypeRef(value_type),
+        TypeAttributes::Public | TypeAttributes::SequentialLayout,
+    );
+    file.Field("Value", &Type::U32, FieldAttributes::Public);
+    file.Field(
+        "Values",
+        &Type::ArrayFixed(Box::new(Type::U16), 3),
+        FieldAttributes::Public,
+    );
+
+    let index = reader::Index::new(vec![reader::File::new(file.into_stream()).unwrap()]);
+    let record = index.expect("Test", "Record");
+    let fields: Vec<_> = record.fields().collect();
+    assert_eq!(fields.len(), 2);
+    assert_eq!(fields[0].name(), "Value");
+    assert_eq!(fields[0].ty(), Type::U32);
+    assert_eq!(fields[1].name(), "Values");
+    assert_eq!(fields[1].ty(), Type::ArrayFixed(Box::new(Type::U16), 3));
+}
+
+#[test]
 fn type_index() {
     let index = reader::Index::new(vec![
         reader::File::new(windows_default::WINRT.to_vec()).unwrap(),

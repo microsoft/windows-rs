@@ -15,7 +15,7 @@ features = ["std"]
 [dependencies.windows-link]
 workspace = true
 
-[dev-dependencies.windows]
+[target.'cfg(windows)'.dev-dependencies.windows]
 workspace = true
 features = [
     "oleauto",
@@ -24,7 +24,7 @@ features = [
     "wtypesbase",
 ]
 
-[dev-dependencies]
+[target.'cfg(windows)'.dev-dependencies]
 helpers = { workspace = true }
 
 [lints]
