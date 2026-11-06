@@ -76,30 +76,10 @@ impl<A: Adapter> ComponentHost<A> {
     ) -> View {
         expansion.seen.entry(owner).or_default();
         let mut path = Vec::new();
-        let declaration = match view.0 {
-            DeclaredNode::Object(declaration) => declaration,
-            DeclaredNode::Component { .. } => {
-                panic!("a component view cannot be another component")
-            }
-            DeclaredNode::Provider(provider) => {
-                return self.expand_provider_view(
-                    owner,
-                    provider.provision,
-                    provider.child,
-                    environment,
-                    ExpansionLocation {
-                        depth,
-                        path: &mut path,
-                    },
-                    expansion,
-                );
-            }
-        };
-        View(DeclaredNode::Object(self.expand_declaration(
+        View(DeclaredNode::Object(self.expand_root(
             owner,
-            declaration,
+            view.0,
             environment,
-            true,
             ExpansionLocation {
                 depth,
                 path: &mut path,
@@ -108,34 +88,56 @@ impl<A: Adapter> ComponentHost<A> {
         )))
     }
 
-    fn expand_provider_view(
+    // A root that is another component shares its root object with `owner`.
+    fn expand_root(
         &mut self,
         owner: ComponentId,
-        provision: ContextProvision,
-        child: DeclaredNode,
+        node: DeclaredNode,
         environment: &ContextEnvironment<'_>,
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
-    ) -> View {
-        let mut contexts = environment.contexts.clone();
-        contexts.insert(provision.id, provision.value);
-        let mut provided = environment.provided.clone();
-        provided.insert(provision.id);
-        match child {
+    ) -> Declaration {
+        match node {
             DeclaredNode::Object(declaration) => {
-                View(DeclaredNode::Object(self.expand_declaration(
+                self.scope_mut(owner).unwrap().root_child = None;
+                self.expand_declaration(owner, declaration, environment, true, location, expansion)
+            }
+            DeclaredNode::Provider(provider) => {
+                let mut contexts = environment.contexts.clone();
+                contexts.insert(provider.provision.id, provider.provision.value);
+                let mut provided = environment.provided.clone();
+                provided.insert(provider.provision.id);
+                self.expand_root(
                     owner,
-                    declaration,
+                    provider.child,
                     &ContextEnvironment {
                         contexts: &contexts,
                         provided: &provided,
                     },
-                    true,
                     location,
                     expansion,
-                )))
+                )
             }
-            _ => panic!("a context provider in a component view must wrap an element"),
+            DeclaredNode::Component {
+                node,
+                relation_key,
+                attachments,
+            } => {
+                let (child, declaration) = self.expand_component(
+                    owner,
+                    ComponentExpansion {
+                        attachments,
+                        node,
+                        relation_key,
+                    },
+                    environment,
+                    location.depth + 1,
+                    expansion,
+                    location.path,
+                );
+                self.scope_mut(owner).unwrap().root_child = Some(child);
+                declaration
+            }
         }
     }
 
@@ -307,18 +309,21 @@ impl<A: Adapter> ComponentHost<A> {
                 node,
                 relation_key,
                 attachments,
-            } => self.expand_component(
-                owner,
-                ComponentExpansion {
-                    attachments,
-                    node,
-                    relation_key,
-                },
-                environment,
-                depth,
-                expansion,
-                path,
-            ),
+            } => {
+                self.expand_component(
+                    owner,
+                    ComponentExpansion {
+                        attachments,
+                        node,
+                        relation_key,
+                    },
+                    environment,
+                    depth,
+                    expansion,
+                    path,
+                )
+                .1
+            }
         }
     }
 
@@ -330,7 +335,7 @@ impl<A: Adapter> ComponentHost<A> {
         depth: usize,
         expansion: &mut ExpansionState,
         path: &mut Vec<ComponentPathSegment>,
-    ) -> Declaration {
+    ) -> (ComponentId, Declaration) {
         let mut prepared = self.prepare_component(owner, component, environment, expansion, path);
         let expanded = self.expand_view(
             prepared.id,
@@ -350,7 +355,7 @@ impl<A: Adapter> ComponentHost<A> {
             path,
         );
         merge_attachments(&mut declaration.attachments, attachments);
-        declaration
+        (prepared.id, declaration)
     }
 
     fn prepare_component(
@@ -552,10 +557,15 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     pub(super) fn refresh_roots_from(&mut self, declaration: &Declaration, object: ObjectId) {
-        if let Some(id) = declaration.component {
+        // The declaring component and each ancestor whose view is that component share the root.
+        let mut component = declaration.component;
+        while let Some(id) = component {
             let scope = self.scope_mut(id).unwrap();
             scope.root = Some(object);
             scope.reference.set(Some(object));
+            component = scope
+                .parent
+                .filter(|&parent| self.scope(parent).unwrap().root_child == Some(id));
         }
         if let Some(attachments) = &declaration.attachments {
             if let Some(tooltip) = &attachments.tooltip {
