@@ -3,7 +3,8 @@
 Load fonts and lay out, measure, and hit-test text with DirectWrite. The crate does not draw: use
 [windows-canvas](https://docs.rs/windows-canvas) to draw a `TextLayout`, or draw its
 `glyph_runs` and `decorations` with your own renderer, using `FontFace::rasterize` for glyph
-images.
+images. The [glyph-atlas sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/text/glyph-atlas)
+draws them with Direct3D 11.
 
 - 📦 [crates.io](https://crates.io/crates/windows-text)
 - 📖 [docs.rs](https://docs.rs/windows-text)
