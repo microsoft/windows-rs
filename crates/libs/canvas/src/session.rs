@@ -241,7 +241,8 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws text into a layout rectangle measured in DIPs.
+    /// Draws text into a layout rectangle measured in DIPs. Color glyphs, such as emoji, draw in
+    /// their own colors.
     pub fn draw_text(&self, text: &str, format: &TextFormat, rect: &Rect, brush: &impl Paint) {
         let wide: Vec<u16> = text.encode_utf16().collect();
         unsafe {
@@ -251,13 +252,14 @@ impl<'a> DrawingSession<'a> {
                 format.as_interface::<IDWriteTextFormat1>(),
                 &rect.to_abi(),
                 brush.as_raw_brush(),
-                D2D1_DRAW_TEXT_OPTIONS_NONE,
+                D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT,
                 0,
             );
         }
     }
 
-    /// Draws a pre-shaped [`TextLayout`] with its top-left at `origin`.
+    /// Draws a pre-shaped [`TextLayout`] with its top-left at `origin`. Color glyphs, such as
+    /// emoji, draw in their own colors.
     ///
     /// Prefer this over [`draw_text`](Self::draw_text) when the same text is
     /// drawn across frames: the layout is shaped once and reused.
@@ -267,7 +269,7 @@ impl<'a> DrawingSession<'a> {
                 origin,
                 layout.as_interface::<IDWriteTextLayout>(),
                 brush.as_raw_brush(),
-                D2D1_DRAW_TEXT_OPTIONS_NONE,
+                D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT,
             );
         }
     }
