@@ -53,7 +53,7 @@ jobs:
         run: cargo +nightly miri test --target ${{ matrix.target }} -p test_strings --test literals --test encoding
       - name: Check generated pointer provenance
         if: contains(matrix.target, 'windows')
-        run: cargo +nightly miri test --target ${{ matrix.target }} -p test_bindgen --lib provenance_tests
+        run: cargo +nightly miri test --target ${{ matrix.target }} -p test_bindgen --lib -- provenance_tests delegate_tests
       - name: Check scoped interface macro
         if: contains(matrix.target, 'windows')
         run: cargo +nightly miri test --target ${{ matrix.target }} -p test_interface --test non_com_new
