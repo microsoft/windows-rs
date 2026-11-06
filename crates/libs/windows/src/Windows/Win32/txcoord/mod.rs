@@ -397,7 +397,7 @@ impl ITipHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITipHelper_Impl::Pull(this, core::mem::transmute_copy(&i_psztxurl)) {
                     Ok(ok__) => {
-                        o_ppitransaction.write(core::mem::transmute(ok__));
+                        o_ppitransaction.cast::<super::ITransaction>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -412,7 +412,7 @@ impl ITipHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITipHelper_Impl::PullAsync(this, core::mem::transmute_copy(&i_psztxurl), core::mem::transmute_copy(&i_ptippullsink)) {
                     Ok(ok__) => {
-                        o_ppitransaction.write(core::mem::transmute(ok__));
+                        o_ppitransaction.cast::<super::ITransaction>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -696,7 +696,7 @@ impl ITransactionExportFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionExportFactory_Impl::Create(this, core::mem::transmute_copy(&cbwhereabouts), core::mem::transmute_copy(&rgbwhereabouts)) {
                     Ok(ok__) => {
-                        ppexport.write(core::mem::transmute(ok__));
+                        ppexport.cast::<ITransactionExport>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

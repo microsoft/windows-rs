@@ -152,7 +152,7 @@ impl IClusterDetector {
     where
         P3: windows_core::Param<IToc>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Detect)(windows_core::Interface::as_raw(self), dwmaxnumclusters, fminclusterduration, fmaxclusterduration, psrctoc.param().abi(), core::mem::transmute(ppdsttoc)) }
+        unsafe { (windows_core::Interface::vtable(self).Detect)(windows_core::Interface::as_raw(self), dwmaxnumclusters, fminclusterduration, fmaxclusterduration, psrctoc.param().abi(), ppdsttoc as _) }
     }
 }
 #[repr(C)]
@@ -366,7 +366,7 @@ impl IFileIo_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eaccessmode: FILE_ACCESSMODE, eopenmode: FILE_OPENMODE, pwszfilename: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileIo_Impl::Initialize(this, core::mem::transmute_copy(&eaccessmode), core::mem::transmute_copy(&eopenmode), core::mem::transmute(&pwszfilename))
+                IFileIo_Impl::Initialize(this, core::mem::transmute_copy(&eaccessmode), core::mem::transmute_copy(&eopenmode), &*(&raw const pwszfilename).cast())
             }
         }
         unsafe extern "system" fn GetLength<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwlength: *mut super::QWORD) -> windows_core::HRESULT {
@@ -478,7 +478,7 @@ impl IToc {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetEntryListByIndex(&self, wentrylistindex: super::WORD, ppentrylist: *mut Option<ITocEntryList>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEntryListByIndex)(windows_core::Interface::as_raw(self), wentrylistindex, core::mem::transmute(ppentrylist)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEntryListByIndex)(windows_core::Interface::as_raw(self), wentrylistindex, ppentrylist as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn AddEntryList<P0>(&self, pentrylist: P0, pwentrylistindex: *mut super::WORD) -> windows_core::HRESULT
@@ -577,7 +577,7 @@ impl IToc_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdescription: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IToc_Impl::SetDescription(this, core::mem::transmute(&pwszdescription))
+                IToc_Impl::SetDescription(this, &*(&raw const pwszdescription).cast())
             }
         }
         unsafe extern "system" fn GetDescription<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwdescriptionsize: *mut super::WORD, pwszdescription: windows_core::PWSTR) -> windows_core::HRESULT {
@@ -658,7 +658,7 @@ impl ITocCollection {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetEntryByIndex(&self, dwentryindex: super::DWORD, pptoc: *mut Option<IToc>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEntryByIndex)(windows_core::Interface::as_raw(self), dwentryindex, core::mem::transmute(pptoc)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEntryByIndex)(windows_core::Interface::as_raw(self), dwentryindex, pptoc as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn AddEntry<P0>(&self, ptoc: P0, pdwentryindex: *mut super::DWORD) -> windows_core::HRESULT
@@ -849,7 +849,7 @@ impl ITocEntry_Vtbl {
         unsafe extern "system" fn SetTitle<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztitle: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITocEntry_Impl::SetTitle(this, core::mem::transmute(&pwsztitle))
+                ITocEntry_Impl::SetTitle(this, &*(&raw const pwsztitle).cast())
             }
         }
         unsafe extern "system" fn GetTitle<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwtitlesize: *mut super::WORD, pwsztitle: windows_core::PWSTR) -> windows_core::HRESULT {
@@ -921,7 +921,7 @@ impl ITocEntryList {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetEntryByIndex(&self, dwentryindex: super::DWORD, ppentry: *mut Option<ITocEntry>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEntryByIndex)(windows_core::Interface::as_raw(self), dwentryindex, core::mem::transmute(ppentry)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEntryByIndex)(windows_core::Interface::as_raw(self), dwentryindex, ppentry as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn AddEntry<P0>(&self, pentry: P0, pdwentryindex: *mut super::DWORD) -> windows_core::HRESULT
@@ -1038,10 +1038,10 @@ impl ITocParser {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: super::DWORD, pptoc: *mut Option<IToc>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTocByIndex)(windows_core::Interface::as_raw(self), enumtocpostype, dwtocindex, core::mem::transmute(pptoc)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTocByIndex)(windows_core::Interface::as_raw(self), enumtocpostype, dwtocindex, pptoc as _) }
     }
     pub unsafe fn GetTocByType(&self, enumtocpostype: TOC_POS_TYPE, guidtoctype: windows_core::GUID, pptocs: *mut Option<ITocCollection>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTocByType)(windows_core::Interface::as_raw(self), enumtocpostype, guidtoctype, core::mem::transmute(pptocs)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTocByType)(windows_core::Interface::as_raw(self), enumtocpostype, guidtoctype, pptocs as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn AddToc<P1>(&self, enumtocpostype: TOC_POS_TYPE, ptoc: P1, pdwtocindex: *mut super::DWORD) -> windows_core::HRESULT
@@ -1103,7 +1103,7 @@ impl ITocParser_Vtbl {
         unsafe extern "system" fn Init<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilename: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITocParser_Impl::Init(this, core::mem::transmute(&pwszfilename))
+                ITocParser_Impl::Init(this, &*(&raw const pwszfilename).cast())
             }
         }
         unsafe extern "system" fn GetTocCount<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, pdwtoccount: *mut super::DWORD) -> windows_core::HRESULT {
@@ -1121,7 +1121,7 @@ impl ITocParser_Vtbl {
         unsafe extern "system" fn GetTocByType<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, guidtoctype: windows_core::GUID, pptocs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITocParser_Impl::GetTocByType(this, core::mem::transmute_copy(&enumtocpostype), core::mem::transmute(&guidtoctype), core::mem::transmute_copy(&pptocs))
+                ITocParser_Impl::GetTocByType(this, core::mem::transmute_copy(&enumtocpostype), &*(&raw const guidtoctype).cast(), core::mem::transmute_copy(&pptocs))
             }
         }
         unsafe extern "system" fn AddToc<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, ptoc: *mut core::ffi::c_void, pdwtocindex: *mut super::DWORD) -> windows_core::HRESULT {
@@ -1139,7 +1139,7 @@ impl ITocParser_Vtbl {
         unsafe extern "system" fn RemoveTocByType<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, guidtoctype: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITocParser_Impl::RemoveTocByType(this, core::mem::transmute_copy(&enumtocpostype), core::mem::transmute(&guidtoctype))
+                ITocParser_Impl::RemoveTocByType(this, core::mem::transmute_copy(&enumtocpostype), &*(&raw const guidtoctype).cast())
             }
         }
         unsafe extern "system" fn Commit<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1193,7 +1193,7 @@ impl IValidateBinding_Vtbl {
         unsafe extern "system" fn GetIdentifier<Identity: IValidateBinding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidlicensorid: windows_core::GUID, pbephemeron: *const super::BYTE, cbephemeron: super::DWORD, ppbblobvalidationid: *mut *mut super::BYTE, pcbblobsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValidateBinding_Impl::GetIdentifier(this, core::mem::transmute(&guidlicensorid), core::mem::transmute_copy(&pbephemeron), core::mem::transmute_copy(&cbephemeron), core::mem::transmute_copy(&ppbblobvalidationid), core::mem::transmute_copy(&pcbblobsize))
+                IValidateBinding_Impl::GetIdentifier(this, &*(&raw const guidlicensorid).cast(), core::mem::transmute_copy(&pbephemeron), core::mem::transmute_copy(&cbephemeron), core::mem::transmute_copy(&ppbblobvalidationid), core::mem::transmute_copy(&pcbblobsize))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentifier: GetIdentifier::<Identity, OFFSET> }
@@ -1430,13 +1430,13 @@ impl IWMCodecProps_Vtbl {
         unsafe extern "system" fn GetFormatProp<Identity: IWMCodecProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::DMO_MEDIA_TYPE, pszname: windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMCodecProps_Impl::GetFormatProp(this, core::mem::transmute_copy(&pmt), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
+                IWMCodecProps_Impl::GetFormatProp(this, core::mem::transmute_copy(&pmt), &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
             }
         }
         unsafe extern "system" fn GetCodecProp<Identity: IWMCodecProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwformat: super::DWORD, pszname: windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMCodecProps_Impl::GetCodecProp(this, core::mem::transmute_copy(&dwformat), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
+                IWMCodecProps_Impl::GetCodecProp(this, core::mem::transmute_copy(&dwformat), &*(&raw const pszname).cast(), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize))
             }
         }
         Self {
@@ -1952,7 +1952,7 @@ impl IWMValidate_Vtbl {
         unsafe extern "system" fn SetIdentifier<Identity: IWMValidate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidvalidationid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMValidate_Impl::SetIdentifier(this, core::mem::transmute(&guidvalidationid))
+                IWMValidate_Impl::SetIdentifier(this, &*(&raw const guidvalidationid).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetIdentifier: SetIdentifier::<Identity, OFFSET> }

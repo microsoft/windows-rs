@@ -233,7 +233,7 @@ impl IGpioPinProvider_Vtbl {
         unsafe extern "system" fn SetDebounceTimeout<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGpioPinProvider_Impl::SetDebounceTimeout(this, core::mem::transmute(&value)).into()
+                IGpioPinProvider_Impl::SetDebounceTimeout(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn PinNumber<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {

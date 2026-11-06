@@ -11729,7 +11729,7 @@ impl IKeyIndexMapping_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IKeyIndexMapping_Impl::IndexFromKey(this, core::mem::transmute(&key)) {
+                match IKeyIndexMapping_Impl::IndexFromKey(this, &*(&raw const key).cast()) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -21347,9 +21347,7 @@ impl IXamlMetadataProvider {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(self).GetXmlnsDefinitions)(
                 windows_core::Interface::as_raw(self),
-                windows_core::Array::<XmlnsDefinition>::set_abi_len(core::mem::transmute(
-                    &mut result__,
-                )),
+                windows_core::Array::<XmlnsDefinition>::set_abi_len(result__.assume_init_mut()),
                 result__.as_mut_ptr() as *mut _ as _,
             )
             .map(|| result__.assume_init())
@@ -21380,7 +21378,7 @@ impl IXamlMetadataProvider_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXamlMetadataProvider_Impl::GetXamlType(this, core::mem::transmute(&r#type)) {
+                match IXamlMetadataProvider_Impl::GetXamlType(this, &*(&raw const r#type).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -21406,7 +21404,7 @@ impl IXamlMetadataProvider_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXamlMetadataProvider_Impl::GetXamlTypeByFullName(
                     this,
-                    core::mem::transmute(&fullname),
+                    &*(&raw const fullname).cast(),
                 ) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

@@ -1578,7 +1578,7 @@ impl IWebSocket_Vtbl {
         unsafe extern "system" fn SetRequestHeader<Identity: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, headername: *mut core::ffi::c_void, headervalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebSocket_Impl::SetRequestHeader(this, core::mem::transmute(&headername), core::mem::transmute(&headervalue)).into()
+                IWebSocket_Impl::SetRequestHeader(this, &*(&raw const headername).cast(), &*(&raw const headervalue).cast()).into()
             }
         }
         unsafe extern "system" fn Closed<Identity: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -1605,7 +1605,7 @@ impl IWebSocket_Vtbl {
         unsafe extern "system" fn CloseWithStatus<Identity: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, code: u16, reason: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebSocket_Impl::CloseWithStatus(this, code, core::mem::transmute(&reason)).into()
+                IWebSocket_Impl::CloseWithStatus(this, code, &*(&raw const reason).cast()).into()
             }
         }
         Self {

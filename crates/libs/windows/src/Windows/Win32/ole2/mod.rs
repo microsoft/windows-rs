@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn CreateOleAdviseHolder(ppoaholder: *mut Option<super::LPOLEADVISEHOLDER>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CreateOleAdviseHolder(ppoaholder : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateOleAdviseHolder(core::mem::transmute(ppoaholder)) }
+    unsafe { CreateOleAdviseHolder(ppoaholder as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "shared"))]
 #[inline]
@@ -302,7 +302,7 @@ pub unsafe fn OleGetClipboard() -> windows_core::Result<super::LPDATAOBJECT> {
 #[inline]
 pub unsafe fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut Option<super::IDataObject>, dataenterpriseid: *mut windows_core::PWSTR, sourcedescription: *mut windows_core::PWSTR, targetdescription: *mut windows_core::PWSTR, datadescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn OleGetClipboardWithEnterpriseInfo(dataobject : *mut *mut core::ffi::c_void, dataenterpriseid : *mut windows_core::PWSTR, sourcedescription : *mut windows_core::PWSTR, targetdescription : *mut windows_core::PWSTR, datadescription : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { OleGetClipboardWithEnterpriseInfo(core::mem::transmute(dataobject), dataenterpriseid as _, sourcedescription as _, targetdescription as _, datadescription as _) }
+    unsafe { OleGetClipboardWithEnterpriseInfo(dataobject as _, dataenterpriseid as _, sourcedescription as _, targetdescription as _, datadescription as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "wtypesbase"))]
 #[inline]

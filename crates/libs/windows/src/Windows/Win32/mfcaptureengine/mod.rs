@@ -29,10 +29,10 @@ impl IMFCaptureEngine {
         unsafe { (windows_core::Interface::vtable(self).TakePhoto)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetSink(&self, mfcaptureenginesinktype: MF_CAPTURE_ENGINE_SINK_TYPE, ppsink: *mut Option<IMFCaptureSink>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSink)(windows_core::Interface::as_raw(self), mfcaptureenginesinktype, core::mem::transmute(ppsink)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSink)(windows_core::Interface::as_raw(self), mfcaptureenginesinktype, ppsink as _) }
     }
     pub unsafe fn GetSource(&self, ppsource: *mut Option<IMFCaptureSource>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsource)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), ppsource as _) }
     }
 }
 #[repr(C)]
@@ -354,7 +354,7 @@ impl IMFCapturePhotoSink_Vtbl {
         unsafe extern "system" fn SetOutputFileName<Identity: IMFCapturePhotoSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFCapturePhotoSink_Impl::SetOutputFileName(this, core::mem::transmute(&filename))
+                IMFCapturePhotoSink_Impl::SetOutputFileName(this, &*(&raw const filename).cast())
             }
         }
         unsafe extern "system" fn SetSampleCallback<Identity: IMFCapturePhotoSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -646,7 +646,7 @@ impl IMFCaptureRecordSink_Vtbl {
         unsafe extern "system" fn SetOutputFileName<Identity: IMFCaptureRecordSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFCaptureRecordSink_Impl::SetOutputFileName(this, core::mem::transmute(&filename))
+                IMFCaptureRecordSink_Impl::SetOutputFileName(this, &*(&raw const filename).cast())
             }
         }
         unsafe extern "system" fn SetSampleCallback<Identity: IMFCaptureRecordSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamsinkindex: super::DWORD, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -884,7 +884,7 @@ impl IMFCaptureSource {
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn GetCurrentDeviceMediaType(&self, dwsourcestreamindex: super::DWORD, ppmediatype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentDeviceMediaType)(windows_core::Interface::as_raw(self), dwsourcestreamindex, core::mem::transmute(ppmediatype)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentDeviceMediaType)(windows_core::Interface::as_raw(self), dwsourcestreamindex, ppmediatype as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetDeviceStreamCount(&self, pdwstreamcount: *mut super::DWORD) -> windows_core::HRESULT {

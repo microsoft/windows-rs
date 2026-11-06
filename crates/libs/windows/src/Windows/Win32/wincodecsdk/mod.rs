@@ -277,7 +277,7 @@ impl IWICComponentFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentFactory_Impl::CreateMetadataReader(this, core::mem::transmute_copy(&guidmetadataformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwoptions), core::mem::transmute_copy(&pistream)) {
                     Ok(ok__) => {
-                        ppireader.write(core::mem::transmute(ok__));
+                        ppireader.cast::<IWICMetadataReader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -292,7 +292,7 @@ impl IWICComponentFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentFactory_Impl::CreateMetadataReaderFromContainer(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwoptions), core::mem::transmute_copy(&pistream)) {
                     Ok(ok__) => {
-                        ppireader.write(core::mem::transmute(ok__));
+                        ppireader.cast::<IWICMetadataReader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -307,7 +307,7 @@ impl IWICComponentFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentFactory_Impl::CreateMetadataWriter(this, core::mem::transmute_copy(&guidmetadataformat), core::mem::transmute_copy(&pguidvendor), core::mem::transmute_copy(&dwmetadataoptions)) {
                     Ok(ok__) => {
-                        ppiwriter.write(core::mem::transmute(ok__));
+                        ppiwriter.cast::<IWICMetadataWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -322,7 +322,7 @@ impl IWICComponentFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentFactory_Impl::CreateMetadataWriterFromReader(this, core::mem::transmute_copy(&pireader), core::mem::transmute_copy(&pguidvendor)) {
                     Ok(ok__) => {
-                        ppiwriter.write(core::mem::transmute(ok__));
+                        ppiwriter.cast::<IWICMetadataWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -337,7 +337,7 @@ impl IWICComponentFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentFactory_Impl::CreateQueryReaderFromBlockReader(this, core::mem::transmute_copy(&piblockreader)) {
                     Ok(ok__) => {
-                        ppiqueryreader.write(core::mem::transmute(ok__));
+                        ppiqueryreader.cast::<super::IWICMetadataQueryReader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -352,7 +352,7 @@ impl IWICComponentFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentFactory_Impl::CreateQueryWriterFromBlockWriter(this, core::mem::transmute_copy(&piblockwriter)) {
                     Ok(ok__) => {
-                        ppiquerywriter.write(core::mem::transmute(ok__));
+                        ppiquerywriter.cast::<super::IWICMetadataQueryWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -367,7 +367,7 @@ impl IWICComponentFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentFactory_Impl::CreateEncoderPropertyBag(this, core::mem::transmute_copy(&ppropoptions), core::mem::transmute_copy(&ccount)) {
                     Ok(ok__) => {
-                        ppipropertybag.write(core::mem::transmute(ok__));
+                        ppipropertybag.cast::<super::IPropertyBag2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -464,7 +464,7 @@ impl IWICMetadataBlockReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataBlockReader_Impl::GetReaderByIndex(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
-                        ppimetadatareader.write(core::mem::transmute(ok__));
+                        ppimetadatareader.cast::<IWICMetadataReader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -479,7 +479,7 @@ impl IWICMetadataBlockReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataBlockReader_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
-                        ppienummetadata.write(core::mem::transmute(ok__));
+                        ppienummetadata.cast::<super::IEnumUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -584,7 +584,7 @@ impl IWICMetadataBlockWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataBlockWriter_Impl::GetWriterByIndex(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
-                        ppimetadatawriter.write(core::mem::transmute(ok__));
+                        ppimetadatawriter.cast::<IWICMetadataWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -841,7 +841,7 @@ impl IWICMetadataReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataReader_Impl::GetMetadataHandlerInfo(this) {
                     Ok(ok__) => {
-                        ppihandler.write(core::mem::transmute(ok__));
+                        ppihandler.cast::<IWICMetadataHandlerInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -874,7 +874,7 @@ impl IWICMetadataReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataReader_Impl::GetEnumerator(this) {
                     Ok(ok__) => {
-                        ppienummetadata.write(core::mem::transmute(ok__));
+                        ppienummetadata.cast::<super::IWICEnumMetadataItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -972,7 +972,7 @@ impl IWICMetadataReaderInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataReaderInfo_Impl::CreateInstance(this) {
                     Ok(ok__) => {
-                        ppireader.write(core::mem::transmute(ok__));
+                        ppireader.cast::<IWICMetadataReader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1144,7 +1144,7 @@ impl IWICMetadataWriterInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataWriterInfo_Impl::CreateInstance(this) {
                     Ok(ok__) => {
-                        ppiwriter.write(core::mem::transmute(ok__));
+                        ppiwriter.cast::<IWICMetadataWriter>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1287,7 +1287,7 @@ impl IWICStreamProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICStreamProvider_Impl::GetStream(this) {
                     Ok(ok__) => {
-                        ppistream.write(core::mem::transmute(ok__));
+                        ppistream.cast::<super::IStream>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

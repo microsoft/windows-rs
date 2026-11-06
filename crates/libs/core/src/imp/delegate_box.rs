@@ -51,7 +51,7 @@ impl<I: Interface, F> DelegateBox<I, F> {
                 if *iid == <IMarshal as Interface>::IID {
                     (*this).count.add_ref();
                     return marshaler(
-                        core::mem::transmute(&mut (*this).vtable as *mut _ as *mut c_void),
+                        IUnknown::from_raw(&mut (*this).vtable as *mut _ as *mut c_void),
                         interface,
                     );
                 }

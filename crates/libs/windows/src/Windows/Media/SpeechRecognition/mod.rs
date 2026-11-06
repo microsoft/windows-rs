@@ -148,7 +148,7 @@ impl ISpeechRecognitionConstraint_Vtbl {
         unsafe extern "system" fn SetTag<Identity: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechRecognitionConstraint_Impl::SetTag(this, core::mem::transmute(&value)).into()
+                ISpeechRecognitionConstraint_Impl::SetTag(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Type<Identity: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut SpeechRecognitionConstraintType) -> windows_core::HRESULT {

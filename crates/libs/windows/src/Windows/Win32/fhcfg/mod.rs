@@ -85,7 +85,7 @@ impl IFhConfigMgr {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn QueryProtectionStatus(&self, protectionstate: *mut super::DWORD, protecteduntiltime: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryProtectionStatus)(windows_core::Interface::as_raw(self), protectionstate as _, core::mem::transmute(protecteduntiltime)) }
+        unsafe { (windows_core::Interface::vtable(self).QueryProtectionStatus)(windows_core::Interface::as_raw(self), protectionstate as _, protecteduntiltime as _) }
     }
 }
 #[repr(C)]
@@ -157,7 +157,7 @@ impl IFhConfigMgr_Vtbl {
         unsafe extern "system" fn AddRemoveExcludeRule<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, add: windows_core::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFhConfigMgr_Impl::AddRemoveExcludeRule(this, core::mem::transmute_copy(&add), core::mem::transmute_copy(&category), core::mem::transmute(&item))
+                IFhConfigMgr_Impl::AddRemoveExcludeRule(this, core::mem::transmute_copy(&add), core::mem::transmute_copy(&category), &*(&raw const item).cast())
             }
         }
         unsafe extern "system" fn GetIncludeExcludeRules<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, include: windows_core::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, iterator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -165,7 +165,7 @@ impl IFhConfigMgr_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFhConfigMgr_Impl::GetIncludeExcludeRules(this, core::mem::transmute_copy(&include), core::mem::transmute_copy(&category)) {
                     Ok(ok__) => {
-                        iterator.write(core::mem::transmute(ok__));
+                        iterator.cast::<IFhScopeIterator>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -204,7 +204,7 @@ impl IFhConfigMgr_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFhConfigMgr_Impl::GetDefaultTarget(this) {
                     Ok(ok__) => {
-                        defaulttarget.write(core::mem::transmute(ok__));
+                        defaulttarget.cast::<IFhTarget>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -217,13 +217,13 @@ impl IFhConfigMgr_Vtbl {
         unsafe extern "system" fn ValidateTarget<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: *mut core::ffi::c_void, validationresult: PFH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFhConfigMgr_Impl::ValidateTarget(this, core::mem::transmute(&targeturl), core::mem::transmute_copy(&validationresult))
+                IFhConfigMgr_Impl::ValidateTarget(this, &*(&raw const targeturl).cast(), core::mem::transmute_copy(&validationresult))
             }
         }
         unsafe extern "system" fn ProvisionAndSetNewTarget<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: *mut core::ffi::c_void, targetname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFhConfigMgr_Impl::ProvisionAndSetNewTarget(this, core::mem::transmute(&targeturl), core::mem::transmute(&targetname))
+                IFhConfigMgr_Impl::ProvisionAndSetNewTarget(this, &*(&raw const targeturl).cast(), &*(&raw const targetname).cast())
             }
         }
         unsafe extern "system" fn ChangeDefaultTargetRecommendation<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recommend: windows_core::BOOL) -> windows_core::HRESULT {
@@ -273,7 +273,7 @@ impl IFhReassociation {
     }
     #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetConfigurationDetails(&self, index: super::DWORD, username: *mut windows_core::BSTR, pcname: *mut windows_core::BSTR, backuptime: *mut super::FILETIME) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConfigurationDetails)(windows_core::Interface::as_raw(self), index, core::mem::transmute(username), core::mem::transmute(pcname), backuptime as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetConfigurationDetails)(windows_core::Interface::as_raw(self), index, username as _, pcname as _, backuptime as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn SelectConfiguration(&self, index: super::DWORD) -> windows_core::HRESULT {
@@ -313,13 +313,13 @@ impl IFhReassociation_Vtbl {
         unsafe extern "system" fn ValidateTarget<Identity: IFhReassociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: *mut core::ffi::c_void, validationresult: PFH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFhReassociation_Impl::ValidateTarget(this, core::mem::transmute(&targeturl), core::mem::transmute_copy(&validationresult))
+                IFhReassociation_Impl::ValidateTarget(this, &*(&raw const targeturl).cast(), core::mem::transmute_copy(&validationresult))
             }
         }
         unsafe extern "system" fn ScanTargetForConfigurations<Identity: IFhReassociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFhReassociation_Impl::ScanTargetForConfigurations(this, core::mem::transmute(&targeturl))
+                IFhReassociation_Impl::ScanTargetForConfigurations(this, &*(&raw const targeturl).cast())
             }
         }
         unsafe extern "system" fn GetConfigurationDetails<Identity: IFhReassociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::DWORD, username: *mut *mut core::ffi::c_void, pcname: *mut *mut core::ffi::c_void, backuptime: *mut super::FILETIME) -> windows_core::HRESULT {
@@ -362,7 +362,7 @@ impl IFhScopeIterator {
         unsafe { (windows_core::Interface::vtable(self).MoveToNextItem)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetItem(&self, item: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), core::mem::transmute(item)) }
+        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), item as _) }
     }
 }
 #[repr(C)]
@@ -405,7 +405,7 @@ windows_core::imp::define_interface!(IFhTarget, IFhTarget_Vtbl, 0xd87965fd_2bad_
 windows_core::imp::interface_hierarchy!(IFhTarget, windows_core::IUnknown);
 impl IFhTarget {
     pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStringProperty)(windows_core::Interface::as_raw(self), propertytype, core::mem::transmute(propertyvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetStringProperty)(windows_core::Interface::as_raw(self), propertytype, propertyvalue as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut super::ULONGLONG) -> windows_core::HRESULT {

@@ -3,8 +3,7 @@
     non_snake_case,
     non_camel_case_types,
     non_upper_case_globals,
-    clippy::upper_case_acronyms,
-    clippy::missing_transmute_annotations
+    clippy::upper_case_acronyms
 )]
 
 // Compile-check the bindings generated from the in-house `metadata/win32` RDL.

@@ -205,7 +205,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWindowAdapterInterop_Impl::AppActivationClientAdapter(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -220,7 +220,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWindowAdapterInterop_Impl::ApplicationViewClientAdapter(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -235,7 +235,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWindowAdapterInterop_Impl::CoreApplicationViewClientAdapter(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -250,7 +250,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWindowAdapterInterop_Impl::HoloViewClientAdapter(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -265,7 +265,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWindowAdapterInterop_Impl::PositionerClientAdapter(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -280,7 +280,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWindowAdapterInterop_Impl::SystemNavigationClientAdapter(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -295,7 +295,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWindowAdapterInterop_Impl::TitleBarClientAdapter(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

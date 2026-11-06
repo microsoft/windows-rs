@@ -37,7 +37,7 @@ impl ICorrelationVectorInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICorrelationVectorInformation_Impl::LastCorrelationVectorForThread(this) {
                     Ok(ok__) => {
-                        cv.write(core::mem::transmute(ok__));
+                        cv.cast::<windows_core::HSTRING>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -52,7 +52,7 @@ impl ICorrelationVectorInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICorrelationVectorInformation_Impl::NextCorrelationVectorForThread(this) {
                     Ok(ok__) => {
-                        cv.write(core::mem::transmute(ok__));
+                        cv.cast::<windows_core::HSTRING>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -65,7 +65,7 @@ impl ICorrelationVectorInformation_Vtbl {
         unsafe extern "system" fn SetNextCorrelationVectorForThread<Identity: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cv: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorrelationVectorInformation_Impl::SetNextCorrelationVectorForThread(this, core::mem::transmute(&cv))
+                ICorrelationVectorInformation_Impl::SetNextCorrelationVectorForThread(this, &*(&raw const cv).cast())
             }
         }
         Self {

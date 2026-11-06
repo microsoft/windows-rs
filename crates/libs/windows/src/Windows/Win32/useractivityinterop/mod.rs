@@ -109,7 +109,7 @@ impl IUserActivitySourceHostInterop_Vtbl {
         unsafe extern "system" fn SetActivitySourceHost<Identity: IUserActivitySourceHostInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activitysourcehost: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUserActivitySourceHostInterop_Impl::SetActivitySourceHost(this, core::mem::transmute(&activitysourcehost))
+                IUserActivitySourceHostInterop_Impl::SetActivitySourceHost(this, &*(&raw const activitysourcehost).cast())
             }
         }
         Self {

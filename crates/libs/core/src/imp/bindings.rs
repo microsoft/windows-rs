@@ -104,7 +104,7 @@ impl IWeakReference {
             (windows_core::Interface::vtable(self).Resolve)(
                 windows_core::Interface::as_raw(self),
                 riid,
-                core::mem::transmute(objectreference),
+                objectreference as _,
             )
         }
     }

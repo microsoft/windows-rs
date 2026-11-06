@@ -260,7 +260,7 @@ impl ISyndicationClient_Vtbl {
         unsafe extern "system" fn SetRequestHeader<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyndicationClient_Impl::SetRequestHeader(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
+                ISyndicationClient_Impl::SetRequestHeader(this, &*(&raw const name).cast(), &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn RetrieveFeedAsync<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -659,7 +659,7 @@ impl ISyndicationNode_Vtbl {
         unsafe extern "system" fn SetNodeName<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyndicationNode_Impl::SetNodeName(this, core::mem::transmute(&value)).into()
+                ISyndicationNode_Impl::SetNodeName(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn NodeNamespace<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -681,7 +681,7 @@ impl ISyndicationNode_Vtbl {
         unsafe extern "system" fn SetNodeNamespace<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyndicationNode_Impl::SetNodeNamespace(this, core::mem::transmute(&value)).into()
+                ISyndicationNode_Impl::SetNodeNamespace(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn NodeValue<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -703,7 +703,7 @@ impl ISyndicationNode_Vtbl {
         unsafe extern "system" fn SetNodeValue<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyndicationNode_Impl::SetNodeValue(this, core::mem::transmute(&value)).into()
+                ISyndicationNode_Impl::SetNodeValue(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Language<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -725,7 +725,7 @@ impl ISyndicationNode_Vtbl {
         unsafe extern "system" fn SetLanguage<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyndicationNode_Impl::SetLanguage(this, core::mem::transmute(&value)).into()
+                ISyndicationNode_Impl::SetLanguage(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn BaseUri<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1035,7 +1035,7 @@ impl ISyndicationText_Vtbl {
         unsafe extern "system" fn SetText<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyndicationText_Impl::SetText(this, core::mem::transmute(&value)).into()
+                ISyndicationText_Impl::SetText(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Type<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1057,7 +1057,7 @@ impl ISyndicationText_Vtbl {
         unsafe extern "system" fn SetType<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyndicationText_Impl::SetType(this, core::mem::transmute(&value)).into()
+                ISyndicationText_Impl::SetType(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Xml<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -59,9 +59,9 @@ impl ICertManageModule_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: ICertManageModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strstoragelocation: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, flags: super::LONG, pvarproperty: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertManageModule_Impl::GetProperty(this, core::mem::transmute(&strconfig), core::mem::transmute(&strstoragelocation), core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&flags)) {
+                match ICertManageModule_Impl::GetProperty(this, &*(&raw const strconfig).cast(), &*(&raw const strstoragelocation).cast(), &*(&raw const strpropertyname).cast(), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pvarproperty.write(core::mem::transmute(ok__));
+                        pvarproperty.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -74,13 +74,13 @@ impl ICertManageModule_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: ICertManageModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strstoragelocation: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, flags: super::LONG, pvarproperty: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertManageModule_Impl::SetProperty(this, core::mem::transmute(&strconfig), core::mem::transmute(&strstoragelocation), core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pvarproperty))
+                ICertManageModule_Impl::SetProperty(this, &*(&raw const strconfig).cast(), &*(&raw const strstoragelocation).cast(), &*(&raw const strpropertyname).cast(), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pvarproperty))
             }
         }
         unsafe extern "system" fn Configure<Identity: ICertManageModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strstoragelocation: *mut core::ffi::c_void, flags: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertManageModule_Impl::Configure(this, core::mem::transmute(&strconfig), core::mem::transmute(&strstoragelocation), core::mem::transmute_copy(&flags))
+                ICertManageModule_Impl::Configure(this, &*(&raw const strconfig).cast(), &*(&raw const strstoragelocation).cast(), core::mem::transmute_copy(&flags))
             }
         }
         Self {

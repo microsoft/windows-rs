@@ -24,7 +24,7 @@ impl ILanguageExceptionErrorInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILanguageExceptionErrorInfo_Impl::GetLanguageException(this) {
                     Ok(ok__) => {
-                        languageexception.write(core::mem::transmute(ok__));
+                        languageexception.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -89,7 +89,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILanguageExceptionErrorInfo2_Impl::GetPreviousLanguageExceptionErrorInfo(this) {
                     Ok(ok__) => {
-                        previouslanguageexceptionerrorinfo.write(core::mem::transmute(ok__));
+                        previouslanguageexceptionerrorinfo.cast::<ILanguageExceptionErrorInfo2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -110,7 +110,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILanguageExceptionErrorInfo2_Impl::GetPropagationContextHead(this) {
                     Ok(ok__) => {
-                        propagatedlanguageexceptionerrorinfohead.write(core::mem::transmute(ok__));
+                        propagatedlanguageexceptionerrorinfohead.cast::<ILanguageExceptionErrorInfo2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -196,7 +196,7 @@ impl ILanguageExceptionTransform_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILanguageExceptionTransform_Impl::GetTransformedRestrictedErrorInfo(this) {
                     Ok(ok__) => {
-                        restrictederrorinfo.write(core::mem::transmute(ok__));
+                        restrictederrorinfo.cast::<IRestrictedErrorInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -220,10 +220,10 @@ windows_core::imp::define_interface!(IRestrictedErrorInfo, IRestrictedErrorInfo_
 windows_core::imp::interface_hierarchy!(IRestrictedErrorInfo, windows_core::IUnknown);
 impl IRestrictedErrorInfo {
     pub unsafe fn GetErrorDetails(&self, description: *mut windows_core::BSTR, error: *mut windows_core::HRESULT, restricteddescription: *mut windows_core::BSTR, capabilitysid: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetErrorDetails)(windows_core::Interface::as_raw(self), core::mem::transmute(description), error as _, core::mem::transmute(restricteddescription), core::mem::transmute(capabilitysid)) }
+        unsafe { (windows_core::Interface::vtable(self).GetErrorDetails)(windows_core::Interface::as_raw(self), description as _, error as _, restricteddescription as _, capabilitysid as _) }
     }
     pub unsafe fn GetReference(&self, reference: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetReference)(windows_core::Interface::as_raw(self), core::mem::transmute(reference)) }
+        unsafe { (windows_core::Interface::vtable(self).GetReference)(windows_core::Interface::as_raw(self), reference as _) }
     }
 }
 #[repr(C)]

@@ -305,7 +305,7 @@ pub unsafe fn PropVariantGetUInt64Elem(propvar: *const super::PROPVARIANT, ielem
 #[inline]
 pub unsafe fn PropVariantToBSTR(propvar: *const super::PROPVARIANT, pbstrout: *mut windows_core::BSTR) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToBSTR(propvar : *const super::PROPVARIANT, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PropVariantToBSTR(propvar, core::mem::transmute(pbstrout)) }
+    unsafe { PropVariantToBSTR(propvar, pbstrout as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]

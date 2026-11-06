@@ -3271,7 +3271,7 @@ impl IHumanPresenceSensorExtension_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHumanPresenceSensorExtension_Impl::Initialize(this, core::mem::transmute(&deviceinterface)).into()
+                IHumanPresenceSensorExtension_Impl::Initialize(this, &*(&raw const deviceinterface).cast()).into()
             }
         }
         unsafe extern "system" fn Start<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -6,7 +6,7 @@ where
     P1: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mfreadwrite.dll" "system" fn MFCreateSinkWriterFromMediaSink(pmediasink : *mut core::ffi::c_void, pattributes : *mut core::ffi::c_void, ppsinkwriter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateSinkWriterFromMediaSink(pmediasink.param().abi(), pattributes.param().abi(), core::mem::transmute(ppsinkwriter)) }
+    unsafe { MFCreateSinkWriterFromMediaSink(pmediasink.param().abi(), pattributes.param().abi(), ppsinkwriter as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -17,7 +17,7 @@ where
     P2: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mfreadwrite.dll" "system" fn MFCreateSinkWriterFromURL(pwszoutputurl : windows_core::PCWSTR, pbytestream : *mut core::ffi::c_void, pattributes : *mut core::ffi::c_void, ppsinkwriter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateSinkWriterFromURL(pwszoutputurl.param().abi(), pbytestream.param().abi(), pattributes.param().abi(), core::mem::transmute(ppsinkwriter)) }
+    unsafe { MFCreateSinkWriterFromURL(pwszoutputurl.param().abi(), pbytestream.param().abi(), pattributes.param().abi(), ppsinkwriter as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -27,7 +27,7 @@ where
     P1: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromByteStream(pbytestream : *mut core::ffi::c_void, pattributes : *mut core::ffi::c_void, ppsourcereader : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateSourceReaderFromByteStream(pbytestream.param().abi(), pattributes.param().abi(), core::mem::transmute(ppsourcereader)) }
+    unsafe { MFCreateSourceReaderFromByteStream(pbytestream.param().abi(), pattributes.param().abi(), ppsourcereader as _) }
 }
 #[cfg(all(feature = "mfidl", feature = "mfobjects"))]
 #[inline]
@@ -37,7 +37,7 @@ where
     P1: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromMediaSource(pmediasource : *mut core::ffi::c_void, pattributes : *mut core::ffi::c_void, ppsourcereader : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateSourceReaderFromMediaSource(pmediasource.param().abi(), pattributes.param().abi(), core::mem::transmute(ppsourcereader)) }
+    unsafe { MFCreateSourceReaderFromMediaSource(pmediasource.param().abi(), pattributes.param().abi(), ppsourcereader as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -47,7 +47,7 @@ where
     P1: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromURL(pwszurl : windows_core::PCWSTR, pattributes : *mut core::ffi::c_void, ppsourcereader : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateSourceReaderFromURL(pwszurl.param().abi(), pattributes.param().abi(), core::mem::transmute(ppsourcereader)) }
+    unsafe { MFCreateSourceReaderFromURL(pwszurl.param().abi(), pattributes.param().abi(), ppsourcereader as _) }
 }
 pub const CLSID_MFReadWriteClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0x48e2ed0f_98c2_4a37_bed5_166312ddd83f);
 pub const CLSID_MFSinkWriter: windows_core::GUID = windows_core::GUID::from_u128(0xa3bbfb17_8273_4e52_9e0e_9739dc887990);
@@ -100,7 +100,7 @@ impl IMFReadWriteClassFactory_Vtbl {
         unsafe extern "system" fn CreateInstanceFromURL<Identity: IMFReadWriteClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsid: *const super::IID, pwszurl: windows_core::PCWSTR, pattributes: *mut core::ffi::c_void, riid: *const super::IID, ppvobject: *mut super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFReadWriteClassFactory_Impl::CreateInstanceFromURL(this, core::mem::transmute_copy(&clsid), core::mem::transmute(&pwszurl), core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
+                IMFReadWriteClassFactory_Impl::CreateInstanceFromURL(this, core::mem::transmute_copy(&clsid), &*(&raw const pwszurl).cast(), core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
             }
         }
         unsafe extern "system" fn CreateInstanceFromObject<Identity: IMFReadWriteClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsid: *const super::IID, punkobject: *mut core::ffi::c_void, pattributes: *mut core::ffi::c_void, riid: *const super::IID, ppvobject: *mut super::LPVOID) -> windows_core::HRESULT {
@@ -511,7 +511,7 @@ windows_core::imp::interface_hierarchy!(IMFSinkWriterEx, windows_core::IUnknown,
 impl IMFSinkWriterEx {
     #[cfg(all(feature = "mftransform", feature = "shared"))]
     pub unsafe fn GetTransformForStream(&self, dwstreamindex: super::DWORD, dwtransformindex: super::DWORD, pguidcategory: Option<*mut windows_core::GUID>, pptransform: *mut Option<super::IMFTransform>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTransformForStream)(windows_core::Interface::as_raw(self), dwstreamindex, dwtransformindex, pguidcategory.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pptransform)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTransformForStream)(windows_core::Interface::as_raw(self), dwstreamindex, dwtransformindex, pguidcategory.unwrap_or(core::mem::zeroed()) as _, pptransform as _) }
     }
 }
 #[repr(C)]
@@ -557,11 +557,11 @@ impl IMFSourceReader {
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn GetNativeMediaType(&self, dwstreamindex: super::DWORD, dwmediatypeindex: super::DWORD, ppmediatype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNativeMediaType)(windows_core::Interface::as_raw(self), dwstreamindex, dwmediatypeindex, core::mem::transmute(ppmediatype)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNativeMediaType)(windows_core::Interface::as_raw(self), dwstreamindex, dwmediatypeindex, ppmediatype as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn GetCurrentMediaType(&self, dwstreamindex: super::DWORD, ppmediatype: *mut Option<super::IMFMediaType>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), dwstreamindex, core::mem::transmute(ppmediatype)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), dwstreamindex, ppmediatype as _) }
     }
     #[cfg(all(feature = "mfobjects", feature = "shared"))]
     pub unsafe fn SetCurrentMediaType<P2>(&self, dwstreamindex: super::DWORD, pdwreserved: Option<*mut super::DWORD>, pmediatype: P2) -> windows_core::HRESULT
@@ -899,7 +899,7 @@ impl IMFSourceReaderEx {
     }
     #[cfg(all(feature = "mftransform", feature = "shared"))]
     pub unsafe fn GetTransformForStream(&self, dwstreamindex: super::DWORD, dwtransformindex: super::DWORD, pguidcategory: Option<*mut windows_core::GUID>, pptransform: *mut Option<super::IMFTransform>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTransformForStream)(windows_core::Interface::as_raw(self), dwstreamindex, dwtransformindex, pguidcategory.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pptransform)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTransformForStream)(windows_core::Interface::as_raw(self), dwstreamindex, dwtransformindex, pguidcategory.unwrap_or(core::mem::zeroed()) as _, pptransform as _) }
     }
 }
 #[repr(C)]

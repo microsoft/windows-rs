@@ -81,7 +81,7 @@ impl IAccessibleEx {
     }
     #[cfg(all(feature = "oaidl", feature = "oleacc"))]
     pub unsafe fn GetIAccessiblePair(&self, ppacc: *mut Option<super::IAccessible>, pidchild: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIAccessiblePair)(windows_core::Interface::as_raw(self), core::mem::transmute(ppacc), pidchild as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIAccessiblePair)(windows_core::Interface::as_raw(self), ppacc as _, pidchild as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
     pub unsafe fn GetRuntimeId(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
@@ -130,7 +130,7 @@ impl IAccessibleEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessibleEx_Impl::GetObjectForChild(this, core::mem::transmute_copy(&idchild)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IAccessibleEx>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -166,7 +166,7 @@ impl IAccessibleEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessibleEx_Impl::ConvertReturnedElement(this, core::mem::transmute_copy(&pin)) {
                     Ok(ok__) => {
-                        ppretvalout.write(core::mem::transmute(ok__));
+                        ppretvalout.cast::<IAccessibleEx>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -331,7 +331,7 @@ impl IAnnotationProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnnotationProvider_Impl::AnnotationTypeName(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -346,7 +346,7 @@ impl IAnnotationProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnnotationProvider_Impl::Author(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -361,7 +361,7 @@ impl IAnnotationProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnnotationProvider_Impl::DateTime(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -376,7 +376,7 @@ impl IAnnotationProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnnotationProvider_Impl::Target(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -426,7 +426,7 @@ impl ICustomNavigationProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICustomNavigationProvider_Impl::Navigate(this, core::mem::transmute_copy(&direction)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -576,7 +576,7 @@ impl IDragProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDragProvider_Impl::DropEffect(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -670,7 +670,7 @@ impl IDropTargetProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDropTargetProvider_Impl::DropTargetEffect(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -895,7 +895,7 @@ impl IGridItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGridItemProvider_Impl::ContainingGrid(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -961,7 +961,7 @@ impl IGridProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGridProvider_Impl::GetItem(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1077,9 +1077,9 @@ impl IItemContainerProvider_Vtbl {
         unsafe extern "system" fn FindItemByProperty<Identity: IItemContainerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: super::PROPERTYID, value: super::VARIANT, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IItemContainerProvider_Impl::FindItemByProperty(this, core::mem::transmute_copy(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
+                match IItemContainerProvider_Impl::FindItemByProperty(this, core::mem::transmute_copy(&pstartafter), core::mem::transmute_copy(&propertyid), &*(&raw const value).cast()) {
                     Ok(ok__) => {
-                        pfound.write(core::mem::transmute(ok__));
+                        pfound.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1249,7 +1249,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILegacyIAccessibleProvider_Impl::SetValue(this, core::mem::transmute(&szvalue))
+                ILegacyIAccessibleProvider_Impl::SetValue(this, &*(&raw const szvalue).cast())
             }
         }
         unsafe extern "system" fn GetIAccessible<Identity: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaccessible: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1257,7 +1257,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::GetIAccessible(this) {
                     Ok(ok__) => {
-                        ppaccessible.write(core::mem::transmute(ok__));
+                        ppaccessible.cast::<super::IAccessible>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1287,7 +1287,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::Name(this) {
                     Ok(ok__) => {
-                        pszname.write(core::mem::transmute(ok__));
+                        pszname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1302,7 +1302,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::Value(this) {
                     Ok(ok__) => {
-                        pszvalue.write(core::mem::transmute(ok__));
+                        pszvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1317,7 +1317,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::Description(this) {
                     Ok(ok__) => {
-                        pszdescription.write(core::mem::transmute(ok__));
+                        pszdescription.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1362,7 +1362,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::Help(this) {
                     Ok(ok__) => {
-                        pszhelp.write(core::mem::transmute(ok__));
+                        pszhelp.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1377,7 +1377,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::KeyboardShortcut(this) {
                     Ok(ok__) => {
-                        pszkeyboardshortcut.write(core::mem::transmute(ok__));
+                        pszkeyboardshortcut.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1407,7 +1407,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::DefaultAction(this) {
                     Ok(ok__) => {
-                        pszdefaultaction.write(core::mem::transmute(ok__));
+                        pszdefaultaction.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1494,7 +1494,7 @@ impl IMultipleViewProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultipleViewProvider_Impl::GetViewName(this, core::mem::transmute_copy(&viewid)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1580,7 +1580,7 @@ impl IObjectModelProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IObjectModelProvider_Impl::GetUnderlyingObjectModel(this) {
                     Ok(ok__) => {
-                        ppunknown.write(core::mem::transmute(ok__));
+                        ppunknown.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1688,7 +1688,7 @@ impl IProxyProviderWinEventSink_Vtbl {
         unsafe extern "system" fn AddAutomationPropertyChangedEvent<Identity: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, id: super::PROPERTYID, newvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProxyProviderWinEventSink_Impl::AddAutomationPropertyChangedEvent(this, core::mem::transmute_copy(&pprovider), core::mem::transmute_copy(&id), core::mem::transmute(&newvalue))
+                IProxyProviderWinEventSink_Impl::AddAutomationPropertyChangedEvent(this, core::mem::transmute_copy(&pprovider), core::mem::transmute_copy(&id), &*(&raw const newvalue).cast())
             }
         }
         unsafe extern "system" fn AddAutomationEvent<Identity: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, id: EVENTID) -> windows_core::HRESULT {
@@ -2024,7 +2024,7 @@ impl IRawElementProviderFragment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderFragment_Impl::Navigate(this, core::mem::transmute_copy(&direction)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderFragment>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2090,7 +2090,7 @@ impl IRawElementProviderFragment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderFragment_Impl::FragmentRoot(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderFragmentRoot>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2150,7 +2150,7 @@ impl IRawElementProviderFragmentRoot_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderFragmentRoot_Impl::ElementProviderFromPoint(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderFragment>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2165,7 +2165,7 @@ impl IRawElementProviderFragmentRoot_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderFragmentRoot_Impl::GetFocus(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderFragment>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2268,7 +2268,7 @@ impl IRawElementProviderHwndOverride_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderHwndOverride_Impl::GetOverrideProviderForHwnd(this, core::mem::transmute_copy(&hwnd)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2357,7 +2357,7 @@ impl IRawElementProviderSimple_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderSimple_Impl::GetPatternProvider(this, core::mem::transmute_copy(&patternid)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2372,7 +2372,7 @@ impl IRawElementProviderSimple_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderSimple_Impl::GetPropertyValue(this, core::mem::transmute_copy(&propertyid)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2387,7 +2387,7 @@ impl IRawElementProviderSimple_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderSimple_Impl::HostRawElementProvider(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2489,7 +2489,7 @@ impl IRawElementProviderSimple3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderSimple3_Impl::GetMetadataValue(this, core::mem::transmute_copy(&targetid), core::mem::transmute_copy(&metadataid)) {
                     Ok(ok__) => {
-                        returnval.write(core::mem::transmute(ok__));
+                        returnval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2547,7 +2547,7 @@ impl IRawElementProviderWindowlessSite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderWindowlessSite_Impl::GetAdjacentFragment(this, core::mem::transmute_copy(&direction)) {
                     Ok(ok__) => {
-                        ppparent.write(core::mem::transmute(ok__));
+                        ppparent.cast::<IRawElementProviderFragment>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2887,7 +2887,7 @@ impl ISelectionItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionItemProvider_Impl::SelectionContainer(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3070,7 +3070,7 @@ impl ISelectionProvider2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionProvider2_Impl::FirstSelectedItem(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3085,7 +3085,7 @@ impl ISelectionProvider2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionProvider2_Impl::LastSelectedItem(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3100,7 +3100,7 @@ impl ISelectionProvider2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionProvider2_Impl::CurrentSelectedItem(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3191,7 +3191,7 @@ impl ISpreadsheetItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpreadsheetItemProvider_Impl::Formula(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3271,9 +3271,9 @@ impl ISpreadsheetProvider_Vtbl {
         unsafe extern "system" fn GetItemByName<Identity: ISpreadsheetProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpreadsheetProvider_Impl::GetItemByName(this, core::mem::transmute(&name)) {
+                match ISpreadsheetProvider_Impl::GetItemByName(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3379,7 +3379,7 @@ impl IStylesProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStylesProvider_Impl::StyleName(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3409,7 +3409,7 @@ impl IStylesProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStylesProvider_Impl::FillPatternStyle(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3424,7 +3424,7 @@ impl IStylesProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStylesProvider_Impl::Shape(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3454,7 +3454,7 @@ impl IStylesProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStylesProvider_Impl::ExtendedProperties(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3746,7 +3746,7 @@ impl ITextChildProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextChildProvider_Impl::TextContainer(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3761,7 +3761,7 @@ impl ITextChildProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextChildProvider_Impl::TextRange(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3824,7 +3824,7 @@ impl ITextEditProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextEditProvider_Impl::GetActiveComposition(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3839,7 +3839,7 @@ impl ITextEditProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextEditProvider_Impl::GetConversionTarget(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3970,7 +3970,7 @@ impl ITextProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextProvider_Impl::RangeFromChild(this, core::mem::transmute_copy(&childelement)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3983,9 +3983,9 @@ impl ITextProvider_Vtbl {
         unsafe extern "system" fn RangeFromPoint<Identity: ITextProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point: UiaPoint, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextProvider_Impl::RangeFromPoint(this, core::mem::transmute(&point)) {
+                match ITextProvider_Impl::RangeFromPoint(this, &*(&raw const point).cast()) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4000,7 +4000,7 @@ impl ITextProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextProvider_Impl::DocumentRange(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4086,7 +4086,7 @@ impl ITextProvider2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextProvider2_Impl::RangeFromAnnotation(this, core::mem::transmute_copy(&annotationelement)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4101,7 +4101,7 @@ impl ITextProvider2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextProvider2_Impl::GetCaretRange(this, core::mem::transmute_copy(&isactive)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4294,7 +4294,7 @@ impl ITextRangeProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::Clone(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4343,9 +4343,9 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn FindAttribute<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributeid: TEXTATTRIBUTEID, val: super::VARIANT, backward: windows_core::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextRangeProvider_Impl::FindAttribute(this, core::mem::transmute_copy(&attributeid), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
+                match ITextRangeProvider_Impl::FindAttribute(this, core::mem::transmute_copy(&attributeid), &*(&raw const val).cast(), core::mem::transmute_copy(&backward)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4358,9 +4358,9 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn FindText<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, backward: windows_core::BOOL, ignorecase: windows_core::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextRangeProvider_Impl::FindText(this, core::mem::transmute(&text), core::mem::transmute_copy(&backward), core::mem::transmute_copy(&ignorecase)) {
+                match ITextRangeProvider_Impl::FindText(this, &*(&raw const text).cast(), core::mem::transmute_copy(&backward), core::mem::transmute_copy(&ignorecase)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<ITextRangeProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4375,7 +4375,7 @@ impl ITextRangeProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::GetAttributeValue(this, core::mem::transmute_copy(&attributeid)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4405,7 +4405,7 @@ impl ITextRangeProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::GetEnclosingElement(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<IRawElementProviderSimple>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4420,7 +4420,7 @@ impl ITextRangeProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::GetText(this, core::mem::transmute_copy(&maxlength)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5012,7 +5012,7 @@ impl IUIAutomationClientInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationClientInfo_Impl::ProcessName(this) {
                     Ok(ok__) => {
-                        processname.write(core::mem::transmute(ok__));
+                        processname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5157,7 +5157,7 @@ impl IUIAutomationPatternHandler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationPatternHandler_Impl::CreateClientWrapper(this, core::mem::transmute_copy(&ppatterninstance)) {
                     Ok(ok__) => {
-                        pclientwrapper.write(core::mem::transmute(ok__));
+                        pclientwrapper.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5351,7 +5351,7 @@ impl IValueProvider_Vtbl {
         unsafe extern "system" fn SetValue<Identity: IValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueProvider_Impl::SetValue(this, core::mem::transmute(&val))
+                IValueProvider_Impl::SetValue(this, &*(&raw const val).cast())
             }
         }
         unsafe extern "system" fn Value<Identity: IValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5359,7 +5359,7 @@ impl IValueProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IValueProvider_Impl::Value(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

@@ -1338,7 +1338,7 @@ impl IBackgroundTransferBase_Vtbl {
         unsafe extern "system" fn SetRequestHeader<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, headername: *mut core::ffi::c_void, headervalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundTransferBase_Impl::SetRequestHeader(this, core::mem::transmute(&headername), core::mem::transmute(&headervalue)).into()
+                IBackgroundTransferBase_Impl::SetRequestHeader(this, &*(&raw const headername).cast(), &*(&raw const headervalue).cast()).into()
             }
         }
         unsafe extern "system" fn ServerCredential<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1404,7 +1404,7 @@ impl IBackgroundTransferBase_Vtbl {
         unsafe extern "system" fn SetMethod<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundTransferBase_Impl::SetMethod(this, core::mem::transmute(&value)).into()
+                IBackgroundTransferBase_Impl::SetMethod(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Group<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1426,7 +1426,7 @@ impl IBackgroundTransferBase_Vtbl {
         unsafe extern "system" fn SetGroup<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundTransferBase_Impl::SetGroup(this, core::mem::transmute(&value)).into()
+                IBackgroundTransferBase_Impl::SetGroup(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn CostPolicy<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT {
@@ -1573,7 +1573,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
         unsafe extern "system" fn CreateWithName<Identity: IBackgroundTransferContentPartFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBackgroundTransferContentPartFactory_Impl::CreateWithName(this, core::mem::transmute(&name)) {
+                match IBackgroundTransferContentPartFactory_Impl::CreateWithName(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1589,7 +1589,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
         unsafe extern "system" fn CreateWithNameAndFileName<Identity: IBackgroundTransferContentPartFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBackgroundTransferContentPartFactory_Impl::CreateWithNameAndFileName(this, core::mem::transmute(&name), core::mem::transmute(&filename)) {
+                match IBackgroundTransferContentPartFactory_Impl::CreateWithNameAndFileName(this, &*(&raw const name).cast(), &*(&raw const filename).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

@@ -445,7 +445,7 @@ impl IMFAsyncResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAsyncResult_Impl::GetState(this) {
                     Ok(ok__) => {
-                        ppunkstate.write(core::mem::transmute(ok__));
+                        ppunkstate.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -472,7 +472,7 @@ impl IMFAsyncResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAsyncResult_Impl::GetObject(this) {
                     Ok(ok__) => {
-                        ppobject.write(core::mem::transmute(ok__));
+                        ppobject.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -886,7 +886,7 @@ impl IMFAttributes_Vtbl {
         unsafe extern "system" fn SetString<Identity: IMFAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidkey: *const windows_core::GUID, wszvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFAttributes_Impl::SetString(this, core::mem::transmute_copy(&guidkey), core::mem::transmute(&wszvalue))
+                IMFAttributes_Impl::SetString(this, core::mem::transmute_copy(&guidkey), &*(&raw const wszvalue).cast())
             }
         }
         unsafe extern "system" fn SetBlob<Identity: IMFAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidkey: *const windows_core::GUID, pbuf: *const super::UINT8, cbbufsize: super::UINT32) -> windows_core::HRESULT {
@@ -1410,7 +1410,7 @@ impl IMFCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCollection_Impl::GetElement(this, core::mem::transmute_copy(&dwelementindex)) {
                     Ok(ok__) => {
-                        ppunkelement.write(core::mem::transmute(ok__));
+                        ppunkelement.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1431,7 +1431,7 @@ impl IMFCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCollection_Impl::RemoveElement(this, core::mem::transmute_copy(&dwelementindex)) {
                     Ok(ok__) => {
-                        ppunkelement.write(core::mem::transmute(ok__));
+                        ppunkelement.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2012,7 +2012,7 @@ impl IMFMediaEventGenerator {
     where
         P0: windows_core::Param<IMFAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndGetEvent)(windows_core::Interface::as_raw(self), presult.param().abi(), core::mem::transmute(ppevent)) }
+        unsafe { (windows_core::Interface::vtable(self).EndGetEvent)(windows_core::Interface::as_raw(self), presult.param().abi(), ppevent as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn QueueEvent(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: Option<*const super::PROPVARIANT>) -> windows_core::HRESULT {
@@ -2049,7 +2049,7 @@ impl IMFMediaEventGenerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEventGenerator_Impl::GetEvent(this, core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        ppevent.write(core::mem::transmute(ok__));
+                        ppevent.cast::<IMFMediaEvent>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2096,7 +2096,7 @@ windows_core::imp::interface_hierarchy!(IMFMediaEventQueue, windows_core::IUnkno
 impl IMFMediaEventQueue {
     #[cfg(feature = "shared")]
     pub unsafe fn GetEvent(&self, dwflags: super::DWORD, ppevent: *mut Option<IMFMediaEvent>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(ppevent)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), dwflags, ppevent as _) }
     }
     pub unsafe fn BeginGetEvent<P0, P1>(&self, pcallback: P0, punkstate: P1) -> windows_core::HRESULT
     where
@@ -2109,7 +2109,7 @@ impl IMFMediaEventQueue {
     where
         P0: windows_core::Param<IMFAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndGetEvent)(windows_core::Interface::as_raw(self), presult.param().abi(), core::mem::transmute(ppevent)) }
+        unsafe { (windows_core::Interface::vtable(self).EndGetEvent)(windows_core::Interface::as_raw(self), presult.param().abi(), ppevent as _) }
     }
     pub unsafe fn QueueEvent<P0>(&self, pevent: P0) -> windows_core::HRESULT
     where
@@ -2303,13 +2303,13 @@ impl IMFMediaType_Vtbl {
         unsafe extern "system" fn GetRepresentation<Identity: IMFMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidrepresentation: windows_core::GUID, ppvrepresentation: *mut super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaType_Impl::GetRepresentation(this, core::mem::transmute(&guidrepresentation), core::mem::transmute_copy(&ppvrepresentation))
+                IMFMediaType_Impl::GetRepresentation(this, &*(&raw const guidrepresentation).cast(), core::mem::transmute_copy(&ppvrepresentation))
             }
         }
         unsafe extern "system" fn FreeRepresentation<Identity: IMFMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidrepresentation: windows_core::GUID, pvrepresentation: super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaType_Impl::FreeRepresentation(this, core::mem::transmute(&guidrepresentation), core::mem::transmute_copy(&pvrepresentation))
+                IMFMediaType_Impl::FreeRepresentation(this, &*(&raw const guidrepresentation).cast(), core::mem::transmute_copy(&pvrepresentation))
             }
         }
         Self {
@@ -2374,7 +2374,7 @@ impl IMFMuxStreamAttributesManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMuxStreamAttributesManager_Impl::GetAttributes(this, core::mem::transmute_copy(&dwmuxstreamindex)) {
                     Ok(ok__) => {
-                        ppstreamattributes.write(core::mem::transmute(ok__));
+                        ppstreamattributes.cast::<IMFAttributes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2479,7 +2479,7 @@ impl IMFMuxStreamMediaTypeManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMuxStreamMediaTypeManager_Impl::GetMediaType(this, core::mem::transmute_copy(&dwmuxstreamindex)) {
                     Ok(ok__) => {
-                        ppmediatype.write(core::mem::transmute(ok__));
+                        ppmediatype.cast::<IMFMediaType>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2585,7 +2585,7 @@ impl IMFMuxStreamSampleManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMuxStreamSampleManager_Impl::GetSample(this, core::mem::transmute_copy(&dwmuxstreamindex)) {
                     Ok(ok__) => {
-                        ppsample.write(core::mem::transmute(ok__));
+                        ppsample.cast::<IMFSample>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2692,7 +2692,7 @@ impl IMFPluginControl_Vtbl {
         unsafe extern "system" fn GetPreferredClsid<Identity: IMFPluginControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plugintype: super::DWORD, selector: windows_core::PCWSTR, clsid: *mut super::CLSID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPluginControl_Impl::GetPreferredClsid(this, core::mem::transmute_copy(&plugintype), core::mem::transmute(&selector), core::mem::transmute_copy(&clsid))
+                IMFPluginControl_Impl::GetPreferredClsid(this, core::mem::transmute_copy(&plugintype), &*(&raw const selector).cast(), core::mem::transmute_copy(&clsid))
             }
         }
         unsafe extern "system" fn GetPreferredClsidByIndex<Identity: IMFPluginControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plugintype: super::DWORD, index: super::DWORD, selector: *mut windows_core::PWSTR, clsid: *mut super::CLSID) -> windows_core::HRESULT {
@@ -2704,7 +2704,7 @@ impl IMFPluginControl_Vtbl {
         unsafe extern "system" fn SetPreferredClsid<Identity: IMFPluginControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plugintype: super::DWORD, selector: windows_core::PCWSTR, clsid: *const super::CLSID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPluginControl_Impl::SetPreferredClsid(this, core::mem::transmute_copy(&plugintype), core::mem::transmute(&selector), core::mem::transmute_copy(&clsid))
+                IMFPluginControl_Impl::SetPreferredClsid(this, core::mem::transmute_copy(&plugintype), &*(&raw const selector).cast(), core::mem::transmute_copy(&clsid))
             }
         }
         unsafe extern "system" fn IsDisabled<Identity: IMFPluginControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plugintype: super::DWORD, clsid: *const super::IID) -> windows_core::HRESULT {
@@ -2854,10 +2854,10 @@ impl IMFSample {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetBufferByIndex(&self, dwindex: super::DWORD, ppbuffer: *mut Option<IMFMediaBuffer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBufferByIndex)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(ppbuffer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetBufferByIndex)(windows_core::Interface::as_raw(self), dwindex, ppbuffer as _) }
     }
     pub unsafe fn ConvertToContiguousBuffer(&self, ppbuffer: *mut Option<IMFMediaBuffer>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ConvertToContiguousBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbuffer)) }
+        unsafe { (windows_core::Interface::vtable(self).ConvertToContiguousBuffer)(windows_core::Interface::as_raw(self), ppbuffer as _) }
     }
     pub unsafe fn AddBuffer<P0>(&self, pbuffer: P0) -> windows_core::HRESULT
     where
@@ -3205,7 +3205,7 @@ impl IMFVideoMediaType_Vtbl {
         unsafe extern "system" fn GetVideoRepresentation<Identity: IMFVideoMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidrepresentation: windows_core::GUID, ppvrepresentation: *mut super::LPVOID, lstride: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFVideoMediaType_Impl::GetVideoRepresentation(this, core::mem::transmute(&guidrepresentation), core::mem::transmute_copy(&ppvrepresentation), core::mem::transmute_copy(&lstride))
+                IMFVideoMediaType_Impl::GetVideoRepresentation(this, &*(&raw const guidrepresentation).cast(), core::mem::transmute_copy(&ppvrepresentation), core::mem::transmute_copy(&lstride))
             }
         }
         Self {

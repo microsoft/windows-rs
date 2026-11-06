@@ -83,7 +83,7 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
         unsafe extern "system" fn Resize<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sizepixels: super::SIZE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionDrawingSurfaceInterop_Impl::Resize(this, core::mem::transmute(&sizepixels))
+                ICompositionDrawingSurfaceInterop_Impl::Resize(this, &*(&raw const sizepixels).cast())
             }
         }
         unsafe extern "system" fn Scroll<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scrollrect: *const super::RECT, cliprect: *const super::RECT, offsetx: i32, offsety: i32) -> windows_core::HRESULT {
@@ -201,7 +201,7 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICompositionGraphicsDeviceInterop_Impl::GetRenderingDevice(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

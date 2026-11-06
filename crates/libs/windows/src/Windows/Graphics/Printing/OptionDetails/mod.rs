@@ -203,7 +203,7 @@ impl IPrintCustomOptionDetails_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: IPrintCustomOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintCustomOptionDetails_Impl::SetDisplayName(this, core::mem::transmute(&value)).into()
+                IPrintCustomOptionDetails_Impl::SetDisplayName(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn DisplayName<Identity: IPrintCustomOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -671,7 +671,7 @@ impl IPrintOptionDetails_Vtbl {
         unsafe extern "system" fn SetErrorText<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintOptionDetails_Impl::SetErrorText(this, core::mem::transmute(&value)).into()
+                IPrintOptionDetails_Impl::SetErrorText(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn ErrorText<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

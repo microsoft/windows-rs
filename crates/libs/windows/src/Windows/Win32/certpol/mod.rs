@@ -57,13 +57,13 @@ impl ICertPolicy_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICertPolicy_Impl::Initialize(this, core::mem::transmute(&strconfig))
+                ICertPolicy_Impl::Initialize(this, &*(&raw const strconfig).cast())
             }
         }
         unsafe extern "system" fn VerifyRequest<Identity: ICertPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, context: super::LONG, bnewrequest: super::LONG, flags: super::LONG, pdisposition: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICertPolicy_Impl::VerifyRequest(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&context), core::mem::transmute_copy(&bnewrequest), core::mem::transmute_copy(&flags)) {
+                match ICertPolicy_Impl::VerifyRequest(this, &*(&raw const strconfig).cast(), core::mem::transmute_copy(&context), core::mem::transmute_copy(&bnewrequest), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
                         pdisposition.write(ok__);
                         windows_core::HRESULT(0)
@@ -80,7 +80,7 @@ impl ICertPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPolicy_Impl::GetDescription(this) {
                     Ok(ok__) => {
-                        pstrdescription.write(core::mem::transmute(ok__));
+                        pstrdescription.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -153,7 +153,7 @@ impl ICertPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPolicy2_Impl::GetManageModule(this) {
                     Ok(ok__) => {
-                        ppmanagemodule.write(core::mem::transmute(ok__));
+                        ppmanagemodule.cast::<super::ICertManageModule>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -252,7 +252,7 @@ impl INDESPolicy_Vtbl {
         unsafe extern "system" fn GenerateChallenge<Identity: INDESPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztemplate: windows_core::PCWSTR, pwszparams: windows_core::PCWSTR, ppwszresponse: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INDESPolicy_Impl::GenerateChallenge(this, core::mem::transmute(&pwsztemplate), core::mem::transmute(&pwszparams)) {
+                match INDESPolicy_Impl::GenerateChallenge(this, &*(&raw const pwsztemplate).cast(), &*(&raw const pwszparams).cast()) {
                     Ok(ok__) => {
                         ppwszresponse.write(ok__);
                         windows_core::HRESULT(0)
@@ -267,7 +267,7 @@ impl INDESPolicy_Vtbl {
         unsafe extern "system" fn VerifyRequest<Identity: INDESPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctbrequest: *const super::CERTTRANSBLOB, pctbsigningcertencoded: *const super::CERTTRANSBLOB, pwsztemplate: windows_core::PCWSTR, pwsztransactionid: windows_core::PCWSTR, pfverified: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INDESPolicy_Impl::VerifyRequest(this, core::mem::transmute_copy(&pctbrequest), core::mem::transmute_copy(&pctbsigningcertencoded), core::mem::transmute(&pwsztemplate), core::mem::transmute(&pwsztransactionid)) {
+                match INDESPolicy_Impl::VerifyRequest(this, core::mem::transmute_copy(&pctbrequest), core::mem::transmute_copy(&pctbsigningcertencoded), &*(&raw const pwsztemplate).cast(), &*(&raw const pwsztransactionid).cast()) {
                     Ok(ok__) => {
                         pfverified.write(ok__);
                         windows_core::HRESULT(0)
@@ -282,7 +282,7 @@ impl INDESPolicy_Vtbl {
         unsafe extern "system" fn Notify<Identity: INDESPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszchallenge: windows_core::PCWSTR, pwsztransactionid: windows_core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: super::LONG, pctbissuedcertencoded: *const super::CERTTRANSBLOB) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDESPolicy_Impl::Notify(this, core::mem::transmute(&pwszchallenge), core::mem::transmute(&pwsztransactionid), core::mem::transmute_copy(&disposition), core::mem::transmute_copy(&lasthresult), core::mem::transmute_copy(&pctbissuedcertencoded))
+                INDESPolicy_Impl::Notify(this, &*(&raw const pwszchallenge).cast(), &*(&raw const pwsztransactionid).cast(), core::mem::transmute_copy(&disposition), core::mem::transmute_copy(&lasthresult), core::mem::transmute_copy(&pctbissuedcertencoded))
             }
         }
         Self {

@@ -351,7 +351,7 @@ impl ICOMAdminCatalog {
     }
     #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn QueryApplicationFile(&self, bstrapplicationfile: &windows_core::BSTR, pbstrapplicationname: *mut windows_core::BSTR, pbstrapplicationdescription: *mut windows_core::BSTR, pbhasusers: *mut super::VARIANT_BOOL, pbisproxy: *mut super::VARIANT_BOOL, ppsavarfilenames: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryApplicationFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationfile), core::mem::transmute(pbstrapplicationname), core::mem::transmute(pbstrapplicationdescription), pbhasusers as _, pbisproxy as _, ppsavarfilenames as _) }
+        unsafe { (windows_core::Interface::vtable(self).QueryApplicationFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationfile), pbstrapplicationname as _, pbstrapplicationdescription as _, pbhasusers as _, pbisproxy as _, ppsavarfilenames as _) }
     }
     pub unsafe fn StartApplication(&self, bstrapplidorname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).StartApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplidorname)) }
@@ -459,9 +459,9 @@ impl ICOMAdminCatalog_Vtbl {
         unsafe extern "system" fn GetCollection<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcollname: *mut core::ffi::c_void, ppcatalogcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog_Impl::GetCollection(this, core::mem::transmute(&bstrcollname)) {
+                match ICOMAdminCatalog_Impl::GetCollection(this, &*(&raw const bstrcollname).cast()) {
                     Ok(ok__) => {
-                        ppcatalogcollection.write(core::mem::transmute(ok__));
+                        ppcatalogcollection.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -474,9 +474,9 @@ impl ICOMAdminCatalog_Vtbl {
         unsafe extern "system" fn Connect<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcatalogservername: *mut core::ffi::c_void, ppcatalogcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog_Impl::Connect(this, core::mem::transmute(&bstrcatalogservername)) {
+                match ICOMAdminCatalog_Impl::Connect(this, &*(&raw const bstrcatalogservername).cast()) {
                     Ok(ok__) => {
-                        ppcatalogcollection.write(core::mem::transmute(ok__));
+                        ppcatalogcollection.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -519,9 +519,9 @@ impl ICOMAdminCatalog_Vtbl {
         unsafe extern "system" fn GetCollectionByQuery<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcollname: *mut core::ffi::c_void, ppsavarquery: *const *const super::SAFEARRAY, ppcatalogcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog_Impl::GetCollectionByQuery(this, core::mem::transmute(&bstrcollname), core::mem::transmute_copy(&ppsavarquery)) {
+                match ICOMAdminCatalog_Impl::GetCollectionByQuery(this, &*(&raw const bstrcollname).cast(), core::mem::transmute_copy(&ppsavarquery)) {
                     Ok(ok__) => {
-                        ppcatalogcollection.write(core::mem::transmute(ok__));
+                        ppcatalogcollection.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -534,31 +534,31 @@ impl ICOMAdminCatalog_Vtbl {
         unsafe extern "system" fn ImportComponent<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, bstrclsidorprogid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::ImportComponent(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrclsidorprogid))
+                ICOMAdminCatalog_Impl::ImportComponent(this, &*(&raw const bstrapplidorname).cast(), &*(&raw const bstrclsidorprogid).cast())
             }
         }
         unsafe extern "system" fn InstallComponent<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, bstrdll: *mut core::ffi::c_void, bstrtlb: *mut core::ffi::c_void, bstrpsdll: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::InstallComponent(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrdll), core::mem::transmute(&bstrtlb), core::mem::transmute(&bstrpsdll))
+                ICOMAdminCatalog_Impl::InstallComponent(this, &*(&raw const bstrapplidorname).cast(), &*(&raw const bstrdll).cast(), &*(&raw const bstrtlb).cast(), &*(&raw const bstrpsdll).cast())
             }
         }
         unsafe extern "system" fn ShutdownApplication<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::ShutdownApplication(this, core::mem::transmute(&bstrapplidorname))
+                ICOMAdminCatalog_Impl::ShutdownApplication(this, &*(&raw const bstrapplidorname).cast())
             }
         }
         unsafe extern "system" fn ExportApplication<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, bstrapplicationfile: *mut core::ffi::c_void, loptions: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::ExportApplication(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrapplicationfile), core::mem::transmute_copy(&loptions))
+                ICOMAdminCatalog_Impl::ExportApplication(this, &*(&raw const bstrapplidorname).cast(), &*(&raw const bstrapplicationfile).cast(), core::mem::transmute_copy(&loptions))
             }
         }
         unsafe extern "system" fn InstallApplication<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationfile: *mut core::ffi::c_void, bstrdestinationdirectory: *mut core::ffi::c_void, loptions: i32, bstruserid: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void, bstrrsn: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::InstallApplication(this, core::mem::transmute(&bstrapplicationfile), core::mem::transmute(&bstrdestinationdirectory), core::mem::transmute_copy(&loptions), core::mem::transmute(&bstruserid), core::mem::transmute(&bstrpassword), core::mem::transmute(&bstrrsn))
+                ICOMAdminCatalog_Impl::InstallApplication(this, &*(&raw const bstrapplicationfile).cast(), &*(&raw const bstrdestinationdirectory).cast(), core::mem::transmute_copy(&loptions), &*(&raw const bstruserid).cast(), &*(&raw const bstrpassword).cast(), &*(&raw const bstrrsn).cast())
             }
         }
         unsafe extern "system" fn StopRouter<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -594,13 +594,13 @@ impl ICOMAdminCatalog_Vtbl {
         unsafe extern "system" fn InstallMultipleComponents<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *const *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::InstallMultipleComponents(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids))
+                ICOMAdminCatalog_Impl::InstallMultipleComponents(this, &*(&raw const bstrapplidorname).cast(), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids))
             }
         }
         unsafe extern "system" fn GetMultipleComponentsInfo<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarclassnames: *mut *mut super::SAFEARRAY, ppsavarfileflags: *mut *mut super::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::GetMultipleComponentsInfo(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids), core::mem::transmute_copy(&ppsavarclassnames), core::mem::transmute_copy(&ppsavarfileflags), core::mem::transmute_copy(&ppsavarcomponentflags))
+                ICOMAdminCatalog_Impl::GetMultipleComponentsInfo(this, &*(&raw const bstrapplidorname).cast(), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids), core::mem::transmute_copy(&ppsavarclassnames), core::mem::transmute_copy(&ppsavarfileflags), core::mem::transmute_copy(&ppsavarcomponentflags))
             }
         }
         unsafe extern "system" fn RefreshComponents<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -612,25 +612,25 @@ impl ICOMAdminCatalog_Vtbl {
         unsafe extern "system" fn BackupREGDB<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupfilepath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::BackupREGDB(this, core::mem::transmute(&bstrbackupfilepath))
+                ICOMAdminCatalog_Impl::BackupREGDB(this, &*(&raw const bstrbackupfilepath).cast())
             }
         }
         unsafe extern "system" fn RestoreREGDB<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupfilepath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::RestoreREGDB(this, core::mem::transmute(&bstrbackupfilepath))
+                ICOMAdminCatalog_Impl::RestoreREGDB(this, &*(&raw const bstrbackupfilepath).cast())
             }
         }
         unsafe extern "system" fn QueryApplicationFile<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationfile: *mut core::ffi::c_void, pbstrapplicationname: *mut *mut core::ffi::c_void, pbstrapplicationdescription: *mut *mut core::ffi::c_void, pbhasusers: *mut super::VARIANT_BOOL, pbisproxy: *mut super::VARIANT_BOOL, ppsavarfilenames: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::QueryApplicationFile(this, core::mem::transmute(&bstrapplicationfile), core::mem::transmute_copy(&pbstrapplicationname), core::mem::transmute_copy(&pbstrapplicationdescription), core::mem::transmute_copy(&pbhasusers), core::mem::transmute_copy(&pbisproxy), core::mem::transmute_copy(&ppsavarfilenames))
+                ICOMAdminCatalog_Impl::QueryApplicationFile(this, &*(&raw const bstrapplicationfile).cast(), core::mem::transmute_copy(&pbstrapplicationname), core::mem::transmute_copy(&pbstrapplicationdescription), core::mem::transmute_copy(&pbhasusers), core::mem::transmute_copy(&pbisproxy), core::mem::transmute_copy(&ppsavarfilenames))
             }
         }
         unsafe extern "system" fn StartApplication<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::StartApplication(this, core::mem::transmute(&bstrapplidorname))
+                ICOMAdminCatalog_Impl::StartApplication(this, &*(&raw const bstrapplidorname).cast())
             }
         }
         unsafe extern "system" fn ServiceCheck<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lservice: i32, plstatus: *mut i32) -> windows_core::HRESULT {
@@ -651,19 +651,19 @@ impl ICOMAdminCatalog_Vtbl {
         unsafe extern "system" fn InstallMultipleEventClasses<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *const *const super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::InstallMultipleEventClasses(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids))
+                ICOMAdminCatalog_Impl::InstallMultipleEventClasses(this, &*(&raw const bstrapplidorname).cast(), core::mem::transmute_copy(&ppsavarfilenames), core::mem::transmute_copy(&ppsavarclsids))
             }
         }
         unsafe extern "system" fn InstallEventClass<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplidorname: *mut core::ffi::c_void, bstrdll: *mut core::ffi::c_void, bstrtlb: *mut core::ffi::c_void, bstrpsdll: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::InstallEventClass(this, core::mem::transmute(&bstrapplidorname), core::mem::transmute(&bstrdll), core::mem::transmute(&bstrtlb), core::mem::transmute(&bstrpsdll))
+                ICOMAdminCatalog_Impl::InstallEventClass(this, &*(&raw const bstrapplidorname).cast(), &*(&raw const bstrdll).cast(), &*(&raw const bstrtlb).cast(), &*(&raw const bstrpsdll).cast())
             }
         }
         unsafe extern "system" fn GetEventClassesForIID<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstriid: *mut core::ffi::c_void, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarprogids: *mut *mut super::SAFEARRAY, ppsavardescriptions: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog_Impl::GetEventClassesForIID(this, core::mem::transmute(&bstriid), core::mem::transmute_copy(&ppsavarclsids), core::mem::transmute_copy(&ppsavarprogids), core::mem::transmute_copy(&ppsavardescriptions))
+                ICOMAdminCatalog_Impl::GetEventClassesForIID(this, &*(&raw const bstriid).cast(), core::mem::transmute_copy(&ppsavarclsids), core::mem::transmute_copy(&ppsavarprogids), core::mem::transmute_copy(&ppsavardescriptions))
             }
         }
         Self {
@@ -988,9 +988,9 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn GetCollectionByQuery2<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcollectionname: *mut core::ffi::c_void, pvarquerystrings: *const super::VARIANT, ppcatalogcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::GetCollectionByQuery2(this, core::mem::transmute(&bstrcollectionname), core::mem::transmute_copy(&pvarquerystrings)) {
+                match ICOMAdminCatalog2_Impl::GetCollectionByQuery2(this, &*(&raw const bstrcollectionname).cast(), core::mem::transmute_copy(&pvarquerystrings)) {
                     Ok(ok__) => {
-                        ppcatalogcollection.write(core::mem::transmute(ok__));
+                        ppcatalogcollection.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1005,7 +1005,7 @@ impl ICOMAdminCatalog2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog2_Impl::GetApplicationInstanceIDFromProcessID(this, core::mem::transmute_copy(&lprocessid)) {
                     Ok(ok__) => {
-                        pbstrapplicationinstanceid.write(core::mem::transmute(ok__));
+                        pbstrapplicationinstanceid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1057,9 +1057,9 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn DumpApplicationInstance<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationinstanceid: *mut core::ffi::c_void, bstrdirectory: *mut core::ffi::c_void, lmaximages: i32, pbstrdumpfile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::DumpApplicationInstance(this, core::mem::transmute(&bstrapplicationinstanceid), core::mem::transmute(&bstrdirectory), core::mem::transmute_copy(&lmaximages)) {
+                match ICOMAdminCatalog2_Impl::DumpApplicationInstance(this, &*(&raw const bstrapplicationinstanceid).cast(), &*(&raw const bstrdirectory).cast(), core::mem::transmute_copy(&lmaximages)) {
                     Ok(ok__) => {
-                        pbstrdumpfile.write(core::mem::transmute(ok__));
+                        pbstrdumpfile.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1087,21 +1087,21 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn CreateServiceForApplication<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, bstrservicename: *mut core::ffi::c_void, bstrstarttype: *mut core::ffi::c_void, bstrerrorcontrol: *mut core::ffi::c_void, bstrdependencies: *mut core::ffi::c_void, bstrrunas: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void, bdesktopok: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::CreateServiceForApplication(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute(&bstrservicename), core::mem::transmute(&bstrstarttype), core::mem::transmute(&bstrerrorcontrol), core::mem::transmute(&bstrdependencies), core::mem::transmute(&bstrrunas), core::mem::transmute(&bstrpassword), core::mem::transmute_copy(&bdesktopok))
+                ICOMAdminCatalog2_Impl::CreateServiceForApplication(this, &*(&raw const bstrapplicationidorname).cast(), &*(&raw const bstrservicename).cast(), &*(&raw const bstrstarttype).cast(), &*(&raw const bstrerrorcontrol).cast(), &*(&raw const bstrdependencies).cast(), &*(&raw const bstrrunas).cast(), &*(&raw const bstrpassword).cast(), core::mem::transmute_copy(&bdesktopok))
             }
         }
         unsafe extern "system" fn DeleteServiceForApplication<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::DeleteServiceForApplication(this, core::mem::transmute(&bstrapplicationidorname))
+                ICOMAdminCatalog2_Impl::DeleteServiceForApplication(this, &*(&raw const bstrapplicationidorname).cast())
             }
         }
         unsafe extern "system" fn GetPartitionID<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, pbstrpartitionid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::GetPartitionID(this, core::mem::transmute(&bstrapplicationidorname)) {
+                match ICOMAdminCatalog2_Impl::GetPartitionID(this, &*(&raw const bstrapplicationidorname).cast()) {
                     Ok(ok__) => {
-                        pbstrpartitionid.write(core::mem::transmute(ok__));
+                        pbstrpartitionid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1114,9 +1114,9 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn GetPartitionName<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, pbstrpartitionname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::GetPartitionName(this, core::mem::transmute(&bstrapplicationidorname)) {
+                match ICOMAdminCatalog2_Impl::GetPartitionName(this, &*(&raw const bstrapplicationidorname).cast()) {
                     Ok(ok__) => {
-                        pbstrpartitionname.write(core::mem::transmute(ok__));
+                        pbstrpartitionname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1129,7 +1129,7 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn SetCurrentPartition<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpartitionidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::SetCurrentPartition(this, core::mem::transmute(&bstrpartitionidorname))
+                ICOMAdminCatalog2_Impl::SetCurrentPartition(this, &*(&raw const bstrpartitionidorname).cast())
             }
         }
         unsafe extern "system" fn CurrentPartitionID<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpartitionid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1137,7 +1137,7 @@ impl ICOMAdminCatalog2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog2_Impl::CurrentPartitionID(this) {
                     Ok(ok__) => {
-                        pbstrpartitionid.write(core::mem::transmute(ok__));
+                        pbstrpartitionid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1152,7 +1152,7 @@ impl ICOMAdminCatalog2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog2_Impl::CurrentPartitionName(this) {
                     Ok(ok__) => {
-                        pbstrpartitionname.write(core::mem::transmute(ok__));
+                        pbstrpartitionname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1167,7 +1167,7 @@ impl ICOMAdminCatalog2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog2_Impl::GlobalPartitionID(this) {
                     Ok(ok__) => {
-                        pbstrglobalpartitionid.write(core::mem::transmute(ok__));
+                        pbstrglobalpartitionid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1186,31 +1186,31 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn CopyApplications<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsourcepartitionidorname: *mut core::ffi::c_void, pvarapplicationid: *const super::VARIANT, bstrdestinationpartitionidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::CopyApplications(this, core::mem::transmute(&bstrsourcepartitionidorname), core::mem::transmute_copy(&pvarapplicationid), core::mem::transmute(&bstrdestinationpartitionidorname))
+                ICOMAdminCatalog2_Impl::CopyApplications(this, &*(&raw const bstrsourcepartitionidorname).cast(), core::mem::transmute_copy(&pvarapplicationid), &*(&raw const bstrdestinationpartitionidorname).cast())
             }
         }
         unsafe extern "system" fn CopyComponents<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsourceapplicationidorname: *mut core::ffi::c_void, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::CopyComponents(this, core::mem::transmute(&bstrsourceapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute(&bstrdestinationapplicationidorname))
+                ICOMAdminCatalog2_Impl::CopyComponents(this, &*(&raw const bstrsourceapplicationidorname).cast(), core::mem::transmute_copy(&pvarclsidorprogid), &*(&raw const bstrdestinationapplicationidorname).cast())
             }
         }
         unsafe extern "system" fn MoveComponents<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsourceapplicationidorname: *mut core::ffi::c_void, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::MoveComponents(this, core::mem::transmute(&bstrsourceapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute(&bstrdestinationapplicationidorname))
+                ICOMAdminCatalog2_Impl::MoveComponents(this, &*(&raw const bstrsourceapplicationidorname).cast(), core::mem::transmute_copy(&pvarclsidorprogid), &*(&raw const bstrdestinationapplicationidorname).cast())
             }
         }
         unsafe extern "system" fn AliasComponent<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsrcapplicationidorname: *mut core::ffi::c_void, bstrclsidorprogid: *mut core::ffi::c_void, bstrdestapplicationidorname: *mut core::ffi::c_void, bstrnewprogid: *mut core::ffi::c_void, bstrnewclsid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::AliasComponent(this, core::mem::transmute(&bstrsrcapplicationidorname), core::mem::transmute(&bstrclsidorprogid), core::mem::transmute(&bstrdestapplicationidorname), core::mem::transmute(&bstrnewprogid), core::mem::transmute(&bstrnewclsid))
+                ICOMAdminCatalog2_Impl::AliasComponent(this, &*(&raw const bstrsrcapplicationidorname).cast(), &*(&raw const bstrclsidorprogid).cast(), &*(&raw const bstrdestapplicationidorname).cast(), &*(&raw const bstrnewprogid).cast(), &*(&raw const bstrnewclsid).cast())
             }
         }
         unsafe extern "system" fn IsSafeToDelete<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdllname: *mut core::ffi::c_void, pcomadmininuse: *mut COMAdminInUse) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::IsSafeToDelete(this, core::mem::transmute(&bstrdllname)) {
+                match ICOMAdminCatalog2_Impl::IsSafeToDelete(this, &*(&raw const bstrdllname).cast()) {
                     Ok(ok__) => {
                         pcomadmininuse.write(ok__);
                         windows_core::HRESULT(0)
@@ -1225,19 +1225,19 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn ImportUnconfiguredComponents<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::ImportUnconfiguredComponents(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype))
+                ICOMAdminCatalog2_Impl::ImportUnconfiguredComponents(this, &*(&raw const bstrapplicationidorname).cast(), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype))
             }
         }
         unsafe extern "system" fn PromoteUnconfiguredComponents<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::PromoteUnconfiguredComponents(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype))
+                ICOMAdminCatalog2_Impl::PromoteUnconfiguredComponents(this, &*(&raw const bstrapplicationidorname).cast(), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype))
             }
         }
         unsafe extern "system" fn ImportComponents<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationidorname: *mut core::ffi::c_void, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::ImportComponents(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype))
+                ICOMAdminCatalog2_Impl::ImportComponents(this, &*(&raw const bstrapplicationidorname).cast(), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype))
             }
         }
         unsafe extern "system" fn Is64BitCatalogServer<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbis64bit: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1258,21 +1258,21 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn ExportPartition<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpartitionidorname: *mut core::ffi::c_void, bstrpartitionfilename: *mut core::ffi::c_void, loptions: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::ExportPartition(this, core::mem::transmute(&bstrpartitionidorname), core::mem::transmute(&bstrpartitionfilename), core::mem::transmute_copy(&loptions))
+                ICOMAdminCatalog2_Impl::ExportPartition(this, &*(&raw const bstrpartitionidorname).cast(), &*(&raw const bstrpartitionfilename).cast(), core::mem::transmute_copy(&loptions))
             }
         }
         unsafe extern "system" fn InstallPartition<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfilename: *mut core::ffi::c_void, bstrdestdirectory: *mut core::ffi::c_void, loptions: i32, bstruserid: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void, bstrrsn: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::InstallPartition(this, core::mem::transmute(&bstrfilename), core::mem::transmute(&bstrdestdirectory), core::mem::transmute_copy(&loptions), core::mem::transmute(&bstruserid), core::mem::transmute(&bstrpassword), core::mem::transmute(&bstrrsn))
+                ICOMAdminCatalog2_Impl::InstallPartition(this, &*(&raw const bstrfilename).cast(), &*(&raw const bstrdestdirectory).cast(), core::mem::transmute_copy(&loptions), &*(&raw const bstruserid).cast(), &*(&raw const bstrpassword).cast(), &*(&raw const bstrrsn).cast())
             }
         }
         unsafe extern "system" fn QueryApplicationFile2<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationfile: *mut core::ffi::c_void, ppfilesforimport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::QueryApplicationFile2(this, core::mem::transmute(&bstrapplicationfile)) {
+                match ICOMAdminCatalog2_Impl::QueryApplicationFile2(this, &*(&raw const bstrapplicationfile).cast()) {
                     Ok(ok__) => {
-                        ppfilesforimport.write(core::mem::transmute(ok__));
+                        ppfilesforimport.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1285,7 +1285,7 @@ impl ICOMAdminCatalog2_Vtbl {
         unsafe extern "system" fn GetComponentVersionCount<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrclsidorprogid: *mut core::ffi::c_void, plversioncount: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::GetComponentVersionCount(this, core::mem::transmute(&bstrclsidorprogid)) {
+                match ICOMAdminCatalog2_Impl::GetComponentVersionCount(this, &*(&raw const bstrclsidorprogid).cast()) {
                     Ok(ok__) => {
                         plversioncount.write(ok__);
                         windows_core::HRESULT(0)
@@ -1505,7 +1505,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppenumvariant.write(core::mem::transmute(ok__));
+                        ppenumvariant.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1520,7 +1520,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::Item(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
-                        ppcatalogobject.write(core::mem::transmute(ok__));
+                        ppcatalogobject.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1556,7 +1556,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::Add(this) {
                     Ok(ok__) => {
-                        ppcatalogobject.write(core::mem::transmute(ok__));
+                        ppcatalogobject.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1590,9 +1590,9 @@ impl ICatalogCollection_Vtbl {
         unsafe extern "system" fn GetCollection<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcollname: *mut core::ffi::c_void, varobjectkey: super::VARIANT, ppcatalogcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogCollection_Impl::GetCollection(this, core::mem::transmute(&bstrcollname), core::mem::transmute(&varobjectkey)) {
+                match ICatalogCollection_Impl::GetCollection(this, &*(&raw const bstrcollname).cast(), &*(&raw const varobjectkey).cast()) {
                     Ok(ok__) => {
-                        ppcatalogcollection.write(core::mem::transmute(ok__));
+                        ppcatalogcollection.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1607,7 +1607,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::Name(this) {
                     Ok(ok__) => {
-                        pvarnamel.write(core::mem::transmute(ok__));
+                        pvarnamel.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1652,7 +1652,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::GetUtilInterface(this) {
                     Ok(ok__) => {
-                        ppidispatch.write(core::mem::transmute(ok__));
+                        ppidispatch.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1701,7 +1701,7 @@ impl ICatalogCollection_Vtbl {
         unsafe extern "system" fn PopulateByQuery<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrquerystring: *mut core::ffi::c_void, lquerytype: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatalogCollection_Impl::PopulateByQuery(this, core::mem::transmute(&bstrquerystring), core::mem::transmute_copy(&lquerytype))
+                ICatalogCollection_Impl::PopulateByQuery(this, &*(&raw const bstrquerystring).cast(), core::mem::transmute_copy(&lquerytype))
             }
         }
         Self {
@@ -1840,9 +1840,9 @@ impl ICatalogObject_Vtbl {
         unsafe extern "system" fn Value<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, pvarretval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogObject_Impl::Value(this, core::mem::transmute(&bstrpropname)) {
+                match ICatalogObject_Impl::Value(this, &*(&raw const bstrpropname).cast()) {
                     Ok(ok__) => {
-                        pvarretval.write(core::mem::transmute(ok__));
+                        pvarretval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1855,7 +1855,7 @@ impl ICatalogObject_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, val: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatalogObject_Impl::SetValue(this, core::mem::transmute(&bstrpropname), core::mem::transmute(&val))
+                ICatalogObject_Impl::SetValue(this, &*(&raw const bstrpropname).cast(), &*(&raw const val).cast())
             }
         }
         unsafe extern "system" fn Key<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarretval: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -1863,7 +1863,7 @@ impl ICatalogObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogObject_Impl::Key(this) {
                     Ok(ok__) => {
-                        pvarretval.write(core::mem::transmute(ok__));
+                        pvarretval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1878,7 +1878,7 @@ impl ICatalogObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogObject_Impl::Name(this) {
                     Ok(ok__) => {
-                        pvarretval.write(core::mem::transmute(ok__));
+                        pvarretval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1891,7 +1891,7 @@ impl ICatalogObject_Vtbl {
         unsafe extern "system" fn IsPropertyReadOnly<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, pbretval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogObject_Impl::IsPropertyReadOnly(this, core::mem::transmute(&bstrpropname)) {
+                match ICatalogObject_Impl::IsPropertyReadOnly(this, &*(&raw const bstrpropname).cast()) {
                     Ok(ok__) => {
                         pbretval.write(ok__);
                         windows_core::HRESULT(0)
@@ -1921,7 +1921,7 @@ impl ICatalogObject_Vtbl {
         unsafe extern "system" fn IsPropertyWriteOnly<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, pbretval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogObject_Impl::IsPropertyWriteOnly(this, core::mem::transmute(&bstrpropname)) {
+                match ICatalogObject_Impl::IsPropertyWriteOnly(this, &*(&raw const bstrpropname).cast()) {
                     Ok(ok__) => {
                         pbretval.write(ok__);
                         windows_core::HRESULT(0)

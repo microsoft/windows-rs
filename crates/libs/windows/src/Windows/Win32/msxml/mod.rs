@@ -646,13 +646,13 @@ impl IMXAttributes_Vtbl {
         unsafe extern "system" fn addAttribute<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strtype: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXAttributes_Impl::addAttribute(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname), core::mem::transmute(&strqname), core::mem::transmute(&strtype), core::mem::transmute(&strvalue))
+                IMXAttributes_Impl::addAttribute(this, &*(&raw const struri).cast(), &*(&raw const strlocalname).cast(), &*(&raw const strqname).cast(), &*(&raw const strtype).cast(), &*(&raw const strvalue).cast())
             }
         }
         unsafe extern "system" fn addAttributeFromIndex<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varatts: super::VARIANT, nindex: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXAttributes_Impl::addAttributeFromIndex(this, core::mem::transmute(&varatts), core::mem::transmute_copy(&nindex))
+                IMXAttributes_Impl::addAttributeFromIndex(this, &*(&raw const varatts).cast(), core::mem::transmute_copy(&nindex))
             }
         }
         unsafe extern "system" fn clear<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -670,43 +670,43 @@ impl IMXAttributes_Vtbl {
         unsafe extern "system" fn setAttribute<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strtype: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXAttributes_Impl::setAttribute(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&struri), core::mem::transmute(&strlocalname), core::mem::transmute(&strqname), core::mem::transmute(&strtype), core::mem::transmute(&strvalue))
+                IMXAttributes_Impl::setAttribute(this, core::mem::transmute_copy(&nindex), &*(&raw const struri).cast(), &*(&raw const strlocalname).cast(), &*(&raw const strqname).cast(), &*(&raw const strtype).cast(), &*(&raw const strvalue).cast())
             }
         }
         unsafe extern "system" fn setAttributes<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varatts: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXAttributes_Impl::setAttributes(this, core::mem::transmute(&varatts))
+                IMXAttributes_Impl::setAttributes(this, &*(&raw const varatts).cast())
             }
         }
         unsafe extern "system" fn setLocalName<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strlocalname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXAttributes_Impl::setLocalName(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&strlocalname))
+                IMXAttributes_Impl::setLocalName(this, core::mem::transmute_copy(&nindex), &*(&raw const strlocalname).cast())
             }
         }
         unsafe extern "system" fn setQName<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strqname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXAttributes_Impl::setQName(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&strqname))
+                IMXAttributes_Impl::setQName(this, core::mem::transmute_copy(&nindex), &*(&raw const strqname).cast())
             }
         }
         unsafe extern "system" fn setType<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strtype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXAttributes_Impl::setType(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&strtype))
+                IMXAttributes_Impl::setType(this, core::mem::transmute_copy(&nindex), &*(&raw const strtype).cast())
             }
         }
         unsafe extern "system" fn setURI<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, struri: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXAttributes_Impl::setURI(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&struri))
+                IMXAttributes_Impl::setURI(this, core::mem::transmute_copy(&nindex), &*(&raw const struri).cast())
             }
         }
         unsafe extern "system" fn setValue<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXAttributes_Impl::setValue(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&strvalue))
+                IMXAttributes_Impl::setValue(this, core::mem::transmute_copy(&nindex), &*(&raw const strvalue).cast())
             }
         }
         Self {
@@ -876,7 +876,7 @@ impl IMXNamespaceManager_Vtbl {
         unsafe extern "system" fn declarePrefix<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: windows_core::PCWSTR, namespaceuri: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXNamespaceManager_Impl::declarePrefix(this, core::mem::transmute(&prefix), core::mem::transmute(&namespaceuri))
+                IMXNamespaceManager_Impl::declarePrefix(this, &*(&raw const prefix).cast(), &*(&raw const namespaceuri).cast())
             }
         }
         unsafe extern "system" fn getDeclaredPrefix<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, pwchprefix: *mut u16, pcchprefix: *mut i32) -> windows_core::HRESULT {
@@ -888,13 +888,13 @@ impl IMXNamespaceManager_Vtbl {
         unsafe extern "system" fn getPrefix<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsznamespaceuri: windows_core::PCWSTR, nindex: i32, pwchprefix: *mut u16, pcchprefix: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXNamespaceManager_Impl::getPrefix(this, core::mem::transmute(&pwsznamespaceuri), core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pwchprefix), core::mem::transmute_copy(&pcchprefix))
+                IMXNamespaceManager_Impl::getPrefix(this, &*(&raw const pwsznamespaceuri).cast(), core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pwchprefix), core::mem::transmute_copy(&pcchprefix))
             }
         }
         unsafe extern "system" fn getURI<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchprefix: windows_core::PCWSTR, pcontextnode: *mut core::ffi::c_void, pwchuri: *mut u16, pcchuri: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXNamespaceManager_Impl::getURI(this, core::mem::transmute(&pwchprefix), core::mem::transmute_copy(&pcontextnode), core::mem::transmute_copy(&pwchuri), core::mem::transmute_copy(&pcchuri))
+                IMXNamespaceManager_Impl::getURI(this, &*(&raw const pwchprefix).cast(), core::mem::transmute_copy(&pcontextnode), core::mem::transmute_copy(&pwchuri), core::mem::transmute_copy(&pcchuri))
             }
         }
         Self {
@@ -972,7 +972,7 @@ impl IMXNamespacePrefixes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXNamespacePrefixes_Impl::item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        prefix.write(core::mem::transmute(ok__));
+                        prefix.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1002,7 +1002,7 @@ impl IMXNamespacePrefixes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXNamespacePrefixes_Impl::_newEnum(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1331,7 +1331,7 @@ impl IMXWriter_Vtbl {
         unsafe extern "system" fn Setoutput<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestination: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXWriter_Impl::Setoutput(this, core::mem::transmute(&vardestination))
+                IMXWriter_Impl::Setoutput(this, &*(&raw const vardestination).cast())
             }
         }
         unsafe extern "system" fn output<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestination: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -1339,7 +1339,7 @@ impl IMXWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXWriter_Impl::output(this) {
                     Ok(ok__) => {
-                        vardestination.write(core::mem::transmute(ok__));
+                        vardestination.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1352,7 +1352,7 @@ impl IMXWriter_Vtbl {
         unsafe extern "system" fn Setencoding<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencoding: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXWriter_Impl::Setencoding(this, core::mem::transmute(&strencoding))
+                IMXWriter_Impl::Setencoding(this, &*(&raw const strencoding).cast())
             }
         }
         unsafe extern "system" fn encoding<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencoding: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1360,7 +1360,7 @@ impl IMXWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXWriter_Impl::encoding(this) {
                     Ok(ok__) => {
-                        strencoding.write(core::mem::transmute(ok__));
+                        strencoding.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1457,7 +1457,7 @@ impl IMXWriter_Vtbl {
         unsafe extern "system" fn Setversion<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strversion: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXWriter_Impl::Setversion(this, core::mem::transmute(&strversion))
+                IMXWriter_Impl::Setversion(this, &*(&raw const strversion).cast())
             }
         }
         unsafe extern "system" fn version<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strversion: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1465,7 +1465,7 @@ impl IMXWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXWriter_Impl::version(this) {
                     Ok(ok__) => {
-                        strversion.write(core::mem::transmute(ok__));
+                        strversion.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1664,7 +1664,7 @@ impl IMXXMLFilter_Vtbl {
         unsafe extern "system" fn getFeature<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMXXMLFilter_Impl::getFeature(this, core::mem::transmute(&strname)) {
+                match IMXXMLFilter_Impl::getFeature(this, &*(&raw const strname).cast()) {
                     Ok(ok__) => {
                         fvalue.write(ok__);
                         windows_core::HRESULT(0)
@@ -1679,15 +1679,15 @@ impl IMXXMLFilter_Vtbl {
         unsafe extern "system" fn putFeature<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXXMLFilter_Impl::putFeature(this, core::mem::transmute(&strname), core::mem::transmute_copy(&fvalue))
+                IMXXMLFilter_Impl::putFeature(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&fvalue))
             }
         }
         unsafe extern "system" fn getProperty<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMXXMLFilter_Impl::getProperty(this, core::mem::transmute(&strname)) {
+                match IMXXMLFilter_Impl::getProperty(this, &*(&raw const strname).cast()) {
                     Ok(ok__) => {
-                        varvalue.write(core::mem::transmute(ok__));
+                        varvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1700,7 +1700,7 @@ impl IMXXMLFilter_Vtbl {
         unsafe extern "system" fn putProperty<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMXXMLFilter_Impl::putProperty(this, core::mem::transmute(&strname), core::mem::transmute(&varvalue))
+                IMXXMLFilter_Impl::putProperty(this, &*(&raw const strname).cast(), &*(&raw const varvalue).cast())
             }
         }
         unsafe extern "system" fn entityResolver<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oresolver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1708,7 +1708,7 @@ impl IMXXMLFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXXMLFilter_Impl::entityResolver(this) {
                     Ok(ok__) => {
-                        oresolver.write(core::mem::transmute(ok__));
+                        oresolver.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1729,7 +1729,7 @@ impl IMXXMLFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXXMLFilter_Impl::contentHandler(this) {
                     Ok(ok__) => {
-                        ohandler.write(core::mem::transmute(ok__));
+                        ohandler.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1750,7 +1750,7 @@ impl IMXXMLFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXXMLFilter_Impl::dtdHandler(this) {
                     Ok(ok__) => {
-                        ohandler.write(core::mem::transmute(ok__));
+                        ohandler.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1771,7 +1771,7 @@ impl IMXXMLFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXXMLFilter_Impl::errorHandler(this) {
                     Ok(ok__) => {
-                        ohandler.write(core::mem::transmute(ok__));
+                        ohandler.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2331,7 +2331,7 @@ impl ISAXEntityResolver_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXEntityResolver_Impl::resolveEntity(this, core::mem::transmute_copy(&pwchpublicid), core::mem::transmute_copy(&pwchsystemid)) {
                     Ok(ok__) => {
-                        pvarinput.write(core::mem::transmute(ok__));
+                        pvarinput.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2682,7 +2682,7 @@ impl ISAXXMLFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLFilter_Impl::getParent(this) {
                     Ok(ok__) => {
-                        ppreader.write(core::mem::transmute(ok__));
+                        ppreader.cast::<ISAXXMLReader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2893,7 +2893,7 @@ impl ISAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLReader_Impl::getProperty(this, core::mem::transmute_copy(&pwchname)) {
                     Ok(ok__) => {
-                        pvarvalue.write(core::mem::transmute(ok__));
+                        pvarvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2906,7 +2906,7 @@ impl ISAXXMLReader_Vtbl {
         unsafe extern "system" fn putProperty<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: *const u16, varvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISAXXMLReader_Impl::putProperty(this, core::mem::transmute_copy(&pwchname), core::mem::transmute(&varvalue))
+                ISAXXMLReader_Impl::putProperty(this, core::mem::transmute_copy(&pwchname), &*(&raw const varvalue).cast())
             }
         }
         unsafe extern "system" fn getEntityResolver<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresolver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2914,7 +2914,7 @@ impl ISAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLReader_Impl::getEntityResolver(this) {
                     Ok(ok__) => {
-                        ppresolver.write(core::mem::transmute(ok__));
+                        ppresolver.cast::<ISAXEntityResolver>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2935,7 +2935,7 @@ impl ISAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLReader_Impl::getContentHandler(this) {
                     Ok(ok__) => {
-                        pphandler.write(core::mem::transmute(ok__));
+                        pphandler.cast::<ISAXContentHandler>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2956,7 +2956,7 @@ impl ISAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLReader_Impl::getDTDHandler(this) {
                     Ok(ok__) => {
-                        pphandler.write(core::mem::transmute(ok__));
+                        pphandler.cast::<ISAXDTDHandler>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2977,7 +2977,7 @@ impl ISAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLReader_Impl::getErrorHandler(this) {
                     Ok(ok__) => {
-                        pphandler.write(core::mem::transmute(ok__));
+                        pphandler.cast::<ISAXErrorHandler>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3038,7 +3038,7 @@ impl ISAXXMLReader_Vtbl {
         unsafe extern "system" fn parse<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinput: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISAXXMLReader_Impl::parse(this, core::mem::transmute(&varinput))
+                ISAXXMLReader_Impl::parse(this, &*(&raw const varinput).cast())
             }
         }
         unsafe extern "system" fn parseURL<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchurl: *const u16) -> windows_core::HRESULT {
@@ -3178,7 +3178,7 @@ impl ISchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchema_Impl::targetNamespace(this) {
                     Ok(ok__) => {
-                        targetnamespace.write(core::mem::transmute(ok__));
+                        targetnamespace.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3193,7 +3193,7 @@ impl ISchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchema_Impl::version(this) {
                     Ok(ok__) => {
-                        version.write(core::mem::transmute(ok__));
+                        version.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3208,7 +3208,7 @@ impl ISchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchema_Impl::types(this) {
                     Ok(ok__) => {
-                        types.write(core::mem::transmute(ok__));
+                        types.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3223,7 +3223,7 @@ impl ISchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchema_Impl::elements(this) {
                     Ok(ok__) => {
-                        elements.write(core::mem::transmute(ok__));
+                        elements.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3238,7 +3238,7 @@ impl ISchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchema_Impl::attributes(this) {
                     Ok(ok__) => {
-                        attributes.write(core::mem::transmute(ok__));
+                        attributes.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3253,7 +3253,7 @@ impl ISchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchema_Impl::attributeGroups(this) {
                     Ok(ok__) => {
-                        attributegroups.write(core::mem::transmute(ok__));
+                        attributegroups.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3268,7 +3268,7 @@ impl ISchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchema_Impl::modelGroups(this) {
                     Ok(ok__) => {
-                        modelgroups.write(core::mem::transmute(ok__));
+                        modelgroups.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3283,7 +3283,7 @@ impl ISchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchema_Impl::notations(this) {
                     Ok(ok__) => {
-                        notations.write(core::mem::transmute(ok__));
+                        notations.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3298,7 +3298,7 @@ impl ISchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchema_Impl::schemaLocations(this) {
                     Ok(ok__) => {
-                        schemalocations.write(core::mem::transmute(ok__));
+                        schemalocations.cast::<ISchemaStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3374,7 +3374,7 @@ impl ISchemaAny_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaAny_Impl::namespaces(this) {
                     Ok(ok__) => {
-                        namespaces.write(core::mem::transmute(ok__));
+                        namespaces.cast::<ISchemaStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3494,7 +3494,7 @@ impl ISchemaAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaAttribute_Impl::r#type(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.cast::<ISchemaType>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3509,7 +3509,7 @@ impl ISchemaAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaAttribute_Impl::scope(this) {
                     Ok(ok__) => {
-                        scope.write(core::mem::transmute(ok__));
+                        scope.cast::<ISchemaComplexType>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3524,7 +3524,7 @@ impl ISchemaAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaAttribute_Impl::defaultValue(this) {
                     Ok(ok__) => {
-                        defaultvalue.write(core::mem::transmute(ok__));
+                        defaultvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3539,7 +3539,7 @@ impl ISchemaAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaAttribute_Impl::fixedValue(this) {
                     Ok(ok__) => {
-                        fixedvalue.write(core::mem::transmute(ok__));
+                        fixedvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3642,7 +3642,7 @@ impl ISchemaAttributeGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaAttributeGroup_Impl::anyAttribute(this) {
                     Ok(ok__) => {
-                        anyattribute.write(core::mem::transmute(ok__));
+                        anyattribute.cast::<ISchemaAny>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3657,7 +3657,7 @@ impl ISchemaAttributeGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaAttributeGroup_Impl::attributes(this) {
                     Ok(ok__) => {
-                        attributes.write(core::mem::transmute(ok__));
+                        attributes.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3773,7 +3773,7 @@ impl ISchemaComplexType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaComplexType_Impl::anyAttribute(this) {
                     Ok(ok__) => {
-                        anyattribute.write(core::mem::transmute(ok__));
+                        anyattribute.cast::<ISchemaAny>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3788,7 +3788,7 @@ impl ISchemaComplexType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaComplexType_Impl::attributes(this) {
                     Ok(ok__) => {
-                        attributes.write(core::mem::transmute(ok__));
+                        attributes.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3818,7 +3818,7 @@ impl ISchemaComplexType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaComplexType_Impl::contentModel(this) {
                     Ok(ok__) => {
-                        contentmodel.write(core::mem::transmute(ok__));
+                        contentmodel.cast::<ISchemaModelGroup>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3990,7 +3990,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::r#type(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.cast::<ISchemaType>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4005,7 +4005,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::scope(this) {
                     Ok(ok__) => {
-                        scope.write(core::mem::transmute(ok__));
+                        scope.cast::<ISchemaComplexType>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4020,7 +4020,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::defaultValue(this) {
                     Ok(ok__) => {
-                        defaultvalue.write(core::mem::transmute(ok__));
+                        defaultvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4035,7 +4035,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::fixedValue(this) {
                     Ok(ok__) => {
-                        fixedvalue.write(core::mem::transmute(ok__));
+                        fixedvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4065,7 +4065,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::identityConstraints(this) {
                     Ok(ok__) => {
-                        constraints.write(core::mem::transmute(ok__));
+                        constraints.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4080,7 +4080,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::substitutionGroup(this) {
                     Ok(ok__) => {
-                        element.write(core::mem::transmute(ok__));
+                        element.cast::<ISchemaElement>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4226,7 +4226,7 @@ impl ISchemaIdentityConstraint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaIdentityConstraint_Impl::selector(this) {
                     Ok(ok__) => {
-                        selector.write(core::mem::transmute(ok__));
+                        selector.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4241,7 +4241,7 @@ impl ISchemaIdentityConstraint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaIdentityConstraint_Impl::fields(this) {
                     Ok(ok__) => {
-                        fields.write(core::mem::transmute(ok__));
+                        fields.cast::<ISchemaStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4256,7 +4256,7 @@ impl ISchemaIdentityConstraint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaIdentityConstraint_Impl::referencedKey(this) {
                     Ok(ok__) => {
-                        key.write(core::mem::transmute(ok__));
+                        key.cast::<ISchemaIdentityConstraint>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4373,7 +4373,7 @@ impl ISchemaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaItem_Impl::name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4388,7 +4388,7 @@ impl ISchemaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaItem_Impl::namespaceURI(this) {
                     Ok(ok__) => {
-                        namespaceuri.write(core::mem::transmute(ok__));
+                        namespaceuri.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4403,7 +4403,7 @@ impl ISchemaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaItem_Impl::schema(this) {
                     Ok(ok__) => {
-                        schema.write(core::mem::transmute(ok__));
+                        schema.cast::<ISchema>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4418,7 +4418,7 @@ impl ISchemaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaItem_Impl::id(this) {
                     Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
+                        id.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4448,7 +4448,7 @@ impl ISchemaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaItem_Impl::unhandledAttributes(this) {
                     Ok(ok__) => {
-                        attributes.write(core::mem::transmute(ok__));
+                        attributes.cast::<IVBSAXAttributes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4561,7 +4561,7 @@ impl ISchemaItemCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaItemCollection_Impl::item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<ISchemaItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4574,9 +4574,9 @@ impl ISchemaItemCollection_Vtbl {
         unsafe extern "system" fn itemByName<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISchemaItemCollection_Impl::itemByName(this, core::mem::transmute(&name)) {
+                match ISchemaItemCollection_Impl::itemByName(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<ISchemaItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4589,9 +4589,9 @@ impl ISchemaItemCollection_Vtbl {
         unsafe extern "system" fn itemByQName<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISchemaItemCollection_Impl::itemByQName(this, core::mem::transmute(&name), core::mem::transmute(&namespaceuri)) {
+                match ISchemaItemCollection_Impl::itemByQName(this, &*(&raw const name).cast(), &*(&raw const namespaceuri).cast()) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<ISchemaItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4621,7 +4621,7 @@ impl ISchemaItemCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaItemCollection_Impl::_newEnum(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4685,7 +4685,7 @@ impl ISchemaModelGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaModelGroup_Impl::particles(this) {
                     Ok(ok__) => {
-                        particles.write(core::mem::transmute(ok__));
+                        particles.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4750,7 +4750,7 @@ impl ISchemaNotation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaNotation_Impl::systemIdentifier(this) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4765,7 +4765,7 @@ impl ISchemaNotation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaNotation_Impl::publicIdentifier(this) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4842,7 +4842,7 @@ impl ISchemaParticle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaParticle_Impl::minOccurs(this) {
                     Ok(ok__) => {
-                        minoccurs.write(core::mem::transmute(ok__));
+                        minoccurs.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4857,7 +4857,7 @@ impl ISchemaParticle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaParticle_Impl::maxOccurs(this) {
                     Ok(ok__) => {
-                        maxoccurs.write(core::mem::transmute(ok__));
+                        maxoccurs.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4930,7 +4930,7 @@ impl ISchemaStringCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaStringCollection_Impl::item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        bstr.write(core::mem::transmute(ok__));
+                        bstr.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4960,7 +4960,7 @@ impl ISchemaStringCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaStringCollection_Impl::_newEnum(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5174,7 +5174,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::baseTypes(this) {
                     Ok(ok__) => {
-                        basetypes.write(core::mem::transmute(ok__));
+                        basetypes.cast::<ISchemaItemCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5232,7 +5232,7 @@ impl ISchemaType_Vtbl {
         unsafe extern "system" fn isValid<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, valid: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISchemaType_Impl::isValid(this, core::mem::transmute(&data)) {
+                match ISchemaType_Impl::isValid(this, &*(&raw const data).cast()) {
                     Ok(ok__) => {
                         valid.write(ok__);
                         windows_core::HRESULT(0)
@@ -5249,7 +5249,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::minExclusive(this) {
                     Ok(ok__) => {
-                        minexclusive.write(core::mem::transmute(ok__));
+                        minexclusive.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5264,7 +5264,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::minInclusive(this) {
                     Ok(ok__) => {
-                        mininclusive.write(core::mem::transmute(ok__));
+                        mininclusive.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5279,7 +5279,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::maxExclusive(this) {
                     Ok(ok__) => {
-                        maxexclusive.write(core::mem::transmute(ok__));
+                        maxexclusive.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5294,7 +5294,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::maxInclusive(this) {
                     Ok(ok__) => {
-                        maxinclusive.write(core::mem::transmute(ok__));
+                        maxinclusive.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5309,7 +5309,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::totalDigits(this) {
                     Ok(ok__) => {
-                        totaldigits.write(core::mem::transmute(ok__));
+                        totaldigits.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5324,7 +5324,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::fractionDigits(this) {
                     Ok(ok__) => {
-                        fractiondigits.write(core::mem::transmute(ok__));
+                        fractiondigits.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5339,7 +5339,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::length(this) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5354,7 +5354,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::minLength(this) {
                     Ok(ok__) => {
-                        minlength.write(core::mem::transmute(ok__));
+                        minlength.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5369,7 +5369,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::maxLength(this) {
                     Ok(ok__) => {
-                        maxlength.write(core::mem::transmute(ok__));
+                        maxlength.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5384,7 +5384,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::enumeration(this) {
                     Ok(ok__) => {
-                        enumeration.write(core::mem::transmute(ok__));
+                        enumeration.cast::<ISchemaStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5414,7 +5414,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::patterns(this) {
                     Ok(ok__) => {
-                        patterns.write(core::mem::transmute(ok__));
+                        patterns.cast::<ISchemaStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5524,7 +5524,7 @@ impl IServerXMLHTTPRequest_Vtbl {
         unsafe extern "system" fn waitForResponse<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeoutinseconds: super::VARIANT, issuccessful: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IServerXMLHTTPRequest_Impl::waitForResponse(this, core::mem::transmute(&timeoutinseconds)) {
+                match IServerXMLHTTPRequest_Impl::waitForResponse(this, &*(&raw const timeoutinseconds).cast()) {
                     Ok(ok__) => {
                         issuccessful.write(ok__);
                         windows_core::HRESULT(0)
@@ -5541,7 +5541,7 @@ impl IServerXMLHTTPRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IServerXMLHTTPRequest_Impl::getOption(this, core::mem::transmute_copy(&option)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5554,7 +5554,7 @@ impl IServerXMLHTTPRequest_Vtbl {
         unsafe extern "system" fn setOption<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IServerXMLHTTPRequest_Impl::setOption(this, core::mem::transmute_copy(&option), core::mem::transmute(&value))
+                IServerXMLHTTPRequest_Impl::setOption(this, core::mem::transmute_copy(&option), &*(&raw const value).cast())
             }
         }
         Self {
@@ -5614,13 +5614,13 @@ impl IServerXMLHTTPRequest2_Vtbl {
         unsafe extern "system" fn setProxy<Identity: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: super::VARIANT, varbypasslist: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IServerXMLHTTPRequest2_Impl::setProxy(this, core::mem::transmute_copy(&proxysetting), core::mem::transmute(&varproxyserver), core::mem::transmute(&varbypasslist))
+                IServerXMLHTTPRequest2_Impl::setProxy(this, core::mem::transmute_copy(&proxysetting), &*(&raw const varproxyserver).cast(), &*(&raw const varbypasslist).cast())
             }
         }
         unsafe extern "system" fn setProxyCredentials<Identity: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IServerXMLHTTPRequest2_Impl::setProxyCredentials(this, core::mem::transmute(&bstrusername), core::mem::transmute(&bstrpassword))
+                IServerXMLHTTPRequest2_Impl::setProxyCredentials(this, &*(&raw const bstrusername).cast(), &*(&raw const bstrpassword).cast())
             }
         }
         Self {
@@ -5805,7 +5805,7 @@ impl IVBMXNamespaceManager_Vtbl {
         unsafe extern "system" fn declarePrefix<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBMXNamespaceManager_Impl::declarePrefix(this, core::mem::transmute(&prefix), core::mem::transmute(&namespaceuri))
+                IVBMXNamespaceManager_Impl::declarePrefix(this, &*(&raw const prefix).cast(), &*(&raw const namespaceuri).cast())
             }
         }
         unsafe extern "system" fn getDeclaredPrefixes<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefixes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5813,7 +5813,7 @@ impl IVBMXNamespaceManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBMXNamespaceManager_Impl::getDeclaredPrefixes(this) {
                     Ok(ok__) => {
-                        prefixes.write(core::mem::transmute(ok__));
+                        prefixes.cast::<IMXNamespacePrefixes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5826,9 +5826,9 @@ impl IVBMXNamespaceManager_Vtbl {
         unsafe extern "system" fn getPrefixes<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, prefixes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBMXNamespaceManager_Impl::getPrefixes(this, core::mem::transmute(&namespaceuri)) {
+                match IVBMXNamespaceManager_Impl::getPrefixes(this, &*(&raw const namespaceuri).cast()) {
                     Ok(ok__) => {
-                        prefixes.write(core::mem::transmute(ok__));
+                        prefixes.cast::<IMXNamespacePrefixes>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5841,9 +5841,9 @@ impl IVBMXNamespaceManager_Vtbl {
         unsafe extern "system" fn getURI<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut core::ffi::c_void, uri: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBMXNamespaceManager_Impl::getURI(this, core::mem::transmute(&prefix)) {
+                match IVBMXNamespaceManager_Impl::getURI(this, &*(&raw const prefix).cast()) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5856,9 +5856,9 @@ impl IVBMXNamespaceManager_Vtbl {
         unsafe extern "system" fn getURIFromNode<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: *mut core::ffi::c_void, contextnode: *mut core::ffi::c_void, uri: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBMXNamespaceManager_Impl::getURIFromNode(this, core::mem::transmute(&strprefix), core::mem::transmute_copy(&contextnode)) {
+                match IVBMXNamespaceManager_Impl::getURIFromNode(this, &*(&raw const strprefix).cast(), core::mem::transmute_copy(&contextnode)) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6031,7 +6031,7 @@ impl IVBSAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXAttributes_Impl::getURI(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
-                        struri.write(core::mem::transmute(ok__));
+                        struri.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6046,7 +6046,7 @@ impl IVBSAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXAttributes_Impl::getLocalName(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
-                        strlocalname.write(core::mem::transmute(ok__));
+                        strlocalname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6061,7 +6061,7 @@ impl IVBSAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXAttributes_Impl::getQName(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
-                        strqname.write(core::mem::transmute(ok__));
+                        strqname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6074,7 +6074,7 @@ impl IVBSAXAttributes_Vtbl {
         unsafe extern "system" fn getIndexFromName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, nindex: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXAttributes_Impl::getIndexFromName(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname)) {
+                match IVBSAXAttributes_Impl::getIndexFromName(this, &*(&raw const struri).cast(), &*(&raw const strlocalname).cast()) {
                     Ok(ok__) => {
                         nindex.write(ok__);
                         windows_core::HRESULT(0)
@@ -6089,7 +6089,7 @@ impl IVBSAXAttributes_Vtbl {
         unsafe extern "system" fn getIndexFromQName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, nindex: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXAttributes_Impl::getIndexFromQName(this, core::mem::transmute(&strqname)) {
+                match IVBSAXAttributes_Impl::getIndexFromQName(this, &*(&raw const strqname).cast()) {
                     Ok(ok__) => {
                         nindex.write(ok__);
                         windows_core::HRESULT(0)
@@ -6106,7 +6106,7 @@ impl IVBSAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXAttributes_Impl::getType(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
-                        strtype.write(core::mem::transmute(ok__));
+                        strtype.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6119,9 +6119,9 @@ impl IVBSAXAttributes_Vtbl {
         unsafe extern "system" fn getTypeFromName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXAttributes_Impl::getTypeFromName(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname)) {
+                match IVBSAXAttributes_Impl::getTypeFromName(this, &*(&raw const struri).cast(), &*(&raw const strlocalname).cast()) {
                     Ok(ok__) => {
-                        strtype.write(core::mem::transmute(ok__));
+                        strtype.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6134,9 +6134,9 @@ impl IVBSAXAttributes_Vtbl {
         unsafe extern "system" fn getTypeFromQName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXAttributes_Impl::getTypeFromQName(this, core::mem::transmute(&strqname)) {
+                match IVBSAXAttributes_Impl::getTypeFromQName(this, &*(&raw const strqname).cast()) {
                     Ok(ok__) => {
-                        strtype.write(core::mem::transmute(ok__));
+                        strtype.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6151,7 +6151,7 @@ impl IVBSAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXAttributes_Impl::getValue(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
-                        strvalue.write(core::mem::transmute(ok__));
+                        strvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6164,9 +6164,9 @@ impl IVBSAXAttributes_Vtbl {
         unsafe extern "system" fn getValueFromName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXAttributes_Impl::getValueFromName(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname)) {
+                match IVBSAXAttributes_Impl::getValueFromName(this, &*(&raw const struri).cast(), &*(&raw const strlocalname).cast()) {
                     Ok(ok__) => {
-                        strvalue.write(core::mem::transmute(ok__));
+                        strvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6179,9 +6179,9 @@ impl IVBSAXAttributes_Vtbl {
         unsafe extern "system" fn getValueFromQName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXAttributes_Impl::getValueFromQName(this, core::mem::transmute(&strqname)) {
+                match IVBSAXAttributes_Impl::getValueFromQName(this, &*(&raw const strqname).cast()) {
                     Ok(ok__) => {
-                        strvalue.write(core::mem::transmute(ok__));
+                        strvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6239,31 +6239,31 @@ impl IVBSAXContentHandler {
         unsafe { (windows_core::Interface::vtable(self).endDocument)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn startPrefixMapping(&self, strprefix: *mut windows_core::BSTR, struri: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).startPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix), core::mem::transmute(struri)) }
+        unsafe { (windows_core::Interface::vtable(self).startPrefixMapping)(windows_core::Interface::as_raw(self), strprefix as _, struri as _) }
     }
     pub unsafe fn endPrefixMapping(&self, strprefix: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix)) }
+        unsafe { (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), strprefix as _) }
     }
     pub unsafe fn startElement<P3>(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<IVBSAXAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).startElement)(windows_core::Interface::as_raw(self), core::mem::transmute(strnamespaceuri), core::mem::transmute(strlocalname), core::mem::transmute(strqname), oattributes.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).startElement)(windows_core::Interface::as_raw(self), strnamespaceuri as _, strlocalname as _, strqname as _, oattributes.param().abi()) }
     }
     pub unsafe fn endElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).endElement)(windows_core::Interface::as_raw(self), core::mem::transmute(strnamespaceuri), core::mem::transmute(strlocalname), core::mem::transmute(strqname)) }
+        unsafe { (windows_core::Interface::vtable(self).endElement)(windows_core::Interface::as_raw(self), strnamespaceuri as _, strlocalname as _, strqname as _) }
     }
     pub unsafe fn characters(&self, strchars: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).characters)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)) }
+        unsafe { (windows_core::Interface::vtable(self).characters)(windows_core::Interface::as_raw(self), strchars as _) }
     }
     pub unsafe fn ignorableWhitespace(&self, strchars: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)) }
+        unsafe { (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), strchars as _) }
     }
     pub unsafe fn processingInstruction(&self, strtarget: *mut windows_core::BSTR, strdata: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).processingInstruction)(windows_core::Interface::as_raw(self), core::mem::transmute(strtarget), core::mem::transmute(strdata)) }
+        unsafe { (windows_core::Interface::vtable(self).processingInstruction)(windows_core::Interface::as_raw(self), strtarget as _, strdata as _) }
     }
     pub unsafe fn skippedEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).skippedEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)) }
+        unsafe { (windows_core::Interface::vtable(self).skippedEntity)(windows_core::Interface::as_raw(self), strname as _) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -6401,10 +6401,10 @@ windows_core::imp::interface_hierarchy!(IVBSAXDTDHandler, windows_core::IUnknown
 #[cfg(feature = "oaidl")]
 impl IVBSAXDTDHandler {
     pub unsafe fn notationDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).notationDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid)) }
+        unsafe { (windows_core::Interface::vtable(self).notationDecl)(windows_core::Interface::as_raw(self), strname as _, strpublicid as _, strsystemid as _) }
     }
     pub unsafe fn unparsedEntityDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR, strnotationname: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).unparsedEntityDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid), core::mem::transmute(strnotationname)) }
+        unsafe { (windows_core::Interface::vtable(self).unparsedEntityDecl)(windows_core::Interface::as_raw(self), strname as _, strpublicid as _, strsystemid as _, strnotationname as _) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -6461,16 +6461,16 @@ windows_core::imp::interface_hierarchy!(IVBSAXDeclHandler, windows_core::IUnknow
 #[cfg(feature = "oaidl")]
 impl IVBSAXDeclHandler {
     pub unsafe fn elementDecl(&self, strname: *mut windows_core::BSTR, strmodel: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).elementDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strmodel)) }
+        unsafe { (windows_core::Interface::vtable(self).elementDecl)(windows_core::Interface::as_raw(self), strname as _, strmodel as _) }
     }
     pub unsafe fn attributeDecl(&self, strelementname: *mut windows_core::BSTR, strattributename: *mut windows_core::BSTR, strtype: *mut windows_core::BSTR, strvaluedefault: *mut windows_core::BSTR, strvalue: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).attributeDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strelementname), core::mem::transmute(strattributename), core::mem::transmute(strtype), core::mem::transmute(strvaluedefault), core::mem::transmute(strvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).attributeDecl)(windows_core::Interface::as_raw(self), strelementname as _, strattributename as _, strtype as _, strvaluedefault as _, strvalue as _) }
     }
     pub unsafe fn internalEntityDecl(&self, strname: *mut windows_core::BSTR, strvalue: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).internalEntityDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).internalEntityDecl)(windows_core::Interface::as_raw(self), strname as _, strvalue as _) }
     }
     pub unsafe fn externalEntityDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).externalEntityDecl)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid)) }
+        unsafe { (windows_core::Interface::vtable(self).externalEntityDecl)(windows_core::Interface::as_raw(self), strname as _, strpublicid as _, strsystemid as _) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -6548,7 +6548,7 @@ impl IVBSAXEntityResolver {
     pub unsafe fn resolveEntity(&self, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).resolveEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).resolveEntity)(windows_core::Interface::as_raw(self), strpublicid as _, strsystemid as _, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -6574,7 +6574,7 @@ impl IVBSAXEntityResolver_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXEntityResolver_Impl::resolveEntity(this, core::mem::transmute_copy(&strpublicid), core::mem::transmute_copy(&strsystemid)) {
                     Ok(ok__) => {
-                        varinput.write(core::mem::transmute(ok__));
+                        varinput.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6609,19 +6609,19 @@ impl IVBSAXErrorHandler {
     where
         P0: windows_core::Param<IVBSAXLocator>,
     {
-        unsafe { (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode) }
+        unsafe { (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), olocator.param().abi(), strerrormessage as _, nerrorcode) }
     }
     pub unsafe fn fatalError<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXLocator>,
     {
-        unsafe { (windows_core::Interface::vtable(self).fatalError)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode) }
+        unsafe { (windows_core::Interface::vtable(self).fatalError)(windows_core::Interface::as_raw(self), olocator.param().abi(), strerrormessage as _, nerrorcode) }
     }
     pub unsafe fn ignorableWarning<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IVBSAXLocator>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ignorableWarning)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode) }
+        unsafe { (windows_core::Interface::vtable(self).ignorableWarning)(windows_core::Interface::as_raw(self), olocator.param().abi(), strerrormessage as _, nerrorcode) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -6687,16 +6687,16 @@ windows_core::imp::interface_hierarchy!(IVBSAXLexicalHandler, windows_core::IUnk
 #[cfg(feature = "oaidl")]
 impl IVBSAXLexicalHandler {
     pub unsafe fn startDTD(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).startDTD)(windows_core::Interface::as_raw(self), core::mem::transmute(strname), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid)) }
+        unsafe { (windows_core::Interface::vtable(self).startDTD)(windows_core::Interface::as_raw(self), strname as _, strpublicid as _, strsystemid as _) }
     }
     pub unsafe fn endDTD(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).endDTD)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn startEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).startEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)) }
+        unsafe { (windows_core::Interface::vtable(self).startEntity)(windows_core::Interface::as_raw(self), strname as _) }
     }
     pub unsafe fn endEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).endEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)) }
+        unsafe { (windows_core::Interface::vtable(self).endEntity)(windows_core::Interface::as_raw(self), strname as _) }
     }
     pub unsafe fn startCDATA(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).startCDATA)(windows_core::Interface::as_raw(self)) }
@@ -6705,7 +6705,7 @@ impl IVBSAXLexicalHandler {
         unsafe { (windows_core::Interface::vtable(self).endCDATA)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn comment(&self, strchars: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).comment)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)) }
+        unsafe { (windows_core::Interface::vtable(self).comment)(windows_core::Interface::as_raw(self), strchars as _) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -6886,7 +6886,7 @@ impl IVBSAXLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXLocator_Impl::publicId(this) {
                     Ok(ok__) => {
-                        strpublicid.write(core::mem::transmute(ok__));
+                        strpublicid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6901,7 +6901,7 @@ impl IVBSAXLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXLocator_Impl::systemId(this) {
                     Ok(ok__) => {
-                        strsystemid.write(core::mem::transmute(ok__));
+                        strsystemid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6972,7 +6972,7 @@ impl IVBSAXXMLFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXXMLFilter_Impl::parent(this) {
                     Ok(ok__) => {
-                        oreader.write(core::mem::transmute(ok__));
+                        oreader.cast::<IVBSAXXMLReader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7171,7 +7171,7 @@ impl IVBSAXXMLReader_Vtbl {
         unsafe extern "system" fn getFeature<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXXMLReader_Impl::getFeature(this, core::mem::transmute(&strname)) {
+                match IVBSAXXMLReader_Impl::getFeature(this, &*(&raw const strname).cast()) {
                     Ok(ok__) => {
                         fvalue.write(ok__);
                         windows_core::HRESULT(0)
@@ -7186,15 +7186,15 @@ impl IVBSAXXMLReader_Vtbl {
         unsafe extern "system" fn putFeature<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXXMLReader_Impl::putFeature(this, core::mem::transmute(&strname), core::mem::transmute_copy(&fvalue))
+                IVBSAXXMLReader_Impl::putFeature(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&fvalue))
             }
         }
         unsafe extern "system" fn getProperty<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXXMLReader_Impl::getProperty(this, core::mem::transmute(&strname)) {
+                match IVBSAXXMLReader_Impl::getProperty(this, &*(&raw const strname).cast()) {
                     Ok(ok__) => {
-                        varvalue.write(core::mem::transmute(ok__));
+                        varvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7207,7 +7207,7 @@ impl IVBSAXXMLReader_Vtbl {
         unsafe extern "system" fn putProperty<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXXMLReader_Impl::putProperty(this, core::mem::transmute(&strname), core::mem::transmute(&varvalue))
+                IVBSAXXMLReader_Impl::putProperty(this, &*(&raw const strname).cast(), &*(&raw const varvalue).cast())
             }
         }
         unsafe extern "system" fn entityResolver<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oresolver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7215,7 +7215,7 @@ impl IVBSAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXXMLReader_Impl::entityResolver(this) {
                     Ok(ok__) => {
-                        oresolver.write(core::mem::transmute(ok__));
+                        oresolver.cast::<IVBSAXEntityResolver>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7236,7 +7236,7 @@ impl IVBSAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXXMLReader_Impl::contentHandler(this) {
                     Ok(ok__) => {
-                        ohandler.write(core::mem::transmute(ok__));
+                        ohandler.cast::<IVBSAXContentHandler>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7257,7 +7257,7 @@ impl IVBSAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXXMLReader_Impl::dtdHandler(this) {
                     Ok(ok__) => {
-                        ohandler.write(core::mem::transmute(ok__));
+                        ohandler.cast::<IVBSAXDTDHandler>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7278,7 +7278,7 @@ impl IVBSAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXXMLReader_Impl::errorHandler(this) {
                     Ok(ok__) => {
-                        ohandler.write(core::mem::transmute(ok__));
+                        ohandler.cast::<IVBSAXErrorHandler>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7299,7 +7299,7 @@ impl IVBSAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXXMLReader_Impl::baseURL(this) {
                     Ok(ok__) => {
-                        strbaseurl.write(core::mem::transmute(ok__));
+                        strbaseurl.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7312,7 +7312,7 @@ impl IVBSAXXMLReader_Vtbl {
         unsafe extern "system" fn SetbaseURL<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbaseurl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXXMLReader_Impl::SetbaseURL(this, core::mem::transmute(&strbaseurl))
+                IVBSAXXMLReader_Impl::SetbaseURL(this, &*(&raw const strbaseurl).cast())
             }
         }
         unsafe extern "system" fn secureBaseURL<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsecurebaseurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7320,7 +7320,7 @@ impl IVBSAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXXMLReader_Impl::secureBaseURL(this) {
                     Ok(ok__) => {
-                        strsecurebaseurl.write(core::mem::transmute(ok__));
+                        strsecurebaseurl.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7333,19 +7333,19 @@ impl IVBSAXXMLReader_Vtbl {
         unsafe extern "system" fn SetsecureBaseURL<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsecurebaseurl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXXMLReader_Impl::SetsecureBaseURL(this, core::mem::transmute(&strsecurebaseurl))
+                IVBSAXXMLReader_Impl::SetsecureBaseURL(this, &*(&raw const strsecurebaseurl).cast())
             }
         }
         unsafe extern "system" fn parse<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinput: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXXMLReader_Impl::parse(this, core::mem::transmute(&varinput))
+                IVBSAXXMLReader_Impl::parse(this, &*(&raw const varinput).cast())
             }
         }
         unsafe extern "system" fn parseURL<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strurl: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXXMLReader_Impl::parseURL(this, core::mem::transmute(&strurl))
+                IVBSAXXMLReader_Impl::parseURL(this, &*(&raw const strurl).cast())
             }
         }
         Self {
@@ -7423,7 +7423,7 @@ impl IXMLAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLAttribute_Impl::name(this) {
                     Ok(ok__) => {
-                        n.write(core::mem::transmute(ok__));
+                        n.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7438,7 +7438,7 @@ impl IXMLAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLAttribute_Impl::value(this) {
                     Ok(ok__) => {
-                        v.write(core::mem::transmute(ok__));
+                        v.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7516,7 +7516,7 @@ impl IXMLDOMAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMAttribute_Impl::name(this) {
                     Ok(ok__) => {
-                        attributename.write(core::mem::transmute(ok__));
+                        attributename.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7531,7 +7531,7 @@ impl IXMLDOMAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMAttribute_Impl::value(this) {
                     Ok(ok__) => {
-                        attributevalue.write(core::mem::transmute(ok__));
+                        attributevalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7544,7 +7544,7 @@ impl IXMLDOMAttribute_Vtbl {
         unsafe extern "system" fn Setvalue<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributevalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMAttribute_Impl::Setvalue(this, core::mem::transmute(&attributevalue))
+                IXMLDOMAttribute_Impl::Setvalue(this, &*(&raw const attributevalue).cast())
             }
         }
         Self {
@@ -7670,7 +7670,7 @@ impl IXMLDOMCharacterData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMCharacterData_Impl::data(this) {
                     Ok(ok__) => {
-                        data.write(core::mem::transmute(ok__));
+                        data.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7683,7 +7683,7 @@ impl IXMLDOMCharacterData_Vtbl {
         unsafe extern "system" fn Setdata<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMCharacterData_Impl::Setdata(this, core::mem::transmute(&data))
+                IXMLDOMCharacterData_Impl::Setdata(this, &*(&raw const data).cast())
             }
         }
         unsafe extern "system" fn length<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datalength: *mut i32) -> windows_core::HRESULT {
@@ -7706,7 +7706,7 @@ impl IXMLDOMCharacterData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMCharacterData_Impl::substringData(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
-                        data.write(core::mem::transmute(ok__));
+                        data.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7719,13 +7719,13 @@ impl IXMLDOMCharacterData_Vtbl {
         unsafe extern "system" fn appendData<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMCharacterData_Impl::appendData(this, core::mem::transmute(&data))
+                IXMLDOMCharacterData_Impl::appendData(this, &*(&raw const data).cast())
             }
         }
         unsafe extern "system" fn insertData<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMCharacterData_Impl::insertData(this, core::mem::transmute_copy(&offset), core::mem::transmute(&data))
+                IXMLDOMCharacterData_Impl::insertData(this, core::mem::transmute_copy(&offset), &*(&raw const data).cast())
             }
         }
         unsafe extern "system" fn deleteData<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, count: i32) -> windows_core::HRESULT {
@@ -7737,7 +7737,7 @@ impl IXMLDOMCharacterData_Vtbl {
         unsafe extern "system" fn replaceData<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, count: i32, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMCharacterData_Impl::replaceData(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count), core::mem::transmute(&data))
+                IXMLDOMCharacterData_Impl::replaceData(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count), &*(&raw const data).cast())
             }
         }
         Self {
@@ -8116,7 +8116,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::doctype(this) {
                     Ok(ok__) => {
-                        documenttype.write(core::mem::transmute(ok__));
+                        documenttype.cast::<IXMLDOMDocumentType>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8131,7 +8131,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::implementation(this) {
                     Ok(ok__) => {
-                        r#impl.write(core::mem::transmute(ok__));
+                        r#impl.cast::<IXMLDOMImplementation>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8146,7 +8146,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::documentElement(this) {
                     Ok(ok__) => {
-                        domelement.write(core::mem::transmute(ok__));
+                        domelement.cast::<IXMLDOMElement>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8165,9 +8165,9 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn createElement<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::createElement(this, core::mem::transmute(&tagname)) {
+                match IXMLDOMDocument_Impl::createElement(this, &*(&raw const tagname).cast()) {
                     Ok(ok__) => {
-                        element.write(core::mem::transmute(ok__));
+                        element.cast::<IXMLDOMElement>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8182,7 +8182,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::createDocumentFragment(this) {
                     Ok(ok__) => {
-                        docfrag.write(core::mem::transmute(ok__));
+                        docfrag.cast::<IXMLDOMDocumentFragment>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8195,9 +8195,9 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn createTextNode<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, text: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::createTextNode(this, core::mem::transmute(&data)) {
+                match IXMLDOMDocument_Impl::createTextNode(this, &*(&raw const data).cast()) {
                     Ok(ok__) => {
-                        text.write(core::mem::transmute(ok__));
+                        text.cast::<IXMLDOMText>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8210,9 +8210,9 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn createComment<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, comment: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::createComment(this, core::mem::transmute(&data)) {
+                match IXMLDOMDocument_Impl::createComment(this, &*(&raw const data).cast()) {
                     Ok(ok__) => {
-                        comment.write(core::mem::transmute(ok__));
+                        comment.cast::<IXMLDOMComment>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8225,9 +8225,9 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn createCDATASection<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, cdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::createCDATASection(this, core::mem::transmute(&data)) {
+                match IXMLDOMDocument_Impl::createCDATASection(this, &*(&raw const data).cast()) {
                     Ok(ok__) => {
-                        cdata.write(core::mem::transmute(ok__));
+                        cdata.cast::<IXMLDOMCDATASection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8240,9 +8240,9 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn createProcessingInstruction<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, target: *mut core::ffi::c_void, data: *mut core::ffi::c_void, pi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::createProcessingInstruction(this, core::mem::transmute(&target), core::mem::transmute(&data)) {
+                match IXMLDOMDocument_Impl::createProcessingInstruction(this, &*(&raw const target).cast(), &*(&raw const data).cast()) {
                     Ok(ok__) => {
-                        pi.write(core::mem::transmute(ok__));
+                        pi.cast::<IXMLDOMProcessingInstruction>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8255,9 +8255,9 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn createAttribute<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, attribute: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::createAttribute(this, core::mem::transmute(&name)) {
+                match IXMLDOMDocument_Impl::createAttribute(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        attribute.write(core::mem::transmute(ok__));
+                        attribute.cast::<IXMLDOMAttribute>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8270,9 +8270,9 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn createEntityReference<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, entityref: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::createEntityReference(this, core::mem::transmute(&name)) {
+                match IXMLDOMDocument_Impl::createEntityReference(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        entityref.write(core::mem::transmute(ok__));
+                        entityref.cast::<IXMLDOMEntityReference>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8285,9 +8285,9 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn getElementsByTagName<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut core::ffi::c_void, resultlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::getElementsByTagName(this, core::mem::transmute(&tagname)) {
+                match IXMLDOMDocument_Impl::getElementsByTagName(this, &*(&raw const tagname).cast()) {
                     Ok(ok__) => {
-                        resultlist.write(core::mem::transmute(ok__));
+                        resultlist.cast::<IXMLDOMNodeList>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8300,9 +8300,9 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn createNode<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::VARIANT, name: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, node: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::createNode(this, core::mem::transmute(&r#type), core::mem::transmute(&name), core::mem::transmute(&namespaceuri)) {
+                match IXMLDOMDocument_Impl::createNode(this, &*(&raw const r#type).cast(), &*(&raw const name).cast(), &*(&raw const namespaceuri).cast()) {
                     Ok(ok__) => {
-                        node.write(core::mem::transmute(ok__));
+                        node.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8315,9 +8315,9 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn nodeFromID<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idstring: *mut core::ffi::c_void, node: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::nodeFromID(this, core::mem::transmute(&idstring)) {
+                match IXMLDOMDocument_Impl::nodeFromID(this, &*(&raw const idstring).cast()) {
                     Ok(ok__) => {
-                        node.write(core::mem::transmute(ok__));
+                        node.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8330,7 +8330,7 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn load<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xmlsource: super::VARIANT, issuccessful: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::load(this, core::mem::transmute(&xmlsource)) {
+                match IXMLDOMDocument_Impl::load(this, &*(&raw const xmlsource).cast()) {
                     Ok(ok__) => {
                         issuccessful.write(ok__);
                         windows_core::HRESULT(0)
@@ -8362,7 +8362,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::parseError(this) {
                     Ok(ok__) => {
-                        errorobj.write(core::mem::transmute(ok__));
+                        errorobj.cast::<IXMLDOMParseError>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8377,7 +8377,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::url(this) {
                     Ok(ok__) => {
-                        urlstring.write(core::mem::transmute(ok__));
+                        urlstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8417,7 +8417,7 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn loadXML<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: *mut core::ffi::c_void, issuccessful: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument_Impl::loadXML(this, core::mem::transmute(&bstrxml)) {
+                match IXMLDOMDocument_Impl::loadXML(this, &*(&raw const bstrxml).cast()) {
                     Ok(ok__) => {
                         issuccessful.write(ok__);
                         windows_core::HRESULT(0)
@@ -8432,7 +8432,7 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn save<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMDocument_Impl::save(this, core::mem::transmute(&destination))
+                IXMLDOMDocument_Impl::save(this, &*(&raw const destination).cast())
             }
         }
         unsafe extern "system" fn validateOnParse<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalidating: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -8501,19 +8501,19 @@ impl IXMLDOMDocument_Vtbl {
         unsafe extern "system" fn Setonreadystatechange<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readystatechangesink: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMDocument_Impl::Setonreadystatechange(this, core::mem::transmute(&readystatechangesink))
+                IXMLDOMDocument_Impl::Setonreadystatechange(this, &*(&raw const readystatechangesink).cast())
             }
         }
         unsafe extern "system" fn Setondataavailable<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ondataavailablesink: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMDocument_Impl::Setondataavailable(this, core::mem::transmute(&ondataavailablesink))
+                IXMLDOMDocument_Impl::Setondataavailable(this, &*(&raw const ondataavailablesink).cast())
             }
         }
         unsafe extern "system" fn Setontransformnode<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ontransformnodesink: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMDocument_Impl::Setontransformnode(this, core::mem::transmute(&ontransformnodesink))
+                IXMLDOMDocument_Impl::Setontransformnode(this, &*(&raw const ontransformnodesink).cast())
             }
         }
         Self {
@@ -8648,7 +8648,7 @@ impl IXMLDOMDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument2_Impl::namespaces(this) {
                     Ok(ok__) => {
-                        namespacecollection.write(core::mem::transmute(ok__));
+                        namespacecollection.cast::<IXMLDOMSchemaCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8663,7 +8663,7 @@ impl IXMLDOMDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument2_Impl::schemas(this) {
                     Ok(ok__) => {
-                        othercollection.write(core::mem::transmute(ok__));
+                        othercollection.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8676,7 +8676,7 @@ impl IXMLDOMDocument2_Vtbl {
         unsafe extern "system" fn putref_schemas<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMDocument2_Impl::putref_schemas(this, core::mem::transmute(&othercollection))
+                IXMLDOMDocument2_Impl::putref_schemas(this, &*(&raw const othercollection).cast())
             }
         }
         unsafe extern "system" fn validate<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errorobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8684,7 +8684,7 @@ impl IXMLDOMDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument2_Impl::validate(this) {
                     Ok(ok__) => {
-                        errorobj.write(core::mem::transmute(ok__));
+                        errorobj.cast::<IXMLDOMParseError>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8697,15 +8697,15 @@ impl IXMLDOMDocument2_Vtbl {
         unsafe extern "system" fn setProperty<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMDocument2_Impl::setProperty(this, core::mem::transmute(&name), core::mem::transmute(&value))
+                IXMLDOMDocument2_Impl::setProperty(this, &*(&raw const name).cast(), &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn getProperty<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMDocument2_Impl::getProperty(this, core::mem::transmute(&name)) {
+                match IXMLDOMDocument2_Impl::getProperty(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8788,7 +8788,7 @@ impl IXMLDOMDocument3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument3_Impl::validateNode(this, core::mem::transmute_copy(&node)) {
                     Ok(ok__) => {
-                        errorobj.write(core::mem::transmute(ok__));
+                        errorobj.cast::<IXMLDOMParseError>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8803,7 +8803,7 @@ impl IXMLDOMDocument3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument3_Impl::importNode(this, core::mem::transmute_copy(&node), core::mem::transmute_copy(&deep)) {
                     Ok(ok__) => {
-                        clone.write(core::mem::transmute(ok__));
+                        clone.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8910,7 +8910,7 @@ impl IXMLDOMDocumentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocumentType_Impl::name(this) {
                     Ok(ok__) => {
-                        rootname.write(core::mem::transmute(ok__));
+                        rootname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8925,7 +8925,7 @@ impl IXMLDOMDocumentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocumentType_Impl::entities(this) {
                     Ok(ok__) => {
-                        entitymap.write(core::mem::transmute(ok__));
+                        entitymap.cast::<IXMLDOMNamedNodeMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8940,7 +8940,7 @@ impl IXMLDOMDocumentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocumentType_Impl::notations(this) {
                     Ok(ok__) => {
-                        notationmap.write(core::mem::transmute(ok__));
+                        notationmap.cast::<IXMLDOMNamedNodeMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9071,7 +9071,7 @@ impl IXMLDOMElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMElement_Impl::tagName(this) {
                     Ok(ok__) => {
-                        tagname.write(core::mem::transmute(ok__));
+                        tagname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9084,9 +9084,9 @@ impl IXMLDOMElement_Vtbl {
         unsafe extern "system" fn getAttribute<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMElement_Impl::getAttribute(this, core::mem::transmute(&name)) {
+                match IXMLDOMElement_Impl::getAttribute(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9099,21 +9099,21 @@ impl IXMLDOMElement_Vtbl {
         unsafe extern "system" fn setAttribute<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMElement_Impl::setAttribute(this, core::mem::transmute(&name), core::mem::transmute(&value))
+                IXMLDOMElement_Impl::setAttribute(this, &*(&raw const name).cast(), &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn removeAttribute<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMElement_Impl::removeAttribute(this, core::mem::transmute(&name))
+                IXMLDOMElement_Impl::removeAttribute(this, &*(&raw const name).cast())
             }
         }
         unsafe extern "system" fn getAttributeNode<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, attributenode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMElement_Impl::getAttributeNode(this, core::mem::transmute(&name)) {
+                match IXMLDOMElement_Impl::getAttributeNode(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        attributenode.write(core::mem::transmute(ok__));
+                        attributenode.cast::<IXMLDOMAttribute>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9128,7 +9128,7 @@ impl IXMLDOMElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMElement_Impl::setAttributeNode(this, core::mem::transmute_copy(&domattribute)) {
                     Ok(ok__) => {
-                        attributenode.write(core::mem::transmute(ok__));
+                        attributenode.cast::<IXMLDOMAttribute>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9143,7 +9143,7 @@ impl IXMLDOMElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMElement_Impl::removeAttributeNode(this, core::mem::transmute_copy(&domattribute)) {
                     Ok(ok__) => {
-                        attributenode.write(core::mem::transmute(ok__));
+                        attributenode.cast::<IXMLDOMAttribute>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9156,9 +9156,9 @@ impl IXMLDOMElement_Vtbl {
         unsafe extern "system" fn getElementsByTagName<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut core::ffi::c_void, resultlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMElement_Impl::getElementsByTagName(this, core::mem::transmute(&tagname)) {
+                match IXMLDOMElement_Impl::getElementsByTagName(this, &*(&raw const tagname).cast()) {
                     Ok(ok__) => {
-                        resultlist.write(core::mem::transmute(ok__));
+                        resultlist.cast::<IXMLDOMNodeList>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9256,7 +9256,7 @@ impl IXMLDOMEntity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMEntity_Impl::publicId(this) {
                     Ok(ok__) => {
-                        publicid.write(core::mem::transmute(ok__));
+                        publicid.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9271,7 +9271,7 @@ impl IXMLDOMEntity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMEntity_Impl::systemId(this) {
                     Ok(ok__) => {
-                        systemid.write(core::mem::transmute(ok__));
+                        systemid.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9286,7 +9286,7 @@ impl IXMLDOMEntity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMEntity_Impl::notationName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9380,7 +9380,7 @@ impl IXMLDOMImplementation_Vtbl {
         unsafe extern "system" fn hasFeature<Identity: IXMLDOMImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feature: *mut core::ffi::c_void, version: *mut core::ffi::c_void, hasfeature: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMImplementation_Impl::hasFeature(this, core::mem::transmute(&feature), core::mem::transmute(&version)) {
+                match IXMLDOMImplementation_Impl::hasFeature(this, &*(&raw const feature).cast(), &*(&raw const version).cast()) {
                     Ok(ok__) => {
                         hasfeature.write(ok__);
                         windows_core::HRESULT(0)
@@ -9509,9 +9509,9 @@ impl IXMLDOMNamedNodeMap_Vtbl {
         unsafe extern "system" fn getNamedItem<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, nameditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMNamedNodeMap_Impl::getNamedItem(this, core::mem::transmute(&name)) {
+                match IXMLDOMNamedNodeMap_Impl::getNamedItem(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        nameditem.write(core::mem::transmute(ok__));
+                        nameditem.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9526,7 +9526,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNamedNodeMap_Impl::setNamedItem(this, core::mem::transmute_copy(&newitem)) {
                     Ok(ok__) => {
-                        nameitem.write(core::mem::transmute(ok__));
+                        nameitem.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9539,9 +9539,9 @@ impl IXMLDOMNamedNodeMap_Vtbl {
         unsafe extern "system" fn removeNamedItem<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, nameditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMNamedNodeMap_Impl::removeNamedItem(this, core::mem::transmute(&name)) {
+                match IXMLDOMNamedNodeMap_Impl::removeNamedItem(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        nameditem.write(core::mem::transmute(ok__));
+                        nameditem.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9556,7 +9556,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNamedNodeMap_Impl::item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        listitem.write(core::mem::transmute(ok__));
+                        listitem.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9584,9 +9584,9 @@ impl IXMLDOMNamedNodeMap_Vtbl {
         unsafe extern "system" fn getQualifiedItem<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, qualifieditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMNamedNodeMap_Impl::getQualifiedItem(this, core::mem::transmute(&basename), core::mem::transmute(&namespaceuri)) {
+                match IXMLDOMNamedNodeMap_Impl::getQualifiedItem(this, &*(&raw const basename).cast(), &*(&raw const namespaceuri).cast()) {
                     Ok(ok__) => {
-                        qualifieditem.write(core::mem::transmute(ok__));
+                        qualifieditem.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9599,9 +9599,9 @@ impl IXMLDOMNamedNodeMap_Vtbl {
         unsafe extern "system" fn removeQualifiedItem<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, qualifieditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMNamedNodeMap_Impl::removeQualifiedItem(this, core::mem::transmute(&basename), core::mem::transmute(&namespaceuri)) {
+                match IXMLDOMNamedNodeMap_Impl::removeQualifiedItem(this, &*(&raw const basename).cast(), &*(&raw const namespaceuri).cast()) {
                     Ok(ok__) => {
-                        qualifieditem.write(core::mem::transmute(ok__));
+                        qualifieditem.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9616,7 +9616,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNamedNodeMap_Impl::nextNode(this) {
                     Ok(ok__) => {
-                        nextitem.write(core::mem::transmute(ok__));
+                        nextitem.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9637,7 +9637,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNamedNodeMap_Impl::_newEnum(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10034,7 +10034,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::nodeName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10049,7 +10049,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::nodeValue(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10062,7 +10062,7 @@ impl IXMLDOMNode_Vtbl {
         unsafe extern "system" fn SetnodeValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMNode_Impl::SetnodeValue(this, core::mem::transmute(&value))
+                IXMLDOMNode_Impl::SetnodeValue(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn nodeType<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut DOMNodeType) -> windows_core::HRESULT {
@@ -10085,7 +10085,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::parentNode(this) {
                     Ok(ok__) => {
-                        parent.write(core::mem::transmute(ok__));
+                        parent.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10100,7 +10100,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::childNodes(this) {
                     Ok(ok__) => {
-                        childlist.write(core::mem::transmute(ok__));
+                        childlist.cast::<IXMLDOMNodeList>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10115,7 +10115,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::firstChild(this) {
                     Ok(ok__) => {
-                        firstchild.write(core::mem::transmute(ok__));
+                        firstchild.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10130,7 +10130,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::lastChild(this) {
                     Ok(ok__) => {
-                        lastchild.write(core::mem::transmute(ok__));
+                        lastchild.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10145,7 +10145,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::previousSibling(this) {
                     Ok(ok__) => {
-                        previoussibling.write(core::mem::transmute(ok__));
+                        previoussibling.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10160,7 +10160,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::nextSibling(this) {
                     Ok(ok__) => {
-                        nextsibling.write(core::mem::transmute(ok__));
+                        nextsibling.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10175,7 +10175,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::attributes(this) {
                     Ok(ok__) => {
-                        attributemap.write(core::mem::transmute(ok__));
+                        attributemap.cast::<IXMLDOMNamedNodeMap>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10188,9 +10188,9 @@ impl IXMLDOMNode_Vtbl {
         unsafe extern "system" fn insertBefore<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, refchild: super::VARIANT, outnewchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMNode_Impl::insertBefore(this, core::mem::transmute_copy(&newchild), core::mem::transmute(&refchild)) {
+                match IXMLDOMNode_Impl::insertBefore(this, core::mem::transmute_copy(&newchild), &*(&raw const refchild).cast()) {
                     Ok(ok__) => {
-                        outnewchild.write(core::mem::transmute(ok__));
+                        outnewchild.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10205,7 +10205,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::replaceChild(this, core::mem::transmute_copy(&newchild), core::mem::transmute_copy(&oldchild)) {
                     Ok(ok__) => {
-                        outoldchild.write(core::mem::transmute(ok__));
+                        outoldchild.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10220,7 +10220,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::removeChild(this, core::mem::transmute_copy(&childnode)) {
                     Ok(ok__) => {
-                        oldchild.write(core::mem::transmute(ok__));
+                        oldchild.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10235,7 +10235,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::appendChild(this, core::mem::transmute_copy(&newchild)) {
                     Ok(ok__) => {
-                        outnewchild.write(core::mem::transmute(ok__));
+                        outnewchild.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10265,7 +10265,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::ownerDocument(this) {
                     Ok(ok__) => {
-                        xmldomdocument.write(core::mem::transmute(ok__));
+                        xmldomdocument.cast::<IXMLDOMDocument>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10280,7 +10280,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::cloneNode(this, core::mem::transmute_copy(&deep)) {
                     Ok(ok__) => {
-                        cloneroot.write(core::mem::transmute(ok__));
+                        cloneroot.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10295,7 +10295,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::nodeTypeString(this) {
                     Ok(ok__) => {
-                        nodetype.write(core::mem::transmute(ok__));
+                        nodetype.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10310,7 +10310,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::text(this) {
                     Ok(ok__) => {
-                        text.write(core::mem::transmute(ok__));
+                        text.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10323,7 +10323,7 @@ impl IXMLDOMNode_Vtbl {
         unsafe extern "system" fn Settext<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMNode_Impl::Settext(this, core::mem::transmute(&text))
+                IXMLDOMNode_Impl::Settext(this, &*(&raw const text).cast())
             }
         }
         unsafe extern "system" fn specified<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isspecified: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -10346,7 +10346,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::definition(this) {
                     Ok(ok__) => {
-                        definitionnode.write(core::mem::transmute(ok__));
+                        definitionnode.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10361,7 +10361,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::nodeTypedValue(this) {
                     Ok(ok__) => {
-                        typedvalue.write(core::mem::transmute(ok__));
+                        typedvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10374,7 +10374,7 @@ impl IXMLDOMNode_Vtbl {
         unsafe extern "system" fn SetnodeTypedValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typedvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMNode_Impl::SetnodeTypedValue(this, core::mem::transmute(&typedvalue))
+                IXMLDOMNode_Impl::SetnodeTypedValue(this, &*(&raw const typedvalue).cast())
             }
         }
         unsafe extern "system" fn dataType<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datatypename: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -10382,7 +10382,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::dataType(this) {
                     Ok(ok__) => {
-                        datatypename.write(core::mem::transmute(ok__));
+                        datatypename.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10395,7 +10395,7 @@ impl IXMLDOMNode_Vtbl {
         unsafe extern "system" fn SetdataType<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datatypename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMNode_Impl::SetdataType(this, core::mem::transmute(&datatypename))
+                IXMLDOMNode_Impl::SetdataType(this, &*(&raw const datatypename).cast())
             }
         }
         unsafe extern "system" fn xml<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xmlstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10403,7 +10403,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::xml(this) {
                     Ok(ok__) => {
-                        xmlstring.write(core::mem::transmute(ok__));
+                        xmlstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10418,7 +10418,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::transformNode(this, core::mem::transmute_copy(&stylesheet)) {
                     Ok(ok__) => {
-                        xmlstring.write(core::mem::transmute(ok__));
+                        xmlstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10431,9 +10431,9 @@ impl IXMLDOMNode_Vtbl {
         unsafe extern "system" fn selectNodes<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, querystring: *mut core::ffi::c_void, resultlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMNode_Impl::selectNodes(this, core::mem::transmute(&querystring)) {
+                match IXMLDOMNode_Impl::selectNodes(this, &*(&raw const querystring).cast()) {
                     Ok(ok__) => {
-                        resultlist.write(core::mem::transmute(ok__));
+                        resultlist.cast::<IXMLDOMNodeList>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10446,9 +10446,9 @@ impl IXMLDOMNode_Vtbl {
         unsafe extern "system" fn selectSingleNode<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, querystring: *mut core::ffi::c_void, resultnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMNode_Impl::selectSingleNode(this, core::mem::transmute(&querystring)) {
+                match IXMLDOMNode_Impl::selectSingleNode(this, &*(&raw const querystring).cast()) {
                     Ok(ok__) => {
-                        resultnode.write(core::mem::transmute(ok__));
+                        resultnode.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10478,7 +10478,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::namespaceURI(this) {
                     Ok(ok__) => {
-                        namespaceuri.write(core::mem::transmute(ok__));
+                        namespaceuri.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10493,7 +10493,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::prefix(this) {
                     Ok(ok__) => {
-                        prefixstring.write(core::mem::transmute(ok__));
+                        prefixstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10508,7 +10508,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::baseName(this) {
                     Ok(ok__) => {
-                        namestring.write(core::mem::transmute(ok__));
+                        namestring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10521,7 +10521,7 @@ impl IXMLDOMNode_Vtbl {
         unsafe extern "system" fn transformNodeToObject<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut core::ffi::c_void, outputobject: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMNode_Impl::transformNodeToObject(this, core::mem::transmute_copy(&stylesheet), core::mem::transmute(&outputobject))
+                IXMLDOMNode_Impl::transformNodeToObject(this, core::mem::transmute_copy(&stylesheet), &*(&raw const outputobject).cast())
             }
         }
         Self {
@@ -10638,7 +10638,7 @@ impl IXMLDOMNodeList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNodeList_Impl::item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        listitem.write(core::mem::transmute(ok__));
+                        listitem.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10668,7 +10668,7 @@ impl IXMLDOMNodeList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNodeList_Impl::nextNode(this) {
                     Ok(ok__) => {
-                        nextitem.write(core::mem::transmute(ok__));
+                        nextitem.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10689,7 +10689,7 @@ impl IXMLDOMNodeList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNodeList_Impl::_newEnum(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10769,7 +10769,7 @@ impl IXMLDOMNotation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNotation_Impl::publicId(this) {
                     Ok(ok__) => {
-                        publicid.write(core::mem::transmute(ok__));
+                        publicid.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10784,7 +10784,7 @@ impl IXMLDOMNotation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNotation_Impl::systemId(this) {
                     Ok(ok__) => {
-                        systemid.write(core::mem::transmute(ok__));
+                        systemid.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10904,7 +10904,7 @@ impl IXMLDOMParseError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError_Impl::url(this) {
                     Ok(ok__) => {
-                        urlstring.write(core::mem::transmute(ok__));
+                        urlstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10919,7 +10919,7 @@ impl IXMLDOMParseError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError_Impl::reason(this) {
                     Ok(ok__) => {
-                        reasonstring.write(core::mem::transmute(ok__));
+                        reasonstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10934,7 +10934,7 @@ impl IXMLDOMParseError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError_Impl::srcText(this) {
                     Ok(ok__) => {
-                        sourcestring.write(core::mem::transmute(ok__));
+                        sourcestring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11069,7 +11069,7 @@ impl IXMLDOMParseError2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError2_Impl::errorXPath(this) {
                     Ok(ok__) => {
-                        xpathexpr.write(core::mem::transmute(ok__));
+                        xpathexpr.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11084,7 +11084,7 @@ impl IXMLDOMParseError2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError2_Impl::allErrors(this) {
                     Ok(ok__) => {
-                        allerrors.write(core::mem::transmute(ok__));
+                        allerrors.cast::<IXMLDOMParseErrorCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11099,7 +11099,7 @@ impl IXMLDOMParseError2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError2_Impl::errorParameters(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        param.write(core::mem::transmute(ok__));
+                        param.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11206,7 +11206,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseErrorCollection_Impl::item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        error.write(core::mem::transmute(ok__));
+                        error.cast::<IXMLDOMParseError2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11236,7 +11236,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseErrorCollection_Impl::next(this) {
                     Ok(ok__) => {
-                        error.write(core::mem::transmute(ok__));
+                        error.cast::<IXMLDOMParseError2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11257,7 +11257,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseErrorCollection_Impl::_newEnum(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11334,7 +11334,7 @@ impl IXMLDOMProcessingInstruction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMProcessingInstruction_Impl::target(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11349,7 +11349,7 @@ impl IXMLDOMProcessingInstruction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMProcessingInstruction_Impl::data(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11362,7 +11362,7 @@ impl IXMLDOMProcessingInstruction_Vtbl {
         unsafe extern "system" fn Setdata<Identity: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMProcessingInstruction_Impl::Setdata(this, core::mem::transmute(&value))
+                IXMLDOMProcessingInstruction_Impl::Setdata(this, &*(&raw const value).cast())
             }
         }
         Self {
@@ -11461,15 +11461,15 @@ impl IXMLDOMSchemaCollection_Vtbl {
         unsafe extern "system" fn add<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, var: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMSchemaCollection_Impl::add(this, core::mem::transmute(&namespaceuri), core::mem::transmute(&var))
+                IXMLDOMSchemaCollection_Impl::add(this, &*(&raw const namespaceuri).cast(), &*(&raw const var).cast())
             }
         }
         unsafe extern "system" fn get<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, schemanode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMSchemaCollection_Impl::get(this, core::mem::transmute(&namespaceuri)) {
+                match IXMLDOMSchemaCollection_Impl::get(this, &*(&raw const namespaceuri).cast()) {
                     Ok(ok__) => {
-                        schemanode.write(core::mem::transmute(ok__));
+                        schemanode.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11482,7 +11482,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
         unsafe extern "system" fn remove<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMSchemaCollection_Impl::remove(this, core::mem::transmute(&namespaceuri))
+                IXMLDOMSchemaCollection_Impl::remove(this, &*(&raw const namespaceuri).cast())
             }
         }
         unsafe extern "system" fn length<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT {
@@ -11505,7 +11505,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSchemaCollection_Impl::namespaceURI(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11526,7 +11526,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSchemaCollection_Impl::_newEnum(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11654,9 +11654,9 @@ impl IXMLDOMSchemaCollection2_Vtbl {
         unsafe extern "system" fn getSchema<Identity: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, schema: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMSchemaCollection2_Impl::getSchema(this, core::mem::transmute(&namespaceuri)) {
+                match IXMLDOMSchemaCollection2_Impl::getSchema(this, &*(&raw const namespaceuri).cast()) {
                     Ok(ok__) => {
-                        schema.write(core::mem::transmute(ok__));
+                        schema.cast::<ISchema>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11671,7 +11671,7 @@ impl IXMLDOMSchemaCollection2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSchemaCollection2_Impl::getDeclaration(this, core::mem::transmute_copy(&node)) {
                     Ok(ok__) => {
-                        item.write(core::mem::transmute(ok__));
+                        item.cast::<ISchemaItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11817,7 +11817,7 @@ impl IXMLDOMSelection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSelection_Impl::expr(this) {
                     Ok(ok__) => {
-                        expression.write(core::mem::transmute(ok__));
+                        expression.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11830,7 +11830,7 @@ impl IXMLDOMSelection_Vtbl {
         unsafe extern "system" fn Setexpr<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, expression: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMSelection_Impl::Setexpr(this, core::mem::transmute(&expression))
+                IXMLDOMSelection_Impl::Setexpr(this, &*(&raw const expression).cast())
             }
         }
         unsafe extern "system" fn context<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11838,7 +11838,7 @@ impl IXMLDOMSelection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSelection_Impl::context(this) {
                     Ok(ok__) => {
-                        ppnode.write(core::mem::transmute(ok__));
+                        ppnode.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11859,7 +11859,7 @@ impl IXMLDOMSelection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSelection_Impl::peekNode(this) {
                     Ok(ok__) => {
-                        ppnode.write(core::mem::transmute(ok__));
+                        ppnode.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11874,7 +11874,7 @@ impl IXMLDOMSelection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSelection_Impl::matches(this, core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
-                        ppnode.write(core::mem::transmute(ok__));
+                        ppnode.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11889,7 +11889,7 @@ impl IXMLDOMSelection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSelection_Impl::removeNext(this) {
                     Ok(ok__) => {
-                        ppnode.write(core::mem::transmute(ok__));
+                        ppnode.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11910,7 +11910,7 @@ impl IXMLDOMSelection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSelection_Impl::clone(this) {
                     Ok(ok__) => {
-                        ppnode.write(core::mem::transmute(ok__));
+                        ppnode.cast::<IXMLDOMSelection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11923,9 +11923,9 @@ impl IXMLDOMSelection_Vtbl {
         unsafe extern "system" fn getProperty<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDOMSelection_Impl::getProperty(this, core::mem::transmute(&name)) {
+                match IXMLDOMSelection_Impl::getProperty(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11938,7 +11938,7 @@ impl IXMLDOMSelection_Vtbl {
         unsafe extern "system" fn setProperty<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDOMSelection_Impl::setProperty(this, core::mem::transmute(&name), core::mem::transmute(&value))
+                IXMLDOMSelection_Impl::setProperty(this, &*(&raw const name).cast(), &*(&raw const value).cast())
             }
         }
         Self {
@@ -12001,7 +12001,7 @@ impl IXMLDOMText_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMText_Impl::splitText(this, core::mem::transmute_copy(&offset)) {
                     Ok(ok__) => {
-                        righthandtextnode.write(core::mem::transmute(ok__));
+                        righthandtextnode.cast::<IXMLDOMText>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12087,7 +12087,7 @@ impl IXMLDSOControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDSOControl_Impl::XMLDocument(this) {
                     Ok(ok__) => {
-                        ppdoc.write(core::mem::transmute(ok__));
+                        ppdoc.cast::<IXMLDOMDocument>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12295,7 +12295,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::root(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<IXMLElement>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12310,7 +12310,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::fileSize(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12325,7 +12325,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::fileModifiedDate(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12340,7 +12340,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::fileUpdatedDate(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12355,7 +12355,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::URL(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12368,7 +12368,7 @@ impl IXMLDocument_Vtbl {
         unsafe extern "system" fn SetURL<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDocument_Impl::SetURL(this, core::mem::transmute(&p))
+                IXMLDocument_Impl::SetURL(this, &*(&raw const p).cast())
             }
         }
         unsafe extern "system" fn mimeType<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12376,7 +12376,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::mimeType(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12406,7 +12406,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::charset(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12419,7 +12419,7 @@ impl IXMLDocument_Vtbl {
         unsafe extern "system" fn Setcharset<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDocument_Impl::Setcharset(this, core::mem::transmute(&p))
+                IXMLDocument_Impl::Setcharset(this, &*(&raw const p).cast())
             }
         }
         unsafe extern "system" fn version<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12427,7 +12427,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::version(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12442,7 +12442,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::doctype(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12457,7 +12457,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::dtdURL(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12470,9 +12470,9 @@ impl IXMLDocument_Vtbl {
         unsafe extern "system" fn createElement<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtype: super::VARIANT, var1: super::VARIANT, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDocument_Impl::createElement(this, core::mem::transmute(&vtype), core::mem::transmute(&var1)) {
+                match IXMLDocument_Impl::createElement(this, &*(&raw const vtype).cast(), &*(&raw const var1).cast()) {
                     Ok(ok__) => {
-                        ppelem.write(core::mem::transmute(ok__));
+                        ppelem.cast::<IXMLElement>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12668,7 +12668,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::root(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<IXMLElement2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12683,7 +12683,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::fileSize(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12698,7 +12698,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::fileModifiedDate(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12713,7 +12713,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::fileUpdatedDate(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12728,7 +12728,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::URL(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12741,7 +12741,7 @@ impl IXMLDocument2_Vtbl {
         unsafe extern "system" fn SetURL<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDocument2_Impl::SetURL(this, core::mem::transmute(&p))
+                IXMLDocument2_Impl::SetURL(this, &*(&raw const p).cast())
             }
         }
         unsafe extern "system" fn mimeType<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12749,7 +12749,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::mimeType(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12779,7 +12779,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::charset(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12792,7 +12792,7 @@ impl IXMLDocument2_Vtbl {
         unsafe extern "system" fn Setcharset<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLDocument2_Impl::Setcharset(this, core::mem::transmute(&p))
+                IXMLDocument2_Impl::Setcharset(this, &*(&raw const p).cast())
             }
         }
         unsafe extern "system" fn version<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12800,7 +12800,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::version(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12815,7 +12815,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::doctype(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12830,7 +12830,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::dtdURL(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -12843,9 +12843,9 @@ impl IXMLDocument2_Vtbl {
         unsafe extern "system" fn createElement<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtype: super::VARIANT, var1: super::VARIANT, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLDocument2_Impl::createElement(this, core::mem::transmute(&vtype), core::mem::transmute(&var1)) {
+                match IXMLDocument2_Impl::createElement(this, &*(&raw const vtype).cast(), &*(&raw const var1).cast()) {
                     Ok(ok__) => {
-                        ppelem.write(core::mem::transmute(ok__));
+                        ppelem.cast::<IXMLElement2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13025,7 +13025,7 @@ impl IXMLElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement_Impl::tagName(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13038,7 +13038,7 @@ impl IXMLElement_Vtbl {
         unsafe extern "system" fn SettagName<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLElement_Impl::SettagName(this, core::mem::transmute(&p))
+                IXMLElement_Impl::SettagName(this, &*(&raw const p).cast())
             }
         }
         unsafe extern "system" fn parent<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13046,7 +13046,7 @@ impl IXMLElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement_Impl::parent(this) {
                     Ok(ok__) => {
-                        ppparent.write(core::mem::transmute(ok__));
+                        ppparent.cast::<IXMLElement>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13059,15 +13059,15 @@ impl IXMLElement_Vtbl {
         unsafe extern "system" fn setAttribute<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLElement_Impl::setAttribute(this, core::mem::transmute(&strpropertyname), core::mem::transmute(&propertyvalue))
+                IXMLElement_Impl::setAttribute(this, &*(&raw const strpropertyname).cast(), &*(&raw const propertyvalue).cast())
             }
         }
         unsafe extern "system" fn getAttribute<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLElement_Impl::getAttribute(this, core::mem::transmute(&strpropertyname)) {
+                match IXMLElement_Impl::getAttribute(this, &*(&raw const strpropertyname).cast()) {
                     Ok(ok__) => {
-                        propertyvalue.write(core::mem::transmute(ok__));
+                        propertyvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13080,7 +13080,7 @@ impl IXMLElement_Vtbl {
         unsafe extern "system" fn removeAttribute<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLElement_Impl::removeAttribute(this, core::mem::transmute(&strpropertyname))
+                IXMLElement_Impl::removeAttribute(this, &*(&raw const strpropertyname).cast())
             }
         }
         unsafe extern "system" fn children<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13088,7 +13088,7 @@ impl IXMLElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement_Impl::children(this) {
                     Ok(ok__) => {
-                        pp.write(core::mem::transmute(ok__));
+                        pp.cast::<IXMLElementCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13118,7 +13118,7 @@ impl IXMLElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement_Impl::text(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13131,7 +13131,7 @@ impl IXMLElement_Vtbl {
         unsafe extern "system" fn Settext<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLElement_Impl::Settext(this, core::mem::transmute(&p))
+                IXMLElement_Impl::Settext(this, &*(&raw const p).cast())
             }
         }
         unsafe extern "system" fn addChild<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchildelem: *mut core::ffi::c_void, lindex: i32, lreserved: i32) -> windows_core::HRESULT {
@@ -13299,7 +13299,7 @@ impl IXMLElement2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement2_Impl::tagName(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13312,7 +13312,7 @@ impl IXMLElement2_Vtbl {
         unsafe extern "system" fn SettagName<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLElement2_Impl::SettagName(this, core::mem::transmute(&p))
+                IXMLElement2_Impl::SettagName(this, &*(&raw const p).cast())
             }
         }
         unsafe extern "system" fn parent<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13320,7 +13320,7 @@ impl IXMLElement2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement2_Impl::parent(this) {
                     Ok(ok__) => {
-                        ppparent.write(core::mem::transmute(ok__));
+                        ppparent.cast::<IXMLElement2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13333,15 +13333,15 @@ impl IXMLElement2_Vtbl {
         unsafe extern "system" fn setAttribute<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLElement2_Impl::setAttribute(this, core::mem::transmute(&strpropertyname), core::mem::transmute(&propertyvalue))
+                IXMLElement2_Impl::setAttribute(this, &*(&raw const strpropertyname).cast(), &*(&raw const propertyvalue).cast())
             }
         }
         unsafe extern "system" fn getAttribute<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLElement2_Impl::getAttribute(this, core::mem::transmute(&strpropertyname)) {
+                match IXMLElement2_Impl::getAttribute(this, &*(&raw const strpropertyname).cast()) {
                     Ok(ok__) => {
-                        propertyvalue.write(core::mem::transmute(ok__));
+                        propertyvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13354,7 +13354,7 @@ impl IXMLElement2_Vtbl {
         unsafe extern "system" fn removeAttribute<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLElement2_Impl::removeAttribute(this, core::mem::transmute(&strpropertyname))
+                IXMLElement2_Impl::removeAttribute(this, &*(&raw const strpropertyname).cast())
             }
         }
         unsafe extern "system" fn children<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13362,7 +13362,7 @@ impl IXMLElement2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement2_Impl::children(this) {
                     Ok(ok__) => {
-                        pp.write(core::mem::transmute(ok__));
+                        pp.cast::<IXMLElementCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13392,7 +13392,7 @@ impl IXMLElement2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement2_Impl::text(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13405,7 +13405,7 @@ impl IXMLElement2_Vtbl {
         unsafe extern "system" fn Settext<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLElement2_Impl::Settext(this, core::mem::transmute(&p))
+                IXMLElement2_Impl::Settext(this, &*(&raw const p).cast())
             }
         }
         unsafe extern "system" fn addChild<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchildelem: *mut core::ffi::c_void, lindex: i32, lreserved: i32) -> windows_core::HRESULT {
@@ -13425,7 +13425,7 @@ impl IXMLElement2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement2_Impl::attributes(this) {
                     Ok(ok__) => {
-                        pp.write(core::mem::transmute(ok__));
+                        pp.cast::<IXMLElementCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13543,7 +13543,7 @@ impl IXMLElementCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElementCollection_Impl::_newEnum(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13556,9 +13556,9 @@ impl IXMLElementCollection_Vtbl {
         unsafe extern "system" fn item<Identity: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var1: super::VARIANT, var2: super::VARIANT, ppdisp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLElementCollection_Impl::item(this, core::mem::transmute(&var1), core::mem::transmute(&var2)) {
+                match IXMLElementCollection_Impl::item(this, &*(&raw const var1).cast(), &*(&raw const var2).cast()) {
                     Ok(ok__) => {
-                        ppdisp.write(core::mem::transmute(ok__));
+                        ppdisp.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13765,21 +13765,21 @@ impl IXMLHTTPRequest_Vtbl {
         unsafe extern "system" fn open<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmethod: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, varasync: super::VARIANT, bstruser: super::VARIANT, bstrpassword: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLHTTPRequest_Impl::open(this, core::mem::transmute(&bstrmethod), core::mem::transmute(&bstrurl), core::mem::transmute(&varasync), core::mem::transmute(&bstruser), core::mem::transmute(&bstrpassword))
+                IXMLHTTPRequest_Impl::open(this, &*(&raw const bstrmethod).cast(), &*(&raw const bstrurl).cast(), &*(&raw const varasync).cast(), &*(&raw const bstruser).cast(), &*(&raw const bstrpassword).cast())
             }
         }
         unsafe extern "system" fn setRequestHeader<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheader: *mut core::ffi::c_void, bstrvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLHTTPRequest_Impl::setRequestHeader(this, core::mem::transmute(&bstrheader), core::mem::transmute(&bstrvalue))
+                IXMLHTTPRequest_Impl::setRequestHeader(this, &*(&raw const bstrheader).cast(), &*(&raw const bstrvalue).cast())
             }
         }
         unsafe extern "system" fn getResponseHeader<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheader: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLHTTPRequest_Impl::getResponseHeader(this, core::mem::transmute(&bstrheader)) {
+                match IXMLHTTPRequest_Impl::getResponseHeader(this, &*(&raw const bstrheader).cast()) {
                     Ok(ok__) => {
-                        pbstrvalue.write(core::mem::transmute(ok__));
+                        pbstrvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13794,7 +13794,7 @@ impl IXMLHTTPRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest_Impl::getAllResponseHeaders(this) {
                     Ok(ok__) => {
-                        pbstrheaders.write(core::mem::transmute(ok__));
+                        pbstrheaders.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13807,7 +13807,7 @@ impl IXMLHTTPRequest_Vtbl {
         unsafe extern "system" fn send<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLHTTPRequest_Impl::send(this, core::mem::transmute(&varbody))
+                IXMLHTTPRequest_Impl::send(this, &*(&raw const varbody).cast())
             }
         }
         unsafe extern "system" fn abort<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13836,7 +13836,7 @@ impl IXMLHTTPRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest_Impl::statusText(this) {
                     Ok(ok__) => {
-                        pbstrstatus.write(core::mem::transmute(ok__));
+                        pbstrstatus.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13851,7 +13851,7 @@ impl IXMLHTTPRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest_Impl::responseXML(this) {
                     Ok(ok__) => {
-                        ppbody.write(core::mem::transmute(ok__));
+                        ppbody.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13866,7 +13866,7 @@ impl IXMLHTTPRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest_Impl::responseText(this) {
                     Ok(ok__) => {
-                        pbstrbody.write(core::mem::transmute(ok__));
+                        pbstrbody.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13881,7 +13881,7 @@ impl IXMLHTTPRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest_Impl::responseBody(this) {
                     Ok(ok__) => {
-                        pvarbody.write(core::mem::transmute(ok__));
+                        pvarbody.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -13896,7 +13896,7 @@ impl IXMLHTTPRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest_Impl::responseStream(this) {
                     Ok(ok__) => {
-                        pvarbody.write(core::mem::transmute(ok__));
+                        pvarbody.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14517,21 +14517,21 @@ impl IXMLHttpRequest_Vtbl {
         unsafe extern "system" fn open<Identity: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmethod: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, varasync: super::VARIANT, bstruser: super::VARIANT, bstrpassword: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLHttpRequest_Impl::open(this, core::mem::transmute(&bstrmethod), core::mem::transmute(&bstrurl), core::mem::transmute(&varasync), core::mem::transmute(&bstruser), core::mem::transmute(&bstrpassword))
+                IXMLHttpRequest_Impl::open(this, &*(&raw const bstrmethod).cast(), &*(&raw const bstrurl).cast(), &*(&raw const varasync).cast(), &*(&raw const bstruser).cast(), &*(&raw const bstrpassword).cast())
             }
         }
         unsafe extern "system" fn setRequestHeader<Identity: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheader: *mut core::ffi::c_void, bstrvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLHttpRequest_Impl::setRequestHeader(this, core::mem::transmute(&bstrheader), core::mem::transmute(&bstrvalue))
+                IXMLHttpRequest_Impl::setRequestHeader(this, &*(&raw const bstrheader).cast(), &*(&raw const bstrvalue).cast())
             }
         }
         unsafe extern "system" fn getResponseHeader<Identity: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheader: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLHttpRequest_Impl::getResponseHeader(this, core::mem::transmute(&bstrheader)) {
+                match IXMLHttpRequest_Impl::getResponseHeader(this, &*(&raw const bstrheader).cast()) {
                     Ok(ok__) => {
-                        pbstrvalue.write(core::mem::transmute(ok__));
+                        pbstrvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14546,7 +14546,7 @@ impl IXMLHttpRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHttpRequest_Impl::getAllResponseHeaders(this) {
                     Ok(ok__) => {
-                        pbstrheaders.write(core::mem::transmute(ok__));
+                        pbstrheaders.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14559,7 +14559,7 @@ impl IXMLHttpRequest_Vtbl {
         unsafe extern "system" fn send<Identity: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLHttpRequest_Impl::send(this, core::mem::transmute(&varbody))
+                IXMLHttpRequest_Impl::send(this, &*(&raw const varbody).cast())
             }
         }
         unsafe extern "system" fn abort<Identity: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14588,7 +14588,7 @@ impl IXMLHttpRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHttpRequest_Impl::statusText(this) {
                     Ok(ok__) => {
-                        pbstrstatus.write(core::mem::transmute(ok__));
+                        pbstrstatus.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14603,7 +14603,7 @@ impl IXMLHttpRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHttpRequest_Impl::responseXML(this) {
                     Ok(ok__) => {
-                        ppbody.write(core::mem::transmute(ok__));
+                        ppbody.cast::<super::IDispatch>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14618,7 +14618,7 @@ impl IXMLHttpRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHttpRequest_Impl::responseText(this) {
                     Ok(ok__) => {
-                        pbstrbody.write(core::mem::transmute(ok__));
+                        pbstrbody.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14633,7 +14633,7 @@ impl IXMLHttpRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHttpRequest_Impl::responseBody(this) {
                     Ok(ok__) => {
-                        pvarbody.write(core::mem::transmute(ok__));
+                        pvarbody.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14648,7 +14648,7 @@ impl IXMLHttpRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHttpRequest_Impl::responseStream(this) {
                     Ok(ok__) => {
-                        pvarbody.write(core::mem::transmute(ok__));
+                        pvarbody.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14853,7 +14853,7 @@ impl IXSLProcessor_Vtbl {
         unsafe extern "system" fn Setinput<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXSLProcessor_Impl::Setinput(this, core::mem::transmute(&var))
+                IXSLProcessor_Impl::Setinput(this, &*(&raw const var).cast())
             }
         }
         unsafe extern "system" fn input<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -14861,7 +14861,7 @@ impl IXSLProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXSLProcessor_Impl::input(this) {
                     Ok(ok__) => {
-                        pvar.write(core::mem::transmute(ok__));
+                        pvar.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14876,7 +14876,7 @@ impl IXSLProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXSLProcessor_Impl::ownerTemplate(this) {
                     Ok(ok__) => {
-                        pptemplate.write(core::mem::transmute(ok__));
+                        pptemplate.cast::<IXSLTemplate>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14889,7 +14889,7 @@ impl IXSLProcessor_Vtbl {
         unsafe extern "system" fn setStartMode<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXSLProcessor_Impl::setStartMode(this, core::mem::transmute(&mode), core::mem::transmute(&namespaceuri))
+                IXSLProcessor_Impl::setStartMode(this, &*(&raw const mode).cast(), &*(&raw const namespaceuri).cast())
             }
         }
         unsafe extern "system" fn startMode<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14897,7 +14897,7 @@ impl IXSLProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXSLProcessor_Impl::startMode(this) {
                     Ok(ok__) => {
-                        mode.write(core::mem::transmute(ok__));
+                        mode.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14912,7 +14912,7 @@ impl IXSLProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXSLProcessor_Impl::startModeURI(this) {
                     Ok(ok__) => {
-                        namespaceuri.write(core::mem::transmute(ok__));
+                        namespaceuri.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14925,7 +14925,7 @@ impl IXSLProcessor_Vtbl {
         unsafe extern "system" fn Setoutput<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, output: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXSLProcessor_Impl::Setoutput(this, core::mem::transmute(&output))
+                IXSLProcessor_Impl::Setoutput(this, &*(&raw const output).cast())
             }
         }
         unsafe extern "system" fn output<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -14933,7 +14933,7 @@ impl IXSLProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXSLProcessor_Impl::output(this) {
                     Ok(ok__) => {
-                        poutput.write(core::mem::transmute(ok__));
+                        poutput.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -14982,13 +14982,13 @@ impl IXSLProcessor_Vtbl {
         unsafe extern "system" fn addParameter<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: *mut core::ffi::c_void, parameter: super::VARIANT, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXSLProcessor_Impl::addParameter(this, core::mem::transmute(&basename), core::mem::transmute(&parameter), core::mem::transmute(&namespaceuri))
+                IXSLProcessor_Impl::addParameter(this, &*(&raw const basename).cast(), &*(&raw const parameter).cast(), &*(&raw const namespaceuri).cast())
             }
         }
         unsafe extern "system" fn addObject<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, obj: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXSLProcessor_Impl::addObject(this, core::mem::transmute_copy(&obj), core::mem::transmute(&namespaceuri))
+                IXSLProcessor_Impl::addObject(this, core::mem::transmute_copy(&obj), &*(&raw const namespaceuri).cast())
             }
         }
         unsafe extern "system" fn stylesheet<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14996,7 +14996,7 @@ impl IXSLProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXSLProcessor_Impl::stylesheet(this) {
                     Ok(ok__) => {
-                        stylesheet.write(core::mem::transmute(ok__));
+                        stylesheet.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -15091,7 +15091,7 @@ impl IXSLTemplate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXSLTemplate_Impl::stylesheet(this) {
                     Ok(ok__) => {
-                        stylesheet.write(core::mem::transmute(ok__));
+                        stylesheet.cast::<IXMLDOMNode>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -15106,7 +15106,7 @@ impl IXSLTemplate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXSLTemplate_Impl::createProcessor(this) {
                     Ok(ok__) => {
-                        ppprocessor.write(core::mem::transmute(ok__));
+                        ppprocessor.cast::<IXSLProcessor>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -15298,7 +15298,7 @@ impl IXTLRuntime_Vtbl {
         unsafe extern "system" fn ancestorChildNumber<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnodename: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pnumber: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXTLRuntime_Impl::ancestorChildNumber(this, core::mem::transmute(&bstrnodename), core::mem::transmute_copy(&pnode)) {
+                match IXTLRuntime_Impl::ancestorChildNumber(this, &*(&raw const bstrnodename).cast(), core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
                         pnumber.write(ok__);
                         windows_core::HRESULT(0)
@@ -15328,9 +15328,9 @@ impl IXTLRuntime_Vtbl {
         unsafe extern "system" fn formatIndex<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, bstrformat: *mut core::ffi::c_void, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXTLRuntime_Impl::formatIndex(this, core::mem::transmute_copy(&lindex), core::mem::transmute(&bstrformat)) {
+                match IXTLRuntime_Impl::formatIndex(this, core::mem::transmute_copy(&lindex), &*(&raw const bstrformat).cast()) {
                     Ok(ok__) => {
-                        pbstrformattedstring.write(core::mem::transmute(ok__));
+                        pbstrformattedstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -15343,9 +15343,9 @@ impl IXTLRuntime_Vtbl {
         unsafe extern "system" fn formatNumber<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dblnumber: f64, bstrformat: *mut core::ffi::c_void, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXTLRuntime_Impl::formatNumber(this, core::mem::transmute_copy(&dblnumber), core::mem::transmute(&bstrformat)) {
+                match IXTLRuntime_Impl::formatNumber(this, core::mem::transmute_copy(&dblnumber), &*(&raw const bstrformat).cast()) {
                     Ok(ok__) => {
-                        pbstrformattedstring.write(core::mem::transmute(ok__));
+                        pbstrformattedstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -15358,9 +15358,9 @@ impl IXTLRuntime_Vtbl {
         unsafe extern "system" fn formatDate<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardate: super::VARIANT, bstrformat: *mut core::ffi::c_void, vardestlocale: super::VARIANT, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXTLRuntime_Impl::formatDate(this, core::mem::transmute(&vardate), core::mem::transmute(&bstrformat), core::mem::transmute(&vardestlocale)) {
+                match IXTLRuntime_Impl::formatDate(this, &*(&raw const vardate).cast(), &*(&raw const bstrformat).cast(), &*(&raw const vardestlocale).cast()) {
                     Ok(ok__) => {
-                        pbstrformattedstring.write(core::mem::transmute(ok__));
+                        pbstrformattedstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -15373,9 +15373,9 @@ impl IXTLRuntime_Vtbl {
         unsafe extern "system" fn formatTime<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartime: super::VARIANT, bstrformat: *mut core::ffi::c_void, vardestlocale: super::VARIANT, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXTLRuntime_Impl::formatTime(this, core::mem::transmute(&vartime), core::mem::transmute(&bstrformat), core::mem::transmute(&vardestlocale)) {
+                match IXTLRuntime_Impl::formatTime(this, &*(&raw const vartime).cast(), &*(&raw const bstrformat).cast(), &*(&raw const vardestlocale).cast()) {
                     Ok(ok__) => {
-                        pbstrformattedstring.write(core::mem::transmute(ok__));
+                        pbstrformattedstring.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

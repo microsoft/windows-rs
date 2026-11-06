@@ -374,7 +374,7 @@ impl ContextInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ContextInfo_Impl::GetTransaction(this) {
                     Ok(ok__) => {
-                        pptx.write(core::mem::transmute(ok__));
+                        pptx.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -389,7 +389,7 @@ impl ContextInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ContextInfo_Impl::GetTransactionId(this) {
                     Ok(ok__) => {
-                        pbstrtxid.write(core::mem::transmute(ok__));
+                        pbstrtxid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -404,7 +404,7 @@ impl ContextInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ContextInfo_Impl::GetActivityId(this) {
                     Ok(ok__) => {
-                        pbstractivityid.write(core::mem::transmute(ok__));
+                        pbstractivityid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -419,7 +419,7 @@ impl ContextInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ContextInfo_Impl::GetContextId(this) {
                     Ok(ok__) => {
-                        pbstrctxid.write(core::mem::transmute(ok__));
+                        pbstrctxid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -499,7 +499,7 @@ impl ContextInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ContextInfo2_Impl::GetPartitionId(this) {
                     Ok(ok__) => {
-                        __midl__contextinfo20000.write(core::mem::transmute(ok__));
+                        __midl__contextinfo20000.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -514,7 +514,7 @@ impl ContextInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ContextInfo2_Impl::GetApplicationId(this) {
                     Ok(ok__) => {
-                        __midl__contextinfo20001.write(core::mem::transmute(ok__));
+                        __midl__contextinfo20001.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -529,7 +529,7 @@ impl ContextInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ContextInfo2_Impl::GetApplicationInstanceId(this) {
                     Ok(ok__) => {
-                        __midl__contextinfo20002.write(core::mem::transmute(ok__));
+                        __midl__contextinfo20002.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -692,7 +692,7 @@ impl IAssemblyLocator_Vtbl {
         unsafe extern "system" fn GetModules<Identity: IAssemblyLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, applicationdir: *mut core::ffi::c_void, applicationname: *mut core::ffi::c_void, assemblyname: *mut core::ffi::c_void, pmodules: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAssemblyLocator_Impl::GetModules(this, core::mem::transmute(&applicationdir), core::mem::transmute(&applicationname), core::mem::transmute(&assemblyname)) {
+                match IAssemblyLocator_Impl::GetModules(this, &*(&raw const applicationdir).cast(), &*(&raw const applicationname).cast(), &*(&raw const assemblyname).cast()) {
                     Ok(ok__) => {
                         pmodules.write(ok__);
                         windows_core::HRESULT(0)
@@ -858,7 +858,7 @@ impl ICheckSxsConfig_Vtbl {
         unsafe extern "system" fn IsSameSxsConfig<Identity: ICheckSxsConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszsxsname: windows_core::PCWSTR, wszsxsdirectory: windows_core::PCWSTR, wszsxsappname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICheckSxsConfig_Impl::IsSameSxsConfig(this, core::mem::transmute(&wszsxsname), core::mem::transmute(&wszsxsdirectory), core::mem::transmute(&wszsxsappname))
+                ICheckSxsConfig_Impl::IsSameSxsConfig(this, &*(&raw const wszsxsname).cast(), &*(&raw const wszsxsdirectory).cast(), &*(&raw const wszsxsappname).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsSameSxsConfig: IsSameSxsConfig::<Identity, OFFSET> }
@@ -1068,31 +1068,31 @@ impl IComApp2Events_Vtbl {
         unsafe extern "system" fn OnAppActivation2<Identity: IComApp2Events_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID, guidprocess: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComApp2Events_Impl::OnAppActivation2(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp), core::mem::transmute(&guidprocess))
+                IComApp2Events_Impl::OnAppActivation2(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast(), &*(&raw const guidprocess).cast())
             }
         }
         unsafe extern "system" fn OnAppShutdown2<Identity: IComApp2Events_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComApp2Events_Impl::OnAppShutdown2(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp))
+                IComApp2Events_Impl::OnAppShutdown2(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast())
             }
         }
         unsafe extern "system" fn OnAppForceShutdown2<Identity: IComApp2Events_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComApp2Events_Impl::OnAppForceShutdown2(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp))
+                IComApp2Events_Impl::OnAppForceShutdown2(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast())
             }
         }
         unsafe extern "system" fn OnAppPaused2<Identity: IComApp2Events_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID, bpaused: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComApp2Events_Impl::OnAppPaused2(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp), core::mem::transmute_copy(&bpaused))
+                IComApp2Events_Impl::OnAppPaused2(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast(), core::mem::transmute_copy(&bpaused))
             }
         }
         unsafe extern "system" fn OnAppRecycle2<Identity: IComApp2Events_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID, guidprocess: windows_core::GUID, lreason: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComApp2Events_Impl::OnAppRecycle2(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp), core::mem::transmute(&guidprocess), core::mem::transmute_copy(&lreason))
+                IComApp2Events_Impl::OnAppRecycle2(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast(), &*(&raw const guidprocess).cast(), core::mem::transmute_copy(&lreason))
             }
         }
         Self {
@@ -1155,19 +1155,19 @@ impl IComAppEvents_Vtbl {
         unsafe extern "system" fn OnAppActivation<Identity: IComAppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComAppEvents_Impl::OnAppActivation(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp))
+                IComAppEvents_Impl::OnAppActivation(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast())
             }
         }
         unsafe extern "system" fn OnAppShutdown<Identity: IComAppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComAppEvents_Impl::OnAppShutdown(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp))
+                IComAppEvents_Impl::OnAppShutdown(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast())
             }
         }
         unsafe extern "system" fn OnAppForceShutdown<Identity: IComAppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComAppEvents_Impl::OnAppForceShutdown(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp))
+                IComAppEvents_Impl::OnAppForceShutdown(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast())
             }
         }
         Self {
@@ -1336,91 +1336,91 @@ impl IComCRMEvents_Vtbl {
         unsafe extern "system" fn OnCRMRecoveryStart<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMRecoveryStart(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp))
+                IComCRMEvents_Impl::OnCRMRecoveryStart(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast())
             }
         }
         unsafe extern "system" fn OnCRMRecoveryDone<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMRecoveryDone(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp))
+                IComCRMEvents_Impl::OnCRMRecoveryDone(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast())
             }
         }
         unsafe extern "system" fn OnCRMCheckpoint<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMCheckpoint(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidapp))
+                IComCRMEvents_Impl::OnCRMCheckpoint(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidapp).cast())
             }
         }
         unsafe extern "system" fn OnCRMBegin<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, guidactivity: windows_core::GUID, guidtx: windows_core::GUID, szprogidcompensator: *const super::WCHAR, szdescription: *const super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMBegin(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid), core::mem::transmute(&guidactivity), core::mem::transmute(&guidtx), core::mem::transmute_copy(&szprogidcompensator), core::mem::transmute_copy(&szdescription))
+                IComCRMEvents_Impl::OnCRMBegin(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast(), &*(&raw const guidactivity).cast(), &*(&raw const guidtx).cast(), core::mem::transmute_copy(&szprogidcompensator), core::mem::transmute_copy(&szdescription))
             }
         }
         unsafe extern "system" fn OnCRMPrepare<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMPrepare(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid))
+                IComCRMEvents_Impl::OnCRMPrepare(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast())
             }
         }
         unsafe extern "system" fn OnCRMCommit<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMCommit(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid))
+                IComCRMEvents_Impl::OnCRMCommit(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast())
             }
         }
         unsafe extern "system" fn OnCRMAbort<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMAbort(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid))
+                IComCRMEvents_Impl::OnCRMAbort(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast())
             }
         }
         unsafe extern "system" fn OnCRMIndoubt<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMIndoubt(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid))
+                IComCRMEvents_Impl::OnCRMIndoubt(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast())
             }
         }
         unsafe extern "system" fn OnCRMDone<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMDone(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid))
+                IComCRMEvents_Impl::OnCRMDone(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast())
             }
         }
         unsafe extern "system" fn OnCRMRelease<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMRelease(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid))
+                IComCRMEvents_Impl::OnCRMRelease(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast())
             }
         }
         unsafe extern "system" fn OnCRMAnalyze<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, dwcrmrecordtype: super::DWORD, dwrecordsize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMAnalyze(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid), core::mem::transmute_copy(&dwcrmrecordtype), core::mem::transmute_copy(&dwrecordsize))
+                IComCRMEvents_Impl::OnCRMAnalyze(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast(), core::mem::transmute_copy(&dwcrmrecordtype), core::mem::transmute_copy(&dwrecordsize))
             }
         }
         unsafe extern "system" fn OnCRMWrite<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, fvariants: windows_core::BOOL, dwrecordsize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMWrite(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid), core::mem::transmute_copy(&fvariants), core::mem::transmute_copy(&dwrecordsize))
+                IComCRMEvents_Impl::OnCRMWrite(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast(), core::mem::transmute_copy(&fvariants), core::mem::transmute_copy(&dwrecordsize))
             }
         }
         unsafe extern "system" fn OnCRMForget<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMForget(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid))
+                IComCRMEvents_Impl::OnCRMForget(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast())
             }
         }
         unsafe extern "system" fn OnCRMForce<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMForce(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid))
+                IComCRMEvents_Impl::OnCRMForce(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast())
             }
         }
         unsafe extern "system" fn OnCRMDeliver<Identity: IComCRMEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, fvariants: windows_core::BOOL, dwrecordsize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComCRMEvents_Impl::OnCRMDeliver(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidclerkclsid), core::mem::transmute_copy(&fvariants), core::mem::transmute_copy(&dwrecordsize))
+                IComCRMEvents_Impl::OnCRMDeliver(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidclerkclsid).cast(), core::mem::transmute_copy(&fvariants), core::mem::transmute_copy(&dwrecordsize))
             }
         }
         Self {
@@ -1701,31 +1701,31 @@ impl IComLTxEvents_Vtbl {
         unsafe extern "system" fn OnLtxTransactionStart<Identity: IComLTxEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: windows_core::GUID, tsid: windows_core::GUID, froot: windows_core::BOOL, nisolationlevel: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComLTxEvents_Impl::OnLtxTransactionStart(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidltx), core::mem::transmute(&tsid), core::mem::transmute_copy(&froot), core::mem::transmute_copy(&nisolationlevel))
+                IComLTxEvents_Impl::OnLtxTransactionStart(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidltx).cast(), &*(&raw const tsid).cast(), core::mem::transmute_copy(&froot), core::mem::transmute_copy(&nisolationlevel))
             }
         }
         unsafe extern "system" fn OnLtxTransactionPrepare<Identity: IComLTxEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: windows_core::GUID, fvote: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComLTxEvents_Impl::OnLtxTransactionPrepare(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidltx), core::mem::transmute_copy(&fvote))
+                IComLTxEvents_Impl::OnLtxTransactionPrepare(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidltx).cast(), core::mem::transmute_copy(&fvote))
             }
         }
         unsafe extern "system" fn OnLtxTransactionAbort<Identity: IComLTxEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComLTxEvents_Impl::OnLtxTransactionAbort(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidltx))
+                IComLTxEvents_Impl::OnLtxTransactionAbort(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidltx).cast())
             }
         }
         unsafe extern "system" fn OnLtxTransactionCommit<Identity: IComLTxEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComLTxEvents_Impl::OnLtxTransactionCommit(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidltx))
+                IComLTxEvents_Impl::OnLtxTransactionCommit(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidltx).cast())
             }
         }
         unsafe extern "system" fn OnLtxTransactionPromote<Identity: IComLTxEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: windows_core::GUID, txnid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComLTxEvents_Impl::OnLtxTransactionPromote(this, core::mem::transmute_copy(&pinfo), core::mem::transmute(&guidltx), core::mem::transmute(&txnid))
+                IComLTxEvents_Impl::OnLtxTransactionPromote(this, core::mem::transmute_copy(&pinfo), &*(&raw const guidltx).cast(), &*(&raw const txnid).cast())
             }
         }
         Self {
@@ -3811,9 +3811,9 @@ impl IContextProperties_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: IContextProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, pproperty: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IContextProperties_Impl::GetProperty(this, core::mem::transmute(&name)) {
+                match IContextProperties_Impl::GetProperty(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        pproperty.write(core::mem::transmute(ok__));
+                        pproperty.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3828,7 +3828,7 @@ impl IContextProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContextProperties_Impl::EnumNames(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumNames>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3841,13 +3841,13 @@ impl IContextProperties_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: IContextProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, property: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IContextProperties_Impl::SetProperty(this, core::mem::transmute(&name), core::mem::transmute(&property))
+                IContextProperties_Impl::SetProperty(this, &*(&raw const name).cast(), &*(&raw const property).cast())
             }
         }
         unsafe extern "system" fn RemoveProperty<Identity: IContextProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IContextProperties_Impl::RemoveProperty(this, core::mem::transmute(&name))
+                IContextProperties_Impl::RemoveProperty(this, &*(&raw const name).cast())
             }
         }
         Self {
@@ -4066,7 +4066,7 @@ impl ICreateWithTipTransactionEx_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: ICreateWithTipTransactionEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtipurl: *mut core::ffi::c_void, rclsid: *const super::IID, riid: *const super::IID, pobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateWithTipTransactionEx_Impl::CreateInstance(this, core::mem::transmute(&bstrtipurl), core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pobject)).into()
+                ICreateWithTipTransactionEx_Impl::CreateInstance(this, &*(&raw const bstrtipurl).cast(), core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pobject)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, OFFSET> }
@@ -4227,7 +4227,7 @@ impl ICrmCompensator_Vtbl {
         unsafe extern "system" fn PrepareRecord<Identity: ICrmCompensator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crmlogrec: CrmLogRecordRead, pfforget: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICrmCompensator_Impl::PrepareRecord(this, core::mem::transmute(&crmlogrec)) {
+                match ICrmCompensator_Impl::PrepareRecord(this, &*(&raw const crmlogrec).cast()) {
                     Ok(ok__) => {
                         pfforget.write(ok__);
                         windows_core::HRESULT(0)
@@ -4263,7 +4263,7 @@ impl ICrmCompensator_Vtbl {
         unsafe extern "system" fn CommitRecord<Identity: ICrmCompensator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crmlogrec: CrmLogRecordRead, pfforget: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICrmCompensator_Impl::CommitRecord(this, core::mem::transmute(&crmlogrec)) {
+                match ICrmCompensator_Impl::CommitRecord(this, &*(&raw const crmlogrec).cast()) {
                     Ok(ok__) => {
                         pfforget.write(ok__);
                         windows_core::HRESULT(0)
@@ -4290,7 +4290,7 @@ impl ICrmCompensator_Vtbl {
         unsafe extern "system" fn AbortRecord<Identity: ICrmCompensator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crmlogrec: CrmLogRecordRead, pfforget: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICrmCompensator_Impl::AbortRecord(this, core::mem::transmute(&crmlogrec)) {
+                match ICrmCompensator_Impl::AbortRecord(this, &*(&raw const crmlogrec).cast()) {
                     Ok(ok__) => {
                         pfforget.write(ok__);
                         windows_core::HRESULT(0)
@@ -4610,13 +4610,13 @@ impl ICrmFormatLogRecords_Vtbl {
         unsafe extern "system" fn GetColumn<Identity: ICrmFormatLogRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crmlogrec: CrmLogRecordRead, pformattedlogrecord: super::LPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICrmFormatLogRecords_Impl::GetColumn(this, core::mem::transmute(&crmlogrec), core::mem::transmute_copy(&pformattedlogrecord))
+                ICrmFormatLogRecords_Impl::GetColumn(this, &*(&raw const crmlogrec).cast(), core::mem::transmute_copy(&pformattedlogrecord))
             }
         }
         unsafe extern "system" fn GetColumnVariants<Identity: ICrmFormatLogRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logrecord: super::VARIANT, pformattedlogrecord: super::LPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICrmFormatLogRecords_Impl::GetColumnVariants(this, core::mem::transmute(&logrecord), core::mem::transmute_copy(&pformattedlogrecord))
+                ICrmFormatLogRecords_Impl::GetColumnVariants(this, &*(&raw const logrecord).cast(), core::mem::transmute_copy(&pformattedlogrecord))
             }
         }
         Self {
@@ -4707,7 +4707,7 @@ impl ICrmLogControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmLogControl_Impl::TransactionUOW(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4720,7 +4720,7 @@ impl ICrmLogControl_Vtbl {
         unsafe extern "system" fn RegisterCompensator<Identity: ICrmLogControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpcwstrprogidcompensator: windows_core::PCWSTR, lpcwstrdescription: windows_core::PCWSTR, lcrmregflags: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICrmLogControl_Impl::RegisterCompensator(this, core::mem::transmute(&lpcwstrprogidcompensator), core::mem::transmute(&lpcwstrdescription), core::mem::transmute_copy(&lcrmregflags))
+                ICrmLogControl_Impl::RegisterCompensator(this, &*(&raw const lpcwstrprogidcompensator).cast(), &*(&raw const lpcwstrdescription).cast(), core::mem::transmute_copy(&lcrmregflags))
             }
         }
         unsafe extern "system" fn WriteLogRecordVariants<Identity: ICrmLogControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plogrecord: *const super::VARIANT) -> windows_core::HRESULT {
@@ -4814,7 +4814,7 @@ impl ICrmMonitor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmMonitor_Impl::GetClerks(this) {
                     Ok(ok__) => {
-                        pclerks.write(core::mem::transmute(ok__));
+                        pclerks.cast::<ICrmMonitorClerks>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4827,9 +4827,9 @@ impl ICrmMonitor_Vtbl {
         unsafe extern "system" fn HoldClerk<Identity: ICrmMonitor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, pitem: super::LPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICrmMonitor_Impl::HoldClerk(this, core::mem::transmute(&index)) {
+                match ICrmMonitor_Impl::HoldClerk(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        pitem.write(core::mem::transmute(ok__));
+                        pitem.cast::<super::tagVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4960,9 +4960,9 @@ impl ICrmMonitorClerks_Vtbl {
         unsafe extern "system" fn Item<Identity: ICrmMonitorClerks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, pitem: super::LPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICrmMonitorClerks_Impl::Item(this, core::mem::transmute(&index)) {
+                match ICrmMonitorClerks_Impl::Item(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        pitem.write(core::mem::transmute(ok__));
+                        pitem.cast::<super::tagVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4977,7 +4977,7 @@ impl ICrmMonitorClerks_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmMonitorClerks_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::LPUNKNOWN>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5005,9 +5005,9 @@ impl ICrmMonitorClerks_Vtbl {
         unsafe extern "system" fn ProgIdCompensator<Identity: ICrmMonitorClerks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, pitem: super::LPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICrmMonitorClerks_Impl::ProgIdCompensator(this, core::mem::transmute(&index)) {
+                match ICrmMonitorClerks_Impl::ProgIdCompensator(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        pitem.write(core::mem::transmute(ok__));
+                        pitem.cast::<super::tagVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5020,9 +5020,9 @@ impl ICrmMonitorClerks_Vtbl {
         unsafe extern "system" fn Description<Identity: ICrmMonitorClerks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, pitem: super::LPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICrmMonitorClerks_Impl::Description(this, core::mem::transmute(&index)) {
+                match ICrmMonitorClerks_Impl::Description(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        pitem.write(core::mem::transmute(ok__));
+                        pitem.cast::<super::tagVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5035,9 +5035,9 @@ impl ICrmMonitorClerks_Vtbl {
         unsafe extern "system" fn TransactionUOW<Identity: ICrmMonitorClerks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, pitem: super::LPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICrmMonitorClerks_Impl::TransactionUOW(this, core::mem::transmute(&index)) {
+                match ICrmMonitorClerks_Impl::TransactionUOW(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        pitem.write(core::mem::transmute(ok__));
+                        pitem.cast::<super::tagVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5050,9 +5050,9 @@ impl ICrmMonitorClerks_Vtbl {
         unsafe extern "system" fn ActivityId<Identity: ICrmMonitorClerks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::VARIANT, pitem: super::LPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICrmMonitorClerks_Impl::ActivityId(this, core::mem::transmute(&index)) {
+                match ICrmMonitorClerks_Impl::ActivityId(this, &*(&raw const index).cast()) {
                     Ok(ok__) => {
-                        pitem.write(core::mem::transmute(ok__));
+                        pitem.cast::<super::tagVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5197,9 +5197,9 @@ impl ICrmMonitorLogRecords_Vtbl {
         unsafe extern "system" fn GetLogRecordVariants<Identity: ICrmMonitorLogRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexnumber: super::VARIANT, plogrecord: super::LPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICrmMonitorLogRecords_Impl::GetLogRecordVariants(this, core::mem::transmute(&indexnumber)) {
+                match ICrmMonitorLogRecords_Impl::GetLogRecordVariants(this, &*(&raw const indexnumber).cast()) {
                     Ok(ok__) => {
-                        plogrecord.write(core::mem::transmute(ok__));
+                        plogrecord.cast::<super::tagVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5326,7 +5326,7 @@ impl IDispenserManager {
     where
         P0: windows_core::Param<IDispenserDriver>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterDispenser)(windows_core::Interface::as_raw(self), __midl__idispensermanager0000.param().abi(), szdispensername, core::mem::transmute(__midl__idispensermanager0001)) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterDispenser)(windows_core::Interface::as_raw(self), __midl__idispensermanager0000.param().abi(), szdispensername, __midl__idispensermanager0001 as _) }
     }
     pub unsafe fn GetContext(&self, __midl__idispensermanager0002: *mut INSTID, __midl__idispensermanager0003: *mut TRANSID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetContext)(windows_core::Interface::as_raw(self), __midl__idispensermanager0002 as _, __midl__idispensermanager0003 as _) }
@@ -5380,7 +5380,7 @@ impl IEnumNames {
     pub unsafe fn Next(&self, celt: u32, rgname: *mut windows_core::BSTR) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgname), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgname as _, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
@@ -5445,7 +5445,7 @@ impl IEnumNames_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumNames_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumNames>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5491,7 +5491,7 @@ impl IEventServerTrace {
     }
     #[cfg(feature = "shared")]
     pub unsafe fn EnumTraceGuid(&self, plcntguids: *mut super::LONG, pbstrguidlist: *mut windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumTraceGuid)(windows_core::Interface::as_raw(self), plcntguids as _, core::mem::transmute(pbstrguidlist)) }
+        unsafe { (windows_core::Interface::vtable(self).EnumTraceGuid)(windows_core::Interface::as_raw(self), plcntguids as _, pbstrguidlist as _) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -5524,13 +5524,13 @@ impl IEventServerTrace_Vtbl {
         unsafe extern "system" fn StartTraceGuid<Identity: IEventServerTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidevent: *mut core::ffi::c_void, bstrguidfilter: *mut core::ffi::c_void, lpidfilter: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEventServerTrace_Impl::StartTraceGuid(this, core::mem::transmute(&bstrguidevent), core::mem::transmute(&bstrguidfilter), core::mem::transmute_copy(&lpidfilter))
+                IEventServerTrace_Impl::StartTraceGuid(this, &*(&raw const bstrguidevent).cast(), &*(&raw const bstrguidfilter).cast(), core::mem::transmute_copy(&lpidfilter))
             }
         }
         unsafe extern "system" fn StopTraceGuid<Identity: IEventServerTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidevent: *mut core::ffi::c_void, bstrguidfilter: *mut core::ffi::c_void, lpidfilter: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEventServerTrace_Impl::StopTraceGuid(this, core::mem::transmute(&bstrguidevent), core::mem::transmute(&bstrguidfilter), core::mem::transmute_copy(&lpidfilter))
+                IEventServerTrace_Impl::StopTraceGuid(this, &*(&raw const bstrguidevent).cast(), &*(&raw const bstrguidfilter).cast(), core::mem::transmute_copy(&lpidfilter))
             }
         }
         unsafe extern "system" fn EnumTraceGuid<Identity: IEventServerTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcntguids: *mut super::LONG, pbstrguidlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5664,7 +5664,7 @@ impl IGetAppTrackerData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGetAppTrackerData_Impl::GetTrackerDataAsCollectionObject(this) {
                     Ok(ok__) => {
-                        toplevelcollection.write(core::mem::transmute(ok__));
+                        toplevelcollection.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5758,9 +5758,9 @@ impl IGetContextProperties_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: IGetContextProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, pproperty: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGetContextProperties_Impl::GetProperty(this, core::mem::transmute(&name)) {
+                match IGetContextProperties_Impl::GetProperty(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        pproperty.write(core::mem::transmute(ok__));
+                        pproperty.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5775,7 +5775,7 @@ impl IGetContextProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGetContextProperties_Impl::EnumNames(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumNames>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5837,7 +5837,7 @@ impl IGetSecurityCallContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGetSecurityCallContext_Impl::GetSecurityCallContext(this) {
                     Ok(ok__) => {
-                        ppobject.write(core::mem::transmute(ok__));
+                        ppobject.cast::<ISecurityCallContext>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6010,19 +6010,19 @@ impl ILBEvents_Vtbl {
         unsafe extern "system" fn TargetUp<Identity: ILBEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, bstrclsideng: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILBEvents_Impl::TargetUp(this, core::mem::transmute(&bstrservername), core::mem::transmute(&bstrclsideng))
+                ILBEvents_Impl::TargetUp(this, &*(&raw const bstrservername).cast(), &*(&raw const bstrclsideng).cast())
             }
         }
         unsafe extern "system" fn TargetDown<Identity: ILBEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, bstrclsideng: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILBEvents_Impl::TargetDown(this, core::mem::transmute(&bstrservername), core::mem::transmute(&bstrclsideng))
+                ILBEvents_Impl::TargetDown(this, &*(&raw const bstrservername).cast(), &*(&raw const bstrclsideng).cast())
             }
         }
         unsafe extern "system" fn EngineDefined<Identity: ILBEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, varpropvalue: *const super::VARIANT, bstrclsideng: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILBEvents_Impl::EngineDefined(this, core::mem::transmute(&bstrpropname), core::mem::transmute_copy(&varpropvalue), core::mem::transmute(&bstrclsideng))
+                ILBEvents_Impl::EngineDefined(this, &*(&raw const bstrpropname).cast(), core::mem::transmute_copy(&varpropvalue), &*(&raw const bstrclsideng).cast())
             }
         }
         Self {
@@ -6198,7 +6198,7 @@ impl IMTSLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMTSLocator_Impl::GetEventDispatcher(this) {
                     Ok(ok__) => {
-                        punk.write(core::mem::transmute(ok__));
+                        punk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6272,10 +6272,10 @@ windows_core::imp::define_interface!(IManagedObjectInfo, IManagedObjectInfo_Vtbl
 windows_core::imp::interface_hierarchy!(IManagedObjectInfo, windows_core::IUnknown);
 impl IManagedObjectInfo {
     pub unsafe fn GetIUnknown(&self, punk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIUnknown)(windows_core::Interface::as_raw(self), core::mem::transmute(punk)) }
+        unsafe { (windows_core::Interface::vtable(self).GetIUnknown)(windows_core::Interface::as_raw(self), punk as _) }
     }
     pub unsafe fn GetIObjectControl(&self, pctrl: *mut Option<IObjectControl>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIObjectControl)(windows_core::Interface::as_raw(self), core::mem::transmute(pctrl)) }
+        unsafe { (windows_core::Interface::vtable(self).GetIObjectControl)(windows_core::Interface::as_raw(self), pctrl as _) }
     }
     pub unsafe fn SetInPool<P1>(&self, binpool: bool, ppooledobj: P1) -> windows_core::HRESULT
     where
@@ -6481,7 +6481,7 @@ impl IMessageMover_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMessageMover_Impl::SourcePath(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6494,7 +6494,7 @@ impl IMessageMover_Vtbl {
         unsafe extern "system" fn SetSourcePath<Identity: IMessageMover_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMessageMover_Impl::SetSourcePath(this, core::mem::transmute(&newval))
+                IMessageMover_Impl::SetSourcePath(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn DestPath<Identity: IMessageMover_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6502,7 +6502,7 @@ impl IMessageMover_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMessageMover_Impl::DestPath(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6515,7 +6515,7 @@ impl IMessageMover_Vtbl {
         unsafe extern "system" fn SetDestPath<Identity: IMessageMover_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMessageMover_Impl::SetDestPath(this, core::mem::transmute(&newval))
+                IMessageMover_Impl::SetDestPath(this, &*(&raw const newval).cast())
             }
         }
         unsafe extern "system" fn CommitBatchSize<Identity: IMessageMover_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
@@ -6646,7 +6646,7 @@ impl IMtsEventInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMtsEventInfo_Impl::Names(this) {
                     Ok(ok__) => {
-                        punk.write(core::mem::transmute(ok__));
+                        punk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6661,7 +6661,7 @@ impl IMtsEventInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMtsEventInfo_Impl::DisplayName(this) {
                     Ok(ok__) => {
-                        sdisplayname.write(core::mem::transmute(ok__));
+                        sdisplayname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6676,7 +6676,7 @@ impl IMtsEventInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMtsEventInfo_Impl::EventID(this) {
                     Ok(ok__) => {
-                        sguideventid.write(core::mem::transmute(ok__));
+                        sguideventid.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6704,9 +6704,9 @@ impl IMtsEventInfo_Vtbl {
         unsafe extern "system" fn Value<Identity: IMtsEventInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, skey: *mut core::ffi::c_void, pval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMtsEventInfo_Impl::Value(this, core::mem::transmute(&skey)) {
+                match IMtsEventInfo_Impl::Value(this, &*(&raw const skey).cast()) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6807,7 +6807,7 @@ impl IMtsEvents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMtsEvents_Impl::PackageName(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6822,7 +6822,7 @@ impl IMtsEvents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMtsEvents_Impl::PackageGuid(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6950,7 +6950,7 @@ impl IMtsGrp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMtsGrp_Impl::Item(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
-                        ppunkdispatcher.write(core::mem::transmute(ok__));
+                        ppunkdispatcher.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7183,7 +7183,7 @@ impl IObjectConstructString_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IObjectConstructString_Impl::ConstructString(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7312,7 +7312,7 @@ impl IObjectContext_Vtbl {
         unsafe extern "system" fn IsCallerInRole<Identity: IObjectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrole: *mut core::ffi::c_void, pfisinrole: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IObjectContext_Impl::IsCallerInRole(this, core::mem::transmute(&bstrrole)) {
+                match IObjectContext_Impl::IsCallerInRole(this, &*(&raw const bstrrole).cast()) {
                     Ok(ok__) => {
                         pfisinrole.write(ok__);
                         windows_core::HRESULT(0)
@@ -7545,7 +7545,7 @@ impl IObjectContextTip_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IObjectContextTip_Impl::GetTipUrl(this) {
                     Ok(ok__) => {
-                        ptipurl.write(core::mem::transmute(ok__));
+                        ptipurl.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7702,7 +7702,7 @@ impl IPoolManager_Vtbl {
         unsafe extern "system" fn ShutdownPool<Identity: IPoolManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidorprogid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPoolManager_Impl::ShutdownPool(this, core::mem::transmute(&clsidorprogid))
+                IPoolManager_Impl::ShutdownPool(this, &*(&raw const clsidorprogid).cast())
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), ShutdownPool: ShutdownPool::<Identity, OFFSET> }
@@ -7866,9 +7866,9 @@ impl ISecurityCallContext_Vtbl {
         unsafe extern "system" fn Item<Identity: ISecurityCallContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, pitem: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISecurityCallContext_Impl::Item(this, core::mem::transmute(&name)) {
+                match ISecurityCallContext_Impl::Item(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        pitem.write(core::mem::transmute(ok__));
+                        pitem.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7883,7 +7883,7 @@ impl ISecurityCallContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityCallContext_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7896,7 +7896,7 @@ impl ISecurityCallContext_Vtbl {
         unsafe extern "system" fn IsCallerInRole<Identity: ISecurityCallContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrole: *mut core::ffi::c_void, pfinrole: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISecurityCallContext_Impl::IsCallerInRole(this, core::mem::transmute(&bstrrole)) {
+                match ISecurityCallContext_Impl::IsCallerInRole(this, &*(&raw const bstrrole).cast()) {
                     Ok(ok__) => {
                         pfinrole.write(ok__);
                         windows_core::HRESULT(0)
@@ -7926,7 +7926,7 @@ impl ISecurityCallContext_Vtbl {
         unsafe extern "system" fn IsUserInRole<Identity: ISecurityCallContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *const super::VARIANT, bstrrole: *mut core::ffi::c_void, pfinrole: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISecurityCallContext_Impl::IsUserInRole(this, core::mem::transmute_copy(&puser), core::mem::transmute(&bstrrole)) {
+                match ISecurityCallContext_Impl::IsUserInRole(this, core::mem::transmute_copy(&puser), &*(&raw const bstrrole).cast()) {
                     Ok(ok__) => {
                         pfinrole.write(ok__);
                         windows_core::HRESULT(0)
@@ -8024,7 +8024,7 @@ impl ISecurityCallersColl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityCallersColl_Impl::Item(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
-                        pobj.write(core::mem::transmute(ok__));
+                        pobj.cast::<ISecurityIdentityColl>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8039,7 +8039,7 @@ impl ISecurityCallersColl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityCallersColl_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8134,9 +8134,9 @@ impl ISecurityIdentityColl_Vtbl {
         unsafe extern "system" fn Item<Identity: ISecurityIdentityColl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, pitem: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISecurityIdentityColl_Impl::Item(this, core::mem::transmute(&name)) {
+                match ISecurityIdentityColl_Impl::Item(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        pitem.write(core::mem::transmute(ok__));
+                        pitem.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8151,7 +8151,7 @@ impl ISecurityIdentityColl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityIdentityColl_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8909,7 +8909,7 @@ impl IServicePoolConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IServicePoolConfig_Impl::ClassFactory(this) {
                     Ok(ok__) => {
-                        pfactory.write(core::mem::transmute(ok__));
+                        pfactory.cast::<super::IClassFactory>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8982,13 +8982,13 @@ impl IServiceSxsConfig_Vtbl {
         unsafe extern "system" fn SxsName<Identity: IServiceSxsConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szsxsname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IServiceSxsConfig_Impl::SxsName(this, core::mem::transmute(&szsxsname))
+                IServiceSxsConfig_Impl::SxsName(this, &*(&raw const szsxsname).cast())
             }
         }
         unsafe extern "system" fn SxsDirectory<Identity: IServiceSxsConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szsxsdirectory: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IServiceSxsConfig_Impl::SxsDirectory(this, core::mem::transmute(&szsxsdirectory))
+                IServiceSxsConfig_Impl::SxsDirectory(this, &*(&raw const szsxsdirectory).cast())
             }
         }
         Self {
@@ -9148,7 +9148,7 @@ impl IServiceTrackerConfig_Vtbl {
         unsafe extern "system" fn TrackerConfig<Identity: IServiceTrackerConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, trackerconfig: CSC_TrackerConfig, sztrackerappname: windows_core::PCWSTR, sztrackerctxname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IServiceTrackerConfig_Impl::TrackerConfig(this, core::mem::transmute_copy(&trackerconfig), core::mem::transmute(&sztrackerappname), core::mem::transmute(&sztrackerctxname))
+                IServiceTrackerConfig_Impl::TrackerConfig(this, core::mem::transmute_copy(&trackerconfig), &*(&raw const sztrackerappname).cast(), &*(&raw const sztrackerctxname).cast())
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TrackerConfig: TrackerConfig::<Identity, OFFSET> }
@@ -9280,13 +9280,13 @@ impl IServiceTransactionConfigBase_Vtbl {
         unsafe extern "system" fn BringYourOwnTransaction<Identity: IServiceTransactionConfigBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sztipurl: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IServiceTransactionConfigBase_Impl::BringYourOwnTransaction(this, core::mem::transmute(&sztipurl))
+                IServiceTransactionConfigBase_Impl::BringYourOwnTransaction(this, &*(&raw const sztipurl).cast())
             }
         }
         unsafe extern "system" fn NewTransactionDescription<Identity: IServiceTransactionConfigBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sztxdesc: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IServiceTransactionConfigBase_Impl::NewTransactionDescription(this, core::mem::transmute(&sztxdesc))
+                IServiceTransactionConfigBase_Impl::NewTransactionDescription(this, &*(&raw const sztxdesc).cast())
             }
         }
         Self {
@@ -9356,7 +9356,7 @@ impl ISharedProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISharedProperty_Impl::Value(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9369,7 +9369,7 @@ impl ISharedProperty_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ISharedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISharedProperty_Impl::SetValue(this, core::mem::transmute(&val))
+                ISharedProperty_Impl::SetValue(this, &*(&raw const val).cast())
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Value: Value::<Identity, OFFSET>, SetValue: SetValue::<Identity, OFFSET> }
@@ -9451,7 +9451,7 @@ impl ISharedPropertyGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISharedPropertyGroup_Impl::CreatePropertyByPosition(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&fexists)) {
                     Ok(ok__) => {
-                        ppprop.write(core::mem::transmute(ok__));
+                        ppprop.cast::<ISharedProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9466,7 +9466,7 @@ impl ISharedPropertyGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISharedPropertyGroup_Impl::PropertyByPosition(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        ppproperty.write(core::mem::transmute(ok__));
+                        ppproperty.cast::<ISharedProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9479,9 +9479,9 @@ impl ISharedPropertyGroup_Vtbl {
         unsafe extern "system" fn CreateProperty<Identity: ISharedPropertyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, fexists: *mut super::VARIANT_BOOL, ppprop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISharedPropertyGroup_Impl::CreateProperty(this, core::mem::transmute(&name), core::mem::transmute_copy(&fexists)) {
+                match ISharedPropertyGroup_Impl::CreateProperty(this, &*(&raw const name).cast(), core::mem::transmute_copy(&fexists)) {
                     Ok(ok__) => {
-                        ppprop.write(core::mem::transmute(ok__));
+                        ppprop.cast::<ISharedProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9494,9 +9494,9 @@ impl ISharedPropertyGroup_Vtbl {
         unsafe extern "system" fn Property<Identity: ISharedPropertyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, ppproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISharedPropertyGroup_Impl::Property(this, core::mem::transmute(&name)) {
+                match ISharedPropertyGroup_Impl::Property(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        ppproperty.write(core::mem::transmute(ok__));
+                        ppproperty.cast::<ISharedProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9577,9 +9577,9 @@ impl ISharedPropertyGroupManager_Vtbl {
         unsafe extern "system" fn CreatePropertyGroup<Identity: ISharedPropertyGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, dwisomode: *mut super::LONG, dwrelmode: *mut super::LONG, fexists: *mut super::VARIANT_BOOL, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISharedPropertyGroupManager_Impl::CreatePropertyGroup(this, core::mem::transmute(&name), core::mem::transmute_copy(&dwisomode), core::mem::transmute_copy(&dwrelmode), core::mem::transmute_copy(&fexists)) {
+                match ISharedPropertyGroupManager_Impl::CreatePropertyGroup(this, &*(&raw const name).cast(), core::mem::transmute_copy(&dwisomode), core::mem::transmute_copy(&dwrelmode), core::mem::transmute_copy(&fexists)) {
                     Ok(ok__) => {
-                        ppgroup.write(core::mem::transmute(ok__));
+                        ppgroup.cast::<ISharedPropertyGroup>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9592,9 +9592,9 @@ impl ISharedPropertyGroupManager_Vtbl {
         unsafe extern "system" fn Group<Identity: ISharedPropertyGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISharedPropertyGroupManager_Impl::Group(this, core::mem::transmute(&name)) {
+                match ISharedPropertyGroupManager_Impl::Group(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        ppgroup.write(core::mem::transmute(ok__));
+                        ppgroup.cast::<ISharedPropertyGroup>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9609,7 +9609,7 @@ impl ISharedPropertyGroupManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISharedPropertyGroupManager_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9670,7 +9670,7 @@ impl ISystemAppEventData_Vtbl {
         unsafe extern "system" fn OnDataChanged<Identity: ISystemAppEventData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwpid: super::DWORD, dwmask: super::DWORD, dwnumbersinks: super::DWORD, bstrdwmethodmask: *mut core::ffi::c_void, dwreason: super::DWORD, u64tracehandle: super::ULONG64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISystemAppEventData_Impl::OnDataChanged(this, core::mem::transmute_copy(&dwpid), core::mem::transmute_copy(&dwmask), core::mem::transmute_copy(&dwnumbersinks), core::mem::transmute(&bstrdwmethodmask), core::mem::transmute_copy(&dwreason), core::mem::transmute_copy(&u64tracehandle))
+                ISystemAppEventData_Impl::OnDataChanged(this, core::mem::transmute_copy(&dwpid), core::mem::transmute_copy(&dwmask), core::mem::transmute_copy(&dwnumbersinks), &*(&raw const bstrdwmethodmask).cast(), core::mem::transmute_copy(&dwreason), core::mem::transmute_copy(&u64tracehandle))
             }
         }
         Self {
@@ -9878,9 +9878,9 @@ impl ITransactionContext_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: ITransactionContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszprogid: *mut core::ffi::c_void, pobject: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITransactionContext_Impl::CreateInstance(this, core::mem::transmute(&pszprogid)) {
+                match ITransactionContext_Impl::CreateInstance(this, &*(&raw const pszprogid).cast()) {
                     Ok(ok__) => {
-                        pobject.write(core::mem::transmute(ok__));
+                        pobject.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10033,7 +10033,7 @@ impl ITransactionProperty {
         }
     }
     pub unsafe fn GetTransactionResourcePool(&self, pptxpool: *mut Option<ITransactionResourcePool>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTransactionResourcePool)(windows_core::Interface::as_raw(self), core::mem::transmute(pptxpool)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTransactionResourcePool)(windows_core::Interface::as_raw(self), pptxpool as _) }
     }
     pub unsafe fn Reserved10(&self) {
         unsafe {
@@ -10267,14 +10267,14 @@ impl ITransactionProxy {
     }
     #[cfg(feature = "transact")]
     pub unsafe fn Promote(&self, ptransaction: *mut Option<super::ITransaction>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Promote)(windows_core::Interface::as_raw(self), core::mem::transmute(ptransaction)) }
+        unsafe { (windows_core::Interface::vtable(self).Promote)(windows_core::Interface::as_raw(self), ptransaction as _) }
     }
     #[cfg(all(feature = "transact", feature = "txdtc"))]
     pub unsafe fn CreateVoter<P0>(&self, ptxasync: P0, ppballot: *mut Option<super::ITransactionVoterBallotAsync2>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::ITransactionVoterNotifyAsync2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateVoter)(windows_core::Interface::as_raw(self), ptxasync.param().abi(), core::mem::transmute(ppballot)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateVoter)(windows_core::Interface::as_raw(self), ptxasync.param().abi(), ppballot as _) }
     }
     #[cfg(feature = "transact")]
     pub unsafe fn GetIsolationLevel(&self) -> windows_core::Result<super::ISOLEVEL> {
@@ -10330,7 +10330,7 @@ impl ITransactionProxy_Vtbl {
         unsafe extern "system" fn Commit<Identity: ITransactionProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProxy_Impl::Commit(this, core::mem::transmute(&guid))
+                ITransactionProxy_Impl::Commit(this, &*(&raw const guid).cast())
             }
         }
         unsafe extern "system" fn Abort<Identity: ITransactionProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10418,7 +10418,7 @@ impl ITransactionResourcePool {
     where
         P0: windows_core::Param<IObjPool>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetResource)(windows_core::Interface::as_raw(self), ppool.param().abi(), core::mem::transmute(ppunk)) }
+        unsafe { (windows_core::Interface::vtable(self).GetResource)(windows_core::Interface::as_raw(self), ppool.param().abi(), ppunk as _) }
     }
 }
 #[repr(C)]
@@ -10686,9 +10686,9 @@ impl ObjectContext_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: ObjectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprogid: *mut core::ffi::c_void, pobject: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ObjectContext_Impl::CreateInstance(this, core::mem::transmute(&bstrprogid)) {
+                match ObjectContext_Impl::CreateInstance(this, &*(&raw const bstrprogid).cast()) {
                     Ok(ok__) => {
-                        pobject.write(core::mem::transmute(ok__));
+                        pobject.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10755,7 +10755,7 @@ impl ObjectContext_Vtbl {
         unsafe extern "system" fn IsCallerInRole<Identity: ObjectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrole: *mut core::ffi::c_void, pbinrole: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ObjectContext_Impl::IsCallerInRole(this, core::mem::transmute(&bstrrole)) {
+                match ObjectContext_Impl::IsCallerInRole(this, &*(&raw const bstrrole).cast()) {
                     Ok(ok__) => {
                         pbinrole.write(ok__);
                         windows_core::HRESULT(0)
@@ -10785,9 +10785,9 @@ impl ObjectContext_Vtbl {
         unsafe extern "system" fn Item<Identity: ObjectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, pitem: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ObjectContext_Impl::Item(this, core::mem::transmute(&name)) {
+                match ObjectContext_Impl::Item(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        pitem.write(core::mem::transmute(ok__));
+                        pitem.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10802,7 +10802,7 @@ impl ObjectContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ObjectContext_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10817,7 +10817,7 @@ impl ObjectContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ObjectContext_Impl::Security(this) {
                     Ok(ok__) => {
-                        ppsecurityproperty.write(core::mem::transmute(ok__));
+                        ppsecurityproperty.cast::<SecurityProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10832,7 +10832,7 @@ impl ObjectContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ObjectContext_Impl::ContextInfo(this) {
                     Ok(ok__) => {
-                        ppcontextinfo.write(core::mem::transmute(ok__));
+                        ppcontextinfo.cast::<ContextInfo>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11025,7 +11025,7 @@ impl SecurityProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match SecurityProperty_Impl::GetDirectCallerName(this) {
                     Ok(ok__) => {
-                        bstrusername.write(core::mem::transmute(ok__));
+                        bstrusername.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11040,7 +11040,7 @@ impl SecurityProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match SecurityProperty_Impl::GetDirectCreatorName(this) {
                     Ok(ok__) => {
-                        bstrusername.write(core::mem::transmute(ok__));
+                        bstrusername.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11055,7 +11055,7 @@ impl SecurityProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match SecurityProperty_Impl::GetOriginalCallerName(this) {
                     Ok(ok__) => {
-                        bstrusername.write(core::mem::transmute(ok__));
+                        bstrusername.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11070,7 +11070,7 @@ impl SecurityProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match SecurityProperty_Impl::GetOriginalCreatorName(this) {
                     Ok(ok__) => {
-                        bstrusername.write(core::mem::transmute(ok__));
+                        bstrusername.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

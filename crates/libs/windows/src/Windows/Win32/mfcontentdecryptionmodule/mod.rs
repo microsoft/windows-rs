@@ -120,7 +120,7 @@ impl IMFContentDecryptionModule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModule_Impl::GetSuspendNotify(this) {
                     Ok(ok__) => {
-                        notify.write(core::mem::transmute(ok__));
+                        notify.cast::<super::IMFCdmSuspendNotify>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -141,7 +141,7 @@ impl IMFContentDecryptionModule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModule_Impl::CreateSession(this, core::mem::transmute_copy(&sessiontype), core::mem::transmute_copy(&callbacks)) {
                     Ok(ok__) => {
-                        session.write(core::mem::transmute(ok__));
+                        session.cast::<IMFContentDecryptionModuleSession>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -162,7 +162,7 @@ impl IMFContentDecryptionModule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModule_Impl::CreateTrustedInput(this, core::mem::transmute_copy(&contentinitdata), core::mem::transmute_copy(&contentinitdatasize)) {
                     Ok(ok__) => {
-                        trustedinput.write(core::mem::transmute(ok__));
+                        trustedinput.cast::<super::IMFTrustedInput>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -247,7 +247,7 @@ impl IMFContentDecryptionModuleAccess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModuleAccess_Impl::CreateContentDecryptionModule(this, core::mem::transmute_copy(&contentdecryptionmoduleproperties)) {
                     Ok(ok__) => {
-                        contentdecryptionmodule.write(core::mem::transmute(ok__));
+                        contentdecryptionmodule.cast::<IMFContentDecryptionModule>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -262,7 +262,7 @@ impl IMFContentDecryptionModuleAccess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModuleAccess_Impl::GetConfiguration(this) {
                     Ok(ok__) => {
-                        configuration.write(core::mem::transmute(ok__));
+                        configuration.cast::<super::IPropertyStore>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -306,7 +306,7 @@ impl IMFContentDecryptionModuleFactory {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateContentDecryptionModuleAccess)(windows_core::Interface::as_raw(self), keysystem.param().abi(), core::mem::transmute(configurations), numconfigurations, core::mem::transmute(contentdecryptionmoduleaccess)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateContentDecryptionModuleAccess)(windows_core::Interface::as_raw(self), keysystem.param().abi(), configurations as _, numconfigurations, contentdecryptionmoduleaccess as _) }
     }
 }
 #[repr(C)]
@@ -330,13 +330,13 @@ impl IMFContentDecryptionModuleFactory_Vtbl {
         unsafe extern "system" fn IsTypeSupported<Identity: IMFContentDecryptionModuleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keysystem: windows_core::PCWSTR, contenttype: windows_core::PCWSTR) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFContentDecryptionModuleFactory_Impl::IsTypeSupported(this, core::mem::transmute(&keysystem), core::mem::transmute(&contenttype))
+                IMFContentDecryptionModuleFactory_Impl::IsTypeSupported(this, &*(&raw const keysystem).cast(), &*(&raw const contenttype).cast())
             }
         }
         unsafe extern "system" fn CreateContentDecryptionModuleAccess<Identity: IMFContentDecryptionModuleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keysystem: windows_core::PCWSTR, configurations: *const *mut core::ffi::c_void, numconfigurations: super::DWORD, contentdecryptionmoduleaccess: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFContentDecryptionModuleFactory_Impl::CreateContentDecryptionModuleAccess(this, core::mem::transmute(&keysystem), core::mem::transmute_copy(&configurations), core::mem::transmute_copy(&numconfigurations), core::mem::transmute_copy(&contentdecryptionmoduleaccess))
+                IMFContentDecryptionModuleFactory_Impl::CreateContentDecryptionModuleAccess(this, &*(&raw const keysystem).cast(), core::mem::transmute_copy(&configurations), core::mem::transmute_copy(&numconfigurations), core::mem::transmute_copy(&contentdecryptionmoduleaccess))
             }
         }
         Self {
@@ -445,13 +445,13 @@ impl IMFContentDecryptionModuleSession_Vtbl {
         unsafe extern "system" fn Load<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionid: windows_core::PCWSTR, loaded: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFContentDecryptionModuleSession_Impl::Load(this, core::mem::transmute(&sessionid), core::mem::transmute_copy(&loaded))
+                IMFContentDecryptionModuleSession_Impl::Load(this, &*(&raw const sessionid).cast(), core::mem::transmute_copy(&loaded))
             }
         }
         unsafe extern "system" fn GenerateRequest<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initdatatype: windows_core::PCWSTR, initdata: *const super::BYTE, initdatasize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFContentDecryptionModuleSession_Impl::GenerateRequest(this, core::mem::transmute(&initdatatype), core::mem::transmute_copy(&initdata), core::mem::transmute_copy(&initdatasize))
+                IMFContentDecryptionModuleSession_Impl::GenerateRequest(this, &*(&raw const initdatatype).cast(), core::mem::transmute_copy(&initdata), core::mem::transmute_copy(&initdatasize))
             }
         }
         unsafe extern "system" fn Update<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, response: *const super::BYTE, responsesize: super::DWORD) -> windows_core::HRESULT {
@@ -525,7 +525,7 @@ impl IMFContentDecryptionModuleSessionCallbacks_Vtbl {
         unsafe extern "system" fn KeyMessage<Identity: IMFContentDecryptionModuleSessionCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const super::BYTE, messagesize: super::DWORD, destinationurl: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFContentDecryptionModuleSessionCallbacks_Impl::KeyMessage(this, core::mem::transmute_copy(&messagetype), core::mem::transmute_copy(&message), core::mem::transmute_copy(&messagesize), core::mem::transmute(&destinationurl))
+                IMFContentDecryptionModuleSessionCallbacks_Impl::KeyMessage(this, core::mem::transmute_copy(&messagetype), core::mem::transmute_copy(&message), core::mem::transmute_copy(&messagesize), &*(&raw const destinationurl).cast())
             }
         }
         unsafe extern "system" fn KeyStatusChanged<Identity: IMFContentDecryptionModuleSessionCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

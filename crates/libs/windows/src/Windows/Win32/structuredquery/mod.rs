@@ -102,7 +102,7 @@ impl IConditionFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IConditionFactory_Impl::MakeNot(this, core::mem::transmute_copy(&pcsub), core::mem::transmute_copy(&fsimplify)) {
                     Ok(ok__) => {
-                        ppcresult.write(core::mem::transmute(ok__));
+                        ppcresult.cast::<super::ICondition>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -117,7 +117,7 @@ impl IConditionFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IConditionFactory_Impl::MakeAndOr(this, core::mem::transmute_copy(&ct), core::mem::transmute_copy(&peusubs), core::mem::transmute_copy(&fsimplify)) {
                     Ok(ok__) => {
-                        ppcresult.write(core::mem::transmute(ok__));
+                        ppcresult.cast::<super::ICondition>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -130,9 +130,9 @@ impl IConditionFactory_Vtbl {
         unsafe extern "system" fn MakeLeaf<Identity: IConditionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, cop: super::CONDITION_OPERATION, pszvaluetype: windows_core::PCWSTR, ppropvar: *const super::PROPVARIANT, ppropertynameterm: *mut core::ffi::c_void, poperationterm: *mut core::ffi::c_void, pvalueterm: *mut core::ffi::c_void, fexpand: windows_core::BOOL, ppcresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IConditionFactory_Impl::MakeLeaf(this, core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&cop), core::mem::transmute(&pszvaluetype), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&ppropertynameterm), core::mem::transmute_copy(&poperationterm), core::mem::transmute_copy(&pvalueterm), core::mem::transmute_copy(&fexpand)) {
+                match IConditionFactory_Impl::MakeLeaf(this, &*(&raw const pszpropertyname).cast(), core::mem::transmute_copy(&cop), &*(&raw const pszvaluetype).cast(), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&ppropertynameterm), core::mem::transmute_copy(&poperationterm), core::mem::transmute_copy(&pvalueterm), core::mem::transmute_copy(&fexpand)) {
                     Ok(ok__) => {
-                        ppcresult.write(core::mem::transmute(ok__));
+                        ppcresult.cast::<super::ICondition>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -147,7 +147,7 @@ impl IConditionFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IConditionFactory_Impl::Resolve(this, core::mem::transmute_copy(&pc), core::mem::transmute_copy(&sqro), core::mem::transmute_copy(&pstreferencetime)) {
                     Ok(ok__) => {
-                        ppcresolved.write(core::mem::transmute(ok__));
+                        ppcresolved.cast::<super::ICondition>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -212,7 +212,7 @@ impl IConditionFactory2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateCompoundFromArray)(windows_core::Interface::as_raw(self), ct, core::mem::transmute(ppcondsubs), csubs, cco, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateCompoundFromArray)(windows_core::Interface::as_raw(self), ct, ppcondsubs as _, csubs, cco, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "guiddef", feature = "shared", feature = "structuredquerycondition", feature = "wtypes"))]
     pub unsafe fn CreateStringLeaf<P2, P3, T>(&self, propkey: *const super::PROPERTYKEY, cop: super::CONDITION_OPERATION, pszvalue: P2, pszlocalename: P3, cco: CONDITION_CREATION_OPTIONS) -> windows_core::Result<T>
@@ -346,7 +346,7 @@ impl IConditionFactory2_Vtbl {
         unsafe extern "system" fn CreateStringLeaf<Identity: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propkey: *const super::PROPERTYKEY, cop: super::CONDITION_OPERATION, pszvalue: windows_core::PCWSTR, pszlocalename: windows_core::PCWSTR, cco: CONDITION_CREATION_OPTIONS, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConditionFactory2_Impl::CreateStringLeaf(this, core::mem::transmute_copy(&propkey), core::mem::transmute_copy(&cop), core::mem::transmute(&pszvalue), core::mem::transmute(&pszlocalename), core::mem::transmute_copy(&cco), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+                IConditionFactory2_Impl::CreateStringLeaf(this, core::mem::transmute_copy(&propkey), core::mem::transmute_copy(&cop), &*(&raw const pszvalue).cast(), &*(&raw const pszlocalename).cast(), core::mem::transmute_copy(&cco), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
         unsafe extern "system" fn CreateIntegerLeaf<Identity: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propkey: *const super::PROPERTYKEY, cop: super::CONDITION_OPERATION, lvalue: super::INT32, cco: CONDITION_CREATION_OPTIONS, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -364,7 +364,7 @@ impl IConditionFactory2_Vtbl {
         unsafe extern "system" fn CreateLeaf<Identity: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propkey: *const super::PROPERTYKEY, cop: super::CONDITION_OPERATION, propvar: *const super::PROPVARIANT, pszsemantictype: windows_core::PCWSTR, pszlocalename: windows_core::PCWSTR, ppropertynameterm: *mut core::ffi::c_void, poperationterm: *mut core::ffi::c_void, pvalueterm: *mut core::ffi::c_void, cco: CONDITION_CREATION_OPTIONS, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConditionFactory2_Impl::CreateLeaf(this, core::mem::transmute_copy(&propkey), core::mem::transmute_copy(&cop), core::mem::transmute_copy(&propvar), core::mem::transmute(&pszsemantictype), core::mem::transmute(&pszlocalename), core::mem::transmute_copy(&ppropertynameterm), core::mem::transmute_copy(&poperationterm), core::mem::transmute_copy(&pvalueterm), core::mem::transmute_copy(&cco), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+                IConditionFactory2_Impl::CreateLeaf(this, core::mem::transmute_copy(&propkey), core::mem::transmute_copy(&cop), core::mem::transmute_copy(&propvar), &*(&raw const pszsemantictype).cast(), &*(&raw const pszlocalename).cast(), core::mem::transmute_copy(&ppropertynameterm), core::mem::transmute_copy(&poperationterm), core::mem::transmute_copy(&pvalueterm), core::mem::transmute_copy(&cco), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
         unsafe extern "system" fn ResolveCondition<Identity: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pc: *mut core::ffi::c_void, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::SYSTEMTIME, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -472,15 +472,15 @@ impl IConditionGenerator_Vtbl {
         unsafe extern "system" fn RecognizeNamedEntities<Identity: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszinputstring: windows_core::PCWSTR, lciduserlocale: super::LCID, ptokencollection: *mut core::ffi::c_void, pnamedentities: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConditionGenerator_Impl::RecognizeNamedEntities(this, core::mem::transmute(&pszinputstring), core::mem::transmute_copy(&lciduserlocale), core::mem::transmute_copy(&ptokencollection), core::mem::transmute_copy(&pnamedentities))
+                IConditionGenerator_Impl::RecognizeNamedEntities(this, &*(&raw const pszinputstring).cast(), core::mem::transmute_copy(&lciduserlocale), core::mem::transmute_copy(&ptokencollection), core::mem::transmute_copy(&pnamedentities))
             }
         }
         unsafe extern "system" fn GenerateForLeaf<Identity: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconditionfactory: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, cop: super::CONDITION_OPERATION, pszvaluetype: windows_core::PCWSTR, pszvalue: windows_core::PCWSTR, pszvalue2: windows_core::PCWSTR, ppropertynameterm: *mut core::ffi::c_void, poperationterm: *mut core::ffi::c_void, pvalueterm: *mut core::ffi::c_void, automaticwildcard: windows_core::BOOL, pnostringquery: *mut windows_core::BOOL, ppqueryexpression: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IConditionGenerator_Impl::GenerateForLeaf(this, core::mem::transmute_copy(&pconditionfactory), core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&cop), core::mem::transmute(&pszvaluetype), core::mem::transmute(&pszvalue), core::mem::transmute(&pszvalue2), core::mem::transmute_copy(&ppropertynameterm), core::mem::transmute_copy(&poperationterm), core::mem::transmute_copy(&pvalueterm), core::mem::transmute_copy(&automaticwildcard), core::mem::transmute_copy(&pnostringquery)) {
+                match IConditionGenerator_Impl::GenerateForLeaf(this, core::mem::transmute_copy(&pconditionfactory), &*(&raw const pszpropertyname).cast(), core::mem::transmute_copy(&cop), &*(&raw const pszvaluetype).cast(), &*(&raw const pszvalue).cast(), &*(&raw const pszvalue2).cast(), core::mem::transmute_copy(&ppropertynameterm), core::mem::transmute_copy(&poperationterm), core::mem::transmute_copy(&pvalueterm), core::mem::transmute_copy(&automaticwildcard), core::mem::transmute_copy(&pnostringquery)) {
                     Ok(ok__) => {
-                        ppqueryexpression.write(core::mem::transmute(ok__));
+                        ppqueryexpression.cast::<super::ICondition>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -493,7 +493,7 @@ impl IConditionGenerator_Vtbl {
         unsafe extern "system" fn DefaultPhrase<Identity: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluetype: windows_core::PCWSTR, ppropvar: *const super::PROPVARIANT, fuseenglish: windows_core::BOOL, ppszphrase: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConditionGenerator_Impl::DefaultPhrase(this, core::mem::transmute(&pszvaluetype), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&fuseenglish), core::mem::transmute_copy(&ppszphrase))
+                IConditionGenerator_Impl::DefaultPhrase(this, &*(&raw const pszvaluetype).cast(), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&fuseenglish), core::mem::transmute_copy(&ppszphrase))
             }
         }
         Self {
@@ -615,7 +615,7 @@ impl IEntity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEntity_Impl::Base(this) {
                     Ok(ok__) => {
-                        pbaseentity.write(core::mem::transmute(ok__));
+                        pbaseentity.cast::<IEntity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -634,9 +634,9 @@ impl IEntity_Vtbl {
         unsafe extern "system" fn GetRelationship<Identity: IEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrelationname: windows_core::PCWSTR, prelationship: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEntity_Impl::GetRelationship(this, core::mem::transmute(&pszrelationname)) {
+                match IEntity_Impl::GetRelationship(this, &*(&raw const pszrelationname).cast()) {
                     Ok(ok__) => {
-                        prelationship.write(core::mem::transmute(ok__));
+                        prelationship.cast::<IRelationship>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -661,9 +661,9 @@ impl IEntity_Vtbl {
         unsafe extern "system" fn GetNamedEntity<Identity: IEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvalue: windows_core::PCWSTR, ppnamedentity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEntity_Impl::GetNamedEntity(this, core::mem::transmute(&pszvalue)) {
+                match IEntity_Impl::GetNamedEntity(this, &*(&raw const pszvalue).cast()) {
                     Ok(ok__) => {
-                        ppnamedentity.write(core::mem::transmute(ok__));
+                        ppnamedentity.cast::<INamedEntity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -860,7 +860,7 @@ impl INamedEntityCollector_Vtbl {
         unsafe extern "system" fn Add<Identity: INamedEntityCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, beginspan: super::ULONG, endspan: super::ULONG, beginactual: super::ULONG, endactual: super::ULONG, ptype: *mut core::ffi::c_void, pszvalue: windows_core::PCWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INamedEntityCollector_Impl::Add(this, core::mem::transmute_copy(&beginspan), core::mem::transmute_copy(&endspan), core::mem::transmute_copy(&beginactual), core::mem::transmute_copy(&endactual), core::mem::transmute_copy(&ptype), core::mem::transmute(&pszvalue), core::mem::transmute_copy(&certainty))
+                INamedEntityCollector_Impl::Add(this, core::mem::transmute_copy(&beginspan), core::mem::transmute_copy(&endspan), core::mem::transmute_copy(&beginactual), core::mem::transmute_copy(&endactual), core::mem::transmute_copy(&ptype), &*(&raw const pszvalue).cast(), core::mem::transmute_copy(&certainty))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, OFFSET> }
@@ -982,9 +982,9 @@ impl IQueryParser_Vtbl {
         unsafe extern "system" fn Parse<Identity: IQueryParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszinputstring: windows_core::PCWSTR, pcustomproperties: *mut core::ffi::c_void, ppsolution: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IQueryParser_Impl::Parse(this, core::mem::transmute(&pszinputstring), core::mem::transmute_copy(&pcustomproperties)) {
+                match IQueryParser_Impl::Parse(this, &*(&raw const pszinputstring).cast(), core::mem::transmute_copy(&pcustomproperties)) {
                     Ok(ok__) => {
-                        ppsolution.write(core::mem::transmute(ok__));
+                        ppsolution.cast::<IQuerySolution>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1005,7 +1005,7 @@ impl IQueryParser_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IQueryParser_Impl::GetOption(this, core::mem::transmute_copy(&option)) {
                     Ok(ok__) => {
-                        poptionvalue.write(core::mem::transmute(ok__));
+                        poptionvalue.cast::<super::PROPVARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1018,7 +1018,7 @@ impl IQueryParser_Vtbl {
         unsafe extern "system" fn SetMultiOption<Identity: IQueryParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: windows_core::PCWSTR, poptionvalue: *const super::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueryParser_Impl::SetMultiOption(this, core::mem::transmute_copy(&option), core::mem::transmute(&pszoptionkey), core::mem::transmute_copy(&poptionvalue))
+                IQueryParser_Impl::SetMultiOption(this, core::mem::transmute_copy(&option), &*(&raw const pszoptionkey).cast(), core::mem::transmute_copy(&poptionvalue))
             }
         }
         unsafe extern "system" fn GetSchemaProvider<Identity: IQueryParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppschemaprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1026,7 +1026,7 @@ impl IQueryParser_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IQueryParser_Impl::GetSchemaProvider(this) {
                     Ok(ok__) => {
-                        ppschemaprovider.write(core::mem::transmute(ok__));
+                        ppschemaprovider.cast::<ISchemaProvider>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1045,9 +1045,9 @@ impl IQueryParser_Vtbl {
         unsafe extern "system" fn ParsePropertyValue<Identity: IQueryParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, pszinputstring: windows_core::PCWSTR, ppsolution: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IQueryParser_Impl::ParsePropertyValue(this, core::mem::transmute(&pszpropertyname), core::mem::transmute(&pszinputstring)) {
+                match IQueryParser_Impl::ParsePropertyValue(this, &*(&raw const pszpropertyname).cast(), &*(&raw const pszinputstring).cast()) {
                     Ok(ok__) => {
-                        ppsolution.write(core::mem::transmute(ok__));
+                        ppsolution.cast::<IQuerySolution>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1130,7 +1130,7 @@ impl IQueryParserManager_Vtbl {
         unsafe extern "system" fn CreateLoadedParser<Identity: IQueryParserManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcatalog: windows_core::PCWSTR, langidforkeywords: super::LANGID, riid: *const super::IID, ppqueryparser: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IQueryParserManager_Impl::CreateLoadedParser(this, core::mem::transmute(&pszcatalog), core::mem::transmute_copy(&langidforkeywords), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppqueryparser)).into()
+                IQueryParserManager_Impl::CreateLoadedParser(this, &*(&raw const pszcatalog).cast(), core::mem::transmute_copy(&langidforkeywords), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppqueryparser)).into()
             }
         }
         unsafe extern "system" fn InitializeOptions<Identity: IQueryParserManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, funderstandnqs: windows_core::BOOL, fautowildcard: windows_core::BOOL, pqueryparser: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1321,7 +1321,7 @@ impl IRelationship_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRelationship_Impl::Destination(this) {
                     Ok(ok__) => {
-                        pdestinationentity.write(core::mem::transmute(ok__));
+                        pdestinationentity.cast::<IEntity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1385,7 +1385,7 @@ impl ISchemaLocalizerSupport_Vtbl {
         unsafe extern "system" fn Localize<Identity: ISchemaLocalizerSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszglobalstring: windows_core::PCWSTR, ppszlocalstring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISchemaLocalizerSupport_Impl::Localize(this, core::mem::transmute(&pszglobalstring)) {
+                match ISchemaLocalizerSupport_Impl::Localize(this, &*(&raw const pszglobalstring).cast()) {
                     Ok(ok__) => {
                         ppszlocalstring.write(ok__);
                         windows_core::HRESULT(0)
@@ -1509,7 +1509,7 @@ impl ISchemaProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaProvider_Impl::RootEntity(this) {
                     Ok(ok__) => {
-                        prootentity.write(core::mem::transmute(ok__));
+                        prootentity.cast::<IEntity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1522,9 +1522,9 @@ impl ISchemaProvider_Vtbl {
         unsafe extern "system" fn GetEntity<Identity: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszentityname: windows_core::PCWSTR, pentity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISchemaProvider_Impl::GetEntity(this, core::mem::transmute(&pszentityname)) {
+                match ISchemaProvider_Impl::GetEntity(this, &*(&raw const pszentityname).cast()) {
                     Ok(ok__) => {
-                        pentity.write(core::mem::transmute(ok__));
+                        pentity.cast::<IEntity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1549,13 +1549,13 @@ impl ISchemaProvider_Vtbl {
         unsafe extern "system" fn SaveBinary<Identity: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszschemabinarypath: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISchemaProvider_Impl::SaveBinary(this, core::mem::transmute(&pszschemabinarypath))
+                ISchemaProvider_Impl::SaveBinary(this, &*(&raw const pszschemabinarypath).cast())
             }
         }
         unsafe extern "system" fn LookupAuthoredNamedEntity<Identity: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pentity: *mut core::ffi::c_void, pszinputstring: windows_core::PCWSTR, ptokencollection: *mut core::ffi::c_void, ctokensbegin: super::ULONG, pctokenslength: *mut super::ULONG, ppszvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISchemaProvider_Impl::LookupAuthoredNamedEntity(this, core::mem::transmute_copy(&pentity), core::mem::transmute(&pszinputstring), core::mem::transmute_copy(&ptokencollection), core::mem::transmute_copy(&ctokensbegin), core::mem::transmute_copy(&pctokenslength), core::mem::transmute_copy(&ppszvalue))
+                ISchemaProvider_Impl::LookupAuthoredNamedEntity(this, core::mem::transmute_copy(&pentity), &*(&raw const pszinputstring).cast(), core::mem::transmute_copy(&ptokencollection), core::mem::transmute_copy(&ctokensbegin), core::mem::transmute_copy(&pctokenslength), core::mem::transmute_copy(&ppszvalue))
             }
         }
         Self {

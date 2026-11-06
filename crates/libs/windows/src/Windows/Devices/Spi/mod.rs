@@ -152,7 +152,7 @@ impl ISpiDeviceStatics_Vtbl {
         unsafe extern "system" fn GetDeviceSelectorFromFriendlyName<Identity: ISpiDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, friendlyname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpiDeviceStatics_Impl::GetDeviceSelectorFromFriendlyName(this, core::mem::transmute(&friendlyname)) {
+                match ISpiDeviceStatics_Impl::GetDeviceSelectorFromFriendlyName(this, &*(&raw const friendlyname).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -168,7 +168,7 @@ impl ISpiDeviceStatics_Vtbl {
         unsafe extern "system" fn GetBusInfo<Identity: ISpiDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busid: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpiDeviceStatics_Impl::GetBusInfo(this, core::mem::transmute(&busid)) {
+                match ISpiDeviceStatics_Impl::GetBusInfo(this, &*(&raw const busid).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -184,7 +184,7 @@ impl ISpiDeviceStatics_Vtbl {
         unsafe extern "system" fn FromIdAsync<Identity: ISpiDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busid: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpiDeviceStatics_Impl::FromIdAsync(this, core::mem::transmute(&busid), core::mem::transmute_copy(&settings)) {
+                match ISpiDeviceStatics_Impl::FromIdAsync(this, &*(&raw const busid).cast(), core::mem::transmute_copy(&settings)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

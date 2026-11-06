@@ -218,13 +218,13 @@ impl IDropTarget_Vtbl {
         unsafe extern "system" fn DragEnter<Identity: IDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobj: *mut core::ffi::c_void, grfkeystate: super::DWORD, pt: super::POINTL, pdweffect: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDropTarget_Impl::DragEnter(this, core::mem::transmute_copy(&pdataobj), core::mem::transmute_copy(&grfkeystate), core::mem::transmute(&pt), core::mem::transmute_copy(&pdweffect))
+                IDropTarget_Impl::DragEnter(this, core::mem::transmute_copy(&pdataobj), core::mem::transmute_copy(&grfkeystate), &*(&raw const pt).cast(), core::mem::transmute_copy(&pdweffect))
             }
         }
         unsafe extern "system" fn DragOver<Identity: IDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfkeystate: super::DWORD, pt: super::POINTL, pdweffect: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDropTarget_Impl::DragOver(this, core::mem::transmute_copy(&grfkeystate), core::mem::transmute(&pt), core::mem::transmute_copy(&pdweffect))
+                IDropTarget_Impl::DragOver(this, core::mem::transmute_copy(&grfkeystate), &*(&raw const pt).cast(), core::mem::transmute_copy(&pdweffect))
             }
         }
         unsafe extern "system" fn DragLeave<Identity: IDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -236,7 +236,7 @@ impl IDropTarget_Vtbl {
         unsafe extern "system" fn Drop<Identity: IDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobj: *mut core::ffi::c_void, grfkeystate: super::DWORD, pt: super::POINTL, pdweffect: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDropTarget_Impl::Drop(this, core::mem::transmute_copy(&pdataobj), core::mem::transmute_copy(&grfkeystate), core::mem::transmute(&pt), core::mem::transmute_copy(&pdweffect))
+                IDropTarget_Impl::Drop(this, core::mem::transmute_copy(&pdataobj), core::mem::transmute_copy(&grfkeystate), &*(&raw const pt).cast(), core::mem::transmute_copy(&pdweffect))
             }
         }
         Self {
@@ -285,7 +285,7 @@ impl IEnterpriseDropTarget_Vtbl {
         unsafe extern "system" fn SetDropSourceEnterpriseId<Identity: IEnterpriseDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identity: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IEnterpriseDropTarget_Impl::SetDropSourceEnterpriseId(this, core::mem::transmute(&identity))
+                IEnterpriseDropTarget_Impl::SetDropSourceEnterpriseId(this, &*(&raw const identity).cast())
             }
         }
         unsafe extern "system" fn IsEvaluatingEdpPolicy<Identity: IEnterpriseDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -383,7 +383,7 @@ impl IEnumOLEVERB_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumOLEVERB_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumOLEVERB>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -494,7 +494,7 @@ impl IOleAdviseHolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleAdviseHolder_Impl::EnumAdvise(this) {
                     Ok(ok__) => {
-                        ppenumadvise.write(core::mem::transmute(ok__));
+                        ppenumadvise.cast::<super::IEnumSTATDATA>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -621,7 +621,7 @@ impl IOleCache_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleCache_Impl::EnumCache(this) {
                     Ok(ok__) => {
-                        ppenumstatdata.write(core::mem::transmute(ok__));
+                        ppenumstatdata.cast::<super::IEnumSTATDATA>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -838,7 +838,7 @@ impl IOleClientSite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleClientSite_Impl::GetMoniker(this, core::mem::transmute_copy(&dwassign), core::mem::transmute_copy(&dwwhichmoniker)) {
                     Ok(ok__) => {
-                        ppmk.write(core::mem::transmute(ok__));
+                        ppmk.cast::<super::IMoniker>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -853,7 +853,7 @@ impl IOleClientSite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleClientSite_Impl::GetContainer(this) {
                     Ok(ok__) => {
-                        ppcontainer.write(core::mem::transmute(ok__));
+                        ppcontainer.cast::<IOleContainer>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -940,7 +940,7 @@ impl IOleContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleContainer_Impl::EnumObjects(this, core::mem::transmute_copy(&grfflags)) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<super::IEnumUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1296,7 +1296,7 @@ impl IOleInPlaceSite {
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetWindowContext(&self, ppframe: *mut Option<IOleInPlaceFrame>, ppdoc: *mut Option<IOleInPlaceUIWindow>, lprcposrect: super::LPRECT, lprccliprect: super::LPRECT, lpframeinfo: LPOLEINPLACEFRAMEINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWindowContext)(windows_core::Interface::as_raw(self), core::mem::transmute(ppframe), core::mem::transmute(ppdoc), lprcposrect as _, lprccliprect as _, lpframeinfo as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetWindowContext)(windows_core::Interface::as_raw(self), ppframe as _, ppdoc as _, lprcposrect as _, lprccliprect as _, lpframeinfo as _) }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn Scroll(&self, scrollextant: super::SIZE) -> windows_core::HRESULT {
@@ -1386,7 +1386,7 @@ impl IOleInPlaceSite_Vtbl {
         unsafe extern "system" fn Scroll<Identity: IOleInPlaceSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scrollextant: super::SIZE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IOleInPlaceSite_Impl::Scroll(this, core::mem::transmute(&scrollextant))
+                IOleInPlaceSite_Impl::Scroll(this, &*(&raw const scrollextant).cast())
             }
         }
         unsafe extern "system" fn OnUIDeactivate<Identity: IOleInPlaceSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fundoable: windows_core::BOOL) -> windows_core::HRESULT {
@@ -1766,7 +1766,7 @@ impl IOleLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleLink_Impl::GetSourceMoniker(this) {
                     Ok(ok__) => {
-                        ppmk.write(core::mem::transmute(ok__));
+                        ppmk.cast::<super::IMoniker>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1805,7 +1805,7 @@ impl IOleLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleLink_Impl::GetBoundSource(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2073,7 +2073,7 @@ impl IOleObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleObject_Impl::GetClientSite(this) {
                     Ok(ok__) => {
-                        ppclientsite.write(core::mem::transmute(ok__));
+                        ppclientsite.cast::<IOleClientSite>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2106,7 +2106,7 @@ impl IOleObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleObject_Impl::GetMoniker(this, core::mem::transmute_copy(&dwassign), core::mem::transmute_copy(&dwwhichmoniker)) {
                     Ok(ok__) => {
-                        ppmk.write(core::mem::transmute(ok__));
+                        ppmk.cast::<super::IMoniker>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2127,7 +2127,7 @@ impl IOleObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleObject_Impl::GetClipboardData(this, core::mem::transmute_copy(&dwreserved)) {
                     Ok(ok__) => {
-                        ppdataobject.write(core::mem::transmute(ok__));
+                        ppdataobject.cast::<super::IDataObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2148,7 +2148,7 @@ impl IOleObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleObject_Impl::EnumVerbs(this) {
                     Ok(ok__) => {
-                        ppenumoleverb.write(core::mem::transmute(ok__));
+                        ppenumoleverb.cast::<IEnumOLEVERB>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2211,7 +2211,7 @@ impl IOleObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleObject_Impl::EnumAdvise(this) {
                     Ok(ok__) => {
-                        ppenumadvise.write(core::mem::transmute(ok__));
+                        ppenumadvise.cast::<super::IEnumSTATDATA>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2352,7 +2352,7 @@ impl IParseDisplayName_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IParseDisplayName_Impl::ParseDisplayName(this, core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&pszdisplayname), core::mem::transmute_copy(&pcheaten)) {
                     Ok(ok__) => {
-                        ppmkout.write(core::mem::transmute(ok__));
+                        ppmkout.cast::<super::IMoniker>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2480,7 +2480,7 @@ impl IViewObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObject_Impl::GetAdvise(this, core::mem::transmute_copy(&paspects), core::mem::transmute_copy(&padvf)) {
                     Ok(ok__) => {
-                        ppadvsink.write(core::mem::transmute(ok__));
+                        ppadvsink.cast::<super::IAdviseSink>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

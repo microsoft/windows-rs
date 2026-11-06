@@ -43,7 +43,7 @@ impl IDisplayDeviceInterop_Vtbl {
         unsafe extern "system" fn CreateSharedHandle<Identity: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, psecurityattributes: *const super::SECURITY_ATTRIBUTES, access: super::DWORD, name: *mut core::ffi::c_void, phandle: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
+                match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), &*(&raw const name).cast()) {
                     Ok(ok__) => {
                         phandle.write(ok__);
                         windows_core::HRESULT(0)
@@ -58,7 +58,7 @@ impl IDisplayDeviceInterop_Vtbl {
         unsafe extern "system" fn OpenSharedHandle<Identity: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nthandle: super::HANDLE, riid: super::IID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDisplayDeviceInterop_Impl::OpenSharedHandle(this, core::mem::transmute_copy(&nthandle), core::mem::transmute(&riid)) {
+                match IDisplayDeviceInterop_Impl::OpenSharedHandle(this, core::mem::transmute_copy(&nthandle), &*(&raw const riid).cast()) {
                     Ok(ok__) => {
                         ppvobj.write(ok__);
                         windows_core::HRESULT(0)

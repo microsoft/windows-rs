@@ -16,7 +16,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, nencodingcodepage : super::UINT, fencodinghint : windows_core::BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateXmlReaderInputWithEncodingCodePage(pinputstream.param().abi(), pmalloc.param().abi(), nencodingcodepage, fencodinghint.into(), pwszbaseuri.param().abi(), core::mem::transmute(ppinput)) }
+    unsafe { CreateXmlReaderInputWithEncodingCodePage(pinputstream.param().abi(), pmalloc.param().abi(), nencodingcodepage, fencodinghint.into(), pwszbaseuri.param().abi(), ppinput as _) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -28,7 +28,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingName(pinputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, fencodinghint : windows_core::BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateXmlReaderInputWithEncodingName(pinputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), fencodinghint.into(), pwszbaseuri.param().abi(), core::mem::transmute(ppinput)) }
+    unsafe { CreateXmlReaderInputWithEncodingName(pinputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), fencodinghint.into(), pwszbaseuri.param().abi(), ppinput as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "objidlbase"))]
 #[inline]
@@ -47,7 +47,7 @@ where
     P1: windows_core::Param<super::IMalloc>,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingCodePage(poutputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, nencodingcodepage : super::UINT, ppoutput : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateXmlWriterOutputWithEncodingCodePage(poutputstream.param().abi(), pmalloc.param().abi(), nencodingcodepage, core::mem::transmute(ppoutput)) }
+    unsafe { CreateXmlWriterOutputWithEncodingCodePage(poutputstream.param().abi(), pmalloc.param().abi(), nencodingcodepage, ppoutput as _) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -58,7 +58,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingName(poutputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, ppoutput : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateXmlWriterOutputWithEncodingName(poutputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), core::mem::transmute(ppoutput)) }
+    unsafe { CreateXmlWriterOutputWithEncodingName(poutputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), ppoutput as _) }
 }
 pub type DtdProcessing = i32;
 pub const DtdProcessing_Parse: DtdProcessing = 1;
@@ -297,7 +297,7 @@ impl IXmlReader_Vtbl {
         unsafe extern "system" fn MoveToAttributeByName<Identity: IXmlReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszlocalname: windows_core::PCWSTR, pwsznamespaceuri: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlReader_Impl::MoveToAttributeByName(this, core::mem::transmute(&pwszlocalname), core::mem::transmute(&pwsznamespaceuri))
+                IXmlReader_Impl::MoveToAttributeByName(this, &*(&raw const pwszlocalname).cast(), &*(&raw const pwsznamespaceuri).cast())
             }
         }
         unsafe extern "system" fn MoveToElement<Identity: IXmlReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -433,7 +433,7 @@ impl IXmlResolver {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ResolveUri)(windows_core::Interface::as_raw(self), pwszbaseuri.param().abi(), pwszpublicidentifier.param().abi(), pwszsystemidentifier.param().abi(), core::mem::transmute(ppresolvedinput)) }
+        unsafe { (windows_core::Interface::vtable(self).ResolveUri)(windows_core::Interface::as_raw(self), pwszbaseuri.param().abi(), pwszpublicidentifier.param().abi(), pwszsystemidentifier.param().abi(), ppresolvedinput as _) }
     }
 }
 #[repr(C)]
@@ -450,7 +450,7 @@ impl IXmlResolver_Vtbl {
         unsafe extern "system" fn ResolveUri<Identity: IXmlResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszbaseuri: windows_core::PCWSTR, pwszpublicidentifier: windows_core::PCWSTR, pwszsystemidentifier: windows_core::PCWSTR, ppresolvedinput: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlResolver_Impl::ResolveUri(this, core::mem::transmute(&pwszbaseuri), core::mem::transmute(&pwszpublicidentifier), core::mem::transmute(&pwszsystemidentifier), core::mem::transmute_copy(&ppresolvedinput))
+                IXmlResolver_Impl::ResolveUri(this, &*(&raw const pwszbaseuri).cast(), &*(&raw const pwszpublicidentifier).cast(), &*(&raw const pwszsystemidentifier).cast(), core::mem::transmute_copy(&ppresolvedinput))
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResolveUri: ResolveUri::<Identity, OFFSET> }
@@ -738,13 +738,13 @@ impl IXmlWriter_Vtbl {
         unsafe extern "system" fn WriteAttributeString<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprefix: windows_core::PCWSTR, pwszlocalname: windows_core::PCWSTR, pwsznamespaceuri: windows_core::PCWSTR, pwszvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteAttributeString(this, core::mem::transmute(&pwszprefix), core::mem::transmute(&pwszlocalname), core::mem::transmute(&pwsznamespaceuri), core::mem::transmute(&pwszvalue))
+                IXmlWriter_Impl::WriteAttributeString(this, &*(&raw const pwszprefix).cast(), &*(&raw const pwszlocalname).cast(), &*(&raw const pwsznamespaceuri).cast(), &*(&raw const pwszvalue).cast())
             }
         }
         unsafe extern "system" fn WriteCData<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztext: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteCData(this, core::mem::transmute(&pwsztext))
+                IXmlWriter_Impl::WriteCData(this, &*(&raw const pwsztext).cast())
             }
         }
         unsafe extern "system" fn WriteCharEntity<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wch: super::WCHAR) -> windows_core::HRESULT {
@@ -762,19 +762,19 @@ impl IXmlWriter_Vtbl {
         unsafe extern "system" fn WriteComment<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszcomment: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteComment(this, core::mem::transmute(&pwszcomment))
+                IXmlWriter_Impl::WriteComment(this, &*(&raw const pwszcomment).cast())
             }
         }
         unsafe extern "system" fn WriteDocType<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, pwszpublicid: windows_core::PCWSTR, pwszsystemid: windows_core::PCWSTR, pwszsubset: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteDocType(this, core::mem::transmute(&pwszname), core::mem::transmute(&pwszpublicid), core::mem::transmute(&pwszsystemid), core::mem::transmute(&pwszsubset))
+                IXmlWriter_Impl::WriteDocType(this, &*(&raw const pwszname).cast(), &*(&raw const pwszpublicid).cast(), &*(&raw const pwszsystemid).cast(), &*(&raw const pwszsubset).cast())
             }
         }
         unsafe extern "system" fn WriteElementString<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprefix: windows_core::PCWSTR, pwszlocalname: windows_core::PCWSTR, pwsznamespaceuri: windows_core::PCWSTR, pwszvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteElementString(this, core::mem::transmute(&pwszprefix), core::mem::transmute(&pwszlocalname), core::mem::transmute(&pwsznamespaceuri), core::mem::transmute(&pwszvalue))
+                IXmlWriter_Impl::WriteElementString(this, &*(&raw const pwszprefix).cast(), &*(&raw const pwszlocalname).cast(), &*(&raw const pwsznamespaceuri).cast(), &*(&raw const pwszvalue).cast())
             }
         }
         unsafe extern "system" fn WriteEndDocument<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -792,7 +792,7 @@ impl IXmlWriter_Vtbl {
         unsafe extern "system" fn WriteEntityRef<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteEntityRef(this, core::mem::transmute(&pwszname))
+                IXmlWriter_Impl::WriteEntityRef(this, &*(&raw const pwszname).cast())
             }
         }
         unsafe extern "system" fn WriteFullEndElement<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -804,13 +804,13 @@ impl IXmlWriter_Vtbl {
         unsafe extern "system" fn WriteName<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteName(this, core::mem::transmute(&pwszname))
+                IXmlWriter_Impl::WriteName(this, &*(&raw const pwszname).cast())
             }
         }
         unsafe extern "system" fn WriteNmToken<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsznmtoken: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteNmToken(this, core::mem::transmute(&pwsznmtoken))
+                IXmlWriter_Impl::WriteNmToken(this, &*(&raw const pwsznmtoken).cast())
             }
         }
         unsafe extern "system" fn WriteNode<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preader: *mut core::ffi::c_void, fwritedefaultattributes: windows_core::BOOL) -> windows_core::HRESULT {
@@ -828,19 +828,19 @@ impl IXmlWriter_Vtbl {
         unsafe extern "system" fn WriteProcessingInstruction<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, pwsztext: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteProcessingInstruction(this, core::mem::transmute(&pwszname), core::mem::transmute(&pwsztext))
+                IXmlWriter_Impl::WriteProcessingInstruction(this, &*(&raw const pwszname).cast(), &*(&raw const pwsztext).cast())
             }
         }
         unsafe extern "system" fn WriteQualifiedName<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszlocalname: windows_core::PCWSTR, pwsznamespaceuri: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteQualifiedName(this, core::mem::transmute(&pwszlocalname), core::mem::transmute(&pwsznamespaceuri))
+                IXmlWriter_Impl::WriteQualifiedName(this, &*(&raw const pwszlocalname).cast(), &*(&raw const pwsznamespaceuri).cast())
             }
         }
         unsafe extern "system" fn WriteRaw<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdata: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteRaw(this, core::mem::transmute(&pwszdata))
+                IXmlWriter_Impl::WriteRaw(this, &*(&raw const pwszdata).cast())
             }
         }
         unsafe extern "system" fn WriteRawChars<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwch: *const super::WCHAR, cwch: super::UINT) -> windows_core::HRESULT {
@@ -858,13 +858,13 @@ impl IXmlWriter_Vtbl {
         unsafe extern "system" fn WriteStartElement<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszprefix: windows_core::PCWSTR, pwszlocalname: windows_core::PCWSTR, pwsznamespaceuri: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteStartElement(this, core::mem::transmute(&pwszprefix), core::mem::transmute(&pwszlocalname), core::mem::transmute(&pwsznamespaceuri))
+                IXmlWriter_Impl::WriteStartElement(this, &*(&raw const pwszprefix).cast(), &*(&raw const pwszlocalname).cast(), &*(&raw const pwsznamespaceuri).cast())
             }
         }
         unsafe extern "system" fn WriteString<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztext: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteString(this, core::mem::transmute(&pwsztext))
+                IXmlWriter_Impl::WriteString(this, &*(&raw const pwsztext).cast())
             }
         }
         unsafe extern "system" fn WriteSurrogateCharEntity<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wchlow: super::WCHAR, wchhigh: super::WCHAR) -> windows_core::HRESULT {
@@ -876,7 +876,7 @@ impl IXmlWriter_Vtbl {
         unsafe extern "system" fn WriteWhitespace<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszwhitespace: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriter_Impl::WriteWhitespace(this, core::mem::transmute(&pwszwhitespace))
+                IXmlWriter_Impl::WriteWhitespace(this, &*(&raw const pwszwhitespace).cast())
             }
         }
         unsafe extern "system" fn Flush<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1205,7 +1205,7 @@ impl IXmlWriterLite_Vtbl {
         unsafe extern "system" fn WriteCData<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztext: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteCData(this, core::mem::transmute(&pwsztext))
+                IXmlWriterLite_Impl::WriteCData(this, &*(&raw const pwsztext).cast())
             }
         }
         unsafe extern "system" fn WriteCharEntity<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wch: super::WCHAR) -> windows_core::HRESULT {
@@ -1223,19 +1223,19 @@ impl IXmlWriterLite_Vtbl {
         unsafe extern "system" fn WriteComment<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszcomment: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteComment(this, core::mem::transmute(&pwszcomment))
+                IXmlWriterLite_Impl::WriteComment(this, &*(&raw const pwszcomment).cast())
             }
         }
         unsafe extern "system" fn WriteDocType<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, pwszpublicid: windows_core::PCWSTR, pwszsystemid: windows_core::PCWSTR, pwszsubset: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteDocType(this, core::mem::transmute(&pwszname), core::mem::transmute(&pwszpublicid), core::mem::transmute(&pwszsystemid), core::mem::transmute(&pwszsubset))
+                IXmlWriterLite_Impl::WriteDocType(this, &*(&raw const pwszname).cast(), &*(&raw const pwszpublicid).cast(), &*(&raw const pwszsystemid).cast(), &*(&raw const pwszsubset).cast())
             }
         }
         unsafe extern "system" fn WriteElementString<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszqname: *const super::WCHAR, cwszqname: super::UINT, pwszvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteElementString(this, core::mem::transmute_copy(&pwszqname), core::mem::transmute_copy(&cwszqname), core::mem::transmute(&pwszvalue))
+                IXmlWriterLite_Impl::WriteElementString(this, core::mem::transmute_copy(&pwszqname), core::mem::transmute_copy(&cwszqname), &*(&raw const pwszvalue).cast())
             }
         }
         unsafe extern "system" fn WriteEndDocument<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1253,7 +1253,7 @@ impl IXmlWriterLite_Vtbl {
         unsafe extern "system" fn WriteEntityRef<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteEntityRef(this, core::mem::transmute(&pwszname))
+                IXmlWriterLite_Impl::WriteEntityRef(this, &*(&raw const pwszname).cast())
             }
         }
         unsafe extern "system" fn WriteFullEndElement<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszqname: *const super::WCHAR, cwszqname: super::UINT) -> windows_core::HRESULT {
@@ -1265,13 +1265,13 @@ impl IXmlWriterLite_Vtbl {
         unsafe extern "system" fn WriteName<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteName(this, core::mem::transmute(&pwszname))
+                IXmlWriterLite_Impl::WriteName(this, &*(&raw const pwszname).cast())
             }
         }
         unsafe extern "system" fn WriteNmToken<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsznmtoken: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteNmToken(this, core::mem::transmute(&pwsznmtoken))
+                IXmlWriterLite_Impl::WriteNmToken(this, &*(&raw const pwsznmtoken).cast())
             }
         }
         unsafe extern "system" fn WriteNode<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preader: *mut core::ffi::c_void, fwritedefaultattributes: windows_core::BOOL) -> windows_core::HRESULT {
@@ -1289,13 +1289,13 @@ impl IXmlWriterLite_Vtbl {
         unsafe extern "system" fn WriteProcessingInstruction<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, pwsztext: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteProcessingInstruction(this, core::mem::transmute(&pwszname), core::mem::transmute(&pwsztext))
+                IXmlWriterLite_Impl::WriteProcessingInstruction(this, &*(&raw const pwszname).cast(), &*(&raw const pwsztext).cast())
             }
         }
         unsafe extern "system" fn WriteRaw<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdata: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteRaw(this, core::mem::transmute(&pwszdata))
+                IXmlWriterLite_Impl::WriteRaw(this, &*(&raw const pwszdata).cast())
             }
         }
         unsafe extern "system" fn WriteRawChars<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwch: *const super::WCHAR, cwch: super::UINT) -> windows_core::HRESULT {
@@ -1319,7 +1319,7 @@ impl IXmlWriterLite_Vtbl {
         unsafe extern "system" fn WriteString<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztext: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteString(this, core::mem::transmute(&pwsztext))
+                IXmlWriterLite_Impl::WriteString(this, &*(&raw const pwsztext).cast())
             }
         }
         unsafe extern "system" fn WriteSurrogateCharEntity<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wchlow: super::WCHAR, wchhigh: super::WCHAR) -> windows_core::HRESULT {
@@ -1331,7 +1331,7 @@ impl IXmlWriterLite_Vtbl {
         unsafe extern "system" fn WriteWhitespace<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszwhitespace: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlWriterLite_Impl::WriteWhitespace(this, core::mem::transmute(&pwszwhitespace))
+                IXmlWriterLite_Impl::WriteWhitespace(this, &*(&raw const pwszwhitespace).cast())
             }
         }
         unsafe extern "system" fn Flush<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

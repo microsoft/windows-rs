@@ -149,7 +149,7 @@ impl PowerThermalChannelConfiguration {
     pub fn GetConfigurationNumericParameters(&self) -> windows_core::Result<windows_core::Array<i32>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetConfigurationNumericParameters)(windows_core::Interface::as_raw(self), windows_core::Array::<i32>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetConfigurationNumericParameters)(windows_core::Interface::as_raw(self), windows_core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
 }
@@ -191,7 +191,7 @@ impl PowerThermalChannelDataConsumer {
     pub fn GetChannelIds(&self) -> windows_core::Result<windows_core::Array<PowerThermalChannelId>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelIds)(windows_core::Interface::as_raw(self), windows_core::Array::<PowerThermalChannelId>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetChannelIds)(windows_core::Interface::as_raw(self), windows_core::Array::<PowerThermalChannelId>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn GetChannelConfigurations(&self) -> windows_core::Result<windows_collections::IMapView<PowerThermalChannelId, PowerThermalChannelConfiguration>> {
@@ -276,7 +276,7 @@ impl PowerThermalChannelDataProducer {
     pub fn GetChannelIds(&self) -> windows_core::Result<windows_core::Array<PowerThermalChannelId>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelIds)(windows_core::Interface::as_raw(self), windows_core::Array::<PowerThermalChannelId>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetChannelIds)(windows_core::Interface::as_raw(self), windows_core::Array::<PowerThermalChannelId>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn GetChannelConfigurations(&self) -> windows_core::Result<windows_collections::IMapView<PowerThermalChannelId, PowerThermalChannelConfiguration>> {
@@ -348,7 +348,7 @@ impl PowerThermalChannelDataReceivedEventArgs {
     pub fn GetData(&self) -> windows_core::Result<windows_core::Array<PowerThermalChannelData>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), windows_core::Array::<PowerThermalChannelData>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), windows_core::Array::<PowerThermalChannelData>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
 }
@@ -378,7 +378,7 @@ impl PowerThermalChannelDiagnostics {
     pub fn GetDataForChannels(channelids: &[PowerThermalChannelId]) -> windows_core::Result<windows_core::Array<PowerThermalChannelData>> {
         Self::IPowerThermalChannelDiagnosticsStatics(|this| unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetDataForChannels)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), windows_core::Array::<PowerThermalChannelData>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).GetDataForChannels)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), windows_core::Array::<PowerThermalChannelData>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         })
     }
     fn IPowerThermalChannelDiagnosticsStatics<R, F: FnOnce(&IPowerThermalChannelDiagnosticsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -403,7 +403,7 @@ impl PowerThermalChannelFinder {
     pub fn FindChannels(channelinterfacetype: windows_core::GUID) -> windows_core::Result<windows_core::Array<PowerThermalChannelId>> {
         Self::IPowerThermalChannelFinderStatics(|this| unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).FindChannels)(windows_core::Interface::as_raw(this), channelinterfacetype, windows_core::Array::<PowerThermalChannelId>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).FindChannels)(windows_core::Interface::as_raw(this), channelinterfacetype, windows_core::Array::<PowerThermalChannelId>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         })
     }
     fn IPowerThermalChannelFinderStatics<R, F: FnOnce(&IPowerThermalChannelFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

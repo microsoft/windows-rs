@@ -244,7 +244,7 @@ impl IInkPointFactory_Vtbl {
         unsafe extern "system" fn CreateInkPoint<Identity: IInkPointFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: super::super::super::Foundation::Point, pressure: f32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPointFactory_Impl::CreateInkPoint(this, core::mem::transmute(&position), pressure) {
+                match IInkPointFactory_Impl::CreateInkPoint(this, &*(&raw const position).cast(), pressure) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -572,7 +572,7 @@ impl IInkPresenterStencil_Vtbl {
         unsafe extern "system" fn SetBackgroundColor<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::Color) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPresenterStencil_Impl::SetBackgroundColor(this, core::mem::transmute(&value)).into()
+                IInkPresenterStencil_Impl::SetBackgroundColor(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn ForegroundColor<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Color) -> windows_core::HRESULT {
@@ -593,7 +593,7 @@ impl IInkPresenterStencil_Vtbl {
         unsafe extern "system" fn SetForegroundColor<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::Color) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPresenterStencil_Impl::SetForegroundColor(this, core::mem::transmute(&value)).into()
+                IInkPresenterStencil_Impl::SetForegroundColor(this, &*(&raw const value).cast()).into()
             }
         }
         unsafe extern "system" fn Transform<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT {
@@ -614,7 +614,7 @@ impl IInkPresenterStencil_Vtbl {
         unsafe extern "system" fn SetTransform<Identity: IInkPresenterStencil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_numerics::Matrix3x2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPresenterStencil_Impl::SetTransform(this, core::mem::transmute(&value)).into()
+                IInkPresenterStencil_Impl::SetTransform(this, &*(&raw const value).cast()).into()
             }
         }
         Self {
@@ -1025,7 +1025,7 @@ impl IInkStrokeContainer_Vtbl {
         unsafe extern "system" fn MoveSelected<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, translation: super::super::super::Foundation::Point, result__: *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeContainer_Impl::MoveSelected(this, core::mem::transmute(&translation)) {
+                match IInkStrokeContainer_Impl::MoveSelected(this, &*(&raw const translation).cast()) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -1055,7 +1055,7 @@ impl IInkStrokeContainer_Vtbl {
         unsafe extern "system" fn SelectWithLine<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point, result__: *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeContainer_Impl::SelectWithLine(this, core::mem::transmute(&from), core::mem::transmute(&to)) {
+                match IInkStrokeContainer_Impl::SelectWithLine(this, &*(&raw const from).cast(), &*(&raw const to).cast()) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -1076,7 +1076,7 @@ impl IInkStrokeContainer_Vtbl {
         unsafe extern "system" fn PasteFromClipboard<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: super::super::super::Foundation::Point, result__: *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeContainer_Impl::PasteFromClipboard(this, core::mem::transmute(&position)) {
+                match IInkStrokeContainer_Impl::PasteFromClipboard(this, &*(&raw const position).cast()) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)

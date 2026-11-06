@@ -122,7 +122,7 @@ impl IAutomaticUpdates_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAutomaticUpdates_Impl::Settings(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IAutomaticUpdatesSettings>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -209,7 +209,7 @@ impl IAutomaticUpdates2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAutomaticUpdates2_Impl::Results(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IAutomaticUpdatesResults>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -282,7 +282,7 @@ impl IAutomaticUpdatesResults_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAutomaticUpdatesResults_Impl::LastSearchSuccessDate(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -297,7 +297,7 @@ impl IAutomaticUpdatesResults_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAutomaticUpdatesResults_Impl::LastInstallationSuccessDate(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -890,7 +890,7 @@ impl ICategory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICategory_Impl::Name(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -905,7 +905,7 @@ impl ICategory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICategory_Impl::CategoryID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -920,7 +920,7 @@ impl ICategory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICategory_Impl::Children(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<ICategoryCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -935,7 +935,7 @@ impl ICategory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICategory_Impl::Description(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -950,7 +950,7 @@ impl ICategory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICategory_Impl::Image(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IImageInformation>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -980,7 +980,7 @@ impl ICategory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICategory_Impl::Parent(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<ICategory>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -995,7 +995,7 @@ impl ICategory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICategory_Impl::Type(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1010,7 +1010,7 @@ impl ICategory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICategory_Impl::Updates(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1102,7 +1102,7 @@ impl ICategoryCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICategoryCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<ICategory>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1117,7 +1117,7 @@ impl ICategoryCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICategoryCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1308,7 +1308,7 @@ impl IDownloadJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDownloadJob_Impl::AsyncState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1338,7 +1338,7 @@ impl IDownloadJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDownloadJob_Impl::Updates(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1359,7 +1359,7 @@ impl IDownloadJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDownloadJob_Impl::GetProgress(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IDownloadProgress>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1616,7 +1616,7 @@ impl IDownloadProgress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDownloadProgress_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateDownloadResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1756,7 +1756,7 @@ impl IDownloadProgressChangedCallbackArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDownloadProgressChangedCallbackArgs_Impl::Progress(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IDownloadProgress>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1867,7 +1867,7 @@ impl IDownloadResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDownloadResult_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateDownloadResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2039,7 +2039,7 @@ impl IImageInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IImageInformation_Impl::AltText(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2069,7 +2069,7 @@ impl IImageInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IImageInformation_Impl::Source(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2149,7 +2149,7 @@ impl IInstallationAgent_Vtbl {
         unsafe extern "system" fn RecordInstallationResult<Identity: IInstallationAgent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, installationresultcookie: *mut core::ffi::c_void, hresult: super::LONG, extendedreportingdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInstallationAgent_Impl::RecordInstallationResult(this, core::mem::transmute(&installationresultcookie), core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&extendedreportingdata))
+                IInstallationAgent_Impl::RecordInstallationResult(this, &*(&raw const installationresultcookie).cast(), core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&extendedreportingdata))
             }
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), RecordInstallationResult: RecordInstallationResult::<Identity, OFFSET> }
@@ -2453,7 +2453,7 @@ impl IInstallationJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInstallationJob_Impl::AsyncState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2483,7 +2483,7 @@ impl IInstallationJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInstallationJob_Impl::Updates(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2504,7 +2504,7 @@ impl IInstallationJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInstallationJob_Impl::GetProgress(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationProgress>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2660,7 +2660,7 @@ impl IInstallationProgress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInstallationProgress_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateInstallationResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2765,7 +2765,7 @@ impl IInstallationProgressChangedCallbackArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInstallationProgressChangedCallbackArgs_Impl::Progress(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationProgress>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2903,7 +2903,7 @@ impl IInstallationResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInstallationResult_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateInstallationResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2966,7 +2966,7 @@ impl IInvalidProductLicenseException_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInvalidProductLicenseException_Impl::Product(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3121,7 +3121,7 @@ impl ISearchJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISearchJob_Impl::AsyncState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3250,7 +3250,7 @@ impl ISearchResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISearchResult_Impl::RootCategories(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<ICategoryCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3265,7 +3265,7 @@ impl ISearchResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISearchResult_Impl::Updates(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3280,7 +3280,7 @@ impl ISearchResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISearchResult_Impl::Warnings(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateExceptionCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3431,7 +3431,7 @@ impl IStringCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStringCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3444,7 +3444,7 @@ impl IStringCollection_Vtbl {
         unsafe extern "system" fn SetItem<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStringCollection_Impl::SetItem(this, core::mem::transmute_copy(&index), core::mem::transmute(&value))
+                IStringCollection_Impl::SetItem(this, core::mem::transmute_copy(&index), &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3452,7 +3452,7 @@ impl IStringCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStringCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3495,7 +3495,7 @@ impl IStringCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, retval: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStringCollection_Impl::Add(this, core::mem::transmute(&value)) {
+                match IStringCollection_Impl::Add(this, &*(&raw const value).cast()) {
                     Ok(ok__) => {
                         retval.write(ok__);
                         windows_core::HRESULT(0)
@@ -3518,7 +3518,7 @@ impl IStringCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStringCollection_Impl::Copy(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3531,7 +3531,7 @@ impl IStringCollection_Vtbl {
         unsafe extern "system" fn Insert<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStringCollection_Impl::Insert(this, core::mem::transmute_copy(&index), core::mem::transmute(&value))
+                IStringCollection_Impl::Insert(this, core::mem::transmute_copy(&index), &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn RemoveAt<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG) -> windows_core::HRESULT {
@@ -3611,7 +3611,7 @@ impl ISystemInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISystemInformation_Impl::OemHardwareSupportLink(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4110,7 +4110,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::Title(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4140,7 +4140,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::BundledUpdates(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4170,7 +4170,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::Categories(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<ICategoryCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4185,7 +4185,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::Deadline(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4230,7 +4230,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::Description(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4260,7 +4260,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::EulaText(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4275,7 +4275,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::HandlerID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4290,7 +4290,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::Identity(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateIdentity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4305,7 +4305,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::Image(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IImageInformation>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4320,7 +4320,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::InstallationBehavior(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationBehavior>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4431,7 +4431,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::Languages(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4491,7 +4491,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::MoreInfoUrls(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4506,7 +4506,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::MsrcSeverity(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4566,7 +4566,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::ReleaseNotes(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4581,7 +4581,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::SecurityBulletinIDs(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4596,7 +4596,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::SupersededUpdateIDs(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4611,7 +4611,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::SupportUrl(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4641,7 +4641,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::UninstallationNotes(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4656,7 +4656,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::UninstallationBehavior(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationBehavior>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4671,7 +4671,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::UninstallationSteps(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4686,7 +4686,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::KBArticleIDs(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4720,7 +4720,7 @@ impl IUpdate_Vtbl {
         unsafe extern "system" fn CopyFromCache<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::ffi::c_void, toextractcabfiles: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdate_Impl::CopyFromCache(this, core::mem::transmute(&path), core::mem::transmute_copy(&toextractcabfiles))
+                IUpdate_Impl::CopyFromCache(this, &*(&raw const path).cast(), core::mem::transmute_copy(&toextractcabfiles))
             }
         }
         unsafe extern "system" fn DownloadPriority<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut DownloadPriority) -> windows_core::HRESULT {
@@ -4743,7 +4743,7 @@ impl IUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::DownloadContents(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateDownloadContentCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4909,7 +4909,7 @@ impl IUpdate2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate2_Impl::CveIDs(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5281,7 +5281,7 @@ impl IUpdateCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdate>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5302,7 +5302,7 @@ impl IUpdateCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5368,7 +5368,7 @@ impl IUpdateCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateCollection_Impl::Copy(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5449,7 +5449,7 @@ impl IUpdateDownloadContent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateDownloadContent_Impl::DownloadUrl(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5591,7 +5591,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateDownloadContentCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateDownloadContent>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5606,7 +5606,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateDownloadContentCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5857,7 +5857,7 @@ impl IUpdateDownloader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateDownloader_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5870,7 +5870,7 @@ impl IUpdateDownloader_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateDownloader_Impl::SetClientApplicationID(this, core::mem::transmute(&value))
+                IUpdateDownloader_Impl::SetClientApplicationID(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn IsForced<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -5920,7 +5920,7 @@ impl IUpdateDownloader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateDownloader_Impl::Updates(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5939,9 +5939,9 @@ impl IUpdateDownloader_Vtbl {
         unsafe extern "system" fn BeginDownload<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateDownloader_Impl::BeginDownload(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
+                match IUpdateDownloader_Impl::BeginDownload(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), &*(&raw const state).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IDownloadJob>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5956,7 +5956,7 @@ impl IUpdateDownloader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateDownloader_Impl::Download(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IDownloadResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5971,7 +5971,7 @@ impl IUpdateDownloader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateDownloader_Impl::EndDownload(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IDownloadResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6055,9 +6055,9 @@ impl IUpdateDownloaderEx_Vtbl {
         unsafe extern "system" fn BeginDownload2<Identity: IUpdateDownloaderEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, downloadtype: DownloadType, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateDownloaderEx_Impl::BeginDownload2(this, core::mem::transmute_copy(&downloadtype), core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
+                match IUpdateDownloaderEx_Impl::BeginDownload2(this, core::mem::transmute_copy(&downloadtype), core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), &*(&raw const state).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IDownloadJob>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6072,7 +6072,7 @@ impl IUpdateDownloaderEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateDownloaderEx_Impl::Download2(this, core::mem::transmute_copy(&downloadtype)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IDownloadResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6147,9 +6147,9 @@ impl IUpdateEx_Vtbl {
         unsafe extern "system" fn ExtendedStaticProperty<Identity: IUpdateEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, retval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateEx_Impl::ExtendedStaticProperty(this, core::mem::transmute(&propertyname)) {
+                match IUpdateEx_Impl::ExtendedStaticProperty(this, &*(&raw const propertyname).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6162,9 +6162,9 @@ impl IUpdateEx_Vtbl {
         unsafe extern "system" fn EvaluateExtendedDynamicProperty<Identity: IUpdateEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, retval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateEx_Impl::EvaluateExtendedDynamicProperty(this, core::mem::transmute(&propertyname)) {
+                match IUpdateEx_Impl::EvaluateExtendedDynamicProperty(this, &*(&raw const propertyname).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6245,7 +6245,7 @@ impl IUpdateException_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateException_Impl::Message(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6361,7 +6361,7 @@ impl IUpdateExceptionCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateExceptionCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateException>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6376,7 +6376,7 @@ impl IUpdateExceptionCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateExceptionCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6629,7 +6629,7 @@ impl IUpdateHistoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntry_Impl::UpdateIdentity(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateIdentity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6644,7 +6644,7 @@ impl IUpdateHistoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntry_Impl::Title(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6659,7 +6659,7 @@ impl IUpdateHistoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntry_Impl::Description(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6689,7 +6689,7 @@ impl IUpdateHistoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntry_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6719,7 +6719,7 @@ impl IUpdateHistoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntry_Impl::ServiceID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6734,7 +6734,7 @@ impl IUpdateHistoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntry_Impl::UninstallationSteps(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6749,7 +6749,7 @@ impl IUpdateHistoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntry_Impl::UninstallationNotes(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6764,7 +6764,7 @@ impl IUpdateHistoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntry_Impl::SupportUrl(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6837,7 +6837,7 @@ impl IUpdateHistoryEntry2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntry2_Impl::Categories(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<ICategoryCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6918,7 +6918,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntryCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateHistoryEntry>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6933,7 +6933,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntryCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7037,7 +7037,7 @@ impl IUpdateIdentity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateIdentity_Impl::UpdateID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7416,7 +7416,7 @@ impl IUpdateInstaller_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateInstaller_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7429,7 +7429,7 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateInstaller_Impl::SetClientApplicationID(this, core::mem::transmute(&value))
+                IUpdateInstaller_Impl::SetClientApplicationID(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn IsForced<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -7485,7 +7485,7 @@ impl IUpdateInstaller_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateInstaller_Impl::ParentWindow(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7500,7 +7500,7 @@ impl IUpdateInstaller_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateInstaller_Impl::Updates(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7519,9 +7519,9 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn BeginInstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateInstaller_Impl::BeginInstall(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
+                match IUpdateInstaller_Impl::BeginInstall(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), &*(&raw const state).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationJob>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7534,9 +7534,9 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn BeginUninstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateInstaller_Impl::BeginUninstall(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
+                match IUpdateInstaller_Impl::BeginUninstall(this, core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), &*(&raw const state).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationJob>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7551,7 +7551,7 @@ impl IUpdateInstaller_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateInstaller_Impl::EndInstall(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7566,7 +7566,7 @@ impl IUpdateInstaller_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateInstaller_Impl::EndUninstall(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7581,7 +7581,7 @@ impl IUpdateInstaller_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateInstaller_Impl::Install(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7594,9 +7594,9 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn RunWizard<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dialogtitle: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateInstaller_Impl::RunWizard(this, core::mem::transmute(&dialogtitle)) {
+                match IUpdateInstaller_Impl::RunWizard(this, &*(&raw const dialogtitle).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -7626,7 +7626,7 @@ impl IUpdateInstaller_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateInstaller_Impl::Uninstall(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IInstallationResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8170,7 +8170,7 @@ impl IUpdateSearcher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateSearcher_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8183,7 +8183,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSearcher_Impl::SetClientApplicationID(this, core::mem::transmute(&value))
+                IUpdateSearcher_Impl::SetClientApplicationID(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn IncludePotentiallySupersededUpdates<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -8231,9 +8231,9 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn BeginSearch<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, criteria: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateSearcher_Impl::BeginSearch(this, core::mem::transmute(&criteria), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
+                match IUpdateSearcher_Impl::BeginSearch(this, &*(&raw const criteria).cast(), core::mem::transmute_copy(&oncompleted), &*(&raw const state).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<ISearchJob>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8248,7 +8248,7 @@ impl IUpdateSearcher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateSearcher_Impl::EndSearch(this, core::mem::transmute_copy(&searchjob)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<ISearchResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8261,9 +8261,9 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn EscapeString<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unescaped: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateSearcher_Impl::EscapeString(this, core::mem::transmute(&unescaped)) {
+                match IUpdateSearcher_Impl::EscapeString(this, &*(&raw const unescaped).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8278,7 +8278,7 @@ impl IUpdateSearcher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateSearcher_Impl::QueryHistory(this, core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateHistoryEntryCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8291,9 +8291,9 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn Search<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, criteria: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateSearcher_Impl::Search(this, core::mem::transmute(&criteria)) {
+                match IUpdateSearcher_Impl::Search(this, &*(&raw const criteria).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<ISearchResult>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8344,7 +8344,7 @@ impl IUpdateSearcher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateSearcher_Impl::ServiceID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8357,7 +8357,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn SetServiceID<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSearcher_Impl::SetServiceID(this, core::mem::transmute(&value))
+                IUpdateSearcher_Impl::SetServiceID(this, &*(&raw const value).cast())
             }
         }
         Self {
@@ -8707,7 +8707,7 @@ impl IUpdateService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateService_Impl::Name(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8722,7 +8722,7 @@ impl IUpdateService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateService_Impl::ContentValidationCert(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8812,7 +8812,7 @@ impl IUpdateService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateService_Impl::RedirectUrls(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8827,7 +8827,7 @@ impl IUpdateService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateService_Impl::ServiceID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8872,7 +8872,7 @@ impl IUpdateService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateService_Impl::ServiceUrl(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -8887,7 +8887,7 @@ impl IUpdateService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateService_Impl::SetupPrefix(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9044,7 +9044,7 @@ impl IUpdateServiceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateServiceCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateService>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9059,7 +9059,7 @@ impl IUpdateServiceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateServiceCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9180,7 +9180,7 @@ impl IUpdateServiceManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateServiceManager_Impl::Services(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateServiceCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9193,9 +9193,9 @@ impl IUpdateServiceManager_Vtbl {
         unsafe extern "system" fn AddService<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: *mut core::ffi::c_void, authorizationcabpath: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateServiceManager_Impl::AddService(this, core::mem::transmute(&serviceid), core::mem::transmute(&authorizationcabpath)) {
+                match IUpdateServiceManager_Impl::AddService(this, &*(&raw const serviceid).cast(), &*(&raw const authorizationcabpath).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateService>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9208,27 +9208,27 @@ impl IUpdateServiceManager_Vtbl {
         unsafe extern "system" fn RegisterServiceWithAU<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateServiceManager_Impl::RegisterServiceWithAU(this, core::mem::transmute(&serviceid))
+                IUpdateServiceManager_Impl::RegisterServiceWithAU(this, &*(&raw const serviceid).cast())
             }
         }
         unsafe extern "system" fn RemoveService<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateServiceManager_Impl::RemoveService(this, core::mem::transmute(&serviceid))
+                IUpdateServiceManager_Impl::RemoveService(this, &*(&raw const serviceid).cast())
             }
         }
         unsafe extern "system" fn UnregisterServiceWithAU<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateServiceManager_Impl::UnregisterServiceWithAU(this, core::mem::transmute(&serviceid))
+                IUpdateServiceManager_Impl::UnregisterServiceWithAU(this, &*(&raw const serviceid).cast())
             }
         }
         unsafe extern "system" fn AddScanPackageService<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: *mut core::ffi::c_void, scanfilelocation: *mut core::ffi::c_void, flags: super::LONG, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateServiceManager_Impl::AddScanPackageService(this, core::mem::transmute(&servicename), core::mem::transmute(&scanfilelocation), core::mem::transmute_copy(&flags)) {
+                match IUpdateServiceManager_Impl::AddScanPackageService(this, &*(&raw const servicename).cast(), &*(&raw const scanfilelocation).cast(), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        ppservice.write(core::mem::transmute(ok__));
+                        ppservice.cast::<IUpdateService>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9241,7 +9241,7 @@ impl IUpdateServiceManager_Vtbl {
         unsafe extern "system" fn SetOption<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionname: *mut core::ffi::c_void, optionvalue: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateServiceManager_Impl::SetOption(this, core::mem::transmute(&optionname), core::mem::transmute(&optionvalue))
+                IUpdateServiceManager_Impl::SetOption(this, &*(&raw const optionname).cast(), &*(&raw const optionvalue).cast())
             }
         }
         Self {
@@ -9325,7 +9325,7 @@ impl IUpdateServiceManager2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateServiceManager2_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9338,15 +9338,15 @@ impl IUpdateServiceManager2_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: IUpdateServiceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateServiceManager2_Impl::SetClientApplicationID(this, core::mem::transmute(&value))
+                IUpdateServiceManager2_Impl::SetClientApplicationID(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn QueryServiceRegistration<Identity: IUpdateServiceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateServiceManager2_Impl::QueryServiceRegistration(this, core::mem::transmute(&serviceid)) {
+                match IUpdateServiceManager2_Impl::QueryServiceRegistration(this, &*(&raw const serviceid).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateServiceRegistration>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9359,9 +9359,9 @@ impl IUpdateServiceManager2_Vtbl {
         unsafe extern "system" fn AddService2<Identity: IUpdateServiceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceid: *mut core::ffi::c_void, flags: super::LONG, authorizationcabpath: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateServiceManager2_Impl::AddService2(this, core::mem::transmute(&serviceid), core::mem::transmute_copy(&flags), core::mem::transmute(&authorizationcabpath)) {
+                match IUpdateServiceManager2_Impl::AddService2(this, &*(&raw const serviceid).cast(), core::mem::transmute_copy(&flags), &*(&raw const authorizationcabpath).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateServiceRegistration>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9467,7 +9467,7 @@ impl IUpdateServiceRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateServiceRegistration_Impl::ServiceID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9497,7 +9497,7 @@ impl IUpdateServiceRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateServiceRegistration_Impl::Service(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateService2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9617,7 +9617,7 @@ impl IUpdateSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateSession_Impl::ClientApplicationID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9630,7 +9630,7 @@ impl IUpdateSession_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: IUpdateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUpdateSession_Impl::SetClientApplicationID(this, core::mem::transmute(&value))
+                IUpdateSession_Impl::SetClientApplicationID(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn ReadOnly<Identity: IUpdateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -9653,7 +9653,7 @@ impl IUpdateSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateSession_Impl::WebProxy(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IWebProxy>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9674,7 +9674,7 @@ impl IUpdateSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateSession_Impl::CreateUpdateSearcher(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateSearcher>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9689,7 +9689,7 @@ impl IUpdateSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateSession_Impl::CreateUpdateDownloader(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateDownloader>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9704,7 +9704,7 @@ impl IUpdateSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateSession_Impl::CreateUpdateInstaller(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateInstaller>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9863,7 +9863,7 @@ impl IUpdateSession3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateSession3_Impl::CreateUpdateServiceManager(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateServiceManager2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -9876,9 +9876,9 @@ impl IUpdateSession3_Vtbl {
         unsafe extern "system" fn QueryHistory<Identity: IUpdateSession3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, criteria: *mut core::ffi::c_void, startindex: super::LONG, count: super::LONG, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUpdateSession3_Impl::QueryHistory(this, core::mem::transmute(&criteria), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&count)) {
+                match IUpdateSession3_Impl::QueryHistory(this, &*(&raw const criteria).cast(), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IUpdateHistoryEntryCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10049,7 +10049,7 @@ impl IWebProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWebProxy_Impl::Address(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10062,7 +10062,7 @@ impl IWebProxy_Vtbl {
         unsafe extern "system" fn SetAddress<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::SetAddress(this, core::mem::transmute(&value))
+                IWebProxy_Impl::SetAddress(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn BypassList<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10070,7 +10070,7 @@ impl IWebProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWebProxy_Impl::BypassList(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10127,7 +10127,7 @@ impl IWebProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWebProxy_Impl::UserName(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10140,25 +10140,25 @@ impl IWebProxy_Vtbl {
         unsafe extern "system" fn SetUserName<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::SetUserName(this, core::mem::transmute(&value))
+                IWebProxy_Impl::SetUserName(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn SetPassword<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::SetPassword(this, core::mem::transmute(&value))
+                IWebProxy_Impl::SetPassword(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn PromptForCredentials<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentwindow: *mut core::ffi::c_void, title: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::PromptForCredentials(this, core::mem::transmute_copy(&parentwindow), core::mem::transmute(&title))
+                IWebProxy_Impl::PromptForCredentials(this, core::mem::transmute_copy(&parentwindow), &*(&raw const title).cast())
             }
         }
         unsafe extern "system" fn PromptForCredentialsFromHwnd<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentwindow: super::HWND, title: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebProxy_Impl::PromptForCredentialsFromHwnd(this, core::mem::transmute_copy(&parentwindow), core::mem::transmute(&title))
+                IWebProxy_Impl::PromptForCredentialsFromHwnd(this, core::mem::transmute_copy(&parentwindow), &*(&raw const title).cast())
             }
         }
         unsafe extern "system" fn AutoDetect<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -10313,7 +10313,7 @@ impl IWindowsDriverUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdate_Impl::DriverClass(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10328,7 +10328,7 @@ impl IWindowsDriverUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdate_Impl::DriverHardwareID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10343,7 +10343,7 @@ impl IWindowsDriverUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdate_Impl::DriverManufacturer(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10358,7 +10358,7 @@ impl IWindowsDriverUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdate_Impl::DriverModel(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10373,7 +10373,7 @@ impl IWindowsDriverUpdate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdate_Impl::DriverProvider(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10547,7 +10547,7 @@ impl IWindowsDriverUpdate2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdate2_Impl::CveIDs(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IStringCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10689,7 +10689,7 @@ impl IWindowsDriverUpdate4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdate4_Impl::WindowsDriverUpdateEntries(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IWindowsDriverUpdateEntryCollection>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10917,7 +10917,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdateEntry_Impl::DriverClass(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10932,7 +10932,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdateEntry_Impl::DriverHardwareID(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10947,7 +10947,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdateEntry_Impl::DriverManufacturer(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10962,7 +10962,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdateEntry_Impl::DriverModel(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -10977,7 +10977,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdateEntry_Impl::DriverProvider(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11113,7 +11113,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdateEntryCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<IWindowsDriverUpdateEntry>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11128,7 +11128,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdateEntryCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11207,9 +11207,9 @@ impl IWindowsUpdateAgentInfo_Vtbl {
         unsafe extern "system" fn GetInfo<Identity: IWindowsUpdateAgentInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinfoidentifier: super::VARIANT, retval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWindowsUpdateAgentInfo_Impl::GetInfo(this, core::mem::transmute(&varinfoidentifier)) {
+                match IWindowsUpdateAgentInfo_Impl::GetInfo(this, &*(&raw const varinfoidentifier).cast()) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

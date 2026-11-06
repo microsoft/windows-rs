@@ -224,7 +224,7 @@ impl IEnumDMO {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Clone(&self, ppenum: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum)) }
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum as _) }
     }
 }
 #[repr(C)]
@@ -723,7 +723,7 @@ impl IMediaObjectInPlace {
         unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), ulsize, pdata as _, reftimestart, dwflags) }
     }
     pub unsafe fn Clone(&self, ppmediaobject: *mut Option<Self>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmediaobject)) }
+        unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppmediaobject as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetLatency(&self, platencytime: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {

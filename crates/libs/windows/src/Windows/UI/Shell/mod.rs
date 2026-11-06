@@ -195,7 +195,7 @@ impl IAdaptiveCardBuilderStatics_Vtbl {
         unsafe extern "system" fn CreateAdaptiveCardFromJson<Identity: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAdaptiveCardBuilderStatics_Impl::CreateAdaptiveCardFromJson(this, core::mem::transmute(&value)) {
+                match IAdaptiveCardBuilderStatics_Impl::CreateAdaptiveCardFromJson(this, &*(&raw const value).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1031,7 +1031,7 @@ impl WindowTabCollection {
     }
     pub fn ReplaceAll(&self, items: &[Option<WindowTab>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
     pub fn MoveTab<P0>(&self, tab: P0, index: u32) -> windows_core::Result<()>
     where

@@ -950,7 +950,7 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
                 ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl::Invoke(
                     this,
                     core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute(&result),
+                    &*(&raw const result).cast(),
                 )
             }
         }
@@ -1071,7 +1071,7 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
                 ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl::Invoke(
                     this,
                     core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute(&result),
+                    &*(&raw const result).cast(),
                 )
             }
         }
@@ -3417,7 +3417,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2EnvironmentOptions_Impl::SetAdditionalBrowserArguments(
                     this,
-                    core::mem::transmute(&value),
+                    &*(&raw const value).cast(),
                 )
             }
         }
@@ -3453,10 +3453,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions_Impl::SetLanguage(
-                    this,
-                    core::mem::transmute(&value),
-                )
+                ICoreWebView2EnvironmentOptions_Impl::SetLanguage(this, &*(&raw const value).cast())
             }
         }
         unsafe extern "system" fn TargetCompatibleBrowserVersion<
@@ -3493,7 +3490,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2EnvironmentOptions_Impl::SetTargetCompatibleBrowserVersion(
                     this,
-                    core::mem::transmute(&value),
+                    &*(&raw const value).cast(),
                 )
             }
         }
@@ -3756,7 +3753,7 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
                 ICoreWebView2ExecuteScriptCompletedHandler_Impl::Invoke(
                     this,
                     core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute(&result),
+                    &*(&raw const result).cast(),
                 )
             }
         }

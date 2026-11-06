@@ -63,7 +63,7 @@ impl Class {
                     &mut result__,
                 );
                 debug_assert!(hresult__.0 == 0);
-                core::mem::transmute(result__)
+                core::mem::transmute::<*mut core::ffi::c_void, Option<IClass>>(result__)
             })
         })
         .unwrap()
@@ -74,7 +74,7 @@ impl Class {
                 let mut result__ = core::mem::MaybeUninit::zeroed();
                 let hresult__ = (windows_core::Interface::vtable(this).Numbers)(
                     windows_core::Interface::as_raw(this),
-                    windows_core::Array::<i32>::set_abi_len(core::mem::transmute(&mut result__)),
+                    windows_core::Array::<i32>::set_abi_len(result__.assume_init_mut()),
                     result__.as_mut_ptr() as *mut _ as _,
                 );
                 debug_assert!(hresult__.0 == 0);

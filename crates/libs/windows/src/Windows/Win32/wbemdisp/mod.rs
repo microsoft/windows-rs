@@ -377,7 +377,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::Value(this) {
                     Ok(ok__) => {
-                        strvalue.write(core::mem::transmute(ok__));
+                        strvalue.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -390,7 +390,7 @@ impl ISWbemDateTime_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemDateTime_Impl::SetValue(this, core::mem::transmute(&strvalue))
+                ISWbemDateTime_Impl::SetValue(this, &*(&raw const strvalue).cast())
             }
         }
         unsafe extern "system" fn Year<Identity: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iyear: *mut i32) -> windows_core::HRESULT {
@@ -776,7 +776,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::GetFileTime(this, core::mem::transmute_copy(&bislocal)) {
                     Ok(ok__) => {
-                        strfiletime.write(core::mem::transmute(ok__));
+                        strfiletime.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -789,7 +789,7 @@ impl ISWbemDateTime_Vtbl {
         unsafe extern "system" fn SetFileTime<Identity: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfiletime: *mut core::ffi::c_void, bislocal: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemDateTime_Impl::SetFileTime(this, core::mem::transmute(&strfiletime), core::mem::transmute_copy(&bislocal))
+                ISWbemDateTime_Impl::SetFileTime(this, &*(&raw const strfiletime).cast(), core::mem::transmute_copy(&bislocal))
             }
         }
         Self {
@@ -889,7 +889,7 @@ impl ISWbemEventSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemEventSource_Impl::NextEvent(this, core::mem::transmute_copy(&itimeoutms)) {
                     Ok(ok__) => {
-                        objwbemobject.write(core::mem::transmute(ok__));
+                        objwbemobject.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -904,7 +904,7 @@ impl ISWbemEventSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemEventSource_Impl::Security_(this) {
                     Ok(ok__) => {
-                        objwbemsecurity.write(core::mem::transmute(ok__));
+                        objwbemsecurity.cast::<ISWbemSecurity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1000,9 +1000,9 @@ impl ISWbemLocator_Vtbl {
         unsafe extern "system" fn ConnectServer<Identity: ISWbemLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserver: *mut core::ffi::c_void, strnamespace: *mut core::ffi::c_void, struser: *mut core::ffi::c_void, strpassword: *mut core::ffi::c_void, strlocale: *mut core::ffi::c_void, strauthority: *mut core::ffi::c_void, isecurityflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemservices: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemLocator_Impl::ConnectServer(this, core::mem::transmute(&strserver), core::mem::transmute(&strnamespace), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute(&strauthority), core::mem::transmute_copy(&isecurityflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemLocator_Impl::ConnectServer(this, &*(&raw const strserver).cast(), &*(&raw const strnamespace).cast(), &*(&raw const struser).cast(), &*(&raw const strpassword).cast(), &*(&raw const strlocale).cast(), &*(&raw const strauthority).cast(), core::mem::transmute_copy(&isecurityflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemservices.write(core::mem::transmute(ok__));
+                        objwbemservices.cast::<ISWbemServices>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1017,7 +1017,7 @@ impl ISWbemLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemLocator_Impl::Security_(this) {
                     Ok(ok__) => {
-                        objwbemsecurity.write(core::mem::transmute(ok__));
+                        objwbemsecurity.cast::<ISWbemSecurity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1110,7 +1110,7 @@ impl ISWbemMethod_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemMethod_Impl::Name(this) {
                     Ok(ok__) => {
-                        strname.write(core::mem::transmute(ok__));
+                        strname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1125,7 +1125,7 @@ impl ISWbemMethod_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemMethod_Impl::Origin(this) {
                     Ok(ok__) => {
-                        strorigin.write(core::mem::transmute(ok__));
+                        strorigin.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1140,7 +1140,7 @@ impl ISWbemMethod_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemMethod_Impl::InParameters(this) {
                     Ok(ok__) => {
-                        objwbeminparameters.write(core::mem::transmute(ok__));
+                        objwbeminparameters.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1155,7 +1155,7 @@ impl ISWbemMethod_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemMethod_Impl::OutParameters(this) {
                     Ok(ok__) => {
-                        objwbemoutparameters.write(core::mem::transmute(ok__));
+                        objwbemoutparameters.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1170,7 +1170,7 @@ impl ISWbemMethod_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemMethod_Impl::Qualifiers_(this) {
                     Ok(ok__) => {
-                        objwbemqualifierset.write(core::mem::transmute(ok__));
+                        objwbemqualifierset.cast::<ISWbemQualifierSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1250,7 +1250,7 @@ impl ISWbemMethodSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemMethodSet_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        punk.write(core::mem::transmute(ok__));
+                        punk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1263,9 +1263,9 @@ impl ISWbemMethodSet_Vtbl {
         unsafe extern "system" fn Item<Identity: ISWbemMethodSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, iflags: i32, objwbemmethod: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemMethodSet_Impl::Item(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)) {
+                match ISWbemMethodSet_Impl::Item(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        objwbemmethod.write(core::mem::transmute(ok__));
+                        objwbemmethod.cast::<ISWbemMethod>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1363,7 +1363,7 @@ impl ISWbemNamedValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemNamedValue_Impl::Value(this) {
                     Ok(ok__) => {
-                        varvalue.write(core::mem::transmute(ok__));
+                        varvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1384,7 +1384,7 @@ impl ISWbemNamedValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemNamedValue_Impl::Name(this) {
                     Ok(ok__) => {
-                        strname.write(core::mem::transmute(ok__));
+                        strname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1492,7 +1492,7 @@ impl ISWbemNamedValueSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemNamedValueSet_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        punk.write(core::mem::transmute(ok__));
+                        punk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1505,9 +1505,9 @@ impl ISWbemNamedValueSet_Vtbl {
         unsafe extern "system" fn Item<Identity: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemNamedValueSet_Impl::Item(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)) {
+                match ISWbemNamedValueSet_Impl::Item(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        objwbemnamedvalue.write(core::mem::transmute(ok__));
+                        objwbemnamedvalue.cast::<ISWbemNamedValue>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1535,9 +1535,9 @@ impl ISWbemNamedValueSet_Vtbl {
         unsafe extern "system" fn Add<Identity: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: *const super::VARIANT, iflags: i32, objwbemnamedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemNamedValueSet_Impl::Add(this, core::mem::transmute(&strname), core::mem::transmute_copy(&varvalue), core::mem::transmute_copy(&iflags)) {
+                match ISWbemNamedValueSet_Impl::Add(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&varvalue), core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        objwbemnamedvalue.write(core::mem::transmute(ok__));
+                        objwbemnamedvalue.cast::<ISWbemNamedValue>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1550,7 +1550,7 @@ impl ISWbemNamedValueSet_Vtbl {
         unsafe extern "system" fn Remove<Identity: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, iflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemNamedValueSet_Impl::Remove(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags))
+                ISWbemNamedValueSet_Impl::Remove(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&iflags))
             }
         }
         unsafe extern "system" fn Clone<Identity: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemnamedvalueset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1558,7 +1558,7 @@ impl ISWbemNamedValueSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemNamedValueSet_Impl::Clone(this) {
                     Ok(ok__) => {
-                        objwbemnamedvalueset.write(core::mem::transmute(ok__));
+                        objwbemnamedvalueset.cast::<ISWbemNamedValueSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1883,7 +1883,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::Put_(this, core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectpath.write(core::mem::transmute(ok__));
+                        objwbemobjectpath.cast::<ISWbemObjectPath>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1916,7 +1916,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::Instances_(this, core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectset.write(core::mem::transmute(ok__));
+                        objwbemobjectset.cast::<ISWbemObjectSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1937,7 +1937,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::Subclasses_(this, core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectset.write(core::mem::transmute(ok__));
+                        objwbemobjectset.cast::<ISWbemObjectSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1956,9 +1956,9 @@ impl ISWbemObject_Vtbl {
         unsafe extern "system" fn Associators_<Identity: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strassocclass: *mut core::ffi::c_void, strresultclass: *mut core::ffi::c_void, strresultrole: *mut core::ffi::c_void, strrole: *mut core::ffi::c_void, bclassesonly: super::VARIANT_BOOL, bschemaonly: super::VARIANT_BOOL, strrequiredassocqualifier: *mut core::ffi::c_void, strrequiredqualifier: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemObject_Impl::Associators_(this, core::mem::transmute(&strassocclass), core::mem::transmute(&strresultclass), core::mem::transmute(&strresultrole), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredassocqualifier), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemObject_Impl::Associators_(this, &*(&raw const strassocclass).cast(), &*(&raw const strresultclass).cast(), &*(&raw const strresultrole).cast(), &*(&raw const strrole).cast(), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), &*(&raw const strrequiredassocqualifier).cast(), &*(&raw const strrequiredqualifier).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectset.write(core::mem::transmute(ok__));
+                        objwbemobjectset.cast::<ISWbemObjectSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1974,14 +1974,14 @@ impl ISWbemObject_Vtbl {
                 ISWbemObject_Impl::AssociatorsAsync_(
                     this,
                     core::mem::transmute_copy(&objwbemsink),
-                    core::mem::transmute(&strassocclass),
-                    core::mem::transmute(&strresultclass),
-                    core::mem::transmute(&strresultrole),
-                    core::mem::transmute(&strrole),
+                    &*(&raw const strassocclass).cast(),
+                    &*(&raw const strresultclass).cast(),
+                    &*(&raw const strresultrole).cast(),
+                    &*(&raw const strrole).cast(),
                     core::mem::transmute_copy(&bclassesonly),
                     core::mem::transmute_copy(&bschemaonly),
-                    core::mem::transmute(&strrequiredassocqualifier),
-                    core::mem::transmute(&strrequiredqualifier),
+                    &*(&raw const strrequiredassocqualifier).cast(),
+                    &*(&raw const strrequiredqualifier).cast(),
                     core::mem::transmute_copy(&iflags),
                     core::mem::transmute_copy(&objwbemnamedvalueset),
                     core::mem::transmute_copy(&objwbemasynccontext),
@@ -1991,9 +1991,9 @@ impl ISWbemObject_Vtbl {
         unsafe extern "system" fn References_<Identity: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strresultclass: *mut core::ffi::c_void, strrole: *mut core::ffi::c_void, bclassesonly: super::VARIANT_BOOL, bschemaonly: super::VARIANT_BOOL, strrequiredqualifier: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemObject_Impl::References_(this, core::mem::transmute(&strresultclass), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemObject_Impl::References_(this, &*(&raw const strresultclass).cast(), &*(&raw const strrole).cast(), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), &*(&raw const strrequiredqualifier).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectset.write(core::mem::transmute(ok__));
+                        objwbemobjectset.cast::<ISWbemObjectSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2006,15 +2006,15 @@ impl ISWbemObject_Vtbl {
         unsafe extern "system" fn ReferencesAsync_<Identity: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strresultclass: *mut core::ffi::c_void, strrole: *mut core::ffi::c_void, bclassesonly: super::VARIANT_BOOL, bschemaonly: super::VARIANT_BOOL, strrequiredqualifier: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObject_Impl::ReferencesAsync_(this, core::mem::transmute_copy(&objwbemsink), core::mem::transmute(&strresultclass), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
+                ISWbemObject_Impl::ReferencesAsync_(this, core::mem::transmute_copy(&objwbemsink), &*(&raw const strresultclass).cast(), &*(&raw const strrole).cast(), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), &*(&raw const strrequiredqualifier).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
             }
         }
         unsafe extern "system" fn ExecMethod_<Identity: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strmethodname: *mut core::ffi::c_void, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemoutparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemObject_Impl::ExecMethod_(this, core::mem::transmute(&strmethodname), core::mem::transmute_copy(&objwbeminparameters), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemObject_Impl::ExecMethod_(this, &*(&raw const strmethodname).cast(), core::mem::transmute_copy(&objwbeminparameters), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemoutparameters.write(core::mem::transmute(ok__));
+                        objwbemoutparameters.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2027,7 +2027,7 @@ impl ISWbemObject_Vtbl {
         unsafe extern "system" fn ExecMethodAsync_<Identity: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strmethodname: *mut core::ffi::c_void, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObject_Impl::ExecMethodAsync_(this, core::mem::transmute_copy(&objwbemsink), core::mem::transmute(&strmethodname), core::mem::transmute_copy(&objwbeminparameters), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
+                ISWbemObject_Impl::ExecMethodAsync_(this, core::mem::transmute_copy(&objwbemsink), &*(&raw const strmethodname).cast(), core::mem::transmute_copy(&objwbeminparameters), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
             }
         }
         unsafe extern "system" fn Clone_<Identity: ISWbemObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2035,7 +2035,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::Clone_(this) {
                     Ok(ok__) => {
-                        objwbemobject.write(core::mem::transmute(ok__));
+                        objwbemobject.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2050,7 +2050,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::GetObjectText_(this, core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        strobjecttext.write(core::mem::transmute(ok__));
+                        strobjecttext.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2065,7 +2065,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::SpawnDerivedClass_(this, core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        objwbemobject.write(core::mem::transmute(ok__));
+                        objwbemobject.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2080,7 +2080,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::SpawnInstance_(this, core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        objwbemobject.write(core::mem::transmute(ok__));
+                        objwbemobject.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2110,7 +2110,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::Qualifiers_(this) {
                     Ok(ok__) => {
-                        objwbemqualifierset.write(core::mem::transmute(ok__));
+                        objwbemqualifierset.cast::<ISWbemQualifierSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2125,7 +2125,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::Properties_(this) {
                     Ok(ok__) => {
-                        objwbempropertyset.write(core::mem::transmute(ok__));
+                        objwbempropertyset.cast::<ISWbemPropertySet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2140,7 +2140,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::Methods_(this) {
                     Ok(ok__) => {
-                        objwbemmethodset.write(core::mem::transmute(ok__));
+                        objwbemmethodset.cast::<ISWbemMethodSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2155,7 +2155,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::Derivation_(this) {
                     Ok(ok__) => {
-                        strclassnamearray.write(core::mem::transmute(ok__));
+                        strclassnamearray.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2170,7 +2170,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::Path_(this) {
                     Ok(ok__) => {
-                        objwbemobjectpath.write(core::mem::transmute(ok__));
+                        objwbemobjectpath.cast::<ISWbemObjectPath>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2185,7 +2185,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::Security_(this) {
                     Ok(ok__) => {
-                        objwbemsecurity.write(core::mem::transmute(ok__));
+                        objwbemsecurity.cast::<ISWbemSecurity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2302,7 +2302,7 @@ impl ISWbemObjectEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectEx_Impl::SystemProperties_(this) {
                     Ok(ok__) => {
-                        objwbempropertyset.write(core::mem::transmute(ok__));
+                        objwbempropertyset.cast::<ISWbemPropertySet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2317,7 +2317,7 @@ impl ISWbemObjectEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectEx_Impl::GetText_(this, core::mem::transmute_copy(&iobjecttextformat), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        bstext.write(core::mem::transmute(ok__));
+                        bstext.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2330,7 +2330,7 @@ impl ISWbemObjectEx_Vtbl {
         unsafe extern "system" fn SetFromText_<Identity: ISWbemObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstext: *mut core::ffi::c_void, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObjectEx_Impl::SetFromText_(this, core::mem::transmute(&bstext), core::mem::transmute_copy(&iobjecttextformat), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset))
+                ISWbemObjectEx_Impl::SetFromText_(this, &*(&raw const bstext).cast(), core::mem::transmute_copy(&iobjecttextformat), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset))
             }
         }
         Self {
@@ -2540,7 +2540,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::Path(this) {
                     Ok(ok__) => {
-                        strpath.write(core::mem::transmute(ok__));
+                        strpath.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2553,7 +2553,7 @@ impl ISWbemObjectPath_Vtbl {
         unsafe extern "system" fn SetPath<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObjectPath_Impl::SetPath(this, core::mem::transmute(&strpath))
+                ISWbemObjectPath_Impl::SetPath(this, &*(&raw const strpath).cast())
             }
         }
         unsafe extern "system" fn RelPath<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strrelpath: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2561,7 +2561,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::RelPath(this) {
                     Ok(ok__) => {
-                        strrelpath.write(core::mem::transmute(ok__));
+                        strrelpath.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2574,7 +2574,7 @@ impl ISWbemObjectPath_Vtbl {
         unsafe extern "system" fn SetRelPath<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strrelpath: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObjectPath_Impl::SetRelPath(this, core::mem::transmute(&strrelpath))
+                ISWbemObjectPath_Impl::SetRelPath(this, &*(&raw const strrelpath).cast())
             }
         }
         unsafe extern "system" fn Server<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2582,7 +2582,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::Server(this) {
                     Ok(ok__) => {
-                        strserver.write(core::mem::transmute(ok__));
+                        strserver.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2595,7 +2595,7 @@ impl ISWbemObjectPath_Vtbl {
         unsafe extern "system" fn SetServer<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObjectPath_Impl::SetServer(this, core::mem::transmute(&strserver))
+                ISWbemObjectPath_Impl::SetServer(this, &*(&raw const strserver).cast())
             }
         }
         unsafe extern "system" fn Namespace<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2603,7 +2603,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::Namespace(this) {
                     Ok(ok__) => {
-                        strnamespace.write(core::mem::transmute(ok__));
+                        strnamespace.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2616,7 +2616,7 @@ impl ISWbemObjectPath_Vtbl {
         unsafe extern "system" fn SetNamespace<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespace: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObjectPath_Impl::SetNamespace(this, core::mem::transmute(&strnamespace))
+                ISWbemObjectPath_Impl::SetNamespace(this, &*(&raw const strnamespace).cast())
             }
         }
         unsafe extern "system" fn ParentNamespace<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strparentnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2624,7 +2624,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::ParentNamespace(this) {
                     Ok(ok__) => {
-                        strparentnamespace.write(core::mem::transmute(ok__));
+                        strparentnamespace.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2639,7 +2639,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::DisplayName(this) {
                     Ok(ok__) => {
-                        strdisplayname.write(core::mem::transmute(ok__));
+                        strdisplayname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2652,7 +2652,7 @@ impl ISWbemObjectPath_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdisplayname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObjectPath_Impl::SetDisplayName(this, core::mem::transmute(&strdisplayname))
+                ISWbemObjectPath_Impl::SetDisplayName(this, &*(&raw const strdisplayname).cast())
             }
         }
         unsafe extern "system" fn Class<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2660,7 +2660,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::Class(this) {
                     Ok(ok__) => {
-                        strclass.write(core::mem::transmute(ok__));
+                        strclass.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2673,7 +2673,7 @@ impl ISWbemObjectPath_Vtbl {
         unsafe extern "system" fn SetClass<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObjectPath_Impl::SetClass(this, core::mem::transmute(&strclass))
+                ISWbemObjectPath_Impl::SetClass(this, &*(&raw const strclass).cast())
             }
         }
         unsafe extern "system" fn IsClass<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bisclass: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2723,7 +2723,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::Keys(this) {
                     Ok(ok__) => {
-                        objwbemnamedvalueset.write(core::mem::transmute(ok__));
+                        objwbemnamedvalueset.cast::<ISWbemNamedValueSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2738,7 +2738,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::Security_(this) {
                     Ok(ok__) => {
-                        objwbemsecurity.write(core::mem::transmute(ok__));
+                        objwbemsecurity.cast::<ISWbemSecurity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2753,7 +2753,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::Locale(this) {
                     Ok(ok__) => {
-                        strlocale.write(core::mem::transmute(ok__));
+                        strlocale.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2766,7 +2766,7 @@ impl ISWbemObjectPath_Vtbl {
         unsafe extern "system" fn SetLocale<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strlocale: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObjectPath_Impl::SetLocale(this, core::mem::transmute(&strlocale))
+                ISWbemObjectPath_Impl::SetLocale(this, &*(&raw const strlocale).cast())
             }
         }
         unsafe extern "system" fn Authority<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strauthority: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2774,7 +2774,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::Authority(this) {
                     Ok(ok__) => {
-                        strauthority.write(core::mem::transmute(ok__));
+                        strauthority.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2787,7 +2787,7 @@ impl ISWbemObjectPath_Vtbl {
         unsafe extern "system" fn SetAuthority<Identity: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strauthority: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemObjectPath_Impl::SetAuthority(this, core::mem::transmute(&strauthority))
+                ISWbemObjectPath_Impl::SetAuthority(this, &*(&raw const strauthority).cast())
             }
         }
         Self {
@@ -2894,7 +2894,7 @@ impl ISWbemObjectSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectSet_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        punk.write(core::mem::transmute(ok__));
+                        punk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2907,9 +2907,9 @@ impl ISWbemObjectSet_Vtbl {
         unsafe extern "system" fn Item<Identity: ISWbemObjectSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, iflags: i32, objwbemobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemObjectSet_Impl::Item(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags)) {
+                match ISWbemObjectSet_Impl::Item(this, &*(&raw const strobjectpath).cast(), core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        objwbemobject.write(core::mem::transmute(ok__));
+                        objwbemobject.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2939,7 +2939,7 @@ impl ISWbemObjectSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectSet_Impl::Security_(this) {
                     Ok(ok__) => {
-                        objwbemsecurity.write(core::mem::transmute(ok__));
+                        objwbemsecurity.cast::<ISWbemSecurity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2954,7 +2954,7 @@ impl ISWbemObjectSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectSet_Impl::ItemIndex(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
-                        objwbemobject.write(core::mem::transmute(ok__));
+                        objwbemobject.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3076,7 +3076,7 @@ impl ISWbemPrivilege_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemPrivilege_Impl::Name(this) {
                     Ok(ok__) => {
-                        strdisplayname.write(core::mem::transmute(ok__));
+                        strdisplayname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3091,7 +3091,7 @@ impl ISWbemPrivilege_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemPrivilege_Impl::DisplayName(this) {
                     Ok(ok__) => {
-                        strdisplayname.write(core::mem::transmute(ok__));
+                        strdisplayname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3220,7 +3220,7 @@ impl ISWbemPrivilegeSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemPrivilegeSet_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        punk.write(core::mem::transmute(ok__));
+                        punk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3235,7 +3235,7 @@ impl ISWbemPrivilegeSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemPrivilegeSet_Impl::Item(this, core::mem::transmute_copy(&iprivilege)) {
                     Ok(ok__) => {
-                        objwbemprivilege.write(core::mem::transmute(ok__));
+                        objwbemprivilege.cast::<ISWbemPrivilege>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3265,7 +3265,7 @@ impl ISWbemPrivilegeSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemPrivilegeSet_Impl::Add(this, core::mem::transmute_copy(&iprivilege), core::mem::transmute_copy(&bisenabled)) {
                     Ok(ok__) => {
-                        objwbemprivilege.write(core::mem::transmute(ok__));
+                        objwbemprivilege.cast::<ISWbemPrivilege>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3290,9 +3290,9 @@ impl ISWbemPrivilegeSet_Vtbl {
         unsafe extern "system" fn AddAsString<Identity: ISWbemPrivilegeSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprivilege: *mut core::ffi::c_void, bisenabled: super::VARIANT_BOOL, objwbemprivilege: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemPrivilegeSet_Impl::AddAsString(this, core::mem::transmute(&strprivilege), core::mem::transmute_copy(&bisenabled)) {
+                match ISWbemPrivilegeSet_Impl::AddAsString(this, &*(&raw const strprivilege).cast(), core::mem::transmute_copy(&bisenabled)) {
                     Ok(ok__) => {
-                        objwbemprivilege.write(core::mem::transmute(ok__));
+                        objwbemprivilege.cast::<ISWbemPrivilege>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3427,7 +3427,7 @@ impl ISWbemProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemProperty_Impl::Value(this) {
                     Ok(ok__) => {
-                        varvalue.write(core::mem::transmute(ok__));
+                        varvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3448,7 +3448,7 @@ impl ISWbemProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemProperty_Impl::Name(this) {
                     Ok(ok__) => {
-                        strname.write(core::mem::transmute(ok__));
+                        strname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3478,7 +3478,7 @@ impl ISWbemProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemProperty_Impl::Origin(this) {
                     Ok(ok__) => {
-                        strorigin.write(core::mem::transmute(ok__));
+                        strorigin.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3508,7 +3508,7 @@ impl ISWbemProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemProperty_Impl::Qualifiers_(this) {
                     Ok(ok__) => {
-                        objwbemqualifierset.write(core::mem::transmute(ok__));
+                        objwbemqualifierset.cast::<ISWbemQualifierSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3623,7 +3623,7 @@ impl ISWbemPropertySet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemPropertySet_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        punk.write(core::mem::transmute(ok__));
+                        punk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3636,9 +3636,9 @@ impl ISWbemPropertySet_Vtbl {
         unsafe extern "system" fn Item<Identity: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, iflags: i32, objwbemproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemPropertySet_Impl::Item(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)) {
+                match ISWbemPropertySet_Impl::Item(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        objwbemproperty.write(core::mem::transmute(ok__));
+                        objwbemproperty.cast::<ISWbemProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3666,9 +3666,9 @@ impl ISWbemPropertySet_Vtbl {
         unsafe extern "system" fn Add<Identity: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, icimtype: WbemCimtypeEnum, bisarray: super::VARIANT_BOOL, iflags: i32, objwbemproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemPropertySet_Impl::Add(this, core::mem::transmute(&strname), core::mem::transmute_copy(&icimtype), core::mem::transmute_copy(&bisarray), core::mem::transmute_copy(&iflags)) {
+                match ISWbemPropertySet_Impl::Add(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&icimtype), core::mem::transmute_copy(&bisarray), core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        objwbemproperty.write(core::mem::transmute(ok__));
+                        objwbemproperty.cast::<ISWbemProperty>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3681,7 +3681,7 @@ impl ISWbemPropertySet_Vtbl {
         unsafe extern "system" fn Remove<Identity: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, iflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemPropertySet_Impl::Remove(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags))
+                ISWbemPropertySet_Impl::Remove(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&iflags))
             }
         }
         Self {
@@ -3846,7 +3846,7 @@ impl ISWbemQualifier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemQualifier_Impl::Value(this) {
                     Ok(ok__) => {
-                        varvalue.write(core::mem::transmute(ok__));
+                        varvalue.cast::<super::VARIANT>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3867,7 +3867,7 @@ impl ISWbemQualifier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemQualifier_Impl::Name(this) {
                     Ok(ok__) => {
-                        strname.write(core::mem::transmute(ok__));
+                        strname.cast::<windows_core::BSTR>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4063,7 +4063,7 @@ impl ISWbemQualifierSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemQualifierSet_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        punk.write(core::mem::transmute(ok__));
+                        punk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4076,9 +4076,9 @@ impl ISWbemQualifierSet_Vtbl {
         unsafe extern "system" fn Item<Identity: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, iflags: i32, objwbemqualifier: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemQualifierSet_Impl::Item(this, core::mem::transmute(&name), core::mem::transmute_copy(&iflags)) {
+                match ISWbemQualifierSet_Impl::Item(this, &*(&raw const name).cast(), core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        objwbemqualifier.write(core::mem::transmute(ok__));
+                        objwbemqualifier.cast::<ISWbemQualifier>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4106,9 +4106,9 @@ impl ISWbemQualifierSet_Vtbl {
         unsafe extern "system" fn Add<Identity: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varval: *const super::VARIANT, bpropagatestosubclass: super::VARIANT_BOOL, bpropagatestoinstance: super::VARIANT_BOOL, bisoverridable: super::VARIANT_BOOL, iflags: i32, objwbemqualifier: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemQualifierSet_Impl::Add(this, core::mem::transmute(&strname), core::mem::transmute_copy(&varval), core::mem::transmute_copy(&bpropagatestosubclass), core::mem::transmute_copy(&bpropagatestoinstance), core::mem::transmute_copy(&bisoverridable), core::mem::transmute_copy(&iflags)) {
+                match ISWbemQualifierSet_Impl::Add(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&varval), core::mem::transmute_copy(&bpropagatestosubclass), core::mem::transmute_copy(&bpropagatestoinstance), core::mem::transmute_copy(&bisoverridable), core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        objwbemqualifier.write(core::mem::transmute(ok__));
+                        objwbemqualifier.cast::<ISWbemQualifier>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4121,7 +4121,7 @@ impl ISWbemQualifierSet_Vtbl {
         unsafe extern "system" fn Remove<Identity: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, iflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemQualifierSet_Impl::Remove(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags))
+                ISWbemQualifierSet_Impl::Remove(this, &*(&raw const strname).cast(), core::mem::transmute_copy(&iflags))
             }
         }
         Self {
@@ -4234,7 +4234,7 @@ impl ISWbemRefreshableItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemRefreshableItem_Impl::Refresher(this) {
                     Ok(ok__) => {
-                        objwbemrefresher.write(core::mem::transmute(ok__));
+                        objwbemrefresher.cast::<ISWbemRefresher>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4264,7 +4264,7 @@ impl ISWbemRefreshableItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemRefreshableItem_Impl::Object(this) {
                     Ok(ok__) => {
-                        objwbemobject.write(core::mem::transmute(ok__));
+                        objwbemobject.cast::<ISWbemObjectEx>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4279,7 +4279,7 @@ impl ISWbemRefreshableItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemRefreshableItem_Impl::ObjectSet(this) {
                     Ok(ok__) => {
-                        objwbemobjectset.write(core::mem::transmute(ok__));
+                        objwbemobjectset.cast::<ISWbemObjectSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4426,7 +4426,7 @@ impl ISWbemRefresher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemRefresher_Impl::_NewEnum(this) {
                     Ok(ok__) => {
-                        punk.write(core::mem::transmute(ok__));
+                        punk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4441,7 +4441,7 @@ impl ISWbemRefresher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemRefresher_Impl::Item(this, core::mem::transmute_copy(&iindex)) {
                     Ok(ok__) => {
-                        objwbemrefreshableitem.write(core::mem::transmute(ok__));
+                        objwbemrefreshableitem.cast::<ISWbemRefreshableItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4469,9 +4469,9 @@ impl ISWbemRefresher_Vtbl {
         unsafe extern "system" fn Add<Identity: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemservices: *mut core::ffi::c_void, bsinstancepath: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemrefreshableitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemRefresher_Impl::Add(this, core::mem::transmute_copy(&objwbemservices), core::mem::transmute(&bsinstancepath), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemRefresher_Impl::Add(this, core::mem::transmute_copy(&objwbemservices), &*(&raw const bsinstancepath).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemrefreshableitem.write(core::mem::transmute(ok__));
+                        objwbemrefreshableitem.cast::<ISWbemRefreshableItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4484,9 +4484,9 @@ impl ISWbemRefresher_Vtbl {
         unsafe extern "system" fn AddEnum<Identity: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemservices: *mut core::ffi::c_void, bsclassname: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemrefreshableitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemRefresher_Impl::AddEnum(this, core::mem::transmute_copy(&objwbemservices), core::mem::transmute(&bsclassname), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemRefresher_Impl::AddEnum(this, core::mem::transmute_copy(&objwbemservices), &*(&raw const bsclassname).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemrefreshableitem.write(core::mem::transmute(ok__));
+                        objwbemrefreshableitem.cast::<ISWbemRefreshableItem>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4662,7 +4662,7 @@ impl ISWbemSecurity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemSecurity_Impl::Privileges(this) {
                     Ok(ok__) => {
-                        objwbemprivilegeset.write(core::mem::transmute(ok__));
+                        objwbemprivilegeset.cast::<ISWbemPrivilegeSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4928,9 +4928,9 @@ impl ISWbemServices_Vtbl {
         unsafe extern "system" fn Get<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemServices_Impl::Get(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemServices_Impl::Get(this, &*(&raw const strobjectpath).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobject.write(core::mem::transmute(ok__));
+                        objwbemobject.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4943,27 +4943,27 @@ impl ISWbemServices_Vtbl {
         unsafe extern "system" fn GetAsync<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemServices_Impl::GetAsync(this, core::mem::transmute_copy(&objwbemsink), core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
+                ISWbemServices_Impl::GetAsync(this, core::mem::transmute_copy(&objwbemsink), &*(&raw const strobjectpath).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
             }
         }
         unsafe extern "system" fn Delete<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemServices_Impl::Delete(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset))
+                ISWbemServices_Impl::Delete(this, &*(&raw const strobjectpath).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset))
             }
         }
         unsafe extern "system" fn DeleteAsync<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemServices_Impl::DeleteAsync(this, core::mem::transmute_copy(&objwbemsink), core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
+                ISWbemServices_Impl::DeleteAsync(this, core::mem::transmute_copy(&objwbemsink), &*(&raw const strobjectpath).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
             }
         }
         unsafe extern "system" fn InstancesOf<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strclass: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemServices_Impl::InstancesOf(this, core::mem::transmute(&strclass), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemServices_Impl::InstancesOf(this, &*(&raw const strclass).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectset.write(core::mem::transmute(ok__));
+                        objwbemobjectset.cast::<ISWbemObjectSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4976,15 +4976,15 @@ impl ISWbemServices_Vtbl {
         unsafe extern "system" fn InstancesOfAsync<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strclass: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemServices_Impl::InstancesOfAsync(this, core::mem::transmute_copy(&objwbemsink), core::mem::transmute(&strclass), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
+                ISWbemServices_Impl::InstancesOfAsync(this, core::mem::transmute_copy(&objwbemsink), &*(&raw const strclass).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
             }
         }
         unsafe extern "system" fn SubclassesOf<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsuperclass: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemServices_Impl::SubclassesOf(this, core::mem::transmute(&strsuperclass), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemServices_Impl::SubclassesOf(this, &*(&raw const strsuperclass).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectset.write(core::mem::transmute(ok__));
+                        objwbemobjectset.cast::<ISWbemObjectSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4997,15 +4997,15 @@ impl ISWbemServices_Vtbl {
         unsafe extern "system" fn SubclassesOfAsync<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strsuperclass: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemServices_Impl::SubclassesOfAsync(this, core::mem::transmute_copy(&objwbemsink), core::mem::transmute(&strsuperclass), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
+                ISWbemServices_Impl::SubclassesOfAsync(this, core::mem::transmute_copy(&objwbemsink), &*(&raw const strsuperclass).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
             }
         }
         unsafe extern "system" fn ExecQuery<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquery: *mut core::ffi::c_void, strquerylanguage: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemServices_Impl::ExecQuery(this, core::mem::transmute(&strquery), core::mem::transmute(&strquerylanguage), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemServices_Impl::ExecQuery(this, &*(&raw const strquery).cast(), &*(&raw const strquerylanguage).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectset.write(core::mem::transmute(ok__));
+                        objwbemobjectset.cast::<ISWbemObjectSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5018,15 +5018,15 @@ impl ISWbemServices_Vtbl {
         unsafe extern "system" fn ExecQueryAsync<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strquery: *mut core::ffi::c_void, strquerylanguage: *mut core::ffi::c_void, lflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemServices_Impl::ExecQueryAsync(this, core::mem::transmute_copy(&objwbemsink), core::mem::transmute(&strquery), core::mem::transmute(&strquerylanguage), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
+                ISWbemServices_Impl::ExecQueryAsync(this, core::mem::transmute_copy(&objwbemsink), &*(&raw const strquery).cast(), &*(&raw const strquerylanguage).cast(), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
             }
         }
         unsafe extern "system" fn AssociatorsOf<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, strassocclass: *mut core::ffi::c_void, strresultclass: *mut core::ffi::c_void, strresultrole: *mut core::ffi::c_void, strrole: *mut core::ffi::c_void, bclassesonly: super::VARIANT_BOOL, bschemaonly: super::VARIANT_BOOL, strrequiredassocqualifier: *mut core::ffi::c_void, strrequiredqualifier: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemServices_Impl::AssociatorsOf(this, core::mem::transmute(&strobjectpath), core::mem::transmute(&strassocclass), core::mem::transmute(&strresultclass), core::mem::transmute(&strresultrole), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredassocqualifier), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemServices_Impl::AssociatorsOf(this, &*(&raw const strobjectpath).cast(), &*(&raw const strassocclass).cast(), &*(&raw const strresultclass).cast(), &*(&raw const strresultrole).cast(), &*(&raw const strrole).cast(), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), &*(&raw const strrequiredassocqualifier).cast(), &*(&raw const strrequiredqualifier).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectset.write(core::mem::transmute(ok__));
+                        objwbemobjectset.cast::<ISWbemObjectSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5042,15 +5042,15 @@ impl ISWbemServices_Vtbl {
                 ISWbemServices_Impl::AssociatorsOfAsync(
                     this,
                     core::mem::transmute_copy(&objwbemsink),
-                    core::mem::transmute(&strobjectpath),
-                    core::mem::transmute(&strassocclass),
-                    core::mem::transmute(&strresultclass),
-                    core::mem::transmute(&strresultrole),
-                    core::mem::transmute(&strrole),
+                    &*(&raw const strobjectpath).cast(),
+                    &*(&raw const strassocclass).cast(),
+                    &*(&raw const strresultclass).cast(),
+                    &*(&raw const strresultrole).cast(),
+                    &*(&raw const strrole).cast(),
                     core::mem::transmute_copy(&bclassesonly),
                     core::mem::transmute_copy(&bschemaonly),
-                    core::mem::transmute(&strrequiredassocqualifier),
-                    core::mem::transmute(&strrequiredqualifier),
+                    &*(&raw const strrequiredassocqualifier).cast(),
+                    &*(&raw const strrequiredqualifier).cast(),
                     core::mem::transmute_copy(&iflags),
                     core::mem::transmute_copy(&objwbemnamedvalueset),
                     core::mem::transmute_copy(&objwbemasynccontext),
@@ -5060,9 +5060,9 @@ impl ISWbemServices_Vtbl {
         unsafe extern "system" fn ReferencesTo<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, strresultclass: *mut core::ffi::c_void, strrole: *mut core::ffi::c_void, bclassesonly: super::VARIANT_BOOL, bschemaonly: super::VARIANT_BOOL, strrequiredqualifier: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemServices_Impl::ReferencesTo(this, core::mem::transmute(&strobjectpath), core::mem::transmute(&strresultclass), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemServices_Impl::ReferencesTo(this, &*(&raw const strobjectpath).cast(), &*(&raw const strresultclass).cast(), &*(&raw const strrole).cast(), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), &*(&raw const strrequiredqualifier).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectset.write(core::mem::transmute(ok__));
+                        objwbemobjectset.cast::<ISWbemObjectSet>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5075,15 +5075,15 @@ impl ISWbemServices_Vtbl {
         unsafe extern "system" fn ReferencesToAsync<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, strresultclass: *mut core::ffi::c_void, strrole: *mut core::ffi::c_void, bclassesonly: super::VARIANT_BOOL, bschemaonly: super::VARIANT_BOOL, strrequiredqualifier: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemServices_Impl::ReferencesToAsync(this, core::mem::transmute_copy(&objwbemsink), core::mem::transmute(&strobjectpath), core::mem::transmute(&strresultclass), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
+                ISWbemServices_Impl::ReferencesToAsync(this, core::mem::transmute_copy(&objwbemsink), &*(&raw const strobjectpath).cast(), &*(&raw const strresultclass).cast(), &*(&raw const strrole).cast(), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), &*(&raw const strrequiredqualifier).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
             }
         }
         unsafe extern "system" fn ExecNotificationQuery<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strquery: *mut core::ffi::c_void, strquerylanguage: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemeventsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemServices_Impl::ExecNotificationQuery(this, core::mem::transmute(&strquery), core::mem::transmute(&strquerylanguage), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemServices_Impl::ExecNotificationQuery(this, &*(&raw const strquery).cast(), &*(&raw const strquerylanguage).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemeventsource.write(core::mem::transmute(ok__));
+                        objwbemeventsource.cast::<ISWbemEventSource>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5096,15 +5096,15 @@ impl ISWbemServices_Vtbl {
         unsafe extern "system" fn ExecNotificationQueryAsync<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strquery: *mut core::ffi::c_void, strquerylanguage: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemServices_Impl::ExecNotificationQueryAsync(this, core::mem::transmute_copy(&objwbemsink), core::mem::transmute(&strquery), core::mem::transmute(&strquerylanguage), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
+                ISWbemServices_Impl::ExecNotificationQueryAsync(this, core::mem::transmute_copy(&objwbemsink), &*(&raw const strquery).cast(), &*(&raw const strquerylanguage).cast(), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
             }
         }
         unsafe extern "system" fn ExecMethod<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, strmethodname: *mut core::ffi::c_void, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemoutparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISWbemServices_Impl::ExecMethod(this, core::mem::transmute(&strobjectpath), core::mem::transmute(&strmethodname), core::mem::transmute_copy(&objwbeminparameters), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
+                match ISWbemServices_Impl::ExecMethod(this, &*(&raw const strobjectpath).cast(), &*(&raw const strmethodname).cast(), core::mem::transmute_copy(&objwbeminparameters), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemoutparameters.write(core::mem::transmute(ok__));
+                        objwbemoutparameters.cast::<ISWbemObject>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5117,7 +5117,7 @@ impl ISWbemServices_Vtbl {
         unsafe extern "system" fn ExecMethodAsync<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsink: *mut core::ffi::c_void, strobjectpath: *mut core::ffi::c_void, strmethodname: *mut core::ffi::c_void, objwbeminparameters: *mut core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut core::ffi::c_void, objwbemasynccontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISWbemServices_Impl::ExecMethodAsync(this, core::mem::transmute_copy(&objwbemsink), core::mem::transmute(&strobjectpath), core::mem::transmute(&strmethodname), core::mem::transmute_copy(&objwbeminparameters), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
+                ISWbemServices_Impl::ExecMethodAsync(this, core::mem::transmute_copy(&objwbemsink), &*(&raw const strobjectpath).cast(), &*(&raw const strmethodname).cast(), core::mem::transmute_copy(&objwbeminparameters), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset), core::mem::transmute_copy(&objwbemasynccontext))
             }
         }
         unsafe extern "system" fn Security_<Identity: ISWbemServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objwbemsecurity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5125,7 +5125,7 @@ impl ISWbemServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemServices_Impl::Security_(this) {
                     Ok(ok__) => {
-                        objwbemsecurity.write(core::mem::transmute(ok__));
+                        objwbemsecurity.cast::<ISWbemSecurity>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5218,7 +5218,7 @@ impl ISWbemServicesEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemServicesEx_Impl::Put(this, core::mem::transmute_copy(&objwbemobject), core::mem::transmute_copy(&iflags), core::mem::transmute_copy(&objwbemnamedvalueset)) {
                     Ok(ok__) => {
-                        objwbemobjectpath.write(core::mem::transmute(ok__));
+                        objwbemobjectpath.cast::<ISWbemObjectPath>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

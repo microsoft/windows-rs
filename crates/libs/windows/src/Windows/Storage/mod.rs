@@ -1771,7 +1771,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn CopyOverloadDefaultOptions<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::CopyOverloadDefaultOptions(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname)) {
+                match IStorageFile_Impl::CopyOverloadDefaultOptions(this, core::mem::transmute_copy(&destinationfolder), &*(&raw const desirednewname).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1787,7 +1787,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn CopyOverload<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, option: NameCollisionOption, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::CopyOverload(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname), option) {
+                match IStorageFile_Impl::CopyOverload(this, core::mem::transmute_copy(&destinationfolder), &*(&raw const desirednewname).cast(), option) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1835,7 +1835,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn MoveOverloadDefaultOptions<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::MoveOverloadDefaultOptions(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname)) {
+                match IStorageFile_Impl::MoveOverloadDefaultOptions(this, core::mem::transmute_copy(&destinationfolder), &*(&raw const desirednewname).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1851,7 +1851,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn MoveOverload<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, option: NameCollisionOption, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::MoveOverload(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname), option) {
+                match IStorageFile_Impl::MoveOverload(this, core::mem::transmute_copy(&destinationfolder), &*(&raw const desirednewname).cast(), option) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2274,7 +2274,7 @@ impl IStorageFolder_Vtbl {
         unsafe extern "system" fn CreateFileAsyncOverloadDefaultOptions<Identity: IStorageFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFolder_Impl::CreateFileAsyncOverloadDefaultOptions(this, core::mem::transmute(&desiredname)) {
+                match IStorageFolder_Impl::CreateFileAsyncOverloadDefaultOptions(this, &*(&raw const desiredname).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2290,7 +2290,7 @@ impl IStorageFolder_Vtbl {
         unsafe extern "system" fn CreateFileAsync<Identity: IStorageFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredname: *mut core::ffi::c_void, options: CreationCollisionOption, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFolder_Impl::CreateFileAsync(this, core::mem::transmute(&desiredname), options) {
+                match IStorageFolder_Impl::CreateFileAsync(this, &*(&raw const desiredname).cast(), options) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2306,7 +2306,7 @@ impl IStorageFolder_Vtbl {
         unsafe extern "system" fn CreateFolderAsyncOverloadDefaultOptions<Identity: IStorageFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFolder_Impl::CreateFolderAsyncOverloadDefaultOptions(this, core::mem::transmute(&desiredname)) {
+                match IStorageFolder_Impl::CreateFolderAsyncOverloadDefaultOptions(this, &*(&raw const desiredname).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2322,7 +2322,7 @@ impl IStorageFolder_Vtbl {
         unsafe extern "system" fn CreateFolderAsync<Identity: IStorageFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredname: *mut core::ffi::c_void, options: CreationCollisionOption, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFolder_Impl::CreateFolderAsync(this, core::mem::transmute(&desiredname), options) {
+                match IStorageFolder_Impl::CreateFolderAsync(this, &*(&raw const desiredname).cast(), options) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2338,7 +2338,7 @@ impl IStorageFolder_Vtbl {
         unsafe extern "system" fn GetFileAsync<Identity: IStorageFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFolder_Impl::GetFileAsync(this, core::mem::transmute(&name)) {
+                match IStorageFolder_Impl::GetFileAsync(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2354,7 +2354,7 @@ impl IStorageFolder_Vtbl {
         unsafe extern "system" fn GetFolderAsync<Identity: IStorageFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFolder_Impl::GetFolderAsync(this, core::mem::transmute(&name)) {
+                match IStorageFolder_Impl::GetFolderAsync(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2370,7 +2370,7 @@ impl IStorageFolder_Vtbl {
         unsafe extern "system" fn GetItemAsync<Identity: IStorageFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFolder_Impl::GetItemAsync(this, core::mem::transmute(&name)) {
+                match IStorageFolder_Impl::GetItemAsync(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2513,7 +2513,7 @@ impl IStorageFolder2_Vtbl {
         unsafe extern "system" fn TryGetItemAsync<Identity: IStorageFolder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFolder2_Impl::TryGetItemAsync(this, core::mem::transmute(&name)) {
+                match IStorageFolder2_Impl::TryGetItemAsync(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2669,7 +2669,7 @@ impl IStorageItem_Vtbl {
         unsafe extern "system" fn RenameAsyncOverloadDefaultOptions<Identity: IStorageItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItem_Impl::RenameAsyncOverloadDefaultOptions(this, core::mem::transmute(&desiredname)) {
+                match IStorageItem_Impl::RenameAsyncOverloadDefaultOptions(this, &*(&raw const desiredname).cast()) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2685,7 +2685,7 @@ impl IStorageItem_Vtbl {
         unsafe extern "system" fn RenameAsync<Identity: IStorageItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredname: *mut core::ffi::c_void, option: NameCollisionOption, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItem_Impl::RenameAsync(this, core::mem::transmute(&desiredname), option) {
+                match IStorageItem_Impl::RenameAsync(this, &*(&raw const desiredname).cast(), option) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

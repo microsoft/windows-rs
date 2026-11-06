@@ -131,7 +131,7 @@ impl ActionEntityFactory {
         let this = &windows_core::Interface::cast::<IActionEntityFactory4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTableEntity)(windows_core::Interface::as_raw(this), data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), columncount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateTableEntity)(windows_core::Interface::as_raw(this), data.len().try_into().unwrap(), data.as_ptr().cast(), columncount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -159,7 +159,7 @@ impl ActionEntityFactory {
         let this = &windows_core::Interface::cast::<IActionEntityFactory5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateArrayEntity)(windows_core::Interface::as_raw(this), kind, entities.len().try_into().unwrap(), core::mem::transmute(entities.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateArrayEntity)(windows_core::Interface::as_raw(this), kind, entities.len().try_into().unwrap(), entities.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateDateTimeEntity(&self, datetime: windows_time::DateTime) -> windows_core::Result<DateTimeActionEntity> {
@@ -177,7 +177,7 @@ impl ActionEntityFactory {
         let this = &windows_core::Interface::cast::<IActionEntityFactory6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAppointmentEntity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceid), appointment.param().abi(), attendees.len().try_into().unwrap(), core::mem::transmute(attendees.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAppointmentEntity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceid), appointment.param().abi(), attendees.len().try_into().unwrap(), attendees.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateCustomTextEntity<P2>(&self, kind: &windows_core::HSTRING, keyphrase: &windows_core::HSTRING, props: P2) -> windows_core::Result<CustomTextActionEntity>
@@ -194,7 +194,7 @@ impl ActionEntityFactory {
         let this = &windows_core::Interface::cast::<IActionEntityFactory7>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateArrayEntityWithCustomKind)(windows_core::Interface::as_raw(this), elementkind, core::mem::transmute_copy(customkind), entities.len().try_into().unwrap(), core::mem::transmute(entities.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateArrayEntityWithCustomKind)(windows_core::Interface::as_raw(this), elementkind, core::mem::transmute_copy(customkind), entities.len().try_into().unwrap(), entities.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -318,7 +318,7 @@ impl ActionInvocationContext {
     pub fn GetInputEntities(&self) -> windows_core::Result<windows_core::Array<NamedActionEntity>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetInputEntities)(windows_core::Interface::as_raw(self), windows_core::Array::<NamedActionEntity>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetInputEntities)(windows_core::Interface::as_raw(self), windows_core::Array::<NamedActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn SetOutputEntity<P1>(&self, outputname: &windows_core::HSTRING, outputvalue: P1) -> windows_core::Result<()>
@@ -330,7 +330,7 @@ impl ActionInvocationContext {
     pub fn GetOutputEntities(&self) -> windows_core::Result<windows_core::Array<NamedActionEntity>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputEntities)(windows_core::Interface::as_raw(self), windows_core::Array::<NamedActionEntity>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetOutputEntities)(windows_core::Interface::as_raw(self), windows_core::Array::<NamedActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn Result(&self) -> windows_core::Result<ActionInvocationResult> {
@@ -663,26 +663,26 @@ impl AppointmentActionEntity {
     pub fn GetAttendees(&self) -> windows_core::Result<windows_core::Array<ContactActionEntity>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetAttendees)(windows_core::Interface::as_raw(self), windows_core::Array::<ContactActionEntity>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetAttendees)(windows_core::Interface::as_raw(self), windows_core::Array::<ContactActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn GetPresentedFiles(&self) -> windows_core::Result<windows_core::Array<RemoteFileActionEntity>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetPresentedFiles)(windows_core::Interface::as_raw(self), windows_core::Array::<RemoteFileActionEntity>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetPresentedFiles)(windows_core::Interface::as_raw(self), windows_core::Array::<RemoteFileActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn SetPresentedFiles(&self, files: &[Option<RemoteFileActionEntity>]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPresentedFiles)(windows_core::Interface::as_raw(self), files.len().try_into().unwrap(), core::mem::transmute(files.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPresentedFiles)(windows_core::Interface::as_raw(self), files.len().try_into().unwrap(), files.as_ptr().cast()).ok() }
     }
     pub fn GetSharedFiles(&self) -> windows_core::Result<windows_core::Array<RemoteFileActionEntity>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetSharedFiles)(windows_core::Interface::as_raw(self), windows_core::Array::<RemoteFileActionEntity>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetSharedFiles)(windows_core::Interface::as_raw(self), windows_core::Array::<RemoteFileActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn SetSharedFiles(&self, files: &[Option<RemoteFileActionEntity>]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSharedFiles)(windows_core::Interface::as_raw(self), files.len().try_into().unwrap(), core::mem::transmute(files.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSharedFiles)(windows_core::Interface::as_raw(self), files.len().try_into().unwrap(), files.as_ptr().cast()).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -737,7 +737,7 @@ impl ArrayActionEntity {
     pub fn GetAll(&self) -> windows_core::Result<windows_core::Array<ActionEntity>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetAll)(windows_core::Interface::as_raw(self), windows_core::Array::<ActionEntity>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetAll)(windows_core::Interface::as_raw(self), windows_core::Array::<ActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn CustomElementKind(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -838,7 +838,7 @@ impl CustomActionEntityStore {
         unsafe { (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), entity.param().abi()).ok() }
     }
     pub fn InsertMany(&self, entities: &[Option<CustomTextActionEntity>]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InsertMany)(windows_core::Interface::as_raw(self), entities.len().try_into().unwrap(), core::mem::transmute(entities.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InsertMany)(windows_core::Interface::as_raw(self), entities.len().try_into().unwrap(), entities.as_ptr().cast()).ok() }
     }
     pub fn Delete(&self, kind: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(kind)).ok() }
@@ -1856,13 +1856,13 @@ impl RemoteFileActionEntity {
     }
     pub fn SetContributors(&self, contributors: &[Option<ContactActionEntity>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IRemoteFileActionEntity2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetContributors)(windows_core::Interface::as_raw(this), contributors.len().try_into().unwrap(), core::mem::transmute(contributors.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContributors)(windows_core::Interface::as_raw(this), contributors.len().try_into().unwrap(), contributors.as_ptr().cast()).ok() }
     }
     pub fn GetContributors(&self) -> windows_core::Result<windows_core::Array<ContactActionEntity>> {
         let this = &windows_core::Interface::cast::<IRemoteFileActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetContributors)(windows_core::Interface::as_raw(this), windows_core::Array::<ContactActionEntity>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).GetContributors)(windows_core::Interface::as_raw(this), windows_core::Array::<ContactActionEntity>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
 }
@@ -2071,7 +2071,7 @@ impl TableActionEntity {
     pub fn GetTextContent(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetTextContent)(windows_core::Interface::as_raw(self), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(self).GetTextContent)(windows_core::Interface::as_raw(self), windows_core::Array::<windows_core::HSTRING>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn RowCount(&self) -> windows_core::Result<u32> {

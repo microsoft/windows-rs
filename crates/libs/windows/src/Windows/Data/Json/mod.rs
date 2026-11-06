@@ -498,7 +498,7 @@ impl JsonArray {
     }
     pub fn ReplaceAll(&self, items: &[Option<IJsonValue>]) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr().cast()).ok() }
     }
     fn IJsonArrayStatics<R, F: FnOnce(&IJsonArrayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JsonArray, IJsonArrayStatics> = windows_core::imp::FactoryCache::new();

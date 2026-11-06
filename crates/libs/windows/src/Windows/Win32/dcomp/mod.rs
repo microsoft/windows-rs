@@ -360,7 +360,7 @@ impl IDCompositionAnimation_Vtbl {
         unsafe extern "system" fn SetAbsoluteBeginTime<Identity: IDCompositionAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, begintime: super::LARGE_INTEGER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDCompositionAnimation_Impl::SetAbsoluteBeginTime(this, core::mem::transmute(&begintime))
+                IDCompositionAnimation_Impl::SetAbsoluteBeginTime(this, &*(&raw const begintime).cast())
             }
         }
         unsafe extern "system" fn AddCubic<Identity: IDCompositionAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> windows_core::HRESULT {
@@ -1087,7 +1087,7 @@ impl IDCompositionDesktopDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDesktopDevice_Impl::CreateTargetForHwnd(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&topmost)) {
                     Ok(ok__) => {
-                        target.write(core::mem::transmute(ok__));
+                        target.cast::<IDCompositionTarget>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1102,7 +1102,7 @@ impl IDCompositionDesktopDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDesktopDevice_Impl::CreateSurfaceFromHandle(this, core::mem::transmute_copy(&handle)) {
                     Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
+                        surface.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1117,7 +1117,7 @@ impl IDCompositionDesktopDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDesktopDevice_Impl::CreateSurfaceFromHwnd(this, core::mem::transmute_copy(&hwnd)) {
                     Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
+                        surface.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1228,7 +1228,7 @@ impl IDCompositionDevice {
     pub unsafe fn CreateTransformGroup(&self, transforms: *const Option<IDCompositionTransform>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms), elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), transforms as _, elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> windows_core::Result<IDCompositionTranslateTransform3D> {
@@ -1259,7 +1259,7 @@ impl IDCompositionDevice {
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: *const Option<IDCompositionTransform3D>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform3D> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d), elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), transforms3d as _, elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateEffectGroup(&self) -> windows_core::Result<IDCompositionEffectGroup> {
@@ -1390,7 +1390,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateTargetForHwnd(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&topmost)) {
                     Ok(ok__) => {
-                        target.write(core::mem::transmute(ok__));
+                        target.cast::<IDCompositionTarget>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1405,7 +1405,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateVisual(this) {
                     Ok(ok__) => {
-                        visual.write(core::mem::transmute(ok__));
+                        visual.cast::<IDCompositionVisual>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1420,7 +1420,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                     Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
+                        surface.cast::<IDCompositionSurface>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1435,7 +1435,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                     Ok(ok__) => {
-                        virtualsurface.write(core::mem::transmute(ok__));
+                        virtualsurface.cast::<IDCompositionVirtualSurface>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1450,7 +1450,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateSurfaceFromHandle(this, core::mem::transmute_copy(&handle)) {
                     Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
+                        surface.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1465,7 +1465,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateSurfaceFromHwnd(this, core::mem::transmute_copy(&hwnd)) {
                     Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
+                        surface.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1480,7 +1480,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateTranslateTransform(this) {
                     Ok(ok__) => {
-                        translatetransform.write(core::mem::transmute(ok__));
+                        translatetransform.cast::<IDCompositionTranslateTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1495,7 +1495,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateScaleTransform(this) {
                     Ok(ok__) => {
-                        scaletransform.write(core::mem::transmute(ok__));
+                        scaletransform.cast::<IDCompositionScaleTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1510,7 +1510,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateRotateTransform(this) {
                     Ok(ok__) => {
-                        rotatetransform.write(core::mem::transmute(ok__));
+                        rotatetransform.cast::<IDCompositionRotateTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1525,7 +1525,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateSkewTransform(this) {
                     Ok(ok__) => {
-                        skewtransform.write(core::mem::transmute(ok__));
+                        skewtransform.cast::<IDCompositionSkewTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1540,7 +1540,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateMatrixTransform(this) {
                     Ok(ok__) => {
-                        matrixtransform.write(core::mem::transmute(ok__));
+                        matrixtransform.cast::<IDCompositionMatrixTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1555,7 +1555,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateTransformGroup(this, core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&elements)) {
                     Ok(ok__) => {
-                        transformgroup.write(core::mem::transmute(ok__));
+                        transformgroup.cast::<IDCompositionTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1570,7 +1570,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateTranslateTransform3D(this) {
                     Ok(ok__) => {
-                        translatetransform3d.write(core::mem::transmute(ok__));
+                        translatetransform3d.cast::<IDCompositionTranslateTransform3D>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1585,7 +1585,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateScaleTransform3D(this) {
                     Ok(ok__) => {
-                        scaletransform3d.write(core::mem::transmute(ok__));
+                        scaletransform3d.cast::<IDCompositionScaleTransform3D>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1600,7 +1600,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateRotateTransform3D(this) {
                     Ok(ok__) => {
-                        rotatetransform3d.write(core::mem::transmute(ok__));
+                        rotatetransform3d.cast::<IDCompositionRotateTransform3D>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1615,7 +1615,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateMatrixTransform3D(this) {
                     Ok(ok__) => {
-                        matrixtransform3d.write(core::mem::transmute(ok__));
+                        matrixtransform3d.cast::<IDCompositionMatrixTransform3D>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1630,7 +1630,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateTransform3DGroup(this, core::mem::transmute_copy(&transforms3d), core::mem::transmute_copy(&elements)) {
                     Ok(ok__) => {
-                        transform3dgroup.write(core::mem::transmute(ok__));
+                        transform3dgroup.cast::<IDCompositionTransform3D>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1645,7 +1645,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateEffectGroup(this) {
                     Ok(ok__) => {
-                        effectgroup.write(core::mem::transmute(ok__));
+                        effectgroup.cast::<IDCompositionEffectGroup>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1660,7 +1660,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateRectangleClip(this) {
                     Ok(ok__) => {
-                        clip.write(core::mem::transmute(ok__));
+                        clip.cast::<IDCompositionRectangleClip>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1675,7 +1675,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateAnimation(this) {
                     Ok(ok__) => {
-                        animation.write(core::mem::transmute(ok__));
+                        animation.cast::<IDCompositionAnimation>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1801,7 +1801,7 @@ impl IDCompositionDevice2 {
     pub unsafe fn CreateTransformGroup(&self, transforms: *const Option<IDCompositionTransform>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms), elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTransformGroup)(windows_core::Interface::as_raw(self), transforms as _, elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> windows_core::Result<IDCompositionTranslateTransform3D> {
@@ -1832,7 +1832,7 @@ impl IDCompositionDevice2 {
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: *const Option<IDCompositionTransform3D>, elements: super::UINT) -> windows_core::Result<IDCompositionTransform3D> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), core::mem::transmute(transforms3d), elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTransform3DGroup)(windows_core::Interface::as_raw(self), transforms3d as _, elements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateEffectGroup(&self) -> windows_core::Result<IDCompositionEffectGroup> {
@@ -1945,7 +1945,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateVisual(this) {
                     Ok(ok__) => {
-                        visual.write(core::mem::transmute(ok__));
+                        visual.cast::<IDCompositionVisual2>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1960,7 +1960,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateSurfaceFactory(this, core::mem::transmute_copy(&renderingdevice)) {
                     Ok(ok__) => {
-                        surfacefactory.write(core::mem::transmute(ok__));
+                        surfacefactory.cast::<IDCompositionSurfaceFactory>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1975,7 +1975,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                     Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
+                        surface.cast::<IDCompositionSurface>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1990,7 +1990,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                     Ok(ok__) => {
-                        virtualsurface.write(core::mem::transmute(ok__));
+                        virtualsurface.cast::<IDCompositionVirtualSurface>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2005,7 +2005,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateTranslateTransform(this) {
                     Ok(ok__) => {
-                        translatetransform.write(core::mem::transmute(ok__));
+                        translatetransform.cast::<IDCompositionTranslateTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2020,7 +2020,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateScaleTransform(this) {
                     Ok(ok__) => {
-                        scaletransform.write(core::mem::transmute(ok__));
+                        scaletransform.cast::<IDCompositionScaleTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2035,7 +2035,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateRotateTransform(this) {
                     Ok(ok__) => {
-                        rotatetransform.write(core::mem::transmute(ok__));
+                        rotatetransform.cast::<IDCompositionRotateTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2050,7 +2050,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateSkewTransform(this) {
                     Ok(ok__) => {
-                        skewtransform.write(core::mem::transmute(ok__));
+                        skewtransform.cast::<IDCompositionSkewTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2065,7 +2065,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateMatrixTransform(this) {
                     Ok(ok__) => {
-                        matrixtransform.write(core::mem::transmute(ok__));
+                        matrixtransform.cast::<IDCompositionMatrixTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2080,7 +2080,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateTransformGroup(this, core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&elements)) {
                     Ok(ok__) => {
-                        transformgroup.write(core::mem::transmute(ok__));
+                        transformgroup.cast::<IDCompositionTransform>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2095,7 +2095,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateTranslateTransform3D(this) {
                     Ok(ok__) => {
-                        translatetransform3d.write(core::mem::transmute(ok__));
+                        translatetransform3d.cast::<IDCompositionTranslateTransform3D>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2110,7 +2110,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateScaleTransform3D(this) {
                     Ok(ok__) => {
-                        scaletransform3d.write(core::mem::transmute(ok__));
+                        scaletransform3d.cast::<IDCompositionScaleTransform3D>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2125,7 +2125,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateRotateTransform3D(this) {
                     Ok(ok__) => {
-                        rotatetransform3d.write(core::mem::transmute(ok__));
+                        rotatetransform3d.cast::<IDCompositionRotateTransform3D>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2140,7 +2140,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateMatrixTransform3D(this) {
                     Ok(ok__) => {
-                        matrixtransform3d.write(core::mem::transmute(ok__));
+                        matrixtransform3d.cast::<IDCompositionMatrixTransform3D>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2155,7 +2155,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateTransform3DGroup(this, core::mem::transmute_copy(&transforms3d), core::mem::transmute_copy(&elements)) {
                     Ok(ok__) => {
-                        transform3dgroup.write(core::mem::transmute(ok__));
+                        transform3dgroup.cast::<IDCompositionTransform3D>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2170,7 +2170,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateEffectGroup(this) {
                     Ok(ok__) => {
-                        effectgroup.write(core::mem::transmute(ok__));
+                        effectgroup.cast::<IDCompositionEffectGroup>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2185,7 +2185,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateRectangleClip(this) {
                     Ok(ok__) => {
-                        clip.write(core::mem::transmute(ok__));
+                        clip.cast::<IDCompositionRectangleClip>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2200,7 +2200,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateAnimation(this) {
                     Ok(ok__) => {
-                        animation.write(core::mem::transmute(ok__));
+                        animation.cast::<IDCompositionAnimation>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2371,7 +2371,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateGaussianBlurEffect(this) {
                     Ok(ok__) => {
-                        gaussianblureffect.write(core::mem::transmute(ok__));
+                        gaussianblureffect.cast::<IDCompositionGaussianBlurEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2386,7 +2386,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateBrightnessEffect(this) {
                     Ok(ok__) => {
-                        brightnesseffect.write(core::mem::transmute(ok__));
+                        brightnesseffect.cast::<IDCompositionBrightnessEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2401,7 +2401,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateColorMatrixEffect(this) {
                     Ok(ok__) => {
-                        colormatrixeffect.write(core::mem::transmute(ok__));
+                        colormatrixeffect.cast::<IDCompositionColorMatrixEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2416,7 +2416,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateShadowEffect(this) {
                     Ok(ok__) => {
-                        shadoweffect.write(core::mem::transmute(ok__));
+                        shadoweffect.cast::<IDCompositionShadowEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2431,7 +2431,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateHueRotationEffect(this) {
                     Ok(ok__) => {
-                        huerotationeffect.write(core::mem::transmute(ok__));
+                        huerotationeffect.cast::<IDCompositionHueRotationEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2446,7 +2446,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateSaturationEffect(this) {
                     Ok(ok__) => {
-                        saturationeffect.write(core::mem::transmute(ok__));
+                        saturationeffect.cast::<IDCompositionSaturationEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2461,7 +2461,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateTurbulenceEffect(this) {
                     Ok(ok__) => {
-                        turbulenceeffect.write(core::mem::transmute(ok__));
+                        turbulenceeffect.cast::<IDCompositionTurbulenceEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2476,7 +2476,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateLinearTransferEffect(this) {
                     Ok(ok__) => {
-                        lineartransfereffect.write(core::mem::transmute(ok__));
+                        lineartransfereffect.cast::<IDCompositionLinearTransferEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2491,7 +2491,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateTableTransferEffect(this) {
                     Ok(ok__) => {
-                        tabletransfereffect.write(core::mem::transmute(ok__));
+                        tabletransfereffect.cast::<IDCompositionTableTransferEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2506,7 +2506,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateCompositeEffect(this) {
                     Ok(ok__) => {
-                        compositeeffect.write(core::mem::transmute(ok__));
+                        compositeeffect.cast::<IDCompositionCompositeEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2521,7 +2521,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateBlendEffect(this) {
                     Ok(ok__) => {
-                        blendeffect.write(core::mem::transmute(ok__));
+                        blendeffect.cast::<IDCompositionBlendEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2536,7 +2536,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateArithmeticCompositeEffect(this) {
                     Ok(ok__) => {
-                        arithmeticcompositeeffect.write(core::mem::transmute(ok__));
+                        arithmeticcompositeeffect.cast::<IDCompositionArithmeticCompositeEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2551,7 +2551,7 @@ impl IDCompositionDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice3_Impl::CreateAffineTransform2DEffect(this) {
                     Ok(ok__) => {
-                        affinetransform2deffect.write(core::mem::transmute(ok__));
+                        affinetransform2deffect.cast::<IDCompositionAffineTransform2DEffect>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2603,7 +2603,7 @@ impl IDCompositionDevice4 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateCompositionTexture)(windows_core::Interface::as_raw(self), d3dtexture.param().abi(), core::mem::transmute(compositiontexture)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateCompositionTexture)(windows_core::Interface::as_raw(self), d3dtexture.param().abi(), compositiontexture as _) }
     }
 }
 #[repr(C)]
@@ -2679,7 +2679,7 @@ impl IDCompositionDevice5_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice5_Impl::CreateDynamicTexture(this) {
                     Ok(ok__) => {
-                        compositiondynamictexture.write(core::mem::transmute(ok__));
+                        compositiondynamictexture.cast::<IDCompositionDynamicTexture>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3072,13 +3072,13 @@ windows_core::imp::define_interface!(IDCompositionInkTrailDevice, IDCompositionI
 windows_core::imp::interface_hierarchy!(IDCompositionInkTrailDevice, windows_core::IUnknown);
 impl IDCompositionInkTrailDevice {
     pub unsafe fn CreateDelegatedInkTrail(&self, inktrail: *mut Option<IDCompositionDelegatedInkTrail>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateDelegatedInkTrail)(windows_core::Interface::as_raw(self), core::mem::transmute(inktrail)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateDelegatedInkTrail)(windows_core::Interface::as_raw(self), inktrail as _) }
     }
     pub unsafe fn CreateDelegatedInkTrailForSwapChain<P0>(&self, swapchain: P0, inktrail: *mut Option<IDCompositionDelegatedInkTrail>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDelegatedInkTrailForSwapChain)(windows_core::Interface::as_raw(self), swapchain.param().abi(), core::mem::transmute(inktrail)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateDelegatedInkTrailForSwapChain)(windows_core::Interface::as_raw(self), swapchain.param().abi(), inktrail as _) }
     }
 }
 #[repr(C)]
@@ -5071,7 +5071,7 @@ impl IDCompositionSurfaceFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionSurfaceFactory_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                     Ok(ok__) => {
-                        surface.write(core::mem::transmute(ok__));
+                        surface.cast::<IDCompositionSurface>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5086,7 +5086,7 @@ impl IDCompositionSurfaceFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionSurfaceFactory_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                     Ok(ok__) => {
-                        virtualsurface.write(core::mem::transmute(ok__));
+                        virtualsurface.cast::<IDCompositionVirtualSurface>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

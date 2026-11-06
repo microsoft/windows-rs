@@ -29,7 +29,7 @@ impl IUserConsentVerifierInterop_Vtbl {
         unsafe extern "system" fn RequestVerificationForWindowAsync<Identity: IUserConsentVerifierInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appwindow: super::HWND, message: *mut core::ffi::c_void, riid: *const super::IID, asyncoperation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUserConsentVerifierInterop_Impl::RequestVerificationForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute(&message), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
+                IUserConsentVerifierInterop_Impl::RequestVerificationForWindowAsync(this, core::mem::transmute_copy(&appwindow), &*(&raw const message).cast(), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncoperation)).into()
             }
         }
         Self {

@@ -61,7 +61,7 @@ windows_core::imp::interface_hierarchy!(IEnumOleDocumentViews, windows_core::IUn
 impl IEnumOleDocumentViews {
     #[cfg(feature = "shared")]
     pub unsafe fn Next(&self, cviews: super::ULONG, rgpview: *mut Option<IOleDocumentView>, pcfetched: *mut super::ULONG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cviews, core::mem::transmute(rgpview), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cviews, rgpview as _, pcfetched as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn Skip(&self, cviews: super::ULONG) -> windows_core::HRESULT {
@@ -125,7 +125,7 @@ impl IEnumOleDocumentViews_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumOleDocumentViews_Impl::Clone(this) {
                     Ok(ok__) => {
-                        ppenum.write(core::mem::transmute(ok__));
+                        ppenum.cast::<IEnumOleDocumentViews>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -229,7 +229,7 @@ impl IOleDocument {
     pub unsafe fn EnumViews(&self, ppenum: *mut Option<IEnumOleDocumentViews>) -> windows_core::Result<IOleDocumentView> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumViews)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumViews)(windows_core::Interface::as_raw(self), ppenum as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -261,7 +261,7 @@ impl IOleDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleDocument_Impl::CreateView(this, core::mem::transmute_copy(&pipsite), core::mem::transmute_copy(&pstm), core::mem::transmute_copy(&dwreserved)) {
                     Ok(ok__) => {
-                        ppview.write(core::mem::transmute(ok__));
+                        ppview.cast::<IOleDocumentView>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -282,7 +282,7 @@ impl IOleDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleDocument_Impl::EnumViews(this, core::mem::transmute_copy(&ppenum)) {
                     Ok(ok__) => {
-                        ppview.write(core::mem::transmute(ok__));
+                        ppview.cast::<IOleDocumentView>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -487,7 +487,7 @@ impl IOleDocumentView_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleDocumentView_Impl::GetInPlaceSite(this) {
                     Ok(ok__) => {
-                        ppipsite.write(core::mem::transmute(ok__));
+                        ppipsite.cast::<super::IOleInPlaceSite>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -502,7 +502,7 @@ impl IOleDocumentView_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleDocumentView_Impl::GetDocument(this) {
                     Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
+                        ppunk.cast::<windows_core::IUnknown>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -571,7 +571,7 @@ impl IOleDocumentView_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleDocumentView_Impl::Clone(this, core::mem::transmute_copy(&pipsitenew)) {
                     Ok(ok__) => {
-                        ppviewnew.write(core::mem::transmute(ok__));
+                        ppviewnew.cast::<IOleDocumentView>().write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -769,13 +769,13 @@ impl IProtectedModeMenuServices_Vtbl {
         unsafe extern "system" fn LoadMenu<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmodulename: windows_core::PCWSTR, pszmenuname: windows_core::PCWSTR, phmenu: *mut super::HMENU) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProtectedModeMenuServices_Impl::LoadMenu(this, core::mem::transmute(&pszmodulename), core::mem::transmute(&pszmenuname), core::mem::transmute_copy(&phmenu))
+                IProtectedModeMenuServices_Impl::LoadMenu(this, &*(&raw const pszmodulename).cast(), &*(&raw const pszmenuname).cast(), core::mem::transmute_copy(&phmenu))
             }
         }
         unsafe extern "system" fn LoadMenuID<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmodulename: windows_core::PCWSTR, wresourceid: super::WORD, phmenu: *mut super::HMENU) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProtectedModeMenuServices_Impl::LoadMenuID(this, core::mem::transmute(&pszmodulename), core::mem::transmute_copy(&wresourceid), core::mem::transmute_copy(&phmenu))
+                IProtectedModeMenuServices_Impl::LoadMenuID(this, &*(&raw const pszmodulename).cast(), core::mem::transmute_copy(&wresourceid), core::mem::transmute_copy(&phmenu))
             }
         }
         Self {
