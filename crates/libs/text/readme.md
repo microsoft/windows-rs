@@ -1,8 +1,8 @@
 # windows-text
 
 Load fonts and lay out, measure, and hit-test text with DirectWrite. The crate does not draw: use
-[windows-canvas](https://docs.rs/windows-canvas) to draw a `TextLayout`, or pass it to your own
-renderer.
+[windows-canvas](https://docs.rs/windows-canvas) to draw a `TextLayout`, or draw its
+`glyph_runs` and `decorations` with your own renderer.
 
 - 📦 [crates.io](https://crates.io/crates/windows-text)
 - 📖 [docs.rs](https://docs.rs/windows-text)

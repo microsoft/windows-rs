@@ -461,6 +461,146 @@ mod tests {
         }
     }
 
+    fn close(a: f32, b: f32) -> bool {
+        (a - b).abs() < 0.01
+    }
+
+    #[test]
+    fn glyph_runs_place_glyphs_at_carets() {
+        let layout = layout("Hello, world");
+        let runs = layout.glyph_runs();
+        assert_eq!(runs.len(), 1);
+
+        let run = &runs[0];
+        assert_eq!(run.font_face.family_name(), "Segoe UI");
+        assert_eq!(run.font_size, 24.0);
+        assert!(!run.is_right_to_left);
+        assert_eq!(run.text_range, 0..12);
+        assert_eq!(run.baseline_origin.x, 0.0);
+        assert!(close(
+            run.baseline_origin.y,
+            layout.line_metrics()[0].baseline
+        ));
+        assert_eq!(run.glyphs.len(), 12);
+
+        let face = &run.font_face;
+        for (index, (glyph, ch)) in run.glyphs.iter().zip(layout.text().chars()).enumerate() {
+            assert_eq!(glyph.text_position, index);
+            assert_eq!(Some(glyph.id), face.glyph_index(ch));
+            assert_eq!(glyph.position.y, run.baseline_origin.y);
+            assert!(close(
+                glyph.position.x,
+                layout.caret_bounds(index, false).left
+            ));
+        }
+
+        let last = run.glyphs.last().unwrap();
+        assert!(close(
+            last.position.x + last.advance,
+            layout.metrics().width
+        ));
+    }
+
+    #[test]
+    fn glyph_runs_map_clusters_to_utf8() {
+        // A combining accent joins its letter's cluster, and the emoji falls back to another
+        // face in its own run.
+        let layout = layout("e\u{301}x\u{1F600}");
+        let runs = layout.glyph_runs();
+        assert!(runs.len() >= 2);
+        assert_eq!(runs[0].text_range, 0..4);
+        assert_eq!(runs.last().unwrap().text_range, 4..8);
+        assert_ne!(runs[0].font_face, runs.last().unwrap().font_face);
+
+        let positions: Vec<_> = runs
+            .iter()
+            .flat_map(|run| run.glyphs.iter().map(|glyph| glyph.text_position))
+            .collect();
+        assert_eq!(positions.first(), Some(&0));
+        assert!(
+            positions
+                .iter()
+                .all(|position| [0, 3, 4].contains(position))
+        );
+        assert!(positions.contains(&3));
+        assert_eq!(positions.last(), Some(&4));
+    }
+
+    #[test]
+    fn glyph_runs_right_to_left() {
+        let layout = layout("\u{5E9}\u{5DC}\u{5D5}\u{5DD}");
+        let runs = layout.glyph_runs();
+        assert_eq!(runs.len(), 1);
+
+        let run = &runs[0];
+        assert!(run.is_right_to_left);
+        assert_eq!(run.text_range, 0..8);
+
+        // The first glyph in text order is the rightmost, ending at the run's origin.
+        let first = &run.glyphs[0];
+        assert!(close(
+            first.position.x + first.advance,
+            run.baseline_origin.x
+        ));
+
+        for pair in run.glyphs.windows(2) {
+            assert!(close(
+                pair[1].position.x + pair[1].advance,
+                pair[0].position.x
+            ));
+        }
+
+        for glyph in &run.glyphs {
+            let caret = layout.caret_bounds(glyph.text_position, false);
+            assert!(close(glyph.position.x + glyph.advance, caret.left));
+        }
+    }
+
+    #[test]
+    fn decorations() {
+        let mut layout = layout("Hello world");
+        assert!(layout.decorations().is_empty());
+
+        layout.set_underline(0..5, true);
+        layout.set_strikethrough(6.., true);
+        let decorations = layout.decorations();
+        assert_eq!(decorations.len(), 2);
+
+        let baseline = layout.line_metrics()[0].baseline;
+        let underline = decorations
+            .iter()
+            .find(|d| d.kind == DecorationKind::Underline)
+            .unwrap();
+        let strikethrough = decorations
+            .iter()
+            .find(|d| d.kind == DecorationKind::Strikethrough)
+            .unwrap();
+
+        let hello = layout.range_bounds(0..5)[0];
+        assert!(close(underline.bounds.left, hello.left));
+        assert!(close(underline.bounds.right, hello.right));
+        assert!(underline.bounds.top > baseline);
+        assert!(underline.bounds.height() > 0.0);
+
+        let world = layout.range_bounds(6..)[0];
+        assert!(close(strikethrough.bounds.left, world.left));
+        assert!(close(strikethrough.bounds.right, world.right));
+        assert!(strikethrough.bounds.bottom < baseline);
+        assert!(strikethrough.bounds.height() > 0.0);
+    }
+
+    #[test]
+    fn decorations_right_to_left() {
+        let mut layout = layout("abc \u{5E9}\u{5DC}\u{5D5}\u{5DD}");
+        layout.set_underline(4.., true);
+        let decorations = layout.decorations();
+        assert_eq!(decorations.len(), 1);
+
+        let hebrew = layout.range_bounds(4..)[0];
+        assert!(close(decorations[0].bounds.left, hebrew.left));
+        assert!(close(decorations[0].bounds.right, hebrew.right));
+    }
+
     #[test]
     fn shared_across_threads() {
         let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\consola.ttf").unwrap();

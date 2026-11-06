@@ -47,6 +47,7 @@ impl DWRITE_CLUSTER_METRICS {
 }
 pub type DWRITE_FACTORY_TYPE = i32;
 pub const DWRITE_FACTORY_TYPE_SHARED: DWRITE_FACTORY_TYPE = 0;
+pub type DWRITE_FLOW_DIRECTION = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_FEATURE {
@@ -106,6 +107,33 @@ pub struct DWRITE_GLYPH_METRICS {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DWRITE_GLYPH_OFFSET {
+    pub advanceOffset: FLOAT,
+    pub ascenderOffset: FLOAT,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct DWRITE_GLYPH_RUN {
+    pub fontFace: core::mem::ManuallyDrop<Option<IDWriteFontFace>>,
+    pub fontEmSize: FLOAT,
+    pub glyphCount: UINT32,
+    pub glyphIndices: *const UINT16,
+    pub glyphAdvances: *const FLOAT,
+    pub glyphOffsets: *const DWRITE_GLYPH_OFFSET,
+    pub isSideways: windows_core::BOOL,
+    pub bidiLevel: UINT32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
+    pub localeName: *const WCHAR,
+    pub string: *const WCHAR,
+    pub stringLength: UINT32,
+    pub clusterMap: *const UINT16,
+    pub textPosition: UINT32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_HIT_TEST_METRICS {
     pub textPosition: UINT32,
     pub length: UINT32,
@@ -127,10 +155,33 @@ pub struct DWRITE_LINE_METRICS {
     pub baseline: FLOAT,
     pub isTrimmed: windows_core::BOOL,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DWRITE_MATRIX {
+    pub m11: FLOAT,
+    pub m12: FLOAT,
+    pub m21: FLOAT,
+    pub m22: FLOAT,
+    pub dx: FLOAT,
+    pub dy: FLOAT,
+}
+pub type DWRITE_MEASURING_MODE = i32;
 pub type DWRITE_PARAGRAPH_ALIGNMENT = i32;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_CENTER: DWRITE_PARAGRAPH_ALIGNMENT = 2;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_FAR: DWRITE_PARAGRAPH_ALIGNMENT = 1;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_NEAR: DWRITE_PARAGRAPH_ALIGNMENT = 0;
+pub type DWRITE_READING_DIRECTION = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DWRITE_STRIKETHROUGH {
+    pub width: FLOAT,
+    pub thickness: FLOAT,
+    pub offset: FLOAT,
+    pub readingDirection: DWRITE_READING_DIRECTION,
+    pub flowDirection: DWRITE_FLOW_DIRECTION,
+    pub localeName: *const WCHAR,
+    pub measuringMode: DWRITE_MEASURING_MODE,
+}
 pub type DWRITE_TEXT_ALIGNMENT = i32;
 pub const DWRITE_TEXT_ALIGNMENT_CENTER: DWRITE_TEXT_ALIGNMENT = 2;
 pub const DWRITE_TEXT_ALIGNMENT_LEADING: DWRITE_TEXT_ALIGNMENT = 0;
@@ -153,6 +204,18 @@ pub struct DWRITE_TEXT_METRICS {
 pub struct DWRITE_TEXT_RANGE {
     pub startPosition: UINT32,
     pub length: UINT32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DWRITE_UNDERLINE {
+    pub width: FLOAT,
+    pub thickness: FLOAT,
+    pub offset: FLOAT,
+    pub runHeight: FLOAT,
+    pub readingDirection: DWRITE_READING_DIRECTION,
+    pub flowDirection: DWRITE_FLOW_DIRECTION,
+    pub localeName: *const WCHAR,
+    pub measuringMode: DWRITE_MEASURING_MODE,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1187,6 +1250,20 @@ pub struct IDWriteInMemoryFontFileLoader_Vtbl {
     GetFileCount: usize,
 }
 windows_core::imp::define_interface!(
+    IDWriteInlineObject,
+    IDWriteInlineObject_Vtbl,
+    0x8339fde3_106f_47ab_8373_1c6295eb10b3
+);
+windows_core::imp::interface_hierarchy!(IDWriteInlineObject, windows_core::IUnknown);
+#[repr(C)]
+pub struct IDWriteInlineObject_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    Draw: usize,
+    GetMetrics: usize,
+    GetOverhangMetrics: usize,
+    GetBreakConditions: usize,
+}
+windows_core::imp::define_interface!(
     IDWriteLocalizedStrings,
     IDWriteLocalizedStrings_Vtbl,
     0x08256209_099a_4b34_b86d_c22b110e7771
@@ -1261,6 +1338,116 @@ pub struct IDWriteLocalizedStrings_Vtbl {
         UINT32,
     ) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(
+    IDWritePixelSnapping,
+    IDWritePixelSnapping_Vtbl,
+    0xeaf3a2da_ecf4_4d24_b644_b34f6842024b
+);
+windows_core::imp::interface_hierarchy!(IDWritePixelSnapping, windows_core::IUnknown);
+#[repr(C)]
+pub struct IDWritePixelSnapping_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub IsPixelSnappingDisabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub GetCurrentTransform: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        *mut DWRITE_MATRIX,
+    ) -> windows_core::HRESULT,
+    pub GetPixelsPerDip: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        *mut FLOAT,
+    ) -> windows_core::HRESULT,
+}
+pub trait IDWritePixelSnapping_Impl: windows_core::IUnknownImpl {
+    fn IsPixelSnappingDisabled(
+        &self,
+        clientdrawingcontext: *const core::ffi::c_void,
+        isdisabled: *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT;
+    fn GetCurrentTransform(
+        &self,
+        clientdrawingcontext: *const core::ffi::c_void,
+        transform: *mut DWRITE_MATRIX,
+    ) -> windows_core::HRESULT;
+    fn GetPixelsPerDip(
+        &self,
+        clientdrawingcontext: *const core::ffi::c_void,
+        pixelsperdip: *mut FLOAT,
+    ) -> windows_core::HRESULT;
+}
+impl IDWritePixelSnapping_Vtbl {
+    pub(crate) const fn new<Identity: IDWritePixelSnapping_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn IsPixelSnappingDisabled<
+            Identity: IDWritePixelSnapping_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            clientdrawingcontext: *const core::ffi::c_void,
+            isdisabled: *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDWritePixelSnapping_Impl::IsPixelSnappingDisabled(
+                    this,
+                    core::mem::transmute_copy(&clientdrawingcontext),
+                    core::mem::transmute_copy(&isdisabled),
+                )
+            }
+        }
+        unsafe extern "system" fn GetCurrentTransform<
+            Identity: IDWritePixelSnapping_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            clientdrawingcontext: *const core::ffi::c_void,
+            transform: *mut DWRITE_MATRIX,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDWritePixelSnapping_Impl::GetCurrentTransform(
+                    this,
+                    core::mem::transmute_copy(&clientdrawingcontext),
+                    core::mem::transmute_copy(&transform),
+                )
+            }
+        }
+        unsafe extern "system" fn GetPixelsPerDip<
+            Identity: IDWritePixelSnapping_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            clientdrawingcontext: *const core::ffi::c_void,
+            pixelsperdip: *mut FLOAT,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDWritePixelSnapping_Impl::GetPixelsPerDip(
+                    this,
+                    core::mem::transmute_copy(&clientdrawingcontext),
+                    core::mem::transmute_copy(&pixelsperdip),
+                )
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            IsPixelSnappingDisabled: IsPixelSnappingDisabled::<Identity, OFFSET>,
+            GetCurrentTransform: GetCurrentTransform::<Identity, OFFSET>,
+            GetPixelsPerDip: GetPixelsPerDip::<Identity, OFFSET>,
+        }
+    }
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IDWritePixelSnapping as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IDWritePixelSnapping {}
 windows_core::imp::define_interface!(
     IDWriteTextFormat,
     IDWriteTextFormat_Vtbl,
@@ -1541,6 +1728,26 @@ impl IDWriteTextLayout {
             ))
         }
     }
+    pub(crate) unsafe fn Draw<P1>(
+        &self,
+        clientdrawingcontext: Option<*const core::ffi::c_void>,
+        renderer: P1,
+        originx: FLOAT,
+        originy: FLOAT,
+    ) -> windows_core::HRESULT
+    where
+        P1: windows_core::Param<IDWriteTextRenderer>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Draw)(
+                windows_core::Interface::as_raw(self),
+                clientdrawingcontext.unwrap_or(core::mem::zeroed()) as _,
+                renderer.param().abi(),
+                originx,
+                originy,
+            )
+        }
+    }
     pub(crate) unsafe fn GetLineMetrics(
         &self,
         linemetrics: Option<*mut DWRITE_LINE_METRICS>,
@@ -1711,7 +1918,13 @@ pub struct IDWriteTextLayout_Vtbl {
     GetTypography: usize,
     GetLocaleNameLength: usize,
     GetLocaleName: usize,
-    Draw: usize,
+    pub Draw: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        *mut core::ffi::c_void,
+        FLOAT,
+        FLOAT,
+    ) -> windows_core::HRESULT,
     pub GetLineMetrics: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut DWRITE_LINE_METRICS,
@@ -1757,6 +1970,220 @@ pub struct IDWriteTextLayout_Vtbl {
         *mut UINT32,
     ) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(
+    IDWriteTextRenderer,
+    IDWriteTextRenderer_Vtbl,
+    0xef8a8135_5cc6_45fe_8825_c5a0724eb819
+);
+impl core::ops::Deref for IDWriteTextRenderer {
+    type Target = IDWritePixelSnapping;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    IDWriteTextRenderer,
+    windows_core::IUnknown,
+    IDWritePixelSnapping
+);
+#[repr(C)]
+pub struct IDWriteTextRenderer_Vtbl {
+    pub base__: IDWritePixelSnapping_Vtbl,
+    pub DrawGlyphRun: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        FLOAT,
+        FLOAT,
+        DWRITE_MEASURING_MODE,
+        *const DWRITE_GLYPH_RUN,
+        *const DWRITE_GLYPH_RUN_DESCRIPTION,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub DrawUnderline: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        FLOAT,
+        FLOAT,
+        *const DWRITE_UNDERLINE,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub DrawStrikethrough: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        FLOAT,
+        FLOAT,
+        *const DWRITE_STRIKETHROUGH,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub DrawInlineObject: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        FLOAT,
+        FLOAT,
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+        windows_core::BOOL,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait IDWriteTextRenderer_Impl: IDWritePixelSnapping_Impl {
+    fn DrawGlyphRun(
+        &self,
+        clientdrawingcontext: *const core::ffi::c_void,
+        baselineoriginx: FLOAT,
+        baselineoriginy: FLOAT,
+        measuringmode: DWRITE_MEASURING_MODE,
+        glyphrun: *const DWRITE_GLYPH_RUN,
+        glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION,
+        clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>,
+    ) -> windows_core::HRESULT;
+    fn DrawUnderline(
+        &self,
+        clientdrawingcontext: *const core::ffi::c_void,
+        baselineoriginx: FLOAT,
+        baselineoriginy: FLOAT,
+        underline: *const DWRITE_UNDERLINE,
+        clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>,
+    ) -> windows_core::HRESULT;
+    fn DrawStrikethrough(
+        &self,
+        clientdrawingcontext: *const core::ffi::c_void,
+        baselineoriginx: FLOAT,
+        baselineoriginy: FLOAT,
+        strikethrough: *const DWRITE_STRIKETHROUGH,
+        clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>,
+    ) -> windows_core::HRESULT;
+    fn DrawInlineObject(
+        &self,
+        clientdrawingcontext: *const core::ffi::c_void,
+        originx: FLOAT,
+        originy: FLOAT,
+        inlineobject: windows_core::Ref<IDWriteInlineObject>,
+        issideways: windows_core::BOOL,
+        isrighttoleft: windows_core::BOOL,
+        clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>,
+    ) -> windows_core::HRESULT;
+}
+impl IDWriteTextRenderer_Vtbl {
+    pub(crate) const fn new<Identity: IDWriteTextRenderer_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn DrawGlyphRun<
+            Identity: IDWriteTextRenderer_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            clientdrawingcontext: *const core::ffi::c_void,
+            baselineoriginx: FLOAT,
+            baselineoriginy: FLOAT,
+            measuringmode: DWRITE_MEASURING_MODE,
+            glyphrun: *const DWRITE_GLYPH_RUN,
+            glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION,
+            clientdrawingeffect: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDWriteTextRenderer_Impl::DrawGlyphRun(
+                    this,
+                    core::mem::transmute_copy(&clientdrawingcontext),
+                    core::mem::transmute_copy(&baselineoriginx),
+                    core::mem::transmute_copy(&baselineoriginy),
+                    core::mem::transmute_copy(&measuringmode),
+                    core::mem::transmute_copy(&glyphrun),
+                    core::mem::transmute_copy(&glyphrundescription),
+                    core::mem::transmute_copy(&clientdrawingeffect),
+                )
+            }
+        }
+        unsafe extern "system" fn DrawUnderline<
+            Identity: IDWriteTextRenderer_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            clientdrawingcontext: *const core::ffi::c_void,
+            baselineoriginx: FLOAT,
+            baselineoriginy: FLOAT,
+            underline: *const DWRITE_UNDERLINE,
+            clientdrawingeffect: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDWriteTextRenderer_Impl::DrawUnderline(
+                    this,
+                    core::mem::transmute_copy(&clientdrawingcontext),
+                    core::mem::transmute_copy(&baselineoriginx),
+                    core::mem::transmute_copy(&baselineoriginy),
+                    core::mem::transmute_copy(&underline),
+                    core::mem::transmute_copy(&clientdrawingeffect),
+                )
+            }
+        }
+        unsafe extern "system" fn DrawStrikethrough<
+            Identity: IDWriteTextRenderer_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            clientdrawingcontext: *const core::ffi::c_void,
+            baselineoriginx: FLOAT,
+            baselineoriginy: FLOAT,
+            strikethrough: *const DWRITE_STRIKETHROUGH,
+            clientdrawingeffect: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDWriteTextRenderer_Impl::DrawStrikethrough(
+                    this,
+                    core::mem::transmute_copy(&clientdrawingcontext),
+                    core::mem::transmute_copy(&baselineoriginx),
+                    core::mem::transmute_copy(&baselineoriginy),
+                    core::mem::transmute_copy(&strikethrough),
+                    core::mem::transmute_copy(&clientdrawingeffect),
+                )
+            }
+        }
+        unsafe extern "system" fn DrawInlineObject<
+            Identity: IDWriteTextRenderer_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            clientdrawingcontext: *const core::ffi::c_void,
+            originx: FLOAT,
+            originy: FLOAT,
+            inlineobject: *mut core::ffi::c_void,
+            issideways: windows_core::BOOL,
+            isrighttoleft: windows_core::BOOL,
+            clientdrawingeffect: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDWriteTextRenderer_Impl::DrawInlineObject(
+                    this,
+                    core::mem::transmute_copy(&clientdrawingcontext),
+                    core::mem::transmute_copy(&originx),
+                    core::mem::transmute_copy(&originy),
+                    core::mem::transmute_copy(&inlineobject),
+                    core::mem::transmute_copy(&issideways),
+                    core::mem::transmute_copy(&isrighttoleft),
+                    core::mem::transmute_copy(&clientdrawingeffect),
+                )
+            }
+        }
+        Self {
+            base__: IDWritePixelSnapping_Vtbl::new::<Identity, OFFSET>(),
+            DrawGlyphRun: DrawGlyphRun::<Identity, OFFSET>,
+            DrawUnderline: DrawUnderline::<Identity, OFFSET>,
+            DrawStrikethrough: DrawStrikethrough::<Identity, OFFSET>,
+            DrawInlineObject: DrawInlineObject::<Identity, OFFSET>,
+        }
+    }
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IDWriteTextRenderer as windows_core::Interface>::IID
+            || IDWritePixelSnapping_Vtbl::matches(iid)
+    }
+}
+impl windows_core::RuntimeName for IDWriteTextRenderer {}
 windows_core::imp::define_interface!(
     IDWriteTypography,
     IDWriteTypography_Vtbl,

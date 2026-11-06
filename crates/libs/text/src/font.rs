@@ -136,7 +136,7 @@ impl FontCollection {
 /// Two faces are equal if they wrap the same DirectWrite font face object, so a face can key a
 /// glyph or atlas cache. Cloning is cheap.
 #[derive(Clone)]
-pub struct FontFace(IDWriteFontFace3);
+pub struct FontFace(pub(crate) IDWriteFontFace3);
 
 // A DirectWrite font face cannot change after creation and is not tied to a thread.
 unsafe impl Send for FontFace {}
