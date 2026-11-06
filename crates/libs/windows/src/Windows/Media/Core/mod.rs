@@ -4600,18 +4600,21 @@ impl MediaStreamSampleProtectionProperties {
         unsafe { (windows_core::Interface::vtable(self).SetKeyIdentifier)(windows_core::Interface::as_raw(self), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn GetKeyIdentifier(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
+        value.clear();
         unsafe { (windows_core::Interface::vtable(self).GetKeyIdentifier)(windows_core::Interface::as_raw(self), value.set_abi_len(), value as *mut _ as _).ok() }
     }
     pub fn SetInitializationVector(&self, value: &[u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInitializationVector)(windows_core::Interface::as_raw(self), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn GetInitializationVector(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
+        value.clear();
         unsafe { (windows_core::Interface::vtable(self).GetInitializationVector)(windows_core::Interface::as_raw(self), value.set_abi_len(), value as *mut _ as _).ok() }
     }
     pub fn SetSubSampleMapping(&self, value: &[u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSubSampleMapping)(windows_core::Interface::as_raw(self), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn GetSubSampleMapping(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
+        value.clear();
         unsafe { (windows_core::Interface::vtable(self).GetSubSampleMapping)(windows_core::Interface::as_raw(self), value.set_abi_len(), value as *mut _ as _).ok() }
     }
 }

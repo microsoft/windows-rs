@@ -4068,6 +4068,9 @@ impl PlayReadyDomainIterator {
         }
     }
     pub fn GetMany(&self, items: &mut [Option<IPlayReadyDomain>]) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<Option<IPlayReadyDomain>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(windows_core::Interface::as_raw(self), items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -4806,6 +4809,9 @@ impl PlayReadyLicenseIterator {
         }
     }
     pub fn GetMany(&self, items: &mut [Option<IPlayReadyLicense>]) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<Option<IPlayReadyLicense>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(windows_core::Interface::as_raw(self), items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -5170,6 +5176,9 @@ impl PlayReadySecureStopIterator {
         }
     }
     pub fn GetMany(&self, items: &mut [Option<IPlayReadySecureStopServiceRequest>]) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<Option<IPlayReadySecureStopServiceRequest>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(windows_core::Interface::as_raw(self), items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)

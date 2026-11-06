@@ -57,6 +57,7 @@ impl CryptographicBuffer {
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
+        value.clear();
         Self::ICryptographicBufferStatics(|this| unsafe { (windows_core::Interface::vtable(this).CopyToByteArray)(windows_core::Interface::as_raw(this), buffer.param().abi(), value.set_abi_len(), value as *mut _ as _).ok() })
     }
     #[cfg(feature = "Storage_Streams")]

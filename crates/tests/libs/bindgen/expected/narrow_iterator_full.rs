@@ -62,6 +62,9 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
         &self,
         items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(

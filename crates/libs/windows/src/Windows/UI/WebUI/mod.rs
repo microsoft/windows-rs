@@ -4663,6 +4663,9 @@ impl WebUIView {
     }
     pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut Option<super::super::Web::UI::WebViewControlDeferredPermissionRequest>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
+        if core::mem::needs_drop::<Option<super::super::Web::UI::WebViewControlDeferredPermissionRequest>>() {
+            *result = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(this).GetDeferredPermissionRequestById)(windows_core::Interface::as_raw(this), id, result as *mut _ as _).ok() }
     }
     pub fn NavigationStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>

@@ -133,6 +133,9 @@ impl HttpCacheDirectiveHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpNameValueHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpNameValueHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -212,6 +215,9 @@ impl HttpChallengeHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, challengeheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *challengeheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpChallengeHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), challengeheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -340,6 +346,9 @@ impl HttpChallengeHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpChallengeHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpChallengeHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -401,6 +410,9 @@ impl HttpConnectionOptionHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, connectionoptionheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *connectionoptionheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpConnectionOptionHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), connectionoptionheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -529,6 +541,9 @@ impl HttpConnectionOptionHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpConnectionOptionHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpConnectionOptionHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -590,6 +605,9 @@ impl HttpContentCodingHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, contentcodingheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *contentcodingheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpContentCodingHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), contentcodingheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -718,6 +736,9 @@ impl HttpContentCodingHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpContentCodingHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpContentCodingHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -791,6 +812,9 @@ impl HttpContentCodingWithQualityHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, contentcodingwithqualityheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *contentcodingwithqualityheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpContentCodingWithQualityHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), contentcodingwithqualityheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -919,6 +943,9 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpContentCodingWithQualityHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpContentCodingWithQualityHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -1026,6 +1053,9 @@ impl HttpContentDispositionHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, contentdispositionheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *contentdispositionheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpContentDispositionHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), contentdispositionheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -1328,6 +1358,9 @@ impl HttpContentRangeHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, contentrangeheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *contentrangeheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpContentRangeHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), contentrangeheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -1401,6 +1434,9 @@ impl HttpCookiePairHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, cookiepairheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *cookiepairheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpCookiePairHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), cookiepairheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -1529,6 +1565,9 @@ impl HttpCookiePairHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpCookiePairHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpCookiePairHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -1608,6 +1647,9 @@ impl HttpCredentialsHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, credentialsheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *credentialsheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpCredentialsHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), credentialsheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -1666,6 +1708,9 @@ impl HttpDateOrDeltaHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, dateordeltaheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *dateordeltaheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpDateOrDeltaHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), dateordeltaheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -1741,6 +1786,9 @@ impl HttpExpectationHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, expectationheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *expectationheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpExpectationHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), expectationheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -1869,6 +1917,9 @@ impl HttpExpectationHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpExpectationHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpExpectationHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -2004,6 +2055,9 @@ impl HttpLanguageHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<super::super::super::Globalization::Language>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
+        if core::mem::needs_drop::<Option<super::super::super::Globalization::Language>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -2084,6 +2138,9 @@ impl HttpLanguageRangeWithQualityHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, languagerangewithqualityheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *languagerangewithqualityheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpLanguageRangeWithQualityHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), languagerangewithqualityheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -2212,6 +2269,9 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpLanguageRangeWithQualityHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpLanguageRangeWithQualityHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -2291,6 +2351,9 @@ impl HttpMediaTypeHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, mediatypeheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *mediatypeheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpMediaTypeHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), mediatypeheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -2383,6 +2446,9 @@ impl HttpMediaTypeWithQualityHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, mediatypewithqualityheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *mediatypewithqualityheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpMediaTypeWithQualityHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), mediatypewithqualityheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -2511,6 +2577,9 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpMediaTypeWithQualityHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpMediaTypeWithQualityHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -2642,6 +2711,9 @@ impl HttpMethodHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<super::HttpMethod>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
+        if core::mem::needs_drop::<Option<super::HttpMethod>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -2718,6 +2790,9 @@ impl HttpNameValueHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, namevalueheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *namevalueheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpNameValueHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), namevalueheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -2788,6 +2863,9 @@ impl HttpProductHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, productheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *productheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpProductHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), productheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -2858,6 +2936,9 @@ impl HttpProductInfoHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, productinfoheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *productinfoheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpProductInfoHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), productinfoheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -2986,6 +3067,9 @@ impl HttpProductInfoHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpProductInfoHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpProductInfoHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -3484,6 +3568,9 @@ impl HttpTransferCodingHeaderValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, transfercodingheadervalue: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *transfercodingheadervalue = unsafe { core::mem::zeroed() };
+        }
         Self::IHttpTransferCodingHeaderValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), transfercodingheadervalue as *mut _ as _, &mut result__).map(|| result__)
@@ -3612,6 +3699,9 @@ impl HttpTransferCodingHeaderValueCollection {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<HttpTransferCodingHeaderValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
+        if core::mem::needs_drop::<Option<HttpTransferCodingHeaderValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)

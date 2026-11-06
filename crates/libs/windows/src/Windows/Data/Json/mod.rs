@@ -364,6 +364,9 @@ impl JsonArray {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, result: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *result = unsafe { core::mem::zeroed() };
+        }
         Self::IJsonArrayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), result as *mut _ as _, &mut result__).map(|| result__)
@@ -491,6 +494,9 @@ impl JsonArray {
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<IJsonValue>]) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
+        if core::mem::needs_drop::<Option<IJsonValue>>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
@@ -633,6 +639,9 @@ impl JsonObject {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, result: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *result = unsafe { core::mem::zeroed() };
+        }
         Self::IJsonObjectStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), result as *mut _ as _, &mut result__).map(|| result__)
@@ -877,6 +886,9 @@ impl JsonValue {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, result: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *result = unsafe { core::mem::zeroed() };
+        }
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), result as *mut _ as _, &mut result__).map(|| result__)
