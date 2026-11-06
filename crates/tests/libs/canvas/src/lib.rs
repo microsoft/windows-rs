@@ -676,26 +676,6 @@ mod tests {
     }
 
     #[test]
-    fn rect_from_xywh_and_accessors() {
-        let rect = Rect::from_xywh(10.0, 20.0, 30.0, 40.0);
-        assert_eq!(rect.left, 10.0);
-        assert_eq!(rect.top, 20.0);
-        assert_eq!(rect.right, 40.0);
-        assert_eq!(rect.bottom, 60.0);
-        assert_eq!(rect.width(), 30.0);
-        assert_eq!(rect.height(), 40.0);
-
-        let moved = rect.offset(5.0, -8.0);
-        assert_eq!(moved.left, 15.0);
-        assert_eq!(moved.top, 12.0);
-        assert_eq!(moved.right, 45.0);
-        assert_eq!(moved.bottom, 52.0);
-        // Offset preserves size.
-        assert_eq!(moved.width(), rect.width());
-        assert_eq!(moved.height(), rect.height());
-    }
-
-    #[test]
     fn ellipse_new() {
         let e = Ellipse::new(Vector2::new(10.0, 20.0), 30.0, 40.0);
         assert_eq!(e.center.x, 10.0);
@@ -717,8 +697,6 @@ mod tests {
         let format = TextFormat::with_weight("Segoe UI", 18.0, CanvasFontWeight::BOLD)
             .unwrap()
             .with_paragraph_alignment(ParagraphAlignment::Center);
-
-        let _raw = format.raw();
 
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(128, 64).unwrap();
@@ -784,7 +762,6 @@ mod tests {
     fn device_accessors() {
         let device = GpuDevice::new_warp().unwrap();
         let _d2d_factory = device.d2d_factory();
-        let _dwrite = device.dwrite_factory();
     }
 
     #[test]
@@ -1094,77 +1071,6 @@ mod tests {
         let device = GpuDevice::new_warp().unwrap();
         assert!(device.create_render_target(0, 4).is_err());
         assert!(device.create_render_target(4, 0).is_err());
-    }
-
-    #[test]
-    fn text_layout_metrics() {
-        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
-        let layout = TextLayout::new("Hello, Canvas!", &format, 400.0, 200.0).unwrap();
-
-        assert_eq!(layout.max_size(), (400.0, 200.0));
-
-        let m = layout.metrics();
-        // Single, unwrapped line of non-empty text.
-        assert_eq!(m.line_count, 1);
-        assert!(m.width > 0.0);
-        assert!(m.height > 0.0);
-        // Trailing-whitespace width is never smaller than the inked width.
-        assert!(m.width_including_trailing_whitespace >= m.width);
-        assert_eq!(m.layout_width, 400.0);
-        assert_eq!(m.layout_height, 200.0);
-        assert_eq!(m.bounds().width(), m.width);
-        assert_eq!(m.bounds().height(), m.height);
-    }
-
-    #[test]
-    fn text_layout_wraps_when_narrow() {
-        let format = TextFormat::new("Segoe UI", 24.0)
-            .unwrap()
-            .with_word_wrapping(WordWrapping::Wrap);
-
-        let wide = TextLayout::new("word word word word word", &format, 1000.0, 500.0).unwrap();
-        assert_eq!(wide.metrics().line_count, 1);
-
-        let narrow = TextLayout::new("word word word word word", &format, 60.0, 500.0).unwrap();
-        assert!(narrow.metrics().line_count > 1);
-
-        // Reflow the wide layout by shrinking it in place.
-        wide.set_max_size(60.0, 500.0);
-        assert!(wide.metrics().line_count > 1);
-    }
-
-    #[test]
-    fn text_layout_no_wrap_stays_one_line() {
-        let format = TextFormat::new("Segoe UI", 24.0)
-            .unwrap()
-            .with_word_wrapping(WordWrapping::NoWrap);
-        let layout = TextLayout::new("word word word word word", &format, 40.0, 500.0).unwrap();
-        assert_eq!(layout.metrics().line_count, 1);
-    }
-
-    #[test]
-    fn text_layout_hit_test_point_and_caret() {
-        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
-        let layout = TextLayout::new("Hello", &format, 400.0, 200.0).unwrap();
-
-        let first = layout.hit_test_point(Vector2::new(0.0, 5.0));
-        assert_eq!(first.text_position, 0);
-        assert!(first.bounds.width() > 0.0);
-
-        let past = layout.hit_test_point(Vector2::new(1000.0, 1000.0));
-        assert!(!past.is_inside);
-
-        // The caret for a later position sits further right than the first, is a
-        // zero-width vertical line, and spans the line height.
-        let caret0 = layout.caret_bounds(0, false);
-        let caret3 = layout.caret_bounds(3, false);
-        assert!(caret3.left > caret0.left);
-        assert_eq!(caret0.width(), 0.0);
-        assert!(caret0.height() > 0.0);
-
-        // `trailing` moves the caret to the far edge of the character.
-        let caret0_trailing = layout.caret_bounds(0, true);
-        assert!(caret0_trailing.left > caret0.left);
     }
 
     #[test]

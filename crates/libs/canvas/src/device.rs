@@ -1,13 +1,12 @@
 use super::*;
 
-/// Shared Direct3D, Direct2D, DXGI, and DirectWrite device state.
+/// Shared Direct3D, Direct2D, and DXGI device state.
 #[derive(Clone)]
 pub struct GpuDevice {
     d3d_device: ID3D11Device,
     d2d_factory: ID2D1Factory1,
     d2d_device: ID2D1Device,
     dxgi_factory: IDXGIFactory2,
-    dwrite_factory: IDWriteFactory,
 }
 
 impl GpuDevice {
@@ -70,14 +69,11 @@ impl GpuDevice {
         let dxgi_adapter: IDXGIAdapter = unsafe { dxgi_device.GetAdapter()? };
         let dxgi_factory: IDXGIFactory2 = unsafe { dxgi_adapter.GetParent()? };
 
-        let dwrite_factory = dwrite_factory()?;
-
         Ok(Self {
             d3d_device,
             d2d_factory,
             d2d_device,
             dxgi_factory,
-            dwrite_factory,
         })
     }
 
@@ -146,10 +142,5 @@ impl GpuDevice {
     /// Returns the underlying DXGI factory for interop.
     pub fn dxgi_factory(&self) -> &IDXGIFactory2 {
         &self.dxgi_factory
-    }
-
-    /// Returns the underlying DirectWrite factory for interop.
-    pub fn dwrite_factory(&self) -> &IDWriteFactory {
-        &self.dwrite_factory
     }
 }

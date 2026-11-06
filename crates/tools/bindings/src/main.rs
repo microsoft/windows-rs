@@ -20,6 +20,7 @@ fn main() {
     bindgen(["--etc", "crates/tools/bindings/src/services.txt"]);
 
     bindgen(["--etc", "crates/tools/bindings/src/canvas.txt"]);
+    bindgen(["--etc", "crates/tools/bindings/src/text.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/animation.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/pickers.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/notifyicon.txt"]);

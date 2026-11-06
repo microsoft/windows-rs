@@ -56,6 +56,7 @@ links for API documentation and samples.
 | --- | --- |
 | [windows-reactor](../crates/libs/reactor/readme.md) | Declarative UI library backed by WinUI 3. |
 | [windows-canvas](../crates/libs/canvas/readme.md) | 2D graphics built on Direct2D. |
+| [windows-text](../crates/libs/text/readme.md) | Text layout and measurement built on DirectWrite. |
 | [windows-composition](../crates/libs/composition/readme.md) | Windows composition visuals. |
 | [windows-webview](../crates/libs/webview/readme.md) | Safe wrapper around the WebView2 browser control. |
 | [windows-window](../crates/libs/window/readme.md) | Window creation and message dispatch. |

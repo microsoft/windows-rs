@@ -83,6 +83,8 @@ jobs:
         run:  cargo check -p windows-services --all-features
       - name: Check windows-strings
         run:  cargo check -p windows-strings --all-features
+      - name: Check windows-text
+        run:  cargo check -p windows-text --all-features
       - name: Check windows-threading
         run:  cargo check -p windows-threading --all-features
       - name: Check windows-time

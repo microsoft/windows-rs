@@ -239,11 +239,12 @@ impl<'a> DrawingSession<'a> {
     /// Draws text into a layout rectangle measured in DIPs.
     pub fn draw_text(&self, text: &str, format: &TextFormat, rect: &Rect, brush: &impl Paint) {
         let wide: Vec<u16> = text.encode_utf16().collect();
+        let format: IDWriteTextFormat = format.to_interface().unwrap();
         unsafe {
             self.context.DrawText(
                 wide.as_ptr(),
                 wide.len().try_into().unwrap(),
-                format.raw(),
+                &format,
                 &rect.to_abi(),
                 brush.as_raw_brush(),
                 D2D1_DRAW_TEXT_OPTIONS_NONE,
@@ -257,10 +258,11 @@ impl<'a> DrawingSession<'a> {
     /// Prefer this over [`draw_text`](Self::draw_text) when the same text is
     /// drawn across frames: the layout is shaped once and reused.
     pub fn draw_text_layout(&self, origin: Vector2, layout: &TextLayout, brush: &impl Paint) {
+        let layout: IDWriteTextLayout = layout.to_interface().unwrap();
         unsafe {
             self.context.DrawTextLayout(
                 origin,
-                layout.raw(),
+                &layout,
                 brush.as_raw_brush(),
                 D2D1_DRAW_TEXT_OPTIONS_NONE,
             );
