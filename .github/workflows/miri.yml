@@ -47,7 +47,7 @@ jobs:
         with:
           key: miri-${{ matrix.target }}
       - name: Check metadata reader
-        run: cargo +nightly miri test --target ${{ matrix.target }} -p test_metadata --test reader in_memory_roundtrip -- --exact
+        run: cargo +nightly miri test --target ${{ matrix.target }} -p test_metadata --test reader -- in_memory_roundtrip boundaries
       - name: Check string literals and termination
         if: contains(matrix.target, 'windows')
         run: cargo +nightly miri test --target ${{ matrix.target }} -p test_strings --test literals --test encoding

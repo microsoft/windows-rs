@@ -2,8 +2,8 @@ use super::*;
 
 pub struct File {
     bytes: Vec<u8>,
-    strings: usize,
-    blobs: usize,
+    strings: std::ops::Range<usize>,
+    blobs: std::ops::Range<usize>,
     tables: [Table; 24],
 }
 
@@ -12,108 +12,110 @@ impl File {
         std::fs::read(path).ok().and_then(Self::new)
     }
 
+    /// Reads a PE metadata container, checking header, stream, and table extents.
+    ///
+    /// Malformed row contents or signatures can still panic during subsequent reads.
     pub fn new(bytes: Vec<u8>) -> Option<Self> {
         let mut result = Self {
             bytes,
-            strings: 0,
-            blobs: 0,
+            strings: 0..0,
+            blobs: 0..0,
             tables: Default::default(),
         };
 
         let dos = result.bytes.copy_as::<IMAGE_DOS_HEADER>(0)?;
+        let nt_offset = usize::try_from(dos.e_lfanew).ok()?;
 
         if dos.e_magic != IMAGE_DOS_SIGNATURE as u16
-            || result.bytes.copy_as::<u32>(dos.e_lfanew as usize)? != IMAGE_NT_SIGNATURE as u32
+            || result.bytes.copy_as::<u32>(nt_offset)? != IMAGE_NT_SIGNATURE as u32
         {
             return None;
         }
 
-        let file_offset = dos.e_lfanew as usize + size_of::<u32>();
+        let file_offset = nt_offset + size_of::<u32>();
         let file = result.bytes.copy_as::<IMAGE_FILE_HEADER>(file_offset)?;
 
         let optional_offset = file_offset + size_of::<IMAGE_FILE_HEADER>();
-
-        let (com_virtual_address, sections_offset) =
-            match result.bytes.copy_as::<u16>(optional_offset)? as i32 {
-                IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
-                    let optional = result
-                        .bytes
-                        .copy_as::<IMAGE_OPTIONAL_HEADER32>(optional_offset)?;
-                    (
-                        optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
-                            .VirtualAddress,
-                        optional_offset + size_of::<IMAGE_OPTIONAL_HEADER32>(),
-                    )
-                }
-                IMAGE_NT_OPTIONAL_HDR64_MAGIC => {
-                    let optional = result
-                        .bytes
-                        .copy_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset)?;
-                    (
-                        optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
-                            .VirtualAddress,
-                        optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(),
-                    )
-                }
-                _ => return None,
-            };
+        let sections_offset = optional_offset.checked_add(file.SizeOfOptionalHeader as usize)?;
+        let optional = result.bytes.get(optional_offset..sections_offset)?;
+        let (directories, directory_count) = match optional.copy_as::<u16>(0)? as i32 {
+            IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
+                let optional = optional.copy_as::<IMAGE_OPTIONAL_HEADER32>(0)?;
+                (optional.DataDirectory, optional.NumberOfRvaAndSizes)
+            }
+            IMAGE_NT_OPTIONAL_HDR64_MAGIC => {
+                let optional = optional.copy_as::<IMAGE_OPTIONAL_HEADER64>(0)?;
+                (optional.DataDirectory, optional.NumberOfRvaAndSizes)
+            }
+            _ => return None,
+        };
+        if directory_count <= IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as u32 {
+            return None;
+        }
+        let com = directories[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize];
+        if com.Size < size_of::<IMAGE_COR20_HEADER>() as u32 {
+            return None;
+        }
 
         let sections_len = file.NumberOfSections as usize * size_of::<IMAGE_SECTION_HEADER>();
         let sections = result
             .bytes
             .get(sections_offset..sections_offset.checked_add(sections_len)?)?;
 
-        let clr = result.bytes.copy_as::<IMAGE_COR20_HEADER>(offset_from_rva(
-            &section_from_rva(sections, com_virtual_address)?,
-            com_virtual_address,
-        ))?;
+        let clr_range = range_from_rva(sections, com.VirtualAddress, com.Size as usize)?;
+        let clr = result
+            .bytes
+            .get(clr_range)?
+            .copy_as::<IMAGE_COR20_HEADER>(0)?;
 
         if clr.cb != size_of::<IMAGE_COR20_HEADER>() as u32 {
             return None;
         }
 
-        let metadata_offset = offset_from_rva(
-            &section_from_rva(sections, clr.MetaData.VirtualAddress)?,
+        let metadata_range = range_from_rva(
+            sections,
             clr.MetaData.VirtualAddress,
-        );
-        let metadata = result.bytes.copy_as::<METADATA_HEADER>(metadata_offset)?;
+            clr.MetaData.Size as usize,
+        )?;
+        let metadata_offset = metadata_range.start;
+        let metadata = result.bytes.get(metadata_range)?;
 
-        if metadata.signature != METADATA_SIGNATURE {
+        if metadata.copy_as::<u32>(0)? != METADATA_SIGNATURE {
             return None;
         }
 
-        // `METADATA_HEADER` is variable-sized, so derive the stream offset from its encoded
-        // length.
-        let mut view = metadata_offset + metadata.length as usize + 20;
-        let mut tables_data: (usize, usize) = (0, 0);
+        let version_len = metadata.copy_as::<u32>(12)? as usize;
+        let mut view = version_len.checked_add(20)?;
+        let mut tables_data = None;
 
-        for _ in 0..result
-            .bytes
-            .copy_as::<u16>(metadata_offset + metadata.length as usize + 18)?
-        {
-            let stream_offset = result.bytes.copy_as::<u32>(view)? as usize;
-            let stream_len = result.bytes.copy_as::<u32>(view + 4)? as usize;
-            let stream_name = result.bytes.view_as_str(view + 8)?;
+        for _ in 0..metadata.copy_as::<u16>(view - 2)? {
+            let stream_offset = metadata.copy_as::<u32>(view)? as usize;
+            let stream_len = metadata.copy_as::<u32>(view + 4)? as usize;
+            let stream_end = stream_offset.checked_add(stream_len)?;
+            metadata.get(stream_offset..stream_end)?;
+            let range = metadata_offset + stream_offset..metadata_offset + stream_end;
+            let stream_name = metadata.view_as_str(view + 8)?;
             match stream_name {
-                b"#Strings" => result.strings = metadata_offset + stream_offset,
-                b"#Blob" => result.blobs = metadata_offset + stream_offset,
-                b"#~" => tables_data = (metadata_offset + stream_offset, stream_len),
+                b"#Strings" => result.strings = range,
+                b"#Blob" => result.blobs = range,
+                b"#~" => tables_data = Some(range),
                 b"#GUID" | b"#US" => {}
-                rest => panic!("{rest:?}"),
+                _ => return None,
             }
-            let mut padding = 4 - stream_name.len() % 4;
-            if padding == 0 {
-                padding = 4;
-            }
+            let padding = 4 - stream_name.len() % 4;
             view += 8 + stream_name.len() + padding;
+            metadata.get(..view)?;
         }
 
-        let heap_sizes = result.bytes.copy_as::<u8>(tables_data.0 + 6)?;
+        let tables_data = tables_data?;
+        let table_bytes = result.bytes.get(tables_data.clone())?;
+        table_bytes.get(..24)?;
+        let heap_sizes = table_bytes.copy_as::<u8>(6)?;
         let string_index_size = if (heap_sizes & 1) == 1 { 4 } else { 2 };
         let guid_index_size = if ((heap_sizes >> 1) & 1) == 1 { 4 } else { 2 };
         let blob_index_size = if ((heap_sizes >> 2) & 1) == 1 { 4 } else { 2 };
-        let valid_bits = result.bytes.copy_as::<u64>(tables_data.0 + 8)?;
-        view = tables_data.0 + 24;
+        let valid_bits = table_bytes.copy_as::<u64>(8)?;
+        view = 24;
 
         // These tables determine sizes and offsets for later tables.
         let unused_empty = Table::default();
@@ -139,7 +141,7 @@ impl File {
                 continue;
             }
 
-            let len = result.bytes.copy_as::<u32>(view)? as usize;
+            let len = table_bytes.copy_as::<u32>(view)? as usize;
             view += 4;
 
             match i {
@@ -181,7 +183,7 @@ impl File {
                 0x2a => result.tables[GenericParam::TABLE].len = len,
                 0x2b => unused_method_spec.len = len,
                 0x2c => unused_generic_param_constraint.len = len,
-                _ => unreachable!(),
+                _ => return None,
             };
         }
 
@@ -442,61 +444,70 @@ impl File {
         );
         result.tables[TypeSpec::TABLE].set_columns(blob_index_size, 0, 0, 0, 0, 0);
 
-        unused_module.set_data(&mut view);
-        result.tables[TypeRef::TABLE].set_data(&mut view);
-        result.tables[TypeDef::TABLE].set_data(&mut view);
-        result.tables[Field::TABLE].set_data(&mut view);
-        result.tables[MethodDef::TABLE].set_data(&mut view);
-        result.tables[MethodParam::TABLE].set_data(&mut view);
-        result.tables[InterfaceImpl::TABLE].set_data(&mut view);
-        result.tables[MemberRef::TABLE].set_data(&mut view);
-        result.tables[Constant::TABLE].set_data(&mut view);
-        result.tables[Attribute::TABLE].set_data(&mut view);
-        unused_field_marshal.set_data(&mut view);
-        unused_decl_security.set_data(&mut view);
-        result.tables[ClassLayout::TABLE].set_data(&mut view);
-        result.tables[FieldLayout::TABLE].set_data(&mut view);
-        unused_standalone_sig.set_data(&mut view);
-        result.tables[EventMap::TABLE].set_data(&mut view);
-        result.tables[Event::TABLE].set_data(&mut view);
-        result.tables[PropertyMap::TABLE].set_data(&mut view);
-        result.tables[Property::TABLE].set_data(&mut view);
-        result.tables[MethodSemantics::TABLE].set_data(&mut view);
-        unused_method_impl.set_data(&mut view);
-        result.tables[ModuleRef::TABLE].set_data(&mut view);
-        result.tables[TypeSpec::TABLE].set_data(&mut view);
-        result.tables[ImplMap::TABLE].set_data(&mut view);
-        unused_field_rva.set_data(&mut view);
-        result.tables[Assembly::TABLE].set_data(&mut view);
-        unused_assembly_processor.set_data(&mut view);
-        unused_assembly_os.set_data(&mut view);
-        unused_assembly_ref.set_data(&mut view);
-        unused_assembly_ref_processor.set_data(&mut view);
-        unused_assembly_ref_os.set_data(&mut view);
-        unused_file.set_data(&mut view);
-        unused_exported_type.set_data(&mut view);
-        unused_manifest_resource.set_data(&mut view);
-        result.tables[NestedClass::TABLE].set_data(&mut view);
-        result.tables[GenericParam::TABLE].set_data(&mut view);
+        view += tables_data.start;
+        unused_module.set_data(&mut view)?;
+        result.tables[TypeRef::TABLE].set_data(&mut view)?;
+        result.tables[TypeDef::TABLE].set_data(&mut view)?;
+        result.tables[Field::TABLE].set_data(&mut view)?;
+        result.tables[MethodDef::TABLE].set_data(&mut view)?;
+        result.tables[MethodParam::TABLE].set_data(&mut view)?;
+        result.tables[InterfaceImpl::TABLE].set_data(&mut view)?;
+        result.tables[MemberRef::TABLE].set_data(&mut view)?;
+        result.tables[Constant::TABLE].set_data(&mut view)?;
+        result.tables[Attribute::TABLE].set_data(&mut view)?;
+        unused_field_marshal.set_data(&mut view)?;
+        unused_decl_security.set_data(&mut view)?;
+        result.tables[ClassLayout::TABLE].set_data(&mut view)?;
+        result.tables[FieldLayout::TABLE].set_data(&mut view)?;
+        unused_standalone_sig.set_data(&mut view)?;
+        result.tables[EventMap::TABLE].set_data(&mut view)?;
+        result.tables[Event::TABLE].set_data(&mut view)?;
+        result.tables[PropertyMap::TABLE].set_data(&mut view)?;
+        result.tables[Property::TABLE].set_data(&mut view)?;
+        result.tables[MethodSemantics::TABLE].set_data(&mut view)?;
+        unused_method_impl.set_data(&mut view)?;
+        result.tables[ModuleRef::TABLE].set_data(&mut view)?;
+        result.tables[TypeSpec::TABLE].set_data(&mut view)?;
+        result.tables[ImplMap::TABLE].set_data(&mut view)?;
+        unused_field_rva.set_data(&mut view)?;
+        result.tables[Assembly::TABLE].set_data(&mut view)?;
+        unused_assembly_processor.set_data(&mut view)?;
+        unused_assembly_os.set_data(&mut view)?;
+        unused_assembly_ref.set_data(&mut view)?;
+        unused_assembly_ref_processor.set_data(&mut view)?;
+        unused_assembly_ref_os.set_data(&mut view)?;
+        unused_file.set_data(&mut view)?;
+        unused_exported_type.set_data(&mut view)?;
+        unused_manifest_resource.set_data(&mut view)?;
+        result.tables[NestedClass::TABLE].set_data(&mut view)?;
+        result.tables[GenericParam::TABLE].set_data(&mut view)?;
+        unused_method_spec.set_data(&mut view)?;
+        unused_generic_param_constraint.set_data(&mut view)?;
+        if view > tables_data.end {
+            return None;
+        }
 
         Some(result)
     }
 
     pub(crate) fn usize(&self, row: usize, table: usize, column: usize) -> usize {
         let table = &self.tables[table];
+        assert!(row < table.len, "metadata row is out of bounds");
         let column = &table.columns[column];
         let offset = table.offset + row * table.width + column.offset;
         match column.width {
-            1 => self.bytes.copy_as::<u8>(offset).map_or(0, |v| v as usize),
-            2 => self.bytes.copy_as::<u16>(offset).map_or(0, |v| v as usize),
-            4 => self.bytes.copy_as::<u32>(offset).map_or(0, |v| v as usize),
-            _ => self.bytes.copy_as::<u64>(offset).map_or(0, |v| v as usize),
+            1 => self.bytes.copy_as::<u8>(offset).unwrap() as usize,
+            2 => self.bytes.copy_as::<u16>(offset).unwrap() as usize,
+            4 => self.bytes.copy_as::<u32>(offset).unwrap() as usize,
+            8 => self.bytes.copy_as::<u64>(offset).unwrap() as usize,
+            _ => unreachable!(),
         }
     }
 
     pub(crate) fn str(&self, row: usize, table: usize, column: usize) -> &str {
-        let offset = self.strings + self.usize(row, table, column);
-        let bytes = &self.bytes[offset..];
+        let heap = &self.bytes[self.strings.clone()];
+        let offset = self.usize(row, table, column);
+        let bytes = &heap[offset..];
         let nul_pos = bytes
             .iter()
             .position(|&c| c == 0)
@@ -505,8 +516,9 @@ impl File {
     }
 
     pub(crate) fn blob(&self, row: usize, table: usize, column: usize) -> &[u8] {
-        let offset = self.blobs + self.usize(row, table, column);
-        let initial_byte = self.bytes[offset];
+        let heap = &self.bytes[self.blobs.clone()];
+        let offset = self.usize(row, table, column);
+        let initial_byte = heap[offset];
 
         let (blob_size, blob_size_bytes) = match initial_byte >> 5 {
             0..=3 => (initial_byte & 0x7f, 1),
@@ -517,12 +529,12 @@ impl File {
 
         let mut blob_size = blob_size as usize;
 
-        for byte in &self.bytes[offset + 1..offset + blob_size_bytes] {
+        for byte in &heap[offset + 1..offset + blob_size_bytes] {
             blob_size = blob_size.checked_shl(8).unwrap_or(0) + (*byte as usize);
         }
 
         let offset = offset + blob_size_bytes;
-        &self.bytes[offset..offset + blob_size]
+        &heap[offset..offset + blob_size]
     }
 
     pub(crate) fn list(
@@ -650,21 +662,29 @@ impl File {
     }
 }
 
-fn section_from_rva(sections: &[u8], rva: u32) -> Option<IMAGE_SECTION_HEADER> {
+fn range_from_rva(sections: &[u8], rva: u32, len: usize) -> Option<std::ops::Range<usize>> {
     sections
         .as_chunks::<{ size_of::<IMAGE_SECTION_HEADER>() }>()
         .0
         .iter()
         .find_map(|bytes| {
             let section = bytes.copy_as::<IMAGE_SECTION_HEADER>(0)?;
-            (rva >= section.VirtualAddress
-                && rva < section.VirtualAddress + unsafe { section.Misc.VirtualSize })
-            .then_some(section)
+            let virtual_end = section
+                .VirtualAddress
+                .checked_add(unsafe { section.Misc.VirtualSize })?;
+            if rva < section.VirtualAddress || rva >= virtual_end {
+                return None;
+            }
+            let relative = (rva - section.VirtualAddress) as usize;
+            let end = relative.checked_add(len)?;
+            if end > unsafe { section.Misc.VirtualSize } as usize
+                || end > section.SizeOfRawData as usize
+            {
+                return None;
+            }
+            let start = (section.PointerToRawData as usize).checked_add(relative)?;
+            Some(start..start.checked_add(len)?)
         })
-}
-
-fn offset_from_rva(section: &IMAGE_SECTION_HEADER, rva: u32) -> usize {
-    (rva - section.VirtualAddress + section.PointerToRawData) as usize
 }
 
 trait View {
@@ -677,14 +697,13 @@ impl View for [u8] {
     fn copy_as<T>(&self, offset: usize) -> Option<T> {
         self.is_proper_length::<T>(offset, 1)?;
 
-        // SAFETY: bounds verified by is_proper_length; T: Copy (as required by the trait
-        // definition) ensures the value can be bitwise-copied; read_unaligned handles any
-        // alignment of the source pointer.
+        // SAFETY: bounds are checked above. Callers use integers or integer-only PE headers,
+        // which accept all bit patterns; read_unaligned handles the byte buffer's alignment.
         Some(unsafe { (self[offset..].as_ptr() as *const T).read_unaligned() })
     }
 
     fn view_as_str(&self, offset: usize) -> Option<&[u8]> {
-        let buffer = &self[offset..];
+        let buffer = self.get(offset..)?;
         let pos = buffer.iter().position(|c| *c == b'\0')?;
         Some(&self[offset..offset + pos])
     }
@@ -731,12 +750,13 @@ impl Table {
         }
     }
 
-    fn set_data(&mut self, offset: &mut usize) {
+    fn set_data(&mut self, offset: &mut usize) -> Option<()> {
         if self.len != 0 {
-            let next = *offset + self.len * self.width;
+            let next = offset.checked_add(self.len.checked_mul(self.width)?)?;
             self.offset = *offset;
             *offset = next;
         }
+        Some(())
     }
 }
 
@@ -750,19 +770,6 @@ impl Column {
     fn new(offset: usize, width: usize) -> Self {
         Self { offset, width }
     }
-}
-
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-struct METADATA_HEADER {
-    signature: u32,
-    major_version: u16,
-    minor_version: u16,
-    reserved: u32,
-    length: u32,
-    version: [u8; 20],
-    flags: u16,
-    streams: u16,
 }
 
 const METADATA_SIGNATURE: u32 = 0x424A_5342;
