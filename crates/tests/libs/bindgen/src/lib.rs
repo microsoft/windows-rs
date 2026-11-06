@@ -17,6 +17,9 @@ mod abi_tests;
 #[cfg(test)]
 mod record_tests;
 
+#[cfg(all(test, windows))]
+mod ownership_tests;
+
 #[test]
 fn associated_enum_storage_and_sign_extension() {
     use associated_enum::*;

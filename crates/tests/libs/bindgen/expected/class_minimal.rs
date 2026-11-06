@@ -71,14 +71,15 @@ impl Class {
     pub fn Numbers() -> windows_core::Array<i32> {
         Self::IClassStatics(|this| {
             Ok(unsafe {
-                let mut result__ = core::mem::MaybeUninit::zeroed();
+                let mut result__ = core::ptr::null_mut();
+                let mut result_size__ = 0;
                 let hresult__ = (windows_core::Interface::vtable(this).Numbers)(
                     windows_core::Interface::as_raw(this),
-                    windows_core::Array::<i32>::set_abi_len(result__.assume_init_mut()),
-                    result__.as_mut_ptr() as *mut _ as _,
+                    &mut result_size__,
+                    &mut result__,
                 );
                 debug_assert!(hresult__.0 == 0);
-                result__.assume_init()
+                windows_core::Array::<i32>::from_raw_parts(result__.cast(), result_size__)
             })
         })
         .unwrap()

@@ -6,8 +6,9 @@ windows_core::imp::required_hierarchy!(ActionCatalog, super::super::super::Found
 impl ActionCatalog {
     pub fn GetAllActions(&self) -> windows_core::Result<windows_core::Array<ActionDefinition>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetAllActions)(windows_core::Interface::as_raw(self), windows_core::Array::<ActionDefinition>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetAllActions)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<ActionDefinition>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -27,23 +28,26 @@ impl ActionCatalog {
     pub fn GetActionsForInputs(&self, inputentities: &[Option<super::ActionEntity>]) -> windows_core::Result<windows_core::Array<ActionInstance>> {
         let this = &windows_core::Interface::cast::<IActionCatalog2>(self)?;
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetActionsForInputs)(windows_core::Interface::as_raw(this), inputentities.len().try_into().unwrap(), inputentities.as_ptr().cast(), windows_core::Array::<ActionInstance>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(this).GetActionsForInputs)(windows_core::Interface::as_raw(this), inputentities.len().try_into().unwrap(), inputentities.as_ptr().cast(), &mut result_size__, &mut result__).map(|| windows_core::Array::<ActionInstance>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     #[cfg(feature = "UI")]
     pub fn GetActionsForInputs2(&self, inputentities: &[Option<super::ActionEntity>], invokerwindowid: super::super::super::UI::WindowId) -> windows_core::Result<windows_core::Array<ActionInstance>> {
         let this = &windows_core::Interface::cast::<IActionCatalog2>(self)?;
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetActionsForInputs2)(windows_core::Interface::as_raw(this), inputentities.len().try_into().unwrap(), inputentities.as_ptr().cast(), invokerwindowid, windows_core::Array::<ActionInstance>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(this).GetActionsForInputs2)(windows_core::Interface::as_raw(this), inputentities.len().try_into().unwrap(), inputentities.as_ptr().cast(), invokerwindowid, &mut result_size__, &mut result__).map(|| windows_core::Array::<ActionInstance>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn GetActionsForCurrentApp(&self) -> windows_core::Result<windows_core::Array<ActionDefinition>> {
         let this = &windows_core::Interface::cast::<IActionCatalog3>(self)?;
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetActionsForCurrentApp)(windows_core::Interface::as_raw(this), windows_core::Array::<ActionDefinition>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(this).GetActionsForCurrentApp)(windows_core::Interface::as_raw(this), &mut result_size__, &mut result__).map(|| windows_core::Array::<ActionDefinition>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -95,20 +99,23 @@ impl ActionDefinition {
     }
     pub fn GetInputs(&self) -> windows_core::Result<windows_core::Array<ActionEntityRegistrationInfo>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetInputs)(windows_core::Interface::as_raw(self), windows_core::Array::<ActionEntityRegistrationInfo>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetInputs)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<ActionEntityRegistrationInfo>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn GetOutputs(&self) -> windows_core::Result<windows_core::Array<ActionEntityRegistrationInfo>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputs)(windows_core::Interface::as_raw(self), windows_core::Array::<ActionEntityRegistrationInfo>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetOutputs)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<ActionEntityRegistrationInfo>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn GetOverloads(&self) -> windows_core::Result<windows_core::Array<ActionOverload>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetOverloads)(windows_core::Interface::as_raw(self), windows_core::Array::<ActionOverload>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetOverloads)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<ActionOverload>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn DisplaysUI(&self) -> windows_core::Result<bool> {
@@ -295,8 +302,9 @@ impl ActionOverload {
     }
     pub fn GetInputs(&self) -> windows_core::Result<windows_core::Array<ActionEntityRegistrationInfo>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetInputs)(windows_core::Interface::as_raw(self), windows_core::Array::<ActionEntityRegistrationInfo>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetInputs)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<ActionEntityRegistrationInfo>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn InvokeAsync<P0>(&self, context: P0) -> windows_core::Result<windows_future::IAsyncAction>

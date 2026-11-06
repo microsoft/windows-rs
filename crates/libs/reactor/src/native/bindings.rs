@@ -21344,13 +21344,19 @@ impl IXamlMetadataProvider {
         &self,
     ) -> windows_core::Result<windows_core::Array<XmlnsDefinition>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
             (windows_core::Interface::vtable(self).GetXmlnsDefinitions)(
                 windows_core::Interface::as_raw(self),
-                windows_core::Array::<XmlnsDefinition>::set_abi_len(result__.assume_init_mut()),
-                result__.as_mut_ptr() as *mut _ as _,
+                &mut result_size__,
+                &mut result__,
             )
-            .map(|| result__.assume_init())
+            .map(|| {
+                windows_core::Array::<XmlnsDefinition>::from_raw_parts(
+                    result__.cast(),
+                    result_size__,
+                )
+            })
         }
     }
 }

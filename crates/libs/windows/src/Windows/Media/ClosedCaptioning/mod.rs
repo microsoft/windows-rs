@@ -288,8 +288,9 @@ impl ClosedCaptionTheme {
     }
     pub fn GetAvailableThemes() -> windows_core::Result<windows_core::Array<Self>> {
         Self::IClosedCaptionThemeStatics(|this| unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetAvailableThemes)(windows_core::Interface::as_raw(this), windows_core::Array::<Self>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(this).GetAvailableThemes)(windows_core::Interface::as_raw(this), &mut result_size__, &mut result__).map(|| windows_core::Array::<Self>::from_raw_parts(result__.cast(), result_size__))
         })
     }
     pub fn GetSelectedTheme() -> windows_core::Result<Self> {

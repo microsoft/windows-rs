@@ -54,8 +54,9 @@ impl INDClosedCaptionDataReceivedEventArgs {
     }
     pub fn ClosedCaptionData(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).ClosedCaptionData)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).ClosedCaptionData)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
 }
@@ -145,14 +146,16 @@ windows_core::imp::interface_hierarchy!(INDCustomData, windows_core::IUnknown, w
 impl INDCustomData {
     pub fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).CustomDataTypeID)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).CustomDataTypeID)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn CustomData(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).CustomData)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).CustomData)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
 }
@@ -588,8 +591,9 @@ impl INDLicenseFetchDescriptor {
     }
     pub fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).ContentID)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).ContentID)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData> {
@@ -1059,8 +1063,9 @@ windows_core::imp::interface_hierarchy!(INDSendResult, windows_core::IUnknown, w
 impl INDSendResult {
     pub fn Response(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).Response)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).Response)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
 }
@@ -1478,8 +1483,9 @@ impl INDTransmitterProperties {
     }
     pub fn SupportedFeatures(&self) -> windows_core::Result<windows_core::Array<NDCertificateFeature>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).SupportedFeatures)(windows_core::Interface::as_raw(self), windows_core::Array::<NDCertificateFeature>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).SupportedFeatures)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<NDCertificateFeature>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn SecurityLevel(&self) -> windows_core::Result<u32> {
@@ -1502,14 +1508,16 @@ impl INDTransmitterProperties {
     }
     pub fn ClientID(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).ClientID)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).ClientID)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn ModelDigest(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).ModelDigest)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).ModelDigest)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn ModelManufacturerName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2697,8 +2705,9 @@ impl IPlayReadySecureStopServiceRequest {
     }
     pub fn PublisherCertificate(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).PublisherCertificate)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).PublisherCertificate)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
@@ -3465,14 +3474,16 @@ windows_core::imp::interface_hierarchy!(NDCustomData, windows_core::IUnknown, wi
 impl NDCustomData {
     pub fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).CustomDataTypeID)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).CustomDataTypeID)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn CustomData(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).CustomData)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).CustomData)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn CreateInstance(customdatatypeidbytes: &[u8], customdatabytes: &[u8]) -> windows_core::Result<Self> {
@@ -3553,8 +3564,9 @@ impl NDLicenseFetchDescriptor {
     }
     pub fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).ContentID)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).ContentID)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData> {
@@ -3825,8 +3837,9 @@ impl PlayReadyContentHeader {
     }
     pub fn GetSerializedHeader(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetSerializedHeader)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetSerializedHeader)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn HeaderWithEmbeddedUpdates(&self) -> windows_core::Result<Self> {
@@ -3838,15 +3851,17 @@ impl PlayReadyContentHeader {
     pub fn KeyIds(&self) -> windows_core::Result<windows_core::Array<windows_core::GUID>> {
         let this = &windows_core::Interface::cast::<IPlayReadyContentHeader2>(self)?;
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).KeyIds)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::GUID>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(this).KeyIds)(windows_core::Interface::as_raw(this), &mut result_size__, &mut result__).map(|| windows_core::Array::<windows_core::GUID>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn KeyIdStrings(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IPlayReadyContentHeader2>(self)?;
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).KeyIdStrings)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::HSTRING>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(this).KeyIdStrings)(windows_core::Interface::as_raw(this), &mut result_size__, &mut result__).map(|| windows_core::Array::<windows_core::HSTRING>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn CreateInstanceFromWindowsMediaDrmHeader<P1, P2>(headerbytes: &[u8], licenseacquisitionurl: P1, licenseacquisitionuserinterfaceurl: P2, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<Self>
@@ -4375,8 +4390,9 @@ impl PlayReadyITADataGenerator {
         P2: windows_core::Param<super::super::super::Foundation::Collections::IPropertySet>,
     {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GenerateData)(windows_core::Interface::as_raw(self), guidcpsystemid, countofstreams, configuration.param().abi(), format, windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GenerateData)(windows_core::Interface::as_raw(self), guidcpsystemid, countofstreams, configuration.param().abi(), format, &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
 }
@@ -4907,8 +4923,9 @@ impl PlayReadyMeteringReportServiceRequest {
     }
     pub fn MeteringCertificate(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).MeteringCertificate)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).MeteringCertificate)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn SetMeteringCertificate(&self, meteringcertbytes: &[u8]) -> windows_core::Result<()> {
@@ -5215,8 +5232,9 @@ impl PlayReadySecureStopServiceRequest {
     }
     pub fn PublisherCertificate(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).PublisherCertificate)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).PublisherCertificate)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn CreateInstance(publishercertbytes: &[u8]) -> windows_core::Result<Self> {
@@ -5313,8 +5331,9 @@ windows_core::imp::interface_hierarchy!(PlayReadySoapMessage, windows_core::IUnk
 impl PlayReadySoapMessage {
     pub fn GetMessageBody(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetMessageBody)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetMessageBody)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]

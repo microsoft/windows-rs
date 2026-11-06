@@ -75,8 +75,9 @@ impl ISmsBinaryMessage {
     }
     pub fn GetData(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn SetData(&self, value: &[u8]) -> windows_core::Result<()> {
@@ -1506,8 +1507,9 @@ impl SmsBinaryMessage {
     }
     pub fn GetData(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn SetData(&self, value: &[u8]) -> windows_core::Result<()> {

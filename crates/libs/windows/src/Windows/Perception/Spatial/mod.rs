@@ -1589,8 +1589,9 @@ impl SpatialStageFrameOfReference {
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).TryGetMovementBounds)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), windows_core::Array::<windows_numerics::Vector3>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).TryGetMovementBounds)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result_size__, &mut result__).map(|| windows_core::Array::<windows_numerics::Vector3>::from_raw_parts(result__.cast(), result_size__))
         }
     }
     pub fn Current() -> windows_core::Result<Self> {
