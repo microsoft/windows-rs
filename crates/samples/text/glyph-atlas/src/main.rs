@@ -45,14 +45,16 @@ const ATLAS_SIZE: u32 = 1024;
 // The largest texture Direct3D 11 supports.
 const MAX_ATLAS_SIZE: u32 = 16384;
 
-// One rectangle to draw: where on the screen, which atlas texels, and the straight color. The
-// layout matches `Instance` in the shader.
+// One rectangle to draw: where on the screen, which atlas texels, the straight color, and the
+// enhanced contrast and ClearType level for its coverage. The layout matches `Instance` in the
+// shader.
 #[repr(C)]
 #[derive(Copy, Clone)]
 struct Instance {
     bounds: [f32; 4],
     texels: [f32; 4],
     color: [f32; 4],
+    coverage: [f32; 4],
 }
 
 #[derive(Copy, Clone, PartialEq)]
@@ -255,17 +257,26 @@ impl Atlas {
     fn build(
         &mut self,
         context: &ID3D11DeviceContext,
-        runs: &[GlyphRun],
-        decorations: &[Decoration],
+        layout: &Layout,
         origin: f32,
         scale: f32,
         mode: Mode,
+        params: &RenderingParams,
     ) -> std::result::Result<Vec<Instance>, AtlasFull> {
         let mut instances = Vec::new();
         let bgr = mode == Mode::ClearType { bgr: true };
         let cleartype = mode != Mode::Grayscale;
 
-        for run in runs {
+        // Color layers are always grayscale, so they keep the grayscale contrast in a ClearType
+        // frame.
+        let grayscale = [params.grayscale_enhanced_contrast, 1.0, 0.0, 0.0];
+        let text = if cleartype {
+            [params.enhanced_contrast, params.cleartype_level, 0.0, 0.0]
+        } else {
+            grayscale
+        };
+
+        for run in &layout.runs {
             let size = (run.font_size * scale).to_bits();
 
             for glyph in &run.glyphs {
@@ -292,7 +303,7 @@ impl Atlas {
 
                         if let Some(slot) = self.glyph(context, key, false)? {
                             let color = layer.color.unwrap_or(FOREGROUND);
-                            instances.push(glyph_instance(pen, slot, color));
+                            instances.push(glyph_instance(pen, slot, color, grayscale));
                         }
                     }
                 } else {
@@ -305,13 +316,13 @@ impl Atlas {
                     };
 
                     if let Some(slot) = self.glyph(context, key, bgr)? {
-                        instances.push(glyph_instance(pen, slot, FOREGROUND));
+                        instances.push(glyph_instance(pen, slot, FOREGROUND, text));
                     }
                 }
             }
         }
 
-        for decoration in decorations {
+        for decoration in &layout.decorations {
             let bounds = decoration.bounds;
             let left = (origin + bounds.left * scale).round();
             let top = (origin + bounds.top * scale).round();
@@ -322,6 +333,7 @@ impl Atlas {
                 bounds: [left, top, right - left, bottom - top],
                 texels: [0.0; 4],
                 color: FOREGROUND,
+                coverage: text,
             });
         }
 
@@ -371,7 +383,7 @@ fn create_atlas_texture(
     }
 }
 
-fn glyph_instance(pen: (f32, f32), slot: Slot, color: [f32; 4]) -> Instance {
+fn glyph_instance(pen: (f32, f32), slot: Slot, color: [f32; 4], coverage: [f32; 4]) -> Instance {
     Instance {
         bounds: [
             pen.0 + slot.left as f32,
@@ -386,6 +398,7 @@ fn glyph_instance(pen: (f32, f32), slot: Slot, color: [f32; 4]) -> Instance {
             slot.height as f32,
         ],
         color,
+        coverage,
     }
 }
 
@@ -613,8 +626,8 @@ fn create_device() -> Result<(ID3D11Device, ID3D11DeviceContext)> {
                 driver,
                 null_mut(),
                 0,
-                null(),
-                0,
+                &D3D_FEATURE_LEVEL_11_0,
+                1,
                 D3D11_SDK_VERSION as u32,
                 &mut device,
                 null_mut(),
@@ -812,14 +825,7 @@ impl State {
         // When the atlas fills up, start over with an empty one, which only has to hold the glyphs
         // of this frame. If they do not fit either, double the size of the atlas.
         let build = |atlas: &mut Atlas| {
-            atlas.build(
-                &renderer.context,
-                &layout.runs,
-                &layout.decorations,
-                origin,
-                scale,
-                mode,
-            )
+            atlas.build(&renderer.context, layout, origin, scale, mode, &self.params)
         };
 
         let mut flushed = false;
@@ -837,14 +843,9 @@ impl State {
 
         let build_time = start.elapsed();
 
-        let (contrast, level) = match mode {
-            Mode::Grayscale => (self.params.grayscale_enhanced_contrast, 1.0),
-            Mode::ClearType { .. } => (self.params.enhanced_contrast, self.params.cleartype_level),
-        };
-
-        let result = renderer.resize(width, height).and_then(|()| {
-            renderer.draw(&instances, [width as f32, height as f32, contrast, level])
-        });
+        let result = renderer
+            .resize(width, height)
+            .and_then(|()| renderer.draw(&instances, [width as f32, height as f32, 0.0, 0.0]));
 
         match result {
             Ok(()) => self.dirty = false,

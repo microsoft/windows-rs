@@ -22,6 +22,7 @@ fn main() {
             "D3DCompile",
             "D3D_DRIVER_TYPE_HARDWARE",
             "D3D_DRIVER_TYPE_WARP",
+            "D3D_FEATURE_LEVEL_11_0",
             "D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP",
             "DXGI_ERROR_DEVICE_REMOVED",
             "DXGI_ERROR_DEVICE_RESET",
