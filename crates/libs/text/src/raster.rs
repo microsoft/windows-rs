@@ -2,9 +2,9 @@ use super::*;
 use std::mem::{ManuallyDrop, transmute_copy};
 use std::slice::from_raw_parts;
 
-/// A glyph rasterized to grayscale coverage.
+/// A glyph rasterized to coverage.
 ///
-/// Returned by [`FontFace::rasterize`]. Bounds are in physical pixels relative to the pen
+/// Returned by [`FontFace::rasterize`] and [`FontFace::rasterize_cleartype`]. Bounds are in physical pixels relative to the pen
 /// position on the baseline, with y pointing down, so `top` is negative for ink above the
 /// baseline.
 #[derive(Clone, Debug, Default, PartialEq, Eq)]
@@ -18,7 +18,8 @@ pub struct GlyphImage {
     pub width: u32,
     /// Height of the image in pixels.
     pub height: u32,
-    /// Coverage from 0 to 255, one byte per pixel, in rows from the top without padding.
+    /// Coverage from 0 to 255 in rows from the top without padding. Grayscale images have one
+    /// byte per pixel; ClearType images have three, the red, green, and blue coverage.
     pub data: Vec<u8>,
 }
 
@@ -42,8 +43,8 @@ const FOREGROUND: u16 = 0xFFFF;
 /// The text rendering settings Windows applies when blending glyph coverage.
 ///
 /// Returned by [`RenderingParams::system`]. A renderer that blends coverage from
-/// [`FontFace::rasterize`] with these values matches the weight and contrast of native Windows
-/// text.
+/// [`FontFace::rasterize`] or [`FontFace::rasterize_cleartype`] with these values matches the
+/// weight and contrast of native Windows text.
 #[derive(Copy, Clone, Debug, PartialEq)]
 #[non_exhaustive]
 pub struct RenderingParams {
@@ -51,6 +52,34 @@ pub struct RenderingParams {
     pub gamma: f32,
     /// The contrast added to grayscale coverage before blending, where 0.0 adds none.
     pub grayscale_enhanced_contrast: f32,
+    /// The contrast added to ClearType coverage before blending, where 0.0 adds none.
+    pub enhanced_contrast: f32,
+    /// How much color ClearType adds, from 0.0 to 1.0. Below 1.0, mix each channel's coverage
+    /// with the average of the three: `level * channel + (1.0 - level) * average`.
+    pub cleartype_level: f32,
+    /// Whether the user has ClearType font smoothing turned on. Use
+    /// [`FontFace::rasterize_cleartype`] when it is on and the monitor has
+    /// [`Rgb`](PixelGeometry::Rgb) or [`Bgr`](PixelGeometry::Bgr) stripes, and
+    /// [`FontFace::rasterize`] otherwise.
+    pub cleartype: bool,
+    /// The order of the color stripes within the primary monitor's pixels.
+    pub pixel_geometry: PixelGeometry,
+}
+
+/// The order of the color stripes within a monitor's pixels.
+///
+/// ClearType images from [`FontFace::rasterize_cleartype`] are in red, green, blue order; swap
+/// the red and blue coverage when drawing to a [`Bgr`](Self::Bgr) monitor.
+#[derive(Copy, Clone, Debug, Default, PartialEq, Eq, Hash)]
+pub enum PixelGeometry {
+    /// The pixels have no stripes in a known order. Use [`FontFace::rasterize`] for such a
+    /// monitor even if ClearType is on.
+    #[default]
+    Flat,
+    /// Red, green, then blue from left to right.
+    Rgb,
+    /// Blue, green, then red from left to right.
+    Bgr,
 }
 
 impl RenderingParams {
@@ -59,13 +88,38 @@ impl RenderingParams {
         let params: IDWriteRenderingParams1 =
             unsafe { factory().CreateRenderingParams().unwrap().cast().unwrap() };
 
+        let pixel_geometry = match unsafe { params.GetPixelGeometry() } {
+            DWRITE_PIXEL_GEOMETRY_RGB => PixelGeometry::Rgb,
+            DWRITE_PIXEL_GEOMETRY_BGR => PixelGeometry::Bgr,
+            _ => PixelGeometry::Flat,
+        };
+
+        let cleartype = system_parameter(SPI_GETFONTSMOOTHING) != 0
+            && system_parameter(SPI_GETFONTSMOOTHINGTYPE) == FE_FONTSMOOTHINGCLEARTYPE as u32;
+
         unsafe {
             Self {
                 gamma: params.GetGamma(),
                 grayscale_enhanced_contrast: params.GetGrayscaleEnhancedContrast(),
+                enhanced_contrast: params.GetEnhancedContrast(),
+                cleartype_level: params.GetClearTypeLevel(),
+                cleartype,
+                pixel_geometry,
             }
         }
     }
+}
+
+fn system_parameter(action: i32) -> u32 {
+    let mut value = 0u32;
+
+    unsafe {
+        SystemParametersInfoW(action as u32, 0, &mut value as *mut u32 as _, 0)
+            .ok()
+            .unwrap();
+    }
+
+    value
 }
 
 impl FontFace {
@@ -81,6 +135,33 @@ impl FontFace {
     /// [`TextLayout::glyph_runs`]. A color glyph rasterizes as its outline; use
     /// [`color_layers`](Self::color_layers) to draw it in color.
     pub fn rasterize(&self, glyph: u16, size: f32, offset: Vector2) -> Option<GlyphImage> {
+        self.rasterize_with(glyph, size, offset, false)
+    }
+
+    /// Rasterizes `glyph` like [`rasterize`](Self::rasterize) but with ClearType antialiasing,
+    /// which uses the color stripes within each pixel to sharpen text. The image has three bytes
+    /// per pixel, the coverage of the red, green, and blue stripes. Blend each color channel
+    /// with its own coverage, swapping red and blue for a [`PixelGeometry::Bgr`] monitor.
+    ///
+    /// ClearType coverage can only be blended with an opaque background, so use
+    /// [`rasterize`](Self::rasterize) for text over transparent or animated content. Draw the
+    /// [`color_layers`](Self::color_layers) of a color glyph with [`rasterize`](Self::rasterize).
+    pub fn rasterize_cleartype(
+        &self,
+        glyph: u16,
+        size: f32,
+        offset: Vector2,
+    ) -> Option<GlyphImage> {
+        self.rasterize_with(glyph, size, offset, true)
+    }
+
+    fn rasterize_with(
+        &self,
+        glyph: u16,
+        size: f32,
+        offset: Vector2,
+        cleartype: bool,
+    ) -> Option<GlyphImage> {
         let run = self.run(&glyph, size);
         let mut bounds = RECT::default();
         let mut mode = DWRITE_RENDERING_MODE1::default();
@@ -108,6 +189,18 @@ impl FontFace {
             mode = DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC;
         }
 
+        let (antialias, texture) = if cleartype {
+            (
+                DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE,
+                DWRITE_TEXTURE_CLEARTYPE_3x1,
+            )
+        } else {
+            (
+                DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE,
+                DWRITE_TEXTURE_ALIASED_1x1,
+            )
+        };
+
         let analysis = unsafe {
             factory()
                 .CreateGlyphRunAnalysis(
@@ -116,7 +209,7 @@ impl FontFace {
                     mode,
                     DWRITE_MEASURING_MODE_NATURAL,
                     grid_fit,
-                    DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE,
+                    antialias,
                     offset.x,
                     offset.y,
                 )
@@ -125,7 +218,7 @@ impl FontFace {
 
         unsafe {
             analysis
-                .GetAlphaTextureBounds(DWRITE_TEXTURE_ALIASED_1x1, &mut bounds)
+                .GetAlphaTextureBounds(texture, &mut bounds)
                 .unwrap();
         }
 
@@ -135,12 +228,13 @@ impl FontFace {
 
         let width = (bounds.right - bounds.left) as u32;
         let height = (bounds.bottom - bounds.top) as u32;
-        let mut data = vec![0; width as usize * height as usize];
+        let channels = if cleartype { 3 } else { 1 };
+        let mut data = vec![0; width as usize * height as usize * channels];
 
         unsafe {
             analysis
                 .CreateAlphaTexture(
-                    DWRITE_TEXTURE_ALIASED_1x1,
+                    texture,
                     &bounds,
                     data.as_mut_ptr(),
                     data.len().try_into().unwrap(),

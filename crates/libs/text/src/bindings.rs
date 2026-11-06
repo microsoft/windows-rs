@@ -1,5 +1,6 @@
 windows_core::link!("dwrite.dll" "system" fn DWriteCreateFactory(factorytype : DWRITE_FACTORY_TYPE, iid : *const IID, factory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("kernel32.dll" "system" fn GetUserDefaultLocaleName(lplocalename : windows_core::PWSTR, cchlocalename : i32) -> i32);
+windows_core::link!("user32.dll" "system" fn SystemParametersInfoW(uiaction : UINT, uiparam : UINT, pvparam : PVOID, fwinini : UINT) -> windows_core::BOOL);
 pub type BYTE = u8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -195,6 +196,9 @@ pub type DWRITE_PARAGRAPH_ALIGNMENT = i32;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_CENTER: DWRITE_PARAGRAPH_ALIGNMENT = 2;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_FAR: DWRITE_PARAGRAPH_ALIGNMENT = 1;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_NEAR: DWRITE_PARAGRAPH_ALIGNMENT = 0;
+pub type DWRITE_PIXEL_GEOMETRY = i32;
+pub const DWRITE_PIXEL_GEOMETRY_BGR: DWRITE_PIXEL_GEOMETRY = 2;
+pub const DWRITE_PIXEL_GEOMETRY_RGB: DWRITE_PIXEL_GEOMETRY = 1;
 pub type DWRITE_READING_DIRECTION = i32;
 pub type DWRITE_RENDERING_MODE1 = i32;
 pub const DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC: DWRITE_RENDERING_MODE1 = 5;
@@ -211,12 +215,14 @@ pub struct DWRITE_STRIKETHROUGH {
     pub measuringMode: DWRITE_MEASURING_MODE,
 }
 pub const DWRITE_TEXTURE_ALIASED_1x1: DWRITE_TEXTURE_TYPE = 0;
+pub const DWRITE_TEXTURE_CLEARTYPE_3x1: DWRITE_TEXTURE_TYPE = 1;
 pub type DWRITE_TEXTURE_TYPE = i32;
 pub type DWRITE_TEXT_ALIGNMENT = i32;
 pub const DWRITE_TEXT_ALIGNMENT_CENTER: DWRITE_TEXT_ALIGNMENT = 2;
 pub const DWRITE_TEXT_ALIGNMENT_LEADING: DWRITE_TEXT_ALIGNMENT = 0;
 pub const DWRITE_TEXT_ALIGNMENT_TRAILING: DWRITE_TEXT_ALIGNMENT = 1;
 pub type DWRITE_TEXT_ANTIALIAS_MODE = i32;
+pub const DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE: DWRITE_TEXT_ANTIALIAS_MODE = 0;
 pub const DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE: DWRITE_TEXT_ANTIALIAS_MODE = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -260,6 +266,7 @@ pub const DWRITE_WORD_WRAPPING_NO_WRAP: DWRITE_WORD_WRAPPING = 1;
 pub const DWRITE_WORD_WRAPPING_WRAP: DWRITE_WORD_WRAPPING = 0;
 pub const E_NOT_SUFFICIENT_BUFFER: windows_core::HRESULT =
     windows_core::HRESULT(0x8007007A_u32 as _);
+pub const FE_FONTSMOOTHINGCLEARTYPE: i32 = 2;
 pub type FLOAT = f32;
 windows_core::imp::define_interface!(
     IDWriteColorGlyphRunEnumerator,
@@ -1720,14 +1727,36 @@ impl IDWriteRenderingParams {
             (windows_core::Interface::vtable(self).GetGamma)(windows_core::Interface::as_raw(self))
         }
     }
+    pub(crate) unsafe fn GetEnhancedContrast(&self) -> FLOAT {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetEnhancedContrast)(
+                windows_core::Interface::as_raw(self),
+            )
+        }
+    }
+    pub(crate) unsafe fn GetClearTypeLevel(&self) -> FLOAT {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetClearTypeLevel)(
+                windows_core::Interface::as_raw(self),
+            )
+        }
+    }
+    pub(crate) unsafe fn GetPixelGeometry(&self) -> DWRITE_PIXEL_GEOMETRY {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetPixelGeometry)(
+                windows_core::Interface::as_raw(self),
+            )
+        }
+    }
 }
 #[repr(C)]
 pub struct IDWriteRenderingParams_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetGamma: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
-    GetEnhancedContrast: usize,
-    GetClearTypeLevel: usize,
-    GetPixelGeometry: usize,
+    pub GetEnhancedContrast: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
+    pub GetClearTypeLevel: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
+    pub GetPixelGeometry:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_PIXEL_GEOMETRY,
     GetRenderingMode: usize,
 }
 windows_core::imp::define_interface!(
@@ -2530,6 +2559,7 @@ pub type INT16 = i16;
 pub type INT32 = i32;
 pub const LOCALE_NAME_MAX_LENGTH: i32 = 85;
 pub type LONG = i32;
+pub type PVOID = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
@@ -2538,6 +2568,9 @@ pub struct RECT {
     pub right: LONG,
     pub bottom: LONG,
 }
+pub const SPI_GETFONTSMOOTHING: i32 = 74;
+pub const SPI_GETFONTSMOOTHINGTYPE: i32 = 8202;
+pub type UINT = u32;
 pub type UINT16 = u16;
 pub type UINT32 = u32;
 pub type WCHAR = u16;
