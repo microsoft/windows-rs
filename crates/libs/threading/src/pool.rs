@@ -10,12 +10,11 @@ pub struct Pool(Box<TP_CALLBACK_ENVIRON_V3>);
 impl Pool {
     /// Creates a new `Pool` object.
     pub fn new() -> Self {
-        let mut e = TP_CALLBACK_ENVIRON_V3 {
-            Version: 3,
-            CallbackPriority: TP_CALLBACK_PRIORITY_NORMAL,
-            Size: size_of::<TP_CALLBACK_ENVIRON_V3>() as u32,
-            ..Default::default()
-        };
+        let mut e = environment(
+            core::ptr::null_mut(),
+            core::ptr::null_mut(),
+            Priority::Normal,
+        );
 
         unsafe {
             e.Pool = check_ptr(CreateThreadpool(core::ptr::null_mut()));
@@ -54,6 +53,22 @@ impl Pool {
             unsafe { submit_with_environment(&*self.0, f) },
             "allocation failed"
         );
+    }
+
+    /// Submits a closure to the thread pool with the given priority.
+    ///
+    /// The closure must be `Send + 'static`.
+    pub fn submit_with_priority<F: FnOnce() + Send + 'static>(&self, priority: Priority, f: F) {
+        // SAFETY: as for `submit`. The thread pool copies the environment, and the pool and
+        // cleanup group it refers to live until `Pool::drop` calls `join`.
+        assert!(
+            unsafe { submit_with_environment(&self.environment(priority), f) },
+            "allocation failed"
+        );
+    }
+
+    fn environment(&self, priority: Priority) -> TP_CALLBACK_ENVIRON_V3 {
+        environment(self.0.Pool, self.0.CleanupGroup, priority)
     }
 
     /// Create a scope for submitting closures.
@@ -130,6 +145,20 @@ impl<'scope, 'env> Scope<'scope, 'env> {
     pub fn submit<F: FnOnce() + Send + 'scope>(&'scope self, f: F) {
         assert!(
             unsafe { submit_with_environment(&*self.pool.0, f) },
+            "allocation failed"
+        );
+    }
+
+    /// Submits the closure to run on the `Pool` with the given priority.
+    ///
+    /// The closure cannot outlive the `Scope` it's run in.
+    pub fn submit_with_priority<F: FnOnce() + Send + 'scope>(
+        &'scope self,
+        priority: Priority,
+        f: F,
+    ) {
+        assert!(
+            unsafe { submit_with_environment(&self.pool.environment(priority), f) },
             "allocation failed"
         );
     }

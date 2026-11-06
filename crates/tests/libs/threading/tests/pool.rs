@@ -81,3 +81,85 @@ fn send_sync() {
     send(windows_threading::Pool::new());
     sync(windows_threading::Pool::new());
 }
+
+#[test]
+fn priority_order() {
+    use windows_threading::Priority;
+    let (gate_send, gate_recv) = std::sync::mpsc::channel::<()>();
+    let order = std::sync::Mutex::new(Vec::new());
+
+    let pool = windows_threading::Pool::new();
+    pool.set_thread_limits(1, 1);
+    pool.scope(|pool| {
+        // Occupy the only thread so the other callbacks queue up behind it.
+        pool.submit(move || gate_recv.recv().unwrap());
+        pool.submit_with_priority(Priority::Low, || {
+            order.lock().unwrap().push(Priority::Low);
+        });
+        pool.submit_with_priority(Priority::Normal, || {
+            order.lock().unwrap().push(Priority::Normal);
+        });
+        pool.submit_with_priority(Priority::High, || {
+            order.lock().unwrap().push(Priority::High);
+        });
+        gate_send.send(()).unwrap();
+    });
+
+    assert_eq!(
+        *order.lock().unwrap(),
+        [Priority::High, Priority::Normal, Priority::Low]
+    );
+}
+
+#[test]
+fn submit_with_priority() {
+    let (send, recv) = std::sync::mpsc::channel();
+
+    for priority in [
+        windows_threading::Priority::High,
+        windows_threading::Priority::Normal,
+        windows_threading::Priority::Low,
+    ] {
+        let send = send.clone();
+        windows_threading::submit_with_priority(priority, move || send.send(priority).unwrap());
+    }
+
+    let mut received: Vec<_> = (0..3).map(|_| recv.recv().unwrap()).collect();
+    received.sort_by_key(|priority| *priority as u8);
+    assert_eq!(
+        received,
+        [
+            windows_threading::Priority::High,
+            windows_threading::Priority::Normal,
+            windows_threading::Priority::Low
+        ]
+    );
+}
+
+#[test]
+fn submit_after() {
+    use std::time::{Duration, Instant};
+    let (send, recv) = std::sync::mpsc::channel();
+    let start = Instant::now();
+
+    for millis in [100, 0, 30] {
+        let send = send.clone();
+        windows_threading::submit_after(Duration::from_millis(millis), move || {
+            send.send((millis, start.elapsed())).unwrap();
+        });
+    }
+
+    let received: Vec<_> = (0..3).map(|_| recv.recv().unwrap()).collect();
+    assert_eq!(
+        received
+            .iter()
+            .map(|(millis, _)| *millis)
+            .collect::<Vec<_>>(),
+        [0, 30, 100]
+    );
+
+    // Allow for the coarse system clock that timers are scheduled against.
+    for (millis, elapsed) in received {
+        assert!(elapsed + Duration::from_millis(2) >= Duration::from_millis(millis));
+    }
+}

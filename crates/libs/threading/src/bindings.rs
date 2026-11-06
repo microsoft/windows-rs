@@ -1,15 +1,25 @@
 windows_link::link!("kernel32.dll" "system" fn CloseThreadpool(ptpp : PTP_POOL));
 windows_link::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroup(ptpcg : PTP_CLEANUP_GROUP));
 windows_link::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroupMembers(ptpcg : PTP_CLEANUP_GROUP, fcancelpendingcallbacks : BOOL, pvcleanupcontext : PVOID));
+windows_link::link!("kernel32.dll" "system" fn CloseThreadpoolTimer(pti : PTP_TIMER));
 windows_link::link!("kernel32.dll" "system" fn CreateThreadpool(reserved : PVOID) -> PTP_POOL);
 windows_link::link!("kernel32.dll" "system" fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP);
+windows_link::link!("kernel32.dll" "system" fn CreateThreadpoolTimer(pfnti : PTP_TIMER_CALLBACK, pv : PVOID, pcbe : PTP_CALLBACK_ENVIRON) -> PTP_TIMER);
 windows_link::link!("kernel32.dll" "system" fn GetCurrentThreadId() -> DWORD);
 windows_link::link!("kernel32.dll" "system" fn SetThreadpoolThreadMaximum(ptpp : PTP_POOL, cthrdmost : DWORD));
 windows_link::link!("kernel32.dll" "system" fn SetThreadpoolThreadMinimum(ptpp : PTP_POOL, cthrdmic : DWORD) -> BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetThreadpoolTimer(pti : PTP_TIMER, pftduetime : PFILETIME, msperiod : DWORD, mswindowlength : DWORD));
 windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : DWORD));
 windows_link::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(pfns : PTP_SIMPLE_CALLBACK, pv : PVOID, pcbe : PTP_CALLBACK_ENVIRON) -> BOOL);
 pub type BOOL = i32;
 pub type DWORD = u32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct FILETIME {
+    pub dwLowDateTime: DWORD,
+    pub dwHighDateTime: DWORD,
+}
+pub type PFILETIME = *mut FILETIME;
 pub type PTP_CALLBACK_ENVIRON = *mut TP_CALLBACK_ENVIRON_V3;
 pub type PTP_CALLBACK_INSTANCE = *mut _TP_CALLBACK_INSTANCE;
 pub type PTP_CLEANUP_GROUP = *mut _TP_CLEANUP_GROUP;
@@ -18,6 +28,10 @@ pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK =
 pub type PTP_POOL = *mut _TP_POOL;
 pub type PTP_SIMPLE_CALLBACK =
     Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: PVOID)>;
+pub type PTP_TIMER = *mut _TP_TIMER;
+pub type PTP_TIMER_CALLBACK = Option<
+    unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: PVOID, timer: PTP_TIMER),
+>;
 pub type PVOID = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -55,6 +69,8 @@ pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
     pub _bitfield: u32,
 }
 pub type TP_CALLBACK_PRIORITY = i32;
+pub const TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = 0;
+pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = 2;
 pub const TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = 1;
 pub type TP_VERSION = u32;
 #[repr(C)]
@@ -69,3 +85,6 @@ pub struct _TP_CLEANUP_GROUP(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct _TP_POOL(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _TP_TIMER(pub u8);
