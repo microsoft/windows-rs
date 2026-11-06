@@ -314,15 +314,13 @@ for reproducible bugs. Remove resolved entries rather than appending a history o
   observations; no published ntdll/offreg import depends on them. Publishing kernel exports such
   as `ClfsCreateMarshallingArea` or `IoSetFsTrackOffsetState` needs a separate home for kernel
   metadata, not a per-name or per-header preference.
-- Shared type traversal: compare `write_type_with_signature` in
-  `crates/libs/metadata/src/merge/mod.rs` with `write_type` in `merge/remap.rs`; keep signature and
-  nominal-reference handling consistent.
+- Shared type traversal: compare `write_type` in `crates/libs/metadata/src/merge/mod.rs` with
+  `Remapper::write_type` in `merge/remap.rs`; keep signature and nominal-reference handling
+  consistent.
 - SAL transport ownership: review the split between the producer in `crates/tools/win32/src/sal.h`
   and capture-time decoder in `crates/libs/clang/src/sal/transport.rs`; changes must keep them
   synchronized.
-- Small duplication candidates: local `combine` helpers in
-  `crates/libs/bindgen/src/types/interface.rs` and `cpp_interface.rs`, plus gradient-stop
-  construction in `crates/libs/canvas/src/session.rs`.
+- Small duplication candidate: gradient-stop construction in `crates/libs/canvas/src/session.rs`.
 - Public color value: `DARK_SLATE_BLUE` in `crates/libs/canvas/src/color.rs` does not match the CSS
   color of that name. Changing it needs a public-value decision, not a silent refactor.
 

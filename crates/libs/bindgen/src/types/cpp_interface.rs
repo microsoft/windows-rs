@@ -288,26 +288,19 @@ impl CppInterface {
                 let impl_name: TokenStream = format!("{}_Impl", self.def.name()).parse().unwrap();
 
                 let cfg = if config.bindgen.layout.is_package() {
-                    fn combine(
-                        interface: &CppInterface,
-                        dependencies: &mut TypeMap,
-                        config: &Config,
-                    ) {
-                        for method in &interface.get_methods(config) {
+                    let mut dependencies = self.dependencies(config.reader);
+                    let bases = base_interfaces.iter().filter_map(|ty| match ty {
+                        Type::CppInterface(ty) => Some(ty),
+                        _ => None,
+                    });
+
+                    for interface in std::iter::once(self).chain(bases) {
+                        for method in interface.get_methods(config) {
                             if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
                             }
                         }
                     }
-
-                    let mut dependencies = self.dependencies(config.reader);
-                    combine(self, &mut dependencies, config);
-
-                    base_interfaces.iter().for_each(|interface| {
-                        if let Type::CppInterface(ty) = interface {
-                            combine(ty, &mut dependencies, config);
-                        }
-                    });
 
                     Cfg::new(&dependencies, config).write(config, false)
                 } else {

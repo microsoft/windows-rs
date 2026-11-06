@@ -232,14 +232,7 @@ impl Remapper {
         }
 
         for field in def.fields() {
-            let field_def = file.Field(field.name(), &self.remap_type(&field.ty()), field.flags());
-            if let Some(offset) = field.offset() {
-                file.FieldLayout(field_def, offset);
-            }
-            if let Some(constant) = field.constant() {
-                file.Constant(writer::HasConstant::Field(field_def), &constant.value());
-            }
-            self.write_attributes(file, writer::HasAttribute::Field(field_def), field);
+            self.write_field(file, field);
         }
 
         let generics: Vec<_> = def
@@ -288,6 +281,17 @@ impl Remapper {
         for inner_def in index.nested(def) {
             self.write_type(file, index, inner_def, Some(type_def));
         }
+    }
+
+    fn write_field(&self, file: &mut writer::File, field: reader::Field) {
+        let field_def = file.Field(field.name(), &self.remap_type(&field.ty()), field.flags());
+        if let Some(offset) = field.offset() {
+            file.FieldLayout(field_def, offset);
+        }
+        if let Some(constant) = field.constant() {
+            file.Constant(writer::HasConstant::Field(field_def), &constant.value());
+        }
+        self.write_attributes(file, writer::HasAttribute::Field(field_def), field);
     }
 
     fn write_method(&self, file: &mut writer::File, method: reader::MethodDef, generics: &[Type]) {
@@ -349,15 +353,7 @@ impl Remapper {
             let type_def = file.TypeDef(namespace, "Apis", extends, template.flags());
 
             for field in fields.get(namespace).into_iter().flatten() {
-                let field_def =
-                    file.Field(field.name(), &self.remap_type(&field.ty()), field.flags());
-                if let Some(offset) = field.offset() {
-                    file.FieldLayout(field_def, offset);
-                }
-                if let Some(constant) = field.constant() {
-                    file.Constant(writer::HasConstant::Field(field_def), &constant.value());
-                }
-                self.write_attributes(file, writer::HasAttribute::Field(field_def), *field);
+                self.write_field(file, *field);
             }
 
             for method in methods.get(namespace).into_iter().flatten() {

@@ -55,16 +55,6 @@ mod type_closure;
 use method_names::*;
 use type_closure::*;
 
-fn report_timing(output: &Path, phase: &str, elapsed: std::time::Duration) {
-    if std::env::var_os("WINDOWS_BINDGEN_TIMINGS").is_some() {
-        eprintln!(
-            "windows-bindgen timing `{}` {phase}: {:.3} ms",
-            output.display(),
-            elapsed.as_secs_f64() * 1_000.0
-        );
-    }
-}
-
 /// Creates a new [`Bindgen`] builder for generating Windows API bindings.
 pub fn builder() -> Bindgen {
     Bindgen::new()
@@ -459,8 +449,6 @@ impl Bindgen {
     /// Generate the bindings.
     #[track_caller]
     pub fn write(&self) {
-        let total = std::time::Instant::now();
-
         // Validate before setting up reader and reference state.
         assert!(
             !self.output.as_os_str().is_empty(),
@@ -487,7 +475,6 @@ impl Bindgen {
         let sys = self.style.is_sys();
         let link = if sys { "windows_link" } else { "windows_core" };
 
-        let phase = std::time::Instant::now();
         let reader_storage;
         let reader = if self.input.is_empty() {
             default_reader(sys)
@@ -500,9 +487,7 @@ impl Bindgen {
             };
             &reader_storage
         };
-        report_timing(&self.output, "metadata", phase.elapsed());
 
-        let phase = std::time::Instant::now();
         let mut references: Vec<ReferenceStage> = Vec::new();
 
         if !sys {
@@ -595,9 +580,7 @@ impl Bindgen {
         });
 
         let references = References::new(reader, references);
-        report_timing(&self.output, "references", phase.elapsed());
 
-        let phase = std::time::Instant::now();
         let (filter, types) = {
             let mut all_parsed = Vec::new();
             for entry in &include {
@@ -630,9 +613,7 @@ impl Bindgen {
 
             (filter, types)
         };
-        report_timing(&self.output, "selection", phase.elapsed());
 
-        let phase = std::time::Instant::now();
         let derive = Derive::new(reader, &types, &derive_str);
         if let Some(implements) = &implements {
             filter.validate_implements(implements);
@@ -682,9 +663,7 @@ impl Bindgen {
         }
 
         let tree = TypeTree::new(&types, self.layout.is_flat());
-        report_timing(&self.output, "planning", phase.elapsed());
         config.write(tree);
-        report_timing(&self.output, "total", total.elapsed());
     }
 }
 
