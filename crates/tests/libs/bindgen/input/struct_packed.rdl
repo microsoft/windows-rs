@@ -1,0 +1,53 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[packed(1)]
+    struct Packed {
+        tag: u8,
+        bits: i32 {
+            Delta: 5,
+            Flag: 1,
+        },
+        pointer: *mut u32,
+    }
+
+    struct Padded {
+        tag: u8,
+        value: u32,
+    }
+
+    #[packed(1)]
+    #[align(8)]
+    struct Mixed {
+        tag: u8,
+        bits: i32 {
+            Delta: 5,
+            Flag: 1,
+        },
+        pointer: *mut u32,
+        nested: Padded,
+    }
+
+    #[packed(1)]
+    #[align(2)]
+    union MixedUnion {
+        bits: i32 {
+            Delta: 5,
+        },
+        pointer: *mut u32,
+    }
+}
+
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute AlignmentAttribute {
+                fn(#[in] alignment: i32);
+            }
+            attribute NativeBitfieldAttribute {
+                fn(#[in] name: String, #[in] offset: i64, #[in] length: i64);
+            }
+        }
+    }
+}

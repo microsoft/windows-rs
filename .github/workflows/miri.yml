@@ -51,9 +51,12 @@ jobs:
       - name: Check string literals and termination
         if: contains(matrix.target, 'windows')
         run: cargo +nightly miri test --target ${{ matrix.target }} -p test_strings --test literals --test encoding
-      - name: Check generated ABI and pointer provenance
+      - name: Check generated ABI, records, and pointer provenance
         if: contains(matrix.target, 'windows')
-        run: cargo +nightly miri test --target ${{ matrix.target }} -p test_bindgen --lib -- provenance_tests delegate_tests abi_tests
+        run: >-
+          cargo +nightly miri test --target ${{ matrix.target }} -p test_bindgen --lib --
+          provenance_tests delegate_tests abi_tests record_tests
+          bitfield_storage nested_member_alignment
       - name: Check scoped interface macro
         if: contains(matrix.target, 'windows')
         run: cargo +nightly miri test --target ${{ matrix.target }} -p test_interface --test non_com_new

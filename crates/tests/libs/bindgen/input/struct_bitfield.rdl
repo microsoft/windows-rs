@@ -22,6 +22,12 @@ mod Test {
             Flag: 1,
         },
     }
+    union Partial {
+        bits: u32 {
+            Low: 4,
+        },
+        byte: u8,
+    }
 }
 #[win32]
 mod Windows {

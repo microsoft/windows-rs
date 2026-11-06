@@ -30,6 +30,25 @@ impl Flags {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub union Partial {
+    pub bits: u32,
+    pub byte: u8,
+}
+impl Partial {
+    pub unsafe fn Low(&self) -> u32 {
+        (unsafe { self.bits }) & 15
+    }
+    pub unsafe fn set_Low(&mut self, value: u32) {
+        self.bits = ((unsafe { self.bits }) & !15) | (value & 15);
+    }
+}
+impl Default for Partial {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Signed {
     pub _bitfield: i32,

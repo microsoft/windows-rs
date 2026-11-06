@@ -318,6 +318,65 @@ fn missing_filter_file_panics() {
 }
 
 #[test]
+fn union_bitfields_require_unsafe() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("union_bitfields_require_unsafe");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    let output = scratch.join("bindings.rs");
+    let probe = scratch.join("probe.rs");
+    windows_rdl::reader()
+        .input("input/struct_bitfield.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for style in ["default", "minimal"] {
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&winmd)
+            .filter("Test.Partial")
+            .flat()
+            .output(&output);
+        if style == "minimal" {
+            builder.minimal();
+        }
+        builder.write();
+        for (method, body) in [
+            ("Low", "let value = Partial { byte: 7 }; value.Low();"),
+            (
+                "set_Low",
+                "let mut value = Partial { byte: 7 }; value.set_Low(3);",
+            ),
+        ] {
+            std::fs::write(
+                &probe,
+                format!("include!(\"bindings.rs\");\npub fn probe() {{ {body} }}\n"),
+            )
+            .unwrap();
+            let result = std::process::Command::new("rustc")
+                .args([
+                    "--crate-type=lib",
+                    "--edition=2024",
+                    "--emit=metadata",
+                    "-A",
+                    "nonstandard_style",
+                ])
+                .arg(&probe)
+                .arg("-o")
+                .arg(scratch.join("probe.rmeta"))
+                .output()
+                .unwrap();
+            let stderr = String::from_utf8_lossy(&result.stderr);
+            assert!(!result.status.success(), "{style}: {method} must be unsafe");
+            assert!(
+                stderr.contains("error[E0133]")
+                    && stderr.contains(&format!("Partial::{method}` is unsafe")),
+                "{style}: {stderr}"
+            );
+        }
+    }
+}
+
+#[test]
 #[should_panic(expected = "invalid option `--unknown`")]
 fn invalid_option_panics() {
     windows_bindgen::bindgen(["--unknown"]);
