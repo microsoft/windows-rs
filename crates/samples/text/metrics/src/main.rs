@@ -36,18 +36,15 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.draw_rect(&Rect::from_xywh(MARGIN, MARGIN, width, height), &frame, 1.0);
     ctx.draw_rect(&metrics.bounds().offset(MARGIN, MARGIN), &bounds, 1.5);
 
-    // Lines stack from the top of the text, each with its baseline below its top.
-    let mut top = metrics.top;
-
+    // Each line's baseline is below its top.
     for line in layout.line_metrics() {
-        let y = MARGIN + top + line.baseline;
+        let y = MARGIN + line.top + line.baseline;
         ctx.draw_line(
             Vector2::new(MARGIN, y),
             Vector2::new(MARGIN + width, y),
             &baseline,
             1.0,
         );
-        top += line.height;
     }
 
     let clusters = layout.cluster_metrics();

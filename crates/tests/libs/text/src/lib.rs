@@ -117,6 +117,8 @@ mod tests {
         assert!(!past.is_inside);
         assert!(past.is_trailing_hit);
         assert_eq!(past.text_position + past.length, 5);
+        assert_eq!(past.caret_position(), 5);
+        assert_eq!(first.caret_position(), 0);
 
         let caret0 = layout.caret_bounds(0, false);
         let caret3 = layout.caret_bounds(3, false);
@@ -418,6 +420,21 @@ mod tests {
         assert_eq!(bounds.len(), 2);
         assert!(bounds[0].top < bounds[1].top);
         assert_eq!(wrapped.range_bounds(1..3).len(), 1);
+
+        // Lines stack from the top of the text, which moves when the paragraph is centered.
+        let format = format.with_paragraph_alignment(ParagraphAlignment::Center);
+        let mut centered = TextLayout::new("aaaa bbbb cccc", &format, 120.0, 400.0).unwrap();
+        centered.set_font_size(5..9, 48.0);
+        let metrics = centered.metrics();
+        let lines = centered.line_metrics();
+        assert_eq!(lines.len(), 3);
+        assert!(metrics.top > 0.0);
+        assert_eq!(lines[0].top, metrics.top);
+        for line in &lines {
+            let caret = centered.caret_bounds(line.text_range.start, false);
+            assert!((caret.top - line.top).abs() < 0.01);
+        }
+        assert!(lines[1].height > lines[0].height);
     }
 
     #[test]
