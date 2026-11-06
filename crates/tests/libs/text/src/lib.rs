@@ -245,6 +245,18 @@ mod tests {
         };
         assert_eq!(width("iiii"), width("WWWW"));
 
+        // A collection without Consolas cannot supply it, so the text is no longer monospaced.
+        let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\segoeui.ttf").unwrap();
+        let collection = FontCollection::from_data([data.as_slice()]).unwrap();
+        let format = format.with_collection(&collection);
+        let width = |text| {
+            TextLayout::new(text, &format, 400.0, 200.0)
+                .unwrap()
+                .metrics()
+                .width
+        };
+        assert!(width("iiii") < width("WWWW") / 2.0);
+
         assert!(FontCollection::from_data([b"not a font".as_slice()]).is_err());
     }
 
@@ -267,6 +279,49 @@ mod tests {
             .with_style(FontStyle::Italic);
         let layout = TextLayout::new("Hi", &centered, 400.0, 200.0).unwrap();
         assert!(layout.metrics().left > 100.0);
+    }
+
+    #[test]
+    fn fallback_selects_preferred_family() {
+        const SNOWMAN: char = '\u{2603}';
+        let system = FontCollection::system();
+        let face = |family| {
+            system
+                .find(family, FontWeight::NORMAL, FontStyle::Normal)
+                .unwrap()
+        };
+        assert_eq!(face("Consolas").glyph_index(SNOWMAN), None);
+
+        let width = |fallback: Option<&FontFallback>| {
+            let mut format = TextFormat::new("Consolas", 100.0).unwrap();
+            if let Some(fallback) = fallback {
+                format = format.with_fallback(fallback);
+            }
+            TextLayout::new(&SNOWMAN.to_string(), &format, 1000.0, 1000.0)
+                .unwrap()
+                .metrics()
+                .width
+        };
+        let advance = |family| {
+            let face = face(family);
+            let glyph = face.glyph_index(SNOWMAN).unwrap();
+            face.glyph_metrics(glyph).advance_width as f32 * 100.0
+                / face.metrics().design_units_per_em as f32
+        };
+
+        // The character takes the advance of the first listed family that has it.
+        for family in ["Segoe UI Symbol", "Segoe UI Emoji"] {
+            let fallback = FontFallback::new(&system, &["No Such Family", family]);
+            assert!(
+                (width(Some(&fallback)) - advance(family)).abs() < 0.01,
+                "{family}"
+            );
+        }
+        assert_ne!(advance("Segoe UI Symbol"), advance("Segoe UI Emoji"));
+
+        // Families without the character leave it to the system fallback.
+        let fallback = FontFallback::new(&system, &["Consolas"]);
+        assert_eq!(width(Some(&fallback)), width(None));
     }
 
     #[test]
