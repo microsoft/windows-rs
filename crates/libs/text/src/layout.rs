@@ -173,8 +173,9 @@ impl TextLayout {
                 .HitTestPoint(point.x, point.y, &mut trailing, &mut inside, &mut m)
                 .unwrap();
         }
-        let start = self.offsets.utf8(m.textPosition);
-        let end = self.offsets.utf8(m.textPosition + m.length);
+        let mut cursor = self.offsets.cursor();
+        let start = cursor.utf8(m.textPosition);
+        let end = cursor.utf8(m.textPosition + m.length);
         HitTest {
             text_position: start,
             length: end - start,
@@ -225,17 +226,18 @@ impl TextLayout {
             self.raw.GetLineMetrics(buffer, len, count)
         });
 
-        let mut utf8 = self.offsets.utf8_cursor();
+        let mut cursor = self.offsets.cursor();
         let mut start = 0;
 
         lines
             .iter()
             .map(|line| {
                 let end = start + line.length;
-                let text_start = utf8(start);
-                let whitespace = utf8(end - line.trailingWhitespaceLength);
-                let newline = utf8(end - line.newlineLength);
-                let text_end = utf8(end);
+                let text_start = cursor.utf8(start);
+                // Trailing whitespace includes the newline.
+                let whitespace = cursor.utf8(end - line.trailingWhitespaceLength);
+                let newline = cursor.utf8(end - line.newlineLength);
+                let text_end = cursor.utf8(end);
                 start = end;
 
                 LineMetrics {
@@ -257,14 +259,14 @@ impl TextLayout {
             self.raw.GetClusterMetrics(buffer, len, count)
         });
 
-        let mut utf8 = self.offsets.utf8_cursor();
+        let mut cursor = self.offsets.cursor();
         let mut start = 0;
 
         clusters
             .iter()
             .map(|cluster| {
                 let end = start + u32::from(cluster.length);
-                let text_range = utf8(start)..utf8(end);
+                let text_range = cursor.utf8(start)..cursor.utf8(end);
                 start = end;
 
                 ClusterMetrics {
@@ -285,8 +287,8 @@ impl TextLayout {
     /// range has one zero-width rectangle at its position. Use this to draw a selection.
     pub fn range_bounds(&self, range: impl RangeBounds<usize>) -> Vec<Rect> {
         let range = self.offsets.range(range);
-        // A selection usually covers a few lines.
-        let hits = read_array(4, |buffer, len, count| unsafe {
+        // A selection usually covers a few lines, with more rectangles where direction changes.
+        let hits = read_array(16, |buffer, len, count| unsafe {
             self.raw.HitTestTextRange(
                 range.startPosition,
                 range.length,

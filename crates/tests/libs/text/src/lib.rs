@@ -459,6 +459,36 @@ mod tests {
             );
             left += cluster.width;
         }
+
+        // Wrapped lines and their glyph runs start beyond the first chunk.
+        let wrapped = TextLayout::new(&text, &format, 300.0, 1e6).unwrap();
+        let lines = wrapped.line_metrics();
+        assert!(lines.len() > 1);
+        let mut end = 0;
+        for line in &lines {
+            assert_eq!(line.text_range.start, end);
+            end = line.text_range.end;
+        }
+        assert_eq!(end, text.len());
+
+        let runs = wrapped.glyph_runs();
+        assert!(runs.len() > 1);
+        for run in &runs {
+            assert!(text.is_char_boundary(run.text_range.start));
+            assert!(text.is_char_boundary(run.text_range.end));
+            for glyph in &run.glyphs {
+                assert!(run.text_range.contains(&glyph.text_position));
+                assert!(
+                    expected
+                        .iter()
+                        .any(|&(start, _)| start == glyph.text_position)
+                );
+            }
+        }
+        let mut covered: Vec<_> = runs.iter().map(|run| run.text_range.clone()).collect();
+        covered.sort_by_key(|range| range.start);
+        assert_eq!(covered.first().unwrap().start, 0);
+        assert_eq!(covered.last().unwrap().end, text.len());
     }
 
     fn close(a: f32, b: f32) -> bool {

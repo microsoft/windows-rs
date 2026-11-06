@@ -70,6 +70,9 @@ pub(crate) struct Collector<'a> {
     offsets: &'a Offsets,
     runs: Option<Vec<GlyphRun>>,
     decorations: Option<Vec<Decoration>>,
+    // The face of the previous run and the face DirectWrite passed for it. Adjacent runs often
+    // share a face, which saves a query per run.
+    face: Option<(*mut c_void, FontFace)>,
 }
 
 impl<'a> Collector<'a> {
@@ -78,6 +81,7 @@ impl<'a> Collector<'a> {
             offsets,
             runs: Some(Vec::new()),
             decorations: None,
+            face: None,
         };
         collector.draw(layout);
         collector.runs.unwrap()
@@ -88,9 +92,22 @@ impl<'a> Collector<'a> {
             offsets,
             runs: None,
             decorations: Some(Vec::new()),
+            face: None,
         };
         collector.draw(layout);
         collector.decorations.unwrap()
+    }
+
+    // The cached face keeps its object alive, so a matching pointer is the same face.
+    fn font_face(&mut self, face: &IDWriteFontFace) -> FontFace {
+        match &self.face {
+            Some((raw, cached)) if *raw == face.as_raw() => cached.clone(),
+            _ => {
+                let cached = FontFace(face.cast().unwrap());
+                self.face = Some((face.as_raw(), cached.clone()));
+                cached
+            }
+        }
     }
 
     fn draw(&mut self, layout: &IDWriteTextLayout) {
@@ -106,6 +123,7 @@ impl<'a> Collector<'a> {
 
 fn glyph_run(
     text: &Offsets,
+    font_face: FontFace,
     origin: Vector2,
     run: &DWRITE_GLYPH_RUN,
     description: &DWRITE_GLYPH_RUN_DESCRIPTION,
@@ -151,6 +169,8 @@ fn glyph_run(
     let start = description.textPosition;
     let length = description.stringLength as usize;
     let map = unsafe { slice(description.clusterMap, length) };
+    let mut cursor = text.cursor();
+    let run_start = cursor.utf8(start);
     let mut position = 0;
 
     while position < length {
@@ -160,7 +180,7 @@ fn glyph_run(
             .position(|&glyph| glyph != first)
             .map_or(length, |len| position + len);
         let last = map.get(next).map_or(count, |&glyph| glyph as usize);
-        let text_position = text.utf8(start + position as u32);
+        let text_position = cursor.utf8(start + position as u32);
 
         for glyph in &mut glyphs[first as usize..last] {
             glyph.text_position = text_position;
@@ -170,11 +190,11 @@ fn glyph_run(
     }
 
     GlyphRun {
-        font_face: FontFace(run.fontFace.as_ref().unwrap().cast().unwrap()),
+        font_face,
         font_size: run.fontEmSize,
         baseline_origin: origin,
         is_right_to_left,
-        text_range: text.utf8(start)..text.utf8(start + length as u32),
+        text_range: run_start..cursor.utf8(start + length as u32),
         glyphs,
     }
 }
@@ -237,11 +257,13 @@ impl IDWriteTextRenderer_Impl for Renderer_Impl {
         _effect: Ref<IUnknown>,
     ) -> HRESULT {
         let collector = unsafe { collector(context) };
-        if let Some(runs) = &mut collector.runs {
+        if collector.runs.is_some() {
             let origin = Vector2::new(x, y);
             let (run, description) =
                 unsafe { (run.as_ref().unwrap(), description.as_ref().unwrap()) };
-            runs.push(glyph_run(collector.offsets, origin, run, description));
+            let face = collector.font_face(run.fontFace.as_ref().unwrap());
+            let run = glyph_run(collector.offsets, face, origin, run, description);
+            collector.runs.as_mut().unwrap().push(run);
         }
         HRESULT(0)
     }

@@ -1,0 +1,13 @@
+[package]
+name = "text-glyph-runs"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-canvas = { workspace = true, features = ["reactor"] }
+windows-reactor = { workspace = true }
+windows-text = { workspace = true }
+
+[lints]
+workspace = true
