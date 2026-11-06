@@ -122,7 +122,8 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let label_format = TextFormat::new("Segoe UI", 14.0)?;
 
     let format = TextFormat::new("Segoe UI", 32.0)?;
-    let mut layout = TextLayout::new(TEXT, &format, ctx.width - 2.0 * MARGIN, ctx.height)?;
+    let width = (ctx.width - 2.0 * MARGIN).max(0.0);
+    let mut layout = TextLayout::new(TEXT, &format, width, ctx.height)?;
     let underline = TEXT.find("underline").unwrap();
     layout.set_underline(underline..underline + "underline".len(), true);
     let height = layout.metrics().top + layout.metrics().height;

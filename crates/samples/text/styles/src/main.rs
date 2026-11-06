@@ -54,8 +54,8 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let mut layout = TextLayout::new(
         &text.text,
         &format,
-        ctx.width - 2.0 * MARGIN,
-        ctx.height - 2.0 * MARGIN,
+        (ctx.width - 2.0 * MARGIN).max(0.0),
+        (ctx.height - 2.0 * MARGIN).max(0.0),
     )?;
     layout.set_font_weight(bold, FontWeight::BOLD);
     layout.set_font_style(italic, FontStyle::Italic);

@@ -19,7 +19,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let dim = ctx.create_solid_brush(ColorF::from_rgb8(140, 150, 170))?;
     let accent = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
     let label_format = TextFormat::new("Segoe UI", 14.0)?;
-    let width = ctx.width - 2.0 * MARGIN;
+    let width = (ctx.width - 2.0 * MARGIN).max(0.0);
 
     // Consolas covers only a few scripts. The system fallback picks fonts for the rest, and a
     // custom fallback tries its own families first, here a monochrome emoji and a different

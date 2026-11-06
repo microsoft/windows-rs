@@ -102,8 +102,8 @@ fn draw(ctx: &DrawContext, pointer: Pointer) -> Result<()> {
     let layout = TextLayout::new(
         TEXT,
         &format,
-        ctx.width - 2.0 * MARGIN,
-        ctx.height - 3.0 * MARGIN,
+        (ctx.width - 2.0 * MARGIN).max(0.0),
+        (ctx.height - 3.0 * MARGIN).max(0.0),
     )?;
     let origin = Vector2::new(MARGIN, MARGIN);
 
@@ -149,7 +149,12 @@ fn draw(ctx: &DrawContext, pointer: Pointer) -> Result<()> {
         hit.text_position, hit.is_trailing_hit, hit.is_inside
     );
     let format = TextFormat::new("Consolas", 15.0)?;
-    let label = TextLayout::new(&summary, &format, ctx.width - 2.0 * MARGIN, MARGIN)?;
+    let label = TextLayout::new(
+        &summary,
+        &format,
+        (ctx.width - 2.0 * MARGIN).max(0.0),
+        MARGIN,
+    )?;
     ctx.draw_text_layout(Vector2::new(MARGIN, ctx.height - MARGIN), &label, &accent);
     Ok(())
 }

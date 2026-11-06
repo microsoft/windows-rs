@@ -24,8 +24,8 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let mut layout = TextLayout::new(
         TEXT,
         &format,
-        (ctx.width - 2.0 * MARGIN).min(640.0),
-        ctx.height - 3.0 * MARGIN,
+        (ctx.width - 2.0 * MARGIN).clamp(0.0, 640.0),
+        (ctx.height - 3.0 * MARGIN).max(0.0),
     )?;
     let bigger = TEXT.find("bigger").unwrap();
     layout.set_font_size(bigger..bigger + "bigger".len(), 48.0);
