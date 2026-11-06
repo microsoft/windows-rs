@@ -11,6 +11,11 @@
     CreateThreadpoolCleanupGroup
     CloseThreadpoolCleanupGroup
     CloseThreadpoolCleanupGroupMembers
+    TP_CALLBACK_PRIORITY_HIGH
+    TP_CALLBACK_PRIORITY_LOW
     TP_CALLBACK_PRIORITY_NORMAL
+    CreateThreadpoolTimer
+    SetThreadpoolTimer
+    CloseThreadpoolTimer
     GetCurrentThreadId
     Sleep

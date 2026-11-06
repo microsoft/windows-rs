@@ -30,8 +30,11 @@ assert_eq!(*total.lock().unwrap(), 45);
 | API | Behavior |
 | --- | --- |
 | `submit` | Submit a `'static` closure to the default pool without waiting. |
+| `submit_with_priority` | Submit to the default pool with a `Priority`. |
+| `submit_after` | Submit to the default pool once a `Duration` has elapsed. |
 | `for_each` | Process iterator items in parallel and wait for completion. |
 | `Pool::submit` | Submit a `'static` closure to a private pool. |
+| `Pool::submit_with_priority` | Submit to a private pool with a `Priority`; scopes have one too. |
 | `Pool::scope` | Submit borrowing closures and wait for the private pool. |
 | `Pool::join` | Wait for outstanding work on that pool. |
 
