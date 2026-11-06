@@ -645,6 +645,16 @@ mod tests {
     }
 
     #[test]
+    fn rasterize_small_glyph_is_not_antialiased_vertically() {
+        let face = face("Segoe UI");
+        let glyph = face.glyph_index('E').unwrap();
+        let whole = face.rasterize(glyph, 11.0, Vector2::zero()).unwrap();
+        let half = face.rasterize(glyph, 11.0, Vector2::new(0.0, 0.5)).unwrap();
+        assert_eq!(half.top, whole.top + 1);
+        assert_eq!(half.data, whole.data);
+    }
+
+    #[test]
     fn rasterize_space_is_empty() {
         let face = face("Segoe UI");
         let glyph = face.glyph_index(' ').unwrap();
@@ -682,6 +692,13 @@ mod tests {
             assert!(image.left + image.width as i32 <= base.left + base.width as i32 + 1);
             assert!(image.top + image.height as i32 <= base.top + base.height as i32 + 1);
         }
+    }
+
+    #[test]
+    fn rendering_params() {
+        let params = RenderingParams::system();
+        assert!(params.gamma > 0.0);
+        assert!(params.grayscale_enhanced_contrast >= 0.0);
     }
 
     #[test]
