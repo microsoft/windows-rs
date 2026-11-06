@@ -4,7 +4,9 @@
 --filter
     DWRITE_FACTORY_TYPE_SHARED
     DWRITE_FONT_STRETCH_NORMAL
+    DWRITE_FONT_STYLE_ITALIC
     DWRITE_FONT_STYLE_NORMAL
+    DWRITE_FONT_STYLE_OBLIQUE
     DWRITE_PARAGRAPH_ALIGNMENT_CENTER
     DWRITE_PARAGRAPH_ALIGNMENT_FAR
     DWRITE_PARAGRAPH_ALIGNMENT_NEAR
@@ -16,6 +18,24 @@
     DWRITE_TEXT_METRICS
     DWRITE_HIT_TEST_METRICS
     DWriteCreateFactory
-    IDWriteFactory::{CreateTextFormat, CreateTextLayout}
+    GetUserDefaultLocaleName
+    LOCALE_NAME_MAX_LENGTH
+    IDWriteFactory::{CreateTextFormat, CreateTextLayout, RegisterFontFileLoader}
+    IDWriteFactory2::{CreateFontFallbackBuilder, GetSystemFontFallback}
+    IDWriteFactory3::{CreateFontCollectionFromFontSet, GetSystemFontCollection}
+    IDWriteFactory5::{CreateFontSetBuilder, CreateInMemoryFontFileLoader}
+    IDWriteFont::CreateFontFace
+    IDWriteFontCollection::{FindFamilyName, GetFontFamily, GetFontFamilyCount}
+    IDWriteFontFace::{GetDesignGlyphMetrics, GetGlyphIndices}
+    IDWriteFontFace1::GetMetrics
+    IDWriteFontFace2::IsColorFont
+    IDWriteFontFace3::{GetFamilyNames, GetStyle, GetWeight}
+    IDWriteFontFallbackBuilder::{AddMapping, AddMappings, CreateFontFallback}
+    IDWriteFontFamily::{GetFamilyNames, GetFirstMatchingFont}
+    IDWriteFontSetBuilder::CreateFontSet
+    IDWriteFontSetBuilder1::AddFontFile
+    IDWriteInMemoryFontFileLoader::CreateInMemoryFontFileReference
+    IDWriteLocalizedStrings::{FindLocaleName, GetString, GetStringLength}
     IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment, SetWordWrapping}
+    IDWriteTextFormat1::SetFontFallback
     IDWriteTextLayout::{GetMetrics, HitTestPoint, HitTestTextPosition, GetMaxWidth, GetMaxHeight, SetMaxWidth, SetMaxHeight}

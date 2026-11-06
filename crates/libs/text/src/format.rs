@@ -1,5 +1,5 @@
 use super::*;
-use std::rc::Rc;
+use std::sync::Arc;
 
 /// Horizontal text alignment.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
@@ -38,67 +38,108 @@ pub enum WordWrapping {
     NoWrap,
 }
 
-/// A text format describing font family, size, weight, and alignment.
+/// A text format describing font family, size, weight, style, and alignment.
 ///
 /// Cloning is cheap and a clone is independent: the `with_*` methods on one value never change
 /// another. Layouts copy the format when they are created, so later changes do not affect them.
 #[derive(Clone)]
-pub struct TextFormat(Rc<Inner>);
+pub struct TextFormat(Arc<Inner>);
+
+struct Inner {
+    raw: IDWriteTextFormat1,
+    settings: Settings,
+}
+
+// The format is only changed while uniquely owned, so sharing it is safe. DirectWrite objects
+// are not tied to a thread.
+unsafe impl Send for Inner {}
+unsafe impl Sync for Inner {}
 
 #[derive(Clone)]
-struct Inner {
-    raw: IDWriteTextFormat,
+struct Settings {
     family: Vec<u16>,
     size: f32,
     weight: FontWeight,
+    style: FontStyle,
+    collection: Option<FontCollection>,
+    locale: Option<Vec<u16>>,
     alignment: TextAlignment,
     paragraph_alignment: ParagraphAlignment,
     word_wrapping: WordWrapping,
+    fallback: Option<FontFallback>,
 }
 
 impl TextFormat {
-    /// Creates a text format with normal weight.
+    /// Creates a text format with normal weight and style from the system fonts.
     pub fn new(family: &str, size: f32) -> Result<Self> {
-        Self::with_weight(family, size, FontWeight::NORMAL)
+        Self::create(family, size, FontWeight::NORMAL)
     }
 
-    /// Creates a text format with bold weight.
+    /// Creates a text format with bold weight and normal style from the system fonts.
     pub fn new_bold(family: &str, size: f32) -> Result<Self> {
-        Self::with_weight(family, size, FontWeight::BOLD)
+        Self::create(family, size, FontWeight::BOLD)
     }
 
-    /// Creates a text format with the given font weight.
-    pub fn with_weight(family: &str, size: f32, weight: FontWeight) -> Result<Self> {
-        let family: Vec<u16> = family.encode_utf16().chain(std::iter::once(0)).collect();
-        let raw = create(&family, size, weight)?;
-
-        Ok(Self(Rc::new(Inner {
-            raw,
-            family,
+    fn create(family: &str, size: f32, weight: FontWeight) -> Result<Self> {
+        let settings = Settings {
+            family: wide(family),
             size,
             weight,
+            style: FontStyle::Normal,
+            collection: None,
+            locale: None,
             alignment: TextAlignment::default(),
             paragraph_alignment: ParagraphAlignment::default(),
             word_wrapping: WordWrapping::default(),
-        })))
+            fallback: None,
+        };
+        let raw = settings.create()?;
+        Ok(Self(Arc::new(Inner { raw, settings })))
+    }
+
+    /// Sets the font weight.
+    pub fn with_weight(self, weight: FontWeight) -> Self {
+        self.recreate(|settings| settings.weight = weight)
+    }
+
+    /// Sets the font style.
+    pub fn with_style(self, style: FontStyle) -> Self {
+        self.recreate(|settings| settings.style = style)
+    }
+
+    /// Looks up the family in `collection` instead of the system fonts.
+    pub fn with_collection(self, collection: &FontCollection) -> Self {
+        self.recreate(|settings| settings.collection = Some(collection.clone()))
+    }
+
+    /// Sets the locale, such as `"en-us"`, used for language-specific shaping and line breaking.
+    /// The default is the user's locale.
+    pub fn with_locale(self, locale: &str) -> Self {
+        self.recreate(|settings| settings.locale = Some(wide(locale)))
     }
 
     /// Sets the horizontal text alignment.
     pub fn with_alignment(self, alignment: TextAlignment) -> Self {
-        self.update(|inner| inner.alignment = alignment)
+        self.update(|settings| settings.alignment = alignment)
     }
 
     /// Sets the vertical paragraph alignment.
     pub fn with_paragraph_alignment(self, alignment: ParagraphAlignment) -> Self {
-        self.update(|inner| inner.paragraph_alignment = alignment)
+        self.update(|settings| settings.paragraph_alignment = alignment)
     }
 
     /// Sets the word wrapping mode.
     pub fn with_word_wrapping(self, wrapping: WordWrapping) -> Self {
-        self.update(|inner| inner.word_wrapping = wrapping)
+        self.update(|settings| settings.word_wrapping = wrapping)
     }
 
-    /// Casts the underlying `IDWriteTextFormat` to `T`.
+    /// Sets the fonts to try for characters the format's font cannot display. The default is the
+    /// system fallback.
+    pub fn with_fallback(self, fallback: &FontFallback) -> Self {
+        self.update(|settings| settings.fallback = Some(fallback.clone()))
+    }
+
+    /// Casts the underlying `IDWriteTextFormat1` to `T`.
     ///
     /// Use this to pass the format to DirectWrite or Direct2D through your own bindings, such
     /// as the `windows` crate's `IDWriteTextFormat`. Treat the result as read-only.
@@ -110,57 +151,70 @@ impl TextFormat {
         &self.0.raw
     }
 
-    /// Applies `change` to this value, first giving it its own DirectWrite format if the current
-    /// one is shared with a clone.
-    fn update(mut self, change: impl FnOnce(&mut Inner)) -> Self {
-        if Rc::get_mut(&mut self.0).is_none() {
-            let mut inner = (*self.0).clone();
-            inner.raw = create(&inner.family, inner.size, inner.weight).unwrap();
-            self.0 = Rc::new(inner);
+    /// Changes a setting that DirectWrite fixes when it creates a format, so a new format is
+    /// needed.
+    fn recreate(self, change: impl FnOnce(&mut Settings)) -> Self {
+        let mut settings = self.0.settings.clone();
+        change(&mut settings);
+        let raw = settings.create().unwrap();
+        settings.apply(&raw);
+        Self(Arc::new(Inner { raw, settings }))
+    }
+
+    /// Changes a setting that an existing format can take, first giving this value its own
+    /// format if the current one is shared with a clone.
+    fn update(mut self, change: impl FnOnce(&mut Settings)) -> Self {
+        let Some(inner) = Arc::get_mut(&mut self.0) else {
+            return self.recreate(change);
+        };
+
+        change(&mut inner.settings);
+        inner.settings.apply(&inner.raw);
+        self
+    }
+}
+
+impl Settings {
+    fn create(&self) -> Result<IDWriteTextFormat1> {
+        let locale = self.locale.as_deref().unwrap_or(user_locale());
+
+        unsafe {
+            factory()
+                .CreateTextFormat(
+                    self.family.as_ptr(),
+                    self.collection.as_ref().map(|c| &**c.raw()),
+                    self.weight.0.into(),
+                    self.style.to_abi(),
+                    DWRITE_FONT_STRETCH_NORMAL,
+                    self.size,
+                    locale.as_ptr(),
+                )?
+                .cast()
         }
+    }
 
-        let inner = Rc::get_mut(&mut self.0).unwrap();
-        change(inner);
-
-        let alignment = match inner.alignment {
+    fn apply(&self, raw: &IDWriteTextFormat1) {
+        let alignment = match self.alignment {
             TextAlignment::Leading => DWRITE_TEXT_ALIGNMENT_LEADING,
             TextAlignment::Center => DWRITE_TEXT_ALIGNMENT_CENTER,
             TextAlignment::Trailing => DWRITE_TEXT_ALIGNMENT_TRAILING,
         };
-        let paragraph_alignment = match inner.paragraph_alignment {
+        let paragraph_alignment = match self.paragraph_alignment {
             ParagraphAlignment::Top => DWRITE_PARAGRAPH_ALIGNMENT_NEAR,
             ParagraphAlignment::Center => DWRITE_PARAGRAPH_ALIGNMENT_CENTER,
             ParagraphAlignment::Bottom => DWRITE_PARAGRAPH_ALIGNMENT_FAR,
         };
-        let word_wrapping = match inner.word_wrapping {
+        let word_wrapping = match self.word_wrapping {
             WordWrapping::Wrap => DWRITE_WORD_WRAPPING_WRAP,
             WordWrapping::NoWrap => DWRITE_WORD_WRAPPING_NO_WRAP,
         };
 
         unsafe {
-            inner.raw.SetTextAlignment(alignment).unwrap();
-            inner
-                .raw
-                .SetParagraphAlignment(paragraph_alignment)
+            raw.SetTextAlignment(alignment).unwrap();
+            raw.SetParagraphAlignment(paragraph_alignment).unwrap();
+            raw.SetWordWrapping(word_wrapping).unwrap();
+            raw.SetFontFallback(self.fallback.as_ref().map(FontFallback::raw))
                 .unwrap();
-            inner.raw.SetWordWrapping(word_wrapping).unwrap();
         }
-
-        self
-    }
-}
-
-/// Creates a DirectWrite format from a null-terminated family name.
-fn create(family: &[u16], size: f32, weight: FontWeight) -> Result<IDWriteTextFormat> {
-    unsafe {
-        factory().CreateTextFormat(
-            family.as_ptr(),
-            None,
-            weight.0.into(),
-            DWRITE_FONT_STYLE_NORMAL,
-            DWRITE_FONT_STRETCH_NORMAL,
-            size,
-            w!("en-us").as_ptr(),
-        )
     }
 }

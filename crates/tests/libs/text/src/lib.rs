@@ -41,7 +41,9 @@ mod tests {
     fn bold_is_wider_than_normal() {
         let normal = TextFormat::new("Segoe UI", 24.0).unwrap();
         let bold = TextFormat::new_bold("Segoe UI", 24.0).unwrap();
-        let light = TextFormat::with_weight("Segoe UI", 24.0, FontWeight::LIGHT).unwrap();
+        let light = TextFormat::new("Segoe UI", 24.0)
+            .unwrap()
+            .with_weight(FontWeight::LIGHT);
         let width = |f| {
             TextLayout::new("Weight", f, 400.0, 200.0)
                 .unwrap()
@@ -168,5 +170,207 @@ mod tests {
     #[should_panic]
     fn caret_bounds_rejects_non_boundary() {
         layout("\u{e9}").caret_bounds(1, false);
+    }
+    fn segoe() -> FontFace {
+        FontCollection::system()
+            .find("Segoe UI", FontWeight::NORMAL, FontStyle::Normal)
+            .unwrap()
+    }
+
+    #[test]
+    fn system_collection_finds_faces() {
+        let system = FontCollection::system();
+        let names = system.family_names();
+        assert!(names.iter().any(|name| name == "Segoe UI"));
+        assert!(
+            system
+                .find("No Such Family", FontWeight::NORMAL, FontStyle::Normal)
+                .is_none()
+        );
+
+        let bold = system
+            .find("segoe ui", FontWeight::BOLD, FontStyle::Italic)
+            .unwrap();
+        assert_eq!(bold.family_name(), "Segoe UI");
+        assert_eq!(bold.weight(), FontWeight::BOLD);
+        assert_eq!(bold.style(), FontStyle::Italic);
+        assert!(!bold.is_color_font());
+
+        // DirectWrite reuses face objects, so a face can key a cache.
+        assert_eq!(segoe(), segoe());
+        assert_ne!(segoe(), bold);
+        assert!(
+            system
+                .find("Segoe UI Emoji", FontWeight::NORMAL, FontStyle::Normal)
+                .unwrap()
+                .is_color_font()
+        );
+    }
+
+    #[test]
+    fn font_and_glyph_metrics() {
+        let face = segoe();
+        let metrics = face.metrics();
+        assert_eq!(metrics.design_units_per_em, 2048);
+        assert!(metrics.ascent > metrics.cap_height);
+        assert!(metrics.cap_height > metrics.x_height);
+        assert!(metrics.glyph_box_bottom < 0);
+
+        let w = face.glyph_index('W').unwrap();
+        let i = face.glyph_index('i').unwrap();
+        assert!(face.glyph_metrics(w).advance_width > face.glyph_metrics(i).advance_width);
+        assert_eq!(face.glyph_index('\u{10ffff}'), None);
+    }
+
+    #[test]
+    fn collection_from_data() {
+        let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\consola.ttf").unwrap();
+        let collection = FontCollection::from_data([data.as_slice()]).unwrap();
+        assert_eq!(collection.family_names(), ["Consolas"]);
+        assert!(
+            collection
+                .find("Segoe UI", FontWeight::NORMAL, FontStyle::Normal)
+                .is_none()
+        );
+
+        // A format that uses the collection lays out with its font: Consolas is monospaced.
+        let format = TextFormat::new("Consolas", 24.0)
+            .unwrap()
+            .with_collection(&collection);
+        let width = |text| {
+            TextLayout::new(text, &format, 400.0, 200.0)
+                .unwrap()
+                .metrics()
+                .width
+        };
+        assert_eq!(width("iiii"), width("WWWW"));
+
+        // A collection without Consolas cannot supply it, so the text is no longer monospaced.
+        let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\segoeui.ttf").unwrap();
+        let collection = FontCollection::from_data([data.as_slice()]).unwrap();
+        let format = format.with_collection(&collection);
+        let width = |text| {
+            TextLayout::new(text, &format, 400.0, 200.0)
+                .unwrap()
+                .metrics()
+                .width
+        };
+        assert!(width("iiii") < width("WWWW") / 2.0);
+
+        assert!(FontCollection::from_data([b"not a font".as_slice()]).is_err());
+    }
+
+    #[test]
+    fn format_style_and_locale() {
+        let width = |format: &TextFormat| {
+            TextLayout::new("Slanted text", format, 400.0, 200.0)
+                .unwrap()
+                .metrics()
+                .width
+        };
+        let normal = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let italic = normal.clone().with_style(FontStyle::Italic);
+        assert_ne!(width(&normal), width(&italic));
+
+        // Changing a setting fixed at creation keeps the other settings.
+        let centered = normal
+            .with_alignment(TextAlignment::Center)
+            .with_locale("en-gb")
+            .with_style(FontStyle::Italic);
+        let layout = TextLayout::new("Hi", &centered, 400.0, 200.0).unwrap();
+        assert!(layout.metrics().left > 100.0);
+    }
+
+    #[test]
+    fn fallback_selects_preferred_family() {
+        const SNOWMAN: char = '\u{2603}';
+        let system = FontCollection::system();
+        let face = |family| {
+            system
+                .find(family, FontWeight::NORMAL, FontStyle::Normal)
+                .unwrap()
+        };
+        assert_eq!(face("Consolas").glyph_index(SNOWMAN), None);
+
+        let width = |fallback: Option<&FontFallback>| {
+            let mut format = TextFormat::new("Consolas", 100.0).unwrap();
+            if let Some(fallback) = fallback {
+                format = format.with_fallback(fallback);
+            }
+            TextLayout::new(&SNOWMAN.to_string(), &format, 1000.0, 1000.0)
+                .unwrap()
+                .metrics()
+                .width
+        };
+        let advance = |family| {
+            let face = face(family);
+            let glyph = face.glyph_index(SNOWMAN).unwrap();
+            face.glyph_metrics(glyph).advance_width as f32 * 100.0
+                / face.metrics().design_units_per_em as f32
+        };
+
+        // The character takes the advance of the first listed family that has it.
+        for family in ["Segoe UI Symbol", "Segoe UI Emoji"] {
+            let fallback = FontFallback::new(&system, &["No Such Family", family]);
+            assert!(
+                (width(Some(&fallback)) - advance(family)).abs() < 0.01,
+                "{family}"
+            );
+        }
+        assert_ne!(advance("Segoe UI Symbol"), advance("Segoe UI Emoji"));
+
+        // Families without the character leave it to the system fallback.
+        let fallback = FontFallback::new(&system, &["Consolas"]);
+        assert_eq!(width(Some(&fallback)), width(None));
+    }
+
+    #[test]
+    fn shared_across_threads() {
+        let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\consola.ttf").unwrap();
+        let loaded = FontCollection::from_data([data.as_slice()]).unwrap();
+        let system = FontCollection::system();
+        let fallback = FontFallback::new(&system, &["Segoe UI Symbol"]);
+        let format = TextFormat::new("Consolas", 24.0)
+            .unwrap()
+            .with_collection(&loaded)
+            .with_fallback(&fallback);
+        let face = loaded
+            .find("Consolas", FontWeight::NORMAL, FontStyle::Normal)
+            .unwrap();
+
+        let work = |face: &FontFace| {
+            let glyph = face.glyph_index('W').unwrap();
+            let layout = TextLayout::new("\u{2603} snow", &format, 400.0, 200.0).unwrap();
+            (
+                face.metrics(),
+                face.glyph_metrics(glyph),
+                layout.metrics(),
+                system
+                    .find("Segoe UI", FontWeight::BOLD, FontStyle::Normal)
+                    .unwrap()
+                    .weight(),
+            )
+        };
+        let expected = work(&face);
+
+        // Use the same objects from several threads at once.
+        let barrier = std::sync::Barrier::new(8);
+        std::thread::scope(|scope| {
+            for _ in 0..8 {
+                scope.spawn(|| {
+                    barrier.wait();
+                    for _ in 0..50 {
+                        assert_eq!(work(&face), expected);
+                    }
+                });
+            }
+        });
+
+        // A layout can move to another thread.
+        let layout = TextLayout::new("snow", &format, 400.0, 200.0).unwrap();
+        let width = std::thread::spawn(move || layout.metrics().width)
+            .join()
+            .unwrap();
+        assert!(width > 0.0);
     }
 }
