@@ -118,3 +118,45 @@ impl Component for CanvasFixture {
             .into()
     }
 }
+
+/// A window whose view is the canvas component itself. It exits after drawing a frame.
+pub(super) struct CanvasRootFixture;
+
+impl Application for CanvasRootFixture {
+    type Input = ();
+    type Message = ();
+
+    fn create(_: &(), context: &ApplicationContext<Self>) -> Self {
+        context.show_window("main");
+        Self
+    }
+
+    fn update(&mut self, _: (), context: &ApplicationContext<Self>) {
+        context.exit();
+    }
+
+    fn view(&self, _: &(), context: &ApplicationViewContext<Self>) -> ApplicationView {
+        ApplicationView::new().window::<CanvasRootWindow>("main", context.message(()))
+    }
+}
+
+struct CanvasRootWindow;
+
+impl Component for CanvasRootWindow {
+    type Input = Callback<()>;
+    type Message = ();
+
+    fn create(_: &Callback<()>, _: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, drawn: &Callback<()>, context: &mut ViewContext<Self>) -> View {
+        context.window_title("Reactor UI fixture: canvas-root");
+        let drawn = drawn.clone();
+        animated_canvas_with_device(GpuDevice::new_warp().unwrap(), move |frame| {
+            frame.clear(ColorF::CORNFLOWER_BLUE);
+            drawn.call(());
+            Ok(())
+        })
+    }
+}
