@@ -1,9 +1,11 @@
 use super::*;
-use core::mem::{take, transmute_copy, zeroed};
+use core::mem::{take, transmute_copy};
 
 /// Converts values to Windows API output parameters.
 ///
 /// Implementations are provided for supported Windows types.
+/// Interface output storage is `&mut Option<T>`. Optional storage accepts `Some(&mut value)`
+/// or `None`, with the same cleanup as a non-optional output.
 pub trait OutParam<T: TypeKind, C = <T as TypeKind>::TypeKind>: Sized
 where
     T: Type<T>,
@@ -47,15 +49,16 @@ where
     }
 }
 
-impl<T> OutParam<T> for Option<&mut T>
+impl<'a, T> OutParam<T> for Option<&'a mut T::Default>
 where
     T: Type<T>,
+    &'a mut T::Default: OutParam<T>,
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {
         unsafe {
             match self {
-                Some(this) => transmute_copy(this),
-                None => zeroed(),
+                Some(this) => this.borrow_mut(),
+                None => OutRef::default(),
             }
         }
     }
