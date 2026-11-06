@@ -19,11 +19,13 @@ impl IWidget_Impl for Widget_Impl {
         ] {
             let mut fill = vec![HSTRING::new(); input.len()];
             let mut output = Array::new();
-            let returned = handler.Invoke(&input, &mut fill, &mut output)?;
-            check(output.as_slice() == input)?;
             let reversed: Vec<_> = input.iter().rev().cloned().collect();
-            check(fill == reversed)?;
-            check(returned.as_slice() == reversed)?;
+            for _ in 0..2 {
+                let returned = handler.Invoke(&input, &mut fill, &mut output)?;
+                check(output.as_slice() == input)?;
+                check(fill == reversed)?;
+                check(returned.as_slice() == reversed)?;
+            }
         }
         Ok(())
     }
@@ -49,11 +51,13 @@ impl IWidget_Impl for Widget_Impl {
         ] {
             let mut fill = vec![Entry::default(); input.len()];
             let mut output = Array::new();
-            let returned = handler.Invoke(&input, &mut fill, &mut output)?;
-            check(output.as_slice() == input)?;
             let reversed: Vec<_> = input.iter().rev().cloned().collect();
-            check(fill == reversed)?;
-            check(returned.as_slice() == reversed)?;
+            for _ in 0..2 {
+                let returned = handler.Invoke(&input, &mut fill, &mut output)?;
+                check(output.as_slice() == input)?;
+                check(fill == reversed)?;
+                check(returned.as_slice() == reversed)?;
+            }
         }
         Ok(())
     }

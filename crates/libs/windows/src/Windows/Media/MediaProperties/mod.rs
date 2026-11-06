@@ -109,6 +109,7 @@ impl AudioEncodingProperties {
     }
     pub fn GetFormatUserData(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAudioEncodingPropertiesWithFormatUserData>(self)?;
+        value.clear();
         unsafe { (windows_core::Interface::vtable(this).GetFormatUserData)(windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
     pub fn Properties(&self) -> windows_core::Result<MediaPropertySet> {
@@ -2305,6 +2306,7 @@ impl TimedMetadataEncodingProperties {
     }
     pub fn GetFormatUserData(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ITimedMetadataEncodingProperties>(self)?;
+        value.clear();
         unsafe { (windows_core::Interface::vtable(this).GetFormatUserData)(windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
     pub fn Copy(&self) -> windows_core::Result<Self> {
@@ -2438,6 +2440,7 @@ impl VideoEncodingProperties {
     }
     pub fn GetFormatUserData(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVideoEncodingProperties2>(self)?;
+        value.clear();
         unsafe { (windows_core::Interface::vtable(this).GetFormatUserData)(windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
     pub fn SetProfileId(&self, value: i32) -> windows_core::Result<()> {

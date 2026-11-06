@@ -196,6 +196,9 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
         &self,
         items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(
@@ -1177,6 +1180,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         first: &mut Option<Self>,
         second: &mut Option<Self>,
     ) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *first = unsafe { core::mem::zeroed() };
+        }
+        if core::mem::needs_drop::<Option<Self>>() {
+            *second = unsafe { core::mem::zeroed() };
+        }
         unsafe {
             (windows_core::Interface::vtable(self).Split)(
                 windows_core::Interface::as_raw(self),
@@ -1865,6 +1874,9 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
         items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
+        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(
@@ -2138,6 +2150,9 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
         startindex: u32,
         items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(
@@ -2722,6 +2737,9 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
         startindex: u32,
         items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+            items.fill_with(|| unsafe { core::mem::zeroed() });
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMany)(

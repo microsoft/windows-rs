@@ -1373,6 +1373,9 @@ impl IUpdateInstaller {
         }
     }
     pub fn AcquireUpdateListValidationInfo(&self, recipevalidationinfo: &mut windows_core::HSTRING) -> windows_core::Result<UpdateTaskResult> {
+        if core::mem::needs_drop::<windows_core::HSTRING>() {
+            *recipevalidationinfo = unsafe { core::mem::zeroed() };
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AcquireUpdateListValidationInfo)(windows_core::Interface::as_raw(self), recipevalidationinfo as *mut _ as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
