@@ -45,15 +45,13 @@ impl<I: Interface, F> DelegateBox<I, F> {
                 || *iid == <IUnknown as Interface>::IID
                 || *iid == <IAgileObject as Interface>::IID
             {
-                &mut (*this).vtable as *mut _ as _
+                // Later calls and the final Release need the whole allocation's provenance.
+                this.cast()
             } else {
                 #[cfg(windows)]
                 if *iid == <IMarshal as Interface>::IID {
                     (*this).count.add_ref();
-                    return marshaler(
-                        IUnknown::from_raw(&mut (*this).vtable as *mut _ as *mut c_void),
-                        interface,
-                    );
+                    return marshaler(IUnknown::from_raw(this.cast()), interface);
                 }
                 core::ptr::null_mut()
             };

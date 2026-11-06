@@ -32,6 +32,9 @@ fn associated_enum_native_calls() {
 mod com_results_tests;
 
 #[cfg(test)]
+mod delegate_tests;
+
+#[cfg(test)]
 mod provenance_tests;
 
 #[test]
