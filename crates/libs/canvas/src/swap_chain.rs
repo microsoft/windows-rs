@@ -2,7 +2,7 @@ use super::*;
 
 /// Manages a DXGI swap chain.
 pub struct SwapChain {
-    swap_chain: IDXGISwapChain1,
+    pub(crate) swap_chain: IDXGISwapChain1,
     d2d_context: ID2D1DeviceContext,
     device_lost_flag: Cell<bool>,
     width: u32,
@@ -138,8 +138,18 @@ impl SwapChain {
         Bitmap::load_from_file(&self.d2d_context, path.as_ref())
     }
 
-    pub fn raw_swap_chain(&self) -> &IDXGISwapChain1 {
-        &self.swap_chain
+    /// Borrows the underlying `IDXGISwapChain1` as `T` without a `QueryInterface` call.
+    ///
+    /// `T` is `IDXGISwapChain1` from other bindings, such as the `windows` crate; other
+    /// interfaces fail to build. Use [`to_interface`](Self::to_interface) to query for other
+    /// interfaces.
+    pub fn as_interface<T: Interface>(&self) -> &T {
+        self.swap_chain.as_interface()
+    }
+
+    /// Casts the underlying `IDXGISwapChain1` to `T`.
+    pub fn to_interface<T: Interface>(&self) -> Result<T> {
+        self.swap_chain.cast()
     }
 
     pub fn width(&self) -> u32 {

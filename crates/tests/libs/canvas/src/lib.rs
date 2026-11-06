@@ -4,8 +4,22 @@
 //! They require a GPU (hardware or WARP) to run.
 
 #[cfg(test)]
+#[allow(
+    dead_code,
+    non_camel_case_types,
+    non_snake_case,
+    non_upper_case_globals,
+    clippy::all
+)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "\\bindings.rs"));
+}
+
+#[cfg(test)]
 mod tests {
+    use super::bindings::*;
     use windows_canvas::*;
+    use windows_core::Interface;
     use windows_text::{ParagraphAlignment, TextAlignment, TextFormat, TextLayout, WordWrapping};
 
     fn ensure_com_initialized() {
@@ -766,12 +780,17 @@ mod tests {
     }
 
     #[test]
-    fn swap_chain_raw_and_load_bitmap() {
+    fn swap_chain_interop_and_load_bitmap() {
         ensure_com_initialized();
         let device = GpuDevice::new_warp().unwrap();
         let chain = device.create_swap_chain(64, 64).unwrap();
 
-        let _raw = chain.raw_swap_chain();
+        let borrowed: &IDXGISwapChain1 = chain.as_interface();
+        let queried: IDXGISwapChain1 = chain.to_interface().unwrap();
+        assert_eq!(borrowed.as_raw(), queried.as_raw());
+        let mut desc = DXGI_SWAP_CHAIN_DESC1::default();
+        unsafe { borrowed.GetDesc1(&mut desc).unwrap() };
+        assert_eq!((desc.Width, desc.Height), (64, 64));
 
         let bitmap = chain
             .load_bitmap(std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("test.png"))
@@ -780,12 +799,14 @@ mod tests {
     }
 
     #[test]
-    fn session_raw_and_create_brush() {
+    fn session_interop_and_create_brush() {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(64, 64).unwrap();
 
         let session = chain.begin_draw().unwrap();
-        let _raw = session.raw();
+        let context: &ID2D1DeviceContext = session.as_interface();
+        let size = unsafe { context.GetPixelSize() };
+        assert_eq!((size.width, size.height), (64, 64));
 
         // create_solid_brush on session (vs swap chain).
         let brush = session.create_solid_brush(ColorF::RED).unwrap();
@@ -796,7 +817,7 @@ mod tests {
     }
 
     #[test]
-    fn path_raw_accessor() {
+    fn path_interop() {
         let device = GpuDevice::new_warp().unwrap();
         let path = PathBuilder::new(&device)
             .unwrap()
@@ -806,7 +827,10 @@ mod tests {
             .build()
             .unwrap();
 
-        let _raw = path.raw();
+        let geometry: &ID2D1PathGeometry1 = path.as_interface();
+        let mut count = 0;
+        unsafe { geometry.GetFigureCount(&mut count).unwrap() };
+        assert_eq!(count, 1);
     }
 
     #[test]
@@ -939,7 +963,7 @@ mod tests {
     fn new_or_warp_produces_working_device() {
         let device = GpuDevice::new_or_warp().unwrap();
         let chain = device.create_swap_chain(64, 64).unwrap();
-        let _raw = chain.raw_swap_chain();
+        let _swap_chain: &IDXGISwapChain1 = chain.as_interface();
     }
 
     #[test]
@@ -973,7 +997,10 @@ mod tests {
         let outer = chain.begin_draw().unwrap();
 
         let offset = Matrix3x2::translation(10.0, 20.0);
-        let session = DrawingSession::from_borrowed_context(outer.raw(), offset);
+        let session = DrawingSession::from_borrowed_context(
+            outer.as_interface::<ID2D1DeviceContext>(),
+            offset,
+        );
 
         // The offset is applied to the context but hidden from callers: an
         // untouched session reports the identity transform even though the
@@ -1005,7 +1032,7 @@ mod tests {
             outer.clear(ColorF::BLACK);
             {
                 let session = DrawingSession::from_borrowed_context(
-                    outer.raw(),
+                    outer.as_interface::<ID2D1DeviceContext>(),
                     Matrix3x2::translation(0.0, 0.0),
                 );
                 session.clear(ColorF::CORNFLOWER_BLUE);

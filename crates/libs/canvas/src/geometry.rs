@@ -3,16 +3,25 @@ use super::*;
 /// A completed path geometry.
 #[derive(Clone)]
 pub struct Path {
-    raw: ID2D1PathGeometry1,
+    pub(crate) raw: ID2D1PathGeometry1,
 }
 
 /// Direct2D's default flattening tolerance for hit-testing and bounds queries.
 const DEFAULT_FLATTENING_TOLERANCE: f32 = 0.25;
 
 impl Path {
-    /// Returns the underlying Direct2D path geometry for interop.
-    pub fn raw(&self) -> &ID2D1PathGeometry1 {
-        &self.raw
+    /// Borrows the underlying `ID2D1PathGeometry1` as `T` without a `QueryInterface` call.
+    ///
+    /// `T` is `ID2D1PathGeometry1` from other bindings, such as the `windows` crate; other
+    /// interfaces fail to build. Use [`to_interface`](Self::to_interface) to query for other
+    /// interfaces.
+    pub fn as_interface<T: Interface>(&self) -> &T {
+        self.raw.as_interface()
+    }
+
+    /// Casts the underlying `ID2D1PathGeometry1` to `T`.
+    pub fn to_interface<T: Interface>(&self) -> Result<T> {
+        self.raw.cast()
     }
 
     /// Tests whether `point` lies inside the path's fill.

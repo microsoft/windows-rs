@@ -9,5 +9,8 @@ windows-canvas = { workspace = true }
 windows-core = { workspace = true }
 windows-text = { workspace = true }
 
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
 [lints]
 workspace = true

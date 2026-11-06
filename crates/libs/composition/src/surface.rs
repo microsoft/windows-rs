@@ -27,13 +27,14 @@ impl CompositionGraphicsDevice {
 
     /// Replaces the Direct2D or DXGI device backing this Composition graphics
     /// device while preserving its surfaces.
-    pub fn set_rendering_device(&self, rendering_device: &impl Interface) -> Result<()> {
+    ///
+    /// Convert the device from any bindings with `.into()`, such as `d2d_device.into()`.
+    pub fn set_rendering_device(&self, rendering_device: &windows_core::IUnknown) -> Result<()> {
         #[cfg(all(feature = "system", not(feature = "reactor")))]
         let interop: bindings::ICompositionGraphicsDeviceInterop = self.0.cast()?;
         #[cfg(feature = "reactor")]
         let interop: bindings::IMicrosoftCompositionGraphicsDeviceInterop = self.0.cast()?;
-        let device: windows_core::IUnknown = rendering_device.cast()?;
-        unsafe { interop.SetRenderingDevice(&device).ok() }
+        unsafe { interop.SetRenderingDevice(rendering_device).ok() }
     }
 }
 

@@ -36,12 +36,12 @@ impl GpuDevice {
         &self,
         compositor: &Compositor,
     ) -> Result<CompositionGraphicsDevice> {
-        compositor.create_graphics_device(self.d2d_device())
+        compositor.create_graphics_device(self.d2d_device().into())
     }
 
     /// Rebinds an existing Composition graphics device after Canvas device loss.
     pub fn replace_graphics_device(&self, graphics: &CompositionGraphicsDevice) -> Result<()> {
-        graphics.set_rendering_device(self.d2d_device())
+        graphics.set_rendering_device(self.d2d_device().into())
     }
 }
 

@@ -169,21 +169,24 @@ impl Compositor {
     }
 
     /// Creates a composition graphics device backed by a Direct2D or DXGI device.
+    ///
+    /// Convert the device from any bindings with `.into()`, such as `d2d_device.into()`.
     pub fn create_graphics_device(
         &self,
-        rendering_device: &impl Interface,
+        rendering_device: &windows_core::IUnknown,
     ) -> Result<CompositionGraphicsDevice> {
         #[cfg(all(feature = "system", not(feature = "reactor")))]
         let interop: bindings::ICompositorInterop = self.0.cast()?;
         #[cfg(feature = "reactor")]
         let interop: bindings::IMicrosoftCompositorInterop = self.0.cast()?;
-        let device: windows_core::IUnknown = rendering_device.cast()?;
         #[cfg(all(feature = "system", not(feature = "reactor")))]
-        let graphics = unsafe { interop.CreateGraphicsDevice(&device)? };
+        let graphics = unsafe { interop.CreateGraphicsDevice(rendering_device)? };
         #[cfg(feature = "reactor")]
         let graphics = unsafe {
             let mut graphics = core::ptr::null_mut();
-            interop.CreateGraphicsDevice(&device, &mut graphics).ok()?;
+            interop
+                .CreateGraphicsDevice(rendering_device, &mut graphics)
+                .ok()?;
             if graphics.is_null() {
                 return Err(windows_core::Error::from_hresult(
                     windows_core::imp::E_POINTER,
