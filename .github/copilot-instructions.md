@@ -334,7 +334,6 @@ for reproducible bugs. Remove resolved entries rather than appending a history o
 - SAL transport ownership: review the split between the producer in `crates/tools/win32/src/sal.h`
   and capture-time decoder in `crates/libs/clang/src/sal/transport.rs`; changes must keep them
   synchronized.
-- Small duplication candidate: gradient-stop construction in `crates/libs/canvas/src/session.rs`.
 - Public color value: `DARK_SLATE_BLUE` in `crates/libs/canvas/src/color.rs` does not match the CSS
   color of that name. Changing it needs a public-value decision, not a silent refactor.
 

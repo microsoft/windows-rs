@@ -15,6 +15,7 @@
     D2D1_FIGURE_END_CLOSED
     D2D1_FIGURE_END_OPEN
     D2D1_GRADIENT_STOP
+    IDWriteTextFormat1::{}
     ID2D1SimplifiedGeometrySink::{BeginFigure, EndFigure, Close}
     D2D1_BITMAP_OPTIONS_CANNOT_DRAW
     D2D1_BITMAP_OPTIONS_CPU_READ

@@ -158,6 +158,7 @@ impl Paint for RadialGradient {
 }
 
 /// A color stop along a gradient axis, where `position` is 0.0-1.0.
+#[repr(C)]
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GradientStop {
     pub position: f32,
@@ -170,13 +171,25 @@ impl GradientStop {
         Self { position, color }
     }
 
-    pub(crate) fn to_abi(self) -> D2D1_GRADIENT_STOP {
-        D2D1_GRADIENT_STOP {
-            position: self.position,
-            color: self.color.into(),
-        }
+    // Views `stops` as Direct2D gradient stops, which have the same layout.
+    pub(crate) fn as_abi(stops: &[Self]) -> &[D2D1_GRADIENT_STOP] {
+        unsafe { std::slice::from_raw_parts(stops.as_ptr().cast(), stops.len()) }
     }
 }
+
+const _: () = {
+    use std::mem::{align_of, offset_of, size_of};
+    assert!(size_of::<ColorF>() == size_of::<D2D1_COLOR_F>());
+    assert!(align_of::<ColorF>() == align_of::<D2D1_COLOR_F>());
+    assert!(offset_of!(ColorF, r) == offset_of!(D2D1_COLOR_F, r));
+    assert!(offset_of!(ColorF, g) == offset_of!(D2D1_COLOR_F, g));
+    assert!(offset_of!(ColorF, b) == offset_of!(D2D1_COLOR_F, b));
+    assert!(offset_of!(ColorF, a) == offset_of!(D2D1_COLOR_F, a));
+    assert!(size_of::<GradientStop>() == size_of::<D2D1_GRADIENT_STOP>());
+    assert!(align_of::<GradientStop>() == align_of::<D2D1_GRADIENT_STOP>());
+    assert!(offset_of!(GradientStop, position) == offset_of!(D2D1_GRADIENT_STOP, position));
+    assert!(offset_of!(GradientStop, color) == offset_of!(D2D1_GRADIENT_STOP, color));
+};
 
 /// Cap style applied to the start and end of stroked lines.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]

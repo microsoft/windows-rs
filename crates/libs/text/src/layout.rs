@@ -385,6 +385,15 @@ impl TextLayout {
         }
     }
 
+    /// Borrows the underlying `IDWriteTextLayout` as `T` without a `QueryInterface` call.
+    ///
+    /// `T` is `IDWriteTextLayout` from other bindings, such as the `windows` crate; other
+    /// interfaces fail to build. Use [`to_interface`](Self::to_interface) to query for other
+    /// interfaces.
+    pub fn as_interface<T: Interface>(&self) -> &T {
+        self.raw.as_interface()
+    }
+
     /// Casts the underlying `IDWriteTextLayout` to `T`.
     ///
     /// Use this to draw the layout with Direct2D or query DirectWrite through your own bindings,

@@ -2,6 +2,7 @@ use super::*;
 
 /// RGBA color with f32 components.
 #[doc(alias = "Color")]
+#[repr(C)]
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
 pub struct ColorF {
     /// Red component, in the range 0.0-1.0.
