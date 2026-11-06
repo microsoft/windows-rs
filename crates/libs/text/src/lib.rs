@@ -3,6 +3,7 @@
 #[expect(
     non_snake_case,
     non_camel_case_types,
+    non_upper_case_globals,
     clippy::upper_case_acronyms,
     clippy::too_many_arguments
 )]
@@ -14,6 +15,7 @@ mod format;
 mod glyph_run;
 mod layout;
 mod offsets;
+mod raster;
 mod types;
 
 use bindings::*;
@@ -27,6 +29,7 @@ pub use font::*;
 pub use format::*;
 pub use glyph_run::*;
 pub use layout::*;
+pub use raster::*;
 pub use types::*;
 
 pub use windows_core::Result;

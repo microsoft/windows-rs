@@ -601,6 +601,89 @@ mod tests {
         assert!(close(decorations[0].bounds.right, hebrew.right));
     }
 
+    fn face(family: &str) -> FontFace {
+        FontCollection::system()
+            .find(family, FontWeight::NORMAL, FontStyle::Normal)
+            .unwrap()
+    }
+
+    #[test]
+    fn rasterize_glyph() {
+        let face = face("Segoe UI");
+        let glyph = face.glyph_index('H').unwrap();
+        let image = face.rasterize(glyph, 32.0, Vector2::zero()).unwrap();
+        assert_eq!(image.data.len(), (image.width * image.height) as usize);
+
+        // The ink sits on the baseline and rises about a cap height above it.
+        let metrics = face.metrics();
+        let cap_height =
+            32.0 * f32::from(metrics.cap_height) / f32::from(metrics.design_units_per_em);
+        assert!((image.top as f32 + cap_height).abs() <= 1.0);
+        assert!((image.top + image.height as i32).abs() <= 1);
+        assert!(image.left >= 0);
+
+        // The stems are fully covered and the edges are antialiased.
+        assert!(image.data.contains(&255));
+        assert!(image.data.iter().any(|&a| a > 0 && a < 255));
+
+        let large = face.rasterize(glyph, 64.0, Vector2::zero()).unwrap();
+        assert!(large.height.abs_diff(image.height * 2) <= 2);
+    }
+
+    #[test]
+    fn rasterize_subpixel_offset() {
+        let face = face("Segoe UI");
+        let glyph = face.glyph_index('l').unwrap();
+        let whole = face.rasterize(glyph, 16.0, Vector2::zero()).unwrap();
+        let half = face.rasterize(glyph, 16.0, Vector2::new(0.5, 0.0)).unwrap();
+        assert_ne!(whole.data, half.data);
+
+        let shifted = face.rasterize(glyph, 16.0, Vector2::new(3.0, 2.0)).unwrap();
+        assert_eq!(shifted.left, whole.left + 3);
+        assert_eq!(shifted.top, whole.top + 2);
+        assert_eq!(shifted.data, whole.data);
+    }
+
+    #[test]
+    fn rasterize_space_is_empty() {
+        let face = face("Segoe UI");
+        let glyph = face.glyph_index(' ').unwrap();
+        assert_eq!(face.rasterize(glyph, 32.0, Vector2::zero()), None);
+    }
+
+    #[test]
+    fn color_layers() {
+        let text = face("Segoe UI");
+        assert_eq!(text.color_layers(text.glyph_index('A').unwrap()), None);
+
+        let emoji = face("Segoe UI Emoji");
+        let glyph = emoji.glyph_index('\u{1F600}').unwrap();
+        let layers = emoji.color_layers(glyph).unwrap();
+        assert!(layers.len() > 1);
+        assert!(layers.iter().all(|layer| layer.glyph != glyph));
+        assert!(layers.iter().any(|layer| layer.color.is_some()));
+
+        for layer in &layers {
+            if let Some(color) = layer.color {
+                assert!(color.iter().all(|c| (0.0..=1.0).contains(c)));
+            }
+        }
+
+        let base = emoji.rasterize(glyph, 32.0, Vector2::zero()).unwrap();
+        let painted = layers
+            .iter()
+            .filter_map(|layer| emoji.rasterize(layer.glyph, 32.0, Vector2::zero()))
+            .collect::<Vec<_>>();
+        assert!(!painted.is_empty());
+
+        // Every layer lies within the base glyph's outline.
+        for image in &painted {
+            assert!(image.left >= base.left - 1 && image.top >= base.top - 1);
+            assert!(image.left + image.width as i32 <= base.left + base.width as i32 + 1);
+            assert!(image.top + image.height as i32 <= base.top + base.height as i32 + 1);
+        }
+    }
+
     #[test]
     fn shared_across_threads() {
         let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\consola.ttf").unwrap();

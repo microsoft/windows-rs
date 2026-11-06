@@ -5,7 +5,13 @@
     Windows.Win32.IDWriteTextRenderer
 
 --filter
+    DWRITE_E_NOCOLOR
     DWRITE_FACTORY_TYPE_SHARED
+    DWRITE_GRID_FIT_MODE_DEFAULT
+    DWRITE_MEASURING_MODE_NATURAL
+    DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC
+    DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE
+    DWRITE_TEXTURE_ALIASED_1x1
     DWRITE_FONT_STRETCH_NORMAL
     DWRITE_FONT_STYLE_ITALIC
     DWRITE_FONT_STYLE_NORMAL
@@ -29,9 +35,10 @@
     GetUserDefaultLocaleName
     LOCALE_NAME_MAX_LENGTH
     IDWriteFactory::{CreateTextFormat, CreateTextLayout, CreateTypography, RegisterFontFileLoader}
-    IDWriteFactory2::{CreateFontFallbackBuilder, GetSystemFontFallback}
-    IDWriteFactory3::{CreateFontCollectionFromFontSet, GetSystemFontCollection}
+    IDWriteFactory2::{CreateFontFallbackBuilder, GetSystemFontFallback, TranslateColorGlyphRun}
+    IDWriteFactory3::{CreateFontCollectionFromFontSet, CreateGlyphRunAnalysis, GetSystemFontCollection}
     IDWriteFactory5::{CreateFontSetBuilder, CreateInMemoryFontFileLoader}
+    IDWriteColorGlyphRunEnumerator::{GetCurrentRun, MoveNext}
     IDWriteFont::CreateFontFace
     IDWriteFontCollection::{FindFamilyName, GetFontFamily, GetFontFamilyCount}
     IDWriteFontFace::{GetDesignGlyphMetrics, GetGlyphIndices}
@@ -42,6 +49,7 @@
     IDWriteFontFamily::{GetFamilyNames, GetFirstMatchingFont}
     IDWriteFontSetBuilder::CreateFontSet
     IDWriteFontSetBuilder1::AddFontFile
+    IDWriteGlyphRunAnalysis::{CreateAlphaTexture, GetAlphaTextureBounds}
     IDWriteInMemoryFontFileLoader::CreateInMemoryFontFileReference
     IDWriteLocalizedStrings::{FindLocaleName, GetString, GetStringLength}
     IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment, SetWordWrapping}
