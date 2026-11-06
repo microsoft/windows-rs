@@ -149,7 +149,8 @@ fn submit_after() {
         });
     }
 
-    let received: Vec<_> = (0..3).map(|_| recv.recv().unwrap()).collect();
+    let mut received: Vec<_> = (0..3).map(|_| recv.recv().unwrap()).collect();
+    received.sort_by_key(|(millis, _)| *millis);
     assert_eq!(
         received
             .iter()
@@ -158,7 +159,8 @@ fn submit_after() {
         [0, 30, 100]
     );
 
-    // Allow for the coarse system clock that timers are scheduled against.
+    // Each closure was submitted after `start`, so its elapsed time is at least its delay. Allow
+    // for the coarse system clock that timers are scheduled against.
     for (millis, elapsed) in received {
         assert!(elapsed + Duration::from_millis(2) >= Duration::from_millis(millis));
     }
