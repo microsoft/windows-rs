@@ -2,8 +2,9 @@
 
 use std::time::Instant;
 use windows_canvas::*;
-use windows_canvas::{Ellipse as CanvasEllipse, Rect as CanvasRect, TextAlignment};
+use windows_canvas::{Ellipse as CanvasEllipse, Rect as CanvasRect};
 use windows_reactor::*;
+use windows_text::{TextAlignment, TextFormat};
 
 struct Sample {
     count: u32,

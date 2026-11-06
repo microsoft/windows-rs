@@ -1,7 +1,7 @@
 # windows-numerics
 
-The `Vector2`, `Vector3`, `Vector4`, `Matrix3x2`, and `Matrix4x4` types used by Windows graphics
-APIs, with arithmetic and transform helpers.
+The `Vector2`, `Vector3`, `Vector4`, `Matrix3x2`, `Matrix4x4`, and `Rect` types used by Windows
+graphics APIs, with arithmetic and transform helpers.
 
 - 📦 [crates.io](https://crates.io/crates/windows-numerics)
 - 📖 [docs.rs](https://docs.rs/windows-numerics)

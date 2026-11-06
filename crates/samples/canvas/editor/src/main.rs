@@ -4,6 +4,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 use windows_canvas::*;
 use windows_reactor::*;
+use windows_text::TextFormat;
 
 #[derive(Clone, Copy, PartialEq)]
 enum Kind {

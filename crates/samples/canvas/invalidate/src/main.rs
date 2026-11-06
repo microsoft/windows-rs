@@ -2,9 +2,10 @@
 
 use std::cell::RefCell;
 use std::rc::Rc;
+use windows_canvas::Ellipse as CanvasEllipse;
 use windows_canvas::*;
-use windows_canvas::{Ellipse as CanvasEllipse, TextAlignment};
 use windows_reactor::*;
+use windows_text::{ParagraphAlignment, TextAlignment, TextFormat};
 
 struct Sample {
     points: Rc<RefCell<Vec<Vector2>>>,

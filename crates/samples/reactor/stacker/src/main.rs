@@ -4,13 +4,13 @@
 #![windows_subsystem = "windows"]
 
 use std::time::*;
-use windows_canvas::TextAlignment;
 use windows_canvas::*;
 use windows_composition::Visual as CompositionVisual;
 use windows_composition::*;
 use windows_core::*;
 use windows_reactor::View as ReactorView;
 use windows_reactor::*;
+use windows_text::{ParagraphAlignment, TextAlignment, TextFormat, WordWrapping};
 
 const COLS: usize = 8;
 const ROWS: usize = 16;

@@ -32,6 +32,7 @@ pub use device_lost::{check_device_lost, device_lost_error, is_device_lost};
 use std::cell::Cell;
 use std::os::windows::ffi::OsStrExt;
 use windows_core::*;
+use windows_text::{TextFormat, TextLayout};
 
 pub use bitmap::Bitmap;
 pub use color::ColorF;
@@ -46,10 +47,6 @@ pub use render_target::RenderTarget;
 pub use session::DrawingSession;
 pub use swap_chain::SwapChain;
 pub use types::*;
-pub use windows_text::{
-    FontWeight as CanvasFontWeight, HitTest, ParagraphAlignment, Rect, TextAlignment, TextFormat,
-    TextLayout, TextMetrics, WordWrapping,
-};
 
 pub use windows_core::Result;
-pub use windows_numerics::{Matrix3x2, Vector2};
+pub use windows_numerics::{Matrix3x2, Rect, Vector2};

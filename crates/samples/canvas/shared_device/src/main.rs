@@ -3,8 +3,9 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 use windows_canvas::*;
-use windows_canvas::{Ellipse as CanvasEllipse, Rect as CanvasRect, TextAlignment};
+use windows_canvas::{Ellipse as CanvasEllipse, Rect as CanvasRect};
 use windows_reactor::*;
+use windows_text::{TextAlignment, TextFormat};
 
 const COLS: usize = 4;
 const ROWS: usize = 3;

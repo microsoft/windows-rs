@@ -6,6 +6,7 @@
 #[cfg(test)]
 mod tests {
     use windows_canvas::*;
+    use windows_text::{ParagraphAlignment, TextAlignment, TextFormat, TextLayout, WordWrapping};
 
     fn ensure_com_initialized() {
         unsafe {

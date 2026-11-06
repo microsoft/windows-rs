@@ -1,7 +1,9 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
+
 use windows_reactor::*;
+use windows_text::TextFormat;
 
 #[derive(Clone)]
 enum Message {
