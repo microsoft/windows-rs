@@ -84,7 +84,7 @@ fn return_object(input: Ref<ITest>, output: OutRef<ITest>) -> Result<()> {
 
 #[test]
 fn test_out_ref() {
-    let mut result = HSTRING::new();
+    let mut result = HSTRING::from("will be dropped");
     return_hstring(h!("test").into(), (&mut result).into()).unwrap();
     assert_eq!(result, "test");
 

@@ -22,9 +22,17 @@ impl<T: Type<T>> OutRef<'_, T> {
     }
 }
 
-impl<'a, T: Type<T>> From<&'a mut T::Default> for OutRef<'a, T> {
+impl<'a, T: Type<T>> From<&'a mut T::Default> for OutRef<'a, T>
+where
+    &'a mut T::Default: OutParam<T>,
+{
+    /// Releases the previous owned value before borrowing the output storage.
     fn from(from: &'a mut T::Default) -> Self {
-        unsafe { core::mem::transmute(from) }
+        // The pointer borrows the caller's storage, not the local reference.
+        Self(
+            unsafe { OutParam::<T>::borrow_mut(&from) }.0,
+            core::marker::PhantomData,
+        )
     }
 }
 
