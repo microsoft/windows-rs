@@ -60,6 +60,10 @@ pub struct TextLayout {
     text: Box<str>,
 }
 
+// A layout can move to another thread. It is not `Sync`, because DirectWrite does not document
+// concurrent calls on one layout as safe.
+unsafe impl Send for TextLayout {}
+
 impl TextLayout {
     /// Lays out `text` with `format` inside a box of `max_width` by `max_height`
     /// device-independent pixels. Wrapping and alignment come from the [`TextFormat`].

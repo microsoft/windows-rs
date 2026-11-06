@@ -41,7 +41,9 @@ mod tests {
     fn bold_is_wider_than_normal() {
         let normal = TextFormat::new("Segoe UI", 24.0).unwrap();
         let bold = TextFormat::new_bold("Segoe UI", 24.0).unwrap();
-        let light = TextFormat::with_weight("Segoe UI", 24.0, FontWeight::LIGHT).unwrap();
+        let light = TextFormat::new("Segoe UI", 24.0)
+            .unwrap()
+            .with_weight(FontWeight::LIGHT);
         let width = |f| {
             TextLayout::new("Weight", f, 400.0, 200.0)
                 .unwrap()
@@ -168,5 +170,124 @@ mod tests {
     #[should_panic]
     fn caret_bounds_rejects_non_boundary() {
         layout("\u{e9}").caret_bounds(1, false);
+    }
+    fn segoe() -> FontFace {
+        FontCollection::system()
+            .find("Segoe UI", FontWeight::NORMAL, FontStyle::Normal)
+            .unwrap()
+    }
+
+    #[test]
+    fn system_collection_finds_faces() {
+        let system = FontCollection::system();
+        let names = system.family_names();
+        assert!(names.iter().any(|name| name == "Segoe UI"));
+        assert!(
+            system
+                .find("No Such Family", FontWeight::NORMAL, FontStyle::Normal)
+                .is_none()
+        );
+
+        let bold = system
+            .find("segoe ui", FontWeight::BOLD, FontStyle::Italic)
+            .unwrap();
+        assert_eq!(bold.family_name(), "Segoe UI");
+        assert_eq!(bold.weight(), FontWeight::BOLD);
+        assert_eq!(bold.style(), FontStyle::Italic);
+        assert!(!bold.is_color_font());
+
+        // DirectWrite reuses face objects, so a face can key a cache.
+        assert_eq!(segoe(), segoe());
+        assert_ne!(segoe(), bold);
+        assert!(
+            system
+                .find("Segoe UI Emoji", FontWeight::NORMAL, FontStyle::Normal)
+                .unwrap()
+                .is_color_font()
+        );
+    }
+
+    #[test]
+    fn font_and_glyph_metrics() {
+        let face = segoe();
+        let metrics = face.metrics();
+        assert_eq!(metrics.design_units_per_em, 2048);
+        assert!(metrics.ascent > metrics.cap_height);
+        assert!(metrics.cap_height > metrics.x_height);
+        assert!(metrics.glyph_box_bottom < 0);
+
+        let w = face.glyph_index('W').unwrap();
+        let i = face.glyph_index('i').unwrap();
+        assert!(face.glyph_metrics(w).advance_width > face.glyph_metrics(i).advance_width);
+        assert_eq!(face.glyph_index('\u{10ffff}'), None);
+    }
+
+    #[test]
+    fn collection_from_data() {
+        let data = std::fs::read(std::env::var("WINDIR").unwrap() + r"\Fonts\consola.ttf").unwrap();
+        let collection = FontCollection::from_data([data.as_slice()]).unwrap();
+        assert_eq!(collection.family_names(), ["Consolas"]);
+        assert!(
+            collection
+                .find("Segoe UI", FontWeight::NORMAL, FontStyle::Normal)
+                .is_none()
+        );
+
+        // A format that uses the collection lays out with its font: Consolas is monospaced.
+        let format = TextFormat::new("Consolas", 24.0)
+            .unwrap()
+            .with_collection(&collection);
+        let width = |text| {
+            TextLayout::new(text, &format, 400.0, 200.0)
+                .unwrap()
+                .metrics()
+                .width
+        };
+        assert_eq!(width("iiii"), width("WWWW"));
+
+        assert!(FontCollection::from_data([b"not a font".as_slice()]).is_err());
+    }
+
+    #[test]
+    fn format_style_and_locale() {
+        let width = |format: &TextFormat| {
+            TextLayout::new("Slanted text", format, 400.0, 200.0)
+                .unwrap()
+                .metrics()
+                .width
+        };
+        let normal = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let italic = normal.clone().with_style(FontStyle::Italic);
+        assert_ne!(width(&normal), width(&italic));
+
+        // Changing a setting fixed at creation keeps the other settings.
+        let centered = normal
+            .with_alignment(TextAlignment::Center)
+            .with_locale("en-gb")
+            .with_style(FontStyle::Italic);
+        let layout = TextLayout::new("Hi", &centered, 400.0, 200.0).unwrap();
+        assert!(layout.metrics().left > 100.0);
+    }
+
+    #[test]
+    fn fallback_and_threads() {
+        let system = FontCollection::system();
+        let fallback = FontFallback::new(&system, &["Segoe UI Symbol", "No Such Family"]);
+        let format = TextFormat::new("Consolas", 24.0)
+            .unwrap()
+            .with_fallback(&fallback);
+
+        // Formats, collections, faces, and fallbacks can be shared across threads, and layouts
+        // can move between them.
+        let layout = std::thread::spawn(move || {
+            _ = (
+                system.find("Consolas", FontWeight::NORMAL, FontStyle::Normal),
+                fallback,
+            );
+            TextLayout::new("\u{2603} snow", &format, 400.0, 200.0).unwrap()
+        })
+        .join()
+        .unwrap();
+        assert!(layout.metrics().width > 0.0);
     }
 }

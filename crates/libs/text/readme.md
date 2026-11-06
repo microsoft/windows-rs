@@ -1,6 +1,6 @@
 # windows-text
 
-Lay out, measure, and hit-test text with DirectWrite. The crate does not draw: use
+Load fonts and lay out, measure, and hit-test text with DirectWrite. The crate does not draw: use
 [windows-canvas](https://docs.rs/windows-canvas) to draw a `TextLayout`, or pass it to your own
 renderer.
 
@@ -37,7 +37,36 @@ Text positions are UTF-8 byte offsets into the string passed to `TextLayout::new
 pass in must lie on character boundaries. A hit test reports the cluster it found, so a caret
 after a multi-byte character or emoji goes at `text_position + length`.
 
-Text objects do not need a graphics device, and a `TextLayout` can be reused across frames until
+## Fonts
+
+`FontCollection::system()` holds the installed fonts, and `FontCollection::from_data` loads
+fonts from memory. Use `with_collection` to lay out with a loaded font and `with_fallback` to
+choose the families tried for characters the font cannot display:
+
+```rust
+use windows_text::*;
+
+fn main() -> Result<()> {
+    let system = FontCollection::system();
+    let face = system.find("Segoe UI", FontWeight::BOLD, FontStyle::Normal).unwrap();
+    println!("{} units per em", face.metrics().design_units_per_em);
+
+    let fallback = FontFallback::new(&system, &["Segoe UI Symbol"]);
+    let format = TextFormat::new("Consolas", 16.0)?
+        .with_style(FontStyle::Italic)
+        .with_fallback(&fallback);
+    let layout = TextLayout::new("\u{2603} snow", &format, 200.0, 100.0)?;
+    println!("{} wide", layout.metrics().width);
+    Ok(())
+}
+```
+
+Formats, collections, faces, and fallbacks can be shared across threads; a `TextLayout` can move
+between threads. Formats use the user's locale unless you call `with_locale`.
+
+## Notes
+
+The crate requires Windows 10 version 1703 or later. Text objects do not need a graphics device, and a `TextLayout` can be reused across frames until
 its text or format changes. Use `to_interface` to pass a format or layout to DirectWrite or
 Direct2D through other bindings, such as the `windows` crate.
 

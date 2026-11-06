@@ -148,8 +148,8 @@ After regenerating, verify: `cargo check -p <affected-crate> --quiet`.
 - `windows-reactor` depends on `windows-core` (not `windows`) and uses minimal bindings generated
   with `--minimal --flat` mode.
 - `windows-canvas` similarly uses minimal bindings for D2D/DXGI/WIC.
-- `windows-text` wraps DirectWrite text layout with its own minimal bindings. Canvas depends on it,
-  re-exports its text types and `Rect`, and casts with `to_interface` to its own
+- `windows-text` wraps DirectWrite fonts and text layout with its own minimal bindings. Canvas
+  depends on it, re-exports its text types and `Rect`, and casts with `to_interface` to its own
   `IDWriteTextFormat`/`IDWriteTextLayout` bindings for Direct2D calls. Text positions in the public
   API are UTF-8 byte offsets.
 - `windows-animation` wraps Win32 UIAnimation Manager COM APIs.
