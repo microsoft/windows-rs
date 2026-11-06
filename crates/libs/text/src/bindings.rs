@@ -1,5 +1,14 @@
 windows_core::link!("dwrite.dll" "system" fn DWriteCreateFactory(factorytype : DWRITE_FACTORY_TYPE, iid : *const IID, factory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("kernel32.dll" "system" fn GetUserDefaultLocaleName(lplocalename : windows_core::PWSTR, cchlocalename : i32) -> i32);
+pub type BYTE = u8;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DCOLORVALUE {
+    pub r: f32,
+    pub g: f32,
+    pub b: f32,
+    pub a: f32,
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_CLUSTER_METRICS {
@@ -45,6 +54,18 @@ impl DWRITE_CLUSTER_METRICS {
         self._bitfield = (self._bitfield & !(2047 << 5)) | ((value & 2047) << 5);
     }
 }
+pub type DWRITE_COLOR_F = D3DCOLORVALUE;
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct DWRITE_COLOR_GLYPH_RUN {
+    pub glyphRun: DWRITE_GLYPH_RUN,
+    pub glyphRunDescription: *mut DWRITE_GLYPH_RUN_DESCRIPTION,
+    pub baselineOriginX: FLOAT,
+    pub baselineOriginY: FLOAT,
+    pub runColor: DWRITE_COLOR_F,
+    pub paletteIndex: UINT16,
+}
+pub const DWRITE_E_NOCOLOR: windows_core::HRESULT = windows_core::HRESULT(0x8898500C_u32 as _);
 pub type DWRITE_FACTORY_TYPE = i32;
 pub const DWRITE_FACTORY_TYPE_SHARED: DWRITE_FACTORY_TYPE = 0;
 pub type DWRITE_FLOW_DIRECTION = i32;
@@ -132,6 +153,8 @@ pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
     pub clusterMap: *const UINT16,
     pub textPosition: UINT32,
 }
+pub type DWRITE_GRID_FIT_MODE = i32;
+pub const DWRITE_GRID_FIT_MODE_DEFAULT: DWRITE_GRID_FIT_MODE = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_HIT_TEST_METRICS {
@@ -166,11 +189,14 @@ pub struct DWRITE_MATRIX {
     pub dy: FLOAT,
 }
 pub type DWRITE_MEASURING_MODE = i32;
+pub const DWRITE_MEASURING_MODE_NATURAL: DWRITE_MEASURING_MODE = 0;
 pub type DWRITE_PARAGRAPH_ALIGNMENT = i32;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_CENTER: DWRITE_PARAGRAPH_ALIGNMENT = 2;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_FAR: DWRITE_PARAGRAPH_ALIGNMENT = 1;
 pub const DWRITE_PARAGRAPH_ALIGNMENT_NEAR: DWRITE_PARAGRAPH_ALIGNMENT = 0;
 pub type DWRITE_READING_DIRECTION = i32;
+pub type DWRITE_RENDERING_MODE1 = i32;
+pub const DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC: DWRITE_RENDERING_MODE1 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_STRIKETHROUGH {
@@ -182,10 +208,14 @@ pub struct DWRITE_STRIKETHROUGH {
     pub localeName: *const WCHAR,
     pub measuringMode: DWRITE_MEASURING_MODE,
 }
+pub const DWRITE_TEXTURE_ALIASED_1x1: DWRITE_TEXTURE_TYPE = 0;
+pub type DWRITE_TEXTURE_TYPE = i32;
 pub type DWRITE_TEXT_ALIGNMENT = i32;
 pub const DWRITE_TEXT_ALIGNMENT_CENTER: DWRITE_TEXT_ALIGNMENT = 2;
 pub const DWRITE_TEXT_ALIGNMENT_LEADING: DWRITE_TEXT_ALIGNMENT = 0;
 pub const DWRITE_TEXT_ALIGNMENT_TRAILING: DWRITE_TEXT_ALIGNMENT = 1;
+pub type DWRITE_TEXT_ANTIALIAS_MODE = i32;
+pub const DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE: DWRITE_TEXT_ANTIALIAS_MODE = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_TEXT_METRICS {
@@ -229,6 +259,45 @@ pub const DWRITE_WORD_WRAPPING_WRAP: DWRITE_WORD_WRAPPING = 0;
 pub const E_NOT_SUFFICIENT_BUFFER: windows_core::HRESULT =
     windows_core::HRESULT(0x8007007A_u32 as _);
 pub type FLOAT = f32;
+windows_core::imp::define_interface!(
+    IDWriteColorGlyphRunEnumerator,
+    IDWriteColorGlyphRunEnumerator_Vtbl,
+    0xd31fbe17_f157_41a2_8d24_cb779e0560e8
+);
+windows_core::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator, windows_core::IUnknown);
+impl IDWriteColorGlyphRunEnumerator {
+    pub(crate) unsafe fn MoveNext(&self, hasrun: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).MoveNext)(
+                windows_core::Interface::as_raw(self),
+                hasrun as _,
+            )
+        }
+    }
+    pub(crate) unsafe fn GetCurrentRun(
+        &self,
+        colorglyphrun: *mut *const DWRITE_COLOR_GLYPH_RUN,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetCurrentRun)(
+                windows_core::Interface::as_raw(self),
+                colorglyphrun as _,
+            )
+        }
+    }
+}
+#[repr(C)]
+pub struct IDWriteColorGlyphRunEnumerator_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub MoveNext: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub GetCurrentRun: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *const DWRITE_COLOR_GLYPH_RUN,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     IDWriteFactory,
     IDWriteFactory_Vtbl,
@@ -422,6 +491,32 @@ impl IDWriteFactory2 {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub(crate) unsafe fn TranslateColorGlyphRun(
+        &self,
+        baselineoriginx: FLOAT,
+        baselineoriginy: FLOAT,
+        glyphrun: *const DWRITE_GLYPH_RUN,
+        glyphrundescription: Option<*const DWRITE_GLYPH_RUN_DESCRIPTION>,
+        measuringmode: DWRITE_MEASURING_MODE,
+        worldtodevicetransform: Option<*const DWRITE_MATRIX>,
+        colorpaletteindex: UINT32,
+    ) -> windows_core::Result<IDWriteColorGlyphRunEnumerator> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TranslateColorGlyphRun)(
+                windows_core::Interface::as_raw(self),
+                baselineoriginx,
+                baselineoriginy,
+                glyphrun,
+                glyphrundescription.unwrap_or(core::mem::zeroed()) as _,
+                measuringmode,
+                worldtodevicetransform.unwrap_or(core::mem::zeroed()) as _,
+                colorpaletteindex,
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
 }
 #[repr(C)]
 pub struct IDWriteFactory2_Vtbl {
@@ -434,7 +529,17 @@ pub struct IDWriteFactory2_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    TranslateColorGlyphRun: usize,
+    pub TranslateColorGlyphRun: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        FLOAT,
+        FLOAT,
+        *const DWRITE_GLYPH_RUN,
+        *const DWRITE_GLYPH_RUN_DESCRIPTION,
+        DWRITE_MEASURING_MODE,
+        *const DWRITE_MATRIX,
+        UINT32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateCustomRenderingParams: usize,
     CreateGlyphRunAnalysis: usize,
 }
@@ -457,6 +562,34 @@ windows_core::imp::interface_hierarchy!(
     IDWriteFactory2
 );
 impl IDWriteFactory3 {
+    pub(crate) unsafe fn CreateGlyphRunAnalysis(
+        &self,
+        glyphrun: *const DWRITE_GLYPH_RUN,
+        transform: Option<*const DWRITE_MATRIX>,
+        renderingmode: DWRITE_RENDERING_MODE1,
+        measuringmode: DWRITE_MEASURING_MODE,
+        gridfitmode: DWRITE_GRID_FIT_MODE,
+        antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE,
+        baselineoriginx: FLOAT,
+        baselineoriginy: FLOAT,
+    ) -> windows_core::Result<IDWriteGlyphRunAnalysis> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateGlyphRunAnalysis)(
+                windows_core::Interface::as_raw(self),
+                glyphrun,
+                transform.unwrap_or(core::mem::zeroed()) as _,
+                renderingmode,
+                measuringmode,
+                gridfitmode,
+                antialiasmode,
+                baselineoriginx,
+                baselineoriginy,
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
     pub(crate) unsafe fn CreateFontCollectionFromFontSet<P0>(
         &self,
         fontset: P0,
@@ -493,7 +626,18 @@ impl IDWriteFactory3 {
 #[repr(C)]
 pub struct IDWriteFactory3_Vtbl {
     pub base__: IDWriteFactory2_Vtbl,
-    CreateGlyphRunAnalysis: usize,
+    pub CreateGlyphRunAnalysis: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const DWRITE_GLYPH_RUN,
+        *const DWRITE_MATRIX,
+        DWRITE_RENDERING_MODE1,
+        DWRITE_MEASURING_MODE,
+        DWRITE_GRID_FIT_MODE,
+        DWRITE_TEXT_ANTIALIAS_MODE,
+        FLOAT,
+        FLOAT,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateCustomRenderingParams: usize,
     CreateFontFaceReference: usize,
     CreateFontFaceReference2: usize,
@@ -1193,6 +1337,61 @@ pub struct IDWriteFontSetBuilder1_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IDWriteGlyphRunAnalysis,
+    IDWriteGlyphRunAnalysis_Vtbl,
+    0x7d97dbf7_e085_42d4_81e3_6a883bded118
+);
+windows_core::imp::interface_hierarchy!(IDWriteGlyphRunAnalysis, windows_core::IUnknown);
+impl IDWriteGlyphRunAnalysis {
+    pub(crate) unsafe fn GetAlphaTextureBounds(
+        &self,
+        texturetype: DWRITE_TEXTURE_TYPE,
+        texturebounds: *mut RECT,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetAlphaTextureBounds)(
+                windows_core::Interface::as_raw(self),
+                texturetype,
+                texturebounds as _,
+            )
+        }
+    }
+    pub(crate) unsafe fn CreateAlphaTexture(
+        &self,
+        texturetype: DWRITE_TEXTURE_TYPE,
+        texturebounds: *const RECT,
+        alphavalues: *mut BYTE,
+        buffersize: UINT32,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).CreateAlphaTexture)(
+                windows_core::Interface::as_raw(self),
+                texturetype,
+                texturebounds,
+                alphavalues as _,
+                buffersize,
+            )
+        }
+    }
+}
+#[repr(C)]
+pub struct IDWriteGlyphRunAnalysis_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetAlphaTextureBounds: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        DWRITE_TEXTURE_TYPE,
+        *mut RECT,
+    ) -> windows_core::HRESULT,
+    pub CreateAlphaTexture: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        DWRITE_TEXTURE_TYPE,
+        *const RECT,
+        *mut BYTE,
+        UINT32,
+    ) -> windows_core::HRESULT,
+    GetAlphaBlendParams: usize,
 }
 windows_core::imp::define_interface!(
     IDWriteInMemoryFontFileLoader,
@@ -2217,6 +2416,15 @@ pub type IID = windows_core::GUID;
 pub type INT16 = i16;
 pub type INT32 = i32;
 pub const LOCALE_NAME_MAX_LENGTH: i32 = 85;
+pub type LONG = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RECT {
+    pub left: LONG,
+    pub top: LONG,
+    pub right: LONG,
+    pub bottom: LONG,
+}
 pub type UINT16 = u16;
 pub type UINT32 = u32;
 pub type WCHAR = u16;
