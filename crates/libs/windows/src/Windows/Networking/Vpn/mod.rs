@@ -1287,6 +1287,9 @@ impl IVpnPlugIn {
     where
         P0: windows_core::Param<VpnChannel>,
     {
+        if core::mem::needs_drop::<Option<VpnPacketBuffer>>() {
+            *keepalivepacket = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(self).GetKeepAlivePayload)(windows_core::Interface::as_raw(self), channel.param().abi(), keepalivepacket as *mut _ as _).ok() }
     }
     pub fn Encapsulate<P0, P1, P2>(&self, channel: P0, packets: P1, encapulatedpackets: P2) -> windows_core::Result<()>
@@ -1945,6 +1948,9 @@ impl VpnChannel {
         }
     }
     pub fn RequestVpnPacketBuffer(&self, r#type: VpnDataPathType, vpnpacketbuffer: &mut Option<VpnPacketBuffer>) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<Option<VpnPacketBuffer>>() {
+            *vpnpacketbuffer = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(self).RequestVpnPacketBuffer)(windows_core::Interface::as_raw(self), r#type, vpnpacketbuffer as *mut _ as _).ok() }
     }
     pub fn LogDiagnosticMessage(&self, message: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -3463,6 +3469,7 @@ windows_core::imp::interface_hierarchy!(VpnInterfaceId, windows_core::IUnknown, 
 windows_core::imp::required_hierarchy!(VpnInterfaceId, IVpnInterfaceIdFactory);
 impl VpnInterfaceId {
     pub fn GetAddressInfo(&self, id: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
+        id.clear();
         unsafe { (windows_core::Interface::vtable(self).GetAddressInfo)(windows_core::Interface::as_raw(self), id.set_abi_len(), id as *mut _ as _).ok() }
     }
     pub fn CreateVpnInterfaceId(address: &[u8]) -> windows_core::Result<Self> {

@@ -87,6 +87,191 @@ fn interface_outputs() {
 }
 
 #[test]
+fn replace_array_output() {
+    let old_drops = Arc::new(AtomicUsize::new(0));
+    let new_drops = Arc::new(AtomicUsize::new(0));
+    let capture = new_drops.clone();
+    let producer = ArrayRoundtrip::new(move |_, _, receive| {
+        *receive = Array::from_slice(&[Some(tracked(&capture))]);
+        Ok(Array::new())
+    });
+    let mut output = Array::from_slice(&[Some(tracked(&old_drops))]);
+    for generation in 0..2 {
+        drop(producer.Invoke(&[], &mut [], &mut output).unwrap());
+        assert_eq!(old_drops.load(Ordering::Relaxed), 1);
+        assert_eq!(new_drops.load(Ordering::Relaxed), generation);
+        output[0].as_ref().unwrap().Invoke().unwrap();
+    }
+    drop(output);
+    assert_eq!(new_drops.load(Ordering::Relaxed), 2);
+
+    let mut empty = Array::with_len(0);
+    drop(producer.Invoke(&[], &mut [], &mut empty).unwrap());
+    drop(empty);
+    assert_eq!(new_drops.load(Ordering::Relaxed), 3);
+}
+
+#[test]
+fn replace_fill_output() {
+    let old_drops = Arc::new(AtomicUsize::new(0));
+    let new_drops = Arc::new(AtomicUsize::new(0));
+    let capture = new_drops.clone();
+    let producer = ArrayRoundtrip::new(move |_, fill, _| {
+        // Native output writers overwrite slots without releasing their previous contents.
+        unsafe {
+            fill.as_mut_ptr().write(Some(tracked(&capture)));
+        }
+        Ok(Array::new())
+    });
+    let mut fill = [Some(tracked(&old_drops)), Some(tracked(&old_drops)), None];
+    let mut receive = Array::new();
+    for generation in 0..2 {
+        drop(producer.Invoke(&[], &mut fill, &mut receive).unwrap());
+        assert_eq!(old_drops.load(Ordering::Relaxed), 2);
+        assert_eq!(new_drops.load(Ordering::Relaxed), generation);
+        fill[0].as_ref().unwrap().Invoke().unwrap();
+        assert!(fill[1..].iter().all(Option::is_none));
+    }
+    drop(fill);
+    assert_eq!(new_drops.load(Ordering::Relaxed), 2);
+}
+
+#[test]
+fn replace_interface_output() {
+    let old_drops = Arc::new(AtomicUsize::new(0));
+    let output_drops = Arc::new(AtomicUsize::new(0));
+    let result_drops = Arc::new(AtomicUsize::new(0));
+    let output_capture = output_drops.clone();
+    let result_capture = result_drops.clone();
+    let producer = InterfaceOutputs::new(move |output| {
+        output.write(Some(tracked(&output_capture)))?;
+        Ok(tracked(&result_capture))
+    });
+    let mut output = Some(tracked(&old_drops));
+    for generation in 0..2 {
+        let result = producer.Invoke(&mut output).unwrap();
+        assert_eq!(old_drops.load(Ordering::Relaxed), 1);
+        assert_eq!(output_drops.load(Ordering::Relaxed), generation);
+        assert_eq!(result_drops.load(Ordering::Relaxed), generation);
+        result.Invoke().unwrap();
+        drop(result);
+    }
+    output.as_ref().unwrap().Invoke().unwrap();
+    drop(output);
+    assert_eq!(output_drops.load(Ordering::Relaxed), 2);
+    assert_eq!(result_drops.load(Ordering::Relaxed), 2);
+}
+
+#[cfg(not(miri))]
+#[test]
+fn generic_string_outputs() {
+    let producer = GenericOutputs::<windows_core::HSTRING>::new(|fill, value| {
+        unsafe {
+            fill.as_mut_ptr().write("new fill".into());
+            core::ptr::write(value, "new value".into());
+        }
+        Ok(())
+    });
+    let old: windows_core::HSTRING = "old".into();
+    let mut fill = [old.clone(), old.clone()];
+    let mut value = old.clone();
+    producer.Invoke(&mut fill, &mut value).unwrap();
+    assert_eq!(fill[0], "new fill");
+    assert!(fill[1].is_empty());
+    assert_eq!(value, "new value");
+    assert_eq!(old, "old");
+}
+
+#[test]
+fn replace_generic_outputs() {
+    let old_drops = Arc::new(AtomicUsize::new(0));
+    let new_drops = Arc::new(AtomicUsize::new(0));
+    let capture = new_drops.clone();
+    let producer = GenericOutputs::<Tracked>::new(move |fill, value| {
+        unsafe {
+            fill.as_mut_ptr().write(Some(tracked(&capture)));
+            core::ptr::write(value, Some(tracked(&capture)));
+        }
+        Ok(())
+    });
+    let mut fill = [Some(tracked(&old_drops))];
+    let mut value = Some(tracked(&old_drops));
+    producer.Invoke(&mut fill, &mut value).unwrap();
+    assert_eq!(old_drops.load(Ordering::Relaxed), 2);
+    assert_eq!(new_drops.load(Ordering::Relaxed), 0);
+    fill[0].as_ref().unwrap().Invoke().unwrap();
+    value.as_ref().unwrap().Invoke().unwrap();
+    drop(fill);
+    drop(value);
+    assert_eq!(new_drops.load(Ordering::Relaxed), 2);
+
+    let producer = GenericOutputs::<u32>::new(|fill, value| {
+        fill[0] = 10;
+        *value = 20;
+        Ok(())
+    });
+    let mut fill = [1, 2];
+    let mut value = 3;
+    producer.Invoke(&mut fill, &mut value).unwrap();
+    assert_eq!(fill, [10, 2]);
+    assert_eq!(value, 20);
+}
+
+#[cfg(not(miri))]
+#[test]
+fn replace_outputs_on_failure() {
+    let status = windows_core::HRESULT(0x80004005u32 as i32);
+    for write_output in [false, true] {
+        let old_drops = Arc::new(AtomicUsize::new(0));
+        let new_drops = Arc::new(AtomicUsize::new(0));
+        let capture = new_drops.clone();
+        let producer = InterfaceOutputs::new(move |output| {
+            if write_output {
+                output.write(Some(tracked(&capture)))?;
+            }
+            Err(windows_core::Error::from_hresult(status))
+        });
+        let mut output = Some(tracked(&old_drops));
+        assert_eq!(producer.Invoke(&mut output).unwrap_err().code(), status);
+        assert_eq!(old_drops.load(Ordering::Relaxed), 1);
+        assert_eq!(output.is_some(), write_output);
+        assert_eq!(new_drops.load(Ordering::Relaxed), 0);
+        drop(output);
+        assert_eq!(new_drops.load(Ordering::Relaxed), usize::from(write_output));
+
+        let capture = new_drops.clone();
+        let producer = ArrayRoundtrip::new(move |_, fill, receive| {
+            if write_output {
+                unsafe {
+                    fill.as_mut_ptr().write(Some(tracked(&capture)));
+                }
+                *receive = Array::from_slice(&[Some(tracked(&capture))]);
+            }
+            Err(windows_core::Error::from_hresult(status))
+        });
+        let mut fill = [Some(tracked(&old_drops))];
+        let mut receive = Array::from_slice(&[Some(tracked(&old_drops))]);
+        assert_eq!(
+            producer
+                .Invoke(&[], &mut fill, &mut receive)
+                .unwrap_err()
+                .code(),
+            status
+        );
+        assert_eq!(old_drops.load(Ordering::Relaxed), 3);
+        assert_eq!(fill[0].is_some(), write_output);
+        assert_eq!(!receive.is_empty(), write_output);
+        assert_eq!(new_drops.load(Ordering::Relaxed), usize::from(write_output));
+        drop(fill);
+        drop(receive);
+        assert_eq!(
+            new_drops.load(Ordering::Relaxed),
+            3 * usize::from(write_output)
+        );
+    }
+}
+
+#[test]
 fn empty_array_clear() {
     let allocated = unsafe {
         let data = windows_core::imp::CoTaskMemAlloc(4).cast::<u32>();

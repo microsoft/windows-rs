@@ -122,6 +122,9 @@ impl IBaseFactory {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
+        if core::mem::needs_drop::<Option<windows_core::IInspectable>>() {
+            *inner = unsafe { core::mem::zeroed() };
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateInstance)(
@@ -185,6 +188,9 @@ impl IDerivedFactory {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
+        if core::mem::needs_drop::<Option<windows_core::IInspectable>>() {
+            *inner = unsafe { core::mem::zeroed() };
+        }
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateInstance)(

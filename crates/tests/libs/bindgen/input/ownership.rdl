@@ -15,5 +15,8 @@ mod Test {
     delegate fn InterfaceOutputs(#[out] value: Tracked) -> Tracked;
 
     #[guid(auto)]
+    delegate fn GenericOutputs<T>(#[out] fill: [T], #[out] value: T);
+
+    #[guid(auto)]
     delegate fn EmptyArray() -> [u32];
 }

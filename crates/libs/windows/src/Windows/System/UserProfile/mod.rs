@@ -218,6 +218,12 @@ impl FirstSignInSettings {
     }
     pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        if core::mem::needs_drop::<Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>() {
+            *first = unsafe { core::mem::zeroed() };
+        }
+        if core::mem::needs_drop::<Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>() {
+            *second = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
     fn IFirstSignInSettingsStatics<R, F: FnOnce(&IFirstSignInSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

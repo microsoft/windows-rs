@@ -133,6 +133,9 @@ impl PhoneNumberFormatter {
         }
     }
     pub fn TryCreate(regioncode: &windows_core::HSTRING, phonenumber: &mut Option<Self>) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *phonenumber = unsafe { core::mem::zeroed() };
+        }
         Self::IPhoneNumberFormatterStatics(|this| unsafe { (windows_core::Interface::vtable(this).TryCreate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(regioncode), phonenumber as *mut _ as _).ok() })
     }
     pub fn GetCountryCodeForRegion(regioncode: &windows_core::HSTRING) -> windows_core::Result<i32> {
@@ -234,12 +237,18 @@ impl PhoneNumberInfo {
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, phonenumber: &mut Option<Self>) -> windows_core::Result<PhoneNumberParseResult> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *phonenumber = unsafe { core::mem::zeroed() };
+        }
         Self::IPhoneNumberInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), phonenumber as *mut _ as _, &mut result__).map(|| result__)
         })
     }
     pub fn TryParseWithRegion(input: &windows_core::HSTRING, regioncode: &windows_core::HSTRING, phonenumber: &mut Option<Self>) -> windows_core::Result<PhoneNumberParseResult> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *phonenumber = unsafe { core::mem::zeroed() };
+        }
         Self::IPhoneNumberInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParseWithRegion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), core::mem::transmute_copy(regioncode), phonenumber as *mut _ as _, &mut result__).map(|| result__)

@@ -341,6 +341,21 @@ impl Component for RecursiveComponent {
     }
 }
 
+struct RecursiveRoot;
+
+impl Component for RecursiveRoot {
+    type Input = ();
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        component::<Self>("child", ()).into()
+    }
+}
+
 struct MismatchedKey;
 
 impl Component for MismatchedKey {
@@ -772,6 +787,15 @@ fn recursive_component_expansion_enforces_depth_limit() {
     ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<RecursiveComponent>("root", MAX_DEPTH + 2)],
+    );
+}
+
+#[test]
+#[should_panic(expected = "declaration exceeds the maximum depth")]
+fn recursive_root_component_enforces_depth_limit() {
+    ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<RecursiveRoot>("root", ())],
     );
 }
 

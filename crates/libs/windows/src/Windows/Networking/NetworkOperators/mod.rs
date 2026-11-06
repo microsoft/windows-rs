@@ -1021,6 +1021,9 @@ impl HotspotAuthenticationContext {
         }
     }
     pub fn TryGetAuthenticationContext(eventoken: &windows_core::HSTRING, context: &mut Option<Self>) -> windows_core::Result<bool> {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *context = unsafe { core::mem::zeroed() };
+        }
         Self::IHotspotAuthenticationContextStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetAuthenticationContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventoken), context as *mut _ as _, &mut result__).map(|| result__)

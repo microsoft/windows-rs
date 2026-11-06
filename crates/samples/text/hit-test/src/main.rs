@@ -7,7 +7,7 @@ use windows_reactor::{
     App, Border, Component, ComponentContext, PointerEventInfo, View, ViewContext, WindowBackdrop,
     WindowVisuals,
 };
-use windows_text::{HitTest, TextFormat, TextLayout};
+use windows_text::{TextFormat, TextLayout};
 
 const TEXT: &str = "Point at the text to find a cluster, and drag to select. Carets and \
 selections follow the reading direction: \u{5e9}\u{5dc}\u{5d5}\u{5dd} \u{5e2}\u{5d5}\u{5dc}\u{5dd} and \
@@ -82,15 +82,6 @@ impl Component for Sample {
     }
 }
 
-// The caret position of a hit: before the cluster, or after it for a trailing hit.
-fn caret(hit: &HitTest) -> usize {
-    if hit.is_trailing_hit {
-        hit.text_position + hit.length
-    } else {
-        hit.text_position
-    }
-}
-
 fn draw(ctx: &DrawContext, pointer: Pointer) -> Result<()> {
     ctx.clear(ColorF::from_rgb8(16, 20, 28));
     let white = ctx.create_solid_brush(ColorF::WHITE)?;
@@ -116,8 +107,8 @@ fn draw(ctx: &DrawContext, pointer: Pointer) -> Result<()> {
     let hit = layout.hit_test_point(position - origin);
 
     if let Some(anchor) = pointer.anchor {
-        let start = caret(&layout.hit_test_point(anchor - origin));
-        let end = caret(&hit);
+        let start = layout.hit_test_point(anchor - origin).caret_position();
+        let end = hit.caret_position();
 
         for rect in layout.range_bounds(start.min(end)..start.max(end)) {
             ctx.fill_rect(&rect.offset(MARGIN, MARGIN), &selection);

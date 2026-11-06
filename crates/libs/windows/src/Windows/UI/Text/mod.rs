@@ -1440,6 +1440,9 @@ impl ITextDocument {
         }
     }
     pub fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<windows_core::HSTRING>() {
+            *value = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), options, value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2991,6 +2994,9 @@ impl ITextRange {
         unsafe { (windows_core::Interface::vtable(self).GetRect)(windows_core::Interface::as_raw(self), options, rect, hit).ok() }
     }
     pub fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<windows_core::HSTRING>() {
+            *value = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), options, value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4081,6 +4087,9 @@ impl ITextSelection {
     }
     pub fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ITextRange>(self)?;
+        if core::mem::needs_drop::<windows_core::HSTRING>() {
+            *value = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(this).GetText)(windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4736,6 +4745,9 @@ impl RichEditTextDocument {
         }
     }
     pub fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<windows_core::HSTRING>() {
+            *value = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), options, value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4805,6 +4817,9 @@ impl RichEditTextDocument {
     }
     pub fn GetMath(&self, value: &mut windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ITextDocument4>(self)?;
+        if core::mem::needs_drop::<windows_core::HSTRING>() {
+            *value = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(this).GetMath)(windows_core::Interface::as_raw(this), value as *mut _ as _).ok() }
     }
     pub fn SetMathMode(&self, mode: RichEditMathMode) -> windows_core::Result<()> {
@@ -5009,6 +5024,9 @@ impl RichEditTextRange {
         unsafe { (windows_core::Interface::vtable(self).GetRect)(windows_core::Interface::as_raw(self), options, rect, hit).ok() }
     }
     pub fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()> {
+        if core::mem::needs_drop::<windows_core::HSTRING>() {
+            *value = unsafe { core::mem::zeroed() };
+        }
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), options, value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Storage_Streams")]

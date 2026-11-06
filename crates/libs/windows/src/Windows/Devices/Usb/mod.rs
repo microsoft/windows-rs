@@ -678,6 +678,9 @@ impl UsbConfigurationDescriptor {
     where
         P0: windows_core::Param<UsbDescriptor>,
     {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *parsed = unsafe { core::mem::zeroed() };
+        }
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), descriptor.param().abi(), parsed as *mut _ as _, &mut result__).map(|| result__)
@@ -1193,6 +1196,9 @@ impl UsbEndpointDescriptor {
     where
         P0: windows_core::Param<UsbDescriptor>,
     {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *parsed = unsafe { core::mem::zeroed() };
+        }
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), descriptor.param().abi(), parsed as *mut _ as _, &mut result__).map(|| result__)
@@ -1339,6 +1345,9 @@ impl UsbInterfaceDescriptor {
     where
         P0: windows_core::Param<UsbDescriptor>,
     {
+        if core::mem::needs_drop::<Option<Self>>() {
+            *parsed = unsafe { core::mem::zeroed() };
+        }
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), descriptor.param().abi(), parsed as *mut _ as _, &mut result__).map(|| result__)

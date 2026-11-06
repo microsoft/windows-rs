@@ -104,7 +104,7 @@ fn rasterize(layout: &TextLayout, scale: f32, cleartype: Option<PixelGeometry>) 
     let metrics = layout.metrics();
     let mut target = Target::new(
         (metrics.layout_width * scale).ceil() as usize,
-        ((metrics.top + metrics.height) * scale).ceil() as usize,
+        (metrics.bounds().bottom * scale).ceil() as usize,
     );
     let bgr = cleartype == Some(PixelGeometry::Bgr);
 
@@ -168,7 +168,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let mut layout = TextLayout::new(TEXT, &format, width, ctx.height)?;
     let underline = TEXT.find("underline").unwrap();
     layout.set_underline(underline..underline + "underline".len(), true);
-    let height = layout.metrics().top + layout.metrics().height;
+    let bottom = layout.metrics().bounds().bottom;
 
     let label = TextLayout::new("Direct2D", &label_format, ctx.width, MARGIN)?;
     ctx.draw_text_layout(Vector2::new(MARGIN, MARGIN), &label, &dim);
@@ -180,7 +180,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
         geometry => Some(("Glyph runs by hand, ClearType", Some(geometry))),
     };
     let sections = [Some(("Glyph runs by hand, grayscale", None)), cleartype];
-    let mut y = 3.0 * MARGIN + height;
+    let mut y = 3.0 * MARGIN + bottom;
 
     for (text, cleartype) in sections.into_iter().flatten() {
         let label = TextLayout::new(text, &label_format, ctx.width, MARGIN)?;
@@ -200,7 +200,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
             target.height as f32 / scale,
         );
         ctx.draw_bitmap(&bitmap, &dest, 1.0);
-        y += 2.0 * MARGIN + height;
+        y += 2.0 * MARGIN + bottom;
     }
 
     Ok(())

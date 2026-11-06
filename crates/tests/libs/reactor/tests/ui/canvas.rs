@@ -20,6 +20,11 @@ fn canvas_draws_resizes_and_releases_callbacks_on_removal() -> Result<()> {
 }
 
 #[test]
+fn canvas_can_be_a_window_view() -> Result<()> {
+    process::run_to_exit("canvas-root")
+}
+
+#[test]
 fn canvas_image_source_draws_and_attaches() -> Result<()> {
     process::run("canvas-image", |ui| {
         ui.name("status", "Drawn Some(true); attached Some(true)")
