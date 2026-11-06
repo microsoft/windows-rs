@@ -25,10 +25,20 @@
     DWRITE_PARAGRAPH_ALIGNMENT_FAR
     DWRITE_PARAGRAPH_ALIGNMENT_NEAR
     DWRITE_TEXT_ALIGNMENT_CENTER
+    DWRITE_TEXT_ALIGNMENT_JUSTIFIED
     DWRITE_TEXT_ALIGNMENT_LEADING
     DWRITE_TEXT_ALIGNMENT_TRAILING
     DWRITE_WORD_WRAPPING_WRAP
     DWRITE_WORD_WRAPPING_NO_WRAP
+    DWRITE_READING_DIRECTION_LEFT_TO_RIGHT
+    DWRITE_READING_DIRECTION_RIGHT_TO_LEFT
+    DWRITE_TRIMMING_GRANULARITY_NONE
+    DWRITE_TRIMMING_GRANULARITY_CHARACTER
+    DWRITE_TRIMMING_GRANULARITY_WORD
+    DWRITE_LINE_SPACING_METHOD_DEFAULT
+    DWRITE_LINE_SPACING_METHOD_UNIFORM
+    DWRITE_LINE_SPACING_METHOD_PROPORTIONAL
+    DWRITE_FONT_LINE_GAP_USAGE_DEFAULT
     DWRITE_TEXT_METRICS
     DWRITE_TEXT_RANGE
     DWRITE_LINE_METRICS
@@ -43,7 +53,7 @@
     SPI_GETFONTSMOOTHING
     SPI_GETFONTSMOOTHINGTYPE
     SystemParametersInfoW
-    IDWriteFactory::{CreateRenderingParams, CreateTextFormat, CreateTextLayout, CreateTypography, RegisterFontFileLoader}
+    IDWriteFactory::{CreateEllipsisTrimmingSign, CreateRenderingParams, CreateTextFormat, CreateTextLayout, CreateTypography, RegisterFontFileLoader}
     IDWriteFactory2::{CreateFontFallbackBuilder, GetSystemFontFallback, TranslateColorGlyphRun}
     IDWriteFactory3::{CreateFontCollectionFromFontSet, CreateGlyphRunAnalysis, GetSystemFontCollection}
     IDWriteFactory5::{CreateFontSetBuilder, CreateInMemoryFontFileLoader}
@@ -63,9 +73,11 @@
     IDWriteLocalizedStrings::{FindLocaleName, GetString, GetStringLength}
     IDWriteRenderingParams::{GetClearTypeLevel, GetEnhancedContrast, GetGamma, GetPixelGeometry}
     IDWriteRenderingParams1::GetGrayscaleEnhancedContrast
-    IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment, SetWordWrapping}
+    IDWriteInlineObject::Draw
+    IDWriteTextFormat::{SetIncrementalTabStop, SetReadingDirection, SetTextAlignment, SetParagraphAlignment, SetTrimming, SetWordWrapping}
     IDWriteTextFormat1::SetFontFallback
-    IDWriteTextLayout::{GetMetrics, HitTestPoint, HitTestTextPosition, HitTestTextRange, GetMaxWidth, GetMaxHeight, SetMaxWidth, SetMaxHeight}
+    IDWriteTextFormat2::SetLineSpacing
+    IDWriteTextLayout::{GetMetrics, HitTestPoint, HitTestTextPosition, HitTestTextRange, SetMaxWidth, SetMaxHeight}
     IDWriteTextLayout::{Draw, GetClusterMetrics, GetLineMetrics}
-    IDWriteTextLayout::{SetFontCollection, SetFontFamilyName, SetFontSize, SetFontStyle, SetFontWeight, SetStrikethrough, SetTypography, SetUnderline}
+    IDWriteTextLayout::{SetFontCollection, SetFontFamilyName, SetFontSize, SetFontStyle, SetFontWeight, SetLocaleName, SetStrikethrough, SetTypography, SetUnderline}
     IDWriteTypography::AddFontFeature

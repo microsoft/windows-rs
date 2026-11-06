@@ -89,13 +89,13 @@ fn draw(ctx: &DrawContext, pointer: Pointer) -> Result<()> {
     let cluster = ctx.create_solid_brush(ColorF::new(0.3, 0.8, 0.4, 1.0))?;
     let accent = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
 
-    let format = TextFormat::new("Segoe UI", 28.0)?;
+    let format = TextFormat::new("Segoe UI", 28.0);
     let layout = TextLayout::new(
         TEXT,
         &format,
         (ctx.width - 2.0 * MARGIN).max(0.0),
         (ctx.height - 3.0 * MARGIN).max(0.0),
-    )?;
+    );
     let origin = Vector2::new(MARGIN, MARGIN);
 
     let Some(position) = pointer.position else {
@@ -122,7 +122,7 @@ fn draw(ctx: &DrawContext, pointer: Pointer) -> Result<()> {
     ctx.draw_text_layout(origin, &layout, &white);
 
     let bounds = layout
-        .caret_bounds(hit.text_position, hit.is_trailing_hit)
+        .caret_bounds(hit.text_range.start, hit.is_trailing_hit)
         .offset(MARGIN, MARGIN);
     ctx.fill_rect(
         &Rect::new(
@@ -134,18 +134,18 @@ fn draw(ctx: &DrawContext, pointer: Pointer) -> Result<()> {
         &accent,
     );
 
-    let cluster_text = &TEXT[hit.text_position..hit.text_position + hit.length];
+    let cluster_text = &TEXT[hit.text_range.clone()];
     let summary = format!(
         "Cluster {cluster_text:?} at byte {}, trailing: {}, inside: {}",
-        hit.text_position, hit.is_trailing_hit, hit.is_inside
+        hit.text_range.start, hit.is_trailing_hit, hit.is_inside
     );
-    let format = TextFormat::new("Consolas", 15.0)?;
+    let format = TextFormat::new("Consolas", 15.0);
     let label = TextLayout::new(
         &summary,
         &format,
         (ctx.width - 2.0 * MARGIN).max(0.0),
         MARGIN,
-    )?;
+    );
     ctx.draw_text_layout(Vector2::new(MARGIN, ctx.height - MARGIN), &label, &accent);
     Ok(())
 }

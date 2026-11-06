@@ -8,7 +8,7 @@ use windows_text::{ParagraphAlignment, TextAlignment, TextFormat};
 fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::BLACK);
 
-    let format = TextFormat::new("Segoe UI", 32.0)?
+    let format = TextFormat::new("Segoe UI", 32.0)
         .with_alignment(TextAlignment::Center)
         .with_paragraph_alignment(ParagraphAlignment::Center);
 

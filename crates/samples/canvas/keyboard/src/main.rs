@@ -32,7 +32,7 @@ impl Component for Sample {
             color_scheme: ColorScheme::Light,
             focused: false,
             status: "Click the canvas or press Tab to focus".to_string(),
-            format: TextFormat::new("Cascadia Mono", 28.0).unwrap(),
+            format: TextFormat::new("Cascadia Mono", 28.0),
         }
     }
 

@@ -36,14 +36,11 @@ impl TextMetrics {
 /// The result of a point hit-test against a [`TextLayout`].
 ///
 /// Returned by [`TextLayout::hit_test_point`].
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 #[non_exhaustive]
 pub struct HitTest {
-    /// UTF-8 byte offset of the start of the cluster nearest the point.
-    pub text_position: usize,
-    /// UTF-8 byte length of that cluster. A trailing-edge caret goes at
-    /// `text_position + length`.
-    pub length: usize,
+    /// UTF-8 byte range of the cluster nearest the point.
+    pub text_range: Range<usize>,
     /// `true` if the point is closer to the trailing edge of the cluster.
     pub is_trailing_hit: bool,
     /// `true` if the point falls inside the cluster's bounding box.
@@ -55,13 +52,13 @@ pub struct HitTest {
 impl HitTest {
     /// The UTF-8 byte offset of the caret nearest the point: before the cluster, or after it for
     /// a trailing hit. Use this to place a caret or extend a selection. To draw the caret, pass
-    /// `text_position` and `is_trailing_hit` to [`TextLayout::caret_bounds`], which keeps a caret
-    /// at the end of a wrapped line on that line.
+    /// the start of `text_range` and `is_trailing_hit` to [`TextLayout::caret_bounds`], which
+    /// keeps a caret at the end of a wrapped line on that line.
     pub fn caret_position(&self) -> usize {
         if self.is_trailing_hit {
-            self.text_position + self.length
+            self.text_range.end
         } else {
-            self.text_position
+            self.text_range.start
         }
     }
 }
@@ -142,20 +139,23 @@ unsafe impl Send for TextLayout {}
 
 impl TextLayout {
     /// Lays out `text` with `format` inside a box of `max_width` by `max_height`
-    /// device-independent pixels. Wrapping and alignment come from the [`TextFormat`].
-    pub fn new(text: &str, format: &TextFormat, max_width: f32, max_height: f32) -> Result<Self> {
+    /// device-independent pixels. Wrapping and alignment come from the [`TextFormat`]. Panics if
+    /// either size is negative.
+    pub fn new(text: &str, format: &TextFormat, max_width: f32, max_height: f32) -> Self {
         let offsets = Offsets::new(text);
         let wide = offsets.to_utf16();
         let raw = unsafe {
-            factory().CreateTextLayout(
-                wide.as_ptr(),
-                wide.len().try_into().unwrap(),
-                format.raw(),
-                max_width,
-                max_height,
-            )?
+            factory()
+                .CreateTextLayout(
+                    wide.as_ptr(),
+                    wide.len().try_into().unwrap(),
+                    format.raw(),
+                    max_width,
+                    max_height,
+                )
+                .unwrap()
         };
-        Ok(Self { raw, offsets })
+        Self { raw, offsets }
     }
 
     /// Returns the text being laid out.
@@ -193,8 +193,7 @@ impl TextLayout {
         let start = cursor.utf8(m.textPosition);
         let end = cursor.utf8(m.textPosition + m.length);
         HitTest {
-            text_position: start,
-            length: end - start,
+            text_range: start..end,
             is_trailing_hit: trailing.as_bool(),
             is_inside: inside.as_bool(),
             bounds: Rect::from_xywh(m.left, m.top, m.width, m.height),
@@ -223,12 +222,8 @@ impl TextLayout {
         Rect::from_xywh(x, y, 0.0, m.height)
     }
 
-    /// Returns the layout box size (`max_width`, `max_height`).
-    pub fn max_size(&self) -> (f32, f32) {
-        unsafe { (self.raw.GetMaxWidth(), self.raw.GetMaxHeight()) }
-    }
-
-    /// Resizes the layout box. Wrapping and alignment reflow to the new size.
+    /// Resizes the layout box. Wrapping, alignment, and trimming reflow to the new size. Panics if
+    /// either size is negative.
     pub fn set_max_size(&mut self, max_width: f32, max_height: f32) {
         unsafe {
             self.raw.SetMaxWidth(max_width).unwrap();
@@ -391,6 +386,16 @@ impl TextLayout {
     pub fn set_strikethrough(&mut self, range: impl RangeBounds<usize>, strikethrough: bool) {
         let range = self.offsets.range(range);
         unsafe { self.raw.SetStrikethrough(strikethrough, range).unwrap() };
+    }
+
+    /// Sets the locale, such as `"ar-eg"`, used to shape and break lines in `range`.
+    pub fn set_locale(&mut self, range: impl RangeBounds<usize>, locale: &str) {
+        let range = self.offsets.range(range);
+        unsafe {
+            self.raw
+                .SetLocaleName(wide(locale).as_ptr(), range)
+                .unwrap();
+        }
     }
 
     /// Shapes `range` with the OpenType `features`, such as `liga` or `tnum`. The list replaces

@@ -60,8 +60,9 @@ impl Component for Sample {
                 ));
                 ctx.fill_ellipse(&CanvasEllipse::circle(Vector2::new(x, y), radius), &brush);
             }
-            let format =
-                TextFormat::new_bold("Segoe UI", 20.0)?.with_alignment(TextAlignment::Center);
+            let format = TextFormat::new("Segoe UI", 20.0)
+                .with_weight(windows_text::FontWeight::BOLD)
+                .with_alignment(TextAlignment::Center);
             brush.set_color(ColorF::WHITE);
             ctx.draw_text(
                 &format!("{count} circles"),

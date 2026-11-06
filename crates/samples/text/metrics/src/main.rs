@@ -20,19 +20,19 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let bounds = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
 
     let origin = Vector2::new(MARGIN, MARGIN);
-    let format = TextFormat::new("Segoe UI", 28.0)?;
+    let format = TextFormat::new("Segoe UI", 28.0);
     let mut layout = TextLayout::new(
         TEXT,
         &format,
         (ctx.width - 2.0 * MARGIN).clamp(0.0, 640.0),
         (ctx.height - 3.0 * MARGIN).max(0.0),
-    )?;
+    );
     let bigger = TEXT.find("bigger").unwrap();
     layout.set_font_size(bigger..bigger + "bigger".len(), 48.0);
 
     // The layout box, and the bounds of the text inside it.
     let metrics = layout.metrics();
-    let (width, height) = layout.max_size();
+    let (width, height) = (metrics.layout_width, metrics.layout_height);
     ctx.draw_rect(&Rect::from_xywh(MARGIN, MARGIN, width, height), &frame, 1.0);
     ctx.draw_rect(&metrics.bounds().offset(MARGIN, MARGIN), &bounds, 1.5);
 
@@ -64,8 +64,8 @@ fn draw(ctx: &DrawContext) -> Result<()> {
         metrics.width,
         metrics.height
     );
-    let format = TextFormat::new("Consolas", 15.0)?;
-    let label = TextLayout::new(&summary, &format, width, MARGIN)?;
+    let format = TextFormat::new("Consolas", 15.0);
+    let label = TextLayout::new(&summary, &format, width, MARGIN);
     ctx.draw_text_layout(Vector2::new(MARGIN, ctx.height - MARGIN), &label, &bounds);
     Ok(())
 }

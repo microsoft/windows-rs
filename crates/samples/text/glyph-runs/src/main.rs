@@ -195,16 +195,16 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::from_rgb8(red, green, blue));
     let white = ctx.create_solid_brush(ColorF::WHITE)?;
     let dim = ctx.create_solid_brush(ColorF::from_rgb8(140, 150, 170))?;
-    let label_format = TextFormat::new("Segoe UI", 14.0)?;
+    let label_format = TextFormat::new("Segoe UI", 14.0);
 
-    let format = TextFormat::new("Segoe UI", 32.0)?;
+    let format = TextFormat::new("Segoe UI", 32.0);
     let width = (ctx.width - 2.0 * MARGIN).max(0.0);
-    let mut layout = TextLayout::new(TEXT, &format, width, ctx.height)?;
+    let mut layout = TextLayout::new(TEXT, &format, width, ctx.height);
     let underline = TEXT.find("underline").unwrap();
     layout.set_underline(underline..underline + "underline".len(), true);
     let bottom = layout.metrics().bounds().bottom;
 
-    let label = TextLayout::new("Direct2D", &label_format, ctx.width, MARGIN)?;
+    let label = TextLayout::new("Direct2D", &label_format, ctx.width, MARGIN);
     ctx.draw_text_layout(Vector2::new(MARGIN, MARGIN), &label, &dim);
     ctx.draw_text_layout(Vector2::new(MARGIN, 2.0 * MARGIN), &layout, &white);
 
@@ -217,7 +217,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let mut y = 3.0 * MARGIN + bottom;
 
     for (text, cleartype) in sections.into_iter().flatten() {
-        let label = TextLayout::new(text, &label_format, ctx.width, MARGIN)?;
+        let label = TextLayout::new(text, &label_format, ctx.width, MARGIN);
         ctx.draw_text_layout(Vector2::new(MARGIN, y), &label, &dim);
 
         // Align the bitmap to whole physical pixels so it maps one to one.

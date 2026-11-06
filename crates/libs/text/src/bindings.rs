@@ -77,6 +77,8 @@ pub struct DWRITE_FONT_FEATURE {
     pub parameter: UINT32,
 }
 pub type DWRITE_FONT_FEATURE_TAG = i32;
+pub type DWRITE_FONT_LINE_GAP_USAGE = i32;
+pub const DWRITE_FONT_LINE_GAP_USAGE_DEFAULT: DWRITE_FONT_LINE_GAP_USAGE = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_METRICS {
@@ -180,6 +182,19 @@ pub struct DWRITE_LINE_METRICS {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DWRITE_LINE_SPACING {
+    pub method: DWRITE_LINE_SPACING_METHOD,
+    pub height: FLOAT,
+    pub baseline: FLOAT,
+    pub leadingBefore: FLOAT,
+    pub fontLineGapUsage: DWRITE_FONT_LINE_GAP_USAGE,
+}
+pub type DWRITE_LINE_SPACING_METHOD = i32;
+pub const DWRITE_LINE_SPACING_METHOD_DEFAULT: DWRITE_LINE_SPACING_METHOD = 0;
+pub const DWRITE_LINE_SPACING_METHOD_PROPORTIONAL: DWRITE_LINE_SPACING_METHOD = 2;
+pub const DWRITE_LINE_SPACING_METHOD_UNIFORM: DWRITE_LINE_SPACING_METHOD = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_MATRIX {
     pub m11: FLOAT,
     pub m12: FLOAT,
@@ -200,6 +215,8 @@ pub type DWRITE_PIXEL_GEOMETRY = i32;
 pub const DWRITE_PIXEL_GEOMETRY_BGR: DWRITE_PIXEL_GEOMETRY = 2;
 pub const DWRITE_PIXEL_GEOMETRY_RGB: DWRITE_PIXEL_GEOMETRY = 1;
 pub type DWRITE_READING_DIRECTION = i32;
+pub const DWRITE_READING_DIRECTION_LEFT_TO_RIGHT: DWRITE_READING_DIRECTION = 0;
+pub const DWRITE_READING_DIRECTION_RIGHT_TO_LEFT: DWRITE_READING_DIRECTION = 1;
 pub type DWRITE_RENDERING_MODE1 = i32;
 pub const DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC: DWRITE_RENDERING_MODE1 = 5;
 pub const DWRITE_RENDERING_MODE1_OUTLINE: DWRITE_RENDERING_MODE1 = 6;
@@ -219,6 +236,7 @@ pub const DWRITE_TEXTURE_CLEARTYPE_3x1: DWRITE_TEXTURE_TYPE = 1;
 pub type DWRITE_TEXTURE_TYPE = i32;
 pub type DWRITE_TEXT_ALIGNMENT = i32;
 pub const DWRITE_TEXT_ALIGNMENT_CENTER: DWRITE_TEXT_ALIGNMENT = 2;
+pub const DWRITE_TEXT_ALIGNMENT_JUSTIFIED: DWRITE_TEXT_ALIGNMENT = 3;
 pub const DWRITE_TEXT_ALIGNMENT_LEADING: DWRITE_TEXT_ALIGNMENT = 0;
 pub const DWRITE_TEXT_ALIGNMENT_TRAILING: DWRITE_TEXT_ALIGNMENT = 1;
 pub type DWRITE_TEXT_ANTIALIAS_MODE = i32;
@@ -243,6 +261,17 @@ pub struct DWRITE_TEXT_RANGE {
     pub startPosition: UINT32,
     pub length: UINT32,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DWRITE_TRIMMING {
+    pub granularity: DWRITE_TRIMMING_GRANULARITY,
+    pub delimiter: UINT32,
+    pub delimiterCount: UINT32,
+}
+pub type DWRITE_TRIMMING_GRANULARITY = i32;
+pub const DWRITE_TRIMMING_GRANULARITY_CHARACTER: DWRITE_TRIMMING_GRANULARITY = 1;
+pub const DWRITE_TRIMMING_GRANULARITY_NONE: DWRITE_TRIMMING_GRANULARITY = 0;
+pub const DWRITE_TRIMMING_GRANULARITY_WORD: DWRITE_TRIMMING_GRANULARITY = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_UNDERLINE {
@@ -404,6 +433,23 @@ impl IDWriteFactory {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub(crate) unsafe fn CreateEllipsisTrimmingSign<P0>(
+        &self,
+        textformat: P0,
+    ) -> windows_core::Result<IDWriteInlineObject>
+    where
+        P0: windows_core::Param<IDWriteTextFormat>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateEllipsisTrimmingSign)(
+                windows_core::Interface::as_raw(self),
+                textformat.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
 }
 #[repr(C)]
 pub struct IDWriteFactory_Vtbl {
@@ -452,7 +498,11 @@ pub struct IDWriteFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     CreateGdiCompatibleTextLayout: usize,
-    CreateEllipsisTrimmingSign: usize,
+    pub CreateEllipsisTrimmingSign: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateTextAnalyzer: usize,
     CreateNumberSubstitution: usize,
     CreateGlyphRunAnalysis: usize,
@@ -1522,10 +1572,48 @@ windows_core::imp::define_interface!(
     0x8339fde3_106f_47ab_8373_1c6295eb10b3
 );
 windows_core::imp::interface_hierarchy!(IDWriteInlineObject, windows_core::IUnknown);
+impl IDWriteInlineObject {
+    pub(crate) unsafe fn Draw<P1, P6>(
+        &self,
+        clientdrawingcontext: Option<*const core::ffi::c_void>,
+        renderer: P1,
+        originx: FLOAT,
+        originy: FLOAT,
+        issideways: bool,
+        isrighttoleft: bool,
+        clientdrawingeffect: P6,
+    ) -> windows_core::HRESULT
+    where
+        P1: windows_core::Param<IDWriteTextRenderer>,
+        P6: windows_core::Param<windows_core::IUnknown>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Draw)(
+                windows_core::Interface::as_raw(self),
+                clientdrawingcontext.unwrap_or(core::mem::zeroed()) as _,
+                renderer.param().abi(),
+                originx,
+                originy,
+                issideways.into(),
+                isrighttoleft.into(),
+                clientdrawingeffect.param().abi(),
+            )
+        }
+    }
+}
 #[repr(C)]
 pub struct IDWriteInlineObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    Draw: usize,
+    pub Draw: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const core::ffi::c_void,
+        *mut core::ffi::c_void,
+        FLOAT,
+        FLOAT,
+        windows_core::BOOL,
+        windows_core::BOOL,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     GetMetrics: usize,
     GetOverhangMetrics: usize,
     GetBreakConditions: usize,
@@ -1829,6 +1917,44 @@ impl IDWriteTextFormat {
             )
         }
     }
+    pub(crate) unsafe fn SetReadingDirection(
+        &self,
+        readingdirection: DWRITE_READING_DIRECTION,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetReadingDirection)(
+                windows_core::Interface::as_raw(self),
+                readingdirection,
+            )
+        }
+    }
+    pub(crate) unsafe fn SetIncrementalTabStop(
+        &self,
+        incrementaltabstop: FLOAT,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIncrementalTabStop)(
+                windows_core::Interface::as_raw(self),
+                incrementaltabstop,
+            )
+        }
+    }
+    pub(crate) unsafe fn SetTrimming<P1>(
+        &self,
+        trimmingoptions: *const DWRITE_TRIMMING,
+        trimmingsign: P1,
+    ) -> windows_core::HRESULT
+    where
+        P1: windows_core::Param<IDWriteInlineObject>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTrimming)(
+                windows_core::Interface::as_raw(self),
+                trimmingoptions,
+                trimmingsign.param().abi(),
+            )
+        }
+    }
 }
 #[repr(C)]
 pub struct IDWriteTextFormat_Vtbl {
@@ -1845,10 +1971,18 @@ pub struct IDWriteTextFormat_Vtbl {
         *mut core::ffi::c_void,
         DWRITE_WORD_WRAPPING,
     ) -> windows_core::HRESULT,
-    SetReadingDirection: usize,
+    pub SetReadingDirection: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        DWRITE_READING_DIRECTION,
+    ) -> windows_core::HRESULT,
     SetFlowDirection: usize,
-    SetIncrementalTabStop: usize,
-    SetTrimming: usize,
+    pub SetIncrementalTabStop:
+        unsafe extern "system" fn(*mut core::ffi::c_void, FLOAT) -> windows_core::HRESULT,
+    pub SetTrimming: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const DWRITE_TRIMMING,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     SetLineSpacing: usize,
     GetTextAlignment: usize,
     GetParagraphAlignment: usize,
@@ -1911,6 +2045,45 @@ pub struct IDWriteTextFormat1_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     GetFontFallback: usize,
+}
+windows_core::imp::define_interface!(
+    IDWriteTextFormat2,
+    IDWriteTextFormat2_Vtbl,
+    0xf67e0edd_9e3d_4ecc_8c32_4183253dfe70
+);
+impl core::ops::Deref for IDWriteTextFormat2 {
+    type Target = IDWriteTextFormat1;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    IDWriteTextFormat2,
+    windows_core::IUnknown,
+    IDWriteTextFormat,
+    IDWriteTextFormat1
+);
+impl IDWriteTextFormat2 {
+    pub(crate) unsafe fn SetLineSpacing(
+        &self,
+        linespacingoptions: *const DWRITE_LINE_SPACING,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetLineSpacing)(
+                windows_core::Interface::as_raw(self),
+                linespacingoptions,
+            )
+        }
+    }
+}
+#[repr(C)]
+pub struct IDWriteTextFormat2_Vtbl {
+    pub base__: IDWriteTextFormat1_Vtbl,
+    pub SetLineSpacing: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const DWRITE_LINE_SPACING,
+    ) -> windows_core::HRESULT,
+    GetLineSpacing: usize,
 }
 windows_core::imp::define_interface!(
     IDWriteTextLayout,
@@ -2055,18 +2228,17 @@ impl IDWriteTextLayout {
             )
         }
     }
-    pub(crate) unsafe fn GetMaxWidth(&self) -> FLOAT {
+    pub(crate) unsafe fn SetLocaleName(
+        &self,
+        localename: *const WCHAR,
+        textrange: DWRITE_TEXT_RANGE,
+    ) -> windows_core::HRESULT {
         unsafe {
-            (windows_core::Interface::vtable(self).GetMaxWidth)(windows_core::Interface::as_raw(
-                self,
-            ))
-        }
-    }
-    pub(crate) unsafe fn GetMaxHeight(&self) -> FLOAT {
-        unsafe {
-            (windows_core::Interface::vtable(self).GetMaxHeight)(windows_core::Interface::as_raw(
-                self,
-            ))
+            (windows_core::Interface::vtable(self).SetLocaleName)(
+                windows_core::Interface::as_raw(self),
+                localename,
+                textrange,
+            )
         }
     }
     pub(crate) unsafe fn Draw<P1>(
@@ -2242,9 +2414,13 @@ pub struct IDWriteTextLayout_Vtbl {
         *mut core::ffi::c_void,
         DWRITE_TEXT_RANGE,
     ) -> windows_core::HRESULT,
-    SetLocaleName: usize,
-    pub GetMaxWidth: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
-    pub GetMaxHeight: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
+    pub SetLocaleName: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const WCHAR,
+        DWRITE_TEXT_RANGE,
+    ) -> windows_core::HRESULT,
+    GetMaxWidth: usize,
+    GetMaxHeight: usize,
     GetFontCollection: usize,
     GetFontFamilyNameLength: usize,
     GetFontFamilyName: usize,

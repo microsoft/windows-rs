@@ -765,8 +765,8 @@ impl State {
         }
 
         let start = Instant::now();
-        let format = TextFormat::new("Segoe UI", key.font_size)?;
-        let mut layout = TextLayout::new(TEXT, &format, key.width, f32::MAX)?;
+        let format = TextFormat::new("Segoe UI", key.font_size);
+        let mut layout = TextLayout::new(TEXT, &format, key.width, f32::MAX);
         let heading = 0.."Glyph atlas".len();
         layout.set_font_size(heading.clone(), key.font_size * 1.6);
         layout.set_font_weight(heading, FontWeight::SEMI_BOLD);

@@ -536,7 +536,8 @@ impl Scene {
             let overlay = if label.is_some() {
                 Some((
                     session.create_solid_brush(ColorF::from_rgb8(235, 239, 242))?,
-                    TextFormat::new_bold("Segoe UI Variable", cell * 0.62)?
+                    TextFormat::new("Segoe UI Variable", cell * 0.62)
+                        .with_weight(windows_text::FontWeight::BOLD)
                         .with_alignment(TextAlignment::Center)
                         .with_paragraph_alignment(ParagraphAlignment::Center)
                         .with_word_wrapping(WordWrapping::NoWrap),
