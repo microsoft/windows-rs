@@ -194,3 +194,70 @@ fn nested_effect_cleanup_sees_root_before_removal() {
     );
     assert_eq!(reference.get(), None);
 }
+
+struct Delegate;
+
+impl Component for Delegate {
+    type Input = (CounterInput, bool);
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        if input.1 {
+            component::<Counter>("counter", input.0.clone()).into()
+        } else {
+            Border::new().into()
+        }
+    }
+}
+
+#[test]
+fn component_view_can_be_another_component() {
+    let cleanup = Arc::new(AtomicUsize::new(0));
+    let input = |value| CounterInput {
+        cleanup: Arc::clone(&cleanup),
+        value,
+    };
+    let text = |host: &ComponentHost<RecordingAdapter>, object| {
+        host.runtime().graph().properties(object).unwrap()[0]
+            .value
+            .clone()
+    };
+    let mut host = ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<Delegate>("outer", (input(1), true))],
+    );
+    let path = [Key::from("outer"), Key::from("counter")];
+    let outer = host.reference(&Key::from("outer")).unwrap();
+    let inner = host.reference_at(&path).unwrap();
+    let root = outer.get().unwrap();
+    assert_eq!(inner.get(), Some(root));
+    assert_eq!(text(&host, root), PropertyValue::String(Rc::from("1")));
+
+    assert!(host.sender_at::<Counter>(&path).unwrap().send(2));
+    assert_eq!(host.drain(1).dispatched, 1);
+    assert_eq!(outer.get(), Some(root));
+    assert_eq!(text(&host, root), PropertyValue::String(Rc::from("3")));
+
+    host.update_input::<Delegate>(&Key::from("outer"), (input(5), true));
+    assert_eq!(outer.get(), Some(root));
+    assert_eq!(text(&host, root), PropertyValue::String(Rc::from("5")));
+
+    let cleaned = cleanup.load(Ordering::Relaxed);
+    host.update_input::<Delegate>(&Key::from("outer"), (input(5), false));
+    assert_eq!(inner.get(), None);
+    assert_eq!(cleanup.load(Ordering::Relaxed), cleaned + 1);
+    let root = outer.get().unwrap();
+    assert_eq!(host.runtime().graph().kind(root), Some(ObjectType::Border));
+
+    host.update_input::<Delegate>(&Key::from("outer"), (input(7), true));
+    let inner = host.reference_at(&path).unwrap();
+    assert_eq!(inner.get(), outer.get());
+    assert_eq!(
+        text(&host, outer.get().unwrap()),
+        PropertyValue::String(Rc::from("7"))
+    );
+}

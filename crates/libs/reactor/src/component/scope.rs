@@ -166,6 +166,8 @@ pub(super) struct Scope {
     pub(super) provided_contexts: HashSet<ContextId>,
     pub(super) reference: ElementRef,
     pub(super) root: Option<ObjectId>,
+    // The child component whose root is also this component's root.
+    pub(super) root_child: Option<ComponentId>,
     pub(super) window: Option<Box<WindowPublication>>,
 }
 
@@ -256,6 +258,7 @@ impl<A: Adapter> ComponentHost<A> {
             provided_contexts,
             reference,
             root: None,
+            root_child: None,
             window: None,
         };
         if id.index as usize == self.scopes.len() {

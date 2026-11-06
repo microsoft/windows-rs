@@ -311,3 +311,56 @@ fn broad_context_update_does_not_scan_all_graph_references_per_consumer() {
     assert_eq!(report.dispatched, count);
     assert_eq!(host.runtime().graph().full_reference_scan_count(), scans);
 }
+
+struct RootProvider;
+
+impl Component for RootProvider {
+    type Input = ProviderInput;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        provide(
+            &input.context,
+            input.value,
+            component::<ProviderChild>(
+                "child",
+                ProviderChildInput {
+                    context: Rc::clone(&input.context),
+                    seen: Rc::clone(&input.seen),
+                },
+            ),
+        )
+    }
+}
+
+#[test]
+fn provider_can_wrap_a_root_component() {
+    let input = ProviderInput {
+        context: Rc::new(Context::new(0)),
+        seen: Rc::default(),
+        value: 1,
+    };
+    let mut host = ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<RootProvider>("parent", input.clone())],
+    );
+    host.update_input::<RootProvider>(
+        &Key::from("parent"),
+        ProviderInput {
+            value: 2,
+            ..input.clone()
+        },
+    );
+
+    assert_eq!(input.seen.borrow().as_slice(), [1, 2]);
+    assert_eq!(
+        host.reference(&Key::from("parent")).unwrap().get(),
+        host.reference_at(&[Key::from("parent"), Key::from("child")])
+            .unwrap()
+            .get()
+    );
+}

@@ -288,6 +288,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
         "exit-with-window" => App::run_application::<application::ExitFixture>(())?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
+        "canvas-root" => App::run_application::<canvas::CanvasRootFixture>(())?,
         "canvas-image" => App::run_component::<canvas_image::CanvasImageFixture>(())?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
         "radio" => App::run_component::<controlled::RadioFixture>(())?,
