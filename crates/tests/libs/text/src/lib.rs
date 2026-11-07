@@ -52,17 +52,40 @@ mod tests {
     fn format_clones_are_independent() {
         let left = |format: &TextFormat| TextLayout::new("Hi", format, 400.0, 200.0).metrics().left;
 
-        let base = TextFormat::new("Segoe UI", 24.0);
-        let centered = base.clone().with_alignment(TextAlignment::Center);
-        let trailing = centered.clone().with_alignment(TextAlignment::Trailing);
-        assert_eq!(left(&base), 0.0);
-        assert!(left(&centered) > 100.0);
-        assert!(left(&trailing) > left(&centered));
+        for materialize in [false, true] {
+            let base = TextFormat::new("Segoe UI", 24.0);
+            if materialize {
+                assert_eq!(left(&base), 0.0);
+            }
+            let centered = base.clone().with_alignment(TextAlignment::Center);
+            if materialize {
+                assert!(left(&centered) > 100.0);
+            }
+            let trailing = centered.clone().with_alignment(TextAlignment::Trailing);
+            assert_eq!(left(&base), 0.0);
+            assert!(left(&centered) > 100.0);
+            assert!(left(&trailing) > left(&centered));
 
-        // A layout keeps the settings its format had when the layout was created.
-        let layout = TextLayout::new("Hi", &base, 400.0, 200.0);
-        let _ = base.with_alignment(TextAlignment::Trailing);
-        assert_eq!(layout.metrics().left, 0.0);
+            // A layout keeps the settings its format had when the layout was created.
+            let layout = TextLayout::new("Hi", &base, 400.0, 200.0);
+            let changed = base.with_alignment(TextAlignment::Trailing);
+            assert!(left(&changed) > 100.0);
+            assert_eq!(layout.metrics().left, 0.0);
+        }
+    }
+
+    #[test]
+    fn invalid_formats_panic_on_use() {
+        let formats = [
+            TextFormat::new("Segoe UI", 0.0),
+            TextFormat::new("Segoe UI", 24.0).with_weight(FontWeight(1000)),
+            TextFormat::new("Segoe UI", 24.0).with_tab_width(0.0),
+        ];
+        for format in formats {
+            assert!(
+                std::panic::catch_unwind(|| TextLayout::new("Hi", &format, 400.0, 200.0)).is_err()
+            );
+        }
     }
 
     #[test]
