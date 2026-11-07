@@ -1,0 +1,29 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+
+    windows_bindgen::builder()
+        .output(std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("bindings.rs"))
+        .filters([
+            "CreateWindowExW",
+            "DestroyWindow",
+            "DispatchMessageW",
+            "FindWindowW",
+            "GetDlgItem",
+            "GetWindow",
+            "GetWindowTextW",
+            "GW_OWNER",
+            "IDOK",
+            "IsWindowVisible",
+            "PeekMessageW",
+            "PM_REMOVE",
+            "PostMessageW",
+            "TranslateMessage",
+            "WM_CLOSE",
+            "WM_COMMAND",
+            "WS_OVERLAPPEDWINDOW",
+            "WS_VISIBLE",
+        ])
+        .sys()
+        .flat()
+        .write();
+}

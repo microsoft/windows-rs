@@ -3,6 +3,8 @@ use super::*;
 const ERROR_CANCELLED: u32 = 1223;
 const ERROR_CANCELLED_HRESULT: HRESULT = HRESULT((0x8007_0000_u32 | ERROR_CANCELLED) as i32);
 const E_INVALIDARG: HRESULT = HRESULT(0x8007_0057_u32 as i32);
+const ERROR_FILE_NOT_FOUND_HRESULT: HRESULT = HRESULT(0x8007_0002_u32 as i32);
+const ERROR_PATH_NOT_FOUND_HRESULT: HRESULT = HRESULT(0x8007_0003_u32 as i32);
 
 pub struct PreparedDialog {
     _title: Option<Vec<u16>>,
@@ -59,12 +61,10 @@ impl DialogSettings {
     }
 
     fn apply_folders(&self, dialog: &IFileDialog) -> Result<()> {
-        if let Some(folder) = &self.default {
-            let item = shell_item(folder)?;
+        if let Some(item) = self.default.as_ref().map(shell_item).transpose()?.flatten() {
             unsafe { dialog.SetDefaultFolder(&item).ok()? };
         }
-        if let Some(folder) = &self.folder {
-            let item = shell_item(folder)?;
+        if let Some(item) = self.folder.as_ref().map(shell_item).transpose()?.flatten() {
             unsafe { dialog.SetFolder(&item).ok()? };
         }
         Ok(())
@@ -137,16 +137,6 @@ pub fn show_dialog_multiple(
         .collect()
 }
 
-pub fn validate_owner(owner: *mut core::ffi::c_void) -> Result<()> {
-    if owner.is_null() {
-        return Err(Error::new(
-            E_INVALIDARG,
-            "picker owner HWND must not be null",
-        ));
-    }
-    Ok(())
-}
-
 pub fn wide(value: &str) -> Result<Vec<u16>> {
     if value.contains('\0') {
         return Err(Error::new(
@@ -157,44 +147,61 @@ pub fn wide(value: &str) -> Result<Vec<u16>> {
     Ok(value.encode_utf16().chain([0]).collect())
 }
 
-fn shell_item(folder: &DialogFolder) -> Result<IShellItem> {
-    unsafe {
-        let mut result = core::ptr::null_mut();
-        match folder {
-            DialogFolder::Path(path) => {
-                let path = path_wide(path)?;
+// Returns `None` if the folder does not exist, so the dialog falls back to its usual location.
+fn shell_item(folder: &DialogFolder) -> Result<Option<IShellItem>> {
+    let mut result = core::ptr::null_mut();
+    let hr = match folder {
+        DialogFolder::Path(path) => {
+            let path = path_wide(path)?;
+            unsafe {
                 SHCreateItemFromParsingName(
                     PCWSTR(path.as_ptr()),
                     core::ptr::null_mut(),
                     &IShellItem::IID,
                     &mut result,
                 )
-                .ok()?;
-            }
-            DialogFolder::Known(location) => {
-                SHCreateItemInKnownFolder(
-                    &location.id(),
-                    0,
-                    PCWSTR::null(),
-                    &IShellItem::IID,
-                    &mut result,
-                )
-                .ok()?;
             }
         }
-        imp::Type::from_abi(result)
+        DialogFolder::Known(location) => unsafe {
+            SHCreateItemInKnownFolder(
+                &location.id(),
+                0,
+                PCWSTR::null(),
+                &IShellItem::IID,
+                &mut result,
+            )
+        },
+    };
+    if hr == ERROR_FILE_NOT_FOUND_HRESULT || hr == ERROR_PATH_NOT_FOUND_HRESULT {
+        return Ok(None);
     }
+    hr.ok()?;
+    unsafe { imp::Type::from_abi(result).map(Some) }
 }
 
+// The Shell parses only absolute, non-verbatim paths, so resolve relative paths and remove the
+// `\\?\` prefix that `Path::canonicalize` adds.
 fn path_wide(value: &Path) -> Result<Vec<u16>> {
-    let value = value.as_os_str().encode_wide().collect::<Vec<_>>();
-    if value.contains(&0) {
+    if value.as_os_str().encode_wide().any(|c| c == 0) {
         return Err(Error::new(
             E_INVALIDARG,
             "picker paths must not contain embedded nulls",
         ));
     }
-    Ok(value.into_iter().chain([0]).collect())
+    let value = std::path::absolute(value).map_err(|error| match error.raw_os_error() {
+        Some(code) => Error::from(WIN32_ERROR(code as u32)),
+        None => Error::new(E_INVALIDARG, "picker paths must not be empty"),
+    })?;
+    let wide = value.as_os_str().encode_wide();
+    let wide: Vec<u16> = match value.components().next() {
+        Some(std::path::Component::Prefix(prefix)) => match prefix.kind() {
+            Prefix::VerbatimDisk(_) => wide.skip(4).collect(),
+            Prefix::VerbatimUNC(..) => [b'\\' as u16; 2].into_iter().chain(wide.skip(8)).collect(),
+            _ => wide.collect(),
+        },
+        _ => wide.collect(),
+    };
+    Ok(wide.into_iter().chain([0]).collect())
 }
 
 fn is_cancelled(result: HRESULT) -> bool {
@@ -260,11 +267,12 @@ mod tests {
     }
 
     #[test]
-    fn embedded_nuls_in_paths_are_rejected() {
+    fn empty_paths_and_embedded_nuls_are_rejected() {
         assert_eq!(
             path_wide(Path::new("bad\0path")).unwrap_err().code(),
             E_INVALIDARG
         );
+        assert_eq!(path_wide(Path::new("")).unwrap_err().code(), E_INVALIDARG);
     }
 
     #[test]
@@ -274,5 +282,32 @@ mod tests {
         let expected = value.into_iter().chain([0]).collect::<Vec<_>>();
 
         assert_eq!(path_wide(&path).unwrap(), expected);
+    }
+
+    fn shell_path(value: &str) -> String {
+        let wide = path_wide(Path::new(value)).unwrap();
+        String::from_utf16(&wide[..wide.len() - 1]).unwrap()
+    }
+
+    #[test]
+    fn paths_are_absolute_and_not_verbatim() {
+        let current = std::env::current_dir().unwrap();
+        assert_eq!(shell_path("src"), current.join("src").to_str().unwrap());
+        assert_eq!(shell_path(r"\\?\C:\Windows"), r"C:\Windows");
+        assert_eq!(shell_path(r"\\?\UNC\server\share\a"), r"\\server\share\a");
+        assert_eq!(shell_path("C:/Windows/System32"), r"C:\Windows\System32");
+    }
+
+    #[test]
+    fn missing_folders_are_ignored() {
+        let _sta = init_sta();
+        let missing = std::env::temp_dir().join("windows-pickers-missing-folder");
+        assert!(shell_item(&DialogFolder::Path(missing)).unwrap().is_none());
+        let canonical = std::env::temp_dir().canonicalize().unwrap();
+        assert!(
+            shell_item(&DialogFolder::Path(canonical))
+                .unwrap()
+                .is_some()
+        );
     }
 }

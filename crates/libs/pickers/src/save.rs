@@ -121,11 +121,10 @@ impl SaveFilePicker {
         self.show_for_hwnd(owner.hwnd())
     }
 
-    /// Shows the picker owned by a raw window handle.
+    /// Shows the picker owned by a raw window handle, or unowned if `owner` is null.
     ///
     /// The calling thread must be a COM single-threaded apartment (STA).
     pub fn show_for_hwnd(self, owner: *mut core::ffi::c_void) -> Result<Option<PathBuf>> {
-        validate_owner(owner)?;
         let filters = PreparedFilters::new(&self.filters, self.initial_filter)?;
         let dialog: IFileSaveDialog = create_instance(&FileSaveDialog)?;
         let (set_options, clear_options) = options(self.overwrite_prompt, !self.filters.is_empty());
