@@ -18,7 +18,7 @@ on:
       - master
 
 env:
-  RUSTFLAGS: --cfg windows_slim_errors
+  RUSTFLAGS: --cfg windows_slim_errors -D warnings
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
