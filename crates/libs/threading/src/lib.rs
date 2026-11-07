@@ -66,22 +66,43 @@ pub fn submit_with_priority<F: FnOnce() + Send + 'static>(priority: Priority, f:
 
 /// Submits a closure to the default thread pool to run once `delay` has elapsed.
 ///
-/// The closure must be `Send + 'static`. The delay is a minimum: the closure may run later if
-/// the system is busy, and timers are only as precise as the system timer resolution, which is
-/// often about 15 milliseconds.
+/// The closure must be `Send + 'static`. The delay is a minimum: the closure never runs before
+/// `delay` has elapsed, but it may run later if the system is busy or the system timer resolution
+/// is coarse, which is often about 15 milliseconds.
 pub fn submit_after<F: FnOnce() + Send + 'static>(delay: Duration, f: F) {
+    struct Delayed<F> {
+        deadline: Option<i64>,
+        f: F,
+    }
+
+    // Thread pool timers can expire before their due time, so the callback checks a monotonic
+    // deadline and rearms the one-shot timer until it has passed. The closure is only freed when
+    // it runs.
     unsafe extern "system" fn callback<F: FnOnce() + Send>(
         _: PTP_CALLBACK_INSTANCE,
-        callback: *mut c_void,
+        context: *mut c_void,
         timer: PTP_TIMER,
     ) {
-        unsafe {
-            Box::from_raw(callback as *mut F)();
-            CloseThreadpoolTimer(timer);
+        let delayed = context as *mut Delayed<F>;
+        let remaining = match unsafe { (*delayed).deadline } {
+            Some(deadline) => ticks_to_duration(deadline.saturating_sub(counter())),
+            None => Duration::MAX,
+        };
+
+        if remaining.is_zero() {
+            unsafe {
+                CloseThreadpoolTimer(timer);
+                (Box::from_raw(delayed).f)();
+            }
+        } else {
+            set_timer(timer, remaining);
         }
     }
 
-    let context = Box::into_raw(Box::new(f));
+    let context = Box::into_raw(Box::new(Delayed {
+        deadline: duration_to_ticks(delay).and_then(|ticks| counter().checked_add(ticks)),
+        f,
+    }));
     let timer =
         unsafe { CreateThreadpoolTimer(Some(callback::<F>), context as _, core::ptr::null_mut()) };
 
@@ -91,6 +112,10 @@ pub fn submit_after<F: FnOnce() + Send + 'static>(delay: Duration, f: F) {
         panic!("allocation failed");
     }
 
+    set_timer(timer, delay);
+}
+
+fn set_timer(timer: PTP_TIMER, delay: Duration) {
     // A negative due time is relative to now, in 100-nanosecond units.
     let ticks = delay.as_nanos().div_ceil(100).min(i64::MAX as u128) as i64;
     let due = (-ticks) as u64;
@@ -100,6 +125,33 @@ pub fn submit_after<F: FnOnce() + Send + 'static>(delay: Duration, f: F) {
     };
 
     unsafe { SetThreadpoolTimer(timer, &mut due, 0, 0) };
+}
+
+// The performance counter is the monotonic clock behind `std::time::Instant`.
+fn counter() -> i64 {
+    let mut value = LARGE_INTEGER::default();
+    unsafe {
+        QueryPerformanceCounter(&mut value);
+        value.QuadPart
+    }
+}
+
+fn frequency() -> u128 {
+    let mut value = LARGE_INTEGER::default();
+    unsafe {
+        QueryPerformanceFrequency(&mut value);
+        value.QuadPart as u128
+    }
+}
+
+// Both conversions round up so that a deadline is never reported as reached early.
+fn duration_to_ticks(duration: Duration) -> Option<i64> {
+    i64::try_from((duration.as_nanos() * frequency()).div_ceil(1_000_000_000)).ok()
+}
+
+fn ticks_to_duration(ticks: i64) -> Duration {
+    let nanos = (ticks.max(0) as u128 * 1_000_000_000).div_ceil(frequency());
+    Duration::from_nanos(nanos.min(u64::MAX as u128) as u64)
 }
 
 /// Calls the closure on each item in parallel and waits for completion.

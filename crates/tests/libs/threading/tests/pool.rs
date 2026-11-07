@@ -159,9 +159,67 @@ fn submit_after() {
         [0, 30, 100]
     );
 
-    // Each closure was submitted after `start`, so its elapsed time is at least its delay. Allow
-    // for the coarse system clock that timers are scheduled against.
+    // Each closure was submitted after `start`, so its elapsed time is at least its delay.
     for (millis, elapsed) in received {
-        assert!(elapsed + Duration::from_millis(2) >= Duration::from_millis(millis));
+        assert!(elapsed >= Duration::from_millis(millis));
     }
+}
+
+#[test]
+fn submit_after_never_early_and_once() {
+    use std::time::{Duration, Instant};
+    let (send, recv) = std::sync::mpsc::channel();
+
+    // Delays that are not multiples of the system timer resolution are the ones that expire early.
+    for millis in 1..=40 {
+        let send = send.clone();
+        let delay = Duration::from_millis(millis);
+        let start = Instant::now();
+        windows_threading::submit_after(delay, move || {
+            send.send((millis, delay, start.elapsed())).unwrap();
+        });
+    }
+    drop(send);
+
+    let mut received: Vec<_> = recv.iter().collect();
+    received.sort_by_key(|(millis, _, _)| *millis);
+    assert_eq!(
+        received
+            .iter()
+            .map(|(millis, _, _)| *millis)
+            .collect::<Vec<_>>(),
+        (1..=40).collect::<Vec<_>>()
+    );
+    for (millis, delay, elapsed) in received {
+        assert!(elapsed >= delay, "{millis} ms ran after {elapsed:?}");
+    }
+}
+
+#[test]
+fn submit_after_drops_closure_once_after_running() {
+    use std::sync::mpsc::Sender;
+    use std::time::{Duration, Instant};
+
+    struct Guard(Sender<(&'static str, Duration)>, Instant);
+
+    impl Drop for Guard {
+        fn drop(&mut self) {
+            self.0.send(("dropped", self.1.elapsed())).unwrap();
+        }
+    }
+
+    let (send, recv) = std::sync::mpsc::channel();
+    let delay = Duration::from_millis(30);
+    let guard = Guard(send, Instant::now());
+    windows_threading::submit_after(delay, move || {
+        guard.0.send(("ran", guard.1.elapsed())).unwrap();
+    });
+
+    // The sender lives in the guard, so the channel closes once the closure is dropped.
+    let received: Vec<_> = recv.iter().collect();
+    assert_eq!(
+        received.iter().map(|(event, _)| *event).collect::<Vec<_>>(),
+        ["ran", "dropped"]
+    );
+    assert!(received[0].1 >= delay);
 }
