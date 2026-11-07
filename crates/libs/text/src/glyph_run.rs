@@ -203,10 +203,14 @@ fn glyph_run(
             .iter()
             .position(|&glyph| glyph != first)
             .map_or(length, |len| position + len);
-        let last = map.get(next).map_or(count, |&glyph| glyph as usize);
+        // A run without glyphs, such as tabs, may still number its clusters.
+        let last = map
+            .get(next)
+            .map_or(count, |&glyph| glyph as usize)
+            .min(count);
         let text_position = cursor.utf8(start + position as u32);
 
-        for glyph in &mut glyphs[first as usize..last] {
+        for glyph in &mut glyphs[(first as usize).min(last)..last] {
             glyph.text_position = text_position;
         }
 

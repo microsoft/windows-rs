@@ -535,6 +535,15 @@ mod tests {
     }
 
     #[test]
+    fn glyph_runs_keep_tabs_without_glyphs() {
+        let layout = layout("a\t\tb");
+        let runs = layout.glyph_runs();
+        let tabs = runs.iter().find(|run| run.text_range == (1..3)).unwrap();
+        assert!(tabs.glyphs.is_empty());
+        assert_eq!(runs.last().unwrap().text_range, 3..4);
+    }
+
+    #[test]
     fn glyph_runs_right_to_left() {
         let layout = layout("\u{5E9}\u{5DC}\u{5D5}\u{5DD}");
         let runs = layout.glyph_runs();
