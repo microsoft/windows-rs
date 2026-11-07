@@ -1,7 +1,6 @@
 #![doc = include_str!("../readme.md")]
 #![debugger_visualizer(natvis_file = "../windows-result.natvis")]
 #![cfg_attr(all(not(feature = "std"), not(test)), no_std)]
-#![cfg_attr(not(windows), expect(unused_imports))]
 #![expect(
     non_upper_case_globals,
     non_snake_case,
