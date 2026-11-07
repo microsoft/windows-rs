@@ -6,6 +6,8 @@ windows_link::link!("kernel32.dll" "system" fn CreateThreadpool(reserved : PVOID
 windows_link::link!("kernel32.dll" "system" fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP);
 windows_link::link!("kernel32.dll" "system" fn CreateThreadpoolTimer(pfnti : PTP_TIMER_CALLBACK, pv : PVOID, pcbe : PTP_CALLBACK_ENVIRON) -> PTP_TIMER);
 windows_link::link!("kernel32.dll" "system" fn GetCurrentThreadId() -> DWORD);
+windows_link::link!("kernel32.dll" "system" fn QueryPerformanceCounter(lpperformancecount : *mut LARGE_INTEGER) -> BOOL);
+windows_link::link!("kernel32.dll" "system" fn QueryPerformanceFrequency(lpfrequency : *mut LARGE_INTEGER) -> BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetThreadpoolThreadMaximum(ptpp : PTP_POOL, cthrdmost : DWORD));
 windows_link::link!("kernel32.dll" "system" fn SetThreadpoolThreadMinimum(ptpp : PTP_POOL, cthrdmic : DWORD) -> BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetThreadpoolTimer(pti : PTP_TIMER, pftduetime : PFILETIME, msperiod : DWORD, mswindowlength : DWORD));
@@ -19,6 +21,32 @@ pub struct FILETIME {
     pub dwLowDateTime: DWORD,
     pub dwHighDateTime: DWORD,
 }
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union LARGE_INTEGER {
+    pub Anonymous: LARGE_INTEGER_0,
+    pub u: LARGE_INTEGER_1,
+    pub QuadPart: LONGLONG,
+}
+impl Default for LARGE_INTEGER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LARGE_INTEGER_0 {
+    pub LowPart: DWORD,
+    pub HighPart: LONG,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LARGE_INTEGER_1 {
+    pub LowPart: DWORD,
+    pub HighPart: LONG,
+}
+pub type LONG = i32;
+pub type LONGLONG = i64;
 pub type PFILETIME = *mut FILETIME;
 pub type PTP_CALLBACK_ENVIRON = *mut TP_CALLBACK_ENVIRON_V3;
 pub type PTP_CALLBACK_INSTANCE = *mut _TP_CALLBACK_INSTANCE;
