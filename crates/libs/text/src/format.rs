@@ -1,5 +1,5 @@
 use super::*;
-use std::sync::Arc;
+use std::sync::{Arc, OnceLock};
 
 /// Horizontal text alignment.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
@@ -88,18 +88,29 @@ pub enum LineSpacing {
 ///
 /// Cloning is cheap and a clone is independent: the `with_*` methods on one value never change
 /// another. Layouts copy the format when they are created, so later changes do not affect them.
+/// The native format is created and validated on first use, including interface access. Invalid
+/// settings panic at that point.
 #[derive(Clone)]
 pub struct TextFormat(Arc<Inner>);
 
 struct Inner {
-    raw: IDWriteTextFormat1,
+    raw: OnceLock<IDWriteTextFormat1>,
     settings: Settings,
 }
 
-// The format is only changed while uniquely owned, so sharing it is safe. DirectWrite objects
-// are not tied to a thread.
+// The native format is initialized once and never mutated. DirectWrite objects are not tied to
+// a thread.
 unsafe impl Send for Inner {}
 unsafe impl Sync for Inner {}
+
+impl Clone for Inner {
+    fn clone(&self) -> Self {
+        Self {
+            raw: OnceLock::new(),
+            settings: self.settings.clone(),
+        }
+    }
+}
 
 #[derive(Clone)]
 struct Settings {
@@ -122,7 +133,7 @@ struct Settings {
 impl TextFormat {
     /// Creates a text format for `family` at an em size of `size` device-independent pixels, with
     /// normal weight and style from the system fonts. If the family is not installed, text uses
-    /// the fallback fonts. Panics if `size` is not positive.
+    /// the fallback fonts. `size` must be positive.
     pub fn new(family: &str, size: f32) -> Self {
         let settings = Settings {
             family: wide(family),
@@ -140,29 +151,31 @@ impl TextFormat {
             tab_width: None,
             fallback: None,
         };
-        let raw = settings.create();
-        Self(Arc::new(Inner { raw, settings }))
+        Self(Arc::new(Inner {
+            raw: OnceLock::new(),
+            settings,
+        }))
     }
 
-    /// Sets the font weight. Panics if the weight is not from 1 to 999.
+    /// Sets the font weight, which must be from 1 to 999.
     pub fn with_weight(self, weight: FontWeight) -> Self {
-        self.recreate(|settings| settings.weight = weight)
+        self.update(|settings| settings.weight = weight)
     }
 
     /// Sets the font style.
     pub fn with_style(self, style: FontStyle) -> Self {
-        self.recreate(|settings| settings.style = style)
+        self.update(|settings| settings.style = style)
     }
 
     /// Looks up the family in `collection` instead of the system fonts.
     pub fn with_collection(self, collection: &FontCollection) -> Self {
-        self.recreate(|settings| settings.collection = Some(collection.clone()))
+        self.update(|settings| settings.collection = Some(collection.clone()))
     }
 
     /// Sets the locale, such as `"en-us"`, used for language-specific shaping and line breaking.
     /// The default is the user's locale.
     pub fn with_locale(self, locale: &str) -> Self {
-        self.recreate(|settings| settings.locale = Some(wide(locale)))
+        self.update(|settings| settings.locale = Some(wide(locale)))
     }
 
     /// Sets the horizontal text alignment.
@@ -197,7 +210,7 @@ impl TextFormat {
     }
 
     /// Sets the distance between tab stops in device-independent pixels. The default is four
-    /// times the font size. Panics if `width` is not positive.
+    /// times the font size. `width` must be positive.
     pub fn with_tab_width(self, width: f32) -> Self {
         self.update(|settings| settings.tab_width = Some(width))
     }
@@ -214,7 +227,7 @@ impl TextFormat {
     /// interfaces fail to build. Use [`to_interface`](Self::to_interface) to query for other
     /// interfaces. Treat the result as read-only.
     pub fn as_interface<T: Interface>(&self) -> &T {
-        self.0.raw.as_interface()
+        self.native().as_interface()
     }
 
     /// Casts the underlying `IDWriteTextFormat1` to `T`.
@@ -222,32 +235,25 @@ impl TextFormat {
     /// Use this to pass the format to DirectWrite or Direct2D through your own bindings, such
     /// as the `windows` crate's `IDWriteTextFormat`. Treat the result as read-only.
     pub fn to_interface<T: Interface>(&self) -> Result<T> {
-        self.0.raw.cast()
+        self.native().cast()
     }
 
     pub(crate) fn raw(&self) -> &IDWriteTextFormat {
-        &self.0.raw
+        self.native()
     }
 
-    /// Changes a setting that DirectWrite fixes when it creates a format, so a new format is
-    /// needed.
-    fn recreate(self, change: impl FnOnce(&mut Settings)) -> Self {
-        let mut settings = self.0.settings.clone();
-        change(&mut settings);
-        let raw = settings.create();
-        settings.apply(&raw);
-        Self(Arc::new(Inner { raw, settings }))
+    fn native(&self) -> &IDWriteTextFormat1 {
+        self.0.raw.get_or_init(|| {
+            let raw = self.0.settings.create();
+            self.0.settings.apply(&raw);
+            raw
+        })
     }
 
-    /// Changes a setting that an existing format can take, first giving this value its own
-    /// format if the current one is shared with a clone.
     fn update(mut self, change: impl FnOnce(&mut Settings)) -> Self {
-        let Some(inner) = Arc::get_mut(&mut self.0) else {
-            return self.recreate(change);
-        };
-
+        let inner = Arc::make_mut(&mut self.0);
+        inner.raw = OnceLock::new();
         change(&mut inner.settings);
-        inner.settings.apply(&inner.raw);
         self
     }
 }
@@ -341,5 +347,34 @@ impl Settings {
             raw.SetFontFallback(self.fallback.as_ref().map(FontFallback::raw))
                 .unwrap();
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn configuration_defers_native_creation() {
+        let format = TextFormat::new("Segoe UI", 24.0)
+            .with_weight(FontWeight::BOLD)
+            .with_style(FontStyle::Italic)
+            .with_alignment(TextAlignment::Center);
+        assert!(format.0.raw.get().is_none());
+
+        std::thread::scope(|scope| {
+            let threads: Vec<_> = (0..4)
+                .map(|_| {
+                    scope.spawn(|| format.as_interface::<IDWriteTextFormat1>().as_raw() as usize)
+                })
+                .collect();
+            let pointers: Vec<_> = threads.into_iter().map(|t| t.join().unwrap()).collect();
+            assert!(pointers.iter().all(|p| *p == pointers[0]));
+        });
+
+        let original = format.to_interface::<IDWriteTextFormat1>().unwrap();
+        let changed = format.with_weight(FontWeight::NORMAL);
+        assert!(changed.0.raw.get().is_none());
+        assert_ne!(changed.native().as_raw(), original.as_raw());
     }
 }
