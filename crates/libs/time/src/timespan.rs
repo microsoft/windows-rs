@@ -371,8 +371,7 @@ impl core::fmt::Display for TimeRangeError {
     }
 }
 
-#[cfg(feature = "std")]
-impl std::error::Error for TimeRangeError {}
+impl core::error::Error for TimeRangeError {}
 
 impl TryFrom<core::time::Duration> for TimeSpan {
     type Error = TimeRangeError;
