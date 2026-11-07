@@ -120,8 +120,7 @@ impl Error {
     }
 }
 
-#[cfg(feature = "std")]
-impl std::error::Error for Error {}
+impl core::error::Error for Error {}
 
 impl From<Error> for HRESULT {
     fn from(error: Error) -> Self {
@@ -241,6 +240,7 @@ use error_info::*;
 mod error_info {
     use super::*;
     use crate::com::ComPtr;
+    use alloc::vec::Vec;
 
     /// This type stores error detail, represented by a COM `IErrorInfo` object.
     ///

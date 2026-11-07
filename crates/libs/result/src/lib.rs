@@ -11,7 +11,7 @@
 
 extern crate alloc;
 
-use alloc::{string::String, vec::Vec};
+use alloc::string::String;
 
 #[expect(
     dead_code,
