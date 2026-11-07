@@ -10,6 +10,7 @@ use std::time::{Duration, Instant};
 
 const SETTLE: Duration = Duration::from_secs(1);
 const TIMEOUT: Duration = Duration::from_secs(30);
+const CLEANUP: Duration = Duration::from_secs(5);
 
 static SERIAL: Mutex<()> = Mutex::new(());
 
@@ -79,11 +80,22 @@ where
     let start = Instant::now();
     let mut found = None;
     let mut observed = None;
+    let mut posted = true;
+    let mut timed_out = false;
 
     while !worker.is_finished() {
         pump();
 
-        if observed.is_none() {
+        if !timed_out && start.elapsed() >= TIMEOUT {
+            // Close the dialog before failing so the next test never runs alongside it.
+            timed_out = true;
+            if let Some((dialog, _)) = found {
+                unsafe { PostMessageW(dialog, WM_CLOSE as u32, 0, 0) };
+            }
+        } else if timed_out && start.elapsed() >= TIMEOUT + CLEANUP {
+            eprintln!("picker dialog did not close after a timeout");
+            std::process::abort();
+        } else if observed.is_none() {
             match found {
                 None => {
                     let dialog = unsafe { FindWindowW(class.as_ptr(), title.as_ptr()) };
@@ -97,19 +109,20 @@ where
                         owner_matches: unsafe { GetWindow(dialog, GW_OWNER as u32) } == owner,
                         commit_label: text(unsafe { GetDlgItem(dialog, IDOK) }),
                     });
-                    let posted = match action {
-                        Action::Accept => unsafe {
-                            PostMessageW(dialog, WM_COMMAND as u32, IDOK as usize, 0)
-                        },
-                        Action::Cancel => unsafe { PostMessageW(dialog, WM_CLOSE as u32, 0, 0) },
-                    };
-                    assert_ne!(posted, 0);
+                    posted = 0
+                        != match action {
+                            Action::Accept => unsafe {
+                                PostMessageW(dialog, WM_COMMAND as u32, IDOK as usize, 0)
+                            },
+                            Action::Cancel => unsafe {
+                                PostMessageW(dialog, WM_CLOSE as u32, 0, 0)
+                            },
+                        };
                 }
                 Some(_) => {}
             }
         }
 
-        assert!(start.elapsed() < TIMEOUT, "picker dialog did not close");
         std::thread::sleep(Duration::from_millis(10));
     }
 
@@ -117,6 +130,8 @@ where
     if !owner.is_null() {
         unsafe { DestroyWindow(owner) };
     }
+    assert!(posted, "failed to post to the picker dialog");
+    assert!(!timed_out, "picker dialog did not close: {result:?}");
     let Some(observed) = observed else {
         panic!("picker dialog was not found: {result:?}");
     };
