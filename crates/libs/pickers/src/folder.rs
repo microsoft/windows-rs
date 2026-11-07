@@ -62,11 +62,10 @@ impl FolderPicker {
         self.show_for_hwnd(owner.hwnd())
     }
 
-    /// Shows the picker owned by a raw window handle.
+    /// Shows the picker owned by a raw window handle, or unowned if `owner` is null.
     ///
     /// The calling thread must be a COM single-threaded apartment (STA).
     pub fn show_for_hwnd(self, owner: *mut core::ffi::c_void) -> Result<Option<PathBuf>> {
-        validate_owner(owner)?;
         let (dialog, _prepared) = self.prepare((FOS_FORCEFILESYSTEM | FOS_PICKFOLDERS) as u32)?;
         show_dialog(&dialog, owner)
     }
@@ -79,12 +78,12 @@ impl FolderPicker {
         self.show_multiple_for_hwnd(owner.hwnd())
     }
 
-    /// Shows the picker with multiple selection enabled and owned by a raw window handle.
+    /// Shows the picker with multiple selection enabled and owned by a raw window handle, or
+    /// unowned if `owner` is null.
     ///
     /// An empty vector means the user cancelled. The calling thread must be a COM single-threaded
     /// apartment (STA).
     pub fn show_multiple_for_hwnd(self, owner: *mut core::ffi::c_void) -> Result<Vec<PathBuf>> {
-        validate_owner(owner)?;
         let (dialog, _prepared) =
             self.prepare((FOS_FORCEFILESYSTEM | FOS_PICKFOLDERS | FOS_ALLOWMULTISELECT) as u32)?;
         show_dialog_multiple(&dialog, owner)

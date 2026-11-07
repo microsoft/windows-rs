@@ -1,0 +1,22 @@
+[package]
+name = "test_pickers"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies]
+windows-core = { workspace = true }
+windows-link = { workspace = true }
+
+[dev-dependencies]
+windows-pickers = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true
