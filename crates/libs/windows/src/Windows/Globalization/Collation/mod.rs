@@ -22,6 +22,7 @@ impl windows_core::RuntimeType for CharacterGrouping {
 unsafe impl windows_core::Interface for CharacterGrouping {
     type Vtable = <ICharacterGrouping as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICharacterGrouping as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CharacterGrouping {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGrouping";
@@ -105,6 +106,7 @@ impl windows_core::RuntimeType for CharacterGroupings {
 unsafe impl windows_core::Interface for CharacterGroupings {
     type Vtable = <ICharacterGroupings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICharacterGroupings as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CharacterGroupings {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGroupings";
@@ -125,7 +127,7 @@ impl IntoIterator for &CharacterGroupings {
         windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
-windows_core::imp::define_interface!(ICharacterGrouping, ICharacterGrouping_Vtbl, 0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);
+windows_core::imp::define_interface!(ICharacterGrouping, ICharacterGrouping_Vtbl, 0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e, inspectable);
 impl windows_core::RuntimeType for ICharacterGrouping {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.Collation.ICharacterGrouping");
@@ -137,7 +139,7 @@ pub struct ICharacterGrouping_Vtbl {
     pub First: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICharacterGroupings, ICharacterGroupings_Vtbl, 0xb8d20a75_d4cf_4055_80e5_ce169c226496);
+windows_core::imp::define_interface!(ICharacterGroupings, ICharacterGroupings_Vtbl, 0xb8d20a75_d4cf_4055_80e5_ce169c226496, inspectable);
 impl windows_core::RuntimeType for ICharacterGroupings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.Collation.ICharacterGroupings");
@@ -148,7 +150,7 @@ pub struct ICharacterGroupings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICharacterGroupingsFactory, ICharacterGroupingsFactory_Vtbl, 0x99ea9fd9_886d_4401_9f98_69c82d4c2f78);
+windows_core::imp::define_interface!(ICharacterGroupingsFactory, ICharacterGroupingsFactory_Vtbl, 0x99ea9fd9_886d_4401_9f98_69c82d4c2f78, inspectable);
 impl windows_core::RuntimeType for ICharacterGroupingsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.Collation.ICharacterGroupingsFactory");

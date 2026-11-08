@@ -15,6 +15,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IVector_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVector<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
@@ -140,7 +141,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVector<T>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetAt: GetAt::<T, Identity, OFFSET>,
             Size: Size::<T, Identity, OFFSET>,
             Append: Append::<T, Identity, OFFSET>,

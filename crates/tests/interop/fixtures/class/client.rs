@@ -11,5 +11,9 @@ pub fn test() -> Result<()> {
     assert_eq!(widget.Name()?, "name");
     assert_eq!(widget.Count()?, 1);
 
+    let inspectable: IInspectable = widget.cast()?;
+    assert_eq!(inspectable.GetRuntimeClassName()?, "Class.Widget");
+    assert_eq!(inspectable.cast::<Widget>()?.Count()?, 1);
+
     Ok(())
 }

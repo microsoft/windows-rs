@@ -46,7 +46,8 @@ impl<F: Fn(i32) + Send + Sync + 'static> DelegateBox<F> {
 windows_core::imp::define_interface!(
     Interface,
     Interface_Vtbl,
-    0xca5a6b51_8bab_5a2e_af33_e182fa13377f
+    0xca5a6b51_8bab_5a2e_af33_e182fa13377f,
+    inspectable
 );
 impl windows_core::RuntimeType for Interface {
     const SIGNATURE: windows_core::imp::ConstBuffer =

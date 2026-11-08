@@ -108,6 +108,7 @@ impl windows_core::RuntimeType for AccessListEntryView {
 unsafe impl windows_core::Interface for AccessListEntryView {
     type Vtable = <windows_collections::IVectorView<AccessListEntry> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IVectorView<AccessListEntry> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AccessListEntryView {
     const NAME: &'static str = "Windows.Storage.AccessCache.AccessListEntryView";
@@ -126,7 +127,7 @@ impl IntoIterator for &AccessListEntryView {
         windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
-windows_core::imp::define_interface!(IItemRemovedEventArgs, IItemRemovedEventArgs_Vtbl, 0x59677e5c_55be_4c66_ba66_5eaea79d2631);
+windows_core::imp::define_interface!(IItemRemovedEventArgs, IItemRemovedEventArgs_Vtbl, 0x59677e5c_55be_4c66_ba66_5eaea79d2631, inspectable);
 impl windows_core::RuntimeType for IItemRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IItemRemovedEventArgs");
@@ -137,7 +138,7 @@ pub struct IItemRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemovedEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<AccessListEntry>) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageApplicationPermissionsStatics, IStorageApplicationPermissionsStatics_Vtbl, 0x4391dfaa_d033_48f9_8060_3ec847d2e3f1);
+windows_core::imp::define_interface!(IStorageApplicationPermissionsStatics, IStorageApplicationPermissionsStatics_Vtbl, 0x4391dfaa_d033_48f9_8060_3ec847d2e3f1, inspectable);
 impl windows_core::RuntimeType for IStorageApplicationPermissionsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics");
@@ -149,7 +150,7 @@ pub struct IStorageApplicationPermissionsStatics_Vtbl {
     pub FutureAccessList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MostRecentlyUsedList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageApplicationPermissionsStatics2, IStorageApplicationPermissionsStatics2_Vtbl, 0x072716ec_aa05_4294_9a11_1a3d04519ad0);
+windows_core::imp::define_interface!(IStorageApplicationPermissionsStatics2, IStorageApplicationPermissionsStatics2_Vtbl, 0x072716ec_aa05_4294_9a11_1a3d04519ad0, inspectable);
 impl windows_core::RuntimeType for IStorageApplicationPermissionsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics2");
@@ -167,7 +168,7 @@ pub struct IStorageApplicationPermissionsStatics2_Vtbl {
     #[cfg(not(feature = "System"))]
     GetMostRecentlyUsedListForUser: usize,
 }
-windows_core::imp::define_interface!(IStorageItemAccessList, IStorageItemAccessList_Vtbl, 0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453);
+windows_core::imp::define_interface!(IStorageItemAccessList, IStorageItemAccessList_Vtbl, 0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453, inspectable);
 impl windows_core::RuntimeType for IStorageItemAccessList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IStorageItemAccessList");
@@ -518,7 +519,7 @@ impl IStorageItemAccessList_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageItemAccessList, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             AddOverloadDefaultMetadata: AddOverloadDefaultMetadata::<Identity, OFFSET>,
             Add: Add::<Identity, OFFSET>,
             AddOrReplaceOverloadDefaultMetadata: AddOrReplaceOverloadDefaultMetadata::<Identity, OFFSET>,
@@ -574,7 +575,7 @@ pub struct IStorageItemAccessList_Vtbl {
     pub Entries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaximumItemsAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageItemMostRecentlyUsedList, IStorageItemMostRecentlyUsedList_Vtbl, 0x016239d5_510d_411e_8cf1_c3d1effa4c33);
+windows_core::imp::define_interface!(IStorageItemMostRecentlyUsedList, IStorageItemMostRecentlyUsedList_Vtbl, 0x016239d5_510d_411e_8cf1_c3d1effa4c33, inspectable);
 impl windows_core::RuntimeType for IStorageItemMostRecentlyUsedList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList");
@@ -586,7 +587,7 @@ pub struct IStorageItemMostRecentlyUsedList_Vtbl {
     pub ItemRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveItemRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageItemMostRecentlyUsedList2, IStorageItemMostRecentlyUsedList2_Vtbl, 0xda481ea0_ed8d_4731_a1db_e44ee2204093);
+windows_core::imp::define_interface!(IStorageItemMostRecentlyUsedList2, IStorageItemMostRecentlyUsedList2_Vtbl, 0xda481ea0_ed8d_4731_a1db_e44ee2204093, inspectable);
 impl windows_core::RuntimeType for IStorageItemMostRecentlyUsedList2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList2");
@@ -616,6 +617,7 @@ impl windows_core::RuntimeType for ItemRemovedEventArgs {
 unsafe impl windows_core::Interface for ItemRemovedEventArgs {
     type Vtable = <IItemRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IItemRemovedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ItemRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.AccessCache.ItemRemovedEventArgs";
@@ -795,6 +797,7 @@ impl windows_core::RuntimeType for StorageItemAccessList {
 unsafe impl windows_core::Interface for StorageItemAccessList {
     type Vtable = <IStorageItemAccessList as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageItemAccessList as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemAccessList";
@@ -962,6 +965,7 @@ impl windows_core::RuntimeType for StorageItemMostRecentlyUsedList {
 unsafe impl windows_core::Interface for StorageItemMostRecentlyUsedList {
     type Vtable = <IStorageItemMostRecentlyUsedList as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageItemMostRecentlyUsedList as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorageItemMostRecentlyUsedList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList";

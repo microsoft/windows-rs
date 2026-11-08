@@ -119,7 +119,7 @@ impl CryptographicBuffer {
 impl windows_core::RuntimeName for CryptographicBuffer {
     const NAME: &'static str = "Windows.Security.Cryptography.CryptographicBuffer";
 }
-windows_core::imp::define_interface!(ICryptographicBufferStatics, ICryptographicBufferStatics_Vtbl, 0x320b7e22_3cb0_4cdf_8663_1d28910065eb);
+windows_core::imp::define_interface!(ICryptographicBufferStatics, ICryptographicBufferStatics_Vtbl, 0x320b7e22_3cb0_4cdf_8663_1d28910065eb, inspectable);
 impl windows_core::RuntimeType for ICryptographicBufferStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.ICryptographicBufferStatics");

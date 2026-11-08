@@ -15,7 +15,8 @@ impl windows_core::RuntimeType for Enum {
 windows_core::imp::define_interface!(
     Interface,
     Interface_Vtbl,
-    0x15cc7583_8b29_53d3_b0ee_7091c6f91977
+    0x15cc7583_8b29_53d3_b0ee_7091c6f91977,
+    inspectable
 );
 impl windows_core::RuntimeType for Interface {
     const SIGNATURE: windows_core::imp::ConstBuffer =

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IMdmAllowPolicyStatics, IMdmAllowPolicyStatics_Vtbl, 0xc39709e7_741c_41f2_a4b6_314c31502586);
+windows_core::imp::define_interface!(IMdmAllowPolicyStatics, IMdmAllowPolicyStatics_Vtbl, 0xc39709e7_741c_41f2_a4b6_314c31502586, inspectable);
 impl windows_core::RuntimeType for IMdmAllowPolicyStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Workplace.IMdmAllowPolicyStatics");
@@ -12,7 +12,7 @@ pub struct IMdmAllowPolicyStatics_Vtbl {
     pub IsMicrosoftAccountAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsStoreAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMdmPolicyStatics2, IMdmPolicyStatics2_Vtbl, 0xc99c7526_03d4_49f9_a993_43efccd265c4);
+windows_core::imp::define_interface!(IMdmPolicyStatics2, IMdmPolicyStatics2_Vtbl, 0xc99c7526_03d4_49f9_a993_43efccd265c4, inspectable);
 impl windows_core::RuntimeType for IMdmPolicyStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Workplace.IMdmPolicyStatics2");
@@ -23,7 +23,7 @@ pub struct IMdmPolicyStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetMessagingSyncPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MessagingSyncPolicy) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWorkplaceSettingsStatics, IWorkplaceSettingsStatics_Vtbl, 0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3);
+windows_core::imp::define_interface!(IWorkplaceSettingsStatics, IWorkplaceSettingsStatics_Vtbl, 0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3, inspectable);
 impl windows_core::RuntimeType for IWorkplaceSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Workplace.IWorkplaceSettingsStatics");

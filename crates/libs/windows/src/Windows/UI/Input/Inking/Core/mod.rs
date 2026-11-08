@@ -56,6 +56,7 @@ impl windows_core::RuntimeType for CoreIncrementalInkStroke {
 unsafe impl windows_core::Interface for CoreIncrementalInkStroke {
     type Vtable = <ICoreIncrementalInkStroke as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreIncrementalInkStroke as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CoreIncrementalInkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreIncrementalInkStroke";
@@ -214,6 +215,7 @@ impl windows_core::RuntimeType for CoreInkIndependentInputSource {
 unsafe impl windows_core::Interface for CoreInkIndependentInputSource {
     type Vtable = <ICoreInkIndependentInputSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInkIndependentInputSource as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CoreInkIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource";
@@ -245,6 +247,7 @@ impl windows_core::RuntimeType for CoreInkPresenterHost {
 unsafe impl windows_core::Interface for CoreInkPresenterHost {
     type Vtable = <ICoreInkPresenterHost as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInkPresenterHost as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CoreInkPresenterHost {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkPresenterHost";
@@ -299,6 +302,7 @@ impl windows_core::RuntimeType for CoreWetStrokeUpdateEventArgs {
 unsafe impl windows_core::Interface for CoreWetStrokeUpdateEventArgs {
     type Vtable = <ICoreWetStrokeUpdateEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreWetStrokeUpdateEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CoreWetStrokeUpdateEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateEventArgs";
@@ -406,13 +410,14 @@ impl windows_core::RuntimeType for CoreWetStrokeUpdateSource {
 unsafe impl windows_core::Interface for CoreWetStrokeUpdateSource {
     type Vtable = <ICoreWetStrokeUpdateSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreWetStrokeUpdateSource as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CoreWetStrokeUpdateSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateSource";
 }
 unsafe impl Send for CoreWetStrokeUpdateSource {}
 unsafe impl Sync for CoreWetStrokeUpdateSource {}
-windows_core::imp::define_interface!(ICoreIncrementalInkStroke, ICoreIncrementalInkStroke_Vtbl, 0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76);
+windows_core::imp::define_interface!(ICoreIncrementalInkStroke, ICoreIncrementalInkStroke_Vtbl, 0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76, inspectable);
 impl windows_core::RuntimeType for ICoreIncrementalInkStroke {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreIncrementalInkStroke");
@@ -427,7 +432,7 @@ pub struct ICoreIncrementalInkStroke_Vtbl {
     pub PointTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix3x2) -> windows_core::HRESULT,
     pub BoundingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreIncrementalInkStrokeFactory, ICoreIncrementalInkStrokeFactory_Vtbl, 0xd7c59f46_8da8_4f70_9751_e53bb6df4596);
+windows_core::imp::define_interface!(ICoreIncrementalInkStrokeFactory, ICoreIncrementalInkStrokeFactory_Vtbl, 0xd7c59f46_8da8_4f70_9751_e53bb6df4596, inspectable);
 impl windows_core::RuntimeType for ICoreIncrementalInkStrokeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreIncrementalInkStrokeFactory");
@@ -438,7 +443,7 @@ pub struct ICoreIncrementalInkStrokeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_numerics::Matrix3x2, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreInkIndependentInputSource, ICoreInkIndependentInputSource_Vtbl, 0x39b38da9_7639_4499_a5b5_191d00e35b16);
+windows_core::imp::define_interface!(ICoreInkIndependentInputSource, ICoreInkIndependentInputSource_Vtbl, 0x39b38da9_7639_4499_a5b5_191d00e35b16, inspectable);
 impl windows_core::RuntimeType for ICoreInkIndependentInputSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource");
@@ -484,7 +489,7 @@ pub struct ICoreInkIndependentInputSource_Vtbl {
     pub RemovePointerLost: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub InkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreInkIndependentInputSource2, ICoreInkIndependentInputSource2_Vtbl, 0x2846b012_0b59_5bb9_a3c5_becb7cf03a33);
+windows_core::imp::define_interface!(ICoreInkIndependentInputSource2, ICoreInkIndependentInputSource2_Vtbl, 0x2846b012_0b59_5bb9_a3c5_becb7cf03a33, inspectable);
 impl windows_core::RuntimeType for ICoreInkIndependentInputSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource2");
@@ -502,7 +507,7 @@ pub struct ICoreInkIndependentInputSource2_Vtbl {
     #[cfg(not(feature = "UI_Core"))]
     SetPointerCursor: usize,
 }
-windows_core::imp::define_interface!(ICoreInkIndependentInputSourceStatics, ICoreInkIndependentInputSourceStatics_Vtbl, 0x73e6011b_80c0_4dfb_9b66_10ba7f3f9c84);
+windows_core::imp::define_interface!(ICoreInkIndependentInputSourceStatics, ICoreInkIndependentInputSourceStatics_Vtbl, 0x73e6011b_80c0_4dfb_9b66_10ba7f3f9c84, inspectable);
 impl windows_core::RuntimeType for ICoreInkIndependentInputSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSourceStatics");
@@ -513,7 +518,7 @@ pub struct ICoreInkIndependentInputSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreInkPresenterHost, ICoreInkPresenterHost_Vtbl, 0x396e89e6_7d55_4617_9e58_68c70c9169b9);
+windows_core::imp::define_interface!(ICoreInkPresenterHost, ICoreInkPresenterHost_Vtbl, 0x396e89e6_7d55_4617_9e58_68c70c9169b9, inspectable);
 impl windows_core::RuntimeType for ICoreInkPresenterHost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreInkPresenterHost");
@@ -524,7 +529,7 @@ pub struct ICoreInkPresenterHost_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreWetStrokeUpdateEventArgs, ICoreWetStrokeUpdateEventArgs_Vtbl, 0xfb07d14c_3380_457a_a987_991357896c1b);
+windows_core::imp::define_interface!(ICoreWetStrokeUpdateEventArgs, ICoreWetStrokeUpdateEventArgs_Vtbl, 0xfb07d14c_3380_457a_a987_991357896c1b, inspectable);
 impl windows_core::RuntimeType for ICoreWetStrokeUpdateEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs");
@@ -538,7 +543,7 @@ pub struct ICoreWetStrokeUpdateEventArgs_Vtbl {
     pub Disposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CoreWetStrokeDisposition) -> windows_core::HRESULT,
     pub SetDisposition: unsafe extern "system" fn(*mut core::ffi::c_void, CoreWetStrokeDisposition) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreWetStrokeUpdateSource, ICoreWetStrokeUpdateSource_Vtbl, 0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc);
+windows_core::imp::define_interface!(ICoreWetStrokeUpdateSource, ICoreWetStrokeUpdateSource_Vtbl, 0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc, inspectable);
 impl windows_core::RuntimeType for ICoreWetStrokeUpdateSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource");
@@ -559,7 +564,7 @@ pub struct ICoreWetStrokeUpdateSource_Vtbl {
     pub RemoveWetStrokeCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub InkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreWetStrokeUpdateSourceStatics, ICoreWetStrokeUpdateSourceStatics_Vtbl, 0x3dad9cba_1d3d_46ae_ab9d_8647486c6f90);
+windows_core::imp::define_interface!(ICoreWetStrokeUpdateSourceStatics, ICoreWetStrokeUpdateSourceStatics_Vtbl, 0x3dad9cba_1d3d_46ae_ab9d_8647486c6f90, inspectable);
 impl windows_core::RuntimeType for ICoreWetStrokeUpdateSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSourceStatics");

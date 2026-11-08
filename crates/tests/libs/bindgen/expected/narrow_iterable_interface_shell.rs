@@ -1,4 +1,9 @@
-windows_core::imp::define_interface!(IItems, IItems_Vtbl, 0x8dfef4bd_8c6e_5d6d_9614_0aca51e6943b);
+windows_core::imp::define_interface!(
+    IItems,
+    IItems_Vtbl,
+    0x8dfef4bd_8c6e_5d6d_9614_0aca51e6943b,
+    inspectable
+);
 impl windows_core::RuntimeType for IItems {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -16,7 +21,8 @@ pub struct IItems_Vtbl {
 windows_core::imp::define_interface!(
     ISource,
     ISource_Vtbl,
-    0x4b03722d_bb0f_59cf_9516_4b0e089ddf6a
+    0x4b03722d_bb0f_59cf_9516_4b0e089ddf6a,
+    inspectable
 );
 impl windows_core::RuntimeType for ISource {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -70,7 +76,7 @@ impl ISource_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISource, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetItems: GetItems::<Identity, OFFSET>,
         }
     }

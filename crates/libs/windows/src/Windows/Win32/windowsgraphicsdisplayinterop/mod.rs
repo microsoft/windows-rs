@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IDisplayInformationStaticsInterop, IDisplayInformationStaticsInterop_Vtbl, 0x7449121c_382b_4705_8da7_a795ba482013);
+windows_core::imp::define_interface!(IDisplayInformationStaticsInterop, IDisplayInformationStaticsInterop_Vtbl, 0x7449121c_382b_4705_8da7_a795ba482013, inspectable);
 windows_core::imp::interface_hierarchy!(IDisplayInformationStaticsInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IDisplayInformationStaticsInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -52,7 +52,7 @@ impl IDisplayInformationStaticsInterop_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IDisplayInformationStaticsInterop, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, OFFSET>,
             GetForMonitor: GetForMonitor::<Identity, OFFSET>,
         }

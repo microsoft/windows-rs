@@ -378,6 +378,47 @@ fn to_object() {
 }
 
 #[test]
+fn provenance_to_object() {
+    let app = MyApp::new(42);
+    let tombstone = app.tombstone.clone();
+    let mut survivor = app.to_object();
+    drop(app);
+    survivor.get_mut().unwrap().set_x(43);
+    assert_eq!(survivor.get_x_direct(), 43);
+    drop(survivor);
+    assert!(tombstone.is_dead());
+}
+
+#[test]
+fn provenance_take() {
+    let app = MyApp::new(42);
+    let tombstone = app.tombstone.clone();
+    let survivor = app.to_object();
+    drop(app);
+    let inner = survivor.take().unwrap();
+    assert_eq!(inner.get_x_direct(), 42);
+    assert!(!tombstone.is_dead());
+    drop(inner);
+    assert!(tombstone.is_dead());
+}
+
+#[test]
+fn object_size() {
+    // One vtable pointer per interface chain plus the reference count.
+    assert_eq!(
+        size_of::<MyApp_Impl>(),
+        size_of::<MyApp>() + 4 * size_of::<usize>()
+    );
+}
+
+#[test]
+#[should_panic]
+fn interface_out_of_bounds() {
+    // No interface is published; the test only exercises the storage bounds check.
+    let outer = unsafe { MyApp::default().into_outer() };
+    outer.__com.interface(100);
+}
+#[test]
 fn dynamic_cast() {
     let app = MyApp::new(42);
     let unknown = app.to_interface::<IUnknown>();

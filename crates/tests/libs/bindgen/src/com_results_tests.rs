@@ -190,8 +190,15 @@ fn results_transfer_owned_references() {
         assert_eq!(drops.get(), 6);
         drop(result.TypedefSlot().unwrap());
         assert_eq!(drops.get(), 7);
+    }
+}
 
-        mode.set(Mode::Null);
+#[test]
+fn results_handle_null_and_failed_references() {
+    let mode = Rc::new(Cell::new(Mode::Null));
+    let drops = Rc::new(Cell::new(0));
+    let result = provider(&mode, &drops);
+    unsafe {
         assert_eq!(result.Object().unwrap_err().code(), HRESULT(0));
         assert_eq!(result.Reserved(None).unwrap_err().code(), HRESULT(0));
         assert_eq!(result.ObjectVoid().unwrap_err().code(), HRESULT(0));
@@ -203,7 +210,7 @@ fn results_transfer_owned_references() {
             .OptionalStorage::<Tracked>(core::ptr::null_mut())
             .unwrap();
         assert!(result.Data().unwrap().is_null());
-        assert_eq!(drops.get(), 7);
+        assert_eq!(drops.get(), 0);
 
         mode.set(Mode::Failure);
         assert_eq!(result.Object().unwrap_err().code(), E_FAIL);

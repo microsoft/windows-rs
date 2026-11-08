@@ -324,6 +324,7 @@ impl Class {
                 unsafe impl windows_core::Interface for #name {
                     type Vtable = <#default_interface as windows_core::Interface>::Vtable;
                     const IID: windows_core::GUID = <#default_interface as windows_core::Interface>::IID;
+                    const INSPECTABLE: bool = true;
                 }
                 #deref
                 #runtime_name

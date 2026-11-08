@@ -36,7 +36,21 @@ fn list_move_selected_content() -> Result<()> {
         let rich = ui.list_item("items", "Rich content")?;
         ui.pointer_move_to(&rich, "rich", 0.2, 0.5)?;
         ui.pointer_clicks(1)?;
-        order(ui, &["Rich content", "Alpha", "Beta"])?;
+        let result = order(ui, &["Rich content", "Alpha", "Beta"]);
+        if result.is_err() {
+            unsafe {
+                eprintln!(
+                    "rich selection after failed promotion: {:?}",
+                    rich.GetCurrentPatternAs::<IUIAutomationSelectionItemPattern>(10010)
+                        .and_then(|item| item.CurrentIsSelected())
+                );
+                eprintln!(
+                    "rich bounds after failed promotion: {:?}",
+                    rich.CurrentBoundingRectangle()
+                );
+            }
+        }
+        result?;
         let rich = ui.list_item("items", "Rich content")?;
         ui.selected_list_item("items", Some(&rich))
     })

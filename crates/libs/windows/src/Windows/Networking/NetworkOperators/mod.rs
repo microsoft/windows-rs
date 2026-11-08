@@ -181,6 +181,7 @@ impl windows_core::RuntimeType for ESim {
 unsafe impl windows_core::Interface for ESim {
     type Vtable = <IESim as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESim as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESim {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESim";
@@ -205,6 +206,7 @@ impl windows_core::RuntimeType for ESimAddedEventArgs {
 unsafe impl windows_core::Interface for ESimAddedEventArgs {
     type Vtable = <IESimAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimAddedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimAddedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimAddedEventArgs";
@@ -250,6 +252,7 @@ impl windows_core::RuntimeType for ESimDiscoverEvent {
 unsafe impl windows_core::Interface for ESimDiscoverEvent {
     type Vtable = <IESimDiscoverEvent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimDiscoverEvent as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimDiscoverEvent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverEvent";
@@ -292,6 +295,7 @@ impl windows_core::RuntimeType for ESimDiscoverResult {
 unsafe impl windows_core::Interface for ESimDiscoverResult {
     type Vtable = <IESimDiscoverResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimDiscoverResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimDiscoverResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverResult";
@@ -337,6 +341,7 @@ impl windows_core::RuntimeType for ESimDownloadProfileMetadataResult {
 unsafe impl windows_core::Interface for ESimDownloadProfileMetadataResult {
     type Vtable = <IESimDownloadProfileMetadataResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimDownloadProfileMetadataResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimDownloadProfileMetadataResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult";
@@ -397,6 +402,7 @@ impl windows_core::RuntimeType for ESimOperationResult {
 unsafe impl windows_core::Interface for ESimOperationResult {
     type Vtable = <IESimOperationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimOperationResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimOperationResult";
@@ -462,6 +468,7 @@ impl windows_core::RuntimeType for ESimPolicy {
 unsafe impl windows_core::Interface for ESimPolicy {
     type Vtable = <IESimPolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimPolicy as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimPolicy {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimPolicy";
@@ -547,6 +554,7 @@ impl windows_core::RuntimeType for ESimProfile {
 unsafe impl windows_core::Interface for ESimProfile {
     type Vtable = <IESimProfile as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimProfile as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfile";
@@ -674,6 +682,7 @@ impl windows_core::RuntimeType for ESimProfileMetadata {
 unsafe impl windows_core::Interface for ESimProfileMetadata {
     type Vtable = <IESimProfileMetadata as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimProfileMetadata as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimProfileMetadata {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfileMetadata";
@@ -730,6 +739,7 @@ impl windows_core::RuntimeType for ESimProfilePolicy {
 unsafe impl windows_core::Interface for ESimProfilePolicy {
     type Vtable = <IESimProfilePolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimProfilePolicy as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimProfilePolicy {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfilePolicy";
@@ -770,6 +780,7 @@ impl windows_core::RuntimeType for ESimRemovedEventArgs {
 unsafe impl windows_core::Interface for ESimRemovedEventArgs {
     type Vtable = <IESimRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimRemovedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimRemovedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimRemovedEventArgs";
@@ -800,6 +811,7 @@ impl windows_core::RuntimeType for ESimServiceInfo {
 unsafe impl windows_core::Interface for ESimServiceInfo {
     type Vtable = <IESimServiceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimServiceInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimServiceInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimServiceInfo";
@@ -840,6 +852,7 @@ impl windows_core::RuntimeType for ESimUpdatedEventArgs {
 unsafe impl windows_core::Interface for ESimUpdatedEventArgs {
     type Vtable = <IESimUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimUpdatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimUpdatedEventArgs";
@@ -940,6 +953,7 @@ impl windows_core::RuntimeType for ESimWatcher {
 unsafe impl windows_core::Interface for ESimWatcher {
     type Vtable = <IESimWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimWatcher as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ESimWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimWatcher";
@@ -1040,6 +1054,7 @@ impl windows_core::RuntimeType for HotspotAuthenticationContext {
 unsafe impl windows_core::Interface for HotspotAuthenticationContext {
     type Vtable = <IHotspotAuthenticationContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHotspotAuthenticationContext as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HotspotAuthenticationContext {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationContext";
@@ -1062,6 +1077,7 @@ impl windows_core::RuntimeType for HotspotAuthenticationEventDetails {
 unsafe impl windows_core::Interface for HotspotAuthenticationEventDetails {
     type Vtable = <IHotspotAuthenticationEventDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHotspotAuthenticationEventDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HotspotAuthenticationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails";
@@ -1122,11 +1138,12 @@ impl windows_core::RuntimeType for HotspotCredentialsAuthenticationResult {
 unsafe impl windows_core::Interface for HotspotCredentialsAuthenticationResult {
     type Vtable = <IHotspotCredentialsAuthenticationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHotspotCredentialsAuthenticationResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HotspotCredentialsAuthenticationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult";
 }
-windows_core::imp::define_interface!(IESim, IESim_Vtbl, 0x6f6e6e26_f123_437d_8ced_dc1d2bc0c3a9);
+windows_core::imp::define_interface!(IESim, IESim_Vtbl, 0x6f6e6e26_f123_437d_8ced_dc1d2bc0c3a9, inspectable);
 impl windows_core::RuntimeType for IESim {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESim");
@@ -1148,7 +1165,7 @@ pub struct IESim_Vtbl {
     pub ProfileChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveProfileChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESim2, IESim2_Vtbl, 0xbd4fd0a0_c68f_56eb_b99b_8f34b8100299);
+windows_core::imp::define_interface!(IESim2, IESim2_Vtbl, 0xbd4fd0a0_c68f_56eb_b99b_8f34b8100299, inspectable);
 impl windows_core::RuntimeType for IESim2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESim2");
@@ -1162,7 +1179,7 @@ pub struct IESim2_Vtbl {
     pub DiscoverAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DiscoverWithServerAddressAndMatchingIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESim3, IESim3_Vtbl, 0xfe1edf45_01b8_5d31_b8d3_d9cbebb2b831);
+windows_core::imp::define_interface!(IESim3, IESim3_Vtbl, 0xfe1edf45_01b8_5d31_b8d3_d9cbebb2b831, inspectable);
 impl windows_core::RuntimeType for IESim3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESim3");
@@ -1173,7 +1190,7 @@ pub struct IESim3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SlotIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimAddedEventArgs, IESimAddedEventArgs_Vtbl, 0x38bd0a58_4d5a_4d08_8da7_e73eff369ddd);
+windows_core::imp::define_interface!(IESimAddedEventArgs, IESimAddedEventArgs_Vtbl, 0x38bd0a58_4d5a_4d08_8da7_e73eff369ddd, inspectable);
 impl windows_core::RuntimeType for IESimAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimAddedEventArgs");
@@ -1184,7 +1201,7 @@ pub struct IESimAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ESim: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimDiscoverEvent, IESimDiscoverEvent_Vtbl, 0xe59ac3e3_39bc_5f6f_9321_0d4a182d261b);
+windows_core::imp::define_interface!(IESimDiscoverEvent, IESimDiscoverEvent_Vtbl, 0xe59ac3e3_39bc_5f6f_9321_0d4a182d261b, inspectable);
 impl windows_core::RuntimeType for IESimDiscoverEvent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimDiscoverEvent");
@@ -1196,7 +1213,7 @@ pub struct IESimDiscoverEvent_Vtbl {
     pub MatchingId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RspServerAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimDiscoverResult, IESimDiscoverResult_Vtbl, 0x56b4bb5e_ab2f_5ac6_b359_dd5a8e237926);
+windows_core::imp::define_interface!(IESimDiscoverResult, IESimDiscoverResult_Vtbl, 0x56b4bb5e_ab2f_5ac6_b359_dd5a8e237926, inspectable);
 impl windows_core::RuntimeType for IESimDiscoverResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimDiscoverResult");
@@ -1210,7 +1227,7 @@ pub struct IESimDiscoverResult_Vtbl {
     pub ProfileMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimDownloadProfileMetadataResult, IESimDownloadProfileMetadataResult_Vtbl, 0xc4234d9e_5ad6_426d_8d00_4434f449afec);
+windows_core::imp::define_interface!(IESimDownloadProfileMetadataResult, IESimDownloadProfileMetadataResult_Vtbl, 0xc4234d9e_5ad6_426d_8d00_4434f449afec, inspectable);
 impl windows_core::RuntimeType for IESimDownloadProfileMetadataResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimDownloadProfileMetadataResult");
@@ -1222,7 +1239,7 @@ pub struct IESimDownloadProfileMetadataResult_Vtbl {
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProfileMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimManagerStatics, IESimManagerStatics_Vtbl, 0x0bfa2c0c_df88_4631_bf04_c12e281b3962);
+windows_core::imp::define_interface!(IESimManagerStatics, IESimManagerStatics_Vtbl, 0x0bfa2c0c_df88_4631_bf04_c12e281b3962, inspectable);
 impl windows_core::RuntimeType for IESimManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimManagerStatics");
@@ -1236,7 +1253,7 @@ pub struct IESimManagerStatics_Vtbl {
     pub ServiceInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveServiceInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimOperationResult, IESimOperationResult_Vtbl, 0xa67b63b1_309b_4e77_9e7e_cd93f1ddc7b9);
+windows_core::imp::define_interface!(IESimOperationResult, IESimOperationResult_Vtbl, 0xa67b63b1_309b_4e77_9e7e_cd93f1ddc7b9, inspectable);
 impl windows_core::RuntimeType for IESimOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimOperationResult");
@@ -1247,7 +1264,7 @@ pub struct IESimOperationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ESimOperationStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimPolicy, IESimPolicy_Vtbl, 0x41e1b99d_cf7e_4315_882b_6f1e74b0d38f);
+windows_core::imp::define_interface!(IESimPolicy, IESimPolicy_Vtbl, 0x41e1b99d_cf7e_4315_882b_6f1e74b0d38f, inspectable);
 impl windows_core::RuntimeType for IESimPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimPolicy");
@@ -1258,7 +1275,7 @@ pub struct IESimPolicy_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShouldEnableManagingUi: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimProfile, IESimProfile_Vtbl, 0xee1e7880_06a9_4027_b4f8_ddb23d7810e0);
+windows_core::imp::define_interface!(IESimProfile, IESimProfile_Vtbl, 0xee1e7880_06a9_4027_b4f8_ddb23d7810e0, inspectable);
 impl windows_core::RuntimeType for IESimProfile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimProfile");
@@ -1282,7 +1299,7 @@ pub struct IESimProfile_Vtbl {
     pub EnableAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetNicknameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimProfileMetadata, IESimProfileMetadata_Vtbl, 0xed25831f_90db_498d_a7b4_ebce807d3c23);
+windows_core::imp::define_interface!(IESimProfileMetadata, IESimProfileMetadata_Vtbl, 0xed25831f_90db_498d_a7b4_ebce807d3c23, inspectable);
 impl windows_core::RuntimeType for IESimProfileMetadata {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimProfileMetadata");
@@ -1308,7 +1325,7 @@ pub struct IESimProfileMetadata_Vtbl {
     pub StateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimProfilePolicy, IESimProfilePolicy_Vtbl, 0xe6dd0f1d_9c5c_46c5_a289_a948999bf062);
+windows_core::imp::define_interface!(IESimProfilePolicy, IESimProfilePolicy_Vtbl, 0xe6dd0f1d_9c5c_46c5_a289_a948999bf062, inspectable);
 impl windows_core::RuntimeType for IESimProfilePolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimProfilePolicy");
@@ -1321,7 +1338,7 @@ pub struct IESimProfilePolicy_Vtbl {
     pub CanDisable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsManagedByEnterprise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimRemovedEventArgs, IESimRemovedEventArgs_Vtbl, 0xdec5277b_2fd9_4ed9_8376_d9b5e41278a3);
+windows_core::imp::define_interface!(IESimRemovedEventArgs, IESimRemovedEventArgs_Vtbl, 0xdec5277b_2fd9_4ed9_8376_d9b5e41278a3, inspectable);
 impl windows_core::RuntimeType for IESimRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimRemovedEventArgs");
@@ -1332,7 +1349,7 @@ pub struct IESimRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ESim: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimServiceInfo, IESimServiceInfo_Vtbl, 0xf16aabcf_7f59_4a51_8494_bd89d5ff50ee);
+windows_core::imp::define_interface!(IESimServiceInfo, IESimServiceInfo_Vtbl, 0xf16aabcf_7f59_4a51_8494_bd89d5ff50ee, inspectable);
 impl windows_core::RuntimeType for IESimServiceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimServiceInfo");
@@ -1344,7 +1361,7 @@ pub struct IESimServiceInfo_Vtbl {
     pub AuthenticationPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ESimAuthenticationPreference) -> windows_core::HRESULT,
     pub IsESimUiEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimUpdatedEventArgs, IESimUpdatedEventArgs_Vtbl, 0x4c125cec_508d_4b88_83cb_68bef8168d12);
+windows_core::imp::define_interface!(IESimUpdatedEventArgs, IESimUpdatedEventArgs_Vtbl, 0x4c125cec_508d_4b88_83cb_68bef8168d12, inspectable);
 impl windows_core::RuntimeType for IESimUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimUpdatedEventArgs");
@@ -1355,7 +1372,7 @@ pub struct IESimUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ESim: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IESimWatcher, IESimWatcher_Vtbl, 0xc1f84ceb_a28d_4fbf_9771_6e31b81ccf22);
+windows_core::imp::define_interface!(IESimWatcher, IESimWatcher_Vtbl, 0xc1f84ceb_a28d_4fbf_9771_6e31b81ccf22, inspectable);
 impl windows_core::RuntimeType for IESimWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IESimWatcher");
@@ -1378,7 +1395,7 @@ pub struct IESimWatcher_Vtbl {
     pub Updated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHotspotAuthenticationContext, IHotspotAuthenticationContext_Vtbl, 0xe756c791_1003_4de5_83c7_de61d88831d0);
+windows_core::imp::define_interface!(IHotspotAuthenticationContext, IHotspotAuthenticationContext_Vtbl, 0xe756c791_1003_4de5_83c7_de61d88831d0, inspectable);
 impl windows_core::RuntimeType for IHotspotAuthenticationContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IHotspotAuthenticationContext");
@@ -1403,7 +1420,7 @@ pub struct IHotspotAuthenticationContext_Vtbl {
     pub SkipAuthentication: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TriggerAttentionRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHotspotAuthenticationContext2, IHotspotAuthenticationContext2_Vtbl, 0xe756c791_1004_4de5_83c7_de61d88831d0);
+windows_core::imp::define_interface!(IHotspotAuthenticationContext2, IHotspotAuthenticationContext2_Vtbl, 0xe756c791_1004_4de5_83c7_de61d88831d0, inspectable);
 impl windows_core::RuntimeType for IHotspotAuthenticationContext2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IHotspotAuthenticationContext2");
@@ -1414,7 +1431,7 @@ pub struct IHotspotAuthenticationContext2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IssueCredentialsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHotspotAuthenticationContextStatics, IHotspotAuthenticationContextStatics_Vtbl, 0xe756c791_1002_4de5_83c7_de61d88831d0);
+windows_core::imp::define_interface!(IHotspotAuthenticationContextStatics, IHotspotAuthenticationContextStatics_Vtbl, 0xe756c791_1002_4de5_83c7_de61d88831d0, inspectable);
 impl windows_core::RuntimeType for IHotspotAuthenticationContextStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IHotspotAuthenticationContextStatics");
@@ -1425,7 +1442,7 @@ pub struct IHotspotAuthenticationContextStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryGetAuthenticationContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHotspotAuthenticationEventDetails, IHotspotAuthenticationEventDetails_Vtbl, 0xe756c791_1001_4de5_83c7_de61d88831d0);
+windows_core::imp::define_interface!(IHotspotAuthenticationEventDetails, IHotspotAuthenticationEventDetails_Vtbl, 0xe756c791_1001_4de5_83c7_de61d88831d0, inspectable);
 impl windows_core::RuntimeType for IHotspotAuthenticationEventDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IHotspotAuthenticationEventDetails");
@@ -1436,7 +1453,7 @@ pub struct IHotspotAuthenticationEventDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EventToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHotspotCredentialsAuthenticationResult, IHotspotCredentialsAuthenticationResult_Vtbl, 0xe756c791_1005_4de5_83c7_de61d88831d0);
+windows_core::imp::define_interface!(IHotspotCredentialsAuthenticationResult, IHotspotCredentialsAuthenticationResult_Vtbl, 0xe756c791_1005_4de5_83c7_de61d88831d0, inspectable);
 impl windows_core::RuntimeType for IHotspotCredentialsAuthenticationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IHotspotCredentialsAuthenticationResult");
@@ -1453,7 +1470,7 @@ pub struct IHotspotCredentialsAuthenticationResult_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     AuthenticationReplyXml: usize,
 }
-windows_core::imp::define_interface!(IKnownCSimFilePathsStatics, IKnownCSimFilePathsStatics_Vtbl, 0xb458aeed_49f1_4c22_b073_96d511bf9c35);
+windows_core::imp::define_interface!(IKnownCSimFilePathsStatics, IKnownCSimFilePathsStatics_Vtbl, 0xb458aeed_49f1_4c22_b073_96d511bf9c35, inspectable);
 impl windows_core::RuntimeType for IKnownCSimFilePathsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IKnownCSimFilePathsStatics");
@@ -1466,7 +1483,7 @@ pub struct IKnownCSimFilePathsStatics_Vtbl {
     pub Gid1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Gid2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKnownRuimFilePathsStatics, IKnownRuimFilePathsStatics_Vtbl, 0x3883c8b9_ff24_4571_a867_09f960426e14);
+windows_core::imp::define_interface!(IKnownRuimFilePathsStatics, IKnownRuimFilePathsStatics_Vtbl, 0x3883c8b9_ff24_4571_a867_09f960426e14, inspectable);
 impl windows_core::RuntimeType for IKnownRuimFilePathsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IKnownRuimFilePathsStatics");
@@ -1479,7 +1496,7 @@ pub struct IKnownRuimFilePathsStatics_Vtbl {
     pub Gid1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Gid2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKnownSimFilePathsStatics, IKnownSimFilePathsStatics_Vtbl, 0x80cd1a63_37a5_43d3_80a3_ccd23e8fecee);
+windows_core::imp::define_interface!(IKnownSimFilePathsStatics, IKnownSimFilePathsStatics_Vtbl, 0x80cd1a63_37a5_43d3_80a3_ccd23e8fecee, inspectable);
 impl windows_core::RuntimeType for IKnownSimFilePathsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IKnownSimFilePathsStatics");
@@ -1493,7 +1510,7 @@ pub struct IKnownSimFilePathsStatics_Vtbl {
     pub Gid1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Gid2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKnownUSimFilePathsStatics, IKnownUSimFilePathsStatics_Vtbl, 0x7c34e581_1f1b_43f4_9530_8b092d32d71f);
+windows_core::imp::define_interface!(IKnownUSimFilePathsStatics, IKnownUSimFilePathsStatics_Vtbl, 0x7c34e581_1f1b_43f4_9530_8b092d32d71f, inspectable);
 impl windows_core::RuntimeType for IKnownUSimFilePathsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IKnownUSimFilePathsStatics");
@@ -1508,7 +1525,7 @@ pub struct IKnownUSimFilePathsStatics_Vtbl {
     pub Gid1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Gid2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandAccount, IMobileBroadbandAccount_Vtbl, 0x36c24ccd_cee2_43e0_a603_ee86a36d6570);
+windows_core::imp::define_interface!(IMobileBroadbandAccount, IMobileBroadbandAccount_Vtbl, 0x36c24ccd_cee2_43e0_a603_ee86a36d6570, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandAccount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandAccount");
@@ -1523,7 +1540,7 @@ pub struct IMobileBroadbandAccount_Vtbl {
     pub CurrentNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentDeviceInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandAccount2, IMobileBroadbandAccount2_Vtbl, 0x38f52f1c_1136_4257_959f_b658a352b6d4);
+windows_core::imp::define_interface!(IMobileBroadbandAccount2, IMobileBroadbandAccount2_Vtbl, 0x38f52f1c_1136_4257_959f_b658a352b6d4, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandAccount2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandAccount2");
@@ -1537,7 +1554,7 @@ pub struct IMobileBroadbandAccount2_Vtbl {
     #[cfg(not(feature = "Networking_Connectivity"))]
     GetConnectionProfiles: usize,
 }
-windows_core::imp::define_interface!(IMobileBroadbandAccount3, IMobileBroadbandAccount3_Vtbl, 0x092a1e21_9379_4b9b_ad31_d5fee2f748c6);
+windows_core::imp::define_interface!(IMobileBroadbandAccount3, IMobileBroadbandAccount3_Vtbl, 0x092a1e21_9379_4b9b_ad31_d5fee2f748c6, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandAccount3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandAccount3");
@@ -1548,7 +1565,7 @@ pub struct IMobileBroadbandAccount3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AccountExperienceUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandAccountEventArgs, IMobileBroadbandAccountEventArgs_Vtbl, 0x3853c880_77de_4c04_bead_a123b08c9f59);
+windows_core::imp::define_interface!(IMobileBroadbandAccountEventArgs, IMobileBroadbandAccountEventArgs_Vtbl, 0x3853c880_77de_4c04_bead_a123b08c9f59, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandAccountEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandAccountEventArgs");
@@ -1559,7 +1576,7 @@ pub struct IMobileBroadbandAccountEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NetworkAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandAccountStatics, IMobileBroadbandAccountStatics_Vtbl, 0xaa7f4d24_afc1_4fc8_ae9a_a9175310faad);
+windows_core::imp::define_interface!(IMobileBroadbandAccountStatics, IMobileBroadbandAccountStatics_Vtbl, 0xaa7f4d24_afc1_4fc8_ae9a_a9175310faad, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandAccountStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandAccountStatics");
@@ -1571,7 +1588,7 @@ pub struct IMobileBroadbandAccountStatics_Vtbl {
     pub AvailableNetworkAccountIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromNetworkAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandAccountUpdatedEventArgs, IMobileBroadbandAccountUpdatedEventArgs_Vtbl, 0x7bc31d88_a6bd_49e1_80ab_6b91354a57d4);
+windows_core::imp::define_interface!(IMobileBroadbandAccountUpdatedEventArgs, IMobileBroadbandAccountUpdatedEventArgs_Vtbl, 0x7bc31d88_a6bd_49e1_80ab_6b91354a57d4, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandAccountUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandAccountUpdatedEventArgs");
@@ -1584,7 +1601,7 @@ pub struct IMobileBroadbandAccountUpdatedEventArgs_Vtbl {
     pub HasDeviceInformationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub HasNetworkChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandAccountWatcher, IMobileBroadbandAccountWatcher_Vtbl, 0x6bf3335e_23b5_449f_928d_5e0d3e04471d);
+windows_core::imp::define_interface!(IMobileBroadbandAccountWatcher, IMobileBroadbandAccountWatcher_Vtbl, 0x6bf3335e_23b5_449f_928d_5e0d3e04471d, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandAccountWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher");
@@ -1607,7 +1624,7 @@ pub struct IMobileBroadbandAccountWatcher_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandAntennaSar, IMobileBroadbandAntennaSar_Vtbl, 0xb9af4b7e_cbf9_4109_90be_5c06bfd513b6);
+windows_core::imp::define_interface!(IMobileBroadbandAntennaSar, IMobileBroadbandAntennaSar_Vtbl, 0xb9af4b7e_cbf9_4109_90be_5c06bfd513b6, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandAntennaSar {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSar");
@@ -1619,7 +1636,7 @@ pub struct IMobileBroadbandAntennaSar_Vtbl {
     pub AntennaIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SarBackoffIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandAntennaSarFactory, IMobileBroadbandAntennaSarFactory_Vtbl, 0xa91e1716_c04d_4a21_8698_1459dc672c6e);
+windows_core::imp::define_interface!(IMobileBroadbandAntennaSarFactory, IMobileBroadbandAntennaSarFactory_Vtbl, 0xa91e1716_c04d_4a21_8698_1459dc672c6e, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandAntennaSarFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSarFactory");
@@ -1630,7 +1647,7 @@ pub struct IMobileBroadbandAntennaSarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandCellCdma, IMobileBroadbandCellCdma_Vtbl, 0x0601b3b4_411a_4f2e_8287_76f5650c60cd);
+windows_core::imp::define_interface!(IMobileBroadbandCellCdma, IMobileBroadbandCellCdma_Vtbl, 0x0601b3b4_411a_4f2e_8287_76f5650c60cd, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandCellCdma {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandCellCdma");
@@ -1648,7 +1665,7 @@ pub struct IMobileBroadbandCellCdma_Vtbl {
     pub PilotSignalStrengthInDB: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandCellGsm, IMobileBroadbandCellGsm_Vtbl, 0xcc917f06_7ee0_47b8_9e1f_c3b48df9df5b);
+windows_core::imp::define_interface!(IMobileBroadbandCellGsm, IMobileBroadbandCellGsm_Vtbl, 0xcc917f06_7ee0_47b8_9e1f_c3b48df9df5b, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandCellGsm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandCellGsm");
@@ -1665,7 +1682,7 @@ pub struct IMobileBroadbandCellGsm_Vtbl {
     pub ReceivedSignalStrengthInDBm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TimingAdvanceInBitPeriods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandCellLte, IMobileBroadbandCellLte_Vtbl, 0x9197c87b_2b78_456d_8b53_aaa25d0af741);
+windows_core::imp::define_interface!(IMobileBroadbandCellLte, IMobileBroadbandCellLte_Vtbl, 0x9197c87b_2b78_456d_8b53_aaa25d0af741, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandCellLte {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandCellLte");
@@ -1683,7 +1700,7 @@ pub struct IMobileBroadbandCellLte_Vtbl {
     pub TimingAdvanceInBitPeriods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TrackingAreaCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandCellNR, IMobileBroadbandCellNR_Vtbl, 0xa13f0deb_66fc_4b4b_83a9_a487a3a5a0a6);
+windows_core::imp::define_interface!(IMobileBroadbandCellNR, IMobileBroadbandCellNR_Vtbl, 0xa13f0deb_66fc_4b4b_83a9_a487a3a5a0a6, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandCellNR {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandCellNR");
@@ -1702,7 +1719,7 @@ pub struct IMobileBroadbandCellNR_Vtbl {
     pub TrackingAreaCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SignalToNoiseRatioInDB: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandCellTdscdma, IMobileBroadbandCellTdscdma_Vtbl, 0x0eda1655_db0e_4182_8cda_cc419a7bde08);
+windows_core::imp::define_interface!(IMobileBroadbandCellTdscdma, IMobileBroadbandCellTdscdma_Vtbl, 0x0eda1655_db0e_4182_8cda_cc419a7bde08, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandCellTdscdma {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandCellTdscdma");
@@ -1720,7 +1737,7 @@ pub struct IMobileBroadbandCellTdscdma_Vtbl {
     pub ReceivedSignalCodePowerInDBm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TimingAdvanceInBitPeriods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandCellUmts, IMobileBroadbandCellUmts_Vtbl, 0x77b4b5ae_49c8_4f15_b285_4c26a7f67215);
+windows_core::imp::define_interface!(IMobileBroadbandCellUmts, IMobileBroadbandCellUmts_Vtbl, 0x77b4b5ae_49c8_4f15_b285_4c26a7f67215, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandCellUmts {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandCellUmts");
@@ -1738,7 +1755,7 @@ pub struct IMobileBroadbandCellUmts_Vtbl {
     pub ReceivedSignalCodePowerInDBm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SignalToNoiseRatioInDB: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandCellsInfo, IMobileBroadbandCellsInfo_Vtbl, 0x89a9562a_e472_4da5_929c_de61711dd261);
+windows_core::imp::define_interface!(IMobileBroadbandCellsInfo, IMobileBroadbandCellsInfo_Vtbl, 0x89a9562a_e472_4da5_929c_de61711dd261, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandCellsInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandCellsInfo");
@@ -1758,7 +1775,7 @@ pub struct IMobileBroadbandCellsInfo_Vtbl {
     pub ServingCellsTdscdma: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ServingCellsUmts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandCellsInfo2, IMobileBroadbandCellsInfo2_Vtbl, 0x66205912_b89f_4e12_bbb6_d5cf09a820ca);
+windows_core::imp::define_interface!(IMobileBroadbandCellsInfo2, IMobileBroadbandCellsInfo2_Vtbl, 0x66205912_b89f_4e12_bbb6_d5cf09a820ca, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandCellsInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandCellsInfo2");
@@ -1770,7 +1787,7 @@ pub struct IMobileBroadbandCellsInfo2_Vtbl {
     pub NeighboringCellsNR: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ServingCellsNR: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandCurrentSlotIndexChangedEventArgs, IMobileBroadbandCurrentSlotIndexChangedEventArgs_Vtbl, 0xf718b184_c370_5fd4_a670_1846cb9bce47);
+windows_core::imp::define_interface!(IMobileBroadbandCurrentSlotIndexChangedEventArgs, IMobileBroadbandCurrentSlotIndexChangedEventArgs_Vtbl, 0xf718b184_c370_5fd4_a670_1846cb9bce47, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandCurrentSlotIndexChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandCurrentSlotIndexChangedEventArgs");
@@ -1781,7 +1798,7 @@ pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentSlotIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceInformation, IMobileBroadbandDeviceInformation_Vtbl, 0xe6d08168_e381_4c6e_9be8_fe156969a446);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceInformation, IMobileBroadbandDeviceInformation_Vtbl, 0xe6d08168_e381_4c6e_9be8_fe156969a446, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceInformation");
@@ -1808,7 +1825,7 @@ pub struct IMobileBroadbandDeviceInformation_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentRadioState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MobileBroadbandRadioState) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceInformation2, IMobileBroadbandDeviceInformation2_Vtbl, 0x2e467af1_f932_4737_a722_03ba72370cb8);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceInformation2, IMobileBroadbandDeviceInformation2_Vtbl, 0x2e467af1_f932_4737_a722_03ba72370cb8, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceInformation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceInformation2");
@@ -1821,7 +1838,7 @@ pub struct IMobileBroadbandDeviceInformation2_Vtbl {
     pub Revision: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceInformation3, IMobileBroadbandDeviceInformation3_Vtbl, 0xe08bb4bd_5d30_4b5a_92cc_d54df881d49e);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceInformation3, IMobileBroadbandDeviceInformation3_Vtbl, 0xe08bb4bd_5d30_4b5a_92cc_d54df881d49e, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceInformation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceInformation3");
@@ -1834,7 +1851,7 @@ pub struct IMobileBroadbandDeviceInformation3_Vtbl {
     pub SimPnn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SimGid1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceInformation4, IMobileBroadbandDeviceInformation4_Vtbl, 0x263f3152_7b9d_582c_b17c_f80a60b50031);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceInformation4, IMobileBroadbandDeviceInformation4_Vtbl, 0x263f3152_7b9d_582c_b17c_f80a60b50031, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceInformation4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceInformation4");
@@ -1845,7 +1862,7 @@ pub struct IMobileBroadbandDeviceInformation4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SlotManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceService, IMobileBroadbandDeviceService_Vtbl, 0x22be1a52_bd80_40ac_8e1f_2e07836a3dbd);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceService, IMobileBroadbandDeviceService_Vtbl, 0x22be1a52_bd80_40ac_8e1f_2e07836a3dbd, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceService");
@@ -1859,7 +1876,7 @@ pub struct IMobileBroadbandDeviceService_Vtbl {
     pub OpenDataSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OpenCommandSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandEventArgs, IMobileBroadbandDeviceServiceCommandEventArgs_Vtbl, 0x28e4338f_cca4_5047_a20c_0a6d79acecba);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandEventArgs, IMobileBroadbandDeviceServiceCommandEventArgs_Vtbl, 0x28e4338f_cca4_5047_a20c_0a6d79acecba, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceCommandEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceCommandEventArgs");
@@ -1876,7 +1893,7 @@ pub struct IMobileBroadbandDeviceServiceCommandEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ReceivedData: usize,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandResult, IMobileBroadbandDeviceServiceCommandResult_Vtbl, 0xb0f46abb_94d6_44b9_a538_f0810b645389);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandResult, IMobileBroadbandDeviceServiceCommandResult_Vtbl, 0xb0f46abb_94d6_44b9_a538_f0810b645389, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceCommandResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceCommandResult");
@@ -1891,7 +1908,7 @@ pub struct IMobileBroadbandDeviceServiceCommandResult_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ResponseData: usize,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandSession, IMobileBroadbandDeviceServiceCommandSession_Vtbl, 0xfc098a45_913b_4914_b6c3_ae6304593e75);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandSession, IMobileBroadbandDeviceServiceCommandSession_Vtbl, 0xfc098a45_913b_4914_b6c3_ae6304593e75, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceCommandSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceCommandSession");
@@ -1910,7 +1927,7 @@ pub struct IMobileBroadbandDeviceServiceCommandSession_Vtbl {
     SendSetCommandAsync: usize,
     pub CloseSession: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandSession2, IMobileBroadbandDeviceServiceCommandSession2_Vtbl, 0xef004861_2546_5739_86e7_0fdc0e62411c);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandSession2, IMobileBroadbandDeviceServiceCommandSession2_Vtbl, 0xef004861_2546_5739_86e7_0fdc0e62411c, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceCommandSession2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceCommandSession2");
@@ -1922,7 +1939,7 @@ pub struct IMobileBroadbandDeviceServiceCommandSession2_Vtbl {
     pub CommandReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveCommandReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceDataReceivedEventArgs, IMobileBroadbandDeviceServiceDataReceivedEventArgs_Vtbl, 0xb6aa13de_1380_40e3_8618_73cbca48138c);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceDataReceivedEventArgs, IMobileBroadbandDeviceServiceDataReceivedEventArgs_Vtbl, 0xb6aa13de_1380_40e3_8618_73cbca48138c, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceDataReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceDataReceivedEventArgs");
@@ -1936,7 +1953,7 @@ pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ReceivedData: usize,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceDataSession, IMobileBroadbandDeviceServiceDataSession_Vtbl, 0xdad62333_8bcf_4289_8a37_045c2169486a);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceDataSession, IMobileBroadbandDeviceServiceDataSession_Vtbl, 0xdad62333_8bcf_4289_8a37_045c2169486a, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceDataSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceDataSession");
@@ -1953,7 +1970,7 @@ pub struct IMobileBroadbandDeviceServiceDataSession_Vtbl {
     pub DataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceInformation, IMobileBroadbandDeviceServiceInformation_Vtbl, 0x53d69b5b_c4ed_45f0_803a_d9417a6d9846);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceInformation, IMobileBroadbandDeviceServiceInformation_Vtbl, 0x53d69b5b_c4ed_45f0_803a_d9417a6d9846, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceInformation");
@@ -1966,7 +1983,7 @@ pub struct IMobileBroadbandDeviceServiceInformation_Vtbl {
     pub IsDataReadSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsDataWriteSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceTriggerDetails, IMobileBroadbandDeviceServiceTriggerDetails_Vtbl, 0x4a055b70_b9ae_4458_9241_a6a5fbf18a0c);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceTriggerDetails, IMobileBroadbandDeviceServiceTriggerDetails_Vtbl, 0x4a055b70_b9ae_4458_9241_a6a5fbf18a0c, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceTriggerDetails");
@@ -1982,7 +1999,7 @@ pub struct IMobileBroadbandDeviceServiceTriggerDetails_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ReceivedData: usize,
 }
-windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceTriggerDetails2, IMobileBroadbandDeviceServiceTriggerDetails2_Vtbl, 0xd83d5f16_336a_553f_94bb_0cd1a2ff0c81);
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceTriggerDetails2, IMobileBroadbandDeviceServiceTriggerDetails2_Vtbl, 0xd83d5f16_336a_553f_94bb_0cd1a2ff0c81, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceTriggerDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceTriggerDetails2");
@@ -1993,7 +2010,7 @@ pub struct IMobileBroadbandDeviceServiceTriggerDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EventId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandModem, IMobileBroadbandModem_Vtbl, 0xd0356912_e9f9_4f67_a03d_43189a316bf1);
+windows_core::imp::define_interface!(IMobileBroadbandModem, IMobileBroadbandModem_Vtbl, 0xd0356912_e9f9_4f67_a03d_43189a316bf1, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandModem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandModem");
@@ -2013,7 +2030,7 @@ pub struct IMobileBroadbandModem_Vtbl {
     pub GetCurrentConfigurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandModem2, IMobileBroadbandModem2_Vtbl, 0x12862b28_b9eb_4ee2_bbe3_711f53eea373);
+windows_core::imp::define_interface!(IMobileBroadbandModem2, IMobileBroadbandModem2_Vtbl, 0x12862b28_b9eb_4ee2_bbe3_711f53eea373, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandModem2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandModem2");
@@ -2025,7 +2042,7 @@ pub struct IMobileBroadbandModem2_Vtbl {
     pub GetIsPassthroughEnabledAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetIsPassthroughEnabledAsync: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandModem3, IMobileBroadbandModem3_Vtbl, 0xe9fec6ea_2f34_4582_9102_c314d2a87eec);
+windows_core::imp::define_interface!(IMobileBroadbandModem3, IMobileBroadbandModem3_Vtbl, 0xe9fec6ea_2f34_4582_9102_c314d2a87eec, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandModem3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandModem3");
@@ -2039,7 +2056,7 @@ pub struct IMobileBroadbandModem3_Vtbl {
     pub IsInEmergencyCallModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveIsInEmergencyCallModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandModem4, IMobileBroadbandModem4_Vtbl, 0x4a0398c2_91be_412b_b569_586e9f0030d1);
+windows_core::imp::define_interface!(IMobileBroadbandModem4, IMobileBroadbandModem4_Vtbl, 0x4a0398c2_91be_412b_b569_586e9f0030d1, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandModem4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandModem4");
@@ -2053,7 +2070,7 @@ pub struct IMobileBroadbandModem4_Vtbl {
     pub SetIsPassthroughEnabledWithSlotIndex: unsafe extern "system" fn(*mut core::ffi::c_void, bool, i32, *mut MobileBroadbandModemStatus) -> windows_core::HRESULT,
     pub GetIsPassthroughEnabledWithSlotIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandModemConfiguration, IMobileBroadbandModemConfiguration_Vtbl, 0xfce035a3_d6cd_4320_b982_be9d3ec7890f);
+windows_core::imp::define_interface!(IMobileBroadbandModemConfiguration, IMobileBroadbandModemConfiguration_Vtbl, 0xfce035a3_d6cd_4320_b982_be9d3ec7890f, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandModemConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandModemConfiguration");
@@ -2066,7 +2083,7 @@ pub struct IMobileBroadbandModemConfiguration_Vtbl {
     pub HomeProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HomeProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandModemConfiguration2, IMobileBroadbandModemConfiguration2_Vtbl, 0x320ff5c5_e460_42ae_aa51_69621e7a4477);
+windows_core::imp::define_interface!(IMobileBroadbandModemConfiguration2, IMobileBroadbandModemConfiguration2_Vtbl, 0x320ff5c5_e460_42ae_aa51_69621e7a4477, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandModemConfiguration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandModemConfiguration2");
@@ -2077,7 +2094,7 @@ pub struct IMobileBroadbandModemConfiguration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SarManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandModemIsolation, IMobileBroadbandModemIsolation_Vtbl, 0xb5618fec_e661_4330_9bb4_3480212ec354);
+windows_core::imp::define_interface!(IMobileBroadbandModemIsolation, IMobileBroadbandModemIsolation_Vtbl, 0xb5618fec_e661_4330_9bb4_3480212ec354, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandModemIsolation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolation");
@@ -2091,7 +2108,7 @@ pub struct IMobileBroadbandModemIsolation_Vtbl {
     pub ApplyConfigurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearConfigurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandModemIsolationFactory, IMobileBroadbandModemIsolationFactory_Vtbl, 0x21d7ec58_c2b1_4c2f_a030_72820a24ecd9);
+windows_core::imp::define_interface!(IMobileBroadbandModemIsolationFactory, IMobileBroadbandModemIsolationFactory_Vtbl, 0x21d7ec58_c2b1_4c2f_a030_72820a24ecd9, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandModemIsolationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolationFactory");
@@ -2102,7 +2119,7 @@ pub struct IMobileBroadbandModemIsolationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandModemStatics, IMobileBroadbandModemStatics_Vtbl, 0xf99ed637_d6f1_4a78_8cbc_6421a65063c8);
+windows_core::imp::define_interface!(IMobileBroadbandModemStatics, IMobileBroadbandModemStatics_Vtbl, 0xf99ed637_d6f1_4a78_8cbc_6421a65063c8, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandModemStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandModemStatics");
@@ -2115,7 +2132,7 @@ pub struct IMobileBroadbandModemStatics_Vtbl {
     pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandNetwork, IMobileBroadbandNetwork_Vtbl, 0xcb63928c_0309_4cb6_a8c1_6a5a3c8e1ff6);
+windows_core::imp::define_interface!(IMobileBroadbandNetwork, IMobileBroadbandNetwork_Vtbl, 0xcb63928c_0309_4cb6_a8c1_6a5a3c8e1ff6, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandNetwork {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandNetwork");
@@ -2138,7 +2155,7 @@ pub struct IMobileBroadbandNetwork_Vtbl {
     pub RegisteredProviderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowConnectionUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandNetwork2, IMobileBroadbandNetwork2_Vtbl, 0x5a55db22_62f7_4bdd_ba1d_477441960ba0);
+windows_core::imp::define_interface!(IMobileBroadbandNetwork2, IMobileBroadbandNetwork2_Vtbl, 0x5a55db22_62f7_4bdd_ba1d_477441960ba0, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandNetwork2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandNetwork2");
@@ -2150,7 +2167,7 @@ pub struct IMobileBroadbandNetwork2_Vtbl {
     pub GetVoiceCallSupportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegistrationUiccApps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandNetwork3, IMobileBroadbandNetwork3_Vtbl, 0x33670a8a_c7ef_444c_ab6c_df7ef7a390fe);
+windows_core::imp::define_interface!(IMobileBroadbandNetwork3, IMobileBroadbandNetwork3_Vtbl, 0x33670a8a_c7ef_444c_ab6c_df7ef7a390fe, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandNetwork3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandNetwork3");
@@ -2161,7 +2178,7 @@ pub struct IMobileBroadbandNetwork3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCellsInfoAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandNetworkRegistrationStateChange, IMobileBroadbandNetworkRegistrationStateChange_Vtbl, 0xbeaf94e1_960f_49b4_a08d_7d85e968c7ec);
+windows_core::imp::define_interface!(IMobileBroadbandNetworkRegistrationStateChange, IMobileBroadbandNetworkRegistrationStateChange_Vtbl, 0xbeaf94e1_960f_49b4_a08d_7d85e968c7ec, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandNetworkRegistrationStateChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandNetworkRegistrationStateChange");
@@ -2173,7 +2190,7 @@ pub struct IMobileBroadbandNetworkRegistrationStateChange_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Network: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails, IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_Vtbl, 0x89135cff_28b8_46aa_b137_1c4b0f21edfe);
+windows_core::imp::define_interface!(IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails, IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_Vtbl, 0x89135cff_28b8_46aa_b137_1c4b0f21edfe, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails");
@@ -2184,7 +2201,7 @@ pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NetworkRegistrationStateChanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandPco, IMobileBroadbandPco_Vtbl, 0xd4e4fcbe_e3a3_43c5_a87b_6c86d229d7fa);
+windows_core::imp::define_interface!(IMobileBroadbandPco, IMobileBroadbandPco_Vtbl, 0xd4e4fcbe_e3a3_43c5_a87b_6c86d229d7fa, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandPco {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandPco");
@@ -2200,7 +2217,7 @@ pub struct IMobileBroadbandPco_Vtbl {
     pub IsComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandPcoDataChangeTriggerDetails, IMobileBroadbandPcoDataChangeTriggerDetails_Vtbl, 0x263f5114_64e0_4493_909b_2d14a01962b1);
+windows_core::imp::define_interface!(IMobileBroadbandPcoDataChangeTriggerDetails, IMobileBroadbandPcoDataChangeTriggerDetails_Vtbl, 0x263f5114_64e0_4493_909b_2d14a01962b1, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandPcoDataChangeTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandPcoDataChangeTriggerDetails");
@@ -2211,7 +2228,7 @@ pub struct IMobileBroadbandPcoDataChangeTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UpdatedData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandPin, IMobileBroadbandPin_Vtbl, 0xe661d709_e779_45bf_8281_75323df9e321);
+windows_core::imp::define_interface!(IMobileBroadbandPin, IMobileBroadbandPin_Vtbl, 0xe661d709_e779_45bf_8281_75323df9e321, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandPin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandPin");
@@ -2233,7 +2250,7 @@ pub struct IMobileBroadbandPin_Vtbl {
     pub ChangeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnblockAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandPinLockStateChange, IMobileBroadbandPinLockStateChange_Vtbl, 0xbe16673e_1f04_4f95_8b90_e7f559dde7e5);
+windows_core::imp::define_interface!(IMobileBroadbandPinLockStateChange, IMobileBroadbandPinLockStateChange_Vtbl, 0xbe16673e_1f04_4f95_8b90_e7f559dde7e5, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandPinLockStateChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandPinLockStateChange");
@@ -2246,7 +2263,7 @@ pub struct IMobileBroadbandPinLockStateChange_Vtbl {
     pub PinType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MobileBroadbandPinType) -> windows_core::HRESULT,
     pub PinLockState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MobileBroadbandPinLockState) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandPinLockStateChangeTriggerDetails, IMobileBroadbandPinLockStateChangeTriggerDetails_Vtbl, 0xd338c091_3e91_4d38_9036_aee83a6e79ad);
+windows_core::imp::define_interface!(IMobileBroadbandPinLockStateChangeTriggerDetails, IMobileBroadbandPinLockStateChangeTriggerDetails_Vtbl, 0xd338c091_3e91_4d38_9036_aee83a6e79ad, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandPinLockStateChangeTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandPinLockStateChangeTriggerDetails");
@@ -2257,7 +2274,7 @@ pub struct IMobileBroadbandPinLockStateChangeTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PinLockStateChanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandPinManager, IMobileBroadbandPinManager_Vtbl, 0x83567edd_6e1f_4b9b_a413_2b1f50cc36df);
+windows_core::imp::define_interface!(IMobileBroadbandPinManager, IMobileBroadbandPinManager_Vtbl, 0x83567edd_6e1f_4b9b_a413_2b1f50cc36df, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandPinManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandPinManager");
@@ -2269,7 +2286,7 @@ pub struct IMobileBroadbandPinManager_Vtbl {
     pub SupportedPins: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPin: unsafe extern "system" fn(*mut core::ffi::c_void, MobileBroadbandPinType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandPinOperationResult, IMobileBroadbandPinOperationResult_Vtbl, 0x11dddc32_31e7_49f5_b663_123d3bef0362);
+windows_core::imp::define_interface!(IMobileBroadbandPinOperationResult, IMobileBroadbandPinOperationResult_Vtbl, 0x11dddc32_31e7_49f5_b663_123d3bef0362, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandPinOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandPinOperationResult");
@@ -2281,7 +2298,7 @@ pub struct IMobileBroadbandPinOperationResult_Vtbl {
     pub IsSuccessful: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub AttemptsRemaining: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandRadioStateChange, IMobileBroadbandRadioStateChange_Vtbl, 0xb054a561_9833_4aed_9717_4348b21a24b3);
+windows_core::imp::define_interface!(IMobileBroadbandRadioStateChange, IMobileBroadbandRadioStateChange_Vtbl, 0xb054a561_9833_4aed_9717_4348b21a24b3, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandRadioStateChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandRadioStateChange");
@@ -2293,7 +2310,7 @@ pub struct IMobileBroadbandRadioStateChange_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RadioState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MobileBroadbandRadioState) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandRadioStateChangeTriggerDetails, IMobileBroadbandRadioStateChangeTriggerDetails_Vtbl, 0x71301ace_093c_42c6_b0db_ad1f75a65445);
+windows_core::imp::define_interface!(IMobileBroadbandRadioStateChangeTriggerDetails, IMobileBroadbandRadioStateChangeTriggerDetails_Vtbl, 0x71301ace_093c_42c6_b0db_ad1f75a65445, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandRadioStateChangeTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandRadioStateChangeTriggerDetails");
@@ -2304,7 +2321,7 @@ pub struct IMobileBroadbandRadioStateChangeTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RadioStateChanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandSarManager, IMobileBroadbandSarManager_Vtbl, 0xe5b26833_967e_40c9_a485_19c0dd209e22);
+windows_core::imp::define_interface!(IMobileBroadbandSarManager, IMobileBroadbandSarManager_Vtbl, 0xe5b26833_967e_40c9_a485_19c0dd209e22, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandSarManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandSarManager");
@@ -2329,7 +2346,7 @@ pub struct IMobileBroadbandSarManager_Vtbl {
     pub StartTransmissionStateMonitoring: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopTransmissionStateMonitoring: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandSlotInfo, IMobileBroadbandSlotInfo_Vtbl, 0xbd350b32_882e_542a_b17d_0bb1b49bae9e);
+windows_core::imp::define_interface!(IMobileBroadbandSlotInfo, IMobileBroadbandSlotInfo_Vtbl, 0xbd350b32_882e_542a_b17d_0bb1b49bae9e, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandSlotInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandSlotInfo");
@@ -2341,7 +2358,7 @@ pub struct IMobileBroadbandSlotInfo_Vtbl {
     pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MobileBroadbandSlotState) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandSlotInfo2, IMobileBroadbandSlotInfo2_Vtbl, 0x393cb039_ca44_524c_822d_83a3620f0efc);
+windows_core::imp::define_interface!(IMobileBroadbandSlotInfo2, IMobileBroadbandSlotInfo2_Vtbl, 0x393cb039_ca44_524c_822d_83a3620f0efc, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandSlotInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandSlotInfo2");
@@ -2352,7 +2369,7 @@ pub struct IMobileBroadbandSlotInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IccId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandSlotInfoChangedEventArgs, IMobileBroadbandSlotInfoChangedEventArgs_Vtbl, 0x3158839f_950c_54ce_a48d_ba4529b48f0f);
+windows_core::imp::define_interface!(IMobileBroadbandSlotInfoChangedEventArgs, IMobileBroadbandSlotInfoChangedEventArgs_Vtbl, 0x3158839f_950c_54ce_a48d_ba4529b48f0f, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandSlotInfoChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandSlotInfoChangedEventArgs");
@@ -2363,7 +2380,7 @@ pub struct IMobileBroadbandSlotInfoChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SlotInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandSlotManager, IMobileBroadbandSlotManager_Vtbl, 0xeba07cd6_2019_5f81_a294_cc364a11d0b2);
+windows_core::imp::define_interface!(IMobileBroadbandSlotManager, IMobileBroadbandSlotManager_Vtbl, 0xeba07cd6_2019_5f81_a294_cc364a11d0b2, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandSlotManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandSlotManager");
@@ -2381,7 +2398,7 @@ pub struct IMobileBroadbandSlotManager_Vtbl {
     pub CurrentSlotIndexChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveCurrentSlotIndexChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandTransmissionStateChangedEventArgs, IMobileBroadbandTransmissionStateChangedEventArgs_Vtbl, 0x612e3875_040a_4f99_a4f9_61d7c32da129);
+windows_core::imp::define_interface!(IMobileBroadbandTransmissionStateChangedEventArgs, IMobileBroadbandTransmissionStateChangedEventArgs_Vtbl, 0x612e3875_040a_4f99_a4f9_61d7c32da129, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandTransmissionStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandTransmissionStateChangedEventArgs");
@@ -2392,7 +2409,7 @@ pub struct IMobileBroadbandTransmissionStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsTransmitting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandUicc, IMobileBroadbandUicc_Vtbl, 0xe634f691_525a_4ce2_8fce_aa4162579154);
+windows_core::imp::define_interface!(IMobileBroadbandUicc, IMobileBroadbandUicc_Vtbl, 0xe634f691_525a_4ce2_8fce_aa4162579154, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandUicc {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandUicc");
@@ -2404,7 +2421,7 @@ pub struct IMobileBroadbandUicc_Vtbl {
     pub SimIccId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetUiccAppsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandUiccApp, IMobileBroadbandUiccApp_Vtbl, 0x4d170556_98a1_43dd_b2ec_50c90cf248df);
+windows_core::imp::define_interface!(IMobileBroadbandUiccApp, IMobileBroadbandUiccApp_Vtbl, 0x4d170556_98a1_43dd_b2ec_50c90cf248df, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandUiccApp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandUiccApp");
@@ -2421,7 +2438,7 @@ pub struct IMobileBroadbandUiccApp_Vtbl {
     pub GetRecordDetailsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReadRecordAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandUiccAppReadRecordResult, IMobileBroadbandUiccAppReadRecordResult_Vtbl, 0x64c95285_358e_47c5_8249_695f383b2bdb);
+windows_core::imp::define_interface!(IMobileBroadbandUiccAppReadRecordResult, IMobileBroadbandUiccAppReadRecordResult_Vtbl, 0x64c95285_358e_47c5_8249_695f383b2bdb, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandUiccAppReadRecordResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandUiccAppReadRecordResult");
@@ -2436,7 +2453,7 @@ pub struct IMobileBroadbandUiccAppReadRecordResult_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Data: usize,
 }
-windows_core::imp::define_interface!(IMobileBroadbandUiccAppRecordDetailsResult, IMobileBroadbandUiccAppRecordDetailsResult_Vtbl, 0xd919682f_be14_4934_981d_2f57b9ed83e6);
+windows_core::imp::define_interface!(IMobileBroadbandUiccAppRecordDetailsResult, IMobileBroadbandUiccAppRecordDetailsResult_Vtbl, 0xd919682f_be14_4934_981d_2f57b9ed83e6, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandUiccAppRecordDetailsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandUiccAppRecordDetailsResult");
@@ -2452,7 +2469,7 @@ pub struct IMobileBroadbandUiccAppRecordDetailsResult_Vtbl {
     pub ReadAccessCondition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UiccAccessCondition) -> windows_core::HRESULT,
     pub WriteAccessCondition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UiccAccessCondition) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMobileBroadbandUiccAppsResult, IMobileBroadbandUiccAppsResult_Vtbl, 0x744930eb_8157_4a41_8494_6bf54c9b1d2b);
+windows_core::imp::define_interface!(IMobileBroadbandUiccAppsResult, IMobileBroadbandUiccAppsResult_Vtbl, 0x744930eb_8157_4a41_8494_6bf54c9b1d2b, inspectable);
 impl windows_core::RuntimeType for IMobileBroadbandUiccAppsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IMobileBroadbandUiccAppsResult");
@@ -2464,7 +2481,7 @@ pub struct IMobileBroadbandUiccAppsResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MobileBroadbandUiccAppOperationStatus) -> windows_core::HRESULT,
     pub UiccApps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorDataUsageTriggerDetails, INetworkOperatorDataUsageTriggerDetails_Vtbl, 0x50e3126d_a465_4eeb_9317_28a167630cea);
+windows_core::imp::define_interface!(INetworkOperatorDataUsageTriggerDetails, INetworkOperatorDataUsageTriggerDetails_Vtbl, 0x50e3126d_a465_4eeb_9317_28a167630cea, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorDataUsageTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorDataUsageTriggerDetails");
@@ -2475,7 +2492,7 @@ pub struct INetworkOperatorDataUsageTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NotificationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NetworkOperatorDataUsageNotificationKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorNotificationEventDetails, INetworkOperatorNotificationEventDetails_Vtbl, 0xbc68a9d1_82e1_4488_9f2c_1276c2468fac);
+windows_core::imp::define_interface!(INetworkOperatorNotificationEventDetails, INetworkOperatorNotificationEventDetails_Vtbl, 0xbc68a9d1_82e1_4488_9f2c_1276c2468fac, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorNotificationEventDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorNotificationEventDetails");
@@ -2494,7 +2511,7 @@ pub struct INetworkOperatorNotificationEventDetails_Vtbl {
     #[cfg(not(feature = "Devices_Sms"))]
     SmsMessage: usize,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringAccessPointConfiguration, INetworkOperatorTetheringAccessPointConfiguration_Vtbl, 0x0bcc0284_412e_403d_acc6_b757e34774a4);
+windows_core::imp::define_interface!(INetworkOperatorTetheringAccessPointConfiguration, INetworkOperatorTetheringAccessPointConfiguration_Vtbl, 0x0bcc0284_412e_403d_acc6_b757e34774a4, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringAccessPointConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration");
@@ -2508,7 +2525,7 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration_Vtbl {
     pub Passphrase: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPassphrase: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringAccessPointConfiguration2, INetworkOperatorTetheringAccessPointConfiguration2_Vtbl, 0xb1809142_7238_59a0_928b_74ab46fd64b6);
+windows_core::imp::define_interface!(INetworkOperatorTetheringAccessPointConfiguration2, INetworkOperatorTetheringAccessPointConfiguration2_Vtbl, 0xb1809142_7238_59a0_928b_74ab46fd64b6, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringAccessPointConfiguration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration2");
@@ -2522,7 +2539,7 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration2_Vtbl {
     pub Band: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TetheringWiFiBand) -> windows_core::HRESULT,
     pub SetBand: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiBand) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringAccessPointConfiguration3, INetworkOperatorTetheringAccessPointConfiguration3_Vtbl, 0xa9bb0081_9eed_5d18_b676_24b74a182b8c);
+windows_core::imp::define_interface!(INetworkOperatorTetheringAccessPointConfiguration3, INetworkOperatorTetheringAccessPointConfiguration3_Vtbl, 0xa9bb0081_9eed_5d18_b676_24b74a182b8c, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringAccessPointConfiguration3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration3");
@@ -2536,7 +2553,7 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration3_Vtbl {
     pub AuthenticationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TetheringWiFiAuthenticationKind) -> windows_core::HRESULT,
     pub SetAuthenticationKind: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiAuthenticationKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringClient, INetworkOperatorTetheringClient_Vtbl, 0x709d254c_595f_4847_bb30_646935542918);
+windows_core::imp::define_interface!(INetworkOperatorTetheringClient, INetworkOperatorTetheringClient_Vtbl, 0x709d254c_595f_4847_bb30_646935542918, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringClient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringClient");
@@ -2548,7 +2565,7 @@ pub struct INetworkOperatorTetheringClient_Vtbl {
     pub MacAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HostNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringClientManager, INetworkOperatorTetheringClientManager_Vtbl, 0x91b14016_8dca_4225_bbed_eef8b8d718d7);
+windows_core::imp::define_interface!(INetworkOperatorTetheringClientManager, INetworkOperatorTetheringClientManager_Vtbl, 0x91b14016_8dca_4225_bbed_eef8b8d718d7, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringClientManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringClientManager");
@@ -2559,7 +2576,7 @@ pub struct INetworkOperatorTetheringClientManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetTetheringClients: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringEntitlementCheck, INetworkOperatorTetheringEntitlementCheck_Vtbl, 0x0108916d_9e9a_4af6_8da3_60493b19c204);
+windows_core::imp::define_interface!(INetworkOperatorTetheringEntitlementCheck, INetworkOperatorTetheringEntitlementCheck_Vtbl, 0x0108916d_9e9a_4af6_8da3_60493b19c204, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringEntitlementCheck {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringEntitlementCheck");
@@ -2570,7 +2587,7 @@ pub struct INetworkOperatorTetheringEntitlementCheck_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AuthorizeTethering: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringManager, INetworkOperatorTetheringManager_Vtbl, 0xd45a8da0_0e86_4d98_8ba4_dd70d4b764d3);
+windows_core::imp::define_interface!(INetworkOperatorTetheringManager, INetworkOperatorTetheringManager_Vtbl, 0xd45a8da0_0e86_4d98_8ba4_dd70d4b764d3, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager");
@@ -2587,7 +2604,7 @@ pub struct INetworkOperatorTetheringManager_Vtbl {
     pub StartTetheringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopTetheringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringManager2, INetworkOperatorTetheringManager2_Vtbl, 0x7c1a4df2_b789_4fea_bc4e_1f2b9e76c1f7);
+windows_core::imp::define_interface!(INetworkOperatorTetheringManager2, INetworkOperatorTetheringManager2_Vtbl, 0x7c1a4df2_b789_4fea_bc4e_1f2b9e76c1f7, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager2");
@@ -2598,7 +2615,7 @@ pub struct INetworkOperatorTetheringManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartTetheringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringManagerStatics, INetworkOperatorTetheringManagerStatics_Vtbl, 0x3ebcbacc_f8c3_405c_9964_70a1eeabe194);
+windows_core::imp::define_interface!(INetworkOperatorTetheringManagerStatics, INetworkOperatorTetheringManagerStatics_Vtbl, 0x3ebcbacc_f8c3_405c_9964_70a1eeabe194, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics");
@@ -2610,7 +2627,7 @@ pub struct INetworkOperatorTetheringManagerStatics_Vtbl {
     pub GetTetheringCapability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut TetheringCapability) -> windows_core::HRESULT,
     pub CreateFromNetworkAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringManagerStatics2, INetworkOperatorTetheringManagerStatics2_Vtbl, 0x5b235412_35f0_49e7_9b08_16d278fbaa42);
+windows_core::imp::define_interface!(INetworkOperatorTetheringManagerStatics2, INetworkOperatorTetheringManagerStatics2_Vtbl, 0x5b235412_35f0_49e7_9b08_16d278fbaa42, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics2");
@@ -2628,7 +2645,7 @@ pub struct INetworkOperatorTetheringManagerStatics2_Vtbl {
     #[cfg(not(feature = "Networking_Connectivity"))]
     CreateFromConnectionProfile: usize,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringManagerStatics3, INetworkOperatorTetheringManagerStatics3_Vtbl, 0x8fdaadb6_4af9_4f21_9b58_d53e9f24231e);
+windows_core::imp::define_interface!(INetworkOperatorTetheringManagerStatics3, INetworkOperatorTetheringManagerStatics3_Vtbl, 0x8fdaadb6_4af9_4f21_9b58_d53e9f24231e, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics3");
@@ -2642,7 +2659,7 @@ pub struct INetworkOperatorTetheringManagerStatics3_Vtbl {
     #[cfg(not(feature = "Networking_Connectivity"))]
     CreateFromConnectionProfileWithTargetAdapter: usize,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringManagerStatics4, INetworkOperatorTetheringManagerStatics4_Vtbl, 0xb3b9f9d0_ebff_46a4_a847_d663d8b0977e);
+windows_core::imp::define_interface!(INetworkOperatorTetheringManagerStatics4, INetworkOperatorTetheringManagerStatics4_Vtbl, 0xb3b9f9d0_ebff_46a4_a847_d663d8b0977e, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringManagerStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics4");
@@ -2657,7 +2674,7 @@ pub struct INetworkOperatorTetheringManagerStatics4_Vtbl {
     pub DisableNoConnectionsTimeout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisableNoConnectionsTimeoutAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringOperationResult, INetworkOperatorTetheringOperationResult_Vtbl, 0xebd203a1_01ba_476d_b4b3_bf3d12c8f80c);
+windows_core::imp::define_interface!(INetworkOperatorTetheringOperationResult, INetworkOperatorTetheringOperationResult_Vtbl, 0xebd203a1_01ba_476d_b4b3_bf3d12c8f80c, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringOperationResult");
@@ -2669,7 +2686,7 @@ pub struct INetworkOperatorTetheringOperationResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TetheringOperationStatus) -> windows_core::HRESULT,
     pub AdditionalErrorMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorTetheringSessionAccessPointConfiguration, INetworkOperatorTetheringSessionAccessPointConfiguration_Vtbl, 0x0bcc1104_34b7_5212_858c_59d97404920a);
+windows_core::imp::define_interface!(INetworkOperatorTetheringSessionAccessPointConfiguration, INetworkOperatorTetheringSessionAccessPointConfiguration_Vtbl, 0x0bcc1104_34b7_5212_858c_59d97404920a, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorTetheringSessionAccessPointConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.INetworkOperatorTetheringSessionAccessPointConfiguration");
@@ -2693,7 +2710,7 @@ pub struct INetworkOperatorTetheringSessionAccessPointConfiguration_Vtbl {
     pub PerformancePriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TetheringWiFiPerformancePriority) -> windows_core::HRESULT,
     pub SetPerformancePriority: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiPerformancePriority) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProvisionFromXmlDocumentResults, IProvisionFromXmlDocumentResults_Vtbl, 0x217700e0_8203_11df_adb9_f4ce462d9137);
+windows_core::imp::define_interface!(IProvisionFromXmlDocumentResults, IProvisionFromXmlDocumentResults_Vtbl, 0x217700e0_8203_11df_adb9_f4ce462d9137, inspectable);
 impl windows_core::RuntimeType for IProvisionFromXmlDocumentResults {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IProvisionFromXmlDocumentResults");
@@ -2705,7 +2722,7 @@ pub struct IProvisionFromXmlDocumentResults_Vtbl {
     pub AllElementsProvisioned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ProvisionResultsXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProvisionedProfile, IProvisionedProfile_Vtbl, 0x217700e0_8202_11df_adb9_f4ce462d9137);
+windows_core::imp::define_interface!(IProvisionedProfile, IProvisionedProfile_Vtbl, 0x217700e0_8202_11df_adb9_f4ce462d9137, inspectable);
 impl windows_core::RuntimeType for IProvisionedProfile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IProvisionedProfile");
@@ -2720,7 +2737,7 @@ pub struct IProvisionedProfile_Vtbl {
     UpdateCost: usize,
     pub UpdateUsage: unsafe extern "system" fn(*mut core::ffi::c_void, ProfileUsage) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProvisioningAgent, IProvisioningAgent_Vtbl, 0x217700e0_8201_11df_adb9_f4ce462d9137);
+windows_core::imp::define_interface!(IProvisioningAgent, IProvisioningAgent_Vtbl, 0x217700e0_8201_11df_adb9_f4ce462d9137, inspectable);
 impl windows_core::RuntimeType for IProvisioningAgent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IProvisioningAgent");
@@ -2732,7 +2749,7 @@ pub struct IProvisioningAgent_Vtbl {
     pub ProvisionFromXmlDocumentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetProvisionedProfile: unsafe extern "system" fn(*mut core::ffi::c_void, ProfileMediaType, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProvisioningAgentStaticMethods, IProvisioningAgentStaticMethods_Vtbl, 0x217700e0_8101_11df_adb9_f4ce462d9137);
+windows_core::imp::define_interface!(IProvisioningAgentStaticMethods, IProvisioningAgentStaticMethods_Vtbl, 0x217700e0_8101_11df_adb9_f4ce462d9137, inspectable);
 impl windows_core::RuntimeType for IProvisioningAgentStaticMethods {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IProvisioningAgentStaticMethods");
@@ -2743,7 +2760,7 @@ pub struct IProvisioningAgentStaticMethods_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromNetworkAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITetheringEntitlementCheckTriggerDetails, ITetheringEntitlementCheckTriggerDetails_Vtbl, 0x03c65e9d_5926_41f3_a94e_b50926fc421b);
+windows_core::imp::define_interface!(ITetheringEntitlementCheckTriggerDetails, ITetheringEntitlementCheckTriggerDetails_Vtbl, 0x03c65e9d_5926_41f3_a94e_b50926fc421b, inspectable);
 impl windows_core::RuntimeType for ITetheringEntitlementCheckTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.ITetheringEntitlementCheckTriggerDetails");
@@ -2756,7 +2773,7 @@ pub struct ITetheringEntitlementCheckTriggerDetails_Vtbl {
     pub AllowTethering: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DenyTethering: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUssdMessage, IUssdMessage_Vtbl, 0x2f9acf82_2004_4d5d_bf81_2aba1b4be4a8);
+windows_core::imp::define_interface!(IUssdMessage, IUssdMessage_Vtbl, 0x2f9acf82_2004_4d5d_bf81_2aba1b4be4a8, inspectable);
 impl windows_core::RuntimeType for IUssdMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IUssdMessage");
@@ -2772,7 +2789,7 @@ pub struct IUssdMessage_Vtbl {
     pub PayloadAsText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPayloadAsText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUssdMessageFactory, IUssdMessageFactory_Vtbl, 0x2f9acf82_1003_4d5d_bf81_2aba1b4be4a8);
+windows_core::imp::define_interface!(IUssdMessageFactory, IUssdMessageFactory_Vtbl, 0x2f9acf82_1003_4d5d_bf81_2aba1b4be4a8, inspectable);
 impl windows_core::RuntimeType for IUssdMessageFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IUssdMessageFactory");
@@ -2783,7 +2800,7 @@ pub struct IUssdMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUssdReply, IUssdReply_Vtbl, 0x2f9acf82_2005_4d5d_bf81_2aba1b4be4a8);
+windows_core::imp::define_interface!(IUssdReply, IUssdReply_Vtbl, 0x2f9acf82_2005_4d5d_bf81_2aba1b4be4a8, inspectable);
 impl windows_core::RuntimeType for IUssdReply {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IUssdReply");
@@ -2795,7 +2812,7 @@ pub struct IUssdReply_Vtbl {
     pub ResultCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UssdResultCode) -> windows_core::HRESULT,
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUssdSession, IUssdSession_Vtbl, 0x2f9acf82_2002_4d5d_bf81_2aba1b4be4a8);
+windows_core::imp::define_interface!(IUssdSession, IUssdSession_Vtbl, 0x2f9acf82_2002_4d5d_bf81_2aba1b4be4a8, inspectable);
 impl windows_core::RuntimeType for IUssdSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IUssdSession");
@@ -2807,7 +2824,7 @@ pub struct IUssdSession_Vtbl {
     pub SendMessageAndGetReplyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUssdSessionStatics, IUssdSessionStatics_Vtbl, 0x2f9acf82_1001_4d5d_bf81_2aba1b4be4a8);
+windows_core::imp::define_interface!(IUssdSessionStatics, IUssdSessionStatics_Vtbl, 0x2f9acf82_1001_4d5d_bf81_2aba1b4be4a8, inspectable);
 impl windows_core::RuntimeType for IUssdSessionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.IUssdSessionStatics");
@@ -3022,6 +3039,7 @@ impl windows_core::RuntimeType for MobileBroadbandAccount {
 unsafe impl windows_core::Interface for MobileBroadbandAccount {
     type Vtable = <IMobileBroadbandAccount as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandAccount as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandAccount {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccount";
@@ -3044,6 +3062,7 @@ impl windows_core::RuntimeType for MobileBroadbandAccountEventArgs {
 unsafe impl windows_core::Interface for MobileBroadbandAccountEventArgs {
     type Vtable = <IMobileBroadbandAccountEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandAccountEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandAccountEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs";
@@ -3078,6 +3097,7 @@ impl windows_core::RuntimeType for MobileBroadbandAccountUpdatedEventArgs {
 unsafe impl windows_core::Interface for MobileBroadbandAccountUpdatedEventArgs {
     type Vtable = <IMobileBroadbandAccountUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandAccountUpdatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandAccountUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs";
@@ -3183,6 +3203,7 @@ impl windows_core::RuntimeType for MobileBroadbandAccountWatcher {
 unsafe impl windows_core::Interface for MobileBroadbandAccountWatcher {
     type Vtable = <IMobileBroadbandAccountWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandAccountWatcher as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandAccountWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher";
@@ -3238,6 +3259,7 @@ impl windows_core::RuntimeType for MobileBroadbandAntennaSar {
 unsafe impl windows_core::Interface for MobileBroadbandAntennaSar {
     type Vtable = <IMobileBroadbandAntennaSar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandAntennaSar as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandAntennaSar {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar";
@@ -3304,6 +3326,7 @@ impl windows_core::RuntimeType for MobileBroadbandCellCdma {
 unsafe impl windows_core::Interface for MobileBroadbandCellCdma {
     type Vtable = <IMobileBroadbandCellCdma as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellCdma as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandCellCdma {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellCdma";
@@ -3364,6 +3387,7 @@ impl windows_core::RuntimeType for MobileBroadbandCellGsm {
 unsafe impl windows_core::Interface for MobileBroadbandCellGsm {
     type Vtable = <IMobileBroadbandCellGsm as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellGsm as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandCellGsm {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellGsm";
@@ -3430,6 +3454,7 @@ impl windows_core::RuntimeType for MobileBroadbandCellLte {
 unsafe impl windows_core::Interface for MobileBroadbandCellLte {
     type Vtable = <IMobileBroadbandCellLte as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellLte as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandCellLte {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellLte";
@@ -3502,6 +3527,7 @@ impl windows_core::RuntimeType for MobileBroadbandCellNR {
 unsafe impl windows_core::Interface for MobileBroadbandCellNR {
     type Vtable = <IMobileBroadbandCellNR as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellNR as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandCellNR {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellNR";
@@ -3568,6 +3594,7 @@ impl windows_core::RuntimeType for MobileBroadbandCellTdscdma {
 unsafe impl windows_core::Interface for MobileBroadbandCellTdscdma {
     type Vtable = <IMobileBroadbandCellTdscdma as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellTdscdma as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandCellTdscdma {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma";
@@ -3634,6 +3661,7 @@ impl windows_core::RuntimeType for MobileBroadbandCellUmts {
 unsafe impl windows_core::Interface for MobileBroadbandCellUmts {
     type Vtable = <IMobileBroadbandCellUmts as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellUmts as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandCellUmts {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellUmts";
@@ -3726,6 +3754,7 @@ impl windows_core::RuntimeType for MobileBroadbandCellsInfo {
 unsafe impl windows_core::Interface for MobileBroadbandCellsInfo {
     type Vtable = <IMobileBroadbandCellsInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellsInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandCellsInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo";
@@ -3750,6 +3779,7 @@ impl windows_core::RuntimeType for MobileBroadbandCurrentSlotIndexChangedEventAr
 unsafe impl windows_core::Interface for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     type Vtable = <IMobileBroadbandCurrentSlotIndexChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCurrentSlotIndexChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCurrentSlotIndexChangedEventArgs";
@@ -3902,6 +3932,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceInformation {
 unsafe impl windows_core::Interface for MobileBroadbandDeviceInformation {
     type Vtable = <IMobileBroadbandDeviceInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandDeviceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation";
@@ -3942,6 +3973,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceService {
 unsafe impl windows_core::Interface for MobileBroadbandDeviceService {
     type Vtable = <IMobileBroadbandDeviceService as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceService as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandDeviceService {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceService";
@@ -3985,6 +4017,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandEventArgs 
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandEventArgs {
     type Vtable = <IMobileBroadbandDeviceServiceCommandEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandEventArgs";
@@ -4016,6 +4049,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandResult {
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandResult {
     type Vtable = <IMobileBroadbandDeviceServiceCommandResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult";
@@ -4072,6 +4106,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandSession {
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandSession {
     type Vtable = <IMobileBroadbandDeviceServiceCommandSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandSession as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession";
@@ -4097,6 +4132,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataReceivedEvent
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     type Vtable = <IMobileBroadbandDeviceServiceDataReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceDataReceivedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs";
@@ -4142,6 +4178,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataSession {
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceDataSession {
     type Vtable = <IMobileBroadbandDeviceServiceDataSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceDataSession as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandDeviceServiceDataSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession";
@@ -4178,6 +4215,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceServiceInformation {
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceInformation {
     type Vtable = <IMobileBroadbandDeviceServiceInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandDeviceServiceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation";
@@ -4222,6 +4260,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceServiceTriggerDetails {
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceTriggerDetails {
     type Vtable = <IMobileBroadbandDeviceServiceTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandDeviceServiceTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails";
@@ -4409,6 +4448,7 @@ impl windows_core::RuntimeType for MobileBroadbandModem {
 unsafe impl windows_core::Interface for MobileBroadbandModem {
     type Vtable = <IMobileBroadbandModem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandModem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandModem {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModem";
@@ -4452,6 +4492,7 @@ impl windows_core::RuntimeType for MobileBroadbandModemConfiguration {
 unsafe impl windows_core::Interface for MobileBroadbandModemConfiguration {
     type Vtable = <IMobileBroadbandModemConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandModemConfiguration as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandModemConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration";
@@ -4503,6 +4544,7 @@ impl windows_core::RuntimeType for MobileBroadbandModemIsolation {
 unsafe impl windows_core::Interface for MobileBroadbandModemIsolation {
     type Vtable = <IMobileBroadbandModemIsolation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandModemIsolation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandModemIsolation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation";
@@ -4616,6 +4658,7 @@ impl windows_core::RuntimeType for MobileBroadbandNetwork {
 unsafe impl windows_core::Interface for MobileBroadbandNetwork {
     type Vtable = <IMobileBroadbandNetwork as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandNetwork as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandNetwork {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetwork";
@@ -4644,6 +4687,7 @@ impl windows_core::RuntimeType for MobileBroadbandNetworkRegistrationStateChange
 unsafe impl windows_core::Interface for MobileBroadbandNetworkRegistrationStateChange {
     type Vtable = <IMobileBroadbandNetworkRegistrationStateChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandNetworkRegistrationStateChange as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandNetworkRegistrationStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange";
@@ -4668,6 +4712,7 @@ impl windows_core::RuntimeType for MobileBroadbandNetworkRegistrationStateChange
 unsafe impl windows_core::Interface for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     type Vtable = <IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails";
@@ -4705,6 +4750,7 @@ impl windows_core::RuntimeType for MobileBroadbandPco {
 unsafe impl windows_core::Interface for MobileBroadbandPco {
     type Vtable = <IMobileBroadbandPco as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPco as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandPco {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPco";
@@ -4729,6 +4775,7 @@ impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTriggerDetails {
 unsafe impl windows_core::Interface for MobileBroadbandPcoDataChangeTriggerDetails {
     type Vtable = <IMobileBroadbandPcoDataChangeTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPcoDataChangeTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails";
@@ -4819,6 +4866,7 @@ impl windows_core::RuntimeType for MobileBroadbandPin {
 unsafe impl windows_core::Interface for MobileBroadbandPin {
     type Vtable = <IMobileBroadbandPin as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPin as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandPin {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPin";
@@ -4886,6 +4934,7 @@ impl windows_core::RuntimeType for MobileBroadbandPinLockStateChange {
 unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChange {
     type Vtable = <IMobileBroadbandPinLockStateChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPinLockStateChange as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandPinLockStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange";
@@ -4910,6 +4959,7 @@ impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTriggerDetai
 unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChangeTriggerDetails {
     type Vtable = <IMobileBroadbandPinLockStateChangeTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPinLockStateChangeTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails";
@@ -4940,6 +4990,7 @@ impl windows_core::RuntimeType for MobileBroadbandPinManager {
 unsafe impl windows_core::Interface for MobileBroadbandPinManager {
     type Vtable = <IMobileBroadbandPinManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPinManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandPinManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinManager";
@@ -4970,6 +5021,7 @@ impl windows_core::RuntimeType for MobileBroadbandPinOperationResult {
 unsafe impl windows_core::Interface for MobileBroadbandPinOperationResult {
     type Vtable = <IMobileBroadbandPinOperationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPinOperationResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandPinOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult";
@@ -5037,6 +5089,7 @@ impl windows_core::RuntimeType for MobileBroadbandRadioStateChange {
 unsafe impl windows_core::Interface for MobileBroadbandRadioStateChange {
     type Vtable = <IMobileBroadbandRadioStateChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandRadioStateChange as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandRadioStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange";
@@ -5061,6 +5114,7 @@ impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTriggerDetails
 unsafe impl windows_core::Interface for MobileBroadbandRadioStateChangeTriggerDetails {
     type Vtable = <IMobileBroadbandRadioStateChangeTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandRadioStateChangeTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails";
@@ -5168,6 +5222,7 @@ impl windows_core::RuntimeType for MobileBroadbandSarManager {
 unsafe impl windows_core::Interface for MobileBroadbandSarManager {
     type Vtable = <IMobileBroadbandSarManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandSarManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandSarManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSarManager";
@@ -5205,6 +5260,7 @@ impl windows_core::RuntimeType for MobileBroadbandSlotInfo {
 unsafe impl windows_core::Interface for MobileBroadbandSlotInfo {
     type Vtable = <IMobileBroadbandSlotInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandSlotInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandSlotInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo";
@@ -5229,6 +5285,7 @@ impl windows_core::RuntimeType for MobileBroadbandSlotInfoChangedEventArgs {
 unsafe impl windows_core::Interface for MobileBroadbandSlotInfoChangedEventArgs {
     type Vtable = <IMobileBroadbandSlotInfoChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandSlotInfoChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandSlotInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfoChangedEventArgs";
@@ -5299,6 +5356,7 @@ impl windows_core::RuntimeType for MobileBroadbandSlotManager {
 unsafe impl windows_core::Interface for MobileBroadbandSlotManager {
     type Vtable = <IMobileBroadbandSlotManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandSlotManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandSlotManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotManager";
@@ -5345,6 +5403,7 @@ impl windows_core::RuntimeType for MobileBroadbandTransmissionStateChangedEventA
 unsafe impl windows_core::Interface for MobileBroadbandTransmissionStateChangedEventArgs {
     type Vtable = <IMobileBroadbandTransmissionStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandTransmissionStateChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandTransmissionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs";
@@ -5375,6 +5434,7 @@ impl windows_core::RuntimeType for MobileBroadbandUicc {
 unsafe impl windows_core::Interface for MobileBroadbandUicc {
     type Vtable = <IMobileBroadbandUicc as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandUicc as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandUicc {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUicc";
@@ -5424,6 +5484,7 @@ impl windows_core::RuntimeType for MobileBroadbandUiccApp {
 unsafe impl windows_core::Interface for MobileBroadbandUiccApp {
     type Vtable = <IMobileBroadbandUiccApp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandUiccApp as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandUiccApp {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccApp";
@@ -5471,6 +5532,7 @@ impl windows_core::RuntimeType for MobileBroadbandUiccAppReadRecordResult {
 unsafe impl windows_core::Interface for MobileBroadbandUiccAppReadRecordResult {
     type Vtable = <IMobileBroadbandUiccAppReadRecordResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandUiccAppReadRecordResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandUiccAppReadRecordResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult";
@@ -5525,6 +5587,7 @@ impl windows_core::RuntimeType for MobileBroadbandUiccAppRecordDetailsResult {
 unsafe impl windows_core::Interface for MobileBroadbandUiccAppRecordDetailsResult {
     type Vtable = <IMobileBroadbandUiccAppRecordDetailsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandUiccAppRecordDetailsResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandUiccAppRecordDetailsResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult";
@@ -5555,6 +5618,7 @@ impl windows_core::RuntimeType for MobileBroadbandUiccAppsResult {
 unsafe impl windows_core::Interface for MobileBroadbandUiccAppsResult {
     type Vtable = <IMobileBroadbandUiccAppsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandUiccAppsResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandUiccAppsResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult";
@@ -5612,6 +5676,7 @@ impl windows_core::RuntimeType for NetworkOperatorDataUsageTriggerDetails {
 unsafe impl windows_core::Interface for NetworkOperatorDataUsageTriggerDetails {
     type Vtable = <INetworkOperatorDataUsageTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorDataUsageTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NetworkOperatorDataUsageTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails";
@@ -5696,6 +5761,7 @@ impl windows_core::RuntimeType for NetworkOperatorNotificationEventDetails {
 unsafe impl windows_core::Interface for NetworkOperatorNotificationEventDetails {
     type Vtable = <INetworkOperatorNotificationEventDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorNotificationEventDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NetworkOperatorNotificationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails";
@@ -5789,6 +5855,7 @@ impl windows_core::RuntimeType for NetworkOperatorTetheringAccessPointConfigurat
 unsafe impl windows_core::Interface for NetworkOperatorTetheringAccessPointConfiguration {
     type Vtable = <INetworkOperatorTetheringAccessPointConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorTetheringAccessPointConfiguration as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NetworkOperatorTetheringAccessPointConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration";
@@ -5819,6 +5886,7 @@ impl windows_core::RuntimeType for NetworkOperatorTetheringClient {
 unsafe impl windows_core::Interface for NetworkOperatorTetheringClient {
     type Vtable = <INetworkOperatorTetheringClient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorTetheringClient as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NetworkOperatorTetheringClient {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient";
@@ -5982,6 +6050,7 @@ impl windows_core::RuntimeType for NetworkOperatorTetheringManager {
 unsafe impl windows_core::Interface for NetworkOperatorTetheringManager {
     type Vtable = <INetworkOperatorTetheringManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorTetheringManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NetworkOperatorTetheringManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager";
@@ -6010,6 +6079,7 @@ impl windows_core::RuntimeType for NetworkOperatorTetheringOperationResult {
 unsafe impl windows_core::Interface for NetworkOperatorTetheringOperationResult {
     type Vtable = <INetworkOperatorTetheringOperationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorTetheringOperationResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NetworkOperatorTetheringOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult";
@@ -6102,6 +6172,7 @@ impl windows_core::RuntimeType for NetworkOperatorTetheringSessionAccessPointCon
 unsafe impl windows_core::Interface for NetworkOperatorTetheringSessionAccessPointConfiguration {
     type Vtable = <INetworkOperatorTetheringSessionAccessPointConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorTetheringSessionAccessPointConfiguration as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NetworkOperatorTetheringSessionAccessPointConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringSessionAccessPointConfiguration";
@@ -6178,6 +6249,7 @@ impl windows_core::RuntimeType for ProvisionFromXmlDocumentResults {
 unsafe impl windows_core::Interface for ProvisionFromXmlDocumentResults {
     type Vtable = <IProvisionFromXmlDocumentResults as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProvisionFromXmlDocumentResults as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ProvisionFromXmlDocumentResults {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults";
@@ -6201,6 +6273,7 @@ impl windows_core::RuntimeType for ProvisionedProfile {
 unsafe impl windows_core::Interface for ProvisionedProfile {
     type Vtable = <IProvisionedProfile as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProvisionedProfile as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ProvisionedProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionedProfile";
@@ -6246,6 +6319,7 @@ impl windows_core::RuntimeType for ProvisioningAgent {
 unsafe impl windows_core::Interface for ProvisioningAgent {
     type Vtable = <IProvisioningAgent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProvisioningAgent as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ProvisioningAgent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisioningAgent";
@@ -6294,6 +6368,7 @@ impl windows_core::RuntimeType for TetheringEntitlementCheckTriggerDetails {
 unsafe impl windows_core::Interface for TetheringEntitlementCheckTriggerDetails {
     type Vtable = <ITetheringEntitlementCheckTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITetheringEntitlementCheckTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TetheringEntitlementCheckTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails";
@@ -6489,6 +6564,7 @@ impl windows_core::RuntimeType for UssdMessage {
 unsafe impl windows_core::Interface for UssdMessage {
     type Vtable = <IUssdMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUssdMessage as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UssdMessage {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdMessage";
@@ -6519,6 +6595,7 @@ impl windows_core::RuntimeType for UssdReply {
 unsafe impl windows_core::Interface for UssdReply {
     type Vtable = <IUssdReply as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUssdReply as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UssdReply {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdReply";
@@ -6581,6 +6658,7 @@ impl windows_core::RuntimeType for UssdSession {
 unsafe impl windows_core::Interface for UssdSession {
     type Vtable = <IUssdSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUssdSession as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UssdSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdSession";

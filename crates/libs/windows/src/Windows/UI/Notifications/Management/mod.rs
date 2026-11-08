@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IUserNotificationListener, IUserNotificationListener_Vtbl, 0x62553e41_8a06_4cef_8215_6033a5be4b03);
+windows_core::imp::define_interface!(IUserNotificationListener, IUserNotificationListener_Vtbl, 0x62553e41_8a06_4cef_8215_6033a5be4b03, inspectable);
 impl windows_core::RuntimeType for IUserNotificationListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Notifications.Management.IUserNotificationListener");
@@ -16,7 +16,7 @@ pub struct IUserNotificationListener_Vtbl {
     pub ClearNotifications: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserNotificationListenerStatics, IUserNotificationListenerStatics_Vtbl, 0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
+windows_core::imp::define_interface!(IUserNotificationListenerStatics, IUserNotificationListenerStatics_Vtbl, 0xff6123cf_4386_4aa3_b73d_b804e5b63b23, inspectable);
 impl windows_core::RuntimeType for IUserNotificationListenerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Notifications.Management.IUserNotificationListenerStatics");
@@ -93,6 +93,7 @@ impl windows_core::RuntimeType for UserNotificationListener {
 unsafe impl windows_core::Interface for UserNotificationListener {
     type Vtable = <IUserNotificationListener as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserNotificationListener as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.UserNotificationListener";

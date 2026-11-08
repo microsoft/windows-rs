@@ -753,7 +753,8 @@ impl windows_core::RuntimeType for AsyncStatus {
 windows_core::imp::define_interface!(
     IAsyncAction,
     IAsyncAction_Vtbl,
-    0x5a648006_843a_4da9_865b_9d26e5dfad7b
+    0x5a648006_843a_4da9_865b_9d26e5dfad7b,
+    inspectable
 );
 impl windows_core::RuntimeType for IAsyncAction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -901,7 +902,7 @@ impl IAsyncAction_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAsyncAction, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             SetCompleted: SetCompleted::<Identity, OFFSET>,
             Completed: Completed::<Identity, OFFSET>,
             GetResults: GetResults::<Identity, OFFSET>,
@@ -946,6 +947,7 @@ unsafe impl<TProgress: windows_core::RuntimeType + 'static> windows_core::Interf
     type Vtable = IAsyncActionWithProgress_Vtbl<TProgress>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType
     for IAsyncActionWithProgress<TProgress>
@@ -1195,11 +1197,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vt
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<
-                Identity,
-                IAsyncActionWithProgress<TProgress>,
-                OFFSET,
-            >(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             SetProgress: SetProgress::<TProgress, Identity, OFFSET>,
             Progress: Progress::<TProgress, Identity, OFFSET>,
             SetCompleted: SetCompleted::<TProgress, Identity, OFFSET>,
@@ -1240,7 +1238,8 @@ where
 windows_core::imp::define_interface!(
     IAsyncInfo,
     IAsyncInfo_Vtbl,
-    0x00000036_0000_0000_c000_000000000046
+    0x00000036_0000_0000_c000_000000000046,
+    inspectable
 );
 impl windows_core::RuntimeType for IAsyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1385,7 +1384,7 @@ impl IAsyncInfo_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAsyncInfo, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Id: Id::<Identity, OFFSET>,
             Status: Status::<Identity, OFFSET>,
             ErrorCode: ErrorCode::<Identity, OFFSET>,
@@ -1431,6 +1430,7 @@ unsafe impl<TResult: windows_core::RuntimeType + 'static> windows_core::Interfac
     type Vtable = IAsyncOperation_Vtbl<TResult>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
     for IAsyncOperation<TResult>
@@ -1616,11 +1616,7 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult>
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<
-                Identity,
-                IAsyncOperation<TResult>,
-                OFFSET,
-            >(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             SetCompleted: SetCompleted::<TResult, Identity, OFFSET>,
             Completed: Completed::<TResult, Identity, OFFSET>,
             GetResults: GetResults::<TResult, Identity, OFFSET>,
@@ -1679,6 +1675,7 @@ unsafe impl<
     type Vtable = IAsyncOperationWithProgress_Vtbl<TResult, TProgress>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
     windows_core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress>
@@ -1970,11 +1967,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<
-                Identity,
-                IAsyncOperationWithProgress<TResult, TProgress>,
-                OFFSET,
-            >(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             SetProgress: SetProgress::<TResult, TProgress, Identity, OFFSET>,
             Progress: Progress::<TResult, TProgress, Identity, OFFSET>,
             SetCompleted: SetCompleted::<TResult, TProgress, Identity, OFFSET>,

@@ -87,7 +87,8 @@ impl<
 windows_core::imp::define_interface!(
     ISource,
     ISource_Vtbl,
-    0xc1f11ade_373b_528b_9be6_7b1e709e331a
+    0xc1f11ade_373b_528b_9be6_7b1e709e331a,
+    inspectable
 );
 impl windows_core::RuntimeType for ISource {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -165,7 +166,7 @@ impl ISource_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISource, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Changed: Changed::<Identity, OFFSET>,
             RemoveChanged: RemoveChanged::<Identity, OFFSET>,
         }

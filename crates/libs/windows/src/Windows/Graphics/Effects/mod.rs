@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IGraphicsEffect, IGraphicsEffect_Vtbl, 0xcb51c0ce_8fe6_4636_b202_861faa07d8f3);
+windows_core::imp::define_interface!(IGraphicsEffect, IGraphicsEffect_Vtbl, 0xcb51c0ce_8fe6_4636_b202_861faa07d8f3, inspectable);
 impl windows_core::RuntimeType for IGraphicsEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Effects.IGraphicsEffect");
@@ -47,11 +47,7 @@ impl IGraphicsEffect_Vtbl {
                 IGraphicsEffect_Impl::SetName(this, &*(&raw const value).cast()).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IGraphicsEffect, OFFSET>(),
-            Name: Name::<Identity, OFFSET>,
-            SetName: SetName::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, SetName: SetName::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGraphicsEffect as windows_core::Interface>::IID
@@ -64,7 +60,7 @@ pub struct IGraphicsEffect_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGraphicsEffectSource, IGraphicsEffectSource_Vtbl, 0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2);
+windows_core::imp::define_interface!(IGraphicsEffectSource, IGraphicsEffectSource_Vtbl, 0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2, inspectable);
 impl windows_core::RuntimeType for IGraphicsEffectSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Effects.IGraphicsEffectSource");
@@ -76,7 +72,7 @@ impl windows_core::RuntimeName for IGraphicsEffectSource {
 pub trait IGraphicsEffectSource_Impl: windows_core::IUnknownImpl {}
 impl IGraphicsEffectSource_Vtbl {
     pub const fn new<Identity: IGraphicsEffectSource_Impl, const OFFSET: isize>() -> Self {
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGraphicsEffectSource, OFFSET>() }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGraphicsEffectSource as windows_core::Interface>::IID

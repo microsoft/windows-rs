@@ -29,6 +29,7 @@ impl windows_core::RuntimeType for FindAllAccountsResult {
 unsafe impl windows_core::Interface for FindAllAccountsResult {
     type Vtable = <IFindAllAccountsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFindAllAccountsResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FindAllAccountsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.FindAllAccountsResult";
@@ -51,7 +52,7 @@ impl windows_core::RuntimeType for FindAllWebAccountsStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus");
 }
-windows_core::imp::define_interface!(IFindAllAccountsResult, IFindAllAccountsResult_Vtbl, 0xa5812b5d_b72e_420c_86ab_aac0d7b7261f);
+windows_core::imp::define_interface!(IFindAllAccountsResult, IFindAllAccountsResult_Vtbl, 0xa5812b5d_b72e_420c_86ab_aac0d7b7261f, inspectable);
 impl windows_core::RuntimeType for IFindAllAccountsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IFindAllAccountsResult");
@@ -67,7 +68,7 @@ pub struct IFindAllAccountsResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FindAllWebAccountsStatus) -> windows_core::HRESULT,
     pub ProviderError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAccountEventArgs, IWebAccountEventArgs_Vtbl, 0x6fb7037d_424e_44ec_977c_ef2415462a5a);
+windows_core::imp::define_interface!(IWebAccountEventArgs, IWebAccountEventArgs_Vtbl, 0x6fb7037d_424e_44ec_977c_ef2415462a5a, inspectable);
 impl windows_core::RuntimeType for IWebAccountEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAccountEventArgs");
@@ -81,7 +82,7 @@ pub struct IWebAccountEventArgs_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     Account: usize,
 }
-windows_core::imp::define_interface!(IWebAccountMonitor, IWebAccountMonitor_Vtbl, 0x7445f5fd_aa9d_4619_8d5d_c138a4ede3e5);
+windows_core::imp::define_interface!(IWebAccountMonitor, IWebAccountMonitor_Vtbl, 0x7445f5fd_aa9d_4619_8d5d_c138a4ede3e5, inspectable);
 impl windows_core::RuntimeType for IWebAccountMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAccountMonitor");
@@ -97,7 +98,7 @@ pub struct IWebAccountMonitor_Vtbl {
     pub DefaultSignInAccountChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDefaultSignInAccountChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAccountMonitor2, IWebAccountMonitor2_Vtbl, 0xa7adc1f8_24b8_4f01_9ae5_24545e71233a);
+windows_core::imp::define_interface!(IWebAccountMonitor2, IWebAccountMonitor2_Vtbl, 0xa7adc1f8_24b8_4f01_9ae5_24545e71233a, inspectable);
 impl windows_core::RuntimeType for IWebAccountMonitor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAccountMonitor2");
@@ -109,7 +110,7 @@ pub struct IWebAccountMonitor2_Vtbl {
     pub AccountPictureUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAccountPictureUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAuthenticationAddAccountResponse, IWebAuthenticationAddAccountResponse_Vtbl, 0x7fb013e8_0bd8_542b_b486_8323163a4b85);
+windows_core::imp::define_interface!(IWebAuthenticationAddAccountResponse, IWebAuthenticationAddAccountResponse_Vtbl, 0x7fb013e8_0bd8_542b_b486_8323163a4b85, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationAddAccountResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationAddAccountResponse");
@@ -124,7 +125,7 @@ pub struct IWebAuthenticationAddAccountResponse_Vtbl {
     WebAccount: usize,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAuthenticationAddAccountResponseFactory, IWebAuthenticationAddAccountResponseFactory_Vtbl, 0x325f903e_77be_5365_81d9_0321cdd82195);
+windows_core::imp::define_interface!(IWebAuthenticationAddAccountResponseFactory, IWebAuthenticationAddAccountResponseFactory_Vtbl, 0x325f903e_77be_5365_81d9_0321cdd82195, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationAddAccountResponseFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationAddAccountResponseFactory");
@@ -138,7 +139,7 @@ pub struct IWebAuthenticationAddAccountResponseFactory_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     CreateWithAccount: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationAddAccountResult, IWebAuthenticationAddAccountResult_Vtbl, 0x88fad03c_901d_5ffa_9259_701d3ca08ef2);
+windows_core::imp::define_interface!(IWebAuthenticationAddAccountResult, IWebAuthenticationAddAccountResult_Vtbl, 0x88fad03c_901d_5ffa_9259_701d3ca08ef2, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationAddAccountResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationAddAccountResult");
@@ -151,7 +152,7 @@ pub struct IWebAuthenticationAddAccountResult_Vtbl {
     pub ResponseStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAuthenticationAddAccountStatus) -> windows_core::HRESULT,
     pub ResponseError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics, IWebAuthenticationCoreManagerStatics_Vtbl, 0x6aca7c92_a581_4479_9c10_752eff44fd34);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics, IWebAuthenticationCoreManagerStatics_Vtbl, 0x6aca7c92_a581_4479_9c10_752eff44fd34, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics");
@@ -183,7 +184,7 @@ pub struct IWebAuthenticationCoreManagerStatics_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     FindAccountProviderWithAuthorityAsync: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics2, IWebAuthenticationCoreManagerStatics2_Vtbl, 0xf584184a_8b57_4820_b6a4_70a5b6fcf44a);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics2, IWebAuthenticationCoreManagerStatics2_Vtbl, 0xf584184a_8b57_4820_b6a4_70a5b6fcf44a, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics2");
@@ -197,7 +198,7 @@ pub struct IWebAuthenticationCoreManagerStatics2_Vtbl {
     #[cfg(not(all(feature = "Security_Credentials", feature = "System")))]
     FindAccountProviderWithAuthorityForUserAsync: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics3, IWebAuthenticationCoreManagerStatics3_Vtbl, 0x2404eeb2_8924_4d93_ab3a_99688b419d56);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics3, IWebAuthenticationCoreManagerStatics3_Vtbl, 0x2404eeb2_8924_4d93_ab3a_99688b419d56, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics3");
@@ -211,7 +212,7 @@ pub struct IWebAuthenticationCoreManagerStatics3_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     CreateWebAccountMonitor: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics4, IWebAuthenticationCoreManagerStatics4_Vtbl, 0x54e633fe_96e0_41e8_9832_1298897c2aaf);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics4, IWebAuthenticationCoreManagerStatics4_Vtbl, 0x54e633fe_96e0_41e8_9832_1298897c2aaf, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics4");
@@ -241,7 +242,7 @@ pub struct IWebAuthenticationCoreManagerStatics4_Vtbl {
     #[cfg(not(all(feature = "Security_Credentials", feature = "System")))]
     FindSystemAccountProviderWithAuthorityForUserAsync: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics5, IWebAuthenticationCoreManagerStatics5_Vtbl, 0xd07c1ded_270f_4554_9966_27b7df05b965);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics5, IWebAuthenticationCoreManagerStatics5_Vtbl, 0xd07c1ded_270f_4554_9966_27b7df05b965, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics5");
@@ -252,7 +253,7 @@ pub struct IWebAuthenticationCoreManagerStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddAccountWithTransferTokenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAuthenticationTransferTokenRequest, IWebAuthenticationTransferTokenRequest_Vtbl, 0x7acfa5b6_529d_5e76_9846_f3fd999304d0);
+windows_core::imp::define_interface!(IWebAuthenticationTransferTokenRequest, IWebAuthenticationTransferTokenRequest_Vtbl, 0x7acfa5b6_529d_5e76_9846_f3fd999304d0, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationTransferTokenRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationTransferTokenRequest");
@@ -271,7 +272,7 @@ pub struct IWebAuthenticationTransferTokenRequest_Vtbl {
     pub CorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAuthenticationTransferTokenRequestFactory, IWebAuthenticationTransferTokenRequestFactory_Vtbl, 0x5f16b627_04c4_5f0b_8683_8bab58965656);
+windows_core::imp::define_interface!(IWebAuthenticationTransferTokenRequestFactory, IWebAuthenticationTransferTokenRequestFactory_Vtbl, 0x5f16b627_04c4_5f0b_8683_8bab58965656, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationTransferTokenRequestFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationTransferTokenRequestFactory");
@@ -289,7 +290,7 @@ pub struct IWebAuthenticationTransferTokenRequestFactory_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     CreateWithCorrelationId: usize,
 }
-windows_core::imp::define_interface!(IWebProviderError, IWebProviderError_Vtbl, 0xdb191bb1_50c5_4809_8dca_09c99410245c);
+windows_core::imp::define_interface!(IWebProviderError, IWebProviderError_Vtbl, 0xdb191bb1_50c5_4809_8dca_09c99410245c, inspectable);
 impl windows_core::RuntimeType for IWebProviderError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebProviderError");
@@ -302,7 +303,7 @@ pub struct IWebProviderError_Vtbl {
     pub ErrorMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebProviderErrorFactory, IWebProviderErrorFactory_Vtbl, 0xe3c40a2d_89ef_4e37_847f_a8b9d5a32910);
+windows_core::imp::define_interface!(IWebProviderErrorFactory, IWebProviderErrorFactory_Vtbl, 0xe3c40a2d_89ef_4e37_847f_a8b9d5a32910, inspectable);
 impl windows_core::RuntimeType for IWebProviderErrorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebProviderErrorFactory");
@@ -313,7 +314,7 @@ pub struct IWebProviderErrorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenRequest, IWebTokenRequest_Vtbl, 0xb77b4d68_adcb_4673_b364_0cf7b35caf97);
+windows_core::imp::define_interface!(IWebTokenRequest, IWebTokenRequest_Vtbl, 0xb77b4d68_adcb_4673_b364_0cf7b35caf97, inspectable);
 impl windows_core::RuntimeType for IWebTokenRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenRequest");
@@ -331,7 +332,7 @@ pub struct IWebTokenRequest_Vtbl {
     pub PromptType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebTokenRequestPromptType) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenRequest2, IWebTokenRequest2_Vtbl, 0xd700c079_30c8_4397_9654_961c3be8b855);
+windows_core::imp::define_interface!(IWebTokenRequest2, IWebTokenRequest2_Vtbl, 0xd700c079_30c8_4397_9654_961c3be8b855, inspectable);
 impl windows_core::RuntimeType for IWebTokenRequest2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenRequest2");
@@ -342,7 +343,7 @@ pub struct IWebTokenRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenRequest3, IWebTokenRequest3_Vtbl, 0x5a755b51_3bb1_41a5_a63d_90bc32c7db9a);
+windows_core::imp::define_interface!(IWebTokenRequest3, IWebTokenRequest3_Vtbl, 0x5a755b51_3bb1_41a5_a63d_90bc32c7db9a, inspectable);
 impl windows_core::RuntimeType for IWebTokenRequest3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenRequest3");
@@ -354,7 +355,7 @@ pub struct IWebTokenRequest3_Vtbl {
     pub CorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenRequestFactory, IWebTokenRequestFactory_Vtbl, 0x6cf2141c_0ff0_4c67_b84f_99ddbe4a72c9);
+windows_core::imp::define_interface!(IWebTokenRequestFactory, IWebTokenRequestFactory_Vtbl, 0x6cf2141c_0ff0_4c67_b84f_99ddbe4a72c9, inspectable);
 impl windows_core::RuntimeType for IWebTokenRequestFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenRequestFactory");
@@ -380,7 +381,7 @@ pub struct IWebTokenRequestFactory_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     CreateWithScope: usize,
 }
-windows_core::imp::define_interface!(IWebTokenRequestResult, IWebTokenRequestResult_Vtbl, 0xc12a8305_d1f8_4483_8d54_38fe292784ff);
+windows_core::imp::define_interface!(IWebTokenRequestResult, IWebTokenRequestResult_Vtbl, 0xc12a8305_d1f8_4483_8d54_38fe292784ff, inspectable);
 impl windows_core::RuntimeType for IWebTokenRequestResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenRequestResult");
@@ -394,7 +395,7 @@ pub struct IWebTokenRequestResult_Vtbl {
     pub ResponseError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InvalidateCacheAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenResponse, IWebTokenResponse_Vtbl, 0x67a7c5ca_83f6_44c6_a3b1_0eb69e41fa8a);
+windows_core::imp::define_interface!(IWebTokenResponse, IWebTokenResponse_Vtbl, 0x67a7c5ca_83f6_44c6_a3b1_0eb69e41fa8a, inspectable);
 impl windows_core::RuntimeType for IWebTokenResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenResponse");
@@ -411,7 +412,7 @@ pub struct IWebTokenResponse_Vtbl {
     WebAccount: usize,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenResponseFactory, IWebTokenResponseFactory_Vtbl, 0xab6bf7f8_5450_4ef6_97f7_052b0431c0f0);
+windows_core::imp::define_interface!(IWebTokenResponseFactory, IWebTokenResponseFactory_Vtbl, 0xab6bf7f8_5450_4ef6_97f7_052b0431c0f0, inspectable);
 impl windows_core::RuntimeType for IWebTokenResponseFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenResponseFactory");
@@ -449,6 +450,7 @@ impl windows_core::RuntimeType for WebAccountEventArgs {
 unsafe impl windows_core::Interface for WebAccountEventArgs {
     type Vtable = <IWebAccountEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAccountEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebAccountEventArgs {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountEventArgs";
@@ -524,6 +526,7 @@ impl windows_core::RuntimeType for WebAccountMonitor {
 unsafe impl windows_core::Interface for WebAccountMonitor {
     type Vtable = <IWebAccountMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAccountMonitor as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebAccountMonitor {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountMonitor";
@@ -569,6 +572,7 @@ impl windows_core::RuntimeType for WebAuthenticationAddAccountResponse {
 unsafe impl windows_core::Interface for WebAuthenticationAddAccountResponse {
     type Vtable = <IWebAuthenticationAddAccountResponse as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAuthenticationAddAccountResponse as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebAuthenticationAddAccountResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAuthenticationAddAccountResponse";
@@ -605,6 +609,7 @@ impl windows_core::RuntimeType for WebAuthenticationAddAccountResult {
 unsafe impl windows_core::Interface for WebAuthenticationAddAccountResult {
     type Vtable = <IWebAuthenticationAddAccountResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAuthenticationAddAccountResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebAuthenticationAddAccountResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAuthenticationAddAccountResult";
@@ -858,6 +863,7 @@ impl windows_core::RuntimeType for WebAuthenticationTransferTokenRequest {
 unsafe impl windows_core::Interface for WebAuthenticationTransferTokenRequest {
     type Vtable = <IWebAuthenticationTransferTokenRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAuthenticationTransferTokenRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebAuthenticationTransferTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAuthenticationTransferTokenRequest";
@@ -904,6 +910,7 @@ impl windows_core::RuntimeType for WebProviderError {
 unsafe impl windows_core::Interface for WebProviderError {
     type Vtable = <IWebProviderError as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebProviderError as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebProviderError {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebProviderError";
@@ -1015,6 +1022,7 @@ impl windows_core::RuntimeType for WebTokenRequest {
 unsafe impl windows_core::Interface for WebTokenRequest {
     type Vtable = <IWebTokenRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebTokenRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequest";
@@ -1071,6 +1079,7 @@ impl windows_core::RuntimeType for WebTokenRequestResult {
 unsafe impl windows_core::Interface for WebTokenRequestResult {
     type Vtable = <IWebTokenRequestResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebTokenRequestResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebTokenRequestResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequestResult";
@@ -1170,6 +1179,7 @@ impl windows_core::RuntimeType for WebTokenResponse {
 unsafe impl windows_core::Interface for WebTokenResponse {
     type Vtable = <IWebTokenResponse as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebTokenResponse as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenResponse";

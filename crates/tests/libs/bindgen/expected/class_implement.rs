@@ -53,11 +53,17 @@ impl windows_core::RuntimeType for Class {
 unsafe impl windows_core::Interface for Class {
     type Vtable = <IClass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClass as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Class {
     const NAME: &'static str = "Test.Class";
 }
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x327dfd65_5684_57ee_85ab_168eff31a838);
+windows_core::imp::define_interface!(
+    IClass,
+    IClass_Vtbl,
+    0x327dfd65_5684_57ee_85ab_168eff31a838,
+    inspectable
+);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -124,7 +130,7 @@ impl IClass_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IClass, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Method: Method::<Identity, OFFSET>,
             Name: Name::<Identity, OFFSET>,
             SetName: SetName::<Identity, OFFSET>,

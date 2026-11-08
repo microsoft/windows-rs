@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPowerThermalChannelConfiguration, IPowerThermalChannelConfiguration_Vtbl, 0xad8383fa_172d_5d82_b29d_81d93710fb45);
+windows_core::imp::define_interface!(IPowerThermalChannelConfiguration, IPowerThermalChannelConfiguration_Vtbl, 0xad8383fa_172d_5d82_b29d_81d93710fb45, inspectable);
 impl windows_core::RuntimeType for IPowerThermalChannelConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.Thermal.IPowerThermalChannelConfiguration");
@@ -11,7 +11,7 @@ pub struct IPowerThermalChannelConfiguration_Vtbl {
     pub ConfigurationString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetConfigurationNumericParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerThermalChannelDataConsumer, IPowerThermalChannelDataConsumer_Vtbl, 0x47cca211_7348_5026_898c_b1873123760d);
+windows_core::imp::define_interface!(IPowerThermalChannelDataConsumer, IPowerThermalChannelDataConsumer_Vtbl, 0x47cca211_7348_5026_898c_b1873123760d, inspectable);
 impl windows_core::RuntimeType for IPowerThermalChannelDataConsumer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.Thermal.IPowerThermalChannelDataConsumer");
@@ -30,7 +30,7 @@ pub struct IPowerThermalChannelDataConsumer_Vtbl {
     pub BackEndStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveBackEndStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerThermalChannelDataConsumerFactory, IPowerThermalChannelDataConsumerFactory_Vtbl, 0xb42d9ab1_32f0_54bb_899a_9ae0529da381);
+windows_core::imp::define_interface!(IPowerThermalChannelDataConsumerFactory, IPowerThermalChannelDataConsumerFactory_Vtbl, 0xb42d9ab1_32f0_54bb_899a_9ae0529da381, inspectable);
 impl windows_core::RuntimeType for IPowerThermalChannelDataConsumerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.Thermal.IPowerThermalChannelDataConsumerFactory");
@@ -41,7 +41,7 @@ pub struct IPowerThermalChannelDataConsumerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const PowerThermalChannelId, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerThermalChannelDataProducer, IPowerThermalChannelDataProducer_Vtbl, 0xa935f244_1a7d_55d5_9c69_8adc1cd1d993);
+windows_core::imp::define_interface!(IPowerThermalChannelDataProducer, IPowerThermalChannelDataProducer_Vtbl, 0xa935f244_1a7d_55d5_9c69_8adc1cd1d993, inspectable);
 impl windows_core::RuntimeType for IPowerThermalChannelDataProducer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.Thermal.IPowerThermalChannelDataProducer");
@@ -60,7 +60,7 @@ pub struct IPowerThermalChannelDataProducer_Vtbl {
     pub BackEndStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveBackEndStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerThermalChannelDataProducerFactory, IPowerThermalChannelDataProducerFactory_Vtbl, 0xd2d380cd_e09d_5472_ad62_70061e630067);
+windows_core::imp::define_interface!(IPowerThermalChannelDataProducerFactory, IPowerThermalChannelDataProducerFactory_Vtbl, 0xd2d380cd_e09d_5472_ad62_70061e630067, inspectable);
 impl windows_core::RuntimeType for IPowerThermalChannelDataProducerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.Thermal.IPowerThermalChannelDataProducerFactory");
@@ -71,7 +71,7 @@ pub struct IPowerThermalChannelDataProducerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const PowerThermalChannelId, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerThermalChannelDataReceivedEventArgs, IPowerThermalChannelDataReceivedEventArgs_Vtbl, 0xd6b643e0_6ab6_5683_a8fc_5ed65ee20dc5);
+windows_core::imp::define_interface!(IPowerThermalChannelDataReceivedEventArgs, IPowerThermalChannelDataReceivedEventArgs_Vtbl, 0xd6b643e0_6ab6_5683_a8fc_5ed65ee20dc5, inspectable);
 impl windows_core::RuntimeType for IPowerThermalChannelDataReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.Thermal.IPowerThermalChannelDataReceivedEventArgs");
@@ -82,7 +82,7 @@ pub struct IPowerThermalChannelDataReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut PowerThermalChannelData) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerThermalChannelDiagnostics, IPowerThermalChannelDiagnostics_Vtbl, 0x628fd5c4_49b7_508f_ad9f_2309b1168aad);
+windows_core::imp::define_interface!(IPowerThermalChannelDiagnostics, IPowerThermalChannelDiagnostics_Vtbl, 0x628fd5c4_49b7_508f_ad9f_2309b1168aad, inspectable);
 impl windows_core::RuntimeType for IPowerThermalChannelDiagnostics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.Thermal.IPowerThermalChannelDiagnostics");
@@ -92,7 +92,7 @@ impl windows_core::RuntimeType for IPowerThermalChannelDiagnostics {
 pub struct IPowerThermalChannelDiagnostics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IPowerThermalChannelDiagnosticsStatics, IPowerThermalChannelDiagnosticsStatics_Vtbl, 0xa86ec393_b684_5633_a6ca_dfa1c7eecf87);
+windows_core::imp::define_interface!(IPowerThermalChannelDiagnosticsStatics, IPowerThermalChannelDiagnosticsStatics_Vtbl, 0xa86ec393_b684_5633_a6ca_dfa1c7eecf87, inspectable);
 impl windows_core::RuntimeType for IPowerThermalChannelDiagnosticsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.Thermal.IPowerThermalChannelDiagnosticsStatics");
@@ -104,7 +104,7 @@ pub struct IPowerThermalChannelDiagnosticsStatics_Vtbl {
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDataForChannels: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const PowerThermalChannelId, *mut u32, *mut *mut PowerThermalChannelData) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerThermalChannelFinderStatics, IPowerThermalChannelFinderStatics_Vtbl, 0xdf8d288b_f056_55ce_b370_f3e1c4e32063);
+windows_core::imp::define_interface!(IPowerThermalChannelFinderStatics, IPowerThermalChannelFinderStatics_Vtbl, 0xdf8d288b_f056_55ce_b370_f3e1c4e32063, inspectable);
 impl windows_core::RuntimeType for IPowerThermalChannelFinderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.Thermal.IPowerThermalChannelFinderStatics");
@@ -160,6 +160,7 @@ impl windows_core::RuntimeType for PowerThermalChannelConfiguration {
 unsafe impl windows_core::Interface for PowerThermalChannelConfiguration {
     type Vtable = <IPowerThermalChannelConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPowerThermalChannelConfiguration as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PowerThermalChannelConfiguration {
     const NAME: &'static str = "Windows.System.Power.Thermal.PowerThermalChannelConfiguration";
@@ -259,6 +260,7 @@ impl windows_core::RuntimeType for PowerThermalChannelDataConsumer {
 unsafe impl windows_core::Interface for PowerThermalChannelDataConsumer {
     type Vtable = <IPowerThermalChannelDataConsumer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPowerThermalChannelDataConsumer as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PowerThermalChannelDataConsumer {
     const NAME: &'static str = "Windows.System.Power.Thermal.PowerThermalChannelDataConsumer";
@@ -337,6 +339,7 @@ impl windows_core::RuntimeType for PowerThermalChannelDataProducer {
 unsafe impl windows_core::Interface for PowerThermalChannelDataProducer {
     type Vtable = <IPowerThermalChannelDataProducer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPowerThermalChannelDataProducer as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PowerThermalChannelDataProducer {
     const NAME: &'static str = "Windows.System.Power.Thermal.PowerThermalChannelDataProducer";
@@ -362,6 +365,7 @@ impl windows_core::RuntimeType for PowerThermalChannelDataReceivedEventArgs {
 unsafe impl windows_core::Interface for PowerThermalChannelDataReceivedEventArgs {
     type Vtable = <IPowerThermalChannelDataReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPowerThermalChannelDataReceivedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PowerThermalChannelDataReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Power.Thermal.PowerThermalChannelDataReceivedEventArgs";
@@ -397,6 +401,7 @@ impl windows_core::RuntimeType for PowerThermalChannelDiagnostics {
 unsafe impl windows_core::Interface for PowerThermalChannelDiagnostics {
     type Vtable = <IPowerThermalChannelDiagnostics as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPowerThermalChannelDiagnostics as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PowerThermalChannelDiagnostics {
     const NAME: &'static str = "Windows.System.Power.Thermal.PowerThermalChannelDiagnostics";

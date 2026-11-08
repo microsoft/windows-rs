@@ -21,13 +21,14 @@ impl windows_core::RuntimeType for ApplicationDataManager {
 unsafe impl windows_core::Interface for ApplicationDataManager {
     type Vtable = <IApplicationDataManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationDataManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ApplicationDataManager {
     const NAME: &'static str = "Windows.Management.Core.ApplicationDataManager";
 }
 unsafe impl Send for ApplicationDataManager {}
 unsafe impl Sync for ApplicationDataManager {}
-windows_core::imp::define_interface!(IApplicationDataManager, IApplicationDataManager_Vtbl, 0x74d10432_2e99_4000_9a3a_64307e858129);
+windows_core::imp::define_interface!(IApplicationDataManager, IApplicationDataManager_Vtbl, 0x74d10432_2e99_4000_9a3a_64307e858129, inspectable);
 impl windows_core::RuntimeType for IApplicationDataManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Core.IApplicationDataManager");
@@ -37,7 +38,7 @@ impl windows_core::RuntimeType for IApplicationDataManager {
 pub struct IApplicationDataManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IApplicationDataManagerStatics, IApplicationDataManagerStatics_Vtbl, 0x1e1862e3_698e_49a1_9752_dee94925b9b3);
+windows_core::imp::define_interface!(IApplicationDataManagerStatics, IApplicationDataManagerStatics_Vtbl, 0x1e1862e3_698e_49a1_9752_dee94925b9b3, inspectable);
 impl windows_core::RuntimeType for IApplicationDataManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Core.IApplicationDataManagerStatics");

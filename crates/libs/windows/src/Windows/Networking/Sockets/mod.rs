@@ -114,6 +114,7 @@ impl windows_core::RuntimeType for ControlChannelTrigger {
 unsafe impl windows_core::Interface for ControlChannelTrigger {
     type Vtable = <IControlChannelTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IControlChannelTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
@@ -351,6 +352,7 @@ impl windows_core::RuntimeType for DatagramSocket {
 unsafe impl windows_core::Interface for DatagramSocket {
     type Vtable = <IDatagramSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDatagramSocket as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
@@ -420,6 +422,7 @@ impl windows_core::RuntimeType for DatagramSocketControl {
 unsafe impl windows_core::Interface for DatagramSocketControl {
     type Vtable = <IDatagramSocketControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDatagramSocketControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DatagramSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
@@ -462,6 +465,7 @@ impl windows_core::RuntimeType for DatagramSocketInformation {
 unsafe impl windows_core::Interface for DatagramSocketInformation {
     type Vtable = <IDatagramSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDatagramSocketInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DatagramSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
@@ -512,13 +516,14 @@ impl windows_core::RuntimeType for DatagramSocketMessageReceivedEventArgs {
 unsafe impl windows_core::Interface for DatagramSocketMessageReceivedEventArgs {
     type Vtable = <IDatagramSocketMessageReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDatagramSocketMessageReceivedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
 }
 unsafe impl Send for DatagramSocketMessageReceivedEventArgs {}
 unsafe impl Sync for DatagramSocketMessageReceivedEventArgs {}
-windows_core::imp::define_interface!(IControlChannelTrigger, IControlChannelTrigger_Vtbl, 0x7d1431a7_ee96_40e8_a199_8703cd969ec3);
+windows_core::imp::define_interface!(IControlChannelTrigger, IControlChannelTrigger_Vtbl, 0x7d1431a7_ee96_40e8_a199_8703cd969ec3, inspectable);
 impl windows_core::RuntimeType for IControlChannelTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IControlChannelTrigger");
@@ -545,7 +550,7 @@ pub struct IControlChannelTrigger_Vtbl {
     pub DecreaseNetworkKeepAliveInterval: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FlushTransport: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IControlChannelTrigger2, IControlChannelTrigger2_Vtbl, 0xaf00d237_51be_4514_9725_3556e1879580);
+windows_core::imp::define_interface!(IControlChannelTrigger2, IControlChannelTrigger2_Vtbl, 0xaf00d237_51be_4514_9725_3556e1879580, inspectable);
 impl windows_core::RuntimeType for IControlChannelTrigger2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IControlChannelTrigger2");
@@ -556,7 +561,7 @@ pub struct IControlChannelTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsWakeFromLowPowerSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IControlChannelTriggerEventDetails, IControlChannelTriggerEventDetails_Vtbl, 0x1b36e047_89bb_4236_96ac_71d012bb4869);
+windows_core::imp::define_interface!(IControlChannelTriggerEventDetails, IControlChannelTriggerEventDetails_Vtbl, 0x1b36e047_89bb_4236_96ac_71d012bb4869, inspectable);
 impl windows_core::RuntimeType for IControlChannelTriggerEventDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IControlChannelTriggerEventDetails");
@@ -594,10 +599,7 @@ impl IControlChannelTriggerEventDetails_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IControlChannelTriggerEventDetails, OFFSET>(),
-            ControlChannelTrigger: ControlChannelTrigger::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ControlChannelTrigger: ControlChannelTrigger::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IControlChannelTriggerEventDetails as windows_core::Interface>::IID
@@ -609,7 +611,7 @@ pub struct IControlChannelTriggerEventDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ControlChannelTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IControlChannelTriggerFactory, IControlChannelTriggerFactory_Vtbl, 0xda4b7cf0_8d71_446f_88c3_b95184a2d6cd);
+windows_core::imp::define_interface!(IControlChannelTriggerFactory, IControlChannelTriggerFactory_Vtbl, 0xda4b7cf0_8d71_446f_88c3_b95184a2d6cd, inspectable);
 impl windows_core::RuntimeType for IControlChannelTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IControlChannelTriggerFactory");
@@ -621,7 +623,7 @@ pub struct IControlChannelTriggerFactory_Vtbl {
     pub CreateControlChannelTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateControlChannelTriggerEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, ControlChannelTriggerResourceType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IControlChannelTriggerResetEventDetails, IControlChannelTriggerResetEventDetails_Vtbl, 0x6851038e_8ec4_42fe_9bb2_21e91b7bfcb1);
+windows_core::imp::define_interface!(IControlChannelTriggerResetEventDetails, IControlChannelTriggerResetEventDetails_Vtbl, 0x6851038e_8ec4_42fe_9bb2_21e91b7bfcb1, inspectable);
 impl windows_core::RuntimeType for IControlChannelTriggerResetEventDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IControlChannelTriggerResetEventDetails");
@@ -703,7 +705,7 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IControlChannelTriggerResetEventDetails, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ResetReason: ResetReason::<Identity, OFFSET>,
             HardwareSlotReset: HardwareSlotReset::<Identity, OFFSET>,
             SoftwareSlotReset: SoftwareSlotReset::<Identity, OFFSET>,
@@ -721,7 +723,7 @@ pub struct IControlChannelTriggerResetEventDetails_Vtbl {
     pub HardwareSlotReset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SoftwareSlotReset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDatagramSocket, IDatagramSocket_Vtbl, 0x7fe25bbb_c3bc_4677_8446_ca28a465a3af);
+windows_core::imp::define_interface!(IDatagramSocket, IDatagramSocket_Vtbl, 0x7fe25bbb_c3bc_4677_8446_ca28a465a3af, inspectable);
 impl windows_core::RuntimeType for IDatagramSocket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IDatagramSocket");
@@ -752,7 +754,7 @@ pub struct IDatagramSocket_Vtbl {
     pub MessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDatagramSocket2, IDatagramSocket2_Vtbl, 0xd83ba354_9a9d_4185_a20a_1424c9c2a7cd);
+windows_core::imp::define_interface!(IDatagramSocket2, IDatagramSocket2_Vtbl, 0xd83ba354_9a9d_4185_a20a_1424c9c2a7cd, inspectable);
 impl windows_core::RuntimeType for IDatagramSocket2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IDatagramSocket2");
@@ -766,7 +768,7 @@ pub struct IDatagramSocket2_Vtbl {
     #[cfg(not(feature = "Networking_Connectivity"))]
     BindServiceNameAndAdapterAsync: usize,
 }
-windows_core::imp::define_interface!(IDatagramSocket3, IDatagramSocket3_Vtbl, 0x37544f09_ab92_4306_9ac1_0c381283d9c6);
+windows_core::imp::define_interface!(IDatagramSocket3, IDatagramSocket3_Vtbl, 0x37544f09_ab92_4306_9ac1_0c381283d9c6, inspectable);
 impl windows_core::RuntimeType for IDatagramSocket3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IDatagramSocket3");
@@ -782,7 +784,7 @@ pub struct IDatagramSocket3_Vtbl {
     pub TransferOwnershipWithContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TransferOwnershipWithContextAndKeepAliveTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDatagramSocketControl, IDatagramSocketControl_Vtbl, 0x52ac3f2e_349a_4135_bb58_b79b2647d390);
+windows_core::imp::define_interface!(IDatagramSocketControl, IDatagramSocketControl_Vtbl, 0x52ac3f2e_349a_4135_bb58_b79b2647d390, inspectable);
 impl windows_core::RuntimeType for IDatagramSocketControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IDatagramSocketControl");
@@ -796,7 +798,7 @@ pub struct IDatagramSocketControl_Vtbl {
     pub OutboundUnicastHopLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub SetOutboundUnicastHopLimit: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDatagramSocketControl2, IDatagramSocketControl2_Vtbl, 0x33ead5c2_979c_4415_82a1_3cfaf646c192);
+windows_core::imp::define_interface!(IDatagramSocketControl2, IDatagramSocketControl2_Vtbl, 0x33ead5c2_979c_4415_82a1_3cfaf646c192, inspectable);
 impl windows_core::RuntimeType for IDatagramSocketControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IDatagramSocketControl2");
@@ -810,7 +812,7 @@ pub struct IDatagramSocketControl2_Vtbl {
     pub DontFragment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetDontFragment: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDatagramSocketControl3, IDatagramSocketControl3_Vtbl, 0xd4eb8256_1f6d_4598_9b57_d42a001df349);
+windows_core::imp::define_interface!(IDatagramSocketControl3, IDatagramSocketControl3_Vtbl, 0xd4eb8256_1f6d_4598_9b57_d42a001df349, inspectable);
 impl windows_core::RuntimeType for IDatagramSocketControl3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IDatagramSocketControl3");
@@ -822,7 +824,7 @@ pub struct IDatagramSocketControl3_Vtbl {
     pub MulticastOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetMulticastOnly: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDatagramSocketInformation, IDatagramSocketInformation_Vtbl, 0x5f1a569a_55fb_48cd_9706_7a974f7b1585);
+windows_core::imp::define_interface!(IDatagramSocketInformation, IDatagramSocketInformation_Vtbl, 0x5f1a569a_55fb_48cd_9706_7a974f7b1585, inspectable);
 impl windows_core::RuntimeType for IDatagramSocketInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IDatagramSocketInformation");
@@ -836,7 +838,7 @@ pub struct IDatagramSocketInformation_Vtbl {
     pub RemoteAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemotePort: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDatagramSocketMessageReceivedEventArgs, IDatagramSocketMessageReceivedEventArgs_Vtbl, 0x9e2ddca2_1712_4ce4_b179_8c652c6d107e);
+windows_core::imp::define_interface!(IDatagramSocketMessageReceivedEventArgs, IDatagramSocketMessageReceivedEventArgs_Vtbl, 0x9e2ddca2_1712_4ce4_b179_8c652c6d107e, inspectable);
 impl windows_core::RuntimeType for IDatagramSocketMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IDatagramSocketMessageReceivedEventArgs");
@@ -857,7 +859,7 @@ pub struct IDatagramSocketMessageReceivedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetDataStream: usize,
 }
-windows_core::imp::define_interface!(IDatagramSocketStatics, IDatagramSocketStatics_Vtbl, 0xe9c62aee_1494_4a21_bb7e_8589fc751d9d);
+windows_core::imp::define_interface!(IDatagramSocketStatics, IDatagramSocketStatics_Vtbl, 0xe9c62aee_1494_4a21_bb7e_8589fc751d9d, inspectable);
 impl windows_core::RuntimeType for IDatagramSocketStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IDatagramSocketStatics");
@@ -869,7 +871,7 @@ pub struct IDatagramSocketStatics_Vtbl {
     pub GetEndpointPairsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEndpointPairsWithSortOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::HostNameSortOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMessageWebSocket, IMessageWebSocket_Vtbl, 0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
+windows_core::imp::define_interface!(IMessageWebSocket, IMessageWebSocket_Vtbl, 0x33727d08_34d5_4746_ad7b_8dde5bc2ef88, inspectable);
 impl windows_core::RuntimeType for IMessageWebSocket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IMessageWebSocket");
@@ -883,7 +885,7 @@ pub struct IMessageWebSocket_Vtbl {
     pub MessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMessageWebSocket2, IMessageWebSocket2_Vtbl, 0xbed0cee7_f9c8_440a_9ad5_737281d9742e);
+windows_core::imp::define_interface!(IMessageWebSocket2, IMessageWebSocket2_Vtbl, 0xbed0cee7_f9c8_440a_9ad5_737281d9742e, inspectable);
 impl windows_core::RuntimeType for IMessageWebSocket2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IMessageWebSocket2");
@@ -895,7 +897,7 @@ pub struct IMessageWebSocket2_Vtbl {
     pub ServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMessageWebSocket3, IMessageWebSocket3_Vtbl, 0x59d9defb_71af_4349_8487_911fcf681597);
+windows_core::imp::define_interface!(IMessageWebSocket3, IMessageWebSocket3_Vtbl, 0x59d9defb_71af_4349_8487_911fcf681597, inspectable);
 impl windows_core::RuntimeType for IMessageWebSocket3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IMessageWebSocket3");
@@ -913,7 +915,7 @@ pub struct IMessageWebSocket3_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SendFinalFrameAsync: usize,
 }
-windows_core::imp::define_interface!(IMessageWebSocketControl, IMessageWebSocketControl_Vtbl, 0x8118388a_c629_4f0a_80fb_81fc05538862);
+windows_core::imp::define_interface!(IMessageWebSocketControl, IMessageWebSocketControl_Vtbl, 0x8118388a_c629_4f0a_80fb_81fc05538862, inspectable);
 impl windows_core::RuntimeType for IMessageWebSocketControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IMessageWebSocketControl");
@@ -927,7 +929,7 @@ pub struct IMessageWebSocketControl_Vtbl {
     pub MessageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketMessageType) -> windows_core::HRESULT,
     pub SetMessageType: unsafe extern "system" fn(*mut core::ffi::c_void, SocketMessageType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMessageWebSocketControl2, IMessageWebSocketControl2_Vtbl, 0xe30fd791_080c_400a_a712_27dfa9e744d8);
+windows_core::imp::define_interface!(IMessageWebSocketControl2, IMessageWebSocketControl2_Vtbl, 0xe30fd791_080c_400a_a712_27dfa9e744d8, inspectable);
 impl windows_core::RuntimeType for IMessageWebSocketControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IMessageWebSocketControl2");
@@ -950,7 +952,7 @@ pub struct IMessageWebSocketControl2_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     SetClientCertificate: usize,
 }
-windows_core::imp::define_interface!(IMessageWebSocketMessageReceivedEventArgs, IMessageWebSocketMessageReceivedEventArgs_Vtbl, 0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
+windows_core::imp::define_interface!(IMessageWebSocketMessageReceivedEventArgs, IMessageWebSocketMessageReceivedEventArgs_Vtbl, 0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5, inspectable);
 impl windows_core::RuntimeType for IMessageWebSocketMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs");
@@ -969,7 +971,7 @@ pub struct IMessageWebSocketMessageReceivedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetDataStream: usize,
 }
-windows_core::imp::define_interface!(IMessageWebSocketMessageReceivedEventArgs2, IMessageWebSocketMessageReceivedEventArgs2_Vtbl, 0x89ce06fd_dd6f_4a07_87f9_f9eb4d89d83d);
+windows_core::imp::define_interface!(IMessageWebSocketMessageReceivedEventArgs2, IMessageWebSocketMessageReceivedEventArgs2_Vtbl, 0x89ce06fd_dd6f_4a07_87f9_f9eb4d89d83d, inspectable);
 impl windows_core::RuntimeType for IMessageWebSocketMessageReceivedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs2");
@@ -980,7 +982,7 @@ pub struct IMessageWebSocketMessageReceivedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsMessageComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IServerMessageWebSocket, IServerMessageWebSocket_Vtbl, 0xe3ac9240_813b_5efd_7e11_ae2305fc77f1);
+windows_core::imp::define_interface!(IServerMessageWebSocket, IServerMessageWebSocket_Vtbl, 0xe3ac9240_813b_5efd_7e11_ae2305fc77f1, inspectable);
 impl windows_core::RuntimeType for IServerMessageWebSocket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IServerMessageWebSocket");
@@ -1001,7 +1003,7 @@ pub struct IServerMessageWebSocket_Vtbl {
     pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub CloseWithStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IServerMessageWebSocketControl, IServerMessageWebSocketControl_Vtbl, 0x69c2f051_1c1f_587a_4519_2181610192b7);
+windows_core::imp::define_interface!(IServerMessageWebSocketControl, IServerMessageWebSocketControl_Vtbl, 0x69c2f051_1c1f_587a_4519_2181610192b7, inspectable);
 impl windows_core::RuntimeType for IServerMessageWebSocketControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IServerMessageWebSocketControl");
@@ -1013,7 +1015,7 @@ pub struct IServerMessageWebSocketControl_Vtbl {
     pub MessageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketMessageType) -> windows_core::HRESULT,
     pub SetMessageType: unsafe extern "system" fn(*mut core::ffi::c_void, SocketMessageType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IServerMessageWebSocketInformation, IServerMessageWebSocketInformation_Vtbl, 0xfc32b45f_4448_5505_6cc9_09afa8915f5d);
+windows_core::imp::define_interface!(IServerMessageWebSocketInformation, IServerMessageWebSocketInformation_Vtbl, 0xfc32b45f_4448_5505_6cc9_09afa8915f5d, inspectable);
 impl windows_core::RuntimeType for IServerMessageWebSocketInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IServerMessageWebSocketInformation");
@@ -1026,7 +1028,7 @@ pub struct IServerMessageWebSocketInformation_Vtbl {
     pub Protocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LocalAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IServerStreamWebSocket, IServerStreamWebSocket_Vtbl, 0x2ced5bbf_74f6_55e4_79df_9132680dfee8);
+windows_core::imp::define_interface!(IServerStreamWebSocket, IServerStreamWebSocket_Vtbl, 0x2ced5bbf_74f6_55e4_79df_9132680dfee8, inspectable);
 impl windows_core::RuntimeType for IServerStreamWebSocket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IServerStreamWebSocket");
@@ -1048,7 +1050,7 @@ pub struct IServerStreamWebSocket_Vtbl {
     pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub CloseWithStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IServerStreamWebSocketInformation, IServerStreamWebSocketInformation_Vtbl, 0xfc32b45f_4448_5505_6cc9_09aba8915f5d);
+windows_core::imp::define_interface!(IServerStreamWebSocketInformation, IServerStreamWebSocketInformation_Vtbl, 0xfc32b45f_4448_5505_6cc9_09aba8915f5d, inspectable);
 impl windows_core::RuntimeType for IServerStreamWebSocketInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IServerStreamWebSocketInformation");
@@ -1061,7 +1063,7 @@ pub struct IServerStreamWebSocketInformation_Vtbl {
     pub Protocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LocalAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISocketActivityContext, ISocketActivityContext_Vtbl, 0x43b04d64_4c85_4396_a637_1d973f6ebd49);
+windows_core::imp::define_interface!(ISocketActivityContext, ISocketActivityContext_Vtbl, 0x43b04d64_4c85_4396_a637_1d973f6ebd49, inspectable);
 impl windows_core::RuntimeType for ISocketActivityContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.ISocketActivityContext");
@@ -1075,7 +1077,7 @@ pub struct ISocketActivityContext_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Data: usize,
 }
-windows_core::imp::define_interface!(ISocketActivityContextFactory, ISocketActivityContextFactory_Vtbl, 0xb99fc3c3_088c_4388_83ae_2525138e049a);
+windows_core::imp::define_interface!(ISocketActivityContextFactory, ISocketActivityContextFactory_Vtbl, 0xb99fc3c3_088c_4388_83ae_2525138e049a, inspectable);
 impl windows_core::RuntimeType for ISocketActivityContextFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.ISocketActivityContextFactory");
@@ -1089,7 +1091,7 @@ pub struct ISocketActivityContextFactory_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Create: usize,
 }
-windows_core::imp::define_interface!(ISocketActivityInformation, ISocketActivityInformation_Vtbl, 0x8d8a42e4_a87e_4b74_9968_185b2511defe);
+windows_core::imp::define_interface!(ISocketActivityInformation, ISocketActivityInformation_Vtbl, 0x8d8a42e4_a87e_4b74_9968_185b2511defe, inspectable);
 impl windows_core::RuntimeType for ISocketActivityInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.ISocketActivityInformation");
@@ -1106,7 +1108,7 @@ pub struct ISocketActivityInformation_Vtbl {
     pub StreamSocket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StreamSocketListener: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISocketActivityInformationStatics, ISocketActivityInformationStatics_Vtbl, 0x8570b47a_7e7d_4736_8041_1327a6543c56);
+windows_core::imp::define_interface!(ISocketActivityInformationStatics, ISocketActivityInformationStatics_Vtbl, 0x8570b47a_7e7d_4736_8041_1327a6543c56, inspectable);
 impl windows_core::RuntimeType for ISocketActivityInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.ISocketActivityInformationStatics");
@@ -1117,7 +1119,7 @@ pub struct ISocketActivityInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllSockets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISocketActivityTriggerDetails, ISocketActivityTriggerDetails_Vtbl, 0x45f406a7_fc9f_4f81_acad_355fef51e67b);
+windows_core::imp::define_interface!(ISocketActivityTriggerDetails, ISocketActivityTriggerDetails_Vtbl, 0x45f406a7_fc9f_4f81_acad_355fef51e67b, inspectable);
 impl windows_core::RuntimeType for ISocketActivityTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.ISocketActivityTriggerDetails");
@@ -1129,7 +1131,7 @@ pub struct ISocketActivityTriggerDetails_Vtbl {
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketActivityTriggerReason) -> windows_core::HRESULT,
     pub SocketInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISocketErrorStatics, ISocketErrorStatics_Vtbl, 0x828337f4_7d56_4d8e_b7b4_a07dd7c1bca9);
+windows_core::imp::define_interface!(ISocketErrorStatics, ISocketErrorStatics_Vtbl, 0x828337f4_7d56_4d8e_b7b4_a07dd7c1bca9, inspectable);
 impl windows_core::RuntimeType for ISocketErrorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.ISocketErrorStatics");
@@ -1140,7 +1142,7 @@ pub struct ISocketErrorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut SocketErrorStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocket, IStreamSocket_Vtbl, 0x69a22cf3_fc7b_4857_af38_f6e7de6a5b49);
+windows_core::imp::define_interface!(IStreamSocket, IStreamSocket_Vtbl, 0x69a22cf3_fc7b_4857_af38_f6e7de6a5b49, inspectable);
 impl windows_core::RuntimeType for IStreamSocket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocket");
@@ -1165,7 +1167,7 @@ pub struct IStreamSocket_Vtbl {
     pub ConnectWithProtectionLevelAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, SocketProtectionLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UpgradeToSslAsync: unsafe extern "system" fn(*mut core::ffi::c_void, SocketProtectionLevel, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocket2, IStreamSocket2_Vtbl, 0x29d0e575_f314_4d09_adf0_0fbd967fbd9f);
+windows_core::imp::define_interface!(IStreamSocket2, IStreamSocket2_Vtbl, 0x29d0e575_f314_4d09_adf0_0fbd967fbd9f, inspectable);
 impl windows_core::RuntimeType for IStreamSocket2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocket2");
@@ -1179,7 +1181,7 @@ pub struct IStreamSocket2_Vtbl {
     #[cfg(not(feature = "Networking_Connectivity"))]
     ConnectWithProtectionLevelAndAdapterAsync: usize,
 }
-windows_core::imp::define_interface!(IStreamSocket3, IStreamSocket3_Vtbl, 0x3f430b00_9d28_4854_bac3_2301941ec223);
+windows_core::imp::define_interface!(IStreamSocket3, IStreamSocket3_Vtbl, 0x3f430b00_9d28_4854_bac3_2301941ec223, inspectable);
 impl windows_core::RuntimeType for IStreamSocket3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocket3");
@@ -1195,7 +1197,7 @@ pub struct IStreamSocket3_Vtbl {
     pub TransferOwnershipWithContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TransferOwnershipWithContextAndKeepAliveTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocketControl, IStreamSocketControl_Vtbl, 0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4);
+windows_core::imp::define_interface!(IStreamSocketControl, IStreamSocketControl_Vtbl, 0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4, inspectable);
 impl windows_core::RuntimeType for IStreamSocketControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketControl");
@@ -1215,7 +1217,7 @@ pub struct IStreamSocketControl_Vtbl {
     pub OutboundUnicastHopLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub SetOutboundUnicastHopLimit: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocketControl2, IStreamSocketControl2_Vtbl, 0xc2d09a56_060f_44c1_b8e2_1fbf60bd62c5);
+windows_core::imp::define_interface!(IStreamSocketControl2, IStreamSocketControl2_Vtbl, 0xc2d09a56_060f_44c1_b8e2_1fbf60bd62c5, inspectable);
 impl windows_core::RuntimeType for IStreamSocketControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketControl2");
@@ -1229,7 +1231,7 @@ pub struct IStreamSocketControl2_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     IgnorableServerCertificateErrors: usize,
 }
-windows_core::imp::define_interface!(IStreamSocketControl3, IStreamSocketControl3_Vtbl, 0xc56a444c_4e74_403e_894c_b31cae5c7342);
+windows_core::imp::define_interface!(IStreamSocketControl3, IStreamSocketControl3_Vtbl, 0xc56a444c_4e74_403e_894c_b31cae5c7342, inspectable);
 impl windows_core::RuntimeType for IStreamSocketControl3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketControl3");
@@ -1249,7 +1251,7 @@ pub struct IStreamSocketControl3_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     SetClientCertificate: usize,
 }
-windows_core::imp::define_interface!(IStreamSocketControl4, IStreamSocketControl4_Vtbl, 0x964e2b3d_ec27_4888_b3ce_c74b418423ad);
+windows_core::imp::define_interface!(IStreamSocketControl4, IStreamSocketControl4_Vtbl, 0x964e2b3d_ec27_4888_b3ce_c74b418423ad, inspectable);
 impl windows_core::RuntimeType for IStreamSocketControl4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketControl4");
@@ -1261,7 +1263,7 @@ pub struct IStreamSocketControl4_Vtbl {
     pub MinProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketProtectionLevel) -> windows_core::HRESULT,
     pub SetMinProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, SocketProtectionLevel) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocketInformation, IStreamSocketInformation_Vtbl, 0x3b80ae30_5e68_4205_88f0_dc85d2e25ded);
+windows_core::imp::define_interface!(IStreamSocketInformation, IStreamSocketInformation_Vtbl, 0x3b80ae30_5e68_4205_88f0_dc85d2e25ded, inspectable);
 impl windows_core::RuntimeType for IStreamSocketInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketInformation");
@@ -1284,7 +1286,7 @@ pub struct IStreamSocketInformation_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SessionKey: usize,
 }
-windows_core::imp::define_interface!(IStreamSocketInformation2, IStreamSocketInformation2_Vtbl, 0x12c28452_4bdc_4ee4_976a_cf130e9d92e3);
+windows_core::imp::define_interface!(IStreamSocketInformation2, IStreamSocketInformation2_Vtbl, 0x12c28452_4bdc_4ee4_976a_cf130e9d92e3, inspectable);
 impl windows_core::RuntimeType for IStreamSocketInformation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketInformation2");
@@ -1307,7 +1309,7 @@ pub struct IStreamSocketInformation2_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerIntermediateCertificates: usize,
 }
-windows_core::imp::define_interface!(IStreamSocketListener, IStreamSocketListener_Vtbl, 0xff513437_df9f_4df0_bf82_0ec5d7b35aae);
+windows_core::imp::define_interface!(IStreamSocketListener, IStreamSocketListener_Vtbl, 0xff513437_df9f_4df0_bf82_0ec5d7b35aae, inspectable);
 impl windows_core::RuntimeType for IStreamSocketListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketListener");
@@ -1323,7 +1325,7 @@ pub struct IStreamSocketListener_Vtbl {
     pub ConnectionReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveConnectionReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocketListener2, IStreamSocketListener2_Vtbl, 0x658dc13e_bb3e_4458_b232_ed1088694b98);
+windows_core::imp::define_interface!(IStreamSocketListener2, IStreamSocketListener2_Vtbl, 0x658dc13e_bb3e_4458_b232_ed1088694b98, inspectable);
 impl windows_core::RuntimeType for IStreamSocketListener2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketListener2");
@@ -1338,7 +1340,7 @@ pub struct IStreamSocketListener2_Vtbl {
     #[cfg(not(feature = "Networking_Connectivity"))]
     BindServiceNameWithProtectionLevelAndAdapterAsync: usize,
 }
-windows_core::imp::define_interface!(IStreamSocketListener3, IStreamSocketListener3_Vtbl, 0x4798201c_bdf8_4919_8542_28d450e74507);
+windows_core::imp::define_interface!(IStreamSocketListener3, IStreamSocketListener3_Vtbl, 0x4798201c_bdf8_4919_8542_28d450e74507, inspectable);
 impl windows_core::RuntimeType for IStreamSocketListener3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketListener3");
@@ -1353,7 +1355,7 @@ pub struct IStreamSocketListener3_Vtbl {
     pub TransferOwnership: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TransferOwnershipWithContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocketListenerConnectionReceivedEventArgs, IStreamSocketListenerConnectionReceivedEventArgs_Vtbl, 0x0c472ea9_373f_447b_85b1_ddd4548803ba);
+windows_core::imp::define_interface!(IStreamSocketListenerConnectionReceivedEventArgs, IStreamSocketListenerConnectionReceivedEventArgs_Vtbl, 0x0c472ea9_373f_447b_85b1_ddd4548803ba, inspectable);
 impl windows_core::RuntimeType for IStreamSocketListenerConnectionReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketListenerConnectionReceivedEventArgs");
@@ -1364,7 +1366,7 @@ pub struct IStreamSocketListenerConnectionReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Socket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocketListenerControl, IStreamSocketListenerControl_Vtbl, 0x20d8c576_8d8a_4dba_9722_a16c4d984980);
+windows_core::imp::define_interface!(IStreamSocketListenerControl, IStreamSocketListenerControl_Vtbl, 0x20d8c576_8d8a_4dba_9722_a16c4d984980, inspectable);
 impl windows_core::RuntimeType for IStreamSocketListenerControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketListenerControl");
@@ -1376,7 +1378,7 @@ pub struct IStreamSocketListenerControl_Vtbl {
     pub QualityOfService: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketQualityOfService) -> windows_core::HRESULT,
     pub SetQualityOfService: unsafe extern "system" fn(*mut core::ffi::c_void, SocketQualityOfService) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocketListenerControl2, IStreamSocketListenerControl2_Vtbl, 0x948bb665_2c3e_404b_b8b0_8eb249a2b0a1);
+windows_core::imp::define_interface!(IStreamSocketListenerControl2, IStreamSocketListenerControl2_Vtbl, 0x948bb665_2c3e_404b_b8b0_8eb249a2b0a1, inspectable);
 impl windows_core::RuntimeType for IStreamSocketListenerControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketListenerControl2");
@@ -1394,7 +1396,7 @@ pub struct IStreamSocketListenerControl2_Vtbl {
     pub OutboundUnicastHopLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub SetOutboundUnicastHopLimit: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocketListenerInformation, IStreamSocketListenerInformation_Vtbl, 0xe62ba82f_a63a_430b_bf62_29e93e5633b4);
+windows_core::imp::define_interface!(IStreamSocketListenerInformation, IStreamSocketListenerInformation_Vtbl, 0xe62ba82f_a63a_430b_bf62_29e93e5633b4, inspectable);
 impl windows_core::RuntimeType for IStreamSocketListenerInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketListenerInformation");
@@ -1405,7 +1407,7 @@ pub struct IStreamSocketListenerInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LocalPort: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamSocketStatics, IStreamSocketStatics_Vtbl, 0xa420bc4a_6e2e_4af5_b556_355ae0cd4f29);
+windows_core::imp::define_interface!(IStreamSocketStatics, IStreamSocketStatics_Vtbl, 0xa420bc4a_6e2e_4af5_b556_355ae0cd4f29, inspectable);
 impl windows_core::RuntimeType for IStreamSocketStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamSocketStatics");
@@ -1417,7 +1419,7 @@ pub struct IStreamSocketStatics_Vtbl {
     pub GetEndpointPairsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEndpointPairsWithSortOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::HostNameSortOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamWebSocket, IStreamWebSocket_Vtbl, 0xbd4a49d8_b289_45bb_97eb_c7525205a843);
+windows_core::imp::define_interface!(IStreamWebSocket, IStreamWebSocket_Vtbl, 0xbd4a49d8_b289_45bb_97eb_c7525205a843, inspectable);
 impl windows_core::RuntimeType for IStreamWebSocket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamWebSocket");
@@ -1433,7 +1435,7 @@ pub struct IStreamWebSocket_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     InputStream: usize,
 }
-windows_core::imp::define_interface!(IStreamWebSocket2, IStreamWebSocket2_Vtbl, 0xaa4d08cb_93f5_4678_8236_57cce5417ed5);
+windows_core::imp::define_interface!(IStreamWebSocket2, IStreamWebSocket2_Vtbl, 0xaa4d08cb_93f5_4678_8236_57cce5417ed5, inspectable);
 impl windows_core::RuntimeType for IStreamWebSocket2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamWebSocket2");
@@ -1445,7 +1447,7 @@ pub struct IStreamWebSocket2_Vtbl {
     pub ServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamWebSocketControl, IStreamWebSocketControl_Vtbl, 0xb4f478b1_a45a_48db_953a_645b7d964c07);
+windows_core::imp::define_interface!(IStreamWebSocketControl, IStreamWebSocketControl_Vtbl, 0xb4f478b1_a45a_48db_953a_645b7d964c07, inspectable);
 impl windows_core::RuntimeType for IStreamWebSocketControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamWebSocketControl");
@@ -1457,7 +1459,7 @@ pub struct IStreamWebSocketControl_Vtbl {
     pub NoDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetNoDelay: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamWebSocketControl2, IStreamWebSocketControl2_Vtbl, 0x215d9f7e_fa58_40da_9f11_a48dafe95037);
+windows_core::imp::define_interface!(IStreamWebSocketControl2, IStreamWebSocketControl2_Vtbl, 0x215d9f7e_fa58_40da_9f11_a48dafe95037, inspectable);
 impl windows_core::RuntimeType for IStreamWebSocketControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IStreamWebSocketControl2");
@@ -1478,7 +1480,7 @@ pub struct IStreamWebSocketControl2_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     SetClientCertificate: usize,
 }
-windows_core::imp::define_interface!(IWebSocket, IWebSocket_Vtbl, 0xf877396f_99b1_4e18_bc08_850c9adf156e);
+windows_core::imp::define_interface!(IWebSocket, IWebSocket_Vtbl, 0xf877396f_99b1_4e18_bc08_850c9adf156e, inspectable);
 impl windows_core::RuntimeType for IWebSocket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IWebSocket");
@@ -1609,7 +1611,7 @@ impl IWebSocket_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebSocket, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             OutputStream: OutputStream::<Identity, OFFSET>,
             ConnectAsync: ConnectAsync::<Identity, OFFSET>,
             SetRequestHeader: SetRequestHeader::<Identity, OFFSET>,
@@ -1636,7 +1638,7 @@ pub struct IWebSocket_Vtbl {
     pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub CloseWithStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebSocketClosedEventArgs, IWebSocketClosedEventArgs_Vtbl, 0xceb78d07_d0a8_4703_a091_c8c2c0915bc3);
+windows_core::imp::define_interface!(IWebSocketClosedEventArgs, IWebSocketClosedEventArgs_Vtbl, 0xceb78d07_d0a8_4703_a091_c8c2c0915bc3, inspectable);
 impl windows_core::RuntimeType for IWebSocketClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IWebSocketClosedEventArgs");
@@ -1648,7 +1650,7 @@ pub struct IWebSocketClosedEventArgs_Vtbl {
     pub Code: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebSocketControl, IWebSocketControl_Vtbl, 0x2ec4bdc3_d9a5_455a_9811_de24d45337e9);
+windows_core::imp::define_interface!(IWebSocketControl, IWebSocketControl_Vtbl, 0x2ec4bdc3_d9a5_455a_9811_de24d45337e9, inspectable);
 impl windows_core::RuntimeType for IWebSocketControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IWebSocketControl");
@@ -1798,7 +1800,7 @@ impl IWebSocketControl_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebSocketControl, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             OutboundBufferSizeInBytes: OutboundBufferSizeInBytes::<Identity, OFFSET>,
             SetOutboundBufferSizeInBytes: SetOutboundBufferSizeInBytes::<Identity, OFFSET>,
             ServerCredential: ServerCredential::<Identity, OFFSET>,
@@ -1836,7 +1838,7 @@ pub struct IWebSocketControl_Vtbl {
     SetProxyCredential: usize,
     pub SupportedProtocols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebSocketControl2, IWebSocketControl2_Vtbl, 0x79c3be03_f2ca_461e_af4e_9665bc2d0620);
+windows_core::imp::define_interface!(IWebSocketControl2, IWebSocketControl2_Vtbl, 0x79c3be03_f2ca_461e_af4e_9665bc2d0620, inspectable);
 impl windows_core::RuntimeType for IWebSocketControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IWebSocketControl2");
@@ -1930,7 +1932,7 @@ impl IWebSocketControl2_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebSocketControl2, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             IgnorableServerCertificateErrors: IgnorableServerCertificateErrors::<Identity, OFFSET>,
         }
     }
@@ -1947,7 +1949,7 @@ pub struct IWebSocketControl2_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     IgnorableServerCertificateErrors: usize,
 }
-windows_core::imp::define_interface!(IWebSocketErrorStatics, IWebSocketErrorStatics_Vtbl, 0x27cdf35b_1f61_4709_8e02_61283ada4e9d);
+windows_core::imp::define_interface!(IWebSocketErrorStatics, IWebSocketErrorStatics_Vtbl, 0x27cdf35b_1f61_4709_8e02_61283ada4e9d, inspectable);
 impl windows_core::RuntimeType for IWebSocketErrorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IWebSocketErrorStatics");
@@ -1961,7 +1963,7 @@ pub struct IWebSocketErrorStatics_Vtbl {
     #[cfg(not(feature = "Web"))]
     GetStatus: usize,
 }
-windows_core::imp::define_interface!(IWebSocketInformation, IWebSocketInformation_Vtbl, 0x5e01e316_c92a_47a5_b25f_07847639d181);
+windows_core::imp::define_interface!(IWebSocketInformation, IWebSocketInformation_Vtbl, 0x5e01e316_c92a_47a5_b25f_07847639d181, inspectable);
 impl windows_core::RuntimeType for IWebSocketInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IWebSocketInformation");
@@ -2045,7 +2047,7 @@ impl IWebSocketInformation_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebSocketInformation, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             LocalAddress: LocalAddress::<Identity, OFFSET>,
             BandwidthStatistics: BandwidthStatistics::<Identity, OFFSET>,
             Protocol: Protocol::<Identity, OFFSET>,
@@ -2063,7 +2065,7 @@ pub struct IWebSocketInformation_Vtbl {
     pub BandwidthStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BandwidthStatistics) -> windows_core::HRESULT,
     pub Protocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebSocketInformation2, IWebSocketInformation2_Vtbl, 0xce1d39ce_a1b7_4d43_8269_8d5b981bd47a);
+windows_core::imp::define_interface!(IWebSocketInformation2, IWebSocketInformation2_Vtbl, 0xce1d39ce_a1b7_4d43_8269_8d5b981bd47a, inspectable);
 impl windows_core::RuntimeType for IWebSocketInformation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IWebSocketInformation2");
@@ -2198,7 +2200,7 @@ impl IWebSocketInformation2_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebSocketInformation2, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ServerCertificate: ServerCertificate::<Identity, OFFSET>,
             ServerCertificateErrorSeverity: ServerCertificateErrorSeverity::<Identity, OFFSET>,
             ServerCertificateErrors: ServerCertificateErrors::<Identity, OFFSET>,
@@ -2227,7 +2229,7 @@ pub struct IWebSocketInformation2_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     ServerIntermediateCertificates: usize,
 }
-windows_core::imp::define_interface!(IWebSocketServerCustomValidationRequestedEventArgs, IWebSocketServerCustomValidationRequestedEventArgs_Vtbl, 0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
+windows_core::imp::define_interface!(IWebSocketServerCustomValidationRequestedEventArgs, IWebSocketServerCustomValidationRequestedEventArgs_Vtbl, 0xffeffe48_022a_4ab7_8b36_e10af4640e6b, inspectable);
 impl windows_core::RuntimeType for IWebSocketServerCustomValidationRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs");
@@ -2380,6 +2382,7 @@ impl windows_core::RuntimeType for MessageWebSocket {
 unsafe impl windows_core::Interface for MessageWebSocket {
     type Vtable = <IMessageWebSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMessageWebSocket as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocket";
@@ -2520,6 +2523,7 @@ impl windows_core::RuntimeType for MessageWebSocketControl {
 unsafe impl windows_core::Interface for MessageWebSocketControl {
     type Vtable = <IMessageWebSocketControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMessageWebSocketControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketControl";
@@ -2588,6 +2592,7 @@ impl windows_core::RuntimeType for MessageWebSocketInformation {
 unsafe impl windows_core::Interface for MessageWebSocketInformation {
     type Vtable = <IWebSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebSocketInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketInformation";
@@ -2633,6 +2638,7 @@ impl windows_core::RuntimeType for MessageWebSocketMessageReceivedEventArgs {
 unsafe impl windows_core::Interface for MessageWebSocketMessageReceivedEventArgs {
     type Vtable = <IMessageWebSocketMessageReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMessageWebSocketMessageReceivedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs";
@@ -2735,6 +2741,7 @@ impl windows_core::RuntimeType for ServerMessageWebSocket {
 unsafe impl windows_core::Interface for ServerMessageWebSocket {
     type Vtable = <IServerMessageWebSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServerMessageWebSocket as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocket";
@@ -2762,6 +2769,7 @@ impl windows_core::RuntimeType for ServerMessageWebSocketControl {
 unsafe impl windows_core::Interface for ServerMessageWebSocketControl {
     type Vtable = <IServerMessageWebSocketControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServerMessageWebSocketControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ServerMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketControl";
@@ -2798,6 +2806,7 @@ impl windows_core::RuntimeType for ServerMessageWebSocketInformation {
 unsafe impl windows_core::Interface for ServerMessageWebSocketInformation {
     type Vtable = <IServerMessageWebSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServerMessageWebSocketInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ServerMessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketInformation";
@@ -2858,6 +2867,7 @@ impl windows_core::RuntimeType for ServerStreamWebSocket {
 unsafe impl windows_core::Interface for ServerStreamWebSocket {
     type Vtable = <IServerStreamWebSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServerStreamWebSocket as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocket";
@@ -2894,6 +2904,7 @@ impl windows_core::RuntimeType for ServerStreamWebSocketInformation {
 unsafe impl windows_core::Interface for ServerStreamWebSocketInformation {
     type Vtable = <IServerStreamWebSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServerStreamWebSocketInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ServerStreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocketInformation";
@@ -2947,6 +2958,7 @@ impl windows_core::RuntimeType for SocketActivityContext {
 unsafe impl windows_core::Interface for SocketActivityContext {
     type Vtable = <ISocketActivityContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISocketActivityContext as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityContext";
@@ -3017,6 +3029,7 @@ impl windows_core::RuntimeType for SocketActivityInformation {
 unsafe impl windows_core::Interface for SocketActivityInformation {
     type Vtable = <ISocketActivityInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISocketActivityInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SocketActivityInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityInformation";
@@ -3063,6 +3076,7 @@ impl windows_core::RuntimeType for SocketActivityTriggerDetails {
 unsafe impl windows_core::Interface for SocketActivityTriggerDetails {
     type Vtable = <ISocketActivityTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISocketActivityTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SocketActivityTriggerDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityTriggerDetails";
@@ -3373,6 +3387,7 @@ impl windows_core::RuntimeType for StreamSocket {
 unsafe impl windows_core::Interface for StreamSocket {
     type Vtable = <IStreamSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocket as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocket";
@@ -3482,6 +3497,7 @@ impl windows_core::RuntimeType for StreamSocketControl {
 unsafe impl windows_core::Interface for StreamSocketControl {
     type Vtable = <IStreamSocketControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StreamSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketControl";
@@ -3592,6 +3608,7 @@ impl windows_core::RuntimeType for StreamSocketInformation {
 unsafe impl windows_core::Interface for StreamSocketInformation {
     type Vtable = <IStreamSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketInformation";
@@ -3707,6 +3724,7 @@ impl windows_core::RuntimeType for StreamSocketListener {
 unsafe impl windows_core::Interface for StreamSocketListener {
     type Vtable = <IStreamSocketListener as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketListener as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StreamSocketListener {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListener";
@@ -3731,6 +3749,7 @@ impl windows_core::RuntimeType for StreamSocketListenerConnectionReceivedEventAr
 unsafe impl windows_core::Interface for StreamSocketListenerConnectionReceivedEventArgs {
     type Vtable = <IStreamSocketListenerConnectionReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketListenerConnectionReceivedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StreamSocketListenerConnectionReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs";
@@ -3802,6 +3821,7 @@ impl windows_core::RuntimeType for StreamSocketListenerControl {
 unsafe impl windows_core::Interface for StreamSocketListenerControl {
     type Vtable = <IStreamSocketListenerControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketListenerControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StreamSocketListenerControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerControl";
@@ -3826,6 +3846,7 @@ impl windows_core::RuntimeType for StreamSocketListenerInformation {
 unsafe impl windows_core::Interface for StreamSocketListenerInformation {
     type Vtable = <IStreamSocketListenerInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketListenerInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StreamSocketListenerInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerInformation";
@@ -3931,6 +3952,7 @@ impl windows_core::RuntimeType for StreamWebSocket {
 unsafe impl windows_core::Interface for StreamWebSocket {
     type Vtable = <IStreamWebSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamWebSocket as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocket";
@@ -4051,6 +4073,7 @@ impl windows_core::RuntimeType for StreamWebSocketControl {
 unsafe impl windows_core::Interface for StreamWebSocketControl {
     type Vtable = <IStreamWebSocketControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamWebSocketControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketControl";
@@ -4119,6 +4142,7 @@ impl windows_core::RuntimeType for StreamWebSocketInformation {
 unsafe impl windows_core::Interface for StreamWebSocketInformation {
     type Vtable = <IWebSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebSocketInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketInformation";
@@ -4149,6 +4173,7 @@ impl windows_core::RuntimeType for WebSocketClosedEventArgs {
 unsafe impl windows_core::Interface for WebSocketClosedEventArgs {
     type Vtable = <IWebSocketClosedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebSocketClosedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebSocketClosedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketClosedEventArgs";
@@ -4202,6 +4227,7 @@ impl windows_core::RuntimeType for WebSocketKeepAlive {
 unsafe impl windows_core::Interface for WebSocketKeepAlive {
     type Vtable = <super::super::ApplicationModel::Background::IBackgroundTask as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Background::IBackgroundTask as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl windows_core::RuntimeName for WebSocketKeepAlive {
@@ -4259,6 +4285,7 @@ impl windows_core::RuntimeType for WebSocketServerCustomValidationRequestedEvent
 unsafe impl windows_core::Interface for WebSocketServerCustomValidationRequestedEventArgs {
     type Vtable = <IWebSocketServerCustomValidationRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebSocketServerCustomValidationRequestedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebSocketServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs";

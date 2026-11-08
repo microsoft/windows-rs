@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(INamedResource, INamedResource_Vtbl, 0x1c98c219_0b13_4240_89a5_d495dc189a00);
+windows_core::imp::define_interface!(INamedResource, INamedResource_Vtbl, 0x1c98c219_0b13_4240_89a5_d495dc189a00, inspectable);
 impl windows_core::RuntimeType for INamedResource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.INamedResource");
@@ -14,7 +14,7 @@ pub struct INamedResource_Vtbl {
     pub ResolveAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResolveAllForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
+windows_core::imp::define_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc, inspectable);
 impl windows_core::RuntimeType for IResourceCandidate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceCandidate");
@@ -34,7 +34,7 @@ pub struct IResourceCandidate_Vtbl {
     GetValueAsFileAsync: usize,
     pub GetQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceCandidate2, IResourceCandidate2_Vtbl, 0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5);
+windows_core::imp::define_interface!(IResourceCandidate2, IResourceCandidate2_Vtbl, 0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5, inspectable);
 impl windows_core::RuntimeType for IResourceCandidate2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceCandidate2");
@@ -48,7 +48,7 @@ pub struct IResourceCandidate2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetValueAsStreamAsync: usize,
 }
-windows_core::imp::define_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b);
+windows_core::imp::define_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b, inspectable);
 impl windows_core::RuntimeType for IResourceCandidate3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceCandidate3");
@@ -59,7 +59,7 @@ pub struct IResourceCandidate3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ResourceCandidateKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContext, IResourceContext_Vtbl, 0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
+windows_core::imp::define_interface!(IResourceContext, IResourceContext_Vtbl, 0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2, inspectable);
 impl windows_core::RuntimeType for IResourceContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceContext");
@@ -76,7 +76,7 @@ pub struct IResourceContext_Vtbl {
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x98be9d6c_6338_4b31_99df_b2b442f17149);
+windows_core::imp::define_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x98be9d6c_6338_4b31_99df_b2b442f17149, inspectable);
 impl windows_core::RuntimeType for IResourceContextStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics");
@@ -87,7 +87,7 @@ pub struct IResourceContextStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMatchingContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x41f752ef_12af_41b9_ab36_b1eb4b512460);
+windows_core::imp::define_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x41f752ef_12af_41b9_ab36_b1eb4b512460, inspectable);
 impl windows_core::RuntimeType for IResourceContextStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics2");
@@ -102,7 +102,7 @@ pub struct IResourceContextStatics2_Vtbl {
     pub ResetGlobalQualifierValuesForSpecifiedQualifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForViewIndependentUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContextStatics3, IResourceContextStatics3_Vtbl, 0x20cf492c_af0f_450b_9da6_106dd0c29a39);
+windows_core::imp::define_interface!(IResourceContextStatics3, IResourceContextStatics3_Vtbl, 0x20cf492c_af0f_450b_9da6_106dd0c29a39, inspectable);
 impl windows_core::RuntimeType for IResourceContextStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics3");
@@ -113,7 +113,7 @@ pub struct IResourceContextStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetGlobalQualifierValueWithPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, ResourceQualifierPersistence) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContextStatics4, IResourceContextStatics4_Vtbl, 0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39);
+windows_core::imp::define_interface!(IResourceContextStatics4, IResourceContextStatics4_Vtbl, 0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39, inspectable);
 impl windows_core::RuntimeType for IResourceContextStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics4");
@@ -127,7 +127,7 @@ pub struct IResourceContextStatics4_Vtbl {
     #[cfg(not(feature = "UI"))]
     GetForUIContext: usize,
 }
-windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0xf744d97b_9988_44fb_abd6_5378844cfa8b);
+windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0xf744d97b_9988_44fb_abd6_5378844cfa8b, inspectable);
 impl windows_core::RuntimeType for IResourceManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceManager");
@@ -148,7 +148,7 @@ pub struct IResourceManager_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UnloadPriFiles: usize,
 }
-windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x9d66fe6c_a4d7_4c23_9e85_675f304c252d);
+windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x9d66fe6c_a4d7_4c23_9e85_675f304c252d, inspectable);
 impl windows_core::RuntimeType for IResourceManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceManager2");
@@ -160,7 +160,7 @@ pub struct IResourceManager2_Vtbl {
     pub GetAllNamedResourcesForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ResourceLayoutInfo, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAllSubtreesForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ResourceLayoutInfo, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceManagerStatics, IResourceManagerStatics_Vtbl, 0x1cc0fdfc_69ee_4e43_9901_47f12687baf7);
+windows_core::imp::define_interface!(IResourceManagerStatics, IResourceManagerStatics_Vtbl, 0x1cc0fdfc_69ee_4e43_9901_47f12687baf7, inspectable);
 impl windows_core::RuntimeType for IResourceManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceManagerStatics");
@@ -172,7 +172,7 @@ pub struct IResourceManagerStatics_Vtbl {
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsResourceReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceMap, IResourceMap_Vtbl, 0x72284824_db8c_42f8_b08c_53ff357dad82);
+windows_core::imp::define_interface!(IResourceMap, IResourceMap_Vtbl, 0x72284824_db8c_42f8_b08c_53ff357dad82, inspectable);
 impl windows_core::RuntimeType for IResourceMap {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceMap");
@@ -186,7 +186,7 @@ pub struct IResourceMap_Vtbl {
     pub GetValueForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSubtree: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceQualifier, IResourceQualifier_Vtbl, 0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
+windows_core::imp::define_interface!(IResourceQualifier, IResourceQualifier_Vtbl, 0x785da5b2_4afd_4376_a888_c5f9a6b7a05c, inspectable);
 impl windows_core::RuntimeType for IResourceQualifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceQualifier");
@@ -255,6 +255,7 @@ impl windows_core::RuntimeType for NamedResource {
 unsafe impl windows_core::Interface for NamedResource {
     type Vtable = <INamedResource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INamedResource as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NamedResource {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.NamedResource";
@@ -331,6 +332,7 @@ impl windows_core::RuntimeType for ResourceCandidate {
 unsafe impl windows_core::Interface for ResourceCandidate {
     type Vtable = <IResourceCandidate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IResourceCandidate as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceCandidate";
@@ -402,6 +404,7 @@ impl windows_core::RuntimeType for ResourceCandidateVectorView {
 unsafe impl windows_core::Interface for ResourceCandidateVectorView {
     type Vtable = <windows_collections::IVectorView<ResourceCandidate> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IVectorView<ResourceCandidate> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceCandidateVectorView {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceCandidateVectorView";
@@ -542,6 +545,7 @@ impl windows_core::RuntimeType for ResourceContext {
 unsafe impl windows_core::Interface for ResourceContext {
     type Vtable = <IResourceContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IResourceContext as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceContext {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceContext";
@@ -595,6 +599,7 @@ impl windows_core::RuntimeType for ResourceContextLanguagesVectorView {
 unsafe impl windows_core::Interface for ResourceContextLanguagesVectorView {
     type Vtable = <windows_collections::IVectorView<windows_core::HSTRING> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IVectorView<windows_core::HSTRING> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceContextLanguagesVectorView {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceContextLanguagesVectorView";
@@ -705,6 +710,7 @@ impl windows_core::RuntimeType for ResourceManager {
 unsafe impl windows_core::Interface for ResourceManager {
     type Vtable = <IResourceManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IResourceManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceManager {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceManager";
@@ -789,6 +795,7 @@ impl windows_core::RuntimeType for ResourceMap {
 unsafe impl windows_core::Interface for ResourceMap {
     type Vtable = <IResourceMap as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IResourceMap as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceMap {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMap";
@@ -848,6 +855,7 @@ impl windows_core::RuntimeType for ResourceMapIterator {
 unsafe impl windows_core::Interface for ResourceMapIterator {
     type Vtable = <windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceMapIterator {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMapIterator";
@@ -901,6 +909,7 @@ impl windows_core::RuntimeType for ResourceMapMapView {
 unsafe impl windows_core::Interface for ResourceMapMapView {
     type Vtable = <windows_collections::IMapView<windows_core::HSTRING, ResourceMap> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IMapView<windows_core::HSTRING, ResourceMap> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceMapMapView {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMapMapView";
@@ -960,6 +969,7 @@ impl windows_core::RuntimeType for ResourceMapMapViewIterator {
 unsafe impl windows_core::Interface for ResourceMapMapViewIterator {
     type Vtable = <windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceMapMapViewIterator {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMapMapViewIterator";
@@ -1008,6 +1018,7 @@ impl windows_core::RuntimeType for ResourceQualifier {
 unsafe impl windows_core::Interface for ResourceQualifier {
     type Vtable = <IResourceQualifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IResourceQualifier as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifier";
@@ -1061,6 +1072,7 @@ impl windows_core::RuntimeType for ResourceQualifierMapView {
 unsafe impl windows_core::Interface for ResourceQualifierMapView {
     type Vtable = <windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceQualifierMapView {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifierMapView";
@@ -1158,6 +1170,7 @@ impl windows_core::RuntimeType for ResourceQualifierObservableMap {
 unsafe impl windows_core::Interface for ResourceQualifierObservableMap {
     type Vtable = <windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceQualifierObservableMap {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifierObservableMap";
@@ -1242,6 +1255,7 @@ impl windows_core::RuntimeType for ResourceQualifierVectorView {
 unsafe impl windows_core::Interface for ResourceQualifierVectorView {
     type Vtable = <windows_collections::IVectorView<ResourceQualifier> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IVectorView<ResourceQualifier> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ResourceQualifierVectorView {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifierVectorView";

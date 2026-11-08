@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPnpObject, IPnpObject_Vtbl, 0x95c66258_733b_4a8f_93a3_db078ac870c1);
+windows_core::imp::define_interface!(IPnpObject, IPnpObject_Vtbl, 0x95c66258_733b_4a8f_93a3_db078ac870c1, inspectable);
 impl windows_core::RuntimeType for IPnpObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Enumeration.Pnp.IPnpObject");
@@ -12,7 +12,7 @@ pub struct IPnpObject_Vtbl {
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPnpObjectStatics, IPnpObjectStatics_Vtbl, 0xb3c32a3d_d168_4660_bbf3_a733b14b6e01);
+windows_core::imp::define_interface!(IPnpObjectStatics, IPnpObjectStatics_Vtbl, 0xb3c32a3d_d168_4660_bbf3_a733b14b6e01, inspectable);
 impl windows_core::RuntimeType for IPnpObjectStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Enumeration.Pnp.IPnpObjectStatics");
@@ -27,7 +27,7 @@ pub struct IPnpObjectStatics_Vtbl {
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, PnpObjectType, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWatcherAqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, PnpObjectType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPnpObjectUpdate, IPnpObjectUpdate_Vtbl, 0x6f59e812_001e_4844_bcc6_432886856a17);
+windows_core::imp::define_interface!(IPnpObjectUpdate, IPnpObjectUpdate_Vtbl, 0x6f59e812_001e_4844_bcc6_432886856a17, inspectable);
 impl windows_core::RuntimeType for IPnpObjectUpdate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate");
@@ -40,7 +40,7 @@ pub struct IPnpObjectUpdate_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPnpObjectWatcher, IPnpObjectWatcher_Vtbl, 0x83c95ca8_4772_4a7a_aca8_e48c42a89c44);
+windows_core::imp::define_interface!(IPnpObjectWatcher, IPnpObjectWatcher_Vtbl, 0x83c95ca8_4772_4a7a_aca8_e48c42a89c44, inspectable);
 impl windows_core::RuntimeType for IPnpObjectWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher");
@@ -148,6 +148,7 @@ impl windows_core::RuntimeType for PnpObject {
 unsafe impl windows_core::Interface for PnpObject {
     type Vtable = <IPnpObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPnpObject as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PnpObject {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObject";
@@ -204,6 +205,7 @@ impl windows_core::RuntimeType for PnpObjectCollection {
 unsafe impl windows_core::Interface for PnpObjectCollection {
     type Vtable = <windows_collections::IVectorView<PnpObject> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IVectorView<PnpObject> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PnpObjectCollection {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectCollection";
@@ -276,6 +278,7 @@ impl windows_core::RuntimeType for PnpObjectUpdate {
 unsafe impl windows_core::Interface for PnpObjectUpdate {
     type Vtable = <IPnpObjectUpdate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPnpObjectUpdate as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PnpObjectUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectUpdate";
@@ -376,6 +379,7 @@ impl windows_core::RuntimeType for PnpObjectWatcher {
 unsafe impl windows_core::Interface for PnpObjectWatcher {
     type Vtable = <IPnpObjectWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPnpObjectWatcher as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PnpObjectWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectWatcher";

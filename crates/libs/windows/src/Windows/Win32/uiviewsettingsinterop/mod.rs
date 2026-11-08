@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IUIViewSettingsInterop, IUIViewSettingsInterop_Vtbl, 0x3694dbf9_8f68_44be_8ff5_195c98ede8a6);
+windows_core::imp::define_interface!(IUIViewSettingsInterop, IUIViewSettingsInterop_Vtbl, 0x3694dbf9_8f68_44be_8ff5_195c98ede8a6, inspectable);
 windows_core::imp::interface_hierarchy!(IUIViewSettingsInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IUIViewSettingsInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -32,7 +32,7 @@ impl IUIViewSettingsInterop_Vtbl {
                 IUIViewSettingsInterop_Impl::GetForWindow(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IUIViewSettingsInterop, OFFSET>(), GetForWindow: GetForWindow::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetForWindow: GetForWindow::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUIViewSettingsInterop as windows_core::Interface>::IID

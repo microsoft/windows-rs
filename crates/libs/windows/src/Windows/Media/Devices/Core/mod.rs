@@ -103,6 +103,7 @@ impl windows_core::RuntimeType for CameraIntrinsics {
 unsafe impl windows_core::Interface for CameraIntrinsics {
     type Vtable = <ICameraIntrinsics as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICameraIntrinsics as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CameraIntrinsics {
     const NAME: &'static str = "Windows.Media.Devices.Core.CameraIntrinsics";
@@ -162,6 +163,7 @@ impl windows_core::RuntimeType for DepthCorrelatedCoordinateMapper {
 unsafe impl windows_core::Interface for DepthCorrelatedCoordinateMapper {
     type Vtable = <IDepthCorrelatedCoordinateMapper as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDepthCorrelatedCoordinateMapper as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper";
@@ -217,6 +219,7 @@ impl windows_core::RuntimeType for FrameControlCapabilities {
 unsafe impl windows_core::Interface for FrameControlCapabilities {
     type Vtable = <IFrameControlCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameControlCapabilities as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameControlCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameControlCapabilities";
@@ -281,6 +284,7 @@ impl windows_core::RuntimeType for FrameController {
 unsafe impl windows_core::Interface for FrameController {
     type Vtable = <IFrameController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameController as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameController {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameController";
@@ -323,6 +327,7 @@ impl windows_core::RuntimeType for FrameExposureCapabilities {
 unsafe impl windows_core::Interface for FrameExposureCapabilities {
     type Vtable = <IFrameExposureCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureCapabilities as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameExposureCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCapabilities";
@@ -363,6 +368,7 @@ impl windows_core::RuntimeType for FrameExposureCompensationCapabilities {
 unsafe impl windows_core::Interface for FrameExposureCompensationCapabilities {
     type Vtable = <IFrameExposureCompensationCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureCompensationCapabilities as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameExposureCompensationCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCompensationCapabilities";
@@ -389,6 +395,7 @@ impl windows_core::RuntimeType for FrameExposureCompensationControl {
 unsafe impl windows_core::Interface for FrameExposureCompensationControl {
     type Vtable = <IFrameExposureCompensationControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureCompensationControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCompensationControl";
@@ -424,6 +431,7 @@ impl windows_core::RuntimeType for FrameExposureControl {
 unsafe impl windows_core::Interface for FrameExposureControl {
     type Vtable = <IFrameExposureControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureControl";
@@ -458,6 +466,7 @@ impl windows_core::RuntimeType for FrameFlashCapabilities {
 unsafe impl windows_core::Interface for FrameFlashCapabilities {
     type Vtable = <IFrameFlashCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFlashCapabilities as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameFlashCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashCapabilities";
@@ -510,6 +519,7 @@ impl windows_core::RuntimeType for FrameFlashControl {
 unsafe impl windows_core::Interface for FrameFlashControl {
     type Vtable = <IFrameFlashControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFlashControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameFlashControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashControl";
@@ -565,6 +575,7 @@ impl windows_core::RuntimeType for FrameFocusCapabilities {
 unsafe impl windows_core::Interface for FrameFocusCapabilities {
     type Vtable = <IFrameFocusCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFocusCapabilities as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameFocusCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFocusCapabilities";
@@ -591,6 +602,7 @@ impl windows_core::RuntimeType for FrameFocusControl {
 unsafe impl windows_core::Interface for FrameFocusControl {
     type Vtable = <IFrameFocusControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFocusControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameFocusControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFocusControl";
@@ -631,6 +643,7 @@ impl windows_core::RuntimeType for FrameIsoSpeedCapabilities {
 unsafe impl windows_core::Interface for FrameIsoSpeedCapabilities {
     type Vtable = <IFrameIsoSpeedCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameIsoSpeedCapabilities as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameIsoSpeedCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedCapabilities";
@@ -666,11 +679,12 @@ impl windows_core::RuntimeType for FrameIsoSpeedControl {
 unsafe impl windows_core::Interface for FrameIsoSpeedControl {
     type Vtable = <IFrameIsoSpeedControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameIsoSpeedControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FrameIsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedControl";
 }
-windows_core::imp::define_interface!(ICameraIntrinsics, ICameraIntrinsics_Vtbl, 0x0aa6ed32_6589_49da_afde_594270ca0aac);
+windows_core::imp::define_interface!(ICameraIntrinsics, ICameraIntrinsics_Vtbl, 0x0aa6ed32_6589_49da_afde_594270ca0aac, inspectable);
 impl windows_core::RuntimeType for ICameraIntrinsics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.ICameraIntrinsics");
@@ -690,7 +704,7 @@ pub struct ICameraIntrinsics_Vtbl {
     pub ProjectManyOntoFrame: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_numerics::Vector3, u32, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
     pub UnprojectPixelsAtUnitDepth: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::super::Foundation::Point, u32, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICameraIntrinsics2, ICameraIntrinsics2_Vtbl, 0x0cdaa447_0798_4b4d_839f_c5ec414db27a);
+windows_core::imp::define_interface!(ICameraIntrinsics2, ICameraIntrinsics2_Vtbl, 0x0cdaa447_0798_4b4d_839f_c5ec414db27a, inspectable);
 impl windows_core::RuntimeType for ICameraIntrinsics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.ICameraIntrinsics2");
@@ -705,7 +719,7 @@ pub struct ICameraIntrinsics2_Vtbl {
     pub UndistortPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
     pub UndistortPoints: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::super::Foundation::Point, u32, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICameraIntrinsicsFactory, ICameraIntrinsicsFactory_Vtbl, 0xc0ddc486_2132_4a34_a659_9bfe2a055712);
+windows_core::imp::define_interface!(ICameraIntrinsicsFactory, ICameraIntrinsicsFactory_Vtbl, 0xc0ddc486_2132_4a34_a659_9bfe2a055712, inspectable);
 impl windows_core::RuntimeType for ICameraIntrinsicsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.ICameraIntrinsicsFactory");
@@ -716,7 +730,7 @@ pub struct ICameraIntrinsicsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2, windows_numerics::Vector2, windows_numerics::Vector3, windows_numerics::Vector2, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDepthCorrelatedCoordinateMapper, IDepthCorrelatedCoordinateMapper_Vtbl, 0xf95d89fb_8af0_4cb0_926d_696866e5046a);
+windows_core::imp::define_interface!(IDepthCorrelatedCoordinateMapper, IDepthCorrelatedCoordinateMapper_Vtbl, 0xf95d89fb_8af0_4cb0_926d_696866e5046a, inspectable);
 impl windows_core::RuntimeType for IDepthCorrelatedCoordinateMapper {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IDepthCorrelatedCoordinateMapper");
@@ -742,7 +756,7 @@ pub struct IDepthCorrelatedCoordinateMapper_Vtbl {
     #[cfg(not(feature = "Perception_Spatial"))]
     MapPoints: usize,
 }
-windows_core::imp::define_interface!(IFrameControlCapabilities, IFrameControlCapabilities_Vtbl, 0xa8ffae60_4e9e_4377_a789_e24c4ae7e544);
+windows_core::imp::define_interface!(IFrameControlCapabilities, IFrameControlCapabilities_Vtbl, 0xa8ffae60_4e9e_4377_a789_e24c4ae7e544, inspectable);
 impl windows_core::RuntimeType for IFrameControlCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameControlCapabilities");
@@ -757,7 +771,7 @@ pub struct IFrameControlCapabilities_Vtbl {
     pub Focus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PhotoConfirmationSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameControlCapabilities2, IFrameControlCapabilities2_Vtbl, 0xce9b0464_4730_440f_bd3e_efe8a8f230a8);
+windows_core::imp::define_interface!(IFrameControlCapabilities2, IFrameControlCapabilities2_Vtbl, 0xce9b0464_4730_440f_bd3e_efe8a8f230a8, inspectable);
 impl windows_core::RuntimeType for IFrameControlCapabilities2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameControlCapabilities2");
@@ -768,7 +782,7 @@ pub struct IFrameControlCapabilities2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Flash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameController, IFrameController_Vtbl, 0xc16459d9_baef_4052_9177_48aff2af7522);
+windows_core::imp::define_interface!(IFrameController, IFrameController_Vtbl, 0xc16459d9_baef_4052_9177_48aff2af7522, inspectable);
 impl windows_core::RuntimeType for IFrameController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameController");
@@ -784,7 +798,7 @@ pub struct IFrameController_Vtbl {
     pub PhotoConfirmationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPhotoConfirmationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameController2, IFrameController2_Vtbl, 0x00d3bc75_d87c_485b_8a09_5c358568b427);
+windows_core::imp::define_interface!(IFrameController2, IFrameController2_Vtbl, 0x00d3bc75_d87c_485b_8a09_5c358568b427, inspectable);
 impl windows_core::RuntimeType for IFrameController2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameController2");
@@ -795,7 +809,7 @@ pub struct IFrameController2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FlashControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameExposureCapabilities, IFrameExposureCapabilities_Vtbl, 0xbdbe9ce3_3985_4e72_97c2_0590d61307a1);
+windows_core::imp::define_interface!(IFrameExposureCapabilities, IFrameExposureCapabilities_Vtbl, 0xbdbe9ce3_3985_4e72_97c2_0590d61307a1, inspectable);
 impl windows_core::RuntimeType for IFrameExposureCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameExposureCapabilities");
@@ -809,7 +823,7 @@ pub struct IFrameExposureCapabilities_Vtbl {
     pub Max: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Step: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameExposureCompensationCapabilities, IFrameExposureCompensationCapabilities_Vtbl, 0xb988a823_8065_41ee_b04f_722265954500);
+windows_core::imp::define_interface!(IFrameExposureCompensationCapabilities, IFrameExposureCompensationCapabilities_Vtbl, 0xb988a823_8065_41ee_b04f_722265954500, inspectable);
 impl windows_core::RuntimeType for IFrameExposureCompensationCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameExposureCompensationCapabilities");
@@ -823,7 +837,7 @@ pub struct IFrameExposureCompensationCapabilities_Vtbl {
     pub Max: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub Step: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameExposureCompensationControl, IFrameExposureCompensationControl_Vtbl, 0xe95896c9_f7f9_48ca_8591_a26531cb1578);
+windows_core::imp::define_interface!(IFrameExposureCompensationControl, IFrameExposureCompensationControl_Vtbl, 0xe95896c9_f7f9_48ca_8591_a26531cb1578, inspectable);
 impl windows_core::RuntimeType for IFrameExposureCompensationControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameExposureCompensationControl");
@@ -835,7 +849,7 @@ pub struct IFrameExposureCompensationControl_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameExposureControl, IFrameExposureControl_Vtbl, 0xb1605a61_ffaf_4752_b621_f5b6f117f432);
+windows_core::imp::define_interface!(IFrameExposureControl, IFrameExposureControl_Vtbl, 0xb1605a61_ffaf_4752_b621_f5b6f117f432, inspectable);
 impl windows_core::RuntimeType for IFrameExposureControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameExposureControl");
@@ -849,7 +863,7 @@ pub struct IFrameExposureControl_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameFlashCapabilities, IFrameFlashCapabilities_Vtbl, 0xbb9341a2_5ebe_4f62_8223_0e2b05bfbbd0);
+windows_core::imp::define_interface!(IFrameFlashCapabilities, IFrameFlashCapabilities_Vtbl, 0xbb9341a2_5ebe_4f62_8223_0e2b05bfbbd0, inspectable);
 impl windows_core::RuntimeType for IFrameFlashCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameFlashCapabilities");
@@ -862,7 +876,7 @@ pub struct IFrameFlashCapabilities_Vtbl {
     pub RedEyeReductionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub PowerSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameFlashControl, IFrameFlashControl_Vtbl, 0x75d5f6c7_bd45_4fab_9375_45ac04b332c2);
+windows_core::imp::define_interface!(IFrameFlashControl, IFrameFlashControl_Vtbl, 0x75d5f6c7_bd45_4fab_9375_45ac04b332c2, inspectable);
 impl windows_core::RuntimeType for IFrameFlashControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameFlashControl");
@@ -880,7 +894,7 @@ pub struct IFrameFlashControl_Vtbl {
     pub PowerPercent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetPowerPercent: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameFocusCapabilities, IFrameFocusCapabilities_Vtbl, 0x7b25cd58_01c0_4065_9c40_c1a721425c1a);
+windows_core::imp::define_interface!(IFrameFocusCapabilities, IFrameFocusCapabilities_Vtbl, 0x7b25cd58_01c0_4065_9c40_c1a721425c1a, inspectable);
 impl windows_core::RuntimeType for IFrameFocusCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameFocusCapabilities");
@@ -894,7 +908,7 @@ pub struct IFrameFocusCapabilities_Vtbl {
     pub Max: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Step: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameFocusControl, IFrameFocusControl_Vtbl, 0x272df1d0_d912_4214_a67b_e38a8d48d8c6);
+windows_core::imp::define_interface!(IFrameFocusControl, IFrameFocusControl_Vtbl, 0x272df1d0_d912_4214_a67b_e38a8d48d8c6, inspectable);
 impl windows_core::RuntimeType for IFrameFocusControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameFocusControl");
@@ -906,7 +920,7 @@ pub struct IFrameFocusControl_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameIsoSpeedCapabilities, IFrameIsoSpeedCapabilities_Vtbl, 0x16bdff61_6df6_4ac9_b92a_9f6ecd1ad2fa);
+windows_core::imp::define_interface!(IFrameIsoSpeedCapabilities, IFrameIsoSpeedCapabilities_Vtbl, 0x16bdff61_6df6_4ac9_b92a_9f6ecd1ad2fa, inspectable);
 impl windows_core::RuntimeType for IFrameIsoSpeedCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameIsoSpeedCapabilities");
@@ -920,7 +934,7 @@ pub struct IFrameIsoSpeedCapabilities_Vtbl {
     pub Max: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Step: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFrameIsoSpeedControl, IFrameIsoSpeedControl_Vtbl, 0x1a03efed_786a_4c75_a557_7ab9a85f588c);
+windows_core::imp::define_interface!(IFrameIsoSpeedControl, IFrameIsoSpeedControl_Vtbl, 0x1a03efed_786a_4c75_a557_7ab9a85f588c, inspectable);
 impl windows_core::RuntimeType for IFrameIsoSpeedControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IFrameIsoSpeedControl");
@@ -934,7 +948,7 @@ pub struct IFrameIsoSpeedControl_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVariablePhotoSequenceController, IVariablePhotoSequenceController_Vtbl, 0x7fbff880_ed8c_43fd_a7c3_b35809e4229a);
+windows_core::imp::define_interface!(IVariablePhotoSequenceController, IVariablePhotoSequenceController_Vtbl, 0x7fbff880_ed8c_43fd_a7c3_b35809e4229a, inspectable);
 impl windows_core::RuntimeType for IVariablePhotoSequenceController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.Core.IVariablePhotoSequenceController");
@@ -1020,6 +1034,7 @@ impl windows_core::RuntimeType for VariablePhotoSequenceController {
 unsafe impl windows_core::Interface for VariablePhotoSequenceController {
     type Vtable = <IVariablePhotoSequenceController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVariablePhotoSequenceController as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for VariablePhotoSequenceController {
     const NAME: &'static str = "Windows.Media.Devices.Core.VariablePhotoSequenceController";

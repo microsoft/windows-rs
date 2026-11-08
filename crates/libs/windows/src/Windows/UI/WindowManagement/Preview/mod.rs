@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IWindowManagementPreview, IWindowManagementPreview_Vtbl, 0x4ef55b0d_561d_513c_a67c_2c02b69cef41);
+windows_core::imp::define_interface!(IWindowManagementPreview, IWindowManagementPreview_Vtbl, 0x4ef55b0d_561d_513c_a67c_2c02b69cef41, inspectable);
 impl windows_core::RuntimeType for IWindowManagementPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WindowManagement.Preview.IWindowManagementPreview");
@@ -8,7 +8,7 @@ impl windows_core::RuntimeType for IWindowManagementPreview {
 pub struct IWindowManagementPreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IWindowManagementPreviewStatics, IWindowManagementPreviewStatics_Vtbl, 0x0f9725c6_c004_5a23_8fd2_8d092ce2704a);
+windows_core::imp::define_interface!(IWindowManagementPreviewStatics, IWindowManagementPreviewStatics_Vtbl, 0x0f9725c6_c004_5a23_8fd2_8d092ce2704a, inspectable);
 impl windows_core::RuntimeType for IWindowManagementPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WindowManagement.Preview.IWindowManagementPreviewStatics");
@@ -41,6 +41,7 @@ impl windows_core::RuntimeType for WindowManagementPreview {
 unsafe impl windows_core::Interface for WindowManagementPreview {
     type Vtable = <IWindowManagementPreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowManagementPreview as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowManagementPreview {
     const NAME: &'static str = "Windows.UI.WindowManagement.Preview.WindowManagementPreview";

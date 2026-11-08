@@ -10,8 +10,7 @@
 #[windows::core::implement]
 struct App;
 
-#[cfg(not(test))]
-fn _test() {
+pub fn _test() {
     // Pull in something from each library crate that supports `no_std` to ensure they don't
     // accidentally depend on `std`.
     let _ = windows_core::ComObject::new(App);

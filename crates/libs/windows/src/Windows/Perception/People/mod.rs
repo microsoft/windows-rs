@@ -46,6 +46,7 @@ impl windows_core::RuntimeType for EyesPose {
 unsafe impl windows_core::Interface for EyesPose {
     type Vtable = <IEyesPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEyesPose as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for EyesPose {
     const NAME: &'static str = "Windows.Perception.People.EyesPose";
@@ -151,6 +152,7 @@ impl windows_core::RuntimeType for HandMeshObserver {
 unsafe impl windows_core::Interface for HandMeshObserver {
     type Vtable = <IHandMeshObserver as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHandMeshObserver as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.HandMeshObserver";
@@ -198,6 +200,7 @@ impl windows_core::RuntimeType for HandMeshVertexState {
 unsafe impl windows_core::Interface for HandMeshVertexState {
     type Vtable = <IHandMeshVertexState as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHandMeshVertexState as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.HandMeshVertexState";
@@ -247,6 +250,7 @@ impl windows_core::RuntimeType for HandPose {
 unsafe impl windows_core::Interface for HandPose {
     type Vtable = <IHandPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHandPose as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HandPose {
     const NAME: &'static str = "Windows.Perception.People.HandPose";
@@ -283,13 +287,14 @@ impl windows_core::RuntimeType for HeadPose {
 unsafe impl windows_core::Interface for HeadPose {
     type Vtable = <IHeadPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHeadPose as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HeadPose {
     const NAME: &'static str = "Windows.Perception.People.HeadPose";
 }
 unsafe impl Send for HeadPose {}
 unsafe impl Sync for HeadPose {}
-windows_core::imp::define_interface!(IEyesPose, IEyesPose_Vtbl, 0x682a9b23_8a1e_5b86_a060_906ffacb62a4);
+windows_core::imp::define_interface!(IEyesPose, IEyesPose_Vtbl, 0x682a9b23_8a1e_5b86_a060_906ffacb62a4, inspectable);
 impl windows_core::RuntimeType for IEyesPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IEyesPose");
@@ -305,7 +310,7 @@ pub struct IEyesPose_Vtbl {
     Gaze: usize,
     pub UpdateTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEyesPoseStatics, IEyesPoseStatics_Vtbl, 0x1cff7413_b21f_54c0_80c1_e60d994ca58c);
+windows_core::imp::define_interface!(IEyesPoseStatics, IEyesPoseStatics_Vtbl, 0x1cff7413_b21f_54c0_80c1_e60d994ca58c, inspectable);
 impl windows_core::RuntimeType for IEyesPoseStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IEyesPoseStatics");
@@ -320,7 +325,7 @@ pub struct IEyesPoseStatics_Vtbl {
     #[cfg(not(feature = "UI_Input"))]
     RequestAccessAsync: usize,
 }
-windows_core::imp::define_interface!(IHandMeshObserver, IHandMeshObserver_Vtbl, 0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69);
+windows_core::imp::define_interface!(IHandMeshObserver, IHandMeshObserver_Vtbl, 0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69, inspectable);
 impl windows_core::RuntimeType for IHandMeshObserver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IHandMeshObserver");
@@ -341,7 +346,7 @@ pub struct IHandMeshObserver_Vtbl {
     pub NeutralPoseVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHandMeshVertexState, IHandMeshVertexState_Vtbl, 0x046c5fef_1d8b_55de_ab2c_1cd424886d8f);
+windows_core::imp::define_interface!(IHandMeshVertexState, IHandMeshVertexState_Vtbl, 0x046c5fef_1d8b_55de_ab2c_1cd424886d8f, inspectable);
 impl windows_core::RuntimeType for IHandMeshVertexState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IHandMeshVertexState");
@@ -357,7 +362,7 @@ pub struct IHandMeshVertexState_Vtbl {
     pub GetVertices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut HandMeshVertex) -> windows_core::HRESULT,
     pub UpdateTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHandPose, IHandPose_Vtbl, 0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
+windows_core::imp::define_interface!(IHandPose, IHandPose_Vtbl, 0x4d98e79a_bb08_5d09_91de_df0dd3fae46c, inspectable);
 impl windows_core::RuntimeType for IHandPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IHandPose");
@@ -383,7 +388,7 @@ pub struct IHandPose_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     GetRelativeJoints: usize,
 }
-windows_core::imp::define_interface!(IHeadPose, IHeadPose_Vtbl, 0x7f5ac5a5_49db_379f_9429_32a2faf34fa6);
+windows_core::imp::define_interface!(IHeadPose, IHeadPose_Vtbl, 0x7f5ac5a5_49db_379f_9429_32a2faf34fa6, inspectable);
 impl windows_core::RuntimeType for IHeadPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IHeadPose");

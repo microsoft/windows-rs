@@ -1,4 +1,9 @@
-windows_core::imp::define_interface!(IBase, IBase_Vtbl, 0x4c195fa3_ba8e_5836_826e_7fde3bb2dad9);
+windows_core::imp::define_interface!(
+    IBase,
+    IBase_Vtbl,
+    0x4c195fa3_ba8e_5836_826e_7fde3bb2dad9,
+    inspectable
+);
 impl windows_core::RuntimeType for IBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -46,7 +51,7 @@ impl IBase_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IBase, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             First: First::<Identity, OFFSET>,
         }
     }
@@ -62,7 +67,8 @@ pub struct IBase_Vtbl {
 windows_core::imp::define_interface!(
     IDerived,
     IDerived_Vtbl,
-    0xe55b3cfe_28ca_5296_a10d_b0d7cb570517
+    0xe55b3cfe_28ca_5296_a10d_b0d7cb570517,
+    inspectable
 );
 impl windows_core::RuntimeType for IDerived {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -127,7 +133,7 @@ impl IDerived_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IDerived, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Second: Second::<Identity, OFFSET>,
         }
     }

@@ -57,6 +57,28 @@ jobs:
           cargo +nightly miri test --target ${{ matrix.target }} -p test_bindgen --lib --
           provenance_tests delegate_tests abi_tests record_tests ownership_tests
           bitfield_storage nested_member_alignment
+          com_results_tests::native_results_preserve_status_and_explicit_outputs
+          com_results_tests::results_transfer_owned_references
+          com_results_tests::inout_query_keeps_incoming_storage residual_contracts_borrow_objects
+      - name: Check COM object ownership and weak references
+        run: cargo +nightly miri test --target ${{ matrix.target }} -p test_implement_core --lib
+      - name: Check declarative COM objects
+        # Error construction calls native APIs on Windows; those cases remain in test.yml.
+        run: >-
+          cargo +nightly miri test --target ${{ matrix.target }} -p test_interface_core
+          --test macro_rules_decl -- user_fields_not_shadowed test_iother test_iraw
+          refcount_drops_to_zero generic_implementer
+      - name: Check mixed and custom inspectable interfaces
+        if: contains(matrix.target, 'windows')
+        run: >-
+          cargo +nightly miri test --target ${{ matrix.target }} -p test_implement
+          --test identity -- mixed_interface_identity custom_inspectable_conversion
+      - name: Check packed COM objects
+        if: contains(matrix.target, 'windows')
+        run: cargo +nightly miri test --target ${{ matrix.target }} -p test_core --test packed
+      - name: Check delegate lifetime and identity
+        if: contains(matrix.target, 'windows')
+        run: cargo +nightly miri test --target ${{ matrix.target }} -p test_future --test delegate
       - name: Check scoped interface macro
         if: contains(matrix.target, 'windows')
         run: cargo +nightly miri test --target ${{ matrix.target }} -p test_interface --test non_com_new

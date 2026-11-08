@@ -8,7 +8,8 @@ use core::mem::{transmute_copy, zeroed};
 super::define_interface!(
     IGenericFactory,
     IGenericFactory_Vtbl,
-    0x00000035_0000_0000_c000_000000000046
+    0x00000035_0000_0000_c000_000000000046,
+    inspectable
 );
 super::interface_hierarchy!(IGenericFactory, crate::IUnknown, crate::IInspectable);
 

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IProviderSpiConnectionSettings, IProviderSpiConnectionSettings_Vtbl, 0xf6034550_a542_4ec0_9601_a4dd68f8697b);
+windows_core::imp::define_interface!(IProviderSpiConnectionSettings, IProviderSpiConnectionSettings_Vtbl, 0xf6034550_a542_4ec0_9601_a4dd68f8697b, inspectable);
 impl windows_core::RuntimeType for IProviderSpiConnectionSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings");
@@ -18,7 +18,7 @@ pub struct IProviderSpiConnectionSettings_Vtbl {
     pub SharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderSpiSharingMode) -> windows_core::HRESULT,
     pub SetSharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderSpiSharingMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProviderSpiConnectionSettingsFactory, IProviderSpiConnectionSettingsFactory_Vtbl, 0x66456b5a_0c79_43e3_9f3c_e59780ac18fa);
+windows_core::imp::define_interface!(IProviderSpiConnectionSettingsFactory, IProviderSpiConnectionSettingsFactory_Vtbl, 0x66456b5a_0c79_43e3_9f3c_e59780ac18fa, inspectable);
 impl windows_core::RuntimeType for IProviderSpiConnectionSettingsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.IProviderSpiConnectionSettingsFactory");
@@ -29,7 +29,7 @@ pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpiControllerProvider, ISpiControllerProvider_Vtbl, 0xc1686504_02ce_4226_a385_4f11fb04b41b);
+windows_core::imp::define_interface!(ISpiControllerProvider, ISpiControllerProvider_Vtbl, 0xc1686504_02ce_4226_a385_4f11fb04b41b, inspectable);
 impl windows_core::RuntimeType for ISpiControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.ISpiControllerProvider");
@@ -70,10 +70,7 @@ impl ISpiControllerProvider_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISpiControllerProvider, OFFSET>(),
-            GetDeviceProvider: GetDeviceProvider::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetDeviceProvider: GetDeviceProvider::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpiControllerProvider as windows_core::Interface>::IID
@@ -85,7 +82,7 @@ pub struct ISpiControllerProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpiDeviceProvider, ISpiDeviceProvider_Vtbl, 0x0d1c3443_304b_405c_b4f7_f5ab1074461e);
+windows_core::imp::define_interface!(ISpiDeviceProvider, ISpiDeviceProvider_Vtbl, 0x0d1c3443_304b_405c_b4f7_f5ab1074461e, inspectable);
 impl windows_core::RuntimeType for ISpiDeviceProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.ISpiDeviceProvider");
@@ -192,7 +189,7 @@ impl ISpiDeviceProvider_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISpiDeviceProvider, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             DeviceId: DeviceId::<Identity, OFFSET>,
             ConnectionSettings: ConnectionSettings::<Identity, OFFSET>,
             Write: Write::<Identity, OFFSET>,
@@ -216,7 +213,7 @@ pub struct ISpiDeviceProvider_Vtbl {
     pub TransferSequential: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
     pub TransferFullDuplex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpiProvider, ISpiProvider_Vtbl, 0x96b461e2_77d4_48ce_aaa0_75715a8362cf);
+windows_core::imp::define_interface!(ISpiProvider, ISpiProvider_Vtbl, 0x96b461e2_77d4_48ce_aaa0_75715a8362cf, inspectable);
 impl windows_core::RuntimeType for ISpiProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.ISpiProvider");
@@ -254,7 +251,7 @@ impl ISpiProvider_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ISpiProvider, OFFSET>(), GetControllersAsync: GetControllersAsync::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetControllersAsync: GetControllersAsync::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISpiProvider as windows_core::Interface>::IID
@@ -333,6 +330,7 @@ impl windows_core::RuntimeType for ProviderSpiConnectionSettings {
 unsafe impl windows_core::Interface for ProviderSpiConnectionSettings {
     type Vtable = <IProviderSpiConnectionSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProviderSpiConnectionSettings as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ProviderSpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";

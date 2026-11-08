@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerInterop, IWebAuthenticationCoreManagerInterop_Vtbl, 0xf4b8e804_811e_4436_b69c_44cb67b72084);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerInterop, IWebAuthenticationCoreManagerInterop_Vtbl, 0xf4b8e804_811e_4436_b69c_44cb67b72084, inspectable);
 windows_core::imp::interface_hierarchy!(IWebAuthenticationCoreManagerInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebAuthenticationCoreManagerInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -55,7 +55,7 @@ impl IWebAuthenticationCoreManagerInterop_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebAuthenticationCoreManagerInterop, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             RequestTokenForWindowAsync: RequestTokenForWindowAsync::<Identity, OFFSET>,
             RequestTokenWithWebAccountForWindowAsync: RequestTokenWithWebAccountForWindowAsync::<Identity, OFFSET>,
         }

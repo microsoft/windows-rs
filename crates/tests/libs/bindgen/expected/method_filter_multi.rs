@@ -1,7 +1,8 @@
 windows_core::imp::define_interface!(
     IInterface,
     IInterface_Vtbl,
-    0x35e799f4_57d9_5b36_8a94_bcc88d70336d
+    0x35e799f4_57d9_5b36_8a94_bcc88d70336d,
+    inspectable
 );
 impl windows_core::RuntimeType for IInterface {
     const SIGNATURE: windows_core::imp::ConstBuffer =

@@ -503,6 +503,7 @@ impl windows_core::RuntimeType for DeviceAccountConfiguration {
 unsafe impl windows_core::Interface for DeviceAccountConfiguration {
     type Vtable = <IDeviceAccountConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceAccountConfiguration as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeviceAccountConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration";
@@ -578,7 +579,7 @@ impl windows_core::RuntimeType for DeviceAccountSyncScheduleKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind");
 }
-windows_core::imp::define_interface!(IDeviceAccountConfiguration, IDeviceAccountConfiguration_Vtbl, 0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63);
+windows_core::imp::define_interface!(IDeviceAccountConfiguration, IDeviceAccountConfiguration_Vtbl, 0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63, inspectable);
 impl windows_core::RuntimeType for IDeviceAccountConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration");
@@ -620,7 +621,7 @@ pub struct IDeviceAccountConfiguration_Vtbl {
     pub OutgoingServerUsername: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetOutgoingServerUsername: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeviceAccountConfiguration2, IDeviceAccountConfiguration2_Vtbl, 0xf2b2e5a6_728d_4a4a_8945_2bf8580136de);
+windows_core::imp::define_interface!(IDeviceAccountConfiguration2, IDeviceAccountConfiguration2_Vtbl, 0xf2b2e5a6_728d_4a4a_8945_2bf8580136de, inspectable);
 impl windows_core::RuntimeType for IDeviceAccountConfiguration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration2");
@@ -698,7 +699,7 @@ pub struct IDeviceAccountConfiguration2_Vtbl {
     pub IsSyncScheduleManagedBySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsSyncScheduleManagedBySystem: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataAccountSystemAccessManagerStatics, IUserDataAccountSystemAccessManagerStatics_Vtbl, 0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6);
+windows_core::imp::define_interface!(IUserDataAccountSystemAccessManagerStatics, IUserDataAccountSystemAccessManagerStatics_Vtbl, 0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6, inspectable);
 impl windows_core::RuntimeType for IUserDataAccountSystemAccessManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics");
@@ -709,7 +710,7 @@ pub struct IUserDataAccountSystemAccessManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddAndShowDeviceAccountsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataAccountSystemAccessManagerStatics2, IUserDataAccountSystemAccessManagerStatics2_Vtbl, 0x943f854d_4b4e_439f_83d3_979b27c05ac7);
+windows_core::imp::define_interface!(IUserDataAccountSystemAccessManagerStatics2, IUserDataAccountSystemAccessManagerStatics2_Vtbl, 0x943f854d_4b4e_439f_83d3_979b27c05ac7, inspectable);
 impl windows_core::RuntimeType for IUserDataAccountSystemAccessManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics2");

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IStoreAcquireLicenseResult, IStoreAcquireLicenseResult_Vtbl, 0xfbd7946d_f040_4cb3_9a39_29bcecdbe22d);
+windows_core::imp::define_interface!(IStoreAcquireLicenseResult, IStoreAcquireLicenseResult_Vtbl, 0xfbd7946d_f040_4cb3_9a39_29bcecdbe22d, inspectable);
 impl windows_core::RuntimeType for IStoreAcquireLicenseResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreAcquireLicenseResult");
@@ -10,7 +10,7 @@ pub struct IStoreAcquireLicenseResult_Vtbl {
     pub StorePackageLicense: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreAppLicense, IStoreAppLicense_Vtbl, 0xf389f9de_73c0_45ce_9bab_b2fe3e5eafd3);
+windows_core::imp::define_interface!(IStoreAppLicense, IStoreAppLicense_Vtbl, 0xf389f9de_73c0_45ce_9bab_b2fe3e5eafd3, inspectable);
 impl windows_core::RuntimeType for IStoreAppLicense {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreAppLicense");
@@ -29,7 +29,7 @@ pub struct IStoreAppLicense_Vtbl {
     pub IsTrialOwnedByThisUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub TrialUniqueId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreAppLicense2, IStoreAppLicense2_Vtbl, 0xb4666e91_4443_40b3_993f_28904435bdc6);
+windows_core::imp::define_interface!(IStoreAppLicense2, IStoreAppLicense2_Vtbl, 0xb4666e91_4443_40b3_993f_28904435bdc6, inspectable);
 impl windows_core::RuntimeType for IStoreAppLicense2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreAppLicense2");
@@ -40,7 +40,7 @@ pub struct IStoreAppLicense2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsDiscLicense: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreAvailability, IStoreAvailability_Vtbl, 0xfa060325_0ffd_4493_ad43_f1f9918f69fa);
+windows_core::imp::define_interface!(IStoreAvailability, IStoreAvailability_Vtbl, 0xfa060325_0ffd_4493_ad43_f1f9918f69fa, inspectable);
 impl windows_core::RuntimeType for IStoreAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreAvailability");
@@ -56,7 +56,7 @@ pub struct IStoreAvailability_Vtbl {
     pub RequestPurchaseAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestPurchaseWithPurchasePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreCanAcquireLicenseResult, IStoreCanAcquireLicenseResult_Vtbl, 0x3a693db3_0088_482f_86d5_bd46522663ad);
+windows_core::imp::define_interface!(IStoreCanAcquireLicenseResult, IStoreCanAcquireLicenseResult_Vtbl, 0x3a693db3_0088_482f_86d5_bd46522663ad, inspectable);
 impl windows_core::RuntimeType for IStoreCanAcquireLicenseResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreCanAcquireLicenseResult");
@@ -69,7 +69,7 @@ pub struct IStoreCanAcquireLicenseResult_Vtbl {
     pub LicensableSku: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StoreCanLicenseStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreCollectionData, IStoreCollectionData_Vtbl, 0x8aa4c3b3_5bb3_441a_2ab4_4dab73d5ce67);
+windows_core::imp::define_interface!(IStoreCollectionData, IStoreCollectionData_Vtbl, 0x8aa4c3b3_5bb3_441a_2ab4_4dab73d5ce67, inspectable);
 impl windows_core::RuntimeType for IStoreCollectionData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreCollectionData");
@@ -87,7 +87,7 @@ pub struct IStoreCollectionData_Vtbl {
     pub TrialTimeRemaining: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub ExtendedJsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreConsumableResult, IStoreConsumableResult_Vtbl, 0xea5dab72_6a00_4052_be5b_bfdab4433352);
+windows_core::imp::define_interface!(IStoreConsumableResult, IStoreConsumableResult_Vtbl, 0xea5dab72_6a00_4052_be5b_bfdab4433352, inspectable);
 impl windows_core::RuntimeType for IStoreConsumableResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreConsumableResult");
@@ -101,7 +101,7 @@ pub struct IStoreConsumableResult_Vtbl {
     pub BalanceRemaining: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreContext, IStoreContext_Vtbl, 0xac98b6be_f4fd_4912_babd_5035e5e8bcab);
+windows_core::imp::define_interface!(IStoreContext, IStoreContext_Vtbl, 0xac98b6be_f4fd_4912_babd_5035e5e8bcab, inspectable);
 impl windows_core::RuntimeType for IStoreContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreContext");
@@ -138,7 +138,7 @@ pub struct IStoreContext_Vtbl {
     pub RequestDownloadAndInstallStorePackageUpdatesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestDownloadAndInstallStorePackagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreContext2, IStoreContext2_Vtbl, 0x18bc54da_7bd9_452c_9116_3bbd06ffc63a);
+windows_core::imp::define_interface!(IStoreContext2, IStoreContext2_Vtbl, 0x18bc54da_7bd9_452c_9116_3bbd06ffc63a, inspectable);
 impl windows_core::RuntimeType for IStoreContext2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreContext2");
@@ -152,7 +152,7 @@ pub struct IStoreContext2_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     FindStoreProductForPackageAsync: usize,
 }
-windows_core::imp::define_interface!(IStoreContext3, IStoreContext3_Vtbl, 0xe26226ca_1a01_4730_85a6_ecc896e4ae38);
+windows_core::imp::define_interface!(IStoreContext3, IStoreContext3_Vtbl, 0xe26226ca_1a01_4730_85a6_ecc896e4ae38, inspectable);
 impl windows_core::RuntimeType for IStoreContext3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreContext3");
@@ -185,7 +185,7 @@ pub struct IStoreContext3_Vtbl {
     UninstallStorePackageAsync: usize,
     pub UninstallStorePackageByStoreIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreContext4, IStoreContext4_Vtbl, 0xaf9c6f69_bea1_4bf4_8e74_ae03e206c6b0);
+windows_core::imp::define_interface!(IStoreContext4, IStoreContext4_Vtbl, 0xaf9c6f69_bea1_4bf4_8e74_ae03e206c6b0, inspectable);
 impl windows_core::RuntimeType for IStoreContext4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreContext4");
@@ -197,7 +197,7 @@ pub struct IStoreContext4_Vtbl {
     pub RequestRateAndReviewAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInstallOrderForAssociatedStoreQueueItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreContext5, IStoreContext5_Vtbl, 0x6de6c52b_c43a_5953_b39a_71643c57d96e);
+windows_core::imp::define_interface!(IStoreContext5, IStoreContext5_Vtbl, 0x6de6c52b_c43a_5953_b39a_71643c57d96e, inspectable);
 impl windows_core::RuntimeType for IStoreContext5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreContext5");
@@ -210,7 +210,7 @@ pub struct IStoreContext5_Vtbl {
     pub GetAssociatedStoreProductsByInAppOfferTokenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestPurchaseByInAppOfferTokenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreContextStatics, IStoreContextStatics_Vtbl, 0x9c06ee5f_15c0_4e72_9330_d6191cebd19c);
+windows_core::imp::define_interface!(IStoreContextStatics, IStoreContextStatics_Vtbl, 0x9c06ee5f_15c0_4e72_9330_d6191cebd19c, inspectable);
 impl windows_core::RuntimeType for IStoreContextStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreContextStatics");
@@ -225,7 +225,7 @@ pub struct IStoreContextStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::define_interface!(IStoreImage, IStoreImage_Vtbl, 0x081fd248_adb4_4b64_a993_784789926ed5);
+windows_core::imp::define_interface!(IStoreImage, IStoreImage_Vtbl, 0x081fd248_adb4_4b64_a993_784789926ed5, inspectable);
 impl windows_core::RuntimeType for IStoreImage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreImage");
@@ -240,7 +240,7 @@ pub struct IStoreImage_Vtbl {
     pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Caption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreLicense, IStoreLicense_Vtbl, 0x26dc9579_4c4f_4f30_bc89_649f60e36055);
+windows_core::imp::define_interface!(IStoreLicense, IStoreLicense_Vtbl, 0x26dc9579_4c4f_4f30_bc89_649f60e36055, inspectable);
 impl windows_core::RuntimeType for IStoreLicense {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreLicense");
@@ -255,7 +255,7 @@ pub struct IStoreLicense_Vtbl {
     pub ExtendedJsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InAppOfferToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorePackageInstallOptions, IStorePackageInstallOptions_Vtbl, 0x1d3d630c_0ccd_44dd_8c59_80810a729973);
+windows_core::imp::define_interface!(IStorePackageInstallOptions, IStorePackageInstallOptions_Vtbl, 0x1d3d630c_0ccd_44dd_8c59_80810a729973, inspectable);
 impl windows_core::RuntimeType for IStorePackageInstallOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStorePackageInstallOptions");
@@ -267,7 +267,7 @@ pub struct IStorePackageInstallOptions_Vtbl {
     pub AllowForcedAppRestart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowForcedAppRestart: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorePackageLicense, IStorePackageLicense_Vtbl, 0x0c465714_14e1_4973_bd14_f77724271e99);
+windows_core::imp::define_interface!(IStorePackageLicense, IStorePackageLicense_Vtbl, 0x0c465714_14e1_4973_bd14_f77724271e99, inspectable);
 impl windows_core::RuntimeType for IStorePackageLicense {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStorePackageLicense");
@@ -285,7 +285,7 @@ pub struct IStorePackageLicense_Vtbl {
     pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ReleaseLicense: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorePackageUpdate, IStorePackageUpdate_Vtbl, 0x140fa150_3cbf_4a35_b91f_48271c31b072);
+windows_core::imp::define_interface!(IStorePackageUpdate, IStorePackageUpdate_Vtbl, 0x140fa150_3cbf_4a35_b91f_48271c31b072, inspectable);
 impl windows_core::RuntimeType for IStorePackageUpdate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStorePackageUpdate");
@@ -300,7 +300,7 @@ pub struct IStorePackageUpdate_Vtbl {
     Package: usize,
     pub Mandatory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorePackageUpdateResult, IStorePackageUpdateResult_Vtbl, 0xe79142ed_61f9_4893_b4fe_cf191603af7b);
+windows_core::imp::define_interface!(IStorePackageUpdateResult, IStorePackageUpdateResult_Vtbl, 0xe79142ed_61f9_4893_b4fe_cf191603af7b, inspectable);
 impl windows_core::RuntimeType for IStorePackageUpdateResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStorePackageUpdateResult");
@@ -312,7 +312,7 @@ pub struct IStorePackageUpdateResult_Vtbl {
     pub OverallState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorePackageUpdateState) -> windows_core::HRESULT,
     pub StorePackageUpdateStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorePackageUpdateResult2, IStorePackageUpdateResult2_Vtbl, 0x071d012e_bc62_4f2e_87ea_99d801aeaf98);
+windows_core::imp::define_interface!(IStorePackageUpdateResult2, IStorePackageUpdateResult2_Vtbl, 0x071d012e_bc62_4f2e_87ea_99d801aeaf98, inspectable);
 impl windows_core::RuntimeType for IStorePackageUpdateResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStorePackageUpdateResult2");
@@ -323,7 +323,7 @@ pub struct IStorePackageUpdateResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StoreQueueItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorePrice, IStorePrice_Vtbl, 0x55ba94c4_15f1_407c_8f06_006380f4df0b);
+windows_core::imp::define_interface!(IStorePrice, IStorePrice_Vtbl, 0x55ba94c4_15f1_407c_8f06_006380f4df0b, inspectable);
 impl windows_core::RuntimeType for IStorePrice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStorePrice");
@@ -339,7 +339,7 @@ pub struct IStorePrice_Vtbl {
     pub CurrencyCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FormattedRecurrencePrice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorePrice2, IStorePrice2_Vtbl, 0xf711573c_40e6_5641_b063_f1df42b2b12a);
+windows_core::imp::define_interface!(IStorePrice2, IStorePrice2_Vtbl, 0xf711573c_40e6_5641_b063_f1df42b2b12a, inspectable);
 impl windows_core::RuntimeType for IStorePrice2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStorePrice2");
@@ -352,7 +352,7 @@ pub struct IStorePrice2_Vtbl {
     pub UnformattedPrice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnformattedRecurrencePrice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreProduct, IStoreProduct_Vtbl, 0x320e2c52_d760_450a_a42b_67d1e901ac90);
+windows_core::imp::define_interface!(IStoreProduct, IStoreProduct_Vtbl, 0x320e2c52_d760_450a_a42b_67d1e901ac90, inspectable);
 impl windows_core::RuntimeType for IStoreProduct {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreProduct");
@@ -380,7 +380,7 @@ pub struct IStoreProduct_Vtbl {
     pub RequestPurchaseWithPurchasePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InAppOfferToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreProductOptions, IStoreProductOptions_Vtbl, 0x5b34a0f9_a113_4811_8326_16199c927f31);
+windows_core::imp::define_interface!(IStoreProductOptions, IStoreProductOptions_Vtbl, 0x5b34a0f9_a113_4811_8326_16199c927f31, inspectable);
 impl windows_core::RuntimeType for IStoreProductOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreProductOptions");
@@ -391,7 +391,7 @@ pub struct IStoreProductOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ActionFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreProductPagedQueryResult, IStoreProductPagedQueryResult_Vtbl, 0xc92718c5_4dd5_4869_a462_ecc6872e43c5);
+windows_core::imp::define_interface!(IStoreProductPagedQueryResult, IStoreProductPagedQueryResult_Vtbl, 0xc92718c5_4dd5_4869_a462_ecc6872e43c5, inspectable);
 impl windows_core::RuntimeType for IStoreProductPagedQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreProductPagedQueryResult");
@@ -405,7 +405,7 @@ pub struct IStoreProductPagedQueryResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub GetNextAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreProductQueryResult, IStoreProductQueryResult_Vtbl, 0xd805e6c5_d456_4ff6_8049_9076d5165f73);
+windows_core::imp::define_interface!(IStoreProductQueryResult, IStoreProductQueryResult_Vtbl, 0xd805e6c5_d456_4ff6_8049_9076d5165f73, inspectable);
 impl windows_core::RuntimeType for IStoreProductQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreProductQueryResult");
@@ -417,7 +417,7 @@ pub struct IStoreProductQueryResult_Vtbl {
     pub Products: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreProductResult, IStoreProductResult_Vtbl, 0xb7674f73_3c87_4ee1_8201_f428359bd3af);
+windows_core::imp::define_interface!(IStoreProductResult, IStoreProductResult_Vtbl, 0xb7674f73_3c87_4ee1_8201_f428359bd3af, inspectable);
 impl windows_core::RuntimeType for IStoreProductResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreProductResult");
@@ -429,7 +429,7 @@ pub struct IStoreProductResult_Vtbl {
     pub Product: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorePurchaseProperties, IStorePurchaseProperties_Vtbl, 0x836278f3_ff87_4364_a5b4_fd2153ebe43b);
+windows_core::imp::define_interface!(IStorePurchaseProperties, IStorePurchaseProperties_Vtbl, 0x836278f3_ff87_4364_a5b4_fd2153ebe43b, inspectable);
 impl windows_core::RuntimeType for IStorePurchaseProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStorePurchaseProperties");
@@ -443,7 +443,7 @@ pub struct IStorePurchaseProperties_Vtbl {
     pub ExtendedJsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetExtendedJsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorePurchasePropertiesFactory, IStorePurchasePropertiesFactory_Vtbl, 0xa768f59e_fefd_489f_9a17_22a593e68b9d);
+windows_core::imp::define_interface!(IStorePurchasePropertiesFactory, IStorePurchasePropertiesFactory_Vtbl, 0xa768f59e_fefd_489f_9a17_22a593e68b9d, inspectable);
 impl windows_core::RuntimeType for IStorePurchasePropertiesFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStorePurchasePropertiesFactory");
@@ -454,7 +454,7 @@ pub struct IStorePurchasePropertiesFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorePurchaseResult, IStorePurchaseResult_Vtbl, 0xadd28552_f96a_463d_a7bb_c20b4fca6952);
+windows_core::imp::define_interface!(IStorePurchaseResult, IStorePurchaseResult_Vtbl, 0xadd28552_f96a_463d_a7bb_c20b4fca6952, inspectable);
 impl windows_core::RuntimeType for IStorePurchaseResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStorePurchaseResult");
@@ -466,7 +466,7 @@ pub struct IStorePurchaseResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorePurchaseStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreQueueItem, IStoreQueueItem_Vtbl, 0x56d5c32b_f830_4293_9188_cad2dcde7357);
+windows_core::imp::define_interface!(IStoreQueueItem, IStoreQueueItem_Vtbl, 0x56d5c32b_f830_4293_9188_cad2dcde7357, inspectable);
 impl windows_core::RuntimeType for IStoreQueueItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreQueueItem");
@@ -484,7 +484,7 @@ pub struct IStoreQueueItem_Vtbl {
     pub StatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreQueueItem2, IStoreQueueItem2_Vtbl, 0x69491ca8_1ad4_447c_ad8c_a95035f64d82);
+windows_core::imp::define_interface!(IStoreQueueItem2, IStoreQueueItem2_Vtbl, 0x69491ca8_1ad4_447c_ad8c_a95035f64d82, inspectable);
 impl windows_core::RuntimeType for IStoreQueueItem2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreQueueItem2");
@@ -497,7 +497,7 @@ pub struct IStoreQueueItem2_Vtbl {
     pub PauseInstallAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResumeInstallAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreQueueItemCompletedEventArgs, IStoreQueueItemCompletedEventArgs_Vtbl, 0x1247df6c_b44a_439b_bb07_1d3003d005c2);
+windows_core::imp::define_interface!(IStoreQueueItemCompletedEventArgs, IStoreQueueItemCompletedEventArgs_Vtbl, 0x1247df6c_b44a_439b_bb07_1d3003d005c2, inspectable);
 impl windows_core::RuntimeType for IStoreQueueItemCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreQueueItemCompletedEventArgs");
@@ -508,7 +508,7 @@ pub struct IStoreQueueItemCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreQueueItemStatus, IStoreQueueItemStatus_Vtbl, 0x9bd6796f_9cc3_4ec3_b2ef_7be433b30174);
+windows_core::imp::define_interface!(IStoreQueueItemStatus, IStoreQueueItemStatus_Vtbl, 0x9bd6796f_9cc3_4ec3_b2ef_7be433b30174, inspectable);
 impl windows_core::RuntimeType for IStoreQueueItemStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreQueueItemStatus");
@@ -522,7 +522,7 @@ pub struct IStoreQueueItemStatus_Vtbl {
     pub UpdateStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<StorePackageUpdateStatus>) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreRateAndReviewResult, IStoreRateAndReviewResult_Vtbl, 0x9d209d56_a6b5_4121_9b61_ee6d0fbdbdbb);
+windows_core::imp::define_interface!(IStoreRateAndReviewResult, IStoreRateAndReviewResult_Vtbl, 0x9d209d56_a6b5_4121_9b61_ee6d0fbdbdbb, inspectable);
 impl windows_core::RuntimeType for IStoreRateAndReviewResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreRateAndReviewResult");
@@ -536,7 +536,7 @@ pub struct IStoreRateAndReviewResult_Vtbl {
     pub WasUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StoreRateAndReviewStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreRequestHelperStatics, IStoreRequestHelperStatics_Vtbl, 0x6ce5e5f9_a0c9_4b2c_96a6_a171c630038d);
+windows_core::imp::define_interface!(IStoreRequestHelperStatics, IStoreRequestHelperStatics_Vtbl, 0x6ce5e5f9_a0c9_4b2c_96a6_a171c630038d, inspectable);
 impl windows_core::RuntimeType for IStoreRequestHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreRequestHelperStatics");
@@ -547,7 +547,7 @@ pub struct IStoreRequestHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreSendRequestResult, IStoreSendRequestResult_Vtbl, 0xc73abe60_8272_4502_8a69_6e75153a4299);
+windows_core::imp::define_interface!(IStoreSendRequestResult, IStoreSendRequestResult_Vtbl, 0xc73abe60_8272_4502_8a69_6e75153a4299, inspectable);
 impl windows_core::RuntimeType for IStoreSendRequestResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreSendRequestResult");
@@ -559,7 +559,7 @@ pub struct IStoreSendRequestResult_Vtbl {
     pub Response: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreSendRequestResult2, IStoreSendRequestResult2_Vtbl, 0x2901296f_c0b0_49d0_8e8d_aa940af9c10b);
+windows_core::imp::define_interface!(IStoreSendRequestResult2, IStoreSendRequestResult2_Vtbl, 0x2901296f_c0b0_49d0_8e8d_aa940af9c10b, inspectable);
 impl windows_core::RuntimeType for IStoreSendRequestResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreSendRequestResult2");
@@ -573,7 +573,7 @@ pub struct IStoreSendRequestResult2_Vtbl {
     #[cfg(not(feature = "Web_Http"))]
     HttpStatusCode: usize,
 }
-windows_core::imp::define_interface!(IStoreSku, IStoreSku_Vtbl, 0x397e6f55_4440_4f03_863c_91f3fec83d79);
+windows_core::imp::define_interface!(IStoreSku, IStoreSku_Vtbl, 0x397e6f55_4440_4f03_863c_91f3fec83d79, inspectable);
 impl windows_core::RuntimeType for IStoreSku {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreSku");
@@ -602,7 +602,7 @@ pub struct IStoreSku_Vtbl {
     pub IsSubscription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SubscriptionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreSubscriptionInfo, IStoreSubscriptionInfo_Vtbl, 0x4189776a_0559_43ac_a9c6_3ab0011fb8eb);
+windows_core::imp::define_interface!(IStoreSubscriptionInfo, IStoreSubscriptionInfo_Vtbl, 0x4189776a_0559_43ac_a9c6_3ab0011fb8eb, inspectable);
 impl windows_core::RuntimeType for IStoreSubscriptionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreSubscriptionInfo");
@@ -617,7 +617,7 @@ pub struct IStoreSubscriptionInfo_Vtbl {
     pub TrialPeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub TrialPeriodUnit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StoreDurationUnit) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreUninstallStorePackageResult, IStoreUninstallStorePackageResult_Vtbl, 0x9fca39fd_126f_4cda_b801_1346b8d0a260);
+windows_core::imp::define_interface!(IStoreUninstallStorePackageResult, IStoreUninstallStorePackageResult_Vtbl, 0x9fca39fd_126f_4cda_b801_1346b8d0a260, inspectable);
 impl windows_core::RuntimeType for IStoreUninstallStorePackageResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreUninstallStorePackageResult");
@@ -629,7 +629,7 @@ pub struct IStoreUninstallStorePackageResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StoreUninstallStorePackageStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStoreVideo, IStoreVideo_Vtbl, 0xf26cb184_6f5e_4dc2_886c_3c63083c2f94);
+windows_core::imp::define_interface!(IStoreVideo, IStoreVideo_Vtbl, 0xf26cb184_6f5e_4dc2_886c_3c63083c2f94, inspectable);
 impl windows_core::RuntimeType for IStoreVideo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Store.IStoreVideo");
@@ -669,6 +669,7 @@ impl windows_core::RuntimeType for StoreAcquireLicenseResult {
 unsafe impl windows_core::Interface for StoreAcquireLicenseResult {
     type Vtable = <IStoreAcquireLicenseResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreAcquireLicenseResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreAcquireLicenseResult {
     const NAME: &'static str = "Windows.Services.Store.StoreAcquireLicenseResult";
@@ -748,6 +749,7 @@ impl windows_core::RuntimeType for StoreAppLicense {
 unsafe impl windows_core::Interface for StoreAppLicense {
     type Vtable = <IStoreAppLicense as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreAppLicense as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreAppLicense {
     const NAME: &'static str = "Windows.Services.Store.StoreAppLicense";
@@ -805,6 +807,7 @@ impl windows_core::RuntimeType for StoreAvailability {
 unsafe impl windows_core::Interface for StoreAvailability {
     type Vtable = <IStoreAvailability as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreAvailability as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreAvailability {
     const NAME: &'static str = "Windows.Services.Store.StoreAvailability";
@@ -841,6 +844,7 @@ impl windows_core::RuntimeType for StoreCanAcquireLicenseResult {
 unsafe impl windows_core::Interface for StoreCanAcquireLicenseResult {
     type Vtable = <IStoreCanAcquireLicenseResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreCanAcquireLicenseResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreCanAcquireLicenseResult {
     const NAME: &'static str = "Windows.Services.Store.StoreCanAcquireLicenseResult";
@@ -924,6 +928,7 @@ impl windows_core::RuntimeType for StoreCollectionData {
 unsafe impl windows_core::Interface for StoreCollectionData {
     type Vtable = <IStoreCollectionData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreCollectionData as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreCollectionData {
     const NAME: &'static str = "Windows.Services.Store.StoreCollectionData";
@@ -966,6 +971,7 @@ impl windows_core::RuntimeType for StoreConsumableResult {
 unsafe impl windows_core::Interface for StoreConsumableResult {
     type Vtable = <IStoreConsumableResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreConsumableResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreConsumableResult {
     const NAME: &'static str = "Windows.Services.Store.StoreConsumableResult";
@@ -1368,6 +1374,7 @@ impl windows_core::RuntimeType for StoreContext {
 unsafe impl windows_core::Interface for StoreContext {
     type Vtable = <IStoreContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreContext as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreContext {
     const NAME: &'static str = "Windows.Services.Store.StoreContext";
@@ -1434,6 +1441,7 @@ impl windows_core::RuntimeType for StoreImage {
 unsafe impl windows_core::Interface for StoreImage {
     type Vtable = <IStoreImage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreImage as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreImage {
     const NAME: &'static str = "Windows.Services.Store.StoreImage";
@@ -1482,6 +1490,7 @@ impl windows_core::RuntimeType for StoreLicense {
 unsafe impl windows_core::Interface for StoreLicense {
     type Vtable = <IStoreLicense as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreLicense as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreLicense {
     const NAME: &'static str = "Windows.Services.Store.StoreLicense";
@@ -1516,6 +1525,7 @@ impl windows_core::RuntimeType for StorePackageInstallOptions {
 unsafe impl windows_core::Interface for StorePackageInstallOptions {
     type Vtable = <IStorePackageInstallOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePackageInstallOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorePackageInstallOptions {
     const NAME: &'static str = "Windows.Services.Store.StorePackageInstallOptions";
@@ -1569,6 +1579,7 @@ impl windows_core::RuntimeType for StorePackageLicense {
 unsafe impl windows_core::Interface for StorePackageLicense {
     type Vtable = <IStorePackageLicense as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePackageLicense as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorePackageLicense {
     const NAME: &'static str = "Windows.Services.Store.StorePackageLicense";
@@ -1600,6 +1611,7 @@ impl windows_core::RuntimeType for StorePackageUpdate {
 unsafe impl windows_core::Interface for StorePackageUpdate {
     type Vtable = <IStorePackageUpdate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePackageUpdate as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorePackageUpdate {
     const NAME: &'static str = "Windows.Services.Store.StorePackageUpdate";
@@ -1637,6 +1649,7 @@ impl windows_core::RuntimeType for StorePackageUpdateResult {
 unsafe impl windows_core::Interface for StorePackageUpdateResult {
     type Vtable = <IStorePackageUpdateResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePackageUpdateResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorePackageUpdateResult {
     const NAME: &'static str = "Windows.Services.Store.StorePackageUpdateResult";
@@ -1750,6 +1763,7 @@ impl windows_core::RuntimeType for StorePrice {
 unsafe impl windows_core::Interface for StorePrice {
     type Vtable = <IStorePrice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePrice as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorePrice {
     const NAME: &'static str = "Windows.Services.Store.StorePrice";
@@ -1879,6 +1893,7 @@ impl windows_core::RuntimeType for StoreProduct {
 unsafe impl windows_core::Interface for StoreProduct {
     type Vtable = <IStoreProduct as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreProduct as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreProduct {
     const NAME: &'static str = "Windows.Services.Store.StoreProduct";
@@ -1910,6 +1925,7 @@ impl windows_core::RuntimeType for StoreProductOptions {
 unsafe impl windows_core::Interface for StoreProductOptions {
     type Vtable = <IStoreProductOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreProductOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreProductOptions {
     const NAME: &'static str = "Windows.Services.Store.StoreProductOptions";
@@ -1952,6 +1968,7 @@ impl windows_core::RuntimeType for StoreProductPagedQueryResult {
 unsafe impl windows_core::Interface for StoreProductPagedQueryResult {
     type Vtable = <IStoreProductPagedQueryResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreProductPagedQueryResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreProductPagedQueryResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductPagedQueryResult";
@@ -1982,6 +1999,7 @@ impl windows_core::RuntimeType for StoreProductQueryResult {
 unsafe impl windows_core::Interface for StoreProductQueryResult {
     type Vtable = <IStoreProductQueryResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreProductQueryResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreProductQueryResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductQueryResult";
@@ -2012,6 +2030,7 @@ impl windows_core::RuntimeType for StoreProductResult {
 unsafe impl windows_core::Interface for StoreProductResult {
     type Vtable = <IStoreProductResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreProductResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreProductResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductResult";
@@ -2065,6 +2084,7 @@ impl windows_core::RuntimeType for StorePurchaseProperties {
 unsafe impl windows_core::Interface for StorePurchaseProperties {
     type Vtable = <IStorePurchaseProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePurchaseProperties as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorePurchaseProperties {
     const NAME: &'static str = "Windows.Services.Store.StorePurchaseProperties";
@@ -2095,6 +2115,7 @@ impl windows_core::RuntimeType for StorePurchaseResult {
 unsafe impl windows_core::Interface for StorePurchaseResult {
     type Vtable = <IStorePurchaseResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePurchaseResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorePurchaseResult {
     const NAME: &'static str = "Windows.Services.Store.StorePurchaseResult";
@@ -2203,6 +2224,7 @@ impl windows_core::RuntimeType for StoreQueueItem {
 unsafe impl windows_core::Interface for StoreQueueItem {
     type Vtable = <IStoreQueueItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreQueueItem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreQueueItem {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItem";
@@ -2227,6 +2249,7 @@ impl windows_core::RuntimeType for StoreQueueItemCompletedEventArgs {
 unsafe impl windows_core::Interface for StoreQueueItemCompletedEventArgs {
     type Vtable = <IStoreQueueItemCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreQueueItemCompletedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreQueueItemCompletedEventArgs {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItemCompletedEventArgs";
@@ -2328,6 +2351,7 @@ impl windows_core::RuntimeType for StoreQueueItemStatus {
 unsafe impl windows_core::Interface for StoreQueueItemStatus {
     type Vtable = <IStoreQueueItemStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreQueueItemStatus as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreQueueItemStatus {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItemStatus";
@@ -2370,6 +2394,7 @@ impl windows_core::RuntimeType for StoreRateAndReviewResult {
 unsafe impl windows_core::Interface for StoreRateAndReviewResult {
     type Vtable = <IStoreRateAndReviewResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreRateAndReviewResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreRateAndReviewResult {
     const NAME: &'static str = "Windows.Services.Store.StoreRateAndReviewResult";
@@ -2443,6 +2468,7 @@ impl windows_core::RuntimeType for StoreSendRequestResult {
 unsafe impl windows_core::Interface for StoreSendRequestResult {
     type Vtable = <IStoreSendRequestResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreSendRequestResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreSendRequestResult {
     const NAME: &'static str = "Windows.Services.Store.StoreSendRequestResult";
@@ -2578,6 +2604,7 @@ impl windows_core::RuntimeType for StoreSku {
 unsafe impl windows_core::Interface for StoreSku {
     type Vtable = <IStoreSku as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreSku as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreSku {
     const NAME: &'static str = "Windows.Services.Store.StoreSku";
@@ -2626,6 +2653,7 @@ impl windows_core::RuntimeType for StoreSubscriptionInfo {
 unsafe impl windows_core::Interface for StoreSubscriptionInfo {
     type Vtable = <IStoreSubscriptionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreSubscriptionInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreSubscriptionInfo {
     const NAME: &'static str = "Windows.Services.Store.StoreSubscriptionInfo";
@@ -2656,6 +2684,7 @@ impl windows_core::RuntimeType for StoreUninstallStorePackageResult {
 unsafe impl windows_core::Interface for StoreUninstallStorePackageResult {
     type Vtable = <IStoreUninstallStorePackageResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreUninstallStorePackageResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreUninstallStorePackageResult {
     const NAME: &'static str = "Windows.Services.Store.StoreUninstallStorePackageResult";
@@ -2727,6 +2756,7 @@ impl windows_core::RuntimeType for StoreVideo {
 unsafe impl windows_core::Interface for StoreVideo {
     type Vtable = <IStoreVideo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreVideo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StoreVideo {
     const NAME: &'static str = "Windows.Services.Store.StoreVideo";

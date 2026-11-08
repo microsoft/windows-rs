@@ -39,6 +39,7 @@ impl windows_core::RuntimeType for Deferral {
 unsafe impl windows_core::Interface for Deferral {
     type Vtable = <IDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeferral as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Deferral {
     const NAME: &'static str = "Windows.Foundation.Deferral";
@@ -164,7 +165,7 @@ impl GuidHelper {
 impl windows_core::RuntimeName for GuidHelper {
     const NAME: &'static str = "Windows.Foundation.GuidHelper";
 }
-windows_core::imp::define_interface!(IClosable, IClosable_Vtbl, 0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
+windows_core::imp::define_interface!(IClosable, IClosable_Vtbl, 0x30d5a829_7fa4_4026_83bb_d75bae4ea99e, inspectable);
 impl windows_core::RuntimeType for IClosable {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IClosable");
@@ -189,7 +190,7 @@ impl IClosable_Vtbl {
                 IClosable_Impl::Close(this).into()
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IClosable, OFFSET>(), Close: Close::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Close: Close::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IClosable as windows_core::Interface>::IID
@@ -201,7 +202,7 @@ pub struct IClosable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeferral, IDeferral_Vtbl, 0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
+windows_core::imp::define_interface!(IDeferral, IDeferral_Vtbl, 0xd6269732_3b7f_46a7_b40b_4fdca2a2c693, inspectable);
 impl windows_core::RuntimeType for IDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IDeferral");
@@ -212,7 +213,7 @@ pub struct IDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeferralFactory, IDeferralFactory_Vtbl, 0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a);
+windows_core::imp::define_interface!(IDeferralFactory, IDeferralFactory_Vtbl, 0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a, inspectable);
 impl windows_core::RuntimeType for IDeferralFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IDeferralFactory");
@@ -223,7 +224,7 @@ pub struct IDeferralFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGetActivationFactory, IGetActivationFactory_Vtbl, 0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c);
+windows_core::imp::define_interface!(IGetActivationFactory, IGetActivationFactory_Vtbl, 0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c, inspectable);
 impl windows_core::RuntimeType for IGetActivationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IGetActivationFactory");
@@ -261,10 +262,7 @@ impl IGetActivationFactory_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IGetActivationFactory, OFFSET>(),
-            GetActivationFactory: GetActivationFactory::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetActivationFactory: GetActivationFactory::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGetActivationFactory as windows_core::Interface>::IID
@@ -276,7 +274,7 @@ pub struct IGetActivationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetActivationFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidHelperStatics, IGuidHelperStatics_Vtbl, 0x59c7966b_ae52_5283_ad7f_a1b9e9678add);
+windows_core::imp::define_interface!(IGuidHelperStatics, IGuidHelperStatics_Vtbl, 0x59c7966b_ae52_5283_ad7f_a1b9e9678add, inspectable);
 impl windows_core::RuntimeType for IGuidHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IGuidHelperStatics");
@@ -289,7 +287,7 @@ pub struct IGuidHelperStatics_Vtbl {
     pub Empty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Equals: unsafe extern "system" fn(*mut core::ffi::c_void, &windows_core::GUID, &windows_core::GUID, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMemoryBuffer, IMemoryBuffer_Vtbl, 0xfbc4dd2a_245b_11e4_af98_689423260cf8);
+windows_core::imp::define_interface!(IMemoryBuffer, IMemoryBuffer_Vtbl, 0xfbc4dd2a_245b_11e4_af98_689423260cf8, inspectable);
 impl windows_core::RuntimeType for IMemoryBuffer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IMemoryBuffer");
@@ -332,7 +330,7 @@ impl IMemoryBuffer_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMemoryBuffer, OFFSET>(), CreateReference: CreateReference::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), CreateReference: CreateReference::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMemoryBuffer as windows_core::Interface>::IID
@@ -344,7 +342,7 @@ pub struct IMemoryBuffer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMemoryBufferFactory, IMemoryBufferFactory_Vtbl, 0xfbc4dd2b_245b_11e4_af98_689423260cf8);
+windows_core::imp::define_interface!(IMemoryBufferFactory, IMemoryBufferFactory_Vtbl, 0xfbc4dd2b_245b_11e4_af98_689423260cf8, inspectable);
 impl windows_core::RuntimeType for IMemoryBufferFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IMemoryBufferFactory");
@@ -355,7 +353,7 @@ pub struct IMemoryBufferFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMemoryBufferReference, IMemoryBufferReference_Vtbl, 0xfbc4dd29_245b_11e4_af98_689423260cf8);
+windows_core::imp::define_interface!(IMemoryBufferReference, IMemoryBufferReference_Vtbl, 0xfbc4dd29_245b_11e4_af98_689423260cf8, inspectable);
 impl windows_core::RuntimeType for IMemoryBufferReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IMemoryBufferReference");
@@ -435,7 +433,7 @@ impl IMemoryBufferReference_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMemoryBufferReference, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Capacity: Capacity::<Identity, OFFSET>,
             Closed: Closed::<Identity, OFFSET>,
             RemoveClosed: RemoveClosed::<Identity, OFFSET>,
@@ -453,7 +451,7 @@ pub struct IMemoryBufferReference_Vtbl {
     pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
+windows_core::imp::define_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62, inspectable);
 impl windows_core::RuntimeType for IPropertyValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IPropertyValue");
@@ -1119,7 +1117,7 @@ impl IPropertyValue_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IPropertyValue, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Type: Type::<Identity, OFFSET>,
             IsNumericScalar: IsNumericScalar::<Identity, OFFSET>,
             GetUInt8: GetUInt8::<Identity, OFFSET>,
@@ -1209,7 +1207,7 @@ pub struct IPropertyValue_Vtbl {
     pub GetSizeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Size) -> windows_core::HRESULT,
     pub GetRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Rect) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPropertyValueStatics, IPropertyValueStatics_Vtbl, 0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
+windows_core::imp::define_interface!(IPropertyValueStatics, IPropertyValueStatics_Vtbl, 0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858, inspectable);
 impl windows_core::RuntimeType for IPropertyValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IPropertyValueStatics");
@@ -1268,6 +1266,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IReferenceArray<T> {
     type Vtable = IReferenceArray_Vtbl<T>;
     const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IReferenceArray<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({61c17707-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
@@ -1550,11 +1549,7 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IReferenceArray<T>, OFFSET>(),
-            Value: Value::<T, Identity, OFFSET>,
-            T: core::marker::PhantomData::<T>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Value: Value::<T, Identity, OFFSET>, T: core::marker::PhantomData::<T> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IReferenceArray<T> as windows_core::Interface>::IID
@@ -1570,7 +1565,7 @@ where
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::imp::AbiType<T>) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }
-windows_core::imp::define_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3);
+windows_core::imp::define_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3, inspectable);
 impl windows_core::RuntimeType for IStringable {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IStringable");
@@ -1608,7 +1603,7 @@ impl IStringable_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IStringable, OFFSET>(), ToString: ToString::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ToString: ToString::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStringable as windows_core::Interface>::IID
@@ -1620,7 +1615,7 @@ pub struct IStringable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUriEscapeStatics, IUriEscapeStatics_Vtbl, 0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1);
+windows_core::imp::define_interface!(IUriEscapeStatics, IUriEscapeStatics_Vtbl, 0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1, inspectable);
 impl windows_core::RuntimeType for IUriEscapeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriEscapeStatics");
@@ -1632,7 +1627,7 @@ pub struct IUriEscapeStatics_Vtbl {
     pub UnescapeComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EscapeComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUriRuntimeClass, IUriRuntimeClass_Vtbl, 0x9e365e57_48b2_4160_956f_c7385120bbfc);
+windows_core::imp::define_interface!(IUriRuntimeClass, IUriRuntimeClass_Vtbl, 0x9e365e57_48b2_4160_956f_c7385120bbfc, inspectable);
 impl windows_core::RuntimeType for IUriRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriRuntimeClass");
@@ -1659,7 +1654,7 @@ pub struct IUriRuntimeClass_Vtbl {
     pub Equals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub CombineUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUriRuntimeClassFactory, IUriRuntimeClassFactory_Vtbl, 0x44a9796f_723e_4fdf_a218_033e75b0c084);
+windows_core::imp::define_interface!(IUriRuntimeClassFactory, IUriRuntimeClassFactory_Vtbl, 0x44a9796f_723e_4fdf_a218_033e75b0c084, inspectable);
 impl windows_core::RuntimeType for IUriRuntimeClassFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriRuntimeClassFactory");
@@ -1671,7 +1666,7 @@ pub struct IUriRuntimeClassFactory_Vtbl {
     pub CreateUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithRelativeUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUriRuntimeClassWithAbsoluteCanonicalUri, IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl, 0x758d9661_221c_480f_a339_50656673f46f);
+windows_core::imp::define_interface!(IUriRuntimeClassWithAbsoluteCanonicalUri, IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl, 0x758d9661_221c_480f_a339_50656673f46f, inspectable);
 impl windows_core::RuntimeType for IUriRuntimeClassWithAbsoluteCanonicalUri {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriRuntimeClassWithAbsoluteCanonicalUri");
@@ -1683,7 +1678,7 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub AbsoluteCanonicalUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayIri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWwwFormUrlDecoderEntry, IWwwFormUrlDecoderEntry_Vtbl, 0x125e7431_f678_4e8e_b670_20a9b06c512d);
+windows_core::imp::define_interface!(IWwwFormUrlDecoderEntry, IWwwFormUrlDecoderEntry_Vtbl, 0x125e7431_f678_4e8e_b670_20a9b06c512d, inspectable);
 impl windows_core::RuntimeType for IWwwFormUrlDecoderEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IWwwFormUrlDecoderEntry");
@@ -1744,11 +1739,7 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWwwFormUrlDecoderEntry, OFFSET>(),
-            Name: Name::<Identity, OFFSET>,
-            Value: Value::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, Value: Value::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWwwFormUrlDecoderEntry as windows_core::Interface>::IID
@@ -1761,7 +1752,7 @@ pub struct IWwwFormUrlDecoderEntry_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClass, IWwwFormUrlDecoderRuntimeClass_Vtbl, 0xd45a0451_f225_4542_9296_0e1df5d254df);
+windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClass, IWwwFormUrlDecoderRuntimeClass_Vtbl, 0xd45a0451_f225_4542_9296_0e1df5d254df, inspectable);
 impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IWwwFormUrlDecoderRuntimeClass");
@@ -1772,7 +1763,7 @@ pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFirstValueByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClassFactory, IWwwFormUrlDecoderRuntimeClassFactory_Vtbl, 0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b);
+windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClassFactory, IWwwFormUrlDecoderRuntimeClassFactory_Vtbl, 0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b, inspectable);
 impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClassFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory");
@@ -1816,6 +1807,7 @@ impl windows_core::RuntimeType for MemoryBuffer {
 unsafe impl windows_core::Interface for MemoryBuffer {
     type Vtable = <IMemoryBuffer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMemoryBuffer as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MemoryBuffer {
     const NAME: &'static str = "Windows.Foundation.MemoryBuffer";
@@ -2394,6 +2386,7 @@ impl windows_core::RuntimeType for Uri {
 unsafe impl windows_core::Interface for Uri {
     type Vtable = <IUriRuntimeClass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUriRuntimeClass as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Uri {
     const NAME: &'static str = "Windows.Foundation.Uri";
@@ -2470,6 +2463,7 @@ impl windows_core::RuntimeType for WwwFormUrlDecoder {
 unsafe impl windows_core::Interface for WwwFormUrlDecoder {
     type Vtable = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WwwFormUrlDecoder {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoder";
@@ -2514,6 +2508,7 @@ impl windows_core::RuntimeType for WwwFormUrlDecoderEntry {
 unsafe impl windows_core::Interface for WwwFormUrlDecoderEntry {
     type Vtable = <IWwwFormUrlDecoderEntry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWwwFormUrlDecoderEntry as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoderEntry";

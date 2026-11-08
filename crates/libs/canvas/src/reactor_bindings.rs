@@ -13,6 +13,7 @@ impl windows_core::RuntimeType for DependencyObject {
 unsafe impl windows_core::Interface for DependencyObject {
     type Vtable = <IDependencyObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDependencyObject as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for DependencyObject {
     type Target = IDependencyObject;
@@ -28,7 +29,8 @@ unsafe impl Sync for DependencyObject {}
 windows_core::imp::define_interface!(
     IDependencyObject,
     IDependencyObject_Vtbl,
-    0xe7beaee7_160e_50f7_8789_d63463f979fa
+    0xe7beaee7_160e_50f7_8789_d63463f979fa,
+    inspectable
 );
 impl windows_core::RuntimeType for IDependencyObject {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -41,7 +43,8 @@ pub struct IDependencyObject_Vtbl {
 windows_core::imp::define_interface!(
     IImageSource,
     IImageSource_Vtbl,
-    0x6c2038f6_d6d5_55e9_9b9e_082f12dbff60
+    0x6c2038f6_d6d5_55e9_9b9e_082f12dbff60,
+    inspectable
 );
 impl windows_core::RuntimeType for IImageSource {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -54,7 +57,8 @@ pub struct IImageSource_Vtbl {
 windows_core::imp::define_interface!(
     ISurfaceImageSource,
     ISurfaceImageSource_Vtbl,
-    0xac078d9c_d0e0_5ff9_b73e_98e82e4c8d36
+    0xac078d9c_d0e0_5ff9_b73e_98e82e4c8d36,
+    inspectable
 );
 impl windows_core::RuntimeType for ISurfaceImageSource {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -67,7 +71,8 @@ pub struct ISurfaceImageSource_Vtbl {
 windows_core::imp::define_interface!(
     ISurfaceImageSourceFactory,
     ISurfaceImageSourceFactory_Vtbl,
-    0x09a26ed2_11b3_5ef1_ac56_20d064ccca34
+    0x09a26ed2_11b3_5ef1_ac56_20d064ccca34,
+    inspectable
 );
 impl windows_core::RuntimeType for ISurfaceImageSourceFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -163,6 +168,7 @@ impl windows_core::RuntimeType for ImageSource {
 unsafe impl windows_core::Interface for ImageSource {
     type Vtable = <IImageSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageSource as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for ImageSource {
     type Target = IImageSource;
@@ -237,6 +243,7 @@ impl windows_core::RuntimeType for SurfaceImageSource {
 unsafe impl windows_core::Interface for SurfaceImageSource {
     type Vtable = <ISurfaceImageSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISurfaceImageSource as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for SurfaceImageSource {
     type Target = ISurfaceImageSource;

@@ -15,6 +15,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IItems_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IItems<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
@@ -106,7 +107,7 @@ impl<T: windows_core::RuntimeType + 'static> IItems_Vtbl<T> {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IItems<T>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             First: First::<T, Identity, OFFSET>,
             T: core::marker::PhantomData::<T>,
         }
@@ -164,6 +165,7 @@ impl windows_core::RuntimeType for Items {
 unsafe impl windows_core::Interface for Items {
     type Vtable = <IItems<i32> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IItems<i32> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Items {
     const NAME: &'static str = "Test.Items";

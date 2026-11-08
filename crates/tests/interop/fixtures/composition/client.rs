@@ -6,7 +6,7 @@ use core::sync::atomic::{AtomicI32, Ordering};
 static DERIVED: AtomicI32 = AtomicI32::new(0);
 
 // Overrides `Name` and adds an interface that the base class does not implement.
-#[implement(IBaseOverrides, IStringable)]
+#[implement(IBaseOverrides, IStringable, Compose = true)]
 struct Derived;
 
 impl Derived {
@@ -35,7 +35,7 @@ impl IStringable_Impl for Derived_Impl {
 }
 
 // Derives without overriding anything.
-#[implement]
+#[implement(Compose = true)]
 struct Plain;
 
 pub fn test() -> Result<()> {

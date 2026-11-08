@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ICoreFrameworkInputViewInterop, ICoreFrameworkInputViewInterop_Vtbl, 0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);
+windows_core::imp::define_interface!(ICoreFrameworkInputViewInterop, ICoreFrameworkInputViewInterop_Vtbl, 0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5, inspectable);
 windows_core::imp::interface_hierarchy!(ICoreFrameworkInputViewInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreFrameworkInputViewInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -32,10 +32,7 @@ impl ICoreFrameworkInputViewInterop_Vtbl {
                 ICoreFrameworkInputViewInterop_Impl::GetForWindow(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&coreframeworkinputview)).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ICoreFrameworkInputViewInterop, OFFSET>(),
-            GetForWindow: GetForWindow::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetForWindow: GetForWindow::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICoreFrameworkInputViewInterop as windows_core::Interface>::IID

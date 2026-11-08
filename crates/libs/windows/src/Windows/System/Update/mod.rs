@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ISystemUpdateItem, ISystemUpdateItem_Vtbl, 0x779740eb_5624_519e_a8e2_09e9173b3fb7);
+windows_core::imp::define_interface!(ISystemUpdateItem, ISystemUpdateItem_Vtbl, 0x779740eb_5624_519e_a8e2_09e9173b3fb7, inspectable);
 impl windows_core::RuntimeType for ISystemUpdateItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Update.ISystemUpdateItem");
@@ -16,7 +16,7 @@ pub struct ISystemUpdateItem_Vtbl {
     pub InstallProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemUpdateLastErrorInfo, ISystemUpdateLastErrorInfo_Vtbl, 0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9);
+windows_core::imp::define_interface!(ISystemUpdateLastErrorInfo, ISystemUpdateLastErrorInfo_Vtbl, 0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9, inspectable);
 impl windows_core::RuntimeType for ISystemUpdateLastErrorInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Update.ISystemUpdateLastErrorInfo");
@@ -29,7 +29,7 @@ pub struct ISystemUpdateLastErrorInfo_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub IsInteractive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemUpdateManagerStatics, ISystemUpdateManagerStatics_Vtbl, 0xb2d3fcef_2971_51be_b41a_8bd703bb701a);
+windows_core::imp::define_interface!(ISystemUpdateManagerStatics, ISystemUpdateManagerStatics_Vtbl, 0xb2d3fcef_2971_51be_b41a_8bd703bb701a, inspectable);
 impl windows_core::RuntimeType for ISystemUpdateManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Update.ISystemUpdateManagerStatics");
@@ -140,6 +140,7 @@ impl windows_core::RuntimeType for SystemUpdateItem {
 unsafe impl windows_core::Interface for SystemUpdateItem {
     type Vtable = <ISystemUpdateItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemUpdateItem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SystemUpdateItem {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateItem";
@@ -197,6 +198,7 @@ impl windows_core::RuntimeType for SystemUpdateLastErrorInfo {
 unsafe impl windows_core::Interface for SystemUpdateLastErrorInfo {
     type Vtable = <ISystemUpdateLastErrorInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemUpdateLastErrorInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SystemUpdateLastErrorInfo {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateLastErrorInfo";

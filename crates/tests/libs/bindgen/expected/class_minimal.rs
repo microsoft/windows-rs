@@ -99,6 +99,7 @@ impl windows_core::RuntimeType for Class {
 unsafe impl windows_core::Interface for Class {
     type Vtable = <IClass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClass as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for Class {
     type Target = IClass;
@@ -109,7 +110,12 @@ impl core::ops::Deref for Class {
 impl windows_core::RuntimeName for Class {
     const NAME: &'static str = "Test.Class";
 }
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x327dfd65_5684_57ee_85ab_168eff31a838);
+windows_core::imp::define_interface!(
+    IClass,
+    IClass_Vtbl,
+    0x327dfd65_5684_57ee_85ab_168eff31a838,
+    inspectable
+);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -165,7 +171,8 @@ pub struct IClass_Vtbl {
 windows_core::imp::define_interface!(
     IClassStatics,
     IClassStatics_Vtbl,
-    0xe859dd18_1e99_5da7_a6b0_bbb6011bd19d
+    0xe859dd18_1e99_5da7_a6b0_bbb6011bd19d,
+    inspectable
 );
 impl windows_core::RuntimeType for IClassStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =

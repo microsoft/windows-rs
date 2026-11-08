@@ -2,7 +2,7 @@
 pub mod Core;
 #[cfg(feature = "Security_Authentication_Web_Provider")]
 pub mod Provider;
-windows_core::imp::define_interface!(IWebAuthenticationBrokerStatics, IWebAuthenticationBrokerStatics_Vtbl, 0x2f149f1a_e673_40b5_bc22_201a6864a37b);
+windows_core::imp::define_interface!(IWebAuthenticationBrokerStatics, IWebAuthenticationBrokerStatics_Vtbl, 0x2f149f1a_e673_40b5_bc22_201a6864a37b, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationBrokerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.IWebAuthenticationBrokerStatics");
@@ -15,7 +15,7 @@ pub struct IWebAuthenticationBrokerStatics_Vtbl {
     pub AuthenticateWithoutCallbackUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, WebAuthenticationOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCurrentApplicationCallbackUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAuthenticationBrokerStatics2, IWebAuthenticationBrokerStatics2_Vtbl, 0x73cdfb9e_14e7_41da_a971_aaf4410b621e);
+windows_core::imp::define_interface!(IWebAuthenticationBrokerStatics2, IWebAuthenticationBrokerStatics2_Vtbl, 0x73cdfb9e_14e7_41da_a971_aaf4410b621e, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationBrokerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.IWebAuthenticationBrokerStatics2");
@@ -33,7 +33,7 @@ pub struct IWebAuthenticationBrokerStatics2_Vtbl {
     pub AuthenticateSilentlyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AuthenticateSilentlyWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WebAuthenticationOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAuthenticationResult, IWebAuthenticationResult_Vtbl, 0x64002b4b_ede9_470a_a5cd_0323faf6e262);
+windows_core::imp::define_interface!(IWebAuthenticationResult, IWebAuthenticationResult_Vtbl, 0x64002b4b_ede9_470a_a5cd_0323faf6e262, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.IWebAuthenticationResult");
@@ -220,6 +220,7 @@ impl windows_core::RuntimeType for WebAuthenticationResult {
 unsafe impl windows_core::Interface for WebAuthenticationResult {
     type Vtable = <IWebAuthenticationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAuthenticationResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebAuthenticationResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.WebAuthenticationResult";

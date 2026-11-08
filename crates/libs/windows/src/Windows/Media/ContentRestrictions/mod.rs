@@ -44,13 +44,14 @@ impl windows_core::RuntimeType for ContentRestrictionsBrowsePolicy {
 unsafe impl windows_core::Interface for ContentRestrictionsBrowsePolicy {
     type Vtable = <IContentRestrictionsBrowsePolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContentRestrictionsBrowsePolicy as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContentRestrictionsBrowsePolicy {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
 }
 unsafe impl Send for ContentRestrictionsBrowsePolicy {}
 unsafe impl Sync for ContentRestrictionsBrowsePolicy {}
-windows_core::imp::define_interface!(IContentRestrictionsBrowsePolicy, IContentRestrictionsBrowsePolicy_Vtbl, 0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
+windows_core::imp::define_interface!(IContentRestrictionsBrowsePolicy, IContentRestrictionsBrowsePolicy_Vtbl, 0x8c0133a4_442e_461a_8757_fad2f5bd37e4, inspectable);
 impl windows_core::RuntimeType for IContentRestrictionsBrowsePolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy");
@@ -63,7 +64,7 @@ pub struct IContentRestrictionsBrowsePolicy_Vtbl {
     pub MaxBrowsableAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PreferredAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRatedContentDescription, IRatedContentDescription_Vtbl, 0x694866df_66b2_4dc3_96b1_f090eedee255);
+windows_core::imp::define_interface!(IRatedContentDescription, IRatedContentDescription_Vtbl, 0x694866df_66b2_4dc3_96b1_f090eedee255, inspectable);
 impl windows_core::RuntimeType for IRatedContentDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.IRatedContentDescription");
@@ -89,7 +90,7 @@ pub struct IRatedContentDescription_Vtbl {
     pub Ratings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRatings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRatedContentDescriptionFactory, IRatedContentDescriptionFactory_Vtbl, 0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
+windows_core::imp::define_interface!(IRatedContentDescriptionFactory, IRatedContentDescriptionFactory_Vtbl, 0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573, inspectable);
 impl windows_core::RuntimeType for IRatedContentDescriptionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.IRatedContentDescriptionFactory");
@@ -100,7 +101,7 @@ pub struct IRatedContentDescriptionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, RatedContentCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRatedContentRestrictions, IRatedContentRestrictions_Vtbl, 0x3f7f23cb_ba07_4401_a49d_8b9222205723);
+windows_core::imp::define_interface!(IRatedContentRestrictions, IRatedContentRestrictions_Vtbl, 0x3f7f23cb_ba07_4401_a49d_8b9222205723, inspectable);
 impl windows_core::RuntimeType for IRatedContentRestrictions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.IRatedContentRestrictions");
@@ -115,7 +116,7 @@ pub struct IRatedContentRestrictions_Vtbl {
     pub RestrictionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRestrictionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRatedContentRestrictionsFactory, IRatedContentRestrictionsFactory_Vtbl, 0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
+windows_core::imp::define_interface!(IRatedContentRestrictionsFactory, IRatedContentRestrictionsFactory_Vtbl, 0xfb4b2996_c3bd_4910_9619_97cfd0694d56, inspectable);
 impl windows_core::RuntimeType for IRatedContentRestrictionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.IRatedContentRestrictionsFactory");
@@ -219,6 +220,7 @@ impl windows_core::RuntimeType for RatedContentDescription {
 unsafe impl windows_core::Interface for RatedContentDescription {
     type Vtable = <IRatedContentDescription as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRatedContentDescription as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RatedContentDescription {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentDescription";
@@ -292,6 +294,7 @@ impl windows_core::RuntimeType for RatedContentRestrictions {
 unsafe impl windows_core::Interface for RatedContentRestrictions {
     type Vtable = <IRatedContentRestrictions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRatedContentRestrictions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RatedContentRestrictions {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentRestrictions";

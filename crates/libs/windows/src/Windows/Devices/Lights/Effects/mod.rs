@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ILampArrayBitmapEffect, ILampArrayBitmapEffect_Vtbl, 0x3238e065_d877_4627_89e5_2a88f7052fa6);
+windows_core::imp::define_interface!(ILampArrayBitmapEffect, ILampArrayBitmapEffect_Vtbl, 0x3238e065_d877_4627_89e5_2a88f7052fa6, inspectable);
 impl windows_core::RuntimeType for ILampArrayBitmapEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayBitmapEffect");
@@ -17,7 +17,7 @@ pub struct ILampArrayBitmapEffect_Vtbl {
     pub BitmapRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveBitmapRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayBitmapEffectFactory, ILampArrayBitmapEffectFactory_Vtbl, 0x13608090_e336_4c8f_9053_a92407ca7b1d);
+windows_core::imp::define_interface!(ILampArrayBitmapEffectFactory, ILampArrayBitmapEffectFactory_Vtbl, 0x13608090_e336_4c8f_9053_a92407ca7b1d, inspectable);
 impl windows_core::RuntimeType for ILampArrayBitmapEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayBitmapEffectFactory");
@@ -28,7 +28,7 @@ pub struct ILampArrayBitmapEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayBitmapRequestedEventArgs, ILampArrayBitmapRequestedEventArgs_Vtbl, 0xc8b4af9e_fe63_4d51_babd_619defb454ba);
+windows_core::imp::define_interface!(ILampArrayBitmapRequestedEventArgs, ILampArrayBitmapRequestedEventArgs_Vtbl, 0xc8b4af9e_fe63_4d51_babd_619defb454ba, inspectable);
 impl windows_core::RuntimeType for ILampArrayBitmapRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayBitmapRequestedEventArgs");
@@ -43,7 +43,7 @@ pub struct ILampArrayBitmapRequestedEventArgs_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     UpdateBitmap: usize,
 }
-windows_core::imp::define_interface!(ILampArrayBlinkEffect, ILampArrayBlinkEffect_Vtbl, 0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
+windows_core::imp::define_interface!(ILampArrayBlinkEffect, ILampArrayBlinkEffect_Vtbl, 0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13, inspectable);
 impl windows_core::RuntimeType for ILampArrayBlinkEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayBlinkEffect");
@@ -75,7 +75,7 @@ pub struct ILampArrayBlinkEffect_Vtbl {
     pub RepetitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampArrayRepetitionMode) -> windows_core::HRESULT,
     pub SetRepetitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, LampArrayRepetitionMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayBlinkEffectFactory, ILampArrayBlinkEffectFactory_Vtbl, 0x879f1d97_9f50_49b2_a56f_013aa08d55e0);
+windows_core::imp::define_interface!(ILampArrayBlinkEffectFactory, ILampArrayBlinkEffectFactory_Vtbl, 0x879f1d97_9f50_49b2_a56f_013aa08d55e0, inspectable);
 impl windows_core::RuntimeType for ILampArrayBlinkEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayBlinkEffectFactory");
@@ -86,7 +86,7 @@ pub struct ILampArrayBlinkEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayColorRampEffect, ILampArrayColorRampEffect_Vtbl, 0x2b004437_40a7_432e_a0b9_0d570c2153ff);
+windows_core::imp::define_interface!(ILampArrayColorRampEffect, ILampArrayColorRampEffect_Vtbl, 0x2b004437_40a7_432e_a0b9_0d570c2153ff, inspectable);
 impl windows_core::RuntimeType for ILampArrayColorRampEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayColorRampEffect");
@@ -110,7 +110,7 @@ pub struct ILampArrayColorRampEffect_Vtbl {
     pub CompletionBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampArrayEffectCompletionBehavior) -> windows_core::HRESULT,
     pub SetCompletionBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, LampArrayEffectCompletionBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayColorRampEffectFactory, ILampArrayColorRampEffectFactory_Vtbl, 0x520bd133_0c74_4df5_bea7_4899e0266b0f);
+windows_core::imp::define_interface!(ILampArrayColorRampEffectFactory, ILampArrayColorRampEffectFactory_Vtbl, 0x520bd133_0c74_4df5_bea7_4899e0266b0f, inspectable);
 impl windows_core::RuntimeType for ILampArrayColorRampEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayColorRampEffectFactory");
@@ -121,7 +121,7 @@ pub struct ILampArrayColorRampEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayCustomEffect, ILampArrayCustomEffect_Vtbl, 0xec579170_3c34_4876_818b_5765f78b0ee4);
+windows_core::imp::define_interface!(ILampArrayCustomEffect, ILampArrayCustomEffect_Vtbl, 0xec579170_3c34_4876_818b_5765f78b0ee4, inspectable);
 impl windows_core::RuntimeType for ILampArrayCustomEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayCustomEffect");
@@ -137,7 +137,7 @@ pub struct ILampArrayCustomEffect_Vtbl {
     pub UpdateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveUpdateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayCustomEffectFactory, ILampArrayCustomEffectFactory_Vtbl, 0x68b4774d_63e5_4af0_a58b_3e535b94e8c9);
+windows_core::imp::define_interface!(ILampArrayCustomEffectFactory, ILampArrayCustomEffectFactory_Vtbl, 0x68b4774d_63e5_4af0_a58b_3e535b94e8c9, inspectable);
 impl windows_core::RuntimeType for ILampArrayCustomEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayCustomEffectFactory");
@@ -148,7 +148,7 @@ pub struct ILampArrayCustomEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayEffect, ILampArrayEffect_Vtbl, 0x11d45590_57fb_4546_b1ce_863107f740df);
+windows_core::imp::define_interface!(ILampArrayEffect, ILampArrayEffect_Vtbl, 0x11d45590_57fb_4546_b1ce_863107f740df, inspectable);
 impl windows_core::RuntimeType for ILampArrayEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayEffect");
@@ -195,11 +195,7 @@ impl ILampArrayEffect_Vtbl {
                 ILampArrayEffect_Impl::SetZIndex(this, value).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ILampArrayEffect, OFFSET>(),
-            ZIndex: ZIndex::<Identity, OFFSET>,
-            SetZIndex: SetZIndex::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ZIndex: ZIndex::<Identity, OFFSET>, SetZIndex: SetZIndex::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILampArrayEffect as windows_core::Interface>::IID
@@ -212,7 +208,7 @@ pub struct ILampArrayEffect_Vtbl {
     pub ZIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetZIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayEffectPlaylist, ILampArrayEffectPlaylist_Vtbl, 0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
+windows_core::imp::define_interface!(ILampArrayEffectPlaylist, ILampArrayEffectPlaylist_Vtbl, 0x7de58bfe_6f61_4103_98c7_d6632f7b9169, inspectable);
 impl windows_core::RuntimeType for ILampArrayEffectPlaylist {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayEffectPlaylist");
@@ -233,7 +229,7 @@ pub struct ILampArrayEffectPlaylist_Vtbl {
     pub RepetitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampArrayRepetitionMode) -> windows_core::HRESULT,
     pub SetRepetitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, LampArrayRepetitionMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayEffectPlaylistStatics, ILampArrayEffectPlaylistStatics_Vtbl, 0xfb15235c_ea35_4c7f_a016_f3bfc6a6c47d);
+windows_core::imp::define_interface!(ILampArrayEffectPlaylistStatics, ILampArrayEffectPlaylistStatics_Vtbl, 0xfb15235c_ea35_4c7f_a016_f3bfc6a6c47d, inspectable);
 impl windows_core::RuntimeType for ILampArrayEffectPlaylistStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayEffectPlaylistStatics");
@@ -246,7 +242,7 @@ pub struct ILampArrayEffectPlaylistStatics_Vtbl {
     pub StopAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PauseAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArraySolidEffect, ILampArraySolidEffect_Vtbl, 0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
+windows_core::imp::define_interface!(ILampArraySolidEffect, ILampArraySolidEffect_Vtbl, 0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed, inspectable);
 impl windows_core::RuntimeType for ILampArraySolidEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArraySolidEffect");
@@ -270,7 +266,7 @@ pub struct ILampArraySolidEffect_Vtbl {
     pub CompletionBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampArrayEffectCompletionBehavior) -> windows_core::HRESULT,
     pub SetCompletionBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, LampArrayEffectCompletionBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArraySolidEffectFactory, ILampArraySolidEffectFactory_Vtbl, 0xf862a32c_5576_4341_961b_aee1f13cf9dd);
+windows_core::imp::define_interface!(ILampArraySolidEffectFactory, ILampArraySolidEffectFactory_Vtbl, 0xf862a32c_5576_4341_961b_aee1f13cf9dd, inspectable);
 impl windows_core::RuntimeType for ILampArraySolidEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArraySolidEffectFactory");
@@ -281,7 +277,7 @@ pub struct ILampArraySolidEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayUpdateRequestedEventArgs, ILampArrayUpdateRequestedEventArgs_Vtbl, 0x73560d6a_576a_48af_8539_67ffa0ab3516);
+windows_core::imp::define_interface!(ILampArrayUpdateRequestedEventArgs, ILampArrayUpdateRequestedEventArgs_Vtbl, 0x73560d6a_576a_48af_8539_67ffa0ab3516, inspectable);
 impl windows_core::RuntimeType for ILampArrayUpdateRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayUpdateRequestedEventArgs");
@@ -392,6 +388,7 @@ impl windows_core::RuntimeType for LampArrayBitmapEffect {
 unsafe impl windows_core::Interface for LampArrayBitmapEffect {
     type Vtable = <ILampArrayBitmapEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayBitmapEffect as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LampArrayBitmapEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapEffect";
@@ -423,6 +420,7 @@ impl windows_core::RuntimeType for LampArrayBitmapRequestedEventArgs {
 unsafe impl windows_core::Interface for LampArrayBitmapRequestedEventArgs {
     type Vtable = <ILampArrayBitmapRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayBitmapRequestedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LampArrayBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs";
@@ -540,6 +538,7 @@ impl windows_core::RuntimeType for LampArrayBlinkEffect {
 unsafe impl windows_core::Interface for LampArrayBlinkEffect {
     type Vtable = <ILampArrayBlinkEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayBlinkEffect as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LampArrayBlinkEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBlinkEffect";
@@ -621,6 +620,7 @@ impl windows_core::RuntimeType for LampArrayColorRampEffect {
 unsafe impl windows_core::Interface for LampArrayColorRampEffect {
     type Vtable = <ILampArrayColorRampEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayColorRampEffect as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LampArrayColorRampEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayColorRampEffect";
@@ -696,6 +696,7 @@ impl windows_core::RuntimeType for LampArrayCustomEffect {
 unsafe impl windows_core::Interface for LampArrayCustomEffect {
     type Vtable = <ILampArrayCustomEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayCustomEffect as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LampArrayCustomEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayCustomEffect";
@@ -844,6 +845,7 @@ impl windows_core::RuntimeType for LampArrayEffectPlaylist {
 unsafe impl windows_core::Interface for LampArrayEffectPlaylist {
     type Vtable = <ILampArrayEffectPlaylist as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayEffectPlaylist as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LampArrayEffectPlaylist {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayEffectPlaylist";
@@ -967,6 +969,7 @@ impl windows_core::RuntimeType for LampArraySolidEffect {
 unsafe impl windows_core::Interface for LampArraySolidEffect {
     type Vtable = <ILampArraySolidEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArraySolidEffect as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LampArraySolidEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArraySolidEffect";
@@ -1007,6 +1010,7 @@ impl windows_core::RuntimeType for LampArrayUpdateRequestedEventArgs {
 unsafe impl windows_core::Interface for LampArrayUpdateRequestedEventArgs {
     type Vtable = <ILampArrayUpdateRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayUpdateRequestedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LampArrayUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs";

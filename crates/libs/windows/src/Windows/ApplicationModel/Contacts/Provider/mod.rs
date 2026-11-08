@@ -86,6 +86,7 @@ impl windows_core::RuntimeType for ContactPickerUI {
 unsafe impl windows_core::Interface for ContactPickerUI {
     type Vtable = <IContactPickerUI as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPickerUI as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContactPickerUI {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactPickerUI";
@@ -108,11 +109,12 @@ impl windows_core::RuntimeType for ContactRemovedEventArgs {
 unsafe impl windows_core::Interface for ContactRemovedEventArgs {
     type Vtable = <IContactRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactRemovedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContactRemovedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs";
 }
-windows_core::imp::define_interface!(IContactPickerUI, IContactPickerUI_Vtbl, 0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
+windows_core::imp::define_interface!(IContactPickerUI, IContactPickerUI_Vtbl, 0xe2cc1366_cf66_43c4_a96a_a5a112db4746, inspectable);
 impl windows_core::RuntimeType for IContactPickerUI {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.Provider.IContactPickerUI");
@@ -129,7 +131,7 @@ pub struct IContactPickerUI_Vtbl {
     pub ContactRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveContactRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContactPickerUI2, IContactPickerUI2_Vtbl, 0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
+windows_core::imp::define_interface!(IContactPickerUI2, IContactPickerUI2_Vtbl, 0x6e449e28_7b25_4999_9b0b_875400a1e8c8, inspectable);
 impl windows_core::RuntimeType for IContactPickerUI2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.Provider.IContactPickerUI2");
@@ -141,7 +143,7 @@ pub struct IContactPickerUI2_Vtbl {
     pub AddContact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut AddContactResult) -> windows_core::HRESULT,
     pub DesiredFieldsWithContactFieldType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContactProvider, IContactProvider_Vtbl, 0xc44bb54b_732f_5004_8cd7_65d90cf25f42);
+windows_core::imp::define_interface!(IContactProvider, IContactProvider_Vtbl, 0xc44bb54b_732f_5004_8cd7_65d90cf25f42, inspectable);
 impl windows_core::RuntimeType for IContactProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.Provider.IContactProvider");
@@ -203,7 +205,7 @@ impl IContactProvider_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IContactProvider, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetContactFromRemoteIdAsync: GetContactFromRemoteIdAsync::<Identity, OFFSET>,
             ContactListId: ContactListId::<Identity, OFFSET>,
         }
@@ -219,7 +221,7 @@ pub struct IContactProvider_Vtbl {
     pub GetContactFromRemoteIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ContactListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContactRemovedEventArgs, IContactRemovedEventArgs_Vtbl, 0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
+windows_core::imp::define_interface!(IContactRemovedEventArgs, IContactRemovedEventArgs_Vtbl, 0x6f354338_3302_4d13_ad8d_adcc0ff9e47c, inspectable);
 impl windows_core::RuntimeType for IContactRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.Provider.IContactRemovedEventArgs");

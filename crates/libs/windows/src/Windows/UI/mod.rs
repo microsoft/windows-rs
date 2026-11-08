@@ -71,6 +71,7 @@ impl windows_core::RuntimeType for ColorHelper {
 unsafe impl windows_core::Interface for ColorHelper {
     type Vtable = <IColorHelper as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IColorHelper as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ColorHelper {
     const NAME: &'static str = "Windows.UI.ColorHelper";
@@ -939,13 +940,14 @@ impl windows_core::RuntimeType for Colors {
 unsafe impl windows_core::Interface for Colors {
     type Vtable = <IColors as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IColors as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Colors {
     const NAME: &'static str = "Windows.UI.Colors";
 }
 unsafe impl Send for Colors {}
 unsafe impl Sync for Colors {}
-windows_core::imp::define_interface!(IColorHelper, IColorHelper_Vtbl, 0x193cfbe7_65c7_4540_ad08_6283ba76879a);
+windows_core::imp::define_interface!(IColorHelper, IColorHelper_Vtbl, 0x193cfbe7_65c7_4540_ad08_6283ba76879a, inspectable);
 impl windows_core::RuntimeType for IColorHelper {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IColorHelper");
@@ -955,7 +957,7 @@ impl windows_core::RuntimeType for IColorHelper {
 pub struct IColorHelper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IColorHelperStatics, IColorHelperStatics_Vtbl, 0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
+windows_core::imp::define_interface!(IColorHelperStatics, IColorHelperStatics_Vtbl, 0x8504dbea_fb6a_4144_a6c2_33499c9284f5, inspectable);
 impl windows_core::RuntimeType for IColorHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IColorHelperStatics");
@@ -966,7 +968,7 @@ pub struct IColorHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromArgb: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, u8, u8, *mut Color) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IColorHelperStatics2, IColorHelperStatics2_Vtbl, 0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
+windows_core::imp::define_interface!(IColorHelperStatics2, IColorHelperStatics2_Vtbl, 0x24d9af02_6eb0_4b94_855c_fcf0818d9a16, inspectable);
 impl windows_core::RuntimeType for IColorHelperStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IColorHelperStatics2");
@@ -977,7 +979,7 @@ pub struct IColorHelperStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, Color, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IColors, IColors_Vtbl, 0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
+windows_core::imp::define_interface!(IColors, IColors_Vtbl, 0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc, inspectable);
 impl windows_core::RuntimeType for IColors {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IColors");
@@ -987,7 +989,7 @@ impl windows_core::RuntimeType for IColors {
 pub struct IColors_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IColorsStatics, IColorsStatics_Vtbl, 0xcff52e04_cca6_4614_a17e_754910c84a99);
+windows_core::imp::define_interface!(IColorsStatics, IColorsStatics_Vtbl, 0xcff52e04_cca6_4614_a17e_754910c84a99, inspectable);
 impl windows_core::RuntimeType for IColorsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IColorsStatics");
@@ -1138,7 +1140,7 @@ pub struct IColorsStatics_Vtbl {
     pub Yellow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Color) -> windows_core::HRESULT,
     pub YellowGreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Color) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUIContentRoot, IUIContentRoot_Vtbl, 0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
+windows_core::imp::define_interface!(IUIContentRoot, IUIContentRoot_Vtbl, 0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378, inspectable);
 impl windows_core::RuntimeType for IUIContentRoot {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IUIContentRoot");
@@ -1149,7 +1151,7 @@ pub struct IUIContentRoot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UIContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUIContext, IUIContext_Vtbl, 0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
+windows_core::imp::define_interface!(IUIContext, IUIContext_Vtbl, 0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243, inspectable);
 impl windows_core::RuntimeType for IUIContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IUIContext");
@@ -1177,6 +1179,7 @@ impl windows_core::RuntimeType for UIContentRoot {
 unsafe impl windows_core::Interface for UIContentRoot {
     type Vtable = <IUIContentRoot as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUIContentRoot as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UIContentRoot {
     const NAME: &'static str = "Windows.UI.UIContentRoot";
@@ -1193,6 +1196,7 @@ impl windows_core::RuntimeType for UIContext {
 unsafe impl windows_core::Interface for UIContext {
     type Vtable = <IUIContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUIContext as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UIContext {
     const NAME: &'static str = "Windows.UI.UIContext";

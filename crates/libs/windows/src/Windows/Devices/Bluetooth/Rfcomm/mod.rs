@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IRfcommDeviceService, IRfcommDeviceService_Vtbl, 0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
+windows_core::imp::define_interface!(IRfcommDeviceService, IRfcommDeviceService_Vtbl, 0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3, inspectable);
 impl windows_core::RuntimeType for IRfcommDeviceService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService");
@@ -30,7 +30,7 @@ pub struct IRfcommDeviceService_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetSdpRawAttributesWithCacheModeAsync: usize,
 }
-windows_core::imp::define_interface!(IRfcommDeviceService2, IRfcommDeviceService2_Vtbl, 0x536ced14_ebcd_49fe_bf9f_40efc689b20d);
+windows_core::imp::define_interface!(IRfcommDeviceService2, IRfcommDeviceService2_Vtbl, 0x536ced14_ebcd_49fe_bf9f_40efc689b20d, inspectable);
 impl windows_core::RuntimeType for IRfcommDeviceService2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService2");
@@ -41,7 +41,7 @@ pub struct IRfcommDeviceService2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommDeviceService3, IRfcommDeviceService3_Vtbl, 0x1c22ace6_dd44_4d23_866d_8f3486ee6490);
+windows_core::imp::define_interface!(IRfcommDeviceService3, IRfcommDeviceService3_Vtbl, 0x1c22ace6_dd44_4d23_866d_8f3486ee6490, inspectable);
 impl windows_core::RuntimeType for IRfcommDeviceService3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService3");
@@ -59,7 +59,7 @@ pub struct IRfcommDeviceService3_Vtbl {
     #[cfg(not(feature = "Devices_Enumeration"))]
     RequestAccessAsync: usize,
 }
-windows_core::imp::define_interface!(IRfcommDeviceServiceStatics, IRfcommDeviceServiceStatics_Vtbl, 0xa4a149ef_626d_41ac_b253_87ac5c27e28a);
+windows_core::imp::define_interface!(IRfcommDeviceServiceStatics, IRfcommDeviceServiceStatics_Vtbl, 0xa4a149ef_626d_41ac_b253_87ac5c27e28a, inspectable);
 impl windows_core::RuntimeType for IRfcommDeviceServiceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics");
@@ -71,7 +71,7 @@ pub struct IRfcommDeviceServiceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommDeviceServiceStatics2, IRfcommDeviceServiceStatics2_Vtbl, 0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f);
+windows_core::imp::define_interface!(IRfcommDeviceServiceStatics2, IRfcommDeviceServiceStatics2_Vtbl, 0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f, inspectable);
 impl windows_core::RuntimeType for IRfcommDeviceServiceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics2");
@@ -85,7 +85,7 @@ pub struct IRfcommDeviceServiceStatics2_Vtbl {
     pub GetDeviceSelectorForBluetoothDeviceAndServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommDeviceServicesResult, IRfcommDeviceServicesResult_Vtbl, 0x3b48388c_7ccf_488e_9625_d259a5732d55);
+windows_core::imp::define_interface!(IRfcommDeviceServicesResult, IRfcommDeviceServicesResult_Vtbl, 0x3b48388c_7ccf_488e_9625_d259a5732d55, inspectable);
 impl windows_core::RuntimeType for IRfcommDeviceServicesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServicesResult");
@@ -97,7 +97,7 @@ pub struct IRfcommDeviceServicesResult_Vtbl {
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
     pub Services: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommServiceId, IRfcommServiceId_Vtbl, 0x22629204_7e02_4017_8136_da1b6a1b9bbf);
+windows_core::imp::define_interface!(IRfcommServiceId, IRfcommServiceId_Vtbl, 0x22629204_7e02_4017_8136_da1b6a1b9bbf, inspectable);
 impl windows_core::RuntimeType for IRfcommServiceId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId");
@@ -110,7 +110,7 @@ pub struct IRfcommServiceId_Vtbl {
     pub AsShortId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub AsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommServiceIdStatics, IRfcommServiceIdStatics_Vtbl, 0x2a179eba_a975_46e3_b56b_08ffd783a5fe);
+windows_core::imp::define_interface!(IRfcommServiceIdStatics, IRfcommServiceIdStatics_Vtbl, 0x2a179eba_a975_46e3_b56b_08ffd783a5fe, inspectable);
 impl windows_core::RuntimeType for IRfcommServiceIdStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceIdStatics");
@@ -128,7 +128,7 @@ pub struct IRfcommServiceIdStatics_Vtbl {
     pub PhoneBookAccessPse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GenericFileTransfer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommServiceProvider, IRfcommServiceProvider_Vtbl, 0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
+windows_core::imp::define_interface!(IRfcommServiceProvider, IRfcommServiceProvider_Vtbl, 0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821, inspectable);
 impl windows_core::RuntimeType for IRfcommServiceProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceProvider");
@@ -148,7 +148,7 @@ pub struct IRfcommServiceProvider_Vtbl {
     StartAdvertising: usize,
     pub StopAdvertising: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommServiceProvider2, IRfcommServiceProvider2_Vtbl, 0x736bdfc6_3c81_4d1e_baf2_ddbb81284512);
+windows_core::imp::define_interface!(IRfcommServiceProvider2, IRfcommServiceProvider2_Vtbl, 0x736bdfc6_3c81_4d1e_baf2_ddbb81284512, inspectable);
 impl windows_core::RuntimeType for IRfcommServiceProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceProvider2");
@@ -162,7 +162,7 @@ pub struct IRfcommServiceProvider2_Vtbl {
     #[cfg(not(feature = "Networking_Sockets"))]
     StartAdvertisingWithRadioDiscoverability: usize,
 }
-windows_core::imp::define_interface!(IRfcommServiceProviderStatics, IRfcommServiceProviderStatics_Vtbl, 0x98888303_69ca_413a_84f7_4344c7292997);
+windows_core::imp::define_interface!(IRfcommServiceProviderStatics, IRfcommServiceProviderStatics_Vtbl, 0x98888303_69ca_413a_84f7_4344c7292997, inspectable);
 impl windows_core::RuntimeType for IRfcommServiceProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceProviderStatics");
@@ -321,6 +321,7 @@ impl windows_core::RuntimeType for RfcommDeviceService {
 unsafe impl windows_core::Interface for RfcommDeviceService {
     type Vtable = <IRfcommDeviceService as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommDeviceService as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RfcommDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService";
@@ -351,6 +352,7 @@ impl windows_core::RuntimeType for RfcommDeviceServicesResult {
 unsafe impl windows_core::Interface for RfcommDeviceServicesResult {
     type Vtable = <IRfcommDeviceServicesResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommDeviceServicesResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RfcommDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult";
@@ -439,6 +441,7 @@ impl windows_core::RuntimeType for RfcommServiceId {
 unsafe impl windows_core::Interface for RfcommServiceId {
     type Vtable = <IRfcommServiceId as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommServiceId as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RfcommServiceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId";
@@ -501,6 +504,7 @@ impl windows_core::RuntimeType for RfcommServiceProvider {
 unsafe impl windows_core::Interface for RfcommServiceProvider {
     type Vtable = <IRfcommServiceProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommServiceProvider as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RfcommServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider";

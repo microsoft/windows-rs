@@ -207,7 +207,7 @@ impl ForegroundEnergyManager {
 impl windows_core::RuntimeName for ForegroundEnergyManager {
     const NAME: &'static str = "Windows.System.Power.ForegroundEnergyManager";
 }
-windows_core::imp::define_interface!(IBackgroundEnergyManagerStatics, IBackgroundEnergyManagerStatics_Vtbl, 0xb3161d95_1180_4376_96e1_4095568147ce);
+windows_core::imp::define_interface!(IBackgroundEnergyManagerStatics, IBackgroundEnergyManagerStatics_Vtbl, 0xb3161d95_1180_4376_96e1_4095568147ce, inspectable);
 impl windows_core::RuntimeType for IBackgroundEnergyManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.IBackgroundEnergyManagerStatics");
@@ -229,7 +229,7 @@ pub struct IBackgroundEnergyManagerStatics_Vtbl {
     pub RecentEnergyUsageReturnedToLow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRecentEnergyUsageReturnedToLow: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IForegroundEnergyManagerStatics, IForegroundEnergyManagerStatics_Vtbl, 0x9ff86872_e677_4814_9a20_5337ca732b98);
+windows_core::imp::define_interface!(IForegroundEnergyManagerStatics, IForegroundEnergyManagerStatics_Vtbl, 0x9ff86872_e677_4814_9a20_5337ca732b98, inspectable);
 impl windows_core::RuntimeType for IForegroundEnergyManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.IForegroundEnergyManagerStatics");
@@ -249,7 +249,7 @@ pub struct IForegroundEnergyManagerStatics_Vtbl {
     pub RecentEnergyUsageReturnedToLow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRecentEnergyUsageReturnedToLow: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerManagerStatics, IPowerManagerStatics_Vtbl, 0x1394825d_62ce_4364_98d5_aa28c7fbd15b);
+windows_core::imp::define_interface!(IPowerManagerStatics, IPowerManagerStatics_Vtbl, 0x1394825d_62ce_4364_98d5_aa28c7fbd15b, inspectable);
 impl windows_core::RuntimeType for IPowerManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.IPowerManagerStatics");
@@ -274,7 +274,7 @@ pub struct IPowerManagerStatics_Vtbl {
     pub RemainingDischargeTimeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRemainingDischargeTimeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerManagerStatics2, IPowerManagerStatics2_Vtbl, 0x67a446c3_4f2e_5d56_b2e8_7707c264745b);
+windows_core::imp::define_interface!(IPowerManagerStatics2, IPowerManagerStatics2_Vtbl, 0x67a446c3_4f2e_5d56_b2e8_7707c264745b, inspectable);
 impl windows_core::RuntimeType for IPowerManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.IPowerManagerStatics2");

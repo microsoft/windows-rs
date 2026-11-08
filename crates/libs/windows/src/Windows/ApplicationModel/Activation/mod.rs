@@ -128,6 +128,7 @@ impl windows_core::RuntimeType for AppointmentsProviderAddAppointmentActivatedEv
 unsafe impl windows_core::Interface for AppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = <IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
@@ -190,6 +191,7 @@ impl windows_core::RuntimeType for AppointmentsProviderRemoveAppointmentActivate
 unsafe impl windows_core::Interface for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = <IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
@@ -252,6 +254,7 @@ impl windows_core::RuntimeType for AppointmentsProviderReplaceAppointmentActivat
 unsafe impl windows_core::Interface for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
@@ -325,6 +328,7 @@ impl windows_core::RuntimeType for AppointmentsProviderShowAppointmentDetailsAct
 unsafe impl windows_core::Interface for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
@@ -392,6 +396,7 @@ impl windows_core::RuntimeType for AppointmentsProviderShowTimeFrameActivatedEve
 unsafe impl windows_core::Interface for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = <IAppointmentsProviderShowTimeFrameActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentsProviderShowTimeFrameActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
@@ -417,6 +422,7 @@ impl windows_core::RuntimeType for BackgroundActivatedEventArgs {
 unsafe impl windows_core::Interface for BackgroundActivatedEventArgs {
     type Vtable = <IBackgroundActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
@@ -471,6 +477,7 @@ impl windows_core::RuntimeType for BarcodeScannerPreviewActivatedEventArgs {
 unsafe impl windows_core::Interface for BarcodeScannerPreviewActivatedEventArgs {
     type Vtable = <IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
@@ -526,6 +533,7 @@ impl windows_core::RuntimeType for CachedFileUpdaterActivatedEventArgs {
 unsafe impl windows_core::Interface for CachedFileUpdaterActivatedEventArgs {
     type Vtable = <ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
@@ -578,6 +586,7 @@ impl windows_core::RuntimeType for CameraSettingsActivatedEventArgs {
 unsafe impl windows_core::Interface for CameraSettingsActivatedEventArgs {
     type Vtable = <ICameraSettingsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICameraSettingsActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
@@ -632,6 +641,7 @@ impl windows_core::RuntimeType for CommandLineActivatedEventArgs {
 unsafe impl windows_core::Interface for CommandLineActivatedEventArgs {
     type Vtable = <ICommandLineActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICommandLineActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
@@ -677,6 +687,7 @@ impl windows_core::RuntimeType for CommandLineActivationOperation {
 unsafe impl windows_core::Interface for CommandLineActivationOperation {
     type Vtable = <ICommandLineActivationOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICommandLineActivationOperation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CommandLineActivationOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivationOperation";
@@ -743,6 +754,7 @@ impl windows_core::RuntimeType for ContactCallActivatedEventArgs {
 unsafe impl windows_core::Interface for ContactCallActivatedEventArgs {
     type Vtable = <IContactCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactCallActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
@@ -804,6 +816,7 @@ impl windows_core::RuntimeType for ContactMapActivatedEventArgs {
 unsafe impl windows_core::Interface for ContactMapActivatedEventArgs {
     type Vtable = <IContactMapActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactMapActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
@@ -870,6 +883,7 @@ impl windows_core::RuntimeType for ContactMessageActivatedEventArgs {
 unsafe impl windows_core::Interface for ContactMessageActivatedEventArgs {
     type Vtable = <IContactMessageActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactMessageActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
@@ -932,6 +946,7 @@ impl windows_core::RuntimeType for ContactPanelActivatedEventArgs {
 unsafe impl windows_core::Interface for ContactPanelActivatedEventArgs {
     type Vtable = <IContactPanelActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPanelActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
@@ -979,6 +994,7 @@ impl windows_core::RuntimeType for ContactPickerActivatedEventArgs {
 unsafe impl windows_core::Interface for ContactPickerActivatedEventArgs {
     type Vtable = <IContactPickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPickerActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
@@ -1045,6 +1061,7 @@ impl windows_core::RuntimeType for ContactPostActivatedEventArgs {
 unsafe impl windows_core::Interface for ContactPostActivatedEventArgs {
     type Vtable = <IContactPostActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPostActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
@@ -1111,6 +1128,7 @@ impl windows_core::RuntimeType for ContactVideoCallActivatedEventArgs {
 unsafe impl windows_core::Interface for ContactVideoCallActivatedEventArgs {
     type Vtable = <IContactVideoCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactVideoCallActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContactVideoCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
@@ -1186,6 +1204,7 @@ impl windows_core::RuntimeType for DeviceActivatedEventArgs {
 unsafe impl windows_core::Interface for DeviceActivatedEventArgs {
     type Vtable = <IDeviceActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
@@ -1241,6 +1260,7 @@ impl windows_core::RuntimeType for DevicePairingActivatedEventArgs {
 unsafe impl windows_core::Interface for DevicePairingActivatedEventArgs {
     type Vtable = <IDevicePairingActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDevicePairingActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
@@ -1324,6 +1344,7 @@ impl windows_core::RuntimeType for DialReceiverActivatedEventArgs {
 unsafe impl windows_core::Interface for DialReceiverActivatedEventArgs {
     type Vtable = <IDialReceiverActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialReceiverActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
@@ -1415,6 +1436,7 @@ impl windows_core::RuntimeType for FileActivatedEventArgs {
 unsafe impl windows_core::Interface for FileActivatedEventArgs {
     type Vtable = <IFileActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FileActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileActivatedEventArgs";
@@ -1477,6 +1499,7 @@ impl windows_core::RuntimeType for FileOpenPickerActivatedEventArgs {
 unsafe impl windows_core::Interface for FileOpenPickerActivatedEventArgs {
     type Vtable = <IFileOpenPickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileOpenPickerActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
@@ -1540,6 +1563,7 @@ impl windows_core::RuntimeType for FileOpenPickerContinuationEventArgs {
 unsafe impl windows_core::Interface for FileOpenPickerContinuationEventArgs {
     type Vtable = <IFileOpenPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileOpenPickerContinuationEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
@@ -1609,6 +1633,7 @@ impl windows_core::RuntimeType for FileSavePickerActivatedEventArgs {
 unsafe impl windows_core::Interface for FileSavePickerActivatedEventArgs {
     type Vtable = <IFileSavePickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileSavePickerActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
@@ -1672,6 +1697,7 @@ impl windows_core::RuntimeType for FileSavePickerContinuationEventArgs {
 unsafe impl windows_core::Interface for FileSavePickerContinuationEventArgs {
     type Vtable = <IFileSavePickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileSavePickerContinuationEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
@@ -1735,13 +1761,14 @@ impl windows_core::RuntimeType for FolderPickerContinuationEventArgs {
 unsafe impl windows_core::Interface for FolderPickerContinuationEventArgs {
     type Vtable = <IFolderPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFolderPickerContinuationEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
 }
 unsafe impl Send for FolderPickerContinuationEventArgs {}
 unsafe impl Sync for FolderPickerContinuationEventArgs {}
-windows_core::imp::define_interface!(IActivatedEventArgs, IActivatedEventArgs_Vtbl, 0xcf651713_cd08_4fd8_b697_a281b6544e2e);
+windows_core::imp::define_interface!(IActivatedEventArgs, IActivatedEventArgs_Vtbl, 0xcf651713_cd08_4fd8_b697_a281b6544e2e, inspectable);
 impl windows_core::RuntimeType for IActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IActivatedEventArgs");
@@ -1824,7 +1851,7 @@ impl IActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Kind: Kind::<Identity, OFFSET>,
             PreviousExecutionState: PreviousExecutionState::<Identity, OFFSET>,
             SplashScreen: SplashScreen::<Identity, OFFSET>,
@@ -1842,7 +1869,7 @@ pub struct IActivatedEventArgs_Vtbl {
     pub PreviousExecutionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ApplicationExecutionState) -> windows_core::HRESULT,
     pub SplashScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActivatedEventArgsWithUser, IActivatedEventArgsWithUser_Vtbl, 0x1cf09b9e_9962_4936_80ff_afc8e8ae5c8c);
+windows_core::imp::define_interface!(IActivatedEventArgsWithUser, IActivatedEventArgsWithUser_Vtbl, 0x1cf09b9e_9962_4936_80ff_afc8e8ae5c8c, inspectable);
 impl windows_core::RuntimeType for IActivatedEventArgsWithUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser");
@@ -1906,7 +1933,7 @@ impl IActivatedEventArgsWithUser_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IActivatedEventArgsWithUser, OFFSET>(), User: User::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), User: User::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActivatedEventArgsWithUser as windows_core::Interface>::IID
@@ -1921,7 +1948,7 @@ pub struct IActivatedEventArgsWithUser_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IApplicationViewActivatedEventArgs, IApplicationViewActivatedEventArgs_Vtbl, 0x930cef4b_b829_40fc_88f4_8513e8a64738);
+windows_core::imp::define_interface!(IApplicationViewActivatedEventArgs, IApplicationViewActivatedEventArgs_Vtbl, 0x930cef4b_b829_40fc_88f4_8513e8a64738, inspectable);
 impl windows_core::RuntimeType for IApplicationViewActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IApplicationViewActivatedEventArgs");
@@ -1981,7 +2008,7 @@ impl IApplicationViewActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IApplicationViewActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             CurrentlyShownApplicationViewId: CurrentlyShownApplicationViewId::<Identity, OFFSET>,
         }
     }
@@ -1995,7 +2022,7 @@ pub struct IApplicationViewActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentlyShownApplicationViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderActivatedEventArgs_Vtbl, 0x3364c405_933c_4e7d_a034_500fb8dcd9f3);
+windows_core::imp::define_interface!(IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderActivatedEventArgs_Vtbl, 0x3364c405_933c_4e7d_a034_500fb8dcd9f3, inspectable);
 impl windows_core::RuntimeType for IAppointmentsProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IAppointmentsProviderActivatedEventArgs");
@@ -2055,7 +2082,7 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IAppointmentsProviderActivatedEventArgs, OFFSET>(), Verb: Verb::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Verb: Verb::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderActivatedEventArgs as windows_core::Interface>::IID
@@ -2067,7 +2094,7 @@ pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentsProviderAddAppointmentActivatedEventArgs, IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl, 0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
+windows_core::imp::define_interface!(IAppointmentsProviderAddAppointmentActivatedEventArgs, IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl, 0xa2861367_cee5_4e4d_9ed7_41c34ec18b02, inspectable);
 impl windows_core::RuntimeType for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IAppointmentsProviderAddAppointmentActivatedEventArgs");
@@ -2138,10 +2165,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAppointmentsProviderAddAppointmentActivatedEventArgs, OFFSET>(),
-            AddAppointmentOperation: AddAppointmentOperation::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), AddAppointmentOperation: AddAppointmentOperation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::IID
@@ -2156,7 +2180,7 @@ pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
     AddAppointmentOperation: usize,
 }
-windows_core::imp::define_interface!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl, 0x751f3ab8_0b8e_451c_9f15_966e699bac25);
+windows_core::imp::define_interface!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl, 0x751f3ab8_0b8e_451c_9f15_966e699bac25, inspectable);
 impl windows_core::RuntimeType for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IAppointmentsProviderRemoveAppointmentActivatedEventArgs");
@@ -2227,10 +2251,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAppointmentsProviderRemoveAppointmentActivatedEventArgs, OFFSET>(),
-            RemoveAppointmentOperation: RemoveAppointmentOperation::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), RemoveAppointmentOperation: RemoveAppointmentOperation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::IID
@@ -2245,7 +2266,7 @@ pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
     RemoveAppointmentOperation: usize,
 }
-windows_core::imp::define_interface!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl, 0x1551b7d4_a981_4067_8a62_0524e4ade121);
+windows_core::imp::define_interface!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl, 0x1551b7d4_a981_4067_8a62_0524e4ade121, inspectable);
 impl windows_core::RuntimeType for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IAppointmentsProviderReplaceAppointmentActivatedEventArgs");
@@ -2316,10 +2337,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAppointmentsProviderReplaceAppointmentActivatedEventArgs, OFFSET>(),
-            ReplaceAppointmentOperation: ReplaceAppointmentOperation::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ReplaceAppointmentOperation: ReplaceAppointmentOperation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::IID
@@ -2334,7 +2352,7 @@ pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
     ReplaceAppointmentOperation: usize,
 }
-windows_core::imp::define_interface!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl, 0x3958f065_9841_4ca5_999b_885198b9ef2a);
+windows_core::imp::define_interface!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl, 0x3958f065_9841_4ca5_999b_885198b9ef2a, inspectable);
 impl windows_core::RuntimeType for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs");
@@ -2448,7 +2466,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             InstanceStartDate: InstanceStartDate::<Identity, OFFSET>,
             LocalId: LocalId::<Identity, OFFSET>,
             RoamingId: RoamingId::<Identity, OFFSET>,
@@ -2466,7 +2484,7 @@ pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
     pub LocalId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RoamingId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl, 0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
+windows_core::imp::define_interface!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl, 0x9baeaba6_0e0b_49aa_babc_12b1dc774986, inspectable);
 impl windows_core::RuntimeType for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IAppointmentsProviderShowTimeFrameActivatedEventArgs");
@@ -2555,7 +2573,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAppointmentsProviderShowTimeFrameActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             TimeToShow: TimeToShow::<Identity, OFFSET>,
             Duration: Duration::<Identity, OFFSET>,
         }
@@ -2571,7 +2589,7 @@ pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
     pub TimeToShow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundActivatedEventArgs, IBackgroundActivatedEventArgs_Vtbl, 0xab14bee0_e760_440e_a91c_44796de3a92d);
+windows_core::imp::define_interface!(IBackgroundActivatedEventArgs, IBackgroundActivatedEventArgs_Vtbl, 0xab14bee0_e760_440e_a91c_44796de3a92d, inspectable);
 impl windows_core::RuntimeType for IBackgroundActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs");
@@ -2613,10 +2631,7 @@ impl IBackgroundActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundActivatedEventArgs, OFFSET>(),
-            TaskInstance: TaskInstance::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), TaskInstance: TaskInstance::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundActivatedEventArgs as windows_core::Interface>::IID
@@ -2631,7 +2646,7 @@ pub struct IBackgroundActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Background"))]
     TaskInstance: usize,
 }
-windows_core::imp::define_interface!(IBarcodeScannerPreviewActivatedEventArgs, IBarcodeScannerPreviewActivatedEventArgs_Vtbl, 0x6772797c_99bf_4349_af22_e4123560371c);
+windows_core::imp::define_interface!(IBarcodeScannerPreviewActivatedEventArgs, IBarcodeScannerPreviewActivatedEventArgs_Vtbl, 0x6772797c_99bf_4349_af22_e4123560371c, inspectable);
 impl windows_core::RuntimeType for IBarcodeScannerPreviewActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IBarcodeScannerPreviewActivatedEventArgs");
@@ -2691,10 +2706,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IBarcodeScannerPreviewActivatedEventArgs, OFFSET>(),
-            ConnectionId: ConnectionId::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ConnectionId: ConnectionId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::IID
@@ -2706,7 +2718,7 @@ pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConnectionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICachedFileUpdaterActivatedEventArgs, ICachedFileUpdaterActivatedEventArgs_Vtbl, 0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
+windows_core::imp::define_interface!(ICachedFileUpdaterActivatedEventArgs, ICachedFileUpdaterActivatedEventArgs_Vtbl, 0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3, inspectable);
 impl windows_core::RuntimeType for ICachedFileUpdaterActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ICachedFileUpdaterActivatedEventArgs");
@@ -2770,10 +2782,7 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ICachedFileUpdaterActivatedEventArgs, OFFSET>(),
-            CachedFileUpdaterUI: CachedFileUpdaterUI::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), CachedFileUpdaterUI: CachedFileUpdaterUI::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::IID
@@ -2788,7 +2797,7 @@ pub struct ICachedFileUpdaterActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Provider"))]
     CachedFileUpdaterUI: usize,
 }
-windows_core::imp::define_interface!(ICameraSettingsActivatedEventArgs, ICameraSettingsActivatedEventArgs_Vtbl, 0xfb67a508_2dad_490a_9170_dca036eb114b);
+windows_core::imp::define_interface!(ICameraSettingsActivatedEventArgs, ICameraSettingsActivatedEventArgs_Vtbl, 0xfb67a508_2dad_490a_9170_dca036eb114b, inspectable);
 impl windows_core::RuntimeType for ICameraSettingsActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ICameraSettingsActivatedEventArgs");
@@ -2872,7 +2881,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ICameraSettingsActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             VideoDeviceController: VideoDeviceController::<Identity, OFFSET>,
             VideoDeviceExtension: VideoDeviceExtension::<Identity, OFFSET>,
         }
@@ -2888,7 +2897,7 @@ pub struct ICameraSettingsActivatedEventArgs_Vtbl {
     pub VideoDeviceController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub VideoDeviceExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICommandLineActivatedEventArgs, ICommandLineActivatedEventArgs_Vtbl, 0x4506472c_006a_48eb_8afb_d07ab25e3366);
+windows_core::imp::define_interface!(ICommandLineActivatedEventArgs, ICommandLineActivatedEventArgs_Vtbl, 0x4506472c_006a_48eb_8afb_d07ab25e3366, inspectable);
 impl windows_core::RuntimeType for ICommandLineActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ICommandLineActivatedEventArgs");
@@ -2948,7 +2957,7 @@ impl ICommandLineActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ICommandLineActivatedEventArgs, OFFSET>(), Operation: Operation::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Operation: Operation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ICommandLineActivatedEventArgs as windows_core::Interface>::IID
@@ -2960,7 +2969,7 @@ pub struct ICommandLineActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICommandLineActivationOperation, ICommandLineActivationOperation_Vtbl, 0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
+windows_core::imp::define_interface!(ICommandLineActivationOperation, ICommandLineActivationOperation_Vtbl, 0x994b2841_c59e_4f69_bcfd_b61ed4e622eb, inspectable);
 impl windows_core::RuntimeType for ICommandLineActivationOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ICommandLineActivationOperation");
@@ -2975,7 +2984,7 @@ pub struct ICommandLineActivationOperation_Vtbl {
     pub ExitCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContactActivatedEventArgs, IContactActivatedEventArgs_Vtbl, 0xd627a1c4_c025_4c41_9def_f1eafad075e7);
+windows_core::imp::define_interface!(IContactActivatedEventArgs, IContactActivatedEventArgs_Vtbl, 0xd627a1c4_c025_4c41_9def_f1eafad075e7, inspectable);
 impl windows_core::RuntimeType for IContactActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IContactActivatedEventArgs");
@@ -3035,7 +3044,7 @@ impl IContactActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IContactActivatedEventArgs, OFFSET>(), Verb: Verb::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Verb: Verb::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactActivatedEventArgs as windows_core::Interface>::IID
@@ -3047,7 +3056,7 @@ pub struct IContactActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContactCallActivatedEventArgs, IContactCallActivatedEventArgs_Vtbl, 0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
+windows_core::imp::define_interface!(IContactCallActivatedEventArgs, IContactCallActivatedEventArgs_Vtbl, 0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3, inspectable);
 impl windows_core::RuntimeType for IContactCallActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IContactCallActivatedEventArgs");
@@ -3165,7 +3174,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IContactCallActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ServiceId: ServiceId::<Identity, OFFSET>,
             ServiceUserId: ServiceUserId::<Identity, OFFSET>,
             Contact: Contact::<Identity, OFFSET>,
@@ -3186,7 +3195,7 @@ pub struct IContactCallActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-windows_core::imp::define_interface!(IContactMapActivatedEventArgs, IContactMapActivatedEventArgs_Vtbl, 0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
+windows_core::imp::define_interface!(IContactMapActivatedEventArgs, IContactMapActivatedEventArgs_Vtbl, 0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4, inspectable);
 impl windows_core::RuntimeType for IContactMapActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IContactMapActivatedEventArgs");
@@ -3281,11 +3290,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IContactMapActivatedEventArgs, OFFSET>(),
-            Address: Address::<Identity, OFFSET>,
-            Contact: Contact::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Address: Address::<Identity, OFFSET>, Contact: Contact::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactMapActivatedEventArgs as windows_core::Interface>::IID
@@ -3304,7 +3309,7 @@ pub struct IContactMapActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-windows_core::imp::define_interface!(IContactMessageActivatedEventArgs, IContactMessageActivatedEventArgs_Vtbl, 0xde598db2_0e03_43b0_bf56_bcc40b3162df);
+windows_core::imp::define_interface!(IContactMessageActivatedEventArgs, IContactMessageActivatedEventArgs_Vtbl, 0xde598db2_0e03_43b0_bf56_bcc40b3162df, inspectable);
 impl windows_core::RuntimeType for IContactMessageActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IContactMessageActivatedEventArgs");
@@ -3422,7 +3427,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IContactMessageActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ServiceId: ServiceId::<Identity, OFFSET>,
             ServiceUserId: ServiceUserId::<Identity, OFFSET>,
             Contact: Contact::<Identity, OFFSET>,
@@ -3443,7 +3448,7 @@ pub struct IContactMessageActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-windows_core::imp::define_interface!(IContactPanelActivatedEventArgs, IContactPanelActivatedEventArgs_Vtbl, 0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
+windows_core::imp::define_interface!(IContactPanelActivatedEventArgs, IContactPanelActivatedEventArgs_Vtbl, 0x52bb63e4_d3d4_4b63_8051_4af2082cab80, inspectable);
 impl windows_core::RuntimeType for IContactPanelActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IContactPanelActivatedEventArgs");
@@ -3510,7 +3515,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IContactPanelActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ContactPanel: ContactPanel::<Identity, OFFSET>,
             Contact: Contact::<Identity, OFFSET>,
         }
@@ -3532,7 +3537,7 @@ pub struct IContactPanelActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-windows_core::imp::define_interface!(IContactPickerActivatedEventArgs, IContactPickerActivatedEventArgs_Vtbl, 0xce57aae7_6449_45a7_971f_d113be7a8936);
+windows_core::imp::define_interface!(IContactPickerActivatedEventArgs, IContactPickerActivatedEventArgs_Vtbl, 0xce57aae7_6449_45a7_971f_d113be7a8936, inspectable);
 impl windows_core::RuntimeType for IContactPickerActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IContactPickerActivatedEventArgs");
@@ -3596,10 +3601,7 @@ impl IContactPickerActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IContactPickerActivatedEventArgs, OFFSET>(),
-            ContactPickerUI: ContactPickerUI::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ContactPickerUI: ContactPickerUI::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactPickerActivatedEventArgs as windows_core::Interface>::IID
@@ -3614,7 +3616,7 @@ pub struct IContactPickerActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts_Provider"))]
     ContactPickerUI: usize,
 }
-windows_core::imp::define_interface!(IContactPostActivatedEventArgs, IContactPostActivatedEventArgs_Vtbl, 0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
+windows_core::imp::define_interface!(IContactPostActivatedEventArgs, IContactPostActivatedEventArgs_Vtbl, 0xb35a3c67_f1e7_4655_ad6e_4857588f552f, inspectable);
 impl windows_core::RuntimeType for IContactPostActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IContactPostActivatedEventArgs");
@@ -3732,7 +3734,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IContactPostActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ServiceId: ServiceId::<Identity, OFFSET>,
             ServiceUserId: ServiceUserId::<Identity, OFFSET>,
             Contact: Contact::<Identity, OFFSET>,
@@ -3753,7 +3755,7 @@ pub struct IContactPostActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-windows_core::imp::define_interface!(IContactVideoCallActivatedEventArgs, IContactVideoCallActivatedEventArgs_Vtbl, 0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
+windows_core::imp::define_interface!(IContactVideoCallActivatedEventArgs, IContactVideoCallActivatedEventArgs_Vtbl, 0x61079db8_e3e7_4b4f_858d_5c63a96ef684, inspectable);
 impl windows_core::RuntimeType for IContactVideoCallActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IContactVideoCallActivatedEventArgs");
@@ -3871,7 +3873,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IContactVideoCallActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ServiceId: ServiceId::<Identity, OFFSET>,
             ServiceUserId: ServiceUserId::<Identity, OFFSET>,
             Contact: Contact::<Identity, OFFSET>,
@@ -3892,7 +3894,7 @@ pub struct IContactVideoCallActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-windows_core::imp::define_interface!(IContactsProviderActivatedEventArgs, IContactsProviderActivatedEventArgs_Vtbl, 0x4580dca8_5750_4916_aa52_c0829521eb94);
+windows_core::imp::define_interface!(IContactsProviderActivatedEventArgs, IContactsProviderActivatedEventArgs_Vtbl, 0x4580dca8_5750_4916_aa52_c0829521eb94, inspectable);
 impl windows_core::RuntimeType for IContactsProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IContactsProviderActivatedEventArgs");
@@ -3952,7 +3954,7 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IContactsProviderActivatedEventArgs, OFFSET>(), Verb: Verb::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Verb: Verb::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContactsProviderActivatedEventArgs as windows_core::Interface>::IID
@@ -3964,7 +3966,7 @@ pub struct IContactsProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContinuationActivatedEventArgs, IContinuationActivatedEventArgs_Vtbl, 0xe58106b5_155f_4a94_a742_c7e08f4e188c);
+windows_core::imp::define_interface!(IContinuationActivatedEventArgs, IContinuationActivatedEventArgs_Vtbl, 0xe58106b5_155f_4a94_a742_c7e08f4e188c, inspectable);
 impl windows_core::RuntimeType for IContinuationActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IContinuationActivatedEventArgs");
@@ -4028,10 +4030,7 @@ impl IContinuationActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IContinuationActivatedEventArgs, OFFSET>(),
-            ContinuationData: ContinuationData::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ContinuationData: ContinuationData::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IContinuationActivatedEventArgs as windows_core::Interface>::IID
@@ -4046,7 +4045,7 @@ pub struct IContinuationActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ContinuationData: usize,
 }
-windows_core::imp::define_interface!(IDeviceActivatedEventArgs, IDeviceActivatedEventArgs_Vtbl, 0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
+windows_core::imp::define_interface!(IDeviceActivatedEventArgs, IDeviceActivatedEventArgs_Vtbl, 0xcd50b9a9_ce10_44d2_8234_c355a073ef33, inspectable);
 impl windows_core::RuntimeType for IDeviceActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IDeviceActivatedEventArgs");
@@ -4130,7 +4129,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IDeviceActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             DeviceInformationId: DeviceInformationId::<Identity, OFFSET>,
             Verb: Verb::<Identity, OFFSET>,
         }
@@ -4146,7 +4145,7 @@ pub struct IDeviceActivatedEventArgs_Vtbl {
     pub DeviceInformationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDevicePairingActivatedEventArgs, IDevicePairingActivatedEventArgs_Vtbl, 0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
+windows_core::imp::define_interface!(IDevicePairingActivatedEventArgs, IDevicePairingActivatedEventArgs_Vtbl, 0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e, inspectable);
 impl windows_core::RuntimeType for IDevicePairingActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IDevicePairingActivatedEventArgs");
@@ -4210,10 +4209,7 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IDevicePairingActivatedEventArgs, OFFSET>(),
-            DeviceInformation: DeviceInformation::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), DeviceInformation: DeviceInformation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDevicePairingActivatedEventArgs as windows_core::Interface>::IID
@@ -4228,7 +4224,7 @@ pub struct IDevicePairingActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Devices_Enumeration"))]
     DeviceInformation: usize,
 }
-windows_core::imp::define_interface!(IDialReceiverActivatedEventArgs, IDialReceiverActivatedEventArgs_Vtbl, 0xfb777ed7_85ee_456e_a44d_85d730e70aed);
+windows_core::imp::define_interface!(IDialReceiverActivatedEventArgs, IDialReceiverActivatedEventArgs_Vtbl, 0xfb777ed7_85ee_456e_a44d_85d730e70aed, inspectable);
 impl windows_core::RuntimeType for IDialReceiverActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IDialReceiverActivatedEventArgs");
@@ -4302,7 +4298,7 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IDialReceiverActivatedEventArgs, OFFSET>(), AppName: AppName::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), AppName: AppName::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDialReceiverActivatedEventArgs as windows_core::Interface>::IID
@@ -4314,7 +4310,7 @@ pub struct IDialReceiverActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileActivatedEventArgs, IFileActivatedEventArgs_Vtbl, 0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
+windows_core::imp::define_interface!(IFileActivatedEventArgs, IFileActivatedEventArgs_Vtbl, 0xbb2afc33_93b1_42ed_8b26_236dd9c78496, inspectable);
 impl windows_core::RuntimeType for IFileActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IFileActivatedEventArgs");
@@ -4401,11 +4397,7 @@ impl IFileActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IFileActivatedEventArgs, OFFSET>(),
-            Files: Files::<Identity, OFFSET>,
-            Verb: Verb::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Files: Files::<Identity, OFFSET>, Verb: Verb::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileActivatedEventArgs as windows_core::Interface>::IID
@@ -4421,7 +4413,7 @@ pub struct IFileActivatedEventArgs_Vtbl {
     Files: usize,
     pub Verb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileActivatedEventArgsWithCallerPackageFamilyName, IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl, 0x2d60f06b_d25f_4d25_8653_e1c5e1108309);
+windows_core::imp::define_interface!(IFileActivatedEventArgsWithCallerPackageFamilyName, IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl, 0x2d60f06b_d25f_4d25_8653_e1c5e1108309, inspectable);
 impl windows_core::RuntimeType for IFileActivatedEventArgsWithCallerPackageFamilyName {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithCallerPackageFamilyName");
@@ -4481,10 +4473,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IFileActivatedEventArgsWithCallerPackageFamilyName, OFFSET>(),
-            CallerPackageFamilyName: CallerPackageFamilyName::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), CallerPackageFamilyName: CallerPackageFamilyName::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileActivatedEventArgsWithCallerPackageFamilyName as windows_core::Interface>::IID
@@ -4496,7 +4485,7 @@ pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileActivatedEventArgsWithNeighboringFiles, IFileActivatedEventArgsWithNeighboringFiles_Vtbl, 0x433ba1a4_e1e2_48fd_b7fc_b5d6eee65033);
+windows_core::imp::define_interface!(IFileActivatedEventArgsWithNeighboringFiles, IFileActivatedEventArgsWithNeighboringFiles_Vtbl, 0x433ba1a4_e1e2_48fd_b7fc_b5d6eee65033, inspectable);
 impl windows_core::RuntimeType for IFileActivatedEventArgsWithNeighboringFiles {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithNeighboringFiles");
@@ -4575,10 +4564,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IFileActivatedEventArgsWithNeighboringFiles, OFFSET>(),
-            NeighboringFilesQuery: NeighboringFilesQuery::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), NeighboringFilesQuery: NeighboringFilesQuery::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileActivatedEventArgsWithNeighboringFiles as windows_core::Interface>::IID
@@ -4593,7 +4579,7 @@ pub struct IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     NeighboringFilesQuery: usize,
 }
-windows_core::imp::define_interface!(IFileOpenPickerActivatedEventArgs, IFileOpenPickerActivatedEventArgs_Vtbl, 0x72827082_5525_4bf2_bc09_1f5095d4964d);
+windows_core::imp::define_interface!(IFileOpenPickerActivatedEventArgs, IFileOpenPickerActivatedEventArgs_Vtbl, 0x72827082_5525_4bf2_bc09_1f5095d4964d, inspectable);
 impl windows_core::RuntimeType for IFileOpenPickerActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs");
@@ -4657,10 +4643,7 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IFileOpenPickerActivatedEventArgs, OFFSET>(),
-            FileOpenPickerUI: FileOpenPickerUI::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), FileOpenPickerUI: FileOpenPickerUI::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileOpenPickerActivatedEventArgs as windows_core::Interface>::IID
@@ -4675,7 +4658,7 @@ pub struct IFileOpenPickerActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Pickers_Provider"))]
     FileOpenPickerUI: usize,
 }
-windows_core::imp::define_interface!(IFileOpenPickerActivatedEventArgs2, IFileOpenPickerActivatedEventArgs2_Vtbl, 0x5e731f66_8d1f_45fb_af1d_73205c8fc7a1);
+windows_core::imp::define_interface!(IFileOpenPickerActivatedEventArgs2, IFileOpenPickerActivatedEventArgs2_Vtbl, 0x5e731f66_8d1f_45fb_af1d_73205c8fc7a1, inspectable);
 impl windows_core::RuntimeType for IFileOpenPickerActivatedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs2");
@@ -4713,10 +4696,7 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IFileOpenPickerActivatedEventArgs2, OFFSET>(),
-            CallerPackageFamilyName: CallerPackageFamilyName::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), CallerPackageFamilyName: CallerPackageFamilyName::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileOpenPickerActivatedEventArgs2 as windows_core::Interface>::IID
@@ -4728,7 +4708,7 @@ pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileOpenPickerContinuationEventArgs, IFileOpenPickerContinuationEventArgs_Vtbl, 0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
+windows_core::imp::define_interface!(IFileOpenPickerContinuationEventArgs, IFileOpenPickerContinuationEventArgs_Vtbl, 0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9, inspectable);
 impl windows_core::RuntimeType for IFileOpenPickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IFileOpenPickerContinuationEventArgs");
@@ -4800,7 +4780,7 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IFileOpenPickerContinuationEventArgs, OFFSET>(), Files: Files::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Files: Files::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileOpenPickerContinuationEventArgs as windows_core::Interface>::IID
@@ -4815,7 +4795,7 @@ pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Files: usize,
 }
-windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs, IFileSavePickerActivatedEventArgs_Vtbl, 0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
+windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs, IFileSavePickerActivatedEventArgs_Vtbl, 0x81c19cf1_74e6_4387_82eb_bb8fd64b4346, inspectable);
 impl windows_core::RuntimeType for IFileSavePickerActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs");
@@ -4879,10 +4859,7 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IFileSavePickerActivatedEventArgs, OFFSET>(),
-            FileSavePickerUI: FileSavePickerUI::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), FileSavePickerUI: FileSavePickerUI::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileSavePickerActivatedEventArgs as windows_core::Interface>::IID
@@ -4897,7 +4874,7 @@ pub struct IFileSavePickerActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Pickers_Provider"))]
     FileSavePickerUI: usize,
 }
-windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs2, IFileSavePickerActivatedEventArgs2_Vtbl, 0x6b73fe13_2cf2_4d48_8cbc_af67d23f1ce7);
+windows_core::imp::define_interface!(IFileSavePickerActivatedEventArgs2, IFileSavePickerActivatedEventArgs2_Vtbl, 0x6b73fe13_2cf2_4d48_8cbc_af67d23f1ce7, inspectable);
 impl windows_core::RuntimeType for IFileSavePickerActivatedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs2");
@@ -4959,7 +4936,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IFileSavePickerActivatedEventArgs2, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             CallerPackageFamilyName: CallerPackageFamilyName::<Identity, OFFSET>,
             EnterpriseId: EnterpriseId::<Identity, OFFSET>,
         }
@@ -4975,7 +4952,7 @@ pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileSavePickerContinuationEventArgs, IFileSavePickerContinuationEventArgs_Vtbl, 0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
+windows_core::imp::define_interface!(IFileSavePickerContinuationEventArgs, IFileSavePickerContinuationEventArgs_Vtbl, 0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b, inspectable);
 impl windows_core::RuntimeType for IFileSavePickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IFileSavePickerContinuationEventArgs");
@@ -5047,7 +5024,7 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IFileSavePickerContinuationEventArgs, OFFSET>(), File: File::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), File: File::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFileSavePickerContinuationEventArgs as windows_core::Interface>::IID
@@ -5062,7 +5039,7 @@ pub struct IFileSavePickerContinuationEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     File: usize,
 }
-windows_core::imp::define_interface!(IFolderPickerContinuationEventArgs, IFolderPickerContinuationEventArgs_Vtbl, 0x51882366_9f4b_498f_beb0_42684f6e1c29);
+windows_core::imp::define_interface!(IFolderPickerContinuationEventArgs, IFolderPickerContinuationEventArgs_Vtbl, 0x51882366_9f4b_498f_beb0_42684f6e1c29, inspectable);
 impl windows_core::RuntimeType for IFolderPickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IFolderPickerContinuationEventArgs");
@@ -5134,7 +5111,7 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IFolderPickerContinuationEventArgs, OFFSET>(), Folder: Folder::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Folder: Folder::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFolderPickerContinuationEventArgs as windows_core::Interface>::IID
@@ -5149,7 +5126,7 @@ pub struct IFolderPickerContinuationEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     Folder: usize,
 }
-windows_core::imp::define_interface!(ILaunchActivatedEventArgs, ILaunchActivatedEventArgs_Vtbl, 0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
+windows_core::imp::define_interface!(ILaunchActivatedEventArgs, ILaunchActivatedEventArgs_Vtbl, 0xfbc93e26_a14a_4b4f_82b0_33bed920af52, inspectable);
 impl windows_core::RuntimeType for ILaunchActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs");
@@ -5232,11 +5209,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ILaunchActivatedEventArgs, OFFSET>(),
-            Arguments: Arguments::<Identity, OFFSET>,
-            TileId: TileId::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Arguments: Arguments::<Identity, OFFSET>, TileId: TileId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILaunchActivatedEventArgs as windows_core::Interface>::IID
@@ -5249,7 +5222,7 @@ pub struct ILaunchActivatedEventArgs_Vtbl {
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILaunchActivatedEventArgs2, ILaunchActivatedEventArgs2_Vtbl, 0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345);
+windows_core::imp::define_interface!(ILaunchActivatedEventArgs2, ILaunchActivatedEventArgs2_Vtbl, 0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345, inspectable);
 impl windows_core::RuntimeType for ILaunchActivatedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs2");
@@ -5323,10 +5296,7 @@ impl ILaunchActivatedEventArgs2_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ILaunchActivatedEventArgs2, OFFSET>(),
-            TileActivatedInfo: TileActivatedInfo::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), TileActivatedInfo: TileActivatedInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILaunchActivatedEventArgs2 as windows_core::Interface>::IID
@@ -5338,7 +5308,7 @@ pub struct ILaunchActivatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TileActivatedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILockScreenActivatedEventArgs, ILockScreenActivatedEventArgs_Vtbl, 0x3ca77966_6108_4a41_8220_ee7d133c8532);
+windows_core::imp::define_interface!(ILockScreenActivatedEventArgs, ILockScreenActivatedEventArgs_Vtbl, 0x3ca77966_6108_4a41_8220_ee7d133c8532, inspectable);
 impl windows_core::RuntimeType for ILockScreenActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ILockScreenActivatedEventArgs");
@@ -5398,7 +5368,7 @@ impl ILockScreenActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ILockScreenActivatedEventArgs, OFFSET>(), Info: Info::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Info: Info::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILockScreenActivatedEventArgs as windows_core::Interface>::IID
@@ -5410,7 +5380,7 @@ pub struct ILockScreenActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Info: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILockScreenCallActivatedEventArgs, ILockScreenCallActivatedEventArgs_Vtbl, 0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
+windows_core::imp::define_interface!(ILockScreenCallActivatedEventArgs, ILockScreenCallActivatedEventArgs_Vtbl, 0x06f37fbe_b5f2_448b_b13e_e328ac1c516a, inspectable);
 impl windows_core::RuntimeType for ILockScreenCallActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ILockScreenCallActivatedEventArgs");
@@ -5488,7 +5458,7 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ILockScreenCallActivatedEventArgs, OFFSET>(), CallUI: CallUI::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), CallUI: CallUI::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILockScreenCallActivatedEventArgs as windows_core::Interface>::IID
@@ -5503,7 +5473,7 @@ pub struct ILockScreenCallActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Calls"))]
     CallUI: usize,
 }
-windows_core::imp::define_interface!(IPhoneCallActivatedEventArgs, IPhoneCallActivatedEventArgs_Vtbl, 0x54615221_a3c1_4ced_b62f_8c60523619ad);
+windows_core::imp::define_interface!(IPhoneCallActivatedEventArgs, IPhoneCallActivatedEventArgs_Vtbl, 0x54615221_a3c1_4ced_b62f_8c60523619ad, inspectable);
 impl windows_core::RuntimeType for IPhoneCallActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs");
@@ -5562,7 +5532,7 @@ impl IPhoneCallActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IPhoneCallActivatedEventArgs, OFFSET>(), LineId: LineId::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), LineId: LineId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPhoneCallActivatedEventArgs as windows_core::Interface>::IID
@@ -5574,7 +5544,7 @@ pub struct IPhoneCallActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPickerReturnedActivatedEventArgs, IPickerReturnedActivatedEventArgs_Vtbl, 0x360defb9_a9d3_4984_a4ed_9ec734604921);
+windows_core::imp::define_interface!(IPickerReturnedActivatedEventArgs, IPickerReturnedActivatedEventArgs_Vtbl, 0x360defb9_a9d3_4984_a4ed_9ec734604921, inspectable);
 impl windows_core::RuntimeType for IPickerReturnedActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs");
@@ -5634,10 +5604,7 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IPickerReturnedActivatedEventArgs, OFFSET>(),
-            PickerOperationId: PickerOperationId::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), PickerOperationId: PickerOperationId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPickerReturnedActivatedEventArgs as windows_core::Interface>::IID
@@ -5649,7 +5616,7 @@ pub struct IPickerReturnedActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PickerOperationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrelaunchActivatedEventArgs, IPrelaunchActivatedEventArgs_Vtbl, 0x0c44717b_19f7_48d6_b046_cf22826eaa74);
+windows_core::imp::define_interface!(IPrelaunchActivatedEventArgs, IPrelaunchActivatedEventArgs_Vtbl, 0x0c44717b_19f7_48d6_b046_cf22826eaa74, inspectable);
 impl windows_core::RuntimeType for IPrelaunchActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IPrelaunchActivatedEventArgs");
@@ -5708,10 +5675,7 @@ impl IPrelaunchActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IPrelaunchActivatedEventArgs, OFFSET>(),
-            PrelaunchActivated: PrelaunchActivated::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), PrelaunchActivated: PrelaunchActivated::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrelaunchActivatedEventArgs as windows_core::Interface>::IID
@@ -5723,7 +5687,7 @@ pub struct IPrelaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PrelaunchActivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrint3DWorkflowActivatedEventArgs, IPrint3DWorkflowActivatedEventArgs_Vtbl, 0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
+windows_core::imp::define_interface!(IPrint3DWorkflowActivatedEventArgs, IPrint3DWorkflowActivatedEventArgs_Vtbl, 0x3f57e78b_f2ac_4619_8302_ef855e1c9b90, inspectable);
 impl windows_core::RuntimeType for IPrint3DWorkflowActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IPrint3DWorkflowActivatedEventArgs");
@@ -5787,7 +5751,7 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IPrint3DWorkflowActivatedEventArgs, OFFSET>(), Workflow: Workflow::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Workflow: Workflow::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::IID
@@ -5802,7 +5766,7 @@ pub struct IPrint3DWorkflowActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Devices_Printers_Extensions"))]
     Workflow: usize,
 }
-windows_core::imp::define_interface!(IPrintTaskSettingsActivatedEventArgs, IPrintTaskSettingsActivatedEventArgs_Vtbl, 0xee30a0c9_ce56_4865_ba8e_8954ac271107);
+windows_core::imp::define_interface!(IPrintTaskSettingsActivatedEventArgs, IPrintTaskSettingsActivatedEventArgs_Vtbl, 0xee30a0c9_ce56_4865_ba8e_8954ac271107, inspectable);
 impl windows_core::RuntimeType for IPrintTaskSettingsActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IPrintTaskSettingsActivatedEventArgs");
@@ -5866,10 +5830,7 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IPrintTaskSettingsActivatedEventArgs, OFFSET>(),
-            Configuration: Configuration::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Configuration: Configuration::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::IID
@@ -5884,7 +5845,7 @@ pub struct IPrintTaskSettingsActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Devices_Printers_Extensions"))]
     Configuration: usize,
 }
-windows_core::imp::define_interface!(IProtocolActivatedEventArgs, IProtocolActivatedEventArgs_Vtbl, 0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
+windows_core::imp::define_interface!(IProtocolActivatedEventArgs, IProtocolActivatedEventArgs_Vtbl, 0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24, inspectable);
 impl windows_core::RuntimeType for IProtocolActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs");
@@ -5944,7 +5905,7 @@ impl IProtocolActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IProtocolActivatedEventArgs, OFFSET>(), Uri: Uri::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Uri: Uri::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProtocolActivatedEventArgs as windows_core::Interface>::IID
@@ -5956,7 +5917,7 @@ pub struct IProtocolActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl, 0xd84a0c12_5c8f_438c_83cb_c28fcc0b2fdb);
+windows_core::imp::define_interface!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl, 0xd84a0c12_5c8f_438c_83cb_c28fcc0b2fdb, inspectable);
 impl windows_core::RuntimeType for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData");
@@ -6044,7 +6005,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             CallerPackageFamilyName: CallerPackageFamilyName::<Identity, OFFSET>,
             Data: Data::<Identity, OFFSET>,
         }
@@ -6063,7 +6024,7 @@ pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Data: usize,
 }
-windows_core::imp::define_interface!(IProtocolForResultsActivatedEventArgs, IProtocolForResultsActivatedEventArgs_Vtbl, 0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
+windows_core::imp::define_interface!(IProtocolForResultsActivatedEventArgs, IProtocolForResultsActivatedEventArgs_Vtbl, 0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c, inspectable);
 impl windows_core::RuntimeType for IProtocolForResultsActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IProtocolForResultsActivatedEventArgs");
@@ -6127,10 +6088,7 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IProtocolForResultsActivatedEventArgs, OFFSET>(),
-            ProtocolForResultsOperation: ProtocolForResultsOperation::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ProtocolForResultsOperation: ProtocolForResultsOperation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IProtocolForResultsActivatedEventArgs as windows_core::Interface>::IID
@@ -6145,7 +6103,7 @@ pub struct IProtocolForResultsActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "System"))]
     ProtocolForResultsOperation: usize,
 }
-windows_core::imp::define_interface!(IRestrictedLaunchActivatedEventArgs, IRestrictedLaunchActivatedEventArgs_Vtbl, 0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
+windows_core::imp::define_interface!(IRestrictedLaunchActivatedEventArgs, IRestrictedLaunchActivatedEventArgs_Vtbl, 0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae, inspectable);
 impl windows_core::RuntimeType for IRestrictedLaunchActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IRestrictedLaunchActivatedEventArgs");
@@ -6205,10 +6163,7 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IRestrictedLaunchActivatedEventArgs, OFFSET>(),
-            SharedContext: SharedContext::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), SharedContext: SharedContext::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::IID
@@ -6220,7 +6175,7 @@ pub struct IRestrictedLaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SharedContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISearchActivatedEventArgs, ISearchActivatedEventArgs_Vtbl, 0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
+windows_core::imp::define_interface!(ISearchActivatedEventArgs, ISearchActivatedEventArgs_Vtbl, 0x8cb36951_58c8_43e3_94bc_41d33f8b630e, inspectable);
 impl windows_core::RuntimeType for ISearchActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ISearchActivatedEventArgs");
@@ -6304,7 +6259,7 @@ impl ISearchActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISearchActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             QueryText: QueryText::<Identity, OFFSET>,
             Language: Language::<Identity, OFFSET>,
         }
@@ -6320,7 +6275,7 @@ pub struct ISearchActivatedEventArgs_Vtbl {
     pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISearchActivatedEventArgsWithLinguisticDetails, ISearchActivatedEventArgsWithLinguisticDetails_Vtbl, 0xc09f33da_08ab_4931_9b7c_451025f21f81);
+windows_core::imp::define_interface!(ISearchActivatedEventArgsWithLinguisticDetails, ISearchActivatedEventArgsWithLinguisticDetails_Vtbl, 0xc09f33da_08ab_4931_9b7c_451025f21f81, inspectable);
 impl windows_core::RuntimeType for ISearchActivatedEventArgsWithLinguisticDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ISearchActivatedEventArgsWithLinguisticDetails");
@@ -6362,10 +6317,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISearchActivatedEventArgsWithLinguisticDetails, OFFSET>(),
-            LinguisticDetails: LinguisticDetails::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), LinguisticDetails: LinguisticDetails::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISearchActivatedEventArgsWithLinguisticDetails as windows_core::Interface>::IID
@@ -6380,7 +6332,7 @@ pub struct ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Search"))]
     LinguisticDetails: usize,
 }
-windows_core::imp::define_interface!(IShareTargetActivatedEventArgs, IShareTargetActivatedEventArgs_Vtbl, 0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
+windows_core::imp::define_interface!(IShareTargetActivatedEventArgs, IShareTargetActivatedEventArgs_Vtbl, 0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec, inspectable);
 impl windows_core::RuntimeType for IShareTargetActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IShareTargetActivatedEventArgs");
@@ -6444,10 +6396,7 @@ impl IShareTargetActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IShareTargetActivatedEventArgs, OFFSET>(),
-            ShareOperation: ShareOperation::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ShareOperation: ShareOperation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IShareTargetActivatedEventArgs as windows_core::Interface>::IID
@@ -6462,7 +6411,7 @@ pub struct IShareTargetActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_DataTransfer_ShareTarget"))]
     ShareOperation: usize,
 }
-windows_core::imp::define_interface!(ISplashScreen, ISplashScreen_Vtbl, 0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
+windows_core::imp::define_interface!(ISplashScreen, ISplashScreen_Vtbl, 0xca4d975c_d4d6_43f0_97c0_0833c6391c24, inspectable);
 impl windows_core::RuntimeType for ISplashScreen {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ISplashScreen");
@@ -6475,7 +6424,7 @@ pub struct ISplashScreen_Vtbl {
     pub Dismissed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDismissed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStartupTaskActivatedEventArgs, IStartupTaskActivatedEventArgs_Vtbl, 0x03b11a58_5276_4d91_8621_54611864d5fa);
+windows_core::imp::define_interface!(IStartupTaskActivatedEventArgs, IStartupTaskActivatedEventArgs_Vtbl, 0x03b11a58_5276_4d91_8621_54611864d5fa, inspectable);
 impl windows_core::RuntimeType for IStartupTaskActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IStartupTaskActivatedEventArgs");
@@ -6535,7 +6484,7 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IStartupTaskActivatedEventArgs, OFFSET>(), TaskId: TaskId::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), TaskId: TaskId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStartupTaskActivatedEventArgs as windows_core::Interface>::IID
@@ -6547,7 +6496,7 @@ pub struct IStartupTaskActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITileActivatedInfo, ITileActivatedInfo_Vtbl, 0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
+windows_core::imp::define_interface!(ITileActivatedInfo, ITileActivatedInfo_Vtbl, 0x80e4a3b1_3980_4f17_b738_89194e0b8f65, inspectable);
 impl windows_core::RuntimeType for ITileActivatedInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.ITileActivatedInfo");
@@ -6561,7 +6510,7 @@ pub struct ITileActivatedInfo_Vtbl {
     #[cfg(not(feature = "UI_Notifications"))]
     RecentlyShownNotifications: usize,
 }
-windows_core::imp::define_interface!(IToastNotificationActivatedEventArgs, IToastNotificationActivatedEventArgs_Vtbl, 0x92a86f82_5290_431d_be85_c4aaeeb8685f);
+windows_core::imp::define_interface!(IToastNotificationActivatedEventArgs, IToastNotificationActivatedEventArgs_Vtbl, 0x92a86f82_5290_431d_be85_c4aaeeb8685f, inspectable);
 impl windows_core::RuntimeType for IToastNotificationActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IToastNotificationActivatedEventArgs");
@@ -6649,7 +6598,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IToastNotificationActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Argument: Argument::<Identity, OFFSET>,
             UserInput: UserInput::<Identity, OFFSET>,
         }
@@ -6668,7 +6617,7 @@ pub struct IToastNotificationActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     UserInput: usize,
 }
-windows_core::imp::define_interface!(IUserDataAccountProviderActivatedEventArgs, IUserDataAccountProviderActivatedEventArgs_Vtbl, 0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
+windows_core::imp::define_interface!(IUserDataAccountProviderActivatedEventArgs, IUserDataAccountProviderActivatedEventArgs_Vtbl, 0x1bc9f723_8ef1_4a51_a63a_fe711eeab607, inspectable);
 impl windows_core::RuntimeType for IUserDataAccountProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IUserDataAccountProviderActivatedEventArgs");
@@ -6732,10 +6681,7 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IUserDataAccountProviderActivatedEventArgs, OFFSET>(),
-            Operation: Operation::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Operation: Operation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::IID
@@ -6750,7 +6696,7 @@ pub struct IUserDataAccountProviderActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_UserDataAccounts_Provider"))]
     Operation: usize,
 }
-windows_core::imp::define_interface!(IViewSwitcherProvider, IViewSwitcherProvider_Vtbl, 0x33f288a6_5c2c_4d27_bac7_7536088f1219);
+windows_core::imp::define_interface!(IViewSwitcherProvider, IViewSwitcherProvider_Vtbl, 0x33f288a6_5c2c_4d27_bac7_7536088f1219, inspectable);
 impl windows_core::RuntimeType for IViewSwitcherProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IViewSwitcherProvider");
@@ -6814,7 +6760,7 @@ impl IViewSwitcherProvider_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IViewSwitcherProvider, OFFSET>(), ViewSwitcher: ViewSwitcher::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ViewSwitcher: ViewSwitcher::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IViewSwitcherProvider as windows_core::Interface>::IID
@@ -6829,7 +6775,7 @@ pub struct IViewSwitcherProvider_Vtbl {
     #[cfg(not(feature = "UI_ViewManagement"))]
     ViewSwitcher: usize,
 }
-windows_core::imp::define_interface!(IVoiceCommandActivatedEventArgs, IVoiceCommandActivatedEventArgs_Vtbl, 0xab92dcfd_8d43_4de6_9775_20704b581b00);
+windows_core::imp::define_interface!(IVoiceCommandActivatedEventArgs, IVoiceCommandActivatedEventArgs_Vtbl, 0xab92dcfd_8d43_4de6_9775_20704b581b00, inspectable);
 impl windows_core::RuntimeType for IVoiceCommandActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IVoiceCommandActivatedEventArgs");
@@ -6893,7 +6839,7 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IVoiceCommandActivatedEventArgs, OFFSET>(), Result: Result::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Result: Result::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVoiceCommandActivatedEventArgs as windows_core::Interface>::IID
@@ -6908,7 +6854,7 @@ pub struct IVoiceCommandActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Media_SpeechRecognition"))]
     Result: usize,
 }
-windows_core::imp::define_interface!(IWalletActionActivatedEventArgs, IWalletActionActivatedEventArgs_Vtbl, 0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
+windows_core::imp::define_interface!(IWalletActionActivatedEventArgs, IWalletActionActivatedEventArgs_Vtbl, 0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9, inspectable);
 impl windows_core::RuntimeType for IWalletActionActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs");
@@ -7018,7 +6964,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWalletActionActivatedEventArgs, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ItemId: ItemId::<Identity, OFFSET>,
             ActionKind: ActionKind::<Identity, OFFSET>,
             ActionId: ActionId::<Identity, OFFSET>,
@@ -7039,7 +6985,7 @@ pub struct IWalletActionActivatedEventArgs_Vtbl {
     ActionKind: usize,
     pub ActionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAccountProviderActivatedEventArgs, IWebAccountProviderActivatedEventArgs_Vtbl, 0x72b71774_98ea_4ccf_9752_46d9051004f1);
+windows_core::imp::define_interface!(IWebAccountProviderActivatedEventArgs, IWebAccountProviderActivatedEventArgs_Vtbl, 0x72b71774_98ea_4ccf_9752_46d9051004f1, inspectable);
 impl windows_core::RuntimeType for IWebAccountProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IWebAccountProviderActivatedEventArgs");
@@ -7103,10 +7049,7 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebAccountProviderActivatedEventArgs, OFFSET>(),
-            Operation: Operation::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Operation: Operation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAccountProviderActivatedEventArgs as windows_core::Interface>::IID
@@ -7121,7 +7064,7 @@ pub struct IWebAccountProviderActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Security_Authentication_Web_Provider"))]
     Operation: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationBrokerContinuationEventArgs, IWebAuthenticationBrokerContinuationEventArgs_Vtbl, 0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
+windows_core::imp::define_interface!(IWebAuthenticationBrokerContinuationEventArgs, IWebAuthenticationBrokerContinuationEventArgs_Vtbl, 0x75dda3d4_7714_453d_b7ff_b95e3a1709da, inspectable);
 impl windows_core::RuntimeType for IWebAuthenticationBrokerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Activation.IWebAuthenticationBrokerContinuationEventArgs");
@@ -7193,10 +7136,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebAuthenticationBrokerContinuationEventArgs, OFFSET>(),
-            WebAuthenticationResult: WebAuthenticationResult::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), WebAuthenticationResult: WebAuthenticationResult::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWebAuthenticationBrokerContinuationEventArgs as windows_core::Interface>::IID
@@ -7294,6 +7234,7 @@ impl windows_core::RuntimeType for LaunchActivatedEventArgs {
 unsafe impl windows_core::Interface for LaunchActivatedEventArgs {
     type Vtable = <ILaunchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILaunchActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LaunchActivatedEventArgs";
@@ -7348,6 +7289,7 @@ impl windows_core::RuntimeType for LockScreenActivatedEventArgs {
 unsafe impl windows_core::Interface for LockScreenActivatedEventArgs {
     type Vtable = <ILockScreenActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs";
@@ -7424,6 +7366,7 @@ impl windows_core::RuntimeType for LockScreenCallActivatedEventArgs {
 unsafe impl windows_core::Interface for LockScreenCallActivatedEventArgs {
     type Vtable = <ILockScreenCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenCallActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs";
@@ -7460,6 +7403,7 @@ impl windows_core::RuntimeType for LockScreenComponentActivatedEventArgs {
 unsafe impl windows_core::Interface for LockScreenComponentActivatedEventArgs {
     type Vtable = <IActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LockScreenComponentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
@@ -7514,6 +7458,7 @@ impl windows_core::RuntimeType for PhoneCallActivatedEventArgs {
 unsafe impl windows_core::Interface for PhoneCallActivatedEventArgs {
     type Vtable = <IPhoneCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
@@ -7560,6 +7505,7 @@ impl windows_core::RuntimeType for PickerReturnedActivatedEventArgs {
 unsafe impl windows_core::Interface for PickerReturnedActivatedEventArgs {
     type Vtable = <IPickerReturnedActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPickerReturnedActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PickerReturnedActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs";
@@ -7607,6 +7553,7 @@ impl windows_core::RuntimeType for Print3DWorkflowActivatedEventArgs {
 unsafe impl windows_core::Interface for Print3DWorkflowActivatedEventArgs {
     type Vtable = <IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Print3DWorkflowActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs";
@@ -7654,6 +7601,7 @@ impl windows_core::RuntimeType for PrintTaskSettingsActivatedEventArgs {
 unsafe impl windows_core::Interface for PrintTaskSettingsActivatedEventArgs {
     type Vtable = <IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PrintTaskSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs";
@@ -7738,6 +7686,7 @@ impl windows_core::RuntimeType for ProtocolActivatedEventArgs {
 unsafe impl windows_core::Interface for ProtocolActivatedEventArgs {
     type Vtable = <IProtocolActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtocolActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs";
@@ -7830,6 +7779,7 @@ impl windows_core::RuntimeType for ProtocolForResultsActivatedEventArgs {
 unsafe impl windows_core::Interface for ProtocolForResultsActivatedEventArgs {
     type Vtable = <IProtocolForResultsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtocolForResultsActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ProtocolForResultsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs";
@@ -7884,6 +7834,7 @@ impl windows_core::RuntimeType for RestrictedLaunchActivatedEventArgs {
 unsafe impl windows_core::Interface for RestrictedLaunchActivatedEventArgs {
     type Vtable = <IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs";
@@ -7967,6 +7918,7 @@ impl windows_core::RuntimeType for SearchActivatedEventArgs {
 unsafe impl windows_core::Interface for SearchActivatedEventArgs {
     type Vtable = <ISearchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SearchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SearchActivatedEventArgs";
@@ -8022,6 +7974,7 @@ impl windows_core::RuntimeType for ShareTargetActivatedEventArgs {
 unsafe impl windows_core::Interface for ShareTargetActivatedEventArgs {
     type Vtable = <IShareTargetActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareTargetActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs";
@@ -8060,6 +8013,7 @@ impl windows_core::RuntimeType for SplashScreen {
 unsafe impl windows_core::Interface for SplashScreen {
     type Vtable = <ISplashScreen as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISplashScreen as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SplashScreen {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SplashScreen";
@@ -8112,6 +8066,7 @@ impl windows_core::RuntimeType for StartupTaskActivatedEventArgs {
 unsafe impl windows_core::Interface for StartupTaskActivatedEventArgs {
     type Vtable = <IStartupTaskActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStartupTaskActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs";
@@ -8137,6 +8092,7 @@ impl windows_core::RuntimeType for TileActivatedInfo {
 unsafe impl windows_core::Interface for TileActivatedInfo {
     type Vtable = <ITileActivatedInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITileActivatedInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TileActivatedInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.TileActivatedInfo";
@@ -8205,6 +8161,7 @@ impl windows_core::RuntimeType for ToastNotificationActivatedEventArgs {
 unsafe impl windows_core::Interface for ToastNotificationActivatedEventArgs {
     type Vtable = <IToastNotificationActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastNotificationActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ToastNotificationActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs";
@@ -8252,6 +8209,7 @@ impl windows_core::RuntimeType for UserDataAccountProviderActivatedEventArgs {
 unsafe impl windows_core::Interface for UserDataAccountProviderActivatedEventArgs {
     type Vtable = <IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs";
@@ -8307,6 +8265,7 @@ impl windows_core::RuntimeType for VoiceCommandActivatedEventArgs {
 unsafe impl windows_core::Interface for VoiceCommandActivatedEventArgs {
     type Vtable = <IVoiceCommandActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVoiceCommandActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for VoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs";
@@ -8366,6 +8325,7 @@ impl windows_core::RuntimeType for WalletActionActivatedEventArgs {
 unsafe impl windows_core::Interface for WalletActionActivatedEventArgs {
     type Vtable = <IWalletActionActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletActionActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
@@ -8421,6 +8381,7 @@ impl windows_core::RuntimeType for WebAccountProviderActivatedEventArgs {
 unsafe impl windows_core::Interface for WebAccountProviderActivatedEventArgs {
     type Vtable = <IWebAccountProviderActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAccountProviderActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs";
@@ -8476,6 +8437,7 @@ impl windows_core::RuntimeType for WebAuthenticationBrokerContinuationEventArgs 
 unsafe impl windows_core::Interface for WebAuthenticationBrokerContinuationEventArgs {
     type Vtable = <IWebAuthenticationBrokerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAuthenticationBrokerContinuationEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs";

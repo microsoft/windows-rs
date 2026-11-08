@@ -196,9 +196,16 @@ impl CppInterface {
                 if let Some(guid) = self.def.guid_attribute() {
                     let guid = config.write_guid_u128(&guid);
 
-                    quote! {
-                        #cfg
-                        windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+                    if base_interfaces.contains(&Type::Object) {
+                        quote! {
+                            #cfg
+                            windows_core::imp::define_interface!(#name, #vtbl_name, #guid, inspectable);
+                        }
+                    } else {
+                        quote! {
+                            #cfg
+                            windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+                        }
                     }
                 } else {
                     quote! {
@@ -356,7 +363,7 @@ impl CppInterface {
                 let field_base = base_interfaces.last().map(|ty|{
                 match ty {
                     Type::IUnknown => quote! { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), },
-                    Type::Object => quote! { base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(), },
+                    Type::Object => quote! { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), },
                     Type::CppInterface(ty) => {
                         let ty = ty.write_vtbl_name(config);
                         if has_unknown_base {

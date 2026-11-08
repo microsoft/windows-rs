@@ -1,7 +1,8 @@
 windows_core::imp::define_interface!(
     Factory,
     Factory_Vtbl,
-    0x8722b2b2_1d05_5551_87c8_d46311b7873d
+    0x8722b2b2_1d05_5551_87c8_d46311b7873d,
+    inspectable
 );
 impl windows_core::RuntimeType for Factory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -35,7 +36,8 @@ pub struct Factory_Vtbl {
 windows_core::imp::define_interface!(
     IWidget,
     IWidget_Vtbl,
-    0x62d365dd_b506_534c_a235_93129deef881
+    0x62d365dd_b506_534c_a235_93129deef881,
+    inspectable
 );
 impl windows_core::RuntimeType for IWidget {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -56,6 +58,7 @@ impl windows_core::RuntimeType for Widget {
 unsafe impl windows_core::Interface for Widget {
     type Vtable = <IWidget as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWidget as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for Widget {
     type Target = IWidget;

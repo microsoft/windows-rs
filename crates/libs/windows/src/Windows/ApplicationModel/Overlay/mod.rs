@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IOverlayActivatedEventArgs, IOverlayActivatedEventArgs_Vtbl, 0x277092d8_617c_50ba_9e57_6dc25078beb0);
+windows_core::imp::define_interface!(IOverlayActivatedEventArgs, IOverlayActivatedEventArgs_Vtbl, 0x277092d8_617c_50ba_9e57_6dc25078beb0, inspectable);
 impl windows_core::RuntimeType for IOverlayActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Overlay.IOverlayActivatedEventArgs");
@@ -9,7 +9,7 @@ pub struct IOverlayActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Command: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOverlayApp, IOverlayApp_Vtbl, 0x0410c228_3813_54fc_b402_88520526d1f5);
+windows_core::imp::define_interface!(IOverlayApp, IOverlayApp_Vtbl, 0x0410c228_3813_54fc_b402_88520526d1f5, inspectable);
 impl windows_core::RuntimeType for IOverlayApp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Overlay.IOverlayApp");
@@ -35,7 +35,7 @@ pub struct IOverlayApp_Vtbl {
     pub Disconnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDisconnected: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOverlayAppOptions, IOverlayAppOptions_Vtbl, 0x9e0dd89a_0f2a_5cfd_805d_dbb13164c146);
+windows_core::imp::define_interface!(IOverlayAppOptions, IOverlayAppOptions_Vtbl, 0x9e0dd89a_0f2a_5cfd_805d_dbb13164c146, inspectable);
 impl windows_core::RuntimeType for IOverlayAppOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Overlay.IOverlayAppOptions");
@@ -47,7 +47,7 @@ pub struct IOverlayAppOptions_Vtbl {
     pub CustomTransitionAnimations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetCustomTransitionAnimations: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOverlayAppStatics, IOverlayAppStatics_Vtbl, 0x2c112604_c435_53d0_9be6_6431e39eb26c);
+windows_core::imp::define_interface!(IOverlayAppStatics, IOverlayAppStatics_Vtbl, 0x2c112604_c435_53d0_9be6_6431e39eb26c, inspectable);
 impl windows_core::RuntimeType for IOverlayAppStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Overlay.IOverlayAppStatics");
@@ -59,7 +59,7 @@ pub struct IOverlayAppStatics_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Create2: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOverlayCommand, IOverlayCommand_Vtbl, 0xdde596f8_6093_5029_8cbc_06b046d328dc);
+windows_core::imp::define_interface!(IOverlayCommand, IOverlayCommand_Vtbl, 0xdde596f8_6093_5029_8cbc_06b046d328dc, inspectable);
 impl windows_core::RuntimeType for IOverlayCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Overlay.IOverlayCommand");
@@ -71,7 +71,7 @@ pub struct IOverlayCommand_Vtbl {
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OverlayCommandSource) -> windows_core::HRESULT,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOverlayCommandFactory, IOverlayCommandFactory_Vtbl, 0x10210bb2_4755_520d_802b_7490c260f802);
+windows_core::imp::define_interface!(IOverlayCommandFactory, IOverlayCommandFactory_Vtbl, 0x10210bb2_4755_520d_802b_7490c260f802, inspectable);
 impl windows_core::RuntimeType for IOverlayCommandFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Overlay.IOverlayCommandFactory");
@@ -82,7 +82,7 @@ pub struct IOverlayCommandFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, OverlayCommandSource, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOverlayDisconnectedEventArgs, IOverlayDisconnectedEventArgs_Vtbl, 0x9573e2be_6692_513e_9ed4_71642a182d42);
+windows_core::imp::define_interface!(IOverlayDisconnectedEventArgs, IOverlayDisconnectedEventArgs_Vtbl, 0x9573e2be_6692_513e_9ed4_71642a182d42, inspectable);
 impl windows_core::RuntimeType for IOverlayDisconnectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Overlay.IOverlayDisconnectedEventArgs");
@@ -93,7 +93,7 @@ pub struct IOverlayDisconnectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOverlayVisualTransitionEventArgs, IOverlayVisualTransitionEventArgs_Vtbl, 0x0cc0e9dd_b088_5f81_a02b_c925259a464d);
+windows_core::imp::define_interface!(IOverlayVisualTransitionEventArgs, IOverlayVisualTransitionEventArgs_Vtbl, 0x0cc0e9dd_b088_5f81_a02b_c925259a464d, inspectable);
 impl windows_core::RuntimeType for IOverlayVisualTransitionEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Overlay.IOverlayVisualTransitionEventArgs");
@@ -125,6 +125,7 @@ impl windows_core::RuntimeType for OverlayActivatedEventArgs {
 unsafe impl windows_core::Interface for OverlayActivatedEventArgs {
     type Vtable = <IOverlayActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOverlayActivatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for OverlayActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Overlay.OverlayActivatedEventArgs";
@@ -260,6 +261,7 @@ impl windows_core::RuntimeType for OverlayApp {
 unsafe impl windows_core::Interface for OverlayApp {
     type Vtable = <IOverlayApp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOverlayApp as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for OverlayApp {
     const NAME: &'static str = "Windows.ApplicationModel.Overlay.OverlayApp";
@@ -294,6 +296,7 @@ impl windows_core::RuntimeType for OverlayAppOptions {
 unsafe impl windows_core::Interface for OverlayAppOptions {
     type Vtable = <IOverlayAppOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOverlayAppOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for OverlayAppOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Overlay.OverlayAppOptions";
@@ -337,6 +340,7 @@ impl windows_core::RuntimeType for OverlayCommand {
 unsafe impl windows_core::Interface for OverlayCommand {
     type Vtable = <IOverlayCommand as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOverlayCommand as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for OverlayCommand {
     const NAME: &'static str = "Windows.ApplicationModel.Overlay.OverlayCommand";
@@ -377,6 +381,7 @@ impl windows_core::RuntimeType for OverlayDisconnectedEventArgs {
 unsafe impl windows_core::Interface for OverlayDisconnectedEventArgs {
     type Vtable = <IOverlayDisconnectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOverlayDisconnectedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for OverlayDisconnectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Overlay.OverlayDisconnectedEventArgs";
@@ -451,6 +456,7 @@ impl windows_core::RuntimeType for OverlayVisualTransitionEventArgs {
 unsafe impl windows_core::Interface for OverlayVisualTransitionEventArgs {
     type Vtable = <IOverlayVisualTransitionEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOverlayVisualTransitionEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for OverlayVisualTransitionEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Overlay.OverlayVisualTransitionEventArgs";

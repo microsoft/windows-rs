@@ -45,6 +45,11 @@ Objects are agile by default. Synchronize shared mutable state and ensure destru
 the thread that releases the final reference. Use `Agile = false` in the attribute for an
 apartment-affine object. Agility does not make thread-affine fields safe to share.
 
+The first interface is the object's COM identity. Queries for `IInspectable` use the first
+inspectable interface; objects with no declared interfaces also support `IInspectable`. Direct
+conversion to `IInspectable` requires an inspectable identity. Use `Compose = true` to derive from
+a composable WinRT class.
+
 Interface values retain the object through COM reference counting. Avoid ownership cycles or
 provide an explicit teardown path.
 

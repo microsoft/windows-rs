@@ -1,7 +1,8 @@
 windows_core::imp::define_interface!(
     Interface,
     Interface_Vtbl,
-    0x5a90d3d3_9f48_5bfa_bbf3_2b55050337eb
+    0x5a90d3d3_9f48_5bfa_bbf3_2b55050337eb,
+    inspectable
 );
 impl windows_core::RuntimeType for Interface {
     const SIGNATURE: windows_core::imp::ConstBuffer =

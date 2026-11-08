@@ -63,6 +63,7 @@ impl windows_core::RuntimeType for AppRecordingManager {
 unsafe impl windows_core::Interface for AppRecordingManager {
     type Vtable = <IAppRecordingManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppRecordingManager {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingManager";
@@ -105,6 +106,7 @@ impl windows_core::RuntimeType for AppRecordingResult {
 unsafe impl windows_core::Interface for AppRecordingResult {
     type Vtable = <IAppRecordingResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppRecordingResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingResult";
@@ -155,6 +157,7 @@ impl windows_core::RuntimeType for AppRecordingSaveScreenshotResult {
 unsafe impl windows_core::Interface for AppRecordingSaveScreenshotResult {
     type Vtable = <IAppRecordingSaveScreenshotResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingSaveScreenshotResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppRecordingSaveScreenshotResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSaveScreenshotResult";
@@ -186,6 +189,7 @@ impl windows_core::RuntimeType for AppRecordingSavedScreenshotInfo {
 unsafe impl windows_core::Interface for AppRecordingSavedScreenshotInfo {
     type Vtable = <IAppRecordingSavedScreenshotInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingSavedScreenshotInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppRecordingSavedScreenshotInfo {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo";
@@ -228,6 +232,7 @@ impl windows_core::RuntimeType for AppRecordingStatus {
 unsafe impl windows_core::Interface for AppRecordingStatus {
     type Vtable = <IAppRecordingStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingStatus as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppRecordingStatus {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatus";
@@ -300,13 +305,14 @@ impl windows_core::RuntimeType for AppRecordingStatusDetails {
 unsafe impl windows_core::Interface for AppRecordingStatusDetails {
     type Vtable = <IAppRecordingStatusDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingStatusDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppRecordingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatusDetails";
 }
 unsafe impl Send for AppRecordingStatusDetails {}
 unsafe impl Sync for AppRecordingStatusDetails {}
-windows_core::imp::define_interface!(IAppRecordingManager, IAppRecordingManager_Vtbl, 0xe7e26076_a044_48e2_a512_3094d574c7cc);
+windows_core::imp::define_interface!(IAppRecordingManager, IAppRecordingManager_Vtbl, 0xe7e26076_a044_48e2_a512_3094d574c7cc, inspectable);
 impl windows_core::RuntimeType for IAppRecordingManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingManager");
@@ -330,7 +336,7 @@ pub struct IAppRecordingManager_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     SaveScreenshotToFilesAsync: usize,
 }
-windows_core::imp::define_interface!(IAppRecordingManagerStatics, IAppRecordingManagerStatics_Vtbl, 0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d);
+windows_core::imp::define_interface!(IAppRecordingManagerStatics, IAppRecordingManagerStatics_Vtbl, 0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d, inspectable);
 impl windows_core::RuntimeType for IAppRecordingManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingManagerStatics");
@@ -341,7 +347,7 @@ pub struct IAppRecordingManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppRecordingResult, IAppRecordingResult_Vtbl, 0x3a900864_c66d_46f9_b2d9_5bc2dad070d7);
+windows_core::imp::define_interface!(IAppRecordingResult, IAppRecordingResult_Vtbl, 0x3a900864_c66d_46f9_b2d9_5bc2dad070d7, inspectable);
 impl windows_core::RuntimeType for IAppRecordingResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingResult");
@@ -355,7 +361,7 @@ pub struct IAppRecordingResult_Vtbl {
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub IsFileTruncated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppRecordingSaveScreenshotResult, IAppRecordingSaveScreenshotResult_Vtbl, 0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
+windows_core::imp::define_interface!(IAppRecordingSaveScreenshotResult, IAppRecordingSaveScreenshotResult_Vtbl, 0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778, inspectable);
 impl windows_core::RuntimeType for IAppRecordingSaveScreenshotResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingSaveScreenshotResult");
@@ -368,7 +374,7 @@ pub struct IAppRecordingSaveScreenshotResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub SavedScreenshotInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppRecordingSavedScreenshotInfo, IAppRecordingSavedScreenshotInfo_Vtbl, 0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
+windows_core::imp::define_interface!(IAppRecordingSavedScreenshotInfo, IAppRecordingSavedScreenshotInfo_Vtbl, 0x9b642d0a_189a_4d00_bf25_e1bb1249d594, inspectable);
 impl windows_core::RuntimeType for IAppRecordingSavedScreenshotInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingSavedScreenshotInfo");
@@ -383,7 +389,7 @@ pub struct IAppRecordingSavedScreenshotInfo_Vtbl {
     File: usize,
     pub MediaEncodingSubtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppRecordingStatus, IAppRecordingStatus_Vtbl, 0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9);
+windows_core::imp::define_interface!(IAppRecordingStatus, IAppRecordingStatus_Vtbl, 0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9, inspectable);
 impl windows_core::RuntimeType for IAppRecordingStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingStatus");
@@ -397,7 +403,7 @@ pub struct IAppRecordingStatus_Vtbl {
     pub HistoricalBufferDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Details: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppRecordingStatusDetails, IAppRecordingStatusDetails_Vtbl, 0xb538a9b0_14ed_4412_ac45_6d672c9c9949);
+windows_core::imp::define_interface!(IAppRecordingStatusDetails, IAppRecordingStatusDetails_Vtbl, 0xb538a9b0_14ed_4412_ac45_6d672c9c9949, inspectable);
 impl windows_core::RuntimeType for IAppRecordingStatusDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingStatusDetails");

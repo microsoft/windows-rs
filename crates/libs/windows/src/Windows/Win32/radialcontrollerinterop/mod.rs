@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IRadialControllerConfigurationInterop, IRadialControllerConfigurationInterop_Vtbl, 0x787cdaac_3186_476d_87e4_b9374a7b9970);
+windows_core::imp::define_interface!(IRadialControllerConfigurationInterop, IRadialControllerConfigurationInterop_Vtbl, 0x787cdaac_3186_476d_87e4_b9374a7b9970, inspectable);
 windows_core::imp::interface_hierarchy!(IRadialControllerConfigurationInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IRadialControllerConfigurationInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -32,10 +32,7 @@ impl IRadialControllerConfigurationInterop_Vtbl {
                 IRadialControllerConfigurationInterop_Impl::GetForWindow(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IRadialControllerConfigurationInterop, OFFSET>(),
-            GetForWindow: GetForWindow::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetForWindow: GetForWindow::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRadialControllerConfigurationInterop as windows_core::Interface>::IID
@@ -43,7 +40,7 @@ impl IRadialControllerConfigurationInterop_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "windef"))]
 impl windows_core::RuntimeName for IRadialControllerConfigurationInterop {}
-windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceInterop, IRadialControllerIndependentInputSourceInterop_Vtbl, 0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceInterop, IRadialControllerIndependentInputSourceInterop_Vtbl, 0x3d577eff_4cee_11e6_b535_001bdc06ab3b, inspectable);
 windows_core::imp::interface_hierarchy!(IRadialControllerIndependentInputSourceInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IRadialControllerIndependentInputSourceInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -77,10 +74,7 @@ impl IRadialControllerIndependentInputSourceInterop_Vtbl {
                 IRadialControllerIndependentInputSourceInterop_Impl::CreateForWindow(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IRadialControllerIndependentInputSourceInterop, OFFSET>(),
-            CreateForWindow: CreateForWindow::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), CreateForWindow: CreateForWindow::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRadialControllerIndependentInputSourceInterop as windows_core::Interface>::IID
@@ -88,7 +82,7 @@ impl IRadialControllerIndependentInputSourceInterop_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "windef"))]
 impl windows_core::RuntimeName for IRadialControllerIndependentInputSourceInterop {}
-windows_core::imp::define_interface!(IRadialControllerInterop, IRadialControllerInterop_Vtbl, 0x1b0535c9_57ad_45c1_9d79_ad5c34360513);
+windows_core::imp::define_interface!(IRadialControllerInterop, IRadialControllerInterop_Vtbl, 0x1b0535c9_57ad_45c1_9d79_ad5c34360513, inspectable);
 windows_core::imp::interface_hierarchy!(IRadialControllerInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IRadialControllerInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -122,10 +116,7 @@ impl IRadialControllerInterop_Vtbl {
                 IRadialControllerInterop_Impl::CreateForWindow(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IRadialControllerInterop, OFFSET>(),
-            CreateForWindow: CreateForWindow::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), CreateForWindow: CreateForWindow::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRadialControllerInterop as windows_core::Interface>::IID

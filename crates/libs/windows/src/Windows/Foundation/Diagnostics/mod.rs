@@ -139,6 +139,7 @@ impl windows_core::RuntimeType for ErrorDetails {
 unsafe impl windows_core::Interface for ErrorDetails {
     type Vtable = <IErrorDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IErrorDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ErrorDetails {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ErrorDetails";
@@ -267,13 +268,14 @@ impl windows_core::RuntimeType for FileLoggingSession {
 unsafe impl windows_core::Interface for FileLoggingSession {
     type Vtable = <IFileLoggingSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileLoggingSession as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FileLoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.FileLoggingSession";
 }
 unsafe impl Send for FileLoggingSession {}
 unsafe impl Sync for FileLoggingSession {}
-windows_core::imp::define_interface!(IAsyncCausalityTracerStatics, IAsyncCausalityTracerStatics_Vtbl, 0x50850b26_267e_451b_a890_ab6a370245ee);
+windows_core::imp::define_interface!(IAsyncCausalityTracerStatics, IAsyncCausalityTracerStatics_Vtbl, 0x50850b26_267e_451b_a890_ab6a370245ee, inspectable);
 impl windows_core::RuntimeType for IAsyncCausalityTracerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.IAsyncCausalityTracerStatics");
@@ -290,7 +292,7 @@ pub struct IAsyncCausalityTracerStatics_Vtbl {
     pub TracingStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveTracingStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IErrorDetails, IErrorDetails_Vtbl, 0x378cbb01_2cc9_428f_8c55_2c990d463e8f);
+windows_core::imp::define_interface!(IErrorDetails, IErrorDetails_Vtbl, 0x378cbb01_2cc9_428f_8c55_2c990d463e8f, inspectable);
 impl windows_core::RuntimeType for IErrorDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.IErrorDetails");
@@ -303,7 +305,7 @@ pub struct IErrorDetails_Vtbl {
     pub LongDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HelpUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IErrorDetailsStatics, IErrorDetailsStatics_Vtbl, 0xb7703750_0b1d_46c8_aa0e_4b8178e4fce9);
+windows_core::imp::define_interface!(IErrorDetailsStatics, IErrorDetailsStatics_Vtbl, 0xb7703750_0b1d_46c8_aa0e_4b8178e4fce9, inspectable);
 impl windows_core::RuntimeType for IErrorDetailsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.IErrorDetailsStatics");
@@ -314,7 +316,7 @@ pub struct IErrorDetailsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromHResultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IErrorReportingSettings, IErrorReportingSettings_Vtbl, 0x16369792_b03e_4ba1_8bb8_d28f4ab4d2c0);
+windows_core::imp::define_interface!(IErrorReportingSettings, IErrorReportingSettings_Vtbl, 0x16369792_b03e_4ba1_8bb8_d28f4ab4d2c0, inspectable);
 impl windows_core::RuntimeType for IErrorReportingSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.IErrorReportingSettings");
@@ -362,7 +364,7 @@ impl IErrorReportingSettings_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IErrorReportingSettings, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             SetErrorOptions: SetErrorOptions::<Identity, OFFSET>,
             GetErrorOptions: GetErrorOptions::<Identity, OFFSET>,
         }
@@ -378,7 +380,7 @@ pub struct IErrorReportingSettings_Vtbl {
     pub SetErrorOptions: unsafe extern "system" fn(*mut core::ffi::c_void, ErrorOptions) -> windows_core::HRESULT,
     pub GetErrorOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ErrorOptions) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileLoggingSession, IFileLoggingSession_Vtbl, 0x24c74216_fed2_404c_895f_1f9699cb02f7);
+windows_core::imp::define_interface!(IFileLoggingSession, IFileLoggingSession_Vtbl, 0x24c74216_fed2_404c_895f_1f9699cb02f7, inspectable);
 impl windows_core::RuntimeType for IFileLoggingSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.IFileLoggingSession");
@@ -525,7 +527,7 @@ impl IFileLoggingSession_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IFileLoggingSession, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, OFFSET>,
             AddLoggingChannel: AddLoggingChannel::<Identity, OFFSET>,
             AddLoggingChannelWithLevel: AddLoggingChannelWithLevel::<Identity, OFFSET>,
@@ -554,7 +556,7 @@ pub struct IFileLoggingSession_Vtbl {
     pub LogFileGenerated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveLogFileGenerated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileLoggingSessionFactory, IFileLoggingSessionFactory_Vtbl, 0xeea08dce_8447_4daa_9133_12eb46f697d4);
+windows_core::imp::define_interface!(IFileLoggingSessionFactory, IFileLoggingSessionFactory_Vtbl, 0xeea08dce_8447_4daa_9133_12eb46f697d4, inspectable);
 impl windows_core::RuntimeType for IFileLoggingSessionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.IFileLoggingSessionFactory");
@@ -565,7 +567,7 @@ pub struct IFileLoggingSessionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILogFileGeneratedEventArgs, ILogFileGeneratedEventArgs_Vtbl, 0x269e976f_0d38_4c1a_b53f_b395d881df84);
+windows_core::imp::define_interface!(ILogFileGeneratedEventArgs, ILogFileGeneratedEventArgs_Vtbl, 0x269e976f_0d38_4c1a_b53f_b395d881df84, inspectable);
 impl windows_core::RuntimeType for ILogFileGeneratedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs");
@@ -579,7 +581,7 @@ pub struct ILogFileGeneratedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     File: usize,
 }
-windows_core::imp::define_interface!(ILoggingActivity, ILoggingActivity_Vtbl, 0xbc032941_b766_4cb5_9848_97ac6ba6d60c);
+windows_core::imp::define_interface!(ILoggingActivity, ILoggingActivity_Vtbl, 0xbc032941_b766_4cb5_9848_97ac6ba6d60c, inspectable);
 impl windows_core::RuntimeType for ILoggingActivity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingActivity");
@@ -591,7 +593,7 @@ pub struct ILoggingActivity_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingActivity2, ILoggingActivity2_Vtbl, 0x26c29808_6322_456a_af82_80c8642f178b);
+windows_core::imp::define_interface!(ILoggingActivity2, ILoggingActivity2_Vtbl, 0x26c29808_6322_456a_af82_80c8642f178b, inspectable);
 impl windows_core::RuntimeType for ILoggingActivity2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingActivity2");
@@ -605,7 +607,7 @@ pub struct ILoggingActivity2_Vtbl {
     pub StopActivityWithFields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopActivityWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingActivityFactory, ILoggingActivityFactory_Vtbl, 0x6b33b483_e10a_4c58_97d5_10fb451074fb);
+windows_core::imp::define_interface!(ILoggingActivityFactory, ILoggingActivityFactory_Vtbl, 0x6b33b483_e10a_4c58_97d5_10fb451074fb, inspectable);
 impl windows_core::RuntimeType for ILoggingActivityFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingActivityFactory");
@@ -617,7 +619,7 @@ pub struct ILoggingActivityFactory_Vtbl {
     pub CreateLoggingActivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateLoggingActivityWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingChannel, ILoggingChannel_Vtbl, 0xe9a50343_11d7_4f01_b5ca_cf495278c0a8);
+windows_core::imp::define_interface!(ILoggingChannel, ILoggingChannel_Vtbl, 0xe9a50343_11d7_4f01_b5ca_cf495278c0a8, inspectable);
 impl windows_core::RuntimeType for ILoggingChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingChannel");
@@ -782,7 +784,7 @@ impl ILoggingChannel_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ILoggingChannel, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, OFFSET>,
             Enabled: Enabled::<Identity, OFFSET>,
             Level: Level::<Identity, OFFSET>,
@@ -812,7 +814,7 @@ pub struct ILoggingChannel_Vtbl {
     pub LoggingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveLoggingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingChannel2, ILoggingChannel2_Vtbl, 0x9f4c3cf3_0bac_45a5_9e33_baf3f3a246a5);
+windows_core::imp::define_interface!(ILoggingChannel2, ILoggingChannel2_Vtbl, 0x9f4c3cf3_0bac_45a5_9e33_baf3f3a246a5, inspectable);
 impl windows_core::RuntimeType for ILoggingChannel2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingChannel2");
@@ -823,7 +825,7 @@ pub struct ILoggingChannel2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingChannelFactory, ILoggingChannelFactory_Vtbl, 0x4edc5b9c_af80_4a9b_b0dc_398f9ae5207b);
+windows_core::imp::define_interface!(ILoggingChannelFactory, ILoggingChannelFactory_Vtbl, 0x4edc5b9c_af80_4a9b_b0dc_398f9ae5207b, inspectable);
 impl windows_core::RuntimeType for ILoggingChannelFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingChannelFactory");
@@ -834,7 +836,7 @@ pub struct ILoggingChannelFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingChannelFactory2, ILoggingChannelFactory2_Vtbl, 0x4c6ef5dd_3b27_4dc9_99f0_299c6e4603a1);
+windows_core::imp::define_interface!(ILoggingChannelFactory2, ILoggingChannelFactory2_Vtbl, 0x4c6ef5dd_3b27_4dc9_99f0_299c6e4603a1, inspectable);
 impl windows_core::RuntimeType for ILoggingChannelFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingChannelFactory2");
@@ -846,7 +848,7 @@ pub struct ILoggingChannelFactory2_Vtbl {
     pub CreateWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithOptionsAndId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingChannelOptions, ILoggingChannelOptions_Vtbl, 0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c);
+windows_core::imp::define_interface!(ILoggingChannelOptions, ILoggingChannelOptions_Vtbl, 0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c, inspectable);
 impl windows_core::RuntimeType for ILoggingChannelOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingChannelOptions");
@@ -858,7 +860,7 @@ pub struct ILoggingChannelOptions_Vtbl {
     pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub SetGroup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingChannelOptionsFactory, ILoggingChannelOptionsFactory_Vtbl, 0xa93151da_7faf_4191_8755_5e86dc65d896);
+windows_core::imp::define_interface!(ILoggingChannelOptionsFactory, ILoggingChannelOptionsFactory_Vtbl, 0xa93151da_7faf_4191_8755_5e86dc65d896, inspectable);
 impl windows_core::RuntimeType for ILoggingChannelOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingChannelOptionsFactory");
@@ -869,7 +871,7 @@ pub struct ILoggingChannelOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingFields, ILoggingFields_Vtbl, 0xd7f6b7af_762d_4579_83bd_52c23bc333bc);
+windows_core::imp::define_interface!(ILoggingFields, ILoggingFields_Vtbl, 0xd7f6b7af_762d_4579_83bd_52c23bc333bc, inspectable);
 impl windows_core::RuntimeType for ILoggingFields {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingFields");
@@ -994,7 +996,7 @@ pub struct ILoggingFields_Vtbl {
     pub AddRectArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::Rect, LoggingFieldFormat) -> windows_core::HRESULT,
     pub AddRectArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::Rect, LoggingFieldFormat, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingOptions, ILoggingOptions_Vtbl, 0x90bc7850_0192_4f5d_ac26_006adaca12d8);
+windows_core::imp::define_interface!(ILoggingOptions, ILoggingOptions_Vtbl, 0x90bc7850_0192_4f5d_ac26_006adaca12d8, inspectable);
 impl windows_core::RuntimeType for ILoggingOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingOptions");
@@ -1016,7 +1018,7 @@ pub struct ILoggingOptions_Vtbl {
     pub RelatedActivityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub SetRelatedActivityId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingOptionsFactory, ILoggingOptionsFactory_Vtbl, 0xd713c6cb_98ab_464b_9f22_a3268478368a);
+windows_core::imp::define_interface!(ILoggingOptionsFactory, ILoggingOptionsFactory_Vtbl, 0xd713c6cb_98ab_464b_9f22_a3268478368a, inspectable);
 impl windows_core::RuntimeType for ILoggingOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingOptionsFactory");
@@ -1027,7 +1029,7 @@ pub struct ILoggingOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithKeywords: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingSession, ILoggingSession_Vtbl, 0x6221f306_9380_4ad7_baf5_41ea9310d768);
+windows_core::imp::define_interface!(ILoggingSession, ILoggingSession_Vtbl, 0x6221f306_9380_4ad7_baf5_41ea9310d768, inspectable);
 impl windows_core::RuntimeType for ILoggingSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingSession");
@@ -1140,7 +1142,7 @@ impl ILoggingSession_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ILoggingSession, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, OFFSET>,
             SaveToFileAsync: SaveToFileAsync::<Identity, OFFSET>,
             AddLoggingChannel: AddLoggingChannel::<Identity, OFFSET>,
@@ -1165,7 +1167,7 @@ pub struct ILoggingSession_Vtbl {
     pub AddLoggingChannelWithLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel) -> windows_core::HRESULT,
     pub RemoveLoggingChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingSessionFactory, ILoggingSessionFactory_Vtbl, 0x4e937ee5_58fd_45e0_8c2f_a132eff95c1e);
+windows_core::imp::define_interface!(ILoggingSessionFactory, ILoggingSessionFactory_Vtbl, 0x4e937ee5_58fd_45e0_8c2f_a132eff95c1e, inspectable);
 impl windows_core::RuntimeType for ILoggingSessionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingSessionFactory");
@@ -1176,7 +1178,7 @@ pub struct ILoggingSessionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILoggingTarget, ILoggingTarget_Vtbl, 0x65f16c35_e388_4e26_b17a_f51cd3a83916);
+windows_core::imp::define_interface!(ILoggingTarget, ILoggingTarget_Vtbl, 0x65f16c35_e388_4e26_b17a_f51cd3a83916, inspectable);
 impl windows_core::RuntimeType for ILoggingTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ILoggingTarget");
@@ -1410,7 +1412,7 @@ impl ILoggingTarget_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ILoggingTarget, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             IsEnabled: IsEnabled::<Identity, OFFSET>,
             IsEnabledWithLevel: IsEnabledWithLevel::<Identity, OFFSET>,
             IsEnabledWithLevelAndKeywords: IsEnabledWithLevelAndKeywords::<Identity, OFFSET>,
@@ -1444,7 +1446,7 @@ pub struct ILoggingTarget_Vtbl {
     pub StartActivityWithFieldsAndLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartActivityWithFieldsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, LoggingLevel, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITracingStatusChangedEventArgs, ITracingStatusChangedEventArgs_Vtbl, 0x410b7711_ff3b_477f_9c9a_d2efda302dc3);
+windows_core::imp::define_interface!(ITracingStatusChangedEventArgs, ITracingStatusChangedEventArgs_Vtbl, 0x410b7711_ff3b_477f_9c9a_d2efda302dc3, inspectable);
 impl windows_core::RuntimeType for ITracingStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs");
@@ -1475,6 +1477,7 @@ impl windows_core::RuntimeType for LogFileGeneratedEventArgs {
 unsafe impl windows_core::Interface for LogFileGeneratedEventArgs {
     type Vtable = <ILogFileGeneratedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILogFileGeneratedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LogFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs";
@@ -1643,6 +1646,7 @@ impl windows_core::RuntimeType for LoggingActivity {
 unsafe impl windows_core::Interface for LoggingActivity {
     type Vtable = <ILoggingActivity as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingActivity as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LoggingActivity {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingActivity";
@@ -1834,6 +1838,7 @@ impl windows_core::RuntimeType for LoggingChannel {
 unsafe impl windows_core::Interface for LoggingChannel {
     type Vtable = <ILoggingChannel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingChannel as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannel";
@@ -1878,6 +1883,7 @@ impl windows_core::RuntimeType for LoggingChannelOptions {
 unsafe impl windows_core::Interface for LoggingChannelOptions {
     type Vtable = <ILoggingChannelOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingChannelOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LoggingChannelOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannelOptions";
@@ -2279,6 +2285,7 @@ impl windows_core::RuntimeType for LoggingFields {
 unsafe impl windows_core::Interface for LoggingFields {
     type Vtable = <ILoggingFields as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingFields as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LoggingFields {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingFields";
@@ -2404,6 +2411,7 @@ impl windows_core::RuntimeType for LoggingOptions {
 unsafe impl windows_core::Interface for LoggingOptions {
     type Vtable = <ILoggingOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LoggingOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingOptions";
@@ -2471,6 +2479,7 @@ impl windows_core::RuntimeType for LoggingSession {
 unsafe impl windows_core::Interface for LoggingSession {
     type Vtable = <ILoggingSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingSession as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingSession";
@@ -2505,6 +2514,7 @@ impl windows_core::RuntimeType for RuntimeBrokerErrorSettings {
 unsafe impl windows_core::Interface for RuntimeBrokerErrorSettings {
     type Vtable = <IErrorReportingSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IErrorReportingSettings as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RuntimeBrokerErrorSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings";
@@ -2535,6 +2545,7 @@ impl windows_core::RuntimeType for TracingStatusChangedEventArgs {
 unsafe impl windows_core::Interface for TracingStatusChangedEventArgs {
     type Vtable = <ITracingStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITracingStatusChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TracingStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs";

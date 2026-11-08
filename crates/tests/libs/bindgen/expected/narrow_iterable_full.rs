@@ -1,4 +1,9 @@
-windows_core::imp::define_interface!(IItems, IItems_Vtbl, 0x8dfef4bd_8c6e_5d6d_9614_0aca51e6943b);
+windows_core::imp::define_interface!(
+    IItems,
+    IItems_Vtbl,
+    0x8dfef4bd_8c6e_5d6d_9614_0aca51e6943b,
+    inspectable
+);
 impl windows_core::RuntimeType for IItems {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -13,7 +18,7 @@ pub trait IItems_Impl: windows_core::IUnknownImpl {}
 impl IItems_Vtbl {
     pub const fn new<Identity: IItems_Impl, const OFFSET: isize>() -> Self {
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IItems, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -24,7 +29,12 @@ impl IItems_Vtbl {
 pub struct IItems_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(Item, Item_Vtbl, 0x2d93fccb_fadf_52bd_a462_4bb301d551af);
+windows_core::imp::define_interface!(
+    Item,
+    Item_Vtbl,
+    0x2d93fccb_fadf_52bd_a462_4bb301d551af,
+    inspectable
+);
 impl windows_core::RuntimeType for Item {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -72,7 +82,7 @@ impl Item_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, Item, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Read: Read::<Identity, OFFSET>,
         }
     }
@@ -115,6 +125,7 @@ impl windows_core::RuntimeType for Items {
 unsafe impl windows_core::Interface for Items {
     type Vtable = <IItems as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IItems as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Items {
     const NAME: &'static str = "Test.Items";

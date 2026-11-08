@@ -1,6 +1,6 @@
 pub const CLSID_AudioFrameNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0x16a0a3b9_9f65_4102_9367_2cda3a4f372a);
 pub const CLSID_VideoFrameNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0xd194386a_04e3_4814_8100_b2b0ae6d78c7);
-windows_core::imp::define_interface!(IAudioFrameNative, IAudioFrameNative_Vtbl, 0x20be1e2e_930f_4746_9335_3c332f255093);
+windows_core::imp::define_interface!(IAudioFrameNative, IAudioFrameNative_Vtbl, 0x20be1e2e_930f_4746_9335_3c332f255093, inspectable);
 windows_core::imp::interface_hierarchy!(IAudioFrameNative, windows_core::IUnknown, windows_core::IInspectable);
 impl IAudioFrameNative {
     #[cfg(all(feature = "guiddef", feature = "minwindef"))]
@@ -34,7 +34,7 @@ impl IAudioFrameNative_Vtbl {
                 IAudioFrameNative_Impl::GetData(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IAudioFrameNative, OFFSET>(), GetData: GetData::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioFrameNative as windows_core::Interface>::IID
@@ -42,7 +42,7 @@ impl IAudioFrameNative_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef"))]
 impl windows_core::RuntimeName for IAudioFrameNative {}
-windows_core::imp::define_interface!(IAudioFrameNativeFactory, IAudioFrameNativeFactory_Vtbl, 0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
+windows_core::imp::define_interface!(IAudioFrameNativeFactory, IAudioFrameNativeFactory_Vtbl, 0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110, inspectable);
 windows_core::imp::interface_hierarchy!(IAudioFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IAudioFrameNativeFactory {
     #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef"))]
@@ -77,10 +77,7 @@ impl IAudioFrameNativeFactory_Vtbl {
                 IAudioFrameNativeFactory_Impl::CreateFromMFSample(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&forcereadonly), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAudioFrameNativeFactory, OFFSET>(),
-            CreateFromMFSample: CreateFromMFSample::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), CreateFromMFSample: CreateFromMFSample::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAudioFrameNativeFactory as windows_core::Interface>::IID
@@ -88,7 +85,7 @@ impl IAudioFrameNativeFactory_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef"))]
 impl windows_core::RuntimeName for IAudioFrameNativeFactory {}
-windows_core::imp::define_interface!(IVideoFrameNative, IVideoFrameNative_Vtbl, 0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
+windows_core::imp::define_interface!(IVideoFrameNative, IVideoFrameNative_Vtbl, 0x26ba702b_314a_4620_aaf6_7a51aa58fa18, inspectable);
 windows_core::imp::interface_hierarchy!(IVideoFrameNative, windows_core::IUnknown, windows_core::IInspectable);
 impl IVideoFrameNative {
     #[cfg(all(feature = "guiddef", feature = "minwindef"))]
@@ -142,7 +139,7 @@ impl IVideoFrameNative_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVideoFrameNative, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetData: GetData::<Identity, OFFSET>,
             GetDevice: GetDevice::<Identity, OFFSET>,
         }
@@ -153,7 +150,7 @@ impl IVideoFrameNative_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef"))]
 impl windows_core::RuntimeName for IVideoFrameNative {}
-windows_core::imp::define_interface!(IVideoFrameNativeFactory, IVideoFrameNativeFactory_Vtbl, 0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);
+windows_core::imp::define_interface!(IVideoFrameNativeFactory, IVideoFrameNativeFactory_Vtbl, 0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d, inspectable);
 windows_core::imp::interface_hierarchy!(IVideoFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IVideoFrameNativeFactory {
     #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "shared", feature = "windef"))]
@@ -189,10 +186,7 @@ impl IVideoFrameNativeFactory_Vtbl {
                 IVideoFrameNativeFactory_Impl::CreateFromMFSample(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&subtype), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&forcereadonly), core::mem::transmute_copy(&mindisplayaperture), core::mem::transmute_copy(&device), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVideoFrameNativeFactory, OFFSET>(),
-            CreateFromMFSample: CreateFromMFSample::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), CreateFromMFSample: CreateFromMFSample::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVideoFrameNativeFactory as windows_core::Interface>::IID

@@ -15,6 +15,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IIterator_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterator<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()

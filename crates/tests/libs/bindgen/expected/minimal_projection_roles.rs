@@ -1,7 +1,8 @@
 windows_core::imp::define_interface!(
     Callable,
     Callable_Vtbl,
-    0xc6166a85_543a_5b5a_9324_0fd34a07698b
+    0xc6166a85_543a_5b5a_9324_0fd34a07698b,
+    inspectable
 );
 impl windows_core::RuntimeType for Callable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -67,6 +68,7 @@ impl windows_core::RuntimeType for Constructed {
 unsafe impl windows_core::Interface for Constructed {
     type Vtable = <IConstructed as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConstructed as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for Constructed {
     type Target = IConstructed;
@@ -80,7 +82,8 @@ impl windows_core::RuntimeName for Constructed {
 windows_core::imp::define_interface!(
     IConstructed,
     IConstructed_Vtbl,
-    0xe372f62b_40ef_530c_a87a_efcdd0ceab3b
+    0xe372f62b_40ef_530c_a87a_efcdd0ceab3b,
+    inspectable
 );
 impl windows_core::RuntimeType for IConstructed {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -98,7 +101,8 @@ pub struct IConstructed_Vtbl {
 windows_core::imp::define_interface!(
     IConstructedFactory,
     IConstructedFactory_Vtbl,
-    0x212e4b12_3d77_5712_8556_c828917a66a0
+    0x212e4b12_3d77_5712_8556_c828917a66a0,
+    inspectable
 );
 impl windows_core::RuntimeType for IConstructedFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -146,7 +150,8 @@ pub struct IConstructedFactory_Vtbl {
 windows_core::imp::define_interface!(
     IMemberOnly,
     IMemberOnly_Vtbl,
-    0x1b61d9b4_47b8_5fea_9b61_d77788fcb639
+    0x1b61d9b4_47b8_5fea_9b61_d77788fcb639,
+    inspectable
 );
 impl windows_core::RuntimeType for IMemberOnly {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -187,7 +192,8 @@ pub struct IMemberOnly_Vtbl {
 windows_core::imp::define_interface!(
     Implemented,
     Implemented_Vtbl,
-    0x6df5563f_dd6b_5b44_bf76_ca328373a0a3
+    0x6df5563f_dd6b_5b44_bf76_ca328373a0a3,
+    inspectable
 );
 impl windows_core::RuntimeType for Implemented {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -228,7 +234,7 @@ impl Implemented_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, Implemented, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
@@ -258,6 +264,7 @@ impl windows_core::RuntimeType for MemberOnly {
 unsafe impl windows_core::Interface for MemberOnly {
     type Vtable = <IMemberOnly as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMemberOnly as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for MemberOnly {
     type Target = IMemberOnly;

@@ -72,6 +72,7 @@ impl windows_core::RuntimeType for HttpDiagnosticProvider {
 unsafe impl windows_core::Interface for HttpDiagnosticProvider {
     type Vtable = <IHttpDiagnosticProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticProvider as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HttpDiagnosticProvider {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProvider";
@@ -132,6 +133,7 @@ impl windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseComplete
 unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = <IHttpDiagnosticProviderRequestResponseCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticProviderRequestResponseCompletedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs";
@@ -204,6 +206,7 @@ impl windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseTimestam
 unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = <IHttpDiagnosticProviderRequestResponseTimestamps as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticProviderRequestResponseTimestamps as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HttpDiagnosticProviderRequestResponseTimestamps {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps";
@@ -264,6 +267,7 @@ impl windows_core::RuntimeType for HttpDiagnosticProviderRequestSentEventArgs {
 unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = <IHttpDiagnosticProviderRequestSentEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticProviderRequestSentEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs";
@@ -300,6 +304,7 @@ impl windows_core::RuntimeType for HttpDiagnosticProviderResponseReceivedEventAr
 unsafe impl windows_core::Interface for HttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = <IHttpDiagnosticProviderResponseReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticProviderResponseReceivedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs";
@@ -361,13 +366,14 @@ impl windows_core::RuntimeType for HttpDiagnosticSourceLocation {
 unsafe impl windows_core::Interface for HttpDiagnosticSourceLocation {
     type Vtable = <IHttpDiagnosticSourceLocation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticSourceLocation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HttpDiagnosticSourceLocation {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation";
 }
 unsafe impl Send for HttpDiagnosticSourceLocation {}
 unsafe impl Sync for HttpDiagnosticSourceLocation {}
-windows_core::imp::define_interface!(IHttpDiagnosticProvider, IHttpDiagnosticProvider_Vtbl, 0xbd811501_a056_4d39_b174_833b7b03b02c);
+windows_core::imp::define_interface!(IHttpDiagnosticProvider, IHttpDiagnosticProvider_Vtbl, 0xbd811501_a056_4d39_b174_833b7b03b02c, inspectable);
 impl windows_core::RuntimeType for IHttpDiagnosticProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider");
@@ -385,7 +391,7 @@ pub struct IHttpDiagnosticProvider_Vtbl {
     pub RequestResponseCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRequestResponseCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestResponseCompletedEventArgs, IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl, 0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
+windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestResponseCompletedEventArgs, IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl, 0x735f98ee_94f6_4532_b26e_61e1b1e4efd4, inspectable);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs");
@@ -402,7 +408,7 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
     pub Initiator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpDiagnosticRequestInitiator) -> windows_core::HRESULT,
     pub SourceLocations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestResponseTimestamps, IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl, 0xe0afde10_55cf_4c01_91d4_a20557d849f0);
+windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestResponseTimestamps, IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl, 0xe0afde10_55cf_4c01_91d4_a20557d849f0, inspectable);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderRequestResponseTimestamps {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseTimestamps");
@@ -421,7 +427,7 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
     pub ResponseReceivedTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResponseCompletedTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestSentEventArgs, IHttpDiagnosticProviderRequestSentEventArgs_Vtbl, 0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
+windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestSentEventArgs, IHttpDiagnosticProviderRequestSentEventArgs_Vtbl, 0x3f5196d0_4c1f_4ebe_a57a_06930771c50d, inspectable);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderRequestSentEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs");
@@ -438,7 +444,7 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
     pub Initiator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpDiagnosticRequestInitiator) -> windows_core::HRESULT,
     pub SourceLocations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpDiagnosticProviderResponseReceivedEventArgs, IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl, 0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
+windows_core::imp::define_interface!(IHttpDiagnosticProviderResponseReceivedEventArgs, IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl, 0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0, inspectable);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderResponseReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs");
@@ -451,7 +457,7 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
     pub ActivityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpDiagnosticProviderStatics, IHttpDiagnosticProviderStatics_Vtbl, 0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
+windows_core::imp::define_interface!(IHttpDiagnosticProviderStatics, IHttpDiagnosticProviderStatics_Vtbl, 0x5b824ec1_6a6c_47cc_afec_1e86bc26053b, inspectable);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderStatics");
@@ -465,7 +471,7 @@ pub struct IHttpDiagnosticProviderStatics_Vtbl {
     #[cfg(not(feature = "System_Diagnostics"))]
     CreateFromProcessDiagnosticInfo: usize,
 }
-windows_core::imp::define_interface!(IHttpDiagnosticSourceLocation, IHttpDiagnosticSourceLocation_Vtbl, 0x54a9d260_8860_423f_b6fa_d77716f647a7);
+windows_core::imp::define_interface!(IHttpDiagnosticSourceLocation, IHttpDiagnosticSourceLocation_Vtbl, 0x54a9d260_8860_423f_b6fa_d77716f647a7, inspectable);
 impl windows_core::RuntimeType for IHttpDiagnosticSourceLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticSourceLocation");

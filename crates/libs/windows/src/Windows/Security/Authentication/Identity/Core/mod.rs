@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorAuthenticationManager, IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl, 0x0fd340a5_f574_4320_a08e_0a19a82322aa);
+windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorAuthenticationManager, IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl, 0x0fd340a5_f574_4320_a08e_0a19a82322aa, inspectable);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorAuthenticationManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorAuthenticationManager");
@@ -18,7 +18,7 @@ pub struct IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl {
     pub DenySessionUsingAuthSessionInfoAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DenySessionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, MicrosoftAccountMultiFactorAuthenticationType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorAuthenticatorStatics, IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl, 0xd964c2e6_f446_4c71_8b79_6ea4024aa9b8);
+windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorAuthenticatorStatics, IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl, 0xd964c2e6_f446_4c71_8b79_6ea4024aa9b8, inspectable);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorAuthenticatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorAuthenticatorStatics");
@@ -29,7 +29,7 @@ pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorGetSessionsResult, IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl, 0x4e23a9a0_e9fa_497a_95de_6d5747bf974c);
+windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorGetSessionsResult, IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl, 0x4e23a9a0_e9fa_497a_95de_6d5747bf974c, inspectable);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorGetSessionsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorGetSessionsResult");
@@ -41,7 +41,7 @@ pub struct IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl {
     pub Sessions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ServiceResponse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MicrosoftAccountMultiFactorServiceResponse) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorOneTimeCodedInfo, IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl, 0x82ba264b_d87c_4668_a976_40cfae547d08);
+windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorOneTimeCodedInfo, IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl, 0x82ba264b_d87c_4668_a976_40cfae547d08, inspectable);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorOneTimeCodedInfo");
@@ -55,7 +55,7 @@ pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl {
     pub TimeToLive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub ServiceResponse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MicrosoftAccountMultiFactorServiceResponse) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorSessionInfo, IMicrosoftAccountMultiFactorSessionInfo_Vtbl, 0x5f7eabb4_a278_4635_b765_b494eb260af4);
+windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorSessionInfo, IMicrosoftAccountMultiFactorSessionInfo_Vtbl, 0x5f7eabb4_a278_4635_b765_b494eb260af4, inspectable);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorSessionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorSessionInfo");
@@ -72,7 +72,7 @@ pub struct IMicrosoftAccountMultiFactorSessionInfo_Vtbl {
     pub RequestTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl, 0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5);
+windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl, 0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5, inspectable);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo");
@@ -179,6 +179,7 @@ impl windows_core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationMana
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorAuthenticationManager {
     type Vtable = <IMicrosoftAccountMultiFactorAuthenticationManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorAuthenticationManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorAuthenticationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager";
@@ -223,6 +224,7 @@ impl windows_core::RuntimeType for MicrosoftAccountMultiFactorGetSessionsResult 
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorGetSessionsResult {
     type Vtable = <IMicrosoftAccountMultiFactorGetSessionsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorGetSessionsResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult";
@@ -265,6 +267,7 @@ impl windows_core::RuntimeType for MicrosoftAccountMultiFactorOneTimeCodedInfo {
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     type Vtable = <IMicrosoftAccountMultiFactorOneTimeCodedInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorOneTimeCodedInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo";
@@ -388,6 +391,7 @@ impl windows_core::RuntimeType for MicrosoftAccountMultiFactorSessionInfo {
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorSessionInfo {
     type Vtable = <IMicrosoftAccountMultiFactorSessionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorSessionInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo";
@@ -424,6 +428,7 @@ impl windows_core::RuntimeType for MicrosoftAccountMultiFactorUnregisteredAccoun
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     type Vtable = <IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo";

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IOemSupportInfo, IOemSupportInfo_Vtbl, 0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
+windows_core::imp::define_interface!(IOemSupportInfo, IOemSupportInfo_Vtbl, 0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9, inspectable);
 impl windows_core::RuntimeType for IOemSupportInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.SystemManufacturers.IOemSupportInfo");
@@ -11,7 +11,7 @@ pub struct IOemSupportInfo_Vtbl {
     pub SupportAppLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SupportProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmbiosInformationStatics, ISmbiosInformationStatics_Vtbl, 0x080cca7c_637c_48c4_b728_f9273812db8e);
+windows_core::imp::define_interface!(ISmbiosInformationStatics, ISmbiosInformationStatics_Vtbl, 0x080cca7c_637c_48c4_b728_f9273812db8e, inspectable);
 impl windows_core::RuntimeType for ISmbiosInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.SystemManufacturers.ISmbiosInformationStatics");
@@ -22,7 +22,7 @@ pub struct ISmbiosInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemSupportDeviceInfo, ISystemSupportDeviceInfo_Vtbl, 0x05880b99_8247_441b_a996_a1784bab79a8);
+windows_core::imp::define_interface!(ISystemSupportDeviceInfo, ISystemSupportDeviceInfo_Vtbl, 0x05880b99_8247_441b_a996_a1784bab79a8, inspectable);
 impl windows_core::RuntimeType for ISystemSupportDeviceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.SystemManufacturers.ISystemSupportDeviceInfo");
@@ -39,7 +39,7 @@ pub struct ISystemSupportDeviceInfo_Vtbl {
     pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SystemFirmwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemSupportInfoStatics, ISystemSupportInfoStatics_Vtbl, 0xef750974_c422_45d7_a44d_5c1c0043a2b3);
+windows_core::imp::define_interface!(ISystemSupportInfoStatics, ISystemSupportInfoStatics_Vtbl, 0xef750974_c422_45d7_a44d_5c1c0043a2b3, inspectable);
 impl windows_core::RuntimeType for ISystemSupportInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.SystemManufacturers.ISystemSupportInfoStatics");
@@ -51,7 +51,7 @@ pub struct ISystemSupportInfoStatics_Vtbl {
     pub LocalSystemEdition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OemSupportInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemSupportInfoStatics2, ISystemSupportInfoStatics2_Vtbl, 0x33f349a4_3fa1_4986_aa4b_057420455e6d);
+windows_core::imp::define_interface!(ISystemSupportInfoStatics2, ISystemSupportInfoStatics2_Vtbl, 0x33f349a4_3fa1_4986_aa4b_057420455e6d, inspectable);
 impl windows_core::RuntimeType for ISystemSupportInfoStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.SystemManufacturers.ISystemSupportInfoStatics2");
@@ -92,6 +92,7 @@ impl windows_core::RuntimeType for OemSupportInfo {
 unsafe impl windows_core::Interface for OemSupportInfo {
     type Vtable = <IOemSupportInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOemSupportInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for OemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.OemSupportInfo";
@@ -168,6 +169,7 @@ impl windows_core::RuntimeType for SystemSupportDeviceInfo {
 unsafe impl windows_core::Interface for SystemSupportDeviceInfo {
     type Vtable = <ISystemSupportDeviceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemSupportDeviceInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SystemSupportDeviceInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo";

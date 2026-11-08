@@ -288,7 +288,7 @@ impl Interface {
 
                 quote! {
                     #cfg
-                    windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+                    windows_core::imp::define_interface!(#name, #vtbl_name, #guid, inspectable);
                     #cfg
                     impl windows_core::RuntimeType for #name {
                         const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -343,6 +343,7 @@ impl Interface {
                     unsafe impl<#constraints> windows_core::Interface for #name {
                         type Vtable = #vtbl_name;
                         const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+                        const INSPECTABLE: bool = true;
                     }
                     impl<#constraints> windows_core::RuntimeType for #name {
                         const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
@@ -642,7 +643,7 @@ impl Interface {
                     #vis const fn new<Identity: #impl_name <#(#generics,)*>, const OFFSET: isize>() -> Self {
                         #(#impl_methods)*
                         Self {
-                            base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(),
+                            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
                             #(#field_methods)*
                             #named_phantoms
                         }

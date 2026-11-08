@@ -26,13 +26,14 @@ impl windows_core::RuntimeType for GpioPinProviderValueChangedEventArgs {
 unsafe impl windows_core::Interface for GpioPinProviderValueChangedEventArgs {
     type Vtable = <IGpioPinProviderValueChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGpioPinProviderValueChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GpioPinProviderValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs";
 }
 unsafe impl Send for GpioPinProviderValueChangedEventArgs {}
 unsafe impl Sync for GpioPinProviderValueChangedEventArgs {}
-windows_core::imp::define_interface!(IGpioControllerProvider, IGpioControllerProvider_Vtbl, 0xad11cec7_19ea_4b21_874f_b91aed4a25db);
+windows_core::imp::define_interface!(IGpioControllerProvider, IGpioControllerProvider_Vtbl, 0xad11cec7_19ea_4b21_874f_b91aed4a25db, inspectable);
 impl windows_core::RuntimeType for IGpioControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.Provider.IGpioControllerProvider");
@@ -93,7 +94,7 @@ impl IGpioControllerProvider_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IGpioControllerProvider, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             PinCount: PinCount::<Identity, OFFSET>,
             OpenPinProvider: OpenPinProvider::<Identity, OFFSET>,
         }
@@ -109,7 +110,7 @@ pub struct IGpioControllerProvider_Vtbl {
     pub PinCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub OpenPinProvider: unsafe extern "system" fn(*mut core::ffi::c_void, i32, ProviderGpioSharingMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGpioPinProvider, IGpioPinProvider_Vtbl, 0x42344cb7_6abc_40ff_9ce7_73b85301b900);
+windows_core::imp::define_interface!(IGpioPinProvider, IGpioPinProvider_Vtbl, 0x42344cb7_6abc_40ff_9ce7_73b85301b900, inspectable);
 impl windows_core::RuntimeType for IGpioPinProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.Provider.IGpioPinProvider");
@@ -324,7 +325,7 @@ impl IGpioPinProvider_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IGpioPinProvider, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ValueChanged: ValueChanged::<Identity, OFFSET>,
             RemoveValueChanged: RemoveValueChanged::<Identity, OFFSET>,
             DebounceTimeout: DebounceTimeout::<Identity, OFFSET>,
@@ -358,7 +359,7 @@ pub struct IGpioPinProvider_Vtbl {
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinValue) -> windows_core::HRESULT,
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioPinValue) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGpioPinProviderValueChangedEventArgs, IGpioPinProviderValueChangedEventArgs_Vtbl, 0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24);
+windows_core::imp::define_interface!(IGpioPinProviderValueChangedEventArgs, IGpioPinProviderValueChangedEventArgs_Vtbl, 0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24, inspectable);
 impl windows_core::RuntimeType for IGpioPinProviderValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgs");
@@ -369,7 +370,7 @@ pub struct IGpioPinProviderValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Edge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioPinEdge) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGpioPinProviderValueChangedEventArgsFactory, IGpioPinProviderValueChangedEventArgsFactory_Vtbl, 0x3ecb0b59_568c_4392_b24a_8a59a902b1f1);
+windows_core::imp::define_interface!(IGpioPinProviderValueChangedEventArgsFactory, IGpioPinProviderValueChangedEventArgsFactory_Vtbl, 0x3ecb0b59_568c_4392_b24a_8a59a902b1f1, inspectable);
 impl windows_core::RuntimeType for IGpioPinProviderValueChangedEventArgsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgsFactory");
@@ -380,7 +381,7 @@ pub struct IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinEdge, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGpioProvider, IGpioProvider_Vtbl, 0x44e82707_08ca_434a_afe0_d61580446f7e);
+windows_core::imp::define_interface!(IGpioProvider, IGpioProvider_Vtbl, 0x44e82707_08ca_434a_afe0_d61580446f7e, inspectable);
 impl windows_core::RuntimeType for IGpioProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.Provider.IGpioProvider");
@@ -418,7 +419,7 @@ impl IGpioProvider_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGpioProvider, OFFSET>(), GetControllers: GetControllers::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetControllers: GetControllers::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGpioProvider as windows_core::Interface>::IID

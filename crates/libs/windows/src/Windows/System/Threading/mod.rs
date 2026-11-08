@@ -1,6 +1,6 @@
 #[cfg(feature = "System_Threading_Core")]
 pub mod Core;
-windows_core::imp::define_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
+windows_core::imp::define_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91, inspectable);
 impl windows_core::RuntimeType for IThreadPoolStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.IThreadPoolStatics");
@@ -13,7 +13,7 @@ pub struct IThreadPoolStatics_Vtbl {
     pub RunWithPriorityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RunWithPriorityAndOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, WorkItemOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
+windows_core::imp::define_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2, inspectable);
 impl windows_core::RuntimeType for IThreadPoolTimer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.IThreadPoolTimer");
@@ -26,7 +26,7 @@ pub struct IThreadPoolTimer_Vtbl {
     pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
+windows_core::imp::define_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590, inspectable);
 impl windows_core::RuntimeType for IThreadPoolTimerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.IThreadPoolTimerStatics");
@@ -146,6 +146,7 @@ impl windows_core::RuntimeType for ThreadPoolTimer {
 unsafe impl windows_core::Interface for ThreadPoolTimer {
     type Vtable = <IThreadPoolTimer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IThreadPoolTimer as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ThreadPoolTimer {
     const NAME: &'static str = "Windows.System.Threading.ThreadPoolTimer";

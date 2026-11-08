@@ -52,6 +52,7 @@ impl windows_core::RuntimeType for ConditionForceEffect {
 unsafe impl windows_core::Interface for ConditionForceEffect {
     type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect";
@@ -122,6 +123,7 @@ impl windows_core::RuntimeType for ConstantForceEffect {
 unsafe impl windows_core::Interface for ConstantForceEffect {
     type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConstantForceEffect";
@@ -292,13 +294,14 @@ impl windows_core::RuntimeType for ForceFeedbackMotor {
 unsafe impl windows_core::Interface for ForceFeedbackMotor {
     type Vtable = <IForceFeedbackMotor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackMotor as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor";
 }
 unsafe impl Send for ForceFeedbackMotor {}
 unsafe impl Sync for ForceFeedbackMotor {}
-windows_core::imp::define_interface!(IConditionForceEffect, IConditionForceEffect_Vtbl, 0x32d1ea68_3695_4e69_85c0_cd1944189140);
+windows_core::imp::define_interface!(IConditionForceEffect, IConditionForceEffect_Vtbl, 0x32d1ea68_3695_4e69_85c0_cd1944189140, inspectable);
 impl windows_core::RuntimeType for IConditionForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IConditionForceEffect");
@@ -310,7 +313,7 @@ pub struct IConditionForceEffect_Vtbl {
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ConditionForceEffectKind) -> windows_core::HRESULT,
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, f32, f32, f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConditionForceEffectFactory, IConditionForceEffectFactory_Vtbl, 0x91a99264_1810_4eb6_a773_bfd3b8cddbab);
+windows_core::imp::define_interface!(IConditionForceEffectFactory, IConditionForceEffectFactory_Vtbl, 0x91a99264_1810_4eb6_a773_bfd3b8cddbab, inspectable);
 impl windows_core::RuntimeType for IConditionForceEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IConditionForceEffectFactory");
@@ -321,7 +324,7 @@ pub struct IConditionForceEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, ConditionForceEffectKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConstantForceEffect, IConstantForceEffect_Vtbl, 0x9bfa0140_f3c7_415c_b068_0f068734bce0);
+windows_core::imp::define_interface!(IConstantForceEffect, IConstantForceEffect_Vtbl, 0x9bfa0140_f3c7_415c_b068_0f068734bce0, inspectable);
 impl windows_core::RuntimeType for IConstantForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IConstantForceEffect");
@@ -333,7 +336,7 @@ pub struct IConstantForceEffect_Vtbl {
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, windows_time::TimeSpan, windows_time::TimeSpan, windows_time::TimeSpan, windows_time::TimeSpan, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IForceFeedbackEffect, IForceFeedbackEffect_Vtbl, 0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
+windows_core::imp::define_interface!(IForceFeedbackEffect, IForceFeedbackEffect_Vtbl, 0xa17fba0c_2ae4_48c2_8063_eabd0777cb89, inspectable);
 impl windows_core::RuntimeType for IForceFeedbackEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect");
@@ -423,7 +426,7 @@ impl IForceFeedbackEffect_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IForceFeedbackEffect, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Gain: Gain::<Identity, OFFSET>,
             SetGain: SetGain::<Identity, OFFSET>,
             State: State::<Identity, OFFSET>,
@@ -445,7 +448,7 @@ pub struct IForceFeedbackEffect_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IForceFeedbackMotor, IForceFeedbackMotor_Vtbl, 0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
+windows_core::imp::define_interface!(IForceFeedbackMotor, IForceFeedbackMotor_Vtbl, 0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5, inspectable);
 impl windows_core::RuntimeType for IForceFeedbackMotor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IForceFeedbackMotor");
@@ -468,7 +471,7 @@ pub struct IForceFeedbackMotor_Vtbl {
     pub TryResetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryUnloadEffectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPeriodicForceEffect, IPeriodicForceEffect_Vtbl, 0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64);
+windows_core::imp::define_interface!(IPeriodicForceEffect, IPeriodicForceEffect_Vtbl, 0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64, inspectable);
 impl windows_core::RuntimeType for IPeriodicForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffect");
@@ -481,7 +484,7 @@ pub struct IPeriodicForceEffect_Vtbl {
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, f32, f32, f32, windows_time::TimeSpan, windows_time::TimeSpan, windows_time::TimeSpan, windows_time::TimeSpan, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPeriodicForceEffectFactory, IPeriodicForceEffectFactory_Vtbl, 0x6f62eb1a_9851_477b_b318_35ecaa15070f);
+windows_core::imp::define_interface!(IPeriodicForceEffectFactory, IPeriodicForceEffectFactory_Vtbl, 0x6f62eb1a_9851_477b_b318_35ecaa15070f, inspectable);
 impl windows_core::RuntimeType for IPeriodicForceEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffectFactory");
@@ -492,7 +495,7 @@ pub struct IPeriodicForceEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, PeriodicForceEffectKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRampForceEffect, IRampForceEffect_Vtbl, 0xf1f81259_1ca6_4080_b56d_b43f3354d052);
+windows_core::imp::define_interface!(IRampForceEffect, IRampForceEffect_Vtbl, 0xf1f81259_1ca6_4080_b56d_b43f3354d052, inspectable);
 impl windows_core::RuntimeType for IRampForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IRampForceEffect");
@@ -562,6 +565,7 @@ impl windows_core::RuntimeType for PeriodicForceEffect {
 unsafe impl windows_core::Interface for PeriodicForceEffect {
     type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect";
@@ -633,6 +637,7 @@ impl windows_core::RuntimeType for RampForceEffect {
 unsafe impl windows_core::Interface for RampForceEffect {
     type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.RampForceEffect";

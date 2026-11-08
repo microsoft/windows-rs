@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IRadio, IRadio_Vtbl, 0x252118df_b33e_416a_875f_1cf38ae2d83e);
+windows_core::imp::define_interface!(IRadio, IRadio_Vtbl, 0x252118df_b33e_416a_875f_1cf38ae2d83e, inspectable);
 impl windows_core::RuntimeType for IRadio {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Radios.IRadio");
@@ -14,7 +14,7 @@ pub struct IRadio_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RadioKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRadioStatics, IRadioStatics_Vtbl, 0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
+windows_core::imp::define_interface!(IRadioStatics, IRadioStatics_Vtbl, 0x5fb6a12e_67cb_46ae_aae9_65919f86eff4, inspectable);
 impl windows_core::RuntimeType for IRadioStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Radios.IRadioStatics");
@@ -106,6 +106,7 @@ impl windows_core::RuntimeType for Radio {
 unsafe impl windows_core::Interface for Radio {
     type Vtable = <IRadio as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadio as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Radio {
     const NAME: &'static str = "Windows.Devices.Radios.Radio";

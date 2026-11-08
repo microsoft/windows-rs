@@ -58,6 +58,7 @@ impl windows_core::RuntimeType for AppointmentCalendarCancelMeetingRequest {
 unsafe impl windows_core::Interface for AppointmentCalendarCancelMeetingRequest {
     type Vtable = <IAppointmentCalendarCancelMeetingRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarCancelMeetingRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarCancelMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest";
@@ -88,6 +89,7 @@ impl windows_core::RuntimeType for AppointmentCalendarCancelMeetingRequestEventA
 unsafe impl windows_core::Interface for AppointmentCalendarCancelMeetingRequestEventArgs {
     type Vtable = <IAppointmentCalendarCancelMeetingRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarCancelMeetingRequestEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarCancelMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs";
@@ -145,6 +147,7 @@ impl windows_core::RuntimeType for AppointmentCalendarCreateOrUpdateAppointmentR
 unsafe impl windows_core::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     type Vtable = <IAppointmentCalendarCreateOrUpdateAppointmentRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarCreateOrUpdateAppointmentRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest";
@@ -175,6 +178,7 @@ impl windows_core::RuntimeType for AppointmentCalendarCreateOrUpdateAppointmentR
 unsafe impl windows_core::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     type Vtable = <IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
@@ -247,6 +251,7 @@ impl windows_core::RuntimeType for AppointmentCalendarForwardMeetingRequest {
 unsafe impl windows_core::Interface for AppointmentCalendarForwardMeetingRequest {
     type Vtable = <IAppointmentCalendarForwardMeetingRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarForwardMeetingRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest";
@@ -277,6 +282,7 @@ impl windows_core::RuntimeType for AppointmentCalendarForwardMeetingRequestEvent
 unsafe impl windows_core::Interface for AppointmentCalendarForwardMeetingRequestEventArgs {
     type Vtable = <IAppointmentCalendarForwardMeetingRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarForwardMeetingRequestEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs";
@@ -349,6 +355,7 @@ impl windows_core::RuntimeType for AppointmentCalendarProposeNewTimeForMeetingRe
 unsafe impl windows_core::Interface for AppointmentCalendarProposeNewTimeForMeetingRequest {
     type Vtable = <IAppointmentCalendarProposeNewTimeForMeetingRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarProposeNewTimeForMeetingRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest";
@@ -379,6 +386,7 @@ impl windows_core::RuntimeType for AppointmentCalendarProposeNewTimeForMeetingRe
 unsafe impl windows_core::Interface for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = <IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
@@ -415,6 +423,7 @@ impl windows_core::RuntimeType for AppointmentCalendarSyncManagerSyncRequest {
 unsafe impl windows_core::Interface for AppointmentCalendarSyncManagerSyncRequest {
     type Vtable = <IAppointmentCalendarSyncManagerSyncRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarSyncManagerSyncRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest";
@@ -445,6 +454,7 @@ impl windows_core::RuntimeType for AppointmentCalendarSyncManagerSyncRequestEven
 unsafe impl windows_core::Interface for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     type Vtable = <IAppointmentCalendarSyncManagerSyncRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarSyncManagerSyncRequestEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs";
@@ -517,6 +527,7 @@ impl windows_core::RuntimeType for AppointmentCalendarUpdateMeetingResponseReque
 unsafe impl windows_core::Interface for AppointmentCalendarUpdateMeetingResponseRequest {
     type Vtable = <IAppointmentCalendarUpdateMeetingResponseRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarUpdateMeetingResponseRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest";
@@ -547,6 +558,7 @@ impl windows_core::RuntimeType for AppointmentCalendarUpdateMeetingResponseReque
 unsafe impl windows_core::Interface for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     type Vtable = <IAppointmentCalendarUpdateMeetingResponseRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarUpdateMeetingResponseRequestEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs";
@@ -652,6 +664,7 @@ impl windows_core::RuntimeType for AppointmentDataProviderConnection {
 unsafe impl windows_core::Interface for AppointmentDataProviderConnection {
     type Vtable = <IAppointmentDataProviderConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentDataProviderConnection as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection";
@@ -676,13 +689,14 @@ impl windows_core::RuntimeType for AppointmentDataProviderTriggerDetails {
 unsafe impl windows_core::Interface for AppointmentDataProviderTriggerDetails {
     type Vtable = <IAppointmentDataProviderTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentDataProviderTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails";
 }
 unsafe impl Send for AppointmentDataProviderTriggerDetails {}
 unsafe impl Sync for AppointmentDataProviderTriggerDetails {}
-windows_core::imp::define_interface!(IAppointmentCalendarCancelMeetingRequest, IAppointmentCalendarCancelMeetingRequest_Vtbl, 0x49460f8d_6434_40d7_ad46_6297419314d1);
+windows_core::imp::define_interface!(IAppointmentCalendarCancelMeetingRequest, IAppointmentCalendarCancelMeetingRequest_Vtbl, 0x49460f8d_6434_40d7_ad46_6297419314d1, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarCancelMeetingRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequest");
@@ -700,7 +714,7 @@ pub struct IAppointmentCalendarCancelMeetingRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarCancelMeetingRequestEventArgs, IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl, 0x1a79be16_7f30_4e35_beef_9d2c7b6dcae1);
+windows_core::imp::define_interface!(IAppointmentCalendarCancelMeetingRequestEventArgs, IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl, 0x1a79be16_7f30_4e35_beef_9d2c7b6dcae1, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarCancelMeetingRequestEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequestEventArgs");
@@ -712,7 +726,7 @@ pub struct IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarCreateOrUpdateAppointmentRequest, IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl, 0x2e62f2b2_ca96_48ac_9124_406b19fefa70);
+windows_core::imp::define_interface!(IAppointmentCalendarCreateOrUpdateAppointmentRequest, IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl, 0x2e62f2b2_ca96_48ac_9124_406b19fefa70, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequest");
@@ -728,7 +742,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl, 0xcf8ded28_002e_4bf7_8e9d_5e20d49aa3ba);
+windows_core::imp::define_interface!(IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl, 0xcf8ded28_002e_4bf7_8e9d_5e20d49aa3ba, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs");
@@ -740,7 +754,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarForwardMeetingRequest, IAppointmentCalendarForwardMeetingRequest_Vtbl, 0x82e5ee56_26b6_4253_8a8f_6cf5f2ff7884);
+windows_core::imp::define_interface!(IAppointmentCalendarForwardMeetingRequest, IAppointmentCalendarForwardMeetingRequest_Vtbl, 0x82e5ee56_26b6_4253_8a8f_6cf5f2ff7884, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarForwardMeetingRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequest");
@@ -759,7 +773,7 @@ pub struct IAppointmentCalendarForwardMeetingRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarForwardMeetingRequestEventArgs, IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl, 0x3109151a_23a2_42fd_9c82_c9a60d59f8a8);
+windows_core::imp::define_interface!(IAppointmentCalendarForwardMeetingRequestEventArgs, IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl, 0x3109151a_23a2_42fd_9c82_c9a60d59f8a8, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarForwardMeetingRequestEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequestEventArgs");
@@ -771,7 +785,7 @@ pub struct IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarProposeNewTimeForMeetingRequest, IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl, 0xce1c63f5_edf6_43c3_82b7_be6b368c6900);
+windows_core::imp::define_interface!(IAppointmentCalendarProposeNewTimeForMeetingRequest, IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl, 0xce1c63f5_edf6_43c3_82b7_be6b368c6900, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarProposeNewTimeForMeetingRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequest");
@@ -790,7 +804,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl, 0xd2d777d8_fed1_4280_a3ba_2e1f47609aa2);
+windows_core::imp::define_interface!(IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl, 0xd2d777d8_fed1_4280_a3ba_2e1f47609aa2, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs");
@@ -802,7 +816,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarSyncManagerSyncRequest, IAppointmentCalendarSyncManagerSyncRequest_Vtbl, 0x12ab382b_7163_4a56_9a4e_7223a84adf46);
+windows_core::imp::define_interface!(IAppointmentCalendarSyncManagerSyncRequest, IAppointmentCalendarSyncManagerSyncRequest_Vtbl, 0x12ab382b_7163_4a56_9a4e_7223a84adf46, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarSyncManagerSyncRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequest");
@@ -815,7 +829,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarSyncManagerSyncRequestEventArgs, IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl, 0xca17c6f7_0284_4edd_87ba_4d8f69dcf5c0);
+windows_core::imp::define_interface!(IAppointmentCalendarSyncManagerSyncRequestEventArgs, IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl, 0xca17c6f7_0284_4edd_87ba_4d8f69dcf5c0, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequestEventArgs");
@@ -827,7 +841,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarUpdateMeetingResponseRequest, IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl, 0xa36d608c_c29d_4b94_b086_7e9ff7bd84a0);
+windows_core::imp::define_interface!(IAppointmentCalendarUpdateMeetingResponseRequest, IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl, 0xa36d608c_c29d_4b94_b086_7e9ff7bd84a0, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarUpdateMeetingResponseRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequest");
@@ -846,7 +860,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarUpdateMeetingResponseRequestEventArgs, IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl, 0x88759883_97bf_479d_aed5_0be8ce567d1e);
+windows_core::imp::define_interface!(IAppointmentCalendarUpdateMeetingResponseRequestEventArgs, IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl, 0x88759883_97bf_479d_aed5_0be8ce567d1e, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequestEventArgs");
@@ -858,7 +872,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentDataProviderConnection, IAppointmentDataProviderConnection_Vtbl, 0xf3dd9d83_3254_465f_abdb_928046552cf4);
+windows_core::imp::define_interface!(IAppointmentDataProviderConnection, IAppointmentDataProviderConnection_Vtbl, 0xf3dd9d83_3254_465f_abdb_928046552cf4, inspectable);
 impl windows_core::RuntimeType for IAppointmentDataProviderConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection");
@@ -881,7 +895,7 @@ pub struct IAppointmentDataProviderConnection_Vtbl {
     pub RemoveUpdateMeetingResponseRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentDataProviderTriggerDetails, IAppointmentDataProviderTriggerDetails_Vtbl, 0xb3283c01_7e12_4e5e_b1ef_74fb68ac6f2a);
+windows_core::imp::define_interface!(IAppointmentDataProviderTriggerDetails, IAppointmentDataProviderTriggerDetails_Vtbl, 0xb3283c01_7e12_4e5e_b1ef_74fb68ac6f2a, inspectable);
 impl windows_core::RuntimeType for IAppointmentDataProviderTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderTriggerDetails");

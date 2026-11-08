@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IUserActivityInterop, IUserActivityInterop_Vtbl, 0x1ade314d_0e0a_40d9_824c_9a088a50059f);
+windows_core::imp::define_interface!(IUserActivityInterop, IUserActivityInterop_Vtbl, 0x1ade314d_0e0a_40d9_824c_9a088a50059f, inspectable);
 windows_core::imp::interface_hierarchy!(IUserActivityInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IUserActivityInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -32,10 +32,7 @@ impl IUserActivityInterop_Vtbl {
                 IUserActivityInterop_Impl::CreateSessionForWindow(this, core::mem::transmute_copy(&window), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&value)).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IUserActivityInterop, OFFSET>(),
-            CreateSessionForWindow: CreateSessionForWindow::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), CreateSessionForWindow: CreateSessionForWindow::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUserActivityInterop as windows_core::Interface>::IID
@@ -43,7 +40,7 @@ impl IUserActivityInterop_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "windef"))]
 impl windows_core::RuntimeName for IUserActivityInterop {}
-windows_core::imp::define_interface!(IUserActivityRequestManagerInterop, IUserActivityRequestManagerInterop_Vtbl, 0xdd69f876_9699_4715_9095_e37ea30dfa1b);
+windows_core::imp::define_interface!(IUserActivityRequestManagerInterop, IUserActivityRequestManagerInterop_Vtbl, 0xdd69f876_9699_4715_9095_e37ea30dfa1b, inspectable);
 windows_core::imp::interface_hierarchy!(IUserActivityRequestManagerInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IUserActivityRequestManagerInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -77,10 +74,7 @@ impl IUserActivityRequestManagerInterop_Vtbl {
                 IUserActivityRequestManagerInterop_Impl::GetForWindow(this, core::mem::transmute_copy(&window), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&value)).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IUserActivityRequestManagerInterop, OFFSET>(),
-            GetForWindow: GetForWindow::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetForWindow: GetForWindow::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUserActivityRequestManagerInterop as windows_core::Interface>::IID
@@ -88,7 +82,7 @@ impl IUserActivityRequestManagerInterop_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "windef"))]
 impl windows_core::RuntimeName for IUserActivityRequestManagerInterop {}
-windows_core::imp::define_interface!(IUserActivitySourceHostInterop, IUserActivitySourceHostInterop_Vtbl, 0xc15df8bc_8844_487a_b85b_7578e0f61419);
+windows_core::imp::define_interface!(IUserActivitySourceHostInterop, IUserActivitySourceHostInterop_Vtbl, 0xc15df8bc_8844_487a_b85b_7578e0f61419, inspectable);
 windows_core::imp::interface_hierarchy!(IUserActivitySourceHostInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IUserActivitySourceHostInterop {
     pub unsafe fn SetActivitySourceHost(&self, activitysourcehost: &windows_core::HSTRING) -> windows_core::HRESULT {
@@ -112,10 +106,7 @@ impl IUserActivitySourceHostInterop_Vtbl {
                 IUserActivitySourceHostInterop_Impl::SetActivitySourceHost(this, &*(&raw const activitysourcehost).cast())
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IUserActivitySourceHostInterop, OFFSET>(),
-            SetActivitySourceHost: SetActivitySourceHost::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), SetActivitySourceHost: SetActivitySourceHost::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUserActivitySourceHostInterop as windows_core::Interface>::IID

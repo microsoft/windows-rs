@@ -221,25 +221,18 @@ fn refcount_drops_to_zero() {
 }
 
 #[test]
-fn iinspectable_identity() {
-    // `implement_decl!` always emits the IInspectable identity (`From`,
-    // `ComObjectInterface<IInspectable>`, and the QI route), even for IUnknown-only
-    // interfaces, with a fixed trust level of 0.
-    let inspectable: IInspectable = Test.into();
-    assert_eq!(inspectable.GetTrustLevel().unwrap(), 0);
-
-    // QI(IID_IInspectable) succeeds from any interface and round-trips back.
+fn iunknown_identity() {
+    // The identity is an IUnknown-only interface, so the object does not answer IInspectable.
     let test: ITest = Test.into();
-    let inspectable: IInspectable = test.cast().unwrap();
-    assert_eq!(inspectable.GetTrustLevel().unwrap(), 0);
-    let test: ITest = inspectable.cast().unwrap();
+    assert_eq!(
+        test.cast::<IInspectable>().unwrap_err().code(),
+        imp::E_NOINTERFACE
+    );
+
+    let unknown: IUnknown = test.cast().unwrap();
+    let test: ITest = unknown.cast().unwrap();
     unsafe { test.Void() };
-
-    // IUnknown <-> IInspectable in both directions.
-    let unknown: IUnknown = inspectable.cast().unwrap();
-    let _: IInspectable = unknown.cast().unwrap();
 }
-
 #[test]
 fn generic_implementer() {
     unsafe {
@@ -249,11 +242,9 @@ fn generic_implementer() {
         other.Sum(2, 3, &mut value).unwrap();
         assert_eq!(value, 15);
 
-        // QI across to ITest and to the IInspectable identity.
+        // QI across to ITest.
         let test: ITest = other.cast().unwrap();
         test.Void();
-        let inspectable: IInspectable = other.cast().unwrap();
-        assert_eq!(inspectable.GetTrustLevel().unwrap(), 0);
 
         // A second monomorphization (T = &str) wires up independently.
         let other: IOther = Generic("abcd").into();

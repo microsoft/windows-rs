@@ -63,6 +63,7 @@ impl windows_core::RuntimeType for I2cConnectionSettings {
 unsafe impl windows_core::Interface for I2cConnectionSettings {
     type Vtable = <II2cConnectionSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <II2cConnectionSettings as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for I2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.I2cConnectionSettings";
@@ -110,6 +111,7 @@ impl windows_core::RuntimeType for I2cController {
 unsafe impl windows_core::Interface for I2cController {
     type Vtable = <II2cController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <II2cController as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for I2cController {
     const NAME: &'static str = "Windows.Devices.I2c.I2cController";
@@ -197,6 +199,7 @@ impl windows_core::RuntimeType for I2cDevice {
 unsafe impl windows_core::Interface for I2cDevice {
     type Vtable = <II2cDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <II2cDevice as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for I2cDevice {
     const NAME: &'static str = "Windows.Devices.I2c.I2cDevice";
@@ -247,7 +250,7 @@ impl windows_core::RuntimeType for I2cTransferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cTransferStatus;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.I2c.I2cTransferStatus");
 }
-windows_core::imp::define_interface!(II2cConnectionSettings, II2cConnectionSettings_Vtbl, 0xf2db1307_ab6f_4639_a767_54536dc3460f);
+windows_core::imp::define_interface!(II2cConnectionSettings, II2cConnectionSettings_Vtbl, 0xf2db1307_ab6f_4639_a767_54536dc3460f, inspectable);
 impl windows_core::RuntimeType for II2cConnectionSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.I2c.II2cConnectionSettings");
@@ -263,7 +266,7 @@ pub struct II2cConnectionSettings_Vtbl {
     pub SharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut I2cSharingMode) -> windows_core::HRESULT,
     pub SetSharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, I2cSharingMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(II2cConnectionSettingsFactory, II2cConnectionSettingsFactory_Vtbl, 0x81b586b3_9693_41b1_a243_ded4f6e66926);
+windows_core::imp::define_interface!(II2cConnectionSettingsFactory, II2cConnectionSettingsFactory_Vtbl, 0x81b586b3_9693_41b1_a243_ded4f6e66926, inspectable);
 impl windows_core::RuntimeType for II2cConnectionSettingsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.I2c.II2cConnectionSettingsFactory");
@@ -274,7 +277,7 @@ pub struct II2cConnectionSettingsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(II2cController, II2cController_Vtbl, 0xc48ab1b2_87a0_4166_8e3e_b4b8f97cd729);
+windows_core::imp::define_interface!(II2cController, II2cController_Vtbl, 0xc48ab1b2_87a0_4166_8e3e_b4b8f97cd729, inspectable);
 impl windows_core::RuntimeType for II2cController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.I2c.II2cController");
@@ -285,7 +288,7 @@ pub struct II2cController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(II2cControllerStatics, II2cControllerStatics_Vtbl, 0x40fc0365_5f05_4e7e_84bd_100db8e0aec5);
+windows_core::imp::define_interface!(II2cControllerStatics, II2cControllerStatics_Vtbl, 0x40fc0365_5f05_4e7e_84bd_100db8e0aec5, inspectable);
 impl windows_core::RuntimeType for II2cControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.I2c.II2cControllerStatics");
@@ -300,7 +303,7 @@ pub struct II2cControllerStatics_Vtbl {
     GetControllersAsync: usize,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(II2cDevice, II2cDevice_Vtbl, 0x8636c136_b9c5_4f70_9449_cc46dc6f57eb);
+windows_core::imp::define_interface!(II2cDevice, II2cDevice_Vtbl, 0x8636c136_b9c5_4f70_9449_cc46dc6f57eb, inspectable);
 impl windows_core::RuntimeType for II2cDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.I2c.II2cDevice");
@@ -318,7 +321,7 @@ pub struct II2cDevice_Vtbl {
     pub WriteRead: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
     pub WriteReadPartial: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8, *mut I2cTransferResult) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(II2cDeviceStatics, II2cDeviceStatics_Vtbl, 0x91a33be3_7334_4512_96bc_fbae9459f5f6);
+windows_core::imp::define_interface!(II2cDeviceStatics, II2cDeviceStatics_Vtbl, 0x91a33be3_7334_4512_96bc_fbae9459f5f6, inspectable);
 impl windows_core::RuntimeType for II2cDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.I2c.II2cDeviceStatics");
@@ -406,7 +409,7 @@ impl II2cDeviceStatics_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, II2cDeviceStatics, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetDeviceSelector: GetDeviceSelector::<Identity, OFFSET>,
             GetDeviceSelectorFromFriendlyName: GetDeviceSelectorFromFriendlyName::<Identity, OFFSET>,
             FromIdAsync: FromIdAsync::<Identity, OFFSET>,

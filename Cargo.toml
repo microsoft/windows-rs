@@ -67,8 +67,8 @@ windows-composition = { version = "0.101.0", path = "crates/libs/composition", d
 windows-core = { version = "0.101.0", path = "crates/libs/core", default-features = false }
 windows-default = { version = "0.101.0", path = "crates/libs/default", default-features = false }
 windows-future = { version = "0.101.0", path = "crates/libs/future", default-features = false }
-windows-implement = { version = "0.100.1", path = "crates/libs/implement", default-features = false }
-windows-interface = { version = "0.100.1", path = "crates/libs/interface", default-features = false }
+windows-implement = { version = "0.101.0", path = "crates/libs/implement", default-features = false }
+windows-interface = { version = "0.101.0", path = "crates/libs/interface", default-features = false }
 windows-link = { version = "0.100.1", path = "crates/libs/link", default-features = false }
 windows-metadata = { version = "0.101.0", path = "crates/libs/metadata", default-features = false }
 windows-numerics = { version = "0.101.0", path = "crates/libs/numerics", default-features = false }

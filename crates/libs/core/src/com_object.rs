@@ -1,5 +1,4 @@
-use crate::{IUnknown, IUnknownImpl, Interface, InterfaceRef};
-use alloc::boxed::Box;
+use crate::{IInspectable, IUnknown, IUnknownImpl, Interface, InterfaceRef, imp};
 use core::any::Any;
 use core::borrow::Borrow;
 use core::ops::Deref;
@@ -9,6 +8,17 @@ use core::ptr::NonNull;
 ///
 /// This is an implementation detail of the Windows crates. The `#[implement]` macro generates
 /// implementations so user code can use [`ComObject<T>`] instead of `ComObject<T_Impl>`.
+///
+/// ```compile_fail,E0133
+/// use windows_core::*;
+/// #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
+/// unsafe trait IFoo: IUnknown {}
+/// #[implement(IFoo)]
+/// struct Foo;
+/// impl IFoo_Impl for Foo_Impl {}
+/// let outer = Foo.into_outer();
+/// let interface: IFoo = outer.to_interface();
+/// ```
 pub trait ComObjectInner: Sized {
     /// The generated `<foo>_Impl` type (aka the "boxed" or "outer" type).
     type Outer: IUnknownImpl<Impl = Self>;
@@ -32,7 +42,41 @@ pub trait ComObjectInterface<I: Interface> {
     fn as_interface_ref(&self) -> InterfaceRef<'_, I>;
 }
 
-/// A counted pointer to a heap-allocated type that implements COM interfaces.
+// The identity answers `IInspectable` when the first interface derives from it.
+impl<O> ComObjectInterface<IInspectable> for O
+where
+    O: IUnknownImpl + ComObjectInterface<IUnknown>,
+    O::Identity: imp::CanInto<IInspectable>,
+{
+    #[inline(always)]
+    fn as_interface_ref(&self) -> InterfaceRef<'_, IInspectable> {
+        const { assert!(<O::Identity as Interface>::INSPECTABLE) };
+        let identity = <O as ComObjectInterface<IUnknown>>::as_interface_ref(self);
+        unsafe { InterfaceRef::from_raw(NonNull::new_unchecked(identity.as_raw())) }
+    }
+}
+
+impl<T: ComObjectInner> From<T> for IUnknown
+where
+    T::Outer: ComObjectInterface<Self>,
+{
+    #[inline(always)]
+    fn from(value: T) -> Self {
+        ComObject::new(value).into_interface()
+    }
+}
+
+impl<T: ComObjectInner> From<T> for IInspectable
+where
+    T::Outer: ComObjectInterface<Self>,
+{
+    #[inline(always)]
+    fn from(value: T) -> Self {
+        ComObject::new(value).into_interface()
+    }
+}
+
+/// A counted pointer to a type that implements COM interfaces.
 ///
 /// This type lets you place an object onto the heap and query for COM interfaces without
 /// losing the safe reference to the implementation object.
@@ -42,10 +86,9 @@ pub trait ComObjectInterface<I: Interface> {
 ///
 /// # Safety
 ///
-/// The contained `ptr` is an owned, reference-counted pointer to a _pinned_
-/// `Pin<Box<T::Outer>>`. The implementation does not currently use `Pin<T>` directly but is
-/// careful not to expose unsafe semantics to safe code; callers of unsafe functions on
-/// [`ComObject`] must preserve these invariants.
+/// The contained `ptr` owns a reference to a pinned heap allocation or to a [`StaticComObject`].
+/// The implementation does not use `Pin<T>` directly; callers of unsafe functions on
+/// [`ComObject`] must preserve the allocation's address and lifetime.
 #[repr(transparent)]
 pub struct ComObject<T: ComObjectInner> {
     ptr: NonNull<T::Outer>,
@@ -57,12 +100,13 @@ impl<T: ComObjectInner> ComObject<T> {
         T::into_object(value)
     }
 
-    /// Creates a new `ComObject` from an existing boxed instance.
+    /// Creates a new `ComObject` from an existing instance.
     ///
     /// # Safety
     ///
-    /// `ptr` must point to a valid, heap-allocated `T::Outer` (typically from
-    /// `Box::into_raw(Box::new(...))`).
+    /// `ptr` must point to a valid `T::Outer` allocated by `T::into_object`, held permanently in a
+    /// `StaticComObject`, or obtained from another `ComObject<T>`. Static storage must retain its
+    /// initial reference independently of this pointer.
     ///
     /// The pointed-to box must have a reference count greater than zero.
     ///
@@ -107,8 +151,8 @@ impl<T: ComObjectInner> ComObject<T> {
     #[inline(always)]
     pub fn take(self) -> Result<T, Self> {
         if self.is_reference_count_one() {
-            let outer_box: Box<T::Outer> = unsafe { core::mem::transmute(self) };
-            Ok(outer_box.into_inner())
+            let ptr = core::mem::ManuallyDrop::new(self).ptr.as_ptr();
+            Ok(unsafe { imp::object_from_raw(ptr) }.into_inner())
         } else {
             Err(self)
         }
@@ -294,7 +338,36 @@ impl<T: ComObjectInner> Borrow<T> for ComObject<T> {
 
 /// Stores a COM object in static memory.
 ///
-/// Its reference count starts at one and tracks owned interface references.
+/// Its reference count starts at one and tracks owned interface references. Access the object
+/// through [`Self::get`], which requires static storage so interfaces cannot outlive the object.
+///
+/// ```compile_fail
+/// use windows_core::*;
+/// interface_decl! {
+///     unsafe trait IFoo(IFoo_Vtbl, IFoo_Impl): IUnknown
+///         = 0x094d70d6_5202_44b8_abb8_43860da5aca2 {}
+/// }
+/// struct Foo;
+/// implement_decl! { impl Foo as Foo_Impl: [IFoo] }
+/// impl IFoo_Impl for Foo_Impl {}
+/// let local = Foo.into_static();
+/// let interface: IFoo = local.to_interface();
+/// drop(local);
+/// ```
+///
+/// ```compile_fail
+/// use windows_core::*;
+/// interface_decl! {
+///     unsafe trait IFoo(IFoo_Vtbl, IFoo_Impl): IUnknown
+///         = 0x094d70d6_5202_44b8_abb8_43860da5aca2 {}
+/// }
+/// struct Foo;
+/// implement_decl! { impl Foo as Foo_Impl: [IFoo] }
+/// impl IFoo_Impl for Foo_Impl {}
+/// let local = Foo.into_static();
+/// let interface: IFoo = local.get().to_interface();
+/// drop(local);
+/// ```
 pub struct StaticComObject<T>
 where
     T: ComObjectInner,
@@ -321,17 +394,6 @@ where
 {
     /// Gets access to the contained value.
     pub const fn get(&'static self) -> &'static T::Outer {
-        &self.outer
-    }
-}
-
-impl<T> Deref for StaticComObject<T>
-where
-    T: ComObjectInner,
-{
-    type Target = T::Outer;
-
-    fn deref(&self) -> &Self::Target {
         &self.outer
     }
 }

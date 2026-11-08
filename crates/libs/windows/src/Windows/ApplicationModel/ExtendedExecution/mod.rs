@@ -47,6 +47,7 @@ impl windows_core::RuntimeType for ExtendedExecutionRevokedEventArgs {
 unsafe impl windows_core::Interface for ExtendedExecutionRevokedEventArgs {
     type Vtable = <IExtendedExecutionRevokedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IExtendedExecutionRevokedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
@@ -138,13 +139,14 @@ impl windows_core::RuntimeType for ExtendedExecutionSession {
 unsafe impl windows_core::Interface for ExtendedExecutionSession {
     type Vtable = <IExtendedExecutionSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IExtendedExecutionSession as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";
 }
 unsafe impl Send for ExtendedExecutionSession {}
 unsafe impl Sync for ExtendedExecutionSession {}
-windows_core::imp::define_interface!(IExtendedExecutionRevokedEventArgs, IExtendedExecutionRevokedEventArgs_Vtbl, 0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
+windows_core::imp::define_interface!(IExtendedExecutionRevokedEventArgs, IExtendedExecutionRevokedEventArgs_Vtbl, 0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3, inspectable);
 impl windows_core::RuntimeType for IExtendedExecutionRevokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionRevokedEventArgs");
@@ -155,7 +157,7 @@ pub struct IExtendedExecutionRevokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ExtendedExecutionRevokedReason) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IExtendedExecutionSession, IExtendedExecutionSession_Vtbl, 0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
+windows_core::imp::define_interface!(IExtendedExecutionSession, IExtendedExecutionSession_Vtbl, 0xaf908a2d_118b_48f1_9308_0c4fc41e200f, inspectable);
 impl windows_core::RuntimeType for IExtendedExecutionSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionSession");

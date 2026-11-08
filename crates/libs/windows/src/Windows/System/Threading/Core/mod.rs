@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPreallocatedWorkItem, IPreallocatedWorkItem_Vtbl, 0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6);
+windows_core::imp::define_interface!(IPreallocatedWorkItem, IPreallocatedWorkItem_Vtbl, 0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6, inspectable);
 impl windows_core::RuntimeType for IPreallocatedWorkItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.Core.IPreallocatedWorkItem");
@@ -9,7 +9,7 @@ pub struct IPreallocatedWorkItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RunAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPreallocatedWorkItemFactory, IPreallocatedWorkItemFactory_Vtbl, 0xe3d32b45_dfea_469b_82c5_f6e3cefdeafb);
+windows_core::imp::define_interface!(IPreallocatedWorkItemFactory, IPreallocatedWorkItemFactory_Vtbl, 0xe3d32b45_dfea_469b_82c5_f6e3cefdeafb, inspectable);
 impl windows_core::RuntimeType for IPreallocatedWorkItemFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.Core.IPreallocatedWorkItemFactory");
@@ -22,7 +22,7 @@ pub struct IPreallocatedWorkItemFactory_Vtbl {
     pub CreateWorkItemWithPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::WorkItemPriority, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWorkItemWithPriorityAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::WorkItemPriority, super::WorkItemOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISignalNotifier, ISignalNotifier_Vtbl, 0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
+windows_core::imp::define_interface!(ISignalNotifier, ISignalNotifier_Vtbl, 0x14285e06_63a7_4713_b6d9_62f64b56fb8b, inspectable);
 impl windows_core::RuntimeType for ISignalNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.Core.ISignalNotifier");
@@ -34,7 +34,7 @@ pub struct ISignalNotifier_Vtbl {
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISignalNotifierStatics, ISignalNotifierStatics_Vtbl, 0x1c4e4566_8400_46d3_a115_7d0c0dfc9f62);
+windows_core::imp::define_interface!(ISignalNotifierStatics, ISignalNotifierStatics_Vtbl, 0x1c4e4566_8400_46d3_a115_7d0c0dfc9f62, inspectable);
 impl windows_core::RuntimeType for ISignalNotifierStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.Core.ISignalNotifierStatics");
@@ -97,6 +97,7 @@ impl windows_core::RuntimeType for PreallocatedWorkItem {
 unsafe impl windows_core::Interface for PreallocatedWorkItem {
     type Vtable = <IPreallocatedWorkItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPreallocatedWorkItem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PreallocatedWorkItem {
     const NAME: &'static str = "Windows.System.Threading.Core.PreallocatedWorkItem";
@@ -200,6 +201,7 @@ impl windows_core::RuntimeType for SignalNotifier {
 unsafe impl windows_core::Interface for SignalNotifier {
     type Vtable = <ISignalNotifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISignalNotifier as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SignalNotifier {
     const NAME: &'static str = "Windows.System.Threading.Core.SignalNotifier";

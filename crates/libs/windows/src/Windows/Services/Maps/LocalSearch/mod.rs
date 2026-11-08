@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ILocalCategoriesStatics, ILocalCategoriesStatics_Vtbl, 0xf49399f5_8261_4321_9974_ef92d49a8dca);
+windows_core::imp::define_interface!(ILocalCategoriesStatics, ILocalCategoriesStatics_Vtbl, 0xf49399f5_8261_4321_9974_ef92d49a8dca, inspectable);
 impl windows_core::RuntimeType for ILocalCategoriesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.LocalSearch.ILocalCategoriesStatics");
@@ -16,7 +16,7 @@ pub struct ILocalCategoriesStatics_Vtbl {
     pub SeeDo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Shop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILocalLocation, ILocalLocation_Vtbl, 0xbb0fe9ab_4502_4f2c_94a9_0d60de0e2163);
+windows_core::imp::define_interface!(ILocalLocation, ILocalLocation_Vtbl, 0xbb0fe9ab_4502_4f2c_94a9_0d60de0e2163, inspectable);
 impl windows_core::RuntimeType for ILocalLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.LocalSearch.ILocalLocation");
@@ -36,7 +36,7 @@ pub struct ILocalLocation_Vtbl {
     pub PhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DataAttribution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILocalLocation2, ILocalLocation2_Vtbl, 0x6e9e307c_ecb5_4ffc_bb8c_ba50ba8c2dc6);
+windows_core::imp::define_interface!(ILocalLocation2, ILocalLocation2_Vtbl, 0x6e9e307c_ecb5_4ffc_bb8c_ba50ba8c2dc6, inspectable);
 impl windows_core::RuntimeType for ILocalLocation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.LocalSearch.ILocalLocation2");
@@ -49,7 +49,7 @@ pub struct ILocalLocation2_Vtbl {
     pub RatingInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HoursOfOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILocalLocationFinderResult, ILocalLocationFinderResult_Vtbl, 0xd09b6cc6_f338_4191_9fd8_5440b9a68f52);
+windows_core::imp::define_interface!(ILocalLocationFinderResult, ILocalLocationFinderResult_Vtbl, 0xd09b6cc6_f338_4191_9fd8_5440b9a68f52, inspectable);
 impl windows_core::RuntimeType for ILocalLocationFinderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.LocalSearch.ILocalLocationFinderResult");
@@ -61,7 +61,7 @@ pub struct ILocalLocationFinderResult_Vtbl {
     pub LocalLocations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocalLocationFinderStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILocalLocationFinderStatics, ILocalLocationFinderStatics_Vtbl, 0xd2ef7344_a0de_48ca_81a8_07c7dcfd37ab);
+windows_core::imp::define_interface!(ILocalLocationFinderStatics, ILocalLocationFinderStatics_Vtbl, 0xd2ef7344_a0de_48ca_81a8_07c7dcfd37ab, inspectable);
 impl windows_core::RuntimeType for ILocalLocationFinderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.LocalSearch.ILocalLocationFinderStatics");
@@ -75,7 +75,7 @@ pub struct ILocalLocationFinderStatics_Vtbl {
     #[cfg(not(feature = "Devices_Geolocation"))]
     FindLocalLocationsAsync: usize,
 }
-windows_core::imp::define_interface!(ILocalLocationHoursOfOperationItem, ILocalLocationHoursOfOperationItem_Vtbl, 0x23548c72_a1c7_43f1_a4f0_1091c39ec640);
+windows_core::imp::define_interface!(ILocalLocationHoursOfOperationItem, ILocalLocationHoursOfOperationItem_Vtbl, 0x23548c72_a1c7_43f1_a4f0_1091c39ec640, inspectable);
 impl windows_core::RuntimeType for ILocalLocationHoursOfOperationItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.LocalSearch.ILocalLocationHoursOfOperationItem");
@@ -91,7 +91,7 @@ pub struct ILocalLocationHoursOfOperationItem_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Span: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILocalLocationRatingInfo, ILocalLocationRatingInfo_Vtbl, 0xcb1dab56_3354_4311_8bc0_a2d4d5eb806e);
+windows_core::imp::define_interface!(ILocalLocationRatingInfo, ILocalLocationRatingInfo_Vtbl, 0xcb1dab56_3354_4311_8bc0_a2d4d5eb806e, inspectable);
 impl windows_core::RuntimeType for ILocalLocationRatingInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.LocalSearch.ILocalLocationRatingInfo");
@@ -104,7 +104,7 @@ pub struct ILocalLocationRatingInfo_Vtbl {
     pub RatingCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProviderIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPlaceInfoHelperStatics, IPlaceInfoHelperStatics_Vtbl, 0xdd1ca9a7_a9c6_491b_bc09_e80fcea48ee6);
+windows_core::imp::define_interface!(IPlaceInfoHelperStatics, IPlaceInfoHelperStatics_Vtbl, 0xdd1ca9a7_a9c6_491b_bc09_e80fcea48ee6, inspectable);
 impl windows_core::RuntimeType for IPlaceInfoHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.LocalSearch.IPlaceInfoHelperStatics");
@@ -249,6 +249,7 @@ impl windows_core::RuntimeType for LocalLocation {
 unsafe impl windows_core::Interface for LocalLocation {
     type Vtable = <ILocalLocation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILocalLocation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LocalLocation {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocation";
@@ -299,6 +300,7 @@ impl windows_core::RuntimeType for LocalLocationFinderResult {
 unsafe impl windows_core::Interface for LocalLocationFinderResult {
     type Vtable = <ILocalLocationFinderResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILocalLocationFinderResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LocalLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinderResult";
@@ -356,6 +358,7 @@ impl windows_core::RuntimeType for LocalLocationHoursOfOperationItem {
 unsafe impl windows_core::Interface for LocalLocationHoursOfOperationItem {
     type Vtable = <ILocalLocationHoursOfOperationItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILocalLocationHoursOfOperationItem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LocalLocationHoursOfOperationItem {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem";
@@ -392,6 +395,7 @@ impl windows_core::RuntimeType for LocalLocationRatingInfo {
 unsafe impl windows_core::Interface for LocalLocationRatingInfo {
     type Vtable = <ILocalLocationRatingInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILocalLocationRatingInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LocalLocationRatingInfo {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo";
