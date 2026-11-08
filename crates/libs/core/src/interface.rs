@@ -21,6 +21,11 @@ pub unsafe trait Interface: Sized + Clone {
     #[doc(hidden)]
     const UNKNOWN: bool = true;
 
+    /// Whether the interface derives from `IInspectable`, so its vtable begins with
+    /// `IInspectable_Vtbl`.
+    #[doc(hidden)]
+    const INSPECTABLE: bool = false;
+
     /// Returns the interface vtable.
     #[doc(hidden)]
     #[inline(always)]

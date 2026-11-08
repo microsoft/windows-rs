@@ -68,6 +68,10 @@ pub trait IUnknownImpl {
     /// The contained user type, such as `MyApp`.
     type Impl;
 
+    /// The interface at the object's identity, which is the first implemented interface or
+    /// `IInspectable` if there are none. Its runtime name is the object's runtime class name.
+    type Identity: Interface + RuntimeName;
+
     /// Returns the contained object.
     fn get_impl(&self) -> &Self::Impl;
 

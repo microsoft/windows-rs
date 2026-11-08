@@ -11,7 +11,10 @@ mod bindings;
 mod can_into;
 #[cfg(windows_cast_diagnostics)]
 mod cast_diagnostics;
+mod com_cell;
 mod delegate_box;
+#[cfg(windows_cast_diagnostics)]
+mod live_objects;
 mod ref_count;
 mod sha1;
 mod weak_ref_count;
@@ -25,7 +28,10 @@ pub use bindings::*;
 pub use can_into::*;
 #[cfg(windows_cast_diagnostics)]
 pub use cast_diagnostics::*;
+pub use com_cell::*;
 pub use delegate_box::*;
+#[cfg(windows_cast_diagnostics)]
+pub use live_objects::{LiveObjects, live_objects};
 pub use ref_count::*;
 pub use sha1::*;
 pub use weak_ref_count::*;
@@ -94,12 +100,19 @@ pub use required_hierarchy;
 #[macro_export]
 macro_rules! define_interface {
     ($name:ident, $vtbl:ident, $iid:literal) => {
+        $crate::imp::define_interface!(@unknown $name, $vtbl, $iid, false);
+    };
+    ($name:ident, $vtbl:ident, $iid:literal, inspectable) => {
+        $crate::imp::define_interface!(@unknown $name, $vtbl, $iid, true);
+    };
+    (@unknown $name:ident, $vtbl:ident, $iid:literal, $inspectable:literal) => {
         #[repr(transparent)]
         #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone)]
         pub struct $name(::windows_core::IUnknown);
         unsafe impl ::windows_core::Interface for $name {
             type Vtable = $vtbl;
             const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128($iid);
+            const INSPECTABLE: bool = $inspectable;
         }
         impl ::core::fmt::Debug for $name {
             fn fmt(&self, f: &mut ::core::fmt::Formatter) -> core::fmt::Result {
@@ -140,12 +153,28 @@ pub fn box_new<T>(value: T) -> Box<T> {
 
 #[inline(always)]
 #[doc(hidden)]
-pub unsafe fn box_from_raw<T>(raw: *mut T) -> Box<T> {
-    unsafe { Box::from_raw(raw) }
-}
-
-#[inline(always)]
-#[doc(hidden)]
 pub fn box_into_raw<T>(b: Box<T>) -> *mut T {
     Box::into_raw(b)
+}
+
+/// Moves an `#[implement]` outer object onto the heap. [`object_from_raw`] frees it.
+#[inline(always)]
+#[doc(hidden)]
+pub fn object_into_raw<T>(outer: T) -> core::ptr::NonNull<T> {
+    #[cfg(windows_cast_diagnostics)]
+    live_objects::OBJECTS.add();
+    unsafe { core::ptr::NonNull::new_unchecked(Box::into_raw(Box::new(outer))) }
+}
+
+/// Reclaims an `#[implement]` outer object allocated by [`object_into_raw`].
+///
+/// # Safety
+///
+/// `raw` must come from [`object_into_raw`] and must not be used afterwards.
+#[inline(always)]
+#[doc(hidden)]
+pub unsafe fn object_from_raw<T>(raw: *mut T) -> Box<T> {
+    #[cfg(windows_cast_diagnostics)]
+    live_objects::OBJECTS.remove();
+    unsafe { Box::from_raw(raw) }
 }

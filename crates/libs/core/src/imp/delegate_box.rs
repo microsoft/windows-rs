@@ -18,7 +18,9 @@ pub struct DelegateBox<I: Interface, F> {
 
 impl<I: Interface, F> DelegateBox<I, F> {
     /// Creates a new `DelegateBox` with a reference count of 1.
-    pub const fn new(vtable: *const I::Vtable, invoke: F) -> Self {
+    pub fn new(vtable: *const I::Vtable, invoke: F) -> Self {
+        #[cfg(windows_cast_diagnostics)]
+        live_objects::DELEGATES.add();
         Self {
             vtable,
             invoke,
@@ -85,5 +87,12 @@ impl<I: Interface, F> DelegateBox<I, F> {
 
             remaining
         }
+    }
+}
+
+#[cfg(windows_cast_diagnostics)]
+impl<I: Interface, F> Drop for DelegateBox<I, F> {
+    fn drop(&mut self) {
+        live_objects::DELEGATES.remove();
     }
 }

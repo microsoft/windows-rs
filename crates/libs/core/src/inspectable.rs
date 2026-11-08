@@ -48,6 +48,7 @@ pub struct IInspectable_Vtbl {
 unsafe impl Interface for IInspectable {
     type Vtable = IInspectable_Vtbl;
     const IID: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
+    const INSPECTABLE: bool = true;
 }
 
 impl RuntimeType for IInspectable {
@@ -58,7 +59,7 @@ impl RuntimeType for IInspectable {
 impl RuntimeName for IInspectable {}
 
 impl IInspectable_Vtbl {
-    pub const fn new<Identity: IUnknownImpl, Name: RuntimeName, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IUnknownImpl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetIids(
             _: *mut c_void,
             count: *mut u32,
@@ -105,7 +106,7 @@ impl IInspectable_Vtbl {
         Self {
             base: IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetIids,
-            GetRuntimeClassName: GetRuntimeClassName::<Name>,
+            GetRuntimeClassName: GetRuntimeClassName::<Identity::Identity>,
             GetTrustLevel: GetTrustLevel::<Identity, OFFSET>,
         }
     }

@@ -3,9 +3,7 @@ use super::*;
 /// A storage cell for the inner non-delegating `IInspectable` produced by COM aggregation
 /// (composition).
 ///
-/// Laid out as `#[repr(transparent)]` over `Option<IInspectable>` so callers can transmute
-/// a `&mut ComposeBase` into a `&mut Option<IInspectable>`. The wrapper exists to satisfy
-/// `Send`/`Sync` for objects that embed it as a field but never participate in aggregation.
+/// The wrapper exists to satisfy `Send`/`Sync` for objects that embed it.
 ///
 /// # Safety contract
 ///
@@ -35,6 +33,15 @@ impl ComposeBase {
     pub fn as_option(&self) -> &Option<IInspectable> {
         &self.0
     }
+
+    /// Returns the slot written by a composable factory.
+    ///
+    /// # Safety
+    ///
+    /// `this` must be valid for writes and not otherwise accessed during `'a`.
+    pub(crate) unsafe fn slot<'a>(this: *mut Self) -> &'a mut Option<IInspectable> {
+        unsafe { &mut (*this).0 }
+    }
 }
 
 /// A trait used to support aggregation (composition) of WinRT runtime classes.
@@ -44,8 +51,8 @@ impl ComposeBase {
 /// implementation type derives from a composable WinRT class it must hand the runtime an
 /// outer `IInspectable` and provide a slot for the runtime to write back the inner.
 ///
-/// The `windows-implement` proc macro emits an implementation of this trait for every type
-/// marked with `#[implement(...)]`.
+/// The `windows-implement` proc macro implements this trait for types marked with
+/// `#[implement(..., Compose = true)]`. The first interface must derive from `IInspectable`.
 #[doc(hidden)]
 pub trait Compose: Sized {
     /// Returns the outer `IInspectable` for `implementation` together with a mutable
