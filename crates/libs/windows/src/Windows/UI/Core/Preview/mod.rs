@@ -31,21 +31,13 @@ impl windows_core::RuntimeName for CoreAppWindowPreview {
 }
 unsafe impl Send for CoreAppWindowPreview {}
 unsafe impl Sync for CoreAppWindowPreview {}
-windows_core::imp::define_interface!(ICoreAppWindowPreview, ICoreAppWindowPreview_Vtbl, 0xa4f6e665_365e_5fde_87a5_9543c3a15aa8, inspectable);
-impl windows_core::RuntimeType for ICoreAppWindowPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.Preview.ICoreAppWindowPreview");
-}
+windows_core::imp::define_winrt_interface!(ICoreAppWindowPreview, ICoreAppWindowPreview_Vtbl, 0xa4f6e665_365e_5fde_87a5_9543c3a15aa8, b"Windows.UI.Core.Preview.ICoreAppWindowPreview");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreAppWindowPreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ICoreAppWindowPreviewStatics, ICoreAppWindowPreviewStatics_Vtbl, 0x33ac21be_423b_5db6_8a8e_4dc87353b75b, inspectable);
-impl windows_core::RuntimeType for ICoreAppWindowPreviewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.Preview.ICoreAppWindowPreviewStatics");
-}
+windows_core::imp::define_winrt_interface!(ICoreAppWindowPreviewStatics, ICoreAppWindowPreviewStatics_Vtbl, 0x33ac21be_423b_5db6_8a8e_4dc87353b75b, b"Windows.UI.Core.Preview.ICoreAppWindowPreviewStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreAppWindowPreviewStatics_Vtbl {
@@ -55,11 +47,7 @@ pub struct ICoreAppWindowPreviewStatics_Vtbl {
     #[cfg(not(feature = "UI_WindowManagement"))]
     GetIdFromWindow: usize,
 }
-windows_core::imp::define_interface!(ISystemNavigationCloseRequestedPreviewEventArgs, ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl, 0x83d00de1_cbe5_4f31_8414_361da046518f, inspectable);
-impl windows_core::RuntimeType for ISystemNavigationCloseRequestedPreviewEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.Preview.ISystemNavigationCloseRequestedPreviewEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ISystemNavigationCloseRequestedPreviewEventArgs, ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl, 0x83d00de1_cbe5_4f31_8414_361da046518f, b"Windows.UI.Core.Preview.ISystemNavigationCloseRequestedPreviewEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl {
@@ -68,11 +56,7 @@ pub struct ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl {
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemNavigationManagerPreview, ISystemNavigationManagerPreview_Vtbl, 0xec5f0488_6425_4777_a536_cb5634427f0d, inspectable);
-impl windows_core::RuntimeType for ISystemNavigationManagerPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.Preview.ISystemNavigationManagerPreview");
-}
+windows_core::imp::define_winrt_interface!(ISystemNavigationManagerPreview, ISystemNavigationManagerPreview_Vtbl, 0xec5f0488_6425_4777_a536_cb5634427f0d, b"Windows.UI.Core.Preview.ISystemNavigationManagerPreview");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemNavigationManagerPreview_Vtbl {
@@ -80,11 +64,7 @@ pub struct ISystemNavigationManagerPreview_Vtbl {
     pub CloseRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveCloseRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemNavigationManagerPreviewStatics, ISystemNavigationManagerPreviewStatics_Vtbl, 0x0e971360_df74_4bce_84cb_bd1181ac0a71, inspectable);
-impl windows_core::RuntimeType for ISystemNavigationManagerPreviewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.Preview.ISystemNavigationManagerPreviewStatics");
-}
+windows_core::imp::define_winrt_interface!(ISystemNavigationManagerPreviewStatics, ISystemNavigationManagerPreviewStatics_Vtbl, 0x0e971360_df74_4bce_84cb_bd1181ac0a71, b"Windows.UI.Core.Preview.ISystemNavigationManagerPreviewStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemNavigationManagerPreviewStatics_Vtbl {

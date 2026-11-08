@@ -528,11 +528,7 @@ impl HevcProfileIds {
 impl windows_core::RuntimeName for HevcProfileIds {
     const NAME: &'static str = "Windows.Media.MediaProperties.HevcProfileIds";
 }
-windows_core::imp::define_interface!(IAudioEncodingProperties, IAudioEncodingProperties_Vtbl, 0x62bc7a16_005c_4b3b_8a0b_0a090e9687f3, inspectable);
-impl windows_core::RuntimeType for IAudioEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IAudioEncodingProperties");
-}
+windows_core::imp::define_winrt_interface!(IAudioEncodingProperties, IAudioEncodingProperties_Vtbl, 0x62bc7a16_005c_4b3b_8a0b_0a090e9687f3, b"Windows.Media.MediaProperties.IAudioEncodingProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEncodingProperties_Vtbl {
@@ -546,33 +542,21 @@ pub struct IAudioEncodingProperties_Vtbl {
     pub SetBitsPerSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub BitsPerSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioEncodingProperties2, IAudioEncodingProperties2_Vtbl, 0xc45d54da_80bd_4c23_80d5_72d4a181e894, inspectable);
-impl windows_core::RuntimeType for IAudioEncodingProperties2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IAudioEncodingProperties2");
-}
+windows_core::imp::define_winrt_interface!(IAudioEncodingProperties2, IAudioEncodingProperties2_Vtbl, 0xc45d54da_80bd_4c23_80d5_72d4a181e894, b"Windows.Media.MediaProperties.IAudioEncodingProperties2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEncodingProperties2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSpatial: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioEncodingProperties3, IAudioEncodingProperties3_Vtbl, 0x87600341_748c_4f8d_b0fd_10caf08ff087, inspectable);
-impl windows_core::RuntimeType for IAudioEncodingProperties3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IAudioEncodingProperties3");
-}
+windows_core::imp::define_winrt_interface!(IAudioEncodingProperties3, IAudioEncodingProperties3_Vtbl, 0x87600341_748c_4f8d_b0fd_10caf08ff087, b"Windows.Media.MediaProperties.IAudioEncodingProperties3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEncodingProperties3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioEncodingPropertiesStatics, IAudioEncodingPropertiesStatics_Vtbl, 0x0cad332c_ebe9_4527_b36d_e42a13cf38db, inspectable);
-impl windows_core::RuntimeType for IAudioEncodingPropertiesStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IAudioEncodingPropertiesStatics");
-}
+windows_core::imp::define_winrt_interface!(IAudioEncodingPropertiesStatics, IAudioEncodingPropertiesStatics_Vtbl, 0x0cad332c_ebe9_4527_b36d_e42a13cf38db, b"Windows.Media.MediaProperties.IAudioEncodingPropertiesStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEncodingPropertiesStatics_Vtbl {
@@ -583,11 +567,7 @@ pub struct IAudioEncodingPropertiesStatics_Vtbl {
     pub CreatePcm: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWma: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioEncodingPropertiesStatics2, IAudioEncodingPropertiesStatics2_Vtbl, 0x7489316f_77a0_433d_8ed5_4040280e8665, inspectable);
-impl windows_core::RuntimeType for IAudioEncodingPropertiesStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IAudioEncodingPropertiesStatics2");
-}
+windows_core::imp::define_winrt_interface!(IAudioEncodingPropertiesStatics2, IAudioEncodingPropertiesStatics2_Vtbl, 0x7489316f_77a0_433d_8ed5_4040280e8665, b"Windows.Media.MediaProperties.IAudioEncodingPropertiesStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEncodingPropertiesStatics2_Vtbl {
@@ -595,11 +575,7 @@ pub struct IAudioEncodingPropertiesStatics2_Vtbl {
     pub CreateAlac: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFlac: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioEncodingPropertiesWithFormatUserData, IAudioEncodingPropertiesWithFormatUserData_Vtbl, 0x98f10d79_13ea_49ff_be70_2673db69702c, inspectable);
-impl windows_core::RuntimeType for IAudioEncodingPropertiesWithFormatUserData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IAudioEncodingPropertiesWithFormatUserData");
-}
+windows_core::imp::define_winrt_interface!(IAudioEncodingPropertiesWithFormatUserData, IAudioEncodingPropertiesWithFormatUserData_Vtbl, 0x98f10d79_13ea_49ff_be70_2673db69702c, b"Windows.Media.MediaProperties.IAudioEncodingPropertiesWithFormatUserData");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEncodingPropertiesWithFormatUserData_Vtbl {
@@ -607,11 +583,7 @@ pub struct IAudioEncodingPropertiesWithFormatUserData_Vtbl {
     pub SetFormatUserData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
     pub GetFormatUserData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAv1ProfileIdsStatics, IAv1ProfileIdsStatics_Vtbl, 0x9105812b_7c09_5882_88a4_678008a5174d, inspectable);
-impl windows_core::RuntimeType for IAv1ProfileIdsStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IAv1ProfileIdsStatics");
-}
+windows_core::imp::define_winrt_interface!(IAv1ProfileIdsStatics, IAv1ProfileIdsStatics_Vtbl, 0x9105812b_7c09_5882_88a4_678008a5174d, b"Windows.Media.MediaProperties.IAv1ProfileIdsStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAv1ProfileIdsStatics_Vtbl {
@@ -629,32 +601,20 @@ pub struct IAv1ProfileIdsStatics_Vtbl {
     pub ProfessionalChromaSubsampling422BitDepth10: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ProfessionalChromaSubsampling422BitDepth12: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContainerEncodingProperties, IContainerEncodingProperties_Vtbl, 0x59ac2a57_b32a_479e_8a61_4b7f2e9e7ea0, inspectable);
-impl windows_core::RuntimeType for IContainerEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IContainerEncodingProperties");
-}
+windows_core::imp::define_winrt_interface!(IContainerEncodingProperties, IContainerEncodingProperties_Vtbl, 0x59ac2a57_b32a_479e_8a61_4b7f2e9e7ea0, b"Windows.Media.MediaProperties.IContainerEncodingProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContainerEncodingProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IContainerEncodingProperties2, IContainerEncodingProperties2_Vtbl, 0xb272c029_ae26_4819_baad_ad7a49b0a876, inspectable);
-impl windows_core::RuntimeType for IContainerEncodingProperties2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IContainerEncodingProperties2");
-}
+windows_core::imp::define_winrt_interface!(IContainerEncodingProperties2, IContainerEncodingProperties2_Vtbl, 0xb272c029_ae26_4819_baad_ad7a49b0a876, b"Windows.Media.MediaProperties.IContainerEncodingProperties2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContainerEncodingProperties2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IH264ProfileIdsStatics, IH264ProfileIdsStatics_Vtbl, 0x38654ca7_846a_4f97_a2e5_c3a15bbf70fd, inspectable);
-impl windows_core::RuntimeType for IH264ProfileIdsStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IH264ProfileIdsStatics");
-}
+windows_core::imp::define_winrt_interface!(IH264ProfileIdsStatics, IH264ProfileIdsStatics_Vtbl, 0x38654ca7_846a_4f97_a2e5_c3a15bbf70fd, b"Windows.Media.MediaProperties.IH264ProfileIdsStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IH264ProfileIdsStatics_Vtbl {
@@ -670,11 +630,7 @@ pub struct IH264ProfileIdsStatics_Vtbl {
     pub StereoHigh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub MultiviewHigh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHevcProfileIdsStatics, IHevcProfileIdsStatics_Vtbl, 0x1e50d280_2aa7_53c1_973f_2189fa656f53, inspectable);
-impl windows_core::RuntimeType for IHevcProfileIdsStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IHevcProfileIdsStatics");
-}
+windows_core::imp::define_winrt_interface!(IHevcProfileIdsStatics, IHevcProfileIdsStatics_Vtbl, 0x1e50d280_2aa7_53c1_973f_2189fa656f53, b"Windows.Media.MediaProperties.IHevcProfileIdsStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHevcProfileIdsStatics_Vtbl {
@@ -702,11 +658,7 @@ pub struct IHevcProfileIdsStatics_Vtbl {
     pub MainStillChromaSubsampling444BitDepth8: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub MainStillChromaSubsampling444BitDepth16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IImageEncodingProperties, IImageEncodingProperties_Vtbl, 0x78625635_f331_4189_b1c3_b48d5ae034f1, inspectable);
-impl windows_core::RuntimeType for IImageEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IImageEncodingProperties");
-}
+windows_core::imp::define_winrt_interface!(IImageEncodingProperties, IImageEncodingProperties_Vtbl, 0x78625635_f331_4189_b1c3_b48d5ae034f1, b"Windows.Media.MediaProperties.IImageEncodingProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageEncodingProperties_Vtbl {
@@ -716,22 +668,14 @@ pub struct IImageEncodingProperties_Vtbl {
     pub SetHeight: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IImageEncodingProperties2, IImageEncodingProperties2_Vtbl, 0xc854a2df_c923_469b_ac8e_6a9f3c1cd9e3, inspectable);
-impl windows_core::RuntimeType for IImageEncodingProperties2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IImageEncodingProperties2");
-}
+windows_core::imp::define_winrt_interface!(IImageEncodingProperties2, IImageEncodingProperties2_Vtbl, 0xc854a2df_c923_469b_ac8e_6a9f3c1cd9e3, b"Windows.Media.MediaProperties.IImageEncodingProperties2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageEncodingProperties2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IImageEncodingPropertiesStatics, IImageEncodingPropertiesStatics_Vtbl, 0x257c68dc_8b99_439e_aa59_913a36161297, inspectable);
-impl windows_core::RuntimeType for IImageEncodingPropertiesStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics");
-}
+windows_core::imp::define_winrt_interface!(IImageEncodingPropertiesStatics, IImageEncodingPropertiesStatics_Vtbl, 0x257c68dc_8b99_439e_aa59_913a36161297, b"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageEncodingPropertiesStatics_Vtbl {
@@ -740,11 +684,7 @@ pub struct IImageEncodingPropertiesStatics_Vtbl {
     pub CreatePng: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateJpegXR: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IImageEncodingPropertiesStatics2, IImageEncodingPropertiesStatics2_Vtbl, 0xf6c25b29_3824_46b0_956e_501329e1be3c, inspectable);
-impl windows_core::RuntimeType for IImageEncodingPropertiesStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics2");
-}
+windows_core::imp::define_winrt_interface!(IImageEncodingPropertiesStatics2, IImageEncodingPropertiesStatics2_Vtbl, 0xf6c25b29_3824_46b0_956e_501329e1be3c, b"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageEncodingPropertiesStatics2_Vtbl {
@@ -752,22 +692,14 @@ pub struct IImageEncodingPropertiesStatics2_Vtbl {
     pub CreateUncompressed: unsafe extern "system" fn(*mut core::ffi::c_void, MediaPixelFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateBmp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IImageEncodingPropertiesStatics3, IImageEncodingPropertiesStatics3_Vtbl, 0x48f4814d_a2ff_48dc_8ea0_e90680663656, inspectable);
-impl windows_core::RuntimeType for IImageEncodingPropertiesStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3");
-}
+windows_core::imp::define_winrt_interface!(IImageEncodingPropertiesStatics3, IImageEncodingPropertiesStatics3_Vtbl, 0x48f4814d_a2ff_48dc_8ea0_e90680663656, b"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageEncodingPropertiesStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateHeif: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingProfile, IMediaEncodingProfile_Vtbl, 0xe7dbf5a8_1db9_4783_876b_3dfe12acfdb3, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingProfile");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingProfile, IMediaEncodingProfile_Vtbl, 0xe7dbf5a8_1db9_4783_876b_3dfe12acfdb3, b"Windows.Media.MediaProperties.IMediaEncodingProfile");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingProfile_Vtbl {
@@ -779,11 +711,7 @@ pub struct IMediaEncodingProfile_Vtbl {
     pub SetContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Container: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingProfile2, IMediaEncodingProfile2_Vtbl, 0x349b3e0a_4035_488e_9877_85632865ed10, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingProfile2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingProfile2");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingProfile2, IMediaEncodingProfile2_Vtbl, 0x349b3e0a_4035_488e_9877_85632865ed10, b"Windows.Media.MediaProperties.IMediaEncodingProfile2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingProfile2_Vtbl {
@@ -805,11 +733,7 @@ pub struct IMediaEncodingProfile2_Vtbl {
     #[cfg(not(feature = "Media_Core"))]
     GetVideoTracks: usize,
 }
-windows_core::imp::define_interface!(IMediaEncodingProfile3, IMediaEncodingProfile3_Vtbl, 0xba6ebe88_7570_4e69_accf_5611ad015f88, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingProfile3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingProfile3");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingProfile3, IMediaEncodingProfile3_Vtbl, 0xba6ebe88_7570_4e69_accf_5611ad015f88, b"Windows.Media.MediaProperties.IMediaEncodingProfile3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingProfile3_Vtbl {
@@ -823,11 +747,7 @@ pub struct IMediaEncodingProfile3_Vtbl {
     #[cfg(not(feature = "Media_Core"))]
     GetTimedMetadataTracks: usize,
 }
-windows_core::imp::define_interface!(IMediaEncodingProfileStatics, IMediaEncodingProfileStatics_Vtbl, 0x197f352c_2ede_4a45_a896_817a4854f8fe, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingProfileStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingProfileStatics");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingProfileStatics, IMediaEncodingProfileStatics_Vtbl, 0x197f352c_2ede_4a45_a896_817a4854f8fe, b"Windows.Media.MediaProperties.IMediaEncodingProfileStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingProfileStatics_Vtbl {
@@ -846,11 +766,7 @@ pub struct IMediaEncodingProfileStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromStreamAsync: usize,
 }
-windows_core::imp::define_interface!(IMediaEncodingProfileStatics2, IMediaEncodingProfileStatics2_Vtbl, 0xce8de74f_6af4_4288_8fe2_79adf1f79a43, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingProfileStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingProfileStatics2");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingProfileStatics2, IMediaEncodingProfileStatics2_Vtbl, 0xce8de74f_6af4_4288_8fe2_79adf1f79a43, b"Windows.Media.MediaProperties.IMediaEncodingProfileStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingProfileStatics2_Vtbl {
@@ -858,11 +774,7 @@ pub struct IMediaEncodingProfileStatics2_Vtbl {
     pub CreateWav: unsafe extern "system" fn(*mut core::ffi::c_void, AudioEncodingQuality, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateAvi: unsafe extern "system" fn(*mut core::ffi::c_void, VideoEncodingQuality, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingProfileStatics3, IMediaEncodingProfileStatics3_Vtbl, 0x90dac5aa_cf76_4294_a9ed_1a1420f51f6b, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingProfileStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingProfileStatics3");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingProfileStatics3, IMediaEncodingProfileStatics3_Vtbl, 0x90dac5aa_cf76_4294_a9ed_1a1420f51f6b, b"Windows.Media.MediaProperties.IMediaEncodingProfileStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingProfileStatics3_Vtbl {
@@ -871,11 +783,7 @@ pub struct IMediaEncodingProfileStatics3_Vtbl {
     pub CreateFlac: unsafe extern "system" fn(*mut core::ffi::c_void, AudioEncodingQuality, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateHevc: unsafe extern "system" fn(*mut core::ffi::c_void, VideoEncodingQuality, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingProfileStatics4, IMediaEncodingProfileStatics4_Vtbl, 0x6fafd7b5_9404_514a_81dd_c9444d648af0, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingProfileStatics4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingProfileStatics4");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingProfileStatics4, IMediaEncodingProfileStatics4_Vtbl, 0x6fafd7b5_9404_514a_81dd_c9444d648af0, b"Windows.Media.MediaProperties.IMediaEncodingProfileStatics4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingProfileStatics4_Vtbl {
@@ -883,11 +791,7 @@ pub struct IMediaEncodingProfileStatics4_Vtbl {
     pub CreateVp9: unsafe extern "system" fn(*mut core::ffi::c_void, VideoEncodingQuality, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateAv1: unsafe extern "system" fn(*mut core::ffi::c_void, VideoEncodingQuality, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingProperties, IMediaEncodingProperties_Vtbl, 0xb4002af6_acd4_4e5a_a24b_5d7498a8b8c4, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingProperties");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingProperties, IMediaEncodingProperties_Vtbl, 0xb4002af6_acd4_4e5a_a24b_5d7498a8b8c4, b"Windows.Media.MediaProperties.IMediaEncodingProperties");
 windows_core::imp::interface_hierarchy!(IMediaEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl IMediaEncodingProperties {
     pub fn Properties(&self) -> windows_core::Result<MediaPropertySet> {
@@ -998,11 +902,7 @@ pub struct IMediaEncodingProperties_Vtbl {
     pub SetSubtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Subtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingSubtypesStatics, IMediaEncodingSubtypesStatics_Vtbl, 0x37b6580e_a171_4464_ba5a_53189e48c1c8, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingSubtypesStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingSubtypesStatics, IMediaEncodingSubtypesStatics_Vtbl, 0x37b6580e_a171_4464_ba5a_53189e48c1c8, b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics_Vtbl {
@@ -1048,11 +948,7 @@ pub struct IMediaEncodingSubtypesStatics_Vtbl {
     pub Yuy2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Yv12: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingSubtypesStatics2, IMediaEncodingSubtypesStatics2_Vtbl, 0x4b7cd23d_42ff_4d33_8531_0626bee4b52d, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingSubtypesStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics2");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingSubtypesStatics2, IMediaEncodingSubtypesStatics2_Vtbl, 0x4b7cd23d_42ff_4d33_8531_0626bee4b52d, b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics2_Vtbl {
@@ -1062,11 +958,7 @@ pub struct IMediaEncodingSubtypesStatics2_Vtbl {
     pub L16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub D16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingSubtypesStatics3, IMediaEncodingSubtypesStatics3_Vtbl, 0xba2414e4_883d_464e_a44f_097da08ef7ff, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingSubtypesStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingSubtypesStatics3, IMediaEncodingSubtypesStatics3_Vtbl, 0xba2414e4_883d_464e_a44f_097da08ef7ff, b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics3_Vtbl {
@@ -1074,33 +966,21 @@ pub struct IMediaEncodingSubtypesStatics3_Vtbl {
     pub Alac: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Flac: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingSubtypesStatics4, IMediaEncodingSubtypesStatics4_Vtbl, 0xddece58a_3949_4644_8a2c_59ef02c642fa, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingSubtypesStatics4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics4");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingSubtypesStatics4, IMediaEncodingSubtypesStatics4_Vtbl, 0xddece58a_3949_4644_8a2c_59ef02c642fa, b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub P010: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingSubtypesStatics5, IMediaEncodingSubtypesStatics5_Vtbl, 0x5ad4a007_ffce_4760_9828_5d0c99637e6a, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingSubtypesStatics5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics5");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingSubtypesStatics5, IMediaEncodingSubtypesStatics5_Vtbl, 0x5ad4a007_ffce_4760_9828_5d0c99637e6a, b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics5");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Heif: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingSubtypesStatics6, IMediaEncodingSubtypesStatics6_Vtbl, 0xa1252973_a984_5912_93bb_54e7e569e053, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingSubtypesStatics6 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingSubtypesStatics6, IMediaEncodingSubtypesStatics6_Vtbl, 0xa1252973_a984_5912_93bb_54e7e569e053, b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics6_Vtbl {
@@ -1110,22 +990,14 @@ pub struct IMediaEncodingSubtypesStatics6_Vtbl {
     pub Ssa: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub VobSub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaEncodingSubtypesStatics7, IMediaEncodingSubtypesStatics7_Vtbl, 0x92f2dca7_9937_52a1_b619_ddfad81cd99c, inspectable);
-impl windows_core::RuntimeType for IMediaEncodingSubtypesStatics7 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics7");
-}
+windows_core::imp::define_winrt_interface!(IMediaEncodingSubtypesStatics7, IMediaEncodingSubtypesStatics7_Vtbl, 0x92f2dca7_9937_52a1_b619_ddfad81cd99c, b"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics7");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingSubtypesStatics7_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Av1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaRatio, IMediaRatio_Vtbl, 0xd2d0fee5_8929_401d_ac78_7d357e378163, inspectable);
-impl windows_core::RuntimeType for IMediaRatio {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMediaRatio");
-}
+windows_core::imp::define_winrt_interface!(IMediaRatio, IMediaRatio_Vtbl, 0xd2d0fee5_8929_401d_ac78_7d357e378163, b"Windows.Media.MediaProperties.IMediaRatio");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaRatio_Vtbl {
@@ -1135,11 +1007,7 @@ pub struct IMediaRatio_Vtbl {
     pub SetDenominator: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Denominator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMpeg2ProfileIdsStatics, IMpeg2ProfileIdsStatics_Vtbl, 0xa461ff85_e57a_4128_9b21_d5331b04235c, inspectable);
-impl windows_core::RuntimeType for IMpeg2ProfileIdsStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IMpeg2ProfileIdsStatics");
-}
+windows_core::imp::define_winrt_interface!(IMpeg2ProfileIdsStatics, IMpeg2ProfileIdsStatics_Vtbl, 0xa461ff85_e57a_4128_9b21_d5331b04235c, b"Windows.Media.MediaProperties.IMpeg2ProfileIdsStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMpeg2ProfileIdsStatics_Vtbl {
@@ -1150,11 +1018,7 @@ pub struct IMpeg2ProfileIdsStatics_Vtbl {
     pub SpatiallyScalable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub High: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITimedMetadataEncodingProperties, ITimedMetadataEncodingProperties_Vtbl, 0x51cd30d3_d690_4cfa_97f4_4a398e9db420, inspectable);
-impl windows_core::RuntimeType for ITimedMetadataEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.ITimedMetadataEncodingProperties");
-}
+windows_core::imp::define_winrt_interface!(ITimedMetadataEncodingProperties, ITimedMetadataEncodingProperties_Vtbl, 0x51cd30d3_d690_4cfa_97f4_4a398e9db420, b"Windows.Media.MediaProperties.ITimedMetadataEncodingProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataEncodingProperties_Vtbl {
@@ -1163,11 +1027,7 @@ pub struct ITimedMetadataEncodingProperties_Vtbl {
     pub GetFormatUserData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITimedMetadataEncodingPropertiesStatics, ITimedMetadataEncodingPropertiesStatics_Vtbl, 0x6629bb67_6e55_5643_89a0_7a7e8d85b52c, inspectable);
-impl windows_core::RuntimeType for ITimedMetadataEncodingPropertiesStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.ITimedMetadataEncodingPropertiesStatics");
-}
+windows_core::imp::define_winrt_interface!(ITimedMetadataEncodingPropertiesStatics, ITimedMetadataEncodingPropertiesStatics_Vtbl, 0x6629bb67_6e55_5643_89a0_7a7e8d85b52c, b"Windows.Media.MediaProperties.ITimedMetadataEncodingPropertiesStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataEncodingPropertiesStatics_Vtbl {
@@ -1177,11 +1037,7 @@ pub struct ITimedMetadataEncodingPropertiesStatics_Vtbl {
     pub CreateSsa: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateVobSub: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoEncodingProperties, IVideoEncodingProperties_Vtbl, 0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d, inspectable);
-impl windows_core::RuntimeType for IVideoEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IVideoEncodingProperties");
-}
+windows_core::imp::define_winrt_interface!(IVideoEncodingProperties, IVideoEncodingProperties_Vtbl, 0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d, b"Windows.Media.MediaProperties.IVideoEncodingProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingProperties_Vtbl {
@@ -1195,11 +1051,7 @@ pub struct IVideoEncodingProperties_Vtbl {
     pub FrameRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PixelAspectRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoEncodingProperties2, IVideoEncodingProperties2_Vtbl, 0xf743a1ef_d465_4290_a94b_ef0f1528f8e3, inspectable);
-impl windows_core::RuntimeType for IVideoEncodingProperties2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IVideoEncodingProperties2");
-}
+windows_core::imp::define_winrt_interface!(IVideoEncodingProperties2, IVideoEncodingProperties2_Vtbl, 0xf743a1ef_d465_4290_a94b_ef0f1528f8e3, b"Windows.Media.MediaProperties.IVideoEncodingProperties2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingProperties2_Vtbl {
@@ -1209,44 +1061,28 @@ pub struct IVideoEncodingProperties2_Vtbl {
     pub SetProfileId: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ProfileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoEncodingProperties3, IVideoEncodingProperties3_Vtbl, 0x386bcdc4_873a_479f_b3eb_56c1fcbec6d7, inspectable);
-impl windows_core::RuntimeType for IVideoEncodingProperties3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IVideoEncodingProperties3");
-}
+windows_core::imp::define_winrt_interface!(IVideoEncodingProperties3, IVideoEncodingProperties3_Vtbl, 0x386bcdc4_873a_479f_b3eb_56c1fcbec6d7, b"Windows.Media.MediaProperties.IVideoEncodingProperties3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingProperties3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StereoscopicVideoPackingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StereoscopicVideoPackingMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoEncodingProperties4, IVideoEncodingProperties4_Vtbl, 0x724ef014_c10c_40f2_9d72_3ee13b45fa8e, inspectable);
-impl windows_core::RuntimeType for IVideoEncodingProperties4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IVideoEncodingProperties4");
-}
+windows_core::imp::define_winrt_interface!(IVideoEncodingProperties4, IVideoEncodingProperties4_Vtbl, 0x724ef014_c10c_40f2_9d72_3ee13b45fa8e, b"Windows.Media.MediaProperties.IVideoEncodingProperties4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingProperties4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SphericalVideoFrameFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SphericalVideoFrameFormat) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoEncodingProperties5, IVideoEncodingProperties5_Vtbl, 0x4959080f_272f_4ece_a4df_c0ccdb33d840, inspectable);
-impl windows_core::RuntimeType for IVideoEncodingProperties5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IVideoEncodingProperties5");
-}
+windows_core::imp::define_winrt_interface!(IVideoEncodingProperties5, IVideoEncodingProperties5_Vtbl, 0x4959080f_272f_4ece_a4df_c0ccdb33d840, b"Windows.Media.MediaProperties.IVideoEncodingProperties5");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingProperties5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoEncodingPropertiesStatics, IVideoEncodingPropertiesStatics_Vtbl, 0x3ce14d44_1dc5_43db_9f38_ebebf90152cb, inspectable);
-impl windows_core::RuntimeType for IVideoEncodingPropertiesStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics");
-}
+windows_core::imp::define_winrt_interface!(IVideoEncodingPropertiesStatics, IVideoEncodingPropertiesStatics_Vtbl, 0x3ce14d44_1dc5_43db_9f38_ebebf90152cb, b"Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingPropertiesStatics_Vtbl {
@@ -1255,22 +1091,14 @@ pub struct IVideoEncodingPropertiesStatics_Vtbl {
     pub CreateMpeg2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateUncompressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoEncodingPropertiesStatics2, IVideoEncodingPropertiesStatics2_Vtbl, 0xcf1ebd5d_49fe_4d00_b59a_cfa4dfc51944, inspectable);
-impl windows_core::RuntimeType for IVideoEncodingPropertiesStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics2");
-}
+windows_core::imp::define_winrt_interface!(IVideoEncodingPropertiesStatics2, IVideoEncodingPropertiesStatics2_Vtbl, 0xcf1ebd5d_49fe_4d00_b59a_cfa4dfc51944, b"Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingPropertiesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateHevc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoEncodingPropertiesStatics3, IVideoEncodingPropertiesStatics3_Vtbl, 0x65b46685_60da_5e51_91a2_b38c4763b872, inspectable);
-impl windows_core::RuntimeType for IVideoEncodingPropertiesStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics3");
-}
+windows_core::imp::define_winrt_interface!(IVideoEncodingPropertiesStatics3, IVideoEncodingPropertiesStatics3_Vtbl, 0x65b46685_60da_5e51_91a2_b38c4763b872, b"Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEncodingPropertiesStatics3_Vtbl {
@@ -1278,11 +1106,7 @@ pub struct IVideoEncodingPropertiesStatics3_Vtbl {
     pub CreateVp9: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateAv1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVp9ProfileIdsStatics, IVp9ProfileIdsStatics_Vtbl, 0x20311a55_fe06_5883_92d9_6080c97743e5, inspectable);
-impl windows_core::RuntimeType for IVp9ProfileIdsStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.MediaProperties.IVp9ProfileIdsStatics");
-}
+windows_core::imp::define_winrt_interface!(IVp9ProfileIdsStatics, IVp9ProfileIdsStatics_Vtbl, 0x20311a55_fe06_5883_92d9_6080c97743e5, b"Windows.Media.MediaProperties.IVp9ProfileIdsStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVp9ProfileIdsStatics_Vtbl {

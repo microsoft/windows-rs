@@ -1,10 +1,6 @@
 #[cfg(feature = "Web_UI_Interop")]
 pub mod Interop;
-windows_core::imp::define_interface!(IWebViewControl, IWebViewControl_Vtbl, 0x3f921316_bc70_4bda_9136_c94370899fab, inspectable);
-impl windows_core::RuntimeType for IWebViewControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControl");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControl, IWebViewControl_Vtbl, 0x3f921316_bc70_4bda_9136_c94370899fab, b"Windows.Web.UI.IWebViewControl");
 windows_core::imp::interface_hierarchy!(IWebViewControl, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebViewControl {
     pub fn Source(&self) -> windows_core::Result<super::super::Foundation::Uri> {
@@ -1198,11 +1194,7 @@ pub struct IWebViewControl_Vtbl {
     pub WebResourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveWebResourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControl2, IWebViewControl2_Vtbl, 0x4d3c06f9_c8df_41cc_8bd5_2a947b204503, inspectable);
-impl windows_core::RuntimeType for IWebViewControl2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControl2");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControl2, IWebViewControl2_Vtbl, 0x4d3c06f9_c8df_41cc_8bd5_2a947b204503, b"Windows.Web.UI.IWebViewControl2");
 windows_core::imp::interface_hierarchy!(IWebViewControl2, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebViewControl2 {
     pub fn AddInitializeScript(&self, script: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1235,33 +1227,21 @@ pub struct IWebViewControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddInitializeScript: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlContentLoadingEventArgs, IWebViewControlContentLoadingEventArgs_Vtbl, 0x9a3fccb2_b9bb_404b_a22b_66dccd1250c6, inspectable);
-impl windows_core::RuntimeType for IWebViewControlContentLoadingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlContentLoadingEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlContentLoadingEventArgs, IWebViewControlContentLoadingEventArgs_Vtbl, 0x9a3fccb2_b9bb_404b_a22b_66dccd1250c6, b"Windows.Web.UI.IWebViewControlContentLoadingEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlContentLoadingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlDOMContentLoadedEventArgs, IWebViewControlDOMContentLoadedEventArgs_Vtbl, 0xbe8bc008_9541_4545_9ff2_2df585b29f7d, inspectable);
-impl windows_core::RuntimeType for IWebViewControlDOMContentLoadedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlDOMContentLoadedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlDOMContentLoadedEventArgs, IWebViewControlDOMContentLoadedEventArgs_Vtbl, 0xbe8bc008_9541_4545_9ff2_2df585b29f7d, b"Windows.Web.UI.IWebViewControlDOMContentLoadedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlDOMContentLoadedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlDeferredPermissionRequest, IWebViewControlDeferredPermissionRequest_Vtbl, 0x2ce349e0_d759_445c_9926_8995298f152b, inspectable);
-impl windows_core::RuntimeType for IWebViewControlDeferredPermissionRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlDeferredPermissionRequest");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlDeferredPermissionRequest, IWebViewControlDeferredPermissionRequest_Vtbl, 0x2ce349e0_d759_445c_9926_8995298f152b, b"Windows.Web.UI.IWebViewControlDeferredPermissionRequest");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlDeferredPermissionRequest_Vtbl {
@@ -1272,11 +1252,7 @@ pub struct IWebViewControlDeferredPermissionRequest_Vtbl {
     pub Allow: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Deny: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlLongRunningScriptDetectedEventArgs, IWebViewControlLongRunningScriptDetectedEventArgs_Vtbl, 0x2a6e5bba_98b4_45bc_bbeb_0f69ce49c599, inspectable);
-impl windows_core::RuntimeType for IWebViewControlLongRunningScriptDetectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlLongRunningScriptDetectedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlLongRunningScriptDetectedEventArgs, IWebViewControlLongRunningScriptDetectedEventArgs_Vtbl, 0x2a6e5bba_98b4_45bc_bbeb_0f69ce49c599, b"Windows.Web.UI.IWebViewControlLongRunningScriptDetectedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlLongRunningScriptDetectedEventArgs_Vtbl {
@@ -1285,11 +1261,7 @@ pub struct IWebViewControlLongRunningScriptDetectedEventArgs_Vtbl {
     pub StopPageScriptExecution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetStopPageScriptExecution: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlNavigationCompletedEventArgs, IWebViewControlNavigationCompletedEventArgs_Vtbl, 0x20409918_4a15_4c46_a55d_f79edb0bde8b, inspectable);
-impl windows_core::RuntimeType for IWebViewControlNavigationCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlNavigationCompletedEventArgs, IWebViewControlNavigationCompletedEventArgs_Vtbl, 0x20409918_4a15_4c46_a55d_f79edb0bde8b, b"Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlNavigationCompletedEventArgs_Vtbl {
@@ -1298,11 +1270,7 @@ pub struct IWebViewControlNavigationCompletedEventArgs_Vtbl {
     pub IsSuccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub WebErrorStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WebErrorStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlNavigationStartingEventArgs, IWebViewControlNavigationStartingEventArgs_Vtbl, 0x0c9057c5_0a08_41c7_863b_71e3a9549137, inspectable);
-impl windows_core::RuntimeType for IWebViewControlNavigationStartingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlNavigationStartingEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlNavigationStartingEventArgs, IWebViewControlNavigationStartingEventArgs_Vtbl, 0x0c9057c5_0a08_41c7_863b_71e3a9549137, b"Windows.Web.UI.IWebViewControlNavigationStartingEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlNavigationStartingEventArgs_Vtbl {
@@ -1311,11 +1279,7 @@ pub struct IWebViewControlNavigationStartingEventArgs_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetCancel: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlNewWindowRequestedEventArgs, IWebViewControlNewWindowRequestedEventArgs_Vtbl, 0x3df44bbb_a124_46d5_a083_d02cacdff5ad, inspectable);
-impl windows_core::RuntimeType for IWebViewControlNewWindowRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlNewWindowRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlNewWindowRequestedEventArgs, IWebViewControlNewWindowRequestedEventArgs_Vtbl, 0x3df44bbb_a124_46d5_a083_d02cacdff5ad, b"Windows.Web.UI.IWebViewControlNewWindowRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlNewWindowRequestedEventArgs_Vtbl {
@@ -1325,11 +1289,7 @@ pub struct IWebViewControlNewWindowRequestedEventArgs_Vtbl {
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlNewWindowRequestedEventArgs2, IWebViewControlNewWindowRequestedEventArgs2_Vtbl, 0xb53c5ca6_2aae_4bfc_92b9_c30e92b48098, inspectable);
-impl windows_core::RuntimeType for IWebViewControlNewWindowRequestedEventArgs2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlNewWindowRequestedEventArgs2");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlNewWindowRequestedEventArgs2, IWebViewControlNewWindowRequestedEventArgs2_Vtbl, 0xb53c5ca6_2aae_4bfc_92b9_c30e92b48098, b"Windows.Web.UI.IWebViewControlNewWindowRequestedEventArgs2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlNewWindowRequestedEventArgs2_Vtbl {
@@ -1338,11 +1298,7 @@ pub struct IWebViewControlNewWindowRequestedEventArgs2_Vtbl {
     pub SetNewWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlPermissionRequest, IWebViewControlPermissionRequest_Vtbl, 0xe5bc836c_f22f_40e2_95b2_7729f840eb7f, inspectable);
-impl windows_core::RuntimeType for IWebViewControlPermissionRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlPermissionRequest");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlPermissionRequest, IWebViewControlPermissionRequest_Vtbl, 0xe5bc836c_f22f_40e2_95b2_7729f840eb7f, b"Windows.Web.UI.IWebViewControlPermissionRequest");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlPermissionRequest_Vtbl {
@@ -1355,22 +1311,14 @@ pub struct IWebViewControlPermissionRequest_Vtbl {
     pub Allow: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Deny: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlPermissionRequestedEventArgs, IWebViewControlPermissionRequestedEventArgs_Vtbl, 0x27204d51_2488_4cc5_968e_0a771e59c147, inspectable);
-impl windows_core::RuntimeType for IWebViewControlPermissionRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlPermissionRequestedEventArgs, IWebViewControlPermissionRequestedEventArgs_Vtbl, 0x27204d51_2488_4cc5_968e_0a771e59c147, b"Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlPermissionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PermissionRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlScriptNotifyEventArgs, IWebViewControlScriptNotifyEventArgs_Vtbl, 0x491de57b_6f49_41bb_b591_51b85b817037, inspectable);
-impl windows_core::RuntimeType for IWebViewControlScriptNotifyEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlScriptNotifyEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlScriptNotifyEventArgs, IWebViewControlScriptNotifyEventArgs_Vtbl, 0x491de57b_6f49_41bb_b591_51b85b817037, b"Windows.Web.UI.IWebViewControlScriptNotifyEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlScriptNotifyEventArgs_Vtbl {
@@ -1378,11 +1326,7 @@ pub struct IWebViewControlScriptNotifyEventArgs_Vtbl {
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlSettings, IWebViewControlSettings_Vtbl, 0xc9967fbf_5e98_4cfd_8cce_27b0911e3de8, inspectable);
-impl windows_core::RuntimeType for IWebViewControlSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlSettings");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlSettings, IWebViewControlSettings_Vtbl, 0xc9967fbf_5e98_4cfd_8cce_27b0911e3de8, b"Windows.Web.UI.IWebViewControlSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlSettings_Vtbl {
@@ -1394,11 +1338,7 @@ pub struct IWebViewControlSettings_Vtbl {
     pub SetIsScriptNotifyAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub IsScriptNotifyAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs, IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Vtbl, 0xe3b81944_e4fc_43dc_94ca_f980f30bc51d, inspectable);
-impl windows_core::RuntimeType for IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs, IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Vtbl, 0xe3b81944_e4fc_43dc_94ca_f980f30bc51d, b"Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Vtbl {
@@ -1407,11 +1347,7 @@ pub struct IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Vtbl {
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlUnviewableContentIdentifiedEventArgs, IWebViewControlUnviewableContentIdentifiedEventArgs_Vtbl, 0x4a9680db_88f2_4e20_b693_b4e2df4aa581, inspectable);
-impl windows_core::RuntimeType for IWebViewControlUnviewableContentIdentifiedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlUnviewableContentIdentifiedEventArgs, IWebViewControlUnviewableContentIdentifiedEventArgs_Vtbl, 0x4a9680db_88f2_4e20_b693_b4e2df4aa581, b"Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlUnviewableContentIdentifiedEventArgs_Vtbl {
@@ -1420,11 +1356,7 @@ pub struct IWebViewControlUnviewableContentIdentifiedEventArgs_Vtbl {
     pub Referrer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebViewControlWebResourceRequestedEventArgs, IWebViewControlWebResourceRequestedEventArgs_Vtbl, 0x44d6524d_55a4_4d8b_891c_931d8e25d42e, inspectable);
-impl windows_core::RuntimeType for IWebViewControlWebResourceRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.IWebViewControlWebResourceRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IWebViewControlWebResourceRequestedEventArgs, IWebViewControlWebResourceRequestedEventArgs_Vtbl, 0x44d6524d_55a4_4d8b_891c_931d8e25d42e, b"Windows.Web.UI.IWebViewControlWebResourceRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlWebResourceRequestedEventArgs_Vtbl {

@@ -84,18 +84,12 @@ impl<
         }
     }
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISource,
     ISource_Vtbl,
     0xc1f11ade_373b_528b_9be6_7b1e709e331a,
-    inspectable
+    b"Test.ISource"
 );
-impl windows_core::RuntimeType for ISource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.ISource");
-}
 windows_core::imp::interface_hierarchy!(
     ISource,
     windows_core::IUnknown,

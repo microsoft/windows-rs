@@ -1,33 +1,4 @@
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
-where
-    T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
-    for IIterator<T>
-{
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
-    for IIterator<T>
-{
-}
-unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IIterator<T> {
-    type Vtable = IIterator_Vtbl<T>;
-    const IID: windows_core::GUID =
-        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-    const INSPECTABLE: bool = true;
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterator<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({6a79e863-4300-459a-9966-cbb660963ee1}")
-        .push_slice(b";")
-        .push_other(T::SIGNATURE)
-        .push_slice(b")");
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"Windows.Foundation.Collections.IIterator`1<")
-        .push_other(T::NAME)
-        .push_slice(b">");
-}
+windows_core::imp::define_winrt_interface!(IIterator < T >, IIterator_Vtbl < T, >, 0x6a79e863_4300_459a_9966_cbb660963ee1, b"Windows.Foundation.Collections.IIterator`1");
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> windows_core::Result<T> {
         unsafe {

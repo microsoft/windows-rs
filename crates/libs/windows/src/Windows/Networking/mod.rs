@@ -255,11 +255,7 @@ impl windows_core::RuntimeType for HostNameType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.HostNameType");
 }
-windows_core::imp::define_interface!(IEndpointPair, IEndpointPair_Vtbl, 0x33a0aa36_f8fa_4b30_b856_76517c3bd06d, inspectable);
-impl windows_core::RuntimeType for IEndpointPair {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.IEndpointPair");
-}
+windows_core::imp::define_winrt_interface!(IEndpointPair, IEndpointPair_Vtbl, 0x33a0aa36_f8fa_4b30_b856_76517c3bd06d, b"Windows.Networking.IEndpointPair");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEndpointPair_Vtbl {
@@ -273,22 +269,14 @@ pub struct IEndpointPair_Vtbl {
     pub RemoteServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRemoteServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEndpointPairFactory, IEndpointPairFactory_Vtbl, 0xb609d971_64e0_442b_aa6f_cc8c8f181f78, inspectable);
-impl windows_core::RuntimeType for IEndpointPairFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.IEndpointPairFactory");
-}
+windows_core::imp::define_winrt_interface!(IEndpointPairFactory, IEndpointPairFactory_Vtbl, 0xb609d971_64e0_442b_aa6f_cc8c8f181f78, b"Windows.Networking.IEndpointPairFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEndpointPairFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateEndpointPair: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHostName, IHostName_Vtbl, 0xbf8ecaad_ed96_49a7_9084_d416cae88dcb, inspectable);
-impl windows_core::RuntimeType for IHostName {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.IHostName");
-}
+windows_core::imp::define_winrt_interface!(IHostName, IHostName_Vtbl, 0xbf8ecaad_ed96_49a7_9084_d416cae88dcb, b"Windows.Networking.IHostName");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostName_Vtbl {
@@ -303,22 +291,14 @@ pub struct IHostName_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HostNameType) -> windows_core::HRESULT,
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHostNameFactory, IHostNameFactory_Vtbl, 0x458c23ed_712f_4576_adf1_c20b2c643558, inspectable);
-impl windows_core::RuntimeType for IHostNameFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.IHostNameFactory");
-}
+windows_core::imp::define_winrt_interface!(IHostNameFactory, IHostNameFactory_Vtbl, 0x458c23ed_712f_4576_adf1_c20b2c643558, b"Windows.Networking.IHostNameFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostNameFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateHostName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHostNameStatics, IHostNameStatics_Vtbl, 0xf68cd4bf_a388_4e8b_91ea_54dd6dd901c0, inspectable);
-impl windows_core::RuntimeType for IHostNameStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.IHostNameStatics");
-}
+windows_core::imp::define_winrt_interface!(IHostNameStatics, IHostNameStatics_Vtbl, 0xf68cd4bf_a388_4e8b_91ea_54dd6dd901c0, b"Windows.Networking.IHostNameStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostNameStatics_Vtbl {

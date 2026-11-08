@@ -1,33 +1,4 @@
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IItems<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
-where
-    T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
-    for IItems<T>
-{
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
-    for IItems<T>
-{
-}
-unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IItems<T> {
-    type Vtable = IItems_Vtbl<T>;
-    const IID: windows_core::GUID =
-        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-    const INSPECTABLE: bool = true;
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IItems<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({767732f2-98a0-5eee-a518-5c855972b181}")
-        .push_slice(b";")
-        .push_other(T::SIGNATURE)
-        .push_slice(b")");
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"Test.IItems`1<")
-        .push_other(T::NAME)
-        .push_slice(b">");
-}
+windows_core::imp::define_winrt_interface!(IItems < T >, IItems_Vtbl < T, >, 0x767732f2_98a0_5eee_a518_5c855972b181, b"Test.IItems`1");
 impl<T: windows_core::RuntimeType + 'static>
     windows_core::imp::CanInto<windows_collections::IIterable<T>> for IItems<T>
 {

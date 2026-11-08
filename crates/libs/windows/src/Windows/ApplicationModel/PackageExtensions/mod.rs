@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IPackageExtension, IPackageExtension_Vtbl, 0xda70c957_7ead_5c3b_9cf0_cc43faf474b4, inspectable);
-impl windows_core::RuntimeType for IPackageExtension {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.PackageExtensions.IPackageExtension");
-}
+windows_core::imp::define_winrt_interface!(IPackageExtension, IPackageExtension_Vtbl, 0xda70c957_7ead_5c3b_9cf0_cc43faf474b4, b"Windows.ApplicationModel.PackageExtensions.IPackageExtension");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageExtension_Vtbl {
@@ -29,11 +25,7 @@ pub struct IPackageExtension_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     GetPublicFolderAsync: usize,
 }
-windows_core::imp::define_interface!(IPackageExtensionCatalog, IPackageExtensionCatalog_Vtbl, 0x0879dfe6_ac30_58b2_97f9_480b07e75bfa, inspectable);
-impl windows_core::RuntimeType for IPackageExtensionCatalog {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionCatalog");
-}
+windows_core::imp::define_winrt_interface!(IPackageExtensionCatalog, IPackageExtensionCatalog_Vtbl, 0x0879dfe6_ac30_58b2_97f9_480b07e75bfa, b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionCatalog");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageExtensionCatalog_Vtbl {
@@ -52,22 +44,14 @@ pub struct IPackageExtensionCatalog_Vtbl {
     pub PackageStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemovePackageStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageExtensionCatalogStatics, IPackageExtensionCatalogStatics_Vtbl, 0x9588ece4_3183_5684_9e5f_27759733ddfe, inspectable);
-impl windows_core::RuntimeType for IPackageExtensionCatalogStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionCatalogStatics");
-}
+windows_core::imp::define_winrt_interface!(IPackageExtensionCatalogStatics, IPackageExtensionCatalogStatics_Vtbl, 0x9588ece4_3183_5684_9e5f_27759733ddfe, b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionCatalogStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageExtensionCatalogStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageExtensionPackageInstalledEventArgs, IPackageExtensionPackageInstalledEventArgs_Vtbl, 0x3c9b0067_083c_5fe3_bdfb_9feb156b4118, inspectable);
-impl windows_core::RuntimeType for IPackageExtensionPackageInstalledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionPackageInstalledEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPackageExtensionPackageInstalledEventArgs, IPackageExtensionPackageInstalledEventArgs_Vtbl, 0x3c9b0067_083c_5fe3_bdfb_9feb156b4118, b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionPackageInstalledEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageExtensionPackageInstalledEventArgs_Vtbl {
@@ -76,11 +60,7 @@ pub struct IPackageExtensionPackageInstalledEventArgs_Vtbl {
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageExtensionPackageStatusChangedEventArgs, IPackageExtensionPackageStatusChangedEventArgs_Vtbl, 0xb8fee20a_680d_5942_876c_5de12df1083c, inspectable);
-impl windows_core::RuntimeType for IPackageExtensionPackageStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionPackageStatusChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPackageExtensionPackageStatusChangedEventArgs, IPackageExtensionPackageStatusChangedEventArgs_Vtbl, 0xb8fee20a_680d_5942_876c_5de12df1083c, b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionPackageStatusChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageExtensionPackageStatusChangedEventArgs_Vtbl {
@@ -88,11 +68,7 @@ pub struct IPackageExtensionPackageStatusChangedEventArgs_Vtbl {
     pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageExtensionPackageUninstallingEventArgs, IPackageExtensionPackageUninstallingEventArgs_Vtbl, 0x3b8e9cb7_c539_554d_bb33_a84c0bfa3f50, inspectable);
-impl windows_core::RuntimeType for IPackageExtensionPackageUninstallingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionPackageUninstallingEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPackageExtensionPackageUninstallingEventArgs, IPackageExtensionPackageUninstallingEventArgs_Vtbl, 0x3b8e9cb7_c539_554d_bb33_a84c0bfa3f50, b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionPackageUninstallingEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageExtensionPackageUninstallingEventArgs_Vtbl {
@@ -100,11 +76,7 @@ pub struct IPackageExtensionPackageUninstallingEventArgs_Vtbl {
     pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageExtensionPackageUpdatedEventArgs, IPackageExtensionPackageUpdatedEventArgs_Vtbl, 0xfdc31add_16a7_509d_8bc4_fde22e856d2d, inspectable);
-impl windows_core::RuntimeType for IPackageExtensionPackageUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionPackageUpdatedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPackageExtensionPackageUpdatedEventArgs, IPackageExtensionPackageUpdatedEventArgs_Vtbl, 0xfdc31add_16a7_509d_8bc4_fde22e856d2d, b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionPackageUpdatedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageExtensionPackageUpdatedEventArgs_Vtbl {
@@ -113,11 +85,7 @@ pub struct IPackageExtensionPackageUpdatedEventArgs_Vtbl {
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageExtensionPackageUpdatingEventArgs, IPackageExtensionPackageUpdatingEventArgs_Vtbl, 0x27ae2ce1_a1d3_532e_8e7e_8b43782fce09, inspectable);
-impl windows_core::RuntimeType for IPackageExtensionPackageUpdatingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionPackageUpdatingEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPackageExtensionPackageUpdatingEventArgs, IPackageExtensionPackageUpdatingEventArgs_Vtbl, 0x27ae2ce1_a1d3_532e_8e7e_8b43782fce09, b"Windows.ApplicationModel.PackageExtensions.IPackageExtensionPackageUpdatingEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageExtensionPackageUpdatingEventArgs_Vtbl {

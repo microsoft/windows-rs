@@ -750,18 +750,12 @@ impl windows_core::RuntimeType for AsyncStatus {
     const NAME: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.AsyncStatus");
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAsyncAction,
     IAsyncAction_Vtbl,
     0x5a648006_843a_4da9_865b_9d26e5dfad7b,
-    inspectable
+    b"Windows.Foundation.IAsyncAction"
 );
-impl windows_core::RuntimeType for IAsyncAction {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncAction");
-}
 windows_core::imp::interface_hierarchy!(
     IAsyncAction,
     windows_core::IUnknown,
@@ -925,43 +919,7 @@ pub struct IAsyncAction_Vtbl {
     ) -> windows_core::HRESULT,
     pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IAsyncActionWithProgress<TProgress>(
-    windows_core::IUnknown,
-    core::marker::PhantomData<TProgress>,
-)
-where
-    TProgress: windows_core::RuntimeType + 'static;
-impl<TProgress: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<windows_core::IUnknown> for IAsyncActionWithProgress<TProgress>
-{
-}
-impl<TProgress: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<windows_core::IInspectable> for IAsyncActionWithProgress<TProgress>
-{
-}
-unsafe impl<TProgress: windows_core::RuntimeType + 'static> windows_core::Interface
-    for IAsyncActionWithProgress<TProgress>
-{
-    type Vtable = IAsyncActionWithProgress_Vtbl<TProgress>;
-    const IID: windows_core::GUID =
-        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-    const INSPECTABLE: bool = true;
-}
-impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType
-    for IAsyncActionWithProgress<TProgress>
-{
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({1f6db258-e803-48a1-9546-eb7353398884}")
-        .push_slice(b";")
-        .push_other(TProgress::SIGNATURE)
-        .push_slice(b")");
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"Windows.Foundation.IAsyncActionWithProgress`1<")
-        .push_other(TProgress::NAME)
-        .push_slice(b">");
-}
+windows_core::imp::define_winrt_interface!(IAsyncActionWithProgress < TProgress >, IAsyncActionWithProgress_Vtbl < TProgress, >, 0x1f6db258_e803_48a1_9546_eb7353398884, b"Windows.Foundation.IAsyncActionWithProgress`1");
 impl<TProgress: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IAsyncInfo>
     for IAsyncActionWithProgress<TProgress>
 {
@@ -1235,18 +1193,12 @@ where
     pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     TProgress: core::marker::PhantomData<TProgress>,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAsyncInfo,
     IAsyncInfo_Vtbl,
     0x00000036_0000_0000_c000_000000000046,
-    inspectable
+    b"Windows.Foundation.IAsyncInfo"
 );
-impl windows_core::RuntimeType for IAsyncInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncInfo");
-}
 windows_core::imp::interface_hierarchy!(
     IAsyncInfo,
     windows_core::IUnknown,
@@ -1411,40 +1363,7 @@ pub struct IAsyncInfo_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IAsyncOperation<TResult>(windows_core::IUnknown, core::marker::PhantomData<TResult>)
-where
-    TResult: windows_core::RuntimeType + 'static;
-impl<TResult: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<windows_core::IUnknown> for IAsyncOperation<TResult>
-{
-}
-impl<TResult: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<windows_core::IInspectable> for IAsyncOperation<TResult>
-{
-}
-unsafe impl<TResult: windows_core::RuntimeType + 'static> windows_core::Interface
-    for IAsyncOperation<TResult>
-{
-    type Vtable = IAsyncOperation_Vtbl<TResult>;
-    const IID: windows_core::GUID =
-        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-    const INSPECTABLE: bool = true;
-}
-impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
-    for IAsyncOperation<TResult>
-{
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2}")
-        .push_slice(b";")
-        .push_other(TResult::SIGNATURE)
-        .push_slice(b")");
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"Windows.Foundation.IAsyncOperation`1<")
-        .push_other(TResult::NAME)
-        .push_slice(b">");
-}
+windows_core::imp::define_winrt_interface!(IAsyncOperation < TResult >, IAsyncOperation_Vtbl < TResult, >, 0x9fc2b0bb_e446_44e2_aa61_9cab8f636af2, b"Windows.Foundation.IAsyncOperation`1");
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IAsyncInfo>
     for IAsyncOperation<TResult>
 {
@@ -1647,53 +1566,7 @@ where
     ) -> windows_core::HRESULT,
     TResult: core::marker::PhantomData<TResult>,
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IAsyncOperationWithProgress<TResult, TProgress>(
-    windows_core::IUnknown,
-    core::marker::PhantomData<TResult>,
-    core::marker::PhantomData<TProgress>,
-)
-where
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static;
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<windows_core::IUnknown>
-    for IAsyncOperationWithProgress<TResult, TProgress>
-{
-}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<windows_core::IInspectable>
-    for IAsyncOperationWithProgress<TResult, TProgress>
-{
-}
-unsafe impl<
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-> windows_core::Interface for IAsyncOperationWithProgress<TResult, TProgress>
-{
-    type Vtable = IAsyncOperationWithProgress_Vtbl<TResult, TProgress>;
-    const IID: windows_core::GUID =
-        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-    const INSPECTABLE: bool = true;
-}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    windows_core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress>
-{
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({b5d036d7-e297-498f-ba60-0289e76e23dd}")
-        .push_slice(b";")
-        .push_other(TResult::SIGNATURE)
-        .push_slice(b";")
-        .push_other(TProgress::SIGNATURE)
-        .push_slice(b")");
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"Windows.Foundation.IAsyncOperationWithProgress`2<")
-        .push_other(TResult::NAME)
-        .push_slice(b", ")
-        .push_other(TProgress::NAME)
-        .push_slice(b">");
-}
+windows_core::imp::define_winrt_interface!(IAsyncOperationWithProgress < TResult, TProgress >, IAsyncOperationWithProgress_Vtbl < TResult, TProgress, >, 0xb5d036d7_e297_498f_ba60_0289e76e23dd, b"Windows.Foundation.IAsyncOperationWithProgress`2");
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
     windows_core::imp::CanInto<IAsyncInfo> for IAsyncOperationWithProgress<TResult, TProgress>
 {

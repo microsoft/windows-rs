@@ -1,15 +1,9 @@
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWidget,
     IWidget_Vtbl,
     0x303e6368_bcf1_5a25_8cfc_bf711e673f94,
-    inspectable
+    b"Test.IWidget"
 );
-impl windows_core::RuntimeType for IWidget {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.IWidget");
-}
 windows_core::imp::interface_hierarchy!(
     IWidget,
     windows_core::IUnknown,

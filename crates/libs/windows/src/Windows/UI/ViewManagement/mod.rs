@@ -916,11 +916,7 @@ impl windows_core::RuntimeType for HandPreference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.HandPreference;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.HandPreference");
 }
-windows_core::imp::define_interface!(IAccessibilitySettings, IAccessibilitySettings_Vtbl, 0xfe0e8147_c4c0_4562_b962_1327b52ad5b9, inspectable);
-impl windows_core::RuntimeType for IAccessibilitySettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IAccessibilitySettings");
-}
+windows_core::imp::define_winrt_interface!(IAccessibilitySettings, IAccessibilitySettings_Vtbl, 0xfe0e8147_c4c0_4562_b962_1327b52ad5b9, b"Windows.UI.ViewManagement.IAccessibilitySettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibilitySettings_Vtbl {
@@ -930,11 +926,7 @@ pub struct IAccessibilitySettings_Vtbl {
     pub HighContrastChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveHighContrastChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActivationViewSwitcher, IActivationViewSwitcher_Vtbl, 0xdca71bb6_7350_492b_aac7_c8a13d7224ad, inspectable);
-impl windows_core::RuntimeType for IActivationViewSwitcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IActivationViewSwitcher");
-}
+windows_core::imp::define_winrt_interface!(IActivationViewSwitcher, IActivationViewSwitcher_Vtbl, 0xdca71bb6_7350_492b_aac7_c8a13d7224ad, b"Windows.UI.ViewManagement.IActivationViewSwitcher");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationViewSwitcher_Vtbl {
@@ -943,11 +935,7 @@ pub struct IActivationViewSwitcher_Vtbl {
     pub ShowAsStandaloneWithSizePreferenceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, ViewSizePreference, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsViewPresentedOnActivationVirtualDesktop: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationView, IApplicationView_Vtbl, 0xd222d519_4361_451e_96c4_60f4f9742db0, inspectable);
-impl windows_core::RuntimeType for IApplicationView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationView");
-}
+windows_core::imp::define_winrt_interface!(IApplicationView, IApplicationView_Vtbl, 0xd222d519_4361_451e_96c4_60f4f9742db0, b"Windows.UI.ViewManagement.IApplicationView");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationView_Vtbl {
@@ -965,11 +953,7 @@ pub struct IApplicationView_Vtbl {
     pub Consolidated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveConsolidated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationView2, IApplicationView2_Vtbl, 0xe876b196_a545_40dc_b594_450cba68cc00, inspectable);
-impl windows_core::RuntimeType for IApplicationView2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationView2");
-}
+windows_core::imp::define_winrt_interface!(IApplicationView2, IApplicationView2_Vtbl, 0xe876b196_a545_40dc_b594_450cba68cc00, b"Windows.UI.ViewManagement.IApplicationView2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationView2_Vtbl {
@@ -982,11 +966,7 @@ pub struct IApplicationView2_Vtbl {
     pub SetDesiredBoundsMode: unsafe extern "system" fn(*mut core::ffi::c_void, ApplicationViewBoundsMode, *mut bool) -> windows_core::HRESULT,
     pub DesiredBoundsMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ApplicationViewBoundsMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationView3, IApplicationView3_Vtbl, 0x903c9ce5_793a_4fdf_a2b2_af1ac21e3108, inspectable);
-impl windows_core::RuntimeType for IApplicationView3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationView3");
-}
+windows_core::imp::define_winrt_interface!(IApplicationView3, IApplicationView3_Vtbl, 0x903c9ce5_793a_4fdf_a2b2_af1ac21e3108, b"Windows.UI.ViewManagement.IApplicationView3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationView3_Vtbl {
@@ -1001,11 +981,7 @@ pub struct IApplicationView3_Vtbl {
     pub TryResizeView: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Size, *mut bool) -> windows_core::HRESULT,
     pub SetPreferredMinSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Size) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationView4, IApplicationView4_Vtbl, 0x15e5cbec_9e0f_46b5_bc3f_9bf653e74b5e, inspectable);
-impl windows_core::RuntimeType for IApplicationView4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationView4");
-}
+windows_core::imp::define_winrt_interface!(IApplicationView4, IApplicationView4_Vtbl, 0x15e5cbec_9e0f_46b5_bc3f_9bf653e74b5e, b"Windows.UI.ViewManagement.IApplicationView4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationView4_Vtbl {
@@ -1016,11 +992,7 @@ pub struct IApplicationView4_Vtbl {
     pub TryEnterViewModeWithPreferencesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, ApplicationViewMode, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryConsolidateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationView7, IApplicationView7_Vtbl, 0xa0369647_5faf_5aa6_9c38_befbb12a071e, inspectable);
-impl windows_core::RuntimeType for IApplicationView7 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationView7");
-}
+windows_core::imp::define_winrt_interface!(IApplicationView7, IApplicationView7_Vtbl, 0xa0369647_5faf_5aa6_9c38_befbb12a071e, b"Windows.UI.ViewManagement.IApplicationView7");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationView7_Vtbl {
@@ -1028,11 +1000,7 @@ pub struct IApplicationView7_Vtbl {
     pub PersistedStateId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPersistedStateId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationView9, IApplicationView9_Vtbl, 0x9c6516f9_021a_5f01_93e5_9bdad2647574, inspectable);
-impl windows_core::RuntimeType for IApplicationView9 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationView9");
-}
+windows_core::imp::define_winrt_interface!(IApplicationView9, IApplicationView9_Vtbl, 0x9c6516f9_021a_5f01_93e5_9bdad2647574, b"Windows.UI.ViewManagement.IApplicationView9");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationView9_Vtbl {
@@ -1046,44 +1014,28 @@ pub struct IApplicationView9_Vtbl {
     #[cfg(not(feature = "UI_WindowManagement"))]
     GetDisplayRegions: usize,
 }
-windows_core::imp::define_interface!(IApplicationViewConsolidatedEventArgs, IApplicationViewConsolidatedEventArgs_Vtbl, 0x514449ec_7ea2_4de7_a6a6_7dfbaaebb6fb, inspectable);
-impl windows_core::RuntimeType for IApplicationViewConsolidatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewConsolidatedEventArgs, IApplicationViewConsolidatedEventArgs_Vtbl, 0x514449ec_7ea2_4de7_a6a6_7dfbaaebb6fb, b"Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewConsolidatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsUserInitiated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewConsolidatedEventArgs2, IApplicationViewConsolidatedEventArgs2_Vtbl, 0x1c199ecc_6dc1_40f4_afee_07d9ea296430, inspectable);
-impl windows_core::RuntimeType for IApplicationViewConsolidatedEventArgs2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs2");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewConsolidatedEventArgs2, IApplicationViewConsolidatedEventArgs2_Vtbl, 0x1c199ecc_6dc1_40f4_afee_07d9ea296430, b"Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewConsolidatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsAppInitiated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewFullscreenStatics, IApplicationViewFullscreenStatics_Vtbl, 0xbc792ebd_64fe_4b65_a0c0_901ce2b68636, inspectable);
-impl windows_core::RuntimeType for IApplicationViewFullscreenStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewFullscreenStatics");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewFullscreenStatics, IApplicationViewFullscreenStatics_Vtbl, 0xbc792ebd_64fe_4b65_a0c0_901ce2b68636, b"Windows.UI.ViewManagement.IApplicationViewFullscreenStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewFullscreenStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryUnsnapToFullscreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewInteropStatics, IApplicationViewInteropStatics_Vtbl, 0xc446fb5d_4793_4896_a8e2_be57a8bb0f50, inspectable);
-impl windows_core::RuntimeType for IApplicationViewInteropStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewInteropStatics");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewInteropStatics, IApplicationViewInteropStatics_Vtbl, 0xc446fb5d_4793_4896_a8e2_be57a8bb0f50, b"Windows.UI.ViewManagement.IApplicationViewInteropStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewInteropStatics_Vtbl {
@@ -1093,21 +1045,13 @@ pub struct IApplicationViewInteropStatics_Vtbl {
     #[cfg(not(feature = "UI_Core"))]
     GetApplicationViewIdForWindow: usize,
 }
-windows_core::imp::define_interface!(IApplicationViewScaling, IApplicationViewScaling_Vtbl, 0x1d0ddc23_23f3_4b2d_84fe_74bf37b48b66, inspectable);
-impl windows_core::RuntimeType for IApplicationViewScaling {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewScaling");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewScaling, IApplicationViewScaling_Vtbl, 0x1d0ddc23_23f3_4b2d_84fe_74bf37b48b66, b"Windows.UI.ViewManagement.IApplicationViewScaling");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewScaling_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IApplicationViewScalingStatics, IApplicationViewScalingStatics_Vtbl, 0xb08fecf0_b946_45c8_a5e3_71f5aa78f861, inspectable);
-impl windows_core::RuntimeType for IApplicationViewScalingStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewScalingStatics");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewScalingStatics, IApplicationViewScalingStatics_Vtbl, 0xb08fecf0_b946_45c8_a5e3_71f5aa78f861, b"Windows.UI.ViewManagement.IApplicationViewScalingStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewScalingStatics_Vtbl {
@@ -1115,11 +1059,7 @@ pub struct IApplicationViewScalingStatics_Vtbl {
     pub DisableLayoutScaling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub TrySetDisableLayoutScaling: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewStatics, IApplicationViewStatics_Vtbl, 0x010a6306_c433_44e5_a9f2_bd84d4030a95, inspectable);
-impl windows_core::RuntimeType for IApplicationViewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewStatics");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewStatics, IApplicationViewStatics_Vtbl, 0x010a6306_c433_44e5_a9f2_bd84d4030a95, b"Windows.UI.ViewManagement.IApplicationViewStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewStatics_Vtbl {
@@ -1127,11 +1067,7 @@ pub struct IApplicationViewStatics_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ApplicationViewState) -> windows_core::HRESULT,
     pub TryUnsnap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewStatics2, IApplicationViewStatics2_Vtbl, 0xaf338ae5_cf64_423c_85e5_f3e72448fb23, inspectable);
-impl windows_core::RuntimeType for IApplicationViewStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewStatics2");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewStatics2, IApplicationViewStatics2_Vtbl, 0xaf338ae5_cf64_423c_85e5_f3e72448fb23, b"Windows.UI.ViewManagement.IApplicationViewStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewStatics2_Vtbl {
@@ -1140,11 +1076,7 @@ pub struct IApplicationViewStatics2_Vtbl {
     pub TerminateAppOnFinalViewClose: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetTerminateAppOnFinalViewClose: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewStatics3, IApplicationViewStatics3_Vtbl, 0xa28d7594_8c41_4e13_9719_5164796fe4c7, inspectable);
-impl windows_core::RuntimeType for IApplicationViewStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewStatics3");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewStatics3, IApplicationViewStatics3_Vtbl, 0xa28d7594_8c41_4e13_9719_5164796fe4c7, b"Windows.UI.ViewManagement.IApplicationViewStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewStatics3_Vtbl {
@@ -1154,11 +1086,7 @@ pub struct IApplicationViewStatics3_Vtbl {
     pub PreferredLaunchViewSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
     pub SetPreferredLaunchViewSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Size) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewStatics4, IApplicationViewStatics4_Vtbl, 0x08fd8d33_2611_5336_a315_d98e6366c9db, inspectable);
-impl windows_core::RuntimeType for IApplicationViewStatics4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewStatics4");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewStatics4, IApplicationViewStatics4_Vtbl, 0x08fd8d33_2611_5336_a315_d98e6366c9db, b"Windows.UI.ViewManagement.IApplicationViewStatics4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewStatics4_Vtbl {
@@ -1166,11 +1094,7 @@ pub struct IApplicationViewStatics4_Vtbl {
     pub ClearAllPersistedState: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearPersistedState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewSwitcherStatics, IApplicationViewSwitcherStatics_Vtbl, 0x975f2f1e_e656_4c5e_a0a1_717c6ffa7d64, inspectable);
-impl windows_core::RuntimeType for IApplicationViewSwitcherStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewSwitcherStatics");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewSwitcherStatics, IApplicationViewSwitcherStatics_Vtbl, 0x975f2f1e_e656_4c5e_a0a1_717c6ffa7d64, b"Windows.UI.ViewManagement.IApplicationViewSwitcherStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewSwitcherStatics_Vtbl {
@@ -1184,22 +1108,14 @@ pub struct IApplicationViewSwitcherStatics_Vtbl {
     pub SwitchFromViewWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, ApplicationViewSwitchingOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PrepareForCustomAnimatedSwitchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, ApplicationViewSwitchingOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewSwitcherStatics2, IApplicationViewSwitcherStatics2_Vtbl, 0x60e995cd_4fc2_48c4_b8e3_395f2b9f0fc1, inspectable);
-impl windows_core::RuntimeType for IApplicationViewSwitcherStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewSwitcherStatics2");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewSwitcherStatics2, IApplicationViewSwitcherStatics2_Vtbl, 0x60e995cd_4fc2_48c4_b8e3_395f2b9f0fc1, b"Windows.UI.ViewManagement.IApplicationViewSwitcherStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewSwitcherStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisableSystemViewActivationPolicy: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewSwitcherStatics3, IApplicationViewSwitcherStatics3_Vtbl, 0x92059420_80a7_486d_b21f_c7a4a242a383, inspectable);
-impl windows_core::RuntimeType for IApplicationViewSwitcherStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewSwitcherStatics3, IApplicationViewSwitcherStatics3_Vtbl, 0x92059420_80a7_486d_b21f_c7a4a242a383, b"Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewSwitcherStatics3_Vtbl {
@@ -1207,11 +1123,7 @@ pub struct IApplicationViewSwitcherStatics3_Vtbl {
     pub TryShowAsViewModeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, ApplicationViewMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryShowAsViewModeWithPreferencesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, ApplicationViewMode, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewTitleBar, IApplicationViewTitleBar_Vtbl, 0x00924ac0_932b_4a6b_9c4b_dc38c82478ce, inspectable);
-impl windows_core::RuntimeType for IApplicationViewTitleBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewTitleBar");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewTitleBar, IApplicationViewTitleBar_Vtbl, 0x00924ac0_932b_4a6b_9c4b_dc38c82478ce, b"Windows.UI.ViewManagement.IApplicationViewTitleBar");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewTitleBar_Vtbl {
@@ -1241,11 +1153,7 @@ pub struct IApplicationViewTitleBar_Vtbl {
     pub SetButtonInactiveBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ButtonInactiveBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewTransferContext, IApplicationViewTransferContext_Vtbl, 0x8574bc63_3c17_408e_9408_8a1a9ea81bfa, inspectable);
-impl windows_core::RuntimeType for IApplicationViewTransferContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewTransferContext");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewTransferContext, IApplicationViewTransferContext_Vtbl, 0x8574bc63_3c17_408e_9408_8a1a9ea81bfa, b"Windows.UI.ViewManagement.IApplicationViewTransferContext");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewTransferContext_Vtbl {
@@ -1253,33 +1161,21 @@ pub struct IApplicationViewTransferContext_Vtbl {
     pub ViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetViewId: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewTransferContextStatics, IApplicationViewTransferContextStatics_Vtbl, 0x15a89d92_dd79_4b0b_bc47_d5f195f14661, inspectable);
-impl windows_core::RuntimeType for IApplicationViewTransferContextStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewTransferContextStatics");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewTransferContextStatics, IApplicationViewTransferContextStatics_Vtbl, 0x15a89d92_dd79_4b0b_bc47_d5f195f14661, b"Windows.UI.ViewManagement.IApplicationViewTransferContextStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewTransferContextStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DataPackageFormatId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationViewWithContext, IApplicationViewWithContext_Vtbl, 0xbd55d512_9dc1_44fc_8501_666625df60dc, inspectable);
-impl windows_core::RuntimeType for IApplicationViewWithContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IApplicationViewWithContext");
-}
+windows_core::imp::define_winrt_interface!(IApplicationViewWithContext, IApplicationViewWithContext_Vtbl, 0xbd55d512_9dc1_44fc_8501_666625df60dc, b"Windows.UI.ViewManagement.IApplicationViewWithContext");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewWithContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UIContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputPane, IInputPane_Vtbl, 0x640ada70_06f3_4c87_a678_9829c9127c28, inspectable);
-impl windows_core::RuntimeType for IInputPane {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IInputPane");
-}
+windows_core::imp::define_winrt_interface!(IInputPane, IInputPane_Vtbl, 0x640ada70_06f3_4c87_a678_9829c9127c28, b"Windows.UI.ViewManagement.IInputPane");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPane_Vtbl {
@@ -1290,11 +1186,7 @@ pub struct IInputPane_Vtbl {
     pub RemoveHiding: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub OccludedRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputPane2, IInputPane2_Vtbl, 0x8a6b3f26_7090_4793_944c_c3f2cde26276, inspectable);
-impl windows_core::RuntimeType for IInputPane2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IInputPane2");
-}
+windows_core::imp::define_winrt_interface!(IInputPane2, IInputPane2_Vtbl, 0x8a6b3f26_7090_4793_944c_c3f2cde26276, b"Windows.UI.ViewManagement.IInputPane2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPane2_Vtbl {
@@ -1302,11 +1194,7 @@ pub struct IInputPane2_Vtbl {
     pub TryShow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub TryHide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputPaneControl, IInputPaneControl_Vtbl, 0x088bb24f_962f_489d_aa6e_c6be1a0a6e52, inspectable);
-impl windows_core::RuntimeType for IInputPaneControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IInputPaneControl");
-}
+windows_core::imp::define_winrt_interface!(IInputPaneControl, IInputPaneControl_Vtbl, 0x088bb24f_962f_489d_aa6e_c6be1a0a6e52, b"Windows.UI.ViewManagement.IInputPaneControl");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPaneControl_Vtbl {
@@ -1314,33 +1202,21 @@ pub struct IInputPaneControl_Vtbl {
     pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetVisible: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputPaneStatics, IInputPaneStatics_Vtbl, 0x95f4af3a_ef47_424a_9741_fd2815eba2bd, inspectable);
-impl windows_core::RuntimeType for IInputPaneStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IInputPaneStatics");
-}
+windows_core::imp::define_winrt_interface!(IInputPaneStatics, IInputPaneStatics_Vtbl, 0x95f4af3a_ef47_424a_9741_fd2815eba2bd, b"Windows.UI.ViewManagement.IInputPaneStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPaneStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputPaneStatics2, IInputPaneStatics2_Vtbl, 0x1b63529b_d9ec_4531_8445_71bab9fb828e, inspectable);
-impl windows_core::RuntimeType for IInputPaneStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IInputPaneStatics2");
-}
+windows_core::imp::define_winrt_interface!(IInputPaneStatics2, IInputPaneStatics2_Vtbl, 0x1b63529b_d9ec_4531_8445_71bab9fb828e, b"Windows.UI.ViewManagement.IInputPaneStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPaneStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForUIContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputPaneVisibilityEventArgs, IInputPaneVisibilityEventArgs_Vtbl, 0xd243e016_d907_4fcc_bb8d_f77baa5028f1, inspectable);
-impl windows_core::RuntimeType for IInputPaneVisibilityEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IInputPaneVisibilityEventArgs, IInputPaneVisibilityEventArgs_Vtbl, 0xd243e016_d907_4fcc_bb8d_f77baa5028f1, b"Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPaneVisibilityEventArgs_Vtbl {
@@ -1349,11 +1225,7 @@ pub struct IInputPaneVisibilityEventArgs_Vtbl {
     pub SetEnsuredFocusedElementInView: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub EnsuredFocusedElementInView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProjectionManagerStatics, IProjectionManagerStatics_Vtbl, 0xb65f913d_e2f0_4ffd_ba95_34241647e45c, inspectable);
-impl windows_core::RuntimeType for IProjectionManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IProjectionManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IProjectionManagerStatics, IProjectionManagerStatics_Vtbl, 0xb65f913d_e2f0_4ffd_ba95_34241647e45c, b"Windows.UI.ViewManagement.IProjectionManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProjectionManagerStatics_Vtbl {
@@ -1365,11 +1237,7 @@ pub struct IProjectionManagerStatics_Vtbl {
     pub ProjectionDisplayAvailableChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveProjectionDisplayAvailableChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProjectionManagerStatics2, IProjectionManagerStatics2_Vtbl, 0xf33d2f43_2749_4cde_b977_c0c41e7415d1, inspectable);
-impl windows_core::RuntimeType for IProjectionManagerStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IProjectionManagerStatics2");
-}
+windows_core::imp::define_winrt_interface!(IProjectionManagerStatics2, IProjectionManagerStatics2_Vtbl, 0xf33d2f43_2749_4cde_b977_c0c41e7415d1, b"Windows.UI.ViewManagement.IProjectionManagerStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProjectionManagerStatics2_Vtbl {
@@ -1385,11 +1253,7 @@ pub struct IProjectionManagerStatics2_Vtbl {
     RequestStartProjectingWithPlacementAsync: usize,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUISettings, IUISettings_Vtbl, 0x85361600_1c63_4627_bcb1_3a89e0bc9c55, inspectable);
-impl windows_core::RuntimeType for IUISettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUISettings");
-}
+windows_core::imp::define_winrt_interface!(IUISettings, IUISettings_Vtbl, 0x85361600_1c63_4627_bcb1_3a89e0bc9c55, b"Windows.UI.ViewManagement.IUISettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettings_Vtbl {
@@ -1408,11 +1272,7 @@ pub struct IUISettings_Vtbl {
     pub MouseHoverTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub UIElementColor: unsafe extern "system" fn(*mut core::ffi::c_void, UIElementType, *mut super::Color) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUISettings2, IUISettings2_Vtbl, 0xbad82401_2721_44f9_bb91_2bb228be442f, inspectable);
-impl windows_core::RuntimeType for IUISettings2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUISettings2");
-}
+windows_core::imp::define_winrt_interface!(IUISettings2, IUISettings2_Vtbl, 0xbad82401_2721_44f9_bb91_2bb228be442f, b"Windows.UI.ViewManagement.IUISettings2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettings2_Vtbl {
@@ -1421,11 +1281,7 @@ pub struct IUISettings2_Vtbl {
     pub TextScaleFactorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveTextScaleFactorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUISettings3, IUISettings3_Vtbl, 0x03021be4_5254_4781_8194_5168f7d06d7b, inspectable);
-impl windows_core::RuntimeType for IUISettings3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUISettings3");
-}
+windows_core::imp::define_winrt_interface!(IUISettings3, IUISettings3_Vtbl, 0x03021be4_5254_4781_8194_5168f7d06d7b, b"Windows.UI.ViewManagement.IUISettings3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettings3_Vtbl {
@@ -1434,11 +1290,7 @@ pub struct IUISettings3_Vtbl {
     pub ColorValuesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveColorValuesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUISettings4, IUISettings4_Vtbl, 0x52bb3002_919b_4d6b_9b78_8dd66ff4b93b, inspectable);
-impl windows_core::RuntimeType for IUISettings4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUISettings4");
-}
+windows_core::imp::define_winrt_interface!(IUISettings4, IUISettings4_Vtbl, 0x52bb3002_919b_4d6b_9b78_8dd66ff4b93b, b"Windows.UI.ViewManagement.IUISettings4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettings4_Vtbl {
@@ -1447,11 +1299,7 @@ pub struct IUISettings4_Vtbl {
     pub AdvancedEffectsEnabledChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAdvancedEffectsEnabledChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUISettings5, IUISettings5_Vtbl, 0x5349d588_0cb5_5f05_bd34_706b3231f0bd, inspectable);
-impl windows_core::RuntimeType for IUISettings5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUISettings5");
-}
+windows_core::imp::define_winrt_interface!(IUISettings5, IUISettings5_Vtbl, 0x5349d588_0cb5_5f05_bd34_706b3231f0bd, b"Windows.UI.ViewManagement.IUISettings5");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettings5_Vtbl {
@@ -1460,11 +1308,7 @@ pub struct IUISettings5_Vtbl {
     pub AutoHideScrollBarsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAutoHideScrollBarsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUISettings6, IUISettings6_Vtbl, 0xaef19bd7_fe31_5a04_ada4_469aaec6dfa9, inspectable);
-impl windows_core::RuntimeType for IUISettings6 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUISettings6");
-}
+windows_core::imp::define_winrt_interface!(IUISettings6, IUISettings6_Vtbl, 0xaef19bd7_fe31_5a04_ada4_469aaec6dfa9, b"Windows.UI.ViewManagement.IUISettings6");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettings6_Vtbl {
@@ -1474,52 +1318,32 @@ pub struct IUISettings6_Vtbl {
     pub MessageDurationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveMessageDurationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUISettingsAnimationsEnabledChangedEventArgs, IUISettingsAnimationsEnabledChangedEventArgs_Vtbl, 0x0c7b4b3d_2ea1_533e_894d_415bc5243c29, inspectable);
-impl windows_core::RuntimeType for IUISettingsAnimationsEnabledChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUISettingsAnimationsEnabledChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IUISettingsAnimationsEnabledChangedEventArgs, IUISettingsAnimationsEnabledChangedEventArgs_Vtbl, 0x0c7b4b3d_2ea1_533e_894d_415bc5243c29, b"Windows.UI.ViewManagement.IUISettingsAnimationsEnabledChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettingsAnimationsEnabledChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IUISettingsAutoHideScrollBarsChangedEventArgs, IUISettingsAutoHideScrollBarsChangedEventArgs_Vtbl, 0x87afd4b2_9146_5f02_8f6b_06d454174c0f, inspectable);
-impl windows_core::RuntimeType for IUISettingsAutoHideScrollBarsChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUISettingsAutoHideScrollBarsChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IUISettingsAutoHideScrollBarsChangedEventArgs, IUISettingsAutoHideScrollBarsChangedEventArgs_Vtbl, 0x87afd4b2_9146_5f02_8f6b_06d454174c0f, b"Windows.UI.ViewManagement.IUISettingsAutoHideScrollBarsChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettingsAutoHideScrollBarsChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IUISettingsMessageDurationChangedEventArgs, IUISettingsMessageDurationChangedEventArgs_Vtbl, 0x338aad52_4a5d_5b59_8002_d930f608fd6e, inspectable);
-impl windows_core::RuntimeType for IUISettingsMessageDurationChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUISettingsMessageDurationChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IUISettingsMessageDurationChangedEventArgs, IUISettingsMessageDurationChangedEventArgs_Vtbl, 0x338aad52_4a5d_5b59_8002_d930f608fd6e, b"Windows.UI.ViewManagement.IUISettingsMessageDurationChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettingsMessageDurationChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IUIViewSettings, IUIViewSettings_Vtbl, 0xc63657f6_8850_470d_88f8_455e16ea2c26, inspectable);
-impl windows_core::RuntimeType for IUIViewSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUIViewSettings");
-}
+windows_core::imp::define_winrt_interface!(IUIViewSettings, IUIViewSettings_Vtbl, 0xc63657f6_8850_470d_88f8_455e16ea2c26, b"Windows.UI.ViewManagement.IUIViewSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIViewSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UserInteractionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserInteractionMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUIViewSettingsPreferredInteractionMode, IUIViewSettingsPreferredInteractionMode_Vtbl, 0x426de261_82ec_5f61_bad4_19b2d0d3cf35, inspectable);
-impl windows_core::RuntimeType for IUIViewSettingsPreferredInteractionMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUIViewSettingsPreferredInteractionMode");
-}
+windows_core::imp::define_winrt_interface!(IUIViewSettingsPreferredInteractionMode, IUIViewSettingsPreferredInteractionMode_Vtbl, 0x426de261_82ec_5f61_bad4_19b2d0d3cf35, b"Windows.UI.ViewManagement.IUIViewSettingsPreferredInteractionMode");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIViewSettingsPreferredInteractionMode_Vtbl {
@@ -1528,22 +1352,14 @@ pub struct IUIViewSettingsPreferredInteractionMode_Vtbl {
     pub PreferredInteractionModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemovePreferredInteractionModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUIViewSettingsStatics, IUIViewSettingsStatics_Vtbl, 0x595c97a5_f8f6_41cf_b0fb_aacdb81fd5f6, inspectable);
-impl windows_core::RuntimeType for IUIViewSettingsStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IUIViewSettingsStatics");
-}
+windows_core::imp::define_winrt_interface!(IUIViewSettingsStatics, IUIViewSettingsStatics_Vtbl, 0x595c97a5_f8f6_41cf_b0fb_aacdb81fd5f6, b"Windows.UI.ViewManagement.IUIViewSettingsStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIViewSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IViewModePreferences, IViewModePreferences_Vtbl, 0x878fcd3a_0b99_42c9_84d0_d3f1d403554b, inspectable);
-impl windows_core::RuntimeType for IViewModePreferences {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IViewModePreferences");
-}
+windows_core::imp::define_winrt_interface!(IViewModePreferences, IViewModePreferences_Vtbl, 0x878fcd3a_0b99_42c9_84d0_d3f1d403554b, b"Windows.UI.ViewManagement.IViewModePreferences");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewModePreferences_Vtbl {
@@ -1553,11 +1369,7 @@ pub struct IViewModePreferences_Vtbl {
     pub CustomSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
     pub SetCustomSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Size) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IViewModePreferencesStatics, IViewModePreferencesStatics_Vtbl, 0x69b60a65_5de5_40d8_8306_3833df7a2274, inspectable);
-impl windows_core::RuntimeType for IViewModePreferencesStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ViewManagement.IViewModePreferencesStatics");
-}
+windows_core::imp::define_winrt_interface!(IViewModePreferencesStatics, IViewModePreferencesStatics_Vtbl, 0x69b60a65_5de5_40d8_8306_3833df7a2274, b"Windows.UI.ViewManagement.IViewModePreferencesStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewModePreferencesStatics_Vtbl {

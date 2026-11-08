@@ -1,15 +1,9 @@
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWidget,
     IWidget_Vtbl,
     0x05cda87c_844a_5686_8429_f335c8ee6276,
-    inspectable
+    b"Test.IWidget"
 );
-impl windows_core::RuntimeType for IWidget {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.IWidget");
-}
 windows_core::imp::interface_hierarchy!(
     IWidget,
     windows_core::IUnknown,
@@ -68,18 +62,12 @@ pub struct IWidget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWidgetFactory,
     IWidgetFactory_Vtbl,
     0x700b4fee_2a77_5b8b_a9f0_0480f5faeb5d,
-    inspectable
+    b"Test.IWidgetFactory"
 );
-impl windows_core::RuntimeType for IWidgetFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.IWidgetFactory");
-}
 windows_core::imp::interface_hierarchy!(
     IWidgetFactory,
     windows_core::IUnknown,

@@ -20,18 +20,12 @@ pub mod Test {
     impl windows_core::RuntimeName for Base {
         const NAME: &'static str = "Test.Base";
     }
-    windows_core::imp::define_interface!(
+    windows_core::imp::define_winrt_interface!(
         IBase,
         IBase_Vtbl,
         0x5fa5f341_e06d_51b0_b307_c25adde80bc2,
-        inspectable
+        b"Test.IBase"
     );
-    impl windows_core::RuntimeType for IBase {
-        const SIGNATURE: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::for_interface::<Self>();
-        const NAME: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::from_slice(b"Test.IBase");
-    }
     windows_core::imp::interface_hierarchy!(
         IBase,
         windows_core::IUnknown,
@@ -55,18 +49,12 @@ pub mod Test {
     pub struct IBase_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
     }
-    windows_core::imp::define_interface!(
+    windows_core::imp::define_winrt_interface!(
         ILeaf,
         ILeaf_Vtbl,
         0xdd76df24_0960_586d_8083_e2e48f6d2790,
-        inspectable
+        b"Test.ILeaf"
     );
-    impl windows_core::RuntimeType for ILeaf {
-        const SIGNATURE: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::for_interface::<Self>();
-        const NAME: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::from_slice(b"Test.ILeaf");
-    }
     windows_core::imp::interface_hierarchy!(
         ILeaf,
         windows_core::IUnknown,
@@ -90,18 +78,12 @@ pub mod Test {
     pub struct ILeaf_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
     }
-    windows_core::imp::define_interface!(
+    windows_core::imp::define_winrt_interface!(
         IMiddle,
         IMiddle_Vtbl,
         0xd45b6734_977a_576c_9ef0_7494cc9bdc37,
-        inspectable
+        b"Test.IMiddle"
     );
-    impl windows_core::RuntimeType for IMiddle {
-        const SIGNATURE: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::for_interface::<Self>();
-        const NAME: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::from_slice(b"Test.IMiddle");
-    }
     windows_core::imp::interface_hierarchy!(
         IMiddle,
         windows_core::IUnknown,

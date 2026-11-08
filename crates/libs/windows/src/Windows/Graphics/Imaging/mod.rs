@@ -1100,11 +1100,7 @@ impl windows_core::RuntimeType for ExifOrientationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ExifOrientationMode;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.ExifOrientationMode");
 }
-windows_core::imp::define_interface!(IBitmapBuffer, IBitmapBuffer_Vtbl, 0xa53e04c4_399c_438c_b28f_a63a6b83d1a1, inspectable);
-impl windows_core::RuntimeType for IBitmapBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapBuffer");
-}
+windows_core::imp::define_winrt_interface!(IBitmapBuffer, IBitmapBuffer_Vtbl, 0xa53e04c4_399c_438c_b28f_a63a6b83d1a1, b"Windows.Graphics.Imaging.IBitmapBuffer");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapBuffer_Vtbl {
@@ -1112,11 +1108,7 @@ pub struct IBitmapBuffer_Vtbl {
     pub GetPlaneCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetPlaneDescription: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut BitmapPlaneDescription) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapCodecInformation, IBitmapCodecInformation_Vtbl, 0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4, inspectable);
-impl windows_core::RuntimeType for IBitmapCodecInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapCodecInformation");
-}
+windows_core::imp::define_winrt_interface!(IBitmapCodecInformation, IBitmapCodecInformation_Vtbl, 0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4, b"Windows.Graphics.Imaging.IBitmapCodecInformation");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapCodecInformation_Vtbl {
@@ -1126,11 +1118,7 @@ pub struct IBitmapCodecInformation_Vtbl {
     pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MimeTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapDecoder, IBitmapDecoder_Vtbl, 0xacef22ba_1d74_4c91_9dfc_9620745233e6, inspectable);
-impl windows_core::RuntimeType for IBitmapDecoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapDecoder");
-}
+windows_core::imp::define_winrt_interface!(IBitmapDecoder, IBitmapDecoder_Vtbl, 0xacef22ba_1d74_4c91_9dfc_9620745233e6, b"Windows.Graphics.Imaging.IBitmapDecoder");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapDecoder_Vtbl {
@@ -1144,11 +1132,7 @@ pub struct IBitmapDecoder_Vtbl {
     GetPreviewAsync: usize,
     pub GetFrameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapDecoderStatics, IBitmapDecoderStatics_Vtbl, 0x438ccb26_bcef_4e95_bad6_23a822e58d01, inspectable);
-impl windows_core::RuntimeType for IBitmapDecoderStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapDecoderStatics");
-}
+windows_core::imp::define_winrt_interface!(IBitmapDecoderStatics, IBitmapDecoderStatics_Vtbl, 0x438ccb26_bcef_4e95_bad6_23a822e58d01, b"Windows.Graphics.Imaging.IBitmapDecoderStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapDecoderStatics_Vtbl {
@@ -1170,11 +1154,7 @@ pub struct IBitmapDecoderStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateWithIdAsync: usize,
 }
-windows_core::imp::define_interface!(IBitmapDecoderStatics2, IBitmapDecoderStatics2_Vtbl, 0x50ba68ea_99a1_40c4_80d9_aef0dafa6c3f, inspectable);
-impl windows_core::RuntimeType for IBitmapDecoderStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapDecoderStatics2");
-}
+windows_core::imp::define_winrt_interface!(IBitmapDecoderStatics2, IBitmapDecoderStatics2_Vtbl, 0x50ba68ea_99a1_40c4_80d9_aef0dafa6c3f, b"Windows.Graphics.Imaging.IBitmapDecoderStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapDecoderStatics2_Vtbl {
@@ -1182,11 +1162,7 @@ pub struct IBitmapDecoderStatics2_Vtbl {
     pub HeifDecoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub WebpDecoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapEncoder, IBitmapEncoder_Vtbl, 0x2bc468e3_e1f8_4b54_95e8_32919551ce62, inspectable);
-impl windows_core::RuntimeType for IBitmapEncoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapEncoder");
-}
+windows_core::imp::define_winrt_interface!(IBitmapEncoder, IBitmapEncoder_Vtbl, 0x2bc468e3_e1f8_4b54_95e8_32919551ce62, b"Windows.Graphics.Imaging.IBitmapEncoder");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapEncoder_Vtbl {
@@ -1206,11 +1182,7 @@ pub struct IBitmapEncoder_Vtbl {
     pub GoToNextFrameWithEncodingOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FlushAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapEncoderStatics, IBitmapEncoderStatics_Vtbl, 0xa74356a7_a4e4_4eb9_8e40_564de7e1ccb2, inspectable);
-impl windows_core::RuntimeType for IBitmapEncoderStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapEncoderStatics");
-}
+windows_core::imp::define_winrt_interface!(IBitmapEncoderStatics, IBitmapEncoderStatics_Vtbl, 0xa74356a7_a4e4_4eb9_8e40_564de7e1ccb2, b"Windows.Graphics.Imaging.IBitmapEncoderStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapEncoderStatics_Vtbl {
@@ -1236,33 +1208,21 @@ pub struct IBitmapEncoderStatics_Vtbl {
     CreateForTranscodingAsync: usize,
     pub CreateForInPlacePropertyEncodingAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapEncoderStatics2, IBitmapEncoderStatics2_Vtbl, 0x33cbc259_fe31_41b1_b812_086d21e87e16, inspectable);
-impl windows_core::RuntimeType for IBitmapEncoderStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapEncoderStatics2");
-}
+windows_core::imp::define_winrt_interface!(IBitmapEncoderStatics2, IBitmapEncoderStatics2_Vtbl, 0x33cbc259_fe31_41b1_b812_086d21e87e16, b"Windows.Graphics.Imaging.IBitmapEncoderStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapEncoderStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HeifEncoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapEncoderWithSoftwareBitmap, IBitmapEncoderWithSoftwareBitmap_Vtbl, 0x686cd241_4330_4c77_ace4_0334968b1768, inspectable);
-impl windows_core::RuntimeType for IBitmapEncoderWithSoftwareBitmap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapEncoderWithSoftwareBitmap");
-}
+windows_core::imp::define_winrt_interface!(IBitmapEncoderWithSoftwareBitmap, IBitmapEncoderWithSoftwareBitmap_Vtbl, 0x686cd241_4330_4c77_ace4_0334968b1768, b"Windows.Graphics.Imaging.IBitmapEncoderWithSoftwareBitmap");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapEncoderWithSoftwareBitmap_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetSoftwareBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapFrame, IBitmapFrame_Vtbl, 0x72a49a1c_8081_438d_91bc_94ecfc8185c6, inspectable);
-impl windows_core::RuntimeType for IBitmapFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapFrame");
-}
+windows_core::imp::define_winrt_interface!(IBitmapFrame, IBitmapFrame_Vtbl, 0x72a49a1c_8081_438d_91bc_94ecfc8185c6, b"Windows.Graphics.Imaging.IBitmapFrame");
 windows_core::imp::interface_hierarchy!(IBitmapFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl IBitmapFrame {
     #[cfg(feature = "Storage_Streams")]
@@ -1588,11 +1548,7 @@ pub struct IBitmapFrame_Vtbl {
     pub GetPixelDataAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPixelDataTransformedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut core::ffi::c_void, ExifOrientationMode, ColorManagementMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapFrameWithSoftwareBitmap, IBitmapFrameWithSoftwareBitmap_Vtbl, 0xfe287c9a_420c_4963_87ad_691436e08383, inspectable);
-impl windows_core::RuntimeType for IBitmapFrameWithSoftwareBitmap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapFrameWithSoftwareBitmap");
-}
+windows_core::imp::define_winrt_interface!(IBitmapFrameWithSoftwareBitmap, IBitmapFrameWithSoftwareBitmap_Vtbl, 0xfe287c9a_420c_4963_87ad_691436e08383, b"Windows.Graphics.Imaging.IBitmapFrameWithSoftwareBitmap");
 windows_core::imp::interface_hierarchy!(IBitmapFrameWithSoftwareBitmap, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBitmapFrameWithSoftwareBitmap, IBitmapFrame);
 impl IBitmapFrameWithSoftwareBitmap {
@@ -1786,22 +1742,14 @@ pub struct IBitmapFrameWithSoftwareBitmap_Vtbl {
     pub GetSoftwareBitmapConvertedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSoftwareBitmapTransformedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut core::ffi::c_void, ExifOrientationMode, ColorManagementMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapProperties, IBitmapProperties_Vtbl, 0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d, inspectable);
-impl windows_core::RuntimeType for IBitmapProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapProperties");
-}
+windows_core::imp::define_winrt_interface!(IBitmapProperties, IBitmapProperties_Vtbl, 0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d, b"Windows.Graphics.Imaging.IBitmapProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapPropertiesView, IBitmapPropertiesView_Vtbl, 0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5, inspectable);
-impl windows_core::RuntimeType for IBitmapPropertiesView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapPropertiesView");
-}
+windows_core::imp::define_winrt_interface!(IBitmapPropertiesView, IBitmapPropertiesView_Vtbl, 0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5, b"Windows.Graphics.Imaging.IBitmapPropertiesView");
 windows_core::imp::interface_hierarchy!(IBitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable);
 impl IBitmapPropertiesView {
     pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<BitmapPropertySet>>
@@ -1850,11 +1798,7 @@ pub struct IBitmapPropertiesView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapTransform, IBitmapTransform_Vtbl, 0xae755344_e268_4d35_adcf_e995d31a8d34, inspectable);
-impl windows_core::RuntimeType for IBitmapTransform {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapTransform");
-}
+windows_core::imp::define_winrt_interface!(IBitmapTransform, IBitmapTransform_Vtbl, 0xae755344_e268_4d35_adcf_e995d31a8d34, b"Windows.Graphics.Imaging.IBitmapTransform");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapTransform_Vtbl {
@@ -1872,11 +1816,7 @@ pub struct IBitmapTransform_Vtbl {
     pub Bounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BitmapBounds) -> windows_core::HRESULT,
     pub SetBounds: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapBounds) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapTypedValue, IBitmapTypedValue_Vtbl, 0xcd8044a9_2443_4000_b0cd_79316c56f589, inspectable);
-impl windows_core::RuntimeType for IBitmapTypedValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapTypedValue");
-}
+windows_core::imp::define_winrt_interface!(IBitmapTypedValue, IBitmapTypedValue_Vtbl, 0xcd8044a9_2443_4000_b0cd_79316c56f589, b"Windows.Graphics.Imaging.IBitmapTypedValue");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapTypedValue_Vtbl {
@@ -1884,33 +1824,21 @@ pub struct IBitmapTypedValue_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::PropertyType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBitmapTypedValueFactory, IBitmapTypedValueFactory_Vtbl, 0x92dbb599_ce13_46bb_9545_cb3a3f63eb8b, inspectable);
-impl windows_core::RuntimeType for IBitmapTypedValueFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapTypedValueFactory");
-}
+windows_core::imp::define_winrt_interface!(IBitmapTypedValueFactory, IBitmapTypedValueFactory_Vtbl, 0x92dbb599_ce13_46bb_9545_cb3a3f63eb8b, b"Windows.Graphics.Imaging.IBitmapTypedValueFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapTypedValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::PropertyType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPixelDataProvider, IPixelDataProvider_Vtbl, 0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f, inspectable);
-impl windows_core::RuntimeType for IPixelDataProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IPixelDataProvider");
-}
+windows_core::imp::define_winrt_interface!(IPixelDataProvider, IPixelDataProvider_Vtbl, 0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f, b"Windows.Graphics.Imaging.IPixelDataProvider");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPixelDataProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DetachPixelData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISoftwareBitmap, ISoftwareBitmap_Vtbl, 0x689e0708_7eef_483f_963f_da938818e073, inspectable);
-impl windows_core::RuntimeType for ISoftwareBitmap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.ISoftwareBitmap");
-}
+windows_core::imp::define_winrt_interface!(ISoftwareBitmap, ISoftwareBitmap_Vtbl, 0x689e0708_7eef_483f_963f_da938818e073, b"Windows.Graphics.Imaging.ISoftwareBitmap");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftwareBitmap_Vtbl {
@@ -1936,11 +1864,7 @@ pub struct ISoftwareBitmap_Vtbl {
     CopyToBuffer: usize,
     pub GetReadOnlyView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISoftwareBitmapFactory, ISoftwareBitmapFactory_Vtbl, 0xc99feb69_2d62_4d47_a6b3_4fdb6a07fdf8, inspectable);
-impl windows_core::RuntimeType for ISoftwareBitmapFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.ISoftwareBitmapFactory");
-}
+windows_core::imp::define_winrt_interface!(ISoftwareBitmapFactory, ISoftwareBitmapFactory_Vtbl, 0xc99feb69_2d62_4d47_a6b3_4fdb6a07fdf8, b"Windows.Graphics.Imaging.ISoftwareBitmapFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapFactory_Vtbl {
@@ -1948,11 +1872,7 @@ pub struct ISoftwareBitmapFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithAlpha: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, i32, i32, BitmapAlphaMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISoftwareBitmapStatics, ISoftwareBitmapStatics_Vtbl, 0xdf0385db_672f_4a9d_806e_c2442f343e86, inspectable);
-impl windows_core::RuntimeType for ISoftwareBitmapStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.ISoftwareBitmapStatics");
-}
+windows_core::imp::define_winrt_interface!(ISoftwareBitmapStatics, ISoftwareBitmapStatics_Vtbl, 0xdf0385db_672f_4a9d_806e_c2442f343e86, b"Windows.Graphics.Imaging.ISoftwareBitmapStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapStatics_Vtbl {

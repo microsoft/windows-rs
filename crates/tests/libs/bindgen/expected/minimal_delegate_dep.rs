@@ -43,16 +43,7 @@ impl<F: Fn(i32) + Send + Sync + 'static> HandlerBox<F> {
         }
     }
 }
-windows_core::imp::define_interface!(
-    Sink,
-    Sink_Vtbl,
-    0xfbb9e298_5149_534a_843a_fce157f2a8f2,
-    inspectable
-);
-impl windows_core::RuntimeType for Sink {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
+windows_core::imp::define_winrt_interface!(Sink, Sink_Vtbl, 0xfbb9e298_5149_534a_843a_fce157f2a8f2);
 windows_core::imp::interface_hierarchy!(Sink, windows_core::IUnknown, windows_core::IInspectable);
 impl Sink {
     pub fn Subscribe<P0>(&self, handler: P0) -> windows_core::Result<i32>

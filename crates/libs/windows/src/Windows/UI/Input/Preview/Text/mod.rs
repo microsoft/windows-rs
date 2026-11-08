@@ -48,44 +48,28 @@ impl windows_core::RuntimeName for FocusEnteredEventArgs {
 }
 unsafe impl Send for FocusEnteredEventArgs {}
 unsafe impl Sync for FocusEnteredEventArgs {}
-windows_core::imp::define_interface!(IConversionModeChangedEventArgs, IConversionModeChangedEventArgs_Vtbl, 0xb49761f9_5b21_513c_b6c0_78f27d26b010, inspectable);
-impl windows_core::RuntimeType for IConversionModeChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.IConversionModeChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IConversionModeChangedEventArgs, IConversionModeChangedEventArgs_Vtbl, 0xb49761f9_5b21_513c_b6c0_78f27d26b010, b"Windows.UI.Input.Preview.Text.IConversionModeChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversionModeChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NewConversionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TextConversionMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFocusEnteredEventArgs, IFocusEnteredEventArgs_Vtbl, 0xca4dc200_875f_501d_af14_413a0aa1ed5f, inspectable);
-impl windows_core::RuntimeType for IFocusEnteredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.IFocusEnteredEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IFocusEnteredEventArgs, IFocusEnteredEventArgs_Vtbl, 0xca4dc200_875f_501d_af14_413a0aa1ed5f, b"Windows.UI.Input.Preview.Text.IFocusEnteredEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFocusEnteredEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FocusedTextBoxInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputDelegationModeChangedEventArgs, IInputDelegationModeChangedEventArgs_Vtbl, 0x4bb448b2_67ba_5215_8783_b444bd28eed3, inspectable);
-impl windows_core::RuntimeType for IInputDelegationModeChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.IInputDelegationModeChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IInputDelegationModeChangedEventArgs, IInputDelegationModeChangedEventArgs_Vtbl, 0x4bb448b2_67ba_5215_8783_b444bd28eed3, b"Windows.UI.Input.Preview.Text.IInputDelegationModeChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputDelegationModeChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DelegationOn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKeyEventReceivedEventArgs, IKeyEventReceivedEventArgs_Vtbl, 0x0c30f686_a058_5ecc_abd2_9cc861c1185b, inspectable);
-impl windows_core::RuntimeType for IKeyEventReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.IKeyEventReceivedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IKeyEventReceivedEventArgs, IKeyEventReceivedEventArgs_Vtbl, 0x0c30f686_a058_5ecc_abd2_9cc861c1185b, b"Windows.UI.Input.Preview.Text.IKeyEventReceivedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyEventReceivedEventArgs_Vtbl {
@@ -112,11 +96,7 @@ pub struct IKeyEventReceivedEventArgs_Vtbl {
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKeyboardInputProcessor, IKeyboardInputProcessor_Vtbl, 0x2afe79b6_5818_50e0_8fa8_81bc96428c46, inspectable);
-impl windows_core::RuntimeType for IKeyboardInputProcessor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.IKeyboardInputProcessor");
-}
+windows_core::imp::define_winrt_interface!(IKeyboardInputProcessor, IKeyboardInputProcessor_Vtbl, 0x2afe79b6_5818_50e0_8fa8_81bc96428c46, b"Windows.UI.Input.Preview.Text.IKeyboardInputProcessor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyboardInputProcessor_Vtbl {
@@ -152,11 +132,7 @@ pub struct IKeyboardInputProcessor_Vtbl {
     pub ReconversionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReconversionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IReconversionRequestedEventArgs, IReconversionRequestedEventArgs_Vtbl, 0x73852244_d202_55fe_9edf_beb7ec19f937, inspectable);
-impl windows_core::RuntimeType for IReconversionRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.IReconversionRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IReconversionRequestedEventArgs, IReconversionRequestedEventArgs_Vtbl, 0x73852244_d202_55fe_9edf_beb7ec19f937, b"Windows.UI.Input.Preview.Text.IReconversionRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReconversionRequestedEventArgs_Vtbl {
@@ -166,11 +142,7 @@ pub struct IReconversionRequestedEventArgs_Vtbl {
     #[cfg(not(feature = "UI_Text_Core"))]
     Range: usize,
 }
-windows_core::imp::define_interface!(ITextBoxContentChangedEventArgs, ITextBoxContentChangedEventArgs_Vtbl, 0x2cb70a41_5aed_58c5_b4c1_8ee4e1492f9e, inspectable);
-impl windows_core::RuntimeType for ITextBoxContentChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.ITextBoxContentChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ITextBoxContentChangedEventArgs, ITextBoxContentChangedEventArgs_Vtbl, 0x2cb70a41_5aed_58c5_b4c1_8ee4e1492f9e, b"Windows.UI.Input.Preview.Text.ITextBoxContentChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextBoxContentChangedEventArgs_Vtbl {
@@ -180,11 +152,7 @@ pub struct ITextBoxContentChangedEventArgs_Vtbl {
     pub SelectionBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub IsContentAttributeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, TextBoxContentAttribute, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITextBoxInfo, ITextBoxInfo_Vtbl, 0xb122443d_e8f7_5f8b_813d_aaa0941d5fa0, inspectable);
-impl windows_core::RuntimeType for ITextBoxInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.ITextBoxInfo");
-}
+windows_core::imp::define_winrt_interface!(ITextBoxInfo, ITextBoxInfo_Vtbl, 0xb122443d_e8f7_5f8b_813d_aaa0941d5fa0, b"Windows.UI.Input.Preview.Text.ITextBoxInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextBoxInfo_Vtbl {
@@ -199,22 +167,14 @@ pub struct ITextBoxInfo_Vtbl {
     pub Settings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TextBoxSettings) -> windows_core::HRESULT,
     pub DisabledFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TextBoxFeatures) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITextBoxInfoChangedEventArgs, ITextBoxInfoChangedEventArgs_Vtbl, 0xac1275af_648c_5bac_b29f_d1ea17e9e6d6, inspectable);
-impl windows_core::RuntimeType for ITextBoxInfoChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.ITextBoxInfoChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ITextBoxInfoChangedEventArgs, ITextBoxInfoChangedEventArgs_Vtbl, 0xac1275af_648c_5bac_b29f_d1ea17e9e6d6, b"Windows.UI.Input.Preview.Text.ITextBoxInfoChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextBoxInfoChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TextBoxInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITextComposition, ITextComposition_Vtbl, 0x5cea9aea_524d_50a4_b08a_c83d8d25ec6e, inspectable);
-impl windows_core::RuntimeType for ITextComposition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.ITextComposition");
-}
+windows_core::imp::define_winrt_interface!(ITextComposition, ITextComposition_Vtbl, 0x5cea9aea_524d_50a4_b08a_c83d8d25ec6e, b"Windows.UI.Input.Preview.Text.ITextComposition");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextComposition_Vtbl {
@@ -229,11 +189,7 @@ pub struct ITextComposition_Vtbl {
     pub CompleteUnconverted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CompleteFirstSegment: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITextCompositionSegment, ITextCompositionSegment_Vtbl, 0x0543f6c6_eb98_56d6_8808_2eca6d02f6a5, inspectable);
-impl windows_core::RuntimeType for ITextCompositionSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.ITextCompositionSegment");
-}
+windows_core::imp::define_winrt_interface!(ITextCompositionSegment, ITextCompositionSegment_Vtbl, 0x0543f6c6_eb98_56d6_8808_2eca6d02f6a5, b"Windows.UI.Input.Preview.Text.ITextCompositionSegment");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextCompositionSegment_Vtbl {
@@ -267,11 +223,7 @@ pub struct ITextCompositionSegment_Vtbl {
     #[cfg(not(feature = "UI_Text"))]
     SetTextStyle: usize,
 }
-windows_core::imp::define_interface!(ITextEditSession, ITextEditSession_Vtbl, 0x0bcad18a_d31b_5787_aff9_995ee743aea8, inspectable);
-impl windows_core::RuntimeType for ITextEditSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.ITextEditSession");
-}
+windows_core::imp::define_winrt_interface!(ITextEditSession, ITextEditSession_Vtbl, 0x0bcad18a_d31b_5787_aff9_995ee743aea8, b"Windows.UI.Input.Preview.Text.ITextEditSession");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextEditSession_Vtbl {
@@ -311,11 +263,7 @@ pub struct ITextEditSession_Vtbl {
     pub SubmitPayload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SubmitPayloadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITextInputProvider, ITextInputProvider_Vtbl, 0xb0885fb7_e9f8_5849_b0ef_f8155ecf60d1, inspectable);
-impl windows_core::RuntimeType for ITextInputProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.ITextInputProvider");
-}
+windows_core::imp::define_winrt_interface!(ITextInputProvider, ITextInputProvider_Vtbl, 0xb0885fb7_e9f8_5849_b0ef_f8155ecf60d1, b"Windows.UI.Input.Preview.Text.ITextInputProvider");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextInputProvider_Vtbl {
@@ -345,11 +293,7 @@ pub struct ITextInputProvider_Vtbl {
     pub InputDelegationModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveInputDelegationModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITextInputService, ITextInputService_Vtbl, 0x8e23f89c_ab1f_551a_8751_7d4f29e34d88, inspectable);
-impl windows_core::RuntimeType for ITextInputService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.ITextInputService");
-}
+windows_core::imp::define_winrt_interface!(ITextInputService, ITextInputService_Vtbl, 0x8e23f89c_ab1f_551a_8751_7d4f29e34d88, b"Windows.UI.Input.Preview.Text.ITextInputService");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextInputService_Vtbl {
@@ -357,11 +301,7 @@ pub struct ITextInputService_Vtbl {
     pub CreateKeyboardInputProcessor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateTextInputProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITextInputServiceStatics, ITextInputServiceStatics_Vtbl, 0x91b68f5e_02ed_4e09_ae89_dfd735cf10bc, inspectable);
-impl windows_core::RuntimeType for ITextInputServiceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.ITextInputServiceStatics");
-}
+windows_core::imp::define_winrt_interface!(ITextInputServiceStatics, ITextInputServiceStatics_Vtbl, 0x91b68f5e_02ed_4e09_ae89_dfd735cf10bc, b"Windows.UI.Input.Preview.Text.ITextInputServiceStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextInputServiceStatics_Vtbl {

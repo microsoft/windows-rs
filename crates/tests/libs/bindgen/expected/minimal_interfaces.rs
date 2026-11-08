@@ -52,16 +52,11 @@ pub struct NativeDerived_Vtbl {
 pub struct Payload {
     pub value: i32,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     RuntimeBase,
     RuntimeBase_Vtbl,
-    0x199fe443_608d_5dbf_b51a_e0048262a562,
-    inspectable
+    0x199fe443_608d_5dbf_b51a_e0048262a562
 );
-impl windows_core::RuntimeType for RuntimeBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     RuntimeBase,
     windows_core::IUnknown,
@@ -85,16 +80,11 @@ pub struct RuntimeBase_Vtbl {
     pub BaseValue:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     RuntimeDerived,
     RuntimeDerived_Vtbl,
-    0x7897d8ae_6efa_599e_ad44_eb32981dcc12,
-    inspectable
+    0x7897d8ae_6efa_599e_ad44_eb32981dcc12
 );
-impl windows_core::RuntimeType for RuntimeDerived {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     RuntimeDerived,
     windows_core::IUnknown,

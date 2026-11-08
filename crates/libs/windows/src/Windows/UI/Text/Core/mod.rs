@@ -983,11 +983,7 @@ impl windows_core::RuntimeType for CoreTextTextUpdatingResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.CoreTextTextUpdatingResult");
 }
-windows_core::imp::define_interface!(ICoreTextCompositionCompletedEventArgs, ICoreTextCompositionCompletedEventArgs_Vtbl, 0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30, inspectable);
-impl windows_core::RuntimeType for ICoreTextCompositionCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextCompositionCompletedEventArgs, ICoreTextCompositionCompletedEventArgs_Vtbl, 0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30, b"Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionCompletedEventArgs_Vtbl {
@@ -996,11 +992,7 @@ pub struct ICoreTextCompositionCompletedEventArgs_Vtbl {
     pub CompositionSegments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextCompositionSegment, ICoreTextCompositionSegment_Vtbl, 0x776c6bd9_4ead_4da7_8f47_3a88b523cc34, inspectable);
-impl windows_core::RuntimeType for ICoreTextCompositionSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextCompositionSegment");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextCompositionSegment, ICoreTextCompositionSegment_Vtbl, 0x776c6bd9_4ead_4da7_8f47_3a88b523cc34, b"Windows.UI.Text.Core.ICoreTextCompositionSegment");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionSegment_Vtbl {
@@ -1008,11 +1000,7 @@ pub struct ICoreTextCompositionSegment_Vtbl {
     pub PreconversionString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Range: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CoreTextRange) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextCompositionStartedEventArgs, ICoreTextCompositionStartedEventArgs_Vtbl, 0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb, inspectable);
-impl windows_core::RuntimeType for ICoreTextCompositionStartedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextCompositionStartedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextCompositionStartedEventArgs, ICoreTextCompositionStartedEventArgs_Vtbl, 0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb, b"Windows.UI.Text.Core.ICoreTextCompositionStartedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionStartedEventArgs_Vtbl {
@@ -1020,11 +1008,7 @@ pub struct ICoreTextCompositionStartedEventArgs_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextEditContext, ICoreTextEditContext_Vtbl, 0xbf6608af_4041_47c3_b263_a918eb5eaef2, inspectable);
-impl windows_core::RuntimeType for ICoreTextEditContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextEditContext");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextEditContext, ICoreTextEditContext_Vtbl, 0xbf6608af_4041_47c3_b263_a918eb5eaef2, b"Windows.UI.Text.Core.ICoreTextEditContext");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextEditContext_Vtbl {
@@ -1061,11 +1045,7 @@ pub struct ICoreTextEditContext_Vtbl {
     pub NotifySelectionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, CoreTextRange) -> windows_core::HRESULT,
     pub NotifyLayoutChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextEditContext2, ICoreTextEditContext2_Vtbl, 0xb1867dbb_083b_49e1_b281_2b35d62bf466, inspectable);
-impl windows_core::RuntimeType for ICoreTextEditContext2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextEditContext2");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextEditContext2, ICoreTextEditContext2_Vtbl, 0xb1867dbb_083b_49e1_b281_2b35d62bf466, b"Windows.UI.Text.Core.ICoreTextEditContext2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextEditContext2_Vtbl {
@@ -1073,11 +1053,7 @@ pub struct ICoreTextEditContext2_Vtbl {
     pub NotifyFocusLeaveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveNotifyFocusLeaveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextFormatUpdatingEventArgs, ICoreTextFormatUpdatingEventArgs_Vtbl, 0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab, inspectable);
-impl windows_core::RuntimeType for ICoreTextFormatUpdatingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextFormatUpdatingEventArgs, ICoreTextFormatUpdatingEventArgs_Vtbl, 0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab, b"Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextFormatUpdatingEventArgs_Vtbl {
@@ -1102,11 +1078,7 @@ pub struct ICoreTextFormatUpdatingEventArgs_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextLayoutBounds, ICoreTextLayoutBounds_Vtbl, 0xe972c974_4436_4917_80d0_a525e4ca6780, inspectable);
-impl windows_core::RuntimeType for ICoreTextLayoutBounds {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextLayoutBounds");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextLayoutBounds, ICoreTextLayoutBounds_Vtbl, 0xe972c974_4436_4917_80d0_a525e4ca6780, b"Windows.UI.Text.Core.ICoreTextLayoutBounds");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutBounds_Vtbl {
@@ -1116,11 +1088,7 @@ pub struct ICoreTextLayoutBounds_Vtbl {
     pub ControlBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub SetControlBounds: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextLayoutRequest, ICoreTextLayoutRequest_Vtbl, 0x2555a8cc_51fd_4f03_98bf_ac78174d68e0, inspectable);
-impl windows_core::RuntimeType for ICoreTextLayoutRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextLayoutRequest");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextLayoutRequest, ICoreTextLayoutRequest_Vtbl, 0x2555a8cc_51fd_4f03_98bf_ac78174d68e0, b"Windows.UI.Text.Core.ICoreTextLayoutRequest");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequest_Vtbl {
@@ -1130,33 +1098,21 @@ pub struct ICoreTextLayoutRequest_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextLayoutRequest2, ICoreTextLayoutRequest2_Vtbl, 0x676de624_cd3d_4bcd_bf01_7f7110954511, inspectable);
-impl windows_core::RuntimeType for ICoreTextLayoutRequest2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextLayoutRequest2");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextLayoutRequest2, ICoreTextLayoutRequest2_Vtbl, 0x676de624_cd3d_4bcd_bf01_7f7110954511, b"Windows.UI.Text.Core.ICoreTextLayoutRequest2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LayoutBoundsVisualPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextLayoutRequestedEventArgs, ICoreTextLayoutRequestedEventArgs_Vtbl, 0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676, inspectable);
-impl windows_core::RuntimeType for ICoreTextLayoutRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextLayoutRequestedEventArgs, ICoreTextLayoutRequestedEventArgs_Vtbl, 0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676, b"Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextSelectionRequest, ICoreTextSelectionRequest_Vtbl, 0xf0a70403_208b_4301_883c_74ca7485fd8d, inspectable);
-impl windows_core::RuntimeType for ICoreTextSelectionRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextSelectionRequest");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextSelectionRequest, ICoreTextSelectionRequest_Vtbl, 0xf0a70403_208b_4301_883c_74ca7485fd8d, b"Windows.UI.Text.Core.ICoreTextSelectionRequest");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionRequest_Vtbl {
@@ -1166,22 +1122,14 @@ pub struct ICoreTextSelectionRequest_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextSelectionRequestedEventArgs, ICoreTextSelectionRequestedEventArgs_Vtbl, 0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd, inspectable);
-impl windows_core::RuntimeType for ICoreTextSelectionRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextSelectionRequestedEventArgs, ICoreTextSelectionRequestedEventArgs_Vtbl, 0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd, b"Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextSelectionUpdatingEventArgs, ICoreTextSelectionUpdatingEventArgs_Vtbl, 0xd445839f_fe7f_4bd5_8a26_0922c1b3e639, inspectable);
-impl windows_core::RuntimeType for ICoreTextSelectionUpdatingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextSelectionUpdatingEventArgs, ICoreTextSelectionUpdatingEventArgs_Vtbl, 0xd445839f_fe7f_4bd5_8a26_0922c1b3e639, b"Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionUpdatingEventArgs_Vtbl {
@@ -1192,11 +1140,7 @@ pub struct ICoreTextSelectionUpdatingEventArgs_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextServicesManager, ICoreTextServicesManager_Vtbl, 0xc2507d83_6e0a_4a8a_bdf8_1948874854ba, inspectable);
-impl windows_core::RuntimeType for ICoreTextServicesManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextServicesManager");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextServicesManager, ICoreTextServicesManager_Vtbl, 0xc2507d83_6e0a_4a8a_bdf8_1948874854ba, b"Windows.UI.Text.Core.ICoreTextServicesManager");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesManager_Vtbl {
@@ -1209,33 +1153,21 @@ pub struct ICoreTextServicesManager_Vtbl {
     pub RemoveInputLanguageChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub CreateEditContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextServicesManagerStatics, ICoreTextServicesManagerStatics_Vtbl, 0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9, inspectable);
-impl windows_core::RuntimeType for ICoreTextServicesManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextServicesManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextServicesManagerStatics, ICoreTextServicesManagerStatics_Vtbl, 0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9, b"Windows.UI.Text.Core.ICoreTextServicesManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextServicesStatics, ICoreTextServicesStatics_Vtbl, 0x91859a46_eccf_47a4_8ae7_098a9c6fbb15, inspectable);
-impl windows_core::RuntimeType for ICoreTextServicesStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextServicesStatics");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextServicesStatics, ICoreTextServicesStatics_Vtbl, 0x91859a46_eccf_47a4_8ae7_098a9c6fbb15, b"Windows.UI.Text.Core.ICoreTextServicesStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HiddenCharacter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextTextRequest, ICoreTextTextRequest_Vtbl, 0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be, inspectable);
-impl windows_core::RuntimeType for ICoreTextTextRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextTextRequest");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextTextRequest, ICoreTextTextRequest_Vtbl, 0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be, b"Windows.UI.Text.Core.ICoreTextTextRequest");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextTextRequest_Vtbl {
@@ -1246,22 +1178,14 @@ pub struct ICoreTextTextRequest_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextTextRequestedEventArgs, ICoreTextTextRequestedEventArgs_Vtbl, 0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3, inspectable);
-impl windows_core::RuntimeType for ICoreTextTextRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextTextRequestedEventArgs, ICoreTextTextRequestedEventArgs_Vtbl, 0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3, b"Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextTextRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreTextTextUpdatingEventArgs, ICoreTextTextUpdatingEventArgs_Vtbl, 0xeea7918d_cc2b_4f03_8ff6_02fd217db450, inspectable);
-impl windows_core::RuntimeType for ICoreTextTextUpdatingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ICoreTextTextUpdatingEventArgs, ICoreTextTextUpdatingEventArgs_Vtbl, 0xeea7918d_cc2b_4f03_8ff6_02fd217db450, b"Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextTextUpdatingEventArgs_Vtbl {

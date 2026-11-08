@@ -242,11 +242,7 @@ impl windows_core::RuntimeType for CredentialSaveOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.CredentialSaveOption;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.UI.CredentialSaveOption");
 }
-windows_core::imp::define_interface!(ICredentialPickerOptions, ICredentialPickerOptions_Vtbl, 0x965a0b4c_95fa_467f_992b_0b22e5859bf6, inspectable);
-impl windows_core::RuntimeType for ICredentialPickerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.UI.ICredentialPickerOptions");
-}
+windows_core::imp::define_winrt_interface!(ICredentialPickerOptions, ICredentialPickerOptions_Vtbl, 0x965a0b4c_95fa_467f_992b_0b22e5859bf6, b"Windows.Security.Credentials.UI.ICredentialPickerOptions");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICredentialPickerOptions_Vtbl {
@@ -278,11 +274,7 @@ pub struct ICredentialPickerOptions_Vtbl {
     pub SetCredentialSaveOption: unsafe extern "system" fn(*mut core::ffi::c_void, CredentialSaveOption) -> windows_core::HRESULT,
     pub CredentialSaveOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CredentialSaveOption) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICredentialPickerResults, ICredentialPickerResults_Vtbl, 0x1948f99a_cc30_410c_9c38_cc0884c5b3d7, inspectable);
-impl windows_core::RuntimeType for ICredentialPickerResults {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.UI.ICredentialPickerResults");
-}
+windows_core::imp::define_winrt_interface!(ICredentialPickerResults, ICredentialPickerResults_Vtbl, 0x1948f99a_cc30_410c_9c38_cc0884c5b3d7, b"Windows.Security.Credentials.UI.ICredentialPickerResults");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICredentialPickerResults_Vtbl {
@@ -298,11 +290,7 @@ pub struct ICredentialPickerResults_Vtbl {
     pub CredentialUserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CredentialPassword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICredentialPickerStatics, ICredentialPickerStatics_Vtbl, 0xaa3a5c73_c9ea_4782_99fb_e6d7e938e12d, inspectable);
-impl windows_core::RuntimeType for ICredentialPickerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.UI.ICredentialPickerStatics");
-}
+windows_core::imp::define_winrt_interface!(ICredentialPickerStatics, ICredentialPickerStatics_Vtbl, 0xaa3a5c73_c9ea_4782_99fb_e6d7e938e12d, b"Windows.Security.Credentials.UI.ICredentialPickerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICredentialPickerStatics_Vtbl {
@@ -311,11 +299,7 @@ pub struct ICredentialPickerStatics_Vtbl {
     pub PickWithMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PickWithCaptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserConsentVerifierStatics, IUserConsentVerifierStatics_Vtbl, 0xaf4f3f91_564c_4ddc_b8b5_973447627c65, inspectable);
-impl windows_core::RuntimeType for IUserConsentVerifierStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.UI.IUserConsentVerifierStatics");
-}
+windows_core::imp::define_winrt_interface!(IUserConsentVerifierStatics, IUserConsentVerifierStatics_Vtbl, 0xaf4f3f91_564c_4ddc_b8b5_973447627c65, b"Windows.Security.Credentials.UI.IUserConsentVerifierStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserConsentVerifierStatics_Vtbl {

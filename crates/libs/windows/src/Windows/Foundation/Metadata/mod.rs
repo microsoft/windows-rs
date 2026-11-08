@@ -185,11 +185,7 @@ impl windows_core::RuntimeType for GCPressureAmount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Metadata.GCPressureAmount");
 }
-windows_core::imp::define_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x997439fe_f681_4a11_b416_c13a47e8ba36, inspectable);
-impl windows_core::RuntimeType for IApiInformationStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Metadata.IApiInformationStatics");
-}
+windows_core::imp::define_winrt_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x997439fe_f681_4a11_b416_c13a47e8ba36, b"Windows.Foundation.Metadata.IApiInformationStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApiInformationStatics_Vtbl {

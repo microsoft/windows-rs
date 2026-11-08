@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IMessageDialog, IMessageDialog_Vtbl, 0x33f59b01_5325_43ab_9ab3_bdae440e4121, inspectable);
-impl windows_core::RuntimeType for IMessageDialog {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.IMessageDialog");
-}
+windows_core::imp::define_winrt_interface!(IMessageDialog, IMessageDialog_Vtbl, 0x33f59b01_5325_43ab_9ab3_bdae440e4121, b"Windows.UI.Popups.IMessageDialog");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessageDialog_Vtbl {
@@ -20,11 +16,7 @@ pub struct IMessageDialog_Vtbl {
     pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MessageDialogOptions) -> windows_core::HRESULT,
     pub SetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, MessageDialogOptions) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMessageDialogFactory, IMessageDialogFactory_Vtbl, 0x2d161777_a66f_4ea5_bb87_793ffa4941f2, inspectable);
-impl windows_core::RuntimeType for IMessageDialogFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.IMessageDialogFactory");
-}
+windows_core::imp::define_winrt_interface!(IMessageDialogFactory, IMessageDialogFactory_Vtbl, 0x2d161777_a66f_4ea5_bb87_793ffa4941f2, b"Windows.UI.Popups.IMessageDialogFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessageDialogFactory_Vtbl {
@@ -32,11 +24,7 @@ pub struct IMessageDialogFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPopupMenu, IPopupMenu_Vtbl, 0x4e9bc6dc_880d_47fc_a0a1_72b639e62559, inspectable);
-impl windows_core::RuntimeType for IPopupMenu {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.IPopupMenu");
-}
+windows_core::imp::define_winrt_interface!(IPopupMenu, IPopupMenu_Vtbl, 0x4e9bc6dc_880d_47fc_a0a1_72b639e62559, b"Windows.UI.Popups.IPopupMenu");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupMenu_Vtbl {
@@ -46,11 +34,7 @@ pub struct IPopupMenu_Vtbl {
     pub ShowAsyncWithRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowAsyncWithRectAndPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, Placement, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUICommand, IUICommand_Vtbl, 0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f, inspectable);
-impl windows_core::RuntimeType for IUICommand {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.IUICommand");
-}
+windows_core::imp::define_winrt_interface!(IUICommand, IUICommand_Vtbl, 0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f, b"Windows.UI.Popups.IUICommand");
 windows_core::imp::interface_hierarchy!(IUICommand, windows_core::IUnknown, windows_core::IInspectable);
 impl IUICommand {
     pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -191,11 +175,7 @@ pub struct IUICommand_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUICommandFactory, IUICommandFactory_Vtbl, 0xa21a8189_26b0_4676_ae94_54041bc125e8, inspectable);
-impl windows_core::RuntimeType for IUICommandFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.IUICommandFactory");
-}
+windows_core::imp::define_winrt_interface!(IUICommandFactory, IUICommandFactory_Vtbl, 0xa21a8189_26b0_4676_ae94_54041bc125e8, b"Windows.UI.Popups.IUICommandFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUICommandFactory_Vtbl {

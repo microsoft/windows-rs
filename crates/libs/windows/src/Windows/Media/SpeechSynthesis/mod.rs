@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IInstalledVoicesStatic, IInstalledVoicesStatic_Vtbl, 0x7d526ecc_7533_4c3f_85be_888c2baeebdc, inspectable);
-impl windows_core::RuntimeType for IInstalledVoicesStatic {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.IInstalledVoicesStatic");
-}
+windows_core::imp::define_winrt_interface!(IInstalledVoicesStatic, IInstalledVoicesStatic_Vtbl, 0x7d526ecc_7533_4c3f_85be_888c2baeebdc, b"Windows.Media.SpeechSynthesis.IInstalledVoicesStatic");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstalledVoicesStatic_Vtbl {
@@ -10,11 +6,7 @@ pub struct IInstalledVoicesStatic_Vtbl {
     pub AllVoices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DefaultVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInstalledVoicesStatic2, IInstalledVoicesStatic2_Vtbl, 0x64255f2e_358d_4058_be9a_fd3fcb423530, inspectable);
-impl windows_core::RuntimeType for IInstalledVoicesStatic2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.IInstalledVoicesStatic2");
-}
+windows_core::imp::define_winrt_interface!(IInstalledVoicesStatic2, IInstalledVoicesStatic2_Vtbl, 0x64255f2e_358d_4058_be9a_fd3fcb423530, b"Windows.Media.SpeechSynthesis.IInstalledVoicesStatic2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstalledVoicesStatic2_Vtbl {
@@ -22,12 +14,7 @@ pub struct IInstalledVoicesStatic2_Vtbl {
     pub TrySetDefaultVoiceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::define_interface!(ISpeechSynthesisStream, ISpeechSynthesisStream_Vtbl, 0x83e46e93_244c_4622_ba0b_6229c4d0d65d, inspectable);
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for ISpeechSynthesisStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesisStream");
-}
+windows_core::imp::define_winrt_interface!(ISpeechSynthesisStream, ISpeechSynthesisStream_Vtbl, 0x83e46e93_244c_4622_ba0b_6229c4d0d65d, b"Windows.Media.SpeechSynthesis.ISpeechSynthesisStream");
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
 #[doc(hidden)]
@@ -35,11 +22,7 @@ pub struct ISpeechSynthesisStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Markers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpeechSynthesizer, ISpeechSynthesizer_Vtbl, 0xce9f7c76_97f4_4ced_ad68_d51c458e45c6, inspectable);
-impl windows_core::RuntimeType for ISpeechSynthesizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesizer");
-}
+windows_core::imp::define_winrt_interface!(ISpeechSynthesizer, ISpeechSynthesizer_Vtbl, 0xce9f7c76_97f4_4ced_ad68_d51c458e45c6, b"Windows.Media.SpeechSynthesis.ISpeechSynthesizer");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizer_Vtbl {
@@ -55,22 +38,14 @@ pub struct ISpeechSynthesizer_Vtbl {
     pub SetVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Voice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpeechSynthesizer2, ISpeechSynthesizer2_Vtbl, 0xa7c5ecb2_4339_4d6a_bbf8_c7a4f1544c2e, inspectable);
-impl windows_core::RuntimeType for ISpeechSynthesizer2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesizer2");
-}
+windows_core::imp::define_winrt_interface!(ISpeechSynthesizer2, ISpeechSynthesizer2_Vtbl, 0xa7c5ecb2_4339_4d6a_bbf8_c7a4f1544c2e, b"Windows.Media.SpeechSynthesis.ISpeechSynthesizer2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpeechSynthesizerOptions, ISpeechSynthesizerOptions_Vtbl, 0xa0e23871_cc3d_43c9_91b1_ee185324d83d, inspectable);
-impl windows_core::RuntimeType for ISpeechSynthesizerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions");
-}
+windows_core::imp::define_winrt_interface!(ISpeechSynthesizerOptions, ISpeechSynthesizerOptions_Vtbl, 0xa0e23871_cc3d_43c9_91b1_ee185324d83d, b"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizerOptions_Vtbl {
@@ -80,11 +55,7 @@ pub struct ISpeechSynthesizerOptions_Vtbl {
     pub IncludeSentenceBoundaryMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIncludeSentenceBoundaryMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpeechSynthesizerOptions2, ISpeechSynthesizerOptions2_Vtbl, 0x1cbef60e_119c_4bed_b118_d250c3a25793, inspectable);
-impl windows_core::RuntimeType for ISpeechSynthesizerOptions2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions2");
-}
+windows_core::imp::define_winrt_interface!(ISpeechSynthesizerOptions2, ISpeechSynthesizerOptions2_Vtbl, 0x1cbef60e_119c_4bed_b118_d250c3a25793, b"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizerOptions2_Vtbl {
@@ -96,11 +67,7 @@ pub struct ISpeechSynthesizerOptions2_Vtbl {
     pub AudioPitch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetAudioPitch: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpeechSynthesizerOptions3, ISpeechSynthesizerOptions3_Vtbl, 0x401ed877_902c_4814_a582_a5d0c0769fa8, inspectable);
-impl windows_core::RuntimeType for ISpeechSynthesizerOptions3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions3");
-}
+windows_core::imp::define_winrt_interface!(ISpeechSynthesizerOptions3, ISpeechSynthesizerOptions3_Vtbl, 0x401ed877_902c_4814_a582_a5d0c0769fa8, b"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizerOptions3_Vtbl {
@@ -110,11 +77,7 @@ pub struct ISpeechSynthesizerOptions3_Vtbl {
     pub PunctuationSilence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechPunctuationSilence) -> windows_core::HRESULT,
     pub SetPunctuationSilence: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechPunctuationSilence) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVoiceInformation, IVoiceInformation_Vtbl, 0xb127d6a4_1291_4604_aa9c_83134083352c, inspectable);
-impl windows_core::RuntimeType for IVoiceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.IVoiceInformation");
-}
+windows_core::imp::define_winrt_interface!(IVoiceInformation, IVoiceInformation_Vtbl, 0xb127d6a4_1291_4604_aa9c_83134083352c, b"Windows.Media.SpeechSynthesis.IVoiceInformation");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceInformation_Vtbl {

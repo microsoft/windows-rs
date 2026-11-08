@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IActionFeedbackHandler, IActionFeedbackHandler_Vtbl, 0xa3fc3c51_a8c6_52c8_ad77_37bf3e2b565c, inspectable);
-impl windows_core::RuntimeType for IActionFeedbackHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Provider.IActionFeedbackHandler");
-}
+windows_core::imp::define_winrt_interface!(IActionFeedbackHandler, IActionFeedbackHandler_Vtbl, 0xa3fc3c51_a8c6_52c8_ad77_37bf3e2b565c, b"Windows.AI.Actions.Provider.IActionFeedbackHandler");
 windows_core::imp::interface_hierarchy!(IActionFeedbackHandler, windows_core::IUnknown, windows_core::IInspectable);
 impl IActionFeedbackHandler {
     pub fn ProcessFeedbackAsync<P0, P1>(&self, context: P0, feedback: P1) -> windows_core::Result<windows_future::IAsyncAction>
@@ -52,11 +48,7 @@ pub struct IActionFeedbackHandler_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProcessFeedbackAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionProvider, IActionProvider_Vtbl, 0x62906c47_3d07_55f1_aefa_1522505afbbe, inspectable);
-impl windows_core::RuntimeType for IActionProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Provider.IActionProvider");
-}
+windows_core::imp::define_winrt_interface!(IActionProvider, IActionProvider_Vtbl, 0x62906c47_3d07_55f1_aefa_1522505afbbe, b"Windows.AI.Actions.Provider.IActionProvider");
 windows_core::imp::interface_hierarchy!(IActionProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IActionProvider {
     pub fn InvokeAsync<P0>(&self, context: P0) -> windows_core::Result<windows_future::IAsyncAction>

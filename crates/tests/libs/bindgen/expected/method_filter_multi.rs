@@ -1,15 +1,9 @@
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IInterface,
     IInterface_Vtbl,
     0x35e799f4_57d9_5b36_8a94_bcc88d70336d,
-    inspectable
+    b"Test.IInterface"
 );
-impl windows_core::RuntimeType for IInterface {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.IInterface");
-}
 windows_core::imp::interface_hierarchy!(
     IInterface,
     windows_core::IUnknown,

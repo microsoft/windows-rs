@@ -1,21 +1,13 @@
 #[cfg(feature = "Devices_Input_Preview")]
 pub mod Preview;
-windows_core::imp::define_interface!(IKeyboardCapabilities, IKeyboardCapabilities_Vtbl, 0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff, inspectable);
-impl windows_core::RuntimeType for IKeyboardCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IKeyboardCapabilities");
-}
+windows_core::imp::define_winrt_interface!(IKeyboardCapabilities, IKeyboardCapabilities_Vtbl, 0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff, b"Windows.Devices.Input.IKeyboardCapabilities");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyboardCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub KeyboardPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMouseCapabilities, IMouseCapabilities_Vtbl, 0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73, inspectable);
-impl windows_core::RuntimeType for IMouseCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IMouseCapabilities");
-}
+windows_core::imp::define_winrt_interface!(IMouseCapabilities, IMouseCapabilities_Vtbl, 0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73, b"Windows.Devices.Input.IMouseCapabilities");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseCapabilities_Vtbl {
@@ -26,11 +18,7 @@ pub struct IMouseCapabilities_Vtbl {
     pub SwapButtons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub NumberOfButtons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMouseDevice, IMouseDevice_Vtbl, 0x88edf458_f2c8_49f4_be1f_c256b388bc11, inspectable);
-impl windows_core::RuntimeType for IMouseDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IMouseDevice");
-}
+windows_core::imp::define_winrt_interface!(IMouseDevice, IMouseDevice_Vtbl, 0x88edf458_f2c8_49f4_be1f_c256b388bc11, b"Windows.Devices.Input.IMouseDevice");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseDevice_Vtbl {
@@ -38,33 +26,21 @@ pub struct IMouseDevice_Vtbl {
     pub MouseMoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveMouseMoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMouseDeviceStatics, IMouseDeviceStatics_Vtbl, 0x484a9045_6d70_49db_8e68_46ffbd17d38d, inspectable);
-impl windows_core::RuntimeType for IMouseDeviceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IMouseDeviceStatics");
-}
+windows_core::imp::define_winrt_interface!(IMouseDeviceStatics, IMouseDeviceStatics_Vtbl, 0x484a9045_6d70_49db_8e68_46ffbd17d38d, b"Windows.Devices.Input.IMouseDeviceStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMouseEventArgs, IMouseEventArgs_Vtbl, 0xf625aa5d_2354_4cc7_9230_96941c969fde, inspectable);
-impl windows_core::RuntimeType for IMouseEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IMouseEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IMouseEventArgs, IMouseEventArgs_Vtbl, 0xf625aa5d_2354_4cc7_9230_96941c969fde, b"Windows.Devices.Input.IMouseEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MouseDelta: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MouseDelta) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenButtonListener, IPenButtonListener_Vtbl, 0x8245c376_1ee3_53f7_b1f7_8334a16f2815, inspectable);
-impl windows_core::RuntimeType for IPenButtonListener {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenButtonListener");
-}
+windows_core::imp::define_winrt_interface!(IPenButtonListener, IPenButtonListener_Vtbl, 0x8245c376_1ee3_53f7_b1f7_8334a16f2815, b"Windows.Devices.Input.IPenButtonListener");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenButtonListener_Vtbl {
@@ -79,33 +55,21 @@ pub struct IPenButtonListener_Vtbl {
     pub TailButtonLongPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveTailButtonLongPressed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenButtonListenerStatics, IPenButtonListenerStatics_Vtbl, 0x19a8a584_862f_5f69_bfea_05f6584f133f, inspectable);
-impl windows_core::RuntimeType for IPenButtonListenerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenButtonListenerStatics");
-}
+windows_core::imp::define_winrt_interface!(IPenButtonListenerStatics, IPenButtonListenerStatics_Vtbl, 0x19a8a584_862f_5f69_bfea_05f6584f133f, b"Windows.Devices.Input.IPenButtonListenerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenButtonListenerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenDevice, IPenDevice_Vtbl, 0x31856eba_a738_5a8c_b8f6_f97ef68d18ef, inspectable);
-impl windows_core::RuntimeType for IPenDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenDevice");
-}
+windows_core::imp::define_winrt_interface!(IPenDevice, IPenDevice_Vtbl, 0x31856eba_a738_5a8c_b8f6_f97ef68d18ef, b"Windows.Devices.Input.IPenDevice");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PenId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenDevice2, IPenDevice2_Vtbl, 0x0207d327_7fb8_5566_8c34_f8342037b7f9, inspectable);
-impl windows_core::RuntimeType for IPenDevice2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenDevice2");
-}
+windows_core::imp::define_winrt_interface!(IPenDevice2, IPenDevice2_Vtbl, 0x0207d327_7fb8_5566_8c34_f8342037b7f9, b"Windows.Devices.Input.IPenDevice2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDevice2_Vtbl {
@@ -115,22 +79,14 @@ pub struct IPenDevice2_Vtbl {
     #[cfg(not(feature = "Devices_Haptics"))]
     SimpleHapticsController: usize,
 }
-windows_core::imp::define_interface!(IPenDeviceStatics, IPenDeviceStatics_Vtbl, 0x9dfbbe01_0966_5180_bcb4_b85060e39479, inspectable);
-impl windows_core::RuntimeType for IPenDeviceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenDeviceStatics");
-}
+windows_core::imp::define_winrt_interface!(IPenDeviceStatics, IPenDeviceStatics_Vtbl, 0x9dfbbe01_0966_5180_bcb4_b85060e39479, b"Windows.Devices.Input.IPenDeviceStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFromPointerId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenDockListener, IPenDockListener_Vtbl, 0x759f4d90_1dc0_55cb_ad18_b9101456f592, inspectable);
-impl windows_core::RuntimeType for IPenDockListener {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenDockListener");
-}
+windows_core::imp::define_winrt_interface!(IPenDockListener, IPenDockListener_Vtbl, 0x759f4d90_1dc0_55cb_ad18_b9101456f592, b"Windows.Devices.Input.IPenDockListener");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDockListener_Vtbl {
@@ -143,72 +99,44 @@ pub struct IPenDockListener_Vtbl {
     pub Undocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveUndocked: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenDockListenerStatics, IPenDockListenerStatics_Vtbl, 0xcab75e9a_0016_5c72_969e_a97e11992a93, inspectable);
-impl windows_core::RuntimeType for IPenDockListenerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenDockListenerStatics");
-}
+windows_core::imp::define_winrt_interface!(IPenDockListenerStatics, IPenDockListenerStatics_Vtbl, 0xcab75e9a_0016_5c72_969e_a97e11992a93, b"Windows.Devices.Input.IPenDockListenerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDockListenerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenDockedEventArgs, IPenDockedEventArgs_Vtbl, 0xfd4277c6_ca63_5d4e_9ed3_a28a54521c8c, inspectable);
-impl windows_core::RuntimeType for IPenDockedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenDockedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPenDockedEventArgs, IPenDockedEventArgs_Vtbl, 0xfd4277c6_ca63_5d4e_9ed3_a28a54521c8c, b"Windows.Devices.Input.IPenDockedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenDockedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IPenTailButtonClickedEventArgs, IPenTailButtonClickedEventArgs_Vtbl, 0x5d2fb7b6_6ad3_5d3e_ab29_05ea2410e390, inspectable);
-impl windows_core::RuntimeType for IPenTailButtonClickedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenTailButtonClickedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPenTailButtonClickedEventArgs, IPenTailButtonClickedEventArgs_Vtbl, 0x5d2fb7b6_6ad3_5d3e_ab29_05ea2410e390, b"Windows.Devices.Input.IPenTailButtonClickedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenTailButtonClickedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IPenTailButtonDoubleClickedEventArgs, IPenTailButtonDoubleClickedEventArgs_Vtbl, 0x846321a2_618a_5478_b04c_b358231da4a7, inspectable);
-impl windows_core::RuntimeType for IPenTailButtonDoubleClickedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenTailButtonDoubleClickedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPenTailButtonDoubleClickedEventArgs, IPenTailButtonDoubleClickedEventArgs_Vtbl, 0x846321a2_618a_5478_b04c_b358231da4a7, b"Windows.Devices.Input.IPenTailButtonDoubleClickedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenTailButtonDoubleClickedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IPenTailButtonLongPressedEventArgs, IPenTailButtonLongPressedEventArgs_Vtbl, 0xf37c606e_c60a_5f42_b818_a53112406c13, inspectable);
-impl windows_core::RuntimeType for IPenTailButtonLongPressedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenTailButtonLongPressedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPenTailButtonLongPressedEventArgs, IPenTailButtonLongPressedEventArgs_Vtbl, 0xf37c606e_c60a_5f42_b818_a53112406c13, b"Windows.Devices.Input.IPenTailButtonLongPressedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenTailButtonLongPressedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IPenUndockedEventArgs, IPenUndockedEventArgs_Vtbl, 0xccd09150_261b_59e6_a5d4_c1964cd03feb, inspectable);
-impl windows_core::RuntimeType for IPenUndockedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPenUndockedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPenUndockedEventArgs, IPenUndockedEventArgs_Vtbl, 0xccd09150_261b_59e6_a5d4_c1964cd03feb, b"Windows.Devices.Input.IPenUndockedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenUndockedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IPointerDevice, IPointerDevice_Vtbl, 0x93c9bafc_ebcb_467e_82c6_276feae36b5a, inspectable);
-impl windows_core::RuntimeType for IPointerDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPointerDevice");
-}
+windows_core::imp::define_winrt_interface!(IPointerDevice, IPointerDevice_Vtbl, 0x93c9bafc_ebcb_467e_82c6_276feae36b5a, b"Windows.Devices.Input.IPointerDevice");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDevice_Vtbl {
@@ -220,22 +148,14 @@ pub struct IPointerDevice_Vtbl {
     pub ScreenRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub SupportedUsages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPointerDevice2, IPointerDevice2_Vtbl, 0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e, inspectable);
-impl windows_core::RuntimeType for IPointerDevice2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPointerDevice2");
-}
+windows_core::imp::define_winrt_interface!(IPointerDevice2, IPointerDevice2_Vtbl, 0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e, b"Windows.Devices.Input.IPointerDevice2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxPointersWithZDistance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPointerDeviceStatics, IPointerDeviceStatics_Vtbl, 0xd8b89aa1_d1c6_416e_bd8d_5790914dc563, inspectable);
-impl windows_core::RuntimeType for IPointerDeviceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.IPointerDeviceStatics");
-}
+windows_core::imp::define_winrt_interface!(IPointerDeviceStatics, IPointerDeviceStatics_Vtbl, 0xd8b89aa1_d1c6_416e_bd8d_5790914dc563, b"Windows.Devices.Input.IPointerDeviceStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerDeviceStatics_Vtbl {
@@ -243,11 +163,7 @@ pub struct IPointerDeviceStatics_Vtbl {
     pub GetPointerDevice: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPointerDevices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITouchCapabilities, ITouchCapabilities_Vtbl, 0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f, inspectable);
-impl windows_core::RuntimeType for ITouchCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.ITouchCapabilities");
-}
+windows_core::imp::define_winrt_interface!(ITouchCapabilities, ITouchCapabilities_Vtbl, 0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f, b"Windows.Devices.Input.ITouchCapabilities");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITouchCapabilities_Vtbl {

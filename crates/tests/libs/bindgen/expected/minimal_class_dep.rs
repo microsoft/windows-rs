@@ -1,13 +1,8 @@
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     Factory,
     Factory_Vtbl,
-    0x8722b2b2_1d05_5551_87c8_d46311b7873d,
-    inspectable
+    0x8722b2b2_1d05_5551_87c8_d46311b7873d
 );
-impl windows_core::RuntimeType for Factory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     Factory,
     windows_core::IUnknown,
@@ -33,16 +28,11 @@ pub struct Factory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWidget,
     IWidget_Vtbl,
-    0x62d365dd_b506_534c_a235_93129deef881,
-    inspectable
+    0x62d365dd_b506_534c_a235_93129deef881
 );
-impl windows_core::RuntimeType for IWidget {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IWidget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

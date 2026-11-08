@@ -37,16 +37,11 @@ impl<F: Fn(i32) + Send + Sync + 'static> HandlerBox<F> {
         }
     }
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISource,
     ISource_Vtbl,
-    0xcbd42b36_9482_5b72_a9e9_22257c7e3f0e,
-    inspectable
+    0xcbd42b36_9482_5b72_a9e9_22257c7e3f0e
 );
-impl windows_core::RuntimeType for ISource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     ISource,
     windows_core::IUnknown,

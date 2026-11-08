@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IAdcControllerProvider, IAdcControllerProvider_Vtbl, 0xbe545828_816d_4de5_a048_aba06958aaa8, inspectable);
-impl windows_core::RuntimeType for IAdcControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.Provider.IAdcControllerProvider");
-}
+windows_core::imp::define_winrt_interface!(IAdcControllerProvider, IAdcControllerProvider_Vtbl, 0xbe545828_816d_4de5_a048_aba06958aaa8, b"Windows.Devices.Adc.Provider.IAdcControllerProvider");
 windows_core::imp::interface_hierarchy!(IAdcControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdcControllerProvider {
     pub fn ChannelCount(&self) -> windows_core::Result<i32> {
@@ -230,11 +226,7 @@ pub struct IAdcControllerProvider_Vtbl {
     pub ReleaseChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ReadValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdcProvider, IAdcProvider_Vtbl, 0x28953668_9359_4c57_bc88_e275e81638c9, inspectable);
-impl windows_core::RuntimeType for IAdcProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.Provider.IAdcProvider");
-}
+windows_core::imp::define_winrt_interface!(IAdcProvider, IAdcProvider_Vtbl, 0x28953668_9359_4c57_bc88_e275e81638c9, b"Windows.Devices.Adc.Provider.IAdcProvider");
 windows_core::imp::interface_hierarchy!(IAdcProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdcProvider {
     pub fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IAdcControllerProvider>> {

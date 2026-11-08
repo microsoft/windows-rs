@@ -476,11 +476,7 @@ impl windows_core::RuntimeName for DecimalFormatter {
 }
 unsafe impl Send for DecimalFormatter {}
 unsafe impl Sync for DecimalFormatter {}
-windows_core::imp::define_interface!(ICurrencyFormatter, ICurrencyFormatter_Vtbl, 0x11730ca5_4b00_41b2_b332_73b12a497d54, inspectable);
-impl windows_core::RuntimeType for ICurrencyFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.ICurrencyFormatter");
-}
+windows_core::imp::define_winrt_interface!(ICurrencyFormatter, ICurrencyFormatter_Vtbl, 0x11730ca5_4b00_41b2_b332_73b12a497d54, b"Windows.Globalization.NumberFormatting.ICurrencyFormatter");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrencyFormatter_Vtbl {
@@ -488,11 +484,7 @@ pub struct ICurrencyFormatter_Vtbl {
     pub Currency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCurrency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICurrencyFormatter2, ICurrencyFormatter2_Vtbl, 0x072c2f1d_e7ba_4197_920e_247c92f7dea6, inspectable);
-impl windows_core::RuntimeType for ICurrencyFormatter2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.ICurrencyFormatter2");
-}
+windows_core::imp::define_winrt_interface!(ICurrencyFormatter2, ICurrencyFormatter2_Vtbl, 0x072c2f1d_e7ba_4197_920e_247c92f7dea6, b"Windows.Globalization.NumberFormatting.ICurrencyFormatter2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrencyFormatter2_Vtbl {
@@ -501,11 +493,7 @@ pub struct ICurrencyFormatter2_Vtbl {
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, CurrencyFormatterMode) -> windows_core::HRESULT,
     pub ApplyRoundingForCurrency: unsafe extern "system" fn(*mut core::ffi::c_void, RoundingAlgorithm) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICurrencyFormatterFactory, ICurrencyFormatterFactory_Vtbl, 0x86c7537e_b938_4aa2_84b0_2c33dc5b1450, inspectable);
-impl windows_core::RuntimeType for ICurrencyFormatterFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory");
-}
+windows_core::imp::define_winrt_interface!(ICurrencyFormatterFactory, ICurrencyFormatterFactory_Vtbl, 0x86c7537e_b938_4aa2_84b0_2c33dc5b1450, b"Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrencyFormatterFactory_Vtbl {
@@ -513,22 +501,14 @@ pub struct ICurrencyFormatterFactory_Vtbl {
     pub CreateCurrencyFormatterCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateCurrencyFormatterCodeContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDecimalFormatterFactory, IDecimalFormatterFactory_Vtbl, 0x0d018c9a_e393_46b8_b830_7a69c8f89fbb, inspectable);
-impl windows_core::RuntimeType for IDecimalFormatterFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.IDecimalFormatterFactory");
-}
+windows_core::imp::define_winrt_interface!(IDecimalFormatterFactory, IDecimalFormatterFactory_Vtbl, 0x0d018c9a_e393_46b8_b830_7a69c8f89fbb, b"Windows.Globalization.NumberFormatting.IDecimalFormatterFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDecimalFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateDecimalFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIncrementNumberRounder, IIncrementNumberRounder_Vtbl, 0x70a64ff8_66ab_4155_9da1_739e46764543, inspectable);
-impl windows_core::RuntimeType for IIncrementNumberRounder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.IIncrementNumberRounder");
-}
+windows_core::imp::define_winrt_interface!(IIncrementNumberRounder, IIncrementNumberRounder_Vtbl, 0x70a64ff8_66ab_4155_9da1_739e46764543, b"Windows.Globalization.NumberFormatting.IIncrementNumberRounder");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIncrementNumberRounder_Vtbl {
@@ -538,11 +518,7 @@ pub struct IIncrementNumberRounder_Vtbl {
     pub Increment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetIncrement: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INumberFormatter, INumberFormatter_Vtbl, 0xa5007c49_7676_4db7_8631_1b6ff265caa9, inspectable);
-impl windows_core::RuntimeType for INumberFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.INumberFormatter");
-}
+windows_core::imp::define_winrt_interface!(INumberFormatter, INumberFormatter_Vtbl, 0xa5007c49_7676_4db7_8631_1b6ff265caa9, b"Windows.Globalization.NumberFormatting.INumberFormatter");
 windows_core::imp::interface_hierarchy!(INumberFormatter, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberFormatter {
     pub fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING> {
@@ -641,11 +617,7 @@ pub struct INumberFormatter_Vtbl {
     pub FormatUInt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FormatDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INumberFormatter2, INumberFormatter2_Vtbl, 0xd4a8c1f0_80d0_4b0d_a89e_882c1e8f8310, inspectable);
-impl windows_core::RuntimeType for INumberFormatter2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.INumberFormatter2");
-}
+windows_core::imp::define_winrt_interface!(INumberFormatter2, INumberFormatter2_Vtbl, 0xd4a8c1f0_80d0_4b0d_a89e_882c1e8f8310, b"Windows.Globalization.NumberFormatting.INumberFormatter2");
 windows_core::imp::interface_hierarchy!(INumberFormatter2, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberFormatter2 {
     pub fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING> {
@@ -744,11 +716,7 @@ pub struct INumberFormatter2_Vtbl {
     pub FormatUInt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FormatDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INumberFormatterOptions, INumberFormatterOptions_Vtbl, 0x80332d21_aee1_4a39_baa2_07ed8c96daf6, inspectable);
-impl windows_core::RuntimeType for INumberFormatterOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.INumberFormatterOptions");
-}
+windows_core::imp::define_winrt_interface!(INumberFormatterOptions, INumberFormatterOptions_Vtbl, 0x80332d21_aee1_4a39_baa2_07ed8c96daf6, b"Windows.Globalization.NumberFormatting.INumberFormatterOptions");
 windows_core::imp::interface_hierarchy!(INumberFormatterOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberFormatterOptions {
     pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
@@ -1053,11 +1021,7 @@ pub struct INumberFormatterOptions_Vtbl {
     pub ResolvedLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResolvedGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INumberParser, INumberParser_Vtbl, 0xe6659412_4a13_4a53_83a1_392fbe4cff9f, inspectable);
-impl windows_core::RuntimeType for INumberParser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.INumberParser");
-}
+windows_core::imp::define_winrt_interface!(INumberParser, INumberParser_Vtbl, 0xe6659412_4a13_4a53_83a1_392fbe4cff9f, b"Windows.Globalization.NumberFormatting.INumberParser");
 windows_core::imp::interface_hierarchy!(INumberParser, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberParser {
     pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<i64> {
@@ -1156,11 +1120,7 @@ pub struct INumberParser_Vtbl {
     pub ParseUInt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ParseDouble: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INumberRounder, INumberRounder_Vtbl, 0x5473c375_38ed_4631_b80c_ef34fc48b7f5, inspectable);
-impl windows_core::RuntimeType for INumberRounder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.INumberRounder");
-}
+windows_core::imp::define_winrt_interface!(INumberRounder, INumberRounder_Vtbl, 0x5473c375_38ed_4631_b80c_ef34fc48b7f5, b"Windows.Globalization.NumberFormatting.INumberRounder");
 windows_core::imp::interface_hierarchy!(INumberRounder, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberRounder {
     pub fn RoundInt32(&self, value: i32) -> windows_core::Result<i32> {
@@ -1328,11 +1288,7 @@ pub struct INumberRounder_Vtbl {
     pub RoundSingle: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *mut f32) -> windows_core::HRESULT,
     pub RoundDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INumberRounderOption, INumberRounderOption_Vtbl, 0x3b088433_646f_4efe_8d48_66eb2e49e736, inspectable);
-impl windows_core::RuntimeType for INumberRounderOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.INumberRounderOption");
-}
+windows_core::imp::define_winrt_interface!(INumberRounderOption, INumberRounderOption_Vtbl, 0x3b088433_646f_4efe_8d48_66eb2e49e736, b"Windows.Globalization.NumberFormatting.INumberRounderOption");
 windows_core::imp::interface_hierarchy!(INumberRounderOption, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberRounderOption {
     pub fn NumberRounder(&self) -> windows_core::Result<INumberRounder> {
@@ -1396,11 +1352,7 @@ pub struct INumberRounderOption_Vtbl {
     pub NumberRounder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetNumberRounder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INumeralSystemTranslator, INumeralSystemTranslator_Vtbl, 0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b, inspectable);
-impl windows_core::RuntimeType for INumeralSystemTranslator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.INumeralSystemTranslator");
-}
+windows_core::imp::define_winrt_interface!(INumeralSystemTranslator, INumeralSystemTranslator_Vtbl, 0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b, b"Windows.Globalization.NumberFormatting.INumeralSystemTranslator");
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumeralSystemTranslator_Vtbl {
@@ -1411,44 +1363,28 @@ pub struct INumeralSystemTranslator_Vtbl {
     pub SetNumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TranslateNumerals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INumeralSystemTranslatorFactory, INumeralSystemTranslatorFactory_Vtbl, 0x9630c8da_36ef_4d88_a85c_6f0d98d620a6, inspectable);
-impl windows_core::RuntimeType for INumeralSystemTranslatorFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.INumeralSystemTranslatorFactory");
-}
+windows_core::imp::define_winrt_interface!(INumeralSystemTranslatorFactory, INumeralSystemTranslatorFactory_Vtbl, 0x9630c8da_36ef_4d88_a85c_6f0d98d620a6, b"Windows.Globalization.NumberFormatting.INumeralSystemTranslatorFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumeralSystemTranslatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPercentFormatterFactory, IPercentFormatterFactory_Vtbl, 0xb7828aef_fed4_4018_a6e2_e09961e03765, inspectable);
-impl windows_core::RuntimeType for IPercentFormatterFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.IPercentFormatterFactory");
-}
+windows_core::imp::define_winrt_interface!(IPercentFormatterFactory, IPercentFormatterFactory_Vtbl, 0xb7828aef_fed4_4018_a6e2_e09961e03765, b"Windows.Globalization.NumberFormatting.IPercentFormatterFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPercentFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreatePercentFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPermilleFormatterFactory, IPermilleFormatterFactory_Vtbl, 0x2b37b4ac_e638_4ed5_a998_62f6b06a49ae, inspectable);
-impl windows_core::RuntimeType for IPermilleFormatterFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.IPermilleFormatterFactory");
-}
+windows_core::imp::define_winrt_interface!(IPermilleFormatterFactory, IPermilleFormatterFactory_Vtbl, 0x2b37b4ac_e638_4ed5_a998_62f6b06a49ae, b"Windows.Globalization.NumberFormatting.IPermilleFormatterFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPermilleFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreatePermilleFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISignedZeroOption, ISignedZeroOption_Vtbl, 0xfd1cdd31_0a3c_49c4_a642_96a1564f4f30, inspectable);
-impl windows_core::RuntimeType for ISignedZeroOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.ISignedZeroOption");
-}
+windows_core::imp::define_winrt_interface!(ISignedZeroOption, ISignedZeroOption_Vtbl, 0xfd1cdd31_0a3c_49c4_a642_96a1564f4f30, b"Windows.Globalization.NumberFormatting.ISignedZeroOption");
 windows_core::imp::interface_hierarchy!(ISignedZeroOption, windows_core::IUnknown, windows_core::IInspectable);
 impl ISignedZeroOption {
     pub fn IsZeroSigned(&self) -> windows_core::Result<bool> {
@@ -1508,11 +1444,7 @@ pub struct ISignedZeroOption_Vtbl {
     pub IsZeroSigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsZeroSigned: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISignificantDigitsNumberRounder, ISignificantDigitsNumberRounder_Vtbl, 0xf5941bca_6646_4913_8c76_1b191ff94dfd, inspectable);
-impl windows_core::RuntimeType for ISignificantDigitsNumberRounder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.ISignificantDigitsNumberRounder");
-}
+windows_core::imp::define_winrt_interface!(ISignificantDigitsNumberRounder, ISignificantDigitsNumberRounder_Vtbl, 0xf5941bca_6646_4913_8c76_1b191ff94dfd, b"Windows.Globalization.NumberFormatting.ISignificantDigitsNumberRounder");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignificantDigitsNumberRounder_Vtbl {
@@ -1522,11 +1454,7 @@ pub struct ISignificantDigitsNumberRounder_Vtbl {
     pub SignificantDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetSignificantDigits: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISignificantDigitsOption, ISignificantDigitsOption_Vtbl, 0x1d4dfcdd_2d43_4ee8_bbf1_c1b26a711a58, inspectable);
-impl windows_core::RuntimeType for ISignificantDigitsOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.NumberFormatting.ISignificantDigitsOption");
-}
+windows_core::imp::define_winrt_interface!(ISignificantDigitsOption, ISignificantDigitsOption_Vtbl, 0x1d4dfcdd_2d43_4ee8_bbf1_c1b26a711a58, b"Windows.Globalization.NumberFormatting.ISignificantDigitsOption");
 windows_core::imp::interface_hierarchy!(ISignificantDigitsOption, windows_core::IUnknown, windows_core::IInspectable);
 impl ISignificantDigitsOption {
     pub fn SignificantDigits(&self) -> windows_core::Result<i32> {

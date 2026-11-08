@@ -97,11 +97,7 @@ impl windows_core::RuntimeType for Direct3DUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DirectX.Direct3D11.Direct3DUsage");
 }
-windows_core::imp::define_interface!(IDirect3DDevice, IDirect3DDevice_Vtbl, 0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670, inspectable);
-impl windows_core::RuntimeType for IDirect3DDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice");
-}
+windows_core::imp::define_winrt_interface!(IDirect3DDevice, IDirect3DDevice_Vtbl, 0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670, b"Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice");
 windows_core::imp::interface_hierarchy!(IDirect3DDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IDirect3DDevice, super::super::super::Foundation::IClosable);
 impl IDirect3DDevice {
@@ -139,11 +135,7 @@ pub struct IDirect3DDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDirect3DSurface, IDirect3DSurface_Vtbl, 0x0bf4a146_13c1_4694_bee3_7abf15eaf586, inspectable);
-impl windows_core::RuntimeType for IDirect3DSurface {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface");
-}
+windows_core::imp::define_winrt_interface!(IDirect3DSurface, IDirect3DSurface_Vtbl, 0x0bf4a146_13c1_4694_bee3_7abf15eaf586, b"Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface");
 windows_core::imp::interface_hierarchy!(IDirect3DSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IDirect3DSurface, super::super::super::Foundation::IClosable);
 impl IDirect3DSurface {

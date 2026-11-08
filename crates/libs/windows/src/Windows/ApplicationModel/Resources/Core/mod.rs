@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(INamedResource, INamedResource_Vtbl, 0x1c98c219_0b13_4240_89a5_d495dc189a00, inspectable);
-impl windows_core::RuntimeType for INamedResource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.INamedResource");
-}
+windows_core::imp::define_winrt_interface!(INamedResource, INamedResource_Vtbl, 0x1c98c219_0b13_4240_89a5_d495dc189a00, b"Windows.ApplicationModel.Resources.Core.INamedResource");
 #[repr(C)]
 #[doc(hidden)]
 pub struct INamedResource_Vtbl {
@@ -14,11 +10,7 @@ pub struct INamedResource_Vtbl {
     pub ResolveAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResolveAllForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc, inspectable);
-impl windows_core::RuntimeType for IResourceCandidate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceCandidate");
-}
+windows_core::imp::define_winrt_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc, b"Windows.ApplicationModel.Resources.Core.IResourceCandidate");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceCandidate_Vtbl {
@@ -34,11 +26,7 @@ pub struct IResourceCandidate_Vtbl {
     GetValueAsFileAsync: usize,
     pub GetQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceCandidate2, IResourceCandidate2_Vtbl, 0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5, inspectable);
-impl windows_core::RuntimeType for IResourceCandidate2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceCandidate2");
-}
+windows_core::imp::define_winrt_interface!(IResourceCandidate2, IResourceCandidate2_Vtbl, 0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5, b"Windows.ApplicationModel.Resources.Core.IResourceCandidate2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceCandidate2_Vtbl {
@@ -48,22 +36,14 @@ pub struct IResourceCandidate2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetValueAsStreamAsync: usize,
 }
-windows_core::imp::define_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b, inspectable);
-impl windows_core::RuntimeType for IResourceCandidate3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceCandidate3");
-}
+windows_core::imp::define_winrt_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b, b"Windows.ApplicationModel.Resources.Core.IResourceCandidate3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceCandidate3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ResourceCandidateKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContext, IResourceContext_Vtbl, 0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2, inspectable);
-impl windows_core::RuntimeType for IResourceContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceContext");
-}
+windows_core::imp::define_winrt_interface!(IResourceContext, IResourceContext_Vtbl, 0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2, b"Windows.ApplicationModel.Resources.Core.IResourceContext");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceContext_Vtbl {
@@ -76,22 +56,14 @@ pub struct IResourceContext_Vtbl {
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x98be9d6c_6338_4b31_99df_b2b442f17149, inspectable);
-impl windows_core::RuntimeType for IResourceContextStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics");
-}
+windows_core::imp::define_winrt_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x98be9d6c_6338_4b31_99df_b2b442f17149, b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceContextStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMatchingContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x41f752ef_12af_41b9_ab36_b1eb4b512460, inspectable);
-impl windows_core::RuntimeType for IResourceContextStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics2");
-}
+windows_core::imp::define_winrt_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x41f752ef_12af_41b9_ab36_b1eb4b512460, b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceContextStatics2_Vtbl {
@@ -102,22 +74,14 @@ pub struct IResourceContextStatics2_Vtbl {
     pub ResetGlobalQualifierValuesForSpecifiedQualifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForViewIndependentUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContextStatics3, IResourceContextStatics3_Vtbl, 0x20cf492c_af0f_450b_9da6_106dd0c29a39, inspectable);
-impl windows_core::RuntimeType for IResourceContextStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics3");
-}
+windows_core::imp::define_winrt_interface!(IResourceContextStatics3, IResourceContextStatics3_Vtbl, 0x20cf492c_af0f_450b_9da6_106dd0c29a39, b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceContextStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetGlobalQualifierValueWithPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, ResourceQualifierPersistence) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContextStatics4, IResourceContextStatics4_Vtbl, 0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39, inspectable);
-impl windows_core::RuntimeType for IResourceContextStatics4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics4");
-}
+windows_core::imp::define_winrt_interface!(IResourceContextStatics4, IResourceContextStatics4_Vtbl, 0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39, b"Windows.ApplicationModel.Resources.Core.IResourceContextStatics4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceContextStatics4_Vtbl {
@@ -127,11 +91,7 @@ pub struct IResourceContextStatics4_Vtbl {
     #[cfg(not(feature = "UI"))]
     GetForUIContext: usize,
 }
-windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0xf744d97b_9988_44fb_abd6_5378844cfa8b, inspectable);
-impl windows_core::RuntimeType for IResourceManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceManager");
-}
+windows_core::imp::define_winrt_interface!(IResourceManager, IResourceManager_Vtbl, 0xf744d97b_9988_44fb_abd6_5378844cfa8b, b"Windows.ApplicationModel.Resources.Core.IResourceManager");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceManager_Vtbl {
@@ -148,11 +108,7 @@ pub struct IResourceManager_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UnloadPriFiles: usize,
 }
-windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x9d66fe6c_a4d7_4c23_9e85_675f304c252d, inspectable);
-impl windows_core::RuntimeType for IResourceManager2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceManager2");
-}
+windows_core::imp::define_winrt_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x9d66fe6c_a4d7_4c23_9e85_675f304c252d, b"Windows.ApplicationModel.Resources.Core.IResourceManager2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceManager2_Vtbl {
@@ -160,11 +116,7 @@ pub struct IResourceManager2_Vtbl {
     pub GetAllNamedResourcesForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ResourceLayoutInfo, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAllSubtreesForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ResourceLayoutInfo, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceManagerStatics, IResourceManagerStatics_Vtbl, 0x1cc0fdfc_69ee_4e43_9901_47f12687baf7, inspectable);
-impl windows_core::RuntimeType for IResourceManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IResourceManagerStatics, IResourceManagerStatics_Vtbl, 0x1cc0fdfc_69ee_4e43_9901_47f12687baf7, b"Windows.ApplicationModel.Resources.Core.IResourceManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceManagerStatics_Vtbl {
@@ -172,11 +124,7 @@ pub struct IResourceManagerStatics_Vtbl {
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsResourceReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceMap, IResourceMap_Vtbl, 0x72284824_db8c_42f8_b08c_53ff357dad82, inspectable);
-impl windows_core::RuntimeType for IResourceMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceMap");
-}
+windows_core::imp::define_winrt_interface!(IResourceMap, IResourceMap_Vtbl, 0x72284824_db8c_42f8_b08c_53ff357dad82, b"Windows.ApplicationModel.Resources.Core.IResourceMap");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceMap_Vtbl {
@@ -186,11 +134,7 @@ pub struct IResourceMap_Vtbl {
     pub GetValueForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSubtree: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceQualifier, IResourceQualifier_Vtbl, 0x785da5b2_4afd_4376_a888_c5f9a6b7a05c, inspectable);
-impl windows_core::RuntimeType for IResourceQualifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Core.IResourceQualifier");
-}
+windows_core::imp::define_winrt_interface!(IResourceQualifier, IResourceQualifier_Vtbl, 0x785da5b2_4afd_4376_a888_c5f9a6b7a05c, b"Windows.ApplicationModel.Resources.Core.IResourceQualifier");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceQualifier_Vtbl {

@@ -178,11 +178,7 @@ impl GeotagHelper {
 impl windows_core::RuntimeName for GeotagHelper {
     const NAME: &'static str = "Windows.Storage.FileProperties.GeotagHelper";
 }
-windows_core::imp::define_interface!(IBasicProperties, IBasicProperties_Vtbl, 0xd05d55db_785e_4a66_be02_9beec58aea81, inspectable);
-impl windows_core::RuntimeType for IBasicProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileProperties.IBasicProperties");
-}
+windows_core::imp::define_winrt_interface!(IBasicProperties, IBasicProperties_Vtbl, 0xd05d55db_785e_4a66_be02_9beec58aea81, b"Windows.Storage.FileProperties.IBasicProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBasicProperties_Vtbl {
@@ -191,11 +187,7 @@ pub struct IBasicProperties_Vtbl {
     pub DateModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub ItemDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDocumentProperties, IDocumentProperties_Vtbl, 0x7eab19bc_1821_4923_b4a9_0aea404d0070, inspectable);
-impl windows_core::RuntimeType for IDocumentProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileProperties.IDocumentProperties");
-}
+windows_core::imp::define_winrt_interface!(IDocumentProperties, IDocumentProperties_Vtbl, 0x7eab19bc_1821_4923_b4a9_0aea404d0070, b"Windows.Storage.FileProperties.IDocumentProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDocumentProperties_Vtbl {
@@ -207,11 +199,7 @@ pub struct IDocumentProperties_Vtbl {
     pub Comment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetComment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGeotagHelperStatics, IGeotagHelperStatics_Vtbl, 0x41493244_2524_4655_86a6_ed16f5fc716b, inspectable);
-impl windows_core::RuntimeType for IGeotagHelperStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileProperties.IGeotagHelperStatics");
-}
+windows_core::imp::define_winrt_interface!(IGeotagHelperStatics, IGeotagHelperStatics_Vtbl, 0x41493244_2524_4655_86a6_ed16f5fc716b, b"Windows.Storage.FileProperties.IGeotagHelperStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeotagHelperStatics_Vtbl {
@@ -229,11 +217,7 @@ pub struct IGeotagHelperStatics_Vtbl {
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Storage_Streams")))]
     SetGeotagAsync: usize,
 }
-windows_core::imp::define_interface!(IImageProperties, IImageProperties_Vtbl, 0x523c9424_fcff_4275_afee_ecdb9ab47973, inspectable);
-impl windows_core::RuntimeType for IImageProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileProperties.IImageProperties");
-}
+windows_core::imp::define_winrt_interface!(IImageProperties, IImageProperties_Vtbl, 0x523c9424_fcff_4275_afee_ecdb9ab47973, b"Windows.Storage.FileProperties.IImageProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageProperties_Vtbl {
@@ -256,11 +240,7 @@ pub struct IImageProperties_Vtbl {
     pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PhotoOrientation) -> windows_core::HRESULT,
     pub PeopleNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMusicProperties, IMusicProperties_Vtbl, 0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da, inspectable);
-impl windows_core::RuntimeType for IMusicProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileProperties.IMusicProperties");
-}
+windows_core::imp::define_winrt_interface!(IMusicProperties, IMusicProperties_Vtbl, 0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da, b"Windows.Storage.FileProperties.IMusicProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMusicProperties_Vtbl {
@@ -291,11 +271,7 @@ pub struct IMusicProperties_Vtbl {
     pub Year: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetYear: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageItemContentProperties, IStorageItemContentProperties_Vtbl, 0x05294bad_bc38_48bf_85d7_770e0e2ae0ba, inspectable);
-impl windows_core::RuntimeType for IStorageItemContentProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileProperties.IStorageItemContentProperties");
-}
+windows_core::imp::define_winrt_interface!(IStorageItemContentProperties, IStorageItemContentProperties_Vtbl, 0x05294bad_bc38_48bf_85d7_770e0e2ae0ba, b"Windows.Storage.FileProperties.IStorageItemContentProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemContentProperties_Vtbl {
@@ -305,11 +281,7 @@ pub struct IStorageItemContentProperties_Vtbl {
     pub GetImagePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDocumentPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageItemExtraProperties, IStorageItemExtraProperties_Vtbl, 0xc54361b2_54cd_432b_bdbc_4b19c4b470d7, inspectable);
-impl windows_core::RuntimeType for IStorageItemExtraProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileProperties.IStorageItemExtraProperties");
-}
+windows_core::imp::define_winrt_interface!(IStorageItemExtraProperties, IStorageItemExtraProperties_Vtbl, 0xc54361b2_54cd_432b_bdbc_4b19c4b470d7, b"Windows.Storage.FileProperties.IStorageItemExtraProperties");
 windows_core::imp::interface_hierarchy!(IStorageItemExtraProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageItemExtraProperties {
     pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>
@@ -414,11 +386,7 @@ pub struct IStorageItemExtraProperties_Vtbl {
     pub SavePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SavePropertiesAsyncOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IThumbnailProperties, IThumbnailProperties_Vtbl, 0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423, inspectable);
-impl windows_core::RuntimeType for IThumbnailProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileProperties.IThumbnailProperties");
-}
+windows_core::imp::define_winrt_interface!(IThumbnailProperties, IThumbnailProperties_Vtbl, 0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423, b"Windows.Storage.FileProperties.IThumbnailProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThumbnailProperties_Vtbl {
@@ -428,11 +396,7 @@ pub struct IThumbnailProperties_Vtbl {
     pub ReturnedSmallerCachedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ThumbnailType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoProperties, IVideoProperties_Vtbl, 0x719ae507_68de_4db8_97de_49998c059f2f, inspectable);
-impl windows_core::RuntimeType for IVideoProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileProperties.IVideoProperties");
-}
+windows_core::imp::define_winrt_interface!(IVideoProperties, IVideoProperties_Vtbl, 0x719ae507_68de_4db8_97de_49998c059f2f, b"Windows.Storage.FileProperties.IVideoProperties");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoProperties_Vtbl {

@@ -1,10 +1,6 @@
 #[cfg(feature = "Devices_Lights_Effects")]
 pub mod Effects;
-windows_core::imp::define_interface!(ILamp, ILamp_Vtbl, 0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b, inspectable);
-impl windows_core::RuntimeType for ILamp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.ILamp");
-}
+windows_core::imp::define_winrt_interface!(ILamp, ILamp_Vtbl, 0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b, b"Windows.Devices.Lights.ILamp");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILamp_Vtbl {
@@ -26,11 +22,7 @@ pub struct ILamp_Vtbl {
     pub AvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArray, ILampArray_Vtbl, 0x7ace9787_c8a0_4e95_a1e0_d58676538649, inspectable);
-impl windows_core::RuntimeType for ILampArray {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.ILampArray");
-}
+windows_core::imp::define_winrt_interface!(ILampArray, ILampArray_Vtbl, 0x7ace9787_c8a0_4e95_a1e0_d58676538649, b"Windows.Devices.Lights.ILampArray");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArray_Vtbl {
@@ -92,11 +84,7 @@ pub struct ILampArray_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     RequestMessageAsync: usize,
 }
-windows_core::imp::define_interface!(ILampArray2, ILampArray2_Vtbl, 0x050c181f_60a8_4711_a1af_1b1b4c658ea2, inspectable);
-impl windows_core::RuntimeType for ILampArray2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.ILampArray2");
-}
+windows_core::imp::define_winrt_interface!(ILampArray2, ILampArray2_Vtbl, 0x050c181f_60a8_4711_a1af_1b1b4c658ea2, b"Windows.Devices.Lights.ILampArray2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArray2_Vtbl {
@@ -105,11 +93,7 @@ pub struct ILampArray2_Vtbl {
     pub AvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampArrayStatics, ILampArrayStatics_Vtbl, 0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff, inspectable);
-impl windows_core::RuntimeType for ILampArrayStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.ILampArrayStatics");
-}
+windows_core::imp::define_winrt_interface!(ILampArrayStatics, ILampArrayStatics_Vtbl, 0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff, b"Windows.Devices.Lights.ILampArrayStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayStatics_Vtbl {
@@ -117,22 +101,14 @@ pub struct ILampArrayStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampAvailabilityChangedEventArgs, ILampAvailabilityChangedEventArgs_Vtbl, 0x4f6e3ded_07a2_499d_9260_67e304532ba4, inspectable);
-impl windows_core::RuntimeType for ILampAvailabilityChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.ILampAvailabilityChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ILampAvailabilityChangedEventArgs, ILampAvailabilityChangedEventArgs_Vtbl, 0x4f6e3ded_07a2_499d_9260_67e304532ba4, b"Windows.Devices.Lights.ILampAvailabilityChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampAvailabilityChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampInfo, ILampInfo_Vtbl, 0x30bb521c_0acf_49da_8c10_150b9cf62713, inspectable);
-impl windows_core::RuntimeType for ILampInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.ILampInfo");
-}
+windows_core::imp::define_winrt_interface!(ILampInfo, ILampInfo_Vtbl, 0x30bb521c_0acf_49da_8c10_150b9cf62713, b"Windows.Devices.Lights.ILampInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampInfo_Vtbl {
@@ -154,11 +130,7 @@ pub struct ILampInfo_Vtbl {
     GetNearestSupportedColor: usize,
     pub UpdateLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILampStatics, ILampStatics_Vtbl, 0xa822416c_8885_401e_b821_8e8b38a8e8ec, inspectable);
-impl windows_core::RuntimeType for ILampStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.ILampStatics");
-}
+windows_core::imp::define_winrt_interface!(ILampStatics, ILampStatics_Vtbl, 0xa822416c_8885_401e_b821_8e8b38a8e8ec, b"Windows.Devices.Lights.ILampStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampStatics_Vtbl {

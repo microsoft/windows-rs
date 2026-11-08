@@ -1,10 +1,6 @@
 #[cfg(feature = "Devices_Printers_Extensions")]
 pub mod Extensions;
-windows_core::imp::define_interface!(IIppAttributeConverterStatics, IIppAttributeConverterStatics_Vtbl, 0x91e368df_bfa4_5ca1_a92d_0793f988e82d, inspectable);
-impl windows_core::RuntimeType for IIppAttributeConverterStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppAttributeConverterStatics");
-}
+windows_core::imp::define_winrt_interface!(IIppAttributeConverterStatics, IIppAttributeConverterStatics_Vtbl, 0x91e368df_bfa4_5ca1_a92d_0793f988e82d, b"Windows.Devices.Printers.IIppAttributeConverterStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppAttributeConverterStatics_Vtbl {
@@ -22,11 +18,7 @@ pub struct IIppAttributeConverterStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ConvertIppAttributesToBuffer: usize,
 }
-windows_core::imp::define_interface!(IIppAttributeError, IIppAttributeError_Vtbl, 0x750feda1_9eef_5c39_93e4_46149bbcef27, inspectable);
-impl windows_core::RuntimeType for IIppAttributeError {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppAttributeError");
-}
+windows_core::imp::define_winrt_interface!(IIppAttributeError, IIppAttributeError_Vtbl, 0x750feda1_9eef_5c39_93e4_46149bbcef27, b"Windows.Devices.Printers.IIppAttributeError");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppAttributeError_Vtbl {
@@ -35,11 +27,7 @@ pub struct IIppAttributeError_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub GetUnsupportedValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppAttributeValue, IIppAttributeValue_Vtbl, 0x99407fed_e2bb_59a3_988b_28a974052a26, inspectable);
-impl windows_core::RuntimeType for IIppAttributeValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppAttributeValue");
-}
+windows_core::imp::define_winrt_interface!(IIppAttributeValue, IIppAttributeValue_Vtbl, 0x99407fed_e2bb_59a3_988b_28a974052a26, b"Windows.Devices.Printers.IIppAttributeValue");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppAttributeValue_Vtbl {
@@ -67,11 +55,7 @@ pub struct IIppAttributeValue_Vtbl {
     pub GetNaturalLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMimeMediaTypeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppAttributeValueStatics, IIppAttributeValueStatics_Vtbl, 0x10d43942_dd94_5998_b235_afafb6fa7935, inspectable);
-impl windows_core::RuntimeType for IIppAttributeValueStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppAttributeValueStatics");
-}
+windows_core::imp::define_winrt_interface!(IIppAttributeValueStatics, IIppAttributeValueStatics_Vtbl, 0x10d43942_dd94_5998_b235_afafb6fa7935, b"Windows.Devices.Printers.IIppAttributeValueStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppAttributeValueStatics_Vtbl {
@@ -122,11 +106,7 @@ pub struct IIppAttributeValueStatics_Vtbl {
     pub CreateMimeMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateMimeMediaArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppIntegerRange, IIppIntegerRange_Vtbl, 0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f, inspectable);
-impl windows_core::RuntimeType for IIppIntegerRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppIntegerRange");
-}
+windows_core::imp::define_winrt_interface!(IIppIntegerRange, IIppIntegerRange_Vtbl, 0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f, b"Windows.Devices.Printers.IIppIntegerRange");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppIntegerRange_Vtbl {
@@ -134,22 +114,14 @@ pub struct IIppIntegerRange_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppIntegerRangeFactory, IIppIntegerRangeFactory_Vtbl, 0x75d4ecae_f87e_54ad_b5d0_465204db7553, inspectable);
-impl windows_core::RuntimeType for IIppIntegerRangeFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppIntegerRangeFactory");
-}
+windows_core::imp::define_winrt_interface!(IIppIntegerRangeFactory, IIppIntegerRangeFactory_Vtbl, 0x75d4ecae_f87e_54ad_b5d0_465204db7553, b"Windows.Devices.Printers.IIppIntegerRangeFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppIntegerRangeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppPrintDevice, IIppPrintDevice_Vtbl, 0xd748ac56_76f3_5dc6_afd4_c2a8686b9359, inspectable);
-impl windows_core::RuntimeType for IIppPrintDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppPrintDevice");
-}
+windows_core::imp::define_winrt_interface!(IIppPrintDevice, IIppPrintDevice_Vtbl, 0xd748ac56_76f3_5dc6_afd4_c2a8686b9359, b"Windows.Devices.Printers.IIppPrintDevice");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppPrintDevice_Vtbl {
@@ -167,11 +139,7 @@ pub struct IIppPrintDevice_Vtbl {
     SetPrinterAttributesFromBuffer: usize,
     pub SetPrinterAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppPrintDevice2, IIppPrintDevice2_Vtbl, 0xf7c844c9_9d21_5c63_ac20_3676915be2d7, inspectable);
-impl windows_core::RuntimeType for IIppPrintDevice2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppPrintDevice2");
-}
+windows_core::imp::define_winrt_interface!(IIppPrintDevice2, IIppPrintDevice2_Vtbl, 0xf7c844c9_9d21_5c63_ac20_3676915be2d7, b"Windows.Devices.Printers.IIppPrintDevice2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppPrintDevice2_Vtbl {
@@ -181,22 +149,14 @@ pub struct IIppPrintDevice2_Vtbl {
     pub IsPdlPassthroughSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetPdlPassthroughProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppPrintDevice3, IIppPrintDevice3_Vtbl, 0xb6258f6d_a46d_5e37_80ce_5f69d5544712, inspectable);
-impl windows_core::RuntimeType for IIppPrintDevice3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppPrintDevice3");
-}
+windows_core::imp::define_winrt_interface!(IIppPrintDevice3, IIppPrintDevice3_Vtbl, 0xb6258f6d_a46d_5e37_80ce_5f69d5544712, b"Windows.Devices.Printers.IIppPrintDevice3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppPrintDevice3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsIppFaxOutPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppPrintDevice4, IIppPrintDevice4_Vtbl, 0x8c48247e_e869_59fb_bc6d_daea0614f93e, inspectable);
-impl windows_core::RuntimeType for IIppPrintDevice4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppPrintDevice4");
-}
+windows_core::imp::define_winrt_interface!(IIppPrintDevice4, IIppPrintDevice4_Vtbl, 0x8c48247e_e869_59fb_bc6d_daea0614f93e, b"Windows.Devices.Printers.IIppPrintDevice4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppPrintDevice4_Vtbl {
@@ -214,11 +174,7 @@ pub struct IIppPrintDevice4_Vtbl {
     pub RefreshPrintDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMaxSupportedPdlVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppPrintDevice5, IIppPrintDevice5_Vtbl, 0xea927fca_e073_5db4_9aee_13df714e853a, inspectable);
-impl windows_core::RuntimeType for IIppPrintDevice5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppPrintDevice5");
-}
+windows_core::imp::define_winrt_interface!(IIppPrintDevice5, IIppPrintDevice5_Vtbl, 0xea927fca_e073_5db4_9aee_13df714e853a, b"Windows.Devices.Printers.IIppPrintDevice5");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppPrintDevice5_Vtbl {
@@ -229,11 +185,7 @@ pub struct IIppPrintDevice5_Vtbl {
     GetDeviceProperties: usize,
     pub ReplaceDeviceProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppPrintDeviceInstallationResult, IIppPrintDeviceInstallationResult_Vtbl, 0xfb102fcc_87be_57ff_a086_92272148a256, inspectable);
-impl windows_core::RuntimeType for IIppPrintDeviceInstallationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppPrintDeviceInstallationResult");
-}
+windows_core::imp::define_winrt_interface!(IIppPrintDeviceInstallationResult, IIppPrintDeviceInstallationResult_Vtbl, 0xfb102fcc_87be_57ff_a086_92272148a256, b"Windows.Devices.Printers.IIppPrintDeviceInstallationResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppPrintDeviceInstallationResult_Vtbl {
@@ -242,11 +194,7 @@ pub struct IIppPrintDeviceInstallationResult_Vtbl {
     pub InstalledPrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppPrintDeviceManagerStatics, IIppPrintDeviceManagerStatics_Vtbl, 0x8f711a45_c1b9_51bb_80c8_38969c81f800, inspectable);
-impl windows_core::RuntimeType for IIppPrintDeviceManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppPrintDeviceManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IIppPrintDeviceManagerStatics, IIppPrintDeviceManagerStatics_Vtbl, 0x8f711a45_c1b9_51bb_80c8_38969c81f800, b"Windows.Devices.Printers.IIppPrintDeviceManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppPrintDeviceManagerStatics_Vtbl {
@@ -254,11 +202,7 @@ pub struct IIppPrintDeviceManagerStatics_Vtbl {
     pub CanInstallIppPrintDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub InstallIppPrintDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppPrintDeviceStatics, IIppPrintDeviceStatics_Vtbl, 0x7dc19f08_7f20_52ab_94a7_894b83b2a17e, inspectable);
-impl windows_core::RuntimeType for IIppPrintDeviceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppPrintDeviceStatics");
-}
+windows_core::imp::define_winrt_interface!(IIppPrintDeviceStatics, IIppPrintDeviceStatics_Vtbl, 0x7dc19f08_7f20_52ab_94a7_894b83b2a17e, b"Windows.Devices.Printers.IIppPrintDeviceStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppPrintDeviceStatics_Vtbl {
@@ -268,11 +212,7 @@ pub struct IIppPrintDeviceStatics_Vtbl {
     pub FromPrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsIppPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppResolution, IIppResolution_Vtbl, 0xcb493f86_6bf3_56f5_86ce_263d08aead63, inspectable);
-impl windows_core::RuntimeType for IIppResolution {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppResolution");
-}
+windows_core::imp::define_winrt_interface!(IIppResolution, IIppResolution_Vtbl, 0xcb493f86_6bf3_56f5_86ce_263d08aead63, b"Windows.Devices.Printers.IIppResolution");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppResolution_Vtbl {
@@ -281,22 +221,14 @@ pub struct IIppResolution_Vtbl {
     pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Unit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppResolutionUnit) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppResolutionFactory, IIppResolutionFactory_Vtbl, 0xe481c2ae_251a_5326_b173_95543ed99a35, inspectable);
-impl windows_core::RuntimeType for IIppResolutionFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppResolutionFactory");
-}
+windows_core::imp::define_winrt_interface!(IIppResolutionFactory, IIppResolutionFactory_Vtbl, 0xe481c2ae_251a_5326_b173_95543ed99a35, b"Windows.Devices.Printers.IIppResolutionFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppResolutionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, IppResolutionUnit, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppSetAttributesResult, IIppSetAttributesResult_Vtbl, 0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07, inspectable);
-impl windows_core::RuntimeType for IIppSetAttributesResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppSetAttributesResult");
-}
+windows_core::imp::define_winrt_interface!(IIppSetAttributesResult, IIppSetAttributesResult_Vtbl, 0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07, b"Windows.Devices.Printers.IIppSetAttributesResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppSetAttributesResult_Vtbl {
@@ -304,11 +236,7 @@ pub struct IIppSetAttributesResult_Vtbl {
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub AttributeErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppTextWithLanguage, IIppTextWithLanguage_Vtbl, 0x326447a6_5149_5936_90e8_0c736036bf77, inspectable);
-impl windows_core::RuntimeType for IIppTextWithLanguage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppTextWithLanguage");
-}
+windows_core::imp::define_winrt_interface!(IIppTextWithLanguage, IIppTextWithLanguage_Vtbl, 0x326447a6_5149_5936_90e8_0c736036bf77, b"Windows.Devices.Printers.IIppTextWithLanguage");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppTextWithLanguage_Vtbl {
@@ -316,22 +244,14 @@ pub struct IIppTextWithLanguage_Vtbl {
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIppTextWithLanguageFactory, IIppTextWithLanguageFactory_Vtbl, 0xca4a1e8d_2968_5775_997c_8a46f1a574ed, inspectable);
-impl windows_core::RuntimeType for IIppTextWithLanguageFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppTextWithLanguageFactory");
-}
+windows_core::imp::define_winrt_interface!(IIppTextWithLanguageFactory, IIppTextWithLanguageFactory_Vtbl, 0xca4a1e8d_2968_5775_997c_8a46f1a574ed, b"Windows.Devices.Printers.IIppTextWithLanguageFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppTextWithLanguageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPageConfigurationSettings, IPageConfigurationSettings_Vtbl, 0xb6fc1e02_5331_54ff_95a0_1fcb76bb97a9, inspectable);
-impl windows_core::RuntimeType for IPageConfigurationSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IPageConfigurationSettings");
-}
+windows_core::imp::define_winrt_interface!(IPageConfigurationSettings, IPageConfigurationSettings_Vtbl, 0xb6fc1e02_5331_54ff_95a0_1fcb76bb97a9, b"Windows.Devices.Printers.IPageConfigurationSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPageConfigurationSettings_Vtbl {
@@ -341,11 +261,7 @@ pub struct IPageConfigurationSettings_Vtbl {
     pub SizeSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PageConfigurationSource) -> windows_core::HRESULT,
     pub SetSizeSource: unsafe extern "system" fn(*mut core::ffi::c_void, PageConfigurationSource) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPdlPassthroughProvider, IPdlPassthroughProvider_Vtbl, 0x23c71dd2_6117_553f_9378_180af5849a49, inspectable);
-impl windows_core::RuntimeType for IPdlPassthroughProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IPdlPassthroughProvider");
-}
+windows_core::imp::define_winrt_interface!(IPdlPassthroughProvider, IPdlPassthroughProvider_Vtbl, 0x23c71dd2_6117_553f_9378_180af5849a49, b"Windows.Devices.Printers.IPdlPassthroughProvider");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPdlPassthroughProvider_Vtbl {
@@ -360,11 +276,7 @@ pub struct IPdlPassthroughProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     StartPrintJobWithPrintTicket: usize,
 }
-windows_core::imp::define_interface!(IPdlPassthroughProvider2, IPdlPassthroughProvider2_Vtbl, 0x7330305c_a17d_52ec_a129_9a4ff9c8f655, inspectable);
-impl windows_core::RuntimeType for IPdlPassthroughProvider2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IPdlPassthroughProvider2");
-}
+windows_core::imp::define_winrt_interface!(IPdlPassthroughProvider2, IPdlPassthroughProvider2_Vtbl, 0x7330305c_a17d_52ec_a129_9a4ff9c8f655, b"Windows.Devices.Printers.IPdlPassthroughProvider2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPdlPassthroughProvider2_Vtbl {
@@ -375,11 +287,7 @@ pub struct IPdlPassthroughProvider2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     StartPrintJobWithIppJobAttributes: usize,
 }
-windows_core::imp::define_interface!(IPdlPassthroughTarget, IPdlPassthroughTarget_Vtbl, 0x9840be79_67f8_5385_a5b9_e8c96e0fca76, inspectable);
-impl windows_core::RuntimeType for IPdlPassthroughTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IPdlPassthroughTarget");
-}
+windows_core::imp::define_winrt_interface!(IPdlPassthroughTarget, IPdlPassthroughTarget_Vtbl, 0x9840be79_67f8_5385_a5b9_e8c96e0fca76, b"Windows.Devices.Printers.IPdlPassthroughTarget");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPdlPassthroughTarget_Vtbl {
@@ -391,22 +299,14 @@ pub struct IPdlPassthroughTarget_Vtbl {
     GetOutputStream: usize,
     pub Submit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrint3DDevice, IPrint3DDevice_Vtbl, 0x041c3d19_9713_42a2_9813_7dc3337428d3, inspectable);
-impl windows_core::RuntimeType for IPrint3DDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IPrint3DDevice");
-}
+windows_core::imp::define_winrt_interface!(IPrint3DDevice, IPrint3DDevice_Vtbl, 0x041c3d19_9713_42a2_9813_7dc3337428d3, b"Windows.Devices.Printers.IPrint3DDevice");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PrintSchema: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrint3DDeviceStatics, IPrint3DDeviceStatics_Vtbl, 0xfde3620a_67cd_41b7_a344_5150a1fd75b5, inspectable);
-impl windows_core::RuntimeType for IPrint3DDeviceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IPrint3DDeviceStatics");
-}
+windows_core::imp::define_winrt_interface!(IPrint3DDeviceStatics, IPrint3DDeviceStatics_Vtbl, 0xfde3620a_67cd_41b7_a344_5150a1fd75b5, b"Windows.Devices.Printers.IPrint3DDeviceStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DDeviceStatics_Vtbl {
@@ -414,11 +314,7 @@ pub struct IPrint3DDeviceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintSchema, IPrintSchema_Vtbl, 0xc2b98316_26b8_4bfb_8138_9f962c22a35b, inspectable);
-impl windows_core::RuntimeType for IPrintSchema {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IPrintSchema");
-}
+windows_core::imp::define_winrt_interface!(IPrintSchema, IPrintSchema_Vtbl, 0xc2b98316_26b8_4bfb_8138_9f962c22a35b, b"Windows.Devices.Printers.IPrintSchema");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSchema_Vtbl {
@@ -436,11 +332,7 @@ pub struct IPrintSchema_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     MergeAndValidateWithDefaultPrintTicketAsync: usize,
 }
-windows_core::imp::define_interface!(IReplaceDevicePropertiesResult, IReplaceDevicePropertiesResult_Vtbl, 0x12feca4b_d973_57e1_826b_f75b9518a9f1, inspectable);
-impl windows_core::RuntimeType for IReplaceDevicePropertiesResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IReplaceDevicePropertiesResult");
-}
+windows_core::imp::define_winrt_interface!(IReplaceDevicePropertiesResult, IReplaceDevicePropertiesResult_Vtbl, 0x12feca4b_d973_57e1_826b_f75b9518a9f1, b"Windows.Devices.Printers.IReplaceDevicePropertiesResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReplaceDevicePropertiesResult_Vtbl {
@@ -448,11 +340,7 @@ pub struct IReplaceDevicePropertiesResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ReplaceDevicePropertiesStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVirtualPrinterInstallationParameters, IVirtualPrinterInstallationParameters_Vtbl, 0xbbc159b3_12f3_584c_8d26_b22c0dc83241, inspectable);
-impl windows_core::RuntimeType for IVirtualPrinterInstallationParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IVirtualPrinterInstallationParameters");
-}
+windows_core::imp::define_winrt_interface!(IVirtualPrinterInstallationParameters, IVirtualPrinterInstallationParameters_Vtbl, 0xbbc159b3_12f3_584c_8d26_b22c0dc83241, b"Windows.Devices.Printers.IVirtualPrinterInstallationParameters");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVirtualPrinterInstallationParameters_Vtbl {
@@ -472,11 +360,7 @@ pub struct IVirtualPrinterInstallationParameters_Vtbl {
     pub EntryPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetEntryPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVirtualPrinterInstallationResult, IVirtualPrinterInstallationResult_Vtbl, 0x82defd78_1601_5657_85df_75eb691604bd, inspectable);
-impl windows_core::RuntimeType for IVirtualPrinterInstallationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IVirtualPrinterInstallationResult");
-}
+windows_core::imp::define_winrt_interface!(IVirtualPrinterInstallationResult, IVirtualPrinterInstallationResult_Vtbl, 0x82defd78_1601_5657_85df_75eb691604bd, b"Windows.Devices.Printers.IVirtualPrinterInstallationResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVirtualPrinterInstallationResult_Vtbl {
@@ -484,11 +368,7 @@ pub struct IVirtualPrinterInstallationResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VirtualPrinterInstallationStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVirtualPrinterManagerStatics, IVirtualPrinterManagerStatics_Vtbl, 0x141084b6_6702_5b5f_83da_c75891657554, inspectable);
-impl windows_core::RuntimeType for IVirtualPrinterManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IVirtualPrinterManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IVirtualPrinterManagerStatics, IVirtualPrinterManagerStatics_Vtbl, 0x141084b6_6702_5b5f_83da_c75891657554, b"Windows.Devices.Printers.IVirtualPrinterManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVirtualPrinterManagerStatics_Vtbl {
@@ -502,11 +382,7 @@ pub struct IVirtualPrinterManagerStatics_Vtbl {
     pub RemoveVirtualPrinterAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveVirtualPrinterForAllUsersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVirtualPrinterSupportedFormat, IVirtualPrinterSupportedFormat_Vtbl, 0x3801fa17_22b5_5dab_ad38_39e47d6071af, inspectable);
-impl windows_core::RuntimeType for IVirtualPrinterSupportedFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IVirtualPrinterSupportedFormat");
-}
+windows_core::imp::define_winrt_interface!(IVirtualPrinterSupportedFormat, IVirtualPrinterSupportedFormat_Vtbl, 0x3801fa17_22b5_5dab_ad38_39e47d6071af, b"Windows.Devices.Printers.IVirtualPrinterSupportedFormat");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVirtualPrinterSupportedFormat_Vtbl {
@@ -516,11 +392,7 @@ pub struct IVirtualPrinterSupportedFormat_Vtbl {
     pub MaxSupportedVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMaxSupportedVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVirtualPrinterSupportedFormatFactory, IVirtualPrinterSupportedFormatFactory_Vtbl, 0x6daaed44_97a6_57f4_be8b_9dbabc587f2d, inspectable);
-impl windows_core::RuntimeType for IVirtualPrinterSupportedFormatFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IVirtualPrinterSupportedFormatFactory");
-}
+windows_core::imp::define_winrt_interface!(IVirtualPrinterSupportedFormatFactory, IVirtualPrinterSupportedFormatFactory_Vtbl, 0x6daaed44_97a6_57f4_be8b_9dbabc587f2d, b"Windows.Devices.Printers.IVirtualPrinterSupportedFormatFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVirtualPrinterSupportedFormatFactory_Vtbl {

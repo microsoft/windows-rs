@@ -12,11 +12,7 @@ impl windows_core::RuntimeType for ForegroundText {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.ForegroundText;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ForegroundText");
 }
-windows_core::imp::define_interface!(IJumpList, IJumpList_Vtbl, 0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1, inspectable);
-impl windows_core::RuntimeType for IJumpList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IJumpList");
-}
+windows_core::imp::define_winrt_interface!(IJumpList, IJumpList_Vtbl, 0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1, b"Windows.UI.StartScreen.IJumpList");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpList_Vtbl {
@@ -26,11 +22,7 @@ pub struct IJumpList_Vtbl {
     pub SetSystemGroupKind: unsafe extern "system" fn(*mut core::ffi::c_void, JumpListSystemGroupKind) -> windows_core::HRESULT,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJumpListItem, IJumpListItem_Vtbl, 0x7adb6717_8b5d_4820_995b_9b418dbe48b0, inspectable);
-impl windows_core::RuntimeType for IJumpListItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IJumpListItem");
-}
+windows_core::imp::define_winrt_interface!(IJumpListItem, IJumpListItem_Vtbl, 0x7adb6717_8b5d_4820_995b_9b418dbe48b0, b"Windows.UI.StartScreen.IJumpListItem");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItem_Vtbl {
@@ -47,11 +39,7 @@ pub struct IJumpListItem_Vtbl {
     pub Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJumpListItemStatics, IJumpListItemStatics_Vtbl, 0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4, inspectable);
-impl windows_core::RuntimeType for IJumpListItemStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IJumpListItemStatics");
-}
+windows_core::imp::define_winrt_interface!(IJumpListItemStatics, IJumpListItemStatics_Vtbl, 0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4, b"Windows.UI.StartScreen.IJumpListItemStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItemStatics_Vtbl {
@@ -59,11 +47,7 @@ pub struct IJumpListItemStatics_Vtbl {
     pub CreateWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSeparator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJumpListStatics, IJumpListStatics_Vtbl, 0xa7e0c681_e67e_4b74_8250_3f322c4d92c3, inspectable);
-impl windows_core::RuntimeType for IJumpListStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IJumpListStatics");
-}
+windows_core::imp::define_winrt_interface!(IJumpListStatics, IJumpListStatics_Vtbl, 0xa7e0c681_e67e_4b74_8250_3f322c4d92c3, b"Windows.UI.StartScreen.IJumpListStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListStatics_Vtbl {
@@ -71,11 +55,7 @@ pub struct IJumpListStatics_Vtbl {
     pub LoadCurrentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTile, ISecondaryTile_Vtbl, 0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d, inspectable);
-impl windows_core::RuntimeType for ISecondaryTile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTile");
-}
+windows_core::imp::define_winrt_interface!(ISecondaryTile, ISecondaryTile_Vtbl, 0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d, b"Windows.UI.StartScreen.ISecondaryTile");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTile_Vtbl {
@@ -120,11 +100,7 @@ pub struct ISecondaryTile_Vtbl {
     RequestDeleteAsyncWithRectAndPlacement: usize,
     pub UpdateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTile2, ISecondaryTile2_Vtbl, 0xb2f6cc35_3250_4990_923c_294ab4b694dd, inspectable);
-impl windows_core::RuntimeType for ISecondaryTile2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTile2");
-}
+windows_core::imp::define_winrt_interface!(ISecondaryTile2, ISecondaryTile2_Vtbl, 0xb2f6cc35_3250_4990_923c_294ab4b694dd, b"Windows.UI.StartScreen.ISecondaryTile2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTile2_Vtbl {
@@ -137,11 +113,7 @@ pub struct ISecondaryTile2_Vtbl {
     pub VisualElementsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveVisualElementsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTileFactory, ISecondaryTileFactory_Vtbl, 0x57f52ca0_51bc_4abf_8ebf_627a0398b05a, inspectable);
-impl windows_core::RuntimeType for ISecondaryTileFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileFactory");
-}
+windows_core::imp::define_winrt_interface!(ISecondaryTileFactory, ISecondaryTileFactory_Vtbl, 0x57f52ca0_51bc_4abf_8ebf_627a0398b05a, b"Windows.UI.StartScreen.ISecondaryTileFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileFactory_Vtbl {
@@ -150,22 +122,14 @@ pub struct ISecondaryTileFactory_Vtbl {
     pub CreateWideTile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, TileOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTileFactory2, ISecondaryTileFactory2_Vtbl, 0x274b8a3b_522d_448e_9eb2_d0672ab345c8, inspectable);
-impl windows_core::RuntimeType for ISecondaryTileFactory2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileFactory2");
-}
+windows_core::imp::define_winrt_interface!(ISecondaryTileFactory2, ISecondaryTileFactory2_Vtbl, 0x274b8a3b_522d_448e_9eb2_d0672ab345c8, b"Windows.UI.StartScreen.ISecondaryTileFactory2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMinimalTile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, TileSize, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTileStatics, ISecondaryTileStatics_Vtbl, 0x99908dae_d051_4676_87fe_9ec242d83c74, inspectable);
-impl windows_core::RuntimeType for ISecondaryTileStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileStatics");
-}
+windows_core::imp::define_winrt_interface!(ISecondaryTileStatics, ISecondaryTileStatics_Vtbl, 0x99908dae_d051_4676_87fe_9ec242d83c74, b"Windows.UI.StartScreen.ISecondaryTileStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileStatics_Vtbl {
@@ -175,11 +139,7 @@ pub struct ISecondaryTileStatics_Vtbl {
     pub FindAllForApplicationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindAllForPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTileVisualElements, ISecondaryTileVisualElements_Vtbl, 0x1d8df333_815e_413f_9f50_a81da70a96b2, inspectable);
-impl windows_core::RuntimeType for ISecondaryTileVisualElements {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileVisualElements");
-}
+windows_core::imp::define_winrt_interface!(ISecondaryTileVisualElements, ISecondaryTileVisualElements_Vtbl, 0x1d8df333_815e_413f_9f50_a81da70a96b2, b"Windows.UI.StartScreen.ISecondaryTileVisualElements");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements_Vtbl {
@@ -205,11 +165,7 @@ pub struct ISecondaryTileVisualElements_Vtbl {
     pub SetShowNameOnSquare310x310Logo: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub ShowNameOnSquare310x310Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTileVisualElements2, ISecondaryTileVisualElements2_Vtbl, 0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef, inspectable);
-impl windows_core::RuntimeType for ISecondaryTileVisualElements2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileVisualElements2");
-}
+windows_core::imp::define_winrt_interface!(ISecondaryTileVisualElements2, ISecondaryTileVisualElements2_Vtbl, 0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef, b"Windows.UI.StartScreen.ISecondaryTileVisualElements2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements2_Vtbl {
@@ -217,11 +173,7 @@ pub struct ISecondaryTileVisualElements2_Vtbl {
     pub SetSquare71x71Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Square71x71Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTileVisualElements3, ISecondaryTileVisualElements3_Vtbl, 0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9, inspectable);
-impl windows_core::RuntimeType for ISecondaryTileVisualElements3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileVisualElements3");
-}
+windows_core::imp::define_winrt_interface!(ISecondaryTileVisualElements3, ISecondaryTileVisualElements3_Vtbl, 0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9, b"Windows.UI.StartScreen.ISecondaryTileVisualElements3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements3_Vtbl {
@@ -229,22 +181,14 @@ pub struct ISecondaryTileVisualElements3_Vtbl {
     pub SetSquare44x44Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Square44x44Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTileVisualElements4, ISecondaryTileVisualElements4_Vtbl, 0x66566117_b544_40d2_8d12_74d4ec24d04c, inspectable);
-impl windows_core::RuntimeType for ISecondaryTileVisualElements4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileVisualElements4");
-}
+windows_core::imp::define_winrt_interface!(ISecondaryTileVisualElements4, ISecondaryTileVisualElements4_Vtbl, 0x66566117_b544_40d2_8d12_74d4ec24d04c, b"Windows.UI.StartScreen.ISecondaryTileVisualElements4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MixedRealityModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStartScreenManager, IStartScreenManager_Vtbl, 0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29, inspectable);
-impl windows_core::RuntimeType for IStartScreenManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IStartScreenManager");
-}
+windows_core::imp::define_winrt_interface!(IStartScreenManager, IStartScreenManager_Vtbl, 0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29, b"Windows.UI.StartScreen.IStartScreenManager");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStartScreenManager_Vtbl {
@@ -266,11 +210,7 @@ pub struct IStartScreenManager_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Core"))]
     RequestAddAppListEntryAsync: usize,
 }
-windows_core::imp::define_interface!(IStartScreenManager2, IStartScreenManager2_Vtbl, 0x08a716b6_316b_4ad9_acb8_fe9cf00bd608, inspectable);
-impl windows_core::RuntimeType for IStartScreenManager2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IStartScreenManager2");
-}
+windows_core::imp::define_winrt_interface!(IStartScreenManager2, IStartScreenManager2_Vtbl, 0x08a716b6_316b_4ad9_acb8_fe9cf00bd608, b"Windows.UI.StartScreen.IStartScreenManager2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStartScreenManager2_Vtbl {
@@ -278,11 +218,7 @@ pub struct IStartScreenManager2_Vtbl {
     pub ContainsSecondaryTileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryRemoveSecondaryTileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStartScreenManagerStatics, IStartScreenManagerStatics_Vtbl, 0x7865ef0f_b585_464e_8993_34e8f8738d48, inspectable);
-impl windows_core::RuntimeType for IStartScreenManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IStartScreenManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IStartScreenManagerStatics, IStartScreenManagerStatics_Vtbl, 0x7865ef0f_b585_464e_8993_34e8f8738d48, b"Windows.UI.StartScreen.IStartScreenManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStartScreenManagerStatics_Vtbl {
@@ -293,11 +229,7 @@ pub struct IStartScreenManagerStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::define_interface!(ITileMixedRealityModel, ITileMixedRealityModel_Vtbl, 0xb0764e5b_887d_4242_9a19_3d0a4ea78031, inspectable);
-impl windows_core::RuntimeType for ITileMixedRealityModel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ITileMixedRealityModel");
-}
+windows_core::imp::define_winrt_interface!(ITileMixedRealityModel, ITileMixedRealityModel_Vtbl, 0xb0764e5b_887d_4242_9a19_3d0a4ea78031, b"Windows.UI.StartScreen.ITileMixedRealityModel");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileMixedRealityModel_Vtbl {
@@ -313,11 +245,7 @@ pub struct ITileMixedRealityModel_Vtbl {
     #[cfg(not(feature = "Perception_Spatial"))]
     BoundingBox: usize,
 }
-windows_core::imp::define_interface!(ITileMixedRealityModel2, ITileMixedRealityModel2_Vtbl, 0x439470b2_d7c5_410b_8319_9486a27b6c67, inspectable);
-impl windows_core::RuntimeType for ITileMixedRealityModel2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ITileMixedRealityModel2");
-}
+windows_core::imp::define_winrt_interface!(ITileMixedRealityModel2, ITileMixedRealityModel2_Vtbl, 0x439470b2_d7c5_410b_8319_9486a27b6c67, b"Windows.UI.StartScreen.ITileMixedRealityModel2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileMixedRealityModel2_Vtbl {
@@ -325,11 +253,7 @@ pub struct ITileMixedRealityModel2_Vtbl {
     pub SetActivationBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, TileMixedRealityModelActivationBehavior) -> windows_core::HRESULT,
     pub ActivationBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TileMixedRealityModelActivationBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVisualElementsRequest, IVisualElementsRequest_Vtbl, 0xc138333a_9308_4072_88cc_d068db347c68, inspectable);
-impl windows_core::RuntimeType for IVisualElementsRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IVisualElementsRequest");
-}
+windows_core::imp::define_winrt_interface!(IVisualElementsRequest, IVisualElementsRequest_Vtbl, 0xc138333a_9308_4072_88cc_d068db347c68, b"Windows.UI.StartScreen.IVisualElementsRequest");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElementsRequest_Vtbl {
@@ -339,22 +263,14 @@ pub struct IVisualElementsRequest_Vtbl {
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVisualElementsRequestDeferral, IVisualElementsRequestDeferral_Vtbl, 0xa1656eb0_0126_4357_8204_bd82bb2a046d, inspectable);
-impl windows_core::RuntimeType for IVisualElementsRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IVisualElementsRequestDeferral");
-}
+windows_core::imp::define_winrt_interface!(IVisualElementsRequestDeferral, IVisualElementsRequestDeferral_Vtbl, 0xa1656eb0_0126_4357_8204_bd82bb2a046d, b"Windows.UI.StartScreen.IVisualElementsRequestDeferral");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElementsRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVisualElementsRequestedEventArgs, IVisualElementsRequestedEventArgs_Vtbl, 0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d, inspectable);
-impl windows_core::RuntimeType for IVisualElementsRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IVisualElementsRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IVisualElementsRequestedEventArgs, IVisualElementsRequestedEventArgs_Vtbl, 0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d, b"Windows.UI.StartScreen.IVisualElementsRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElementsRequestedEventArgs_Vtbl {

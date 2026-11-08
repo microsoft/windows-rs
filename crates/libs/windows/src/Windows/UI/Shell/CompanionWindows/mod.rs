@@ -169,11 +169,7 @@ impl windows_core::RuntimeType for CompanionWindowRequestResultStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.CompanionWindows.CompanionWindowRequestResultStatus;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.CompanionWindowRequestResultStatus");
 }
-windows_core::imp::define_interface!(ICompanionWindowCoordinator, ICompanionWindowCoordinator_Vtbl, 0x05620e87_b0f7_59ba_b3a5_d614bdc1ebe3, inspectable);
-impl windows_core::RuntimeType for ICompanionWindowCoordinator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.ICompanionWindowCoordinator");
-}
+windows_core::imp::define_winrt_interface!(ICompanionWindowCoordinator, ICompanionWindowCoordinator_Vtbl, 0x05620e87_b0f7_59ba_b3a5_d614bdc1ebe3, b"Windows.UI.Shell.CompanionWindows.ICompanionWindowCoordinator");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompanionWindowCoordinator_Vtbl {
@@ -184,22 +180,14 @@ pub struct ICompanionWindowCoordinator_Vtbl {
     pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompanionWindowCoordinatorStatics, ICompanionWindowCoordinatorStatics_Vtbl, 0x964022fa_380e_518c_bfc8_0f3b84fafea3, inspectable);
-impl windows_core::RuntimeType for ICompanionWindowCoordinatorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.ICompanionWindowCoordinatorStatics");
-}
+windows_core::imp::define_winrt_interface!(ICompanionWindowCoordinatorStatics, ICompanionWindowCoordinatorStatics_Vtbl, 0x964022fa_380e_518c_bfc8_0f3b84fafea3, b"Windows.UI.Shell.CompanionWindows.ICompanionWindowCoordinatorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompanionWindowCoordinatorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::WindowId, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompanionWindowRequest, ICompanionWindowRequest_Vtbl, 0xd92c351a_2d66_59a8_b345_78489562c4d8, inspectable);
-impl windows_core::RuntimeType for ICompanionWindowRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.ICompanionWindowRequest");
-}
+windows_core::imp::define_winrt_interface!(ICompanionWindowRequest, ICompanionWindowRequest_Vtbl, 0xd92c351a_2d66_59a8_b345_78489562c4d8, b"Windows.UI.Shell.CompanionWindows.ICompanionWindowRequest");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompanionWindowRequest_Vtbl {
@@ -209,11 +197,7 @@ pub struct ICompanionWindowRequest_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestingWindowId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::WindowId) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompanionWindowRequestResult, ICompanionWindowRequestResult_Vtbl, 0xd728d2ef_e6d4_5cc0_9ff4_20c17a2ce72d, inspectable);
-impl windows_core::RuntimeType for ICompanionWindowRequestResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.ICompanionWindowRequestResult");
-}
+windows_core::imp::define_winrt_interface!(ICompanionWindowRequestResult, ICompanionWindowRequestResult_Vtbl, 0xd728d2ef_e6d4_5cc0_9ff4_20c17a2ce72d, b"Windows.UI.Shell.CompanionWindows.ICompanionWindowRequestResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompanionWindowRequestResult_Vtbl {
@@ -223,11 +207,7 @@ pub struct ICompanionWindowRequestResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub CompanionWindowId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::WindowId) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompanionWindowRequestStatics, ICompanionWindowRequestStatics_Vtbl, 0x585e4544_d474_506a_96c2_3597a44882da, inspectable);
-impl windows_core::RuntimeType for ICompanionWindowRequestStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.ICompanionWindowRequestStatics");
-}
+windows_core::imp::define_winrt_interface!(ICompanionWindowRequestStatics, ICompanionWindowRequestStatics_Vtbl, 0x585e4544_d474_506a_96c2_3597a44882da, b"Windows.UI.Shell.CompanionWindows.ICompanionWindowRequestStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompanionWindowRequestStatics_Vtbl {

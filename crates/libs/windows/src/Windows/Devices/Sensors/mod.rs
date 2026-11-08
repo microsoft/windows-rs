@@ -2325,11 +2325,7 @@ impl windows_core::RuntimeName for HumanPresenceSettings {
 }
 unsafe impl Send for HumanPresenceSettings {}
 unsafe impl Sync for HumanPresenceSettings {}
-windows_core::imp::define_interface!(IAccelerometer, IAccelerometer_Vtbl, 0xdf184548_2711_4da7_8098_4b82205d3c7d, inspectable);
-impl windows_core::RuntimeType for IAccelerometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometer");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometer, IAccelerometer_Vtbl, 0xdf184548_2711_4da7_8098_4b82205d3c7d, b"Windows.Devices.Sensors.IAccelerometer");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometer_Vtbl {
@@ -2343,11 +2339,7 @@ pub struct IAccelerometer_Vtbl {
     pub Shaken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveShaken: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometer2, IAccelerometer2_Vtbl, 0xe8f092ee_4964_401a_b602_220d7153c60a, inspectable);
-impl windows_core::RuntimeType for IAccelerometer2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometer2");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometer2, IAccelerometer2_Vtbl, 0xe8f092ee_4964_401a_b602_220d7153c60a, b"Windows.Devices.Sensors.IAccelerometer2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometer2_Vtbl {
@@ -2361,11 +2353,7 @@ pub struct IAccelerometer2_Vtbl {
     #[cfg(not(feature = "Graphics_Display"))]
     ReadingTransform: usize,
 }
-windows_core::imp::define_interface!(IAccelerometer3, IAccelerometer3_Vtbl, 0x87e0022a_ed80_49eb_bf8a_a4ea31e5cd84, inspectable);
-impl windows_core::RuntimeType for IAccelerometer3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometer3");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometer3, IAccelerometer3_Vtbl, 0x87e0022a_ed80_49eb_bf8a_a4ea31e5cd84, b"Windows.Devices.Sensors.IAccelerometer3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometer3_Vtbl {
@@ -2374,33 +2362,21 @@ pub struct IAccelerometer3_Vtbl {
     pub ReportLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MaxBatchSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometer4, IAccelerometer4_Vtbl, 0x1d373c4f_42d3_45b2_8144_ab7fb665eb59, inspectable);
-impl windows_core::RuntimeType for IAccelerometer4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometer4");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometer4, IAccelerometer4_Vtbl, 0x1d373c4f_42d3_45b2_8144_ab7fb665eb59, b"Windows.Devices.Sensors.IAccelerometer4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometer4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadingType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AccelerometerReadingType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometer5, IAccelerometer5_Vtbl, 0x7e7e7021_def4_53a6_af43_806fd538edf6, inspectable);
-impl windows_core::RuntimeType for IAccelerometer5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometer5");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometer5, IAccelerometer5_Vtbl, 0x7e7e7021_def4_53a6_af43_806fd538edf6, b"Windows.Devices.Sensors.IAccelerometer5");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometer5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometerDataThreshold, IAccelerometerDataThreshold_Vtbl, 0xf92c1b68_6320_5577_879e_9942621c3dd9, inspectable);
-impl windows_core::RuntimeType for IAccelerometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometerDataThreshold");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometerDataThreshold, IAccelerometerDataThreshold_Vtbl, 0xf92c1b68_6320_5577_879e_9942621c3dd9, b"Windows.Devices.Sensors.IAccelerometerDataThreshold");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerDataThreshold_Vtbl {
@@ -2412,22 +2388,14 @@ pub struct IAccelerometerDataThreshold_Vtbl {
     pub ZAxisInGForce: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetZAxisInGForce: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometerDeviceId, IAccelerometerDeviceId_Vtbl, 0x7eac64a9_97d5_446d_ab5a_917df9b96a2c, inspectable);
-impl windows_core::RuntimeType for IAccelerometerDeviceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometerDeviceId");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometerDeviceId, IAccelerometerDeviceId_Vtbl, 0x7eac64a9_97d5_446d_ab5a_917df9b96a2c, b"Windows.Devices.Sensors.IAccelerometerDeviceId");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerDeviceId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometerReading, IAccelerometerReading_Vtbl, 0xb9fe7acb_d351_40af_8bb6_7aa9ae641fb7, inspectable);
-impl windows_core::RuntimeType for IAccelerometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometerReading");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometerReading, IAccelerometerReading_Vtbl, 0xb9fe7acb_d351_40af_8bb6_7aa9ae641fb7, b"Windows.Devices.Sensors.IAccelerometerReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerReading_Vtbl {
@@ -2437,11 +2405,7 @@ pub struct IAccelerometerReading_Vtbl {
     pub AccelerationY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub AccelerationZ: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometerReading2, IAccelerometerReading2_Vtbl, 0x0a864aa2_15ae_4a40_be55_db58d7de7389, inspectable);
-impl windows_core::RuntimeType for IAccelerometerReading2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometerReading2");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometerReading2, IAccelerometerReading2_Vtbl, 0x0a864aa2_15ae_4a40_be55_db58d7de7389, b"Windows.Devices.Sensors.IAccelerometerReading2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerReading2_Vtbl {
@@ -2449,55 +2413,35 @@ pub struct IAccelerometerReading2_Vtbl {
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometerReadingChangedEventArgs, IAccelerometerReadingChangedEventArgs_Vtbl, 0x0095c65b_b6ac_475a_9f44_8b32d35a3f25, inspectable);
-impl windows_core::RuntimeType for IAccelerometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometerReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometerReadingChangedEventArgs, IAccelerometerReadingChangedEventArgs_Vtbl, 0x0095c65b_b6ac_475a_9f44_8b32d35a3f25, b"Windows.Devices.Sensors.IAccelerometerReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometerShakenEventArgs, IAccelerometerShakenEventArgs_Vtbl, 0x95ff01d1_4a28_4f35_98e8_8178aae4084a, inspectable);
-impl windows_core::RuntimeType for IAccelerometerShakenEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometerShakenEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometerShakenEventArgs, IAccelerometerShakenEventArgs_Vtbl, 0x95ff01d1_4a28_4f35_98e8_8178aae4084a, b"Windows.Devices.Sensors.IAccelerometerShakenEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerShakenEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometerStatics, IAccelerometerStatics_Vtbl, 0xa5e28b74_5a87_4a2d_becc_0f906ea061dd, inspectable);
-impl windows_core::RuntimeType for IAccelerometerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometerStatics");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometerStatics, IAccelerometerStatics_Vtbl, 0xa5e28b74_5a87_4a2d_becc_0f906ea061dd, b"Windows.Devices.Sensors.IAccelerometerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometerStatics2, IAccelerometerStatics2_Vtbl, 0xc4c4842f_d86b_4685_b2d7_3396f798d57b, inspectable);
-impl windows_core::RuntimeType for IAccelerometerStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometerStatics2");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometerStatics2, IAccelerometerStatics2_Vtbl, 0xc4c4842f_d86b_4685_b2d7_3396f798d57b, b"Windows.Devices.Sensors.IAccelerometerStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefaultWithAccelerometerReadingType: unsafe extern "system" fn(*mut core::ffi::c_void, AccelerometerReadingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAccelerometerStatics3, IAccelerometerStatics3_Vtbl, 0x9de218cf_455d_4cf3_8200_70e1410340f8, inspectable);
-impl windows_core::RuntimeType for IAccelerometerStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAccelerometerStatics3");
-}
+windows_core::imp::define_winrt_interface!(IAccelerometerStatics3, IAccelerometerStatics3_Vtbl, 0x9de218cf_455d_4cf3_8200_70e1410340f8, b"Windows.Devices.Sensors.IAccelerometerStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerStatics3_Vtbl {
@@ -2505,11 +2449,7 @@ pub struct IAccelerometerStatics3_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, AccelerometerReadingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActivitySensor, IActivitySensor_Vtbl, 0xcd7a630c_fb5f_48eb_b09b_a2708d1c61ef, inspectable);
-impl windows_core::RuntimeType for IActivitySensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IActivitySensor");
-}
+windows_core::imp::define_winrt_interface!(IActivitySensor, IActivitySensor_Vtbl, 0xcd7a630c_fb5f_48eb_b09b_a2708d1c61ef, b"Windows.Devices.Sensors.IActivitySensor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensor_Vtbl {
@@ -2523,11 +2463,7 @@ pub struct IActivitySensor_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActivitySensorReading, IActivitySensorReading_Vtbl, 0x85125a96_1472_40a2_b2ae_e1ef29226c78, inspectable);
-impl windows_core::RuntimeType for IActivitySensorReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IActivitySensorReading");
-}
+windows_core::imp::define_winrt_interface!(IActivitySensorReading, IActivitySensorReading_Vtbl, 0x85125a96_1472_40a2_b2ae_e1ef29226c78, b"Windows.Devices.Sensors.IActivitySensorReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorReading_Vtbl {
@@ -2536,33 +2472,21 @@ pub struct IActivitySensorReading_Vtbl {
     pub Activity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ActivityType) -> windows_core::HRESULT,
     pub Confidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ActivitySensorReadingConfidence) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActivitySensorReadingChangeReport, IActivitySensorReadingChangeReport_Vtbl, 0x4f3c2915_d93b_47bd_960a_f20fb2f322b9, inspectable);
-impl windows_core::RuntimeType for IActivitySensorReadingChangeReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IActivitySensorReadingChangeReport");
-}
+windows_core::imp::define_winrt_interface!(IActivitySensorReadingChangeReport, IActivitySensorReadingChangeReport_Vtbl, 0x4f3c2915_d93b_47bd_960a_f20fb2f322b9, b"Windows.Devices.Sensors.IActivitySensorReadingChangeReport");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorReadingChangeReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActivitySensorReadingChangedEventArgs, IActivitySensorReadingChangedEventArgs_Vtbl, 0xde386717_aeb6_4ec7_946a_d9cc19b951ec, inspectable);
-impl windows_core::RuntimeType for IActivitySensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IActivitySensorReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IActivitySensorReadingChangedEventArgs, IActivitySensorReadingChangedEventArgs_Vtbl, 0xde386717_aeb6_4ec7_946a_d9cc19b951ec, b"Windows.Devices.Sensors.IActivitySensorReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActivitySensorStatics, IActivitySensorStatics_Vtbl, 0xa71e0e9d_ee8b_45d1_b25b_08cc0df92ab6, inspectable);
-impl windows_core::RuntimeType for IActivitySensorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IActivitySensorStatics");
-}
+windows_core::imp::define_winrt_interface!(IActivitySensorStatics, IActivitySensorStatics_Vtbl, 0xa71e0e9d_ee8b_45d1_b25b_08cc0df92ab6, b"Windows.Devices.Sensors.IActivitySensorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorStatics_Vtbl {
@@ -2573,22 +2497,14 @@ pub struct IActivitySensorStatics_Vtbl {
     pub GetSystemHistoryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSystemHistoryWithDurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActivitySensorTriggerDetails, IActivitySensorTriggerDetails_Vtbl, 0x2c9e6612_b9ca_4677_b263_243297f79d3a, inspectable);
-impl windows_core::RuntimeType for IActivitySensorTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IActivitySensorTriggerDetails");
-}
+windows_core::imp::define_winrt_interface!(IActivitySensorTriggerDetails, IActivitySensorTriggerDetails_Vtbl, 0x2c9e6612_b9ca_4677_b263_243297f79d3a, b"Windows.Devices.Sensors.IActivitySensorTriggerDetails");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadReports: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveDimmingOptions, IAdaptiveDimmingOptions_Vtbl, 0xd3213cf7_89b5_5732_b2a0_aefe324f54e6, inspectable);
-impl windows_core::RuntimeType for IAdaptiveDimmingOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAdaptiveDimmingOptions");
-}
+windows_core::imp::define_winrt_interface!(IAdaptiveDimmingOptions, IAdaptiveDimmingOptions_Vtbl, 0xd3213cf7_89b5_5732_b2a0_aefe324f54e6, b"Windows.Devices.Sensors.IAdaptiveDimmingOptions");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveDimmingOptions_Vtbl {
@@ -2596,11 +2512,7 @@ pub struct IAdaptiveDimmingOptions_Vtbl {
     pub AllowWhenExternalDisplayConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowWhenExternalDisplayConnected: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAltimeter, IAltimeter_Vtbl, 0x72f057fd_8f04_49f1_b4a7_f4e363b701a2, inspectable);
-impl windows_core::RuntimeType for IAltimeter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAltimeter");
-}
+windows_core::imp::define_winrt_interface!(IAltimeter, IAltimeter_Vtbl, 0x72f057fd_8f04_49f1_b4a7_f4e363b701a2, b"Windows.Devices.Sensors.IAltimeter");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAltimeter_Vtbl {
@@ -2613,11 +2525,7 @@ pub struct IAltimeter_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAltimeter2, IAltimeter2_Vtbl, 0xc9471bf9_2add_48f5_9f08_3d0c7660d938, inspectable);
-impl windows_core::RuntimeType for IAltimeter2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAltimeter2");
-}
+windows_core::imp::define_winrt_interface!(IAltimeter2, IAltimeter2_Vtbl, 0xc9471bf9_2add_48f5_9f08_3d0c7660d938, b"Windows.Devices.Sensors.IAltimeter2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAltimeter2_Vtbl {
@@ -2626,11 +2534,7 @@ pub struct IAltimeter2_Vtbl {
     pub ReportLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MaxBatchSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAltimeterReading, IAltimeterReading_Vtbl, 0xfbe8ef73_7f5e_48c8_aa1a_f1f3befc1144, inspectable);
-impl windows_core::RuntimeType for IAltimeterReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAltimeterReading");
-}
+windows_core::imp::define_winrt_interface!(IAltimeterReading, IAltimeterReading_Vtbl, 0xfbe8ef73_7f5e_48c8_aa1a_f1f3befc1144, b"Windows.Devices.Sensors.IAltimeterReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAltimeterReading_Vtbl {
@@ -2638,11 +2542,7 @@ pub struct IAltimeterReading_Vtbl {
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub AltitudeChangeInMeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAltimeterReading2, IAltimeterReading2_Vtbl, 0x543a1bd9_6d0b_42b2_bd69_bc8fae0f782c, inspectable);
-impl windows_core::RuntimeType for IAltimeterReading2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAltimeterReading2");
-}
+windows_core::imp::define_winrt_interface!(IAltimeterReading2, IAltimeterReading2_Vtbl, 0x543a1bd9_6d0b_42b2_bd69_bc8fae0f782c, b"Windows.Devices.Sensors.IAltimeterReading2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAltimeterReading2_Vtbl {
@@ -2650,33 +2550,21 @@ pub struct IAltimeterReading2_Vtbl {
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAltimeterReadingChangedEventArgs, IAltimeterReadingChangedEventArgs_Vtbl, 0x7069d077_446d_47f7_998c_ebc23b45e4a2, inspectable);
-impl windows_core::RuntimeType for IAltimeterReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAltimeterReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAltimeterReadingChangedEventArgs, IAltimeterReadingChangedEventArgs_Vtbl, 0x7069d077_446d_47f7_998c_ebc23b45e4a2, b"Windows.Devices.Sensors.IAltimeterReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAltimeterReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAltimeterStatics, IAltimeterStatics_Vtbl, 0x9eb4d7c3_e5ac_47ce_8eef_d3718168c01f, inspectable);
-impl windows_core::RuntimeType for IAltimeterStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IAltimeterStatics");
-}
+windows_core::imp::define_winrt_interface!(IAltimeterStatics, IAltimeterStatics_Vtbl, 0x9eb4d7c3_e5ac_47ce_8eef_d3718168c01f, b"Windows.Devices.Sensors.IAltimeterStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAltimeterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBarometer, IBarometer_Vtbl, 0x934475a8_78bf_452f_b017_f0209ce6dab4, inspectable);
-impl windows_core::RuntimeType for IBarometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IBarometer");
-}
+windows_core::imp::define_winrt_interface!(IBarometer, IBarometer_Vtbl, 0x934475a8_78bf_452f_b017_f0209ce6dab4, b"Windows.Devices.Sensors.IBarometer");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometer_Vtbl {
@@ -2689,11 +2577,7 @@ pub struct IBarometer_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBarometer2, IBarometer2_Vtbl, 0x32bcc418_3eeb_4d04_9574_7633a8781f9f, inspectable);
-impl windows_core::RuntimeType for IBarometer2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IBarometer2");
-}
+windows_core::imp::define_winrt_interface!(IBarometer2, IBarometer2_Vtbl, 0x32bcc418_3eeb_4d04_9574_7633a8781f9f, b"Windows.Devices.Sensors.IBarometer2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometer2_Vtbl {
@@ -2702,22 +2586,14 @@ pub struct IBarometer2_Vtbl {
     pub ReportLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MaxBatchSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBarometer3, IBarometer3_Vtbl, 0x0e35f0ea_02b5_5a04_b03d_822084863a54, inspectable);
-impl windows_core::RuntimeType for IBarometer3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IBarometer3");
-}
+windows_core::imp::define_winrt_interface!(IBarometer3, IBarometer3_Vtbl, 0x0e35f0ea_02b5_5a04_b03d_822084863a54, b"Windows.Devices.Sensors.IBarometer3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometer3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBarometerDataThreshold, IBarometerDataThreshold_Vtbl, 0x076b952c_cb62_5a90_a0d1_f85e4a936394, inspectable);
-impl windows_core::RuntimeType for IBarometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IBarometerDataThreshold");
-}
+windows_core::imp::define_winrt_interface!(IBarometerDataThreshold, IBarometerDataThreshold_Vtbl, 0x076b952c_cb62_5a90_a0d1_f85e4a936394, b"Windows.Devices.Sensors.IBarometerDataThreshold");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometerDataThreshold_Vtbl {
@@ -2725,11 +2601,7 @@ pub struct IBarometerDataThreshold_Vtbl {
     pub Hectopascals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetHectopascals: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBarometerReading, IBarometerReading_Vtbl, 0xf5b9d2e6_1df6_4a1a_a7ad_321d4f5db247, inspectable);
-impl windows_core::RuntimeType for IBarometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IBarometerReading");
-}
+windows_core::imp::define_winrt_interface!(IBarometerReading, IBarometerReading_Vtbl, 0xf5b9d2e6_1df6_4a1a_a7ad_321d4f5db247, b"Windows.Devices.Sensors.IBarometerReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometerReading_Vtbl {
@@ -2737,11 +2609,7 @@ pub struct IBarometerReading_Vtbl {
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub StationPressureInHectopascals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBarometerReading2, IBarometerReading2_Vtbl, 0x85a244eb_90c5_4875_891c_3865b4c357e7, inspectable);
-impl windows_core::RuntimeType for IBarometerReading2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IBarometerReading2");
-}
+windows_core::imp::define_winrt_interface!(IBarometerReading2, IBarometerReading2_Vtbl, 0x85a244eb_90c5_4875_891c_3865b4c357e7, b"Windows.Devices.Sensors.IBarometerReading2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometerReading2_Vtbl {
@@ -2749,33 +2617,21 @@ pub struct IBarometerReading2_Vtbl {
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBarometerReadingChangedEventArgs, IBarometerReadingChangedEventArgs_Vtbl, 0x3d84945f_037b_404f_9bbb_6232d69543c3, inspectable);
-impl windows_core::RuntimeType for IBarometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IBarometerReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IBarometerReadingChangedEventArgs, IBarometerReadingChangedEventArgs_Vtbl, 0x3d84945f_037b_404f_9bbb_6232d69543c3, b"Windows.Devices.Sensors.IBarometerReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometerReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBarometerStatics, IBarometerStatics_Vtbl, 0x286b270a_02e3_4f86_84fc_fdd892b5940f, inspectable);
-impl windows_core::RuntimeType for IBarometerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IBarometerStatics");
-}
+windows_core::imp::define_winrt_interface!(IBarometerStatics, IBarometerStatics_Vtbl, 0x286b270a_02e3_4f86_84fc_fdd892b5940f, b"Windows.Devices.Sensors.IBarometerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBarometerStatics2, IBarometerStatics2_Vtbl, 0x8fc6b1e7_95ff_44ac_878e_d65c8308c34c, inspectable);
-impl windows_core::RuntimeType for IBarometerStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IBarometerStatics2");
-}
+windows_core::imp::define_winrt_interface!(IBarometerStatics2, IBarometerStatics2_Vtbl, 0x8fc6b1e7_95ff_44ac_878e_d65c8308c34c, b"Windows.Devices.Sensors.IBarometerStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometerStatics2_Vtbl {
@@ -2783,11 +2639,7 @@ pub struct IBarometerStatics2_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompass, ICompass_Vtbl, 0x292ffa94_1b45_403c_ba06_b106dba69a64, inspectable);
-impl windows_core::RuntimeType for ICompass {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompass");
-}
+windows_core::imp::define_winrt_interface!(ICompass, ICompass_Vtbl, 0x292ffa94_1b45_403c_ba06_b106dba69a64, b"Windows.Devices.Sensors.ICompass");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompass_Vtbl {
@@ -2799,11 +2651,7 @@ pub struct ICompass_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompass2, ICompass2_Vtbl, 0x36f26d09_c7d7_434f_b461_979ddfc2322f, inspectable);
-impl windows_core::RuntimeType for ICompass2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompass2");
-}
+windows_core::imp::define_winrt_interface!(ICompass2, ICompass2_Vtbl, 0x36f26d09_c7d7_434f_b461_979ddfc2322f, b"Windows.Devices.Sensors.ICompass2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompass2_Vtbl {
@@ -2817,11 +2665,7 @@ pub struct ICompass2_Vtbl {
     #[cfg(not(feature = "Graphics_Display"))]
     ReadingTransform: usize,
 }
-windows_core::imp::define_interface!(ICompass3, ICompass3_Vtbl, 0xa424801b_c5ea_4d45_a0ec_4b791f041a89, inspectable);
-impl windows_core::RuntimeType for ICompass3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompass3");
-}
+windows_core::imp::define_winrt_interface!(ICompass3, ICompass3_Vtbl, 0xa424801b_c5ea_4d45_a0ec_4b791f041a89, b"Windows.Devices.Sensors.ICompass3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompass3_Vtbl {
@@ -2830,22 +2674,14 @@ pub struct ICompass3_Vtbl {
     pub ReportLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MaxBatchSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompass4, ICompass4_Vtbl, 0x291e7f11_ec32_5dcc_bfcb_0bb39eba5774, inspectable);
-impl windows_core::RuntimeType for ICompass4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompass4");
-}
+windows_core::imp::define_winrt_interface!(ICompass4, ICompass4_Vtbl, 0x291e7f11_ec32_5dcc_bfcb_0bb39eba5774, b"Windows.Devices.Sensors.ICompass4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompass4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompassDataThreshold, ICompassDataThreshold_Vtbl, 0xd15b52b3_d39d_5ec8_b2e4_f193e6ab34ed, inspectable);
-impl windows_core::RuntimeType for ICompassDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompassDataThreshold");
-}
+windows_core::imp::define_winrt_interface!(ICompassDataThreshold, ICompassDataThreshold_Vtbl, 0xd15b52b3_d39d_5ec8_b2e4_f193e6ab34ed, b"Windows.Devices.Sensors.ICompassDataThreshold");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassDataThreshold_Vtbl {
@@ -2853,22 +2689,14 @@ pub struct ICompassDataThreshold_Vtbl {
     pub Degrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompassDeviceId, ICompassDeviceId_Vtbl, 0xd181ca29_b085_4b1d_870a_4ff57ba74fd4, inspectable);
-impl windows_core::RuntimeType for ICompassDeviceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompassDeviceId");
-}
+windows_core::imp::define_winrt_interface!(ICompassDeviceId, ICompassDeviceId_Vtbl, 0xd181ca29_b085_4b1d_870a_4ff57ba74fd4, b"Windows.Devices.Sensors.ICompassDeviceId");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassDeviceId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompassReading, ICompassReading_Vtbl, 0x82911128_513d_4dc9_b781_5eedfbf02d0c, inspectable);
-impl windows_core::RuntimeType for ICompassReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompassReading");
-}
+windows_core::imp::define_winrt_interface!(ICompassReading, ICompassReading_Vtbl, 0x82911128_513d_4dc9_b781_5eedfbf02d0c, b"Windows.Devices.Sensors.ICompassReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassReading_Vtbl {
@@ -2877,11 +2705,7 @@ pub struct ICompassReading_Vtbl {
     pub HeadingMagneticNorth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub HeadingTrueNorth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompassReading2, ICompassReading2_Vtbl, 0xb13a661e_51bb_4a12_bedd_ad47ff87d2e8, inspectable);
-impl windows_core::RuntimeType for ICompassReading2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompassReading2");
-}
+windows_core::imp::define_winrt_interface!(ICompassReading2, ICompassReading2_Vtbl, 0xb13a661e_51bb_4a12_bedd_ad47ff87d2e8, b"Windows.Devices.Sensors.ICompassReading2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassReading2_Vtbl {
@@ -2889,44 +2713,28 @@ pub struct ICompassReading2_Vtbl {
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompassReadingChangedEventArgs, ICompassReadingChangedEventArgs_Vtbl, 0x8f1549b0_e8bc_4c7e_b009_4e41df137072, inspectable);
-impl windows_core::RuntimeType for ICompassReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompassReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ICompassReadingChangedEventArgs, ICompassReadingChangedEventArgs_Vtbl, 0x8f1549b0_e8bc_4c7e_b009_4e41df137072, b"Windows.Devices.Sensors.ICompassReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompassReadingHeadingAccuracy, ICompassReadingHeadingAccuracy_Vtbl, 0xe761354e_8911_40f7_9e16_6ecc7daec5de, inspectable);
-impl windows_core::RuntimeType for ICompassReadingHeadingAccuracy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompassReadingHeadingAccuracy");
-}
+windows_core::imp::define_winrt_interface!(ICompassReadingHeadingAccuracy, ICompassReadingHeadingAccuracy_Vtbl, 0xe761354e_8911_40f7_9e16_6ecc7daec5de, b"Windows.Devices.Sensors.ICompassReadingHeadingAccuracy");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassReadingHeadingAccuracy_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HeadingAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MagnetometerAccuracy) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompassStatics, ICompassStatics_Vtbl, 0x9abc97df_56ec_4c25_b54d_40a68bb5b269, inspectable);
-impl windows_core::RuntimeType for ICompassStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompassStatics");
-}
+windows_core::imp::define_winrt_interface!(ICompassStatics, ICompassStatics_Vtbl, 0x9abc97df_56ec_4c25_b54d_40a68bb5b269, b"Windows.Devices.Sensors.ICompassStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompassStatics2, ICompassStatics2_Vtbl, 0x0ace0ead_3baa_4990_9ce4_be0913754ed2, inspectable);
-impl windows_core::RuntimeType for ICompassStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ICompassStatics2");
-}
+windows_core::imp::define_winrt_interface!(ICompassStatics2, ICompassStatics2_Vtbl, 0x0ace0ead_3baa_4990_9ce4_be0913754ed2, b"Windows.Devices.Sensors.ICompassStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassStatics2_Vtbl {
@@ -2934,11 +2742,7 @@ pub struct ICompassStatics2_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDetectedPerson, IDetectedPerson_Vtbl, 0x168cc0d9_3f05_5029_a0bf_cdcab4be3f9e, inspectable);
-impl windows_core::RuntimeType for IDetectedPerson {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IDetectedPerson");
-}
+windows_core::imp::define_winrt_interface!(IDetectedPerson, IDetectedPerson_Vtbl, 0x168cc0d9_3f05_5029_a0bf_cdcab4be3f9e, b"Windows.Devices.Sensors.IDetectedPerson");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectedPerson_Vtbl {
@@ -2949,11 +2753,7 @@ pub struct IDetectedPerson_Vtbl {
     pub HeadPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PersonId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGyrometer, IGyrometer_Vtbl, 0xfdb9a9c4_84b1_4ca2_9763_9b589506c70c, inspectable);
-impl windows_core::RuntimeType for IGyrometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometer");
-}
+windows_core::imp::define_winrt_interface!(IGyrometer, IGyrometer_Vtbl, 0xfdb9a9c4_84b1_4ca2_9763_9b589506c70c, b"Windows.Devices.Sensors.IGyrometer");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometer_Vtbl {
@@ -2965,11 +2765,7 @@ pub struct IGyrometer_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGyrometer2, IGyrometer2_Vtbl, 0x63df2443_8ce8_41c3_ac44_8698810b557f, inspectable);
-impl windows_core::RuntimeType for IGyrometer2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometer2");
-}
+windows_core::imp::define_winrt_interface!(IGyrometer2, IGyrometer2_Vtbl, 0x63df2443_8ce8_41c3_ac44_8698810b557f, b"Windows.Devices.Sensors.IGyrometer2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometer2_Vtbl {
@@ -2983,11 +2779,7 @@ pub struct IGyrometer2_Vtbl {
     #[cfg(not(feature = "Graphics_Display"))]
     ReadingTransform: usize,
 }
-windows_core::imp::define_interface!(IGyrometer3, IGyrometer3_Vtbl, 0x5d6f88d5_8fbc_4484_914b_528adfd947b1, inspectable);
-impl windows_core::RuntimeType for IGyrometer3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometer3");
-}
+windows_core::imp::define_winrt_interface!(IGyrometer3, IGyrometer3_Vtbl, 0x5d6f88d5_8fbc_4484_914b_528adfd947b1, b"Windows.Devices.Sensors.IGyrometer3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometer3_Vtbl {
@@ -2996,22 +2788,14 @@ pub struct IGyrometer3_Vtbl {
     pub ReportLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MaxBatchSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGyrometer4, IGyrometer4_Vtbl, 0x0628a60c_4c4b_5096_94e6_c356df68bef7, inspectable);
-impl windows_core::RuntimeType for IGyrometer4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometer4");
-}
+windows_core::imp::define_winrt_interface!(IGyrometer4, IGyrometer4_Vtbl, 0x0628a60c_4c4b_5096_94e6_c356df68bef7, b"Windows.Devices.Sensors.IGyrometer4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometer4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGyrometerDataThreshold, IGyrometerDataThreshold_Vtbl, 0x8648b31e_6e52_5259_bbad_242a69dc38c8, inspectable);
-impl windows_core::RuntimeType for IGyrometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometerDataThreshold");
-}
+windows_core::imp::define_winrt_interface!(IGyrometerDataThreshold, IGyrometerDataThreshold_Vtbl, 0x8648b31e_6e52_5259_bbad_242a69dc38c8, b"Windows.Devices.Sensors.IGyrometerDataThreshold");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerDataThreshold_Vtbl {
@@ -3023,22 +2807,14 @@ pub struct IGyrometerDataThreshold_Vtbl {
     pub ZAxisInDegreesPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetZAxisInDegreesPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGyrometerDeviceId, IGyrometerDeviceId_Vtbl, 0x1ee5e978_89a2_4275_9e95_7126f4708760, inspectable);
-impl windows_core::RuntimeType for IGyrometerDeviceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometerDeviceId");
-}
+windows_core::imp::define_winrt_interface!(IGyrometerDeviceId, IGyrometerDeviceId_Vtbl, 0x1ee5e978_89a2_4275_9e95_7126f4708760, b"Windows.Devices.Sensors.IGyrometerDeviceId");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerDeviceId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGyrometerReading, IGyrometerReading_Vtbl, 0xb3d6de5c_1ee4_456f_9de7_e2493b5c8e03, inspectable);
-impl windows_core::RuntimeType for IGyrometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometerReading");
-}
+windows_core::imp::define_winrt_interface!(IGyrometerReading, IGyrometerReading_Vtbl, 0xb3d6de5c_1ee4_456f_9de7_e2493b5c8e03, b"Windows.Devices.Sensors.IGyrometerReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerReading_Vtbl {
@@ -3048,11 +2824,7 @@ pub struct IGyrometerReading_Vtbl {
     pub AngularVelocityY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub AngularVelocityZ: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGyrometerReading2, IGyrometerReading2_Vtbl, 0x16afe13c_2b89_44bb_822b_d1e1556ff09b, inspectable);
-impl windows_core::RuntimeType for IGyrometerReading2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometerReading2");
-}
+windows_core::imp::define_winrt_interface!(IGyrometerReading2, IGyrometerReading2_Vtbl, 0x16afe13c_2b89_44bb_822b_d1e1556ff09b, b"Windows.Devices.Sensors.IGyrometerReading2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerReading2_Vtbl {
@@ -3060,33 +2832,21 @@ pub struct IGyrometerReading2_Vtbl {
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGyrometerReadingChangedEventArgs, IGyrometerReadingChangedEventArgs_Vtbl, 0x0fdf1895_6f9e_42ce_8d58_388c0ab8356d, inspectable);
-impl windows_core::RuntimeType for IGyrometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometerReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IGyrometerReadingChangedEventArgs, IGyrometerReadingChangedEventArgs_Vtbl, 0x0fdf1895_6f9e_42ce_8d58_388c0ab8356d, b"Windows.Devices.Sensors.IGyrometerReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGyrometerStatics, IGyrometerStatics_Vtbl, 0x83b6e7c9_e49d_4b39_86e6_cd554be4c5c1, inspectable);
-impl windows_core::RuntimeType for IGyrometerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometerStatics");
-}
+windows_core::imp::define_winrt_interface!(IGyrometerStatics, IGyrometerStatics_Vtbl, 0x83b6e7c9_e49d_4b39_86e6_cd554be4c5c1, b"Windows.Devices.Sensors.IGyrometerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGyrometerStatics2, IGyrometerStatics2_Vtbl, 0xef83f7a1_d700_4204_9613_79c6b161df4e, inspectable);
-impl windows_core::RuntimeType for IGyrometerStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IGyrometerStatics2");
-}
+windows_core::imp::define_winrt_interface!(IGyrometerStatics2, IGyrometerStatics2_Vtbl, 0xef83f7a1_d700_4204_9613_79c6b161df4e, b"Windows.Devices.Sensors.IGyrometerStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerStatics2_Vtbl {
@@ -3094,11 +2854,7 @@ pub struct IGyrometerStatics2_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHeadOrientation, IHeadOrientation_Vtbl, 0x519f54a9_513e_55e8_9c35_3e8da21dee69, inspectable);
-impl windows_core::RuntimeType for IHeadOrientation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHeadOrientation");
-}
+windows_core::imp::define_winrt_interface!(IHeadOrientation, IHeadOrientation_Vtbl, 0x519f54a9_513e_55e8_9c35_3e8da21dee69, b"Windows.Devices.Sensors.IHeadOrientation");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHeadOrientation_Vtbl {
@@ -3107,11 +2863,7 @@ pub struct IHeadOrientation_Vtbl {
     pub PitchInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub YawInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHeadPosition, IHeadPosition_Vtbl, 0x585aeb65_cf35_5e6d_a76a_37db131e17de, inspectable);
-impl windows_core::RuntimeType for IHeadPosition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHeadPosition");
-}
+windows_core::imp::define_winrt_interface!(IHeadPosition, IHeadPosition_Vtbl, 0x585aeb65_cf35_5e6d_a76a_37db131e17de, b"Windows.Devices.Sensors.IHeadPosition");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHeadPosition_Vtbl {
@@ -3119,11 +2871,7 @@ pub struct IHeadPosition_Vtbl {
     pub AzimuthInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AltitudeInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHingeAngleReading, IHingeAngleReading_Vtbl, 0xa3cd45b9_1bf1_4f65_a704_e2da04f182c0, inspectable);
-impl windows_core::RuntimeType for IHingeAngleReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHingeAngleReading");
-}
+windows_core::imp::define_winrt_interface!(IHingeAngleReading, IHingeAngleReading_Vtbl, 0xa3cd45b9_1bf1_4f65_a704_e2da04f182c0, b"Windows.Devices.Sensors.IHingeAngleReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHingeAngleReading_Vtbl {
@@ -3132,11 +2880,7 @@ pub struct IHingeAngleReading_Vtbl {
     pub AngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHingeAngleSensor, IHingeAngleSensor_Vtbl, 0xe9d3be02_bfdf_437f_8c29_88c77393d309, inspectable);
-impl windows_core::RuntimeType for IHingeAngleSensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHingeAngleSensor");
-}
+windows_core::imp::define_winrt_interface!(IHingeAngleSensor, IHingeAngleSensor_Vtbl, 0xe9d3be02_bfdf_437f_8c29_88c77393d309, b"Windows.Devices.Sensors.IHingeAngleSensor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHingeAngleSensor_Vtbl {
@@ -3149,22 +2893,14 @@ pub struct IHingeAngleSensor_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHingeAngleSensorReadingChangedEventArgs, IHingeAngleSensorReadingChangedEventArgs_Vtbl, 0x24d9558b_fad0_42b8_a854_78923049a1ba, inspectable);
-impl windows_core::RuntimeType for IHingeAngleSensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHingeAngleSensorReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IHingeAngleSensorReadingChangedEventArgs, IHingeAngleSensorReadingChangedEventArgs_Vtbl, 0x24d9558b_fad0_42b8_a854_78923049a1ba, b"Windows.Devices.Sensors.IHingeAngleSensorReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHingeAngleSensorReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHingeAngleSensorStatics, IHingeAngleSensorStatics_Vtbl, 0xb7b63910_fbb1_4123_89ce_4ea34eb0dfca, inspectable);
-impl windows_core::RuntimeType for IHingeAngleSensorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHingeAngleSensorStatics");
-}
+windows_core::imp::define_winrt_interface!(IHingeAngleSensorStatics, IHingeAngleSensorStatics_Vtbl, 0xb7b63910_fbb1_4123_89ce_4ea34eb0dfca, b"Windows.Devices.Sensors.IHingeAngleSensorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHingeAngleSensorStatics_Vtbl {
@@ -3174,11 +2910,7 @@ pub struct IHingeAngleSensorStatics_Vtbl {
     pub GetRelatedToAdjacentPanelsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceFeatures, IHumanPresenceFeatures_Vtbl, 0xbdb09fda_3244_557a_bd29_8b004f59f2cc, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceFeatures {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceFeatures");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceFeatures, IHumanPresenceFeatures_Vtbl, 0xbdb09fda_3244_557a_bd29_8b004f59f2cc, b"Windows.Devices.Sensors.IHumanPresenceFeatures");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceFeatures_Vtbl {
@@ -3189,33 +2921,21 @@ pub struct IHumanPresenceFeatures_Vtbl {
     pub IsLockOnLeaveSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsAttentionAwareDimmingSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceFeatures2, IHumanPresenceFeatures2_Vtbl, 0x08a9cdda_d929_5ec2_81e2_940bafa089cf, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceFeatures2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceFeatures2");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceFeatures2, IHumanPresenceFeatures2_Vtbl, 0x08a9cdda_d929_5ec2_81e2_940bafa089cf, b"Windows.Devices.Sensors.IHumanPresenceFeatures2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceFeatures2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsAdaptiveDimmingSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceFeatures3, IHumanPresenceFeatures3_Vtbl, 0xed4e03aa_5ca2_5c02_b783_262e91295619, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceFeatures3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceFeatures3");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceFeatures3, IHumanPresenceFeatures3_Vtbl, 0xed4e03aa_5ca2_5c02_b783_262e91295619, b"Windows.Devices.Sensors.IHumanPresenceFeatures3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceFeatures3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsOnlookerDetectionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensor, IHumanPresenceSensor_Vtbl, 0x2116788b_e389_5cc3_9a97_cb17be1008bd, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensor");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensor, IHumanPresenceSensor_Vtbl, 0x2116788b_e389_5cc3_9a97_cb17be1008bd, b"Windows.Devices.Sensors.IHumanPresenceSensor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensor_Vtbl {
@@ -3227,11 +2947,7 @@ pub struct IHumanPresenceSensor_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensor2, IHumanPresenceSensor2_Vtbl, 0xf8833779_65fe_541a_b9d6_1e474a485e7a, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensor2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensor2");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensor2, IHumanPresenceSensor2_Vtbl, 0xf8833779_65fe_541a_b9d6_1e474a485e7a, b"Windows.Devices.Sensors.IHumanPresenceSensor2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensor2_Vtbl {
@@ -3239,11 +2955,7 @@ pub struct IHumanPresenceSensor2_Vtbl {
     pub IsPresenceSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsEngagementSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensor3, IHumanPresenceSensor3_Vtbl, 0x963f006d_090d_532c_9eaf_803a9f69285b, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensor3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensor3");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensor3, IHumanPresenceSensor3_Vtbl, 0x963f006d_090d_532c_9eaf_803a9f69285b, b"Windows.Devices.Sensors.IHumanPresenceSensor3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensor3_Vtbl {
@@ -3254,11 +2966,7 @@ pub struct IHumanPresenceSensor3_Vtbl {
     pub MinDetectableAltitudeInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaxDetectableAltitudeInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensorExtension, IHumanPresenceSensorExtension_Vtbl, 0x3e526a71_2d1d_5d43_8a8e_a434a8242ef0, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensorExtension {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensorExtension");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensorExtension, IHumanPresenceSensorExtension_Vtbl, 0x3e526a71_2d1d_5d43_8a8e_a434a8242ef0, b"Windows.Devices.Sensors.IHumanPresenceSensorExtension");
 windows_core::imp::interface_hierarchy!(IHumanPresenceSensorExtension, windows_core::IUnknown, windows_core::IInspectable);
 impl IHumanPresenceSensorExtension {
     pub fn Initialize(&self, deviceinterface: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -3385,11 +3093,7 @@ pub struct IHumanPresenceSensorExtension_Vtbl {
     pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensorReading, IHumanPresenceSensorReading_Vtbl, 0x83533bf5_a85a_5d50_8be4_6072d745a3bb, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensorReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensorReading");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensorReading, IHumanPresenceSensorReading_Vtbl, 0x83533bf5_a85a_5d50_8be4_6072d745a3bb, b"Windows.Devices.Sensors.IHumanPresenceSensorReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensorReading_Vtbl {
@@ -3399,22 +3103,14 @@ pub struct IHumanPresenceSensorReading_Vtbl {
     pub Engagement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HumanEngagement) -> windows_core::HRESULT,
     pub DistanceInMillimeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensorReading2, IHumanPresenceSensorReading2_Vtbl, 0xc4f0e950_3bff_53d6_a0f8_514ea3705c66, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensorReading2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensorReading2");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensorReading2, IHumanPresenceSensorReading2_Vtbl, 0xc4f0e950_3bff_53d6_a0f8_514ea3705c66, b"Windows.Devices.Sensors.IHumanPresenceSensorReading2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensorReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensorReading3, IHumanPresenceSensorReading3_Vtbl, 0xb876d918_f069_586f_90e3_7c6fa5c5d33a, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensorReading3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensorReading3");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensorReading3, IHumanPresenceSensorReading3_Vtbl, 0xb876d918_f069_586f_90e3_7c6fa5c5d33a, b"Windows.Devices.Sensors.IHumanPresenceSensorReading3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensorReading3_Vtbl {
@@ -3422,22 +3118,14 @@ pub struct IHumanPresenceSensorReading3_Vtbl {
     pub OnlookerPresence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HumanPresence) -> windows_core::HRESULT,
     pub DetectedPersons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensorReadingChangedEventArgs, IHumanPresenceSensorReadingChangedEventArgs_Vtbl, 0xa9dc4583_fd69_5c5e_ab1f_942204eae2db, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensorReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensorReadingChangedEventArgs, IHumanPresenceSensorReadingChangedEventArgs_Vtbl, 0xa9dc4583_fd69_5c5e_ab1f_942204eae2db, b"Windows.Devices.Sensors.IHumanPresenceSensorReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensorReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensorReadingUpdate, IHumanPresenceSensorReadingUpdate_Vtbl, 0x42419c77_6d2f_55a0_9e01_c9cbe7b2d6df, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensorReadingUpdate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensorReadingUpdate");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensorReadingUpdate, IHumanPresenceSensorReadingUpdate_Vtbl, 0x42419c77_6d2f_55a0_9e01_c9cbe7b2d6df, b"Windows.Devices.Sensors.IHumanPresenceSensorReadingUpdate");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensorReadingUpdate_Vtbl {
@@ -3451,11 +3139,7 @@ pub struct IHumanPresenceSensorReadingUpdate_Vtbl {
     pub DistanceInMillimeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDistanceInMillimeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensorReadingUpdate2, IHumanPresenceSensorReadingUpdate2_Vtbl, 0xbb95a033_c688_546a_8e2d_b12642e7efeb, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensorReadingUpdate2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensorReadingUpdate2");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensorReadingUpdate2, IHumanPresenceSensorReadingUpdate2_Vtbl, 0xbb95a033_c688_546a_8e2d_b12642e7efeb, b"Windows.Devices.Sensors.IHumanPresenceSensorReadingUpdate2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensorReadingUpdate2_Vtbl {
@@ -3463,11 +3147,7 @@ pub struct IHumanPresenceSensorReadingUpdate2_Vtbl {
     pub OnlookerPresence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetOnlookerPresence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensorStatics, IHumanPresenceSensorStatics_Vtbl, 0x2ae89842_dba9_56b2_9f27_eac69d621004, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensorStatics");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensorStatics, IHumanPresenceSensorStatics_Vtbl, 0x2ae89842_dba9_56b2_9f27_eac69d621004, b"Windows.Devices.Sensors.IHumanPresenceSensorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensorStatics_Vtbl {
@@ -3476,11 +3156,7 @@ pub struct IHumanPresenceSensorStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSensorStatics2, IHumanPresenceSensorStatics2_Vtbl, 0x5de35843_d260_5a87_995e_ace91326e1c4, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSensorStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSensorStatics2");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSensorStatics2, IHumanPresenceSensorStatics2_Vtbl, 0x5de35843_d260_5a87_995e_ace91326e1c4, b"Windows.Devices.Sensors.IHumanPresenceSensorStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSensorStatics2_Vtbl {
@@ -3488,11 +3164,7 @@ pub struct IHumanPresenceSensorStatics2_Vtbl {
     pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSettings, IHumanPresenceSettings_Vtbl, 0xef4daf5b_07b7_5eb6_86bb_b7ff49ce44fb, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSettings");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSettings, IHumanPresenceSettings_Vtbl, 0xef4daf5b_07b7_5eb6_86bb_b7ff49ce44fb, b"Windows.Devices.Sensors.IHumanPresenceSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSettings_Vtbl {
@@ -3512,11 +3184,7 @@ pub struct IHumanPresenceSettings_Vtbl {
     pub IsAttentionAwareDimmingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsAttentionAwareDimmingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSettings2, IHumanPresenceSettings2_Vtbl, 0xa26f705e_8696_5eb4_b9e1_26a508de1cd4, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSettings2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSettings2");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSettings2, IHumanPresenceSettings2_Vtbl, 0xa26f705e_8696_5eb4_b9e1_26a508de1cd4, b"Windows.Devices.Sensors.IHumanPresenceSettings2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSettings2_Vtbl {
@@ -3527,11 +3195,7 @@ pub struct IHumanPresenceSettings2_Vtbl {
     pub DimmingOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LockOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSettings3, IHumanPresenceSettings3_Vtbl, 0x89757226_acc1_4f58_81df_47f1d69537f2, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSettings3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSettings3");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSettings3, IHumanPresenceSettings3_Vtbl, 0x89757226_acc1_4f58_81df_47f1d69537f2, b"Windows.Devices.Sensors.IHumanPresenceSettings3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSettings3_Vtbl {
@@ -3540,11 +3204,7 @@ pub struct IHumanPresenceSettings3_Vtbl {
     pub SetIsOnlookerDetectionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub OnlookerDetectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHumanPresenceSettingsStatics, IHumanPresenceSettingsStatics_Vtbl, 0x7f343202_e010_52c4_af0c_04a8f1e033da, inspectable);
-impl windows_core::RuntimeType for IHumanPresenceSettingsStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IHumanPresenceSettingsStatics");
-}
+windows_core::imp::define_winrt_interface!(IHumanPresenceSettingsStatics, IHumanPresenceSettingsStatics_Vtbl, 0x7f343202_e010_52c4_af0c_04a8f1e033da, b"Windows.Devices.Sensors.IHumanPresenceSettingsStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHumanPresenceSettingsStatics_Vtbl {
@@ -3559,11 +3219,7 @@ pub struct IHumanPresenceSettingsStatics_Vtbl {
     pub SettingsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSettingsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometer, IInclinometer_Vtbl, 0x2648ca6f_2286_406f_9161_f0c4bd806ebf, inspectable);
-impl windows_core::RuntimeType for IInclinometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometer");
-}
+windows_core::imp::define_winrt_interface!(IInclinometer, IInclinometer_Vtbl, 0x2648ca6f_2286_406f_9161_f0c4bd806ebf, b"Windows.Devices.Sensors.IInclinometer");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometer_Vtbl {
@@ -3575,11 +3231,7 @@ pub struct IInclinometer_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometer2, IInclinometer2_Vtbl, 0x029f3393_28b2_45f8_bb16_61e86a7fae6e, inspectable);
-impl windows_core::RuntimeType for IInclinometer2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometer2");
-}
+windows_core::imp::define_winrt_interface!(IInclinometer2, IInclinometer2_Vtbl, 0x029f3393_28b2_45f8_bb16_61e86a7fae6e, b"Windows.Devices.Sensors.IInclinometer2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometer2_Vtbl {
@@ -3594,11 +3246,7 @@ pub struct IInclinometer2_Vtbl {
     ReadingTransform: usize,
     pub ReadingType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SensorReadingType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometer3, IInclinometer3_Vtbl, 0x3a095004_d765_4384_a3d7_0283f3abe6ae, inspectable);
-impl windows_core::RuntimeType for IInclinometer3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometer3");
-}
+windows_core::imp::define_winrt_interface!(IInclinometer3, IInclinometer3_Vtbl, 0x3a095004_d765_4384_a3d7_0283f3abe6ae, b"Windows.Devices.Sensors.IInclinometer3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometer3_Vtbl {
@@ -3607,22 +3255,14 @@ pub struct IInclinometer3_Vtbl {
     pub ReportLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MaxBatchSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometer4, IInclinometer4_Vtbl, 0x43852618_8fca_548e_bbf5_5c50412b6aa4, inspectable);
-impl windows_core::RuntimeType for IInclinometer4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometer4");
-}
+windows_core::imp::define_winrt_interface!(IInclinometer4, IInclinometer4_Vtbl, 0x43852618_8fca_548e_bbf5_5c50412b6aa4, b"Windows.Devices.Sensors.IInclinometer4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometer4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometerDataThreshold, IInclinometerDataThreshold_Vtbl, 0xf80a4783_7bfe_545e_bb60_a0ebc47bd2fb, inspectable);
-impl windows_core::RuntimeType for IInclinometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometerDataThreshold");
-}
+windows_core::imp::define_winrt_interface!(IInclinometerDataThreshold, IInclinometerDataThreshold_Vtbl, 0xf80a4783_7bfe_545e_bb60_a0ebc47bd2fb, b"Windows.Devices.Sensors.IInclinometerDataThreshold");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerDataThreshold_Vtbl {
@@ -3634,22 +3274,14 @@ pub struct IInclinometerDataThreshold_Vtbl {
     pub YawInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetYawInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometerDeviceId, IInclinometerDeviceId_Vtbl, 0x01e91982_41ff_4406_ae83_62210ff16fe3, inspectable);
-impl windows_core::RuntimeType for IInclinometerDeviceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometerDeviceId");
-}
+windows_core::imp::define_winrt_interface!(IInclinometerDeviceId, IInclinometerDeviceId_Vtbl, 0x01e91982_41ff_4406_ae83_62210ff16fe3, b"Windows.Devices.Sensors.IInclinometerDeviceId");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerDeviceId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometerReading, IInclinometerReading_Vtbl, 0x9f44f055_b6f6_497f_b127_1a775e501458, inspectable);
-impl windows_core::RuntimeType for IInclinometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometerReading");
-}
+windows_core::imp::define_winrt_interface!(IInclinometerReading, IInclinometerReading_Vtbl, 0x9f44f055_b6f6_497f_b127_1a775e501458, b"Windows.Devices.Sensors.IInclinometerReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerReading_Vtbl {
@@ -3659,11 +3291,7 @@ pub struct IInclinometerReading_Vtbl {
     pub RollDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub YawDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometerReading2, IInclinometerReading2_Vtbl, 0x4f164781_e90b_4658_8915_0103e08a805a, inspectable);
-impl windows_core::RuntimeType for IInclinometerReading2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometerReading2");
-}
+windows_core::imp::define_winrt_interface!(IInclinometerReading2, IInclinometerReading2_Vtbl, 0x4f164781_e90b_4658_8915_0103e08a805a, b"Windows.Devices.Sensors.IInclinometerReading2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerReading2_Vtbl {
@@ -3671,66 +3299,42 @@ pub struct IInclinometerReading2_Vtbl {
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometerReadingChangedEventArgs, IInclinometerReadingChangedEventArgs_Vtbl, 0x4ae91dc1_e7eb_4938_8511_ae0d6b440438, inspectable);
-impl windows_core::RuntimeType for IInclinometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometerReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IInclinometerReadingChangedEventArgs, IInclinometerReadingChangedEventArgs_Vtbl, 0x4ae91dc1_e7eb_4938_8511_ae0d6b440438, b"Windows.Devices.Sensors.IInclinometerReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometerReadingYawAccuracy, IInclinometerReadingYawAccuracy_Vtbl, 0xb453e880_1fe3_4986_a257_e6ece2723949, inspectable);
-impl windows_core::RuntimeType for IInclinometerReadingYawAccuracy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometerReadingYawAccuracy");
-}
+windows_core::imp::define_winrt_interface!(IInclinometerReadingYawAccuracy, IInclinometerReadingYawAccuracy_Vtbl, 0xb453e880_1fe3_4986_a257_e6ece2723949, b"Windows.Devices.Sensors.IInclinometerReadingYawAccuracy");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerReadingYawAccuracy_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub YawAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MagnetometerAccuracy) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometerStatics, IInclinometerStatics_Vtbl, 0xf22ec551_9c30_453a_8b49_3c3eeb33cb61, inspectable);
-impl windows_core::RuntimeType for IInclinometerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometerStatics");
-}
+windows_core::imp::define_winrt_interface!(IInclinometerStatics, IInclinometerStatics_Vtbl, 0xf22ec551_9c30_453a_8b49_3c3eeb33cb61, b"Windows.Devices.Sensors.IInclinometerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometerStatics2, IInclinometerStatics2_Vtbl, 0x043f9775_6a1e_499c_86e0_638c1a864b00, inspectable);
-impl windows_core::RuntimeType for IInclinometerStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometerStatics2");
-}
+windows_core::imp::define_winrt_interface!(IInclinometerStatics2, IInclinometerStatics2_Vtbl, 0x043f9775_6a1e_499c_86e0_638c1a864b00, b"Windows.Devices.Sensors.IInclinometerStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefaultForRelativeReadings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometerStatics3, IInclinometerStatics3_Vtbl, 0xbd9a4280_b91a_4829_9392_abc0b6bdf2b4, inspectable);
-impl windows_core::RuntimeType for IInclinometerStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometerStatics3");
-}
+windows_core::imp::define_winrt_interface!(IInclinometerStatics3, IInclinometerStatics3_Vtbl, 0xbd9a4280_b91a_4829_9392_abc0b6bdf2b4, b"Windows.Devices.Sensors.IInclinometerStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefaultWithSensorReadingType: unsafe extern "system" fn(*mut core::ffi::c_void, SensorReadingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInclinometerStatics4, IInclinometerStatics4_Vtbl, 0xe8ba96f9_6e85_4a83_aed0_d7cdcc9856c8, inspectable);
-impl windows_core::RuntimeType for IInclinometerStatics4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IInclinometerStatics4");
-}
+windows_core::imp::define_winrt_interface!(IInclinometerStatics4, IInclinometerStatics4_Vtbl, 0xe8ba96f9_6e85_4a83_aed0_d7cdcc9856c8, b"Windows.Devices.Sensors.IInclinometerStatics4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerStatics4_Vtbl {
@@ -3738,11 +3342,7 @@ pub struct IInclinometerStatics4_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, SensorReadingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensor, ILightSensor_Vtbl, 0xf84c0718_0c54_47ae_922e_789f57fb03a0, inspectable);
-impl windows_core::RuntimeType for ILightSensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensor");
-}
+windows_core::imp::define_winrt_interface!(ILightSensor, ILightSensor_Vtbl, 0xf84c0718_0c54_47ae_922e_789f57fb03a0, b"Windows.Devices.Sensors.ILightSensor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensor_Vtbl {
@@ -3754,11 +3354,7 @@ pub struct ILightSensor_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensor2, ILightSensor2_Vtbl, 0x486b24e8_a94c_4090_8f48_09f782a9f7d5, inspectable);
-impl windows_core::RuntimeType for ILightSensor2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensor2");
-}
+windows_core::imp::define_winrt_interface!(ILightSensor2, ILightSensor2_Vtbl, 0x486b24e8_a94c_4090_8f48_09f782a9f7d5, b"Windows.Devices.Sensors.ILightSensor2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensor2_Vtbl {
@@ -3767,33 +3363,21 @@ pub struct ILightSensor2_Vtbl {
     pub ReportLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MaxBatchSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensor3, ILightSensor3_Vtbl, 0x4876d0ff_9f4c_5f72_adbd_a3471b063c00, inspectable);
-impl windows_core::RuntimeType for ILightSensor3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensor3");
-}
+windows_core::imp::define_winrt_interface!(ILightSensor3, ILightSensor3_Vtbl, 0x4876d0ff_9f4c_5f72_adbd_a3471b063c00, b"Windows.Devices.Sensors.ILightSensor3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensor3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensor4, ILightSensor4_Vtbl, 0x6167be97_6390_404c_9c19_445311c6a1d3, inspectable);
-impl windows_core::RuntimeType for ILightSensor4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensor4");
-}
+windows_core::imp::define_winrt_interface!(ILightSensor4, ILightSensor4_Vtbl, 0x6167be97_6390_404c_9c19_445311c6a1d3, b"Windows.Devices.Sensors.ILightSensor4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensor4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsChromaticitySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensorDataThreshold, ILightSensorDataThreshold_Vtbl, 0xb160afd1_878f_5492_9f2c_33dc3ae584a3, inspectable);
-impl windows_core::RuntimeType for ILightSensorDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensorDataThreshold");
-}
+windows_core::imp::define_winrt_interface!(ILightSensorDataThreshold, ILightSensorDataThreshold_Vtbl, 0xb160afd1_878f_5492_9f2c_33dc3ae584a3, b"Windows.Devices.Sensors.ILightSensorDataThreshold");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorDataThreshold_Vtbl {
@@ -3803,11 +3387,7 @@ pub struct ILightSensorDataThreshold_Vtbl {
     pub AbsoluteLux: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetAbsoluteLux: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensorDataThreshold2, ILightSensorDataThreshold2_Vtbl, 0x6f040fbd_e08b_5b97_8f61_dd4ee66b1733, inspectable);
-impl windows_core::RuntimeType for ILightSensorDataThreshold2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensorDataThreshold2");
-}
+windows_core::imp::define_winrt_interface!(ILightSensorDataThreshold2, ILightSensorDataThreshold2_Vtbl, 0x6f040fbd_e08b_5b97_8f61_dd4ee66b1733, b"Windows.Devices.Sensors.ILightSensorDataThreshold2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorDataThreshold2_Vtbl {
@@ -3815,22 +3395,14 @@ pub struct ILightSensorDataThreshold2_Vtbl {
     pub Chromaticity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LightSensorChromaticity) -> windows_core::HRESULT,
     pub SetChromaticity: unsafe extern "system" fn(*mut core::ffi::c_void, LightSensorChromaticity) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensorDeviceId, ILightSensorDeviceId_Vtbl, 0x7fee49f8_0afb_4f51_87f0_6c26375ce94f, inspectable);
-impl windows_core::RuntimeType for ILightSensorDeviceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensorDeviceId");
-}
+windows_core::imp::define_winrt_interface!(ILightSensorDeviceId, ILightSensorDeviceId_Vtbl, 0x7fee49f8_0afb_4f51_87f0_6c26375ce94f, b"Windows.Devices.Sensors.ILightSensorDeviceId");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorDeviceId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensorReading, ILightSensorReading_Vtbl, 0xffdf6300_227c_4d2b_b302_fc0142485c68, inspectable);
-impl windows_core::RuntimeType for ILightSensorReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensorReading");
-}
+windows_core::imp::define_winrt_interface!(ILightSensorReading, ILightSensorReading_Vtbl, 0xffdf6300_227c_4d2b_b302_fc0142485c68, b"Windows.Devices.Sensors.ILightSensorReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorReading_Vtbl {
@@ -3838,11 +3410,7 @@ pub struct ILightSensorReading_Vtbl {
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub IlluminanceInLux: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensorReading2, ILightSensorReading2_Vtbl, 0xb7512185_44a3_44c9_8190_9ef6de0a8a74, inspectable);
-impl windows_core::RuntimeType for ILightSensorReading2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensorReading2");
-}
+windows_core::imp::define_winrt_interface!(ILightSensorReading2, ILightSensorReading2_Vtbl, 0xb7512185_44a3_44c9_8190_9ef6de0a8a74, b"Windows.Devices.Sensors.ILightSensorReading2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorReading2_Vtbl {
@@ -3850,44 +3418,28 @@ pub struct ILightSensorReading2_Vtbl {
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensorReading3, ILightSensorReading3_Vtbl, 0xf338ee06_96af_4029_b530_61acc05b7cfe, inspectable);
-impl windows_core::RuntimeType for ILightSensorReading3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensorReading3");
-}
+windows_core::imp::define_winrt_interface!(ILightSensorReading3, ILightSensorReading3_Vtbl, 0xf338ee06_96af_4029_b530_61acc05b7cfe, b"Windows.Devices.Sensors.ILightSensorReading3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorReading3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Chromaticity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LightSensorChromaticity) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensorReadingChangedEventArgs, ILightSensorReadingChangedEventArgs_Vtbl, 0xa3a2f4cf_258b_420c_b8ab_8edd601ecf50, inspectable);
-impl windows_core::RuntimeType for ILightSensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensorReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ILightSensorReadingChangedEventArgs, ILightSensorReadingChangedEventArgs_Vtbl, 0xa3a2f4cf_258b_420c_b8ab_8edd601ecf50, b"Windows.Devices.Sensors.ILightSensorReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensorStatics, ILightSensorStatics_Vtbl, 0x45db8c84_c3a8_471e_9a53_6457fad87c0e, inspectable);
-impl windows_core::RuntimeType for ILightSensorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensorStatics");
-}
+windows_core::imp::define_winrt_interface!(ILightSensorStatics, ILightSensorStatics_Vtbl, 0x45db8c84_c3a8_471e_9a53_6457fad87c0e, b"Windows.Devices.Sensors.ILightSensorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILightSensorStatics2, ILightSensorStatics2_Vtbl, 0x0ec0a650_ddc6_40ab_ace3_ec3359d42c51, inspectable);
-impl windows_core::RuntimeType for ILightSensorStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILightSensorStatics2");
-}
+windows_core::imp::define_winrt_interface!(ILightSensorStatics2, ILightSensorStatics2_Vtbl, 0x0ec0a650_ddc6_40ab_ace3_ec3359d42c51, b"Windows.Devices.Sensors.ILightSensorStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorStatics2_Vtbl {
@@ -3895,11 +3447,7 @@ pub struct ILightSensorStatics2_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILockOnLeaveOptions, ILockOnLeaveOptions_Vtbl, 0x3c6bf8bd_04c1_5829_8d4e_70521755b8be, inspectable);
-impl windows_core::RuntimeType for ILockOnLeaveOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ILockOnLeaveOptions");
-}
+windows_core::imp::define_winrt_interface!(ILockOnLeaveOptions, ILockOnLeaveOptions_Vtbl, 0x3c6bf8bd_04c1_5829_8d4e_70521755b8be, b"Windows.Devices.Sensors.ILockOnLeaveOptions");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILockOnLeaveOptions_Vtbl {
@@ -3907,11 +3455,7 @@ pub struct ILockOnLeaveOptions_Vtbl {
     pub AllowWhenExternalDisplayConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowWhenExternalDisplayConnected: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMagnetometer, IMagnetometer_Vtbl, 0x484f626e_d3c9_4111_b3f6_2cf1faa418d5, inspectable);
-impl windows_core::RuntimeType for IMagnetometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometer");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometer, IMagnetometer_Vtbl, 0x484f626e_d3c9_4111_b3f6_2cf1faa418d5, b"Windows.Devices.Sensors.IMagnetometer");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometer_Vtbl {
@@ -3923,11 +3467,7 @@ pub struct IMagnetometer_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMagnetometer2, IMagnetometer2_Vtbl, 0xb4656c85_26f6_444b_a9e2_a23f966cd368, inspectable);
-impl windows_core::RuntimeType for IMagnetometer2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometer2");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometer2, IMagnetometer2_Vtbl, 0xb4656c85_26f6_444b_a9e2_a23f966cd368, b"Windows.Devices.Sensors.IMagnetometer2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometer2_Vtbl {
@@ -3941,11 +3481,7 @@ pub struct IMagnetometer2_Vtbl {
     #[cfg(not(feature = "Graphics_Display"))]
     ReadingTransform: usize,
 }
-windows_core::imp::define_interface!(IMagnetometer3, IMagnetometer3_Vtbl, 0xbe93db7c_a625_48ef_acf7_fac104832671, inspectable);
-impl windows_core::RuntimeType for IMagnetometer3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometer3");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometer3, IMagnetometer3_Vtbl, 0xbe93db7c_a625_48ef_acf7_fac104832671, b"Windows.Devices.Sensors.IMagnetometer3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometer3_Vtbl {
@@ -3954,22 +3490,14 @@ pub struct IMagnetometer3_Vtbl {
     pub ReportLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MaxBatchSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMagnetometer4, IMagnetometer4_Vtbl, 0xdfb17901_3e0f_508f_b24b_f2bb75015f40, inspectable);
-impl windows_core::RuntimeType for IMagnetometer4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometer4");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometer4, IMagnetometer4_Vtbl, 0xdfb17901_3e0f_508f_b24b_f2bb75015f40, b"Windows.Devices.Sensors.IMagnetometer4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometer4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMagnetometerDataThreshold, IMagnetometerDataThreshold_Vtbl, 0xd177cb01_9063_5fa5_b596_b445e9dc3401, inspectable);
-impl windows_core::RuntimeType for IMagnetometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometerDataThreshold");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometerDataThreshold, IMagnetometerDataThreshold_Vtbl, 0xd177cb01_9063_5fa5_b596_b445e9dc3401, b"Windows.Devices.Sensors.IMagnetometerDataThreshold");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerDataThreshold_Vtbl {
@@ -3981,22 +3509,14 @@ pub struct IMagnetometerDataThreshold_Vtbl {
     pub ZAxisMicroteslas: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetZAxisMicroteslas: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMagnetometerDeviceId, IMagnetometerDeviceId_Vtbl, 0x58b498c2_7e4b_404c_9fc5_5de8b40ebae3, inspectable);
-impl windows_core::RuntimeType for IMagnetometerDeviceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometerDeviceId");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometerDeviceId, IMagnetometerDeviceId_Vtbl, 0x58b498c2_7e4b_404c_9fc5_5de8b40ebae3, b"Windows.Devices.Sensors.IMagnetometerDeviceId");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerDeviceId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMagnetometerReading, IMagnetometerReading_Vtbl, 0x0c2cc40d_ebfd_4e5c_bb11_afc29b3cae61, inspectable);
-impl windows_core::RuntimeType for IMagnetometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometerReading");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometerReading, IMagnetometerReading_Vtbl, 0x0c2cc40d_ebfd_4e5c_bb11_afc29b3cae61, b"Windows.Devices.Sensors.IMagnetometerReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerReading_Vtbl {
@@ -4007,11 +3527,7 @@ pub struct IMagnetometerReading_Vtbl {
     pub MagneticFieldZ: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub DirectionalAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MagnetometerAccuracy) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMagnetometerReading2, IMagnetometerReading2_Vtbl, 0xd4c95c61_61d9_404b_a328_066f177a1409, inspectable);
-impl windows_core::RuntimeType for IMagnetometerReading2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometerReading2");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometerReading2, IMagnetometerReading2_Vtbl, 0xd4c95c61_61d9_404b_a328_066f177a1409, b"Windows.Devices.Sensors.IMagnetometerReading2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerReading2_Vtbl {
@@ -4019,33 +3535,21 @@ pub struct IMagnetometerReading2_Vtbl {
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMagnetometerReadingChangedEventArgs, IMagnetometerReadingChangedEventArgs_Vtbl, 0x17eae872_2eb9_4ee7_8ad0_3127537d949b, inspectable);
-impl windows_core::RuntimeType for IMagnetometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometerReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometerReadingChangedEventArgs, IMagnetometerReadingChangedEventArgs_Vtbl, 0x17eae872_2eb9_4ee7_8ad0_3127537d949b, b"Windows.Devices.Sensors.IMagnetometerReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMagnetometerStatics, IMagnetometerStatics_Vtbl, 0x853c64cc_0698_4dda_a6df_9cb9cc4ab40a, inspectable);
-impl windows_core::RuntimeType for IMagnetometerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometerStatics");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometerStatics, IMagnetometerStatics_Vtbl, 0x853c64cc_0698_4dda_a6df_9cb9cc4ab40a, b"Windows.Devices.Sensors.IMagnetometerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMagnetometerStatics2, IMagnetometerStatics2_Vtbl, 0x2c0819f0_ffc6_4f89_a06f_18fa10792933, inspectable);
-impl windows_core::RuntimeType for IMagnetometerStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IMagnetometerStatics2");
-}
+windows_core::imp::define_winrt_interface!(IMagnetometerStatics2, IMagnetometerStatics2_Vtbl, 0x2c0819f0_ffc6_4f89_a06f_18fa10792933, b"Windows.Devices.Sensors.IMagnetometerStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerStatics2_Vtbl {
@@ -4053,11 +3557,7 @@ pub struct IMagnetometerStatics2_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOnlookerDetectionOptions, IOnlookerDetectionOptions_Vtbl, 0x0412b36f_36e6_51e2_876e_65197cc53c12, inspectable);
-impl windows_core::RuntimeType for IOnlookerDetectionOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOnlookerDetectionOptions");
-}
+windows_core::imp::define_winrt_interface!(IOnlookerDetectionOptions, IOnlookerDetectionOptions_Vtbl, 0x0412b36f_36e6_51e2_876e_65197cc53c12, b"Windows.Devices.Sensors.IOnlookerDetectionOptions");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlookerDetectionOptions_Vtbl {
@@ -4067,11 +3567,7 @@ pub struct IOnlookerDetectionOptions_Vtbl {
     pub BackOnMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OnlookerDetectionBackOnMode) -> windows_core::HRESULT,
     pub SetBackOnMode: unsafe extern "system" fn(*mut core::ffi::c_void, OnlookerDetectionBackOnMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensor, IOrientationSensor_Vtbl, 0x5e354635_cf6b_4c63_abd8_10252b0bf6ec, inspectable);
-impl windows_core::RuntimeType for IOrientationSensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensor");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensor, IOrientationSensor_Vtbl, 0x5e354635_cf6b_4c63_abd8_10252b0bf6ec, b"Windows.Devices.Sensors.IOrientationSensor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensor_Vtbl {
@@ -4083,11 +3579,7 @@ pub struct IOrientationSensor_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensor2, IOrientationSensor2_Vtbl, 0x0d924cf9_2f1f_49c9_8042_4a1813d67760, inspectable);
-impl windows_core::RuntimeType for IOrientationSensor2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensor2");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensor2, IOrientationSensor2_Vtbl, 0x0d924cf9_2f1f_49c9_8042_4a1813d67760, b"Windows.Devices.Sensors.IOrientationSensor2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensor2_Vtbl {
@@ -4102,11 +3594,7 @@ pub struct IOrientationSensor2_Vtbl {
     ReadingTransform: usize,
     pub ReadingType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SensorReadingType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensor3, IOrientationSensor3_Vtbl, 0x2cce578d_646b_48c5_b7ee_44fdc4c6aafd, inspectable);
-impl windows_core::RuntimeType for IOrientationSensor3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensor3");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensor3, IOrientationSensor3_Vtbl, 0x2cce578d_646b_48c5_b7ee_44fdc4c6aafd, b"Windows.Devices.Sensors.IOrientationSensor3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensor3_Vtbl {
@@ -4115,22 +3603,14 @@ pub struct IOrientationSensor3_Vtbl {
     pub ReportLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MaxBatchSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensorDeviceId, IOrientationSensorDeviceId_Vtbl, 0x5a69b648_4c29_49ec_b28f_ea1d117b66f0, inspectable);
-impl windows_core::RuntimeType for IOrientationSensorDeviceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensorDeviceId");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensorDeviceId, IOrientationSensorDeviceId_Vtbl, 0x5a69b648_4c29_49ec_b28f_ea1d117b66f0, b"Windows.Devices.Sensors.IOrientationSensorDeviceId");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorDeviceId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensorReading, IOrientationSensorReading_Vtbl, 0x4756c993_6595_4897_bcc6_d537ee757564, inspectable);
-impl windows_core::RuntimeType for IOrientationSensorReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensorReading");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensorReading, IOrientationSensorReading_Vtbl, 0x4756c993_6595_4897_bcc6_d537ee757564, b"Windows.Devices.Sensors.IOrientationSensorReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorReading_Vtbl {
@@ -4139,11 +3619,7 @@ pub struct IOrientationSensorReading_Vtbl {
     pub RotationMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Quaternion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensorReading2, IOrientationSensorReading2_Vtbl, 0x00576e5f_49f8_4c05_9e07_24fac79408c3, inspectable);
-impl windows_core::RuntimeType for IOrientationSensorReading2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensorReading2");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensorReading2, IOrientationSensorReading2_Vtbl, 0x00576e5f_49f8_4c05_9e07_24fac79408c3, b"Windows.Devices.Sensors.IOrientationSensorReading2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorReading2_Vtbl {
@@ -4151,55 +3627,35 @@ pub struct IOrientationSensorReading2_Vtbl {
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensorReadingChangedEventArgs, IOrientationSensorReadingChangedEventArgs_Vtbl, 0x012c1186_c3ba_46bc_ae65_7a98996cbfb8, inspectable);
-impl windows_core::RuntimeType for IOrientationSensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensorReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensorReadingChangedEventArgs, IOrientationSensorReadingChangedEventArgs_Vtbl, 0x012c1186_c3ba_46bc_ae65_7a98996cbfb8, b"Windows.Devices.Sensors.IOrientationSensorReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensorReadingYawAccuracy, IOrientationSensorReadingYawAccuracy_Vtbl, 0xd1ac9824_3f5a_49a2_bc7b_1180bc38cd2b, inspectable);
-impl windows_core::RuntimeType for IOrientationSensorReadingYawAccuracy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensorReadingYawAccuracy");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensorReadingYawAccuracy, IOrientationSensorReadingYawAccuracy_Vtbl, 0xd1ac9824_3f5a_49a2_bc7b_1180bc38cd2b, b"Windows.Devices.Sensors.IOrientationSensorReadingYawAccuracy");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorReadingYawAccuracy_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub YawAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MagnetometerAccuracy) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensorStatics, IOrientationSensorStatics_Vtbl, 0x10ef8712_fb4c_428a_898b_2765e409e669, inspectable);
-impl windows_core::RuntimeType for IOrientationSensorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensorStatics");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensorStatics, IOrientationSensorStatics_Vtbl, 0x10ef8712_fb4c_428a_898b_2765e409e669, b"Windows.Devices.Sensors.IOrientationSensorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensorStatics2, IOrientationSensorStatics2_Vtbl, 0x59da0d0b_d40a_4c71_9276_8a272a0a6619, inspectable);
-impl windows_core::RuntimeType for IOrientationSensorStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensorStatics2");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensorStatics2, IOrientationSensorStatics2_Vtbl, 0x59da0d0b_d40a_4c71_9276_8a272a0a6619, b"Windows.Devices.Sensors.IOrientationSensorStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefaultForRelativeReadings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensorStatics3, IOrientationSensorStatics3_Vtbl, 0xd82ce920_2777_40ff_9f59_d654b085f12f, inspectable);
-impl windows_core::RuntimeType for IOrientationSensorStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensorStatics3");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensorStatics3, IOrientationSensorStatics3_Vtbl, 0xd82ce920_2777_40ff_9f59_d654b085f12f, b"Windows.Devices.Sensors.IOrientationSensorStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorStatics3_Vtbl {
@@ -4207,11 +3663,7 @@ pub struct IOrientationSensorStatics3_Vtbl {
     pub GetDefaultWithSensorReadingType: unsafe extern "system" fn(*mut core::ffi::c_void, SensorReadingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal: unsafe extern "system" fn(*mut core::ffi::c_void, SensorReadingType, SensorOptimizationGoal, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOrientationSensorStatics4, IOrientationSensorStatics4_Vtbl, 0xa67feb55_2c85_4b28_a0fe_58c4b20495f5, inspectable);
-impl windows_core::RuntimeType for IOrientationSensorStatics4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IOrientationSensorStatics4");
-}
+windows_core::imp::define_winrt_interface!(IOrientationSensorStatics4, IOrientationSensorStatics4_Vtbl, 0xa67feb55_2c85_4b28_a0fe_58c4b20495f5, b"Windows.Devices.Sensors.IOrientationSensorStatics4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorStatics4_Vtbl {
@@ -4220,11 +3672,7 @@ pub struct IOrientationSensorStatics4_Vtbl {
     pub GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal: unsafe extern "system" fn(*mut core::ffi::c_void, SensorReadingType, SensorOptimizationGoal, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPedometer, IPedometer_Vtbl, 0x9a1e013d_3d98_45f8_8920_8e4ecaca5f97, inspectable);
-impl windows_core::RuntimeType for IPedometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IPedometer");
-}
+windows_core::imp::define_winrt_interface!(IPedometer, IPedometer_Vtbl, 0x9a1e013d_3d98_45f8_8920_8e4ecaca5f97, b"Windows.Devices.Sensors.IPedometer");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometer_Vtbl {
@@ -4237,33 +3685,21 @@ pub struct IPedometer_Vtbl {
     pub ReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPedometer2, IPedometer2_Vtbl, 0xe5a406df_2b81_4add_b2ff_77ab6c98ba19, inspectable);
-impl windows_core::RuntimeType for IPedometer2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IPedometer2");
-}
+windows_core::imp::define_winrt_interface!(IPedometer2, IPedometer2_Vtbl, 0xe5a406df_2b81_4add_b2ff_77ab6c98ba19, b"Windows.Devices.Sensors.IPedometer2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentReadings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPedometerDataThresholdFactory, IPedometerDataThresholdFactory_Vtbl, 0xcbad8f50_7a54_466b_9010_77a162fca5d7, inspectable);
-impl windows_core::RuntimeType for IPedometerDataThresholdFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IPedometerDataThresholdFactory");
-}
+windows_core::imp::define_winrt_interface!(IPedometerDataThresholdFactory, IPedometerDataThresholdFactory_Vtbl, 0xcbad8f50_7a54_466b_9010_77a162fca5d7, b"Windows.Devices.Sensors.IPedometerDataThresholdFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometerDataThresholdFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPedometerReading, IPedometerReading_Vtbl, 0x2245dcf4_a8e1_432f_896a_be0dd9b02d24, inspectable);
-impl windows_core::RuntimeType for IPedometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IPedometerReading");
-}
+windows_core::imp::define_winrt_interface!(IPedometerReading, IPedometerReading_Vtbl, 0x2245dcf4_a8e1_432f_896a_be0dd9b02d24, b"Windows.Devices.Sensors.IPedometerReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometerReading_Vtbl {
@@ -4273,22 +3709,14 @@ pub struct IPedometerReading_Vtbl {
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub CumulativeStepsDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPedometerReadingChangedEventArgs, IPedometerReadingChangedEventArgs_Vtbl, 0xf855e47e_abbc_4456_86a8_25cf2b333742, inspectable);
-impl windows_core::RuntimeType for IPedometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IPedometerReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPedometerReadingChangedEventArgs, IPedometerReadingChangedEventArgs_Vtbl, 0xf855e47e_abbc_4456_86a8_25cf2b333742, b"Windows.Devices.Sensors.IPedometerReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometerReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPedometerStatics, IPedometerStatics_Vtbl, 0x82980a2f_4083_4dfb_b411_938ea0f4b946, inspectable);
-impl windows_core::RuntimeType for IPedometerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IPedometerStatics");
-}
+windows_core::imp::define_winrt_interface!(IPedometerStatics, IPedometerStatics_Vtbl, 0x82980a2f_4083_4dfb_b411_938ea0f4b946, b"Windows.Devices.Sensors.IPedometerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometerStatics_Vtbl {
@@ -4299,22 +3727,14 @@ pub struct IPedometerStatics_Vtbl {
     pub GetSystemHistoryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSystemHistoryWithDurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPedometerStatics2, IPedometerStatics2_Vtbl, 0x79f5c6bb_ce0e_4133_b47e_8627ea72f677, inspectable);
-impl windows_core::RuntimeType for IPedometerStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IPedometerStatics2");
-}
+windows_core::imp::define_winrt_interface!(IPedometerStatics2, IPedometerStatics2_Vtbl, 0x79f5c6bb_ce0e_4133_b47e_8627ea72f677, b"Windows.Devices.Sensors.IPedometerStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetReadingsFromTriggerDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProximitySensor, IProximitySensor_Vtbl, 0x54c076b8_ecfb_4944_b928_74fc504d47ee, inspectable);
-impl windows_core::RuntimeType for IProximitySensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IProximitySensor");
-}
+windows_core::imp::define_winrt_interface!(IProximitySensor, IProximitySensor_Vtbl, 0x54c076b8_ecfb_4944_b928_74fc504d47ee, b"Windows.Devices.Sensors.IProximitySensor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProximitySensor_Vtbl {
@@ -4327,22 +3747,14 @@ pub struct IProximitySensor_Vtbl {
     pub RemoveReadingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub CreateDisplayOnOffController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProximitySensorDataThresholdFactory, IProximitySensorDataThresholdFactory_Vtbl, 0x905ac121_6d27_4ad3_9db5_6467f2a5ad9d, inspectable);
-impl windows_core::RuntimeType for IProximitySensorDataThresholdFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IProximitySensorDataThresholdFactory");
-}
+windows_core::imp::define_winrt_interface!(IProximitySensorDataThresholdFactory, IProximitySensorDataThresholdFactory_Vtbl, 0x905ac121_6d27_4ad3_9db5_6467f2a5ad9d, b"Windows.Devices.Sensors.IProximitySensorDataThresholdFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProximitySensorDataThresholdFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProximitySensorReading, IProximitySensorReading_Vtbl, 0x71228d59_132d_4d5f_8ff9_2f0db8751ced, inspectable);
-impl windows_core::RuntimeType for IProximitySensorReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IProximitySensorReading");
-}
+windows_core::imp::define_winrt_interface!(IProximitySensorReading, IProximitySensorReading_Vtbl, 0x71228d59_132d_4d5f_8ff9_2f0db8751ced, b"Windows.Devices.Sensors.IProximitySensorReading");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProximitySensorReading_Vtbl {
@@ -4351,22 +3763,14 @@ pub struct IProximitySensorReading_Vtbl {
     pub IsDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub DistanceInMillimeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProximitySensorReadingChangedEventArgs, IProximitySensorReadingChangedEventArgs_Vtbl, 0xcfc2f366_c3e8_40fd_8cc3_67e289004938, inspectable);
-impl windows_core::RuntimeType for IProximitySensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IProximitySensorReadingChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IProximitySensorReadingChangedEventArgs, IProximitySensorReadingChangedEventArgs_Vtbl, 0xcfc2f366_c3e8_40fd_8cc3_67e289004938, b"Windows.Devices.Sensors.IProximitySensorReadingChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProximitySensorReadingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProximitySensorStatics, IProximitySensorStatics_Vtbl, 0x29186649_6269_4e57_a5ad_82be80813392, inspectable);
-impl windows_core::RuntimeType for IProximitySensorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IProximitySensorStatics");
-}
+windows_core::imp::define_winrt_interface!(IProximitySensorStatics, IProximitySensorStatics_Vtbl, 0x29186649_6269_4e57_a5ad_82be80813392, b"Windows.Devices.Sensors.IProximitySensorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProximitySensorStatics_Vtbl {
@@ -4374,22 +3778,14 @@ pub struct IProximitySensorStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProximitySensorStatics2, IProximitySensorStatics2_Vtbl, 0xcbf473ae_e9ca_422f_ad67_4c3d25df350c, inspectable);
-impl windows_core::RuntimeType for IProximitySensorStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IProximitySensorStatics2");
-}
+windows_core::imp::define_winrt_interface!(IProximitySensorStatics2, IProximitySensorStatics2_Vtbl, 0xcbf473ae_e9ca_422f_ad67_4c3d25df350c, b"Windows.Devices.Sensors.IProximitySensorStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProximitySensorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetReadingsFromTriggerDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISensorDataThreshold, ISensorDataThreshold_Vtbl, 0x54daec61_fe4b_4e07_b260_3a4cdfbe396e, inspectable);
-impl windows_core::RuntimeType for ISensorDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ISensorDataThreshold");
-}
+windows_core::imp::define_winrt_interface!(ISensorDataThreshold, ISensorDataThreshold_Vtbl, 0x54daec61_fe4b_4e07_b260_3a4cdfbe396e, b"Windows.Devices.Sensors.ISensorDataThreshold");
 windows_core::imp::interface_hierarchy!(ISensorDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
 impl windows_core::RuntimeName for ISensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ISensorDataThreshold";
@@ -4408,11 +3804,7 @@ impl ISensorDataThreshold_Vtbl {
 pub struct ISensorDataThreshold_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ISensorDataThresholdTriggerDetails, ISensorDataThresholdTriggerDetails_Vtbl, 0x9106f1b7_e88d_48b1_bc90_619c7b349391, inspectable);
-impl windows_core::RuntimeType for ISensorDataThresholdTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ISensorDataThresholdTriggerDetails");
-}
+windows_core::imp::define_winrt_interface!(ISensorDataThresholdTriggerDetails, ISensorDataThresholdTriggerDetails_Vtbl, 0x9106f1b7_e88d_48b1_bc90_619c7b349391, b"Windows.Devices.Sensors.ISensorDataThresholdTriggerDetails");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorDataThresholdTriggerDetails_Vtbl {
@@ -4420,11 +3812,7 @@ pub struct ISensorDataThresholdTriggerDetails_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SensorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SensorType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISensorQuaternion, ISensorQuaternion_Vtbl, 0xc9c5c827_c71c_46e7_9da3_36a193b232bc, inspectable);
-impl windows_core::RuntimeType for ISensorQuaternion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ISensorQuaternion");
-}
+windows_core::imp::define_winrt_interface!(ISensorQuaternion, ISensorQuaternion_Vtbl, 0xc9c5c827_c71c_46e7_9da3_36a193b232bc, b"Windows.Devices.Sensors.ISensorQuaternion");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorQuaternion_Vtbl {
@@ -4434,11 +3822,7 @@ pub struct ISensorQuaternion_Vtbl {
     pub Y: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub Z: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISensorRotationMatrix, ISensorRotationMatrix_Vtbl, 0x0a3d5a67_22f4_4392_9538_65d0bd064aa6, inspectable);
-impl windows_core::RuntimeType for ISensorRotationMatrix {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ISensorRotationMatrix");
-}
+windows_core::imp::define_winrt_interface!(ISensorRotationMatrix, ISensorRotationMatrix_Vtbl, 0x0a3d5a67_22f4_4392_9538_65d0bd064aa6, b"Windows.Devices.Sensors.ISensorRotationMatrix");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorRotationMatrix_Vtbl {
@@ -4453,11 +3837,7 @@ pub struct ISensorRotationMatrix_Vtbl {
     pub M32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub M33: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISimpleOrientationSensor, ISimpleOrientationSensor_Vtbl, 0x5ff53856_214a_4dee_a3f9_616f1ab06ffd, inspectable);
-impl windows_core::RuntimeType for ISimpleOrientationSensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ISimpleOrientationSensor");
-}
+windows_core::imp::define_winrt_interface!(ISimpleOrientationSensor, ISimpleOrientationSensor_Vtbl, 0x5ff53856_214a_4dee_a3f9_616f1ab06ffd, b"Windows.Devices.Sensors.ISimpleOrientationSensor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleOrientationSensor_Vtbl {
@@ -4466,11 +3846,7 @@ pub struct ISimpleOrientationSensor_Vtbl {
     pub OrientationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveOrientationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISimpleOrientationSensor2, ISimpleOrientationSensor2_Vtbl, 0xa277a798_8870_453e_8bd6_b8f5d8d7941b, inspectable);
-impl windows_core::RuntimeType for ISimpleOrientationSensor2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ISimpleOrientationSensor2");
-}
+windows_core::imp::define_winrt_interface!(ISimpleOrientationSensor2, ISimpleOrientationSensor2_Vtbl, 0xa277a798_8870_453e_8bd6_b8f5d8d7941b, b"Windows.Devices.Sensors.ISimpleOrientationSensor2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleOrientationSensor2_Vtbl {
@@ -4484,22 +3860,14 @@ pub struct ISimpleOrientationSensor2_Vtbl {
     #[cfg(not(feature = "Graphics_Display"))]
     ReadingTransform: usize,
 }
-windows_core::imp::define_interface!(ISimpleOrientationSensorDeviceId, ISimpleOrientationSensorDeviceId_Vtbl, 0xfbc00acb_3b76_41f6_8091_30efe646d3cf, inspectable);
-impl windows_core::RuntimeType for ISimpleOrientationSensorDeviceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ISimpleOrientationSensorDeviceId");
-}
+windows_core::imp::define_winrt_interface!(ISimpleOrientationSensorDeviceId, ISimpleOrientationSensorDeviceId_Vtbl, 0xfbc00acb_3b76_41f6_8091_30efe646d3cf, b"Windows.Devices.Sensors.ISimpleOrientationSensorDeviceId");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleOrientationSensorDeviceId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISimpleOrientationSensorOrientationChangedEventArgs, ISimpleOrientationSensorOrientationChangedEventArgs_Vtbl, 0xbcd5c660_23d4_4b4c_a22e_ba81ade0c601, inspectable);
-impl windows_core::RuntimeType for ISimpleOrientationSensorOrientationChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ISimpleOrientationSensorOrientationChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ISimpleOrientationSensorOrientationChangedEventArgs, ISimpleOrientationSensorOrientationChangedEventArgs_Vtbl, 0xbcd5c660_23d4_4b4c_a22e_ba81ade0c601, b"Windows.Devices.Sensors.ISimpleOrientationSensorOrientationChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleOrientationSensorOrientationChangedEventArgs_Vtbl {
@@ -4507,22 +3875,14 @@ pub struct ISimpleOrientationSensorOrientationChangedEventArgs_Vtbl {
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SimpleOrientation) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISimpleOrientationSensorStatics, ISimpleOrientationSensorStatics_Vtbl, 0x72ed066f_70aa_40c6_9b1b_3433f7459b4e, inspectable);
-impl windows_core::RuntimeType for ISimpleOrientationSensorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ISimpleOrientationSensorStatics");
-}
+windows_core::imp::define_winrt_interface!(ISimpleOrientationSensorStatics, ISimpleOrientationSensorStatics_Vtbl, 0x72ed066f_70aa_40c6_9b1b_3433f7459b4e, b"Windows.Devices.Sensors.ISimpleOrientationSensorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleOrientationSensorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISimpleOrientationSensorStatics2, ISimpleOrientationSensorStatics2_Vtbl, 0x848f9c7f_b138_4e11_8910_a2a2a3b56d83, inspectable);
-impl windows_core::RuntimeType for ISimpleOrientationSensorStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.ISimpleOrientationSensorStatics2");
-}
+windows_core::imp::define_winrt_interface!(ISimpleOrientationSensorStatics2, ISimpleOrientationSensorStatics2_Vtbl, 0x848f9c7f_b138_4e11_8910_a2a2a3b56d83, b"Windows.Devices.Sensors.ISimpleOrientationSensorStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleOrientationSensorStatics2_Vtbl {
@@ -4530,11 +3890,7 @@ pub struct ISimpleOrientationSensorStatics2_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWakeOnApproachOptions, IWakeOnApproachOptions_Vtbl, 0xf0b87ae7_7e1f_5ea5_814d_6b7e07defc2b, inspectable);
-impl windows_core::RuntimeType for IWakeOnApproachOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Sensors.IWakeOnApproachOptions");
-}
+windows_core::imp::define_winrt_interface!(IWakeOnApproachOptions, IWakeOnApproachOptions_Vtbl, 0xf0b87ae7_7e1f_5ea5_814d_6b7e07defc2b, b"Windows.Devices.Sensors.IWakeOnApproachOptions");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWakeOnApproachOptions_Vtbl {

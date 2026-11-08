@@ -4024,11 +4024,7 @@ impl windows_core::RuntimeType for GameBarTargetCapturePolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarTargetCapturePolicy;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.GameBarTargetCapturePolicy");
 }
-windows_core::imp::define_interface!(IAdvancedCapturedPhoto, IAdvancedCapturedPhoto_Vtbl, 0xf072728b_b292_4491_9d41_99807a550bbf, inspectable);
-impl windows_core::RuntimeType for IAdvancedCapturedPhoto {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAdvancedCapturedPhoto");
-}
+windows_core::imp::define_winrt_interface!(IAdvancedCapturedPhoto, IAdvancedCapturedPhoto_Vtbl, 0xf072728b_b292_4491_9d41_99807a550bbf, b"Windows.Media.Capture.IAdvancedCapturedPhoto");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedCapturedPhoto_Vtbl {
@@ -4043,22 +4039,14 @@ pub struct IAdvancedCapturedPhoto_Vtbl {
     Mode: usize,
     pub Context: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdvancedCapturedPhoto2, IAdvancedCapturedPhoto2_Vtbl, 0x18cf6cd8_cffe_42d8_8104_017bb318f4a1, inspectable);
-impl windows_core::RuntimeType for IAdvancedCapturedPhoto2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAdvancedCapturedPhoto2");
-}
+windows_core::imp::define_winrt_interface!(IAdvancedCapturedPhoto2, IAdvancedCapturedPhoto2_Vtbl, 0x18cf6cd8_cffe_42d8_8104_017bb318f4a1, b"Windows.Media.Capture.IAdvancedCapturedPhoto2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedCapturedPhoto2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FrameBoundsRelativeToReferencePhoto: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdvancedPhotoCapture, IAdvancedPhotoCapture_Vtbl, 0x83ffaafa_6667_44dc_973c_a6bce596aa0f, inspectable);
-impl windows_core::RuntimeType for IAdvancedPhotoCapture {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAdvancedPhotoCapture");
-}
+windows_core::imp::define_winrt_interface!(IAdvancedPhotoCapture, IAdvancedPhotoCapture_Vtbl, 0x83ffaafa_6667_44dc_973c_a6bce596aa0f, b"Windows.Media.Capture.IAdvancedPhotoCapture");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedPhotoCapture_Vtbl {
@@ -4071,11 +4059,7 @@ pub struct IAdvancedPhotoCapture_Vtbl {
     pub RemoveAllPhotosCaptured: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub FinishAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastBackgroundService, IAppBroadcastBackgroundService_Vtbl, 0xbad1e72a_fa94_46f9_95fc_d71511cda70b, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastBackgroundService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastBackgroundService");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastBackgroundService, IAppBroadcastBackgroundService_Vtbl, 0xbad1e72a_fa94_46f9_95fc_d71511cda70b, b"Windows.Media.Capture.IAppBroadcastBackgroundService");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastBackgroundService_Vtbl {
@@ -4095,11 +4079,7 @@ pub struct IAppBroadcastBackgroundService_Vtbl {
     pub RemoveHeartbeatRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub TitleId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastBackgroundService2, IAppBroadcastBackgroundService2_Vtbl, 0xfc8ccbbf_5549_4b87_959f_23ca401fd473, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastBackgroundService2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastBackgroundService2");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastBackgroundService2, IAppBroadcastBackgroundService2_Vtbl, 0xfc8ccbbf_5549_4b87_959f_23ca401fd473, b"Windows.Media.Capture.IAppBroadcastBackgroundService2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastBackgroundService2_Vtbl {
@@ -4116,11 +4096,7 @@ pub struct IAppBroadcastBackgroundService2_Vtbl {
     pub BroadcastChannelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveBroadcastChannelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastBackgroundServiceSignInInfo, IAppBroadcastBackgroundServiceSignInInfo_Vtbl, 0x5e735275_88c8_4eca_89ba_4825985db880, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastBackgroundServiceSignInInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastBackgroundServiceSignInInfo");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastBackgroundServiceSignInInfo, IAppBroadcastBackgroundServiceSignInInfo_Vtbl, 0x5e735275_88c8_4eca_89ba_4825985db880, b"Windows.Media.Capture.IAppBroadcastBackgroundServiceSignInInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceSignInInfo_Vtbl {
@@ -4139,11 +4115,7 @@ pub struct IAppBroadcastBackgroundServiceSignInInfo_Vtbl {
     pub SignInStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSignInStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastBackgroundServiceSignInInfo2, IAppBroadcastBackgroundServiceSignInInfo2_Vtbl, 0x9104285c_62cf_4a3c_a7ee_aeb507404645, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastBackgroundServiceSignInInfo2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastBackgroundServiceSignInInfo2");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastBackgroundServiceSignInInfo2, IAppBroadcastBackgroundServiceSignInInfo2_Vtbl, 0x9104285c_62cf_4a3c_a7ee_aeb507404645, b"Windows.Media.Capture.IAppBroadcastBackgroundServiceSignInInfo2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceSignInInfo2_Vtbl {
@@ -4151,11 +4123,7 @@ pub struct IAppBroadcastBackgroundServiceSignInInfo2_Vtbl {
     pub UserNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveUserNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastBackgroundServiceStreamInfo, IAppBroadcastBackgroundServiceStreamInfo_Vtbl, 0x31dc02bc_990a_4904_aa96_fe364381f136, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastBackgroundServiceStreamInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastBackgroundServiceStreamInfo, IAppBroadcastBackgroundServiceStreamInfo_Vtbl, 0x31dc02bc_990a_4904_aa96_fe364381f136, b"Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceStreamInfo_Vtbl {
@@ -4175,22 +4143,14 @@ pub struct IAppBroadcastBackgroundServiceStreamInfo_Vtbl {
     pub VideoEncodingBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveVideoEncodingBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastBackgroundServiceStreamInfo2, IAppBroadcastBackgroundServiceStreamInfo2_Vtbl, 0xbd1e9f6d_94dc_4fce_9541_a9f129596334, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastBackgroundServiceStreamInfo2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo2");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastBackgroundServiceStreamInfo2, IAppBroadcastBackgroundServiceStreamInfo2_Vtbl, 0xbd1e9f6d_94dc_4fce_9541_a9f129596334, b"Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceStreamInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportProblemWithStream: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastCameraCaptureStateChangedEventArgs, IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl, 0x1e334cd0_b882_4b88_8692_05999aceb70f, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastCameraCaptureStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastCameraCaptureStateChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastCameraCaptureStateChangedEventArgs, IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl, 0x1e334cd0_b882_4b88_8692_05999aceb70f, b"Windows.Media.Capture.IAppBroadcastCameraCaptureStateChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl {
@@ -4198,11 +4158,7 @@ pub struct IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppBroadcastCameraCaptureState) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastGlobalSettings, IAppBroadcastGlobalSettings_Vtbl, 0xb2cb27a5_70fc_4e17_80bd_6ba0fd3ff3a0, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastGlobalSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastGlobalSettings");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastGlobalSettings, IAppBroadcastGlobalSettings_Vtbl, 0xb2cb27a5_70fc_4e17_80bd_6ba0fd3ff3a0, b"Windows.Media.Capture.IAppBroadcastGlobalSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastGlobalSettings_Vtbl {
@@ -4232,11 +4188,7 @@ pub struct IAppBroadcastGlobalSettings_Vtbl {
     pub SetIsCursorImageCaptureEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub IsCursorImageCaptureEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastHeartbeatRequestedEventArgs, IAppBroadcastHeartbeatRequestedEventArgs_Vtbl, 0xcea54283_ee51_4dbf_9472_79a9ed4e2165, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastHeartbeatRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastHeartbeatRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastHeartbeatRequestedEventArgs, IAppBroadcastHeartbeatRequestedEventArgs_Vtbl, 0xcea54283_ee51_4dbf_9472_79a9ed4e2165, b"Windows.Media.Capture.IAppBroadcastHeartbeatRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastHeartbeatRequestedEventArgs_Vtbl {
@@ -4244,11 +4196,7 @@ pub struct IAppBroadcastHeartbeatRequestedEventArgs_Vtbl {
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastManagerStatics, IAppBroadcastManagerStatics_Vtbl, 0x364e018b_1e4e_411f_ab3e_92959844c156, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastManagerStatics, IAppBroadcastManagerStatics_Vtbl, 0x364e018b_1e4e_411f_ab3e_92959844c156, b"Windows.Media.Capture.IAppBroadcastManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastManagerStatics_Vtbl {
@@ -4258,11 +4206,7 @@ pub struct IAppBroadcastManagerStatics_Vtbl {
     pub GetProviderSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ApplyProviderSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastMicrophoneCaptureStateChangedEventArgs, IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl, 0xa86ad5e9_9440_4908_9d09_65b7e315d795, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastMicrophoneCaptureStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastMicrophoneCaptureStateChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastMicrophoneCaptureStateChangedEventArgs, IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl, 0xa86ad5e9_9440_4908_9d09_65b7e315d795, b"Windows.Media.Capture.IAppBroadcastMicrophoneCaptureStateChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl {
@@ -4270,11 +4214,7 @@ pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppBroadcastMicrophoneCaptureState) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastPlugIn, IAppBroadcastPlugIn_Vtbl, 0x520c1e66_6513_4574_ac54_23b79729615b, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastPlugIn {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastPlugIn");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastPlugIn, IAppBroadcastPlugIn_Vtbl, 0x520c1e66_6513_4574_ac54_23b79729615b, b"Windows.Media.Capture.IAppBroadcastPlugIn");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPlugIn_Vtbl {
@@ -4287,11 +4227,7 @@ pub struct IAppBroadcastPlugIn_Vtbl {
     Logo: usize,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastPlugInManager, IAppBroadcastPlugInManager_Vtbl, 0xe550d979_27a1_49a7_bbf4_d7a9e9d07668, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastPlugInManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastPlugInManager");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastPlugInManager, IAppBroadcastPlugInManager_Vtbl, 0xe550d979_27a1_49a7_bbf4_d7a9e9d07668, b"Windows.Media.Capture.IAppBroadcastPlugInManager");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPlugInManager_Vtbl {
@@ -4301,11 +4237,7 @@ pub struct IAppBroadcastPlugInManager_Vtbl {
     pub DefaultPlugIn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDefaultPlugIn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastPlugInManagerStatics, IAppBroadcastPlugInManagerStatics_Vtbl, 0xf2645c20_5c76_4cdc_9364_82fe9eb6534d, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastPlugInManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastPlugInManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastPlugInManagerStatics, IAppBroadcastPlugInManagerStatics_Vtbl, 0xf2645c20_5c76_4cdc_9364_82fe9eb6534d, b"Windows.Media.Capture.IAppBroadcastPlugInManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPlugInManagerStatics_Vtbl {
@@ -4316,22 +4248,14 @@ pub struct IAppBroadcastPlugInManagerStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::define_interface!(IAppBroadcastPlugInStateChangedEventArgs, IAppBroadcastPlugInStateChangedEventArgs_Vtbl, 0x4881d0f2_abc5_4fc6_84b0_89370bb47212, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastPlugInStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastPlugInStateChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastPlugInStateChangedEventArgs, IAppBroadcastPlugInStateChangedEventArgs_Vtbl, 0x4881d0f2_abc5_4fc6_84b0_89370bb47212, b"Windows.Media.Capture.IAppBroadcastPlugInStateChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPlugInStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PlugInState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppBroadcastPlugInState) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastPreview, IAppBroadcastPreview_Vtbl, 0x14b60f5a_6e4a_4b80_a14f_67ee77d153e7, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastPreview");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastPreview, IAppBroadcastPreview_Vtbl, 0x14b60f5a_6e4a_4b80_a14f_67ee77d153e7, b"Windows.Media.Capture.IAppBroadcastPreview");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPreview_Vtbl {
@@ -4343,11 +4267,7 @@ pub struct IAppBroadcastPreview_Vtbl {
     pub RemovePreviewStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub PreviewStreamReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastPreviewStateChangedEventArgs, IAppBroadcastPreviewStateChangedEventArgs_Vtbl, 0x5a57f2de_8dea_4e86_90ad_03fc26b9653c, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastPreviewStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastPreviewStateChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastPreviewStateChangedEventArgs, IAppBroadcastPreviewStateChangedEventArgs_Vtbl, 0x5a57f2de_8dea_4e86_90ad_03fc26b9653c, b"Windows.Media.Capture.IAppBroadcastPreviewStateChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPreviewStateChangedEventArgs_Vtbl {
@@ -4355,11 +4275,7 @@ pub struct IAppBroadcastPreviewStateChangedEventArgs_Vtbl {
     pub PreviewState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppBroadcastPreviewState) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastPreviewStreamReader, IAppBroadcastPreviewStreamReader_Vtbl, 0x92228d50_db3f_40a8_8cd4_f4e371ddab37, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastPreviewStreamReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastPreviewStreamReader");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastPreviewStreamReader, IAppBroadcastPreviewStreamReader_Vtbl, 0x92228d50_db3f_40a8_8cd4_f4e371ddab37, b"Windows.Media.Capture.IAppBroadcastPreviewStreamReader");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPreviewStreamReader_Vtbl {
@@ -4379,11 +4295,7 @@ pub struct IAppBroadcastPreviewStreamReader_Vtbl {
     pub VideoFrameArrived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveVideoFrameArrived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastPreviewStreamVideoFrame, IAppBroadcastPreviewStreamVideoFrame_Vtbl, 0x010fbea1_94fe_4499_b8c0_8d244279fb12, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastPreviewStreamVideoFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastPreviewStreamVideoFrame");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastPreviewStreamVideoFrame, IAppBroadcastPreviewStreamVideoFrame_Vtbl, 0x010fbea1_94fe_4499_b8c0_8d244279fb12, b"Windows.Media.Capture.IAppBroadcastPreviewStreamVideoFrame");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPreviewStreamVideoFrame_Vtbl {
@@ -4394,11 +4306,7 @@ pub struct IAppBroadcastPreviewStreamVideoFrame_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     VideoBuffer: usize,
 }
-windows_core::imp::define_interface!(IAppBroadcastPreviewStreamVideoHeader, IAppBroadcastPreviewStreamVideoHeader_Vtbl, 0x8bef6113_da84_4499_a7ab_87118cb4a157, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastPreviewStreamVideoHeader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastPreviewStreamVideoHeader");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastPreviewStreamVideoHeader, IAppBroadcastPreviewStreamVideoHeader_Vtbl, 0x8bef6113_da84_4499_a7ab_87118cb4a157, b"Windows.Media.Capture.IAppBroadcastPreviewStreamVideoHeader");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPreviewStreamVideoHeader_Vtbl {
@@ -4408,11 +4316,7 @@ pub struct IAppBroadcastPreviewStreamVideoHeader_Vtbl {
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub FrameId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastProviderSettings, IAppBroadcastProviderSettings_Vtbl, 0xc30bdf62_9948_458f_ad50_aa06ec03da08, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastProviderSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastProviderSettings");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastProviderSettings, IAppBroadcastProviderSettings_Vtbl, 0xc30bdf62_9948_458f_ad50_aa06ec03da08, b"Windows.Media.Capture.IAppBroadcastProviderSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastProviderSettings_Vtbl {
@@ -4432,11 +4336,7 @@ pub struct IAppBroadcastProviderSettings_Vtbl {
     pub SetVideoEncodingResolutionMode: unsafe extern "system" fn(*mut core::ffi::c_void, AppBroadcastVideoEncodingResolutionMode) -> windows_core::HRESULT,
     pub VideoEncodingResolutionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppBroadcastVideoEncodingResolutionMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastServices, IAppBroadcastServices_Vtbl, 0x8660b4d6_969b_4e3c_ac3a_8b042ee4ee63, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastServices {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastServices");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastServices, IAppBroadcastServices_Vtbl, 0x8660b4d6_969b_4e3c_ac3a_8b042ee4ee63, b"Windows.Media.Capture.IAppBroadcastServices");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastServices_Vtbl {
@@ -4457,11 +4357,7 @@ pub struct IAppBroadcastServices_Vtbl {
     pub StartPreview: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Size, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastSignInStateChangedEventArgs, IAppBroadcastSignInStateChangedEventArgs_Vtbl, 0x02b692a4_5919_4a9e_8d5e_c9bb0dd3377a, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastSignInStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastSignInStateChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastSignInStateChangedEventArgs, IAppBroadcastSignInStateChangedEventArgs_Vtbl, 0x02b692a4_5919_4a9e_8d5e_c9bb0dd3377a, b"Windows.Media.Capture.IAppBroadcastSignInStateChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastSignInStateChangedEventArgs_Vtbl {
@@ -4469,11 +4365,7 @@ pub struct IAppBroadcastSignInStateChangedEventArgs_Vtbl {
     pub SignInState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppBroadcastSignInState) -> windows_core::HRESULT,
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppBroadcastSignInResult) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastState, IAppBroadcastState_Vtbl, 0xee08056d_8099_4ddd_922e_c56dac58abfb, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastState");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastState, IAppBroadcastState_Vtbl, 0xee08056d_8099_4ddd_922e_c56dac58abfb, b"Windows.Media.Capture.IAppBroadcastState");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastState_Vtbl {
@@ -4520,11 +4412,7 @@ pub struct IAppBroadcastState_Vtbl {
     pub CaptureTargetClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveCaptureTargetClosed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastStreamAudioFrame, IAppBroadcastStreamAudioFrame_Vtbl, 0xefab4ac8_21ba_453f_8bb7_5e938a2e9a74, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastStreamAudioFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastStreamAudioFrame");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastStreamAudioFrame, IAppBroadcastStreamAudioFrame_Vtbl, 0xefab4ac8_21ba_453f_8bb7_5e938a2e9a74, b"Windows.Media.Capture.IAppBroadcastStreamAudioFrame");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastStreamAudioFrame_Vtbl {
@@ -4535,11 +4423,7 @@ pub struct IAppBroadcastStreamAudioFrame_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     AudioBuffer: usize,
 }
-windows_core::imp::define_interface!(IAppBroadcastStreamAudioHeader, IAppBroadcastStreamAudioHeader_Vtbl, 0xbf21a570_6b78_4216_9f07_5aff5256f1b7, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastStreamAudioHeader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastStreamAudioHeader");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastStreamAudioHeader, IAppBroadcastStreamAudioHeader_Vtbl, 0xbf21a570_6b78_4216_9f07_5aff5256f1b7, b"Windows.Media.Capture.IAppBroadcastStreamAudioHeader");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastStreamAudioHeader_Vtbl {
@@ -4550,11 +4434,7 @@ pub struct IAppBroadcastStreamAudioHeader_Vtbl {
     pub HasDiscontinuity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub FrameId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastStreamReader, IAppBroadcastStreamReader_Vtbl, 0xb338bcf9_3364_4460_b5f1_3cc2796a8aa2, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastStreamReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastStreamReader");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastStreamReader, IAppBroadcastStreamReader_Vtbl, 0xb338bcf9_3364_4460_b5f1_3cc2796a8aa2, b"Windows.Media.Capture.IAppBroadcastStreamReader");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastStreamReader_Vtbl {
@@ -4576,22 +4456,14 @@ pub struct IAppBroadcastStreamReader_Vtbl {
     pub VideoFrameArrived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveVideoFrameArrived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastStreamStateChangedEventArgs, IAppBroadcastStreamStateChangedEventArgs_Vtbl, 0x5108a733_d008_4a89_93be_58aed961374e, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastStreamStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastStreamStateChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastStreamStateChangedEventArgs, IAppBroadcastStreamStateChangedEventArgs_Vtbl, 0x5108a733_d008_4a89_93be_58aed961374e, b"Windows.Media.Capture.IAppBroadcastStreamStateChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastStreamStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StreamState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppBroadcastStreamState) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastStreamVideoFrame, IAppBroadcastStreamVideoFrame_Vtbl, 0x0f97cf2b_c9e4_4e88_8194_d814cbd585d8, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastStreamVideoFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastStreamVideoFrame");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastStreamVideoFrame, IAppBroadcastStreamVideoFrame_Vtbl, 0x0f97cf2b_c9e4_4e88_8194_d814cbd585d8, b"Windows.Media.Capture.IAppBroadcastStreamVideoFrame");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastStreamVideoFrame_Vtbl {
@@ -4602,11 +4474,7 @@ pub struct IAppBroadcastStreamVideoFrame_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     VideoBuffer: usize,
 }
-windows_core::imp::define_interface!(IAppBroadcastStreamVideoHeader, IAppBroadcastStreamVideoHeader_Vtbl, 0x0b9ebece_7e32_432d_8ca2_36bf10b9f462, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastStreamVideoHeader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastStreamVideoHeader");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastStreamVideoHeader, IAppBroadcastStreamVideoHeader_Vtbl, 0x0b9ebece_7e32_432d_8ca2_36bf10b9f462, b"Windows.Media.Capture.IAppBroadcastStreamVideoHeader");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastStreamVideoHeader_Vtbl {
@@ -4618,33 +4486,21 @@ pub struct IAppBroadcastStreamVideoHeader_Vtbl {
     pub HasDiscontinuity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub FrameId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastTriggerDetails, IAppBroadcastTriggerDetails_Vtbl, 0xdeebab35_ec5e_4d8f_b1c0_5da6e8c75638, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastTriggerDetails");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastTriggerDetails, IAppBroadcastTriggerDetails_Vtbl, 0xdeebab35_ec5e_4d8f_b1c0_5da6e8c75638, b"Windows.Media.Capture.IAppBroadcastTriggerDetails");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BackgroundService: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastViewerCountChangedEventArgs, IAppBroadcastViewerCountChangedEventArgs_Vtbl, 0xe6e11825_5401_4ade_8bd2_c14ecee6807d, inspectable);
-impl windows_core::RuntimeType for IAppBroadcastViewerCountChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppBroadcastViewerCountChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppBroadcastViewerCountChangedEventArgs, IAppBroadcastViewerCountChangedEventArgs_Vtbl, 0xe6e11825_5401_4ade_8bd2_c14ecee6807d, b"Windows.Media.Capture.IAppBroadcastViewerCountChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastViewerCountChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ViewerCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCapture, IAppCapture_Vtbl, 0x9749d453_a29a_45ed_8f29_22d09942cff7, inspectable);
-impl windows_core::RuntimeType for IAppCapture {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCapture");
-}
+windows_core::imp::define_winrt_interface!(IAppCapture, IAppCapture_Vtbl, 0x9749d453_a29a_45ed_8f29_22d09942cff7, b"Windows.Media.Capture.IAppCapture");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCapture_Vtbl {
@@ -4654,11 +4510,7 @@ pub struct IAppCapture_Vtbl {
     pub CapturingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveCapturingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureAlternateShortcutKeys, IAppCaptureAlternateShortcutKeys_Vtbl, 0x19e8e0ef_236c_40f9_b38f_9b7dd65d1ccc, inspectable);
-impl windows_core::RuntimeType for IAppCaptureAlternateShortcutKeys {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureAlternateShortcutKeys");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureAlternateShortcutKeys, IAppCaptureAlternateShortcutKeys_Vtbl, 0x19e8e0ef_236c_40f9_b38f_9b7dd65d1ccc, b"Windows.Media.Capture.IAppCaptureAlternateShortcutKeys");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureAlternateShortcutKeys_Vtbl {
@@ -4744,11 +4596,7 @@ pub struct IAppCaptureAlternateShortcutKeys_Vtbl {
     #[cfg(not(feature = "System"))]
     ToggleRecordingIndicatorKeyModifiers: usize,
 }
-windows_core::imp::define_interface!(IAppCaptureAlternateShortcutKeys2, IAppCaptureAlternateShortcutKeys2_Vtbl, 0xc3669090_dd17_47f0_95e5_ce42286cf338, inspectable);
-impl windows_core::RuntimeType for IAppCaptureAlternateShortcutKeys2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureAlternateShortcutKeys2");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureAlternateShortcutKeys2, IAppCaptureAlternateShortcutKeys2_Vtbl, 0xc3669090_dd17_47f0_95e5_ce42286cf338, b"Windows.Media.Capture.IAppCaptureAlternateShortcutKeys2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureAlternateShortcutKeys2_Vtbl {
@@ -4770,11 +4618,7 @@ pub struct IAppCaptureAlternateShortcutKeys2_Vtbl {
     #[cfg(not(feature = "System"))]
     ToggleMicrophoneCaptureKeyModifiers: usize,
 }
-windows_core::imp::define_interface!(IAppCaptureAlternateShortcutKeys3, IAppCaptureAlternateShortcutKeys3_Vtbl, 0x7b81448c_418e_469c_a49a_45b597c826b6, inspectable);
-impl windows_core::RuntimeType for IAppCaptureAlternateShortcutKeys3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureAlternateShortcutKeys3");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureAlternateShortcutKeys3, IAppCaptureAlternateShortcutKeys3_Vtbl, 0x7b81448c_418e_469c_a49a_45b597c826b6, b"Windows.Media.Capture.IAppCaptureAlternateShortcutKeys3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureAlternateShortcutKeys3_Vtbl {
@@ -4812,22 +4656,14 @@ pub struct IAppCaptureAlternateShortcutKeys3_Vtbl {
     #[cfg(not(feature = "System"))]
     ToggleBroadcastKeyModifiers: usize,
 }
-windows_core::imp::define_interface!(IAppCaptureDurationGeneratedEventArgs, IAppCaptureDurationGeneratedEventArgs_Vtbl, 0xc1f5563b_ffa1_44c9_975f_27fbeb553b35, inspectable);
-impl windows_core::RuntimeType for IAppCaptureDurationGeneratedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureDurationGeneratedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureDurationGeneratedEventArgs, IAppCaptureDurationGeneratedEventArgs_Vtbl, 0xc1f5563b_ffa1_44c9_975f_27fbeb553b35, b"Windows.Media.Capture.IAppCaptureDurationGeneratedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureDurationGeneratedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureFileGeneratedEventArgs, IAppCaptureFileGeneratedEventArgs_Vtbl, 0x4189fbf4_465e_45bf_907f_165b3fb23758, inspectable);
-impl windows_core::RuntimeType for IAppCaptureFileGeneratedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureFileGeneratedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureFileGeneratedEventArgs, IAppCaptureFileGeneratedEventArgs_Vtbl, 0x4189fbf4_465e_45bf_907f_165b3fb23758, b"Windows.Media.Capture.IAppCaptureFileGeneratedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureFileGeneratedEventArgs_Vtbl {
@@ -4837,11 +4673,7 @@ pub struct IAppCaptureFileGeneratedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     File: usize,
 }
-windows_core::imp::define_interface!(IAppCaptureManagerStatics, IAppCaptureManagerStatics_Vtbl, 0x7d9e3ea7_6282_4735_8d4e_aa45f90f6723, inspectable);
-impl windows_core::RuntimeType for IAppCaptureManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureManagerStatics, IAppCaptureManagerStatics_Vtbl, 0x7d9e3ea7_6282_4735_8d4e_aa45f90f6723, b"Windows.Media.Capture.IAppCaptureManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureManagerStatics_Vtbl {
@@ -4849,11 +4681,7 @@ pub struct IAppCaptureManagerStatics_Vtbl {
     pub GetCurrentSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ApplySettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureMetadataWriter, IAppCaptureMetadataWriter_Vtbl, 0xe0ce4877_9aaf_46b4_ad31_6a60b441c780, inspectable);
-impl windows_core::RuntimeType for IAppCaptureMetadataWriter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureMetadataWriter");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureMetadataWriter, IAppCaptureMetadataWriter_Vtbl, 0xe0ce4877_9aaf_46b4_ad31_6a60b441c780, b"Windows.Media.Capture.IAppCaptureMetadataWriter");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureMetadataWriter_Vtbl {
@@ -4870,11 +4698,7 @@ pub struct IAppCaptureMetadataWriter_Vtbl {
     pub MetadataPurged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveMetadataPurged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureMicrophoneCaptureStateChangedEventArgs, IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl, 0x324d249e_45bc_4c35_bc35_e469fc7a69e0, inspectable);
-impl windows_core::RuntimeType for IAppCaptureMicrophoneCaptureStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureMicrophoneCaptureStateChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureMicrophoneCaptureStateChangedEventArgs, IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl, 0x324d249e_45bc_4c35_bc35_e469fc7a69e0, b"Windows.Media.Capture.IAppCaptureMicrophoneCaptureStateChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl {
@@ -4882,11 +4706,7 @@ pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppCaptureMicrophoneCaptureState) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureRecordOperation, IAppCaptureRecordOperation_Vtbl, 0xc66020a9_1538_495c_9bbb_2ba870ec5861, inspectable);
-impl windows_core::RuntimeType for IAppCaptureRecordOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureRecordOperation");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureRecordOperation, IAppCaptureRecordOperation_Vtbl, 0xc66020a9_1538_495c_9bbb_2ba870ec5861, b"Windows.Media.Capture.IAppCaptureRecordOperation");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureRecordOperation_Vtbl {
@@ -4907,11 +4727,7 @@ pub struct IAppCaptureRecordOperation_Vtbl {
     pub FileGenerated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveFileGenerated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureRecordingStateChangedEventArgs, IAppCaptureRecordingStateChangedEventArgs_Vtbl, 0x24fc8712_e305_490d_b415_6b1c9049736b, inspectable);
-impl windows_core::RuntimeType for IAppCaptureRecordingStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureRecordingStateChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureRecordingStateChangedEventArgs, IAppCaptureRecordingStateChangedEventArgs_Vtbl, 0x24fc8712_e305_490d_b415_6b1c9049736b, b"Windows.Media.Capture.IAppCaptureRecordingStateChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureRecordingStateChangedEventArgs_Vtbl {
@@ -4919,11 +4735,7 @@ pub struct IAppCaptureRecordingStateChangedEventArgs_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppCaptureRecordingState) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureServices, IAppCaptureServices_Vtbl, 0x44fec0b5_34f5_4f18_ae8c_b9123abbfc0d, inspectable);
-impl windows_core::RuntimeType for IAppCaptureServices {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureServices");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureServices, IAppCaptureServices_Vtbl, 0x44fec0b5_34f5_4f18_ae8c_b9123abbfc0d, b"Windows.Media.Capture.IAppCaptureServices");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureServices_Vtbl {
@@ -4933,11 +4745,7 @@ pub struct IAppCaptureServices_Vtbl {
     pub CanCapture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureSettings, IAppCaptureSettings_Vtbl, 0x14683a86_8807_48d3_883a_970ee4532a39, inspectable);
-impl windows_core::RuntimeType for IAppCaptureSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureSettings");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureSettings, IAppCaptureSettings_Vtbl, 0x14683a86_8807_48d3_883a_970ee4532a39, b"Windows.Media.Capture.IAppCaptureSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureSettings_Vtbl {
@@ -4991,11 +4799,7 @@ pub struct IAppCaptureSettings_Vtbl {
     pub IsMemoryConstrained: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub HasHardwareEncoder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureSettings2, IAppCaptureSettings2_Vtbl, 0xfcb8cee7_e26b_476f_9b1a_ec342d2a8fde, inspectable);
-impl windows_core::RuntimeType for IAppCaptureSettings2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureSettings2");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureSettings2, IAppCaptureSettings2_Vtbl, 0xfcb8cee7_e26b_476f_9b1a_ec342d2a8fde, b"Windows.Media.Capture.IAppCaptureSettings2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureSettings2_Vtbl {
@@ -5003,11 +4807,7 @@ pub struct IAppCaptureSettings2_Vtbl {
     pub IsGpuConstrained: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub AlternateShortcutKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureSettings3, IAppCaptureSettings3_Vtbl, 0xa93502fe_88c2_42d6_aaaa_40feffd75aec, inspectable);
-impl windows_core::RuntimeType for IAppCaptureSettings3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureSettings3");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureSettings3, IAppCaptureSettings3_Vtbl, 0xa93502fe_88c2_42d6_aaaa_40feffd75aec, b"Windows.Media.Capture.IAppCaptureSettings3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureSettings3_Vtbl {
@@ -5015,11 +4815,7 @@ pub struct IAppCaptureSettings3_Vtbl {
     pub SetIsMicrophoneCaptureEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub IsMicrophoneCaptureEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureSettings4, IAppCaptureSettings4_Vtbl, 0x07c2774c_1a81_482f_a244_049d95f25b0b, inspectable);
-impl windows_core::RuntimeType for IAppCaptureSettings4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureSettings4");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureSettings4, IAppCaptureSettings4_Vtbl, 0x07c2774c_1a81_482f_a244_049d95f25b0b, b"Windows.Media.Capture.IAppCaptureSettings4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureSettings4_Vtbl {
@@ -5033,11 +4829,7 @@ pub struct IAppCaptureSettings4_Vtbl {
     pub SetVideoEncodingFrameRateMode: unsafe extern "system" fn(*mut core::ffi::c_void, AppCaptureVideoEncodingFrameRateMode) -> windows_core::HRESULT,
     pub VideoEncodingFrameRateMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppCaptureVideoEncodingFrameRateMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureSettings5, IAppCaptureSettings5_Vtbl, 0x18894522_b0e8_4ba0_8f13_3eaa5fa4013b, inspectable);
-impl windows_core::RuntimeType for IAppCaptureSettings5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureSettings5");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureSettings5, IAppCaptureSettings5_Vtbl, 0x18894522_b0e8_4ba0_8f13_3eaa5fa4013b, b"Windows.Media.Capture.IAppCaptureSettings5");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureSettings5_Vtbl {
@@ -5047,11 +4839,7 @@ pub struct IAppCaptureSettings5_Vtbl {
     pub SetIsCursorImageCaptureEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub IsCursorImageCaptureEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureState, IAppCaptureState_Vtbl, 0x73134372_d4eb_44ce_9538_465f506ac4ea, inspectable);
-impl windows_core::RuntimeType for IAppCaptureState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureState");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureState, IAppCaptureState_Vtbl, 0x73134372_d4eb_44ce_9538_465f506ac4ea, b"Windows.Media.Capture.IAppCaptureState");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureState_Vtbl {
@@ -5068,33 +4856,21 @@ pub struct IAppCaptureState_Vtbl {
     pub CaptureTargetClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveCaptureTargetClosed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureStatics, IAppCaptureStatics_Vtbl, 0xf922dd6c_0a7e_4e74_8b20_9c1f902d08a1, inspectable);
-impl windows_core::RuntimeType for IAppCaptureStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureStatics");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureStatics, IAppCaptureStatics_Vtbl, 0xf922dd6c_0a7e_4e74_8b20_9c1f902d08a1, b"Windows.Media.Capture.IAppCaptureStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCaptureStatics2, IAppCaptureStatics2_Vtbl, 0xb2d881d4_836c_4da4_afd7_facc041e1cf3, inspectable);
-impl windows_core::RuntimeType for IAppCaptureStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IAppCaptureStatics2");
-}
+windows_core::imp::define_winrt_interface!(IAppCaptureStatics2, IAppCaptureStatics2_Vtbl, 0xb2d881d4_836c_4da4_afd7_facc041e1cf3, b"Windows.Media.Capture.IAppCaptureStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetAllowedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICameraCaptureUI, ICameraCaptureUI_Vtbl, 0x48587540_6f93_4bb4_b8f3_e89e48948c91, inspectable);
-impl windows_core::RuntimeType for ICameraCaptureUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ICameraCaptureUI");
-}
+windows_core::imp::define_winrt_interface!(ICameraCaptureUI, ICameraCaptureUI_Vtbl, 0x48587540_6f93_4bb4_b8f3_e89e48948c91, b"Windows.Media.Capture.ICameraCaptureUI");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraCaptureUI_Vtbl {
@@ -5106,11 +4882,7 @@ pub struct ICameraCaptureUI_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CaptureFileAsync: usize,
 }
-windows_core::imp::define_interface!(ICameraCaptureUIPhotoCaptureSettings, ICameraCaptureUIPhotoCaptureSettings_Vtbl, 0xb9f5be97_3472_46a8_8a9e_04ce42ccc97d, inspectable);
-impl windows_core::RuntimeType for ICameraCaptureUIPhotoCaptureSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ICameraCaptureUIPhotoCaptureSettings");
-}
+windows_core::imp::define_winrt_interface!(ICameraCaptureUIPhotoCaptureSettings, ICameraCaptureUIPhotoCaptureSettings_Vtbl, 0xb9f5be97_3472_46a8_8a9e_04ce42ccc97d, b"Windows.Media.Capture.ICameraCaptureUIPhotoCaptureSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraCaptureUIPhotoCaptureSettings_Vtbl {
@@ -5126,11 +4898,7 @@ pub struct ICameraCaptureUIPhotoCaptureSettings_Vtbl {
     pub AllowCropping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowCropping: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICameraCaptureUIVideoCaptureSettings, ICameraCaptureUIVideoCaptureSettings_Vtbl, 0x64e92d1f_a28d_425a_b84f_e568335ff24e, inspectable);
-impl windows_core::RuntimeType for ICameraCaptureUIVideoCaptureSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ICameraCaptureUIVideoCaptureSettings");
-}
+windows_core::imp::define_winrt_interface!(ICameraCaptureUIVideoCaptureSettings, ICameraCaptureUIVideoCaptureSettings_Vtbl, 0x64e92d1f_a28d_425a_b84f_e568335ff24e, b"Windows.Media.Capture.ICameraCaptureUIVideoCaptureSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraCaptureUIVideoCaptureSettings_Vtbl {
@@ -5144,11 +4912,7 @@ pub struct ICameraCaptureUIVideoCaptureSettings_Vtbl {
     pub AllowTrimming: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowTrimming: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICameraOptionsUIStatics, ICameraOptionsUIStatics_Vtbl, 0x3b0d5e34_3906_4b7d_946c_7bde844499ae, inspectable);
-impl windows_core::RuntimeType for ICameraOptionsUIStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ICameraOptionsUIStatics");
-}
+windows_core::imp::define_winrt_interface!(ICameraOptionsUIStatics, ICameraOptionsUIStatics_Vtbl, 0x3b0d5e34_3906_4b7d_946c_7bde844499ae, b"Windows.Media.Capture.ICameraOptionsUIStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraOptionsUIStatics_Vtbl {
@@ -5156,12 +4920,7 @@ pub struct ICameraOptionsUIStatics_Vtbl {
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::define_interface!(ICapturedFrame, ICapturedFrame_Vtbl, 0x1dd2de1f_571b_44d8_8e80_a08a1578766e, inspectable);
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for ICapturedFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ICapturedFrame");
-}
+windows_core::imp::define_winrt_interface!(ICapturedFrame, ICapturedFrame_Vtbl, 0x1dd2de1f_571b_44d8_8e80_a08a1578766e, b"Windows.Media.Capture.ICapturedFrame");
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
 #[doc(hidden)]
@@ -5170,11 +4929,7 @@ pub struct ICapturedFrame_Vtbl {
     pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICapturedFrame2, ICapturedFrame2_Vtbl, 0x543fa6d1_bd78_4866_adda_24314bc65dea, inspectable);
-impl windows_core::RuntimeType for ICapturedFrame2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ICapturedFrame2");
-}
+windows_core::imp::define_winrt_interface!(ICapturedFrame2, ICapturedFrame2_Vtbl, 0x543fa6d1_bd78_4866_adda_24314bc65dea, b"Windows.Media.Capture.ICapturedFrame2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICapturedFrame2_Vtbl {
@@ -5185,11 +4940,7 @@ pub struct ICapturedFrame2_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     BitmapProperties: usize,
 }
-windows_core::imp::define_interface!(ICapturedFrameControlValues, ICapturedFrameControlValues_Vtbl, 0x90c65b7f_4e0d_4ca4_882d_7a144fed0a90, inspectable);
-impl windows_core::RuntimeType for ICapturedFrameControlValues {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ICapturedFrameControlValues");
-}
+windows_core::imp::define_winrt_interface!(ICapturedFrameControlValues, ICapturedFrameControlValues_Vtbl, 0x90c65b7f_4e0d_4ca4_882d_7a144fed0a90, b"Windows.Media.Capture.ICapturedFrameControlValues");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICapturedFrameControlValues_Vtbl {
@@ -5207,11 +4958,7 @@ pub struct ICapturedFrameControlValues_Vtbl {
     pub WhiteBalance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ZoomFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICapturedFrameControlValues2, ICapturedFrameControlValues2_Vtbl, 0x500b2b88_06d2_4aa7_a7db_d37af73321d8, inspectable);
-impl windows_core::RuntimeType for ICapturedFrameControlValues2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ICapturedFrameControlValues2");
-}
+windows_core::imp::define_winrt_interface!(ICapturedFrameControlValues2, ICapturedFrameControlValues2_Vtbl, 0x500b2b88_06d2_4aa7_a7db_d37af73321d8, b"Windows.Media.Capture.ICapturedFrameControlValues2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICapturedFrameControlValues2_Vtbl {
@@ -5228,11 +4975,7 @@ pub struct ICapturedFrameControlValues2_Vtbl {
     SensorFrameRate: usize,
     pub WhiteBalanceGain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICapturedFrameWithSoftwareBitmap, ICapturedFrameWithSoftwareBitmap_Vtbl, 0xb58e8b6e_8503_49b5_9e86_897d26a3ff3d, inspectable);
-impl windows_core::RuntimeType for ICapturedFrameWithSoftwareBitmap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ICapturedFrameWithSoftwareBitmap");
-}
+windows_core::imp::define_winrt_interface!(ICapturedFrameWithSoftwareBitmap, ICapturedFrameWithSoftwareBitmap_Vtbl, 0xb58e8b6e_8503_49b5_9e86_897d26a3ff3d, b"Windows.Media.Capture.ICapturedFrameWithSoftwareBitmap");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICapturedFrameWithSoftwareBitmap_Vtbl {
@@ -5242,11 +4985,7 @@ pub struct ICapturedFrameWithSoftwareBitmap_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SoftwareBitmap: usize,
 }
-windows_core::imp::define_interface!(ICapturedPhoto, ICapturedPhoto_Vtbl, 0xb0ce7e5a_cfcc_4d6c_8ad1_0869208aca16, inspectable);
-impl windows_core::RuntimeType for ICapturedPhoto {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ICapturedPhoto");
-}
+windows_core::imp::define_winrt_interface!(ICapturedPhoto, ICapturedPhoto_Vtbl, 0xb0ce7e5a_cfcc_4d6c_8ad1_0869208aca16, b"Windows.Media.Capture.ICapturedPhoto");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICapturedPhoto_Vtbl {
@@ -5260,11 +4999,7 @@ pub struct ICapturedPhoto_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Thumbnail: usize,
 }
-windows_core::imp::define_interface!(IGameBarServices, IGameBarServices_Vtbl, 0x2dbead57_50a6_499e_8c6c_d330a7311796, inspectable);
-impl windows_core::RuntimeType for IGameBarServices {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IGameBarServices");
-}
+windows_core::imp::define_winrt_interface!(IGameBarServices, IGameBarServices_Vtbl, 0x2dbead57_50a6_499e_8c6c_d330a7311796, b"Windows.Media.Capture.IGameBarServices");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameBarServices_Vtbl {
@@ -5279,11 +5014,7 @@ pub struct IGameBarServices_Vtbl {
     pub CommandReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveCommandReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameBarServicesCommandEventArgs, IGameBarServicesCommandEventArgs_Vtbl, 0xa74226b2_f176_4fcf_8fbb_cf698b2eb8e0, inspectable);
-impl windows_core::RuntimeType for IGameBarServicesCommandEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IGameBarServicesCommandEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IGameBarServicesCommandEventArgs, IGameBarServicesCommandEventArgs_Vtbl, 0xa74226b2_f176_4fcf_8fbb_cf698b2eb8e0, b"Windows.Media.Capture.IGameBarServicesCommandEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameBarServicesCommandEventArgs_Vtbl {
@@ -5291,11 +5022,7 @@ pub struct IGameBarServicesCommandEventArgs_Vtbl {
     pub Command: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameBarCommand) -> windows_core::HRESULT,
     pub Origin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameBarCommandOrigin) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameBarServicesManager, IGameBarServicesManager_Vtbl, 0x3a4b9cfa_7f8b_4c60_9dbb_0bcd262dffc6, inspectable);
-impl windows_core::RuntimeType for IGameBarServicesManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IGameBarServicesManager");
-}
+windows_core::imp::define_winrt_interface!(IGameBarServicesManager, IGameBarServicesManager_Vtbl, 0x3a4b9cfa_7f8b_4c60_9dbb_0bcd262dffc6, b"Windows.Media.Capture.IGameBarServicesManager");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameBarServicesManager_Vtbl {
@@ -5303,33 +5030,21 @@ pub struct IGameBarServicesManager_Vtbl {
     pub GameBarServicesCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveGameBarServicesCreated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameBarServicesManagerGameBarServicesCreatedEventArgs, IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl, 0xededbd9c_143e_49a3_a5ea_0b1995c8d46e, inspectable);
-impl windows_core::RuntimeType for IGameBarServicesManagerGameBarServicesCreatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IGameBarServicesManagerGameBarServicesCreatedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IGameBarServicesManagerGameBarServicesCreatedEventArgs, IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl, 0xededbd9c_143e_49a3_a5ea_0b1995c8d46e, b"Windows.Media.Capture.IGameBarServicesManagerGameBarServicesCreatedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GameBarServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameBarServicesManagerStatics, IGameBarServicesManagerStatics_Vtbl, 0x34c1b616_ff25_4792_98f2_d3753f15ac13, inspectable);
-impl windows_core::RuntimeType for IGameBarServicesManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IGameBarServicesManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IGameBarServicesManagerStatics, IGameBarServicesManagerStatics_Vtbl, 0x34c1b616_ff25_4792_98f2_d3753f15ac13, b"Windows.Media.Capture.IGameBarServicesManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameBarServicesManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameBarServicesTargetInfo, IGameBarServicesTargetInfo_Vtbl, 0xb4202f92_1611_4e05_b6ef_dfd737ae33b0, inspectable);
-impl windows_core::RuntimeType for IGameBarServicesTargetInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IGameBarServicesTargetInfo");
-}
+windows_core::imp::define_winrt_interface!(IGameBarServicesTargetInfo, IGameBarServicesTargetInfo_Vtbl, 0xb4202f92_1611_4e05_b6ef_dfd737ae33b0, b"Windows.Media.Capture.IGameBarServicesTargetInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameBarServicesTargetInfo_Vtbl {
@@ -5339,11 +5054,7 @@ pub struct IGameBarServicesTargetInfo_Vtbl {
     pub TitleId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameBarServicesDisplayMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILowLagMediaRecording, ILowLagMediaRecording_Vtbl, 0x41c8baf7_ff3f_49f0_a477_f195e3ce5108, inspectable);
-impl windows_core::RuntimeType for ILowLagMediaRecording {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ILowLagMediaRecording");
-}
+windows_core::imp::define_winrt_interface!(ILowLagMediaRecording, ILowLagMediaRecording_Vtbl, 0x41c8baf7_ff3f_49f0_a477_f195e3ce5108, b"Windows.Media.Capture.ILowLagMediaRecording");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLagMediaRecording_Vtbl {
@@ -5352,11 +5063,7 @@ pub struct ILowLagMediaRecording_Vtbl {
     pub StopAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FinishAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILowLagMediaRecording2, ILowLagMediaRecording2_Vtbl, 0x6369c758_5644_41e2_97af_8ef56a25e225, inspectable);
-impl windows_core::RuntimeType for ILowLagMediaRecording2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ILowLagMediaRecording2");
-}
+windows_core::imp::define_winrt_interface!(ILowLagMediaRecording2, ILowLagMediaRecording2_Vtbl, 0x6369c758_5644_41e2_97af_8ef56a25e225, b"Windows.Media.Capture.ILowLagMediaRecording2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLagMediaRecording2_Vtbl {
@@ -5367,11 +5074,7 @@ pub struct ILowLagMediaRecording2_Vtbl {
     PauseAsync: usize,
     pub ResumeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILowLagMediaRecording3, ILowLagMediaRecording3_Vtbl, 0x5c33ab12_48f7_47da_b41e_90880a5fe0ec, inspectable);
-impl windows_core::RuntimeType for ILowLagMediaRecording3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ILowLagMediaRecording3");
-}
+windows_core::imp::define_winrt_interface!(ILowLagMediaRecording3, ILowLagMediaRecording3_Vtbl, 0x5c33ab12_48f7_47da_b41e_90880a5fe0ec, b"Windows.Media.Capture.ILowLagMediaRecording3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLagMediaRecording3_Vtbl {
@@ -5382,11 +5085,7 @@ pub struct ILowLagMediaRecording3_Vtbl {
     PauseWithResultAsync: usize,
     pub StopWithResultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILowLagPhotoCapture, ILowLagPhotoCapture_Vtbl, 0xa37251b7_6b44_473d_8f24_f703d6c0ec44, inspectable);
-impl windows_core::RuntimeType for ILowLagPhotoCapture {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ILowLagPhotoCapture");
-}
+windows_core::imp::define_winrt_interface!(ILowLagPhotoCapture, ILowLagPhotoCapture_Vtbl, 0xa37251b7_6b44_473d_8f24_f703d6c0ec44, b"Windows.Media.Capture.ILowLagPhotoCapture");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLagPhotoCapture_Vtbl {
@@ -5394,11 +5093,7 @@ pub struct ILowLagPhotoCapture_Vtbl {
     pub CaptureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FinishAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILowLagPhotoSequenceCapture, ILowLagPhotoSequenceCapture_Vtbl, 0x7cc346bb_b9a9_4c91_8ffa_287e9c668669, inspectable);
-impl windows_core::RuntimeType for ILowLagPhotoSequenceCapture {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.ILowLagPhotoSequenceCapture");
-}
+windows_core::imp::define_winrt_interface!(ILowLagPhotoSequenceCapture, ILowLagPhotoSequenceCapture_Vtbl, 0x7cc346bb_b9a9_4c91_8ffa_287e9c668669, b"Windows.Media.Capture.ILowLagPhotoSequenceCapture");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLagPhotoSequenceCapture_Vtbl {
@@ -5409,11 +5104,7 @@ pub struct ILowLagPhotoSequenceCapture_Vtbl {
     pub PhotoCaptured: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemovePhotoCaptured: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCapture, IMediaCapture_Vtbl, 0xc61afbb4_fb10_4a34_ac18_ca80d9c8e7ee, inspectable);
-impl windows_core::RuntimeType for IMediaCapture {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCapture");
-}
+windows_core::imp::define_winrt_interface!(IMediaCapture, IMediaCapture_Vtbl, 0xc61afbb4_fb10_4a34_ac18_ca80d9c8e7ee, b"Windows.Media.Capture.IMediaCapture");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture_Vtbl {
@@ -5472,11 +5163,7 @@ pub struct IMediaCapture_Vtbl {
     pub SetRecordRotation: unsafe extern "system" fn(*mut core::ffi::c_void, VideoRotation) -> windows_core::HRESULT,
     pub GetRecordRotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VideoRotation) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCapture2, IMediaCapture2_Vtbl, 0x9cc68260_7da1_4043_b652_21b8878daff9, inspectable);
-impl windows_core::RuntimeType for IMediaCapture2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCapture2");
-}
+windows_core::imp::define_winrt_interface!(IMediaCapture2, IMediaCapture2_Vtbl, 0x9cc68260_7da1_4043_b652_21b8878daff9, b"Windows.Media.Capture.IMediaCapture2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture2_Vtbl {
@@ -5510,11 +5197,7 @@ pub struct IMediaCapture2_Vtbl {
     #[cfg(not(feature = "Media_MediaProperties"))]
     SetEncodingPropertiesAsync: usize,
 }
-windows_core::imp::define_interface!(IMediaCapture3, IMediaCapture3_Vtbl, 0xd4136f30_1564_466e_bc0a_af94e02ab016, inspectable);
-impl windows_core::RuntimeType for IMediaCapture3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCapture3");
-}
+windows_core::imp::define_winrt_interface!(IMediaCapture3, IMediaCapture3_Vtbl, 0xd4136f30_1564_466e_bc0a_af94e02ab016, b"Windows.Media.Capture.IMediaCapture3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture3_Vtbl {
@@ -5528,11 +5211,7 @@ pub struct IMediaCapture3_Vtbl {
     pub PhotoConfirmationCaptured: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemovePhotoConfirmationCaptured: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCapture4, IMediaCapture4_Vtbl, 0xbacd6fd6_fb08_4947_aea2_ce14eff0ce13, inspectable);
-impl windows_core::RuntimeType for IMediaCapture4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCapture4");
-}
+windows_core::imp::define_winrt_interface!(IMediaCapture4, IMediaCapture4_Vtbl, 0xbacd6fd6_fb08_4947_aea2_ce14eff0ce13, b"Windows.Media.Capture.IMediaCapture4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture4_Vtbl {
@@ -5566,11 +5245,7 @@ pub struct IMediaCapture4_Vtbl {
     #[cfg(not(feature = "Media_MediaProperties"))]
     PrepareAdvancedPhotoCaptureAsync: usize,
 }
-windows_core::imp::define_interface!(IMediaCapture5, IMediaCapture5_Vtbl, 0xda787c22_3a9b_4720_a71e_97900a316e5a, inspectable);
-impl windows_core::RuntimeType for IMediaCapture5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCapture5");
-}
+windows_core::imp::define_winrt_interface!(IMediaCapture5, IMediaCapture5_Vtbl, 0xda787c22_3a9b_4720_a71e_97900a316e5a, b"Windows.Media.Capture.IMediaCapture5");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture5_Vtbl {
@@ -5598,11 +5273,7 @@ pub struct IMediaCapture5_Vtbl {
     #[cfg(not(all(feature = "Graphics_Imaging", feature = "Media_Capture_Frames")))]
     CreateFrameReaderWithSubtypeAndSizeAsync: usize,
 }
-windows_core::imp::define_interface!(IMediaCapture6, IMediaCapture6_Vtbl, 0x228948bd_4b20_4bb1_9fd6_a583212a1012, inspectable);
-impl windows_core::RuntimeType for IMediaCapture6 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCapture6");
-}
+windows_core::imp::define_winrt_interface!(IMediaCapture6, IMediaCapture6_Vtbl, 0x228948bd_4b20_4bb1_9fd6_a583212a1012, b"Windows.Media.Capture.IMediaCapture6");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture6_Vtbl {
@@ -5614,11 +5285,7 @@ pub struct IMediaCapture6_Vtbl {
     #[cfg(not(feature = "Media_Capture_Frames"))]
     CreateMultiSourceFrameReaderAsync: usize,
 }
-windows_core::imp::define_interface!(IMediaCapture7, IMediaCapture7_Vtbl, 0x9169f102_8888_541a_95bc_24e4d462542a, inspectable);
-impl windows_core::RuntimeType for IMediaCapture7 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCapture7");
-}
+windows_core::imp::define_winrt_interface!(IMediaCapture7, IMediaCapture7_Vtbl, 0x9169f102_8888_541a_95bc_24e4d462542a, b"Windows.Media.Capture.IMediaCapture7");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture7_Vtbl {
@@ -5628,11 +5295,7 @@ pub struct IMediaCapture7_Vtbl {
     #[cfg(not(feature = "UI_WindowManagement"))]
     CreateRelativePanelWatcher: usize,
 }
-windows_core::imp::define_interface!(IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs, IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl, 0x9d2f920d_a588_43c6_89d6_5ad322af006a, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs, IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl, 0x9d2f920d_a588_43c6_89d6_5ad322af006a, b"Windows.Media.Capture.IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl {
@@ -5640,11 +5303,7 @@ pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaCaptureDeviceExclusiveControlStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureFailedEventArgs, IMediaCaptureFailedEventArgs_Vtbl, 0x80fde3f4_54c4_42c0_8d19_cea1a87ca18b, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureFailedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureFailedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureFailedEventArgs, IMediaCaptureFailedEventArgs_Vtbl, 0x80fde3f4_54c4_42c0_8d19_cea1a87ca18b, b"Windows.Media.Capture.IMediaCaptureFailedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureFailedEventArgs_Vtbl {
@@ -5652,11 +5311,7 @@ pub struct IMediaCaptureFailedEventArgs_Vtbl {
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Code: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureFocusChangedEventArgs, IMediaCaptureFocusChangedEventArgs_Vtbl, 0x81e1bc7f_2277_493e_abee_d3f44ff98c04, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureFocusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureFocusChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureFocusChangedEventArgs, IMediaCaptureFocusChangedEventArgs_Vtbl, 0x81e1bc7f_2277_493e_abee_d3f44ff98c04, b"Windows.Media.Capture.IMediaCaptureFocusChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureFocusChangedEventArgs_Vtbl {
@@ -5666,11 +5321,7 @@ pub struct IMediaCaptureFocusChangedEventArgs_Vtbl {
     #[cfg(not(feature = "Media_Devices"))]
     FocusState: usize,
 }
-windows_core::imp::define_interface!(IMediaCaptureInitializationSettings, IMediaCaptureInitializationSettings_Vtbl, 0x9782ba70_ea65_4900_9356_8ca887726884, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureInitializationSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureInitializationSettings");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureInitializationSettings, IMediaCaptureInitializationSettings_Vtbl, 0x9782ba70_ea65_4900_9356_8ca887726884, b"Windows.Media.Capture.IMediaCaptureInitializationSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings_Vtbl {
@@ -5684,11 +5335,7 @@ pub struct IMediaCaptureInitializationSettings_Vtbl {
     pub SetPhotoCaptureSource: unsafe extern "system" fn(*mut core::ffi::c_void, PhotoCaptureSource) -> windows_core::HRESULT,
     pub PhotoCaptureSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PhotoCaptureSource) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureInitializationSettings2, IMediaCaptureInitializationSettings2_Vtbl, 0x404e0626_c9dc_43e9_aee4_e6bf1b57b44c, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureInitializationSettings2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureInitializationSettings2");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureInitializationSettings2, IMediaCaptureInitializationSettings2_Vtbl, 0x404e0626_c9dc_43e9_aee4_e6bf1b57b44c, b"Windows.Media.Capture.IMediaCaptureInitializationSettings2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings2_Vtbl {
@@ -5698,11 +5345,7 @@ pub struct IMediaCaptureInitializationSettings2_Vtbl {
     pub SetAudioProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, super::AudioProcessing) -> windows_core::HRESULT,
     pub AudioProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::AudioProcessing) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureInitializationSettings3, IMediaCaptureInitializationSettings3_Vtbl, 0x4160519d_be48_4730_8104_0cf6e9e97948, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureInitializationSettings3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureInitializationSettings3");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureInitializationSettings3, IMediaCaptureInitializationSettings3_Vtbl, 0x4160519d_be48_4730_8104_0cf6e9e97948, b"Windows.Media.Capture.IMediaCaptureInitializationSettings3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings3_Vtbl {
@@ -5724,11 +5367,7 @@ pub struct IMediaCaptureInitializationSettings3_Vtbl {
     #[cfg(not(feature = "Media_Core"))]
     VideoSource: usize,
 }
-windows_core::imp::define_interface!(IMediaCaptureInitializationSettings4, IMediaCaptureInitializationSettings4_Vtbl, 0xf502a537_4cb7_4d28_95ed_4f9f012e0518, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureInitializationSettings4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureInitializationSettings4");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureInitializationSettings4, IMediaCaptureInitializationSettings4_Vtbl, 0xf502a537_4cb7_4d28_95ed_4f9f012e0518, b"Windows.Media.Capture.IMediaCaptureInitializationSettings4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings4_Vtbl {
@@ -5742,11 +5381,7 @@ pub struct IMediaCaptureInitializationSettings4_Vtbl {
     pub PhotoMediaDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPhotoMediaDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureInitializationSettings5, IMediaCaptureInitializationSettings5_Vtbl, 0xd5a2e3b8_2626_4e94_b7b3_5308a0f64b1a, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureInitializationSettings5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureInitializationSettings5");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureInitializationSettings5, IMediaCaptureInitializationSettings5_Vtbl, 0xd5a2e3b8_2626_4e94_b7b3_5308a0f64b1a, b"Windows.Media.Capture.IMediaCaptureInitializationSettings5");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings5_Vtbl {
@@ -5764,11 +5399,7 @@ pub struct IMediaCaptureInitializationSettings5_Vtbl {
     pub MemoryPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaCaptureMemoryPreference) -> windows_core::HRESULT,
     pub SetMemoryPreference: unsafe extern "system" fn(*mut core::ffi::c_void, MediaCaptureMemoryPreference) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureInitializationSettings6, IMediaCaptureInitializationSettings6_Vtbl, 0xb2e26b47_3db1_4d33_ab63_0ffa09056585, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureInitializationSettings6 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureInitializationSettings6");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureInitializationSettings6, IMediaCaptureInitializationSettings6_Vtbl, 0xb2e26b47_3db1_4d33_ab63_0ffa09056585, b"Windows.Media.Capture.IMediaCaptureInitializationSettings6");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings6_Vtbl {
@@ -5776,11 +5407,7 @@ pub struct IMediaCaptureInitializationSettings6_Vtbl {
     pub AlwaysPlaySystemShutterSound: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAlwaysPlaySystemShutterSound: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureInitializationSettings7, IMediaCaptureInitializationSettings7_Vtbl, 0x41546967_f58a_5d82_9ef4_ed572fb5e34e, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureInitializationSettings7 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureInitializationSettings7");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureInitializationSettings7, IMediaCaptureInitializationSettings7_Vtbl, 0x41546967_f58a_5d82_9ef4_ed572fb5e34e, b"Windows.Media.Capture.IMediaCaptureInitializationSettings7");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings7_Vtbl {
@@ -5796,11 +5423,7 @@ pub struct IMediaCaptureInitializationSettings7_Vtbl {
     pub DeviceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDeviceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCapturePauseResult, IMediaCapturePauseResult_Vtbl, 0xaec47ca3_4477_4b04_a06f_2c1c5182fe9d, inspectable);
-impl windows_core::RuntimeType for IMediaCapturePauseResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCapturePauseResult");
-}
+windows_core::imp::define_winrt_interface!(IMediaCapturePauseResult, IMediaCapturePauseResult_Vtbl, 0xaec47ca3_4477_4b04_a06f_2c1c5182fe9d, b"Windows.Media.Capture.IMediaCapturePauseResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapturePauseResult_Vtbl {
@@ -5808,11 +5431,7 @@ pub struct IMediaCapturePauseResult_Vtbl {
     pub LastFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RecordDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureRelativePanelWatcher, IMediaCaptureRelativePanelWatcher_Vtbl, 0x7d896566_04be_5b89_b30e_bd34a9f12db0, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureRelativePanelWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureRelativePanelWatcher");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureRelativePanelWatcher, IMediaCaptureRelativePanelWatcher_Vtbl, 0x7d896566_04be_5b89_b30e_bd34a9f12db0, b"Windows.Media.Capture.IMediaCaptureRelativePanelWatcher");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureRelativePanelWatcher_Vtbl {
@@ -5826,11 +5445,7 @@ pub struct IMediaCaptureRelativePanelWatcher_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureSettings, IMediaCaptureSettings_Vtbl, 0x1d83aafe_6d45_4477_8dc4_ac5bc01c4091, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureSettings");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureSettings, IMediaCaptureSettings_Vtbl, 0x1d83aafe_6d45_4477_8dc4_ac5bc01c4091, b"Windows.Media.Capture.IMediaCaptureSettings");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureSettings_Vtbl {
@@ -5841,11 +5456,7 @@ pub struct IMediaCaptureSettings_Vtbl {
     pub PhotoCaptureSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PhotoCaptureSource) -> windows_core::HRESULT,
     pub VideoDeviceCharacteristic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VideoDeviceCharacteristic) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureSettings2, IMediaCaptureSettings2_Vtbl, 0x6f9e7cfb_fa9f_4b13_9cbe_5ab94f1f3493, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureSettings2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureSettings2");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureSettings2, IMediaCaptureSettings2_Vtbl, 0x6f9e7cfb_fa9f_4b13_9cbe_5ab94f1f3493, b"Windows.Media.Capture.IMediaCaptureSettings2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureSettings2_Vtbl {
@@ -5859,11 +5470,7 @@ pub struct IMediaCaptureSettings2_Vtbl {
     pub MediaCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaCategory) -> windows_core::HRESULT,
     pub AudioProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::AudioProcessing) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureSettings3, IMediaCaptureSettings3_Vtbl, 0x303c67c2_8058_4b1b_b877_8c2ef3528440, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureSettings3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureSettings3");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureSettings3, IMediaCaptureSettings3_Vtbl, 0x303c67c2_8058_4b1b_b877_8c2ef3528440, b"Windows.Media.Capture.IMediaCaptureSettings3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureSettings3_Vtbl {
@@ -5873,11 +5480,7 @@ pub struct IMediaCaptureSettings3_Vtbl {
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     Direct3D11Device: usize,
 }
-windows_core::imp::define_interface!(IMediaCaptureStatics, IMediaCaptureStatics_Vtbl, 0xacef81ff_99ed_4645_965e_1925cfc63834, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureStatics");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureStatics, IMediaCaptureStatics_Vtbl, 0xacef81ff_99ed_4645_965e_1925cfc63834, b"Windows.Media.Capture.IMediaCaptureStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureStatics_Vtbl {
@@ -5887,11 +5490,7 @@ pub struct IMediaCaptureStatics_Vtbl {
     pub FindConcurrentProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindKnownVideoProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, KnownVideoProfile, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureStopResult, IMediaCaptureStopResult_Vtbl, 0xf9db6a2a_a092_4ad1_97d4_f201f9d082db, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureStopResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureStopResult");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureStopResult, IMediaCaptureStopResult_Vtbl, 0xf9db6a2a_a092_4ad1_97d4_f201f9d082db, b"Windows.Media.Capture.IMediaCaptureStopResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureStopResult_Vtbl {
@@ -5899,11 +5498,7 @@ pub struct IMediaCaptureStopResult_Vtbl {
     pub LastFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RecordDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureVideoPreview, IMediaCaptureVideoPreview_Vtbl, 0x27727073_549e_447f_a20a_4f03c479d8c0, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureVideoPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureVideoPreview");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureVideoPreview, IMediaCaptureVideoPreview_Vtbl, 0x27727073_549e_447f_a20a_4f03c479d8c0, b"Windows.Media.Capture.IMediaCaptureVideoPreview");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureVideoPreview_Vtbl {
@@ -5919,11 +5514,7 @@ pub struct IMediaCaptureVideoPreview_Vtbl {
     StartPreviewToCustomSinkIdAsync: usize,
     pub StopPreviewAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureVideoProfile, IMediaCaptureVideoProfile_Vtbl, 0x21a073bf_a3ee_4ecf_9ef6_50b0bc4e1305, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureVideoProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureVideoProfile");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureVideoProfile, IMediaCaptureVideoProfile_Vtbl, 0x21a073bf_a3ee_4ecf_9ef6_50b0bc4e1305, b"Windows.Media.Capture.IMediaCaptureVideoProfile");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureVideoProfile_Vtbl {
@@ -5935,11 +5526,7 @@ pub struct IMediaCaptureVideoProfile_Vtbl {
     pub SupportedPhotoMediaDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetConcurrency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureVideoProfile2, IMediaCaptureVideoProfile2_Vtbl, 0x97ddc95f_94ce_468f_9316_fc5bc2638f6b, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureVideoProfile2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureVideoProfile2");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureVideoProfile2, IMediaCaptureVideoProfile2_Vtbl, 0x97ddc95f_94ce_468f_9316_fc5bc2638f6b, b"Windows.Media.Capture.IMediaCaptureVideoProfile2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureVideoProfile2_Vtbl {
@@ -5950,11 +5537,7 @@ pub struct IMediaCaptureVideoProfile2_Vtbl {
     FrameSourceInfos: usize,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureVideoProfileMediaDescription, IMediaCaptureVideoProfileMediaDescription_Vtbl, 0x8012afef_b691_49ff_83f2_c1e76eaaea1b, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureVideoProfileMediaDescription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureVideoProfileMediaDescription");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureVideoProfileMediaDescription, IMediaCaptureVideoProfileMediaDescription_Vtbl, 0x8012afef_b691_49ff_83f2_c1e76eaaea1b, b"Windows.Media.Capture.IMediaCaptureVideoProfileMediaDescription");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureVideoProfileMediaDescription_Vtbl {
@@ -5965,11 +5548,7 @@ pub struct IMediaCaptureVideoProfileMediaDescription_Vtbl {
     pub IsVariablePhotoSequenceSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsHdrVideoSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCaptureVideoProfileMediaDescription2, IMediaCaptureVideoProfileMediaDescription2_Vtbl, 0xc6a6ef13_322d_413a_b85a_68a88e02f4e9, inspectable);
-impl windows_core::RuntimeType for IMediaCaptureVideoProfileMediaDescription2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IMediaCaptureVideoProfileMediaDescription2");
-}
+windows_core::imp::define_winrt_interface!(IMediaCaptureVideoProfileMediaDescription2, IMediaCaptureVideoProfileMediaDescription2_Vtbl, 0xc6a6ef13_322d_413a_b85a_68a88e02f4e9, b"Windows.Media.Capture.IMediaCaptureVideoProfileMediaDescription2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureVideoProfileMediaDescription2_Vtbl {
@@ -5977,11 +5556,7 @@ pub struct IMediaCaptureVideoProfileMediaDescription2_Vtbl {
     pub Subtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOptionalReferencePhotoCapturedEventArgs, IOptionalReferencePhotoCapturedEventArgs_Vtbl, 0x470f88b3_1e6d_4051_9c8b_f1d85af047b7, inspectable);
-impl windows_core::RuntimeType for IOptionalReferencePhotoCapturedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IOptionalReferencePhotoCapturedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IOptionalReferencePhotoCapturedEventArgs, IOptionalReferencePhotoCapturedEventArgs_Vtbl, 0x470f88b3_1e6d_4051_9c8b_f1d85af047b7, b"Windows.Media.Capture.IOptionalReferencePhotoCapturedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOptionalReferencePhotoCapturedEventArgs_Vtbl {
@@ -5992,11 +5567,7 @@ pub struct IOptionalReferencePhotoCapturedEventArgs_Vtbl {
     Frame: usize,
     pub Context: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPhotoCapturedEventArgs, IPhotoCapturedEventArgs_Vtbl, 0x373bfbc1_984e_4ff0_bf85_1c00aabc5a45, inspectable);
-impl windows_core::RuntimeType for IPhotoCapturedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IPhotoCapturedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPhotoCapturedEventArgs, IPhotoCapturedEventArgs_Vtbl, 0x373bfbc1_984e_4ff0_bf85_1c00aabc5a45, b"Windows.Media.Capture.IPhotoCapturedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoCapturedEventArgs_Vtbl {
@@ -6011,11 +5582,7 @@ pub struct IPhotoCapturedEventArgs_Vtbl {
     Thumbnail: usize,
     pub CaptureTimeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPhotoConfirmationCapturedEventArgs, IPhotoConfirmationCapturedEventArgs_Vtbl, 0xab473672_c28a_4827_8f8d_3636d3beb51e, inspectable);
-impl windows_core::RuntimeType for IPhotoConfirmationCapturedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IPhotoConfirmationCapturedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPhotoConfirmationCapturedEventArgs, IPhotoConfirmationCapturedEventArgs_Vtbl, 0xab473672_c28a_4827_8f8d_3636d3beb51e, b"Windows.Media.Capture.IPhotoConfirmationCapturedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoConfirmationCapturedEventArgs_Vtbl {
@@ -6026,11 +5593,7 @@ pub struct IPhotoConfirmationCapturedEventArgs_Vtbl {
     Frame: usize,
     pub CaptureTimeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoStreamConfiguration, IVideoStreamConfiguration_Vtbl, 0xd8770a6f_4390_4b5e_ad3e_0f8af0963490, inspectable);
-impl windows_core::RuntimeType for IVideoStreamConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.IVideoStreamConfiguration");
-}
+windows_core::imp::define_winrt_interface!(IVideoStreamConfiguration, IVideoStreamConfiguration_Vtbl, 0xd8770a6f_4390_4b5e_ad3e_0f8af0963490, b"Windows.Media.Capture.IVideoStreamConfiguration");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoStreamConfiguration_Vtbl {

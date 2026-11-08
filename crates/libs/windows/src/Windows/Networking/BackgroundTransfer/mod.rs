@@ -1134,11 +1134,7 @@ impl windows_core::RuntimeName for DownloadOperation {
 }
 unsafe impl Send for DownloadOperation {}
 unsafe impl Sync for DownloadOperation {}
-windows_core::imp::define_interface!(IBackgroundDownloader, IBackgroundDownloader_Vtbl, 0xc1c79333_6649_4b1d_a826_a4b3dd234d0b, inspectable);
-impl windows_core::RuntimeType for IBackgroundDownloader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundDownloader");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundDownloader, IBackgroundDownloader_Vtbl, 0xc1c79333_6649_4b1d_a826_a4b3dd234d0b, b"Windows.Networking.BackgroundTransfer.IBackgroundDownloader");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloader_Vtbl {
@@ -1156,11 +1152,7 @@ pub struct IBackgroundDownloader_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateDownloadAsync: usize,
 }
-windows_core::imp::define_interface!(IBackgroundDownloader2, IBackgroundDownloader2_Vtbl, 0xa94a5847_348d_4a35_890e_8a1ef3798479, inspectable);
-impl windows_core::RuntimeType for IBackgroundDownloader2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundDownloader2");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundDownloader2, IBackgroundDownloader2_Vtbl, 0xa94a5847_348d_4a35_890e_8a1ef3798479, b"Windows.Networking.BackgroundTransfer.IBackgroundDownloader2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloader2_Vtbl {
@@ -1200,33 +1192,21 @@ pub struct IBackgroundDownloader2_Vtbl {
     #[cfg(not(feature = "UI_Notifications"))]
     SetFailureTileNotification: usize,
 }
-windows_core::imp::define_interface!(IBackgroundDownloader3, IBackgroundDownloader3_Vtbl, 0xd11a8c48_86e8_48e2_b615_6976aabf861d, inspectable);
-impl windows_core::RuntimeType for IBackgroundDownloader3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundDownloader3");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundDownloader3, IBackgroundDownloader3_Vtbl, 0xd11a8c48_86e8_48e2_b615_6976aabf861d, b"Windows.Networking.BackgroundTransfer.IBackgroundDownloader3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloader3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CompletionGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundDownloaderFactory, IBackgroundDownloaderFactory_Vtbl, 0x26836c24_d89e_46f4_a29a_4f4d4f144155, inspectable);
-impl windows_core::RuntimeType for IBackgroundDownloaderFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundDownloaderFactory");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundDownloaderFactory, IBackgroundDownloaderFactory_Vtbl, 0x26836c24_d89e_46f4_a29a_4f4d4f144155, b"Windows.Networking.BackgroundTransfer.IBackgroundDownloaderFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithCompletionGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundDownloaderStaticMethods, IBackgroundDownloaderStaticMethods_Vtbl, 0x52a65a35_c64e_426c_9919_540d0d21a650, inspectable);
-impl windows_core::RuntimeType for IBackgroundDownloaderStaticMethods {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundDownloaderStaticMethods, IBackgroundDownloaderStaticMethods_Vtbl, 0x52a65a35_c64e_426c_9919_540d0d21a650, b"Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderStaticMethods_Vtbl {
@@ -1234,33 +1214,21 @@ pub struct IBackgroundDownloaderStaticMethods_Vtbl {
     pub GetCurrentDownloadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCurrentDownloadsForGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundDownloaderStaticMethods2, IBackgroundDownloaderStaticMethods2_Vtbl, 0x2faa1327_1ad4_4ca5_b2cd_08dbf0746afe, inspectable);
-impl windows_core::RuntimeType for IBackgroundDownloaderStaticMethods2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods2");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundDownloaderStaticMethods2, IBackgroundDownloaderStaticMethods2_Vtbl, 0x2faa1327_1ad4_4ca5_b2cd_08dbf0746afe, b"Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderStaticMethods2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentDownloadsForTransferGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundDownloaderUserConsent, IBackgroundDownloaderUserConsent_Vtbl, 0x5d14e906_9266_4808_bd71_5925f2a3130a, inspectable);
-impl windows_core::RuntimeType for IBackgroundDownloaderUserConsent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundDownloaderUserConsent");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundDownloaderUserConsent, IBackgroundDownloaderUserConsent_Vtbl, 0x5d14e906_9266_4808_bd71_5925f2a3130a, b"Windows.Networking.BackgroundTransfer.IBackgroundDownloaderUserConsent");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderUserConsent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestUnconstrainedDownloadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTransferBase, IBackgroundTransferBase_Vtbl, 0x2a9da250_c769_458c_afe8_feb8d4d3b2ef, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferBase");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferBase, IBackgroundTransferBase_Vtbl, 0x2a9da250_c769_458c_afe8_feb8d4d3b2ef, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferBase");
 windows_core::imp::interface_hierarchy!(IBackgroundTransferBase, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTransferBase {
     pub fn SetRequestHeader(&self, headername: &windows_core::HSTRING, headervalue: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1505,11 +1473,7 @@ pub struct IBackgroundTransferBase_Vtbl {
     pub CostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT,
     pub SetCostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferCostPolicy) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTransferCompletionGroup, IBackgroundTransferCompletionGroup_Vtbl, 0x2d930225_986b_574d_7950_0add47f5d706, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferCompletionGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferCompletionGroup, IBackgroundTransferCompletionGroup_Vtbl, 0x2d930225_986b_574d_7950_0add47f5d706, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferCompletionGroup_Vtbl {
@@ -1521,11 +1485,7 @@ pub struct IBackgroundTransferCompletionGroup_Vtbl {
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTransferCompletionGroupTriggerDetails, IBackgroundTransferCompletionGroupTriggerDetails_Vtbl, 0x7b6be286_6e47_5136_7fcb_fa4389f46f5b, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferCompletionGroupTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroupTriggerDetails");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferCompletionGroupTriggerDetails, IBackgroundTransferCompletionGroupTriggerDetails_Vtbl, 0x7b6be286_6e47_5136_7fcb_fa4389f46f5b, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroupTriggerDetails");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferCompletionGroupTriggerDetails_Vtbl {
@@ -1533,11 +1493,7 @@ pub struct IBackgroundTransferCompletionGroupTriggerDetails_Vtbl {
     pub Downloads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Uploads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTransferContentPart, IBackgroundTransferContentPart_Vtbl, 0xe8e15657_d7d1_4ed8_838e_674ac217ace6, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferContentPart {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferContentPart, IBackgroundTransferContentPart_Vtbl, 0xe8e15657_d7d1_4ed8_838e_674ac217ace6, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferContentPart_Vtbl {
@@ -1549,11 +1505,7 @@ pub struct IBackgroundTransferContentPart_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SetFile: usize,
 }
-windows_core::imp::define_interface!(IBackgroundTransferContentPartFactory, IBackgroundTransferContentPartFactory_Vtbl, 0x90ef98a9_7a01_4a0b_9f80_a0b0bb370f8d, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferContentPartFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPartFactory");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferContentPartFactory, IBackgroundTransferContentPartFactory_Vtbl, 0x90ef98a9_7a01_4a0b_9f80_a0b0bb370f8d, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPartFactory");
 windows_core::imp::interface_hierarchy!(IBackgroundTransferContentPartFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTransferContentPartFactory {
     pub fn CreateWithName(&self, name: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart> {
@@ -1627,11 +1579,7 @@ pub struct IBackgroundTransferContentPartFactory_Vtbl {
     pub CreateWithName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithNameAndFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTransferErrorStaticMethods, IBackgroundTransferErrorStaticMethods_Vtbl, 0xaad33b04_1192_4bf4_8b68_39c5add244e2, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferErrorStaticMethods {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferErrorStaticMethods");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferErrorStaticMethods, IBackgroundTransferErrorStaticMethods_Vtbl, 0xaad33b04_1192_4bf4_8b68_39c5add244e2, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferErrorStaticMethods");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferErrorStaticMethods_Vtbl {
@@ -1641,11 +1589,7 @@ pub struct IBackgroundTransferErrorStaticMethods_Vtbl {
     #[cfg(not(feature = "Web"))]
     GetStatus: usize,
 }
-windows_core::imp::define_interface!(IBackgroundTransferGroup, IBackgroundTransferGroup_Vtbl, 0xd8c3e3e4_6459_4540_85eb_aaa1c8903677, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferGroup, IBackgroundTransferGroup_Vtbl, 0xd8c3e3e4_6459_4540_85eb_aaa1c8903677, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferGroup_Vtbl {
@@ -1654,22 +1598,14 @@ pub struct IBackgroundTransferGroup_Vtbl {
     pub TransferBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferBehavior) -> windows_core::HRESULT,
     pub SetTransferBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTransferGroupStatics, IBackgroundTransferGroupStatics_Vtbl, 0x02ec50b2_7d18_495b_aa22_32a97d45d3e2, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferGroupStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferGroupStatics");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferGroupStatics, IBackgroundTransferGroupStatics_Vtbl, 0x02ec50b2_7d18_495b_aa22_32a97d45d3e2, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferGroupStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferGroupStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTransferOperation, IBackgroundTransferOperation_Vtbl, 0xded06846_90ca_44fb_8fb1_124154c0d539, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferOperation");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferOperation, IBackgroundTransferOperation_Vtbl, 0xded06846_90ca_44fb_8fb1_124154c0d539, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferOperation");
 windows_core::imp::interface_hierarchy!(IBackgroundTransferOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTransferOperation {
     pub fn Guid(&self) -> windows_core::Result<windows_core::GUID> {
@@ -1885,11 +1821,7 @@ pub struct IBackgroundTransferOperation_Vtbl {
     GetResultStreamAt: usize,
     pub GetResponseInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTransferOperationPriority, IBackgroundTransferOperationPriority_Vtbl, 0x04854327_5254_4b3a_915e_0aa49275c0f9, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferOperationPriority {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferOperationPriority");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferOperationPriority, IBackgroundTransferOperationPriority_Vtbl, 0x04854327_5254_4b3a_915e_0aa49275c0f9, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferOperationPriority");
 windows_core::imp::interface_hierarchy!(IBackgroundTransferOperationPriority, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTransferOperationPriority {
     pub fn Priority(&self) -> windows_core::Result<BackgroundTransferPriority> {
@@ -1949,11 +1881,7 @@ pub struct IBackgroundTransferOperationPriority_Vtbl {
     pub Priority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferPriority) -> windows_core::HRESULT,
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferPriority) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTransferRangesDownloadedEventArgs, IBackgroundTransferRangesDownloadedEventArgs_Vtbl, 0x3ebc7453_bf48_4a88_9248_b0c165184f5c, inspectable);
-impl windows_core::RuntimeType for IBackgroundTransferRangesDownloadedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundTransferRangesDownloadedEventArgs, IBackgroundTransferRangesDownloadedEventArgs_Vtbl, 0x3ebc7453_bf48_4a88_9248_b0c165184f5c, b"Windows.Networking.BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferRangesDownloadedEventArgs_Vtbl {
@@ -1962,11 +1890,7 @@ pub struct IBackgroundTransferRangesDownloadedEventArgs_Vtbl {
     pub AddedRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundUploader, IBackgroundUploader_Vtbl, 0xc595c9ae_cead_465b_8801_c55ac90a01ce, inspectable);
-impl windows_core::RuntimeType for IBackgroundUploader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundUploader");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundUploader, IBackgroundUploader_Vtbl, 0xc595c9ae_cead_465b_8801_c55ac90a01ce, b"Windows.Networking.BackgroundTransfer.IBackgroundUploader");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploader_Vtbl {
@@ -1983,11 +1907,7 @@ pub struct IBackgroundUploader_Vtbl {
     pub CreateUploadWithSubTypeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateUploadWithSubTypeAndBoundaryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundUploader2, IBackgroundUploader2_Vtbl, 0x8e0612ce_0c34_4463_807f_198a1b8bd4ad, inspectable);
-impl windows_core::RuntimeType for IBackgroundUploader2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundUploader2");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundUploader2, IBackgroundUploader2_Vtbl, 0x8e0612ce_0c34_4463_807f_198a1b8bd4ad, b"Windows.Networking.BackgroundTransfer.IBackgroundUploader2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploader2_Vtbl {
@@ -2027,33 +1947,21 @@ pub struct IBackgroundUploader2_Vtbl {
     #[cfg(not(feature = "UI_Notifications"))]
     SetFailureTileNotification: usize,
 }
-windows_core::imp::define_interface!(IBackgroundUploader3, IBackgroundUploader3_Vtbl, 0xb95e9439_5bf0_4b3a_8c47_2c6199a854b9, inspectable);
-impl windows_core::RuntimeType for IBackgroundUploader3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundUploader3");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundUploader3, IBackgroundUploader3_Vtbl, 0xb95e9439_5bf0_4b3a_8c47_2c6199a854b9, b"Windows.Networking.BackgroundTransfer.IBackgroundUploader3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploader3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CompletionGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundUploaderFactory, IBackgroundUploaderFactory_Vtbl, 0x736203c7_10e7_48a0_ac3c_1ac71095ec57, inspectable);
-impl windows_core::RuntimeType for IBackgroundUploaderFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundUploaderFactory");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundUploaderFactory, IBackgroundUploaderFactory_Vtbl, 0x736203c7_10e7_48a0_ac3c_1ac71095ec57, b"Windows.Networking.BackgroundTransfer.IBackgroundUploaderFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithCompletionGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundUploaderStaticMethods, IBackgroundUploaderStaticMethods_Vtbl, 0xf2875cfb_9b05_4741_9121_740a83e247df, inspectable);
-impl windows_core::RuntimeType for IBackgroundUploaderStaticMethods {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundUploaderStaticMethods, IBackgroundUploaderStaticMethods_Vtbl, 0xf2875cfb_9b05_4741_9121_740a83e247df, b"Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderStaticMethods_Vtbl {
@@ -2061,33 +1969,21 @@ pub struct IBackgroundUploaderStaticMethods_Vtbl {
     pub GetCurrentUploadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCurrentUploadsForGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundUploaderStaticMethods2, IBackgroundUploaderStaticMethods2_Vtbl, 0xe919ac62_ea08_42f0_a2ac_07e467549080, inspectable);
-impl windows_core::RuntimeType for IBackgroundUploaderStaticMethods2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods2");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundUploaderStaticMethods2, IBackgroundUploaderStaticMethods2_Vtbl, 0xe919ac62_ea08_42f0_a2ac_07e467549080, b"Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderStaticMethods2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentUploadsForTransferGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundUploaderUserConsent, IBackgroundUploaderUserConsent_Vtbl, 0x3bb384cb_0760_461d_907f_5138f84d44c1, inspectable);
-impl windows_core::RuntimeType for IBackgroundUploaderUserConsent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IBackgroundUploaderUserConsent");
-}
+windows_core::imp::define_winrt_interface!(IBackgroundUploaderUserConsent, IBackgroundUploaderUserConsent_Vtbl, 0x3bb384cb_0760_461d_907f_5138f84d44c1, b"Windows.Networking.BackgroundTransfer.IBackgroundUploaderUserConsent");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderUserConsent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestUnconstrainedUploadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContentPrefetcher, IContentPrefetcher_Vtbl, 0xa8d6f754_7dc1_4cd9_8810_2a6aa9417e11, inspectable);
-impl windows_core::RuntimeType for IContentPrefetcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IContentPrefetcher");
-}
+windows_core::imp::define_winrt_interface!(IContentPrefetcher, IContentPrefetcher_Vtbl, 0xa8d6f754_7dc1_4cd9_8810_2a6aa9417e11, b"Windows.Networking.BackgroundTransfer.IContentPrefetcher");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetcher_Vtbl {
@@ -2096,22 +1992,14 @@ pub struct IContentPrefetcher_Vtbl {
     pub SetIndirectContentUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IndirectContentUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContentPrefetcherTime, IContentPrefetcherTime_Vtbl, 0xe361fd08_132a_4fde_a7cc_fcb0e66523af, inspectable);
-impl windows_core::RuntimeType for IContentPrefetcherTime {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IContentPrefetcherTime");
-}
+windows_core::imp::define_winrt_interface!(IContentPrefetcherTime, IContentPrefetcherTime_Vtbl, 0xe361fd08_132a_4fde_a7cc_fcb0e66523af, b"Windows.Networking.BackgroundTransfer.IContentPrefetcherTime");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetcherTime_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LastSuccessfulPrefetchTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDownloadOperation, IDownloadOperation_Vtbl, 0xbd87ebb0_5714_4e09_ba68_bef73903b0d7, inspectable);
-impl windows_core::RuntimeType for IDownloadOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IDownloadOperation");
-}
+windows_core::imp::define_winrt_interface!(IDownloadOperation, IDownloadOperation_Vtbl, 0xbd87ebb0_5714_4e09_ba68_bef73903b0d7, b"Windows.Networking.BackgroundTransfer.IDownloadOperation");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDownloadOperation_Vtbl {
@@ -2126,22 +2014,14 @@ pub struct IDownloadOperation_Vtbl {
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDownloadOperation2, IDownloadOperation2_Vtbl, 0xa3cced40_8f9c_4353_9cd4_290dee387c38, inspectable);
-impl windows_core::RuntimeType for IDownloadOperation2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IDownloadOperation2");
-}
+windows_core::imp::define_winrt_interface!(IDownloadOperation2, IDownloadOperation2_Vtbl, 0xa3cced40_8f9c_4353_9cd4_290dee387c38, b"Windows.Networking.BackgroundTransfer.IDownloadOperation2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDownloadOperation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransferGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDownloadOperation3, IDownloadOperation3_Vtbl, 0x5027351c_7d5e_4adc_b8d3_df5c6031b9cc, inspectable);
-impl windows_core::RuntimeType for IDownloadOperation3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IDownloadOperation3");
-}
+windows_core::imp::define_winrt_interface!(IDownloadOperation3, IDownloadOperation3_Vtbl, 0x5027351c_7d5e_4adc_b8d3_df5c6031b9cc, b"Windows.Networking.BackgroundTransfer.IDownloadOperation3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDownloadOperation3_Vtbl {
@@ -2165,22 +2045,14 @@ pub struct IDownloadOperation3_Vtbl {
     #[cfg(not(feature = "Web"))]
     CurrentWebErrorStatus: usize,
 }
-windows_core::imp::define_interface!(IDownloadOperation4, IDownloadOperation4_Vtbl, 0x0cdaaef4_8cef_404a_966d_f058400bed80, inspectable);
-impl windows_core::RuntimeType for IDownloadOperation4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IDownloadOperation4");
-}
+windows_core::imp::define_winrt_interface!(IDownloadOperation4, IDownloadOperation4_Vtbl, 0x0cdaaef4_8cef_404a_966d_f058400bed80, b"Windows.Networking.BackgroundTransfer.IDownloadOperation4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDownloadOperation4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MakeCurrentInTransferGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDownloadOperation5, IDownloadOperation5_Vtbl, 0xa699a86f_5590_463a_b8d6_1e491a2760a5, inspectable);
-impl windows_core::RuntimeType for IDownloadOperation5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IDownloadOperation5");
-}
+windows_core::imp::define_winrt_interface!(IDownloadOperation5, IDownloadOperation5_Vtbl, 0xa699a86f_5590_463a_b8d6_1e491a2760a5, b"Windows.Networking.BackgroundTransfer.IDownloadOperation5");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDownloadOperation5_Vtbl {
@@ -2188,11 +2060,7 @@ pub struct IDownloadOperation5_Vtbl {
     pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResponseInformation, IResponseInformation_Vtbl, 0xf8bb9a12_f713_4792_8b68_d9d297f91d2e, inspectable);
-impl windows_core::RuntimeType for IResponseInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IResponseInformation");
-}
+windows_core::imp::define_winrt_interface!(IResponseInformation, IResponseInformation_Vtbl, 0xf8bb9a12_f713_4792_8b68_d9d297f91d2e, b"Windows.Networking.BackgroundTransfer.IResponseInformation");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResponseInformation_Vtbl {
@@ -2202,22 +2070,14 @@ pub struct IResponseInformation_Vtbl {
     pub StatusCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUnconstrainedTransferRequestResult, IUnconstrainedTransferRequestResult_Vtbl, 0x4c24b81f_d944_4112_a98e_6a69522b7ebb, inspectable);
-impl windows_core::RuntimeType for IUnconstrainedTransferRequestResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IUnconstrainedTransferRequestResult");
-}
+windows_core::imp::define_winrt_interface!(IUnconstrainedTransferRequestResult, IUnconstrainedTransferRequestResult_Vtbl, 0x4c24b81f_d944_4112_a98e_6a69522b7ebb, b"Windows.Networking.BackgroundTransfer.IUnconstrainedTransferRequestResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnconstrainedTransferRequestResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsUnconstrained: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUploadOperation, IUploadOperation_Vtbl, 0x3e5624e0_7389_434c_8b35_427fd36bbdae, inspectable);
-impl windows_core::RuntimeType for IUploadOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IUploadOperation");
-}
+windows_core::imp::define_winrt_interface!(IUploadOperation, IUploadOperation_Vtbl, 0x3e5624e0_7389_434c_8b35_427fd36bbdae, b"Windows.Networking.BackgroundTransfer.IUploadOperation");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUploadOperation_Vtbl {
@@ -2230,33 +2090,21 @@ pub struct IUploadOperation_Vtbl {
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AttachAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUploadOperation2, IUploadOperation2_Vtbl, 0x556189f2_2774_4df6_9fa5_209f2bfb12f7, inspectable);
-impl windows_core::RuntimeType for IUploadOperation2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IUploadOperation2");
-}
+windows_core::imp::define_winrt_interface!(IUploadOperation2, IUploadOperation2_Vtbl, 0x556189f2_2774_4df6_9fa5_209f2bfb12f7, b"Windows.Networking.BackgroundTransfer.IUploadOperation2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUploadOperation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransferGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUploadOperation3, IUploadOperation3_Vtbl, 0x42c92ca3_de39_4546_bc62_3774b4294de3, inspectable);
-impl windows_core::RuntimeType for IUploadOperation3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IUploadOperation3");
-}
+windows_core::imp::define_winrt_interface!(IUploadOperation3, IUploadOperation3_Vtbl, 0x42c92ca3_de39_4546_bc62_3774b4294de3, b"Windows.Networking.BackgroundTransfer.IUploadOperation3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUploadOperation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MakeCurrentInTransferGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUploadOperation4, IUploadOperation4_Vtbl, 0x50edef31_fac5_41ee_b030_dc77caee9faa, inspectable);
-impl windows_core::RuntimeType for IUploadOperation4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.IUploadOperation4");
-}
+windows_core::imp::define_winrt_interface!(IUploadOperation4, IUploadOperation4_Vtbl, 0x50edef31_fac5_41ee_b030_dc77caee9faa, b"Windows.Networking.BackgroundTransfer.IUploadOperation4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUploadOperation4_Vtbl {

@@ -10,11 +10,7 @@ pub mod Setup;
 pub mod Update;
 #[cfg(feature = "Management_Workplace")]
 pub mod Workplace;
-windows_core::imp::define_interface!(IMdmAlert, IMdmAlert_Vtbl, 0xb0fbc327_28c1_4b52_a548_c5807caf70b6, inspectable);
-impl windows_core::RuntimeType for IMdmAlert {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.IMdmAlert");
-}
+windows_core::imp::define_winrt_interface!(IMdmAlert, IMdmAlert_Vtbl, 0xb0fbc327_28c1_4b52_a548_c5807caf70b6, b"Windows.Management.IMdmAlert");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmAlert_Vtbl {
@@ -33,11 +29,7 @@ pub struct IMdmAlert_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMdmSession, IMdmSession_Vtbl, 0xfe89314c_8f64_4797_a9d7_9d88f86ae166, inspectable);
-impl windows_core::RuntimeType for IMdmSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.IMdmSession");
-}
+windows_core::imp::define_winrt_interface!(IMdmSession, IMdmSession_Vtbl, 0xfe89314c_8f64_4797_a9d7_9d88f86ae166, b"Windows.Management.IMdmSession");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmSession_Vtbl {
@@ -51,11 +43,7 @@ pub struct IMdmSession_Vtbl {
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartWithAlertsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMdmSessionManagerStatics, IMdmSessionManagerStatics_Vtbl, 0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b, inspectable);
-impl windows_core::RuntimeType for IMdmSessionManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.IMdmSessionManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IMdmSessionManagerStatics, IMdmSessionManagerStatics_Vtbl, 0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b, b"Windows.Management.IMdmSessionManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmSessionManagerStatics_Vtbl {

@@ -1,19 +1,11 @@
-windows_core::imp::define_interface!(IUserDataAvailabilityStateChangedEventArgs, IUserDataAvailabilityStateChangedEventArgs_Vtbl, 0xa76582c9_06a2_4273_a803_834c9f87fbeb, inspectable);
-impl windows_core::RuntimeType for IUserDataAvailabilityStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.IUserDataAvailabilityStateChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IUserDataAvailabilityStateChangedEventArgs, IUserDataAvailabilityStateChangedEventArgs_Vtbl, 0xa76582c9_06a2_4273_a803_834c9f87fbeb, b"Windows.Security.DataProtection.IUserDataAvailabilityStateChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAvailabilityStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataBufferUnprotectResult, IUserDataBufferUnprotectResult_Vtbl, 0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8, inspectable);
-impl windows_core::RuntimeType for IUserDataBufferUnprotectResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.IUserDataBufferUnprotectResult");
-}
+windows_core::imp::define_winrt_interface!(IUserDataBufferUnprotectResult, IUserDataBufferUnprotectResult_Vtbl, 0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8, b"Windows.Security.DataProtection.IUserDataBufferUnprotectResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataBufferUnprotectResult_Vtbl {
@@ -24,11 +16,7 @@ pub struct IUserDataBufferUnprotectResult_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UnprotectedBuffer: usize,
 }
-windows_core::imp::define_interface!(IUserDataProtectionManager, IUserDataProtectionManager_Vtbl, 0x1f13237d_b42e_4a88_9480_0f240924c876, inspectable);
-impl windows_core::RuntimeType for IUserDataProtectionManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.IUserDataProtectionManager");
-}
+windows_core::imp::define_winrt_interface!(IUserDataProtectionManager, IUserDataProtectionManager_Vtbl, 0x1f13237d_b42e_4a88_9480_0f240924c876, b"Windows.Security.DataProtection.IUserDataProtectionManager");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataProtectionManager_Vtbl {
@@ -53,11 +41,7 @@ pub struct IUserDataProtectionManager_Vtbl {
     pub DataAvailabilityStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDataAvailabilityStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataProtectionManagerStatics, IUserDataProtectionManagerStatics_Vtbl, 0x977780e8_6dce_4fae_af85_782ac2cf4572, inspectable);
-impl windows_core::RuntimeType for IUserDataProtectionManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.IUserDataProtectionManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IUserDataProtectionManagerStatics, IUserDataProtectionManagerStatics_Vtbl, 0x977780e8_6dce_4fae_af85_782ac2cf4572, b"Windows.Security.DataProtection.IUserDataProtectionManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataProtectionManagerStatics_Vtbl {
@@ -68,11 +52,7 @@ pub struct IUserDataProtectionManagerStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     TryGetForUser: usize,
 }
-windows_core::imp::define_interface!(IUserDataStorageItemProtectionInfo, IUserDataStorageItemProtectionInfo_Vtbl, 0x5b6680f6_e87f_40a1_b19d_a6187a0c662f, inspectable);
-impl windows_core::RuntimeType for IUserDataStorageItemProtectionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.IUserDataStorageItemProtectionInfo");
-}
+windows_core::imp::define_winrt_interface!(IUserDataStorageItemProtectionInfo, IUserDataStorageItemProtectionInfo_Vtbl, 0x5b6680f6_e87f_40a1_b19d_a6187a0c662f, b"Windows.Security.DataProtection.IUserDataStorageItemProtectionInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataStorageItemProtectionInfo_Vtbl {

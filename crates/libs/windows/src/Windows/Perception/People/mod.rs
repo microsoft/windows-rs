@@ -294,11 +294,7 @@ impl windows_core::RuntimeName for HeadPose {
 }
 unsafe impl Send for HeadPose {}
 unsafe impl Sync for HeadPose {}
-windows_core::imp::define_interface!(IEyesPose, IEyesPose_Vtbl, 0x682a9b23_8a1e_5b86_a060_906ffacb62a4, inspectable);
-impl windows_core::RuntimeType for IEyesPose {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IEyesPose");
-}
+windows_core::imp::define_winrt_interface!(IEyesPose, IEyesPose_Vtbl, 0x682a9b23_8a1e_5b86_a060_906ffacb62a4, b"Windows.Perception.People.IEyesPose");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEyesPose_Vtbl {
@@ -310,11 +306,7 @@ pub struct IEyesPose_Vtbl {
     Gaze: usize,
     pub UpdateTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEyesPoseStatics, IEyesPoseStatics_Vtbl, 0x1cff7413_b21f_54c0_80c1_e60d994ca58c, inspectable);
-impl windows_core::RuntimeType for IEyesPoseStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IEyesPoseStatics");
-}
+windows_core::imp::define_winrt_interface!(IEyesPoseStatics, IEyesPoseStatics_Vtbl, 0x1cff7413_b21f_54c0_80c1_e60d994ca58c, b"Windows.Perception.People.IEyesPoseStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEyesPoseStatics_Vtbl {
@@ -325,11 +317,7 @@ pub struct IEyesPoseStatics_Vtbl {
     #[cfg(not(feature = "UI_Input"))]
     RequestAccessAsync: usize,
 }
-windows_core::imp::define_interface!(IHandMeshObserver, IHandMeshObserver_Vtbl, 0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69, inspectable);
-impl windows_core::RuntimeType for IHandMeshObserver {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IHandMeshObserver");
-}
+windows_core::imp::define_winrt_interface!(IHandMeshObserver, IHandMeshObserver_Vtbl, 0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69, b"Windows.Perception.People.IHandMeshObserver");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHandMeshObserver_Vtbl {
@@ -346,11 +334,7 @@ pub struct IHandMeshObserver_Vtbl {
     pub NeutralPoseVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHandMeshVertexState, IHandMeshVertexState_Vtbl, 0x046c5fef_1d8b_55de_ab2c_1cd424886d8f, inspectable);
-impl windows_core::RuntimeType for IHandMeshVertexState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IHandMeshVertexState");
-}
+windows_core::imp::define_winrt_interface!(IHandMeshVertexState, IHandMeshVertexState_Vtbl, 0x046c5fef_1d8b_55de_ab2c_1cd424886d8f, b"Windows.Perception.People.IHandMeshVertexState");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHandMeshVertexState_Vtbl {
@@ -362,11 +346,7 @@ pub struct IHandMeshVertexState_Vtbl {
     pub GetVertices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut HandMeshVertex) -> windows_core::HRESULT,
     pub UpdateTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHandPose, IHandPose_Vtbl, 0x4d98e79a_bb08_5d09_91de_df0dd3fae46c, inspectable);
-impl windows_core::RuntimeType for IHandPose {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IHandPose");
-}
+windows_core::imp::define_winrt_interface!(IHandPose, IHandPose_Vtbl, 0x4d98e79a_bb08_5d09_91de_df0dd3fae46c, b"Windows.Perception.People.IHandPose");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHandPose_Vtbl {
@@ -388,11 +368,7 @@ pub struct IHandPose_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     GetRelativeJoints: usize,
 }
-windows_core::imp::define_interface!(IHeadPose, IHeadPose_Vtbl, 0x7f5ac5a5_49db_379f_9429_32a2faf34fa6, inspectable);
-impl windows_core::RuntimeType for IHeadPose {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.People.IHeadPose");
-}
+windows_core::imp::define_winrt_interface!(IHeadPose, IHeadPose_Vtbl, 0x7f5ac5a5_49db_379f_9429_32a2faf34fa6, b"Windows.Perception.People.IHeadPose");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHeadPose_Vtbl {

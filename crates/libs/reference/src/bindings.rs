@@ -1,16 +1,10 @@
 pub const E_NOTIMPL: windows_core::HRESULT = windows_core::HRESULT(0x80004001_u32 as _);
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPropertyValue,
     IPropertyValue_Vtbl,
     0x4bd682dd_7554_40e9_9a9b_82654ede7e62,
-    inspectable
+    b"Windows.Foundation.IPropertyValue"
 );
-impl windows_core::RuntimeType for IPropertyValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IPropertyValue");
-}
 windows_core::imp::interface_hierarchy!(
     IPropertyValue,
     windows_core::IUnknown,
@@ -1062,36 +1056,7 @@ pub struct IPropertyValue_Vtbl {
         *mut *mut Rect,
     ) -> windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IReference<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
-where
-    T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
-    for IReference<T>
-{
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
-    for IReference<T>
-{
-}
-unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IReference<T> {
-    type Vtable = IReference_Vtbl<T>;
-    const IID: windows_core::GUID =
-        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-    const INSPECTABLE: bool = true;
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IReference<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({61c17706-2d65-11e0-9ae8-d48564015472}")
-        .push_slice(b";")
-        .push_other(T::SIGNATURE)
-        .push_slice(b")");
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"Windows.Foundation.IReference`1<")
-        .push_other(T::NAME)
-        .push_slice(b">");
-}
+windows_core::imp::define_winrt_interface!(IReference < T >, IReference_Vtbl < T, >, 0x61c17706_2d65_11e0_9ae8_d48564015472, b"Windows.Foundation.IReference`1");
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IReference<T> {
     const NAME: &'static str = "Windows.Foundation.IReference";
     const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =

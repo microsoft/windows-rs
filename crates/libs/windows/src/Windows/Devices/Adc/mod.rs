@@ -144,11 +144,7 @@ impl windows_core::RuntimeName for AdcController {
 }
 unsafe impl Send for AdcController {}
 unsafe impl Sync for AdcController {}
-windows_core::imp::define_interface!(IAdcChannel, IAdcChannel_Vtbl, 0x040bf414_2588_4a56_abef_73a260acc60a, inspectable);
-impl windows_core::RuntimeType for IAdcChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.IAdcChannel");
-}
+windows_core::imp::define_winrt_interface!(IAdcChannel, IAdcChannel_Vtbl, 0x040bf414_2588_4a56_abef_73a260acc60a, b"Windows.Devices.Adc.IAdcChannel");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcChannel_Vtbl {
@@ -157,11 +153,7 @@ pub struct IAdcChannel_Vtbl {
     pub ReadValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ReadRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdcController, IAdcController_Vtbl, 0x2a76e4b0_a896_4219_86b6_ea8cdce98f56, inspectable);
-impl windows_core::RuntimeType for IAdcController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.IAdcController");
-}
+windows_core::imp::define_winrt_interface!(IAdcController, IAdcController_Vtbl, 0x2a76e4b0_a896_4219_86b6_ea8cdce98f56, b"Windows.Devices.Adc.IAdcController");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcController_Vtbl {
@@ -175,11 +167,7 @@ pub struct IAdcController_Vtbl {
     pub IsChannelModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, AdcChannelMode, *mut bool) -> windows_core::HRESULT,
     pub OpenChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdcControllerStatics, IAdcControllerStatics_Vtbl, 0xcce98e0c_01f8_4891_bc3b_be53ef279ca4, inspectable);
-impl windows_core::RuntimeType for IAdcControllerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.IAdcControllerStatics");
-}
+windows_core::imp::define_winrt_interface!(IAdcControllerStatics, IAdcControllerStatics_Vtbl, 0xcce98e0c_01f8_4891_bc3b_be53ef279ca4, b"Windows.Devices.Adc.IAdcControllerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcControllerStatics_Vtbl {
@@ -189,11 +177,7 @@ pub struct IAdcControllerStatics_Vtbl {
     #[cfg(not(feature = "Devices_Adc_Provider"))]
     GetControllersAsync: usize,
 }
-windows_core::imp::define_interface!(IAdcControllerStatics2, IAdcControllerStatics2_Vtbl, 0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484, inspectable);
-impl windows_core::RuntimeType for IAdcControllerStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.IAdcControllerStatics2");
-}
+windows_core::imp::define_winrt_interface!(IAdcControllerStatics2, IAdcControllerStatics2_Vtbl, 0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484, b"Windows.Devices.Adc.IAdcControllerStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcControllerStatics2_Vtbl {

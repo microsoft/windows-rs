@@ -259,11 +259,7 @@ impl windows_core::RuntimeType for HourFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.HourFormat;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.HourFormat");
 }
-windows_core::imp::define_interface!(IDateTimeFormatter, IDateTimeFormatter_Vtbl, 0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec, inspectable);
-impl windows_core::RuntimeType for IDateTimeFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter");
-}
+windows_core::imp::define_winrt_interface!(IDateTimeFormatter, IDateTimeFormatter_Vtbl, 0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec, b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatter_Vtbl {
@@ -287,22 +283,14 @@ pub struct IDateTimeFormatter_Vtbl {
     pub ResolvedLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResolvedGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDateTimeFormatter2, IDateTimeFormatter2_Vtbl, 0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03, inspectable);
-impl windows_core::RuntimeType for IDateTimeFormatter2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter2");
-}
+windows_core::imp::define_winrt_interface!(IDateTimeFormatter2, IDateTimeFormatter2_Vtbl, 0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03, b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FormatUsingTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDateTimeFormatterFactory, IDateTimeFormatterFactory_Vtbl, 0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0, inspectable);
-impl windows_core::RuntimeType for IDateTimeFormatterFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterFactory");
-}
+windows_core::imp::define_winrt_interface!(IDateTimeFormatterFactory, IDateTimeFormatterFactory_Vtbl, 0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0, b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatterFactory_Vtbl {
@@ -315,11 +303,7 @@ pub struct IDateTimeFormatterFactory_Vtbl {
     pub CreateDateTimeFormatterDateTimeLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, YearFormat, MonthFormat, DayFormat, DayOfWeekFormat, HourFormat, MinuteFormat, SecondFormat, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateDateTimeFormatterDateTimeContext: unsafe extern "system" fn(*mut core::ffi::c_void, YearFormat, MonthFormat, DayFormat, DayOfWeekFormat, HourFormat, MinuteFormat, SecondFormat, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDateTimeFormatterStatics, IDateTimeFormatterStatics_Vtbl, 0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212, inspectable);
-impl windows_core::RuntimeType for IDateTimeFormatterStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterStatics");
-}
+windows_core::imp::define_winrt_interface!(IDateTimeFormatterStatics, IDateTimeFormatterStatics_Vtbl, 0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212, b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatterStatics_Vtbl {

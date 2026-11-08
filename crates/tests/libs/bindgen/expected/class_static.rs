@@ -126,36 +126,24 @@ unsafe impl windows_core::Interface for Class {
 impl windows_core::RuntimeName for Class {
     const NAME: &'static str = "Test.Class";
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IClass,
     IClass_Vtbl,
     0x09c2c798_8aad_52ab_a9d9_33725f7248f3,
-    inspectable
+    b"Test.IClass"
 );
-impl windows_core::RuntimeType for IClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.IClass");
-}
 #[repr(C)]
 pub struct IClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IClassStatics,
     IClassStatics_Vtbl,
     0xe859dd18_1e99_5da7_a6b0_bbb6011bd19d,
-    inspectable
+    b"Test.IClassStatics"
 );
-impl windows_core::RuntimeType for IClassStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.IClassStatics");
-}
 #[repr(C)]
 pub struct IClassStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
