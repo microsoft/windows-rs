@@ -27,7 +27,7 @@ impl windows_core::RuntimeType for HapticsControllerOverrideToken {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Haptics.HapticsControllerOverrideToken;i8)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.HapticsControllerOverrideToken");
 }
-windows_core::imp::define_interface!(IInputHapticsManager, IInputHapticsManager_Vtbl, 0x040e91df_bb3a_507c_9e25_a2d2c685b2e5);
+windows_core::imp::define_interface!(IInputHapticsManager, IInputHapticsManager_Vtbl, 0x040e91df_bb3a_507c_9e25_a2d2c685b2e5, inspectable);
 impl windows_core::RuntimeType for IInputHapticsManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IInputHapticsManager");
@@ -47,7 +47,7 @@ pub struct IInputHapticsManager_Vtbl {
     pub SetOverrideHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, HapticDeviceType, *mut core::ffi::c_void, *mut HapticsControllerOverrideToken) -> windows_core::HRESULT,
     pub ClearOverrideHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, HapticsControllerOverrideToken) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputHapticsManagerStatics, IInputHapticsManagerStatics_Vtbl, 0x7bb40f77_e187_5322_844e_aa58223c281a);
+windows_core::imp::define_interface!(IInputHapticsManagerStatics, IInputHapticsManagerStatics_Vtbl, 0x7bb40f77_e187_5322_844e_aa58223c281a, inspectable);
 impl windows_core::RuntimeType for IInputHapticsManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IInputHapticsManagerStatics");
@@ -61,7 +61,7 @@ pub struct IInputHapticsManagerStatics_Vtbl {
     pub GetForCurrentThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryGetForThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics, IKnownSimpleHapticsControllerWaveformsStatics_Vtbl, 0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics, IKnownSimpleHapticsControllerWaveformsStatics_Vtbl, 0x3d577ef7_4cee_11e6_b535_001bdc06ab3b, inspectable);
 impl windows_core::RuntimeType for IKnownSimpleHapticsControllerWaveformsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics");
@@ -76,7 +76,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics_Vtbl {
     pub Press: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics2, IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl, 0xa7d24c27_b79d_510a_bf79_ff6d49173e1d);
+windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics2, IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl, 0xa7d24c27_b79d_510a_bf79_ff6d49173e1d, inspectable);
 impl windows_core::RuntimeType for IKnownSimpleHapticsControllerWaveformsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics2");
@@ -96,7 +96,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
     pub PencilContinuous: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub Success: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics3, IKnownSimpleHapticsControllerWaveformsStatics3_Vtbl, 0xae480ce4_4ab6_5b2f_ad0b_cb52f37d45fb);
+windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics3, IKnownSimpleHapticsControllerWaveformsStatics3_Vtbl, 0xae480ce4_4ab6_5b2f_ad0b_cb52f37d45fb, inspectable);
 impl windows_core::RuntimeType for IKnownSimpleHapticsControllerWaveformsStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics3");
@@ -110,7 +110,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics3_Vtbl {
     pub Step: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub Grow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISimpleHapticsController, ISimpleHapticsController_Vtbl, 0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(ISimpleHapticsController, ISimpleHapticsController_Vtbl, 0x3d577ef9_4cee_11e6_b535_001bdc06ab3b, inspectable);
 impl windows_core::RuntimeType for ISimpleHapticsController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.ISimpleHapticsController");
@@ -131,7 +131,7 @@ pub struct ISimpleHapticsController_Vtbl {
     pub SendHapticFeedbackForDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub SendHapticFeedbackForPlayCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, i32, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISimpleHapticsControllerFeedback, ISimpleHapticsControllerFeedback_Vtbl, 0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(ISimpleHapticsControllerFeedback, ISimpleHapticsControllerFeedback_Vtbl, 0x3d577ef8_4cee_11e6_b535_001bdc06ab3b, inspectable);
 impl windows_core::RuntimeType for ISimpleHapticsControllerFeedback {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.ISimpleHapticsControllerFeedback");
@@ -143,7 +143,7 @@ pub struct ISimpleHapticsControllerFeedback_Vtbl {
     pub Waveform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVibrationDevice, IVibrationDevice_Vtbl, 0x40f21a3e_8844_47ff_b312_06185a3844da);
+windows_core::imp::define_interface!(IVibrationDevice, IVibrationDevice_Vtbl, 0x40f21a3e_8844_47ff_b312_06185a3844da, inspectable);
 impl windows_core::RuntimeType for IVibrationDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IVibrationDevice");
@@ -155,7 +155,7 @@ pub struct IVibrationDevice_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SimpleHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVibrationDeviceStatics, IVibrationDeviceStatics_Vtbl, 0x53e2eded_2290_4ac9_8eb3_1a84122eb71c);
+windows_core::imp::define_interface!(IVibrationDeviceStatics, IVibrationDeviceStatics_Vtbl, 0x53e2eded_2290_4ac9_8eb3_1a84122eb71c, inspectable);
 impl windows_core::RuntimeType for IVibrationDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IVibrationDeviceStatics");
@@ -270,6 +270,7 @@ impl windows_core::RuntimeType for InputHapticsManager {
 unsafe impl windows_core::Interface for InputHapticsManager {
     type Vtable = <IInputHapticsManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInputHapticsManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for InputHapticsManager {
     const NAME: &'static str = "Windows.Devices.Haptics.InputHapticsManager";
@@ -483,6 +484,7 @@ impl windows_core::RuntimeType for SimpleHapticsController {
 unsafe impl windows_core::Interface for SimpleHapticsController {
     type Vtable = <ISimpleHapticsController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISimpleHapticsController as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsController";
@@ -513,6 +515,7 @@ impl windows_core::RuntimeType for SimpleHapticsControllerFeedback {
 unsafe impl windows_core::Interface for SimpleHapticsControllerFeedback {
     type Vtable = <ISimpleHapticsControllerFeedback as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISimpleHapticsControllerFeedback as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsControllerFeedback";
@@ -593,6 +596,7 @@ impl windows_core::RuntimeType for VibrationDevice {
 unsafe impl windows_core::Interface for VibrationDevice {
     type Vtable = <IVibrationDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVibrationDevice as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Devices.Haptics.VibrationDevice";

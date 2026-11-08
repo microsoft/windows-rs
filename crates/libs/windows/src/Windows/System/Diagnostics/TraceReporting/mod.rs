@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPlatformDiagnosticActionsStatics, IPlatformDiagnosticActionsStatics_Vtbl, 0xc1145cfa_9292_4267_890a_9ea3ed072312);
+windows_core::imp::define_interface!(IPlatformDiagnosticActionsStatics, IPlatformDiagnosticActionsStatics_Vtbl, 0xc1145cfa_9292_4267_890a_9ea3ed072312, inspectable);
 impl windows_core::RuntimeType for IPlatformDiagnosticActionsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticActionsStatics");
@@ -16,7 +16,7 @@ pub struct IPlatformDiagnosticActionsStatics_Vtbl {
     pub GetActiveTraceRuntime: unsafe extern "system" fn(*mut core::ffi::c_void, PlatformDiagnosticTraceSlotType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetKnownTraceList: unsafe extern "system" fn(*mut core::ffi::c_void, PlatformDiagnosticTraceSlotType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPlatformDiagnosticTraceInfo, IPlatformDiagnosticTraceInfo_Vtbl, 0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
+windows_core::imp::define_interface!(IPlatformDiagnosticTraceInfo, IPlatformDiagnosticTraceInfo_Vtbl, 0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2, inspectable);
 impl windows_core::RuntimeType for IPlatformDiagnosticTraceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceInfo");
@@ -32,7 +32,7 @@ pub struct IPlatformDiagnosticTraceInfo_Vtbl {
     pub MaxTraceDurationFileTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub Priority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlatformDiagnosticTracePriority) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPlatformDiagnosticTraceRuntimeInfo, IPlatformDiagnosticTraceRuntimeInfo_Vtbl, 0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
+windows_core::imp::define_interface!(IPlatformDiagnosticTraceRuntimeInfo, IPlatformDiagnosticTraceRuntimeInfo_Vtbl, 0x3d4d5e2d_01d8_4768_8554_1eb1ca610986, inspectable);
 impl windows_core::RuntimeType for IPlatformDiagnosticTraceRuntimeInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceRuntimeInfo");
@@ -230,6 +230,7 @@ impl windows_core::RuntimeType for PlatformDiagnosticTraceInfo {
 unsafe impl windows_core::Interface for PlatformDiagnosticTraceInfo {
     type Vtable = <IPlatformDiagnosticTraceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlatformDiagnosticTraceInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PlatformDiagnosticTraceInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo";
@@ -274,6 +275,7 @@ impl windows_core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo {
 unsafe impl windows_core::Interface for PlatformDiagnosticTraceRuntimeInfo {
     type Vtable = <IPlatformDiagnosticTraceRuntimeInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlatformDiagnosticTraceRuntimeInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PlatformDiagnosticTraceRuntimeInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo";

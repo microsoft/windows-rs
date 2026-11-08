@@ -71,6 +71,7 @@ impl windows_core::RuntimeType for GazeDevicePreview {
 unsafe impl windows_core::Interface for GazeDevicePreview {
     type Vtable = <IGazeDevicePreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeDevicePreview as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GazeDevicePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDevicePreview";
@@ -95,6 +96,7 @@ impl windows_core::RuntimeType for GazeDeviceWatcherAddedPreviewEventArgs {
 unsafe impl windows_core::Interface for GazeDeviceWatcherAddedPreviewEventArgs {
     type Vtable = <IGazeDeviceWatcherAddedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeDeviceWatcherAddedPreviewEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GazeDeviceWatcherAddedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherAddedPreviewEventArgs";
@@ -175,6 +177,7 @@ impl windows_core::RuntimeType for GazeDeviceWatcherPreview {
 unsafe impl windows_core::Interface for GazeDeviceWatcherPreview {
     type Vtable = <IGazeDeviceWatcherPreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeDeviceWatcherPreview as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GazeDeviceWatcherPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherPreview";
@@ -199,6 +202,7 @@ impl windows_core::RuntimeType for GazeDeviceWatcherRemovedPreviewEventArgs {
 unsafe impl windows_core::Interface for GazeDeviceWatcherRemovedPreviewEventArgs {
     type Vtable = <IGazeDeviceWatcherRemovedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeDeviceWatcherRemovedPreviewEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GazeDeviceWatcherRemovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherRemovedPreviewEventArgs";
@@ -223,6 +227,7 @@ impl windows_core::RuntimeType for GazeDeviceWatcherUpdatedPreviewEventArgs {
 unsafe impl windows_core::Interface for GazeDeviceWatcherUpdatedPreviewEventArgs {
     type Vtable = <IGazeDeviceWatcherUpdatedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeDeviceWatcherUpdatedPreviewEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GazeDeviceWatcherUpdatedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherUpdatedPreviewEventArgs";
@@ -256,6 +261,7 @@ impl windows_core::RuntimeType for GazeEnteredPreviewEventArgs {
 unsafe impl windows_core::Interface for GazeEnteredPreviewEventArgs {
     type Vtable = <IGazeEnteredPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeEnteredPreviewEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GazeEnteredPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeEnteredPreviewEventArgs";
@@ -289,6 +295,7 @@ impl windows_core::RuntimeType for GazeExitedPreviewEventArgs {
 unsafe impl windows_core::Interface for GazeExitedPreviewEventArgs {
     type Vtable = <IGazeExitedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeExitedPreviewEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GazeExitedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeExitedPreviewEventArgs";
@@ -365,6 +372,7 @@ impl windows_core::RuntimeType for GazeInputSourcePreview {
 unsafe impl windows_core::Interface for GazeInputSourcePreview {
     type Vtable = <IGazeInputSourcePreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeInputSourcePreview as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GazeInputSourcePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeInputSourcePreview";
@@ -404,6 +412,7 @@ impl windows_core::RuntimeType for GazeMovedPreviewEventArgs {
 unsafe impl windows_core::Interface for GazeMovedPreviewEventArgs {
     type Vtable = <IGazeMovedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeMovedPreviewEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GazeMovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeMovedPreviewEventArgs";
@@ -453,13 +462,14 @@ impl windows_core::RuntimeType for GazePointPreview {
 unsafe impl windows_core::Interface for GazePointPreview {
     type Vtable = <IGazePointPreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazePointPreview as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GazePointPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazePointPreview";
 }
 unsafe impl Send for GazePointPreview {}
 unsafe impl Sync for GazePointPreview {}
-windows_core::imp::define_interface!(IGazeDevicePreview, IGazeDevicePreview_Vtbl, 0xe79e7ee9_b389_11e7_b201_c8d3ffb75721);
+windows_core::imp::define_interface!(IGazeDevicePreview, IGazeDevicePreview_Vtbl, 0xe79e7ee9_b389_11e7_b201_c8d3ffb75721, inspectable);
 impl windows_core::RuntimeType for IGazeDevicePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeDevicePreview");
@@ -482,7 +492,7 @@ pub struct IGazeDevicePreview_Vtbl {
     #[cfg(not(feature = "Devices_HumanInterfaceDevice"))]
     GetBooleanControlDescriptions: usize,
 }
-windows_core::imp::define_interface!(IGazeDeviceWatcherAddedPreviewEventArgs, IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl, 0xe79e7eed_b389_11e7_b201_c8d3ffb75721);
+windows_core::imp::define_interface!(IGazeDeviceWatcherAddedPreviewEventArgs, IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl, 0xe79e7eed_b389_11e7_b201_c8d3ffb75721, inspectable);
 impl windows_core::RuntimeType for IGazeDeviceWatcherAddedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeDeviceWatcherAddedPreviewEventArgs");
@@ -493,7 +503,7 @@ pub struct IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGazeDeviceWatcherPreview, IGazeDeviceWatcherPreview_Vtbl, 0xe79e7ee7_b389_11e7_b201_c8d3ffb75721);
+windows_core::imp::define_interface!(IGazeDeviceWatcherPreview, IGazeDeviceWatcherPreview_Vtbl, 0xe79e7ee7_b389_11e7_b201_c8d3ffb75721, inspectable);
 impl windows_core::RuntimeType for IGazeDeviceWatcherPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview");
@@ -513,7 +523,7 @@ pub struct IGazeDeviceWatcherPreview_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGazeDeviceWatcherRemovedPreviewEventArgs, IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl, 0xf2631f08_0e3f_431f_a606_50b35af94a1c);
+windows_core::imp::define_interface!(IGazeDeviceWatcherRemovedPreviewEventArgs, IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl, 0xf2631f08_0e3f_431f_a606_50b35af94a1c, inspectable);
 impl windows_core::RuntimeType for IGazeDeviceWatcherRemovedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeDeviceWatcherRemovedPreviewEventArgs");
@@ -524,7 +534,7 @@ pub struct IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGazeDeviceWatcherUpdatedPreviewEventArgs, IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl, 0x7fe830ef_7f08_4737_88e1_4a83ae4e4885);
+windows_core::imp::define_interface!(IGazeDeviceWatcherUpdatedPreviewEventArgs, IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl, 0x7fe830ef_7f08_4737_88e1_4a83ae4e4885, inspectable);
 impl windows_core::RuntimeType for IGazeDeviceWatcherUpdatedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeDeviceWatcherUpdatedPreviewEventArgs");
@@ -535,7 +545,7 @@ pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGazeEnteredPreviewEventArgs, IGazeEnteredPreviewEventArgs_Vtbl, 0x2567bf43_1225_489f_9dd1_daa7c50fbf4b);
+windows_core::imp::define_interface!(IGazeEnteredPreviewEventArgs, IGazeEnteredPreviewEventArgs_Vtbl, 0x2567bf43_1225_489f_9dd1_daa7c50fbf4b, inspectable);
 impl windows_core::RuntimeType for IGazeEnteredPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeEnteredPreviewEventArgs");
@@ -548,7 +558,7 @@ pub struct IGazeEnteredPreviewEventArgs_Vtbl {
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub CurrentPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGazeExitedPreviewEventArgs, IGazeExitedPreviewEventArgs_Vtbl, 0x5d0af07e_7d83_40ef_9f0a_fbc1bbdcc5ac);
+windows_core::imp::define_interface!(IGazeExitedPreviewEventArgs, IGazeExitedPreviewEventArgs_Vtbl, 0x5d0af07e_7d83_40ef_9f0a_fbc1bbdcc5ac, inspectable);
 impl windows_core::RuntimeType for IGazeExitedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeExitedPreviewEventArgs");
@@ -561,7 +571,7 @@ pub struct IGazeExitedPreviewEventArgs_Vtbl {
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub CurrentPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGazeInputSourcePreview, IGazeInputSourcePreview_Vtbl, 0xe79e7ee8_b389_11e7_b201_c8d3ffb75721);
+windows_core::imp::define_interface!(IGazeInputSourcePreview, IGazeInputSourcePreview_Vtbl, 0xe79e7ee8_b389_11e7_b201_c8d3ffb75721, inspectable);
 impl windows_core::RuntimeType for IGazeInputSourcePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeInputSourcePreview");
@@ -577,7 +587,7 @@ pub struct IGazeInputSourcePreview_Vtbl {
     pub GazeExited: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveGazeExited: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGazeInputSourcePreviewStatics, IGazeInputSourcePreviewStatics_Vtbl, 0xe79e7ee6_b389_11e7_b201_c8d3ffb75721);
+windows_core::imp::define_interface!(IGazeInputSourcePreviewStatics, IGazeInputSourcePreviewStatics_Vtbl, 0xe79e7ee6_b389_11e7_b201_c8d3ffb75721, inspectable);
 impl windows_core::RuntimeType for IGazeInputSourcePreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeInputSourcePreviewStatics");
@@ -589,7 +599,7 @@ pub struct IGazeInputSourcePreviewStatics_Vtbl {
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGazeMovedPreviewEventArgs, IGazeMovedPreviewEventArgs_Vtbl, 0xe79e7eeb_b389_11e7_b201_c8d3ffb75721);
+windows_core::imp::define_interface!(IGazeMovedPreviewEventArgs, IGazeMovedPreviewEventArgs_Vtbl, 0xe79e7eeb_b389_11e7_b201_c8d3ffb75721, inspectable);
 impl windows_core::RuntimeType for IGazeMovedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeMovedPreviewEventArgs");
@@ -603,7 +613,7 @@ pub struct IGazeMovedPreviewEventArgs_Vtbl {
     pub CurrentPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetIntermediatePoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGazePointPreview, IGazePointPreview_Vtbl, 0xe79e7eea_b389_11e7_b201_c8d3ffb75721);
+windows_core::imp::define_interface!(IGazePointPreview, IGazePointPreview_Vtbl, 0xe79e7eea_b389_11e7_b201_c8d3ffb75721, inspectable);
 impl windows_core::RuntimeType for IGazePointPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazePointPreview");

@@ -24,6 +24,7 @@ impl windows_core::RuntimeType for ComponentLoadFailedEventArgs {
 unsafe impl windows_core::Interface for ComponentLoadFailedEventArgs {
     type Vtable = <IComponentLoadFailedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IComponentLoadFailedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ComponentLoadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ComponentLoadFailedEventArgs";
@@ -178,6 +179,7 @@ impl windows_core::RuntimeType for HdcpSession {
 unsafe impl windows_core::Interface for HdcpSession {
     type Vtable = <IHdcpSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHdcpSession as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HdcpSession {
     const NAME: &'static str = "Windows.Media.Protection.HdcpSession";
@@ -200,7 +202,7 @@ impl windows_core::RuntimeType for HdcpSetProtectionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpSetProtectionResult;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.HdcpSetProtectionResult");
 }
-windows_core::imp::define_interface!(IComponentLoadFailedEventArgs, IComponentLoadFailedEventArgs_Vtbl, 0x95972e93_7746_417e_8495_f031bbc5862c);
+windows_core::imp::define_interface!(IComponentLoadFailedEventArgs, IComponentLoadFailedEventArgs_Vtbl, 0x95972e93_7746_417e_8495_f031bbc5862c, inspectable);
 impl windows_core::RuntimeType for IComponentLoadFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IComponentLoadFailedEventArgs");
@@ -212,7 +214,7 @@ pub struct IComponentLoadFailedEventArgs_Vtbl {
     pub Information: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Completion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IComponentRenewalStatics, IComponentRenewalStatics_Vtbl, 0x6ffbcd67_b795_48c5_8b7b_a7c4efe202e3);
+windows_core::imp::define_interface!(IComponentRenewalStatics, IComponentRenewalStatics_Vtbl, 0x6ffbcd67_b795_48c5_8b7b_a7c4efe202e3, inspectable);
 impl windows_core::RuntimeType for IComponentRenewalStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IComponentRenewalStatics");
@@ -223,7 +225,7 @@ pub struct IComponentRenewalStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RenewSystemComponentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHdcpSession, IHdcpSession_Vtbl, 0x718845e9_64d7_426d_809b_1be461941a2a);
+windows_core::imp::define_interface!(IHdcpSession, IHdcpSession_Vtbl, 0x718845e9_64d7_426d_809b_1be461941a2a, inspectable);
 impl windows_core::RuntimeType for IHdcpSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IHdcpSession");
@@ -238,7 +240,7 @@ pub struct IHdcpSession_Vtbl {
     pub ProtectionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveProtectionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaProtectionManager, IMediaProtectionManager_Vtbl, 0x45694947_c741_434b_a79e_474c12d93d2f);
+windows_core::imp::define_interface!(IMediaProtectionManager, IMediaProtectionManager_Vtbl, 0x45694947_c741_434b_a79e_474c12d93d2f, inspectable);
 impl windows_core::RuntimeType for IMediaProtectionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IMediaProtectionManager");
@@ -258,7 +260,7 @@ pub struct IMediaProtectionManager_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-windows_core::imp::define_interface!(IMediaProtectionPMPServer, IMediaProtectionPMPServer_Vtbl, 0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0);
+windows_core::imp::define_interface!(IMediaProtectionPMPServer, IMediaProtectionPMPServer_Vtbl, 0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0, inspectable);
 impl windows_core::RuntimeType for IMediaProtectionPMPServer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IMediaProtectionPMPServer");
@@ -272,7 +274,7 @@ pub struct IMediaProtectionPMPServer_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-windows_core::imp::define_interface!(IMediaProtectionPMPServerFactory, IMediaProtectionPMPServerFactory_Vtbl, 0x602c8e5e_f7d2_487e_af91_dbc4252b2182);
+windows_core::imp::define_interface!(IMediaProtectionPMPServerFactory, IMediaProtectionPMPServerFactory_Vtbl, 0x602c8e5e_f7d2_487e_af91_dbc4252b2182, inspectable);
 impl windows_core::RuntimeType for IMediaProtectionPMPServerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IMediaProtectionPMPServerFactory");
@@ -286,7 +288,7 @@ pub struct IMediaProtectionPMPServerFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreatePMPServer: usize,
 }
-windows_core::imp::define_interface!(IMediaProtectionServiceCompletion, IMediaProtectionServiceCompletion_Vtbl, 0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
+windows_core::imp::define_interface!(IMediaProtectionServiceCompletion, IMediaProtectionServiceCompletion_Vtbl, 0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5, inspectable);
 impl windows_core::RuntimeType for IMediaProtectionServiceCompletion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IMediaProtectionServiceCompletion");
@@ -297,7 +299,7 @@ pub struct IMediaProtectionServiceCompletion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaProtectionServiceRequest, IMediaProtectionServiceRequest_Vtbl, 0xb1de0ea6_2094_478d_87a4_8b95200f85c6);
+windows_core::imp::define_interface!(IMediaProtectionServiceRequest, IMediaProtectionServiceRequest_Vtbl, 0xb1de0ea6_2094_478d_87a4_8b95200f85c6, inspectable);
 impl windows_core::RuntimeType for IMediaProtectionServiceRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IMediaProtectionServiceRequest");
@@ -357,7 +359,7 @@ impl IMediaProtectionServiceRequest_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaProtectionServiceRequest, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ProtectionSystem: ProtectionSystem::<Identity, OFFSET>,
             Type: Type::<Identity, OFFSET>,
         }
@@ -373,7 +375,7 @@ pub struct IMediaProtectionServiceRequest_Vtbl {
     pub ProtectionSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProtectionCapabilities, IProtectionCapabilities_Vtbl, 0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
+windows_core::imp::define_interface!(IProtectionCapabilities, IProtectionCapabilities_Vtbl, 0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4, inspectable);
 impl windows_core::RuntimeType for IProtectionCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IProtectionCapabilities");
@@ -384,7 +386,7 @@ pub struct IProtectionCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut ProtectionCapabilityResult) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRevocationAndRenewalInformation, IRevocationAndRenewalInformation_Vtbl, 0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
+windows_core::imp::define_interface!(IRevocationAndRenewalInformation, IRevocationAndRenewalInformation_Vtbl, 0xf3a1937b_2501_439e_a6e7_6fc95e175fcf, inspectable);
 impl windows_core::RuntimeType for IRevocationAndRenewalInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IRevocationAndRenewalInformation");
@@ -395,7 +397,7 @@ pub struct IRevocationAndRenewalInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRevocationAndRenewalItem, IRevocationAndRenewalItem_Vtbl, 0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
+windows_core::imp::define_interface!(IRevocationAndRenewalItem, IRevocationAndRenewalItem_Vtbl, 0x3099c20c_3cf0_49ea_902d_caf32d2dde2c, inspectable);
 impl windows_core::RuntimeType for IRevocationAndRenewalItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IRevocationAndRenewalItem");
@@ -410,7 +412,7 @@ pub struct IRevocationAndRenewalItem_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RenewalId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IServiceRequestedEventArgs, IServiceRequestedEventArgs_Vtbl, 0x34283baf_abb4_4fc1_bd89_93f106573a49);
+windows_core::imp::define_interface!(IServiceRequestedEventArgs, IServiceRequestedEventArgs_Vtbl, 0x34283baf_abb4_4fc1_bd89_93f106573a49, inspectable);
 impl windows_core::RuntimeType for IServiceRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IServiceRequestedEventArgs");
@@ -422,7 +424,7 @@ pub struct IServiceRequestedEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Completion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IServiceRequestedEventArgs2, IServiceRequestedEventArgs2_Vtbl, 0x553c69d6_fafe_4128_8dfa_130e398a13a7);
+windows_core::imp::define_interface!(IServiceRequestedEventArgs2, IServiceRequestedEventArgs2_Vtbl, 0x553c69d6_fafe_4128_8dfa_130e398a13a7, inspectable);
 impl windows_core::RuntimeType for IServiceRequestedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IServiceRequestedEventArgs2");
@@ -504,6 +506,7 @@ impl windows_core::RuntimeType for MediaProtectionManager {
 unsafe impl windows_core::Interface for MediaProtectionManager {
     type Vtable = <IMediaProtectionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaProtectionManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MediaProtectionManager {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionManager";
@@ -543,6 +546,7 @@ impl windows_core::RuntimeType for MediaProtectionPMPServer {
 unsafe impl windows_core::Interface for MediaProtectionPMPServer {
     type Vtable = <IMediaProtectionPMPServer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaProtectionPMPServer as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MediaProtectionPMPServer {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionPMPServer";
@@ -564,6 +568,7 @@ impl windows_core::RuntimeType for MediaProtectionServiceCompletion {
 unsafe impl windows_core::Interface for MediaProtectionServiceCompletion {
     type Vtable = <IMediaProtectionServiceCompletion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaProtectionServiceCompletion as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MediaProtectionServiceCompletion {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionServiceCompletion";
@@ -595,6 +600,7 @@ impl windows_core::RuntimeType for ProtectionCapabilities {
 unsafe impl windows_core::Interface for ProtectionCapabilities {
     type Vtable = <IProtectionCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtectionCapabilities as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ProtectionCapabilities {
     const NAME: &'static str = "Windows.Media.Protection.ProtectionCapabilities";
@@ -690,6 +696,7 @@ impl windows_core::RuntimeType for RevocationAndRenewalInformation {
 unsafe impl windows_core::Interface for RevocationAndRenewalInformation {
     type Vtable = <IRevocationAndRenewalInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRevocationAndRenewalInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RevocationAndRenewalInformation {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalInformation";
@@ -738,6 +745,7 @@ impl windows_core::RuntimeType for RevocationAndRenewalItem {
 unsafe impl windows_core::Interface for RevocationAndRenewalItem {
     type Vtable = <IRevocationAndRenewalItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRevocationAndRenewalItem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RevocationAndRenewalItem {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalItem";
@@ -836,6 +844,7 @@ impl windows_core::RuntimeType for ServiceRequestedEventArgs {
 unsafe impl windows_core::Interface for ServiceRequestedEventArgs {
     type Vtable = <IServiceRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServiceRequestedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ServiceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ServiceRequestedEventArgs";

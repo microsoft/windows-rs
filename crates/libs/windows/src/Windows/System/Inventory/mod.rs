@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IInstalledDesktopApp, IInstalledDesktopApp_Vtbl, 0x75eab8ed_c0bc_5364_4c28_166e0545167a);
+windows_core::imp::define_interface!(IInstalledDesktopApp, IInstalledDesktopApp_Vtbl, 0x75eab8ed_c0bc_5364_4c28_166e0545167a, inspectable);
 impl windows_core::RuntimeType for IInstalledDesktopApp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Inventory.IInstalledDesktopApp");
@@ -12,7 +12,7 @@ pub struct IInstalledDesktopApp_Vtbl {
     pub Publisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInstalledDesktopAppStatics, IInstalledDesktopAppStatics_Vtbl, 0x264cf74e_21cd_5f9b_6056_7866ad72489a);
+windows_core::imp::define_interface!(IInstalledDesktopAppStatics, IInstalledDesktopAppStatics_Vtbl, 0x264cf74e_21cd_5f9b_6056_7866ad72489a, inspectable);
 impl windows_core::RuntimeType for IInstalledDesktopAppStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Inventory.IInstalledDesktopAppStatics");
@@ -77,6 +77,7 @@ impl windows_core::RuntimeType for InstalledDesktopApp {
 unsafe impl windows_core::Interface for InstalledDesktopApp {
     type Vtable = <IInstalledDesktopApp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInstalledDesktopApp as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";

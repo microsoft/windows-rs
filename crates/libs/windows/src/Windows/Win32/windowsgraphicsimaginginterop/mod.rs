@@ -1,5 +1,5 @@
 pub const CLSID_SoftwareBitmapNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74);
-windows_core::imp::define_interface!(ISoftwareBitmapNative, ISoftwareBitmapNative_Vtbl, 0x94bc8415_04ea_4b2e_af13_4de95aa898eb);
+windows_core::imp::define_interface!(ISoftwareBitmapNative, ISoftwareBitmapNative_Vtbl, 0x94bc8415_04ea_4b2e_af13_4de95aa898eb, inspectable);
 windows_core::imp::interface_hierarchy!(ISoftwareBitmapNative, windows_core::IUnknown, windows_core::IInspectable);
 impl ISoftwareBitmapNative {
     #[cfg(all(feature = "guiddef", feature = "minwindef"))]
@@ -33,7 +33,7 @@ impl ISoftwareBitmapNative_Vtbl {
                 ISoftwareBitmapNative_Impl::GetData(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ISoftwareBitmapNative, OFFSET>(), GetData: GetData::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISoftwareBitmapNative as windows_core::Interface>::IID
@@ -41,7 +41,7 @@ impl ISoftwareBitmapNative_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef"))]
 impl windows_core::RuntimeName for ISoftwareBitmapNative {}
-windows_core::imp::define_interface!(ISoftwareBitmapNativeFactory, ISoftwareBitmapNativeFactory_Vtbl, 0xc3c181ec_2914_4791_af02_02d224a10b43);
+windows_core::imp::define_interface!(ISoftwareBitmapNativeFactory, ISoftwareBitmapNativeFactory_Vtbl, 0xc3c181ec_2914_4791_af02_02d224a10b43, inspectable);
 windows_core::imp::interface_hierarchy!(ISoftwareBitmapNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl ISoftwareBitmapNativeFactory {
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "wincodec"))]
@@ -97,7 +97,7 @@ impl ISoftwareBitmapNativeFactory_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISoftwareBitmapNativeFactory, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             CreateFromWICBitmap: CreateFromWICBitmap::<Identity, OFFSET>,
             CreateFromMF2DBuffer2: CreateFromMF2DBuffer2::<Identity, OFFSET>,
         }

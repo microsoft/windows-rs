@@ -379,6 +379,7 @@ impl windows_core::RuntimeType for FileInformation {
 unsafe impl windows_core::Interface for FileInformation {
     type Vtable = <IStorageItemInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageItemInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for FileInformation {
@@ -498,6 +499,7 @@ impl windows_core::RuntimeType for FileInformationFactory {
 unsafe impl windows_core::Interface for FileInformationFactory {
     type Vtable = <IFileInformationFactory as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileInformationFactory as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FileInformationFactory {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FileInformationFactory";
@@ -955,12 +957,13 @@ impl windows_core::RuntimeType for FolderInformation {
 unsafe impl windows_core::Interface for FolderInformation {
     type Vtable = <IStorageItemInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageItemInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 #[cfg(feature = "Storage_Search")]
 impl windows_core::RuntimeName for FolderInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FolderInformation";
 }
-windows_core::imp::define_interface!(IFileInformationFactory, IFileInformationFactory_Vtbl, 0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
+windows_core::imp::define_interface!(IFileInformationFactory, IFileInformationFactory_Vtbl, 0x401d88be_960f_4d6d_a7d0_1a3861e76c83, inspectable);
 impl windows_core::RuntimeType for IFileInformationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.BulkAccess.IFileInformationFactory");
@@ -991,7 +994,7 @@ pub struct IFileInformationFactory_Vtbl {
     pub GetVirtualizedFilesVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVirtualizedFoldersVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileInformationFactoryFactory, IFileInformationFactoryFactory_Vtbl, 0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
+windows_core::imp::define_interface!(IFileInformationFactoryFactory, IFileInformationFactoryFactory_Vtbl, 0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5, inspectable);
 impl windows_core::RuntimeType for IFileInformationFactoryFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.BulkAccess.IFileInformationFactoryFactory");
@@ -1017,7 +1020,7 @@ pub struct IFileInformationFactoryFactory_Vtbl {
     #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
     CreateWithModeAndSizeAndOptionsAndFlags: usize,
 }
-windows_core::imp::define_interface!(IStorageItemInformation, IStorageItemInformation_Vtbl, 0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
+windows_core::imp::define_interface!(IStorageItemInformation, IStorageItemInformation_Vtbl, 0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa, inspectable);
 impl windows_core::RuntimeType for IStorageItemInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.BulkAccess.IStorageItemInformation");
@@ -1254,7 +1257,7 @@ impl IStorageItemInformation_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageItemInformation, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             MusicProperties: MusicProperties::<Identity, OFFSET>,
             VideoProperties: VideoProperties::<Identity, OFFSET>,
             ImageProperties: ImageProperties::<Identity, OFFSET>,

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IAccountsSettingsPaneInterop, IAccountsSettingsPaneInterop_Vtbl, 0xd3ee12ad_3865_4362_9746_b75a682df0e6);
+windows_core::imp::define_interface!(IAccountsSettingsPaneInterop, IAccountsSettingsPaneInterop_Vtbl, 0xd3ee12ad_3865_4362_9746_b75a682df0e6, inspectable);
 windows_core::imp::interface_hierarchy!(IAccountsSettingsPaneInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IAccountsSettingsPaneInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -71,7 +71,7 @@ impl IAccountsSettingsPaneInterop_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAccountsSettingsPaneInterop, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, OFFSET>,
             ShowManageAccountsForWindowAsync: ShowManageAccountsForWindowAsync::<Identity, OFFSET>,
             ShowAddAccountForWindowAsync: ShowAddAccountForWindowAsync::<Identity, OFFSET>,

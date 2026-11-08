@@ -4,7 +4,7 @@ pub mod Automation;
 pub mod People;
 #[cfg(feature = "Perception_Spatial")]
 pub mod Spatial;
-windows_core::imp::define_interface!(IPerceptionTimestamp, IPerceptionTimestamp_Vtbl, 0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
+windows_core::imp::define_interface!(IPerceptionTimestamp, IPerceptionTimestamp_Vtbl, 0x87c24804_a22e_4adb_ba26_d78ef639bcf4, inspectable);
 impl windows_core::RuntimeType for IPerceptionTimestamp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.IPerceptionTimestamp");
@@ -16,7 +16,7 @@ pub struct IPerceptionTimestamp_Vtbl {
     pub TargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub PredictionAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPerceptionTimestamp2, IPerceptionTimestamp2_Vtbl, 0xe354b7ed_2bd1_41b7_9ed0_74a15c354537);
+windows_core::imp::define_interface!(IPerceptionTimestamp2, IPerceptionTimestamp2_Vtbl, 0xe354b7ed_2bd1_41b7_9ed0_74a15c354537, inspectable);
 impl windows_core::RuntimeType for IPerceptionTimestamp2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.IPerceptionTimestamp2");
@@ -27,7 +27,7 @@ pub struct IPerceptionTimestamp2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SystemRelativeTargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPerceptionTimestampHelperStatics, IPerceptionTimestampHelperStatics_Vtbl, 0x47a611d4_a9df_4edc_855d_f4d339d967ac);
+windows_core::imp::define_interface!(IPerceptionTimestampHelperStatics, IPerceptionTimestampHelperStatics_Vtbl, 0x47a611d4_a9df_4edc_855d_f4d339d967ac, inspectable);
 impl windows_core::RuntimeType for IPerceptionTimestampHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.IPerceptionTimestampHelperStatics");
@@ -38,7 +38,7 @@ pub struct IPerceptionTimestampHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromHistoricalTargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPerceptionTimestampHelperStatics2, IPerceptionTimestampHelperStatics2_Vtbl, 0x73d1a7fe_3fb9_4571_87d4_3c920a5e86eb);
+windows_core::imp::define_interface!(IPerceptionTimestampHelperStatics2, IPerceptionTimestampHelperStatics2_Vtbl, 0x73d1a7fe_3fb9_4571_87d4_3c920a5e86eb, inspectable);
 impl windows_core::RuntimeType for IPerceptionTimestampHelperStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.IPerceptionTimestampHelperStatics2");
@@ -80,6 +80,7 @@ impl windows_core::RuntimeType for PerceptionTimestamp {
 unsafe impl windows_core::Interface for PerceptionTimestamp {
     type Vtable = <IPerceptionTimestamp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPerceptionTimestamp as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PerceptionTimestamp {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";

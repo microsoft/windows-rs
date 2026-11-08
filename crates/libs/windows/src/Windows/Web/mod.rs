@@ -6,7 +6,7 @@ pub mod Http;
 pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
-windows_core::imp::define_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
+windows_core::imp::define_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290, inspectable);
 impl windows_core::RuntimeType for IUriToStreamResolver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.IUriToStreamResolver");
@@ -51,7 +51,7 @@ impl IUriToStreamResolver_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IUriToStreamResolver, OFFSET>(), UriToStreamAsync: UriToStreamAsync::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), UriToStreamAsync: UriToStreamAsync::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IUriToStreamResolver as windows_core::Interface>::IID
@@ -66,7 +66,7 @@ pub struct IUriToStreamResolver_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UriToStreamAsync: usize,
 }
-windows_core::imp::define_interface!(IWebErrorStatics, IWebErrorStatics_Vtbl, 0xfe616766_bf27_4064_87b7_6563bb11ce2e);
+windows_core::imp::define_interface!(IWebErrorStatics, IWebErrorStatics_Vtbl, 0xfe616766_bf27_4064_87b7_6563bb11ce2e, inspectable);
 impl windows_core::RuntimeType for IWebErrorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.IWebErrorStatics");

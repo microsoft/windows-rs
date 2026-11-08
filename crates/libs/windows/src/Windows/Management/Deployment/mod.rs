@@ -245,6 +245,7 @@ impl windows_core::RuntimeType for AddPackageOptions {
 unsafe impl windows_core::Interface for AddPackageOptions {
     type Vtable = <IAddPackageOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAddPackageOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AddPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AddPackageOptions";
@@ -291,6 +292,7 @@ impl windows_core::RuntimeType for AppInstallerManager {
 unsafe impl windows_core::Interface for AppInstallerManager {
     type Vtable = <IAppInstallerManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppInstallerManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppInstallerManager {
     const NAME: &'static str = "Windows.Management.Deployment.AppInstallerManager";
@@ -440,6 +442,7 @@ impl windows_core::RuntimeType for AutoUpdateSettingsOptions {
 unsafe impl windows_core::Interface for AutoUpdateSettingsOptions {
     type Vtable = <IAutoUpdateSettingsOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAutoUpdateSettingsOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AutoUpdateSettingsOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AutoUpdateSettingsOptions";
@@ -489,6 +492,7 @@ impl windows_core::RuntimeType for CreateSharedPackageContainerOptions {
 unsafe impl windows_core::Interface for CreateSharedPackageContainerOptions {
     type Vtable = <ICreateSharedPackageContainerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICreateSharedPackageContainerOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CreateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerOptions";
@@ -525,6 +529,7 @@ impl windows_core::RuntimeType for CreateSharedPackageContainerResult {
 unsafe impl windows_core::Interface for CreateSharedPackageContainerResult {
     type Vtable = <ICreateSharedPackageContainerResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICreateSharedPackageContainerResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CreateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerResult";
@@ -568,6 +573,7 @@ impl windows_core::RuntimeType for DeleteSharedPackageContainerOptions {
 unsafe impl windows_core::Interface for DeleteSharedPackageContainerOptions {
     type Vtable = <IDeleteSharedPackageContainerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeleteSharedPackageContainerOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeleteSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerOptions";
@@ -598,6 +604,7 @@ impl windows_core::RuntimeType for DeleteSharedPackageContainerResult {
 unsafe impl windows_core::Interface for DeleteSharedPackageContainerResult {
     type Vtable = <IDeleteSharedPackageContainerResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeleteSharedPackageContainerResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeleteSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerResult";
@@ -722,6 +729,7 @@ impl windows_core::RuntimeType for DeploymentResult {
 unsafe impl windows_core::Interface for DeploymentResult {
     type Vtable = <IDeploymentResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeploymentResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeploymentResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeploymentResult";
@@ -765,13 +773,14 @@ impl windows_core::RuntimeType for FindSharedPackageContainerOptions {
 unsafe impl windows_core::Interface for FindSharedPackageContainerOptions {
     type Vtable = <IFindSharedPackageContainerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFindSharedPackageContainerOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FindSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.FindSharedPackageContainerOptions";
 }
 unsafe impl Send for FindSharedPackageContainerOptions {}
 unsafe impl Sync for FindSharedPackageContainerOptions {}
-windows_core::imp::define_interface!(IAddPackageOptions, IAddPackageOptions_Vtbl, 0x05cee018_f68f_422b_95a4_66679ec77fc0);
+windows_core::imp::define_interface!(IAddPackageOptions, IAddPackageOptions_Vtbl, 0x05cee018_f68f_422b_95a4_66679ec77fc0, inspectable);
 impl windows_core::RuntimeType for IAddPackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAddPackageOptions");
@@ -811,7 +820,7 @@ pub struct IAddPackageOptions_Vtbl {
     pub DeferRegistrationWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetDeferRegistrationWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAddPackageOptions2, IAddPackageOptions2_Vtbl, 0xee515828_bf33_40f7_84af_1b6fad2919d7);
+windows_core::imp::define_interface!(IAddPackageOptions2, IAddPackageOptions2_Vtbl, 0xee515828_bf33_40f7_84af_1b6fad2919d7, inspectable);
 impl windows_core::RuntimeType for IAddPackageOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAddPackageOptions2");
@@ -824,7 +833,7 @@ pub struct IAddPackageOptions2_Vtbl {
     pub LimitToExistingPackages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetLimitToExistingPackages: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAddPackageOptions3, IAddPackageOptions3_Vtbl, 0xcba622a7_aa31_45ab_8b88_40d08b0a8b27);
+windows_core::imp::define_interface!(IAddPackageOptions3, IAddPackageOptions3_Vtbl, 0xcba622a7_aa31_45ab_8b88_40d08b0a8b27, inspectable);
 impl windows_core::RuntimeType for IAddPackageOptions3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAddPackageOptions3");
@@ -836,7 +845,7 @@ pub struct IAddPackageOptions3_Vtbl {
     pub PackageOperationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PackageOperationPriority) -> windows_core::HRESULT,
     pub SetPackageOperationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, PackageOperationPriority) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppInstallerManager, IAppInstallerManager_Vtbl, 0xe7ee21c3_2103_53ee_9b18_68afeab0033d);
+windows_core::imp::define_interface!(IAppInstallerManager, IAppInstallerManager_Vtbl, 0xe7ee21c3_2103_53ee_9b18_68afeab0033d, inspectable);
 impl windows_core::RuntimeType for IAppInstallerManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAppInstallerManager");
@@ -849,7 +858,7 @@ pub struct IAppInstallerManager_Vtbl {
     pub ClearAutoUpdateSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PauseAutoUpdatesUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppInstallerManagerStatics, IAppInstallerManagerStatics_Vtbl, 0xc95a6ed5_fc59_5336_9b2e_2b07c5e61434);
+windows_core::imp::define_interface!(IAppInstallerManagerStatics, IAppInstallerManagerStatics_Vtbl, 0xc95a6ed5_fc59_5336_9b2e_2b07c5e61434, inspectable);
 impl windows_core::RuntimeType for IAppInstallerManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAppInstallerManagerStatics");
@@ -861,7 +870,7 @@ pub struct IAppInstallerManagerStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAutoUpdateSettingsOptions, IAutoUpdateSettingsOptions_Vtbl, 0x67491d87_35e1_512a_8968_1ae88d1be6d3);
+windows_core::imp::define_interface!(IAutoUpdateSettingsOptions, IAutoUpdateSettingsOptions_Vtbl, 0x67491d87_35e1_512a_8968_1ae88d1be6d3, inspectable);
 impl windows_core::RuntimeType for IAutoUpdateSettingsOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAutoUpdateSettingsOptions");
@@ -899,7 +908,7 @@ pub struct IAutoUpdateSettingsOptions_Vtbl {
     pub DependencyPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OptionalPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAutoUpdateSettingsOptionsStatics, IAutoUpdateSettingsOptionsStatics_Vtbl, 0x887b337d_0c05_54d0_bd49_3bb7a2c084cb);
+windows_core::imp::define_interface!(IAutoUpdateSettingsOptionsStatics, IAutoUpdateSettingsOptionsStatics_Vtbl, 0x887b337d_0c05_54d0_bd49_3bb7a2c084cb, inspectable);
 impl windows_core::RuntimeType for IAutoUpdateSettingsOptionsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAutoUpdateSettingsOptionsStatics");
@@ -913,7 +922,7 @@ pub struct IAutoUpdateSettingsOptionsStatics_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     CreateFromAppInstallerInfo: usize,
 }
-windows_core::imp::define_interface!(ICreateSharedPackageContainerOptions, ICreateSharedPackageContainerOptions_Vtbl, 0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde);
+windows_core::imp::define_interface!(ICreateSharedPackageContainerOptions, ICreateSharedPackageContainerOptions_Vtbl, 0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde, inspectable);
 impl windows_core::RuntimeType for ICreateSharedPackageContainerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ICreateSharedPackageContainerOptions");
@@ -928,7 +937,7 @@ pub struct ICreateSharedPackageContainerOptions_Vtbl {
     pub CreateCollisionOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SharedPackageContainerCreationCollisionOptions) -> windows_core::HRESULT,
     pub SetCreateCollisionOption: unsafe extern "system" fn(*mut core::ffi::c_void, SharedPackageContainerCreationCollisionOptions) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICreateSharedPackageContainerResult, ICreateSharedPackageContainerResult_Vtbl, 0xce8810bf_151c_5707_b936_497e564afc7a);
+windows_core::imp::define_interface!(ICreateSharedPackageContainerResult, ICreateSharedPackageContainerResult_Vtbl, 0xce8810bf_151c_5707_b936_497e564afc7a, inspectable);
 impl windows_core::RuntimeType for ICreateSharedPackageContainerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ICreateSharedPackageContainerResult");
@@ -941,7 +950,7 @@ pub struct ICreateSharedPackageContainerResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SharedPackageContainerOperationStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeleteSharedPackageContainerOptions, IDeleteSharedPackageContainerOptions_Vtbl, 0x9d81865f_986e_5138_8b5d_384d8e66ed6c);
+windows_core::imp::define_interface!(IDeleteSharedPackageContainerOptions, IDeleteSharedPackageContainerOptions_Vtbl, 0x9d81865f_986e_5138_8b5d_384d8e66ed6c, inspectable);
 impl windows_core::RuntimeType for IDeleteSharedPackageContainerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IDeleteSharedPackageContainerOptions");
@@ -955,7 +964,7 @@ pub struct IDeleteSharedPackageContainerOptions_Vtbl {
     pub AllUsers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllUsers: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeleteSharedPackageContainerResult, IDeleteSharedPackageContainerResult_Vtbl, 0x35398884_5736_517b_85bc_e598c81ab284);
+windows_core::imp::define_interface!(IDeleteSharedPackageContainerResult, IDeleteSharedPackageContainerResult_Vtbl, 0x35398884_5736_517b_85bc_e598c81ab284, inspectable);
 impl windows_core::RuntimeType for IDeleteSharedPackageContainerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IDeleteSharedPackageContainerResult");
@@ -967,7 +976,7 @@ pub struct IDeleteSharedPackageContainerResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SharedPackageContainerOperationStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeploymentResult, IDeploymentResult_Vtbl, 0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3);
+windows_core::imp::define_interface!(IDeploymentResult, IDeploymentResult_Vtbl, 0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3, inspectable);
 impl windows_core::RuntimeType for IDeploymentResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IDeploymentResult");
@@ -980,7 +989,7 @@ pub struct IDeploymentResult_Vtbl {
     pub ActivityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub ExtendedErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeploymentResult2, IDeploymentResult2_Vtbl, 0xfc0e715c_5a01_4bd7_bcf1_381c8c82e04a);
+windows_core::imp::define_interface!(IDeploymentResult2, IDeploymentResult2_Vtbl, 0xfc0e715c_5a01_4bd7_bcf1_381c8c82e04a, inspectable);
 impl windows_core::RuntimeType for IDeploymentResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IDeploymentResult2");
@@ -991,7 +1000,7 @@ pub struct IDeploymentResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsRegistered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFindSharedPackageContainerOptions, IFindSharedPackageContainerOptions_Vtbl, 0xb40fc8fe_8384_54cc_817d_ae09d3b6a606);
+windows_core::imp::define_interface!(IFindSharedPackageContainerOptions, IFindSharedPackageContainerOptions_Vtbl, 0xb40fc8fe_8384_54cc_817d_ae09d3b6a606, inspectable);
 impl windows_core::RuntimeType for IFindSharedPackageContainerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IFindSharedPackageContainerOptions");
@@ -1005,7 +1014,7 @@ pub struct IFindSharedPackageContainerOptions_Vtbl {
     pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageAllUserProvisioningOptions, IPackageAllUserProvisioningOptions_Vtbl, 0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e);
+windows_core::imp::define_interface!(IPackageAllUserProvisioningOptions, IPackageAllUserProvisioningOptions_Vtbl, 0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e, inspectable);
 impl windows_core::RuntimeType for IPackageAllUserProvisioningOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageAllUserProvisioningOptions");
@@ -1017,7 +1026,7 @@ pub struct IPackageAllUserProvisioningOptions_Vtbl {
     pub OptionalPackageFamilyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProjectionOrderPackageFamilyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageAllUserProvisioningOptions2, IPackageAllUserProvisioningOptions2_Vtbl, 0xb9e3cab5_2d97_579f_9368_d10bb4d4542b);
+windows_core::imp::define_interface!(IPackageAllUserProvisioningOptions2, IPackageAllUserProvisioningOptions2_Vtbl, 0xb9e3cab5_2d97_579f_9368_d10bb4d4542b, inspectable);
 impl windows_core::RuntimeType for IPackageAllUserProvisioningOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageAllUserProvisioningOptions2");
@@ -1029,7 +1038,7 @@ pub struct IPackageAllUserProvisioningOptions2_Vtbl {
     pub DeferAutomaticRegistration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetDeferAutomaticRegistration: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager, IPackageManager_Vtbl, 0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
+windows_core::imp::define_interface!(IPackageManager, IPackageManager_Vtbl, 0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53, inspectable);
 impl windows_core::RuntimeType for IPackageManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager");
@@ -1079,7 +1088,7 @@ pub struct IPackageManager_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     FindPackageByUserSecurityIdPackageFullName: usize,
 }
-windows_core::imp::define_interface!(IPackageManager10, IPackageManager10_Vtbl, 0xa7d7d07e_2e66_4093_aed5_e093ed87b3bb);
+windows_core::imp::define_interface!(IPackageManager10, IPackageManager10_Vtbl, 0xa7d7d07e_2e66_4093_aed5_e093ed87b3bb, inspectable);
 impl windows_core::RuntimeType for IPackageManager10 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager10");
@@ -1090,7 +1099,7 @@ pub struct IPackageManager10_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProvisionPackageForAllUsersWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager11, IPackageManager11_Vtbl, 0x12950b24_c77e_4ea7_8859_325318074e15);
+windows_core::imp::define_interface!(IPackageManager11, IPackageManager11_Vtbl, 0x12950b24_c77e_4ea7_8859_325318074e15, inspectable);
 impl windows_core::RuntimeType for IPackageManager11 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager11");
@@ -1101,7 +1110,7 @@ pub struct IPackageManager11_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemovePackageByUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager12, IPackageManager12_Vtbl, 0x5d233adf_f9e3_4d96_b40d_96788e39539f);
+windows_core::imp::define_interface!(IPackageManager12, IPackageManager12_Vtbl, 0x5d233adf_f9e3_4d96_b40d_96788e39539f, inspectable);
 impl windows_core::RuntimeType for IPackageManager12 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager12");
@@ -1115,7 +1124,7 @@ pub struct IPackageManager12_Vtbl {
     pub IsPackageRemovalPendingByUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsPackageRemovalPendingByUriForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager2, IPackageManager2_Vtbl, 0xf7aad08d_0840_46f2_b5d8_cad47693a095);
+windows_core::imp::define_interface!(IPackageManager2, IPackageManager2_Vtbl, 0xf7aad08d_0840_46f2_b5d8_cad47693a095, inspectable);
 impl windows_core::RuntimeType for IPackageManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager2");
@@ -1153,7 +1162,7 @@ pub struct IPackageManager2_Vtbl {
     FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes: usize,
     pub StageUserDataAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager3, IPackageManager3_Vtbl, 0xdaad9948_36f1_41a7_9188_bc263e0dcb72);
+windows_core::imp::define_interface!(IPackageManager3, IPackageManager3_Vtbl, 0xdaad9948_36f1_41a7_9188_bc263e0dcb72, inspectable);
 impl windows_core::RuntimeType for IPackageManager3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager3");
@@ -1178,7 +1187,7 @@ pub struct IPackageManager3_Vtbl {
     pub StagePackageToVolumeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StageUserDataWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager4, IPackageManager4_Vtbl, 0x3c719963_bab6_46bf_8ff7_da4719230ae6);
+windows_core::imp::define_interface!(IPackageManager4, IPackageManager4_Vtbl, 0x3c719963_bab6_46bf_8ff7_da4719230ae6, inspectable);
 impl windows_core::RuntimeType for IPackageManager4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager4");
@@ -1189,7 +1198,7 @@ pub struct IPackageManager4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetPackageVolumesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager5, IPackageManager5_Vtbl, 0x711f3117_1afd_4313_978c_9bb6e1b864a7);
+windows_core::imp::define_interface!(IPackageManager5, IPackageManager5_Vtbl, 0x711f3117_1afd_4313_978c_9bb6e1b864a7, inspectable);
 impl windows_core::RuntimeType for IPackageManager5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager5");
@@ -1203,7 +1212,7 @@ pub struct IPackageManager5_Vtbl {
     pub RegisterPackageByFamilyNameAndOptionalPackagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DebugSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager6, IPackageManager6_Vtbl, 0x0847e909_53cd_4e4f_832e_57d180f6e447);
+windows_core::imp::define_interface!(IPackageManager6, IPackageManager6_Vtbl, 0x0847e909_53cd_4e4f_832e_57d180f6e447, inspectable);
 impl windows_core::RuntimeType for IPackageManager6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager6");
@@ -1219,7 +1228,7 @@ pub struct IPackageManager6_Vtbl {
     pub StagePackageToVolumeAndRelatedSetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestAddPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager7, IPackageManager7_Vtbl, 0xf28654f4_2ba7_4b80_88d6_be15f9a23fba);
+windows_core::imp::define_interface!(IPackageManager7, IPackageManager7_Vtbl, 0xf28654f4_2ba7_4b80_88d6_be15f9a23fba, inspectable);
 impl windows_core::RuntimeType for IPackageManager7 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager7");
@@ -1230,7 +1239,7 @@ pub struct IPackageManager7_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAddPackageAndRelatedSetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, DeploymentOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager8, IPackageManager8_Vtbl, 0xb8575330_1298_4ee2_80ee_7f659c5d2782);
+windows_core::imp::define_interface!(IPackageManager8, IPackageManager8_Vtbl, 0xb8575330_1298_4ee2_80ee_7f659c5d2782, inspectable);
 impl windows_core::RuntimeType for IPackageManager8 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager8");
@@ -1241,7 +1250,7 @@ pub struct IPackageManager8_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeprovisionPackageForAllUsersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManager9, IPackageManager9_Vtbl, 0x1aa79035_cc71_4b2e_80a6_c7041d8579a7);
+windows_core::imp::define_interface!(IPackageManager9, IPackageManager9_Vtbl, 0x1aa79035_cc71_4b2e_80a6_c7041d8579a7, inspectable);
 impl windows_core::RuntimeType for IPackageManager9 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager9");
@@ -1261,7 +1270,7 @@ pub struct IPackageManager9_Vtbl {
     pub SetPackageStubPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PackageStubPreference) -> windows_core::HRESULT,
     pub GetPackageStubPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut PackageStubPreference) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageManagerDebugSettings, IPackageManagerDebugSettings_Vtbl, 0x1a611683_a988_4fcf_8f0f_ce175898e8eb);
+windows_core::imp::define_interface!(IPackageManagerDebugSettings, IPackageManagerDebugSettings_Vtbl, 0x1a611683_a988_4fcf_8f0f_ce175898e8eb, inspectable);
 impl windows_core::RuntimeType for IPackageManagerDebugSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManagerDebugSettings");
@@ -1279,7 +1288,7 @@ pub struct IPackageManagerDebugSettings_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     SetContentGroupStateWithPercentageAsync: usize,
 }
-windows_core::imp::define_interface!(IPackageUserInformation, IPackageUserInformation_Vtbl, 0xf6383423_fa09_4cbc_9055_15ca275e2e7e);
+windows_core::imp::define_interface!(IPackageUserInformation, IPackageUserInformation_Vtbl, 0xf6383423_fa09_4cbc_9055_15ca275e2e7e, inspectable);
 impl windows_core::RuntimeType for IPackageUserInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageUserInformation");
@@ -1291,7 +1300,7 @@ pub struct IPackageUserInformation_Vtbl {
     pub UserSecurityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InstallState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PackageInstallState) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageVolume, IPackageVolume_Vtbl, 0xcf2672c3_1a40_4450_9739_2ace2e898853);
+windows_core::imp::define_interface!(IPackageVolume, IPackageVolume_Vtbl, 0xcf2672c3_1a40_4450_9739_2ace2e898853, inspectable);
 impl windows_core::RuntimeType for IPackageVolume {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageVolume");
@@ -1363,7 +1372,7 @@ pub struct IPackageVolume_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     FindPackageByUserSecurityIdPackageFullName: usize,
 }
-windows_core::imp::define_interface!(IPackageVolume2, IPackageVolume2_Vtbl, 0x46abcf2e_9dd4_47a2_ab8c_c6408349bcd8);
+windows_core::imp::define_interface!(IPackageVolume2, IPackageVolume2_Vtbl, 0x46abcf2e_9dd4_47a2_ab8c_c6408349bcd8, inspectable);
 impl windows_core::RuntimeType for IPackageVolume2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageVolume2");
@@ -1376,7 +1385,7 @@ pub struct IPackageVolume2_Vtbl {
     pub IsAppxInstallSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetAvailableSpaceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRegisterPackageOptions, IRegisterPackageOptions_Vtbl, 0x677112a7_50d4_496c_8415_0602b4c6d3bf);
+windows_core::imp::define_interface!(IRegisterPackageOptions, IRegisterPackageOptions_Vtbl, 0x677112a7_50d4_496c_8415_0602b4c6d3bf, inspectable);
 impl windows_core::RuntimeType for IRegisterPackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IRegisterPackageOptions");
@@ -1408,7 +1417,7 @@ pub struct IRegisterPackageOptions_Vtbl {
     pub DeferRegistrationWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetDeferRegistrationWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRegisterPackageOptions2, IRegisterPackageOptions2_Vtbl, 0x3dfa9743_86ff_4a11_bc93_434eb6be3a0b);
+windows_core::imp::define_interface!(IRegisterPackageOptions2, IRegisterPackageOptions2_Vtbl, 0x3dfa9743_86ff_4a11_bc93_434eb6be3a0b, inspectable);
 impl windows_core::RuntimeType for IRegisterPackageOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IRegisterPackageOptions2");
@@ -1419,7 +1428,7 @@ pub struct IRegisterPackageOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExpectedDigests: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRemovePackageOptions, IRemovePackageOptions_Vtbl, 0x13cf01f3_c450_4f7c_a5a3_5e3c631b7462);
+windows_core::imp::define_interface!(IRemovePackageOptions, IRemovePackageOptions_Vtbl, 0x13cf01f3_c450_4f7c_a5a3_5e3c631b7462, inspectable);
 impl windows_core::RuntimeType for IRemovePackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IRemovePackageOptions");
@@ -1435,7 +1444,7 @@ pub struct IRemovePackageOptions_Vtbl {
     pub RemoveForAllUsers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetRemoveForAllUsers: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRemovePackageOptions2, IRemovePackageOptions2_Vtbl, 0x3fcc61e5_22c5_423b_b4b4_cf10bb50830c);
+windows_core::imp::define_interface!(IRemovePackageOptions2, IRemovePackageOptions2_Vtbl, 0x3fcc61e5_22c5_423b_b4b4_cf10bb50830c, inspectable);
 impl windows_core::RuntimeType for IRemovePackageOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IRemovePackageOptions2");
@@ -1447,7 +1456,7 @@ pub struct IRemovePackageOptions2_Vtbl {
     pub DeferRemovalWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetDeferRemovalWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISharedPackageContainer, ISharedPackageContainer_Vtbl, 0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
+windows_core::imp::define_interface!(ISharedPackageContainer, ISharedPackageContainer_Vtbl, 0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17, inspectable);
 impl windows_core::RuntimeType for ISharedPackageContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ISharedPackageContainer");
@@ -1462,7 +1471,7 @@ pub struct ISharedPackageContainer_Vtbl {
     pub RemovePackageFamily: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISharedPackageContainerManager, ISharedPackageContainerManager_Vtbl, 0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274);
+windows_core::imp::define_interface!(ISharedPackageContainerManager, ISharedPackageContainerManager_Vtbl, 0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274, inspectable);
 impl windows_core::RuntimeType for ISharedPackageContainerManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ISharedPackageContainerManager");
@@ -1477,7 +1486,7 @@ pub struct ISharedPackageContainerManager_Vtbl {
     pub FindContainers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindContainersWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISharedPackageContainerManagerStatics, ISharedPackageContainerManagerStatics_Vtbl, 0x2ef56348_838a_5f55_a89e_1198a2c627e6);
+windows_core::imp::define_interface!(ISharedPackageContainerManagerStatics, ISharedPackageContainerManagerStatics_Vtbl, 0x2ef56348_838a_5f55_a89e_1198a2c627e6, inspectable);
 impl windows_core::RuntimeType for ISharedPackageContainerManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ISharedPackageContainerManagerStatics");
@@ -1490,7 +1499,7 @@ pub struct ISharedPackageContainerManagerStatics_Vtbl {
     pub GetForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForProvisioning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISharedPackageContainerMember, ISharedPackageContainerMember_Vtbl, 0xfe0d0438_43c9_5426_b89c_f79bf85ddff4);
+windows_core::imp::define_interface!(ISharedPackageContainerMember, ISharedPackageContainerMember_Vtbl, 0xfe0d0438_43c9_5426_b89c_f79bf85ddff4, inspectable);
 impl windows_core::RuntimeType for ISharedPackageContainerMember {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ISharedPackageContainerMember");
@@ -1501,7 +1510,7 @@ pub struct ISharedPackageContainerMember_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISharedPackageContainerMemberFactory, ISharedPackageContainerMemberFactory_Vtbl, 0x49b0ceeb_498f_5a62_b738_b3ca0d436704);
+windows_core::imp::define_interface!(ISharedPackageContainerMemberFactory, ISharedPackageContainerMemberFactory_Vtbl, 0x49b0ceeb_498f_5a62_b738_b3ca0d436704, inspectable);
 impl windows_core::RuntimeType for ISharedPackageContainerMemberFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ISharedPackageContainerMemberFactory");
@@ -1512,7 +1521,7 @@ pub struct ISharedPackageContainerMemberFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStagePackageOptions, IStagePackageOptions_Vtbl, 0x0b110c9c_b95d_4c56_bd36_6d656800d06b);
+windows_core::imp::define_interface!(IStagePackageOptions, IStagePackageOptions_Vtbl, 0x0b110c9c_b95d_4c56_bd36_6d656800d06b, inspectable);
 impl windows_core::RuntimeType for IStagePackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IStagePackageOptions");
@@ -1544,7 +1553,7 @@ pub struct IStagePackageOptions_Vtbl {
     pub AllowUnsigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowUnsigned: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStagePackageOptions2, IStagePackageOptions2_Vtbl, 0x990c4ccc_6226_4192_ba92_79875fce0d9c);
+windows_core::imp::define_interface!(IStagePackageOptions2, IStagePackageOptions2_Vtbl, 0x990c4ccc_6226_4192_ba92_79875fce0d9c, inspectable);
 impl windows_core::RuntimeType for IStagePackageOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IStagePackageOptions2");
@@ -1555,7 +1564,7 @@ pub struct IStagePackageOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExpectedDigests: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStagePackageOptions3, IStagePackageOptions3_Vtbl, 0xce392e55_1743_4945_ad43_9e5add4be96d);
+windows_core::imp::define_interface!(IStagePackageOptions3, IStagePackageOptions3_Vtbl, 0xce392e55_1743_4945_ad43_9e5add4be96d, inspectable);
 impl windows_core::RuntimeType for IStagePackageOptions3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IStagePackageOptions3");
@@ -1567,7 +1576,7 @@ pub struct IStagePackageOptions3_Vtbl {
     pub PackageOperationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PackageOperationPriority) -> windows_core::HRESULT,
     pub SetPackageOperationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, PackageOperationPriority) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateSharedPackageContainerOptions, IUpdateSharedPackageContainerOptions_Vtbl, 0x80672e83_7194_59f9_b5b9_daa5375f130a);
+windows_core::imp::define_interface!(IUpdateSharedPackageContainerOptions, IUpdateSharedPackageContainerOptions_Vtbl, 0x80672e83_7194_59f9_b5b9_daa5375f130a, inspectable);
 impl windows_core::RuntimeType for IUpdateSharedPackageContainerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IUpdateSharedPackageContainerOptions");
@@ -1581,7 +1590,7 @@ pub struct IUpdateSharedPackageContainerOptions_Vtbl {
     pub RequirePackagesPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetRequirePackagesPresent: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateSharedPackageContainerResult, IUpdateSharedPackageContainerResult_Vtbl, 0xaa407df7_c72d_5458_aea3_4645b6a8ee99);
+windows_core::imp::define_interface!(IUpdateSharedPackageContainerResult, IUpdateSharedPackageContainerResult_Vtbl, 0xaa407df7_c72d_5458_aea3_4645b6a8ee99, inspectable);
 impl windows_core::RuntimeType for IUpdateSharedPackageContainerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IUpdateSharedPackageContainerResult");
@@ -1635,6 +1644,7 @@ impl windows_core::RuntimeType for PackageAllUserProvisioningOptions {
 unsafe impl windows_core::Interface for PackageAllUserProvisioningOptions {
     type Vtable = <IPackageAllUserProvisioningOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageAllUserProvisioningOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageAllUserProvisioningOptions {
     const NAME: &'static str = "Windows.Management.Deployment.PackageAllUserProvisioningOptions";
@@ -2269,6 +2279,7 @@ impl windows_core::RuntimeType for PackageManager {
 unsafe impl windows_core::Interface for PackageManager {
     type Vtable = <IPackageManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageManager {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManager";
@@ -2307,6 +2318,7 @@ impl windows_core::RuntimeType for PackageManagerDebugSettings {
 unsafe impl windows_core::Interface for PackageManagerDebugSettings {
     type Vtable = <IPackageManagerDebugSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageManagerDebugSettings as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageManagerDebugSettings {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManagerDebugSettings";
@@ -2485,6 +2497,7 @@ impl windows_core::RuntimeType for PackageUserInformation {
 unsafe impl windows_core::Interface for PackageUserInformation {
     type Vtable = <IPackageUserInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageUserInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageUserInformation {
     const NAME: &'static str = "Windows.Management.Deployment.PackageUserInformation";
@@ -2658,6 +2671,7 @@ impl windows_core::RuntimeType for PackageVolume {
 unsafe impl windows_core::Interface for PackageVolume {
     type Vtable = <IPackageVolume as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageVolume as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageVolume {
     const NAME: &'static str = "Windows.Management.Deployment.PackageVolume";
@@ -2798,6 +2812,7 @@ impl windows_core::RuntimeType for RegisterPackageOptions {
 unsafe impl windows_core::Interface for RegisterPackageOptions {
     type Vtable = <IRegisterPackageOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRegisterPackageOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RegisterPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.RegisterPackageOptions";
@@ -2911,6 +2926,7 @@ impl windows_core::RuntimeType for RemovePackageOptions {
 unsafe impl windows_core::Interface for RemovePackageOptions {
     type Vtable = <IRemovePackageOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemovePackageOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RemovePackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.RemovePackageOptions";
@@ -2962,6 +2978,7 @@ impl windows_core::RuntimeType for SharedPackageContainer {
 unsafe impl windows_core::Interface for SharedPackageContainer {
     type Vtable = <ISharedPackageContainer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISharedPackageContainer as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SharedPackageContainer {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainer";
@@ -3056,6 +3073,7 @@ impl windows_core::RuntimeType for SharedPackageContainerManager {
 unsafe impl windows_core::Interface for SharedPackageContainerManager {
     type Vtable = <ISharedPackageContainerManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISharedPackageContainerManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SharedPackageContainerManager {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerManager";
@@ -3090,6 +3108,7 @@ impl windows_core::RuntimeType for SharedPackageContainerMember {
 unsafe impl windows_core::Interface for SharedPackageContainerMember {
     type Vtable = <ISharedPackageContainerMember as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISharedPackageContainerMember as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SharedPackageContainerMember {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerMember";
@@ -3262,6 +3281,7 @@ impl windows_core::RuntimeType for StagePackageOptions {
 unsafe impl windows_core::Interface for StagePackageOptions {
     type Vtable = <IStagePackageOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStagePackageOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StagePackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.StagePackageOptions";
@@ -3321,6 +3341,7 @@ impl windows_core::RuntimeType for UpdateSharedPackageContainerOptions {
 unsafe impl windows_core::Interface for UpdateSharedPackageContainerOptions {
     type Vtable = <IUpdateSharedPackageContainerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateSharedPackageContainerOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerOptions";
@@ -3351,6 +3372,7 @@ impl windows_core::RuntimeType for UpdateSharedPackageContainerResult {
 unsafe impl windows_core::Interface for UpdateSharedPackageContainerResult {
     type Vtable = <IUpdateSharedPackageContainerResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateSharedPackageContainerResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerResult";

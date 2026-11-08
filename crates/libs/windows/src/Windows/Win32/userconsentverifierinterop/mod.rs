@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IUserConsentVerifierInterop, IUserConsentVerifierInterop_Vtbl, 0x39e050c3_4e74_441a_8dc0_b81104df949c);
+windows_core::imp::define_interface!(IUserConsentVerifierInterop, IUserConsentVerifierInterop_Vtbl, 0x39e050c3_4e74_441a_8dc0_b81104df949c, inspectable);
 windows_core::imp::interface_hierarchy!(IUserConsentVerifierInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IUserConsentVerifierInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -33,7 +33,7 @@ impl IUserConsentVerifierInterop_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IUserConsentVerifierInterop, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             RequestVerificationForWindowAsync: RequestVerificationForWindowAsync::<Identity, OFFSET>,
         }
     }

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(INamedPolicyData, INamedPolicyData_Vtbl, 0x38dcb198_95ac_4077_a643_8078cae26400);
+windows_core::imp::define_interface!(INamedPolicyData, INamedPolicyData_Vtbl, 0x38dcb198_95ac_4077_a643_8078cae26400, inspectable);
 impl windows_core::RuntimeType for INamedPolicyData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Policies.INamedPolicyData");
@@ -27,7 +27,7 @@ pub struct INamedPolicyData_Vtbl {
     pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INamedPolicyStatics, INamedPolicyStatics_Vtbl, 0x7f793be7_76c4_4058_8cad_67662cd05f0d);
+windows_core::imp::define_interface!(INamedPolicyStatics, INamedPolicyStatics_Vtbl, 0x7f793be7_76c4_4058_8cad_67662cd05f0d, inspectable);
 impl windows_core::RuntimeType for INamedPolicyStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Policies.INamedPolicyStatics");
@@ -162,6 +162,7 @@ impl windows_core::RuntimeType for NamedPolicyData {
 unsafe impl windows_core::Interface for NamedPolicyData {
     type Vtable = <INamedPolicyData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INamedPolicyData as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NamedPolicyData {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicyData";

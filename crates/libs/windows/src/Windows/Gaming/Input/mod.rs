@@ -156,6 +156,7 @@ impl windows_core::RuntimeType for ArcadeStick {
 unsafe impl windows_core::Interface for ArcadeStick {
     type Vtable = <IArcadeStick as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IArcadeStick as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ArcadeStick {
     const NAME: &'static str = "Windows.Gaming.Input.ArcadeStick";
@@ -387,6 +388,7 @@ impl windows_core::RuntimeType for FlightStick {
 unsafe impl windows_core::Interface for FlightStick {
     type Vtable = <IFlightStick as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFlightStick as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FlightStick {
     const NAME: &'static str = "Windows.Gaming.Input.FlightStick";
@@ -738,6 +740,7 @@ impl windows_core::RuntimeType for Gamepad {
 unsafe impl windows_core::Interface for Gamepad {
     type Vtable = <IGamepad as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGamepad as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Gamepad {
     const NAME: &'static str = "Windows.Gaming.Input.Gamepad";
@@ -875,13 +878,14 @@ impl windows_core::RuntimeType for Headset {
 unsafe impl windows_core::Interface for Headset {
     type Vtable = <IHeadset as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHeadset as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Headset {
     const NAME: &'static str = "Windows.Gaming.Input.Headset";
 }
 unsafe impl Send for Headset {}
 unsafe impl Sync for Headset {}
-windows_core::imp::define_interface!(IArcadeStick, IArcadeStick_Vtbl, 0xb14a539d_befb_4c81_8051_15ecf3b13036);
+windows_core::imp::define_interface!(IArcadeStick, IArcadeStick_Vtbl, 0xb14a539d_befb_4c81_8051_15ecf3b13036, inspectable);
 impl windows_core::RuntimeType for IArcadeStick {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IArcadeStick");
@@ -893,7 +897,7 @@ pub struct IArcadeStick_Vtbl {
     pub GetButtonLabel: unsafe extern "system" fn(*mut core::ffi::c_void, ArcadeStickButtons, *mut GameControllerButtonLabel) -> windows_core::HRESULT,
     pub GetCurrentReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ArcadeStickReading) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IArcadeStickStatics, IArcadeStickStatics_Vtbl, 0x5c37b8c8_37b1_4ad8_9458_200f1a30018e);
+windows_core::imp::define_interface!(IArcadeStickStatics, IArcadeStickStatics_Vtbl, 0x5c37b8c8_37b1_4ad8_9458_200f1a30018e, inspectable);
 impl windows_core::RuntimeType for IArcadeStickStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IArcadeStickStatics");
@@ -908,7 +912,7 @@ pub struct IArcadeStickStatics_Vtbl {
     pub RemoveArcadeStickRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub ArcadeSticks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IArcadeStickStatics2, IArcadeStickStatics2_Vtbl, 0x52b5d744_bb86_445a_b59c_596f0e2a49df);
+windows_core::imp::define_interface!(IArcadeStickStatics2, IArcadeStickStatics2_Vtbl, 0x52b5d744_bb86_445a_b59c_596f0e2a49df, inspectable);
 impl windows_core::RuntimeType for IArcadeStickStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IArcadeStickStatics2");
@@ -919,7 +923,7 @@ pub struct IArcadeStickStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFlightStick, IFlightStick_Vtbl, 0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c);
+windows_core::imp::define_interface!(IFlightStick, IFlightStick_Vtbl, 0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c, inspectable);
 impl windows_core::RuntimeType for IFlightStick {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IFlightStick");
@@ -932,7 +936,7 @@ pub struct IFlightStick_Vtbl {
     pub GetButtonLabel: unsafe extern "system" fn(*mut core::ffi::c_void, FlightStickButtons, *mut GameControllerButtonLabel) -> windows_core::HRESULT,
     pub GetCurrentReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FlightStickReading) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFlightStickStatics, IFlightStickStatics_Vtbl, 0x5514924a_fecc_435e_83dc_5cec8a18a520);
+windows_core::imp::define_interface!(IFlightStickStatics, IFlightStickStatics_Vtbl, 0x5514924a_fecc_435e_83dc_5cec8a18a520, inspectable);
 impl windows_core::RuntimeType for IFlightStickStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IFlightStickStatics");
@@ -948,7 +952,7 @@ pub struct IFlightStickStatics_Vtbl {
     pub FlightSticks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameController, IGameController_Vtbl, 0x1baf6522_5f64_42c5_8267_b9fe2215bfbd);
+windows_core::imp::define_interface!(IGameController, IGameController_Vtbl, 0x1baf6522_5f64_42c5_8267_b9fe2215bfbd, inspectable);
 impl windows_core::RuntimeType for IGameController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGameController");
@@ -1148,7 +1152,7 @@ impl IGameController_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IGameController, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             HeadsetConnected: HeadsetConnected::<Identity, OFFSET>,
             RemoveHeadsetConnected: RemoveHeadsetConnected::<Identity, OFFSET>,
             HeadsetDisconnected: HeadsetDisconnected::<Identity, OFFSET>,
@@ -1184,7 +1188,7 @@ pub struct IGameController_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IGameControllerBatteryInfo, IGameControllerBatteryInfo_Vtbl, 0xdcecc681_3963_4da6_955d_553f3b6f6161);
+windows_core::imp::define_interface!(IGameControllerBatteryInfo, IGameControllerBatteryInfo_Vtbl, 0xdcecc681_3963_4da6_955d_553f3b6f6161, inspectable);
 impl windows_core::RuntimeType for IGameControllerBatteryInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGameControllerBatteryInfo");
@@ -1226,10 +1230,7 @@ impl IGameControllerBatteryInfo_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IGameControllerBatteryInfo, OFFSET>(),
-            TryGetBatteryReport: TryGetBatteryReport::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), TryGetBatteryReport: TryGetBatteryReport::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IGameControllerBatteryInfo as windows_core::Interface>::IID
@@ -1244,7 +1245,7 @@ pub struct IGameControllerBatteryInfo_Vtbl {
     #[cfg(not(feature = "Devices_Power"))]
     TryGetBatteryReport: usize,
 }
-windows_core::imp::define_interface!(IGamepad, IGamepad_Vtbl, 0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
+windows_core::imp::define_interface!(IGamepad, IGamepad_Vtbl, 0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5, inspectable);
 impl windows_core::RuntimeType for IGamepad {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGamepad");
@@ -1257,7 +1258,7 @@ pub struct IGamepad_Vtbl {
     pub SetVibration: unsafe extern "system" fn(*mut core::ffi::c_void, GamepadVibration) -> windows_core::HRESULT,
     pub GetCurrentReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GamepadReading) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGamepad2, IGamepad2_Vtbl, 0x3c1689bd_5915_4245_b0c0_c89fae0308ff);
+windows_core::imp::define_interface!(IGamepad2, IGamepad2_Vtbl, 0x3c1689bd_5915_4245_b0c0_c89fae0308ff, inspectable);
 impl windows_core::RuntimeType for IGamepad2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGamepad2");
@@ -1268,7 +1269,7 @@ pub struct IGamepad2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetButtonLabel: unsafe extern "system" fn(*mut core::ffi::c_void, GamepadButtons, *mut GameControllerButtonLabel) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGamepadStatics, IGamepadStatics_Vtbl, 0x8bbce529_d49c_39e9_9560_e47dde96b7c8);
+windows_core::imp::define_interface!(IGamepadStatics, IGamepadStatics_Vtbl, 0x8bbce529_d49c_39e9_9560_e47dde96b7c8, inspectable);
 impl windows_core::RuntimeType for IGamepadStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGamepadStatics");
@@ -1283,7 +1284,7 @@ pub struct IGamepadStatics_Vtbl {
     pub RemoveGamepadRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub Gamepads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGamepadStatics2, IGamepadStatics2_Vtbl, 0x42676dc5_0856_47c4_9213_b395504c3a3c);
+windows_core::imp::define_interface!(IGamepadStatics2, IGamepadStatics2_Vtbl, 0x42676dc5_0856_47c4_9213_b395504c3a3c, inspectable);
 impl windows_core::RuntimeType for IGamepadStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGamepadStatics2");
@@ -1294,7 +1295,7 @@ pub struct IGamepadStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHeadset, IHeadset_Vtbl, 0x3fd156ef_6925_3fa8_9181_029c5223ae3b);
+windows_core::imp::define_interface!(IHeadset, IHeadset_Vtbl, 0x3fd156ef_6925_3fa8_9181_029c5223ae3b, inspectable);
 impl windows_core::RuntimeType for IHeadset {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IHeadset");
@@ -1306,7 +1307,7 @@ pub struct IHeadset_Vtbl {
     pub CaptureDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RenderDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRacingWheel, IRacingWheel_Vtbl, 0xf546656f_e106_4c82_a90f_554012904b85);
+windows_core::imp::define_interface!(IRacingWheel, IRacingWheel_Vtbl, 0xf546656f_e106_4c82_a90f_554012904b85, inspectable);
 impl windows_core::RuntimeType for IRacingWheel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRacingWheel");
@@ -1327,7 +1328,7 @@ pub struct IRacingWheel_Vtbl {
     pub GetButtonLabel: unsafe extern "system" fn(*mut core::ffi::c_void, RacingWheelButtons, *mut GameControllerButtonLabel) -> windows_core::HRESULT,
     pub GetCurrentReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RacingWheelReading) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRacingWheelStatics, IRacingWheelStatics_Vtbl, 0x3ac12cd5_581b_4936_9f94_69f1e6514c7d);
+windows_core::imp::define_interface!(IRacingWheelStatics, IRacingWheelStatics_Vtbl, 0x3ac12cd5_581b_4936_9f94_69f1e6514c7d, inspectable);
 impl windows_core::RuntimeType for IRacingWheelStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRacingWheelStatics");
@@ -1342,7 +1343,7 @@ pub struct IRacingWheelStatics_Vtbl {
     pub RemoveRacingWheelRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub RacingWheels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRacingWheelStatics2, IRacingWheelStatics2_Vtbl, 0xe666bcaa_edfd_4323_a9f6_3c384048d1ed);
+windows_core::imp::define_interface!(IRacingWheelStatics2, IRacingWheelStatics2_Vtbl, 0xe666bcaa_edfd_4323_a9f6_3c384048d1ed, inspectable);
 impl windows_core::RuntimeType for IRacingWheelStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRacingWheelStatics2");
@@ -1353,7 +1354,7 @@ pub struct IRacingWheelStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRawGameController, IRawGameController_Vtbl, 0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62);
+windows_core::imp::define_interface!(IRawGameController, IRawGameController_Vtbl, 0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62, inspectable);
 impl windows_core::RuntimeType for IRawGameController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRawGameController");
@@ -1375,7 +1376,7 @@ pub struct IRawGameController_Vtbl {
     pub GetCurrentReading: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut bool, u32, *mut GameControllerSwitchPosition, u32, *mut f64, *mut u64) -> windows_core::HRESULT,
     pub GetSwitchKind: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut GameControllerSwitchKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRawGameController2, IRawGameController2_Vtbl, 0x43c0c035_bb73_4756_a787_3ed6bea617bd);
+windows_core::imp::define_interface!(IRawGameController2, IRawGameController2_Vtbl, 0x43c0c035_bb73_4756_a787_3ed6bea617bd, inspectable);
 impl windows_core::RuntimeType for IRawGameController2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRawGameController2");
@@ -1391,7 +1392,7 @@ pub struct IRawGameController2_Vtbl {
     pub NonRoamableId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRawGameControllerStatics, IRawGameControllerStatics_Vtbl, 0xeb8d0792_e95a_4b19_afc7_0a59f8bf759e);
+windows_core::imp::define_interface!(IRawGameControllerStatics, IRawGameControllerStatics_Vtbl, 0xeb8d0792_e95a_4b19_afc7_0a59f8bf759e, inspectable);
 impl windows_core::RuntimeType for IRawGameControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRawGameControllerStatics");
@@ -1407,7 +1408,7 @@ pub struct IRawGameControllerStatics_Vtbl {
     pub RawGameControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUINavigationController, IUINavigationController_Vtbl, 0xe5aeefdd_f50e_4a55_8cdc_d33229548175);
+windows_core::imp::define_interface!(IUINavigationController, IUINavigationController_Vtbl, 0xe5aeefdd_f50e_4a55_8cdc_d33229548175, inspectable);
 impl windows_core::RuntimeType for IUINavigationController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IUINavigationController");
@@ -1420,7 +1421,7 @@ pub struct IUINavigationController_Vtbl {
     pub GetOptionalButtonLabel: unsafe extern "system" fn(*mut core::ffi::c_void, OptionalUINavigationButtons, *mut GameControllerButtonLabel) -> windows_core::HRESULT,
     pub GetRequiredButtonLabel: unsafe extern "system" fn(*mut core::ffi::c_void, RequiredUINavigationButtons, *mut GameControllerButtonLabel) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUINavigationControllerStatics, IUINavigationControllerStatics_Vtbl, 0x2f14930a_f6f8_4a48_8d89_94786cca0c2e);
+windows_core::imp::define_interface!(IUINavigationControllerStatics, IUINavigationControllerStatics_Vtbl, 0x2f14930a_f6f8_4a48_8d89_94786cca0c2e, inspectable);
 impl windows_core::RuntimeType for IUINavigationControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IUINavigationControllerStatics");
@@ -1435,7 +1436,7 @@ pub struct IUINavigationControllerStatics_Vtbl {
     pub RemoveUINavigationControllerRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub UINavigationControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUINavigationControllerStatics2, IUINavigationControllerStatics2_Vtbl, 0xe0cb28e3_b20b_4b0b_9ed4_f3d53cec0de4);
+windows_core::imp::define_interface!(IUINavigationControllerStatics2, IUINavigationControllerStatics2_Vtbl, 0xe0cb28e3_b20b_4b0b_9ed4_f3d53cec0de4, inspectable);
 impl windows_core::RuntimeType for IUINavigationControllerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IUINavigationControllerStatics2");
@@ -1693,6 +1694,7 @@ impl windows_core::RuntimeType for RacingWheel {
 unsafe impl windows_core::Interface for RacingWheel {
     type Vtable = <IRacingWheel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRacingWheel as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RacingWheel {
     const NAME: &'static str = "Windows.Gaming.Input.RacingWheel";
@@ -1999,6 +2001,7 @@ impl windows_core::RuntimeType for RawGameController {
 unsafe impl windows_core::Interface for RawGameController {
     type Vtable = <IRawGameController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRawGameController as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RawGameController {
     const NAME: &'static str = "Windows.Gaming.Input.RawGameController";
@@ -2217,6 +2220,7 @@ impl windows_core::RuntimeType for UINavigationController {
 unsafe impl windows_core::Interface for UINavigationController {
     type Vtable = <IUINavigationController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUINavigationController as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UINavigationController {
     const NAME: &'static str = "Windows.Gaming.Input.UINavigationController";

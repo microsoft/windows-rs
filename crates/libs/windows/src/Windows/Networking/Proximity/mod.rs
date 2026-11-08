@@ -16,6 +16,7 @@ impl windows_core::RuntimeType for ConnectionRequestedEventArgs {
 unsafe impl windows_core::Interface for ConnectionRequestedEventArgs {
     type Vtable = <IConnectionRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConnectionRequestedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.ConnectionRequestedEventArgs";
@@ -100,7 +101,7 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Sen
         }
     }
 }
-windows_core::imp::define_interface!(IConnectionRequestedEventArgs, IConnectionRequestedEventArgs_Vtbl, 0xeb6891ae_4f1e_4c66_bd0d_46924a942e08);
+windows_core::imp::define_interface!(IConnectionRequestedEventArgs, IConnectionRequestedEventArgs_Vtbl, 0xeb6891ae_4f1e_4c66_bd0d_46924a942e08, inspectable);
 impl windows_core::RuntimeType for IConnectionRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.IConnectionRequestedEventArgs");
@@ -111,7 +112,7 @@ pub struct IConnectionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PeerInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPeerFinderStatics, IPeerFinderStatics_Vtbl, 0x914b3b61_f6e1_47c4_a14c_148a1903d0c6);
+windows_core::imp::define_interface!(IPeerFinderStatics, IPeerFinderStatics_Vtbl, 0x914b3b61_f6e1_47c4_a14c_148a1903d0c6, inspectable);
 impl windows_core::RuntimeType for IPeerFinderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.IPeerFinderStatics");
@@ -143,7 +144,7 @@ pub struct IPeerFinderStatics_Vtbl {
     #[cfg(not(feature = "Networking_Sockets"))]
     ConnectAsync: usize,
 }
-windows_core::imp::define_interface!(IPeerFinderStatics2, IPeerFinderStatics2_Vtbl, 0xd6e73c65_fdd0_4b0b_9312_866408935d82);
+windows_core::imp::define_interface!(IPeerFinderStatics2, IPeerFinderStatics2_Vtbl, 0xd6e73c65_fdd0_4b0b_9312_866408935d82, inspectable);
 impl windows_core::RuntimeType for IPeerFinderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.IPeerFinderStatics2");
@@ -164,7 +165,7 @@ pub struct IPeerFinderStatics2_Vtbl {
     SetDiscoveryData: usize,
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPeerInformation, IPeerInformation_Vtbl, 0x20024f08_9fff_45f4_b6e9_408b2ebef373);
+windows_core::imp::define_interface!(IPeerInformation, IPeerInformation_Vtbl, 0x20024f08_9fff_45f4_b6e9_408b2ebef373, inspectable);
 impl windows_core::RuntimeType for IPeerInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.IPeerInformation");
@@ -175,7 +176,7 @@ pub struct IPeerInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPeerInformation3, IPeerInformation3_Vtbl, 0xb20f612a_dbd0_40f8_95bd_2d4209c7836f);
+windows_core::imp::define_interface!(IPeerInformation3, IPeerInformation3_Vtbl, 0xb20f612a_dbd0_40f8_95bd_2d4209c7836f, inspectable);
 impl windows_core::RuntimeType for IPeerInformation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.IPeerInformation3");
@@ -190,7 +191,7 @@ pub struct IPeerInformation3_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     DiscoveryData: usize,
 }
-windows_core::imp::define_interface!(IPeerInformationWithHostAndService, IPeerInformationWithHostAndService_Vtbl, 0xecc7ccad_1b70_4e8b_92db_bbe781419308);
+windows_core::imp::define_interface!(IPeerInformationWithHostAndService, IPeerInformationWithHostAndService_Vtbl, 0xecc7ccad_1b70_4e8b_92db_bbe781419308, inspectable);
 impl windows_core::RuntimeType for IPeerInformationWithHostAndService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.IPeerInformationWithHostAndService");
@@ -202,7 +203,7 @@ pub struct IPeerInformationWithHostAndService_Vtbl {
     pub HostName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPeerWatcher, IPeerWatcher_Vtbl, 0x3cee21f8_2fa6_4679_9691_03c94a420f34);
+windows_core::imp::define_interface!(IPeerWatcher, IPeerWatcher_Vtbl, 0x3cee21f8_2fa6_4679_9691_03c94a420f34, inspectable);
 impl windows_core::RuntimeType for IPeerWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.IPeerWatcher");
@@ -225,7 +226,7 @@ pub struct IPeerWatcher_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProximityDevice, IProximityDevice_Vtbl, 0xefa8a552_f6e1_4329_a0fc_ab6b0fd28262);
+windows_core::imp::define_interface!(IProximityDevice, IProximityDevice_Vtbl, 0xefa8a552_f6e1_4329_a0fc_ab6b0fd28262, inspectable);
 impl windows_core::RuntimeType for IProximityDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.IProximityDevice");
@@ -257,7 +258,7 @@ pub struct IProximityDevice_Vtbl {
     pub BitsPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProximityDeviceStatics, IProximityDeviceStatics_Vtbl, 0x914ba01d_f6e1_47c4_a14c_148a1903d0c6);
+windows_core::imp::define_interface!(IProximityDeviceStatics, IProximityDeviceStatics_Vtbl, 0x914ba01d_f6e1_47c4_a14c_148a1903d0c6, inspectable);
 impl windows_core::RuntimeType for IProximityDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.IProximityDeviceStatics");
@@ -270,7 +271,7 @@ pub struct IProximityDeviceStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProximityMessage, IProximityMessage_Vtbl, 0xefab0782_f6e1_4675_a045_d8e320c24808);
+windows_core::imp::define_interface!(IProximityMessage, IProximityMessage_Vtbl, 0xefab0782_f6e1_4675_a045_d8e320c24808, inspectable);
 impl windows_core::RuntimeType for IProximityMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.IProximityMessage");
@@ -287,7 +288,7 @@ pub struct IProximityMessage_Vtbl {
     Data: usize,
     pub DataAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITriggeredConnectionStateChangedEventArgs, ITriggeredConnectionStateChangedEventArgs_Vtbl, 0xc6a780ad_f6e1_4d54_96e2_33f620bca88a);
+windows_core::imp::define_interface!(ITriggeredConnectionStateChangedEventArgs, ITriggeredConnectionStateChangedEventArgs_Vtbl, 0xc6a780ad_f6e1_4d54_96e2_33f620bca88a, inspectable);
 impl windows_core::RuntimeType for ITriggeredConnectionStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Proximity.ITriggeredConnectionStateChangedEventArgs");
@@ -621,6 +622,7 @@ impl windows_core::RuntimeType for PeerInformation {
 unsafe impl windows_core::Interface for PeerInformation {
     type Vtable = <IPeerInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPeerInformation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PeerInformation {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerInformation";
@@ -736,6 +738,7 @@ impl windows_core::RuntimeType for PeerWatcher {
 unsafe impl windows_core::Interface for PeerWatcher {
     type Vtable = <IPeerWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPeerWatcher as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PeerWatcher {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerWatcher";
@@ -910,6 +913,7 @@ impl windows_core::RuntimeType for ProximityDevice {
 unsafe impl windows_core::Interface for ProximityDevice {
     type Vtable = <IProximityDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProximityDevice as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ProximityDevice {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityDevice";
@@ -953,6 +957,7 @@ impl windows_core::RuntimeType for ProximityMessage {
 unsafe impl windows_core::Interface for ProximityMessage {
     type Vtable = <IProximityMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProximityMessage as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ProximityMessage {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityMessage";
@@ -1008,6 +1013,7 @@ impl windows_core::RuntimeType for TriggeredConnectionStateChangedEventArgs {
 unsafe impl windows_core::Interface for TriggeredConnectionStateChangedEventArgs {
     type Vtable = <ITriggeredConnectionStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITriggeredConnectionStateChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TriggeredConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs";

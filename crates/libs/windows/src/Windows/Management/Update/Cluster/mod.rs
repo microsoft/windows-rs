@@ -35,6 +35,7 @@ impl windows_core::RuntimeType for AcquireEnvironmentInfoResult {
 unsafe impl windows_core::Interface for AcquireEnvironmentInfoResult {
     type Vtable = <IAcquireEnvironmentInfoResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAcquireEnvironmentInfoResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AcquireEnvironmentInfoResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.AcquireEnvironmentInfoResult";
@@ -78,6 +79,7 @@ impl windows_core::RuntimeType for AreRebootsPendingResult {
 unsafe impl windows_core::Interface for AreRebootsPendingResult {
     type Vtable = <IAreRebootsPendingResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAreRebootsPendingResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AreRebootsPendingResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.AreRebootsPendingResult";
@@ -210,13 +212,14 @@ impl windows_core::RuntimeType for ClusterUpdateServices {
 unsafe impl windows_core::Interface for ClusterUpdateServices {
     type Vtable = <IClusterUpdateServices as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClusterUpdateServices as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ClusterUpdateServices {
     const NAME: &'static str = "Windows.Management.Update.Cluster.ClusterUpdateServices";
 }
 unsafe impl Send for ClusterUpdateServices {}
 unsafe impl Sync for ClusterUpdateServices {}
-windows_core::imp::define_interface!(IAcquireEnvironmentInfoResult, IAcquireEnvironmentInfoResult_Vtbl, 0xb720e3a4_9a34_51c1_a1fa_0c6673bef689);
+windows_core::imp::define_interface!(IAcquireEnvironmentInfoResult, IAcquireEnvironmentInfoResult_Vtbl, 0xb720e3a4_9a34_51c1_a1fa_0c6673bef689, inspectable);
 impl windows_core::RuntimeType for IAcquireEnvironmentInfoResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IAcquireEnvironmentInfoResult");
@@ -228,7 +231,7 @@ pub struct IAcquireEnvironmentInfoResult_Vtbl {
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnvironmentInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAcquireEnvironmentInfoResultFactory, IAcquireEnvironmentInfoResultFactory_Vtbl, 0xbbe87f45_0125_5b6d_b9de_05effc98becb);
+windows_core::imp::define_interface!(IAcquireEnvironmentInfoResultFactory, IAcquireEnvironmentInfoResultFactory_Vtbl, 0xbbe87f45_0125_5b6d_b9de_05effc98becb, inspectable);
 impl windows_core::RuntimeType for IAcquireEnvironmentInfoResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IAcquireEnvironmentInfoResultFactory");
@@ -239,7 +242,7 @@ pub struct IAcquireEnvironmentInfoResultFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAreRebootsPendingResult, IAreRebootsPendingResult_Vtbl, 0xa0c93ffd_8409_5fe1_876b_d59d5d9951b5);
+windows_core::imp::define_interface!(IAreRebootsPendingResult, IAreRebootsPendingResult_Vtbl, 0xa0c93ffd_8409_5fe1_876b_d59d5d9951b5, inspectable);
 impl windows_core::RuntimeType for IAreRebootsPendingResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IAreRebootsPendingResult");
@@ -251,7 +254,7 @@ pub struct IAreRebootsPendingResult_Vtbl {
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsRebootPending: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAreRebootsPendingResultFactory, IAreRebootsPendingResultFactory_Vtbl, 0x801c7304_1fdf_59b4_9ef6_adbd0544d98f);
+windows_core::imp::define_interface!(IAreRebootsPendingResultFactory, IAreRebootsPendingResultFactory_Vtbl, 0x801c7304_1fdf_59b4_9ef6_adbd0544d98f, inspectable);
 impl windows_core::RuntimeType for IAreRebootsPendingResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IAreRebootsPendingResultFactory");
@@ -262,7 +265,7 @@ pub struct IAreRebootsPendingResultFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClusterNativeEnvironmentOperations, IClusterNativeEnvironmentOperations_Vtbl, 0xa6d3d05e_1cfe_5363_b745_c6981d0e6b25);
+windows_core::imp::define_interface!(IClusterNativeEnvironmentOperations, IClusterNativeEnvironmentOperations_Vtbl, 0xa6d3d05e_1cfe_5363_b745_c6981d0e6b25, inspectable);
 impl windows_core::RuntimeType for IClusterNativeEnvironmentOperations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IClusterNativeEnvironmentOperations");
@@ -419,7 +422,7 @@ impl IClusterNativeEnvironmentOperations_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IClusterNativeEnvironmentOperations, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             AcquireNodeEnvironmentInfo: AcquireNodeEnvironmentInfo::<Identity, OFFSET>,
             ValidateClusterEnvironment: ValidateClusterEnvironment::<Identity, OFFSET>,
             StartPreUpdateRunOperation: StartPreUpdateRunOperation::<Identity, OFFSET>,
@@ -443,7 +446,7 @@ pub struct IClusterNativeEnvironmentOperations_Vtbl {
     pub StartPostUpdateRunOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsPostUpdateRunOperationComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClusterNativeEnvironmentOperationsPlugin, IClusterNativeEnvironmentOperationsPlugin_Vtbl, 0x534b9984_3201_5a90_a42b_42d9c98c961a);
+windows_core::imp::define_interface!(IClusterNativeEnvironmentOperationsPlugin, IClusterNativeEnvironmentOperationsPlugin_Vtbl, 0x534b9984_3201_5a90_a42b_42d9c98c961a, inspectable);
 impl windows_core::RuntimeType for IClusterNativeEnvironmentOperationsPlugin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IClusterNativeEnvironmentOperationsPlugin");
@@ -601,7 +604,7 @@ impl IClusterNativeEnvironmentOperationsPlugin_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IClusterNativeEnvironmentOperationsPlugin, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, OFFSET>,
             FriendlyName: FriendlyName::<Identity, OFFSET>,
             Description: Description::<Identity, OFFSET>,
@@ -625,7 +628,7 @@ pub struct IClusterNativeEnvironmentOperationsPlugin_Vtbl {
     pub DefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateEnvironmentOperations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClusterNativeNodeOperations, IClusterNativeNodeOperations_Vtbl, 0xce23db69_b72b_5204_9d1c_c53d0b2d803d);
+windows_core::imp::define_interface!(IClusterNativeNodeOperations, IClusterNativeNodeOperations_Vtbl, 0xce23db69_b72b_5204_9d1c_c53d0b2d803d, inspectable);
 impl windows_core::RuntimeType for IClusterNativeNodeOperations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IClusterNativeNodeOperations");
@@ -940,7 +943,7 @@ impl IClusterNativeNodeOperations_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IClusterNativeNodeOperations, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             AreAdditionalRebootsPending: AreAdditionalRebootsPending::<Identity, OFFSET>,
             StartPreRebootOperation: StartPreRebootOperation::<Identity, OFFSET>,
             IsPreRebootOperationComplete: IsPreRebootOperationComplete::<Identity, OFFSET>,
@@ -978,7 +981,7 @@ pub struct IClusterNativeNodeOperations_Vtbl {
     pub StartPostUpdateRunOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsPostUpdateRunOperationComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClusterNativeNodeOperationsPlugin, IClusterNativeNodeOperationsPlugin_Vtbl, 0x5f7a457c_e9d3_5cec_a967_0da9d95fd6f4);
+windows_core::imp::define_interface!(IClusterNativeNodeOperationsPlugin, IClusterNativeNodeOperationsPlugin_Vtbl, 0x5f7a457c_e9d3_5cec_a967_0da9d95fd6f4, inspectable);
 impl windows_core::RuntimeType for IClusterNativeNodeOperationsPlugin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IClusterNativeNodeOperationsPlugin");
@@ -1136,7 +1139,7 @@ impl IClusterNativeNodeOperationsPlugin_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IClusterNativeNodeOperationsPlugin, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, OFFSET>,
             FriendlyName: FriendlyName::<Identity, OFFSET>,
             Description: Description::<Identity, OFFSET>,
@@ -1160,7 +1163,7 @@ pub struct IClusterNativeNodeOperationsPlugin_Vtbl {
     pub DefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateNodeOperations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClusterUpdateServices, IClusterUpdateServices_Vtbl, 0x38461e68_1445_53e3_b914_ce19e3b730c4);
+windows_core::imp::define_interface!(IClusterUpdateServices, IClusterUpdateServices_Vtbl, 0x38461e68_1445_53e3_b914_ce19e3b730c4, inspectable);
 impl windows_core::RuntimeType for IClusterUpdateServices {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IClusterUpdateServices");
@@ -1178,7 +1181,7 @@ pub struct IClusterUpdateServices_Vtbl {
     pub SaveRunIndependentInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRunIndependentInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInstallUpdateTaskResult, IInstallUpdateTaskResult_Vtbl, 0xd519090a_4e93_5916_92bb_9356da52344b);
+windows_core::imp::define_interface!(IInstallUpdateTaskResult, IInstallUpdateTaskResult_Vtbl, 0xd519090a_4e93_5916_92bb_9356da52344b, inspectable);
 impl windows_core::RuntimeType for IInstallUpdateTaskResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IInstallUpdateTaskResult");
@@ -1191,7 +1194,7 @@ pub struct IInstallUpdateTaskResult_Vtbl {
     pub InstallRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShouldRollback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInstallUpdateTaskResultFactory, IInstallUpdateTaskResultFactory_Vtbl, 0x07473356_1a87_554d_9c14_489c0d69b258);
+windows_core::imp::define_interface!(IInstallUpdateTaskResultFactory, IInstallUpdateTaskResultFactory_Vtbl, 0x07473356_1a87_554d_9c14_489c0d69b258, inspectable);
 impl windows_core::RuntimeType for IInstallUpdateTaskResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IInstallUpdateTaskResultFactory");
@@ -1202,7 +1205,7 @@ pub struct IInstallUpdateTaskResultFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRollbackUpdateTaskResult, IRollbackUpdateTaskResult_Vtbl, 0x477e2a95_bcb6_5044_ad3d_e4180efcf1be);
+windows_core::imp::define_interface!(IRollbackUpdateTaskResult, IRollbackUpdateTaskResult_Vtbl, 0x477e2a95_bcb6_5044_ad3d_e4180efcf1be, inspectable);
 impl windows_core::RuntimeType for IRollbackUpdateTaskResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IRollbackUpdateTaskResult");
@@ -1214,7 +1217,7 @@ pub struct IRollbackUpdateTaskResult_Vtbl {
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InstallRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRollbackUpdateTaskResultFactory, IRollbackUpdateTaskResultFactory_Vtbl, 0x2dbd5bc3_efdf_5046_8954_78981796f016);
+windows_core::imp::define_interface!(IRollbackUpdateTaskResultFactory, IRollbackUpdateTaskResultFactory_Vtbl, 0x2dbd5bc3_efdf_5046_8954_78981796f016, inspectable);
 impl windows_core::RuntimeType for IRollbackUpdateTaskResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IRollbackUpdateTaskResultFactory");
@@ -1225,7 +1228,7 @@ pub struct IRollbackUpdateTaskResultFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IScanUpdateTaskResult, IScanUpdateTaskResult_Vtbl, 0x24e9f302_a976_5148_b109_5100ac1a50ed);
+windows_core::imp::define_interface!(IScanUpdateTaskResult, IScanUpdateTaskResult_Vtbl, 0x24e9f302_a976_5148_b109_5100ac1a50ed, inspectable);
 impl windows_core::RuntimeType for IScanUpdateTaskResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IScanUpdateTaskResult");
@@ -1237,7 +1240,7 @@ pub struct IScanUpdateTaskResult_Vtbl {
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ScanRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IScanUpdateTaskResultFactory, IScanUpdateTaskResultFactory_Vtbl, 0x12594ad2_5312_5f8a_8fa2_2da4a34e3319);
+windows_core::imp::define_interface!(IScanUpdateTaskResultFactory, IScanUpdateTaskResultFactory_Vtbl, 0x12594ad2_5312_5f8a_8fa2_2da4a34e3319, inspectable);
 impl windows_core::RuntimeType for IScanUpdateTaskResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IScanUpdateTaskResultFactory");
@@ -1248,7 +1251,7 @@ pub struct IScanUpdateTaskResultFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStageUpdateTaskResult, IStageUpdateTaskResult_Vtbl, 0xc926add1_335c_57f7_8dac_1ce2fce65060);
+windows_core::imp::define_interface!(IStageUpdateTaskResult, IStageUpdateTaskResult_Vtbl, 0xc926add1_335c_57f7_8dac_1ce2fce65060, inspectable);
 impl windows_core::RuntimeType for IStageUpdateTaskResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IStageUpdateTaskResult");
@@ -1260,7 +1263,7 @@ pub struct IStageUpdateTaskResult_Vtbl {
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StageRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStageUpdateTaskResultFactory, IStageUpdateTaskResultFactory_Vtbl, 0x2256548a_f175_5143_888a_f49f27a34ed3);
+windows_core::imp::define_interface!(IStageUpdateTaskResultFactory, IStageUpdateTaskResultFactory_Vtbl, 0x2256548a_f175_5143_888a_f49f27a34ed3, inspectable);
 impl windows_core::RuntimeType for IStageUpdateTaskResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IStageUpdateTaskResultFactory");
@@ -1271,7 +1274,7 @@ pub struct IStageUpdateTaskResultFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateCredential, IUpdateCredential_Vtbl, 0xde6d09b1_bcdb_5d6d_9d46_7250b853fffe);
+windows_core::imp::define_interface!(IUpdateCredential, IUpdateCredential_Vtbl, 0xde6d09b1_bcdb_5d6d_9d46_7250b853fffe, inspectable);
 impl windows_core::RuntimeType for IUpdateCredential {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateCredential");
@@ -1284,7 +1287,7 @@ pub struct IUpdateCredential_Vtbl {
     pub UserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Password: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateCredentialFactory, IUpdateCredentialFactory_Vtbl, 0xe251a298_44b1_5455_8b44_5971bd516f09);
+windows_core::imp::define_interface!(IUpdateCredentialFactory, IUpdateCredentialFactory_Vtbl, 0xe251a298_44b1_5455_8b44_5971bd516f09, inspectable);
 impl windows_core::RuntimeType for IUpdateCredentialFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateCredentialFactory");
@@ -1295,7 +1298,7 @@ pub struct IUpdateCredentialFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, ClusterNativeUpdateCredentialStatus, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateInstallRecord, IUpdateInstallRecord_Vtbl, 0x38118797_dc5d_5727_89ff_5b8a44b3f53b);
+windows_core::imp::define_interface!(IUpdateInstallRecord, IUpdateInstallRecord_Vtbl, 0x38118797_dc5d_5727_89ff_5b8a44b3f53b, inspectable);
 impl windows_core::RuntimeType for IUpdateInstallRecord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateInstallRecord");
@@ -1309,7 +1312,7 @@ pub struct IUpdateInstallRecord_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ClusterNativeUpdateCompletionStatus) -> windows_core::HRESULT,
     pub FailureMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateInstallRecordFactory, IUpdateInstallRecordFactory_Vtbl, 0x9b6c54b5_d229_5147_9d6e_16e47f2317db);
+windows_core::imp::define_interface!(IUpdateInstallRecordFactory, IUpdateInstallRecordFactory_Vtbl, 0x9b6c54b5_d229_5147_9d6e_16e47f2317db, inspectable);
 impl windows_core::RuntimeType for IUpdateInstallRecordFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateInstallRecordFactory");
@@ -1320,7 +1323,7 @@ pub struct IUpdateInstallRecordFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, ClusterNativeUpdateCompletionStatus, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateInstaller, IUpdateInstaller_Vtbl, 0xc8cfe973_daaf_57d3_8d3b_59eec0b082ea);
+windows_core::imp::define_interface!(IUpdateInstaller, IUpdateInstaller_Vtbl, 0xc8cfe973_daaf_57d3_8d3b_59eec0b082ea, inspectable);
 impl windows_core::RuntimeType for IUpdateInstaller {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateInstaller");
@@ -1535,7 +1538,7 @@ impl IUpdateInstaller_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IUpdateInstaller, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Scan: Scan::<Identity, OFFSET>,
             Stage: Stage::<Identity, OFFSET>,
             Install: Install::<Identity, OFFSET>,
@@ -1563,7 +1566,7 @@ pub struct IUpdateInstaller_Vtbl {
     pub AcquireUpdateListValidationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ValidateAllNodesUpdateRecipe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateInstallerPlugin, IUpdateInstallerPlugin_Vtbl, 0x61122faa_0cd8_5a98_8938_5c1f88c632c6);
+windows_core::imp::define_interface!(IUpdateInstallerPlugin, IUpdateInstallerPlugin_Vtbl, 0x61122faa_0cd8_5a98_8938_5c1f88c632c6, inspectable);
 impl windows_core::RuntimeType for IUpdateInstallerPlugin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateInstallerPlugin");
@@ -1743,7 +1746,7 @@ impl IUpdateInstallerPlugin_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IUpdateInstallerPlugin, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, OFFSET>,
             FriendlyName: FriendlyName::<Identity, OFFSET>,
             Description: Description::<Identity, OFFSET>,
@@ -1769,7 +1772,7 @@ pub struct IUpdateInstallerPlugin_Vtbl {
     pub DefaultOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateUpdateInstaller: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateOperationResult, IUpdateOperationResult_Vtbl, 0x9fc35275_3eb7_5785_bb32_0e37bb52cf41);
+windows_core::imp::define_interface!(IUpdateOperationResult, IUpdateOperationResult_Vtbl, 0x9fc35275_3eb7_5785_bb32_0e37bb52cf41, inspectable);
 impl windows_core::RuntimeType for IUpdateOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateOperationResult");
@@ -1782,7 +1785,7 @@ pub struct IUpdateOperationResult_Vtbl {
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateOperationResultFactory, IUpdateOperationResultFactory_Vtbl, 0xff53c580_e92c_50a9_8811_a057d5a2a523);
+windows_core::imp::define_interface!(IUpdateOperationResultFactory, IUpdateOperationResultFactory_Vtbl, 0xff53c580_e92c_50a9_8811_a057d5a2a523, inspectable);
 impl windows_core::RuntimeType for IUpdateOperationResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateOperationResultFactory");
@@ -1794,7 +1797,7 @@ pub struct IUpdateOperationResultFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, ClusterNativeUpdateOperationStatus, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, ClusterNativeUpdateOperationStatus, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdatePendingOperationResult, IUpdatePendingOperationResult_Vtbl, 0x0f83b557_e96a_5f19_9492_99fc8bd83c5d);
+windows_core::imp::define_interface!(IUpdatePendingOperationResult, IUpdatePendingOperationResult_Vtbl, 0x0f83b557_e96a_5f19_9492_99fc8bd83c5d, inspectable);
 impl windows_core::RuntimeType for IUpdatePendingOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdatePendingOperationResult");
@@ -1806,7 +1809,7 @@ pub struct IUpdatePendingOperationResult_Vtbl {
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SuggestedRecheckInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdatePendingOperationResultFactory, IUpdatePendingOperationResultFactory_Vtbl, 0x45a3b731_d513_5baf_bb44_68b97a938308);
+windows_core::imp::define_interface!(IUpdatePendingOperationResultFactory, IUpdatePendingOperationResultFactory_Vtbl, 0x45a3b731_d513_5baf_bb44_68b97a938308, inspectable);
 impl windows_core::RuntimeType for IUpdatePendingOperationResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdatePendingOperationResultFactory");
@@ -1817,7 +1820,7 @@ pub struct IUpdatePendingOperationResultFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdatePluginVersionInfo, IUpdatePluginVersionInfo_Vtbl, 0x0901af2e_b340_5e7e_9898_516fc96add89);
+windows_core::imp::define_interface!(IUpdatePluginVersionInfo, IUpdatePluginVersionInfo_Vtbl, 0x0901af2e_b340_5e7e_9898_516fc96add89, inspectable);
 impl windows_core::RuntimeType for IUpdatePluginVersionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdatePluginVersionInfo");
@@ -1830,7 +1833,7 @@ pub struct IUpdatePluginVersionInfo_Vtbl {
     pub MinorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub PatchLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdatePluginVersionInfoFactory, IUpdatePluginVersionInfoFactory_Vtbl, 0x56bb98ce_543c_59f2_810d_4d2cf84ee40e);
+windows_core::imp::define_interface!(IUpdatePluginVersionInfoFactory, IUpdatePluginVersionInfoFactory_Vtbl, 0x56bb98ce_543c_59f2_810d_4d2cf84ee40e, inspectable);
 impl windows_core::RuntimeType for IUpdatePluginVersionInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdatePluginVersionInfoFactory");
@@ -1841,7 +1844,7 @@ pub struct IUpdatePluginVersionInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateRecipeNodeValidationInfoRecord, IUpdateRecipeNodeValidationInfoRecord_Vtbl, 0x55dfff15_5556_51c4_80c2_af03f385d429);
+windows_core::imp::define_interface!(IUpdateRecipeNodeValidationInfoRecord, IUpdateRecipeNodeValidationInfoRecord_Vtbl, 0x55dfff15_5556_51c4_80c2_af03f385d429, inspectable);
 impl windows_core::RuntimeType for IUpdateRecipeNodeValidationInfoRecord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateRecipeNodeValidationInfoRecord");
@@ -1854,7 +1857,7 @@ pub struct IUpdateRecipeNodeValidationInfoRecord_Vtbl {
     pub RecipeValidationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ScanResults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateRecipeNodeValidationInfoRecordFactory, IUpdateRecipeNodeValidationInfoRecordFactory_Vtbl, 0xe0fa2776_dd6c_5139_a93e_23e2188921af);
+windows_core::imp::define_interface!(IUpdateRecipeNodeValidationInfoRecordFactory, IUpdateRecipeNodeValidationInfoRecordFactory_Vtbl, 0xe0fa2776_dd6c_5139_a93e_23e2188921af, inspectable);
 impl windows_core::RuntimeType for IUpdateRecipeNodeValidationInfoRecordFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateRecipeNodeValidationInfoRecordFactory");
@@ -1865,7 +1868,7 @@ pub struct IUpdateRecipeNodeValidationInfoRecordFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateScanRecord, IUpdateScanRecord_Vtbl, 0xc54af4fb_d316_5480_954f_d1eb51961de5);
+windows_core::imp::define_interface!(IUpdateScanRecord, IUpdateScanRecord_Vtbl, 0xc54af4fb_d316_5480_954f_d1eb51961de5, inspectable);
 impl windows_core::RuntimeType for IUpdateScanRecord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateScanRecord");
@@ -1880,7 +1883,7 @@ pub struct IUpdateScanRecord_Vtbl {
     pub IsRebootRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub PluginSpecificData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateScanRecordFactory, IUpdateScanRecordFactory_Vtbl, 0xd9a3860e_a05a_58c3_b368_07bb350072d0);
+windows_core::imp::define_interface!(IUpdateScanRecordFactory, IUpdateScanRecordFactory_Vtbl, 0xd9a3860e_a05a_58c3_b368_07bb350072d0, inspectable);
 impl windows_core::RuntimeType for IUpdateScanRecordFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateScanRecordFactory");
@@ -1891,7 +1894,7 @@ pub struct IUpdateScanRecordFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateStageRecord, IUpdateStageRecord_Vtbl, 0x60d8edf9_eb18_59d1_badb_5d862f9352e9);
+windows_core::imp::define_interface!(IUpdateStageRecord, IUpdateStageRecord_Vtbl, 0x60d8edf9_eb18_59d1_badb_5d862f9352e9, inspectable);
 impl windows_core::RuntimeType for IUpdateStageRecord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateStageRecord");
@@ -1905,7 +1908,7 @@ pub struct IUpdateStageRecord_Vtbl {
     pub FailureMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UpdatedPluginSpecificData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateStageRecordFactory, IUpdateStageRecordFactory_Vtbl, 0xb5c12a84_ebf5_505b_872f_4de71fdda7e8);
+windows_core::imp::define_interface!(IUpdateStageRecordFactory, IUpdateStageRecordFactory_Vtbl, 0xb5c12a84_ebf5_505b_872f_4de71fdda7e8, inspectable);
 impl windows_core::RuntimeType for IUpdateStageRecordFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateStageRecordFactory");
@@ -1917,7 +1920,7 @@ pub struct IUpdateStageRecordFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ClusterNativeUpdateCompletionStatus, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ClusterNativeUpdateCompletionStatus, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateTaskResult, IUpdateTaskResult_Vtbl, 0x3fdd9274_7686_5cb9_89e4_6d618ed3a47a);
+windows_core::imp::define_interface!(IUpdateTaskResult, IUpdateTaskResult_Vtbl, 0x3fdd9274_7686_5cb9_89e4_6d618ed3a47a, inspectable);
 impl windows_core::RuntimeType for IUpdateTaskResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateTaskResult");
@@ -1930,7 +1933,7 @@ pub struct IUpdateTaskResult_Vtbl {
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateTaskResultFactory, IUpdateTaskResultFactory_Vtbl, 0xc5ae4ce3_7d1e_50bf_a64a_95f34783fc8c);
+windows_core::imp::define_interface!(IUpdateTaskResultFactory, IUpdateTaskResultFactory_Vtbl, 0xc5ae4ce3_7d1e_50bf_a64a_95f34783fc8c, inspectable);
 impl windows_core::RuntimeType for IUpdateTaskResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateTaskResultFactory");
@@ -1942,7 +1945,7 @@ pub struct IUpdateTaskResultFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateValidationLogMessage, IUpdateValidationLogMessage_Vtbl, 0x1e55bbd5_648f_584c_904d_ae6a053e80c8);
+windows_core::imp::define_interface!(IUpdateValidationLogMessage, IUpdateValidationLogMessage_Vtbl, 0x1e55bbd5_648f_584c_904d_ae6a053e80c8, inspectable);
 impl windows_core::RuntimeType for IUpdateValidationLogMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateValidationLogMessage");
@@ -1954,7 +1957,7 @@ pub struct IUpdateValidationLogMessage_Vtbl {
     pub Severity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ClusterNativeUpdateLogLevel) -> windows_core::HRESULT,
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUpdateValidationLogMessageFactory, IUpdateValidationLogMessageFactory_Vtbl, 0x9005a873_4c0b_5c78_a433_be5095b0226e);
+windows_core::imp::define_interface!(IUpdateValidationLogMessageFactory, IUpdateValidationLogMessageFactory_Vtbl, 0x9005a873_4c0b_5c78_a433_be5095b0226e, inspectable);
 impl windows_core::RuntimeType for IUpdateValidationLogMessageFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IUpdateValidationLogMessageFactory");
@@ -1965,7 +1968,7 @@ pub struct IUpdateValidationLogMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, ClusterNativeUpdateLogLevel, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IValidateAllNodesUpdateRecipeResult, IValidateAllNodesUpdateRecipeResult_Vtbl, 0x4a6adcd4_b621_5ca6_b82e_6ce96d2a3b93);
+windows_core::imp::define_interface!(IValidateAllNodesUpdateRecipeResult, IValidateAllNodesUpdateRecipeResult_Vtbl, 0x4a6adcd4_b621_5ca6_b82e_6ce96d2a3b93, inspectable);
 impl windows_core::RuntimeType for IValidateAllNodesUpdateRecipeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IValidateAllNodesUpdateRecipeResult");
@@ -1978,7 +1981,7 @@ pub struct IValidateAllNodesUpdateRecipeResult_Vtbl {
     pub AreUpdatesApproved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ValidationMessages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IValidateAllNodesUpdateRecipeResultFactory, IValidateAllNodesUpdateRecipeResultFactory_Vtbl, 0x00a73e76_0643_5793_ba1c_6e7aa89fdba6);
+windows_core::imp::define_interface!(IValidateAllNodesUpdateRecipeResultFactory, IValidateAllNodesUpdateRecipeResultFactory_Vtbl, 0x00a73e76_0643_5793_ba1c_6e7aa89fdba6, inspectable);
 impl windows_core::RuntimeType for IValidateAllNodesUpdateRecipeResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IValidateAllNodesUpdateRecipeResultFactory");
@@ -1989,7 +1992,7 @@ pub struct IValidateAllNodesUpdateRecipeResultFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IValidateClusterEnvironmentResult, IValidateClusterEnvironmentResult_Vtbl, 0x4df22928_9fde_5c16_961c_aab26f4a7780);
+windows_core::imp::define_interface!(IValidateClusterEnvironmentResult, IValidateClusterEnvironmentResult_Vtbl, 0x4df22928_9fde_5c16_961c_aab26f4a7780, inspectable);
 impl windows_core::RuntimeType for IValidateClusterEnvironmentResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IValidateClusterEnvironmentResult");
@@ -2002,7 +2005,7 @@ pub struct IValidateClusterEnvironmentResult_Vtbl {
     pub ApprovalStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ClusterNativeUpdateEnvironmentValidationStatus) -> windows_core::HRESULT,
     pub ValidationMessages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IValidateClusterEnvironmentResultFactory, IValidateClusterEnvironmentResultFactory_Vtbl, 0x9222e2a5_7106_5dc4_860e_6634e47299fc);
+windows_core::imp::define_interface!(IValidateClusterEnvironmentResultFactory, IValidateClusterEnvironmentResultFactory_Vtbl, 0x9222e2a5_7106_5dc4_860e_6634e47299fc, inspectable);
 impl windows_core::RuntimeType for IValidateClusterEnvironmentResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.Cluster.IValidateClusterEnvironmentResultFactory");
@@ -2057,6 +2060,7 @@ impl windows_core::RuntimeType for InstallUpdateTaskResult {
 unsafe impl windows_core::Interface for InstallUpdateTaskResult {
     type Vtable = <IInstallUpdateTaskResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInstallUpdateTaskResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for InstallUpdateTaskResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.InstallUpdateTaskResult";
@@ -2101,6 +2105,7 @@ impl windows_core::RuntimeType for RollbackUpdateTaskResult {
 unsafe impl windows_core::Interface for RollbackUpdateTaskResult {
     type Vtable = <IRollbackUpdateTaskResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRollbackUpdateTaskResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RollbackUpdateTaskResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.RollbackUpdateTaskResult";
@@ -2145,6 +2150,7 @@ impl windows_core::RuntimeType for ScanUpdateTaskResult {
 unsafe impl windows_core::Interface for ScanUpdateTaskResult {
     type Vtable = <IScanUpdateTaskResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScanUpdateTaskResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ScanUpdateTaskResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.ScanUpdateTaskResult";
@@ -2189,6 +2195,7 @@ impl windows_core::RuntimeType for StageUpdateTaskResult {
 unsafe impl windows_core::Interface for StageUpdateTaskResult {
     type Vtable = <IStageUpdateTaskResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStageUpdateTaskResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StageUpdateTaskResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.StageUpdateTaskResult";
@@ -2235,6 +2242,7 @@ impl windows_core::RuntimeType for UpdateCredential {
 unsafe impl windows_core::Interface for UpdateCredential {
     type Vtable = <IUpdateCredential as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateCredential as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdateCredential {
     const NAME: &'static str = "Windows.Management.Update.Cluster.UpdateCredential";
@@ -2287,6 +2295,7 @@ impl windows_core::RuntimeType for UpdateInstallRecord {
 unsafe impl windows_core::Interface for UpdateInstallRecord {
     type Vtable = <IUpdateInstallRecord as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateInstallRecord as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdateInstallRecord {
     const NAME: &'static str = "Windows.Management.Update.Cluster.UpdateInstallRecord";
@@ -2339,6 +2348,7 @@ impl windows_core::RuntimeType for UpdateOperationResult {
 unsafe impl windows_core::Interface for UpdateOperationResult {
     type Vtable = <IUpdateOperationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateOperationResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdateOperationResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.UpdateOperationResult";
@@ -2382,6 +2392,7 @@ impl windows_core::RuntimeType for UpdatePendingOperationResult {
 unsafe impl windows_core::Interface for UpdatePendingOperationResult {
     type Vtable = <IUpdatePendingOperationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdatePendingOperationResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdatePendingOperationResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.UpdatePendingOperationResult";
@@ -2428,6 +2439,7 @@ impl windows_core::RuntimeType for UpdatePluginVersionInfo {
 unsafe impl windows_core::Interface for UpdatePluginVersionInfo {
     type Vtable = <IUpdatePluginVersionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdatePluginVersionInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdatePluginVersionInfo {
     const NAME: &'static str = "Windows.Management.Update.Cluster.UpdatePluginVersionInfo";
@@ -2477,6 +2489,7 @@ impl windows_core::RuntimeType for UpdateRecipeNodeValidationInfoRecord {
 unsafe impl windows_core::Interface for UpdateRecipeNodeValidationInfoRecord {
     type Vtable = <IUpdateRecipeNodeValidationInfoRecord as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateRecipeNodeValidationInfoRecord as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdateRecipeNodeValidationInfoRecord {
     const NAME: &'static str = "Windows.Management.Update.Cluster.UpdateRecipeNodeValidationInfoRecord";
@@ -2535,6 +2548,7 @@ impl windows_core::RuntimeType for UpdateScanRecord {
 unsafe impl windows_core::Interface for UpdateScanRecord {
     type Vtable = <IUpdateScanRecord as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateScanRecord as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdateScanRecord {
     const NAME: &'static str = "Windows.Management.Update.Cluster.UpdateScanRecord";
@@ -2593,6 +2607,7 @@ impl windows_core::RuntimeType for UpdateStageRecord {
 unsafe impl windows_core::Interface for UpdateStageRecord {
     type Vtable = <IUpdateStageRecord as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateStageRecord as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdateStageRecord {
     const NAME: &'static str = "Windows.Management.Update.Cluster.UpdateStageRecord";
@@ -2645,6 +2660,7 @@ impl windows_core::RuntimeType for UpdateTaskResult {
 unsafe impl windows_core::Interface for UpdateTaskResult {
     type Vtable = <IUpdateTaskResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateTaskResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdateTaskResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.UpdateTaskResult";
@@ -2685,6 +2701,7 @@ impl windows_core::RuntimeType for UpdateValidationLogMessage {
 unsafe impl windows_core::Interface for UpdateValidationLogMessage {
     type Vtable = <IUpdateValidationLogMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateValidationLogMessage as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UpdateValidationLogMessage {
     const NAME: &'static str = "Windows.Management.Update.Cluster.UpdateValidationLogMessage";
@@ -2735,6 +2752,7 @@ impl windows_core::RuntimeType for ValidateAllNodesUpdateRecipeResult {
 unsafe impl windows_core::Interface for ValidateAllNodesUpdateRecipeResult {
     type Vtable = <IValidateAllNodesUpdateRecipeResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IValidateAllNodesUpdateRecipeResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ValidateAllNodesUpdateRecipeResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.ValidateAllNodesUpdateRecipeResult";
@@ -2785,6 +2803,7 @@ impl windows_core::RuntimeType for ValidateClusterEnvironmentResult {
 unsafe impl windows_core::Interface for ValidateClusterEnvironmentResult {
     type Vtable = <IValidateClusterEnvironmentResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IValidateClusterEnvironmentResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ValidateClusterEnvironmentResult {
     const NAME: &'static str = "Windows.Management.Update.Cluster.ValidateClusterEnvironmentResult";

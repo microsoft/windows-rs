@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IJsonArray, IJsonArray_Vtbl, 0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
+windows_core::imp::define_interface!(IJsonArray, IJsonArray_Vtbl, 0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81, inspectable);
 impl windows_core::RuntimeType for IJsonArray {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonArray");
@@ -13,7 +13,7 @@ pub struct IJsonArray_Vtbl {
     pub GetNumberAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f64) -> windows_core::HRESULT,
     pub GetBooleanAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJsonArrayStatics, IJsonArrayStatics_Vtbl, 0xdb1434a9_e164_499f_93e2_8a8f49bb90ba);
+windows_core::imp::define_interface!(IJsonArrayStatics, IJsonArrayStatics_Vtbl, 0xdb1434a9_e164_499f_93e2_8a8f49bb90ba, inspectable);
 impl windows_core::RuntimeType for IJsonArrayStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonArrayStatics");
@@ -25,7 +25,7 @@ pub struct IJsonArrayStatics_Vtbl {
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJsonErrorStatics2, IJsonErrorStatics2_Vtbl, 0x404030da_87d0_436c_83ab_fc7b12c0cc26);
+windows_core::imp::define_interface!(IJsonErrorStatics2, IJsonErrorStatics2_Vtbl, 0x404030da_87d0_436c_83ab_fc7b12c0cc26, inspectable);
 impl windows_core::RuntimeType for IJsonErrorStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonErrorStatics2");
@@ -36,7 +36,7 @@ pub struct IJsonErrorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetJsonStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut JsonErrorStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJsonObject, IJsonObject_Vtbl, 0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
+windows_core::imp::define_interface!(IJsonObject, IJsonObject_Vtbl, 0x064e24dd_29c2_4f83_9ac1_9ee11578beb3, inspectable);
 impl windows_core::RuntimeType for IJsonObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonObject");
@@ -53,7 +53,7 @@ pub struct IJsonObject_Vtbl {
     pub GetNamedNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub GetNamedBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJsonObjectStatics, IJsonObjectStatics_Vtbl, 0x2289f159_54de_45d8_abcc_22603fa066a0);
+windows_core::imp::define_interface!(IJsonObjectStatics, IJsonObjectStatics_Vtbl, 0x2289f159_54de_45d8_abcc_22603fa066a0, inspectable);
 impl windows_core::RuntimeType for IJsonObjectStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonObjectStatics");
@@ -65,7 +65,7 @@ pub struct IJsonObjectStatics_Vtbl {
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJsonObjectWithDefaultValues, IJsonObjectWithDefaultValues_Vtbl, 0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13);
+windows_core::imp::define_interface!(IJsonObjectWithDefaultValues, IJsonObjectWithDefaultValues_Vtbl, 0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13, inspectable);
 impl windows_core::RuntimeType for IJsonObjectWithDefaultValues {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonObjectWithDefaultValues");
@@ -81,7 +81,7 @@ pub struct IJsonObjectWithDefaultValues_Vtbl {
     pub GetNamedNumberOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, *mut f64) -> windows_core::HRESULT,
     pub GetNamedBooleanOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJsonValue, IJsonValue_Vtbl, 0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
+windows_core::imp::define_interface!(IJsonValue, IJsonValue_Vtbl, 0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e, inspectable);
 impl windows_core::RuntimeType for IJsonValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonValue");
@@ -255,7 +255,7 @@ impl IJsonValue_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IJsonValue, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             ValueType: ValueType::<Identity, OFFSET>,
             Stringify: Stringify::<Identity, OFFSET>,
             GetString: GetString::<Identity, OFFSET>,
@@ -281,7 +281,7 @@ pub struct IJsonValue_Vtbl {
     pub GetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJsonValueStatics, IJsonValueStatics_Vtbl, 0x5f6b544a_2f53_48e1_91a3_f78b50a6345c);
+windows_core::imp::define_interface!(IJsonValueStatics, IJsonValueStatics_Vtbl, 0x5f6b544a_2f53_48e1_91a3_f78b50a6345c, inspectable);
 impl windows_core::RuntimeType for IJsonValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonValueStatics");
@@ -296,7 +296,7 @@ pub struct IJsonValueStatics_Vtbl {
     pub CreateNumberValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJsonValueStatics2, IJsonValueStatics2_Vtbl, 0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0);
+windows_core::imp::define_interface!(IJsonValueStatics2, IJsonValueStatics2_Vtbl, 0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0, inspectable);
 impl windows_core::RuntimeType for IJsonValueStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonValueStatics2");
@@ -517,6 +517,7 @@ impl windows_core::RuntimeType for JsonArray {
 unsafe impl windows_core::Interface for JsonArray {
     type Vtable = <IJsonArray as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IJsonArray as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for JsonArray {
     const NAME: &'static str = "Windows.Data.Json.JsonArray";
@@ -811,6 +812,7 @@ impl windows_core::RuntimeType for JsonObject {
 unsafe impl windows_core::Interface for JsonObject {
     type Vtable = <IJsonObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IJsonObject as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for JsonObject {
     const NAME: &'static str = "Windows.Data.Json.JsonObject";
@@ -940,6 +942,7 @@ impl windows_core::RuntimeType for JsonValue {
 unsafe impl windows_core::Interface for JsonValue {
     type Vtable = <IJsonValue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IJsonValue as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for JsonValue {
     const NAME: &'static str = "Windows.Data.Json.JsonValue";

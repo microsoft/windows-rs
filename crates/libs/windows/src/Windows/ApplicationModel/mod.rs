@@ -131,6 +131,7 @@ impl windows_core::RuntimeType for AppDisplayInfo {
 unsafe impl windows_core::Interface for AppDisplayInfo {
     type Vtable = <IAppDisplayInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppDisplayInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppDisplayInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppDisplayInfo";
@@ -236,6 +237,7 @@ impl windows_core::RuntimeType for AppInfo {
 unsafe impl windows_core::Interface for AppInfo {
     type Vtable = <IAppInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppInfo";
@@ -365,6 +367,7 @@ impl windows_core::RuntimeType for AppInstallerInfo {
 unsafe impl windows_core::Interface for AppInstallerInfo {
     type Vtable = <IAppInstallerInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppInstallerInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppInstallerInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppInstallerInfo";
@@ -444,6 +447,7 @@ impl windows_core::RuntimeType for AppInstance {
 unsafe impl windows_core::Interface for AppInstance {
     type Vtable = <IAppInstance as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppInstance as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppInstance {
     const NAME: &'static str = "Windows.ApplicationModel.AppInstance";
@@ -494,6 +498,7 @@ impl windows_core::RuntimeType for EnteredBackgroundEventArgs {
 unsafe impl windows_core::Interface for EnteredBackgroundEventArgs {
     type Vtable = <IEnteredBackgroundEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnteredBackgroundEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for EnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.EnteredBackgroundEventArgs";
@@ -567,6 +572,7 @@ impl windows_core::RuntimeType for FindRelatedPackagesOptions {
 unsafe impl windows_core::Interface for FindRelatedPackagesOptions {
     type Vtable = <IFindRelatedPackagesOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFindRelatedPackagesOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FindRelatedPackagesOptions {
     const NAME: &'static str = "Windows.ApplicationModel.FindRelatedPackagesOptions";
@@ -613,6 +619,7 @@ impl windows_core::RuntimeType for FullTrustProcessLaunchResult {
 unsafe impl windows_core::Interface for FullTrustProcessLaunchResult {
     type Vtable = <IFullTrustProcessLaunchResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFullTrustProcessLaunchResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FullTrustProcessLaunchResult {
     const NAME: &'static str = "Windows.ApplicationModel.FullTrustProcessLaunchResult";
@@ -669,7 +676,7 @@ impl FullTrustProcessLauncher {
 impl windows_core::RuntimeName for FullTrustProcessLauncher {
     const NAME: &'static str = "Windows.ApplicationModel.FullTrustProcessLauncher";
 }
-windows_core::imp::define_interface!(IAppDisplayInfo, IAppDisplayInfo_Vtbl, 0x1aeb1103_e4d4_41aa_a4f6_c4a276e79eac);
+windows_core::imp::define_interface!(IAppDisplayInfo, IAppDisplayInfo_Vtbl, 0x1aeb1103_e4d4_41aa_a4f6_c4a276e79eac, inspectable);
 impl windows_core::RuntimeType for IAppDisplayInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IAppDisplayInfo");
@@ -685,7 +692,7 @@ pub struct IAppDisplayInfo_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetLogo: usize,
 }
-windows_core::imp::define_interface!(IAppInfo, IAppInfo_Vtbl, 0xcf7f59b3_6a09_4de8_a6c0_5792d56880d1);
+windows_core::imp::define_interface!(IAppInfo, IAppInfo_Vtbl, 0xcf7f59b3_6a09_4de8_a6c0_5792d56880d1, inspectable);
 impl windows_core::RuntimeType for IAppInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IAppInfo");
@@ -699,7 +706,7 @@ pub struct IAppInfo_Vtbl {
     pub DisplayInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppInfo2, IAppInfo2_Vtbl, 0xbe4b1f5a_2098_431b_bd25_b30878748d47);
+windows_core::imp::define_interface!(IAppInfo2, IAppInfo2_Vtbl, 0xbe4b1f5a_2098_431b_bd25_b30878748d47, inspectable);
 impl windows_core::RuntimeType for IAppInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IAppInfo2");
@@ -710,7 +717,7 @@ pub struct IAppInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppInfo3, IAppInfo3_Vtbl, 0x09a78e46_93a4_46de_9397_0843b57115ea);
+windows_core::imp::define_interface!(IAppInfo3, IAppInfo3_Vtbl, 0x09a78e46_93a4_46de_9397_0843b57115ea, inspectable);
 impl windows_core::RuntimeType for IAppInfo3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IAppInfo3");
@@ -721,7 +728,7 @@ pub struct IAppInfo3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExecutionContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppExecutionContext) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppInfo4, IAppInfo4_Vtbl, 0x2f34bdeb_1609_4554_9f33_12e1e803e0d4);
+windows_core::imp::define_interface!(IAppInfo4, IAppInfo4_Vtbl, 0x2f34bdeb_1609_4554_9f33_12e1e803e0d4, inspectable);
 impl windows_core::RuntimeType for IAppInfo4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IAppInfo4");
@@ -732,7 +739,7 @@ pub struct IAppInfo4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SupportedFileExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppInfoStatics, IAppInfoStatics_Vtbl, 0xcf1f782a_e48b_4f0c_9b0b_79c3f8957dd7);
+windows_core::imp::define_interface!(IAppInfoStatics, IAppInfoStatics_Vtbl, 0xcf1f782a_e48b_4f0c_9b0b_79c3f8957dd7, inspectable);
 impl windows_core::RuntimeType for IAppInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IAppInfoStatics");
@@ -748,7 +755,7 @@ pub struct IAppInfoStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     GetFromAppUserModelIdForUser: usize,
 }
-windows_core::imp::define_interface!(IAppInstallerInfo, IAppInstallerInfo_Vtbl, 0x29ab2ac0_d4f6_42a3_adcd_d6583c659508);
+windows_core::imp::define_interface!(IAppInstallerInfo, IAppInstallerInfo_Vtbl, 0x29ab2ac0_d4f6_42a3_adcd_d6583c659508, inspectable);
 impl windows_core::RuntimeType for IAppInstallerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IAppInstallerInfo");
@@ -759,7 +766,7 @@ pub struct IAppInstallerInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppInstallerInfo2, IAppInstallerInfo2_Vtbl, 0xd20f1388_8256_597c_8511_c84ec50d5e2b);
+windows_core::imp::define_interface!(IAppInstallerInfo2, IAppInstallerInfo2_Vtbl, 0xd20f1388_8256_597c_8511_c84ec50d5e2b, inspectable);
 impl windows_core::RuntimeType for IAppInstallerInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IAppInstallerInfo2");
@@ -784,7 +791,7 @@ pub struct IAppInstallerInfo2_Vtbl {
     pub OptionalPackageUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PolicySource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppInstallerPolicySource) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppInstance, IAppInstance_Vtbl, 0x675f2b47_f25f_4532_9fd6_3633e0634d01);
+windows_core::imp::define_interface!(IAppInstance, IAppInstance_Vtbl, 0x675f2b47_f25f_4532_9fd6_3633e0634d01, inspectable);
 impl windows_core::RuntimeType for IAppInstance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IAppInstance");
@@ -797,7 +804,7 @@ pub struct IAppInstance_Vtbl {
     pub IsCurrentInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub RedirectActivationTo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppInstanceStatics, IAppInstanceStatics_Vtbl, 0x9d11e77f_9ea6_47af_a6ec_46784c5ba254);
+windows_core::imp::define_interface!(IAppInstanceStatics, IAppInstanceStatics_Vtbl, 0x9d11e77f_9ea6_47af_a6ec_46784c5ba254, inspectable);
 impl windows_core::RuntimeType for IAppInstanceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IAppInstanceStatics");
@@ -815,7 +822,7 @@ pub struct IAppInstanceStatics_Vtbl {
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetInstances: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDesignModeStatics, IDesignModeStatics_Vtbl, 0x2c3893cc_f81a_4e7a_b857_76a80887e185);
+windows_core::imp::define_interface!(IDesignModeStatics, IDesignModeStatics_Vtbl, 0x2c3893cc_f81a_4e7a_b857_76a80887e185, inspectable);
 impl windows_core::RuntimeType for IDesignModeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IDesignModeStatics");
@@ -826,7 +833,7 @@ pub struct IDesignModeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesignModeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDesignModeStatics2, IDesignModeStatics2_Vtbl, 0x80cf8137_b064_4858_bec8_3eba22357535);
+windows_core::imp::define_interface!(IDesignModeStatics2, IDesignModeStatics2_Vtbl, 0x80cf8137_b064_4858_bec8_3eba22357535, inspectable);
 impl windows_core::RuntimeType for IDesignModeStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IDesignModeStatics2");
@@ -837,7 +844,7 @@ pub struct IDesignModeStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesignMode2Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEnteredBackgroundEventArgs, IEnteredBackgroundEventArgs_Vtbl, 0xf722dcc2_9827_403d_aaed_ecca9ac17398);
+windows_core::imp::define_interface!(IEnteredBackgroundEventArgs, IEnteredBackgroundEventArgs_Vtbl, 0xf722dcc2_9827_403d_aaed_ecca9ac17398, inspectable);
 impl windows_core::RuntimeType for IEnteredBackgroundEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IEnteredBackgroundEventArgs");
@@ -875,7 +882,7 @@ impl IEnteredBackgroundEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IEnteredBackgroundEventArgs, OFFSET>(), GetDeferral: GetDeferral::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetDeferral: GetDeferral::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IEnteredBackgroundEventArgs as windows_core::Interface>::IID
@@ -887,7 +894,7 @@ pub struct IEnteredBackgroundEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFindRelatedPackagesOptions, IFindRelatedPackagesOptions_Vtbl, 0x41dd7eea_b335_521f_b96c_5ea07f5b7329);
+windows_core::imp::define_interface!(IFindRelatedPackagesOptions, IFindRelatedPackagesOptions_Vtbl, 0x41dd7eea_b335_521f_b96c_5ea07f5b7329, inspectable);
 impl windows_core::RuntimeType for IFindRelatedPackagesOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IFindRelatedPackagesOptions");
@@ -907,7 +914,7 @@ pub struct IFindRelatedPackagesOptions_Vtbl {
     pub IncludeResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIncludeResources: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFindRelatedPackagesOptionsFactory, IFindRelatedPackagesOptionsFactory_Vtbl, 0xd7d17254_a4fd_55c4_98cf_f2710b7d8be2);
+windows_core::imp::define_interface!(IFindRelatedPackagesOptionsFactory, IFindRelatedPackagesOptionsFactory_Vtbl, 0xd7d17254_a4fd_55c4_98cf_f2710b7d8be2, inspectable);
 impl windows_core::RuntimeType for IFindRelatedPackagesOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IFindRelatedPackagesOptionsFactory");
@@ -918,7 +925,7 @@ pub struct IFindRelatedPackagesOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, PackageRelationship, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFullTrustProcessLaunchResult, IFullTrustProcessLaunchResult_Vtbl, 0x8917d888_edfb_515f_8e22_5ebceb69dfd9);
+windows_core::imp::define_interface!(IFullTrustProcessLaunchResult, IFullTrustProcessLaunchResult_Vtbl, 0x8917d888_edfb_515f_8e22_5ebceb69dfd9, inspectable);
 impl windows_core::RuntimeType for IFullTrustProcessLaunchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IFullTrustProcessLaunchResult");
@@ -930,7 +937,7 @@ pub struct IFullTrustProcessLaunchResult_Vtbl {
     pub LaunchResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FullTrustLaunchResult) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFullTrustProcessLauncherStatics, IFullTrustProcessLauncherStatics_Vtbl, 0xd784837f_1100_3c6b_a455_f6262cc331b6);
+windows_core::imp::define_interface!(IFullTrustProcessLauncherStatics, IFullTrustProcessLauncherStatics_Vtbl, 0xd784837f_1100_3c6b_a455_f6262cc331b6, inspectable);
 impl windows_core::RuntimeType for IFullTrustProcessLauncherStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IFullTrustProcessLauncherStatics");
@@ -944,7 +951,7 @@ pub struct IFullTrustProcessLauncherStatics_Vtbl {
     pub LaunchFullTrustProcessForAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LaunchFullTrustProcessForAppWithParametersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFullTrustProcessLauncherStatics2, IFullTrustProcessLauncherStatics2_Vtbl, 0x8b8ed72f_b65c_56cf_a1a7_2bf77cbc6ea8);
+windows_core::imp::define_interface!(IFullTrustProcessLauncherStatics2, IFullTrustProcessLauncherStatics2_Vtbl, 0x8b8ed72f_b65c_56cf_a1a7_2bf77cbc6ea8, inspectable);
 impl windows_core::RuntimeType for IFullTrustProcessLauncherStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IFullTrustProcessLauncherStatics2");
@@ -956,7 +963,7 @@ pub struct IFullTrustProcessLauncherStatics2_Vtbl {
     pub LaunchFullTrustProcessForCurrentAppWithArgumentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LaunchFullTrustProcessForAppWithArgumentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILeavingBackgroundEventArgs, ILeavingBackgroundEventArgs_Vtbl, 0x39c6ec9a_ae6e_46f9_a07a_cfc23f88733e);
+windows_core::imp::define_interface!(ILeavingBackgroundEventArgs, ILeavingBackgroundEventArgs_Vtbl, 0x39c6ec9a_ae6e_46f9_a07a_cfc23f88733e, inspectable);
 impl windows_core::RuntimeType for ILeavingBackgroundEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ILeavingBackgroundEventArgs");
@@ -994,7 +1001,7 @@ impl ILeavingBackgroundEventArgs_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ILeavingBackgroundEventArgs, OFFSET>(), GetDeferral: GetDeferral::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetDeferral: GetDeferral::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ILeavingBackgroundEventArgs as windows_core::Interface>::IID
@@ -1006,7 +1013,7 @@ pub struct ILeavingBackgroundEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILimitedAccessFeatureRequestResult, ILimitedAccessFeatureRequestResult_Vtbl, 0xd45156a6_1e24_5ddd_abb4_6188aba4d5bf);
+windows_core::imp::define_interface!(ILimitedAccessFeatureRequestResult, ILimitedAccessFeatureRequestResult_Vtbl, 0xd45156a6_1e24_5ddd_abb4_6188aba4d5bf, inspectable);
 impl windows_core::RuntimeType for ILimitedAccessFeatureRequestResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ILimitedAccessFeatureRequestResult");
@@ -1019,7 +1026,7 @@ pub struct ILimitedAccessFeatureRequestResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LimitedAccessFeatureStatus) -> windows_core::HRESULT,
     pub EstimatedRemovalDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILimitedAccessFeaturesStatics, ILimitedAccessFeaturesStatics_Vtbl, 0x8be612d4_302b_5fbf_a632_1a99e43e8925);
+windows_core::imp::define_interface!(ILimitedAccessFeaturesStatics, ILimitedAccessFeaturesStatics_Vtbl, 0x8be612d4_302b_5fbf_a632_1a99e43e8925, inspectable);
 impl windows_core::RuntimeType for ILimitedAccessFeaturesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ILimitedAccessFeaturesStatics");
@@ -1030,7 +1037,7 @@ pub struct ILimitedAccessFeaturesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryUnlockFeature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackage, IPackage_Vtbl, 0x163c792f_bd75_413c_bf23_b1fe7b95d825);
+windows_core::imp::define_interface!(IPackage, IPackage_Vtbl, 0x163c792f_bd75_413c_bf23_b1fe7b95d825, inspectable);
 impl windows_core::RuntimeType for IPackage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackage");
@@ -1047,7 +1054,7 @@ pub struct IPackage_Vtbl {
     pub IsFramework: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Dependencies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackage2, IPackage2_Vtbl, 0xa6612fb6_7688_4ace_95fb_359538e7aa01);
+windows_core::imp::define_interface!(IPackage2, IPackage2_Vtbl, 0xa6612fb6_7688_4ace_95fb_359538e7aa01, inspectable);
 impl windows_core::RuntimeType for IPackage2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackage2");
@@ -1064,7 +1071,7 @@ pub struct IPackage2_Vtbl {
     pub IsBundle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsDevelopmentMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackage3, IPackage3_Vtbl, 0x5f738b61_f86a_4917_93d1_f1ee9d3b35d9);
+windows_core::imp::define_interface!(IPackage3, IPackage3_Vtbl, 0x5f738b61_f86a_4917_93d1_f1ee9d3b35d9, inspectable);
 impl windows_core::RuntimeType for IPackage3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackage3");
@@ -1080,7 +1087,7 @@ pub struct IPackage3_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Core"))]
     GetAppListEntriesAsync: usize,
 }
-windows_core::imp::define_interface!(IPackage4, IPackage4_Vtbl, 0x65aed1ae_b95b_450c_882b_6255187f397e);
+windows_core::imp::define_interface!(IPackage4, IPackage4_Vtbl, 0x65aed1ae_b95b_450c_882b_6255187f397e, inspectable);
 impl windows_core::RuntimeType for IPackage4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackage4");
@@ -1093,7 +1100,7 @@ pub struct IPackage4_Vtbl {
     pub IsOptional: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub VerifyContentIntegrityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackage5, IPackage5_Vtbl, 0x0e842dd4_d9ac_45ed_9a1e_74ce056b2635);
+windows_core::imp::define_interface!(IPackage5, IPackage5_Vtbl, 0x0e842dd4_d9ac_45ed_9a1e_74ce056b2635, inspectable);
 impl windows_core::RuntimeType for IPackage5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackage5");
@@ -1108,7 +1115,7 @@ pub struct IPackage5_Vtbl {
     pub StageContentGroupsWithPriorityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInUseAsync: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackage6, IPackage6_Vtbl, 0x8b1ad942_12d7_4754_ae4e_638cbc0e3a2e);
+windows_core::imp::define_interface!(IPackage6, IPackage6_Vtbl, 0x8b1ad942_12d7_4754_ae4e_638cbc0e3a2e, inspectable);
 impl windows_core::RuntimeType for IPackage6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackage6");
@@ -1120,7 +1127,7 @@ pub struct IPackage6_Vtbl {
     pub GetAppInstallerInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CheckUpdateAvailabilityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackage7, IPackage7_Vtbl, 0x86ff8d31_a2e4_45e0_9732_283a6d88fde1);
+windows_core::imp::define_interface!(IPackage7, IPackage7_Vtbl, 0x86ff8d31_a2e4_45e0_9732_283a6d88fde1, inspectable);
 impl windows_core::RuntimeType for IPackage7 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackage7");
@@ -1138,7 +1145,7 @@ pub struct IPackage7_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     EffectiveLocation: usize,
 }
-windows_core::imp::define_interface!(IPackage8, IPackage8_Vtbl, 0x2c584f7b_ce2a_4be6_a093_77cfbb2a7ea1);
+windows_core::imp::define_interface!(IPackage8, IPackage8_Vtbl, 0x2c584f7b_ce2a_4be6_a093_77cfbb2a7ea1, inspectable);
 impl windows_core::RuntimeType for IPackage8 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackage8");
@@ -1175,7 +1182,7 @@ pub struct IPackage8_Vtbl {
     GetAppListEntries: usize,
     pub IsStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackage9, IPackage9_Vtbl, 0xd5ab224f_d7e1_49ec_90ce_720cdbd02e9c);
+windows_core::imp::define_interface!(IPackage9, IPackage9_Vtbl, 0xd5ab224f_d7e1_49ec_90ce_720cdbd02e9c, inspectable);
 impl windows_core::RuntimeType for IPackage9 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackage9");
@@ -1187,7 +1194,7 @@ pub struct IPackage9_Vtbl {
     pub FindRelatedPackages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SourceUriSchemeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageCatalog, IPackageCatalog_Vtbl, 0x230a3751_9de3_4445_be74_91fb325abefe);
+windows_core::imp::define_interface!(IPackageCatalog, IPackageCatalog_Vtbl, 0x230a3751_9de3_4445_be74_91fb325abefe, inspectable);
 impl windows_core::RuntimeType for IPackageCatalog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageCatalog");
@@ -1207,7 +1214,7 @@ pub struct IPackageCatalog_Vtbl {
     pub PackageStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemovePackageStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageCatalog2, IPackageCatalog2_Vtbl, 0x96a60c36_8ff7_4344_b6bf_ee64c2207ed2);
+windows_core::imp::define_interface!(IPackageCatalog2, IPackageCatalog2_Vtbl, 0x96a60c36_8ff7_4344_b6bf_ee64c2207ed2, inspectable);
 impl windows_core::RuntimeType for IPackageCatalog2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageCatalog2");
@@ -1220,7 +1227,7 @@ pub struct IPackageCatalog2_Vtbl {
     pub RemovePackageContentGroupStaging: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub AddOptionalPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageCatalog3, IPackageCatalog3_Vtbl, 0x96dd5c88_8837_43f9_9015_033434ba14f3);
+windows_core::imp::define_interface!(IPackageCatalog3, IPackageCatalog3_Vtbl, 0x96dd5c88_8837_43f9_9015_033434ba14f3, inspectable);
 impl windows_core::RuntimeType for IPackageCatalog3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageCatalog3");
@@ -1231,7 +1238,7 @@ pub struct IPackageCatalog3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoveOptionalPackagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageCatalog4, IPackageCatalog4_Vtbl, 0xc37c399b_44cc_4b7b_8baf_796c04ead3b9);
+windows_core::imp::define_interface!(IPackageCatalog4, IPackageCatalog4_Vtbl, 0xc37c399b_44cc_4b7b_8baf_796c04ead3b9, inspectable);
 impl windows_core::RuntimeType for IPackageCatalog4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageCatalog4");
@@ -1243,7 +1250,7 @@ pub struct IPackageCatalog4_Vtbl {
     pub AddResourcePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, AddResourcePackageOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveResourcePackagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageCatalogAddOptionalPackageResult, IPackageCatalogAddOptionalPackageResult_Vtbl, 0x3bf10cd4_b4df_47b3_a963_e2fa832f7dd3);
+windows_core::imp::define_interface!(IPackageCatalogAddOptionalPackageResult, IPackageCatalogAddOptionalPackageResult_Vtbl, 0x3bf10cd4_b4df_47b3_a963_e2fa832f7dd3, inspectable);
 impl windows_core::RuntimeType for IPackageCatalogAddOptionalPackageResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageCatalogAddOptionalPackageResult");
@@ -1255,7 +1262,7 @@ pub struct IPackageCatalogAddOptionalPackageResult_Vtbl {
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageCatalogAddResourcePackageResult, IPackageCatalogAddResourcePackageResult_Vtbl, 0x9636ce0d_3e17_493f_aa08_ccec6fdef699);
+windows_core::imp::define_interface!(IPackageCatalogAddResourcePackageResult, IPackageCatalogAddResourcePackageResult_Vtbl, 0x9636ce0d_3e17_493f_aa08_ccec6fdef699, inspectable);
 impl windows_core::RuntimeType for IPackageCatalogAddResourcePackageResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageCatalogAddResourcePackageResult");
@@ -1268,7 +1275,7 @@ pub struct IPackageCatalogAddResourcePackageResult_Vtbl {
     pub IsComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageCatalogRemoveOptionalPackagesResult, IPackageCatalogRemoveOptionalPackagesResult_Vtbl, 0x29d2f97b_d974_4e64_9359_22cadfd79828);
+windows_core::imp::define_interface!(IPackageCatalogRemoveOptionalPackagesResult, IPackageCatalogRemoveOptionalPackagesResult_Vtbl, 0x29d2f97b_d974_4e64_9359_22cadfd79828, inspectable);
 impl windows_core::RuntimeType for IPackageCatalogRemoveOptionalPackagesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageCatalogRemoveOptionalPackagesResult");
@@ -1280,7 +1287,7 @@ pub struct IPackageCatalogRemoveOptionalPackagesResult_Vtbl {
     pub PackagesRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageCatalogRemoveResourcePackagesResult, IPackageCatalogRemoveResourcePackagesResult_Vtbl, 0xae719709_1a52_4321_87b3_e5a1a17981a7);
+windows_core::imp::define_interface!(IPackageCatalogRemoveResourcePackagesResult, IPackageCatalogRemoveResourcePackagesResult_Vtbl, 0xae719709_1a52_4321_87b3_e5a1a17981a7, inspectable);
 impl windows_core::RuntimeType for IPackageCatalogRemoveResourcePackagesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageCatalogRemoveResourcePackagesResult");
@@ -1292,7 +1299,7 @@ pub struct IPackageCatalogRemoveResourcePackagesResult_Vtbl {
     pub PackagesRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageCatalogStatics, IPackageCatalogStatics_Vtbl, 0xa18c9696_e65b_4634_ba21_5e63eb7244a7);
+windows_core::imp::define_interface!(IPackageCatalogStatics, IPackageCatalogStatics_Vtbl, 0xa18c9696_e65b_4634_ba21_5e63eb7244a7, inspectable);
 impl windows_core::RuntimeType for IPackageCatalogStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageCatalogStatics");
@@ -1304,7 +1311,7 @@ pub struct IPackageCatalogStatics_Vtbl {
     pub OpenForCurrentPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OpenForCurrentUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageCatalogStatics2, IPackageCatalogStatics2_Vtbl, 0x4c11c159_9a28_598c_b185_55e1899b2be4);
+windows_core::imp::define_interface!(IPackageCatalogStatics2, IPackageCatalogStatics2_Vtbl, 0x4c11c159_9a28_598c_b185_55e1899b2be4, inspectable);
 impl windows_core::RuntimeType for IPackageCatalogStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageCatalogStatics2");
@@ -1345,7 +1352,7 @@ impl IPackageCatalogStatics2_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IPackageCatalogStatics2, OFFSET>(), OpenForPackage: OpenForPackage::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), OpenForPackage: OpenForPackage::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPackageCatalogStatics2 as windows_core::Interface>::IID
@@ -1357,7 +1364,7 @@ pub struct IPackageCatalogStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageContentGroup, IPackageContentGroup_Vtbl, 0x8f62695d_120a_4798_b5e1_5800dda8f2e1);
+windows_core::imp::define_interface!(IPackageContentGroup, IPackageContentGroup_Vtbl, 0x8f62695d_120a_4798_b5e1_5800dda8f2e1, inspectable);
 impl windows_core::RuntimeType for IPackageContentGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageContentGroup");
@@ -1371,7 +1378,7 @@ pub struct IPackageContentGroup_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PackageContentGroupState) -> windows_core::HRESULT,
     pub IsRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageContentGroupStagingEventArgs, IPackageContentGroupStagingEventArgs_Vtbl, 0x3d7bc27e_6f27_446c_986e_d4733d4d9113);
+windows_core::imp::define_interface!(IPackageContentGroupStagingEventArgs, IPackageContentGroupStagingEventArgs_Vtbl, 0x3d7bc27e_6f27_446c_986e_d4733d4d9113, inspectable);
 impl windows_core::RuntimeType for IPackageContentGroupStagingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageContentGroupStagingEventArgs");
@@ -1388,7 +1395,7 @@ pub struct IPackageContentGroupStagingEventArgs_Vtbl {
     pub ContentGroupName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsContentGroupRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageContentGroupStatics, IPackageContentGroupStatics_Vtbl, 0x70ee7619_5f12_4b92_b9ea_6ccada13bc75);
+windows_core::imp::define_interface!(IPackageContentGroupStatics, IPackageContentGroupStatics_Vtbl, 0x70ee7619_5f12_4b92_b9ea_6ccada13bc75, inspectable);
 impl windows_core::RuntimeType for IPackageContentGroupStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageContentGroupStatics");
@@ -1399,7 +1406,7 @@ pub struct IPackageContentGroupStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequiredGroupName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageId, IPackageId_Vtbl, 0x1adb665e_37c7_4790_9980_dd7ae74e8bb2);
+windows_core::imp::define_interface!(IPackageId, IPackageId_Vtbl, 0x1adb665e_37c7_4790_9980_dd7ae74e8bb2, inspectable);
 impl windows_core::RuntimeType for IPackageId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageId");
@@ -1420,7 +1427,7 @@ pub struct IPackageId_Vtbl {
     pub FullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageIdWithMetadata, IPackageIdWithMetadata_Vtbl, 0x40577a7c_0c9e_443d_9074_855f5ce0a08d);
+windows_core::imp::define_interface!(IPackageIdWithMetadata, IPackageIdWithMetadata_Vtbl, 0x40577a7c_0c9e_443d_9074_855f5ce0a08d, inspectable);
 impl windows_core::RuntimeType for IPackageIdWithMetadata {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageIdWithMetadata");
@@ -1432,7 +1439,7 @@ pub struct IPackageIdWithMetadata_Vtbl {
     pub ProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageInstallingEventArgs, IPackageInstallingEventArgs_Vtbl, 0x97741eb7_ab7a_401a_8b61_eb0e7faff237);
+windows_core::imp::define_interface!(IPackageInstallingEventArgs, IPackageInstallingEventArgs_Vtbl, 0x97741eb7_ab7a_401a_8b61_eb0e7faff237, inspectable);
 impl windows_core::RuntimeType for IPackageInstallingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageInstallingEventArgs");
@@ -1447,7 +1454,7 @@ pub struct IPackageInstallingEventArgs_Vtbl {
     pub IsComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageStagingEventArgs, IPackageStagingEventArgs_Vtbl, 0x1041682d_54e2_4f51_b828_9ef7046c210f);
+windows_core::imp::define_interface!(IPackageStagingEventArgs, IPackageStagingEventArgs_Vtbl, 0x1041682d_54e2_4f51_b828_9ef7046c210f, inspectable);
 impl windows_core::RuntimeType for IPackageStagingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageStagingEventArgs");
@@ -1462,7 +1469,7 @@ pub struct IPackageStagingEventArgs_Vtbl {
     pub IsComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageStatics, IPackageStatics_Vtbl, 0x4e534bdf_2960_4878_97a4_9624deb72f2d);
+windows_core::imp::define_interface!(IPackageStatics, IPackageStatics_Vtbl, 0x4e534bdf_2960_4878_97a4_9624deb72f2d, inspectable);
 impl windows_core::RuntimeType for IPackageStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageStatics");
@@ -1473,7 +1480,7 @@ pub struct IPackageStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageStatus, IPackageStatus_Vtbl, 0x5fe74f71_a365_4c09_a02d_046d525ea1da);
+windows_core::imp::define_interface!(IPackageStatus, IPackageStatus_Vtbl, 0x5fe74f71_a365_4c09_a02d_046d525ea1da, inspectable);
 impl windows_core::RuntimeType for IPackageStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageStatus");
@@ -1495,7 +1502,7 @@ pub struct IPackageStatus_Vtbl {
     pub Servicing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub DeploymentInProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageStatus2, IPackageStatus2_Vtbl, 0xf428fa93_7c56_4862_acfa_abaedcc0694d);
+windows_core::imp::define_interface!(IPackageStatus2, IPackageStatus2_Vtbl, 0xf428fa93_7c56_4862_acfa_abaedcc0694d, inspectable);
 impl windows_core::RuntimeType for IPackageStatus2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageStatus2");
@@ -1506,7 +1513,7 @@ pub struct IPackageStatus2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPartiallyStaged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageStatusChangedEventArgs, IPackageStatusChangedEventArgs_Vtbl, 0x437d714d_bd80_4a70_bc50_f6e796509575);
+windows_core::imp::define_interface!(IPackageStatusChangedEventArgs, IPackageStatusChangedEventArgs_Vtbl, 0x437d714d_bd80_4a70_bc50_f6e796509575, inspectable);
 impl windows_core::RuntimeType for IPackageStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageStatusChangedEventArgs");
@@ -1517,7 +1524,7 @@ pub struct IPackageStatusChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageUninstallingEventArgs, IPackageUninstallingEventArgs_Vtbl, 0x4443aa52_ab22_44cd_82bb_4ec9b827367a);
+windows_core::imp::define_interface!(IPackageUninstallingEventArgs, IPackageUninstallingEventArgs_Vtbl, 0x4443aa52_ab22_44cd_82bb_4ec9b827367a, inspectable);
 impl windows_core::RuntimeType for IPackageUninstallingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageUninstallingEventArgs");
@@ -1532,7 +1539,7 @@ pub struct IPackageUninstallingEventArgs_Vtbl {
     pub IsComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageUpdateAvailabilityResult, IPackageUpdateAvailabilityResult_Vtbl, 0x114e5009_199a_48a1_a079_313c45634a71);
+windows_core::imp::define_interface!(IPackageUpdateAvailabilityResult, IPackageUpdateAvailabilityResult_Vtbl, 0x114e5009_199a_48a1_a079_313c45634a71, inspectable);
 impl windows_core::RuntimeType for IPackageUpdateAvailabilityResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageUpdateAvailabilityResult");
@@ -1544,7 +1551,7 @@ pub struct IPackageUpdateAvailabilityResult_Vtbl {
     pub Availability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PackageUpdateAvailability) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageUpdatingEventArgs, IPackageUpdatingEventArgs_Vtbl, 0xcd7b4228_fd74_443e_b114_23e677b0e86f);
+windows_core::imp::define_interface!(IPackageUpdatingEventArgs, IPackageUpdatingEventArgs_Vtbl, 0xcd7b4228_fd74_443e_b114_23e677b0e86f, inspectable);
 impl windows_core::RuntimeType for IPackageUpdatingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageUpdatingEventArgs");
@@ -1560,7 +1567,7 @@ pub struct IPackageUpdatingEventArgs_Vtbl {
     pub IsComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPackageWithMetadata, IPackageWithMetadata_Vtbl, 0x95949780_1de9_40f2_b452_0de9f1910012);
+windows_core::imp::define_interface!(IPackageWithMetadata, IPackageWithMetadata_Vtbl, 0x95949780_1de9_40f2_b452_0de9f1910012, inspectable);
 impl windows_core::RuntimeType for IPackageWithMetadata {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IPackageWithMetadata");
@@ -1573,7 +1580,7 @@ pub struct IPackageWithMetadata_Vtbl {
     pub GetThumbnailToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Launch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStartupTask, IStartupTask_Vtbl, 0xf75c23c8_b5f2_4f6c_88dd_36cb1d599d17);
+windows_core::imp::define_interface!(IStartupTask, IStartupTask_Vtbl, 0xf75c23c8_b5f2_4f6c_88dd_36cb1d599d17, inspectable);
 impl windows_core::RuntimeType for IStartupTask {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IStartupTask");
@@ -1587,7 +1594,7 @@ pub struct IStartupTask_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StartupTaskState) -> windows_core::HRESULT,
     pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStartupTaskStatics, IStartupTaskStatics_Vtbl, 0xee5b60bd_a148_41a7_b26e_e8b88a1e62f8);
+windows_core::imp::define_interface!(IStartupTaskStatics, IStartupTaskStatics_Vtbl, 0xee5b60bd_a148_41a7_b26e_e8b88a1e62f8, inspectable);
 impl windows_core::RuntimeType for IStartupTaskStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.IStartupTaskStatics");
@@ -1599,7 +1606,7 @@ pub struct IStartupTaskStatics_Vtbl {
     pub GetForCurrentPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISuspendingDeferral, ISuspendingDeferral_Vtbl, 0x59140509_8bc9_4eb4_b636_dabdc4f46f66);
+windows_core::imp::define_interface!(ISuspendingDeferral, ISuspendingDeferral_Vtbl, 0x59140509_8bc9_4eb4_b636_dabdc4f46f66, inspectable);
 impl windows_core::RuntimeType for ISuspendingDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ISuspendingDeferral");
@@ -1624,7 +1631,7 @@ impl ISuspendingDeferral_Vtbl {
                 ISuspendingDeferral_Impl::Complete(this).into()
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ISuspendingDeferral, OFFSET>(), Complete: Complete::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Complete: Complete::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISuspendingDeferral as windows_core::Interface>::IID
@@ -1636,7 +1643,7 @@ pub struct ISuspendingDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISuspendingEventArgs, ISuspendingEventArgs_Vtbl, 0x96061c05_2dba_4d08_b0bd_2b30a131c6aa);
+windows_core::imp::define_interface!(ISuspendingEventArgs, ISuspendingEventArgs_Vtbl, 0x96061c05_2dba_4d08_b0bd_2b30a131c6aa, inspectable);
 impl windows_core::RuntimeType for ISuspendingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ISuspendingEventArgs");
@@ -1674,10 +1681,7 @@ impl ISuspendingEventArgs_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISuspendingEventArgs, OFFSET>(),
-            SuspendingOperation: SuspendingOperation::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), SuspendingOperation: SuspendingOperation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISuspendingEventArgs as windows_core::Interface>::IID
@@ -1689,7 +1693,7 @@ pub struct ISuspendingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SuspendingOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISuspendingOperation, ISuspendingOperation_Vtbl, 0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a);
+windows_core::imp::define_interface!(ISuspendingOperation, ISuspendingOperation_Vtbl, 0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a, inspectable);
 impl windows_core::RuntimeType for ISuspendingOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ISuspendingOperation");
@@ -1750,7 +1754,7 @@ impl ISuspendingOperation_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISuspendingOperation, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetDeferral: GetDeferral::<Identity, OFFSET>,
             Deadline: Deadline::<Identity, OFFSET>,
         }
@@ -1784,6 +1788,7 @@ impl windows_core::RuntimeType for LeavingBackgroundEventArgs {
 unsafe impl windows_core::Interface for LeavingBackgroundEventArgs {
     type Vtable = <ILeavingBackgroundEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILeavingBackgroundEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LeavingBackgroundEventArgs";
@@ -1820,6 +1825,7 @@ impl windows_core::RuntimeType for LimitedAccessFeatureRequestResult {
 unsafe impl windows_core::Interface for LimitedAccessFeatureRequestResult {
     type Vtable = <ILimitedAccessFeatureRequestResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILimitedAccessFeatureRequestResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LimitedAccessFeatureRequestResult {
     const NAME: &'static str = "Windows.ApplicationModel.LimitedAccessFeatureRequestResult";
@@ -2192,6 +2198,7 @@ impl windows_core::RuntimeType for Package {
 unsafe impl windows_core::Interface for Package {
     type Vtable = <IPackage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackage as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Package {
     const NAME: &'static str = "Windows.ApplicationModel.Package";
@@ -2359,6 +2366,7 @@ impl windows_core::RuntimeType for PackageCatalog {
 unsafe impl windows_core::Interface for PackageCatalog {
     type Vtable = <IPackageCatalog as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageCatalog as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalog";
@@ -2387,6 +2395,7 @@ impl windows_core::RuntimeType for PackageCatalogAddOptionalPackageResult {
 unsafe impl windows_core::Interface for PackageCatalogAddOptionalPackageResult {
     type Vtable = <IPackageCatalogAddOptionalPackageResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageCatalogAddOptionalPackageResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageCatalogAddOptionalPackageResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult";
@@ -2421,6 +2430,7 @@ impl windows_core::RuntimeType for PackageCatalogAddResourcePackageResult {
 unsafe impl windows_core::Interface for PackageCatalogAddResourcePackageResult {
     type Vtable = <IPackageCatalogAddResourcePackageResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageCatalogAddResourcePackageResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageCatalogAddResourcePackageResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogAddResourcePackageResult";
@@ -2451,6 +2461,7 @@ impl windows_core::RuntimeType for PackageCatalogRemoveOptionalPackagesResult {
 unsafe impl windows_core::Interface for PackageCatalogRemoveOptionalPackagesResult {
     type Vtable = <IPackageCatalogRemoveOptionalPackagesResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageCatalogRemoveOptionalPackagesResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageCatalogRemoveOptionalPackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult";
@@ -2479,6 +2490,7 @@ impl windows_core::RuntimeType for PackageCatalogRemoveResourcePackagesResult {
 unsafe impl windows_core::Interface for PackageCatalogRemoveResourcePackagesResult {
     type Vtable = <IPackageCatalogRemoveResourcePackagesResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageCatalogRemoveResourcePackagesResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageCatalogRemoveResourcePackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult";
@@ -2531,6 +2543,7 @@ impl windows_core::RuntimeType for PackageContentGroup {
 unsafe impl windows_core::Interface for PackageContentGroup {
     type Vtable = <IPackageContentGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageContentGroup as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageContentGroup {
     const NAME: &'static str = "Windows.ApplicationModel.PackageContentGroup";
@@ -2591,6 +2604,7 @@ impl windows_core::RuntimeType for PackageContentGroupStagingEventArgs {
 unsafe impl windows_core::Interface for PackageContentGroupStagingEventArgs {
     type Vtable = <IPackageContentGroupStagingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageContentGroupStagingEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageContentGroupStagingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageContentGroupStagingEventArgs";
@@ -2688,6 +2702,7 @@ impl windows_core::RuntimeType for PackageId {
 unsafe impl windows_core::Interface for PackageId {
     type Vtable = <IPackageId as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageId as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageId {
     const NAME: &'static str = "Windows.ApplicationModel.PackageId";
@@ -2748,6 +2763,7 @@ impl windows_core::RuntimeType for PackageInstallingEventArgs {
 unsafe impl windows_core::Interface for PackageInstallingEventArgs {
     type Vtable = <IPackageInstallingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageInstallingEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageInstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageInstallingEventArgs";
@@ -2828,6 +2844,7 @@ impl windows_core::RuntimeType for PackageStagingEventArgs {
 unsafe impl windows_core::Interface for PackageStagingEventArgs {
     type Vtable = <IPackageStagingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageStagingEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageStagingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStagingEventArgs";
@@ -2925,6 +2942,7 @@ impl windows_core::RuntimeType for PackageStatus {
 unsafe impl windows_core::Interface for PackageStatus {
     type Vtable = <IPackageStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageStatus as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageStatus {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStatus";
@@ -2949,6 +2967,7 @@ impl windows_core::RuntimeType for PackageStatusChangedEventArgs {
 unsafe impl windows_core::Interface for PackageStatusChangedEventArgs {
     type Vtable = <IPackageStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageStatusChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStatusChangedEventArgs";
@@ -2997,6 +3016,7 @@ impl windows_core::RuntimeType for PackageUninstallingEventArgs {
 unsafe impl windows_core::Interface for PackageUninstallingEventArgs {
     type Vtable = <IPackageUninstallingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageUninstallingEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUninstallingEventArgs";
@@ -3044,6 +3064,7 @@ impl windows_core::RuntimeType for PackageUpdateAvailabilityResult {
 unsafe impl windows_core::Interface for PackageUpdateAvailabilityResult {
     type Vtable = <IPackageUpdateAvailabilityResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageUpdateAvailabilityResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageUpdateAvailabilityResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUpdateAvailabilityResult";
@@ -3098,6 +3119,7 @@ impl windows_core::RuntimeType for PackageUpdatingEventArgs {
 unsafe impl windows_core::Interface for PackageUpdatingEventArgs {
     type Vtable = <IPackageUpdatingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageUpdatingEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUpdatingEventArgs";
@@ -3168,6 +3190,7 @@ impl windows_core::RuntimeType for StartupTask {
 unsafe impl windows_core::Interface for StartupTask {
     type Vtable = <IStartupTask as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStartupTask as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StartupTask {
     const NAME: &'static str = "Windows.ApplicationModel.StartupTask";
@@ -3206,6 +3229,7 @@ impl windows_core::RuntimeType for SuspendingDeferral {
 unsafe impl windows_core::Interface for SuspendingDeferral {
     type Vtable = <ISuspendingDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISuspendingDeferral as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingDeferral";
@@ -3230,6 +3254,7 @@ impl windows_core::RuntimeType for SuspendingEventArgs {
 unsafe impl windows_core::Interface for SuspendingEventArgs {
     type Vtable = <ISuspendingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISuspendingEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingEventArgs";
@@ -3260,6 +3285,7 @@ impl windows_core::RuntimeType for SuspendingOperation {
 unsafe impl windows_core::Interface for SuspendingOperation {
     type Vtable = <ISuspendingOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISuspendingOperation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SuspendingOperation {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingOperation";

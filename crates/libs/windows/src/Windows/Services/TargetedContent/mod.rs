@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ITargetedContentAction, ITargetedContentAction_Vtbl, 0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
+windows_core::imp::define_interface!(ITargetedContentAction, ITargetedContentAction_Vtbl, 0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6, inspectable);
 impl windows_core::RuntimeType for ITargetedContentAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentAction");
@@ -9,7 +9,7 @@ pub struct ITargetedContentAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InvokeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentAvailabilityChangedEventArgs, ITargetedContentAvailabilityChangedEventArgs_Vtbl, 0xe0f59d26_5927_4450_965c_1ceb7becde65);
+windows_core::imp::define_interface!(ITargetedContentAvailabilityChangedEventArgs, ITargetedContentAvailabilityChangedEventArgs_Vtbl, 0xe0f59d26_5927_4450_965c_1ceb7becde65, inspectable);
 impl windows_core::RuntimeType for ITargetedContentAvailabilityChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentAvailabilityChangedEventArgs");
@@ -20,7 +20,7 @@ pub struct ITargetedContentAvailabilityChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentChangedEventArgs, ITargetedContentChangedEventArgs_Vtbl, 0x99d488c9_587e_4586_8ef7_b54ca9453a16);
+windows_core::imp::define_interface!(ITargetedContentChangedEventArgs, ITargetedContentChangedEventArgs_Vtbl, 0x99d488c9_587e_4586_8ef7_b54ca9453a16, inspectable);
 impl windows_core::RuntimeType for ITargetedContentChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentChangedEventArgs");
@@ -32,7 +32,7 @@ pub struct ITargetedContentChangedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HasPreviousContentExpired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentCollection, ITargetedContentCollection_Vtbl, 0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
+windows_core::imp::define_interface!(ITargetedContentCollection, ITargetedContentCollection_Vtbl, 0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d, inspectable);
 impl windows_core::RuntimeType for ITargetedContentCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentCollection");
@@ -49,7 +49,7 @@ pub struct ITargetedContentCollection_Vtbl {
     pub Collections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentContainer, ITargetedContentContainer_Vtbl, 0xbc2494c9_8837_47c2_850f_d79d64595926);
+windows_core::imp::define_interface!(ITargetedContentContainer, ITargetedContentContainer_Vtbl, 0xbc2494c9_8837_47c2_850f_d79d64595926, inspectable);
 impl windows_core::RuntimeType for ITargetedContentContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentContainer");
@@ -64,7 +64,7 @@ pub struct ITargetedContentContainer_Vtbl {
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SelectSingleObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentContainerStatics, ITargetedContentContainerStatics_Vtbl, 0x5b47e7fb_2140_4c1f_a736_c59583f227d8);
+windows_core::imp::define_interface!(ITargetedContentContainerStatics, ITargetedContentContainerStatics_Vtbl, 0x5b47e7fb_2140_4c1f_a736_c59583f227d8, inspectable);
 impl windows_core::RuntimeType for ITargetedContentContainerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentContainerStatics");
@@ -76,7 +76,7 @@ pub struct ITargetedContentContainerStatics_Vtbl {
     pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::define_interface!(ITargetedContentImage, ITargetedContentImage_Vtbl, 0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
+windows_core::imp::define_interface!(ITargetedContentImage, ITargetedContentImage_Vtbl, 0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2, inspectable);
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for ITargetedContentImage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -90,7 +90,7 @@ pub struct ITargetedContentImage_Vtbl {
     pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentItem, ITargetedContentItem_Vtbl, 0x38168dc4_276c_4c32_96ba_565c6e406e74);
+windows_core::imp::define_interface!(ITargetedContentItem, ITargetedContentItem_Vtbl, 0x38168dc4_276c_4c32_96ba_565c6e406e74, inspectable);
 impl windows_core::RuntimeType for ITargetedContentItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentItem");
@@ -106,7 +106,7 @@ pub struct ITargetedContentItem_Vtbl {
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Collections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentItemState, ITargetedContentItemState_Vtbl, 0x73935454_4c65_4b47_a441_472de53c79b6);
+windows_core::imp::define_interface!(ITargetedContentItemState, ITargetedContentItemState_Vtbl, 0x73935454_4c65_4b47_a441_472de53c79b6, inspectable);
 impl windows_core::RuntimeType for ITargetedContentItemState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentItemState");
@@ -118,7 +118,7 @@ pub struct ITargetedContentItemState_Vtbl {
     pub ShouldDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub AppInstallationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TargetedContentAppInstallationState) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentObject, ITargetedContentObject_Vtbl, 0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
+windows_core::imp::define_interface!(ITargetedContentObject, ITargetedContentObject_Vtbl, 0x041d7969_2212_42d1_9dfa_88a8e3033aa3, inspectable);
 impl windows_core::RuntimeType for ITargetedContentObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentObject");
@@ -132,7 +132,7 @@ pub struct ITargetedContentObject_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentStateChangedEventArgs, ITargetedContentStateChangedEventArgs_Vtbl, 0x9a1cef3d_8073_4416_8df2_546835a6414f);
+windows_core::imp::define_interface!(ITargetedContentStateChangedEventArgs, ITargetedContentStateChangedEventArgs_Vtbl, 0x9a1cef3d_8073_4416_8df2_546835a6414f, inspectable);
 impl windows_core::RuntimeType for ITargetedContentStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentStateChangedEventArgs");
@@ -143,7 +143,7 @@ pub struct ITargetedContentStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentSubscription, ITargetedContentSubscription_Vtbl, 0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
+windows_core::imp::define_interface!(ITargetedContentSubscription, ITargetedContentSubscription_Vtbl, 0x882c2c49_c652_4c7a_acad_1f7fa2986c73, inspectable);
 impl windows_core::RuntimeType for ITargetedContentSubscription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentSubscription");
@@ -161,7 +161,7 @@ pub struct ITargetedContentSubscription_Vtbl {
     pub StateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentSubscriptionOptions, ITargetedContentSubscriptionOptions_Vtbl, 0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
+windows_core::imp::define_interface!(ITargetedContentSubscriptionOptions, ITargetedContentSubscriptionOptions_Vtbl, 0x61ee6ad0_2c83_421b_8467_413eaf1aeb97, inspectable);
 impl windows_core::RuntimeType for ITargetedContentSubscriptionOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentSubscriptionOptions");
@@ -177,7 +177,7 @@ pub struct ITargetedContentSubscriptionOptions_Vtbl {
     pub LocalFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentSubscriptionStatics, ITargetedContentSubscriptionStatics_Vtbl, 0xfaddfe80_360d_4916_b53c_7ea27090d02a);
+windows_core::imp::define_interface!(ITargetedContentSubscriptionStatics, ITargetedContentSubscriptionStatics_Vtbl, 0xfaddfe80_360d_4916_b53c_7ea27090d02a, inspectable);
 impl windows_core::RuntimeType for ITargetedContentSubscriptionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentSubscriptionStatics");
@@ -189,7 +189,7 @@ pub struct ITargetedContentSubscriptionStatics_Vtbl {
     pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentValue, ITargetedContentValue_Vtbl, 0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
+windows_core::imp::define_interface!(ITargetedContentValue, ITargetedContentValue_Vtbl, 0xaafde4b3_4215_4bf8_867f_43f04865f9bf, inspectable);
 impl windows_core::RuntimeType for ITargetedContentValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.TargetedContent.ITargetedContentValue");
@@ -245,6 +245,7 @@ impl windows_core::RuntimeType for TargetedContentAction {
 unsafe impl windows_core::Interface for TargetedContentAction {
     type Vtable = <ITargetedContentAction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentAction as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAction";
@@ -299,6 +300,7 @@ impl windows_core::RuntimeType for TargetedContentAvailabilityChangedEventArgs {
 unsafe impl windows_core::Interface for TargetedContentAvailabilityChangedEventArgs {
     type Vtable = <ITargetedContentAvailabilityChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentAvailabilityChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs";
@@ -329,6 +331,7 @@ impl windows_core::RuntimeType for TargetedContentChangedEventArgs {
 unsafe impl windows_core::Interface for TargetedContentChangedEventArgs {
     type Vtable = <ITargetedContentChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentChangedEventArgs";
@@ -383,6 +386,7 @@ impl windows_core::RuntimeType for TargetedContentCollection {
 unsafe impl windows_core::Interface for TargetedContentCollection {
     type Vtable = <ITargetedContentCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentCollection as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentCollection";
@@ -441,6 +445,7 @@ impl windows_core::RuntimeType for TargetedContentContainer {
 unsafe impl windows_core::Interface for TargetedContentContainer {
     type Vtable = <ITargetedContentContainer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentContainer as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentContainer";
@@ -470,6 +475,7 @@ impl windows_core::RuntimeType for TargetedContentFile {
 unsafe impl windows_core::Interface for TargetedContentFile {
     type Vtable = <super::super::Storage::Streams::IRandomAccessStreamReference as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Storage::Streams::IRandomAccessStreamReference as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for TargetedContentFile {
@@ -517,6 +523,7 @@ impl windows_core::RuntimeType for TargetedContentImage {
 unsafe impl windows_core::Interface for TargetedContentImage {
     type Vtable = <ITargetedContentImage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentImage as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for TargetedContentImage {
@@ -593,6 +600,7 @@ impl windows_core::RuntimeType for TargetedContentItem {
 unsafe impl windows_core::Interface for TargetedContentItem {
     type Vtable = <ITargetedContentItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentItem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItem";
@@ -623,6 +631,7 @@ impl windows_core::RuntimeType for TargetedContentItemState {
 unsafe impl windows_core::Interface for TargetedContentItemState {
     type Vtable = <ITargetedContentItemState as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentItemState as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentItemState {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItemState";
@@ -665,6 +674,7 @@ impl windows_core::RuntimeType for TargetedContentObject {
 unsafe impl windows_core::Interface for TargetedContentObject {
     type Vtable = <ITargetedContentObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentObject as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentObject {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentObject";
@@ -704,6 +714,7 @@ impl windows_core::RuntimeType for TargetedContentStateChangedEventArgs {
 unsafe impl windows_core::Interface for TargetedContentStateChangedEventArgs {
     type Vtable = <ITargetedContentStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentStateChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs";
@@ -792,6 +803,7 @@ impl windows_core::RuntimeType for TargetedContentSubscription {
 unsafe impl windows_core::Interface for TargetedContentSubscription {
     type Vtable = <ITargetedContentSubscription as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentSubscription as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscription";
@@ -840,6 +852,7 @@ impl windows_core::RuntimeType for TargetedContentSubscriptionOptions {
 unsafe impl windows_core::Interface for TargetedContentSubscriptionOptions {
     type Vtable = <ITargetedContentSubscriptionOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentSubscriptionOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscriptionOptions";
@@ -958,6 +971,7 @@ impl windows_core::RuntimeType for TargetedContentValue {
 unsafe impl windows_core::Interface for TargetedContentValue {
     type Vtable = <ITargetedContentValue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentValue as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentValue";

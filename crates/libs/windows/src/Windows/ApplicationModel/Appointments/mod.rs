@@ -291,6 +291,7 @@ impl windows_core::RuntimeType for Appointment {
 unsafe impl windows_core::Interface for Appointment {
     type Vtable = <IAppointment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointment as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Appointment {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.Appointment";
@@ -652,6 +653,7 @@ impl windows_core::RuntimeType for AppointmentCalendar {
 unsafe impl windows_core::Interface for AppointmentCalendar {
     type Vtable = <IAppointmentCalendar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendar as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendar {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentCalendar";
@@ -751,6 +753,7 @@ impl windows_core::RuntimeType for AppointmentCalendarSyncManager {
 unsafe impl windows_core::Interface for AppointmentCalendarSyncManager {
     type Vtable = <IAppointmentCalendarSyncManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarSyncManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentCalendarSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager";
@@ -800,6 +803,7 @@ impl windows_core::RuntimeType for AppointmentConflictResult {
 unsafe impl windows_core::Interface for AppointmentConflictResult {
     type Vtable = <IAppointmentConflictResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentConflictResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentConflictResult {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentConflictResult";
@@ -918,6 +922,7 @@ impl windows_core::RuntimeType for AppointmentException {
 unsafe impl windows_core::Interface for AppointmentException {
     type Vtable = <IAppointmentException as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentException as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentException {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentException";
@@ -984,6 +989,7 @@ impl windows_core::RuntimeType for AppointmentInvitee {
 unsafe impl windows_core::Interface for AppointmentInvitee {
     type Vtable = <IAppointmentInvitee as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentInvitee as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentInvitee {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentInvitee";
@@ -1239,6 +1245,7 @@ impl windows_core::RuntimeType for AppointmentManagerForUser {
 unsafe impl windows_core::Interface for AppointmentManagerForUser {
     type Vtable = <IAppointmentManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentManagerForUser as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentManagerForUser";
@@ -1282,6 +1289,7 @@ impl windows_core::RuntimeType for AppointmentOrganizer {
 unsafe impl windows_core::Interface for AppointmentOrganizer {
     type Vtable = <IAppointmentParticipant as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentParticipant as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentOrganizer {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentOrganizer";
@@ -1608,6 +1616,7 @@ impl windows_core::RuntimeType for AppointmentRecurrence {
 unsafe impl windows_core::Interface for AppointmentRecurrence {
     type Vtable = <IAppointmentRecurrence as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentRecurrence as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentRecurrence {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentRecurrence";
@@ -1840,6 +1849,7 @@ impl windows_core::RuntimeType for AppointmentStore {
 unsafe impl windows_core::Interface for AppointmentStore {
     type Vtable = <IAppointmentStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStore as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentStore {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStore";
@@ -1892,6 +1902,7 @@ impl windows_core::RuntimeType for AppointmentStoreChange {
 unsafe impl windows_core::Interface for AppointmentStoreChange {
     type Vtable = <IAppointmentStoreChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreChange as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentStoreChange {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChange";
@@ -1925,6 +1936,7 @@ impl windows_core::RuntimeType for AppointmentStoreChangeReader {
 unsafe impl windows_core::Interface for AppointmentStoreChangeReader {
     type Vtable = <IAppointmentStoreChangeReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreChangeReader as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentStoreChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader";
@@ -1962,6 +1974,7 @@ impl windows_core::RuntimeType for AppointmentStoreChangeTracker {
 unsafe impl windows_core::Interface for AppointmentStoreChangeTracker {
     type Vtable = <IAppointmentStoreChangeTracker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreChangeTracker as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentStoreChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker";
@@ -2002,6 +2015,7 @@ impl windows_core::RuntimeType for AppointmentStoreChangedDeferral {
 unsafe impl windows_core::Interface for AppointmentStoreChangedDeferral {
     type Vtable = <IAppointmentStoreChangedDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreChangedDeferral as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentStoreChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral";
@@ -2026,6 +2040,7 @@ impl windows_core::RuntimeType for AppointmentStoreChangedEventArgs {
 unsafe impl windows_core::Interface for AppointmentStoreChangedEventArgs {
     type Vtable = <IAppointmentStoreChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs";
@@ -2042,6 +2057,7 @@ impl windows_core::RuntimeType for AppointmentStoreNotificationTriggerDetails {
 unsafe impl windows_core::Interface for AppointmentStoreNotificationTriggerDetails {
     type Vtable = <IAppointmentStoreNotificationTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreNotificationTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails";
@@ -2175,13 +2191,14 @@ impl windows_core::RuntimeType for FindAppointmentsOptions {
 unsafe impl windows_core::Interface for FindAppointmentsOptions {
     type Vtable = <IFindAppointmentsOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFindAppointmentsOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FindAppointmentsOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.FindAppointmentsOptions";
 }
 unsafe impl Send for FindAppointmentsOptions {}
 unsafe impl Sync for FindAppointmentsOptions {}
-windows_core::imp::define_interface!(IAppointment, IAppointment_Vtbl, 0xdd002f2f_2bdd_4076_90a3_22c275312965);
+windows_core::imp::define_interface!(IAppointment, IAppointment_Vtbl, 0xdd002f2f_2bdd_4076_90a3_22c275312965, inspectable);
 impl windows_core::RuntimeType for IAppointment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointment");
@@ -2216,7 +2233,7 @@ pub struct IAppointment_Vtbl {
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointment2, IAppointment2_Vtbl, 0x5e85983c_540f_3452_9b5c_0dd7ad4c65a2);
+windows_core::imp::define_interface!(IAppointment2, IAppointment2_Vtbl, 0x5e85983c_540f_3452_9b5c_0dd7ad4c65a2, inspectable);
 impl windows_core::RuntimeType for IAppointment2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointment2");
@@ -2246,7 +2263,7 @@ pub struct IAppointment2_Vtbl {
     pub IsOrganizedByUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsOrganizedByUser: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointment3, IAppointment3_Vtbl, 0xbfcc45a9_8961_4991_934b_c48768e5a96c);
+windows_core::imp::define_interface!(IAppointment3, IAppointment3_Vtbl, 0xbfcc45a9_8961_4991_934b_c48768e5a96c, inspectable);
 impl windows_core::RuntimeType for IAppointment3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointment3");
@@ -2261,7 +2278,7 @@ pub struct IAppointment3_Vtbl {
     pub DetailsKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppointmentDetailsKind) -> windows_core::HRESULT,
     pub SetDetailsKind: unsafe extern "system" fn(*mut core::ffi::c_void, AppointmentDetailsKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendar, IAppointmentCalendar_Vtbl, 0x5273819d_8339_3d4f_a02f_64084452bb5d);
+windows_core::imp::define_interface!(IAppointmentCalendar, IAppointmentCalendar_Vtbl, 0x5273819d_8339_3d4f_a02f_64084452bb5d, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendar {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentCalendar");
@@ -2300,7 +2317,7 @@ pub struct IAppointmentCalendar_Vtbl {
     pub DeleteAppointmentInstanceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SaveAppointmentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendar2, IAppointmentCalendar2_Vtbl, 0x18e7e422_2467_4e1c_a459_d8a29303d092);
+windows_core::imp::define_interface!(IAppointmentCalendar2, IAppointmentCalendar2_Vtbl, 0x18e7e422_2467_4e1c_a459_d8a29303d092, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendar2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentCalendar2");
@@ -2338,7 +2355,7 @@ pub struct IAppointmentCalendar2_Vtbl {
     pub TryProposeNewTimeForMeetingAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, windows_time::TimeSpan, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryUpdateMeetingResponseAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, AppointmentParticipantResponse, *mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendar3, IAppointmentCalendar3_Vtbl, 0xeb23d22b_a685_42ae_8495_b3119adb4167);
+windows_core::imp::define_interface!(IAppointmentCalendar3, IAppointmentCalendar3_Vtbl, 0xeb23d22b_a685_42ae_8495_b3119adb4167, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendar3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentCalendar3");
@@ -2349,7 +2366,7 @@ pub struct IAppointmentCalendar3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RegisterSyncManagerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarSyncManager, IAppointmentCalendarSyncManager_Vtbl, 0x2b21b3a0_4aff_4392_bc5f_5645ffcffb17);
+windows_core::imp::define_interface!(IAppointmentCalendarSyncManager, IAppointmentCalendarSyncManager_Vtbl, 0x2b21b3a0_4aff_4392_bc5f_5645ffcffb17, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarSyncManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager");
@@ -2365,7 +2382,7 @@ pub struct IAppointmentCalendarSyncManager_Vtbl {
     pub SyncStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSyncStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentCalendarSyncManager2, IAppointmentCalendarSyncManager2_Vtbl, 0x647528ad_0d29_4c7c_aaa7_bf996805537c);
+windows_core::imp::define_interface!(IAppointmentCalendarSyncManager2, IAppointmentCalendarSyncManager2_Vtbl, 0x647528ad_0d29_4c7c_aaa7_bf996805537c, inspectable);
 impl windows_core::RuntimeType for IAppointmentCalendarSyncManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager2");
@@ -2378,7 +2395,7 @@ pub struct IAppointmentCalendarSyncManager2_Vtbl {
     pub SetLastSuccessfulSyncTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
     pub SetLastAttemptedSyncTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentConflictResult, IAppointmentConflictResult_Vtbl, 0xd5cdf0be_2f2f_3b7d_af0a_a7e20f3a46e3);
+windows_core::imp::define_interface!(IAppointmentConflictResult, IAppointmentConflictResult_Vtbl, 0xd5cdf0be_2f2f_3b7d_af0a_a7e20f3a46e3, inspectable);
 impl windows_core::RuntimeType for IAppointmentConflictResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentConflictResult");
@@ -2390,7 +2407,7 @@ pub struct IAppointmentConflictResult_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppointmentConflictType) -> windows_core::HRESULT,
     pub Date: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentException, IAppointmentException_Vtbl, 0xa2076767_16f6_4bce_9f5a_8600b8019fcb);
+windows_core::imp::define_interface!(IAppointmentException, IAppointmentException_Vtbl, 0xa2076767_16f6_4bce_9f5a_8600b8019fcb, inspectable);
 impl windows_core::RuntimeType for IAppointmentException {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentException");
@@ -2403,7 +2420,7 @@ pub struct IAppointmentException_Vtbl {
     pub ExceptionProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentInvitee, IAppointmentInvitee_Vtbl, 0x13bf0796_9842_495b_b0e7_ef8f79c0701d);
+windows_core::imp::define_interface!(IAppointmentInvitee, IAppointmentInvitee_Vtbl, 0x13bf0796_9842_495b_b0e7_ef8f79c0701d, inspectable);
 impl windows_core::RuntimeType for IAppointmentInvitee {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentInvitee");
@@ -2417,7 +2434,7 @@ pub struct IAppointmentInvitee_Vtbl {
     pub Response: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppointmentParticipantResponse) -> windows_core::HRESULT,
     pub SetResponse: unsafe extern "system" fn(*mut core::ffi::c_void, AppointmentParticipantResponse) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentManagerForUser, IAppointmentManagerForUser_Vtbl, 0x70261423_73cc_4660_b318_b01365302a03);
+windows_core::imp::define_interface!(IAppointmentManagerForUser, IAppointmentManagerForUser_Vtbl, 0x70261423_73cc_4660_b318_b01365302a03, inspectable);
 impl windows_core::RuntimeType for IAppointmentManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentManagerForUser");
@@ -2459,7 +2476,7 @@ pub struct IAppointmentManagerForUser_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IAppointmentManagerStatics, IAppointmentManagerStatics_Vtbl, 0x3a30fa01_5c40_499d_b33f_a43050f74fc4);
+windows_core::imp::define_interface!(IAppointmentManagerStatics, IAppointmentManagerStatics_Vtbl, 0x3a30fa01_5c40_499d_b33f_a43050f74fc4, inspectable);
 impl windows_core::RuntimeType for IAppointmentManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentManagerStatics");
@@ -2493,7 +2510,7 @@ pub struct IAppointmentManagerStatics_Vtbl {
     ShowRemoveAppointmentWithPlacementAndDateAsync: usize,
     pub ShowTimeFrameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentManagerStatics2, IAppointmentManagerStatics2_Vtbl, 0x0a81f60d_d04f_4034_af72_a36573b45ff0);
+windows_core::imp::define_interface!(IAppointmentManagerStatics2, IAppointmentManagerStatics2_Vtbl, 0x0a81f60d_d04f_4034_af72_a36573b45ff0, inspectable);
 impl windows_core::RuntimeType for IAppointmentManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentManagerStatics2");
@@ -2507,7 +2524,7 @@ pub struct IAppointmentManagerStatics2_Vtbl {
     pub ShowEditNewAppointmentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, AppointmentStoreAccessType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentManagerStatics3, IAppointmentManagerStatics3_Vtbl, 0x2f9ae09c_b34c_4dc7_a35d_cafd88ae3ec6);
+windows_core::imp::define_interface!(IAppointmentManagerStatics3, IAppointmentManagerStatics3_Vtbl, 0x2f9ae09c_b34c_4dc7_a35d_cafd88ae3ec6, inspectable);
 impl windows_core::RuntimeType for IAppointmentManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentManagerStatics3");
@@ -2521,7 +2538,7 @@ pub struct IAppointmentManagerStatics3_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::define_interface!(IAppointmentParticipant, IAppointmentParticipant_Vtbl, 0x615e2902_9718_467b_83fb_b293a19121de);
+windows_core::imp::define_interface!(IAppointmentParticipant, IAppointmentParticipant_Vtbl, 0x615e2902_9718_467b_83fb_b293a19121de, inspectable);
 impl windows_core::RuntimeType for IAppointmentParticipant {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentParticipant");
@@ -2603,7 +2620,7 @@ impl IAppointmentParticipant_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAppointmentParticipant, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             DisplayName: DisplayName::<Identity, OFFSET>,
             SetDisplayName: SetDisplayName::<Identity, OFFSET>,
             Address: Address::<Identity, OFFSET>,
@@ -2623,7 +2640,7 @@ pub struct IAppointmentParticipant_Vtbl {
     pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentPropertiesStatics, IAppointmentPropertiesStatics_Vtbl, 0x25141fe9_68ae_3aae_855f_bc4441caa234);
+windows_core::imp::define_interface!(IAppointmentPropertiesStatics, IAppointmentPropertiesStatics_Vtbl, 0x25141fe9_68ae_3aae_855f_bc4441caa234, inspectable);
 impl windows_core::RuntimeType for IAppointmentPropertiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentPropertiesStatics");
@@ -2656,7 +2673,7 @@ pub struct IAppointmentPropertiesStatics_Vtbl {
     pub Invitees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DefaultProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentPropertiesStatics2, IAppointmentPropertiesStatics2_Vtbl, 0xdffc434b_b017_45dd_8af5_d163d10801bb);
+windows_core::imp::define_interface!(IAppointmentPropertiesStatics2, IAppointmentPropertiesStatics2_Vtbl, 0xdffc434b_b017_45dd_8af5_d163d10801bb, inspectable);
 impl windows_core::RuntimeType for IAppointmentPropertiesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentPropertiesStatics2");
@@ -2669,7 +2686,7 @@ pub struct IAppointmentPropertiesStatics2_Vtbl {
     pub RemoteChangeNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DetailsKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentRecurrence, IAppointmentRecurrence_Vtbl, 0xd87b3e83_15a6_487b_b959_0c361e60e954);
+windows_core::imp::define_interface!(IAppointmentRecurrence, IAppointmentRecurrence_Vtbl, 0xd87b3e83_15a6_487b_b959_0c361e60e954, inspectable);
 impl windows_core::RuntimeType for IAppointmentRecurrence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentRecurrence");
@@ -2695,7 +2712,7 @@ pub struct IAppointmentRecurrence_Vtbl {
     pub Day: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetDay: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentRecurrence2, IAppointmentRecurrence2_Vtbl, 0x3df3a2e0_05a7_4f50_9f86_b03f9436254d);
+windows_core::imp::define_interface!(IAppointmentRecurrence2, IAppointmentRecurrence2_Vtbl, 0x3df3a2e0_05a7_4f50_9f86_b03f9436254d, inspectable);
 impl windows_core::RuntimeType for IAppointmentRecurrence2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentRecurrence2");
@@ -2708,7 +2725,7 @@ pub struct IAppointmentRecurrence2_Vtbl {
     pub TimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentRecurrence3, IAppointmentRecurrence3_Vtbl, 0x89ff96d9_da4d_4a17_8dd2_1cebc2b5ff9d);
+windows_core::imp::define_interface!(IAppointmentRecurrence3, IAppointmentRecurrence3_Vtbl, 0x89ff96d9_da4d_4a17_8dd2_1cebc2b5ff9d, inspectable);
 impl windows_core::RuntimeType for IAppointmentRecurrence3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentRecurrence3");
@@ -2719,7 +2736,7 @@ pub struct IAppointmentRecurrence3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CalendarIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStore, IAppointmentStore_Vtbl, 0xa461918c_7a47_4d96_96c9_15cd8a05a735);
+windows_core::imp::define_interface!(IAppointmentStore, IAppointmentStore_Vtbl, 0xa461918c_7a47_4d96_96c9_15cd8a05a735, inspectable);
 impl windows_core::RuntimeType for IAppointmentStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStore");
@@ -2756,7 +2773,7 @@ pub struct IAppointmentStore_Vtbl {
     pub ShowEditNewAppointmentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindLocalIdsFromRoamingIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStore2, IAppointmentStore2_Vtbl, 0x25c48c20_1c41_424f_8084_67c1cfe0a854);
+windows_core::imp::define_interface!(IAppointmentStore2, IAppointmentStore2_Vtbl, 0x25c48c20_1c41_424f_8084_67c1cfe0a854, inspectable);
 impl windows_core::RuntimeType for IAppointmentStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStore2");
@@ -2769,7 +2786,7 @@ pub struct IAppointmentStore2_Vtbl {
     pub RemoveStoreChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub CreateAppointmentCalendarInAccountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStore3, IAppointmentStore3_Vtbl, 0x4251940b_b078_470a_9a40_c2e01761f72f);
+windows_core::imp::define_interface!(IAppointmentStore3, IAppointmentStore3_Vtbl, 0x4251940b_b078_470a_9a40_c2e01761f72f, inspectable);
 impl windows_core::RuntimeType for IAppointmentStore3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStore3");
@@ -2780,7 +2797,7 @@ pub struct IAppointmentStore3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetChangeTracker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStoreChange, IAppointmentStoreChange_Vtbl, 0xa5a6e035_0a33_3654_8463_b543e90c3b79);
+windows_core::imp::define_interface!(IAppointmentStoreChange, IAppointmentStoreChange_Vtbl, 0xa5a6e035_0a33_3654_8463_b543e90c3b79, inspectable);
 impl windows_core::RuntimeType for IAppointmentStoreChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStoreChange");
@@ -2792,7 +2809,7 @@ pub struct IAppointmentStoreChange_Vtbl {
     pub Appointment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppointmentStoreChangeType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStoreChange2, IAppointmentStoreChange2_Vtbl, 0xb37d0dce_5211_4402_a608_a96fe70b8ee2);
+windows_core::imp::define_interface!(IAppointmentStoreChange2, IAppointmentStoreChange2_Vtbl, 0xb37d0dce_5211_4402_a608_a96fe70b8ee2, inspectable);
 impl windows_core::RuntimeType for IAppointmentStoreChange2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStoreChange2");
@@ -2803,7 +2820,7 @@ pub struct IAppointmentStoreChange2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppointmentCalendar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStoreChangeReader, IAppointmentStoreChangeReader_Vtbl, 0x8b2409f1_65f3_42a0_961d_4c209bf30370);
+windows_core::imp::define_interface!(IAppointmentStoreChangeReader, IAppointmentStoreChangeReader_Vtbl, 0x8b2409f1_65f3_42a0_961d_4c209bf30370, inspectable);
 impl windows_core::RuntimeType for IAppointmentStoreChangeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStoreChangeReader");
@@ -2816,7 +2833,7 @@ pub struct IAppointmentStoreChangeReader_Vtbl {
     pub AcceptChanges: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AcceptChangesThrough: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStoreChangeTracker, IAppointmentStoreChangeTracker_Vtbl, 0x1b25f4b1_8ece_4f17_93c8_e6412458fd5c);
+windows_core::imp::define_interface!(IAppointmentStoreChangeTracker, IAppointmentStoreChangeTracker_Vtbl, 0x1b25f4b1_8ece_4f17_93c8_e6412458fd5c, inspectable);
 impl windows_core::RuntimeType for IAppointmentStoreChangeTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStoreChangeTracker");
@@ -2829,7 +2846,7 @@ pub struct IAppointmentStoreChangeTracker_Vtbl {
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStoreChangeTracker2, IAppointmentStoreChangeTracker2_Vtbl, 0xb66aaf45_9542_4cf7_8550_eb370e0c08d3);
+windows_core::imp::define_interface!(IAppointmentStoreChangeTracker2, IAppointmentStoreChangeTracker2_Vtbl, 0xb66aaf45_9542_4cf7_8550_eb370e0c08d3, inspectable);
 impl windows_core::RuntimeType for IAppointmentStoreChangeTracker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStoreChangeTracker2");
@@ -2840,7 +2857,7 @@ pub struct IAppointmentStoreChangeTracker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsTracking: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStoreChangedDeferral, IAppointmentStoreChangedDeferral_Vtbl, 0x4cb82026_fedb_4bc3_9662_95a9befdf4df);
+windows_core::imp::define_interface!(IAppointmentStoreChangedDeferral, IAppointmentStoreChangedDeferral_Vtbl, 0x4cb82026_fedb_4bc3_9662_95a9befdf4df, inspectable);
 impl windows_core::RuntimeType for IAppointmentStoreChangedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStoreChangedDeferral");
@@ -2851,7 +2868,7 @@ pub struct IAppointmentStoreChangedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStoreChangedEventArgs, IAppointmentStoreChangedEventArgs_Vtbl, 0x2285f8b9_0791_417e_bfea_cc6d41636c8c);
+windows_core::imp::define_interface!(IAppointmentStoreChangedEventArgs, IAppointmentStoreChangedEventArgs_Vtbl, 0x2285f8b9_0791_417e_bfea_cc6d41636c8c, inspectable);
 impl windows_core::RuntimeType for IAppointmentStoreChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs");
@@ -2862,7 +2879,7 @@ pub struct IAppointmentStoreChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentStoreNotificationTriggerDetails, IAppointmentStoreNotificationTriggerDetails_Vtbl, 0x9b33cb11_c301_421e_afef_047ecfa76adb);
+windows_core::imp::define_interface!(IAppointmentStoreNotificationTriggerDetails, IAppointmentStoreNotificationTriggerDetails_Vtbl, 0x9b33cb11_c301_421e_afef_047ecfa76adb, inspectable);
 impl windows_core::RuntimeType for IAppointmentStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IAppointmentStoreNotificationTriggerDetails");
@@ -2872,7 +2889,7 @@ impl windows_core::RuntimeType for IAppointmentStoreNotificationTriggerDetails {
 pub struct IAppointmentStoreNotificationTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IFindAppointmentsOptions, IFindAppointmentsOptions_Vtbl, 0x55f7dc55_9942_3086_82b5_2cb29f64d5f5);
+windows_core::imp::define_interface!(IFindAppointmentsOptions, IFindAppointmentsOptions_Vtbl, 0x55f7dc55_9942_3086_82b5_2cb29f64d5f5, inspectable);
 impl windows_core::RuntimeType for IFindAppointmentsOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.IFindAppointmentsOptions");

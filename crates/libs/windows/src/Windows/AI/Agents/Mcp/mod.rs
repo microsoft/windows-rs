@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IMcpMessageFilterExperimental, IMcpMessageFilterExperimental_Vtbl, 0xc5f8f821_895c_5241_b45a_92e249a7d873);
+windows_core::imp::define_interface!(IMcpMessageFilterExperimental, IMcpMessageFilterExperimental_Vtbl, 0xc5f8f821_895c_5241_b45a_92e249a7d873, inspectable);
 impl windows_core::RuntimeType for IMcpMessageFilterExperimental {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.IMcpMessageFilterExperimental");
@@ -37,7 +37,7 @@ impl IMcpMessageFilterExperimental_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMcpMessageFilterExperimental, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, OFFSET>,
             OnMessage: OnMessage::<Identity, OFFSET>,
         }
@@ -53,7 +53,7 @@ pub struct IMcpMessageFilterExperimental_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub OnMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, McpMessageDirection, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMcpMessageFilterExperimental2, IMcpMessageFilterExperimental2_Vtbl, 0x8127e075_4652_5645_b2eb_0e5772ee5c6f);
+windows_core::imp::define_interface!(IMcpMessageFilterExperimental2, IMcpMessageFilterExperimental2_Vtbl, 0x8127e075_4652_5645_b2eb_0e5772ee5c6f, inspectable);
 impl windows_core::RuntimeType for IMcpMessageFilterExperimental2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.IMcpMessageFilterExperimental2");
@@ -104,7 +104,7 @@ impl IMcpMessageFilterExperimental2_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMcpMessageFilterExperimental2, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, OFFSET>,
             OnMessage: OnMessage::<Identity, OFFSET>,
         }
@@ -120,7 +120,7 @@ pub struct IMcpMessageFilterExperimental2_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub OnMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, McpMessageDirection, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMcpMessageFilterResponse, IMcpMessageFilterResponse_Vtbl, 0x363ce02c_7098_5e13_a408_7b43e1f452ac);
+windows_core::imp::define_interface!(IMcpMessageFilterResponse, IMcpMessageFilterResponse_Vtbl, 0x363ce02c_7098_5e13_a408_7b43e1f452ac, inspectable);
 impl windows_core::RuntimeType for IMcpMessageFilterResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.IMcpMessageFilterResponse");
@@ -130,7 +130,7 @@ impl windows_core::RuntimeType for IMcpMessageFilterResponse {
 pub struct IMcpMessageFilterResponse_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IMcpMessageFilterResponseExperimental, IMcpMessageFilterResponseExperimental_Vtbl, 0xe215b5f2_cb02_56cf_aab0_84aef65d1665);
+windows_core::imp::define_interface!(IMcpMessageFilterResponseExperimental, IMcpMessageFilterResponseExperimental_Vtbl, 0xe215b5f2_cb02_56cf_aab0_84aef65d1665, inspectable);
 impl windows_core::RuntimeType for IMcpMessageFilterResponseExperimental {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.IMcpMessageFilterResponseExperimental");
@@ -211,7 +211,7 @@ impl IMcpMessageFilterResponseExperimental_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMcpMessageFilterResponseExperimental, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             IsAllowed: IsAllowed::<Identity, OFFSET>,
             SetIsAllowed: SetIsAllowed::<Identity, OFFSET>,
             MessageIfNotAllowed: MessageIfNotAllowed::<Identity, OFFSET>,
@@ -231,7 +231,7 @@ pub struct IMcpMessageFilterResponseExperimental_Vtbl {
     pub MessageIfNotAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMessageIfNotAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMcpMessageFilterResponseExperimental2, IMcpMessageFilterResponseExperimental2_Vtbl, 0x10f4b099_6632_505a_a638_e704c7e47abf);
+windows_core::imp::define_interface!(IMcpMessageFilterResponseExperimental2, IMcpMessageFilterResponseExperimental2_Vtbl, 0x10f4b099_6632_505a_a638_e704c7e47abf, inspectable);
 impl windows_core::RuntimeType for IMcpMessageFilterResponseExperimental2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.IMcpMessageFilterResponseExperimental2");
@@ -266,11 +266,7 @@ impl IMcpMessageFilterResponseExperimental2_Vtbl {
                 IMcpMessageFilterResponseExperimental2_Impl::Reject(this, &*(&raw const reason).cast()).into()
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMcpMessageFilterResponseExperimental2, OFFSET>(),
-            Allow: Allow::<Identity, OFFSET>,
-            Reject: Reject::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Allow: Allow::<Identity, OFFSET>, Reject: Reject::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMcpMessageFilterResponseExperimental2 as windows_core::Interface>::IID
@@ -307,6 +303,7 @@ impl windows_core::RuntimeType for McpMessageFilterResponse {
 unsafe impl windows_core::Interface for McpMessageFilterResponse {
     type Vtable = <IMcpMessageFilterResponse as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMcpMessageFilterResponse as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for McpMessageFilterResponse {
     const NAME: &'static str = "Windows.AI.Agents.Mcp.McpMessageFilterResponse";

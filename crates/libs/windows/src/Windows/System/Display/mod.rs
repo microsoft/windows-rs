@@ -23,11 +23,12 @@ impl windows_core::RuntimeType for DisplayRequest {
 unsafe impl windows_core::Interface for DisplayRequest {
     type Vtable = <IDisplayRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";
 }
-windows_core::imp::define_interface!(IDisplayRequest, IDisplayRequest_Vtbl, 0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
+windows_core::imp::define_interface!(IDisplayRequest, IDisplayRequest_Vtbl, 0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0, inspectable);
 impl windows_core::RuntimeType for IDisplayRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Display.IDisplayRequest");

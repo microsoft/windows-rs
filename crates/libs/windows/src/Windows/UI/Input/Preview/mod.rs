@@ -2,7 +2,7 @@
 pub mod Injection;
 #[cfg(feature = "UI_Input_Preview_Text")]
 pub mod Text;
-windows_core::imp::define_interface!(IInputActivationListenerPreviewStatics, IInputActivationListenerPreviewStatics_Vtbl, 0xf0551ce5_0de6_5be0_a589_f737201a4582);
+windows_core::imp::define_interface!(IInputActivationListenerPreviewStatics, IInputActivationListenerPreviewStatics_Vtbl, 0xf0551ce5_0de6_5be0_a589_f737201a4582, inspectable);
 impl windows_core::RuntimeType for IInputActivationListenerPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.IInputActivationListenerPreviewStatics");

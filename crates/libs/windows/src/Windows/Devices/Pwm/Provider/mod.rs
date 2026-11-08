@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPwmControllerProvider, IPwmControllerProvider_Vtbl, 0x1300593b_e2e3_40a4_b7d9_48dff0377a52);
+windows_core::imp::define_interface!(IPwmControllerProvider, IPwmControllerProvider_Vtbl, 0x1300593b_e2e3_40a4_b7d9_48dff0377a52, inspectable);
 impl windows_core::RuntimeType for IPwmControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Pwm.Provider.IPwmControllerProvider");
@@ -174,7 +174,7 @@ impl IPwmControllerProvider_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IPwmControllerProvider, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             PinCount: PinCount::<Identity, OFFSET>,
             ActualFrequency: ActualFrequency::<Identity, OFFSET>,
             SetDesiredFrequency: SetDesiredFrequency::<Identity, OFFSET>,
@@ -206,7 +206,7 @@ pub struct IPwmControllerProvider_Vtbl {
     pub DisablePin: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SetPulseParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, f64, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPwmProvider, IPwmProvider_Vtbl, 0xa3301228_52f1_47b0_9349_66ba43d25902);
+windows_core::imp::define_interface!(IPwmProvider, IPwmProvider_Vtbl, 0xa3301228_52f1_47b0_9349_66ba43d25902, inspectable);
 impl windows_core::RuntimeType for IPwmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Pwm.Provider.IPwmProvider");
@@ -244,7 +244,7 @@ impl IPwmProvider_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IPwmProvider, OFFSET>(), GetControllers: GetControllers::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetControllers: GetControllers::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPwmProvider as windows_core::Interface>::IID

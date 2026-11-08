@@ -54,7 +54,7 @@ impl ICoreInputInterop_Vtbl {
 }
 #[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ICoreInputInterop {}
-windows_core::imp::define_interface!(ICoreInputInterop2, ICoreInputInterop2_Vtbl, 0xb8a2acd7_a0f0_40ee_8ee7_c82f59cc5cd4);
+windows_core::imp::define_interface!(ICoreInputInterop2, ICoreInputInterop2_Vtbl, 0xb8a2acd7_a0f0_40ee_8ee7_c82f59cc5cd4, inspectable);
 windows_core::imp::interface_hierarchy!(ICoreInputInterop2, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreInputInterop2 {
     #[cfg(feature = "windef")]
@@ -112,7 +112,7 @@ impl ICoreInputInterop2_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ICoreInputInterop2, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             WindowHandle: WindowHandle::<Identity, OFFSET>,
             ChangeHostingContext: ChangeHostingContext::<Identity, OFFSET>,
         }
@@ -123,7 +123,7 @@ impl ICoreInputInterop2_Vtbl {
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for ICoreInputInterop2 {}
-windows_core::imp::define_interface!(ICoreWindowAdapterInterop, ICoreWindowAdapterInterop_Vtbl, 0x7a5b6fd1_cd73_4b6c_9cf4_2e869eaf470a);
+windows_core::imp::define_interface!(ICoreWindowAdapterInterop, ICoreWindowAdapterInterop_Vtbl, 0x7a5b6fd1_cd73_4b6c_9cf4_2e869eaf470a, inspectable);
 windows_core::imp::interface_hierarchy!(ICoreWindowAdapterInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreWindowAdapterInterop {
     pub unsafe fn AppActivationClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -312,7 +312,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ICoreWindowAdapterInterop, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             AppActivationClientAdapter: AppActivationClientAdapter::<Identity, OFFSET>,
             ApplicationViewClientAdapter: ApplicationViewClientAdapter::<Identity, OFFSET>,
             CoreApplicationViewClientAdapter: CoreApplicationViewClientAdapter::<Identity, OFFSET>,

@@ -1,6 +1,6 @@
 #[cfg(feature = "Management_Update_Cluster")]
 pub mod Cluster;
-windows_core::imp::define_interface!(IPreviewBuildsManager, IPreviewBuildsManager_Vtbl, 0xfa07dd61_7e4f_59f7_7c9f_def9051c5f62);
+windows_core::imp::define_interface!(IPreviewBuildsManager, IPreviewBuildsManager_Vtbl, 0xfa07dd61_7e4f_59f7_7c9f_def9051c5f62, inspectable);
 impl windows_core::RuntimeType for IPreviewBuildsManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IPreviewBuildsManager");
@@ -14,7 +14,7 @@ pub struct IPreviewBuildsManager_Vtbl {
     pub GetCurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SyncAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPreviewBuildsManagerStatics, IPreviewBuildsManagerStatics_Vtbl, 0x3e422887_b112_5a70_7da1_97d78d32aa29);
+windows_core::imp::define_interface!(IPreviewBuildsManagerStatics, IPreviewBuildsManagerStatics_Vtbl, 0x3e422887_b112_5a70_7da1_97d78d32aa29, inspectable);
 impl windows_core::RuntimeType for IPreviewBuildsManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IPreviewBuildsManagerStatics");
@@ -26,7 +26,7 @@ pub struct IPreviewBuildsManagerStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPreviewBuildsState, IPreviewBuildsState_Vtbl, 0xa2f2903e_b223_5f63_7546_3e8eac070a2e);
+windows_core::imp::define_interface!(IPreviewBuildsState, IPreviewBuildsState_Vtbl, 0xa2f2903e_b223_5f63_7546_3e8eac070a2e, inspectable);
 impl windows_core::RuntimeType for IPreviewBuildsState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IPreviewBuildsState");
@@ -40,7 +40,7 @@ pub struct IPreviewBuildsState_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdate, IWindowsSoftwareUpdate_Vtbl, 0x7bcd30be_0a5e_540f_9bd8_b8b665980b8b);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdate, IWindowsSoftwareUpdate_Vtbl, 0x7bcd30be_0a5e_540f_9bd8_b8b665980b8b, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdate");
@@ -77,7 +77,7 @@ pub struct IWindowsSoftwareUpdate_Vtbl {
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionInfo, IWindowsSoftwareUpdateActionInfo_Vtbl, 0x2f6723b5_f704_5362_b600_d18808f3973e);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionInfo, IWindowsSoftwareUpdateActionInfo_Vtbl, 0x2f6723b5_f704_5362_b600_d18808f3973e, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateActionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateActionInfo");
@@ -90,7 +90,7 @@ pub struct IWindowsSoftwareUpdateActionInfo_Vtbl {
     pub FileArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ActionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateActionType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionInfoFactory, IWindowsSoftwareUpdateActionInfoFactory_Vtbl, 0x5e83b58e_d982_5d93_a7cb_bf6c9b6ee5a6);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionInfoFactory, IWindowsSoftwareUpdateActionInfoFactory_Vtbl, 0x5e83b58e_d982_5d93_a7cb_bf6c9b6ee5a6, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateActionInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateActionInfoFactory");
@@ -101,7 +101,7 @@ pub struct IWindowsSoftwareUpdateActionInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, WindowsSoftwareUpdateActionType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionProgress, IWindowsSoftwareUpdateActionProgress_Vtbl, 0x17dc15fd_75f2_522b_b555_359da8de5581);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionProgress, IWindowsSoftwareUpdateActionProgress_Vtbl, 0x17dc15fd_75f2_522b_b555_359da8de5581, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateActionProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateActionProgress");
@@ -114,7 +114,7 @@ pub struct IWindowsSoftwareUpdateActionProgress_Vtbl {
     pub CurrentProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub TotalProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionResultInfo, IWindowsSoftwareUpdateActionResultInfo_Vtbl, 0xbcf26fba_98c8_51cb_8b7e_1eedc3d82a69);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionResultInfo, IWindowsSoftwareUpdateActionResultInfo_Vtbl, 0xbcf26fba_98c8_51cb_8b7e_1eedc3d82a69, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateActionResultInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateActionResultInfo");
@@ -129,7 +129,7 @@ pub struct IWindowsSoftwareUpdateActionResultInfo_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateAppPackageInfo, IWindowsSoftwareUpdateAppPackageInfo_Vtbl, 0xa5bd59f4_e624_5552_82f9_267a4574a203);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateAppPackageInfo, IWindowsSoftwareUpdateAppPackageInfo_Vtbl, 0xa5bd59f4_e624_5552_82f9_267a4574a203, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateAppPackageInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateAppPackageInfo");
@@ -142,7 +142,7 @@ pub struct IWindowsSoftwareUpdateAppPackageInfo_Vtbl {
     pub PackageArchitecture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateArchitecture) -> windows_core::HRESULT,
     pub InstallUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateAppPackageInfoFactory, IWindowsSoftwareUpdateAppPackageInfoFactory_Vtbl, 0xa8bda639_a4f6_5a4a_8a54_26c1c508cd0f);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateAppPackageInfoFactory, IWindowsSoftwareUpdateAppPackageInfoFactory_Vtbl, 0xa8bda639_a4f6_5a4a_8a54_26c1c508cd0f, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateAppPackageInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateAppPackageInfoFactory");
@@ -153,7 +153,7 @@ pub struct IWindowsSoftwareUpdateAppPackageInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WindowsSoftwareUpdateArchitecture, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateApprovalInfo, IWindowsSoftwareUpdateApprovalInfo_Vtbl, 0x691e6b9e_80af_5882_9404_25437ecb791b);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateApprovalInfo, IWindowsSoftwareUpdateApprovalInfo_Vtbl, 0x691e6b9e_80af_5882_9404_25437ecb791b, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateApprovalInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateApprovalInfo");
@@ -167,7 +167,7 @@ pub struct IWindowsSoftwareUpdateApprovalInfo_Vtbl {
     pub MeteredNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Seeker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateApprovalInfoFactory, IWindowsSoftwareUpdateApprovalInfoFactory_Vtbl, 0xab291c7c_d29f_5ac5_b447_0bfcabdc2cc3);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateApprovalInfoFactory, IWindowsSoftwareUpdateApprovalInfoFactory_Vtbl, 0xab291c7c_d29f_5ac5_b447_0bfcabdc2cc3, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateApprovalInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateApprovalInfoFactory");
@@ -178,7 +178,7 @@ pub struct IWindowsSoftwareUpdateApprovalInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, bool, bool, bool, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateExecutionInfo, IWindowsSoftwareUpdateExecutionInfo_Vtbl, 0x091aea19_9128_5f24_afc1_a62252df55c0);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateExecutionInfo, IWindowsSoftwareUpdateExecutionInfo_Vtbl, 0x091aea19_9128_5f24_afc1_a62252df55c0, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateExecutionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateExecutionInfo");
@@ -192,7 +192,7 @@ pub struct IWindowsSoftwareUpdateExecutionInfo_Vtbl {
     pub DeployInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OptionalActionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateExecutionInfoFactory, IWindowsSoftwareUpdateExecutionInfoFactory_Vtbl, 0x88596f7e_b9ef_5583_8135_94d62ed66ed4);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateExecutionInfoFactory, IWindowsSoftwareUpdateExecutionInfoFactory_Vtbl, 0x88596f7e_b9ef_5583_8135_94d62ed66ed4, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateExecutionInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateExecutionInfoFactory");
@@ -204,7 +204,7 @@ pub struct IWindowsSoftwareUpdateExecutionInfoFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateFactory, IWindowsSoftwareUpdateFactory_Vtbl, 0x2a6e4e2d_3627_5943_b0ad_bf0b06ceae4c);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateFactory, IWindowsSoftwareUpdateFactory_Vtbl, 0x2a6e4e2d_3627_5943_b0ad_bf0b06ceae4c, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateFactory");
@@ -215,7 +215,7 @@ pub struct IWindowsSoftwareUpdateFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WindowsSoftwareUpdateInstallationType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u64, u64, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateIdentity, IWindowsSoftwareUpdateIdentity_Vtbl, 0x6040c757_5447_5c1f_8b25_8976bce12786);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateIdentity, IWindowsSoftwareUpdateIdentity_Vtbl, 0x6040c757_5447_5c1f_8b25_8976bce12786, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateIdentity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateIdentity");
@@ -227,7 +227,7 @@ pub struct IWindowsSoftwareUpdateIdentity_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateIdentityType) -> windows_core::HRESULT,
     pub Identity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateIdentityFactory, IWindowsSoftwareUpdateIdentityFactory_Vtbl, 0xc84999fc_8ce6_5711_b88c_d5b926e2e5db);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateIdentityFactory, IWindowsSoftwareUpdateIdentityFactory_Vtbl, 0xc84999fc_8ce6_5711_b88c_d5b926e2e5db, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateIdentityFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateIdentityFactory");
@@ -238,7 +238,7 @@ pub struct IWindowsSoftwareUpdateIdentityFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, WindowsSoftwareUpdateIdentityType, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateLocalizationInfo, IWindowsSoftwareUpdateLocalizationInfo_Vtbl, 0xadc2de4b_5966_5f9f_ae07_00d4a285d933);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateLocalizationInfo, IWindowsSoftwareUpdateLocalizationInfo_Vtbl, 0xadc2de4b_5966_5f9f_ae07_00d4a285d933, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateLocalizationInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateLocalizationInfo");
@@ -252,7 +252,7 @@ pub struct IWindowsSoftwareUpdateLocalizationInfo_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MoreInfoUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateLocalizationInfoFactory, IWindowsSoftwareUpdateLocalizationInfoFactory_Vtbl, 0x76979b24_f5bd_5c8c_bdb7_a46187374aff);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateLocalizationInfoFactory, IWindowsSoftwareUpdateLocalizationInfoFactory_Vtbl, 0x76979b24_f5bd_5c8c_bdb7_a46187374aff, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateLocalizationInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateLocalizationInfoFactory");
@@ -263,7 +263,7 @@ pub struct IWindowsSoftwareUpdateLocalizationInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalActionInfo, IWindowsSoftwareUpdateOptionalActionInfo_Vtbl, 0x4ac035d0_e50e_5ccb_bfd8_a303562891d2);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalActionInfo, IWindowsSoftwareUpdateOptionalActionInfo_Vtbl, 0x4ac035d0_e50e_5ccb_bfd8_a303562891d2, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateOptionalActionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateOptionalActionInfo");
@@ -276,7 +276,7 @@ pub struct IWindowsSoftwareUpdateOptionalActionInfo_Vtbl {
     pub CloseAndInstallInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CloseAndRestartInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalActionInfoFactory, IWindowsSoftwareUpdateOptionalActionInfoFactory_Vtbl, 0x88d2fcc1_4791_51b6_b988_966ef93a180b);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalActionInfoFactory, IWindowsSoftwareUpdateOptionalActionInfoFactory_Vtbl, 0x88d2fcc1_4791_51b6_b988_966ef93a180b, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateOptionalActionInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateOptionalActionInfoFactory");
@@ -287,7 +287,7 @@ pub struct IWindowsSoftwareUpdateOptionalActionInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalInfo, IWindowsSoftwareUpdateOptionalInfo_Vtbl, 0xa755841c_ed10_5a3c_8526_3fc1fd969618);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalInfo, IWindowsSoftwareUpdateOptionalInfo_Vtbl, 0xa755841c_ed10_5a3c_8526_3fc1fd969618, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateOptionalInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateOptionalInfo");
@@ -301,7 +301,7 @@ pub struct IWindowsSoftwareUpdateOptionalInfo_Vtbl {
     pub ComplianceGracePeriodInDays: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalInfoFactory, IWindowsSoftwareUpdateOptionalInfoFactory_Vtbl, 0xbe28a884_5b20_5b8b_96a2_1c528c441acd);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalInfoFactory, IWindowsSoftwareUpdateOptionalInfoFactory_Vtbl, 0xbe28a884_5b20_5b8b_96a2_1c528c441acd, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateOptionalInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateOptionalInfoFactory");
@@ -312,7 +312,7 @@ pub struct IWindowsSoftwareUpdateOptionalInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateProvider, IWindowsSoftwareUpdateProvider_Vtbl, 0xb573a766_0c05_575a_a948_da82a59e782b);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProvider, IWindowsSoftwareUpdateProvider_Vtbl, 0xb573a766_0c05_575a_a948_da82a59e782b, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateProvider");
@@ -339,7 +339,7 @@ pub struct IWindowsSoftwareUpdateProvider_Vtbl {
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderActionResult, IWindowsSoftwareUpdateProviderActionResult_Vtbl, 0xafd92b50_6bb9_54de_bdda_9dfb6cc17c16);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderActionResult, IWindowsSoftwareUpdateProviderActionResult_Vtbl, 0xafd92b50_6bb9_54de_bdda_9dfb6cc17c16, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderActionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateProviderActionResult");
@@ -353,7 +353,7 @@ pub struct IWindowsSoftwareUpdateProviderActionResult_Vtbl {
     pub ResultCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderActionResultFactory, IWindowsSoftwareUpdateProviderActionResultFactory_Vtbl, 0x0c002684_30c9_59e9_b53f_8846a85d2dc6);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderActionResultFactory, IWindowsSoftwareUpdateProviderActionResultFactory_Vtbl, 0x0c002684_30c9_59e9_b53f_8846a85d2dc6, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderActionResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateProviderActionResultFactory");
@@ -364,7 +364,7 @@ pub struct IWindowsSoftwareUpdateProviderActionResultFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, WindowsSoftwareUpdateActionResult, WindowsSoftwareUpdateRestartReason, u32, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderFactory, IWindowsSoftwareUpdateProviderFactory_Vtbl, 0xfc0d5fc4_e15e_5116_b2ed_db0a64997ffa);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderFactory, IWindowsSoftwareUpdateProviderFactory_Vtbl, 0xfc0d5fc4_e15e_5116_b2ed_db0a64997ffa, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateProviderFactory");
@@ -375,7 +375,7 @@ pub struct IWindowsSoftwareUpdateProviderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderPayloadFileInfo, IWindowsSoftwareUpdateProviderPayloadFileInfo_Vtbl, 0xf1da16da_1b01_5367_b4ae_20db8cae1e9b);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderPayloadFileInfo, IWindowsSoftwareUpdateProviderPayloadFileInfo_Vtbl, 0xf1da16da_1b01_5367_b4ae_20db8cae1e9b, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderPayloadFileInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateProviderPayloadFileInfo");
@@ -389,7 +389,7 @@ pub struct IWindowsSoftwareUpdateProviderPayloadFileInfo_Vtbl {
     pub CatalogFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TrustState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateProviderTrustState) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderStatus, IWindowsSoftwareUpdateProviderStatus_Vtbl, 0x076741b8_7a8e_53b6_9fb7_e290b13c52e9);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderStatus, IWindowsSoftwareUpdateProviderStatus_Vtbl, 0x076741b8_7a8e_53b6_9fb7_e290b13c52e9, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateProviderStatus");
@@ -404,7 +404,7 @@ pub struct IWindowsSoftwareUpdateProviderStatus_Vtbl {
     pub SetActionProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetActionResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderStatusFactory, IWindowsSoftwareUpdateProviderStatusFactory_Vtbl, 0xd1e1b416_7dfd_55ef_9e3c_18d1459e3123);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderStatusFactory, IWindowsSoftwareUpdateProviderStatusFactory_Vtbl, 0xd1e1b416_7dfd_55ef_9e3c_18d1459e3123, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderStatusFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateProviderStatusFactory");
@@ -415,7 +415,7 @@ pub struct IWindowsSoftwareUpdateProviderStatusFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateResult, IWindowsSoftwareUpdateResult_Vtbl, 0xa6d7ed98_6212_5ad3_aa9d_15e83bb85ee4);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateResult, IWindowsSoftwareUpdateResult_Vtbl, 0xa6d7ed98_6212_5ad3_aa9d_15e83bb85ee4, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateResult");
@@ -429,7 +429,7 @@ pub struct IWindowsSoftwareUpdateResult_Vtbl {
     pub ResultCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateResultFactory, IWindowsSoftwareUpdateResultFactory_Vtbl, 0x512ce0bf_9977_5301_9b29_9e5042c8cf7d);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateResultFactory, IWindowsSoftwareUpdateResultFactory_Vtbl, 0x512ce0bf_9977_5301_9b29_9e5042c8cf7d, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateResultFactory");
@@ -442,7 +442,7 @@ pub struct IWindowsSoftwareUpdateResultFactory_Vtbl {
     pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, bool, u32, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInstance3: unsafe extern "system" fn(*mut core::ffi::c_void, bool, bool, u32, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateScanResult, IWindowsSoftwareUpdateScanResult_Vtbl, 0x43ca6d96_3e6d_56da_a903_65d4ab729299);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateScanResult, IWindowsSoftwareUpdateScanResult_Vtbl, 0x43ca6d96_3e6d_56da_a903_65d4ab729299, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateScanResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateScanResult");
@@ -456,7 +456,7 @@ pub struct IWindowsSoftwareUpdateScanResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub Updates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateScanResultFactory, IWindowsSoftwareUpdateScanResultFactory_Vtbl, 0x21148e4c_e7ce_574e_bfa7_69dc77457d21);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateScanResultFactory, IWindowsSoftwareUpdateScanResultFactory_Vtbl, 0x21148e4c_e7ce_574e_bfa7_69dc77457d21, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateScanResultFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateScanResultFactory");
@@ -468,7 +468,7 @@ pub struct IWindowsSoftwareUpdateScanResultFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, bool, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, bool, u32, u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateVersion, IWindowsSoftwareUpdateVersion_Vtbl, 0x215e22e7_6d57_5305_9c79_4ecd4a4d7871);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateVersion, IWindowsSoftwareUpdateVersion_Vtbl, 0x215e22e7_6d57_5305_9c79_4ecd4a4d7871, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateVersion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateVersion");
@@ -482,7 +482,7 @@ pub struct IWindowsSoftwareUpdateVersion_Vtbl {
     pub RevisionMajor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub RevisionMinor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsSoftwareUpdateVersionFactory, IWindowsSoftwareUpdateVersionFactory_Vtbl, 0x650ed994_0858_5528_a1f2_f73ca64dabc9);
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateVersionFactory, IWindowsSoftwareUpdateVersionFactory_Vtbl, 0x650ed994_0858_5528_a1f2_f73ca64dabc9, inspectable);
 impl windows_core::RuntimeType for IWindowsSoftwareUpdateVersionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsSoftwareUpdateVersionFactory");
@@ -493,7 +493,7 @@ pub struct IWindowsSoftwareUpdateVersionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdate, IWindowsUpdate_Vtbl, 0xc3c88dd7_0ef3_52b2_a9ad_66bfc6bd9582);
+windows_core::imp::define_interface!(IWindowsUpdate, IWindowsUpdate_Vtbl, 0xc3c88dd7_0ef3_52b2_a9ad_66bfc6bd9582, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdate");
@@ -527,7 +527,7 @@ pub struct IWindowsUpdate_Vtbl {
     pub GetPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AcceptEula: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateActionCompletedEventArgs, IWindowsUpdateActionCompletedEventArgs_Vtbl, 0x2c44b950_a655_5321_aec1_aee762922131);
+windows_core::imp::define_interface!(IWindowsUpdateActionCompletedEventArgs, IWindowsUpdateActionCompletedEventArgs_Vtbl, 0x2c44b950_a655_5321_aec1_aee762922131, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateActionCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateActionCompletedEventArgs");
@@ -541,7 +541,7 @@ pub struct IWindowsUpdateActionCompletedEventArgs_Vtbl {
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateActionProgress, IWindowsUpdateActionProgress_Vtbl, 0x83b22d8a_4bb0_549f_ba39_59724882d137);
+windows_core::imp::define_interface!(IWindowsUpdateActionProgress, IWindowsUpdateActionProgress_Vtbl, 0x83b22d8a_4bb0_549f_ba39_59724882d137, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateActionProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateActionProgress");
@@ -553,7 +553,7 @@ pub struct IWindowsUpdateActionProgress_Vtbl {
     pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateActionResult, IWindowsUpdateActionResult_Vtbl, 0xe6692c62_f697_51b7_ab7f_e73e5e688f12);
+windows_core::imp::define_interface!(IWindowsUpdateActionResult, IWindowsUpdateActionResult_Vtbl, 0xe6692c62_f697_51b7_ab7f_e73e5e688f12, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateActionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateActionResult");
@@ -567,7 +567,7 @@ pub struct IWindowsUpdateActionResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateAdministrator, IWindowsUpdateAdministrator_Vtbl, 0x7a60181c_ba1e_5cf9_aa65_304120b73d72);
+windows_core::imp::define_interface!(IWindowsUpdateAdministrator, IWindowsUpdateAdministrator_Vtbl, 0x7a60181c_ba1e_5cf9_aa65_304120b73d72, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateAdministrator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateAdministrator");
@@ -583,7 +583,7 @@ pub struct IWindowsUpdateAdministrator_Vtbl {
     pub RevokeWindowsUpdateApproval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateAdministratorStatics, IWindowsUpdateAdministratorStatics_Vtbl, 0x013e6d36_ef69_53bc_8db8_c403bca550ed);
+windows_core::imp::define_interface!(IWindowsUpdateAdministratorStatics, IWindowsUpdateAdministratorStatics_Vtbl, 0x013e6d36_ef69_53bc_8db8_c403bca550ed, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateAdministratorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateAdministratorStatics");
@@ -599,7 +599,7 @@ pub struct IWindowsUpdateAdministratorStatics_Vtbl {
     pub RequestRestart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CancelRestartRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateApprovalData, IWindowsUpdateApprovalData_Vtbl, 0xaadf5bfd_84db_59bc_85e2_ad4fc1f62f7c);
+windows_core::imp::define_interface!(IWindowsUpdateApprovalData, IWindowsUpdateApprovalData_Vtbl, 0xaadf5bfd_84db_59bc_85e2_ad4fc1f62f7c, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateApprovalData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateApprovalData");
@@ -619,7 +619,7 @@ pub struct IWindowsUpdateApprovalData_Vtbl {
     pub OptOutOfAutoReboot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetOptOutOfAutoReboot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateAttentionRequiredInfo, IWindowsUpdateAttentionRequiredInfo_Vtbl, 0x44df2579_74d3_5ffa_b6ce_09e187e1e0ed);
+windows_core::imp::define_interface!(IWindowsUpdateAttentionRequiredInfo, IWindowsUpdateAttentionRequiredInfo_Vtbl, 0x44df2579_74d3_5ffa_b6ce_09e187e1e0ed, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateAttentionRequiredInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateAttentionRequiredInfo");
@@ -631,7 +631,7 @@ pub struct IWindowsUpdateAttentionRequiredInfo_Vtbl {
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsUpdateAttentionRequiredReason) -> windows_core::HRESULT,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateAttentionRequiredReasonChangedEventArgs, IWindowsUpdateAttentionRequiredReasonChangedEventArgs_Vtbl, 0x0627abca_dbb8_524a_b1d2_d9df004eeb31);
+windows_core::imp::define_interface!(IWindowsUpdateAttentionRequiredReasonChangedEventArgs, IWindowsUpdateAttentionRequiredReasonChangedEventArgs_Vtbl, 0x0627abca_dbb8_524a_b1d2_d9df004eeb31, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateAttentionRequiredReasonChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateAttentionRequiredReasonChangedEventArgs");
@@ -643,7 +643,7 @@ pub struct IWindowsUpdateAttentionRequiredReasonChangedEventArgs_Vtbl {
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsUpdateAttentionRequiredReason) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateGetAdministratorResult, IWindowsUpdateGetAdministratorResult_Vtbl, 0xbb39ffc4_2c42_5b1c_8995_343341c92c50);
+windows_core::imp::define_interface!(IWindowsUpdateGetAdministratorResult, IWindowsUpdateGetAdministratorResult_Vtbl, 0xbb39ffc4_2c42_5b1c_8995_343341c92c50, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateGetAdministratorResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateGetAdministratorResult");
@@ -655,7 +655,7 @@ pub struct IWindowsUpdateGetAdministratorResult_Vtbl {
     pub Administrator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsUpdateAdministratorStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateItem, IWindowsUpdateItem_Vtbl, 0xb222e44a_49b6_59bf_a033_ef617cd73a98);
+windows_core::imp::define_interface!(IWindowsUpdateItem, IWindowsUpdateItem_Vtbl, 0xb222e44a_49b6_59bf_a033_ef617cd73a98, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateItem");
@@ -673,7 +673,7 @@ pub struct IWindowsUpdateItem_Vtbl {
     pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateManager, IWindowsUpdateManager_Vtbl, 0x5dd966c0_a71a_5602_bbd0_09a70e4573fa);
+windows_core::imp::define_interface!(IWindowsUpdateManager, IWindowsUpdateManager_Vtbl, 0x5dd966c0_a71a_5602_bbd0_09a70e4573fa, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateManager");
@@ -702,7 +702,7 @@ pub struct IWindowsUpdateManager_Vtbl {
     pub GetMostRecentCompletedUpdatesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartScan: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateManager2, IWindowsUpdateManager2_Vtbl, 0xb8ba4965_423c_5e71_b89e_0b7940e7390f);
+windows_core::imp::define_interface!(IWindowsUpdateManager2, IWindowsUpdateManager2_Vtbl, 0xb8ba4965_423c_5e71_b89e_0b7940e7390f, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateManager2");
@@ -716,7 +716,7 @@ pub struct IWindowsUpdateManager2_Vtbl {
     pub GetApplicableSoftwareUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PerformScan: unsafe extern "system" fn(*mut core::ffi::c_void, WindowsUpdateManagerScanMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateManagerFactory, IWindowsUpdateManagerFactory_Vtbl, 0x1b394df8_decb_5f44_b47c_6ccf3bcfdb37);
+windows_core::imp::define_interface!(IWindowsUpdateManagerFactory, IWindowsUpdateManagerFactory_Vtbl, 0x1b394df8_decb_5f44_b47c_6ccf3bcfdb37, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateManagerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateManagerFactory");
@@ -727,7 +727,7 @@ pub struct IWindowsUpdateManagerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateManagerFactory2, IWindowsUpdateManagerFactory2_Vtbl, 0xba08d663_d160_59b9_9898_97a186ad52ea);
+windows_core::imp::define_interface!(IWindowsUpdateManagerFactory2, IWindowsUpdateManagerFactory2_Vtbl, 0xba08d663_d160_59b9_9898_97a186ad52ea, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateManagerFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateManagerFactory2");
@@ -738,7 +738,7 @@ pub struct IWindowsUpdateManagerFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::HSTRING, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateProgressChangedEventArgs, IWindowsUpdateProgressChangedEventArgs_Vtbl, 0xbbfbdeeb_94c8_5aa7_b0fb_66c67c233b0a);
+windows_core::imp::define_interface!(IWindowsUpdateProgressChangedEventArgs, IWindowsUpdateProgressChangedEventArgs_Vtbl, 0xbbfbdeeb_94c8_5aa7_b0fb_66c67c233b0a, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateProgressChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateProgressChangedEventArgs");
@@ -750,7 +750,7 @@ pub struct IWindowsUpdateProgressChangedEventArgs_Vtbl {
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ActionProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateRestartRequestOptions, IWindowsUpdateRestartRequestOptions_Vtbl, 0x38cfb7d3_4188_5222_905c_6c4443c951ee);
+windows_core::imp::define_interface!(IWindowsUpdateRestartRequestOptions, IWindowsUpdateRestartRequestOptions_Vtbl, 0x38cfb7d3_4188_5222_905c_6c4443c951ee, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateRestartRequestOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateRestartRequestOptions");
@@ -774,7 +774,7 @@ pub struct IWindowsUpdateRestartRequestOptions_Vtbl {
     pub OptOutOfAutoReboot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetOptOutOfAutoReboot: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateRestartRequestOptionsFactory, IWindowsUpdateRestartRequestOptionsFactory_Vtbl, 0x75f41d04_0e17_50d0_8c15_6b9d0539b3a9);
+windows_core::imp::define_interface!(IWindowsUpdateRestartRequestOptionsFactory, IWindowsUpdateRestartRequestOptionsFactory_Vtbl, 0x75f41d04_0e17_50d0_8c15_6b9d0539b3a9, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateRestartRequestOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateRestartRequestOptionsFactory");
@@ -785,7 +785,7 @@ pub struct IWindowsUpdateRestartRequestOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWindowsUpdateScanCompletedEventArgs, IWindowsUpdateScanCompletedEventArgs_Vtbl, 0x95b6953e_ba5c_5fe8_b115_12de184a6bb0);
+windows_core::imp::define_interface!(IWindowsUpdateScanCompletedEventArgs, IWindowsUpdateScanCompletedEventArgs_Vtbl, 0x95b6953e_ba5c_5fe8_b115_12de184a6bb0, inspectable);
 impl windows_core::RuntimeType for IWindowsUpdateScanCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Update.IWindowsUpdateScanCompletedEventArgs");
@@ -848,6 +848,7 @@ impl windows_core::RuntimeType for PreviewBuildsManager {
 unsafe impl windows_core::Interface for PreviewBuildsManager {
     type Vtable = <IPreviewBuildsManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPreviewBuildsManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PreviewBuildsManager {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsManager";
@@ -873,6 +874,7 @@ impl windows_core::RuntimeType for PreviewBuildsState {
 unsafe impl windows_core::Interface for PreviewBuildsState {
     type Vtable = <IPreviewBuildsState as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPreviewBuildsState as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PreviewBuildsState {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsState";
@@ -1075,6 +1077,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdate {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdate {
     type Vtable = <IWindowsSoftwareUpdate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdate as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdate {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdate";
@@ -1121,6 +1124,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateActionInfo {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateActionInfo {
     type Vtable = <IWindowsSoftwareUpdateActionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateActionInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateActionInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateActionInfo";
@@ -1157,6 +1161,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateActionProgress {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateActionProgress {
     type Vtable = <IWindowsSoftwareUpdateActionProgress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateActionProgress as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateActionProgress {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateActionProgress";
@@ -1222,6 +1227,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateActionResultInfo {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateActionResultInfo {
     type Vtable = <IWindowsSoftwareUpdateActionResultInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateActionResultInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateActionResultInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateActionResultInfo";
@@ -1288,6 +1294,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateAppPackageInfo {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateAppPackageInfo {
     type Vtable = <IWindowsSoftwareUpdateAppPackageInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateAppPackageInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateAppPackageInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateAppPackageInfo";
@@ -1340,6 +1347,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateApprovalInfo {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateApprovalInfo {
     type Vtable = <IWindowsSoftwareUpdateApprovalInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateApprovalInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateApprovalInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateApprovalInfo";
@@ -1444,6 +1452,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateExecutionInfo {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateExecutionInfo {
     type Vtable = <IWindowsSoftwareUpdateExecutionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateExecutionInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateExecutionInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateExecutionInfo";
@@ -1484,6 +1493,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateIdentity {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateIdentity {
     type Vtable = <IWindowsSoftwareUpdateIdentity as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateIdentity as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateIdentity {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateIdentity";
@@ -1569,6 +1579,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateLocalizationInfo {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateLocalizationInfo {
     type Vtable = <IWindowsSoftwareUpdateLocalizationInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateLocalizationInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateLocalizationInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateLocalizationInfo";
@@ -1620,6 +1631,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateOptionalActionInfo {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateOptionalActionInfo {
     type Vtable = <IWindowsSoftwareUpdateOptionalActionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateOptionalActionInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateOptionalActionInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateOptionalActionInfo";
@@ -1678,6 +1690,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateOptionalInfo {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateOptionalInfo {
     type Vtable = <IWindowsSoftwareUpdateOptionalInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateOptionalInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateOptionalInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateOptionalInfo";
@@ -1808,6 +1821,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateProvider {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateProvider {
     type Vtable = <IWindowsSoftwareUpdateProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateProvider as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateProvider {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateProvider";
@@ -1860,6 +1874,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderActionResult {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateProviderActionResult {
     type Vtable = <IWindowsSoftwareUpdateProviderActionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateProviderActionResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateProviderActionResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateProviderActionResult";
@@ -1902,6 +1917,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderPayloadFileInfo 
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateProviderPayloadFileInfo {
     type Vtable = <IWindowsSoftwareUpdateProviderPayloadFileInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateProviderPayloadFileInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateProviderPayloadFileInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateProviderPayloadFileInfo";
@@ -1986,6 +2002,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderStatus {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateProviderStatus {
     type Vtable = <IWindowsSoftwareUpdateProviderStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateProviderStatus as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateProviderStatus {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateProviderStatus";
@@ -2096,6 +2113,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateResult {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateResult {
     type Vtable = <IWindowsSoftwareUpdateResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateResult";
@@ -2160,6 +2178,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateScanResult {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateScanResult {
     type Vtable = <IWindowsSoftwareUpdateScanResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateScanResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateScanResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateScanResult";
@@ -2212,6 +2231,7 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateVersion {
 unsafe impl windows_core::Interface for WindowsSoftwareUpdateVersion {
     type Vtable = <IWindowsSoftwareUpdateVersion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsSoftwareUpdateVersion as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsSoftwareUpdateVersion {
     const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateVersion";
@@ -2371,6 +2391,7 @@ impl windows_core::RuntimeType for WindowsUpdate {
 unsafe impl windows_core::Interface for WindowsUpdate {
     type Vtable = <IWindowsUpdate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdate as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdate {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdate";
@@ -2413,6 +2434,7 @@ impl windows_core::RuntimeType for WindowsUpdateActionCompletedEventArgs {
 unsafe impl windows_core::Interface for WindowsUpdateActionCompletedEventArgs {
     type Vtable = <IWindowsUpdateActionCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateActionCompletedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateActionCompletedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionCompletedEventArgs";
@@ -2443,6 +2465,7 @@ impl windows_core::RuntimeType for WindowsUpdateActionProgress {
 unsafe impl windows_core::Interface for WindowsUpdateActionProgress {
     type Vtable = <IWindowsUpdateActionProgress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateActionProgress as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateActionProgress {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionProgress";
@@ -2485,6 +2508,7 @@ impl windows_core::RuntimeType for WindowsUpdateActionResult {
 unsafe impl windows_core::Interface for WindowsUpdateActionResult {
     type Vtable = <IWindowsUpdateActionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateActionResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateActionResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionResult";
@@ -2567,6 +2591,7 @@ impl windows_core::RuntimeType for WindowsUpdateAdministrator {
 unsafe impl windows_core::Interface for WindowsUpdateAdministrator {
     type Vtable = <IWindowsUpdateAdministrator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateAdministrator as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateAdministrator {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAdministrator";
@@ -2706,6 +2731,7 @@ impl windows_core::RuntimeType for WindowsUpdateApprovalData {
 unsafe impl windows_core::Interface for WindowsUpdateApprovalData {
     type Vtable = <IWindowsUpdateApprovalData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateApprovalData as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateApprovalData {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateApprovalData";
@@ -2736,6 +2762,7 @@ impl windows_core::RuntimeType for WindowsUpdateAttentionRequiredInfo {
 unsafe impl windows_core::Interface for WindowsUpdateAttentionRequiredInfo {
     type Vtable = <IWindowsUpdateAttentionRequiredInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateAttentionRequiredInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateAttentionRequiredInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAttentionRequiredInfo";
@@ -2817,6 +2844,7 @@ impl windows_core::RuntimeType for WindowsUpdateAttentionRequiredReasonChangedEv
 unsafe impl windows_core::Interface for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     type Vtable = <IWindowsUpdateAttentionRequiredReasonChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateAttentionRequiredReasonChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAttentionRequiredReasonChangedEventArgs";
@@ -2847,6 +2875,7 @@ impl windows_core::RuntimeType for WindowsUpdateGetAdministratorResult {
 unsafe impl windows_core::Interface for WindowsUpdateGetAdministratorResult {
     type Vtable = <IWindowsUpdateGetAdministratorResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateGetAdministratorResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateGetAdministratorResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateGetAdministratorResult";
@@ -2913,6 +2942,7 @@ impl windows_core::RuntimeType for WindowsUpdateItem {
 unsafe impl windows_core::Interface for WindowsUpdateItem {
     type Vtable = <IWindowsUpdateItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateItem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateItem {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateItem";
@@ -3103,6 +3133,7 @@ impl windows_core::RuntimeType for WindowsUpdateManager {
 unsafe impl windows_core::Interface for WindowsUpdateManager {
     type Vtable = <IWindowsUpdateManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateManager {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateManager";
@@ -3149,6 +3180,7 @@ impl windows_core::RuntimeType for WindowsUpdateProgressChangedEventArgs {
 unsafe impl windows_core::Interface for WindowsUpdateProgressChangedEventArgs {
     type Vtable = <IWindowsUpdateProgressChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateProgressChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateProgressChangedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateProgressChangedEventArgs";
@@ -3253,6 +3285,7 @@ impl windows_core::RuntimeType for WindowsUpdateRestartRequestOptions {
 unsafe impl windows_core::Interface for WindowsUpdateRestartRequestOptions {
     type Vtable = <IWindowsUpdateRestartRequestOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateRestartRequestOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateRestartRequestOptions {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateRestartRequestOptions";
@@ -3295,6 +3328,7 @@ impl windows_core::RuntimeType for WindowsUpdateScanCompletedEventArgs {
 unsafe impl windows_core::Interface for WindowsUpdateScanCompletedEventArgs {
     type Vtable = <IWindowsUpdateScanCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateScanCompletedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WindowsUpdateScanCompletedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateScanCompletedEventArgs";

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPdfDocument, IPdfDocument_Vtbl, 0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
+windows_core::imp::define_interface!(IPdfDocument, IPdfDocument_Vtbl, 0xac7ebedd_80fa_4089_846e_81b77ff5a86c, inspectable);
 impl windows_core::RuntimeType for IPdfDocument {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.IPdfDocument");
@@ -11,7 +11,7 @@ pub struct IPdfDocument_Vtbl {
     pub PageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub IsPasswordProtected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPdfDocumentStatics, IPdfDocumentStatics_Vtbl, 0x433a0b5f_c007_4788_90f2_08143d922599);
+windows_core::imp::define_interface!(IPdfDocumentStatics, IPdfDocumentStatics_Vtbl, 0x433a0b5f_c007_4788_90f2_08143d922599, inspectable);
 impl windows_core::RuntimeType for IPdfDocumentStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.IPdfDocumentStatics");
@@ -37,7 +37,7 @@ pub struct IPdfDocumentStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamWithPasswordAsync: usize,
 }
-windows_core::imp::define_interface!(IPdfPage, IPdfPage_Vtbl, 0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
+windows_core::imp::define_interface!(IPdfPage, IPdfPage_Vtbl, 0x9db4b0c8_5320_4cfc_ad76_493fdad0e594, inspectable);
 impl windows_core::RuntimeType for IPdfPage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.IPdfPage");
@@ -61,7 +61,7 @@ pub struct IPdfPage_Vtbl {
     pub Rotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PdfPageRotation) -> windows_core::HRESULT,
     pub PreferredZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPdfPageDimensions, IPdfPageDimensions_Vtbl, 0x22170471_313e_44e8_835d_63a3e7624a10);
+windows_core::imp::define_interface!(IPdfPageDimensions, IPdfPageDimensions_Vtbl, 0x22170471_313e_44e8_835d_63a3e7624a10, inspectable);
 impl windows_core::RuntimeType for IPdfPageDimensions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.IPdfPageDimensions");
@@ -76,7 +76,7 @@ pub struct IPdfPageDimensions_Vtbl {
     pub TrimBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub ArtBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPdfPageRenderOptions, IPdfPageRenderOptions_Vtbl, 0x3c98056f_b7cf_4c29_9a04_52d90267f425);
+windows_core::imp::define_interface!(IPdfPageRenderOptions, IPdfPageRenderOptions_Vtbl, 0x3c98056f_b7cf_4c29_9a04_52d90267f425, inspectable);
 impl windows_core::RuntimeType for IPdfPageRenderOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.IPdfPageRenderOptions");
@@ -178,6 +178,7 @@ impl windows_core::RuntimeType for PdfDocument {
 unsafe impl windows_core::Interface for PdfDocument {
     type Vtable = <IPdfDocument as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdfDocument as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PdfDocument {
     const NAME: &'static str = "Windows.Data.Pdf.PdfDocument";
@@ -258,6 +259,7 @@ impl windows_core::RuntimeType for PdfPage {
 unsafe impl windows_core::Interface for PdfPage {
     type Vtable = <IPdfPage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdfPage as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PdfPage {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPage";
@@ -306,6 +308,7 @@ impl windows_core::RuntimeType for PdfPageDimensions {
 unsafe impl windows_core::Interface for PdfPageDimensions {
     type Vtable = <IPdfPageDimensions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdfPageDimensions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PdfPageDimensions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageDimensions";
@@ -387,6 +390,7 @@ impl windows_core::RuntimeType for PdfPageRenderOptions {
 unsafe impl windows_core::Interface for PdfPageRenderOptions {
     type Vtable = <IPdfPageRenderOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdfPageRenderOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PdfPageRenderOptions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageRenderOptions";

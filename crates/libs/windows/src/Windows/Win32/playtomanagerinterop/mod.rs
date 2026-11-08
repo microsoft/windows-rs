@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPlayToManagerInterop, IPlayToManagerInterop_Vtbl, 0x24394699_1f2c_4eb3_8cd7_0ec1da42a540);
+windows_core::imp::define_interface!(IPlayToManagerInterop, IPlayToManagerInterop_Vtbl, 0x24394699_1f2c_4eb3_8cd7_0ec1da42a540, inspectable);
 windows_core::imp::interface_hierarchy!(IPlayToManagerInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IPlayToManagerInterop {
     #[cfg(all(feature = "guiddef", feature = "windef"))]
@@ -48,7 +48,7 @@ impl IPlayToManagerInterop_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IPlayToManagerInterop, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, OFFSET>,
             ShowPlayToUIForWindow: ShowPlayToUIForWindow::<Identity, OFFSET>,
         }

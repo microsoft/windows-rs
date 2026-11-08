@@ -56,7 +56,7 @@ pub mod Usb;
 pub mod WiFi;
 #[cfg(feature = "Devices_WiFiDirect")]
 pub mod WiFiDirect;
-windows_core::imp::define_interface!(ILowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProvider_Vtbl, 0xa73e561c_aac1_4ec7_a852_479f7060d01f);
+windows_core::imp::define_interface!(ILowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProvider_Vtbl, 0xa73e561c_aac1_4ec7_a852_479f7060d01f, inspectable);
 impl windows_core::RuntimeType for ILowLevelDevicesAggregateProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.ILowLevelDevicesAggregateProvider");
@@ -195,7 +195,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ILowLevelDevicesAggregateProvider, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             AdcControllerProvider: AdcControllerProvider::<Identity, OFFSET>,
             PwmControllerProvider: PwmControllerProvider::<Identity, OFFSET>,
             GpioControllerProvider: GpioControllerProvider::<Identity, OFFSET>,
@@ -232,7 +232,7 @@ pub struct ILowLevelDevicesAggregateProvider_Vtbl {
     #[cfg(not(feature = "Devices_Spi_Provider"))]
     SpiControllerProvider: usize,
 }
-windows_core::imp::define_interface!(ILowLevelDevicesAggregateProviderFactory, ILowLevelDevicesAggregateProviderFactory_Vtbl, 0x9ac4aaf6_3473_465e_96d5_36281a2c57af);
+windows_core::imp::define_interface!(ILowLevelDevicesAggregateProviderFactory, ILowLevelDevicesAggregateProviderFactory_Vtbl, 0x9ac4aaf6_3473_465e_96d5_36281a2c57af, inspectable);
 impl windows_core::RuntimeType for ILowLevelDevicesAggregateProviderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.ILowLevelDevicesAggregateProviderFactory");
@@ -246,7 +246,7 @@ pub struct ILowLevelDevicesAggregateProviderFactory_Vtbl {
     #[cfg(not(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider")))]
     Create: usize,
 }
-windows_core::imp::define_interface!(ILowLevelDevicesController, ILowLevelDevicesController_Vtbl, 0x2ec23dd4_179b_45de_9b39_3ae02527de52);
+windows_core::imp::define_interface!(ILowLevelDevicesController, ILowLevelDevicesController_Vtbl, 0x2ec23dd4_179b_45de_9b39_3ae02527de52, inspectable);
 impl windows_core::RuntimeType for ILowLevelDevicesController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.ILowLevelDevicesController");
@@ -256,7 +256,7 @@ impl windows_core::RuntimeType for ILowLevelDevicesController {
 pub struct ILowLevelDevicesController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ILowLevelDevicesControllerStatics, ILowLevelDevicesControllerStatics_Vtbl, 0x093e926a_fccb_4394_a697_19de637c2db3);
+windows_core::imp::define_interface!(ILowLevelDevicesControllerStatics, ILowLevelDevicesControllerStatics_Vtbl, 0x093e926a_fccb_4394_a697_19de637c2db3, inspectable);
 impl windows_core::RuntimeType for ILowLevelDevicesControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.ILowLevelDevicesControllerStatics");
@@ -333,6 +333,7 @@ impl windows_core::RuntimeType for LowLevelDevicesAggregateProvider {
 unsafe impl windows_core::Interface for LowLevelDevicesAggregateProvider {
     type Vtable = <ILowLevelDevicesAggregateProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILowLevelDevicesAggregateProvider as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LowLevelDevicesAggregateProvider {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesAggregateProvider";
@@ -367,6 +368,7 @@ impl windows_core::RuntimeType for LowLevelDevicesController {
 unsafe impl windows_core::Interface for LowLevelDevicesController {
     type Vtable = <ILowLevelDevicesController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILowLevelDevicesController as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LowLevelDevicesController {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesController";

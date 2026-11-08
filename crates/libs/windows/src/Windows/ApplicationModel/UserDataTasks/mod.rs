@@ -1,6 +1,6 @@
 #[cfg(feature = "ApplicationModel_UserDataTasks_DataProvider")]
 pub mod DataProvider;
-windows_core::imp::define_interface!(IUserDataTask, IUserDataTask_Vtbl, 0x7c6585d1_e0d4_4f99_aee2_bc2d5ddadf4c);
+windows_core::imp::define_interface!(IUserDataTask, IUserDataTask_Vtbl, 0x7c6585d1_e0d4_4f99_aee2_bc2d5ddadf4c, inspectable);
 impl windows_core::RuntimeType for IUserDataTask {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTask");
@@ -37,7 +37,7 @@ pub struct IUserDataTask_Vtbl {
     pub StartDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetStartDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataTaskBatch, IUserDataTaskBatch_Vtbl, 0x382da5fe_20b5_431c_8f42_a5d292ec930c);
+windows_core::imp::define_interface!(IUserDataTaskBatch, IUserDataTaskBatch_Vtbl, 0x382da5fe_20b5_431c_8f42_a5d292ec930c, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskBatch");
@@ -48,7 +48,7 @@ pub struct IUserDataTaskBatch_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Tasks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataTaskList, IUserDataTaskList_Vtbl, 0x49412e39_7c1d_4df1_bed3_314b7cbf5e4e);
+windows_core::imp::define_interface!(IUserDataTaskList, IUserDataTaskList_Vtbl, 0x49412e39_7c1d_4df1_bed3_314b7cbf5e4e, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskList");
@@ -77,7 +77,7 @@ pub struct IUserDataTaskList_Vtbl {
     pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataTaskListLimitedWriteOperations, IUserDataTaskListLimitedWriteOperations_Vtbl, 0x7aa267f2_6078_4183_919e_4f29f19cfae9);
+windows_core::imp::define_interface!(IUserDataTaskListLimitedWriteOperations, IUserDataTaskListLimitedWriteOperations_Vtbl, 0x7aa267f2_6078_4183_919e_4f29f19cfae9, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskListLimitedWriteOperations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskListLimitedWriteOperations");
@@ -91,7 +91,7 @@ pub struct IUserDataTaskListLimitedWriteOperations_Vtbl {
     pub TryDeleteTaskAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TrySkipOccurrenceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataTaskListSyncManager, IUserDataTaskListSyncManager_Vtbl, 0x8e591a95_1dcf_469f_93ec_ba48bb553c6b);
+windows_core::imp::define_interface!(IUserDataTaskListSyncManager, IUserDataTaskListSyncManager_Vtbl, 0x8e591a95_1dcf_469f_93ec_ba48bb553c6b, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskListSyncManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskListSyncManager");
@@ -110,7 +110,7 @@ pub struct IUserDataTaskListSyncManager_Vtbl {
     pub SyncStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSyncStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataTaskManager, IUserDataTaskManager_Vtbl, 0x8451c914_e60b_48a9_9211_7fb8a56cb84c);
+windows_core::imp::define_interface!(IUserDataTaskManager, IUserDataTaskManager_Vtbl, 0x8451c914_e60b_48a9_9211_7fb8a56cb84c, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskManager");
@@ -125,7 +125,7 @@ pub struct IUserDataTaskManager_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IUserDataTaskManagerStatics, IUserDataTaskManagerStatics_Vtbl, 0xb35539f8_c502_47fc_a81e_100883719d55);
+windows_core::imp::define_interface!(IUserDataTaskManagerStatics, IUserDataTaskManagerStatics_Vtbl, 0xb35539f8_c502_47fc_a81e_100883719d55, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskManagerStatics");
@@ -140,7 +140,7 @@ pub struct IUserDataTaskManagerStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::define_interface!(IUserDataTaskQueryOptions, IUserDataTaskQueryOptions_Vtbl, 0x959f27ed_909a_4d30_8c1b_331d8fe667e2);
+windows_core::imp::define_interface!(IUserDataTaskQueryOptions, IUserDataTaskQueryOptions_Vtbl, 0x959f27ed_909a_4d30_8c1b_331d8fe667e2, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskQueryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskQueryOptions");
@@ -154,7 +154,7 @@ pub struct IUserDataTaskQueryOptions_Vtbl {
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserDataTaskQueryKind) -> windows_core::HRESULT,
     pub SetKind: unsafe extern "system" fn(*mut core::ffi::c_void, UserDataTaskQueryKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataTaskReader, IUserDataTaskReader_Vtbl, 0x03e688b1_4ccf_4500_883b_e76290cfed63);
+windows_core::imp::define_interface!(IUserDataTaskReader, IUserDataTaskReader_Vtbl, 0x03e688b1_4ccf_4500_883b_e76290cfed63, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskReader");
@@ -165,7 +165,7 @@ pub struct IUserDataTaskReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadBatchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataTaskRecurrenceProperties, IUserDataTaskRecurrenceProperties_Vtbl, 0x73df80b0_27c6_40ce_b149_9cd41485a69e);
+windows_core::imp::define_interface!(IUserDataTaskRecurrenceProperties, IUserDataTaskRecurrenceProperties_Vtbl, 0x73df80b0_27c6_40ce_b149_9cd41485a69e, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskRecurrenceProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskRecurrenceProperties");
@@ -191,7 +191,7 @@ pub struct IUserDataTaskRecurrenceProperties_Vtbl {
     pub Day: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataTaskRegenerationProperties, IUserDataTaskRegenerationProperties_Vtbl, 0x92ab0007_090e_4704_bb5c_84fc0b0d9c31);
+windows_core::imp::define_interface!(IUserDataTaskRegenerationProperties, IUserDataTaskRegenerationProperties_Vtbl, 0x92ab0007_090e_4704_bb5c_84fc0b0d9c31, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskRegenerationProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskRegenerationProperties");
@@ -209,7 +209,7 @@ pub struct IUserDataTaskRegenerationProperties_Vtbl {
     pub Interval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetInterval: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataTaskStore, IUserDataTaskStore_Vtbl, 0xf06a9cb0_f1db_45ba_8a62_086004c0213d);
+windows_core::imp::define_interface!(IUserDataTaskStore, IUserDataTaskStore_Vtbl, 0xf06a9cb0_f1db_45ba_8a62_086004c0213d, inspectable);
 impl windows_core::RuntimeType for IUserDataTaskStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataTasks.IUserDataTaskStore");
@@ -378,6 +378,7 @@ impl windows_core::RuntimeType for UserDataTask {
 unsafe impl windows_core::Interface for UserDataTask {
     type Vtable = <IUserDataTask as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTask as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTask {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTask";
@@ -402,6 +403,7 @@ impl windows_core::RuntimeType for UserDataTaskBatch {
 unsafe impl windows_core::Interface for UserDataTaskBatch {
     type Vtable = <IUserDataTaskBatch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskBatch as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTaskBatch {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch";
@@ -613,6 +615,7 @@ impl windows_core::RuntimeType for UserDataTaskList {
 unsafe impl windows_core::Interface for UserDataTaskList {
     type Vtable = <IUserDataTaskList as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskList as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTaskList {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskList";
@@ -658,6 +661,7 @@ impl windows_core::RuntimeType for UserDataTaskListLimitedWriteOperations {
 unsafe impl windows_core::Interface for UserDataTaskListLimitedWriteOperations {
     type Vtable = <IUserDataTaskListLimitedWriteOperations as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListLimitedWriteOperations as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTaskListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations";
@@ -752,6 +756,7 @@ impl windows_core::RuntimeType for UserDataTaskListSyncManager {
 unsafe impl windows_core::Interface for UserDataTaskListSyncManager {
     type Vtable = <IUserDataTaskListSyncManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListSyncManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTaskListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager";
@@ -821,6 +826,7 @@ impl windows_core::RuntimeType for UserDataTaskManager {
 unsafe impl windows_core::Interface for UserDataTaskManager {
     type Vtable = <IUserDataTaskManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTaskManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskManager";
@@ -894,6 +900,7 @@ impl windows_core::RuntimeType for UserDataTaskQueryOptions {
 unsafe impl windows_core::Interface for UserDataTaskQueryOptions {
     type Vtable = <IUserDataTaskQueryOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskQueryOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTaskQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions";
@@ -931,6 +938,7 @@ impl windows_core::RuntimeType for UserDataTaskReader {
 unsafe impl windows_core::Interface for UserDataTaskReader {
     type Vtable = <IUserDataTaskReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskReader as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTaskReader {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskReader";
@@ -1034,6 +1042,7 @@ impl windows_core::RuntimeType for UserDataTaskRecurrenceProperties {
 unsafe impl windows_core::Interface for UserDataTaskRecurrenceProperties {
     type Vtable = <IUserDataTaskRecurrenceProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskRecurrenceProperties as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTaskRecurrenceProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties";
@@ -1115,6 +1124,7 @@ impl windows_core::RuntimeType for UserDataTaskRegenerationProperties {
 unsafe impl windows_core::Interface for UserDataTaskRegenerationProperties {
     type Vtable = <IUserDataTaskRegenerationProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskRegenerationProperties as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTaskRegenerationProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties";
@@ -1187,6 +1197,7 @@ impl windows_core::RuntimeType for UserDataTaskStore {
 unsafe impl windows_core::Interface for UserDataTaskStore {
     type Vtable = <IUserDataTaskStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskStore as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserDataTaskStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskStore";

@@ -28,6 +28,7 @@ impl windows_core::RuntimeType for DeviceServicingDetails {
 unsafe impl windows_core::Interface for DeviceServicingDetails {
     type Vtable = <IDeviceServicingDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceServicingDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeviceServicingDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceServicingDetails";
@@ -58,13 +59,14 @@ impl windows_core::RuntimeType for DeviceUseDetails {
 unsafe impl windows_core::Interface for DeviceUseDetails {
     type Vtable = <IDeviceUseDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceUseDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeviceUseDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceUseDetails";
 }
 unsafe impl Send for DeviceUseDetails {}
 unsafe impl Sync for DeviceUseDetails {}
-windows_core::imp::define_interface!(IDeviceServicingDetails, IDeviceServicingDetails_Vtbl, 0x4aabee29_2344_4ac4_8527_4a8ef6905645);
+windows_core::imp::define_interface!(IDeviceServicingDetails, IDeviceServicingDetails_Vtbl, 0x4aabee29_2344_4ac4_8527_4a8ef6905645, inspectable);
 impl windows_core::RuntimeType for IDeviceServicingDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Background.IDeviceServicingDetails");
@@ -77,7 +79,7 @@ pub struct IDeviceServicingDetails_Vtbl {
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExpectedDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeviceUseDetails, IDeviceUseDetails_Vtbl, 0x7d565141_557e_4154_b994_e4f7a11fb323);
+windows_core::imp::define_interface!(IDeviceUseDetails, IDeviceUseDetails_Vtbl, 0x7d565141_557e_4154_b994_e4f7a11fb323, inspectable);
 impl windows_core::RuntimeType for IDeviceUseDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Background.IDeviceUseDetails");

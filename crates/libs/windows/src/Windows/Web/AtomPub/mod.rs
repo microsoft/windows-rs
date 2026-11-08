@@ -217,6 +217,7 @@ impl windows_core::RuntimeType for AtomPubClient {
 unsafe impl windows_core::Interface for AtomPubClient {
     type Vtable = <IAtomPubClient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAtomPubClient as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeName for AtomPubClient {
@@ -227,7 +228,7 @@ unsafe impl Send for AtomPubClient {}
 #[cfg(feature = "Web_Syndication")]
 unsafe impl Sync for AtomPubClient {}
 #[cfg(feature = "Web_Syndication")]
-windows_core::imp::define_interface!(IAtomPubClient, IAtomPubClient_Vtbl, 0x35392c38_cded_4d4c_9637_05f15c1c9406);
+windows_core::imp::define_interface!(IAtomPubClient, IAtomPubClient_Vtbl, 0x35392c38_cded_4d4c_9637_05f15c1c9406, inspectable);
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeType for IAtomPubClient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -259,7 +260,7 @@ pub struct IAtomPubClient_Vtbl {
     pub DeleteResourceItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CancelAsyncOperations: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAtomPubClientFactory, IAtomPubClientFactory_Vtbl, 0x49d55012_57cb_4bde_ab9f_2610b172777b);
+windows_core::imp::define_interface!(IAtomPubClientFactory, IAtomPubClientFactory_Vtbl, 0x49d55012_57cb_4bde_ab9f_2610b172777b, inspectable);
 impl windows_core::RuntimeType for IAtomPubClientFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.AtomPub.IAtomPubClientFactory");
@@ -274,7 +275,7 @@ pub struct IAtomPubClientFactory_Vtbl {
     CreateAtomPubClientWithCredentials: usize,
 }
 #[cfg(feature = "Web_Syndication")]
-windows_core::imp::define_interface!(IResourceCollection, IResourceCollection_Vtbl, 0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
+windows_core::imp::define_interface!(IResourceCollection, IResourceCollection_Vtbl, 0x7f5fd609_bc88_41d4_88fa_3de6704d428e, inspectable);
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeType for IResourceCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -291,7 +292,7 @@ pub struct IResourceCollection_Vtbl {
     pub Accepts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Web_Syndication")]
-windows_core::imp::define_interface!(IServiceDocument, IServiceDocument_Vtbl, 0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
+windows_core::imp::define_interface!(IServiceDocument, IServiceDocument_Vtbl, 0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51, inspectable);
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeType for IServiceDocument {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -305,7 +306,7 @@ pub struct IServiceDocument_Vtbl {
     pub Workspaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Web_Syndication")]
-windows_core::imp::define_interface!(IWorkspace, IWorkspace_Vtbl, 0xb41da63b_a4b8_4036_89c5_83c31266ba49);
+windows_core::imp::define_interface!(IWorkspace, IWorkspace_Vtbl, 0xb41da63b_a4b8_4036_89c5_83c31266ba49, inspectable);
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeType for IWorkspace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -442,6 +443,7 @@ impl windows_core::RuntimeType for ResourceCollection {
 unsafe impl windows_core::Interface for ResourceCollection {
     type Vtable = <IResourceCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IResourceCollection as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeName for ResourceCollection {
@@ -556,6 +558,7 @@ impl windows_core::RuntimeType for ServiceDocument {
 unsafe impl windows_core::Interface for ServiceDocument {
     type Vtable = <IServiceDocument as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServiceDocument as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeName for ServiceDocument {
@@ -676,6 +679,7 @@ impl windows_core::RuntimeType for Workspace {
 unsafe impl windows_core::Interface for Workspace {
     type Vtable = <IWorkspace as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWorkspace as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeName for Workspace {

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPropertySet, IPropertySet_Vtbl, 0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
+windows_core::imp::define_interface!(IPropertySet, IPropertySet_Vtbl, 0x8a43ed9f_f4e6_4421_acf9_1dab2986820c, inspectable);
 impl windows_core::RuntimeType for IPropertySet {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Collections.IPropertySet");
@@ -95,7 +95,7 @@ impl windows_core::RuntimeName for IPropertySet {
 pub trait IPropertySet_Impl: windows_collections::IIterable_Impl<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>> + windows_collections::IMap_Impl<windows_core::HSTRING, windows_core::IInspectable> + windows_collections::IObservableMap_Impl<windows_core::HSTRING, windows_core::IInspectable> {}
 impl IPropertySet_Vtbl {
     pub const fn new<Identity: IPropertySet_Impl, const OFFSET: isize>() -> Self {
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IPropertySet, OFFSET>() }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPropertySet as windows_core::Interface>::IID
@@ -194,6 +194,7 @@ impl windows_core::RuntimeType for PropertySet {
 unsafe impl windows_core::Interface for PropertySet {
     type Vtable = <IPropertySet as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPropertySet as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PropertySet {
     const NAME: &'static str = "Windows.Foundation.Collections.PropertySet";
@@ -292,6 +293,7 @@ impl windows_core::RuntimeType for StringMap {
 unsafe impl windows_core::Interface for StringMap {
     type Vtable = <windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StringMap {
     const NAME: &'static str = "Windows.Foundation.Collections.StringMap";
@@ -400,6 +402,7 @@ impl windows_core::RuntimeType for ValueSet {
 unsafe impl windows_core::Interface for ValueSet {
     type Vtable = <IPropertySet as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPropertySet as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ValueSet {
     const NAME: &'static str = "Windows.Foundation.Collections.ValueSet";

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPlaylist, IPlaylist_Vtbl, 0x803736f5_cf44_4d97_83b3_7a089e9ab663);
+windows_core::imp::define_interface!(IPlaylist, IPlaylist_Vtbl, 0x803736f5_cf44_4d97_83b3_7a089e9ab663, inspectable);
 impl windows_core::RuntimeType for IPlaylist {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Playlists.IPlaylist");
@@ -21,7 +21,7 @@ pub struct IPlaylist_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SaveAsWithFormatAsync: usize,
 }
-windows_core::imp::define_interface!(IPlaylistStatics, IPlaylistStatics_Vtbl, 0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
+windows_core::imp::define_interface!(IPlaylistStatics, IPlaylistStatics_Vtbl, 0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68, inspectable);
 impl windows_core::RuntimeType for IPlaylistStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Playlists.IPlaylistStatics");
@@ -101,6 +101,7 @@ impl windows_core::RuntimeType for Playlist {
 unsafe impl windows_core::Interface for Playlist {
     type Vtable = <IPlaylist as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlaylist as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";

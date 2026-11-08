@@ -347,13 +347,14 @@ impl windows_core::RuntimeType for ClosedCaptionTheme {
 unsafe impl windows_core::Interface for ClosedCaptionTheme {
     type Vtable = <IClosedCaptionTheme as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClosedCaptionTheme as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ClosedCaptionTheme {
     const NAME: &'static str = "Windows.Media.ClosedCaptioning.ClosedCaptionTheme";
 }
 unsafe impl Send for ClosedCaptionTheme {}
 unsafe impl Sync for ClosedCaptionTheme {}
-windows_core::imp::define_interface!(IClosedCaptionPropertiesStatics, IClosedCaptionPropertiesStatics_Vtbl, 0x10aa1f84_cc30_4141_b503_5272289e0c20);
+windows_core::imp::define_interface!(IClosedCaptionPropertiesStatics, IClosedCaptionPropertiesStatics_Vtbl, 0x10aa1f84_cc30_4141_b503_5272289e0c20, inspectable);
 impl windows_core::RuntimeType for IClosedCaptionPropertiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics");
@@ -384,7 +385,7 @@ pub struct IClosedCaptionPropertiesStatics_Vtbl {
     ComputedRegionColor: usize,
     pub RegionOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ClosedCaptionOpacity) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClosedCaptionPropertiesStatics2, IClosedCaptionPropertiesStatics2_Vtbl, 0x9de26870_37de_4197_8845_9a48dc5ac317);
+windows_core::imp::define_interface!(IClosedCaptionPropertiesStatics2, IClosedCaptionPropertiesStatics2_Vtbl, 0x9de26870_37de_4197_8845_9a48dc5ac317, inspectable);
 impl windows_core::RuntimeType for IClosedCaptionPropertiesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics2");
@@ -396,7 +397,7 @@ pub struct IClosedCaptionPropertiesStatics2_Vtbl {
     pub PropertiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemovePropertiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClosedCaptionTheme, IClosedCaptionTheme_Vtbl, 0xd3974055_b9b5_52a4_b655_30661f73d1c1);
+windows_core::imp::define_interface!(IClosedCaptionTheme, IClosedCaptionTheme_Vtbl, 0xd3974055_b9b5_52a4_b655_30661f73d1c1, inspectable);
 impl windows_core::RuntimeType for IClosedCaptionTheme {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.IClosedCaptionTheme");
@@ -429,7 +430,7 @@ pub struct IClosedCaptionTheme_Vtbl {
     ComputedRegionColor: usize,
     pub RegionOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ClosedCaptionOpacity) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClosedCaptionThemeStatics, IClosedCaptionThemeStatics_Vtbl, 0x0938ae0f_214e_5760_88c9_bb3f1b54f3c7);
+windows_core::imp::define_interface!(IClosedCaptionThemeStatics, IClosedCaptionThemeStatics_Vtbl, 0x0938ae0f_214e_5760_88c9_bb3f1b54f3c7, inspectable);
 impl windows_core::RuntimeType for IClosedCaptionThemeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.IClosedCaptionThemeStatics");

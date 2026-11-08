@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ICorrelationVectorInformation, ICorrelationVectorInformation_Vtbl, 0x83c78b3c_d88b_4950_aa6e_22b8d22aabd3);
+windows_core::imp::define_interface!(ICorrelationVectorInformation, ICorrelationVectorInformation_Vtbl, 0x83c78b3c_d88b_4950_aa6e_22b8d22aabd3, inspectable);
 windows_core::imp::interface_hierarchy!(ICorrelationVectorInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl ICorrelationVectorInformation {
     pub unsafe fn LastCorrelationVectorForThread(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -69,7 +69,7 @@ impl ICorrelationVectorInformation_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ICorrelationVectorInformation, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             LastCorrelationVectorForThread: LastCorrelationVectorForThread::<Identity, OFFSET>,
             NextCorrelationVectorForThread: NextCorrelationVectorForThread::<Identity, OFFSET>,
             SetNextCorrelationVectorForThread: SetNextCorrelationVectorForThread::<Identity, OFFSET>,

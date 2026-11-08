@@ -191,6 +191,7 @@ impl windows_core::RuntimeType for ClipboardContentOptions {
 unsafe impl windows_core::Interface for ClipboardContentOptions {
     type Vtable = <IClipboardContentOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClipboardContentOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ClipboardContentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardContentOptions";
@@ -207,6 +208,7 @@ impl windows_core::RuntimeType for ClipboardHistoryChangedEventArgs {
 unsafe impl windows_core::Interface for ClipboardHistoryChangedEventArgs {
     type Vtable = <IClipboardHistoryChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClipboardHistoryChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ClipboardHistoryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs";
@@ -243,6 +245,7 @@ impl windows_core::RuntimeType for ClipboardHistoryItem {
 unsafe impl windows_core::Interface for ClipboardHistoryItem {
     type Vtable = <IClipboardHistoryItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClipboardHistoryItem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ClipboardHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem";
@@ -273,6 +276,7 @@ impl windows_core::RuntimeType for ClipboardHistoryItemsResult {
 unsafe impl windows_core::Interface for ClipboardHistoryItemsResult {
     type Vtable = <IClipboardHistoryItemsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClipboardHistoryItemsResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ClipboardHistoryItemsResult {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult";
@@ -461,6 +465,7 @@ impl windows_core::RuntimeType for DataPackage {
 unsafe impl windows_core::Interface for DataPackage {
     type Vtable = <IDataPackage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataPackage as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DataPackage {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackage";
@@ -733,6 +738,7 @@ impl windows_core::RuntimeType for DataPackagePropertySet {
 unsafe impl windows_core::Interface for DataPackagePropertySet {
     type Vtable = <IDataPackagePropertySet as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataPackagePropertySet as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DataPackagePropertySet {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackagePropertySet";
@@ -899,6 +905,7 @@ impl windows_core::RuntimeType for DataPackagePropertySetView {
 unsafe impl windows_core::Interface for DataPackagePropertySetView {
     type Vtable = <IDataPackagePropertySetView as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataPackagePropertySetView as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DataPackagePropertySetView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackagePropertySetView";
@@ -1057,6 +1064,7 @@ impl windows_core::RuntimeType for DataPackageView {
 unsafe impl windows_core::Interface for DataPackageView {
     type Vtable = <IDataPackageView as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataPackageView as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DataPackageView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackageView";
@@ -1078,6 +1086,7 @@ impl windows_core::RuntimeType for DataProviderDeferral {
 unsafe impl windows_core::Interface for DataProviderDeferral {
     type Vtable = <IDataProviderDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataProviderDeferral as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DataProviderDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataProviderDeferral";
@@ -1159,6 +1168,7 @@ impl windows_core::RuntimeType for DataProviderRequest {
 unsafe impl windows_core::Interface for DataProviderRequest {
     type Vtable = <IDataProviderRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataProviderRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DataProviderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataProviderRequest";
@@ -1204,6 +1214,7 @@ impl windows_core::RuntimeType for DataRequest {
 unsafe impl windows_core::Interface for DataRequest {
     type Vtable = <IDataRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataRequest as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DataRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequest";
@@ -1225,6 +1236,7 @@ impl windows_core::RuntimeType for DataRequestDeferral {
 unsafe impl windows_core::Interface for DataRequestDeferral {
     type Vtable = <IDataRequestDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataRequestDeferral as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DataRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequestDeferral";
@@ -1249,6 +1261,7 @@ impl windows_core::RuntimeType for DataRequestedEventArgs {
 unsafe impl windows_core::Interface for DataRequestedEventArgs {
     type Vtable = <IDataRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataRequestedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DataRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs";
@@ -1343,6 +1356,7 @@ impl windows_core::RuntimeType for DataTransferManager {
 unsafe impl windows_core::Interface for DataTransferManager {
     type Vtable = <IDataTransferManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataTransferManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DataTransferManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataTransferManager";
@@ -1369,7 +1383,7 @@ impl HtmlFormatHelper {
 impl windows_core::RuntimeName for HtmlFormatHelper {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.HtmlFormatHelper";
 }
-windows_core::imp::define_interface!(IClipboardContentOptions, IClipboardContentOptions_Vtbl, 0xe888a98c_ad4b_5447_a056_ab3556276d2b);
+windows_core::imp::define_interface!(IClipboardContentOptions, IClipboardContentOptions_Vtbl, 0xe888a98c_ad4b_5447_a056_ab3556276d2b, inspectable);
 impl windows_core::RuntimeType for IClipboardContentOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardContentOptions");
@@ -1385,7 +1399,7 @@ pub struct IClipboardContentOptions_Vtbl {
     pub RoamingFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HistoryFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClipboardHistoryChangedEventArgs, IClipboardHistoryChangedEventArgs_Vtbl, 0xc0be453f_8ea2_53ce_9aba_8d2212573452);
+windows_core::imp::define_interface!(IClipboardHistoryChangedEventArgs, IClipboardHistoryChangedEventArgs_Vtbl, 0xc0be453f_8ea2_53ce_9aba_8d2212573452, inspectable);
 impl windows_core::RuntimeType for IClipboardHistoryChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardHistoryChangedEventArgs");
@@ -1395,7 +1409,7 @@ impl windows_core::RuntimeType for IClipboardHistoryChangedEventArgs {
 pub struct IClipboardHistoryChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IClipboardHistoryItem, IClipboardHistoryItem_Vtbl, 0x0173bd8a_afff_5c50_ab92_3d19f481ec58);
+windows_core::imp::define_interface!(IClipboardHistoryItem, IClipboardHistoryItem_Vtbl, 0x0173bd8a_afff_5c50_ab92_3d19f481ec58, inspectable);
 impl windows_core::RuntimeType for IClipboardHistoryItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem");
@@ -1408,7 +1422,7 @@ pub struct IClipboardHistoryItem_Vtbl {
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClipboardHistoryItemsResult, IClipboardHistoryItemsResult_Vtbl, 0xe6dfdee6_0ee2_52e3_852b_f295db65939a);
+windows_core::imp::define_interface!(IClipboardHistoryItemsResult, IClipboardHistoryItemsResult_Vtbl, 0xe6dfdee6_0ee2_52e3_852b_f295db65939a, inspectable);
 impl windows_core::RuntimeType for IClipboardHistoryItemsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardHistoryItemsResult");
@@ -1420,7 +1434,7 @@ pub struct IClipboardHistoryItemsResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ClipboardHistoryItemsResultStatus) -> windows_core::HRESULT,
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClipboardStatics, IClipboardStatics_Vtbl, 0xc627e291_34e2_4963_8eed_93cbb0ea3d70);
+windows_core::imp::define_interface!(IClipboardStatics, IClipboardStatics_Vtbl, 0xc627e291_34e2_4963_8eed_93cbb0ea3d70, inspectable);
 impl windows_core::RuntimeType for IClipboardStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardStatics");
@@ -1436,7 +1450,7 @@ pub struct IClipboardStatics_Vtbl {
     pub ContentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveContentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IClipboardStatics2, IClipboardStatics2_Vtbl, 0xd2ac1b6a_d29f_554b_b303_f0452345fe02);
+windows_core::imp::define_interface!(IClipboardStatics2, IClipboardStatics2_Vtbl, 0xd2ac1b6a_d29f_554b_b303_f0452345fe02, inspectable);
 impl windows_core::RuntimeType for IClipboardStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardStatics2");
@@ -1459,7 +1473,7 @@ pub struct IClipboardStatics2_Vtbl {
     pub HistoryEnabledChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveHistoryEnabledChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackage, IDataPackage_Vtbl, 0x61ebf5c7_efea_4346_9554_981d7e198ffe);
+windows_core::imp::define_interface!(IDataPackage, IDataPackage_Vtbl, 0x61ebf5c7_efea_4346_9554_981d7e198ffe, inspectable);
 impl windows_core::RuntimeType for IDataPackage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackage");
@@ -1499,7 +1513,7 @@ pub struct IDataPackage_Vtbl {
     #[cfg(not(feature = "Storage"))]
     SetStorageItems: usize,
 }
-windows_core::imp::define_interface!(IDataPackage2, IDataPackage2_Vtbl, 0x041c1fe9_2409_45e1_a538_4c53eeee04a7);
+windows_core::imp::define_interface!(IDataPackage2, IDataPackage2_Vtbl, 0x041c1fe9_2409_45e1_a538_4c53eeee04a7, inspectable);
 impl windows_core::RuntimeType for IDataPackage2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackage2");
@@ -1511,7 +1525,7 @@ pub struct IDataPackage2_Vtbl {
     pub SetApplicationLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetWebLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackage3, IDataPackage3_Vtbl, 0x88f31f5d_787b_4d32_965a_a9838105a056);
+windows_core::imp::define_interface!(IDataPackage3, IDataPackage3_Vtbl, 0x88f31f5d_787b_4d32_965a_a9838105a056, inspectable);
 impl windows_core::RuntimeType for IDataPackage3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackage3");
@@ -1523,7 +1537,7 @@ pub struct IDataPackage3_Vtbl {
     pub ShareCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveShareCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackage4, IDataPackage4_Vtbl, 0x13a24ec8_9382_536f_852a_3045e1b29a3b);
+windows_core::imp::define_interface!(IDataPackage4, IDataPackage4_Vtbl, 0x13a24ec8_9382_536f_852a_3045e1b29a3b, inspectable);
 impl windows_core::RuntimeType for IDataPackage4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackage4");
@@ -1535,7 +1549,7 @@ pub struct IDataPackage4_Vtbl {
     pub ShareCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveShareCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackagePropertySet, IDataPackagePropertySet_Vtbl, 0xcd1c93eb_4c4c_443a_a8d3_f5c241e91689);
+windows_core::imp::define_interface!(IDataPackagePropertySet, IDataPackagePropertySet_Vtbl, 0xcd1c93eb_4c4c_443a_a8d3_f5c241e91689, inspectable);
 impl windows_core::RuntimeType for IDataPackagePropertySet {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet");
@@ -1562,7 +1576,7 @@ pub struct IDataPackagePropertySet_Vtbl {
     pub ApplicationListingUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetApplicationListingUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackagePropertySet2, IDataPackagePropertySet2_Vtbl, 0xeb505d4a_9800_46aa_b181_7b6f0f2b919a);
+windows_core::imp::define_interface!(IDataPackagePropertySet2, IDataPackagePropertySet2_Vtbl, 0xeb505d4a_9800_46aa_b181_7b6f0f2b919a, inspectable);
 impl windows_core::RuntimeType for IDataPackagePropertySet2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet2");
@@ -1594,7 +1608,7 @@ pub struct IDataPackagePropertySet2_Vtbl {
     #[cfg(not(feature = "UI"))]
     SetLogoBackgroundColor: usize,
 }
-windows_core::imp::define_interface!(IDataPackagePropertySet3, IDataPackagePropertySet3_Vtbl, 0x9e87fd9b_5205_401b_874a_455653bd39e8);
+windows_core::imp::define_interface!(IDataPackagePropertySet3, IDataPackagePropertySet3_Vtbl, 0x9e87fd9b_5205_401b_874a_455653bd39e8, inspectable);
 impl windows_core::RuntimeType for IDataPackagePropertySet3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet3");
@@ -1606,7 +1620,7 @@ pub struct IDataPackagePropertySet3_Vtbl {
     pub EnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetEnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackagePropertySet4, IDataPackagePropertySet4_Vtbl, 0x6390ebf5_1739_4c74_b22f_865fab5e8545);
+windows_core::imp::define_interface!(IDataPackagePropertySet4, IDataPackagePropertySet4_Vtbl, 0x6390ebf5_1739_4c74_b22f_865fab5e8545, inspectable);
 impl windows_core::RuntimeType for IDataPackagePropertySet4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet4");
@@ -1618,7 +1632,7 @@ pub struct IDataPackagePropertySet4_Vtbl {
     pub ContentSourceUserActivityJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetContentSourceUserActivityJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackagePropertySetView, IDataPackagePropertySetView_Vtbl, 0xb94cec01_0c1a_4c57_be55_75d01289735d);
+windows_core::imp::define_interface!(IDataPackagePropertySetView, IDataPackagePropertySetView_Vtbl, 0xb94cec01_0c1a_4c57_be55_75d01289735d, inspectable);
 impl windows_core::RuntimeType for IDataPackagePropertySetView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView");
@@ -1637,7 +1651,7 @@ pub struct IDataPackagePropertySetView_Vtbl {
     pub ApplicationName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ApplicationListingUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackagePropertySetView2, IDataPackagePropertySetView2_Vtbl, 0x6054509b_8ebe_4feb_9c1e_75e69de54b84);
+windows_core::imp::define_interface!(IDataPackagePropertySetView2, IDataPackagePropertySetView2_Vtbl, 0x6054509b_8ebe_4feb_9c1e_75e69de54b84, inspectable);
 impl windows_core::RuntimeType for IDataPackagePropertySetView2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView2");
@@ -1658,7 +1672,7 @@ pub struct IDataPackagePropertySetView2_Vtbl {
     #[cfg(not(feature = "UI"))]
     LogoBackgroundColor: usize,
 }
-windows_core::imp::define_interface!(IDataPackagePropertySetView3, IDataPackagePropertySetView3_Vtbl, 0xdb764ce5_d174_495c_84fc_1a51f6ab45d7);
+windows_core::imp::define_interface!(IDataPackagePropertySetView3, IDataPackagePropertySetView3_Vtbl, 0xdb764ce5_d174_495c_84fc_1a51f6ab45d7, inspectable);
 impl windows_core::RuntimeType for IDataPackagePropertySetView3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView3");
@@ -1669,7 +1683,7 @@ pub struct IDataPackagePropertySetView3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackagePropertySetView4, IDataPackagePropertySetView4_Vtbl, 0x4474c80d_d16f_40ae_9580_6f8562b94235);
+windows_core::imp::define_interface!(IDataPackagePropertySetView4, IDataPackagePropertySetView4_Vtbl, 0x4474c80d_d16f_40ae_9580_6f8562b94235, inspectable);
 impl windows_core::RuntimeType for IDataPackagePropertySetView4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView4");
@@ -1680,7 +1694,7 @@ pub struct IDataPackagePropertySetView4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentSourceUserActivityJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackagePropertySetView5, IDataPackagePropertySetView5_Vtbl, 0x6f0a9445_3760_50bb_8523_c4202ded7d78);
+windows_core::imp::define_interface!(IDataPackagePropertySetView5, IDataPackagePropertySetView5_Vtbl, 0x6f0a9445_3760_50bb_8523_c4202ded7d78, inspectable);
 impl windows_core::RuntimeType for IDataPackagePropertySetView5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView5");
@@ -1691,7 +1705,7 @@ pub struct IDataPackagePropertySetView5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsFromRoamingClipboard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackageView, IDataPackageView_Vtbl, 0x7b840471_5900_4d85_a90b_10cb85fe3552);
+windows_core::imp::define_interface!(IDataPackageView, IDataPackageView_Vtbl, 0x7b840471_5900_4d85_a90b_10cb85fe3552, inspectable);
 impl windows_core::RuntimeType for IDataPackageView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackageView");
@@ -1724,7 +1738,7 @@ pub struct IDataPackageView_Vtbl {
     #[cfg(not(feature = "Storage"))]
     GetStorageItemsAsync: usize,
 }
-windows_core::imp::define_interface!(IDataPackageView2, IDataPackageView2_Vtbl, 0x40ecba95_2450_4c1d_b6b4_ed45463dee9c);
+windows_core::imp::define_interface!(IDataPackageView2, IDataPackageView2_Vtbl, 0x40ecba95_2450_4c1d_b6b4_ed45463dee9c, inspectable);
 impl windows_core::RuntimeType for IDataPackageView2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackageView2");
@@ -1736,7 +1750,7 @@ pub struct IDataPackageView2_Vtbl {
     pub GetApplicationLinkAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetWebLinkAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPackageView3, IDataPackageView3_Vtbl, 0xd37771a8_ddad_4288_8428_d1cae394128b);
+windows_core::imp::define_interface!(IDataPackageView3, IDataPackageView3_Vtbl, 0xd37771a8_ddad_4288_8428_d1cae394128b, inspectable);
 impl windows_core::RuntimeType for IDataPackageView3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackageView3");
@@ -1758,7 +1772,7 @@ pub struct IDataPackageView3_Vtbl {
     #[cfg(not(feature = "Security_EnterpriseData"))]
     UnlockAndAssumeEnterpriseIdentity: usize,
 }
-windows_core::imp::define_interface!(IDataPackageView4, IDataPackageView4_Vtbl, 0xdfe96f1f_e042_4433_a09f_26d6ffda8b85);
+windows_core::imp::define_interface!(IDataPackageView4, IDataPackageView4_Vtbl, 0xdfe96f1f_e042_4433_a09f_26d6ffda8b85, inspectable);
 impl windows_core::RuntimeType for IDataPackageView4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackageView4");
@@ -1769,7 +1783,7 @@ pub struct IDataPackageView4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetAcceptedFormatId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataProviderDeferral, IDataProviderDeferral_Vtbl, 0xc2cf2373_2d26_43d9_b69d_dcb86d03f6da);
+windows_core::imp::define_interface!(IDataProviderDeferral, IDataProviderDeferral_Vtbl, 0xc2cf2373_2d26_43d9_b69d_dcb86d03f6da, inspectable);
 impl windows_core::RuntimeType for IDataProviderDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataProviderDeferral");
@@ -1780,7 +1794,7 @@ pub struct IDataProviderDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataProviderRequest, IDataProviderRequest_Vtbl, 0xebbc7157_d3c8_47da_acde_f82388d5f716);
+windows_core::imp::define_interface!(IDataProviderRequest, IDataProviderRequest_Vtbl, 0xebbc7157_d3c8_47da_acde_f82388d5f716, inspectable);
 impl windows_core::RuntimeType for IDataProviderRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataProviderRequest");
@@ -1794,7 +1808,7 @@ pub struct IDataProviderRequest_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataRequest, IDataRequest_Vtbl, 0x4341ae3b_fc12_4e53_8c02_ac714c415a27);
+windows_core::imp::define_interface!(IDataRequest, IDataRequest_Vtbl, 0x4341ae3b_fc12_4e53_8c02_ac714c415a27, inspectable);
 impl windows_core::RuntimeType for IDataRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataRequest");
@@ -1809,7 +1823,7 @@ pub struct IDataRequest_Vtbl {
     pub FailWithDisplayText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataRequestDeferral, IDataRequestDeferral_Vtbl, 0x6dc4b89f_0386_4263_87c1_ed7dce30890e);
+windows_core::imp::define_interface!(IDataRequestDeferral, IDataRequestDeferral_Vtbl, 0x6dc4b89f_0386_4263_87c1_ed7dce30890e, inspectable);
 impl windows_core::RuntimeType for IDataRequestDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataRequestDeferral");
@@ -1820,7 +1834,7 @@ pub struct IDataRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataRequestedEventArgs, IDataRequestedEventArgs_Vtbl, 0xcb8ba807_6ac5_43c9_8ac5_9ba232163182);
+windows_core::imp::define_interface!(IDataRequestedEventArgs, IDataRequestedEventArgs_Vtbl, 0xcb8ba807_6ac5_43c9_8ac5_9ba232163182, inspectable);
 impl windows_core::RuntimeType for IDataRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs");
@@ -1831,7 +1845,7 @@ pub struct IDataRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataTransferManager, IDataTransferManager_Vtbl, 0xa5caee9b_8708_49d1_8d36_67d25a8da00c);
+windows_core::imp::define_interface!(IDataTransferManager, IDataTransferManager_Vtbl, 0xa5caee9b_8708_49d1_8d36_67d25a8da00c, inspectable);
 impl windows_core::RuntimeType for IDataTransferManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataTransferManager");
@@ -1845,7 +1859,7 @@ pub struct IDataTransferManager_Vtbl {
     pub TargetApplicationChosen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveTargetApplicationChosen: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataTransferManager2, IDataTransferManager2_Vtbl, 0x30ae7d71_8ba8_4c02_8e3f_ddb23b388715);
+windows_core::imp::define_interface!(IDataTransferManager2, IDataTransferManager2_Vtbl, 0x30ae7d71_8ba8_4c02_8e3f_ddb23b388715, inspectable);
 impl windows_core::RuntimeType for IDataTransferManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataTransferManager2");
@@ -1857,7 +1871,7 @@ pub struct IDataTransferManager2_Vtbl {
     pub ShareProvidersRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveShareProvidersRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataTransferManagerStatics, IDataTransferManagerStatics_Vtbl, 0xa9da01aa_e00e_4cfe_aa44_2dd932dca3d8);
+windows_core::imp::define_interface!(IDataTransferManagerStatics, IDataTransferManagerStatics_Vtbl, 0xa9da01aa_e00e_4cfe_aa44_2dd932dca3d8, inspectable);
 impl windows_core::RuntimeType for IDataTransferManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics");
@@ -1869,7 +1883,7 @@ pub struct IDataTransferManagerStatics_Vtbl {
     pub ShowShareUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataTransferManagerStatics2, IDataTransferManagerStatics2_Vtbl, 0xc54ec2ec_9f97_4d63_9868_395e271ad8f5);
+windows_core::imp::define_interface!(IDataTransferManagerStatics2, IDataTransferManagerStatics2_Vtbl, 0xc54ec2ec_9f97_4d63_9868_395e271ad8f5, inspectable);
 impl windows_core::RuntimeType for IDataTransferManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics2");
@@ -1880,7 +1894,7 @@ pub struct IDataTransferManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataTransferManagerStatics3, IDataTransferManagerStatics3_Vtbl, 0x05845473_6c82_4f5c_ac23_62e458361fac);
+windows_core::imp::define_interface!(IDataTransferManagerStatics3, IDataTransferManagerStatics3_Vtbl, 0x05845473_6c82_4f5c_ac23_62e458361fac, inspectable);
 impl windows_core::RuntimeType for IDataTransferManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics3");
@@ -1891,7 +1905,7 @@ pub struct IDataTransferManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShowShareUIWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHtmlFormatHelperStatics, IHtmlFormatHelperStatics_Vtbl, 0xe22e7749_dd70_446f_aefc_61cee59f655e);
+windows_core::imp::define_interface!(IHtmlFormatHelperStatics, IHtmlFormatHelperStatics_Vtbl, 0xe22e7749_dd70_446f_aefc_61cee59f655e, inspectable);
 impl windows_core::RuntimeType for IHtmlFormatHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IHtmlFormatHelperStatics");
@@ -1903,7 +1917,7 @@ pub struct IHtmlFormatHelperStatics_Vtbl {
     pub GetStaticFragment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateHtmlFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOperationCompletedEventArgs, IOperationCompletedEventArgs_Vtbl, 0xe7af329d_051d_4fab_b1a9_47fd77f70a41);
+windows_core::imp::define_interface!(IOperationCompletedEventArgs, IOperationCompletedEventArgs_Vtbl, 0xe7af329d_051d_4fab_b1a9_47fd77f70a41, inspectable);
 impl windows_core::RuntimeType for IOperationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs");
@@ -1914,7 +1928,7 @@ pub struct IOperationCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DataPackageOperation) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOperationCompletedEventArgs2, IOperationCompletedEventArgs2_Vtbl, 0x858fa073_1e19_4105_b2f7_c8478808d562);
+windows_core::imp::define_interface!(IOperationCompletedEventArgs2, IOperationCompletedEventArgs2_Vtbl, 0x858fa073_1e19_4105_b2f7_c8478808d562, inspectable);
 impl windows_core::RuntimeType for IOperationCompletedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs2");
@@ -1925,7 +1939,7 @@ pub struct IOperationCompletedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AcceptedFormatId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareCompletedEventArgs, IShareCompletedEventArgs_Vtbl, 0x4574c442_f913_4f60_9df7_cc4060ab1916);
+windows_core::imp::define_interface!(IShareCompletedEventArgs, IShareCompletedEventArgs_Vtbl, 0x4574c442_f913_4f60_9df7_cc4060ab1916, inspectable);
 impl windows_core::RuntimeType for IShareCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs");
@@ -1936,7 +1950,7 @@ pub struct IShareCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShareTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareProvider, IShareProvider_Vtbl, 0x2fabe026_443e_4cda_af25_8d81070efd80);
+windows_core::imp::define_interface!(IShareProvider, IShareProvider_Vtbl, 0x2fabe026_443e_4cda_af25_8d81070efd80, inspectable);
 impl windows_core::RuntimeType for IShareProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareProvider");
@@ -1957,7 +1971,7 @@ pub struct IShareProvider_Vtbl {
     pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareProviderFactory, IShareProviderFactory_Vtbl, 0x172a174c_e79e_4f6d_b07d_128f469e0296);
+windows_core::imp::define_interface!(IShareProviderFactory, IShareProviderFactory_Vtbl, 0x172a174c_e79e_4f6d_b07d_128f469e0296, inspectable);
 impl windows_core::RuntimeType for IShareProviderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareProviderFactory");
@@ -1971,7 +1985,7 @@ pub struct IShareProviderFactory_Vtbl {
     #[cfg(not(all(feature = "Storage_Streams", feature = "UI")))]
     Create: usize,
 }
-windows_core::imp::define_interface!(IShareProviderOperation, IShareProviderOperation_Vtbl, 0x19cef937_d435_4179_b6af_14e0492b69f6);
+windows_core::imp::define_interface!(IShareProviderOperation, IShareProviderOperation_Vtbl, 0x19cef937_d435_4179_b6af_14e0492b69f6, inspectable);
 impl windows_core::RuntimeType for IShareProviderOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareProviderOperation");
@@ -1984,7 +1998,7 @@ pub struct IShareProviderOperation_Vtbl {
     pub Provider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareProvidersRequestedEventArgs, IShareProvidersRequestedEventArgs_Vtbl, 0xf888f356_a3f8_4fce_85e4_8826e63be799);
+windows_core::imp::define_interface!(IShareProvidersRequestedEventArgs, IShareProvidersRequestedEventArgs_Vtbl, 0xf888f356_a3f8_4fce_85e4_8826e63be799, inspectable);
 impl windows_core::RuntimeType for IShareProvidersRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareProvidersRequestedEventArgs");
@@ -1997,7 +2011,7 @@ pub struct IShareProvidersRequestedEventArgs_Vtbl {
     pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareTargetInfo, IShareTargetInfo_Vtbl, 0x385be607_c6e8_4114_b294_28f3bb6f9904);
+windows_core::imp::define_interface!(IShareTargetInfo, IShareTargetInfo_Vtbl, 0x385be607_c6e8_4114_b294_28f3bb6f9904, inspectable);
 impl windows_core::RuntimeType for IShareTargetInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareTargetInfo");
@@ -2009,7 +2023,7 @@ pub struct IShareTargetInfo_Vtbl {
     pub AppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShareProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareUIOptions, IShareUIOptions_Vtbl, 0x72fa8a80_342f_4d90_9551_2ae04e37680c);
+windows_core::imp::define_interface!(IShareUIOptions, IShareUIOptions_Vtbl, 0x72fa8a80_342f_4d90_9551_2ae04e37680c, inspectable);
 impl windows_core::RuntimeType for IShareUIOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareUIOptions");
@@ -2023,7 +2037,7 @@ pub struct IShareUIOptions_Vtbl {
     pub SelectionRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSelectionRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISharedStorageAccessManagerStatics, ISharedStorageAccessManagerStatics_Vtbl, 0xc6132ada_34b1_4849_bd5f_d09fee3158c5);
+windows_core::imp::define_interface!(ISharedStorageAccessManagerStatics, ISharedStorageAccessManagerStatics_Vtbl, 0xc6132ada_34b1_4849_bd5f_d09fee3158c5, inspectable);
 impl windows_core::RuntimeType for ISharedStorageAccessManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ISharedStorageAccessManagerStatics");
@@ -2042,7 +2056,7 @@ pub struct ISharedStorageAccessManagerStatics_Vtbl {
     RedeemTokenForFileAsync: usize,
     pub RemoveFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStandardDataFormatsStatics, IStandardDataFormatsStatics_Vtbl, 0x7ed681a1_a880_40c9_b4ed_0bee1e15f549);
+windows_core::imp::define_interface!(IStandardDataFormatsStatics, IStandardDataFormatsStatics_Vtbl, 0x7ed681a1_a880_40c9_b4ed_0bee1e15f549, inspectable);
 impl windows_core::RuntimeType for IStandardDataFormatsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics");
@@ -2058,7 +2072,7 @@ pub struct IStandardDataFormatsStatics_Vtbl {
     pub Bitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StorageItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStandardDataFormatsStatics2, IStandardDataFormatsStatics2_Vtbl, 0x42a254f4_9d76_42e8_861b_47c25dd0cf71);
+windows_core::imp::define_interface!(IStandardDataFormatsStatics2, IStandardDataFormatsStatics2_Vtbl, 0x42a254f4_9d76_42e8_861b_47c25dd0cf71, inspectable);
 impl windows_core::RuntimeType for IStandardDataFormatsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics2");
@@ -2070,7 +2084,7 @@ pub struct IStandardDataFormatsStatics2_Vtbl {
     pub WebLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ApplicationLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStandardDataFormatsStatics3, IStandardDataFormatsStatics3_Vtbl, 0x3b57b069_01d4_474c_8b5f_bc8e27f38b21);
+windows_core::imp::define_interface!(IStandardDataFormatsStatics3, IStandardDataFormatsStatics3_Vtbl, 0x3b57b069_01d4_474c_8b5f_bc8e27f38b21, inspectable);
 impl windows_core::RuntimeType for IStandardDataFormatsStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics3");
@@ -2081,7 +2095,7 @@ pub struct IStandardDataFormatsStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UserActivityJsonArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetApplicationChosenEventArgs, ITargetApplicationChosenEventArgs_Vtbl, 0xca6fb8ac_2987_4ee3_9c54_d8afbcb86c1d);
+windows_core::imp::define_interface!(ITargetApplicationChosenEventArgs, ITargetApplicationChosenEventArgs_Vtbl, 0xca6fb8ac_2987_4ee3_9c54_d8afbcb86c1d, inspectable);
 impl windows_core::RuntimeType for ITargetApplicationChosenEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITargetApplicationChosenEventArgs");
@@ -2092,7 +2106,7 @@ pub struct ITargetApplicationChosenEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ApplicationName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITransferTarget, ITransferTarget_Vtbl, 0x897e04e5_60c2_5eae_909f_e6257e32c644);
+windows_core::imp::define_interface!(ITransferTarget, ITransferTarget_Vtbl, 0x897e04e5_60c2_5eae_909f_e6257e32c644, inspectable);
 impl windows_core::RuntimeType for ITransferTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTarget");
@@ -2109,7 +2123,7 @@ pub struct ITransferTarget_Vtbl {
     DisplayIcon: usize,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITransferTargetChangedEventArgs, ITransferTargetChangedEventArgs_Vtbl, 0xd513d198_4174_53cf_a06e_4cd263d0dfef);
+windows_core::imp::define_interface!(ITransferTargetChangedEventArgs, ITransferTargetChangedEventArgs_Vtbl, 0xd513d198_4174_53cf_a06e_4cd263d0dfef, inspectable);
 impl windows_core::RuntimeType for ITransferTargetChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetChangedEventArgs");
@@ -2120,7 +2134,7 @@ pub struct ITransferTargetChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Target: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITransferTargetDiscoveryOptions, ITransferTargetDiscoveryOptions_Vtbl, 0x712fe3b5_644f_5f6b_97b6_3a3400999ed7);
+windows_core::imp::define_interface!(ITransferTargetDiscoveryOptions, ITransferTargetDiscoveryOptions_Vtbl, 0x712fe3b5_644f_5f6b_97b6_3a3400999ed7, inspectable);
 impl windows_core::RuntimeType for ITransferTargetDiscoveryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetDiscoveryOptions");
@@ -2135,7 +2149,7 @@ pub struct ITransferTargetDiscoveryOptions_Vtbl {
     pub AllowedTargetAppIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAllowedTargetAppIds: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::HSTRING) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITransferTargetDiscoveryOptionsFactory, ITransferTargetDiscoveryOptionsFactory_Vtbl, 0xec4b7ffc_cbc6_5e12_8e9b_d5e892f2c6f8);
+windows_core::imp::define_interface!(ITransferTargetDiscoveryOptionsFactory, ITransferTargetDiscoveryOptionsFactory_Vtbl, 0xec4b7ffc_cbc6_5e12_8e9b_d5e892f2c6f8, inspectable);
 impl windows_core::RuntimeType for ITransferTargetDiscoveryOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetDiscoveryOptionsFactory");
@@ -2146,7 +2160,7 @@ pub struct ITransferTargetDiscoveryOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITransferTargetInvokeResult, ITransferTargetInvokeResult_Vtbl, 0x15f220a6_cffe_56f5_b403_ed44e9c3ad38);
+windows_core::imp::define_interface!(ITransferTargetInvokeResult, ITransferTargetInvokeResult_Vtbl, 0x15f220a6_cffe_56f5_b403_ed44e9c3ad38, inspectable);
 impl windows_core::RuntimeType for ITransferTargetInvokeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetInvokeResult");
@@ -2158,7 +2172,7 @@ pub struct ITransferTargetInvokeResult_Vtbl {
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITransferTargetStatics, ITransferTargetStatics_Vtbl, 0x815b8804_e7f1_5f37_b52f_be1ceba9a59e);
+windows_core::imp::define_interface!(ITransferTargetStatics, ITransferTargetStatics_Vtbl, 0x815b8804_e7f1_5f37_b52f_be1ceba9a59e, inspectable);
 impl windows_core::RuntimeType for ITransferTargetStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetStatics");
@@ -2169,7 +2183,7 @@ pub struct ITransferTargetStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITransferTargetWatcher, ITransferTargetWatcher_Vtbl, 0x2f85ca29_0100_5d09_907c_fe554d2fcd1a);
+windows_core::imp::define_interface!(ITransferTargetWatcher, ITransferTargetWatcher_Vtbl, 0x2f85ca29_0100_5d09_907c_fe554d2fcd1a, inspectable);
 impl windows_core::RuntimeType for ITransferTargetWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetWatcher");
@@ -2195,7 +2209,7 @@ pub struct ITransferTargetWatcher_Vtbl {
     pub Stopped: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStopped: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITransferTargetWatcherStatics, ITransferTargetWatcherStatics_Vtbl, 0xa24b3528_db4e_5bdd_9d30_dcb192c701f5);
+windows_core::imp::define_interface!(ITransferTargetWatcherStatics, ITransferTargetWatcherStatics_Vtbl, 0xa24b3528_db4e_5bdd_9d30_dcb192c701f5, inspectable);
 impl windows_core::RuntimeType for ITransferTargetWatcherStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetWatcherStatics");
@@ -2231,6 +2245,7 @@ impl windows_core::RuntimeType for OperationCompletedEventArgs {
 unsafe impl windows_core::Interface for OperationCompletedEventArgs {
     type Vtable = <IOperationCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOperationCompletedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for OperationCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs";
@@ -2270,6 +2285,7 @@ impl windows_core::RuntimeType for ShareCompletedEventArgs {
 unsafe impl windows_core::Interface for ShareCompletedEventArgs {
     type Vtable = <IShareCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareCompletedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ShareCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs";
@@ -2335,6 +2351,7 @@ impl windows_core::RuntimeType for ShareProvider {
 unsafe impl windows_core::Interface for ShareProvider {
     type Vtable = <IShareProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareProvider as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ShareProvider {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvider";
@@ -2407,6 +2424,7 @@ impl windows_core::RuntimeType for ShareProviderOperation {
 unsafe impl windows_core::Interface for ShareProviderOperation {
     type Vtable = <IShareProviderOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareProviderOperation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ShareProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProviderOperation";
@@ -2443,6 +2461,7 @@ impl windows_core::RuntimeType for ShareProvidersRequestedEventArgs {
 unsafe impl windows_core::Interface for ShareProvidersRequestedEventArgs {
     type Vtable = <IShareProvidersRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareProvidersRequestedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ShareProvidersRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs";
@@ -2473,6 +2492,7 @@ impl windows_core::RuntimeType for ShareTargetInfo {
 unsafe impl windows_core::Interface for ShareTargetInfo {
     type Vtable = <IShareTargetInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareTargetInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ShareTargetInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTargetInfo";
@@ -2517,6 +2537,7 @@ impl windows_core::RuntimeType for ShareUIOptions {
 unsafe impl windows_core::Interface for ShareUIOptions {
     type Vtable = <IShareUIOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareUIOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ShareUIOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareUIOptions";
@@ -2658,6 +2679,7 @@ impl windows_core::RuntimeType for TargetApplicationChosenEventArgs {
 unsafe impl windows_core::Interface for TargetApplicationChosenEventArgs {
     type Vtable = <ITargetApplicationChosenEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetApplicationChosenEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TargetApplicationChosenEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs";
@@ -2714,6 +2736,7 @@ impl windows_core::RuntimeType for TransferTarget {
 unsafe impl windows_core::Interface for TransferTarget {
     type Vtable = <ITransferTarget as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITransferTarget as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TransferTarget {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TransferTarget";
@@ -2738,6 +2761,7 @@ impl windows_core::RuntimeType for TransferTargetChangedEventArgs {
 unsafe impl windows_core::Interface for TransferTargetChangedEventArgs {
     type Vtable = <ITransferTargetChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITransferTargetChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TransferTargetChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TransferTargetChangedEventArgs";
@@ -2794,6 +2818,7 @@ impl windows_core::RuntimeType for TransferTargetDiscoveryOptions {
 unsafe impl windows_core::Interface for TransferTargetDiscoveryOptions {
     type Vtable = <ITransferTargetDiscoveryOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITransferTargetDiscoveryOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TransferTargetDiscoveryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TransferTargetDiscoveryOptions";
@@ -2824,6 +2849,7 @@ impl windows_core::RuntimeType for TransferTargetInvokeResult {
 unsafe impl windows_core::Interface for TransferTargetInvokeResult {
     type Vtable = <ITransferTargetInvokeResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITransferTargetInvokeResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TransferTargetInvokeResult {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TransferTargetInvokeResult";
@@ -2941,6 +2967,7 @@ impl windows_core::RuntimeType for TransferTargetWatcher {
 unsafe impl windows_core::Interface for TransferTargetWatcher {
     type Vtable = <ITransferTargetWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITransferTargetWatcher as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TransferTargetWatcher {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TransferTargetWatcher";

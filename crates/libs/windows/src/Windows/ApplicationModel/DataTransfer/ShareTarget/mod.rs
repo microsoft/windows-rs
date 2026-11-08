@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IQuickLink, IQuickLink_Vtbl, 0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
+windows_core::imp::define_interface!(IQuickLink, IQuickLink_Vtbl, 0x603e4308_f0be_4adc_acc9_8b27ab9cf556, inspectable);
 impl windows_core::RuntimeType for IQuickLink {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink");
@@ -22,7 +22,7 @@ pub struct IQuickLink_Vtbl {
     pub SupportedDataFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SupportedFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareOperation, IShareOperation_Vtbl, 0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
+windows_core::imp::define_interface!(IShareOperation, IShareOperation_Vtbl, 0x2246bab8_d0f8_41c1_a82a_4137db6504fb, inspectable);
 impl windows_core::RuntimeType for IShareOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation");
@@ -41,7 +41,7 @@ pub struct IShareOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareOperation2, IShareOperation2_Vtbl, 0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
+windows_core::imp::define_interface!(IShareOperation2, IShareOperation2_Vtbl, 0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555, inspectable);
 impl windows_core::RuntimeType for IShareOperation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation2");
@@ -52,7 +52,7 @@ pub struct IShareOperation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DismissUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareOperation3, IShareOperation3_Vtbl, 0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
+windows_core::imp::define_interface!(IShareOperation3, IShareOperation3_Vtbl, 0x5ef6b382_b7a7_4571_a2a6_994a034988b2, inspectable);
 impl windows_core::RuntimeType for IShareOperation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation3");
@@ -129,6 +129,7 @@ impl windows_core::RuntimeType for QuickLink {
 unsafe impl windows_core::Interface for QuickLink {
     type Vtable = <IQuickLink as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IQuickLink as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for QuickLink {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink";
@@ -193,6 +194,7 @@ impl windows_core::RuntimeType for ShareOperation {
 unsafe impl windows_core::Interface for ShareOperation {
     type Vtable = <IShareOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareOperation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ShareOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation";

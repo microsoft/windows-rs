@@ -17,6 +17,7 @@ impl windows_core::RuntimeType for DetectedFace {
 unsafe impl windows_core::Interface for DetectedFace {
     type Vtable = <IDetectedFace as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDetectedFace as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.DetectedFace";
@@ -107,6 +108,7 @@ impl windows_core::RuntimeType for FaceDetector {
 unsafe impl windows_core::Interface for FaceDetector {
     type Vtable = <IFaceDetector as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFaceDetector as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceDetector";
@@ -186,13 +188,14 @@ impl windows_core::RuntimeType for FaceTracker {
 unsafe impl windows_core::Interface for FaceTracker {
     type Vtable = <IFaceTracker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFaceTracker as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for FaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceTracker";
 }
 unsafe impl Send for FaceTracker {}
 unsafe impl Sync for FaceTracker {}
-windows_core::imp::define_interface!(IDetectedFace, IDetectedFace_Vtbl, 0x8200d454_66bc_34df_9410_e89400195414);
+windows_core::imp::define_interface!(IDetectedFace, IDetectedFace_Vtbl, 0x8200d454_66bc_34df_9410_e89400195414, inspectable);
 impl windows_core::RuntimeType for IDetectedFace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.FaceAnalysis.IDetectedFace");
@@ -206,7 +209,7 @@ pub struct IDetectedFace_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     FaceBox: usize,
 }
-windows_core::imp::define_interface!(IFaceDetector, IFaceDetector_Vtbl, 0x16b672dc_fe6f_3117_8d95_c3f04d51630c);
+windows_core::imp::define_interface!(IFaceDetector, IFaceDetector_Vtbl, 0x16b672dc_fe6f_3117_8d95_c3f04d51630c, inspectable);
 impl windows_core::RuntimeType for IFaceDetector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.FaceAnalysis.IFaceDetector");
@@ -240,7 +243,7 @@ pub struct IFaceDetector_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMaxDetectableFaceSize: usize,
 }
-windows_core::imp::define_interface!(IFaceDetectorStatics, IFaceDetectorStatics_Vtbl, 0xbc042d67_9047_33f6_881b_6746c1b218b8);
+windows_core::imp::define_interface!(IFaceDetectorStatics, IFaceDetectorStatics_Vtbl, 0xbc042d67_9047_33f6_881b_6746c1b218b8, inspectable);
 impl windows_core::RuntimeType for IFaceDetectorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.FaceAnalysis.IFaceDetectorStatics");
@@ -260,7 +263,7 @@ pub struct IFaceDetectorStatics_Vtbl {
     IsBitmapPixelFormatSupported: usize,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFaceTracker, IFaceTracker_Vtbl, 0x6ba67d8c_a841_4420_93e6_2420a1884fcf);
+windows_core::imp::define_interface!(IFaceTracker, IFaceTracker_Vtbl, 0x6ba67d8c_a841_4420_93e6_2420a1884fcf, inspectable);
 impl windows_core::RuntimeType for IFaceTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.FaceAnalysis.IFaceTracker");
@@ -287,7 +290,7 @@ pub struct IFaceTracker_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMaxDetectableFaceSize: usize,
 }
-windows_core::imp::define_interface!(IFaceTrackerStatics, IFaceTrackerStatics_Vtbl, 0xe9629198_1801_3fa5_932e_31d767af6c4d);
+windows_core::imp::define_interface!(IFaceTrackerStatics, IFaceTrackerStatics_Vtbl, 0xe9629198_1801_3fa5_932e_31d767af6c4d, inspectable);
 impl windows_core::RuntimeType for IFaceTrackerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.FaceAnalysis.IFaceTrackerStatics");

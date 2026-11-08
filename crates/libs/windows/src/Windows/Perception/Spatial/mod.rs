@@ -2,7 +2,7 @@
 pub mod Preview;
 #[cfg(feature = "Perception_Spatial_Surfaces")]
 pub mod Surfaces;
-windows_core::imp::define_interface!(ISpatialAnchor, ISpatialAnchor_Vtbl, 0x0529e5ce_1d34_3702_bcec_eabff578a869);
+windows_core::imp::define_interface!(ISpatialAnchor, ISpatialAnchor_Vtbl, 0x0529e5ce_1d34_3702_bcec_eabff578a869, inspectable);
 impl windows_core::RuntimeType for ISpatialAnchor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialAnchor");
@@ -16,7 +16,7 @@ pub struct ISpatialAnchor_Vtbl {
     pub RawCoordinateSystemAdjusted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRawCoordinateSystemAdjusted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialAnchor2, ISpatialAnchor2_Vtbl, 0xed17c908_a695_4cf6_92fd_97263ba71047);
+windows_core::imp::define_interface!(ISpatialAnchor2, ISpatialAnchor2_Vtbl, 0xed17c908_a695_4cf6_92fd_97263ba71047, inspectable);
 impl windows_core::RuntimeType for ISpatialAnchor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialAnchor2");
@@ -27,7 +27,7 @@ pub struct ISpatialAnchor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemovedByUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialAnchorExportSufficiency, ISpatialAnchorExportSufficiency_Vtbl, 0x77c25b2b_3409_4088_b91b_fdfd05d1648f);
+windows_core::imp::define_interface!(ISpatialAnchorExportSufficiency, ISpatialAnchorExportSufficiency_Vtbl, 0x77c25b2b_3409_4088_b91b_fdfd05d1648f, inspectable);
 impl windows_core::RuntimeType for ISpatialAnchorExportSufficiency {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialAnchorExportSufficiency");
@@ -40,7 +40,7 @@ pub struct ISpatialAnchorExportSufficiency_Vtbl {
     pub SufficiencyLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub RecommendedSufficiencyLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialAnchorExporter, ISpatialAnchorExporter_Vtbl, 0x9a2a4338_24fb_4269_89c5_88304aeef20f);
+windows_core::imp::define_interface!(ISpatialAnchorExporter, ISpatialAnchorExporter_Vtbl, 0x9a2a4338_24fb_4269_89c5_88304aeef20f, inspectable);
 impl windows_core::RuntimeType for ISpatialAnchorExporter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialAnchorExporter");
@@ -55,7 +55,7 @@ pub struct ISpatialAnchorExporter_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     TryExportAnchorAsync: usize,
 }
-windows_core::imp::define_interface!(ISpatialAnchorExporterStatics, ISpatialAnchorExporterStatics_Vtbl, 0xed2507b8_2475_439c_85ff_7fed341fdc88);
+windows_core::imp::define_interface!(ISpatialAnchorExporterStatics, ISpatialAnchorExporterStatics_Vtbl, 0xed2507b8_2475_439c_85ff_7fed341fdc88, inspectable);
 impl windows_core::RuntimeType for ISpatialAnchorExporterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialAnchorExporterStatics");
@@ -67,7 +67,7 @@ pub struct ISpatialAnchorExporterStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialAnchorManagerStatics, ISpatialAnchorManagerStatics_Vtbl, 0x88e30eab_f3b7_420b_b086_8a80c07d910d);
+windows_core::imp::define_interface!(ISpatialAnchorManagerStatics, ISpatialAnchorManagerStatics_Vtbl, 0x88e30eab_f3b7_420b_b086_8a80c07d910d, inspectable);
 impl windows_core::RuntimeType for ISpatialAnchorManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialAnchorManagerStatics");
@@ -78,7 +78,7 @@ pub struct ISpatialAnchorManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialAnchorRawCoordinateSystemAdjustedEventArgs, ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_Vtbl, 0xa1e81eb8_56c7_3117_a2e4_81e0fcf28e00);
+windows_core::imp::define_interface!(ISpatialAnchorRawCoordinateSystemAdjustedEventArgs, ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_Vtbl, 0xa1e81eb8_56c7_3117_a2e4_81e0fcf28e00, inspectable);
 impl windows_core::RuntimeType for ISpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialAnchorRawCoordinateSystemAdjustedEventArgs");
@@ -89,7 +89,7 @@ pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OldRawCoordinateSystemToNewRawCoordinateSystemTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialAnchorStatics, ISpatialAnchorStatics_Vtbl, 0xa9928642_0174_311c_ae79_0e5107669f16);
+windows_core::imp::define_interface!(ISpatialAnchorStatics, ISpatialAnchorStatics_Vtbl, 0xa9928642_0174_311c_ae79_0e5107669f16, inspectable);
 impl windows_core::RuntimeType for ISpatialAnchorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialAnchorStatics");
@@ -105,7 +105,7 @@ pub struct ISpatialAnchorStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryCreateWithPositionAndOrientationRelativeTo: usize,
 }
-windows_core::imp::define_interface!(ISpatialAnchorStore, ISpatialAnchorStore_Vtbl, 0xb0bc3636_486a_3cb0_9e6f_1245165c4db6);
+windows_core::imp::define_interface!(ISpatialAnchorStore, ISpatialAnchorStore_Vtbl, 0xb0bc3636_486a_3cb0_9e6f_1245165c4db6, inspectable);
 impl windows_core::RuntimeType for ISpatialAnchorStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialAnchorStore");
@@ -119,7 +119,7 @@ pub struct ISpatialAnchorStore_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialAnchorTransferManagerStatics, ISpatialAnchorTransferManagerStatics_Vtbl, 0x03bbf9b9_12d8_4bce_8835_c5df3ac0adab);
+windows_core::imp::define_interface!(ISpatialAnchorTransferManagerStatics, ISpatialAnchorTransferManagerStatics_Vtbl, 0x03bbf9b9_12d8_4bce_8835_c5df3ac0adab, inspectable);
 impl windows_core::RuntimeType for ISpatialAnchorTransferManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialAnchorTransferManagerStatics");
@@ -138,7 +138,7 @@ pub struct ISpatialAnchorTransferManagerStatics_Vtbl {
     TryExportAnchorsAsync: usize,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialBoundingVolume, ISpatialBoundingVolume_Vtbl, 0xfb2065da_68c3_33df_b7af_4c787207999c);
+windows_core::imp::define_interface!(ISpatialBoundingVolume, ISpatialBoundingVolume_Vtbl, 0xfb2065da_68c3_33df_b7af_4c787207999c, inspectable);
 impl windows_core::RuntimeType for ISpatialBoundingVolume {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialBoundingVolume");
@@ -148,7 +148,7 @@ impl windows_core::RuntimeType for ISpatialBoundingVolume {
 pub struct ISpatialBoundingVolume_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ISpatialBoundingVolumeStatics, ISpatialBoundingVolumeStatics_Vtbl, 0x05889117_b3e1_36d8_b017_566181a5b196);
+windows_core::imp::define_interface!(ISpatialBoundingVolumeStatics, ISpatialBoundingVolumeStatics_Vtbl, 0x05889117_b3e1_36d8_b017_566181a5b196, inspectable);
 impl windows_core::RuntimeType for ISpatialBoundingVolumeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialBoundingVolumeStatics");
@@ -168,7 +168,7 @@ pub struct ISpatialBoundingVolumeStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     FromFrustum: usize,
 }
-windows_core::imp::define_interface!(ISpatialCoordinateSystem, ISpatialCoordinateSystem_Vtbl, 0x69ebca4b_60a3_3586_a653_59a7bd676d07);
+windows_core::imp::define_interface!(ISpatialCoordinateSystem, ISpatialCoordinateSystem_Vtbl, 0x69ebca4b_60a3_3586_a653_59a7bd676d07, inspectable);
 impl windows_core::RuntimeType for ISpatialCoordinateSystem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialCoordinateSystem");
@@ -179,7 +179,7 @@ pub struct ISpatialCoordinateSystem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryGetTransformTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialEntity, ISpatialEntity_Vtbl, 0x166de955_e1eb_454c_ba08_e6c0668ddc65);
+windows_core::imp::define_interface!(ISpatialEntity, ISpatialEntity_Vtbl, 0x166de955_e1eb_454c_ba08_e6c0668ddc65, inspectable);
 impl windows_core::RuntimeType for ISpatialEntity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialEntity");
@@ -195,7 +195,7 @@ pub struct ISpatialEntity_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-windows_core::imp::define_interface!(ISpatialEntityAddedEventArgs, ISpatialEntityAddedEventArgs_Vtbl, 0xa397f49b_156a_4707_ac2c_d31d570ed399);
+windows_core::imp::define_interface!(ISpatialEntityAddedEventArgs, ISpatialEntityAddedEventArgs_Vtbl, 0xa397f49b_156a_4707_ac2c_d31d570ed399, inspectable);
 impl windows_core::RuntimeType for ISpatialEntityAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialEntityAddedEventArgs");
@@ -206,7 +206,7 @@ pub struct ISpatialEntityAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Entity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialEntityFactory, ISpatialEntityFactory_Vtbl, 0xe1f1e325_349f_4225_a2f3_4b01c15fe056);
+windows_core::imp::define_interface!(ISpatialEntityFactory, ISpatialEntityFactory_Vtbl, 0xe1f1e325_349f_4225_a2f3_4b01c15fe056, inspectable);
 impl windows_core::RuntimeType for ISpatialEntityFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialEntityFactory");
@@ -221,7 +221,7 @@ pub struct ISpatialEntityFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithSpatialAnchorAndProperties: usize,
 }
-windows_core::imp::define_interface!(ISpatialEntityRemovedEventArgs, ISpatialEntityRemovedEventArgs_Vtbl, 0x91741800_536d_4e9f_abf6_415b5444d651);
+windows_core::imp::define_interface!(ISpatialEntityRemovedEventArgs, ISpatialEntityRemovedEventArgs_Vtbl, 0x91741800_536d_4e9f_abf6_415b5444d651, inspectable);
 impl windows_core::RuntimeType for ISpatialEntityRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialEntityRemovedEventArgs");
@@ -232,7 +232,7 @@ pub struct ISpatialEntityRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Entity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialEntityStore, ISpatialEntityStore_Vtbl, 0x329788ba_e513_4f06_889d_1be30ecf43e6);
+windows_core::imp::define_interface!(ISpatialEntityStore, ISpatialEntityStore_Vtbl, 0x329788ba_e513_4f06_889d_1be30ecf43e6, inspectable);
 impl windows_core::RuntimeType for ISpatialEntityStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialEntityStore");
@@ -245,7 +245,7 @@ pub struct ISpatialEntityStore_Vtbl {
     pub RemoveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateEntityWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialEntityStoreStatics, ISpatialEntityStoreStatics_Vtbl, 0x6b4b389e_7c50_4e92_8a62_4d1d4b7ccd3e);
+windows_core::imp::define_interface!(ISpatialEntityStoreStatics, ISpatialEntityStoreStatics_Vtbl, 0x6b4b389e_7c50_4e92_8a62_4d1d4b7ccd3e, inspectable);
 impl windows_core::RuntimeType for ISpatialEntityStoreStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialEntityStoreStatics");
@@ -260,7 +260,7 @@ pub struct ISpatialEntityStoreStatics_Vtbl {
     #[cfg(not(feature = "System_RemoteSystems"))]
     TryGetForRemoteSystemSession: usize,
 }
-windows_core::imp::define_interface!(ISpatialEntityUpdatedEventArgs, ISpatialEntityUpdatedEventArgs_Vtbl, 0xe5671766_627b_43cb_a49f_b3be6d47deed);
+windows_core::imp::define_interface!(ISpatialEntityUpdatedEventArgs, ISpatialEntityUpdatedEventArgs_Vtbl, 0xe5671766_627b_43cb_a49f_b3be6d47deed, inspectable);
 impl windows_core::RuntimeType for ISpatialEntityUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialEntityUpdatedEventArgs");
@@ -271,7 +271,7 @@ pub struct ISpatialEntityUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Entity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialEntityWatcher, ISpatialEntityWatcher_Vtbl, 0xb3b85fa0_6d5e_4bbc_805d_5fe5b9ba1959);
+windows_core::imp::define_interface!(ISpatialEntityWatcher, ISpatialEntityWatcher_Vtbl, 0xb3b85fa0_6d5e_4bbc_805d_5fe5b9ba1959, inspectable);
 impl windows_core::RuntimeType for ISpatialEntityWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialEntityWatcher");
@@ -292,7 +292,7 @@ pub struct ISpatialEntityWatcher_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialLocation, ISpatialLocation_Vtbl, 0x1d81d29d_24a1_37d5_8fa1_39b4f9ad67e2);
+windows_core::imp::define_interface!(ISpatialLocation, ISpatialLocation_Vtbl, 0x1d81d29d_24a1_37d5_8fa1_39b4f9ad67e2, inspectable);
 impl windows_core::RuntimeType for ISpatialLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialLocation");
@@ -317,7 +317,7 @@ pub struct ISpatialLocation_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     AbsoluteAngularAcceleration: usize,
 }
-windows_core::imp::define_interface!(ISpatialLocation2, ISpatialLocation2_Vtbl, 0x117f2416_38a7_4a18_b404_ab8fabe1d78b);
+windows_core::imp::define_interface!(ISpatialLocation2, ISpatialLocation2_Vtbl, 0x117f2416_38a7_4a18_b404_ab8fabe1d78b, inspectable);
 impl windows_core::RuntimeType for ISpatialLocation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialLocation2");
@@ -329,7 +329,7 @@ pub struct ISpatialLocation2_Vtbl {
     pub AbsoluteAngularVelocityAxisAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub AbsoluteAngularAccelerationAxisAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialLocator, ISpatialLocator_Vtbl, 0xf6478925_9e0c_3bb6_997e_b64ecca24cf4);
+windows_core::imp::define_interface!(ISpatialLocator, ISpatialLocator_Vtbl, 0xf6478925_9e0c_3bb6_997e_b64ecca24cf4, inspectable);
 impl windows_core::RuntimeType for ISpatialLocator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialLocator");
@@ -365,7 +365,7 @@ pub struct ISpatialLocator_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading: usize,
 }
-windows_core::imp::define_interface!(ISpatialLocatorAttachedFrameOfReference, ISpatialLocatorAttachedFrameOfReference_Vtbl, 0xe1774ef6_1f4f_499c_9625_ef5e6ed7a048);
+windows_core::imp::define_interface!(ISpatialLocatorAttachedFrameOfReference, ISpatialLocatorAttachedFrameOfReference_Vtbl, 0xe1774ef6_1f4f_499c_9625_ef5e6ed7a048, inspectable);
 impl windows_core::RuntimeType for ISpatialLocatorAttachedFrameOfReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialLocatorAttachedFrameOfReference");
@@ -388,7 +388,7 @@ pub struct ISpatialLocatorAttachedFrameOfReference_Vtbl {
     pub GetStationaryCoordinateSystemAtTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryGetRelativeHeadingAtTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialLocatorPositionalTrackingDeactivatingEventArgs, ISpatialLocatorPositionalTrackingDeactivatingEventArgs_Vtbl, 0xb8a84063_e3f4_368b_9061_9ea9d1d6cc16);
+windows_core::imp::define_interface!(ISpatialLocatorPositionalTrackingDeactivatingEventArgs, ISpatialLocatorPositionalTrackingDeactivatingEventArgs_Vtbl, 0xb8a84063_e3f4_368b_9061_9ea9d1d6cc16, inspectable);
 impl windows_core::RuntimeType for ISpatialLocatorPositionalTrackingDeactivatingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialLocatorPositionalTrackingDeactivatingEventArgs");
@@ -400,7 +400,7 @@ pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs_Vtbl {
     pub Canceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialLocatorStatics, ISpatialLocatorStatics_Vtbl, 0xb76e3340_a7c2_361b_bb82_56e93b89b1bb);
+windows_core::imp::define_interface!(ISpatialLocatorStatics, ISpatialLocatorStatics_Vtbl, 0xb76e3340_a7c2_361b_bb82_56e93b89b1bb, inspectable);
 impl windows_core::RuntimeType for ISpatialLocatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialLocatorStatics");
@@ -411,7 +411,7 @@ pub struct ISpatialLocatorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialStageFrameOfReference, ISpatialStageFrameOfReference_Vtbl, 0x7a8a3464_ad0d_4590_ab86_33062b674926);
+windows_core::imp::define_interface!(ISpatialStageFrameOfReference, ISpatialStageFrameOfReference_Vtbl, 0x7a8a3464_ad0d_4590_ab86_33062b674926, inspectable);
 impl windows_core::RuntimeType for ISpatialStageFrameOfReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialStageFrameOfReference");
@@ -426,7 +426,7 @@ pub struct ISpatialStageFrameOfReference_Vtbl {
     pub GetCoordinateSystemAtCurrentLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryGetMovementBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *mut *mut windows_numerics::Vector3) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialStageFrameOfReferenceStatics, ISpatialStageFrameOfReferenceStatics_Vtbl, 0xf78d5c4d_a0a4_499c_8d91_a8c965d40654);
+windows_core::imp::define_interface!(ISpatialStageFrameOfReferenceStatics, ISpatialStageFrameOfReferenceStatics_Vtbl, 0xf78d5c4d_a0a4_499c_8d91_a8c965d40654, inspectable);
 impl windows_core::RuntimeType for ISpatialStageFrameOfReferenceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialStageFrameOfReferenceStatics");
@@ -440,7 +440,7 @@ pub struct ISpatialStageFrameOfReferenceStatics_Vtbl {
     pub RemoveCurrentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub RequestNewStageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialStationaryFrameOfReference, ISpatialStationaryFrameOfReference_Vtbl, 0x09dbccb9_bcf8_3e7f_be7e_7edccbb178a8);
+windows_core::imp::define_interface!(ISpatialStationaryFrameOfReference, ISpatialStationaryFrameOfReference_Vtbl, 0x09dbccb9_bcf8_3e7f_be7e_7edccbb178a8, inspectable);
 impl windows_core::RuntimeType for ISpatialStationaryFrameOfReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.ISpatialStationaryFrameOfReference");
@@ -528,6 +528,7 @@ impl windows_core::RuntimeType for SpatialAnchor {
 unsafe impl windows_core::Interface for SpatialAnchor {
     type Vtable = <ISpatialAnchor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialAnchor as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialAnchor {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchor";
@@ -578,6 +579,7 @@ impl windows_core::RuntimeType for SpatialAnchorExportSufficiency {
 unsafe impl windows_core::Interface for SpatialAnchorExportSufficiency {
     type Vtable = <ISpatialAnchorExportSufficiency as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialAnchorExportSufficiency as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialAnchorExportSufficiency {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExportSufficiency";
@@ -632,6 +634,7 @@ impl windows_core::RuntimeType for SpatialAnchorExporter {
 unsafe impl windows_core::Interface for SpatialAnchorExporter {
     type Vtable = <ISpatialAnchorExporter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialAnchorExporter as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialAnchorExporter {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExporter";
@@ -672,6 +675,7 @@ impl windows_core::RuntimeType for SpatialAnchorRawCoordinateSystemAdjustedEvent
 unsafe impl windows_core::Interface for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     type Vtable = <ISpatialAnchorRawCoordinateSystemAdjustedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialAnchorRawCoordinateSystemAdjustedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs";
@@ -711,6 +715,7 @@ impl windows_core::RuntimeType for SpatialAnchorStore {
 unsafe impl windows_core::Interface for SpatialAnchorStore {
     type Vtable = <ISpatialAnchorStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialAnchorStore as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialAnchorStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorStore";
@@ -865,6 +870,7 @@ impl windows_core::RuntimeType for SpatialBoundingVolume {
 unsafe impl windows_core::Interface for SpatialBoundingVolume {
     type Vtable = <ISpatialBoundingVolume as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialBoundingVolume as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialBoundingVolume {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialBoundingVolume";
@@ -892,6 +898,7 @@ impl windows_core::RuntimeType for SpatialCoordinateSystem {
 unsafe impl windows_core::Interface for SpatialCoordinateSystem {
     type Vtable = <ISpatialCoordinateSystem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialCoordinateSystem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialCoordinateSystem {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialCoordinateSystem";
@@ -953,6 +960,7 @@ impl windows_core::RuntimeType for SpatialEntity {
 unsafe impl windows_core::Interface for SpatialEntity {
     type Vtable = <ISpatialEntity as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntity as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialEntity {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntity";
@@ -977,6 +985,7 @@ impl windows_core::RuntimeType for SpatialEntityAddedEventArgs {
 unsafe impl windows_core::Interface for SpatialEntityAddedEventArgs {
     type Vtable = <ISpatialEntityAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntityAddedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialEntityAddedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityAddedEventArgs";
@@ -1001,6 +1010,7 @@ impl windows_core::RuntimeType for SpatialEntityRemovedEventArgs {
 unsafe impl windows_core::Interface for SpatialEntityRemovedEventArgs {
     type Vtable = <ISpatialEntityRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntityRemovedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialEntityRemovedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityRemovedEventArgs";
@@ -1063,6 +1073,7 @@ impl windows_core::RuntimeType for SpatialEntityStore {
 unsafe impl windows_core::Interface for SpatialEntityStore {
     type Vtable = <ISpatialEntityStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntityStore as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialEntityStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityStore";
@@ -1087,6 +1098,7 @@ impl windows_core::RuntimeType for SpatialEntityUpdatedEventArgs {
 unsafe impl windows_core::Interface for SpatialEntityUpdatedEventArgs {
     type Vtable = <ISpatialEntityUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntityUpdatedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialEntityUpdatedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityUpdatedEventArgs";
@@ -1173,6 +1185,7 @@ impl windows_core::RuntimeType for SpatialEntityWatcher {
 unsafe impl windows_core::Interface for SpatialEntityWatcher {
     type Vtable = <ISpatialEntityWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntityWatcher as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialEntityWatcher {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityWatcher";
@@ -1279,6 +1292,7 @@ impl windows_core::RuntimeType for SpatialLocation {
 unsafe impl windows_core::Interface for SpatialLocation {
     type Vtable = <ISpatialLocation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialLocation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialLocation {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocation";
@@ -1403,6 +1417,7 @@ impl windows_core::RuntimeType for SpatialLocator {
 unsafe impl windows_core::Interface for SpatialLocator {
     type Vtable = <ISpatialLocator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialLocator as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialLocator {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocator";
@@ -1462,6 +1477,7 @@ impl windows_core::RuntimeType for SpatialLocatorAttachedFrameOfReference {
 unsafe impl windows_core::Interface for SpatialLocatorAttachedFrameOfReference {
     type Vtable = <ISpatialLocatorAttachedFrameOfReference as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialLocatorAttachedFrameOfReference as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialLocatorAttachedFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference";
@@ -1489,6 +1505,7 @@ impl windows_core::RuntimeType for SpatialLocatorPositionalTrackingDeactivatingE
 unsafe impl windows_core::Interface for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     type Vtable = <ISpatialLocatorPositionalTrackingDeactivatingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialLocatorPositionalTrackingDeactivatingEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorPositionalTrackingDeactivatingEventArgs";
@@ -1631,6 +1648,7 @@ impl windows_core::RuntimeType for SpatialStageFrameOfReference {
 unsafe impl windows_core::Interface for SpatialStageFrameOfReference {
     type Vtable = <ISpatialStageFrameOfReference as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialStageFrameOfReference as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialStageFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStageFrameOfReference";
@@ -1655,6 +1673,7 @@ impl windows_core::RuntimeType for SpatialStationaryFrameOfReference {
 unsafe impl windows_core::Interface for SpatialStationaryFrameOfReference {
     type Vtable = <ISpatialStationaryFrameOfReference as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialStationaryFrameOfReference as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SpatialStationaryFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStationaryFrameOfReference";

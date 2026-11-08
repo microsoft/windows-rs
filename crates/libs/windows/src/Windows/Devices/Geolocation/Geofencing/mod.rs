@@ -92,6 +92,7 @@ impl windows_core::RuntimeType for Geofence {
 unsafe impl windows_core::Interface for Geofence {
     type Vtable = <IGeofence as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeofence as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Geofence {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.Geofence";
@@ -172,6 +173,7 @@ impl windows_core::RuntimeType for GeofenceMonitor {
 unsafe impl windows_core::Interface for GeofenceMonitor {
     type Vtable = <IGeofenceMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeofenceMonitor as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GeofenceMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceMonitor";
@@ -295,13 +297,14 @@ impl windows_core::RuntimeType for GeofenceStateChangeReport {
 unsafe impl windows_core::Interface for GeofenceStateChangeReport {
     type Vtable = <IGeofenceStateChangeReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeofenceStateChangeReport as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GeofenceStateChangeReport {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport";
 }
 unsafe impl Send for GeofenceStateChangeReport {}
 unsafe impl Sync for GeofenceStateChangeReport {}
-windows_core::imp::define_interface!(IGeofence, IGeofence_Vtbl, 0x9c090823_edb8_47e0_8245_5bf61d321f2d);
+windows_core::imp::define_interface!(IGeofence, IGeofence_Vtbl, 0x9c090823_edb8_47e0_8245_5bf61d321f2d, inspectable);
 impl windows_core::RuntimeType for IGeofence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.IGeofence");
@@ -318,7 +321,7 @@ pub struct IGeofence_Vtbl {
     pub Geoshape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SingleUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGeofenceFactory, IGeofenceFactory_Vtbl, 0x841f624b_325f_4b90_bca7_2b8022a93796);
+windows_core::imp::define_interface!(IGeofenceFactory, IGeofenceFactory_Vtbl, 0x841f624b_325f_4b90_bca7_2b8022a93796, inspectable);
 impl windows_core::RuntimeType for IGeofenceFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.IGeofenceFactory");
@@ -332,7 +335,7 @@ pub struct IGeofenceFactory_Vtbl {
     pub CreateWithMonitorStatesAndDwellTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, MonitoredGeofenceStates, bool, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithMonitorStatesDwellTimeStartTimeAndDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, MonitoredGeofenceStates, bool, windows_time::TimeSpan, windows_time::DateTime, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGeofenceMonitor, IGeofenceMonitor_Vtbl, 0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
+windows_core::imp::define_interface!(IGeofenceMonitor, IGeofenceMonitor_Vtbl, 0x4c0f5f78_1c1f_4621_bbbd_833b92247226, inspectable);
 impl windows_core::RuntimeType for IGeofenceMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor");
@@ -350,7 +353,7 @@ pub struct IGeofenceMonitor_Vtbl {
     pub StatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGeofenceMonitorStatics, IGeofenceMonitorStatics_Vtbl, 0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06);
+windows_core::imp::define_interface!(IGeofenceMonitorStatics, IGeofenceMonitorStatics_Vtbl, 0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06, inspectable);
 impl windows_core::RuntimeType for IGeofenceMonitorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.IGeofenceMonitorStatics");
@@ -361,7 +364,7 @@ pub struct IGeofenceMonitorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGeofenceStateChangeReport, IGeofenceStateChangeReport_Vtbl, 0x9a243c18_2464_4c89_be05_b3ffff5babc5);
+windows_core::imp::define_interface!(IGeofenceStateChangeReport, IGeofenceStateChangeReport_Vtbl, 0x9a243c18_2464_4c89_be05_b3ffff5babc5, inspectable);
 impl windows_core::RuntimeType for IGeofenceStateChangeReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.IGeofenceStateChangeReport");

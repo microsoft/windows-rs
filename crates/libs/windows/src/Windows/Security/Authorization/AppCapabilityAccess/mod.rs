@@ -100,6 +100,7 @@ impl windows_core::RuntimeType for AppCapability {
 unsafe impl windows_core::Interface for AppCapability {
     type Vtable = <IAppCapability as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppCapability as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppCapability {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapability";
@@ -116,6 +117,7 @@ impl windows_core::RuntimeType for AppCapabilityAccessChangedEventArgs {
 unsafe impl windows_core::Interface for AppCapabilityAccessChangedEventArgs {
     type Vtable = <IAppCapabilityAccessChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppCapabilityAccessChangedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppCapabilityAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs";
@@ -139,7 +141,7 @@ impl windows_core::RuntimeType for AppCapabilityAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus");
 }
-windows_core::imp::define_interface!(IAppCapability, IAppCapability_Vtbl, 0x4c49d915_8a2a_4295_9437_2df7c396aff4);
+windows_core::imp::define_interface!(IAppCapability, IAppCapability_Vtbl, 0x4c49d915_8a2a_4295_9437_2df7c396aff4, inspectable);
 impl windows_core::RuntimeType for IAppCapability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authorization.AppCapabilityAccess.IAppCapability");
@@ -158,7 +160,7 @@ pub struct IAppCapability_Vtbl {
     pub AccessChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAccessChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCapability2, IAppCapability2_Vtbl, 0x11c7ccb6_c74f_50a3_b960_88008767d939);
+windows_core::imp::define_interface!(IAppCapability2, IAppCapability2_Vtbl, 0x11c7ccb6_c74f_50a3_b960_88008767d939, inspectable);
 impl windows_core::RuntimeType for IAppCapability2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authorization.AppCapabilityAccess.IAppCapability2");
@@ -170,7 +172,7 @@ pub struct IAppCapability2_Vtbl {
     pub DisplayMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDisplayMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCapabilityAccessChangedEventArgs, IAppCapabilityAccessChangedEventArgs_Vtbl, 0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
+windows_core::imp::define_interface!(IAppCapabilityAccessChangedEventArgs, IAppCapabilityAccessChangedEventArgs_Vtbl, 0x0a578d15_bdd7_457e_8cca_6f53bd2e5944, inspectable);
 impl windows_core::RuntimeType for IAppCapabilityAccessChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authorization.AppCapabilityAccess.IAppCapabilityAccessChangedEventArgs");
@@ -180,7 +182,7 @@ impl windows_core::RuntimeType for IAppCapabilityAccessChangedEventArgs {
 pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IAppCapabilityStatics, IAppCapabilityStatics_Vtbl, 0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
+windows_core::imp::define_interface!(IAppCapabilityStatics, IAppCapabilityStatics_Vtbl, 0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22, inspectable);
 impl windows_core::RuntimeType for IAppCapabilityStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authorization.AppCapabilityAccess.IAppCapabilityStatics");

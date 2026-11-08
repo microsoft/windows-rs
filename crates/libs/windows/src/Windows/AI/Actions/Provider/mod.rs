@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IActionFeedbackHandler, IActionFeedbackHandler_Vtbl, 0xa3fc3c51_a8c6_52c8_ad77_37bf3e2b565c);
+windows_core::imp::define_interface!(IActionFeedbackHandler, IActionFeedbackHandler_Vtbl, 0xa3fc3c51_a8c6_52c8_ad77_37bf3e2b565c, inspectable);
 impl windows_core::RuntimeType for IActionFeedbackHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Provider.IActionFeedbackHandler");
@@ -40,10 +40,7 @@ impl IActionFeedbackHandler_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IActionFeedbackHandler, OFFSET>(),
-            ProcessFeedbackAsync: ProcessFeedbackAsync::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ProcessFeedbackAsync: ProcessFeedbackAsync::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActionFeedbackHandler as windows_core::Interface>::IID
@@ -55,7 +52,7 @@ pub struct IActionFeedbackHandler_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProcessFeedbackAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionProvider, IActionProvider_Vtbl, 0x62906c47_3d07_55f1_aefa_1522505afbbe);
+windows_core::imp::define_interface!(IActionProvider, IActionProvider_Vtbl, 0x62906c47_3d07_55f1_aefa_1522505afbbe, inspectable);
 impl windows_core::RuntimeType for IActionProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Provider.IActionProvider");
@@ -96,7 +93,7 @@ impl IActionProvider_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IActionProvider, OFFSET>(), InvokeAsync: InvokeAsync::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), InvokeAsync: InvokeAsync::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActionProvider as windows_core::Interface>::IID

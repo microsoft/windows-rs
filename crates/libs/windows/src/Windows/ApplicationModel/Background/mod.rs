@@ -47,6 +47,7 @@ impl windows_core::RuntimeType for ActivitySensorTrigger {
 unsafe impl windows_core::Interface for ActivitySensorTrigger {
     type Vtable = <IActivitySensorTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivitySensorTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ActivitySensorTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ActivitySensorTrigger";
@@ -126,6 +127,7 @@ impl windows_core::RuntimeType for AppBroadcastTrigger {
 unsafe impl windows_core::Interface for AppBroadcastTrigger {
     type Vtable = <IAppBroadcastTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppBroadcastTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppBroadcastTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTrigger";
@@ -198,6 +200,7 @@ impl windows_core::RuntimeType for AppBroadcastTriggerProviderInfo {
 unsafe impl windows_core::Interface for AppBroadcastTriggerProviderInfo {
     type Vtable = <IAppBroadcastTriggerProviderInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppBroadcastTriggerProviderInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppBroadcastTriggerProviderInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo";
@@ -240,6 +243,7 @@ impl windows_core::RuntimeType for ApplicationTrigger {
 unsafe impl windows_core::Interface for ApplicationTrigger {
     type Vtable = <IApplicationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ApplicationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTrigger";
@@ -265,6 +269,7 @@ impl windows_core::RuntimeType for ApplicationTriggerDetails {
 unsafe impl windows_core::Interface for ApplicationTriggerDetails {
     type Vtable = <IApplicationTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ApplicationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTriggerDetails";
@@ -307,6 +312,7 @@ impl windows_core::RuntimeType for AppointmentStoreNotificationTrigger {
 unsafe impl windows_core::Interface for AppointmentStoreNotificationTrigger {
     type Vtable = <IAppointmentStoreNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreNotificationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppointmentStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger";
@@ -549,6 +555,7 @@ impl windows_core::RuntimeType for BackgroundTaskBuilder {
 unsafe impl windows_core::Interface for BackgroundTaskBuilder {
     type Vtable = <IBackgroundTaskBuilder as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskBuilder as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for BackgroundTaskBuilder {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskBuilder";
@@ -637,6 +644,7 @@ impl windows_core::RuntimeType for BackgroundTaskCompletedEventArgs {
 unsafe impl windows_core::Interface for BackgroundTaskCompletedEventArgs {
     type Vtable = <IBackgroundTaskCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskCompletedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for BackgroundTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs";
@@ -698,6 +706,7 @@ impl windows_core::RuntimeType for BackgroundTaskDeferral {
 unsafe impl windows_core::Interface for BackgroundTaskDeferral {
     type Vtable = <IBackgroundTaskDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskDeferral as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for BackgroundTaskDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskDeferral";
@@ -728,6 +737,7 @@ impl windows_core::RuntimeType for BackgroundTaskProgressEventArgs {
 unsafe impl windows_core::Interface for BackgroundTaskProgressEventArgs {
     type Vtable = <IBackgroundTaskProgressEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskProgressEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for BackgroundTaskProgressEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs";
@@ -884,6 +894,7 @@ impl windows_core::RuntimeType for BackgroundTaskRegistration {
 unsafe impl windows_core::Interface for BackgroundTaskRegistration {
     type Vtable = <IBackgroundTaskRegistration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskRegistration as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for BackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistration";
@@ -951,6 +962,7 @@ impl windows_core::RuntimeType for BackgroundTaskRegistrationGroup {
 unsafe impl windows_core::Interface for BackgroundTaskRegistrationGroup {
     type Vtable = <IBackgroundTaskRegistrationGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskRegistrationGroup as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for BackgroundTaskRegistrationGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup";
@@ -1123,6 +1135,7 @@ impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementPublisherTrigger {
     type Vtable = <IBluetoothLEAdvertisementPublisherTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementPublisherTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger";
@@ -1250,6 +1263,7 @@ impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementWatcherTrigger {
     type Vtable = <IBluetoothLEAdvertisementWatcherTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementWatcherTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger";
@@ -1276,6 +1290,7 @@ impl windows_core::RuntimeType for CachedFileUpdaterTrigger {
 unsafe impl windows_core::Interface for CachedFileUpdaterTrigger {
     type Vtable = <ICachedFileUpdaterTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICachedFileUpdaterTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CachedFileUpdaterTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTrigger";
@@ -1314,6 +1329,7 @@ impl windows_core::RuntimeType for CachedFileUpdaterTriggerDetails {
 unsafe impl windows_core::Interface for CachedFileUpdaterTriggerDetails {
     type Vtable = <ICachedFileUpdaterTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICachedFileUpdaterTriggerDetails as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CachedFileUpdaterTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails";
@@ -1340,6 +1356,7 @@ impl windows_core::RuntimeType for ChatMessageNotificationTrigger {
 unsafe impl windows_core::Interface for ChatMessageNotificationTrigger {
     type Vtable = <IChatMessageNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageNotificationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ChatMessageNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageNotificationTrigger";
@@ -1366,6 +1383,7 @@ impl windows_core::RuntimeType for ChatMessageReceivedNotificationTrigger {
 unsafe impl windows_core::Interface for ChatMessageReceivedNotificationTrigger {
     type Vtable = <IChatMessageReceivedNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageReceivedNotificationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ChatMessageReceivedNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger";
@@ -1392,6 +1410,7 @@ impl windows_core::RuntimeType for CommunicationBlockingAppSetAsActiveTrigger {
 unsafe impl windows_core::Interface for CommunicationBlockingAppSetAsActiveTrigger {
     type Vtable = <ICommunicationBlockingAppSetAsActiveTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICommunicationBlockingAppSetAsActiveTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger";
@@ -1418,6 +1437,7 @@ impl windows_core::RuntimeType for ContactStoreNotificationTrigger {
 unsafe impl windows_core::Interface for ContactStoreNotificationTrigger {
     type Vtable = <IContactStoreNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactStoreNotificationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContactStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContactStoreNotificationTrigger";
@@ -1460,6 +1480,7 @@ impl windows_core::RuntimeType for ContentPrefetchTrigger {
 unsafe impl windows_core::Interface for ContentPrefetchTrigger {
     type Vtable = <IContentPrefetchTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContentPrefetchTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ContentPrefetchTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContentPrefetchTrigger";
@@ -1483,6 +1504,7 @@ impl windows_core::RuntimeType for ConversationalAgentTrigger {
 unsafe impl windows_core::Interface for ConversationalAgentTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ConversationalAgentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ConversationalAgentTrigger";
@@ -1522,6 +1544,7 @@ impl windows_core::RuntimeType for CustomSystemEventTrigger {
 unsafe impl windows_core::Interface for CustomSystemEventTrigger {
     type Vtable = <ICustomSystemEventTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICustomSystemEventTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for CustomSystemEventTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CustomSystemEventTrigger";
@@ -1584,6 +1607,7 @@ impl windows_core::RuntimeType for DeviceConnectionChangeTrigger {
 unsafe impl windows_core::Interface for DeviceConnectionChangeTrigger {
     type Vtable = <IDeviceConnectionChangeTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceConnectionChangeTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeviceConnectionChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger";
@@ -1625,6 +1649,7 @@ impl windows_core::RuntimeType for DeviceManufacturerNotificationTrigger {
 unsafe impl windows_core::Interface for DeviceManufacturerNotificationTrigger {
     type Vtable = <IDeviceManufacturerNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceManufacturerNotificationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeviceManufacturerNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger";
@@ -1661,6 +1686,7 @@ impl windows_core::RuntimeType for DeviceServicingTrigger {
 unsafe impl windows_core::Interface for DeviceServicingTrigger {
     type Vtable = <IDeviceServicingTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceServicingTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeviceServicingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceServicingTrigger";
@@ -1715,6 +1741,7 @@ impl windows_core::RuntimeType for DeviceUseTrigger {
 unsafe impl windows_core::Interface for DeviceUseTrigger {
     type Vtable = <IDeviceUseTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceUseTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeviceUseTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceUseTrigger";
@@ -1732,6 +1759,7 @@ impl windows_core::RuntimeType for DeviceWatcherTrigger {
 unsafe impl windows_core::Interface for DeviceWatcherTrigger {
     type Vtable = <IDeviceWatcherTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceWatcherTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for DeviceWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceWatcherTrigger";
@@ -1756,6 +1784,7 @@ impl windows_core::RuntimeType for EmailStoreNotificationTrigger {
 unsafe impl windows_core::Interface for EmailStoreNotificationTrigger {
     type Vtable = <IEmailStoreNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailStoreNotificationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for EmailStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.EmailStoreNotificationTrigger";
@@ -1834,6 +1863,7 @@ impl windows_core::RuntimeType for GattCharacteristicNotificationTrigger {
 unsafe impl windows_core::Interface for GattCharacteristicNotificationTrigger {
     type Vtable = <IGattCharacteristicNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattCharacteristicNotificationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GattCharacteristicNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger";
@@ -1890,6 +1920,7 @@ impl windows_core::RuntimeType for GattServiceProviderTrigger {
 unsafe impl windows_core::Interface for GattServiceProviderTrigger {
     type Vtable = <IGattServiceProviderTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GattServiceProviderTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTrigger";
@@ -1921,6 +1952,7 @@ impl windows_core::RuntimeType for GattServiceProviderTriggerResult {
 unsafe impl windows_core::Interface for GattServiceProviderTriggerResult {
     type Vtable = <IGattServiceProviderTriggerResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderTriggerResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GattServiceProviderTriggerResult {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTriggerResult";
@@ -1958,13 +1990,14 @@ impl windows_core::RuntimeType for GeovisitTrigger {
 unsafe impl windows_core::Interface for GeovisitTrigger {
     type Vtable = <IGeovisitTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeovisitTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for GeovisitTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GeovisitTrigger";
 }
 unsafe impl Send for GeovisitTrigger {}
 unsafe impl Sync for GeovisitTrigger {}
-windows_core::imp::define_interface!(IActivitySensorTrigger, IActivitySensorTrigger_Vtbl, 0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
+windows_core::imp::define_interface!(IActivitySensorTrigger, IActivitySensorTrigger_Vtbl, 0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0, inspectable);
 impl windows_core::RuntimeType for IActivitySensorTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IActivitySensorTrigger");
@@ -1984,7 +2017,7 @@ pub struct IActivitySensorTrigger_Vtbl {
     SupportedActivities: usize,
     pub MinimumReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActivitySensorTriggerFactory, IActivitySensorTriggerFactory_Vtbl, 0xa72691c3_3837_44f7_831b_0132cc872bc3);
+windows_core::imp::define_interface!(IActivitySensorTriggerFactory, IActivitySensorTriggerFactory_Vtbl, 0xa72691c3_3837_44f7_831b_0132cc872bc3, inspectable);
 impl windows_core::RuntimeType for IActivitySensorTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IActivitySensorTriggerFactory");
@@ -1995,7 +2028,7 @@ pub struct IActivitySensorTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAlarmApplicationManagerStatics, IAlarmApplicationManagerStatics_Vtbl, 0xca03fa3b_cce6_4de2_b09b_9628bd33bbbe);
+windows_core::imp::define_interface!(IAlarmApplicationManagerStatics, IAlarmApplicationManagerStatics_Vtbl, 0xca03fa3b_cce6_4de2_b09b_9628bd33bbbe, inspectable);
 impl windows_core::RuntimeType for IAlarmApplicationManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IAlarmApplicationManagerStatics");
@@ -2007,7 +2040,7 @@ pub struct IAlarmApplicationManagerStatics_Vtbl {
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAccessStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AlarmAccessStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastTrigger, IAppBroadcastTrigger_Vtbl, 0x74d4f496_8d37_44ec_9481_2a0b9854eb48);
+windows_core::imp::define_interface!(IAppBroadcastTrigger, IAppBroadcastTrigger_Vtbl, 0x74d4f496_8d37_44ec_9481_2a0b9854eb48, inspectable);
 impl windows_core::RuntimeType for IAppBroadcastTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IAppBroadcastTrigger");
@@ -2019,7 +2052,7 @@ pub struct IAppBroadcastTrigger_Vtbl {
     pub SetProviderInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProviderInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastTriggerFactory, IAppBroadcastTriggerFactory_Vtbl, 0x280b9f44_22f4_4618_a02e_e7e411eb7238);
+windows_core::imp::define_interface!(IAppBroadcastTriggerFactory, IAppBroadcastTriggerFactory_Vtbl, 0x280b9f44_22f4_4618_a02e_e7e411eb7238, inspectable);
 impl windows_core::RuntimeType for IAppBroadcastTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IAppBroadcastTriggerFactory");
@@ -2030,7 +2063,7 @@ pub struct IAppBroadcastTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAppBroadcastTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppBroadcastTriggerProviderInfo, IAppBroadcastTriggerProviderInfo_Vtbl, 0xf219352d_9de8_4420_9ce2_5eff8f17376b);
+windows_core::imp::define_interface!(IAppBroadcastTriggerProviderInfo, IAppBroadcastTriggerProviderInfo_Vtbl, 0xf219352d_9de8_4420_9ce2_5eff8f17376b, inspectable);
 impl windows_core::RuntimeType for IAppBroadcastTriggerProviderInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IAppBroadcastTriggerProviderInfo");
@@ -2052,7 +2085,7 @@ pub struct IAppBroadcastTriggerProviderInfo_Vtbl {
     pub SetMaxVideoHeight: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub MaxVideoHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationTrigger, IApplicationTrigger_Vtbl, 0x0b468630_9574_492c_9e93_1a3ae6335fe9);
+windows_core::imp::define_interface!(IApplicationTrigger, IApplicationTrigger_Vtbl, 0x0b468630_9574_492c_9e93_1a3ae6335fe9, inspectable);
 impl windows_core::RuntimeType for IApplicationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IApplicationTrigger");
@@ -2067,7 +2100,7 @@ pub struct IApplicationTrigger_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     RequestAsyncWithArguments: usize,
 }
-windows_core::imp::define_interface!(IApplicationTriggerDetails, IApplicationTriggerDetails_Vtbl, 0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82);
+windows_core::imp::define_interface!(IApplicationTriggerDetails, IApplicationTriggerDetails_Vtbl, 0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82, inspectable);
 impl windows_core::RuntimeType for IApplicationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IApplicationTriggerDetails");
@@ -2081,7 +2114,7 @@ pub struct IApplicationTriggerDetails_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Arguments: usize,
 }
-windows_core::imp::define_interface!(IAppointmentStoreNotificationTrigger, IAppointmentStoreNotificationTrigger_Vtbl, 0x64d4040c_c201_42ad_aa2a_e21ba3425b6d);
+windows_core::imp::define_interface!(IAppointmentStoreNotificationTrigger, IAppointmentStoreNotificationTrigger_Vtbl, 0x64d4040c_c201_42ad_aa2a_e21ba3425b6d, inspectable);
 impl windows_core::RuntimeType for IAppointmentStoreNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IAppointmentStoreNotificationTrigger");
@@ -2091,7 +2124,7 @@ impl windows_core::RuntimeType for IAppointmentStoreNotificationTrigger {
 pub struct IAppointmentStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IBackgroundCondition, IBackgroundCondition_Vtbl, 0xae48a1ee_8951_400a_8302_9c9c9a2a3a3b);
+windows_core::imp::define_interface!(IBackgroundCondition, IBackgroundCondition_Vtbl, 0xae48a1ee_8951_400a_8302_9c9c9a2a3a3b, inspectable);
 impl windows_core::RuntimeType for IBackgroundCondition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundCondition");
@@ -2103,7 +2136,7 @@ impl windows_core::RuntimeName for IBackgroundCondition {
 pub trait IBackgroundCondition_Impl: windows_core::IUnknownImpl {}
 impl IBackgroundCondition_Vtbl {
     pub const fn new<Identity: IBackgroundCondition_Impl, const OFFSET: isize>() -> Self {
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundCondition, OFFSET>() }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundCondition as windows_core::Interface>::IID
@@ -2114,7 +2147,7 @@ impl IBackgroundCondition_Vtbl {
 pub struct IBackgroundCondition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics, IBackgroundExecutionManagerStatics_Vtbl, 0xe826ea58_66a9_4d41_83d4_b4c18c87b846);
+windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics, IBackgroundExecutionManagerStatics_Vtbl, 0xe826ea58_66a9_4d41_83d4_b4c18c87b846, inspectable);
 impl windows_core::RuntimeType for IBackgroundExecutionManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics");
@@ -2130,7 +2163,7 @@ pub struct IBackgroundExecutionManagerStatics_Vtbl {
     pub GetAccessStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundAccessStatus) -> windows_core::HRESULT,
     pub GetAccessStatusForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut BackgroundAccessStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics2, IBackgroundExecutionManagerStatics2_Vtbl, 0x469b24ef_9bbb_4e18_999a_fd6512931be9);
+windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics2, IBackgroundExecutionManagerStatics2_Vtbl, 0x469b24ef_9bbb_4e18_999a_fd6512931be9, inspectable);
 impl windows_core::RuntimeType for IBackgroundExecutionManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics2");
@@ -2141,7 +2174,7 @@ pub struct IBackgroundExecutionManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessKindAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundAccessRequestKind, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics3, IBackgroundExecutionManagerStatics3_Vtbl, 0x98a5d3f6_5a25_5b6c_9192_d77a43dfedc4);
+windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics3, IBackgroundExecutionManagerStatics3_Vtbl, 0x98a5d3f6_5a25_5b6c_9192_d77a43dfedc4, inspectable);
 impl windows_core::RuntimeType for IBackgroundExecutionManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3");
@@ -2154,7 +2187,7 @@ pub struct IBackgroundExecutionManagerStatics3_Vtbl {
     pub GetAccessStatusForModernStandby: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundAccessStatus) -> windows_core::HRESULT,
     pub GetAccessStatusForModernStandbyForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut BackgroundAccessStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTask, IBackgroundTask_Vtbl, 0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
+windows_core::imp::define_interface!(IBackgroundTask, IBackgroundTask_Vtbl, 0x7d13d534_fd12_43ce_8c22_ea1ff13c06df, inspectable);
 impl windows_core::RuntimeType for IBackgroundTask {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTask");
@@ -2182,7 +2215,7 @@ impl IBackgroundTask_Vtbl {
                 IBackgroundTask_Impl::Run(this, core::mem::transmute_copy(&taskinstance)).into()
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTask, OFFSET>(), Run: Run::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Run: Run::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTask as windows_core::Interface>::IID
@@ -2194,7 +2227,7 @@ pub struct IBackgroundTask_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskBuilder, IBackgroundTaskBuilder_Vtbl, 0x0351550e_3e64_4572_a93a_84075a37c917);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder, IBackgroundTaskBuilder_Vtbl, 0x0351550e_3e64_4572_a93a_84075a37c917, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskBuilder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskBuilder");
@@ -2211,7 +2244,7 @@ pub struct IBackgroundTaskBuilder_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskBuilder2, IBackgroundTaskBuilder2_Vtbl, 0x6ae7cfb1_104f_406d_8db6_844a570f42bb);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder2, IBackgroundTaskBuilder2_Vtbl, 0x6ae7cfb1_104f_406d_8db6_844a570f42bb, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskBuilder2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskBuilder2");
@@ -2223,7 +2256,7 @@ pub struct IBackgroundTaskBuilder2_Vtbl {
     pub SetCancelOnConditionLoss: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub CancelOnConditionLoss: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskBuilder3, IBackgroundTaskBuilder3_Vtbl, 0x28c74f4a_8ba9_4c09_a24f_19683e2c924c);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder3, IBackgroundTaskBuilder3_Vtbl, 0x28c74f4a_8ba9_4c09_a24f_19683e2c924c, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskBuilder3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskBuilder3");
@@ -2235,7 +2268,7 @@ pub struct IBackgroundTaskBuilder3_Vtbl {
     pub SetIsNetworkRequested: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub IsNetworkRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskBuilder4, IBackgroundTaskBuilder4_Vtbl, 0x4755e522_cba2_4e35_bd16_a6da7f1c19aa);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder4, IBackgroundTaskBuilder4_Vtbl, 0x4755e522_cba2_4e35_bd16_a6da7f1c19aa, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskBuilder4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskBuilder4");
@@ -2247,7 +2280,7 @@ pub struct IBackgroundTaskBuilder4_Vtbl {
     pub TaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskBuilder5, IBackgroundTaskBuilder5_Vtbl, 0x077103f6_99f5_4af4_bcad_4731d0330d43);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder5, IBackgroundTaskBuilder5_Vtbl, 0x077103f6_99f5_4af4_bcad_4731d0330d43, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskBuilder5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskBuilder5");
@@ -2258,7 +2291,7 @@ pub struct IBackgroundTaskBuilder5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTaskEntryPointClsid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskBuilder6, IBackgroundTaskBuilder6_Vtbl, 0x80b47b17_ec8b_5653_850b_7508a01f52e7);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder6, IBackgroundTaskBuilder6_Vtbl, 0x80b47b17_ec8b_5653_850b_7508a01f52e7, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskBuilder6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskBuilder6");
@@ -2272,7 +2305,7 @@ pub struct IBackgroundTaskBuilder6_Vtbl {
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskBuilderStatics, IBackgroundTaskBuilderStatics_Vtbl, 0xd1eb5046_06f2_55b4_9bb7_a6457ebf3300);
+windows_core::imp::define_interface!(IBackgroundTaskBuilderStatics, IBackgroundTaskBuilderStatics_Vtbl, 0xd1eb5046_06f2_55b4_9bb7_a6457ebf3300, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskBuilderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskBuilderStatics");
@@ -2283,7 +2316,7 @@ pub struct IBackgroundTaskBuilderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsRunningTaskInStandbySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskCompletedEventArgs, IBackgroundTaskCompletedEventArgs_Vtbl, 0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
+windows_core::imp::define_interface!(IBackgroundTaskCompletedEventArgs, IBackgroundTaskCompletedEventArgs_Vtbl, 0x565d25cf_f209_48f4_9967_2b184f7bfbf0, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskCompletedEventArgs");
@@ -2295,7 +2328,7 @@ pub struct IBackgroundTaskCompletedEventArgs_Vtbl {
     pub InstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub CheckResult: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskDeferral, IBackgroundTaskDeferral_Vtbl, 0x93cc156d_af27_4dd3_846e_24ee40cadd25);
+windows_core::imp::define_interface!(IBackgroundTaskDeferral, IBackgroundTaskDeferral_Vtbl, 0x93cc156d_af27_4dd3_846e_24ee40cadd25, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskDeferral");
@@ -2306,7 +2339,7 @@ pub struct IBackgroundTaskDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskInstance, IBackgroundTaskInstance_Vtbl, 0x865bda7a_21d8_4573_8f32_928a1b0641f6);
+windows_core::imp::define_interface!(IBackgroundTaskInstance, IBackgroundTaskInstance_Vtbl, 0x865bda7a_21d8_4573_8f32_928a1b0641f6, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskInstance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskInstance");
@@ -2504,7 +2537,7 @@ impl IBackgroundTaskInstance_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskInstance, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             InstanceId: InstanceId::<Identity, OFFSET>,
             Task: Task::<Identity, OFFSET>,
             Progress: Progress::<Identity, OFFSET>,
@@ -2534,7 +2567,7 @@ pub struct IBackgroundTaskInstance_Vtbl {
     pub SuspendedCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskInstance2, IBackgroundTaskInstance2_Vtbl, 0x4f7d0176_0c76_4fb4_896d_5de1864122f6);
+windows_core::imp::define_interface!(IBackgroundTaskInstance2, IBackgroundTaskInstance2_Vtbl, 0x4f7d0176_0c76_4fb4_896d_5de1864122f6, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskInstance2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskInstance2");
@@ -2633,10 +2666,7 @@ impl IBackgroundTaskInstance2_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskInstance2, OFFSET>(),
-            GetThrottleCount: GetThrottleCount::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), GetThrottleCount: GetThrottleCount::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTaskInstance2 as windows_core::Interface>::IID
@@ -2648,7 +2678,7 @@ pub struct IBackgroundTaskInstance2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetThrottleCount: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTaskThrottleCounter, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskInstance4, IBackgroundTaskInstance4_Vtbl, 0x7f29f23c_aa04_4b08_97b0_06d874cdabf5);
+windows_core::imp::define_interface!(IBackgroundTaskInstance4, IBackgroundTaskInstance4_Vtbl, 0x7f29f23c_aa04_4b08_97b0_06d874cdabf5, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskInstance4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskInstance4");
@@ -2752,7 +2782,7 @@ impl IBackgroundTaskInstance4_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskInstance4, OFFSET>(), User: User::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), User: User::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTaskInstance4 as windows_core::Interface>::IID
@@ -2767,7 +2797,7 @@ pub struct IBackgroundTaskInstance4_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IBackgroundTaskProgressEventArgs, IBackgroundTaskProgressEventArgs_Vtbl, 0xfb1468ac_8332_4d0a_9532_03eae684da31);
+windows_core::imp::define_interface!(IBackgroundTaskProgressEventArgs, IBackgroundTaskProgressEventArgs_Vtbl, 0xfb1468ac_8332_4d0a_9532_03eae684da31, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskProgressEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskProgressEventArgs");
@@ -2779,7 +2809,7 @@ pub struct IBackgroundTaskProgressEventArgs_Vtbl {
     pub InstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskRegistration, IBackgroundTaskRegistration_Vtbl, 0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
+windows_core::imp::define_interface!(IBackgroundTaskRegistration, IBackgroundTaskRegistration_Vtbl, 0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskRegistration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskRegistration");
@@ -2924,7 +2954,7 @@ impl IBackgroundTaskRegistration_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskRegistration, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             TaskId: TaskId::<Identity, OFFSET>,
             Name: Name::<Identity, OFFSET>,
             Progress: Progress::<Identity, OFFSET>,
@@ -2950,7 +2980,7 @@ pub struct IBackgroundTaskRegistration_Vtbl {
     pub RemoveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskRegistration2, IBackgroundTaskRegistration2_Vtbl, 0x6138c703_bb86_4112_afc3_7f939b166e3b);
+windows_core::imp::define_interface!(IBackgroundTaskRegistration2, IBackgroundTaskRegistration2_Vtbl, 0x6138c703_bb86_4112_afc3_7f939b166e3b, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskRegistration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskRegistration2");
@@ -3037,7 +3067,7 @@ impl IBackgroundTaskRegistration2_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskRegistration2, OFFSET>(), Trigger: Trigger::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Trigger: Trigger::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistration2 as windows_core::Interface>::IID
@@ -3049,7 +3079,7 @@ pub struct IBackgroundTaskRegistration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Trigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskRegistration3, IBackgroundTaskRegistration3_Vtbl, 0xfe338195_9423_4d8b_830d_b1dd2c7badd5);
+windows_core::imp::define_interface!(IBackgroundTaskRegistration3, IBackgroundTaskRegistration3_Vtbl, 0xfe338195_9423_4d8b_830d_b1dd2c7badd5, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskRegistration3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskRegistration3");
@@ -3136,7 +3166,7 @@ impl IBackgroundTaskRegistration3_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskRegistration3, OFFSET>(), TaskGroup: TaskGroup::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), TaskGroup: TaskGroup::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTaskRegistration3 as windows_core::Interface>::IID
@@ -3148,7 +3178,7 @@ pub struct IBackgroundTaskRegistration3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskRegistration4, IBackgroundTaskRegistration4_Vtbl, 0x169c09c9_b0de_5576_a05b_a02067989879);
+windows_core::imp::define_interface!(IBackgroundTaskRegistration4, IBackgroundTaskRegistration4_Vtbl, 0x169c09c9_b0de_5576_a05b_a02067989879, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskRegistration4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskRegistration4");
@@ -3160,7 +3190,7 @@ pub struct IBackgroundTaskRegistration4_Vtbl {
     pub TaskLastThrottledInStandbyTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub AppEnergyUsePredictionContribution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroup, IBackgroundTaskRegistrationGroup_Vtbl, 0x2ab1919a_871b_4167_8a76_055cd67b5b23);
+windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroup, IBackgroundTaskRegistrationGroup_Vtbl, 0x2ab1919a_871b_4167_8a76_055cd67b5b23, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskRegistrationGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup");
@@ -3178,7 +3208,7 @@ pub struct IBackgroundTaskRegistrationGroup_Vtbl {
     pub RemoveBackgroundActivated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub AllTasks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroupFactory, IBackgroundTaskRegistrationGroupFactory_Vtbl, 0x83d92b69_44cf_4631_9740_03c7d8741bc5);
+windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroupFactory, IBackgroundTaskRegistrationGroupFactory_Vtbl, 0x83d92b69_44cf_4631_9740_03c7d8741bc5, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskRegistrationGroupFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroupFactory");
@@ -3190,7 +3220,7 @@ pub struct IBackgroundTaskRegistrationGroupFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskRegistrationStatics, IBackgroundTaskRegistrationStatics_Vtbl, 0x4c542f69_b000_42ba_a093_6a563c65e3f8);
+windows_core::imp::define_interface!(IBackgroundTaskRegistrationStatics, IBackgroundTaskRegistrationStatics_Vtbl, 0x4c542f69_b000_42ba_a093_6a563c65e3f8, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskRegistrationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskRegistrationStatics");
@@ -3201,7 +3231,7 @@ pub struct IBackgroundTaskRegistrationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllTasks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTaskRegistrationStatics2, IBackgroundTaskRegistrationStatics2_Vtbl, 0x174b671e_b20d_4fa9_ad9a_e93ad6c71e01);
+windows_core::imp::define_interface!(IBackgroundTaskRegistrationStatics2, IBackgroundTaskRegistrationStatics2_Vtbl, 0x174b671e_b20d_4fa9_ad9a_e93ad6c71e01, inspectable);
 impl windows_core::RuntimeType for IBackgroundTaskRegistrationStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTaskRegistrationStatics2");
@@ -3213,7 +3243,7 @@ pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
     pub AllTaskGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundTrigger, IBackgroundTrigger_Vtbl, 0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+windows_core::imp::define_interface!(IBackgroundTrigger, IBackgroundTrigger_Vtbl, 0x84b3a058_6027_4b87_9790_bdf3f757dbd7, inspectable);
 impl windows_core::RuntimeType for IBackgroundTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundTrigger");
@@ -3225,7 +3255,7 @@ impl windows_core::RuntimeName for IBackgroundTrigger {
 pub trait IBackgroundTrigger_Impl: windows_core::IUnknownImpl {}
 impl IBackgroundTrigger_Vtbl {
     pub const fn new<Identity: IBackgroundTrigger_Impl, const OFFSET: isize>() -> Self {
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTrigger, OFFSET>() }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBackgroundTrigger as windows_core::Interface>::IID
@@ -3236,7 +3266,7 @@ impl IBackgroundTrigger_Vtbl {
 pub struct IBackgroundTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IBackgroundWorkCostStatics, IBackgroundWorkCostStatics_Vtbl, 0xc740a662_c310_4b82_b3e3_3bcfb9e4c77d);
+windows_core::imp::define_interface!(IBackgroundWorkCostStatics, IBackgroundWorkCostStatics_Vtbl, 0xc740a662_c310_4b82_b3e3_3bcfb9e4c77d, inspectable);
 impl windows_core::RuntimeType for IBackgroundWorkCostStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundWorkCostStatics");
@@ -3247,7 +3277,7 @@ pub struct IBackgroundWorkCostStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentBackgroundWorkCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundWorkCostValue) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBackgroundWorkCostStatics2, IBackgroundWorkCostStatics2_Vtbl, 0xd868c976_81f6_57c8_ab2b_400b749e21d6);
+windows_core::imp::define_interface!(IBackgroundWorkCostStatics2, IBackgroundWorkCostStatics2_Vtbl, 0xd868c976_81f6_57c8_ab2b_400b749e21d6, inspectable);
 impl windows_core::RuntimeType for IBackgroundWorkCostStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBackgroundWorkCostStatics2");
@@ -3260,7 +3290,7 @@ pub struct IBackgroundWorkCostStatics2_Vtbl {
     pub AppEnergyUsePrediction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnergyUseLevel) -> windows_core::HRESULT,
     pub AppLastThrottledInStandbyTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger, IBluetoothLEAdvertisementPublisherTrigger_Vtbl, 0xab3e2612_25d3_48ae_8724_d81877ae6129);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger, IBluetoothLEAdvertisementPublisherTrigger_Vtbl, 0xab3e2612_25d3_48ae_8724_d81877ae6129, inspectable);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBluetoothLEAdvertisementPublisherTrigger");
@@ -3274,7 +3304,7 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
     Advertisement: usize,
 }
-windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger2, IBluetoothLEAdvertisementPublisherTrigger2_Vtbl, 0xaa28d064_38f4_597d_b597_4e55588c6503);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger2, IBluetoothLEAdvertisementPublisherTrigger2_Vtbl, 0xaa28d064_38f4_597d_b597_4e55588c6503, inspectable);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBluetoothLEAdvertisementPublisherTrigger2");
@@ -3292,7 +3322,7 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger2_Vtbl {
     pub IncludeTransmitPowerLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIncludeTransmitPowerLevel: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger3, IBluetoothLEAdvertisementPublisherTrigger3_Vtbl, 0x64419d03_d604_5bdc_b7d2_a7fe25c55460);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger3, IBluetoothLEAdvertisementPublisherTrigger3_Vtbl, 0x64419d03_d604_5bdc_b7d2_a7fe25c55460, inspectable);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBluetoothLEAdvertisementPublisherTrigger3");
@@ -3318,7 +3348,7 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger3_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
     SetSecondaryPhy: usize,
 }
-windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger, IBluetoothLEAdvertisementWatcherTrigger_Vtbl, 0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger, IBluetoothLEAdvertisementWatcherTrigger_Vtbl, 0x1aab1819_bce1_48eb_a827_59fb7cee52a6, inspectable);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBluetoothLEAdvertisementWatcherTrigger");
@@ -3348,7 +3378,7 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
     SetAdvertisementFilter: usize,
 }
-windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger2, IBluetoothLEAdvertisementWatcherTrigger2_Vtbl, 0x39b56799_eb39_5ab6_9932_aa9e4549604d);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger2, IBluetoothLEAdvertisementWatcherTrigger2_Vtbl, 0x39b56799_eb39_5ab6_9932_aa9e4549604d, inspectable);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBluetoothLEAdvertisementWatcherTrigger2");
@@ -3360,7 +3390,7 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger2_Vtbl {
     pub AllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger3, IBluetoothLEAdvertisementWatcherTrigger3_Vtbl, 0xda50011a_8261_56a0_ac7b_a8de1624088b);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger3, IBluetoothLEAdvertisementWatcherTrigger3_Vtbl, 0xda50011a_8261_56a0_ac7b_a8de1624088b, inspectable);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IBluetoothLEAdvertisementWatcherTrigger3");
@@ -3382,7 +3412,7 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger3_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
     SetScanParameters: usize,
 }
-windows_core::imp::define_interface!(ICachedFileUpdaterTrigger, ICachedFileUpdaterTrigger_Vtbl, 0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
+windows_core::imp::define_interface!(ICachedFileUpdaterTrigger, ICachedFileUpdaterTrigger_Vtbl, 0xe21caeeb_32f2_4d31_b553_b9e01bde37e0, inspectable);
 impl windows_core::RuntimeType for ICachedFileUpdaterTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ICachedFileUpdaterTrigger");
@@ -3392,7 +3422,7 @@ impl windows_core::RuntimeType for ICachedFileUpdaterTrigger {
 pub struct ICachedFileUpdaterTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ICachedFileUpdaterTriggerDetails, ICachedFileUpdaterTriggerDetails_Vtbl, 0x71838c13_1314_47b4_9597_dc7e248c17cc);
+windows_core::imp::define_interface!(ICachedFileUpdaterTriggerDetails, ICachedFileUpdaterTriggerDetails_Vtbl, 0x71838c13_1314_47b4_9597_dc7e248c17cc, inspectable);
 impl windows_core::RuntimeType for ICachedFileUpdaterTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ICachedFileUpdaterTriggerDetails");
@@ -3411,7 +3441,7 @@ pub struct ICachedFileUpdaterTriggerDetails_Vtbl {
     UpdateRequest: usize,
     pub CanRequestUserInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IChatMessageNotificationTrigger, IChatMessageNotificationTrigger_Vtbl, 0x513b43bf_1d40_5c5d_78f5_c923fee3739e);
+windows_core::imp::define_interface!(IChatMessageNotificationTrigger, IChatMessageNotificationTrigger_Vtbl, 0x513b43bf_1d40_5c5d_78f5_c923fee3739e, inspectable);
 impl windows_core::RuntimeType for IChatMessageNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IChatMessageNotificationTrigger");
@@ -3421,7 +3451,7 @@ impl windows_core::RuntimeType for IChatMessageNotificationTrigger {
 pub struct IChatMessageNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IChatMessageReceivedNotificationTrigger, IChatMessageReceivedNotificationTrigger_Vtbl, 0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5);
+windows_core::imp::define_interface!(IChatMessageReceivedNotificationTrigger, IChatMessageReceivedNotificationTrigger_Vtbl, 0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5, inspectable);
 impl windows_core::RuntimeType for IChatMessageReceivedNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IChatMessageReceivedNotificationTrigger");
@@ -3431,7 +3461,7 @@ impl windows_core::RuntimeType for IChatMessageReceivedNotificationTrigger {
 pub struct IChatMessageReceivedNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ICommunicationBlockingAppSetAsActiveTrigger, ICommunicationBlockingAppSetAsActiveTrigger_Vtbl, 0xfb91f28a_16a5_486d_974c_7835a8477be2);
+windows_core::imp::define_interface!(ICommunicationBlockingAppSetAsActiveTrigger, ICommunicationBlockingAppSetAsActiveTrigger_Vtbl, 0xfb91f28a_16a5_486d_974c_7835a8477be2, inspectable);
 impl windows_core::RuntimeType for ICommunicationBlockingAppSetAsActiveTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ICommunicationBlockingAppSetAsActiveTrigger");
@@ -3441,7 +3471,7 @@ impl windows_core::RuntimeType for ICommunicationBlockingAppSetAsActiveTrigger {
 pub struct ICommunicationBlockingAppSetAsActiveTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IContactStoreNotificationTrigger, IContactStoreNotificationTrigger_Vtbl, 0xc833419b_4705_4571_9a16_06b997bf9c96);
+windows_core::imp::define_interface!(IContactStoreNotificationTrigger, IContactStoreNotificationTrigger_Vtbl, 0xc833419b_4705_4571_9a16_06b997bf9c96, inspectable);
 impl windows_core::RuntimeType for IContactStoreNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IContactStoreNotificationTrigger");
@@ -3451,7 +3481,7 @@ impl windows_core::RuntimeType for IContactStoreNotificationTrigger {
 pub struct IContactStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IContentPrefetchTrigger, IContentPrefetchTrigger_Vtbl, 0x710627ee_04fa_440b_80c0_173202199e5d);
+windows_core::imp::define_interface!(IContentPrefetchTrigger, IContentPrefetchTrigger_Vtbl, 0x710627ee_04fa_440b_80c0_173202199e5d, inspectable);
 impl windows_core::RuntimeType for IContentPrefetchTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IContentPrefetchTrigger");
@@ -3462,7 +3492,7 @@ pub struct IContentPrefetchTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContentPrefetchTriggerFactory, IContentPrefetchTriggerFactory_Vtbl, 0xc2643eda_8a03_409e_b8c4_88814c28ccb6);
+windows_core::imp::define_interface!(IContentPrefetchTriggerFactory, IContentPrefetchTriggerFactory_Vtbl, 0xc2643eda_8a03_409e_b8c4_88814c28ccb6, inspectable);
 impl windows_core::RuntimeType for IContentPrefetchTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IContentPrefetchTriggerFactory");
@@ -3473,7 +3503,7 @@ pub struct IContentPrefetchTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICustomSystemEventTrigger, ICustomSystemEventTrigger_Vtbl, 0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
+windows_core::imp::define_interface!(ICustomSystemEventTrigger, ICustomSystemEventTrigger_Vtbl, 0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87, inspectable);
 impl windows_core::RuntimeType for ICustomSystemEventTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ICustomSystemEventTrigger");
@@ -3485,7 +3515,7 @@ pub struct ICustomSystemEventTrigger_Vtbl {
     pub TriggerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Recurrence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CustomSystemEventTriggerRecurrence) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICustomSystemEventTriggerFactory, ICustomSystemEventTriggerFactory_Vtbl, 0x6bcb16c5_f2dc_41b2_9efd_b96bdcd13ced);
+windows_core::imp::define_interface!(ICustomSystemEventTriggerFactory, ICustomSystemEventTriggerFactory_Vtbl, 0x6bcb16c5_f2dc_41b2_9efd_b96bdcd13ced, inspectable);
 impl windows_core::RuntimeType for ICustomSystemEventTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ICustomSystemEventTriggerFactory");
@@ -3496,7 +3526,7 @@ pub struct ICustomSystemEventTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CustomSystemEventTriggerRecurrence, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeviceConnectionChangeTrigger, IDeviceConnectionChangeTrigger_Vtbl, 0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34);
+windows_core::imp::define_interface!(IDeviceConnectionChangeTrigger, IDeviceConnectionChangeTrigger_Vtbl, 0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34, inspectable);
 impl windows_core::RuntimeType for IDeviceConnectionChangeTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IDeviceConnectionChangeTrigger");
@@ -3510,7 +3540,7 @@ pub struct IDeviceConnectionChangeTrigger_Vtbl {
     pub MaintainConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetMaintainConnection: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeviceConnectionChangeTriggerStatics, IDeviceConnectionChangeTriggerStatics_Vtbl, 0xc3ea246a_4efd_4498_aa60_a4e4e3b17ab9);
+windows_core::imp::define_interface!(IDeviceConnectionChangeTriggerStatics, IDeviceConnectionChangeTriggerStatics_Vtbl, 0xc3ea246a_4efd_4498_aa60_a4e4e3b17ab9, inspectable);
 impl windows_core::RuntimeType for IDeviceConnectionChangeTriggerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IDeviceConnectionChangeTriggerStatics");
@@ -3521,7 +3551,7 @@ pub struct IDeviceConnectionChangeTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeviceManufacturerNotificationTrigger, IDeviceManufacturerNotificationTrigger_Vtbl, 0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
+windows_core::imp::define_interface!(IDeviceManufacturerNotificationTrigger, IDeviceManufacturerNotificationTrigger_Vtbl, 0x81278ab5_41ab_16da_86c2_7f7bf0912f5b, inspectable);
 impl windows_core::RuntimeType for IDeviceManufacturerNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IDeviceManufacturerNotificationTrigger");
@@ -3533,7 +3563,7 @@ pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
     pub TriggerQualifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeviceManufacturerNotificationTriggerFactory, IDeviceManufacturerNotificationTriggerFactory_Vtbl, 0x7955de75_25bb_4153_a1a2_3029fcabb652);
+windows_core::imp::define_interface!(IDeviceManufacturerNotificationTriggerFactory, IDeviceManufacturerNotificationTriggerFactory_Vtbl, 0x7955de75_25bb_4153_a1a2_3029fcabb652, inspectable);
 impl windows_core::RuntimeType for IDeviceManufacturerNotificationTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IDeviceManufacturerNotificationTriggerFactory");
@@ -3544,7 +3574,7 @@ pub struct IDeviceManufacturerNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeviceServicingTrigger, IDeviceServicingTrigger_Vtbl, 0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
+windows_core::imp::define_interface!(IDeviceServicingTrigger, IDeviceServicingTrigger_Vtbl, 0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881, inspectable);
 impl windows_core::RuntimeType for IDeviceServicingTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IDeviceServicingTrigger");
@@ -3556,7 +3586,7 @@ pub struct IDeviceServicingTrigger_Vtbl {
     pub RequestAsyncSimple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestAsyncWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeviceUseTrigger, IDeviceUseTrigger_Vtbl, 0x0da68011_334f_4d57_b6ec_6dca64b412e4);
+windows_core::imp::define_interface!(IDeviceUseTrigger, IDeviceUseTrigger_Vtbl, 0x0da68011_334f_4d57_b6ec_6dca64b412e4, inspectable);
 impl windows_core::RuntimeType for IDeviceUseTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IDeviceUseTrigger");
@@ -3568,7 +3598,7 @@ pub struct IDeviceUseTrigger_Vtbl {
     pub RequestAsyncSimple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestAsyncWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeviceWatcherTrigger, IDeviceWatcherTrigger_Vtbl, 0xa4617fdd_8573_4260_befc_5bec89cb693d);
+windows_core::imp::define_interface!(IDeviceWatcherTrigger, IDeviceWatcherTrigger_Vtbl, 0xa4617fdd_8573_4260_befc_5bec89cb693d, inspectable);
 impl windows_core::RuntimeType for IDeviceWatcherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IDeviceWatcherTrigger");
@@ -3578,7 +3608,7 @@ impl windows_core::RuntimeType for IDeviceWatcherTrigger {
 pub struct IDeviceWatcherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IEmailStoreNotificationTrigger, IEmailStoreNotificationTrigger_Vtbl, 0x986d06da_47eb_4268_a4f2_f3f77188388a);
+windows_core::imp::define_interface!(IEmailStoreNotificationTrigger, IEmailStoreNotificationTrigger_Vtbl, 0x986d06da_47eb_4268_a4f2_f3f77188388a, inspectable);
 impl windows_core::RuntimeType for IEmailStoreNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IEmailStoreNotificationTrigger");
@@ -3588,7 +3618,7 @@ impl windows_core::RuntimeType for IEmailStoreNotificationTrigger {
 pub struct IEmailStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IGattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTrigger_Vtbl, 0xe25f8fc8_0696_474f_a732_f292b0cebc5d);
+windows_core::imp::define_interface!(IGattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTrigger_Vtbl, 0xe25f8fc8_0696_474f_a732_f292b0cebc5d, inspectable);
 impl windows_core::RuntimeType for IGattCharacteristicNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger");
@@ -3602,7 +3632,7 @@ pub struct IGattCharacteristicNotificationTrigger_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     Characteristic: usize,
 }
-windows_core::imp::define_interface!(IGattCharacteristicNotificationTrigger2, IGattCharacteristicNotificationTrigger2_Vtbl, 0x9322a2c4_ae0e_42f2_b28c_f51372e69245);
+windows_core::imp::define_interface!(IGattCharacteristicNotificationTrigger2, IGattCharacteristicNotificationTrigger2_Vtbl, 0x9322a2c4_ae0e_42f2_b28c_f51372e69245, inspectable);
 impl windows_core::RuntimeType for IGattCharacteristicNotificationTrigger2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger2");
@@ -3616,7 +3646,7 @@ pub struct IGattCharacteristicNotificationTrigger2_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_Background"))]
     EventTriggeringMode: usize,
 }
-windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerFactory, IGattCharacteristicNotificationTriggerFactory_Vtbl, 0x57ba1995_b143_4575_9f6b_fd59d93ace1a);
+windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerFactory, IGattCharacteristicNotificationTriggerFactory_Vtbl, 0x57ba1995_b143_4575_9f6b_fd59d93ace1a, inspectable);
 impl windows_core::RuntimeType for IGattCharacteristicNotificationTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory");
@@ -3630,7 +3660,7 @@ pub struct IGattCharacteristicNotificationTriggerFactory_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     Create: usize,
 }
-windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerFactory2, IGattCharacteristicNotificationTriggerFactory2_Vtbl, 0x5998e91f_8a53_4e9f_a32c_23cd33664cee);
+windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerFactory2, IGattCharacteristicNotificationTriggerFactory2_Vtbl, 0x5998e91f_8a53_4e9f_a32c_23cd33664cee, inspectable);
 impl windows_core::RuntimeType for IGattCharacteristicNotificationTriggerFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory2");
@@ -3644,7 +3674,7 @@ pub struct IGattCharacteristicNotificationTriggerFactory2_Vtbl {
     #[cfg(not(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile")))]
     CreateWithEventTriggeringMode: usize,
 }
-windows_core::imp::define_interface!(IGattServiceProviderTrigger, IGattServiceProviderTrigger_Vtbl, 0xddc6a3e9_1557_4bd8_8542_468aa0c696f6);
+windows_core::imp::define_interface!(IGattServiceProviderTrigger, IGattServiceProviderTrigger_Vtbl, 0xddc6a3e9_1557_4bd8_8542_468aa0c696f6, inspectable);
 impl windows_core::RuntimeType for IGattServiceProviderTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IGattServiceProviderTrigger");
@@ -3667,7 +3697,7 @@ pub struct IGattServiceProviderTrigger_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     AdvertisingParameters: usize,
 }
-windows_core::imp::define_interface!(IGattServiceProviderTriggerResult, IGattServiceProviderTriggerResult_Vtbl, 0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a);
+windows_core::imp::define_interface!(IGattServiceProviderTriggerResult, IGattServiceProviderTriggerResult_Vtbl, 0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a, inspectable);
 impl windows_core::RuntimeType for IGattServiceProviderTriggerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IGattServiceProviderTriggerResult");
@@ -3682,7 +3712,7 @@ pub struct IGattServiceProviderTriggerResult_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth"))]
     Error: usize,
 }
-windows_core::imp::define_interface!(IGattServiceProviderTriggerStatics, IGattServiceProviderTriggerStatics_Vtbl, 0xb413a36a_e294_4591_a5a6_64891a828153);
+windows_core::imp::define_interface!(IGattServiceProviderTriggerStatics, IGattServiceProviderTriggerStatics_Vtbl, 0xb413a36a_e294_4591_a5a6_64891a828153, inspectable);
 impl windows_core::RuntimeType for IGattServiceProviderTriggerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IGattServiceProviderTriggerStatics");
@@ -3693,7 +3723,7 @@ pub struct IGattServiceProviderTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGeovisitTrigger, IGeovisitTrigger_Vtbl, 0x4818edaa_04e1_4127_9a4c_19351b8a80a4);
+windows_core::imp::define_interface!(IGeovisitTrigger, IGeovisitTrigger_Vtbl, 0x4818edaa_04e1_4127_9a4c_19351b8a80a4, inspectable);
 impl windows_core::RuntimeType for IGeovisitTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IGeovisitTrigger");
@@ -3711,7 +3741,7 @@ pub struct IGeovisitTrigger_Vtbl {
     #[cfg(not(feature = "Devices_Geolocation"))]
     SetMonitoringScope: usize,
 }
-windows_core::imp::define_interface!(ILocationTrigger, ILocationTrigger_Vtbl, 0x47666a1c_6877_481e_8026_ff7e14a811a0);
+windows_core::imp::define_interface!(ILocationTrigger, ILocationTrigger_Vtbl, 0x47666a1c_6877_481e_8026_ff7e14a811a0, inspectable);
 impl windows_core::RuntimeType for ILocationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ILocationTrigger");
@@ -3722,7 +3752,7 @@ pub struct ILocationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TriggerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocationTriggerType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILocationTriggerFactory, ILocationTriggerFactory_Vtbl, 0x1106bb07_ff69_4e09_aa8b_1384ea475e98);
+windows_core::imp::define_interface!(ILocationTriggerFactory, ILocationTriggerFactory_Vtbl, 0x1106bb07_ff69_4e09_aa8b_1384ea475e98, inspectable);
 impl windows_core::RuntimeType for ILocationTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ILocationTriggerFactory");
@@ -3733,7 +3763,7 @@ pub struct ILocationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, LocationTriggerType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMaintenanceTrigger, IMaintenanceTrigger_Vtbl, 0x68184c83_fc22_4ce5_841a_7239a9810047);
+windows_core::imp::define_interface!(IMaintenanceTrigger, IMaintenanceTrigger_Vtbl, 0x68184c83_fc22_4ce5_841a_7239a9810047, inspectable);
 impl windows_core::RuntimeType for IMaintenanceTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IMaintenanceTrigger");
@@ -3745,7 +3775,7 @@ pub struct IMaintenanceTrigger_Vtbl {
     pub FreshnessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMaintenanceTriggerFactory, IMaintenanceTriggerFactory_Vtbl, 0x4b3ddb2e_97dd_4629_88b0_b06cf9482ae5);
+windows_core::imp::define_interface!(IMaintenanceTriggerFactory, IMaintenanceTriggerFactory_Vtbl, 0x4b3ddb2e_97dd_4629_88b0_b06cf9482ae5, inspectable);
 impl windows_core::RuntimeType for IMaintenanceTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IMaintenanceTriggerFactory");
@@ -3756,7 +3786,7 @@ pub struct IMaintenanceTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaProcessingTrigger, IMediaProcessingTrigger_Vtbl, 0x9a95be65_8a52_4b30_9011_cf38040ea8b0);
+windows_core::imp::define_interface!(IMediaProcessingTrigger, IMediaProcessingTrigger_Vtbl, 0x9a95be65_8a52_4b30_9011_cf38040ea8b0, inspectable);
 impl windows_core::RuntimeType for IMediaProcessingTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IMediaProcessingTrigger");
@@ -3771,7 +3801,7 @@ pub struct IMediaProcessingTrigger_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     RequestAsyncWithArguments: usize,
 }
-windows_core::imp::define_interface!(INetworkOperatorHotspotAuthenticationTrigger, INetworkOperatorHotspotAuthenticationTrigger_Vtbl, 0xe756c791_3001_4de5_83c7_de61d88831d0);
+windows_core::imp::define_interface!(INetworkOperatorHotspotAuthenticationTrigger, INetworkOperatorHotspotAuthenticationTrigger_Vtbl, 0xe756c791_3001_4de5_83c7_de61d88831d0, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorHotspotAuthenticationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.INetworkOperatorHotspotAuthenticationTrigger");
@@ -3781,7 +3811,7 @@ impl windows_core::RuntimeType for INetworkOperatorHotspotAuthenticationTrigger 
 pub struct INetworkOperatorHotspotAuthenticationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(INetworkOperatorNotificationTrigger, INetworkOperatorNotificationTrigger_Vtbl, 0x90089cc6_63cd_480c_95d1_6e6aef801e4a);
+windows_core::imp::define_interface!(INetworkOperatorNotificationTrigger, INetworkOperatorNotificationTrigger_Vtbl, 0x90089cc6_63cd_480c_95d1_6e6aef801e4a, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.INetworkOperatorNotificationTrigger");
@@ -3792,7 +3822,7 @@ pub struct INetworkOperatorNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NetworkAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkOperatorNotificationTriggerFactory, INetworkOperatorNotificationTriggerFactory_Vtbl, 0x0a223e00_27d7_4353_adb9_9265aaea579d);
+windows_core::imp::define_interface!(INetworkOperatorNotificationTriggerFactory, INetworkOperatorNotificationTriggerFactory_Vtbl, 0x0a223e00_27d7_4353_adb9_9265aaea579d, inspectable);
 impl windows_core::RuntimeType for INetworkOperatorNotificationTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.INetworkOperatorNotificationTriggerFactory");
@@ -3803,7 +3833,7 @@ pub struct INetworkOperatorNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPhoneTrigger, IPhoneTrigger_Vtbl, 0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde);
+windows_core::imp::define_interface!(IPhoneTrigger, IPhoneTrigger_Vtbl, 0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde, inspectable);
 impl windows_core::RuntimeType for IPhoneTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IPhoneTrigger");
@@ -3818,7 +3848,7 @@ pub struct IPhoneTrigger_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Calls_Background"))]
     TriggerType: usize,
 }
-windows_core::imp::define_interface!(IPhoneTriggerFactory, IPhoneTriggerFactory_Vtbl, 0xa0d93cda_5fc1_48fb_a546_32262040157b);
+windows_core::imp::define_interface!(IPhoneTriggerFactory, IPhoneTriggerFactory_Vtbl, 0xa0d93cda_5fc1_48fb_a546_32262040157b, inspectable);
 impl windows_core::RuntimeType for IPhoneTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IPhoneTriggerFactory");
@@ -3832,7 +3862,7 @@ pub struct IPhoneTriggerFactory_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Calls_Background"))]
     Create: usize,
 }
-windows_core::imp::define_interface!(IPushNotificationTriggerFactory, IPushNotificationTriggerFactory_Vtbl, 0x6dd8ed1b_458e_4fc2_bc2e_d5664f77ed19);
+windows_core::imp::define_interface!(IPushNotificationTriggerFactory, IPushNotificationTriggerFactory_Vtbl, 0x6dd8ed1b_458e_4fc2_bc2e_d5664f77ed19, inspectable);
 impl windows_core::RuntimeType for IPushNotificationTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IPushNotificationTriggerFactory");
@@ -3843,7 +3873,7 @@ pub struct IPushNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRcsEndUserMessageAvailableTrigger, IRcsEndUserMessageAvailableTrigger_Vtbl, 0x986d0d6a_b2f6_467f_a978_a44091c11a66);
+windows_core::imp::define_interface!(IRcsEndUserMessageAvailableTrigger, IRcsEndUserMessageAvailableTrigger_Vtbl, 0x986d0d6a_b2f6_467f_a978_a44091c11a66, inspectable);
 impl windows_core::RuntimeType for IRcsEndUserMessageAvailableTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IRcsEndUserMessageAvailableTrigger");
@@ -3853,7 +3883,7 @@ impl windows_core::RuntimeType for IRcsEndUserMessageAvailableTrigger {
 pub struct IRcsEndUserMessageAvailableTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IRfcommConnectionTrigger, IRfcommConnectionTrigger_Vtbl, 0xe8c4cae2_0b53_4464_9394_fd875654de64);
+windows_core::imp::define_interface!(IRfcommConnectionTrigger, IRfcommConnectionTrigger_Vtbl, 0xe8c4cae2_0b53_4464_9394_fd875654de64, inspectable);
 impl windows_core::RuntimeType for IRfcommConnectionTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IRfcommConnectionTrigger");
@@ -3889,7 +3919,7 @@ pub struct IRfcommConnectionTrigger_Vtbl {
     #[cfg(not(feature = "Networking"))]
     SetRemoteHostName: usize,
 }
-windows_core::imp::define_interface!(ISecondaryAuthenticationFactorAuthenticationTrigger, ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl, 0xf237f327_5181_4f24_96a7_700a4e5fac62);
+windows_core::imp::define_interface!(ISecondaryAuthenticationFactorAuthenticationTrigger, ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl, 0xf237f327_5181_4f24_96a7_700a4e5fac62, inspectable);
 impl windows_core::RuntimeType for ISecondaryAuthenticationFactorAuthenticationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISecondaryAuthenticationFactorAuthenticationTrigger");
@@ -3899,7 +3929,7 @@ impl windows_core::RuntimeType for ISecondaryAuthenticationFactorAuthenticationT
 pub struct ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ISensorDataThresholdTrigger, ISensorDataThresholdTrigger_Vtbl, 0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2);
+windows_core::imp::define_interface!(ISensorDataThresholdTrigger, ISensorDataThresholdTrigger_Vtbl, 0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2, inspectable);
 impl windows_core::RuntimeType for ISensorDataThresholdTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISensorDataThresholdTrigger");
@@ -3909,7 +3939,7 @@ impl windows_core::RuntimeType for ISensorDataThresholdTrigger {
 pub struct ISensorDataThresholdTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ISensorDataThresholdTriggerFactory, ISensorDataThresholdTriggerFactory_Vtbl, 0x921fe675_7df0_4da3_97b3_e544ee857fe6);
+windows_core::imp::define_interface!(ISensorDataThresholdTriggerFactory, ISensorDataThresholdTriggerFactory_Vtbl, 0x921fe675_7df0_4da3_97b3_e544ee857fe6, inspectable);
 impl windows_core::RuntimeType for ISensorDataThresholdTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISensorDataThresholdTriggerFactory");
@@ -3923,7 +3953,7 @@ pub struct ISensorDataThresholdTriggerFactory_Vtbl {
     #[cfg(not(feature = "Devices_Sensors"))]
     Create: usize,
 }
-windows_core::imp::define_interface!(ISmartCardTrigger, ISmartCardTrigger_Vtbl, 0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50);
+windows_core::imp::define_interface!(ISmartCardTrigger, ISmartCardTrigger_Vtbl, 0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50, inspectable);
 impl windows_core::RuntimeType for ISmartCardTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISmartCardTrigger");
@@ -3937,7 +3967,7 @@ pub struct ISmartCardTrigger_Vtbl {
     #[cfg(not(feature = "Devices_SmartCards"))]
     TriggerType: usize,
 }
-windows_core::imp::define_interface!(ISmartCardTriggerFactory, ISmartCardTriggerFactory_Vtbl, 0x63bf54c3_89c1_4e00_a9d3_97c629269dad);
+windows_core::imp::define_interface!(ISmartCardTriggerFactory, ISmartCardTriggerFactory_Vtbl, 0x63bf54c3_89c1_4e00_a9d3_97c629269dad, inspectable);
 impl windows_core::RuntimeType for ISmartCardTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISmartCardTriggerFactory");
@@ -3951,7 +3981,7 @@ pub struct ISmartCardTriggerFactory_Vtbl {
     #[cfg(not(feature = "Devices_SmartCards"))]
     Create: usize,
 }
-windows_core::imp::define_interface!(ISmsMessageReceivedTriggerFactory, ISmsMessageReceivedTriggerFactory_Vtbl, 0xea3ad8c8_6ba4_4ab2_8d21_bc6b09c77564);
+windows_core::imp::define_interface!(ISmsMessageReceivedTriggerFactory, ISmsMessageReceivedTriggerFactory_Vtbl, 0xea3ad8c8_6ba4_4ab2_8d21_bc6b09c77564, inspectable);
 impl windows_core::RuntimeType for ISmsMessageReceivedTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISmsMessageReceivedTriggerFactory");
@@ -3965,7 +3995,7 @@ pub struct ISmsMessageReceivedTriggerFactory_Vtbl {
     #[cfg(not(feature = "Devices_Sms"))]
     Create: usize,
 }
-windows_core::imp::define_interface!(ISocketActivityTrigger, ISocketActivityTrigger_Vtbl, 0xa9bbf810_9dde_4f8a_83e3_b0e0e7a50d70);
+windows_core::imp::define_interface!(ISocketActivityTrigger, ISocketActivityTrigger_Vtbl, 0xa9bbf810_9dde_4f8a_83e3_b0e0e7a50d70, inspectable);
 impl windows_core::RuntimeType for ISocketActivityTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISocketActivityTrigger");
@@ -3976,7 +4006,7 @@ pub struct ISocketActivityTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsWakeFromLowPowerSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibraryChangeTrackerTriggerFactory, IStorageLibraryChangeTrackerTriggerFactory_Vtbl, 0x1eb0ffd0_5a85_499e_a888_824607124f50);
+windows_core::imp::define_interface!(IStorageLibraryChangeTrackerTriggerFactory, IStorageLibraryChangeTrackerTriggerFactory_Vtbl, 0x1eb0ffd0_5a85_499e_a888_824607124f50, inspectable);
 impl windows_core::RuntimeType for IStorageLibraryChangeTrackerTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IStorageLibraryChangeTrackerTriggerFactory");
@@ -3990,7 +4020,7 @@ pub struct IStorageLibraryChangeTrackerTriggerFactory_Vtbl {
     #[cfg(not(feature = "Storage"))]
     Create: usize,
 }
-windows_core::imp::define_interface!(IStorageLibraryContentChangedTrigger, IStorageLibraryContentChangedTrigger_Vtbl, 0x1637e0a7_829c_45bc_929b_a1e7ea78d89b);
+windows_core::imp::define_interface!(IStorageLibraryContentChangedTrigger, IStorageLibraryContentChangedTrigger_Vtbl, 0x1637e0a7_829c_45bc_929b_a1e7ea78d89b, inspectable);
 impl windows_core::RuntimeType for IStorageLibraryContentChangedTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IStorageLibraryContentChangedTrigger");
@@ -4000,7 +4030,7 @@ impl windows_core::RuntimeType for IStorageLibraryContentChangedTrigger {
 pub struct IStorageLibraryContentChangedTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IStorageLibraryContentChangedTriggerStatics, IStorageLibraryContentChangedTriggerStatics_Vtbl, 0x7f9f1b39_5f90_4e12_914e_a7d8e0bbfb18);
+windows_core::imp::define_interface!(IStorageLibraryContentChangedTriggerStatics, IStorageLibraryContentChangedTriggerStatics_Vtbl, 0x7f9f1b39_5f90_4e12_914e_a7d8e0bbfb18, inspectable);
 impl windows_core::RuntimeType for IStorageLibraryContentChangedTriggerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IStorageLibraryContentChangedTriggerStatics");
@@ -4018,7 +4048,7 @@ pub struct IStorageLibraryContentChangedTriggerStatics_Vtbl {
     #[cfg(not(feature = "Storage"))]
     CreateFromLibraries: usize,
 }
-windows_core::imp::define_interface!(ISystemCondition, ISystemCondition_Vtbl, 0xc15fb476_89c5_420b_abd3_fb3030472128);
+windows_core::imp::define_interface!(ISystemCondition, ISystemCondition_Vtbl, 0xc15fb476_89c5_420b_abd3_fb3030472128, inspectable);
 impl windows_core::RuntimeType for ISystemCondition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISystemCondition");
@@ -4029,7 +4059,7 @@ pub struct ISystemCondition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConditionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemConditionType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemConditionFactory, ISystemConditionFactory_Vtbl, 0xd269d1f1_05a7_49ae_87d7_16b2b8b9a553);
+windows_core::imp::define_interface!(ISystemConditionFactory, ISystemConditionFactory_Vtbl, 0xd269d1f1_05a7_49ae_87d7_16b2b8b9a553, inspectable);
 impl windows_core::RuntimeType for ISystemConditionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISystemConditionFactory");
@@ -4040,7 +4070,7 @@ pub struct ISystemConditionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, SystemConditionType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemTrigger, ISystemTrigger_Vtbl, 0x1d80c776_3748_4463_8d7e_276dc139ac1c);
+windows_core::imp::define_interface!(ISystemTrigger, ISystemTrigger_Vtbl, 0x1d80c776_3748_4463_8d7e_276dc139ac1c, inspectable);
 impl windows_core::RuntimeType for ISystemTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISystemTrigger");
@@ -4052,7 +4082,7 @@ pub struct ISystemTrigger_Vtbl {
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub TriggerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemTriggerType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemTriggerFactory, ISystemTriggerFactory_Vtbl, 0xe80423d4_8791_4579_8126_87ec8aaa407a);
+windows_core::imp::define_interface!(ISystemTriggerFactory, ISystemTriggerFactory_Vtbl, 0xe80423d4_8791_4579_8126_87ec8aaa407a, inspectable);
 impl windows_core::RuntimeType for ISystemTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ISystemTriggerFactory");
@@ -4063,7 +4093,7 @@ pub struct ISystemTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, SystemTriggerType, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITimeTrigger, ITimeTrigger_Vtbl, 0x656e5556_0b2a_4377_ba70_3b45a935547f);
+windows_core::imp::define_interface!(ITimeTrigger, ITimeTrigger_Vtbl, 0x656e5556_0b2a_4377_ba70_3b45a935547f, inspectable);
 impl windows_core::RuntimeType for ITimeTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ITimeTrigger");
@@ -4075,7 +4105,7 @@ pub struct ITimeTrigger_Vtbl {
     pub FreshnessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITimeTriggerFactory, ITimeTriggerFactory_Vtbl, 0x38c682fe_9b54_45e6_b2f3_269b87a6f734);
+windows_core::imp::define_interface!(ITimeTriggerFactory, ITimeTriggerFactory_Vtbl, 0x38c682fe_9b54_45e6_b2f3_269b87a6f734, inspectable);
 impl windows_core::RuntimeType for ITimeTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.ITimeTriggerFactory");
@@ -4086,7 +4116,7 @@ pub struct ITimeTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotificationActionTriggerFactory, IToastNotificationActionTriggerFactory_Vtbl, 0xb09dfc27_6480_4349_8125_97b3efaa0a3a);
+windows_core::imp::define_interface!(IToastNotificationActionTriggerFactory, IToastNotificationActionTriggerFactory_Vtbl, 0xb09dfc27_6480_4349_8125_97b3efaa0a3a, inspectable);
 impl windows_core::RuntimeType for IToastNotificationActionTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IToastNotificationActionTriggerFactory");
@@ -4097,7 +4127,7 @@ pub struct IToastNotificationActionTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerFactory, IToastNotificationHistoryChangedTriggerFactory_Vtbl, 0x81c6faad_8797_4785_81b4_b0cccb73d1d9);
+windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerFactory, IToastNotificationHistoryChangedTriggerFactory_Vtbl, 0x81c6faad_8797_4785_81b4_b0cccb73d1d9, inspectable);
 impl windows_core::RuntimeType for IToastNotificationHistoryChangedTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IToastNotificationHistoryChangedTriggerFactory");
@@ -4108,7 +4138,7 @@ pub struct IToastNotificationHistoryChangedTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserNotificationChangedTriggerFactory, IUserNotificationChangedTriggerFactory_Vtbl, 0xcad4436c_69ab_4e18_a48a_5ed2ac435957);
+windows_core::imp::define_interface!(IUserNotificationChangedTriggerFactory, IUserNotificationChangedTriggerFactory_Vtbl, 0xcad4436c_69ab_4e18_a48a_5ed2ac435957, inspectable);
 impl windows_core::RuntimeType for IUserNotificationChangedTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Background.IUserNotificationChangedTriggerFactory");
@@ -4151,6 +4181,7 @@ impl windows_core::RuntimeType for LocationTrigger {
 unsafe impl windows_core::Interface for LocationTrigger {
     type Vtable = <ILocationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILocationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for LocationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.LocationTrigger";
@@ -4205,6 +4236,7 @@ impl windows_core::RuntimeType for MaintenanceTrigger {
 unsafe impl windows_core::Interface for MaintenanceTrigger {
     type Vtable = <IMaintenanceTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMaintenanceTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MaintenanceTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MaintenanceTrigger";
@@ -4245,6 +4277,7 @@ impl windows_core::RuntimeType for MediaProcessingTrigger {
 unsafe impl windows_core::Interface for MediaProcessingTrigger {
     type Vtable = <IMediaProcessingTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaProcessingTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MediaProcessingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MediaProcessingTrigger";
@@ -4284,6 +4317,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigg
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceNotificationTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger";
@@ -4309,6 +4343,7 @@ impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
 unsafe impl windows_core::Interface for MobileBroadbandPcoDataChangeTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger";
@@ -4334,6 +4369,7 @@ impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
 unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChangeTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger";
@@ -4359,6 +4395,7 @@ impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
 unsafe impl windows_core::Interface for MobileBroadbandRadioStateChangeTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger";
@@ -4384,6 +4421,7 @@ impl windows_core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger
 unsafe impl windows_core::Interface for MobileBroadbandRegistrationStateChangeTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger";
@@ -4409,6 +4447,7 @@ impl windows_core::RuntimeType for NetworkOperatorDataUsageTrigger {
 unsafe impl windows_core::Interface for NetworkOperatorDataUsageTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NetworkOperatorDataUsageTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger";
@@ -4435,6 +4474,7 @@ impl windows_core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
 unsafe impl windows_core::Interface for NetworkOperatorHotspotAuthenticationTrigger {
     type Vtable = <INetworkOperatorHotspotAuthenticationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorHotspotAuthenticationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger";
@@ -4468,6 +4508,7 @@ impl windows_core::RuntimeType for NetworkOperatorNotificationTrigger {
 unsafe impl windows_core::Interface for NetworkOperatorNotificationTrigger {
     type Vtable = <INetworkOperatorNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorNotificationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for NetworkOperatorNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger";
@@ -4491,6 +4532,7 @@ impl windows_core::RuntimeType for PaymentAppCanMakePaymentTrigger {
 unsafe impl windows_core::Interface for PaymentAppCanMakePaymentTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PaymentAppCanMakePaymentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger";
@@ -4534,6 +4576,7 @@ impl windows_core::RuntimeType for PhoneTrigger {
 unsafe impl windows_core::Interface for PhoneTrigger {
     type Vtable = <IPhoneTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PhoneTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PhoneTrigger";
@@ -4569,6 +4612,7 @@ impl windows_core::RuntimeType for PushNotificationTrigger {
 unsafe impl windows_core::Interface for PushNotificationTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for PushNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PushNotificationTrigger";
@@ -4595,6 +4639,7 @@ impl windows_core::RuntimeType for RcsEndUserMessageAvailableTrigger {
 unsafe impl windows_core::Interface for RcsEndUserMessageAvailableTrigger {
     type Vtable = <IRcsEndUserMessageAvailableTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRcsEndUserMessageAvailableTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RcsEndUserMessageAvailableTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger";
@@ -4669,6 +4714,7 @@ impl windows_core::RuntimeType for RfcommConnectionTrigger {
 unsafe impl windows_core::Interface for RfcommConnectionTrigger {
     type Vtable = <IRfcommConnectionTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommConnectionTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for RfcommConnectionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RfcommConnectionTrigger";
@@ -4695,6 +4741,7 @@ impl windows_core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTr
 unsafe impl windows_core::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
     type Vtable = <ISecondaryAuthenticationFactorAuthenticationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISecondaryAuthenticationFactorAuthenticationTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SecondaryAuthenticationFactorAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger";
@@ -4726,6 +4773,7 @@ impl windows_core::RuntimeType for SensorDataThresholdTrigger {
 unsafe impl windows_core::Interface for SensorDataThresholdTrigger {
     type Vtable = <ISensorDataThresholdTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISensorDataThresholdTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SensorDataThresholdTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SensorDataThresholdTrigger";
@@ -4763,6 +4811,7 @@ impl windows_core::RuntimeType for SmartCardTrigger {
 unsafe impl windows_core::Interface for SmartCardTrigger {
     type Vtable = <ISmartCardTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SmartCardTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmartCardTrigger";
@@ -4793,6 +4842,7 @@ impl windows_core::RuntimeType for SmsMessageReceivedTrigger {
 unsafe impl windows_core::Interface for SmsMessageReceivedTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SmsMessageReceivedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmsMessageReceivedTrigger";
@@ -4825,6 +4875,7 @@ impl windows_core::RuntimeType for SocketActivityTrigger {
 unsafe impl windows_core::Interface for SocketActivityTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SocketActivityTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SocketActivityTrigger";
@@ -4857,6 +4908,7 @@ impl windows_core::RuntimeType for StorageLibraryChangeTrackerTrigger {
 unsafe impl windows_core::Interface for StorageLibraryChangeTrackerTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorageLibraryChangeTrackerTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger";
@@ -4900,6 +4952,7 @@ impl windows_core::RuntimeType for StorageLibraryContentChangedTrigger {
 unsafe impl windows_core::Interface for StorageLibraryContentChangedTrigger {
     type Vtable = <IStorageLibraryContentChangedTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageLibraryContentChangedTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for StorageLibraryContentChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger";
@@ -4933,6 +4986,7 @@ impl windows_core::RuntimeType for SystemCondition {
 unsafe impl windows_core::Interface for SystemCondition {
     type Vtable = <ISystemCondition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemCondition as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SystemCondition {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemCondition";
@@ -4993,6 +5047,7 @@ impl windows_core::RuntimeType for SystemTrigger {
 unsafe impl windows_core::Interface for SystemTrigger {
     type Vtable = <ISystemTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for SystemTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemTrigger";
@@ -5044,6 +5099,7 @@ impl windows_core::RuntimeType for TetheringEntitlementCheckTrigger {
 unsafe impl windows_core::Interface for TetheringEntitlementCheckTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TetheringEntitlementCheckTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger";
@@ -5085,6 +5141,7 @@ impl windows_core::RuntimeType for TimeTrigger {
 unsafe impl windows_core::Interface for TimeTrigger {
     type Vtable = <ITimeTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITimeTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for TimeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TimeTrigger";
@@ -5118,6 +5175,7 @@ impl windows_core::RuntimeType for ToastNotificationActionTrigger {
 unsafe impl windows_core::Interface for ToastNotificationActionTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ToastNotificationActionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationActionTrigger";
@@ -5153,6 +5211,7 @@ impl windows_core::RuntimeType for ToastNotificationHistoryChangedTrigger {
 unsafe impl windows_core::Interface for ToastNotificationHistoryChangedTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for ToastNotificationHistoryChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger";
@@ -5182,6 +5241,7 @@ impl windows_core::RuntimeType for UserNotificationChangedTrigger {
 unsafe impl windows_core::Interface for UserNotificationChangedTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for UserNotificationChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.UserNotificationChangedTrigger";
@@ -5207,6 +5267,7 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectTrigger {
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger";
@@ -5232,6 +5293,7 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotUpdateMetadataTrigger {
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotUpdateMetadataTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WiFiOnDemandHotspotUpdateMetadataTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger";

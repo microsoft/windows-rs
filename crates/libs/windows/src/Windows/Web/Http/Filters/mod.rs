@@ -201,6 +201,7 @@ impl windows_core::RuntimeType for HttpBaseProtocolFilter {
 unsafe impl windows_core::Interface for HttpBaseProtocolFilter {
     type Vtable = <IHttpBaseProtocolFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpBaseProtocolFilter as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HttpBaseProtocolFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpBaseProtocolFilter";
@@ -237,6 +238,7 @@ impl windows_core::RuntimeType for HttpCacheControl {
 unsafe impl windows_core::Interface for HttpCacheControl {
     type Vtable = <IHttpCacheControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpCacheControl as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HttpCacheControl {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpCacheControl";
@@ -342,13 +344,14 @@ impl windows_core::RuntimeType for HttpServerCustomValidationRequestedEventArgs 
 unsafe impl windows_core::Interface for HttpServerCustomValidationRequestedEventArgs {
     type Vtable = <IHttpServerCustomValidationRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpServerCustomValidationRequestedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for HttpServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs";
 }
 unsafe impl Send for HttpServerCustomValidationRequestedEventArgs {}
 unsafe impl Sync for HttpServerCustomValidationRequestedEventArgs {}
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter, IHttpBaseProtocolFilter_Vtbl, 0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter, IHttpBaseProtocolFilter_Vtbl, 0x71c89b09_e131_4b54_a53c_eb43ff37e9bb, inspectable);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilter");
@@ -398,7 +401,7 @@ pub struct IHttpBaseProtocolFilter_Vtbl {
     pub UseProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetUseProxy: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter2, IHttpBaseProtocolFilter2_Vtbl, 0x2ec30013_9427_4900_a017_fa7da3b5c9ae);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter2, IHttpBaseProtocolFilter2_Vtbl, 0x2ec30013_9427_4900_a017_fa7da3b5c9ae, inspectable);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilter2");
@@ -410,7 +413,7 @@ pub struct IHttpBaseProtocolFilter2_Vtbl {
     pub MaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HttpVersion) -> windows_core::HRESULT,
     pub SetMaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, super::HttpVersion) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter3, IHttpBaseProtocolFilter3_Vtbl, 0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter3, IHttpBaseProtocolFilter3_Vtbl, 0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937, inspectable);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilter3");
@@ -422,7 +425,7 @@ pub struct IHttpBaseProtocolFilter3_Vtbl {
     pub CookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCookieUsageBehavior) -> windows_core::HRESULT,
     pub SetCookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCookieUsageBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter4, IHttpBaseProtocolFilter4_Vtbl, 0x9fe36ccf_2983_4893_941f_eb518ca8cef9);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter4, IHttpBaseProtocolFilter4_Vtbl, 0x9fe36ccf_2983_4893_941f_eb518ca8cef9, inspectable);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilter4");
@@ -435,7 +438,7 @@ pub struct IHttpBaseProtocolFilter4_Vtbl {
     pub RemoveServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub ClearAuthenticationCache: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter5, IHttpBaseProtocolFilter5_Vtbl, 0x416e4993_31e3_4816_bf09_e018ee8dc1f5);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter5, IHttpBaseProtocolFilter5_Vtbl, 0x416e4993_31e3_4816_bf09_e018ee8dc1f5, inspectable);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilter5");
@@ -449,7 +452,7 @@ pub struct IHttpBaseProtocolFilter5_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IHttpBaseProtocolFilterStatics, IHttpBaseProtocolFilterStatics_Vtbl, 0x6d4dee0c_e908_494e_b5a3_1263c9b8242a);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilterStatics, IHttpBaseProtocolFilterStatics_Vtbl, 0x6d4dee0c_e908_494e_b5a3_1263c9b8242a, inspectable);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilterStatics");
@@ -463,7 +466,7 @@ pub struct IHttpBaseProtocolFilterStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     CreateForUser: usize,
 }
-windows_core::imp::define_interface!(IHttpCacheControl, IHttpCacheControl_Vtbl, 0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
+windows_core::imp::define_interface!(IHttpCacheControl, IHttpCacheControl_Vtbl, 0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7, inspectable);
 impl windows_core::RuntimeType for IHttpCacheControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpCacheControl");
@@ -477,7 +480,7 @@ pub struct IHttpCacheControl_Vtbl {
     pub WriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCacheWriteBehavior) -> windows_core::HRESULT,
     pub SetWriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCacheWriteBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpFilter, IHttpFilter_Vtbl, 0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
+windows_core::imp::define_interface!(IHttpFilter, IHttpFilter_Vtbl, 0xa4cb6dd5_0902_439e_bfd7_e12552b165ce, inspectable);
 impl windows_core::RuntimeType for IHttpFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpFilter");
@@ -523,7 +526,7 @@ impl IHttpFilter_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IHttpFilter, OFFSET>(), SendRequestAsync: SendRequestAsync::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), SendRequestAsync: SendRequestAsync::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IHttpFilter as windows_core::Interface>::IID
@@ -535,7 +538,7 @@ pub struct IHttpFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpServerCustomValidationRequestedEventArgs, IHttpServerCustomValidationRequestedEventArgs_Vtbl, 0x3165fe32_e7dd_48b7_a361_939c750e63cc);
+windows_core::imp::define_interface!(IHttpServerCustomValidationRequestedEventArgs, IHttpServerCustomValidationRequestedEventArgs_Vtbl, 0x3165fe32_e7dd_48b7_a361_939c750e63cc, inspectable);
 impl windows_core::RuntimeType for IHttpServerCustomValidationRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpServerCustomValidationRequestedEventArgs");

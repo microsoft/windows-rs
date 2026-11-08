@@ -37,7 +37,7 @@ impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorVi
         }
     }
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironment, IIsolatedWindowsEnvironment_Vtbl, 0x41d24597_c328_4467_b37f_4dfc6f60b6bc);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironment, IIsolatedWindowsEnvironment_Vtbl, 0x41d24597_c328_4467_b37f_4dfc6f60b6bc, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironment");
@@ -58,7 +58,7 @@ pub struct IIsolatedWindowsEnvironment_Vtbl {
     pub RegisterMessageReceiver: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnregisterMessageReceiver: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironment2, IIsolatedWindowsEnvironment2_Vtbl, 0x2d365f39_88bd_4ab4_93cf_7e2bcef337c0);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironment2, IIsolatedWindowsEnvironment2_Vtbl, 0x2d365f39_88bd_4ab4_93cf_7e2bcef337c0, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironment2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironment2");
@@ -70,7 +70,7 @@ pub struct IIsolatedWindowsEnvironment2_Vtbl {
     pub PostMessageToReceiverAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PostMessageToReceiverWithTelemetryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironment3, IIsolatedWindowsEnvironment3_Vtbl, 0xcb7fc7d2_d06e_4c26_8ada_dacdaaad03f5);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironment3, IIsolatedWindowsEnvironment3_Vtbl, 0xcb7fc7d2_d06e_4c26_8ada_dacdaaad03f5, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironment3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironment3");
@@ -83,7 +83,7 @@ pub struct IIsolatedWindowsEnvironment3_Vtbl {
     pub ShareFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShareFileWithTelemetryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironment4, IIsolatedWindowsEnvironment4_Vtbl, 0x11e3701a_dd9e_4f1b_812c_4020f307f93c);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironment4, IIsolatedWindowsEnvironment4_Vtbl, 0x11e3701a_dd9e_4f1b_812c_4020f307f93c, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironment4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironment4");
@@ -94,7 +94,7 @@ pub struct IIsolatedWindowsEnvironment4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangePriority: unsafe extern "system" fn(*mut core::ffi::c_void, IsolatedWindowsEnvironmentCreationPriority) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentCreateResult, IIsolatedWindowsEnvironmentCreateResult_Vtbl, 0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentCreateResult, IIsolatedWindowsEnvironmentCreateResult_Vtbl, 0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentCreateResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult");
@@ -107,7 +107,7 @@ pub struct IIsolatedWindowsEnvironmentCreateResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub Environment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentCreateResult2, IIsolatedWindowsEnvironmentCreateResult2_Vtbl, 0xa547dbc7_61d4_4fb8_ab5c_edefa3d388ad);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentCreateResult2, IIsolatedWindowsEnvironmentCreateResult2_Vtbl, 0xa547dbc7_61d4_4fb8_ab5c_edefa3d388ad, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentCreateResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult2");
@@ -118,7 +118,7 @@ pub struct IIsolatedWindowsEnvironmentCreateResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeCreationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, IsolatedWindowsEnvironmentCreationPriority) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentFactory, IIsolatedWindowsEnvironmentFactory_Vtbl, 0x1aca93e7_e804_454d_8466_f9897c20b0f6);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentFactory, IIsolatedWindowsEnvironmentFactory_Vtbl, 0x1aca93e7_e804_454d_8466_f9897c20b0f6, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFactory");
@@ -132,7 +132,7 @@ pub struct IIsolatedWindowsEnvironmentFactory_Vtbl {
     pub GetById: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindByOwnerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentFile, IIsolatedWindowsEnvironmentFile_Vtbl, 0x4d5ae1ef_029f_4101_8c35_fe91bf9cd5f0);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentFile, IIsolatedWindowsEnvironmentFile_Vtbl, 0x4d5ae1ef_029f_4101_8c35_fe91bf9cd5f0, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentFile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile");
@@ -145,7 +145,7 @@ pub struct IIsolatedWindowsEnvironmentFile_Vtbl {
     pub HostPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentFile2, IIsolatedWindowsEnvironmentFile2_Vtbl, 0x4eeb8dec_ad5d_4b0a_b754_f36c3d46d684);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentFile2, IIsolatedWindowsEnvironmentFile2_Vtbl, 0x4eeb8dec_ad5d_4b0a_b754_f36c3d46d684, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentFile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile2");
@@ -157,7 +157,7 @@ pub struct IIsolatedWindowsEnvironmentFile2_Vtbl {
     pub GuestPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentHostStatics, IIsolatedWindowsEnvironmentHostStatics_Vtbl, 0x2c0e22c7_05a0_517a_b81c_6ee8790c381f);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentHostStatics, IIsolatedWindowsEnvironmentHostStatics_Vtbl, 0x2c0e22c7_05a0_517a_b81c_6ee8790c381f, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentHostStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentHostStatics");
@@ -169,7 +169,7 @@ pub struct IIsolatedWindowsEnvironmentHostStatics_Vtbl {
     pub IsReady: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub HostErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentLaunchFileResult, IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl, 0x685d4176_f6e0_4569_b1aa_215c0ff5b257);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentLaunchFileResult, IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl, 0x685d4176_f6e0_4569_b1aa_215c0ff5b257, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentLaunchFileResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentLaunchFileResult");
@@ -182,7 +182,7 @@ pub struct IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub File: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOptions, IIsolatedWindowsEnvironmentOptions_Vtbl, 0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOptions, IIsolatedWindowsEnvironmentOptions_Vtbl, 0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions");
@@ -209,7 +209,7 @@ pub struct IIsolatedWindowsEnvironmentOptions_Vtbl {
     pub AllowCameraAndMicrophoneAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowCameraAndMicrophoneAccess: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOptions2, IIsolatedWindowsEnvironmentOptions2_Vtbl, 0x10d7cc31_8b8f_4b9d_b22c_617103b55b08);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOptions2, IIsolatedWindowsEnvironmentOptions2_Vtbl, 0x10d7cc31_8b8f_4b9d_b22c_617103b55b08, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2");
@@ -221,7 +221,7 @@ pub struct IIsolatedWindowsEnvironmentOptions2_Vtbl {
     pub WindowAnnotationOverride: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetWindowAnnotationOverride: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOptions3, IIsolatedWindowsEnvironmentOptions3_Vtbl, 0x98d5aa23_161f_4cd9_8a9c_269b30122b0d);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOptions3, IIsolatedWindowsEnvironmentOptions3_Vtbl, 0x98d5aa23_161f_4cd9_8a9c_269b30122b0d, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOptions3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions3");
@@ -237,7 +237,7 @@ pub struct IIsolatedWindowsEnvironmentOptions3_Vtbl {
     pub CreationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentCreationPriority) -> windows_core::HRESULT,
     pub SetCreationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, IsolatedWindowsEnvironmentCreationPriority) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationData, IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl, 0xf888ec22_e8cf_56c0_b1df_90af4ad80e84);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationData, IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl, 0xf888ec22_e8cf_56c0_b1df_90af4ad80e84, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOwnerRegistrationData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationData");
@@ -251,7 +251,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl {
     pub ProcessesRunnableAsUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ActivationFileExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationResult, IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl, 0x6dab9451_6169_55df_8f51_790e99d7277d);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationResult, IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl, 0x6dab9451_6169_55df_8f51_790e99d7277d, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOwnerRegistrationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationResult");
@@ -263,7 +263,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentOwnerRegistrationStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationStatics, IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl, 0x10951754_204b_5ec9_9de3_df792d074a61);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationStatics, IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl, 0x10951754_204b_5ec9_9de3_df792d074a61, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationStatics");
@@ -275,7 +275,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl {
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentPostMessageResult, IIsolatedWindowsEnvironmentPostMessageResult_Vtbl, 0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentPostMessageResult, IIsolatedWindowsEnvironmentPostMessageResult_Vtbl, 0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentPostMessageResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult");
@@ -287,7 +287,7 @@ pub struct IIsolatedWindowsEnvironmentPostMessageResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentPostMessageStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentProcess, IIsolatedWindowsEnvironmentProcess_Vtbl, 0xa858c3ef_8172_4f10_af93_cbe60af88d09);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentProcess, IIsolatedWindowsEnvironmentProcess_Vtbl, 0xa858c3ef_8172_4f10_af93_cbe60af88d09, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentProcess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentProcess");
@@ -302,7 +302,7 @@ pub struct IIsolatedWindowsEnvironmentProcess_Vtbl {
     pub WaitForExitWithTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub WaitForExitAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFileRequestOptions, IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl, 0xc9190ed8_0fd0_4946_bb88_117a60737b61);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFileRequestOptions, IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl, 0xc9190ed8_0fd0_4946_bb88_117a60737b61, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFileRequestOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileRequestOptions");
@@ -314,7 +314,7 @@ pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl {
     pub AllowWrite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowWrite: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFileResult, IIsolatedWindowsEnvironmentShareFileResult_Vtbl, 0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFileResult, IIsolatedWindowsEnvironmentShareFileResult_Vtbl, 0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFileResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileResult");
@@ -327,7 +327,7 @@ pub struct IIsolatedWindowsEnvironmentShareFileResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub File: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFolderRequestOptions, IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl, 0xc405eb7d_7053_4f6a_9b87_746846ed19b2);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFolderRequestOptions, IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl, 0xc405eb7d_7053_4f6a_9b87_746846ed19b2, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFolderRequestOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderRequestOptions");
@@ -339,7 +339,7 @@ pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl {
     pub AllowWrite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowWrite: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFolderResult, IIsolatedWindowsEnvironmentShareFolderResult_Vtbl, 0x556ba72e_ca9d_4211_b143_1cedc86eb2fe);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFolderResult, IIsolatedWindowsEnvironmentShareFolderResult_Vtbl, 0x556ba72e_ca9d_4211_b143_1cedc86eb2fe, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFolderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderResult");
@@ -351,7 +351,7 @@ pub struct IIsolatedWindowsEnvironmentShareFolderResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IsolatedWindowsEnvironmentShareFolderStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentStartProcessResult, IIsolatedWindowsEnvironmentStartProcessResult_Vtbl, 0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentStartProcessResult, IIsolatedWindowsEnvironmentStartProcessResult_Vtbl, 0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentStartProcessResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentStartProcessResult");
@@ -364,7 +364,7 @@ pub struct IIsolatedWindowsEnvironmentStartProcessResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentTelemetryParameters, IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl, 0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentTelemetryParameters, IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl, 0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentTelemetryParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentTelemetryParameters");
@@ -376,7 +376,7 @@ pub struct IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl {
     pub CorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub SetCorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentUserInfo, IIsolatedWindowsEnvironmentUserInfo_Vtbl, 0x8a9c75ae_69ba_4001_96fc_19a02703b340);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentUserInfo, IIsolatedWindowsEnvironmentUserInfo_Vtbl, 0x8a9c75ae_69ba_4001_96fc_19a02703b340, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentUserInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo");
@@ -389,7 +389,7 @@ pub struct IIsolatedWindowsEnvironmentUserInfo_Vtbl {
     pub EnvironmentUserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryWaitForSignInAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentUserInfo2, IIsolatedWindowsEnvironmentUserInfo2_Vtbl, 0xb0bdd5dd_91d7_481e_94f2_2a5a6bdf9383);
+windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentUserInfo2, IIsolatedWindowsEnvironmentUserInfo2_Vtbl, 0xb0bdd5dd_91d7_481e_94f2_2a5a6bdf9383, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentUserInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo2");
@@ -400,7 +400,7 @@ pub struct IIsolatedWindowsEnvironmentUserInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryWaitForSignInWithProgressAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsHostMessengerStatics, IIsolatedWindowsHostMessengerStatics_Vtbl, 0x06e444bb_53c0_4889_8fa3_53592e37cf21);
+windows_core::imp::define_interface!(IIsolatedWindowsHostMessengerStatics, IIsolatedWindowsHostMessengerStatics_Vtbl, 0x06e444bb_53c0_4889_8fa3_53592e37cf21, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsHostMessengerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics");
@@ -412,7 +412,7 @@ pub struct IIsolatedWindowsHostMessengerStatics_Vtbl {
     pub PostMessageToReceiver: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIsolatedWindowsHostMessengerStatics2, IIsolatedWindowsHostMessengerStatics2_Vtbl, 0x55ef9ebc_0444_42ad_832d_1b89c089d1ca);
+windows_core::imp::define_interface!(IIsolatedWindowsHostMessengerStatics2, IIsolatedWindowsHostMessengerStatics2_Vtbl, 0x55ef9ebc_0444_42ad_832d_1b89c089d1ca, inspectable);
 impl windows_core::RuntimeType for IIsolatedWindowsHostMessengerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2");
@@ -603,6 +603,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironment {
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironment {
     type Vtable = <IIsolatedWindowsEnvironment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironment as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironment {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironment";
@@ -817,6 +818,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateResult {
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentCreateResult {
     type Vtable = <IIsolatedWindowsEnvironmentCreateResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentCreateResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult";
@@ -893,6 +895,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentFile {
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentFile {
     type Vtable = <IIsolatedWindowsEnvironmentFile as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentFile as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentFile {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentFile";
@@ -968,6 +971,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileResult {
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentLaunchFileResult {
     type Vtable = <IIsolatedWindowsEnvironmentLaunchFileResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentLaunchFileResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult";
@@ -1133,6 +1137,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOptions {
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentOptions {
     type Vtable = <IIsolatedWindowsEnvironmentOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions";
@@ -1204,6 +1209,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationDa
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationData {
     type Vtable = <IIsolatedWindowsEnvironmentOwnerRegistrationData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationData as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationData {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData";
@@ -1234,6 +1240,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationRe
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     type Vtable = <IIsolatedWindowsEnvironmentOwnerRegistrationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult";
@@ -1281,6 +1288,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentPostMessageResult {
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentPostMessageResult {
     type Vtable = <IIsolatedWindowsEnvironmentPostMessageResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentPostMessageResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
@@ -1338,6 +1346,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProcess {
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentProcess {
     type Vtable = <IIsolatedWindowsEnvironmentProcess as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentProcess as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentProcess {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
@@ -1406,6 +1415,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileRequestOpt
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFileRequestOptions {
     type Vtable = <IIsolatedWindowsEnvironmentShareFileRequestOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFileRequestOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
@@ -1442,6 +1452,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileResult {
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFileResult {
     type Vtable = <IIsolatedWindowsEnvironmentShareFileResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFileResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
@@ -1494,6 +1505,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderRequestO
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     type Vtable = <IIsolatedWindowsEnvironmentShareFolderRequestOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFolderRequestOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions";
@@ -1524,6 +1536,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderResult {
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFolderResult {
     type Vtable = <IIsolatedWindowsEnvironmentShareFolderResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFolderResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult";
@@ -1595,6 +1608,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessResult 
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentStartProcessResult {
     type Vtable = <IIsolatedWindowsEnvironmentStartProcessResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentStartProcessResult as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentStartProcessResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult";
@@ -1646,6 +1660,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentTelemetryParameters
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentTelemetryParameters {
     type Vtable = <IIsolatedWindowsEnvironmentTelemetryParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentTelemetryParameters as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentTelemetryParameters {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters";
@@ -1689,6 +1704,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentUserInfo {
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentUserInfo {
     type Vtable = <IIsolatedWindowsEnvironmentUserInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentUserInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentUserInfo {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo";

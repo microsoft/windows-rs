@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ICompositionCapabilitiesInteropFactory, ICompositionCapabilitiesInteropFactory_Vtbl, 0x2c9db356_e70d_4642_8298_bc4aa5b4865c);
+windows_core::imp::define_interface!(ICompositionCapabilitiesInteropFactory, ICompositionCapabilitiesInteropFactory_Vtbl, 0x2c9db356_e70d_4642_8298_bc4aa5b4865c, inspectable);
 windows_core::imp::interface_hierarchy!(ICompositionCapabilitiesInteropFactory, windows_core::IUnknown, windows_core::IInspectable);
 #[repr(C)]
 #[doc(hidden)]

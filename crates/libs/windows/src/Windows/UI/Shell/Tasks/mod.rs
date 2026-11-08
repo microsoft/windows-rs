@@ -59,6 +59,7 @@ impl windows_core::RuntimeType for AppTaskContent {
 unsafe impl windows_core::Interface for AppTaskContent {
     type Vtable = <IAppTaskContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppTaskContent as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppTaskContent {
     const NAME: &'static str = "Windows.UI.Shell.Tasks.AppTaskContent";
@@ -196,6 +197,7 @@ impl windows_core::RuntimeType for AppTaskInfo {
 unsafe impl windows_core::Interface for AppTaskInfo {
     type Vtable = <IAppTaskInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppTaskInfo as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppTaskInfo {
     const NAME: &'static str = "Windows.UI.Shell.Tasks.AppTaskInfo";
@@ -228,6 +230,7 @@ impl windows_core::RuntimeType for AppTaskResultAsset {
 unsafe impl windows_core::Interface for AppTaskResultAsset {
     type Vtable = <IAppTaskResultAsset as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppTaskResultAsset as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for AppTaskResultAsset {
     const NAME: &'static str = "Windows.UI.Shell.Tasks.AppTaskResultAsset";
@@ -251,7 +254,7 @@ impl windows_core::RuntimeType for AppTaskState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.Tasks.AppTaskState;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.AppTaskState");
 }
-windows_core::imp::define_interface!(IAppTaskContent, IAppTaskContent_Vtbl, 0x2411bf59_1b2d_5b63_8181_03d6c2248a68);
+windows_core::imp::define_interface!(IAppTaskContent, IAppTaskContent_Vtbl, 0x2411bf59_1b2d_5b63_8181_03d6c2248a68, inspectable);
 impl windows_core::RuntimeType for IAppTaskContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskContent");
@@ -264,7 +267,7 @@ pub struct IAppTaskContent_Vtbl {
     pub SetTextInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetQuestion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppTaskContentStatics, IAppTaskContentStatics_Vtbl, 0xaabd19f6_7afc_5b1b_94f6_5dc9dc9af9e7);
+windows_core::imp::define_interface!(IAppTaskContentStatics, IAppTaskContentStatics_Vtbl, 0xaabd19f6_7afc_5b1b_94f6_5dc9dc9af9e7, inspectable);
 impl windows_core::RuntimeType for IAppTaskContentStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskContentStatics");
@@ -279,7 +282,7 @@ pub struct IAppTaskContentStatics_Vtbl {
     pub CreateGeneratedAssetsResult: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const AppTaskResultAsset, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaxButtons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppTaskInfo, IAppTaskInfo_Vtbl, 0x6720eed6_435b_5db9_be66_9343b70654f7);
+windows_core::imp::define_interface!(IAppTaskInfo, IAppTaskInfo_Vtbl, 0x6720eed6_435b_5db9_be66_9343b70654f7, inspectable);
 impl windows_core::RuntimeType for IAppTaskInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskInfo");
@@ -302,7 +305,7 @@ pub struct IAppTaskInfo_Vtbl {
     pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub EndTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppTaskInfo2, IAppTaskInfo2_Vtbl, 0xad724d71_f137_51c0_8111_3552436bf447);
+windows_core::imp::define_interface!(IAppTaskInfo2, IAppTaskInfo2_Vtbl, 0xad724d71_f137_51c0_8111_3552436bf447, inspectable);
 impl windows_core::RuntimeType for IAppTaskInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskInfo2");
@@ -315,7 +318,7 @@ pub struct IAppTaskInfo2_Vtbl {
     pub HiddenByUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub UpdateDeepLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppTaskInfoStatics, IAppTaskInfoStatics_Vtbl, 0xa0b0434f_c640_5800_88c9_d7691ac2f48f);
+windows_core::imp::define_interface!(IAppTaskInfoStatics, IAppTaskInfoStatics_Vtbl, 0xa0b0434f_c640_5800_88c9_d7691ac2f48f, inspectable);
 impl windows_core::RuntimeType for IAppTaskInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskInfoStatics");
@@ -328,7 +331,7 @@ pub struct IAppTaskInfoStatics_Vtbl {
     pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppTaskResultAsset, IAppTaskResultAsset_Vtbl, 0x75d0c2b3_8a31_5f8f_bda4_bdca96e95532);
+windows_core::imp::define_interface!(IAppTaskResultAsset, IAppTaskResultAsset_Vtbl, 0x75d0c2b3_8a31_5f8f_bda4_bdca96e95532, inspectable);
 impl windows_core::RuntimeType for IAppTaskResultAsset {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskResultAsset");
@@ -338,7 +341,7 @@ impl windows_core::RuntimeType for IAppTaskResultAsset {
 pub struct IAppTaskResultAsset_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IAppTaskResultAssetFactory, IAppTaskResultAssetFactory_Vtbl, 0x0334d9df_0e06_5999_ba41_85d72e980085);
+windows_core::imp::define_interface!(IAppTaskResultAssetFactory, IAppTaskResultAssetFactory_Vtbl, 0x0334d9df_0e06_5999_ba41_85d72e980085, inspectable);
 impl windows_core::RuntimeType for IAppTaskResultAssetFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskResultAssetFactory");

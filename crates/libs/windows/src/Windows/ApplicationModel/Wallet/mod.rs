@@ -1,6 +1,6 @@
 #[cfg(feature = "ApplicationModel_Wallet_System")]
 pub mod System;
-windows_core::imp::define_interface!(IWalletBarcode, IWalletBarcode_Vtbl, 0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
+windows_core::imp::define_interface!(IWalletBarcode, IWalletBarcode_Vtbl, 0x4f857b29_de80_4ea4_a1cd_81cd084dac27, inspectable);
 impl windows_core::RuntimeType for IWalletBarcode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletBarcode");
@@ -16,7 +16,7 @@ pub struct IWalletBarcode_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetImageAsync: usize,
 }
-windows_core::imp::define_interface!(IWalletBarcodeFactory, IWalletBarcodeFactory_Vtbl, 0x30117161_ed9c_469e_bbfd_306c95ea7108);
+windows_core::imp::define_interface!(IWalletBarcodeFactory, IWalletBarcodeFactory_Vtbl, 0x30117161_ed9c_469e_bbfd_306c95ea7108, inspectable);
 impl windows_core::RuntimeType for IWalletBarcodeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletBarcodeFactory");
@@ -31,7 +31,7 @@ pub struct IWalletBarcodeFactory_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateCustomWalletBarcode: usize,
 }
-windows_core::imp::define_interface!(IWalletItem, IWalletItem_Vtbl, 0x20b54be8_118d_4ec4_996c_b963e7bd3e74);
+windows_core::imp::define_interface!(IWalletItem, IWalletItem_Vtbl, 0x20b54be8_118d_4ec4_996c_b963e7bd3e74, inspectable);
 impl windows_core::RuntimeType for IWalletItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItem");
@@ -159,7 +159,7 @@ pub struct IWalletItem_Vtbl {
     pub DisplayProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Verbs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletItemCustomProperty, IWalletItemCustomProperty_Vtbl, 0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
+windows_core::imp::define_interface!(IWalletItemCustomProperty, IWalletItemCustomProperty_Vtbl, 0xb94b40f3_fa00_40fd_98dc_9de46697f1e7, inspectable);
 impl windows_core::RuntimeType for IWalletItemCustomProperty {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItemCustomProperty");
@@ -179,7 +179,7 @@ pub struct IWalletItemCustomProperty_Vtbl {
     pub SummaryViewPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WalletSummaryViewPosition) -> windows_core::HRESULT,
     pub SetSummaryViewPosition: unsafe extern "system" fn(*mut core::ffi::c_void, WalletSummaryViewPosition) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletItemCustomPropertyFactory, IWalletItemCustomPropertyFactory_Vtbl, 0xd0046a44_61a1_41aa_b259_a5610ab5d575);
+windows_core::imp::define_interface!(IWalletItemCustomPropertyFactory, IWalletItemCustomPropertyFactory_Vtbl, 0xd0046a44_61a1_41aa_b259_a5610ab5d575, inspectable);
 impl windows_core::RuntimeType for IWalletItemCustomPropertyFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItemCustomPropertyFactory");
@@ -190,7 +190,7 @@ pub struct IWalletItemCustomPropertyFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWalletItemCustomProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletItemFactory, IWalletItemFactory_Vtbl, 0x53e27470_4f0b_4a3e_99e5_0bbb1eab38d4);
+windows_core::imp::define_interface!(IWalletItemFactory, IWalletItemFactory_Vtbl, 0x53e27470_4f0b_4a3e_99e5_0bbb1eab38d4, inspectable);
 impl windows_core::RuntimeType for IWalletItemFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItemFactory");
@@ -201,7 +201,7 @@ pub struct IWalletItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWalletItem: unsafe extern "system" fn(*mut core::ffi::c_void, WalletItemKind, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletItemStore, IWalletItemStore_Vtbl, 0x7160484b_6d49_48f8_91a9_40a1d0f13ef4);
+windows_core::imp::define_interface!(IWalletItemStore, IWalletItemStore_Vtbl, 0x7160484b_6d49_48f8_91a9_40a1d0f13ef4, inspectable);
 impl windows_core::RuntimeType for IWalletItemStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItemStore");
@@ -224,7 +224,7 @@ pub struct IWalletItemStore_Vtbl {
     pub ShowItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UpdateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletItemStore2, IWalletItemStore2_Vtbl, 0x65e682f0_7009_4a15_bd54_4fff379bffe2);
+windows_core::imp::define_interface!(IWalletItemStore2, IWalletItemStore2_Vtbl, 0x65e682f0_7009_4a15_bd54_4fff379bffe2, inspectable);
 impl windows_core::RuntimeType for IWalletItemStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItemStore2");
@@ -236,7 +236,7 @@ pub struct IWalletItemStore2_Vtbl {
     pub ItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletManagerStatics, IWalletManagerStatics_Vtbl, 0x5111d6b8_c9a4_4c64_b4dd_e1e548001c0d);
+windows_core::imp::define_interface!(IWalletManagerStatics, IWalletManagerStatics_Vtbl, 0x5111d6b8_c9a4_4c64_b4dd_e1e548001c0d, inspectable);
 impl windows_core::RuntimeType for IWalletManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletManagerStatics");
@@ -247,7 +247,7 @@ pub struct IWalletManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletRelevantLocation, IWalletRelevantLocation_Vtbl, 0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3);
+windows_core::imp::define_interface!(IWalletRelevantLocation, IWalletRelevantLocation_Vtbl, 0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3, inspectable);
 impl windows_core::RuntimeType for IWalletRelevantLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletRelevantLocation");
@@ -267,7 +267,7 @@ pub struct IWalletRelevantLocation_Vtbl {
     pub DisplayMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDisplayMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletTransaction, IWalletTransaction_Vtbl, 0x40e1e940_2606_4519_81cb_bff1c60d1f79);
+windows_core::imp::define_interface!(IWalletTransaction, IWalletTransaction_Vtbl, 0x40e1e940_2606_4519_81cb_bff1c60d1f79, inspectable);
 impl windows_core::RuntimeType for IWalletTransaction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletTransaction");
@@ -289,7 +289,7 @@ pub struct IWalletTransaction_Vtbl {
     pub IsLaunchable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsLaunchable: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletVerb, IWalletVerb_Vtbl, 0x17b826d6_e3c1_4c74_8a94_217aadbc4884);
+windows_core::imp::define_interface!(IWalletVerb, IWalletVerb_Vtbl, 0x17b826d6_e3c1_4c74_8a94_217aadbc4884, inspectable);
 impl windows_core::RuntimeType for IWalletVerb {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletVerb");
@@ -301,7 +301,7 @@ pub struct IWalletVerb_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletVerbFactory, IWalletVerbFactory_Vtbl, 0x76012771_be58_4d5e_83ed_58b1669c7ad9);
+windows_core::imp::define_interface!(IWalletVerbFactory, IWalletVerbFactory_Vtbl, 0x76012771_be58_4d5e_83ed_58b1669c7ad9, inspectable);
 impl windows_core::RuntimeType for IWalletVerbFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletVerbFactory");
@@ -380,6 +380,7 @@ impl windows_core::RuntimeType for WalletBarcode {
 unsafe impl windows_core::Interface for WalletBarcode {
     type Vtable = <IWalletBarcode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletBarcode as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WalletBarcode {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletBarcode";
@@ -751,6 +752,7 @@ impl windows_core::RuntimeType for WalletItem {
 unsafe impl windows_core::Interface for WalletItem {
     type Vtable = <IWalletItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletItem as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WalletItem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItem";
@@ -824,6 +826,7 @@ impl windows_core::RuntimeType for WalletItemCustomProperty {
 unsafe impl windows_core::Interface for WalletItemCustomProperty {
     type Vtable = <IWalletItemCustomProperty as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletItemCustomProperty as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WalletItemCustomProperty {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemCustomProperty";
@@ -931,6 +934,7 @@ impl windows_core::RuntimeType for WalletItemStore {
 unsafe impl windows_core::Interface for WalletItemStore {
     type Vtable = <IWalletItemStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletItemStore as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WalletItemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemStore";
@@ -992,6 +996,7 @@ impl windows_core::RuntimeType for WalletRelevantLocation {
 unsafe impl windows_core::Interface for WalletRelevantLocation {
     type Vtable = <IWalletRelevantLocation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletRelevantLocation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WalletRelevantLocation {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletRelevantLocation";
@@ -1087,6 +1092,7 @@ impl windows_core::RuntimeType for WalletTransaction {
 unsafe impl windows_core::Interface for WalletTransaction {
     type Vtable = <IWalletTransaction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletTransaction as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WalletTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletTransaction";
@@ -1124,6 +1130,7 @@ impl windows_core::RuntimeType for WalletVerb {
 unsafe impl windows_core::Interface for WalletVerb {
     type Vtable = <IWalletVerb as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletVerb as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for WalletVerb {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletVerb";

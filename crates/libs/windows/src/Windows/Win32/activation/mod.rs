@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IActivationFactory, IActivationFactory_Vtbl, 0x00000035_0000_0000_c000_000000000046);
+windows_core::imp::define_interface!(IActivationFactory, IActivationFactory_Vtbl, 0x00000035_0000_0000_c000_000000000046, inspectable);
 windows_core::imp::interface_hierarchy!(IActivationFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IActivationFactory {
     pub unsafe fn ActivateInstance(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -34,7 +34,7 @@ impl IActivationFactory_Vtbl {
                 }
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IActivationFactory, OFFSET>(), ActivateInstance: ActivateInstance::<Identity, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), ActivateInstance: ActivateInstance::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IActivationFactory as windows_core::Interface>::IID
