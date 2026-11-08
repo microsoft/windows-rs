@@ -1,7 +1,8 @@
 windows_core::imp::define_interface!(
     IWidget,
     IWidget_Vtbl,
-    0x303e6368_bcf1_5a25_8cfc_bf711e673f94
+    0x303e6368_bcf1_5a25_8cfc_bf711e673f94,
+    inspectable
 );
 impl windows_core::RuntimeType for IWidget {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -62,6 +63,7 @@ impl windows_core::RuntimeType for Widget {
 unsafe impl windows_core::Interface for Widget {
     type Vtable = <IWidget as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWidget as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Widget {
     const NAME: &'static str = "Test.Widget";

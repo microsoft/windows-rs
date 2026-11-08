@@ -55,7 +55,8 @@ pub struct Payload {
 windows_core::imp::define_interface!(
     RuntimeBase,
     RuntimeBase_Vtbl,
-    0x199fe443_608d_5dbf_b51a_e0048262a562
+    0x199fe443_608d_5dbf_b51a_e0048262a562,
+    inspectable
 );
 impl windows_core::RuntimeType for RuntimeBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -87,7 +88,8 @@ pub struct RuntimeBase_Vtbl {
 windows_core::imp::define_interface!(
     RuntimeDerived,
     RuntimeDerived_Vtbl,
-    0x7897d8ae_6efa_599e_ad44_eb32981dcc12
+    0x7897d8ae_6efa_599e_ad44_eb32981dcc12,
+    inspectable
 );
 impl windows_core::RuntimeType for RuntimeDerived {
     const SIGNATURE: windows_core::imp::ConstBuffer =

@@ -29,6 +29,16 @@ DLL. The first build needs network access for the pinned packages. Canvas uses W
 Run this crate alone to check default features; workspace builds can enable Reactor's `test`
 feature through benchmark dependencies.
 
+## Leak checks
+
+With `RUSTFLAGS=--cfg windows_cast_diagnostics`, each fixture process asserts that no
+`#[implement]` objects or delegates remain alive after the app exits. CI runs the suite this way.
+
+```text
+$env:RUSTFLAGS = "--cfg windows_cast_diagnostics"
+cargo test -p test-reactor
+```
+
 ## Opt-in drag/drop coverage
 
 Five drag/drop cases are ignored by default. They require a non-elevated terminal and an idle

@@ -56,7 +56,8 @@ impl<F: Fn(i32) -> windows_core::Result<()> + Send + Sync + 'static> DelegateBox
 windows_core::imp::define_interface!(
     Interface,
     Interface_Vtbl,
-    0xca5a6b51_8bab_5a2e_af33_e182fa13377f
+    0xca5a6b51_8bab_5a2e_af33_e182fa13377f,
+    inspectable
 );
 impl windows_core::RuntimeType for Interface {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -164,7 +165,7 @@ impl Interface_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, Interface, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Method: Method::<Identity, OFFSET>,
             Changed: Changed::<Identity, OFFSET>,
             RemoveChanged: RemoveChanged::<Identity, OFFSET>,

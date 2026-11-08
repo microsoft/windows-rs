@@ -1,7 +1,8 @@
 windows_core::imp::define_interface!(
     Interface,
     Interface_Vtbl,
-    0xb20ce735_33d8_5ac3_be2d_4b562284044e
+    0xb20ce735_33d8_5ac3_be2d_4b562284044e,
+    inspectable
 );
 impl windows_core::RuntimeType for Interface {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -107,7 +108,7 @@ impl Interface_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, Interface, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Method: Method::<Identity, OFFSET>,
             Name: Name::<Identity, OFFSET>,
             SetName: SetName::<Identity, OFFSET>,

@@ -91,7 +91,12 @@ impl<F: Fn(windows_core::Ref<IFoo>, i32) + Send + Sync + 'static> HandlerBox<F> 
         }
     }
 }
-windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0x822a1799_57f1_55f1_83d3_8c32e23dea74);
+windows_core::imp::define_interface!(
+    IFoo,
+    IFoo_Vtbl,
+    0x822a1799_57f1_55f1_83d3_8c32e23dea74,
+    inspectable
+);
 impl windows_core::RuntimeType for IFoo {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();

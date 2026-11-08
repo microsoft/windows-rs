@@ -1,4 +1,9 @@
-windows_core::imp::define_interface!(Widget, Widget_Vtbl, 0x8c3b5163_963a_5d17_8c05_49c20f04efd9);
+windows_core::imp::define_interface!(
+    Widget,
+    Widget_Vtbl,
+    0x8c3b5163_963a_5d17_8c05_49c20f04efd9,
+    inspectable
+);
 impl windows_core::RuntimeType for Widget {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();

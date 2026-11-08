@@ -86,6 +86,10 @@ jobs:
           --exclude test_interop --exclude 'csharp-*'
       - name: Test system Composition stack
         run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
+      - name: Test COM diagnostics
+        env:
+          RUSTFLAGS: "-D warnings --cfg windows_cast_diagnostics"
+        run: cargo test -p test_core --test live_objects --test cast_diagnostics --target ${{ matrix.target }}
       - name: Check diff
         shell: bash
         run: |

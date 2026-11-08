@@ -1,4 +1,9 @@
-windows_core::imp::define_interface!(IKept, IKept_Vtbl, 0x694faf18_5fa9_5673_9e69_deec743d0692);
+windows_core::imp::define_interface!(
+    IKept,
+    IKept_Vtbl,
+    0x694faf18_5fa9_5673_9e69_deec743d0692,
+    inspectable
+);
 impl windows_core::RuntimeType for IKept {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -46,7 +51,7 @@ impl IKept_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IKept, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Read: Read::<Identity, OFFSET>,
         }
     }

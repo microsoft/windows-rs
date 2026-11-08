@@ -15,11 +15,17 @@ pub mod Test {
     unsafe impl windows_core::Interface for Base {
         type Vtable = <IBase as windows_core::Interface>::Vtable;
         const IID: windows_core::GUID = <IBase as windows_core::Interface>::IID;
+        const INSPECTABLE: bool = true;
     }
     impl windows_core::RuntimeName for Base {
         const NAME: &'static str = "Test.Base";
     }
-    windows_core::imp::define_interface!(IBase, IBase_Vtbl, 0x5fa5f341_e06d_51b0_b307_c25adde80bc2);
+    windows_core::imp::define_interface!(
+        IBase,
+        IBase_Vtbl,
+        0x5fa5f341_e06d_51b0_b307_c25adde80bc2,
+        inspectable
+    );
     impl windows_core::RuntimeType for IBase {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -38,7 +44,7 @@ pub mod Test {
     impl IBase_Vtbl {
         pub const fn new<Identity: IBase_Impl, const OFFSET: isize>() -> Self {
             Self {
-                base__: windows_core::IInspectable_Vtbl::new::<Identity, IBase, OFFSET>(),
+                base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             }
         }
         pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -49,7 +55,12 @@ pub mod Test {
     pub struct IBase_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
     }
-    windows_core::imp::define_interface!(ILeaf, ILeaf_Vtbl, 0xdd76df24_0960_586d_8083_e2e48f6d2790);
+    windows_core::imp::define_interface!(
+        ILeaf,
+        ILeaf_Vtbl,
+        0xdd76df24_0960_586d_8083_e2e48f6d2790,
+        inspectable
+    );
     impl windows_core::RuntimeType for ILeaf {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -68,7 +79,7 @@ pub mod Test {
     impl ILeaf_Vtbl {
         pub const fn new<Identity: ILeaf_Impl, const OFFSET: isize>() -> Self {
             Self {
-                base__: windows_core::IInspectable_Vtbl::new::<Identity, ILeaf, OFFSET>(),
+                base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             }
         }
         pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -82,7 +93,8 @@ pub mod Test {
     windows_core::imp::define_interface!(
         IMiddle,
         IMiddle_Vtbl,
-        0xd45b6734_977a_576c_9ef0_7494cc9bdc37
+        0xd45b6734_977a_576c_9ef0_7494cc9bdc37,
+        inspectable
     );
     impl windows_core::RuntimeType for IMiddle {
         const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -102,7 +114,7 @@ pub mod Test {
     impl IMiddle_Vtbl {
         pub const fn new<Identity: IMiddle_Impl, const OFFSET: isize>() -> Self {
             Self {
-                base__: windows_core::IInspectable_Vtbl::new::<Identity, IMiddle, OFFSET>(),
+                base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             }
         }
         pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -130,6 +142,7 @@ pub mod Test {
     unsafe impl windows_core::Interface for Leaf {
         type Vtable = <ILeaf as windows_core::Interface>::Vtable;
         const IID: windows_core::GUID = <ILeaf as windows_core::Interface>::IID;
+        const INSPECTABLE: bool = true;
     }
     impl windows_core::RuntimeName for Leaf {
         const NAME: &'static str = "Test.Leaf";
@@ -151,6 +164,7 @@ pub mod Test {
     unsafe impl windows_core::Interface for Middle {
         type Vtable = <IMiddle as windows_core::Interface>::Vtable;
         const IID: windows_core::GUID = <IMiddle as windows_core::Interface>::IID;
+        const INSPECTABLE: bool = true;
     }
     impl windows_core::RuntimeName for Middle {
         const NAME: &'static str = "Test.Middle";

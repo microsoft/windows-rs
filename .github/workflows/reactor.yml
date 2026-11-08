@@ -97,9 +97,10 @@ jobs:
 
       - name: Run Reactor tests
         # Workspace tests cover feature unification; keep this default-feature run isolated.
+        # Cast diagnostics also fail any fixture that leaks COM objects or delegates.
         shell: pwsh
         env:
-          RUSTFLAGS: "-D warnings"
+          RUSTFLAGS: "-D warnings --cfg windows_cast_diagnostics"
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true

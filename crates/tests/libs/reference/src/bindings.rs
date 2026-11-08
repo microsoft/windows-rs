@@ -15,7 +15,8 @@ impl windows_core::RuntimeType for DateTime {
 windows_core::imp::define_interface!(
     IPropertyValue,
     IPropertyValue_Vtbl,
-    0x4bd682dd_7554_40e9_9a9b_82654ede7e62
+    0x4bd682dd_7554_40e9_9a9b_82654ede7e62,
+    inspectable
 );
 impl windows_core::RuntimeType for IPropertyValue {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1311,7 +1312,7 @@ impl IPropertyValue_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IPropertyValue, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Type: Type::<Identity, OFFSET>,
             IsNumericScalar: IsNumericScalar::<Identity, OFFSET>,
             GetUInt8: GetUInt8::<Identity, OFFSET>,

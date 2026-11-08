@@ -58,7 +58,8 @@ impl<F: Fn(&Value) -> windows_core::Result<()> + Send + Sync + 'static> HandlerB
 windows_core::imp::define_interface!(
     ISource,
     ISource_Vtbl,
-    0xfa047a8f_370f_5f8b_b61f_3d4bfca8faa8
+    0xfa047a8f_370f_5f8b_b61f_3d4bfca8faa8,
+    inspectable
 );
 impl windows_core::RuntimeType for ISource {
     const SIGNATURE: windows_core::imp::ConstBuffer =

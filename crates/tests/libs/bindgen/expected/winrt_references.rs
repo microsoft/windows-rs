@@ -1,7 +1,8 @@
 windows_core::imp::define_interface!(
     References,
     References_Vtbl,
-    0x5bd5266b_b3f8_5ccb_8c91_3cb9f3fdde43
+    0x5bd5266b_b3f8_5ccb_8c91_3cb9f3fdde43,
+    inspectable
 );
 impl windows_core::RuntimeType for References {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -51,7 +52,7 @@ impl References_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, References, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Read: Read::<Identity, OFFSET>,
         }
     }

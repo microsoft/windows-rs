@@ -15,6 +15,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IItems_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IItems<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
@@ -72,7 +73,7 @@ where
 impl<T: windows_core::RuntimeType + 'static> IItems_Vtbl<T> {
     pub const fn new<Identity: IItems_Impl<T>, const OFFSET: isize>() -> Self {
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IItems<T>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             T: core::marker::PhantomData::<T>,
         }
     }

@@ -1,4 +1,9 @@
-windows_core::imp::define_interface!(IItems, IItems_Vtbl, 0x8dfef4bd_8c6e_5d6d_9614_0aca51e6943b);
+windows_core::imp::define_interface!(
+    IItems,
+    IItems_Vtbl,
+    0x8dfef4bd_8c6e_5d6d_9614_0aca51e6943b,
+    inspectable
+);
 impl windows_core::RuntimeType for IItems {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -13,7 +18,7 @@ pub trait IItems_Impl: windows_core::IUnknownImpl {}
 impl IItems_Vtbl {
     pub const fn new<Identity: IItems_Impl, const OFFSET: isize>() -> Self {
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IItems, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -27,7 +32,8 @@ pub struct IItems_Vtbl {
 windows_core::imp::define_interface!(
     ISource,
     ISource_Vtbl,
-    0x5c7edfa8_c1ba_5476_aa92_53abf2231e10
+    0x5c7edfa8_c1ba_5476_aa92_53abf2231e10,
+    inspectable
 );
 impl windows_core::RuntimeType for ISource {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -81,7 +87,7 @@ impl ISource_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISource, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetItems: GetItems::<Identity, OFFSET>,
         }
     }
@@ -113,6 +119,7 @@ impl windows_core::RuntimeType for Items {
 unsafe impl windows_core::Interface for Items {
     type Vtable = <IItems as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IItems as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Items {
     const NAME: &'static str = "Test.Items";
