@@ -62,6 +62,7 @@ fn implement_core(
         interface_chains: convert_implements_to_interface_chains(attributes.implement),
         trust_level: attributes.trust_level,
         agile: attributes.agile,
+        compose: attributes.compose,
         impl_ident: quote::format_ident!("{}_Impl", &original_type.ident),
         constraints: {
             if let Some(where_clause) = &original_type.generics.where_clause {
@@ -127,6 +128,9 @@ struct ImplementInputs {
     /// Determines whether `IAgileObject` and `IMarshal` are implemented automatically.
     agile: bool,
 
+    /// Determines whether the object can aggregate a composable WinRT class.
+    compose: bool,
+
     /// The identifier of the `Foo_Impl` type.
     impl_ident: syn::Ident,
 
@@ -147,11 +151,8 @@ struct ImplementInputs {
 
 /// Describes one COM interface chain.
 struct InterfaceChain {
-    /// The name of the field for the vtable chain, e.g. `__interface4_ifoo`.
-    field_ident: syn::Ident,
-
     /// The name of the associated constant item for the vtable chain's initializer,
-    /// e.g. `INTERFACE4_IFOO_VTABLE`.
+    /// e.g. `VTABLE_INTERFACE3_IFOO`.
     vtable_const_ident: syn::Ident,
 
     implement: ImplementType,
@@ -185,6 +186,7 @@ struct ImplementAttributes {
     pub implement: Vec<ImplementType>,
     pub trust_level: usize,
     pub agile: bool,
+    pub compose: bool,
 }
 
 impl syn::parse::Parse for ImplementAttributes {
@@ -238,6 +240,7 @@ impl ImplementAttributes {
             }
             UseTree2::TrustLevel(input) => self.trust_level = *input,
             UseTree2::Agile(agile) => self.agile = *agile,
+            UseTree2::Compose(compose) => self.compose = *compose,
         }
 
         Ok(())
@@ -250,6 +253,7 @@ enum UseTree2 {
     Group(UseGroup2),
     TrustLevel(usize),
     Agile(bool),
+    Compose(bool),
 }
 
 impl UseTree2 {
@@ -344,6 +348,18 @@ impl syn::parse::Parse for UseTree2 {
                             "`Agile` must be `true` or `false`",
                         )),
                     }
+                } else if ident == "Compose" {
+                    input.parse::<syn::Token![=]>()?;
+                    let span = input.span();
+                    let value = input.call(syn::Ident::parse_any)?;
+                    match value.to_string().as_str() {
+                        "true" => Ok(Self::Compose(true)),
+                        "false" => Ok(Self::Compose(false)),
+                        _ => Err(syn::parse::Error::new(
+                            span,
+                            "`Compose` must be `true` or `false`",
+                        )),
+                    }
                 } else {
                     Err(syn::parse::Error::new(
                         ident.span(),
@@ -385,15 +401,13 @@ fn convert_implements_to_interface_chains(implements: Vec<ImplementType>) -> Vec
     let mut chains = Vec::with_capacity(implements.len());
 
     for (i, implement) in implements.into_iter().enumerate() {
-        // Field/const naming uses `i + 1` because interface 0 is the identity interface.
-        let mut ident_string = format!("interface{}", i + 1);
+        let mut ident_string = format!("interface{i}");
 
         let suffix = get_interface_ident_suffix(&implement.type_name);
         if !suffix.is_empty() {
             ident_string.push('_');
             ident_string.push_str(&suffix);
         }
-        let field_ident = syn::Ident::new(&format!("__{ident_string}"), implement.span);
 
         let mut vtable_const_string = ident_string.clone();
         vtable_const_string.make_ascii_uppercase();
@@ -402,7 +416,6 @@ fn convert_implements_to_interface_chains(implements: Vec<ImplementType>) -> Vec
 
         chains.push(InterfaceChain {
             implement,
-            field_ident,
             vtable_const_ident,
         });
     }
