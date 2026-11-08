@@ -215,7 +215,9 @@ impl TearOff {
     unsafe fn object(this: *mut Self) -> (*mut c_void, &'static IUnknown_Vtbl) {
         unsafe {
             let object = (*this).object;
-            (object, *object.cast::<&'static IUnknown_Vtbl>())
+            // The object may be packed even though its vtable is aligned.
+            let vtable = object.cast::<*const IUnknown_Vtbl>().read_unaligned();
+            (object, &*vtable)
         }
     }
 
