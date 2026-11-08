@@ -4,6 +4,7 @@ use bindings::*;
 use windows_core::*;
 
 implement_decl! {
+    #[compose]
     impl ReactorApplicationOverrides as pub ReactorApplicationOverrides_Impl:
         [IApplicationOverrides, IXamlMetadataProvider]
 }
