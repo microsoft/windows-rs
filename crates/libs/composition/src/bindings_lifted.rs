@@ -48,6 +48,7 @@ impl windows_core::RuntimeType for CompositionAnimation {
 unsafe impl windows_core::Interface for CompositionAnimation {
     type Vtable = <ICompositionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionAnimation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionAnimation {
     type Target = ICompositionAnimation;
@@ -80,6 +81,7 @@ impl windows_core::RuntimeType for CompositionAnimationGroup {
 unsafe impl windows_core::Interface for CompositionAnimationGroup {
     type Vtable = <ICompositionAnimationGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionAnimationGroup as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionAnimationGroup {
     type Target = ICompositionAnimationGroup;
@@ -109,6 +111,7 @@ unsafe impl windows_core::Interface for CompositionBatchCompletedEventArgs {
     type Vtable = <ICompositionBatchCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID =
         <ICompositionBatchCompletedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionBatchCompletedEventArgs {
     type Target = ICompositionBatchCompletedEventArgs;
@@ -204,6 +207,7 @@ impl windows_core::RuntimeType for CompositionBrush {
 unsafe impl windows_core::Interface for CompositionBrush {
     type Vtable = <ICompositionBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionBrush as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionBrush {
     type Target = ICompositionBrush;
@@ -232,6 +236,7 @@ impl windows_core::RuntimeType for CompositionColorBrush {
 unsafe impl windows_core::Interface for CompositionColorBrush {
     type Vtable = <ICompositionColorBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionColorBrush as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionColorBrush {
     type Target = ICompositionColorBrush;
@@ -264,6 +269,7 @@ impl windows_core::RuntimeType for CompositionContainerShape {
 unsafe impl windows_core::Interface for CompositionContainerShape {
     type Vtable = <ICompositionContainerShape as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionContainerShape as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionContainerShape {
     type Target = ICompositionContainerShape;
@@ -296,6 +302,7 @@ impl windows_core::RuntimeType for CompositionDrawingSurface {
 unsafe impl windows_core::Interface for CompositionDrawingSurface {
     type Vtable = <ICompositionDrawingSurface as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionDrawingSurface as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionDrawingSurface {
     type Target = ICompositionDrawingSurface;
@@ -324,6 +331,7 @@ impl windows_core::RuntimeType for CompositionEasingFunction {
 unsafe impl windows_core::Interface for CompositionEasingFunction {
     type Vtable = <ICompositionEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionEasingFunction as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionEasingFunction {
     type Target = ICompositionEasingFunction;
@@ -356,6 +364,7 @@ impl windows_core::RuntimeType for CompositionEllipseGeometry {
 unsafe impl windows_core::Interface for CompositionEllipseGeometry {
     type Vtable = <ICompositionEllipseGeometry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionEllipseGeometry as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionEllipseGeometry {
     type Target = ICompositionEllipseGeometry;
@@ -384,6 +393,7 @@ impl windows_core::RuntimeType for CompositionGeometry {
 unsafe impl windows_core::Interface for CompositionGeometry {
     type Vtable = <ICompositionGeometry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionGeometry as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionGeometry {
     type Target = ICompositionGeometry;
@@ -412,6 +422,7 @@ impl windows_core::RuntimeType for CompositionGraphicsDevice {
 unsafe impl windows_core::Interface for CompositionGraphicsDevice {
     type Vtable = <ICompositionGraphicsDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionGraphicsDevice as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionGraphicsDevice {
     type Target = ICompositionGraphicsDevice;
@@ -444,6 +455,7 @@ impl windows_core::RuntimeType for CompositionNineGridBrush {
 unsafe impl windows_core::Interface for CompositionNineGridBrush {
     type Vtable = <ICompositionNineGridBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionNineGridBrush as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionNineGridBrush {
     type Target = ICompositionNineGridBrush;
@@ -471,6 +483,7 @@ impl windows_core::RuntimeType for CompositionObject {
 unsafe impl windows_core::Interface for CompositionObject {
     type Vtable = <ICompositionObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionObject as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionObject {
     type Target = ICompositionObject;
@@ -504,6 +517,7 @@ unsafe impl windows_core::Interface for CompositionRoundedRectangleGeometry {
     type Vtable = <ICompositionRoundedRectangleGeometry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID =
         <ICompositionRoundedRectangleGeometry as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionRoundedRectangleGeometry {
     type Target = ICompositionRoundedRectangleGeometry;
@@ -532,6 +546,7 @@ impl windows_core::RuntimeType for CompositionScopedBatch {
 unsafe impl windows_core::Interface for CompositionScopedBatch {
     type Vtable = <ICompositionScopedBatch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionScopedBatch as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionScopedBatch {
     type Target = ICompositionScopedBatch;
@@ -560,6 +575,7 @@ impl windows_core::RuntimeType for CompositionShape {
 unsafe impl windows_core::Interface for CompositionShape {
     type Vtable = <ICompositionShape as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionShape as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionShape {
     type Target = ICompositionShape;
@@ -593,6 +609,7 @@ unsafe impl windows_core::Interface for CompositionShapeCollection {
         <windows_collections::IVector<CompositionShape> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID =
         <windows_collections::IVector<CompositionShape> as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionShapeCollection {
     type Target = windows_collections::IVector<CompositionShape>;
@@ -621,6 +638,7 @@ impl windows_core::RuntimeType for CompositionSpriteShape {
 unsafe impl windows_core::Interface for CompositionSpriteShape {
     type Vtable = <ICompositionSpriteShape as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionSpriteShape as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionSpriteShape {
     type Target = ICompositionSpriteShape;
@@ -670,6 +688,7 @@ impl windows_core::RuntimeType for CompositionSurfaceBrush {
 unsafe impl windows_core::Interface for CompositionSurfaceBrush {
     type Vtable = <ICompositionSurfaceBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionSurfaceBrush as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CompositionSurfaceBrush {
     type Target = ICompositionSurfaceBrush;
@@ -697,6 +716,7 @@ impl windows_core::RuntimeType for Compositor {
 unsafe impl windows_core::Interface for Compositor {
     type Vtable = <ICompositor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositor as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for Compositor {
     type Target = ICompositor;
@@ -725,6 +745,7 @@ impl windows_core::RuntimeType for ContainerVisual {
 unsafe impl windows_core::Interface for ContainerVisual {
     type Vtable = <IContainerVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContainerVisual as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for ContainerVisual {
     type Target = IContainerVisual;
@@ -757,6 +778,7 @@ impl windows_core::RuntimeType for CubicBezierEasingFunction {
 unsafe impl windows_core::Interface for CubicBezierEasingFunction {
     type Vtable = <ICubicBezierEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICubicBezierEasingFunction as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for CubicBezierEasingFunction {
     type Target = ICubicBezierEasingFunction;
@@ -924,7 +946,8 @@ impl windows_core::RuntimeType for DirectXPixelFormat {
 windows_core::imp::define_interface!(
     ICompositionAnimation,
     ICompositionAnimation_Vtbl,
-    0xa829ccc8_6fde_5b90_ad37_efd307e1b631
+    0xa829ccc8_6fde_5b90_ad37_efd307e1b631,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -937,7 +960,8 @@ pub struct ICompositionAnimation_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionAnimation2,
     ICompositionAnimation2_Vtbl,
-    0x0926eb58_8965_5c74_bdac_852ebb5e8542
+    0x0926eb58_8965_5c74_bdac_852ebb5e8542,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionAnimation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -967,7 +991,8 @@ pub struct ICompositionAnimation2_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionAnimationBase,
     ICompositionAnimationBase_Vtbl,
-    0xa77c0e5a_f059_4e85_bcef_c068694cec78
+    0xa77c0e5a_f059_4e85_bcef_c068694cec78,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionAnimationBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -985,7 +1010,8 @@ pub struct ICompositionAnimationBase_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionAnimationGroup,
     ICompositionAnimationGroup_Vtbl,
-    0xa51cdcac_b972_5ae7_81d0_9d91c71ecb7a
+    0xa51cdcac_b972_5ae7_81d0_9d91c71ecb7a,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionAnimationGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1017,7 +1043,8 @@ pub struct ICompositionAnimationGroup_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionBatchCompletedEventArgs,
     ICompositionBatchCompletedEventArgs_Vtbl,
-    0xac400334_4358_5fb0_bfc3_117fe581998f
+    0xac400334_4358_5fb0_bfc3_117fe581998f,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionBatchCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1030,7 +1057,8 @@ pub struct ICompositionBatchCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionBrush,
     ICompositionBrush_Vtbl,
-    0x483924e7_99a5_5377_968b_dec6d40bbccd
+    0x483924e7_99a5_5377_968b_dec6d40bbccd,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1043,7 +1071,8 @@ pub struct ICompositionBrush_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionColorBrush,
     ICompositionColorBrush_Vtbl,
-    0x3f8ffb69_3e71_55a7_8e79_f27a214c56ae
+    0x3f8ffb69_3e71_55a7_8e79_f27a214c56ae,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionColorBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1080,7 +1109,8 @@ pub struct ICompositionColorBrush_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionContainerShape,
     ICompositionContainerShape_Vtbl,
-    0x064aabd5_2dab_52d3_824b_c72456540f29
+    0x064aabd5_2dab_52d3_824b_c72456540f29,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionContainerShape {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1109,7 +1139,8 @@ pub struct ICompositionContainerShape_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionDrawingSurface,
     ICompositionDrawingSurface_Vtbl,
-    0x216cab97_a2ee_5a29_ad6b_0bc2df4a1504
+    0x216cab97_a2ee_5a29_ad6b_0bc2df4a1504,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionDrawingSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1122,7 +1153,8 @@ pub struct ICompositionDrawingSurface_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionEasingFunction,
     ICompositionEasingFunction_Vtbl,
-    0x8e1ecd0d_57d8_5bc9_9bcd_e43d0dd733c4
+    0x8e1ecd0d_57d8_5bc9_9bcd_e43d0dd733c4,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1135,7 +1167,8 @@ pub struct ICompositionEasingFunction_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionEllipseGeometry,
     ICompositionEllipseGeometry_Vtbl,
-    0xf2a21042_7a57_58c1_8b47_8bc8b21d3aa0
+    0xf2a21042_7a57_58c1_8b47_8bc8b21d3aa0,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionEllipseGeometry {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1166,7 +1199,8 @@ pub struct ICompositionEllipseGeometry_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionGeometry,
     ICompositionGeometry_Vtbl,
-    0x4e40bdb2_450b_5a81_9e9b_149417980cc4
+    0x4e40bdb2_450b_5a81_9e9b_149417980cc4,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionGeometry {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1179,7 +1213,8 @@ pub struct ICompositionGeometry_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionGraphicsDevice,
     ICompositionGraphicsDevice_Vtbl,
-    0x3d47e3f5_f76c_5f1f_88c0_54a5f2a090d6
+    0x3d47e3f5_f76c_5f1f_88c0_54a5f2a090d6,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionGraphicsDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1219,7 +1254,8 @@ pub struct ICompositionGraphicsDevice_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionNineGridBrush,
     ICompositionNineGridBrush_Vtbl,
-    0xc77a3d21_c7ee_517a_98f4_ad9a7202bc86
+    0xc77a3d21_c7ee_517a_98f4_ad9a7202bc86,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionNineGridBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1305,7 +1341,8 @@ pub struct ICompositionNineGridBrush_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionObject,
     ICompositionObject_Vtbl,
-    0x0e583d49_fb5e_5481_a426_d3c41e059a5a
+    0x0e583d49_fb5e_5481_a426_d3c41e059a5a,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionObject {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1357,7 +1394,8 @@ pub struct ICompositionObject_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionObject2,
     ICompositionObject2_Vtbl,
-    0xbcbbfebf_799c_51ce_9c82_b6e49e7e62e1
+    0xbcbbfebf_799c_51ce_9c82_b6e49e7e62e1,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionObject2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1391,7 +1429,8 @@ pub struct ICompositionObject2_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionRoundedRectangleGeometry,
     ICompositionRoundedRectangleGeometry_Vtbl,
-    0x02eafc87_8d1f_5445_a416_d81baee8a750
+    0x02eafc87_8d1f_5445_a416_d81baee8a750,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionRoundedRectangleGeometry {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1439,7 +1478,8 @@ pub struct ICompositionRoundedRectangleGeometry_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionScopedBatch,
     ICompositionScopedBatch_Vtbl,
-    0xd31ca572_99ce_5969_b042_6c2d330a3859
+    0xd31ca572_99ce_5969_b042_6c2d330a3859,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionScopedBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1515,7 +1555,8 @@ pub struct ICompositionScopedBatch_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionShape,
     ICompositionShape_Vtbl,
-    0xed75d4d8_437f_5640_9720_faae35ce5895
+    0xed75d4d8_437f_5640_9720_faae35ce5895,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionShape {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1546,7 +1587,8 @@ pub struct ICompositionShape_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionSpriteShape,
     ICompositionSpriteShape_Vtbl,
-    0x982138f2_5781_509a_ba5d_112bcb0b98ef
+    0x982138f2_5781_509a_ba5d_112bcb0b98ef,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionSpriteShape {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1578,7 +1620,8 @@ pub struct ICompositionSpriteShape_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionSurface,
     ICompositionSurface_Vtbl,
-    0x9ec612c3_a5d2_4f97_9df3_6b49ce736215
+    0x9ec612c3_a5d2_4f97_9df3_6b49ce736215,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1596,7 +1639,8 @@ pub struct ICompositionSurface_Vtbl {
 windows_core::imp::define_interface!(
     ICompositionSurfaceBrush,
     ICompositionSurfaceBrush_Vtbl,
-    0x616bb5a5_0a33_512d_b4b1_3d3734f04aca
+    0x616bb5a5_0a33_512d_b4b1_3d3734f04aca,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositionSurfaceBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1629,7 +1673,8 @@ pub struct ICompositionSurfaceBrush_Vtbl {
 windows_core::imp::define_interface!(
     ICompositor,
     ICompositor_Vtbl,
-    0x95213c13_c4cb_57de_b267_d21ab901ae38
+    0x95213c13_c4cb_57de_b267_d21ab901ae38,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositor {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1812,7 +1857,8 @@ pub struct ICompositor_Vtbl {
 windows_core::imp::define_interface!(
     ICompositor2,
     ICompositor2_Vtbl,
-    0xa9ffedad_3982_576d_a38a_c888ff605819
+    0xa9ffedad_3982_576d_a38a_c888ff605819,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1877,7 +1923,8 @@ pub struct ICompositor2_Vtbl {
 windows_core::imp::define_interface!(
     ICompositor5,
     ICompositor5_Vtbl,
-    0xbb52d644_a030_5c19_b883_577ded739ae7
+    0xbb52d644_a030_5c19_b883_577ded739ae7,
+    inspectable
 );
 impl windows_core::RuntimeType for ICompositor5 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1985,7 +2032,8 @@ pub struct ICompositor5_Vtbl {
 windows_core::imp::define_interface!(
     IContainerVisual,
     IContainerVisual_Vtbl,
-    0xc70dbce1_2c2f_5d8e_91a4_aae1121e6186
+    0xc70dbce1_2c2f_5d8e_91a4_aae1121e6186,
+    inspectable
 );
 impl windows_core::RuntimeType for IContainerVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2014,7 +2062,8 @@ pub struct IContainerVisual_Vtbl {
 windows_core::imp::define_interface!(
     ICubicBezierEasingFunction,
     ICubicBezierEasingFunction_Vtbl,
-    0x35e7fcde_f9ce_590a_8b88_64a82a6b4b48
+    0x35e7fcde_f9ce_590a_8b88_64a82a6b4b48,
+    inspectable
 );
 impl windows_core::RuntimeType for ICubicBezierEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2027,7 +2076,8 @@ pub struct ICubicBezierEasingFunction_Vtbl {
 windows_core::imp::define_interface!(
     IImplicitAnimationCollection,
     IImplicitAnimationCollection_Vtbl,
-    0xc5c0689e_f5ae_5bed_829b_c522cda39717
+    0xc5c0689e_f5ae_5bed_829b_c522cda39717,
+    inspectable
 );
 impl windows_core::RuntimeType for IImplicitAnimationCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2040,7 +2090,8 @@ pub struct IImplicitAnimationCollection_Vtbl {
 windows_core::imp::define_interface!(
     IKeyFrameAnimation,
     IKeyFrameAnimation_Vtbl,
-    0x5a8f57f0_f059_5b47_b308_c4c80fc71248
+    0x5a8f57f0_f059_5b47_b308_c4c80fc71248,
+    inspectable
 );
 impl windows_core::RuntimeType for IKeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2142,7 +2193,8 @@ pub struct IKeyFrameAnimation_Vtbl {
 windows_core::imp::define_interface!(
     ILinearEasingFunction,
     ILinearEasingFunction_Vtbl,
-    0x79bfeef6_70c7_50a6_bb3a_0e9636148695
+    0x79bfeef6_70c7_50a6_bb3a_0e9636148695,
+    inspectable
 );
 impl windows_core::RuntimeType for ILinearEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2279,7 +2331,8 @@ pub struct IMicrosoftCompositorInterop_Vtbl {
 windows_core::imp::define_interface!(
     IScalarKeyFrameAnimation,
     IScalarKeyFrameAnimation_Vtbl,
-    0x5a5f8abe_d129_5b25_8aff_8180fd9bfb22
+    0x5a5f8abe_d129_5b25_8aff_8180fd9bfb22,
+    inspectable
 );
 impl windows_core::RuntimeType for IScalarKeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2335,7 +2388,8 @@ pub struct IScalarKeyFrameAnimation_Vtbl {
 windows_core::imp::define_interface!(
     IShapeVisual,
     IShapeVisual_Vtbl,
-    0xa911c80b_a5a5_5aca_b8ff_c43f08f06143
+    0xa911c80b_a5a5_5aca_b8ff_c43f08f06143,
+    inspectable
 );
 impl windows_core::RuntimeType for IShapeVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2364,7 +2418,8 @@ pub struct IShapeVisual_Vtbl {
 windows_core::imp::define_interface!(
     ISpriteVisual,
     ISpriteVisual_Vtbl,
-    0x7e964632_45e4_5761_806d_5b4022c14f26
+    0x7e964632_45e4_5761_806d_5b4022c14f26,
+    inspectable
 );
 impl windows_core::RuntimeType for ISpriteVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2396,7 +2451,8 @@ pub struct ISpriteVisual_Vtbl {
 windows_core::imp::define_interface!(
     IVector3KeyFrameAnimation,
     IVector3KeyFrameAnimation_Vtbl,
-    0xd7da980e_2dde_5dd1_a40c_d6868dd2449e
+    0xd7da980e_2dde_5dd1_a40c_d6868dd2449e,
+    inspectable
 );
 impl windows_core::RuntimeType for IVector3KeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2455,7 +2511,8 @@ pub struct IVector3KeyFrameAnimation_Vtbl {
 windows_core::imp::define_interface!(
     IVisual,
     IVisual_Vtbl,
-    0xc0eeab6c_c897_5ac6_a1c9_63abd5055b9b
+    0xc0eeab6c_c897_5ac6_a1c9_63abd5055b9b,
+    inspectable
 );
 impl windows_core::RuntimeType for IVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2672,7 +2729,8 @@ pub struct IVisual_Vtbl {
 windows_core::imp::define_interface!(
     IVisual2,
     IVisual2_Vtbl,
-    0x492a7995_0c5c_5993_a283_52e4da3050ee
+    0x492a7995_0c5c_5993_a283_52e4da3050ee,
+    inspectable
 );
 impl windows_core::RuntimeType for IVisual2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2738,7 +2796,8 @@ pub struct IVisual2_Vtbl {
 windows_core::imp::define_interface!(
     IVisualCollection,
     IVisualCollection_Vtbl,
-    0xd002896d_67d8_5f69_ab70_581fa3bf370f
+    0xd002896d_67d8_5f69_ab70_581fa3bf370f,
+    inspectable
 );
 impl windows_core::RuntimeType for IVisualCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2834,6 +2893,7 @@ impl windows_core::RuntimeType for ImplicitAnimationCollection {
 unsafe impl windows_core::Interface for ImplicitAnimationCollection {
     type Vtable = <IImplicitAnimationCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImplicitAnimationCollection as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for ImplicitAnimationCollection {
     type Target = IImplicitAnimationCollection;
@@ -2867,6 +2927,7 @@ impl windows_core::RuntimeType for KeyFrameAnimation {
 unsafe impl windows_core::Interface for KeyFrameAnimation {
     type Vtable = <IKeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IKeyFrameAnimation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for KeyFrameAnimation {
     type Target = IKeyFrameAnimation;
@@ -2900,6 +2961,7 @@ impl windows_core::RuntimeType for LinearEasingFunction {
 unsafe impl windows_core::Interface for LinearEasingFunction {
     type Vtable = <ILinearEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILinearEasingFunction as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for LinearEasingFunction {
     type Target = ILinearEasingFunction;
@@ -2954,6 +3016,7 @@ impl windows_core::RuntimeType for ScalarKeyFrameAnimation {
 unsafe impl windows_core::Interface for ScalarKeyFrameAnimation {
     type Vtable = <IScalarKeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScalarKeyFrameAnimation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for ScalarKeyFrameAnimation {
     type Target = IScalarKeyFrameAnimation;
@@ -2982,6 +3045,7 @@ impl windows_core::RuntimeType for ShapeVisual {
 unsafe impl windows_core::Interface for ShapeVisual {
     type Vtable = <IShapeVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShapeVisual as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for ShapeVisual {
     type Target = IShapeVisual;
@@ -3023,6 +3087,7 @@ impl windows_core::RuntimeType for SpriteVisual {
 unsafe impl windows_core::Interface for SpriteVisual {
     type Vtable = <ISpriteVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpriteVisual as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for SpriteVisual {
     type Target = ISpriteVisual;
@@ -3133,6 +3198,7 @@ impl windows_core::RuntimeType for Vector3KeyFrameAnimation {
 unsafe impl windows_core::Interface for Vector3KeyFrameAnimation {
     type Vtable = <IVector3KeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVector3KeyFrameAnimation as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for Vector3KeyFrameAnimation {
     type Target = IVector3KeyFrameAnimation;
@@ -3157,6 +3223,7 @@ impl windows_core::RuntimeType for Visual {
 unsafe impl windows_core::Interface for Visual {
     type Vtable = <IVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVisual as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for Visual {
     type Target = IVisual;
@@ -3185,6 +3252,7 @@ impl windows_core::RuntimeType for VisualCollection {
 unsafe impl windows_core::Interface for VisualCollection {
     type Vtable = <IVisualCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVisualCollection as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
 }
 impl core::ops::Deref for VisualCollection {
     type Target = IVisualCollection;
