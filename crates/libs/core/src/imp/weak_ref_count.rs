@@ -7,7 +7,7 @@ use core::sync::atomic::{AtomicPtr, Ordering, fence};
 /// A COM reference count that moves into a weak reference tear-off on demand.
 ///
 /// The value is either a strong count, stored as `count << 1 | 1` without provenance, or a pointer
-/// to the [`TearOff`] that owns the strong count once `IWeakReferenceSource` has been requested.
+/// to the tear-off that owns the strong count once `IWeakReferenceSource` has been requested.
 /// The tear-off is pointer-aligned, so its low bit is always clear.
 #[repr(transparent)]
 pub struct WeakRefCount(AtomicPtr<c_void>);
