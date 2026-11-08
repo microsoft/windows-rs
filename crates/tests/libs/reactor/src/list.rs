@@ -6,7 +6,7 @@ pub(super) struct ListFixture {
     selected: Option<&'static str>,
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub(super) enum Message {
     Reverse,
     Insert,
@@ -30,6 +30,7 @@ impl Component for ListFixture {
     }
 
     fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
+        eprintln!("list update: {message:?}");
         match message {
             Message::Reverse => self.keys.reverse(),
             Message::Insert => self.keys.insert(1, "delta"),
@@ -40,7 +41,9 @@ impl Component for ListFixture {
                 let key = self.keys[index];
                 // Promote after a delay, as a background load would. Promoting immediately does not crash.
                 context.spawn_background(move |_| {
+                    eprintln!("list promotion started: {key}");
                     std::thread::sleep(std::time::Duration::from_millis(300));
+                    eprintln!("list promotion ready: {key}");
                     Message::Promote(key)
                 });
             }
