@@ -28,11 +28,7 @@ unsafe impl windows_core::Interface for DisplayRequest {
 impl windows_core::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";
 }
-windows_core::imp::define_interface!(IDisplayRequest, IDisplayRequest_Vtbl, 0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0, inspectable);
-impl windows_core::RuntimeType for IDisplayRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Display.IDisplayRequest");
-}
+windows_core::imp::define_winrt_interface!(IDisplayRequest, IDisplayRequest_Vtbl, 0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0, b"Windows.System.Display.IDisplayRequest");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayRequest_Vtbl {

@@ -58,18 +58,12 @@ unsafe impl windows_core::Interface for Class {
 impl windows_core::RuntimeName for Class {
     const NAME: &'static str = "Test.Class";
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IClass,
     IClass_Vtbl,
     0x327dfd65_5684_57ee_85ab_168eff31a838,
-    inspectable
+    b"Test.IClass"
 );
-impl windows_core::RuntimeType for IClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.IClass");
-}
 #[repr(C)]
 pub struct IClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

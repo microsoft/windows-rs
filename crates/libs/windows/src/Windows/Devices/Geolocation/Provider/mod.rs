@@ -53,11 +53,7 @@ impl windows_core::RuntimeName for GeolocationProvider {
 }
 unsafe impl Send for GeolocationProvider {}
 unsafe impl Sync for GeolocationProvider {}
-windows_core::imp::define_interface!(IGeolocationProvider, IGeolocationProvider_Vtbl, 0xe4cf071d_3f64_509f_8dc2_0b74a059829d, inspectable);
-impl windows_core::RuntimeType for IGeolocationProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Provider.IGeolocationProvider");
-}
+windows_core::imp::define_winrt_interface!(IGeolocationProvider, IGeolocationProvider_Vtbl, 0xe4cf071d_3f64_509f_8dc2_0b74a059829d, b"Windows.Devices.Geolocation.Provider.IGeolocationProvider");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeolocationProvider_Vtbl {

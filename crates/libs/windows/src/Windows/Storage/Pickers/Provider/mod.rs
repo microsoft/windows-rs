@@ -230,11 +230,7 @@ impl windows_core::RuntimeType for FileSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.FileSelectionMode;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.Provider.FileSelectionMode");
 }
-windows_core::imp::define_interface!(IFileOpenPickerUI, IFileOpenPickerUI_Vtbl, 0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d, inspectable);
-impl windows_core::RuntimeType for IFileOpenPickerUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.Provider.IFileOpenPickerUI");
-}
+windows_core::imp::define_winrt_interface!(IFileOpenPickerUI, IFileOpenPickerUI_Vtbl, 0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d, b"Windows.Storage.Pickers.Provider.IFileOpenPickerUI");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerUI_Vtbl {
@@ -259,22 +255,14 @@ pub struct IFileOpenPickerUI_Vtbl {
     pub Closing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveClosing: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileRemovedEventArgs, IFileRemovedEventArgs_Vtbl, 0x13043da7_7fca_4c2b_9eca_6890f9f00185, inspectable);
-impl windows_core::RuntimeType for IFileRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.Provider.IFileRemovedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IFileRemovedEventArgs, IFileRemovedEventArgs_Vtbl, 0x13043da7_7fca_4c2b_9eca_6890f9f00185, b"Windows.Storage.Pickers.Provider.IFileRemovedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileSavePickerUI, IFileSavePickerUI_Vtbl, 0x9656c1e7_3e56_43cc_8a39_33c73d9d542b, inspectable);
-impl windows_core::RuntimeType for IFileSavePickerUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.Provider.IFileSavePickerUI");
-}
+windows_core::imp::define_winrt_interface!(IFileSavePickerUI, IFileSavePickerUI_Vtbl, 0x9656c1e7_3e56_43cc_8a39_33c73d9d542b, b"Windows.Storage.Pickers.Provider.IFileSavePickerUI");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSavePickerUI_Vtbl {
@@ -290,22 +278,14 @@ pub struct IFileSavePickerUI_Vtbl {
     pub TargetFileRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveTargetFileRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPickerClosingDeferral, IPickerClosingDeferral_Vtbl, 0x7af7f71e_1a67_4a31_ae80_e907708a619b, inspectable);
-impl windows_core::RuntimeType for IPickerClosingDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.Provider.IPickerClosingDeferral");
-}
+windows_core::imp::define_winrt_interface!(IPickerClosingDeferral, IPickerClosingDeferral_Vtbl, 0x7af7f71e_1a67_4a31_ae80_e907708a619b, b"Windows.Storage.Pickers.Provider.IPickerClosingDeferral");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerClosingDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPickerClosingEventArgs, IPickerClosingEventArgs_Vtbl, 0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd, inspectable);
-impl windows_core::RuntimeType for IPickerClosingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.Provider.IPickerClosingEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPickerClosingEventArgs, IPickerClosingEventArgs_Vtbl, 0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd, b"Windows.Storage.Pickers.Provider.IPickerClosingEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerClosingEventArgs_Vtbl {
@@ -313,11 +293,7 @@ pub struct IPickerClosingEventArgs_Vtbl {
     pub ClosingOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPickerClosingOperation, IPickerClosingOperation_Vtbl, 0x4ce9fb84_beee_4e39_a773_fc5f0eae328d, inspectable);
-impl windows_core::RuntimeType for IPickerClosingOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.Provider.IPickerClosingOperation");
-}
+windows_core::imp::define_winrt_interface!(IPickerClosingOperation, IPickerClosingOperation_Vtbl, 0x4ce9fb84_beee_4e39_a773_fc5f0eae328d, b"Windows.Storage.Pickers.Provider.IPickerClosingOperation");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerClosingOperation_Vtbl {
@@ -325,11 +301,7 @@ pub struct IPickerClosingOperation_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetFileRequest, ITargetFileRequest_Vtbl, 0x42bd3355_7f88_478b_8e81_690b20340678, inspectable);
-impl windows_core::RuntimeType for ITargetFileRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.Provider.ITargetFileRequest");
-}
+windows_core::imp::define_winrt_interface!(ITargetFileRequest, ITargetFileRequest_Vtbl, 0x42bd3355_7f88_478b_8e81_690b20340678, b"Windows.Storage.Pickers.Provider.ITargetFileRequest");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetFileRequest_Vtbl {
@@ -344,22 +316,14 @@ pub struct ITargetFileRequest_Vtbl {
     SetTargetFile: usize,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetFileRequestDeferral, ITargetFileRequestDeferral_Vtbl, 0x4aee9d91_bf15_4da9_95f6_f6b7d558225b, inspectable);
-impl windows_core::RuntimeType for ITargetFileRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.Provider.ITargetFileRequestDeferral");
-}
+windows_core::imp::define_winrt_interface!(ITargetFileRequestDeferral, ITargetFileRequestDeferral_Vtbl, 0x4aee9d91_bf15_4da9_95f6_f6b7d558225b, b"Windows.Storage.Pickers.Provider.ITargetFileRequestDeferral");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetFileRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetFileRequestedEventArgs, ITargetFileRequestedEventArgs_Vtbl, 0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9, inspectable);
-impl windows_core::RuntimeType for ITargetFileRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(ITargetFileRequestedEventArgs, ITargetFileRequestedEventArgs_Vtbl, 0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9, b"Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetFileRequestedEventArgs_Vtbl {

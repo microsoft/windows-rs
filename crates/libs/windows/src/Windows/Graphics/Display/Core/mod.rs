@@ -252,11 +252,7 @@ impl windows_core::RuntimeType for HdmiDisplayPixelEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding");
 }
-windows_core::imp::define_interface!(IHdmiDisplayInformation, IHdmiDisplayInformation_Vtbl, 0x130b3c0a_f565_476e_abd5_ea05aee74c69, inspectable);
-impl windows_core::RuntimeType for IHdmiDisplayInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.IHdmiDisplayInformation");
-}
+windows_core::imp::define_winrt_interface!(IHdmiDisplayInformation, IHdmiDisplayInformation_Vtbl, 0x130b3c0a_f565_476e_abd5_ea05aee74c69, b"Windows.Graphics.Display.Core.IHdmiDisplayInformation");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayInformation_Vtbl {
@@ -270,22 +266,14 @@ pub struct IHdmiDisplayInformation_Vtbl {
     pub DisplayModesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDisplayModesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHdmiDisplayInformationStatics, IHdmiDisplayInformationStatics_Vtbl, 0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df, inspectable);
-impl windows_core::RuntimeType for IHdmiDisplayInformationStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.IHdmiDisplayInformationStatics");
-}
+windows_core::imp::define_winrt_interface!(IHdmiDisplayInformationStatics, IHdmiDisplayInformationStatics_Vtbl, 0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df, b"Windows.Graphics.Display.Core.IHdmiDisplayInformationStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHdmiDisplayMode, IHdmiDisplayMode_Vtbl, 0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66, inspectable);
-impl windows_core::RuntimeType for IHdmiDisplayMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.IHdmiDisplayMode");
-}
+windows_core::imp::define_winrt_interface!(IHdmiDisplayMode, IHdmiDisplayMode_Vtbl, 0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66, b"Windows.Graphics.Display.Core.IHdmiDisplayMode");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayMode_Vtbl {
@@ -302,11 +290,7 @@ pub struct IHdmiDisplayMode_Vtbl {
     pub IsSmpte2084Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Is2086MetadataSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHdmiDisplayMode2, IHdmiDisplayMode2_Vtbl, 0x07cd4e9f_4b3c_42b8_84e7_895368718af2, inspectable);
-impl windows_core::RuntimeType for IHdmiDisplayMode2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.IHdmiDisplayMode2");
-}
+windows_core::imp::define_winrt_interface!(IHdmiDisplayMode2, IHdmiDisplayMode2_Vtbl, 0x07cd4e9f_4b3c_42b8_84e7_895368718af2, b"Windows.Graphics.Display.Core.IHdmiDisplayMode2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayMode2_Vtbl {

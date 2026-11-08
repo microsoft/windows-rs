@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IInjectedInputGamepadInfo, IInjectedInputGamepadInfo_Vtbl, 0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad, inspectable);
-impl windows_core::RuntimeType for IInjectedInputGamepadInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo");
-}
+windows_core::imp::define_winrt_interface!(IInjectedInputGamepadInfo, IInjectedInputGamepadInfo_Vtbl, 0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad, b"Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfo_Vtbl {
@@ -28,11 +24,7 @@ pub struct IInjectedInputGamepadInfo_Vtbl {
     pub RightTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetRightTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInjectedInputGamepadInfoFactory, IInjectedInputGamepadInfoFactory_Vtbl, 0x59596876_6c39_4ec4_8b2a_29ef7de18aca, inspectable);
-impl windows_core::RuntimeType for IInjectedInputGamepadInfoFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfoFactory");
-}
+windows_core::imp::define_winrt_interface!(IInjectedInputGamepadInfoFactory, IInjectedInputGamepadInfoFactory_Vtbl, 0x59596876_6c39_4ec4_8b2a_29ef7de18aca, b"Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfoFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfoFactory_Vtbl {
@@ -42,11 +34,7 @@ pub struct IInjectedInputGamepadInfoFactory_Vtbl {
     #[cfg(not(feature = "Gaming_Input"))]
     CreateInstanceFromGamepadReading: usize,
 }
-windows_core::imp::define_interface!(IInjectedInputKeyboardInfo, IInjectedInputKeyboardInfo_Vtbl, 0x4b46d140_2b6a_5ffa_7eae_bd077b052acd, inspectable);
-impl windows_core::RuntimeType for IInjectedInputKeyboardInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo");
-}
+windows_core::imp::define_winrt_interface!(IInjectedInputKeyboardInfo, IInjectedInputKeyboardInfo_Vtbl, 0x4b46d140_2b6a_5ffa_7eae_bd077b052acd, b"Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputKeyboardInfo_Vtbl {
@@ -58,11 +46,7 @@ pub struct IInjectedInputKeyboardInfo_Vtbl {
     pub VirtualKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub SetVirtualKey: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInjectedInputMouseInfo, IInjectedInputMouseInfo_Vtbl, 0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d, inspectable);
-impl windows_core::RuntimeType for IInjectedInputMouseInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo");
-}
+windows_core::imp::define_winrt_interface!(IInjectedInputMouseInfo, IInjectedInputMouseInfo_Vtbl, 0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d, b"Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputMouseInfo_Vtbl {
@@ -78,11 +62,7 @@ pub struct IInjectedInputMouseInfo_Vtbl {
     pub TimeOffsetInMilliseconds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetTimeOffsetInMilliseconds: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInjectedInputPenInfo, IInjectedInputPenInfo_Vtbl, 0x6b40ad03_ca1e_5527_7e02_2828540bb1d4, inspectable);
-impl windows_core::RuntimeType for IInjectedInputPenInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo");
-}
+windows_core::imp::define_winrt_interface!(IInjectedInputPenInfo, IInjectedInputPenInfo_Vtbl, 0x6b40ad03_ca1e_5527_7e02_2828540bb1d4, b"Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputPenInfo_Vtbl {
@@ -102,11 +82,7 @@ pub struct IInjectedInputPenInfo_Vtbl {
     pub TiltY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetTiltY: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInjectedInputTouchInfo, IInjectedInputTouchInfo_Vtbl, 0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28, inspectable);
-impl windows_core::RuntimeType for IInjectedInputTouchInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo");
-}
+windows_core::imp::define_winrt_interface!(IInjectedInputTouchInfo, IInjectedInputTouchInfo_Vtbl, 0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28, b"Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputTouchInfo_Vtbl {
@@ -122,11 +98,7 @@ pub struct IInjectedInputTouchInfo_Vtbl {
     pub TouchParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InjectedInputTouchParameters) -> windows_core::HRESULT,
     pub SetTouchParameters: unsafe extern "system" fn(*mut core::ffi::c_void, InjectedInputTouchParameters) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputInjector, IInputInjector_Vtbl, 0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18, inspectable);
-impl windows_core::RuntimeType for IInputInjector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInputInjector");
-}
+windows_core::imp::define_winrt_interface!(IInputInjector, IInputInjector_Vtbl, 0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18, b"Windows.UI.Input.Preview.Injection.IInputInjector");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjector_Vtbl {
@@ -141,11 +113,7 @@ pub struct IInputInjector_Vtbl {
     pub UninitializePenInjection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InjectShortcut: unsafe extern "system" fn(*mut core::ffi::c_void, InjectedInputShortcut) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputInjector2, IInputInjector2_Vtbl, 0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7, inspectable);
-impl windows_core::RuntimeType for IInputInjector2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInputInjector2");
-}
+windows_core::imp::define_winrt_interface!(IInputInjector2, IInputInjector2_Vtbl, 0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7, b"Windows.UI.Input.Preview.Injection.IInputInjector2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjector2_Vtbl {
@@ -154,22 +122,14 @@ pub struct IInputInjector2_Vtbl {
     pub InjectGamepadInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UninitializeGamepadInjection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputInjectorStatics, IInputInjectorStatics_Vtbl, 0xdeae6943_7402_4141_a5c6_0c01aa57b16a, inspectable);
-impl windows_core::RuntimeType for IInputInjectorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInputInjectorStatics");
-}
+windows_core::imp::define_winrt_interface!(IInputInjectorStatics, IInputInjectorStatics_Vtbl, 0xdeae6943_7402_4141_a5c6_0c01aa57b16a, b"Windows.UI.Input.Preview.Injection.IInputInjectorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInputInjectorStatics2, IInputInjectorStatics2_Vtbl, 0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c, inspectable);
-impl windows_core::RuntimeType for IInputInjectorStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInputInjectorStatics2");
-}
+windows_core::imp::define_winrt_interface!(IInputInjectorStatics2, IInputInjectorStatics2_Vtbl, 0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c, b"Windows.UI.Input.Preview.Injection.IInputInjectorStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics2_Vtbl {

@@ -14,11 +14,7 @@ impl CorePerceptionAutomation {
 impl windows_core::RuntimeName for CorePerceptionAutomation {
     const NAME: &'static str = "Windows.Perception.Automation.Core.CorePerceptionAutomation";
 }
-windows_core::imp::define_interface!(ICorePerceptionAutomationStatics, ICorePerceptionAutomationStatics_Vtbl, 0x0bb04541_4ce2_4923_9a76_8187ecc59112, inspectable);
-impl windows_core::RuntimeType for ICorePerceptionAutomationStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Automation.Core.ICorePerceptionAutomationStatics");
-}
+windows_core::imp::define_winrt_interface!(ICorePerceptionAutomationStatics, ICorePerceptionAutomationStatics_Vtbl, 0x0bb04541_4ce2_4923_9a76_8187ecc59112, b"Windows.Perception.Automation.Core.ICorePerceptionAutomationStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICorePerceptionAutomationStatics_Vtbl {

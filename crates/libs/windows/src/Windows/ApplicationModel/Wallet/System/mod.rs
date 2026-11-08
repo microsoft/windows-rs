@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IWalletItemSystemStore, IWalletItemSystemStore_Vtbl, 0x522e2bff_96a2_4a17_8d19_fe1d9f837561, inspectable);
-impl windows_core::RuntimeType for IWalletItemSystemStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore");
-}
+windows_core::imp::define_winrt_interface!(IWalletItemSystemStore, IWalletItemSystemStore_Vtbl, 0x522e2bff_96a2_4a17_8d19_fe1d9f837561, b"Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore_Vtbl {
@@ -16,11 +12,7 @@ pub struct IWalletItemSystemStore_Vtbl {
     pub GetAppStatusForItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut WalletItemAppAssociation) -> windows_core::HRESULT,
     pub LaunchAppForItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletItemSystemStore2, IWalletItemSystemStore2_Vtbl, 0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb, inspectable);
-impl windows_core::RuntimeType for IWalletItemSystemStore2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore2");
-}
+windows_core::imp::define_winrt_interface!(IWalletItemSystemStore2, IWalletItemSystemStore2_Vtbl, 0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb, b"Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore2_Vtbl {
@@ -28,11 +20,7 @@ pub struct IWalletItemSystemStore2_Vtbl {
     pub ItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWalletManagerSystemStatics, IWalletManagerSystemStatics_Vtbl, 0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0, inspectable);
-impl windows_core::RuntimeType for IWalletManagerSystemStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.System.IWalletManagerSystemStatics");
-}
+windows_core::imp::define_winrt_interface!(IWalletManagerSystemStatics, IWalletManagerSystemStatics_Vtbl, 0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0, b"Windows.ApplicationModel.Wallet.System.IWalletManagerSystemStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletManagerSystemStatics_Vtbl {

@@ -1,15 +1,9 @@
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     Widget,
     Widget_Vtbl,
     0x8c3b5163_963a_5d17_8c05_49c20f04efd9,
-    inspectable
+    b"Test.Widget"
 );
-impl windows_core::RuntimeType for Widget {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.Widget");
-}
 windows_core::imp::interface_hierarchy!(Widget, windows_core::IUnknown, windows_core::IInspectable);
 impl Widget {
     pub fn get_Value(&self) -> windows_core::Result<i32> {

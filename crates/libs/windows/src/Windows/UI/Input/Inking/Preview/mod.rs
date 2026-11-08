@@ -1,18 +1,10 @@
-windows_core::imp::define_interface!(IPalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreview_Vtbl, 0x62b496cb_539d_5343_a65f_41f5300ec70c, inspectable);
-impl windows_core::RuntimeType for IPalmRejectionDelayZonePreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Preview.IPalmRejectionDelayZonePreview");
-}
+windows_core::imp::define_winrt_interface!(IPalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreview_Vtbl, 0x62b496cb_539d_5343_a65f_41f5300ec70c, b"Windows.UI.Input.Inking.Preview.IPalmRejectionDelayZonePreview");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPalmRejectionDelayZonePreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IPalmRejectionDelayZonePreviewStatics, IPalmRejectionDelayZonePreviewStatics_Vtbl, 0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530, inspectable);
-impl windows_core::RuntimeType for IPalmRejectionDelayZonePreviewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Preview.IPalmRejectionDelayZonePreviewStatics");
-}
+windows_core::imp::define_winrt_interface!(IPalmRejectionDelayZonePreviewStatics, IPalmRejectionDelayZonePreviewStatics_Vtbl, 0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530, b"Windows.UI.Input.Inking.Preview.IPalmRejectionDelayZonePreviewStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {

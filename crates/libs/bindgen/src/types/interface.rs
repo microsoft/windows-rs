@@ -217,7 +217,6 @@ impl Interface {
         let vtbl_name = self.write_vtbl_name(config);
         let is_exclusive = self.is_exclusive();
         let constraints = config.write_generic_constraints(&self.generics);
-        let phantoms = config.write_generic_phantoms(&self.generics);
         let named_phantoms = config.write_generic_named_phantoms(&self.generics);
         let (class_cfg, cfg) = self.write_cfg(config);
 
@@ -271,85 +270,22 @@ impl Interface {
 
             result
         } else {
-            let mut result = if self.generics.is_empty() {
-                let guid = config.write_guid_u128(&self.def.guid_attribute().unwrap());
-
-                // In minimal mode, NAME is only needed for interfaces that are
-                // being implemented (for GetRuntimeClassName). The trait provides
-                // an empty default, so omitting it is safe.
-                let name_const = if config.emit_runtime_name(type_name) {
-                    let type_name_bytes = Literal::byte_string(format!("{type_name}").as_bytes());
-                    quote! {
-                        const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
-                    }
+            let guid = config.write_guid_u128(&self.def.guid_attribute().unwrap());
+            let runtime_name = if config.emit_runtime_name(type_name) {
+                let arity = self.generics.len();
+                let name = if arity == 0 {
+                    format!("{type_name}")
                 } else {
-                    quote! {}
+                    format!("{type_name}`{arity}")
                 };
-
-                quote! {
-                    #cfg
-                    windows_core::imp::define_interface!(#name, #vtbl_name, #guid, inspectable);
-                    #cfg
-                    impl windows_core::RuntimeType for #name {
-                        const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-                        #name_const
-                    }
-                }
+                let name = Literal::byte_string(name.as_bytes());
+                quote! { , #name }
             } else {
-                let guid = self.def.guid_attribute().unwrap();
-                let pinterface = Literal::byte_string(format!("pinterface({{{guid}}}").as_bytes());
-
-                let generics = self.generics.iter().map(|generic| {
-                    let name = generic.write_name(config);
-
-                    quote! {
-                        .push_slice(b";").push_other(#name::SIGNATURE)
-                    }
-                });
-
-                // In minimal mode, NAME on parameterized interfaces is only needed
-                // when the interface is implemented (for GetRuntimeClassName via
-                // RUNTIME_CLASS_NAME). Skip it otherwise.
-                let name_const = if config.emit_runtime_name(type_name) {
-                    let arity = self.generics.len();
-                    let name_prefix =
-                        Literal::byte_string(format!("{type_name}`{arity}<").as_bytes());
-                    let name_generics: Vec<_> = self
-                        .generics
-                        .iter()
-                        .enumerate()
-                        .map(|(i, generic)| {
-                            let gen_name = generic.write_name(config);
-                            if i == 0 {
-                                quote! { .push_other(#gen_name::NAME) }
-                            } else {
-                                quote! { .push_slice(b", ").push_other(#gen_name::NAME) }
-                            }
-                        })
-                        .collect();
-                    quote! {
-                        const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#name_prefix)#(#name_generics)*.push_slice(b">");
-                    }
-                } else {
-                    quote! {}
-                };
-
-                quote! {
-                    #[repr(transparent)]
-                    #[derive(Clone, Debug, Eq, PartialEq)]
-                    pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
-                    impl<#constraints> windows_core::imp::CanInto<windows_core::IUnknown> for #name {}
-                    impl<#constraints> windows_core::imp::CanInto<windows_core::IInspectable> for #name {}
-                    unsafe impl<#constraints> windows_core::Interface for #name {
-                        type Vtable = #vtbl_name;
-                        const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-                        const INSPECTABLE: bool = true;
-                    }
-                    impl<#constraints> windows_core::RuntimeType for #name {
-                        const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
-                        #name_const
-                    }
-                }
+                quote! {}
+            };
+            let mut result = quote! {
+                #cfg
+                windows_core::imp::define_winrt_interface!(#name, #vtbl_name, #guid #runtime_name);
             };
 
             if !is_exclusive && self.generics.is_empty() {

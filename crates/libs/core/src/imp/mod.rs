@@ -142,6 +142,64 @@ macro_rules! define_interface {
 #[doc(hidden)]
 pub use define_interface;
 
+/// Declares a WinRT interface. The optional runtime name includes the arity for generic interfaces.
+#[doc(hidden)]
+#[macro_export]
+macro_rules! define_winrt_interface {
+    ($name:ident, $vtbl:ident, $iid:literal $(, $runtime_name:literal)?) => {
+        $crate::imp::define_interface!($name, $vtbl, $iid, inspectable);
+        impl $crate::RuntimeType for $name {
+            const SIGNATURE: $crate::imp::ConstBuffer =
+                $crate::imp::ConstBuffer::for_interface::<Self>();
+            $(
+                const NAME: $crate::imp::ConstBuffer =
+                    $crate::imp::ConstBuffer::from_slice($runtime_name);
+            )?
+        }
+    };
+    ($name:ident<$($generic:ident),+ $(,)?>, $vtbl:ty, $iid:literal $(, $runtime_name:literal)?) => {
+        #[repr(transparent)]
+        #[derive(Clone, Debug, Eq, PartialEq)]
+        pub struct $name<$($generic: $crate::RuntimeType + 'static),+>(
+            $crate::IUnknown,
+            $(::core::marker::PhantomData<$generic>),+
+        );
+        impl<$($generic: $crate::RuntimeType + 'static),+>
+            $crate::imp::CanInto<$crate::IUnknown> for $name<$($generic),+> {}
+        impl<$($generic: $crate::RuntimeType + 'static),+>
+            $crate::imp::CanInto<$crate::IInspectable> for $name<$($generic),+> {}
+        unsafe impl<$($generic: $crate::RuntimeType + 'static),+>
+            $crate::Interface for $name<$($generic),+>
+        {
+            type Vtable = $vtbl;
+            const IID: $crate::GUID =
+                $crate::GUID::from_signature(<Self as $crate::RuntimeType>::SIGNATURE);
+            const INSPECTABLE: bool = true;
+        }
+        impl<$($generic: $crate::RuntimeType + 'static),+>
+            $crate::RuntimeType for $name<$($generic),+>
+        {
+            const SIGNATURE: $crate::imp::ConstBuffer =
+                $crate::imp::ConstBuffer::new()
+                    .push_slice(b"pinterface(").push_guid(&$crate::GUID::from_u128($iid))
+                    $(.push_slice(b";").push_other(<$generic as $crate::RuntimeType>::SIGNATURE))+
+                    .push_slice(b")");
+            $crate::imp::define_winrt_interface!(@name [$($runtime_name)?] [$($generic),+]);
+        }
+    };
+    (@name [] [$($generic:ident),+]) => {};
+    (@name [$runtime_name:literal] [$first:ident $(, $rest:ident)*]) => {
+        const NAME: $crate::imp::ConstBuffer =
+            $crate::imp::ConstBuffer::from_slice($runtime_name)
+                .push_slice(b"<").push_other(<$first as $crate::RuntimeType>::NAME)
+                $(.push_slice(b", ").push_other(<$rest as $crate::RuntimeType>::NAME))*
+                .push_slice(b">");
+    };
+}
+
+#[doc(hidden)]
+pub use define_winrt_interface;
+
 // These helpers let generated code use `windows_core::imp::box_new` etc. without
 // depending on `Box` being in scope at the call site.
 

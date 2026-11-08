@@ -5349,30 +5349,20 @@ impl windows_core::RuntimeName for HyperlinkButton {
 }
 unsafe impl Send for HyperlinkButton {}
 unsafe impl Sync for HyperlinkButton {}
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppBar,
     IAppBar_Vtbl,
-    0x3d8c2927_5ac5_51bb_8bec_13ff4c1bd6c8,
-    inspectable
+    0x3d8c2927_5ac5_51bb_8bec_13ff4c1bd6c8
 );
-impl windows_core::RuntimeType for IAppBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAppBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppBarButton,
     IAppBarButton_Vtbl,
-    0x8ab0e278_b6ae_569e_8dcd_d293552fe4d5,
-    inspectable
+    0x8ab0e278_b6ae_569e_8dcd_d293552fe4d5
 );
-impl windows_core::RuntimeType for IAppBarButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IAppBarButton {
     pub(crate) fn SetLabel(&self, value: &str) -> windows_core::Result<()> {
         unsafe {
@@ -5410,16 +5400,11 @@ pub struct IAppBarButton_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppBarButtonFactory,
     IAppBarButtonFactory_Vtbl,
-    0x4168a40a_d11f_5aeb_974e_bb43a6e7f9b2,
-    inspectable
+    0x4168a40a_d11f_5aeb_974e_bb43a6e7f9b2
 );
-impl windows_core::RuntimeType for IAppBarButtonFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAppBarButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -5430,16 +5415,11 @@ pub struct IAppBarButtonFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppBarButtonStatics,
     IAppBarButtonStatics_Vtbl,
-    0x74327a2a_18fa_59c3_8268_ec3732a4d272,
-    inspectable
+    0x74327a2a_18fa_59c3_8268_ec3732a4d272
 );
-impl windows_core::RuntimeType for IAppBarButtonStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAppBarButtonStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -5448,30 +5428,20 @@ pub struct IAppBarButtonStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppBarSeparator,
     IAppBarSeparator_Vtbl,
-    0x57bb94a3_1e56_5ebe_8a57_3a243c491d67,
-    inspectable
+    0x57bb94a3_1e56_5ebe_8a57_3a243c491d67
 );
-impl windows_core::RuntimeType for IAppBarSeparator {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAppBarSeparator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppBarSeparatorFactory,
     IAppBarSeparatorFactory_Vtbl,
-    0x6497d326_fb55_5cf5_8cc4_c556b1a958fb,
-    inspectable
+    0x6497d326_fb55_5cf5_8cc4_c556b1a958fb
 );
-impl windows_core::RuntimeType for IAppBarSeparatorFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAppBarSeparatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -5482,16 +5452,11 @@ pub struct IAppBarSeparatorFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppWindow,
     IAppWindow_Vtbl,
-    0xcfa788b3_643b_5c5e_ad4e_321d48a82acd,
-    inspectable
+    0xcfa788b3_643b_5c5e_ad4e_321d48a82acd
 );
-impl windows_core::RuntimeType for IAppWindow {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IAppWindow {
     pub(crate) fn Presenter(&self) -> windows_core::Result<AppWindowPresenter> {
         unsafe {
@@ -5619,16 +5584,11 @@ pub struct IAppWindow_Vtbl {
     pub RemoveChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppWindow2,
     IAppWindow2_Vtbl,
-    0x6cd41292_794c_5cac_8961_210d012c6ebc,
-    inspectable
+    0x6cd41292_794c_5cac_8961_210d012c6ebc
 );
-impl windows_core::RuntimeType for IAppWindow2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IAppWindow2 {
     pub(crate) fn ClientSize(&self) -> windows_core::Result<SizeInt32> {
         unsafe {
@@ -5647,58 +5607,38 @@ pub struct IAppWindow2_Vtbl {
     pub ClientSize:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut SizeInt32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppWindowChangedEventArgs,
     IAppWindowChangedEventArgs_Vtbl,
-    0x2182bc5d_fdac_5c3e_bf37_7d8d684e9d1d,
-    inspectable
+    0x2182bc5d_fdac_5c3e_bf37_7d8d684e9d1d
 );
-impl windows_core::RuntimeType for IAppWindowChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAppWindowChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppWindowPresenter,
     IAppWindowPresenter_Vtbl,
-    0xbc3042c2_c6c6_5632_8989_ff0ec6d3b40d,
-    inspectable
+    0xbc3042c2_c6c6_5632_8989_ff0ec6d3b40d
 );
-impl windows_core::RuntimeType for IAppWindowPresenter {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAppWindowPresenter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppWindowTitleBar,
     IAppWindowTitleBar_Vtbl,
-    0x5574efa2_c91c_5700_a363_539c71a7aaf4,
-    inspectable
+    0x5574efa2_c91c_5700_a363_539c71a7aaf4
 );
-impl windows_core::RuntimeType for IAppWindowTitleBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAppWindowTitleBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppWindowTitleBar2,
     IAppWindowTitleBar2_Vtbl,
-    0x86faed38_748a_5b4b_9ccf_3ba0496c9041,
-    inspectable
+    0x86faed38_748a_5b4b_9ccf_3ba0496c9041
 );
-impl windows_core::RuntimeType for IAppWindowTitleBar2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IAppWindowTitleBar2 {
     pub(crate) fn SetPreferredHeightOption(
         &self,
@@ -5722,16 +5662,11 @@ pub struct IAppWindowTitleBar2_Vtbl {
         TitleBarHeightOption,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAppWindowTitleBar3,
     IAppWindowTitleBar3_Vtbl,
-    0x07146e74_0410_5597_aba7_1af276d2ae07,
-    inspectable
+    0x07146e74_0410_5597_aba7_1af276d2ae07
 );
-impl windows_core::RuntimeType for IAppWindowTitleBar3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IAppWindowTitleBar3 {
     pub(crate) fn SetPreferredTheme(&self, value: TitleBarTheme) -> windows_core::Result<()> {
         unsafe {
@@ -5750,16 +5685,11 @@ pub struct IAppWindowTitleBar3_Vtbl {
     pub SetPreferredTheme:
         unsafe extern "system" fn(*mut core::ffi::c_void, TitleBarTheme) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IApplication,
     IApplication_Vtbl,
-    0x06a8f4e7_1146_55af_820d_ebd55643b021,
-    inspectable
+    0x06a8f4e7_1146_55af_820d_ebd55643b021
 );
-impl windows_core::RuntimeType for IApplication {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IApplication {
     pub(crate) fn Resources(&self) -> windows_core::Result<ResourceDictionary> {
         unsafe {
@@ -5796,16 +5726,11 @@ pub struct IApplication_Vtbl {
     RemoveUnhandledException: usize,
     pub Exit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IApplication3,
     IApplication3_Vtbl,
-    0xbe941595_61fe_5b36_a3d3_962a647d7c6f,
-    inspectable
+    0xbe941595_61fe_5b36_a3d3_962a647d7c6f
 );
-impl windows_core::RuntimeType for IApplication3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IApplication3 {
     pub(crate) fn SetDispatcherShutdownMode(
         &self,
@@ -5829,16 +5754,11 @@ pub struct IApplication3_Vtbl {
         DispatcherShutdownMode,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IApplicationFactory,
     IApplicationFactory_Vtbl,
-    0x9fd96657_5294_5a65_a1db_4fea143597da,
-    inspectable
+    0x9fd96657_5294_5a65_a1db_4fea143597da
 );
-impl windows_core::RuntimeType for IApplicationFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IApplicationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -5849,32 +5769,21 @@ pub struct IApplicationFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IApplicationInitializationCallbackParams,
     IApplicationInitializationCallbackParams_Vtbl,
-    0x1b1906ea_5b7b_5876_81ab_7c2281ac3d20,
-    inspectable
+    0x1b1906ea_5b7b_5876_81ab_7c2281ac3d20
 );
-impl windows_core::RuntimeType for IApplicationInitializationCallbackParams {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IApplicationInitializationCallbackParams_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IApplicationOverrides,
     IApplicationOverrides_Vtbl,
     0xa33e81ef_c665_503b_8827_d27ef1720a06,
-    inspectable
+    b"Microsoft.UI.Xaml.IApplicationOverrides"
 );
-impl windows_core::RuntimeType for IApplicationOverrides {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Microsoft.UI.Xaml.IApplicationOverrides");
-}
 impl windows_core::RuntimeName for IApplicationOverrides {
     const NAME: &'static str = "Microsoft.UI.Xaml.IApplicationOverrides";
 }
@@ -5917,16 +5826,11 @@ pub struct IApplicationOverrides_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IApplicationStatics,
     IApplicationStatics_Vtbl,
-    0x4e0d09f5_4358_512c_a987_503b52848e95,
-    inspectable
+    0x4e0d09f5_4358_512c_a987_503b52848e95
 );
-impl windows_core::RuntimeType for IApplicationStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IApplicationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -5939,16 +5843,11 @@ pub struct IApplicationStatics_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAutoSuggestBox,
     IAutoSuggestBox_Vtbl,
-    0x3eea809e_b2db_521d_97db_e0648fb5d798,
-    inspectable
+    0x3eea809e_b2db_521d_97db_e0648fb5d798
 );
-impl windows_core::RuntimeType for IAutoSuggestBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IAutoSuggestBox {
     pub(crate) fn Text(&self) -> windows_core::Result<String> {
         unsafe {
@@ -6124,16 +6023,11 @@ pub struct IAutoSuggestBox_Vtbl {
     pub RemoveTextChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAutoSuggestBoxStatics,
     IAutoSuggestBoxStatics_Vtbl,
-    0x9dfa2ff9_1094_54a8_beee_b345fa3ee089,
-    inspectable
+    0x9dfa2ff9_1094_54a8_beee_b345fa3ee089
 );
-impl windows_core::RuntimeType for IAutoSuggestBoxStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAutoSuggestBoxStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6147,16 +6041,11 @@ pub struct IAutoSuggestBoxStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAutoSuggestBoxSuggestionChosenEventArgs,
     IAutoSuggestBoxSuggestionChosenEventArgs_Vtbl,
-    0x7547c7e9_7429_5045_ad98_338a96b270b1,
-    inspectable
+    0x7547c7e9_7429_5045_ad98_338a96b270b1
 );
-impl windows_core::RuntimeType for IAutoSuggestBoxSuggestionChosenEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IAutoSuggestBoxSuggestionChosenEventArgs {
     pub(crate) fn SelectedItem(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
@@ -6177,30 +6066,20 @@ pub struct IAutoSuggestBoxSuggestionChosenEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAutoSuggestBoxTextChangedEventArgs,
     IAutoSuggestBoxTextChangedEventArgs_Vtbl,
-    0xd7191d84_e886_547f_a3e2_12f0e05b20fa,
-    inspectable
+    0xd7191d84_e886_547f_a3e2_12f0e05b20fa
 );
-impl windows_core::RuntimeType for IAutoSuggestBoxTextChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAutoSuggestBoxTextChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAutomationPeer,
     IAutomationPeer_Vtbl,
-    0xe51d3e4e_34f0_568c_999f_6277e2afe6d7,
-    inspectable
+    0xe51d3e4e_34f0_568c_999f_6277e2afe6d7
 );
-impl windows_core::RuntimeType for IAutomationPeer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IAutomationPeer {
     pub(crate) fn GetPattern(
         &self,
@@ -6316,16 +6195,11 @@ pub struct IAutomationPeer_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAutomationPeerStatics,
     IAutomationPeerStatics_Vtbl,
-    0x90b157ff_18d5_5623_850c_612ceae576bd,
-    inspectable
+    0x90b157ff_18d5_5623_850c_612ceae576bd
 );
-impl windows_core::RuntimeType for IAutomationPeerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAutomationPeerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6335,30 +6209,20 @@ pub struct IAutomationPeerStatics_Vtbl {
         *mut bool,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAutomationProperties,
     IAutomationProperties_Vtbl,
-    0x525c6a71_dd8a_52a0_977b_db1b02f8e896,
-    inspectable
+    0x525c6a71_dd8a_52a0_977b_db1b02f8e896
 );
-impl windows_core::RuntimeType for IAutomationProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAutomationProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IAutomationPropertiesStatics,
     IAutomationPropertiesStatics_Vtbl,
-    0xb1e3e0f3_112f_5966_87dc_7862d4ad50e5,
-    inspectable
+    0xb1e3e0f3_112f_5966_87dc_7862d4ad50e5
 );
-impl windows_core::RuntimeType for IAutomationPropertiesStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAutomationPropertiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6455,16 +6319,11 @@ pub struct IAutomationPropertiesStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBitmapIcon,
     IBitmapIcon_Vtbl,
-    0xc370bc29_805b_5bad_b615_ec640e579dbb,
-    inspectable
+    0xc370bc29_805b_5bad_b615_ec640e579dbb
 );
-impl windows_core::RuntimeType for IBitmapIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IBitmapIcon {
     pub(crate) fn SetUriSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -6500,16 +6359,11 @@ pub struct IBitmapIcon_Vtbl {
     pub SetShowAsMonochrome:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBitmapIconFactory,
     IBitmapIconFactory_Vtbl,
-    0xb43b5ddc_cdb5_5ad6_8ac1_2fcca33be39e,
-    inspectable
+    0xb43b5ddc_cdb5_5ad6_8ac1_2fcca33be39e
 );
-impl windows_core::RuntimeType for IBitmapIconFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IBitmapIconFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6520,16 +6374,11 @@ pub struct IBitmapIconFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBitmapIconSource,
     IBitmapIconSource_Vtbl,
-    0xa6b6cccc_ea8f_53ca_831f_2abe85cd6d8c,
-    inspectable
+    0xa6b6cccc_ea8f_53ca_831f_2abe85cd6d8c
 );
-impl windows_core::RuntimeType for IBitmapIconSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IBitmapIconSource {
     pub(crate) fn SetUriSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -6565,16 +6414,11 @@ pub struct IBitmapIconSource_Vtbl {
     pub SetShowAsMonochrome:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBitmapIconSourceFactory,
     IBitmapIconSourceFactory_Vtbl,
-    0x7d484c14_f5f6_5e39_b4e4_b6108d2ee095,
-    inspectable
+    0x7d484c14_f5f6_5e39_b4e4_b6108d2ee095
 );
-impl windows_core::RuntimeType for IBitmapIconSourceFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IBitmapIconSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6585,16 +6429,11 @@ pub struct IBitmapIconSourceFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBitmapIconStatics,
     IBitmapIconStatics_Vtbl,
-    0x01c67eb2_327e_5c4e_afb4_38b02ed12886,
-    inspectable
+    0x01c67eb2_327e_5c4e_afb4_38b02ed12886
 );
-impl windows_core::RuntimeType for IBitmapIconStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IBitmapIconStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6607,16 +6446,11 @@ pub struct IBitmapIconStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBitmapImage,
     IBitmapImage_Vtbl,
-    0x5cc29916_a411_5bc2_a3c5_a00d99a59da8,
-    inspectable
+    0x5cc29916_a411_5bc2_a3c5_a00d99a59da8
 );
-impl windows_core::RuntimeType for IBitmapImage {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IBitmapImage {
     pub(crate) fn SetUriSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -6734,16 +6568,11 @@ pub struct IBitmapImage_Vtbl {
     pub RemoveImageFailed:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBitmapSource,
     IBitmapSource_Vtbl,
-    0x8424269d_9b82_534f_8fea_af5b5ef96bf2,
-    inspectable
+    0x8424269d_9b82_534f_8fea_af5b5ef96bf2
 );
-impl windows_core::RuntimeType for IBitmapSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IBitmapSource {
     pub(crate) fn SetSourceAsync<P0>(
         &self,
@@ -6775,30 +6604,20 @@ pub struct IBitmapSource_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBlock,
     IBlock_Vtbl,
-    0x8149d507_672f_5fd5_a10a_351389ba9659,
-    inspectable
+    0x8149d507_672f_5fd5_a10a_351389ba9659
 );
-impl windows_core::RuntimeType for IBlock {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IBlock_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBorder,
     IBorder_Vtbl,
-    0x1ca13b47_ff5c_5abc_a411_a177df9482a9,
-    inspectable
+    0x1ca13b47_ff5c_5abc_a411_a177df9482a9
 );
-impl windows_core::RuntimeType for IBorder {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IBorder {
     pub(crate) fn SetChild<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -6834,16 +6653,11 @@ pub struct IBorder_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBorderStatics,
     IBorderStatics_Vtbl,
-    0x9385cd66_c178_5176_b4a5_160e00e93935,
-    inspectable
+    0x9385cd66_c178_5176_b4a5_160e00e93935
 );
-impl windows_core::RuntimeType for IBorderStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IBorderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6869,16 +6683,11 @@ pub struct IBorderStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBreadcrumbBar,
     IBreadcrumbBar_Vtbl,
-    0x2e47b7d6_5fbd_54c7_b0b1_ceff4a19c744,
-    inspectable
+    0x2e47b7d6_5fbd_54c7_b0b1_ceff4a19c744
 );
-impl windows_core::RuntimeType for IBreadcrumbBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IBreadcrumbBar {
     pub(crate) fn ItemClicked<F>(
         &self,
@@ -6927,16 +6736,11 @@ pub struct IBreadcrumbBar_Vtbl {
     pub RemoveItemClicked:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBreadcrumbBarFactory,
     IBreadcrumbBarFactory_Vtbl,
-    0xd5b6a6d9_3148_5cbc_a6ae_0f44cde41952,
-    inspectable
+    0xd5b6a6d9_3148_5cbc_a6ae_0f44cde41952
 );
-impl windows_core::RuntimeType for IBreadcrumbBarFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IBreadcrumbBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6947,16 +6751,11 @@ pub struct IBreadcrumbBarFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBreadcrumbBarItemClickedEventArgs,
     IBreadcrumbBarItemClickedEventArgs_Vtbl,
-    0x1ceea503_365e_580d_bcd4_e9ad0248f6b5,
-    inspectable
+    0x1ceea503_365e_580d_bcd4_e9ad0248f6b5
 );
-impl windows_core::RuntimeType for IBreadcrumbBarItemClickedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IBreadcrumbBarItemClickedEventArgs {
     pub(crate) fn Item(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
@@ -6978,16 +6777,11 @@ pub struct IBreadcrumbBarItemClickedEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBreadcrumbBarStatics,
     IBreadcrumbBarStatics_Vtbl,
-    0x4abf3fb5_6f69_54e2_a68f_e5f904f79f38,
-    inspectable
+    0x4abf3fb5_6f69_54e2_a68f_e5f904f79f38
 );
-impl windows_core::RuntimeType for IBreadcrumbBarStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IBreadcrumbBarStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6996,30 +6790,20 @@ pub struct IBreadcrumbBarStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBrush,
     IBrush_Vtbl,
-    0x2de3cb83_1329_5679_88f8_c822bc5442cb,
-    inspectable
+    0x2de3cb83_1329_5679_88f8_c822bc5442cb
 );
-impl windows_core::RuntimeType for IBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IButton,
     IButton_Vtbl,
-    0x216c183d_d07a_5aa5_b8a4_0300a2683e87,
-    inspectable
+    0x216c183d_d07a_5aa5_b8a4_0300a2683e87
 );
-impl windows_core::RuntimeType for IButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IButton {
     pub(crate) fn SetFlyout<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -7043,16 +6827,11 @@ pub struct IButton_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IButtonBase,
     IButtonBase_Vtbl,
-    0x65714269_2473_5327_a652_0ea6bce7f403,
-    inspectable
+    0x65714269_2473_5327_a652_0ea6bce7f403
 );
-impl windows_core::RuntimeType for IButtonBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IButtonBase {
     pub(crate) fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
@@ -7103,16 +6882,11 @@ pub struct IButtonBase_Vtbl {
     pub RemoveClick:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IButtonFactory,
     IButtonFactory_Vtbl,
-    0xfe393422_d91c_57b1_9a9c_2c7e3f41f77c,
-    inspectable
+    0xfe393422_d91c_57b1_9a9c_2c7e3f41f77c
 );
-impl windows_core::RuntimeType for IButtonFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7125,16 +6899,11 @@ pub struct IButtonFactory_Vtbl {
 }
 pub const ICON_BIG: i32 = 1;
 pub const ICON_SMALL: i32 = 0;
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICalendarDatePicker,
     ICalendarDatePicker_Vtbl,
-    0xe3d9faa1_0fd0_5932_a6db_ff00c003ac21,
-    inspectable
+    0xe3d9faa1_0fd0_5932_a6db_ff00c003ac21
 );
-impl windows_core::RuntimeType for ICalendarDatePicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICalendarDatePicker {
     pub(crate) fn Date(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
@@ -7256,16 +7025,11 @@ pub struct ICalendarDatePicker_Vtbl {
     pub RemoveDateChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICalendarDatePickerDateChangedEventArgs,
     ICalendarDatePickerDateChangedEventArgs_Vtbl,
-    0x57c212d7_c2f2_54a0_9d41_f263b1e5106e,
-    inspectable
+    0x57c212d7_c2f2_54a0_9d41_f263b1e5106e
 );
-impl windows_core::RuntimeType for ICalendarDatePickerDateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICalendarDatePickerDateChangedEventArgs {
     pub(crate) fn NewDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
@@ -7287,16 +7051,11 @@ pub struct ICalendarDatePickerDateChangedEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICalendarDatePickerFactory,
     ICalendarDatePickerFactory_Vtbl,
-    0xb00c7818_955a_5524_b451_93868230892f,
-    inspectable
+    0xb00c7818_955a_5524_b451_93868230892f
 );
-impl windows_core::RuntimeType for ICalendarDatePickerFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICalendarDatePickerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7307,16 +7066,11 @@ pub struct ICalendarDatePickerFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICalendarDatePickerStatics,
     ICalendarDatePickerStatics_Vtbl,
-    0xe74eb740_1aeb_591f_b84a_ef881c3b527e,
-    inspectable
+    0xe74eb740_1aeb_591f_b84a_ef881c3b527e
 );
-impl windows_core::RuntimeType for ICalendarDatePickerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICalendarDatePickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7351,16 +7105,11 @@ pub struct ICalendarDatePickerStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICalendarView,
     ICalendarView_Vtbl,
-    0xe786081e_b680_56ab_bfbb_52d5b17c365e,
-    inspectable
+    0xe786081e_b680_56ab_bfbb_52d5b17c365e
 );
-impl windows_core::RuntimeType for ICalendarView {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICalendarView {
     pub(crate) fn SelectedDatesChanged<F>(
         &self,
@@ -7566,16 +7315,11 @@ pub struct ICalendarView_Vtbl {
     pub RemoveSelectedDatesChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICalendarViewFactory,
     ICalendarViewFactory_Vtbl,
-    0x2f31d1eb_8229_517c_b3a6_5a5f28724e8f,
-    inspectable
+    0x2f31d1eb_8229_517c_b3a6_5a5f28724e8f
 );
-impl windows_core::RuntimeType for ICalendarViewFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICalendarViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7586,30 +7330,20 @@ pub struct ICalendarViewFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICalendarViewSelectedDatesChangedEventArgs,
     ICalendarViewSelectedDatesChangedEventArgs_Vtbl,
-    0x675f688f_bc30_59f6_83c4_140bd053a09a,
-    inspectable
+    0x675f688f_bc30_59f6_83c4_140bd053a09a
 );
-impl windows_core::RuntimeType for ICalendarViewSelectedDatesChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICalendarViewSelectedDatesChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICalendarViewStatics,
     ICalendarViewStatics_Vtbl,
-    0x9553e6fc_e4da_57d4_9472_7f8ed5ff7219,
-    inspectable
+    0x9553e6fc_e4da_57d4_9472_7f8ed5ff7219
 );
-impl windows_core::RuntimeType for ICalendarViewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICalendarViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7627,30 +7361,20 @@ pub struct ICalendarViewStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICanvas,
     ICanvas_Vtbl,
-    0x457ba139_1146_51d2_807e_d9d65c927060,
-    inspectable
+    0x457ba139_1146_51d2_807e_d9d65c927060
 );
-impl windows_core::RuntimeType for ICanvas {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICanvas_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICanvasFactory,
     ICanvasFactory_Vtbl,
-    0x374c5050_3481_5557_9948_804c0b8eea89,
-    inspectable
+    0x374c5050_3481_5557_9948_804c0b8eea89
 );
-impl windows_core::RuntimeType for ICanvasFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICanvasFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7661,16 +7385,11 @@ pub struct ICanvasFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICanvasStatics,
     ICanvasStatics_Vtbl,
-    0xc00d5e0f_77e3_5c59_8fcd_86761f0c6607,
-    inspectable
+    0xc00d5e0f_77e3_5c59_8fcd_86761f0c6607
 );
-impl windows_core::RuntimeType for ICanvasStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICanvasStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7685,16 +7404,11 @@ pub struct ICanvasStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICharacterReceivedRoutedEventArgs,
     ICharacterReceivedRoutedEventArgs_Vtbl,
-    0xe26ca5bb_34c3_5c1e_9a16_00b80b07a899,
-    inspectable
+    0xe26ca5bb_34c3_5c1e_9a16_00b80b07a899
 );
-impl windows_core::RuntimeType for ICharacterReceivedRoutedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICharacterReceivedRoutedEventArgs {
     pub(crate) fn Character(&self) -> windows_core::Result<u16> {
         unsafe {
@@ -7739,30 +7453,20 @@ pub struct ICharacterReceivedRoutedEventArgs_Vtbl {
     pub SetHandled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICheckBox,
     ICheckBox_Vtbl,
-    0xc5830000_4c9d_5fdd_9346_674c71cd80c5,
-    inspectable
+    0xc5830000_4c9d_5fdd_9346_674c71cd80c5
 );
-impl windows_core::RuntimeType for ICheckBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICheckBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICheckBoxFactory,
     ICheckBoxFactory_Vtbl,
-    0xf43ff58d_31d5_5835_af7b_375bc6a9bcf3,
-    inspectable
+    0xf43ff58d_31d5_5835_af7b_375bc6a9bcf3
 );
-impl windows_core::RuntimeType for ICheckBoxFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICheckBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7773,16 +7477,11 @@ pub struct ICheckBoxFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IColorChangedEventArgs,
     IColorChangedEventArgs_Vtbl,
-    0x148d57a2_b1cb_5f5d_b6b5_512805d71761,
-    inspectable
+    0x148d57a2_b1cb_5f5d_b6b5_512805d71761
 );
-impl windows_core::RuntimeType for IColorChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IColorChangedEventArgs {
     pub(crate) fn NewColor(&self) -> windows_core::Result<Color> {
         unsafe {
@@ -7802,16 +7501,11 @@ pub struct IColorChangedEventArgs_Vtbl {
     pub NewColor:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut Color) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IColorPicker,
     IColorPicker_Vtbl,
-    0xae72b24b_f93f_5a19_8ce4_a18b73c3356d,
-    inspectable
+    0xae72b24b_f93f_5a19_8ce4_a18b73c3356d
 );
-impl windows_core::RuntimeType for IColorPicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IColorPicker {
     pub(crate) fn Color(&self) -> windows_core::Result<Color> {
         unsafe {
@@ -7909,16 +7603,11 @@ pub struct IColorPicker_Vtbl {
     pub RemoveColorChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IColorPickerFactory,
     IColorPickerFactory_Vtbl,
-    0x72c350e2_0a20_5b9b_ac54_633b97d7ffde,
-    inspectable
+    0x72c350e2_0a20_5b9b_ac54_633b97d7ffde
 );
-impl windows_core::RuntimeType for IColorPickerFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IColorPickerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7929,16 +7618,11 @@ pub struct IColorPickerFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IColorPickerStatics,
     IColorPickerStatics_Vtbl,
-    0x920d2d62_172e_5771_b677_4069b5134574,
-    inspectable
+    0x920d2d62_172e_5771_b677_4069b5134574
 );
-impl windows_core::RuntimeType for IColorPickerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IColorPickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7970,16 +7654,11 @@ pub struct IColorPickerStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IColumnDefinition,
     IColumnDefinition_Vtbl,
-    0x454cea14_87ec_5890_bb62_f1d82a94758e,
-    inspectable
+    0x454cea14_87ec_5890_bb62_f1d82a94758e
 );
-impl windows_core::RuntimeType for IColumnDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IColumnDefinition {
     pub(crate) fn SetWidth(&self, value: GridLength) -> windows_core::Result<()> {
         unsafe {
@@ -8022,16 +7701,11 @@ pub struct IColumnDefinition_Vtbl {
     pub SetMinWidth:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IComboBox,
     IComboBox_Vtbl,
-    0xc77da58b_4fd7_51e0_a431_f84658a83e9e,
-    inspectable
+    0xc77da58b_4fd7_51e0_a431_f84658a83e9e
 );
-impl windows_core::RuntimeType for IComboBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IComboBox {
     pub(crate) fn SetHeader<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -8065,16 +7739,11 @@ pub struct IComboBox_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IComboBoxFactory,
     IComboBoxFactory_Vtbl,
-    0x71c1014b_acdf_5c03_b5ed_02871caaeb6b,
-    inspectable
+    0x71c1014b_acdf_5c03_b5ed_02871caaeb6b
 );
-impl windows_core::RuntimeType for IComboBoxFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IComboBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8085,16 +7754,11 @@ pub struct IComboBoxFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IComboBoxStatics,
     IComboBoxStatics_Vtbl,
-    0x7da7cd09_e256_5238_9fed_02b2f3afba25,
-    inspectable
+    0x7da7cd09_e256_5238_9fed_02b2f3afba25
 );
-impl windows_core::RuntimeType for IComboBoxStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IComboBoxStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8111,16 +7775,11 @@ pub struct IComboBoxStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICommandBar,
     ICommandBar_Vtbl,
-    0xb7ca8ee3_a07a_5f69_8ab8_be4e3e4cf0c8,
-    inspectable
+    0xb7ca8ee3_a07a_5f69_8ab8_be4e3e4cf0c8
 );
-impl windows_core::RuntimeType for ICommandBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICommandBar {
     pub(crate) fn PrimaryCommands(
         &self,
@@ -8159,16 +7818,11 @@ pub struct ICommandBar_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICommandBarElement,
     ICommandBarElement_Vtbl,
-    0xf8eb20b4_373e_5327_9942_66a1ea21f5f9,
-    inspectable
+    0xf8eb20b4_373e_5327_9942_66a1ea21f5f9
 );
-impl windows_core::RuntimeType for ICommandBarElement {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     ICommandBarElement,
     windows_core::IUnknown,
@@ -8178,16 +7832,11 @@ windows_core::imp::interface_hierarchy!(
 pub struct ICommandBarElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICommandBarFactory,
     ICommandBarFactory_Vtbl,
-    0x8d4079c3_fa0a_5bb1_b45d_499c378761b4,
-    inspectable
+    0x8d4079c3_fa0a_5bb1_b45d_499c378761b4
 );
-impl windows_core::RuntimeType for ICommandBarFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICommandBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8198,16 +7847,11 @@ pub struct ICommandBarFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICommandBarFlyout,
     ICommandBarFlyout_Vtbl,
-    0x18e2cc40_09cb_5f20_a715_f0b2039c5e18,
-    inspectable
+    0x18e2cc40_09cb_5f20_a715_f0b2039c5e18
 );
-impl windows_core::RuntimeType for ICommandBarFlyout {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICommandBarFlyout {
     pub(crate) fn PrimaryCommands(
         &self,
@@ -8246,16 +7890,11 @@ pub struct ICommandBarFlyout_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICommandBarFlyoutFactory,
     ICommandBarFlyoutFactory_Vtbl,
-    0xa194dbe6_4311_5bd2_a8eb_b49c4733a33c,
-    inspectable
+    0xa194dbe6_4311_5bd2_a8eb_b49c4733a33c
 );
-impl windows_core::RuntimeType for ICommandBarFlyoutFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICommandBarFlyoutFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8266,16 +7905,11 @@ pub struct ICommandBarFlyoutFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionObject,
     ICompositionObject_Vtbl,
-    0x0e583d49_fb5e_5481_a426_d3c41e059a5a,
-    inspectable
+    0x0e583d49_fb5e_5481_a426_d3c41e059a5a
 );
-impl windows_core::RuntimeType for ICompositionObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionObject {
     pub(crate) fn Compositor(&self) -> windows_core::Result<Compositor> {
         unsafe {
@@ -8296,30 +7930,20 @@ pub struct ICompositionObject_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionTarget,
     ICompositionTarget_Vtbl,
-    0x7d938324_e3ad_597c_93f6_520725410e68,
-    inspectable
+    0x7d938324_e3ad_597c_93f6_520725410e68
 );
-impl windows_core::RuntimeType for ICompositionTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICompositionTarget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionTargetStatics,
     ICompositionTargetStatics_Vtbl,
-    0x12a4be6f_6db1_5165_b622_d57ab782745b,
-    inspectable
+    0x12a4be6f_6db1_5165_b622_d57ab782745b
 );
-impl windows_core::RuntimeType for ICompositionTargetStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICompositionTargetStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8331,30 +7955,20 @@ pub struct ICompositionTargetStatics_Vtbl {
     pub RemoveRendering:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositor,
     ICompositor_Vtbl,
-    0x95213c13_c4cb_57de_b267_d21ab901ae38,
-    inspectable
+    0x95213c13_c4cb_57de_b267_d21ab901ae38
 );
-impl windows_core::RuntimeType for ICompositor {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICompositor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IContentControl,
     IContentControl_Vtbl,
-    0x07e81761_11b2_52ae_8f8b_4d53d2b5900a,
-    inspectable
+    0x07e81761_11b2_52ae_8f8b_4d53d2b5900a
 );
-impl windows_core::RuntimeType for IContentControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IContentControl {
     pub(crate) fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -8378,16 +7992,11 @@ pub struct IContentControl_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IContentControlFactory,
     IContentControlFactory_Vtbl,
-    0x3dea958e_5acd_5f80_8938_38634f51493a,
-    inspectable
+    0x3dea958e_5acd_5f80_8938_38634f51493a
 );
-impl windows_core::RuntimeType for IContentControlFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IContentControlFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8398,16 +8007,11 @@ pub struct IContentControlFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IContentDialog,
     IContentDialog_Vtbl,
-    0xac2145a3_4a32_5305_a81d_47509515bfce,
-    inspectable
+    0xac2145a3_4a32_5305_a81d_47509515bfce
 );
-impl windows_core::RuntimeType for IContentDialog {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IContentDialog {
     pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
@@ -8521,16 +8125,11 @@ pub struct IContentDialog_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IContentDialogClosedEventArgs,
     IContentDialogClosedEventArgs_Vtbl,
-    0x9b84e681_1ab6_5485_88b2_d0d3c05b29f3,
-    inspectable
+    0x9b84e681_1ab6_5485_88b2_d0d3c05b29f3
 );
-impl windows_core::RuntimeType for IContentDialogClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IContentDialogClosedEventArgs {
     pub(crate) fn Result(&self) -> windows_core::Result<ContentDialogResult> {
         unsafe {
@@ -8551,16 +8150,11 @@ pub struct IContentDialogClosedEventArgs_Vtbl {
         *mut ContentDialogResult,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IContentDialogFactory,
     IContentDialogFactory_Vtbl,
-    0xa05b3ad7_c60e_545a_9ee4_f098220ed816,
-    inspectable
+    0xa05b3ad7_c60e_545a_9ee4_f098220ed816
 );
-impl windows_core::RuntimeType for IContentDialogFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IContentDialogFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8571,16 +8165,11 @@ pub struct IContentDialogFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IContentDialogStatics,
     IContentDialogStatics_Vtbl,
-    0x397b18dd_6964_5056_97c3_d69cd7716a4b,
-    inspectable
+    0x397b18dd_6964_5056_97c3_d69cd7716a4b
 );
-impl windows_core::RuntimeType for IContentDialogStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IContentDialogStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8624,16 +8213,11 @@ pub struct IContentDialogStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IControl,
     IControl_Vtbl,
-    0x857d6e8a_d45a_5c69_a99c_bf6a5c54fb38,
-    inspectable
+    0x857d6e8a_d45a_5c69_a99c_bf6a5c54fb38
 );
-impl windows_core::RuntimeType for IControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IControl {
     pub(crate) fn SetIsEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
@@ -8674,16 +8258,11 @@ pub struct IControl_Vtbl {
     pub SetIsEnabled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IControlStatics,
     IControlStatics_Vtbl,
-    0xc3ae388d_aa36_5e10_acac_98415f47bcc7,
-    inspectable
+    0xc3ae388d_aa36_5e10_acac_98415f47bcc7
 );
-impl windows_core::RuntimeType for IControlStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IControlStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8727,30 +8306,20 @@ pub struct IControlStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICoreWebView2,
     ICoreWebView2_Vtbl,
-    0x3a3f559a_e5e9_5338_bb67_4eb0504a4f14,
-    inspectable
+    0x3a3f559a_e5e9_5338_bb67_4eb0504a4f14
 );
-impl windows_core::RuntimeType for ICoreWebView2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICoreWebView2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICoreWebView2InitializedEventArgs,
     ICoreWebView2InitializedEventArgs_Vtbl,
-    0xee59d277_8b2e_57ab_8631_91d27b12ebd9,
-    inspectable
+    0xee59d277_8b2e_57ab_8631_91d27b12ebd9
 );
-impl windows_core::RuntimeType for ICoreWebView2InitializedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICoreWebView2InitializedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8818,16 +8387,11 @@ pub struct IDXGISwapChain_Vtbl {
     GetLastPresentCount: usize,
 }
 pub const IDYES: i32 = 6;
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDataPackageView,
     IDataPackageView_Vtbl,
-    0x7b840471_5900_4d85_a90b_10cb85fe3552,
-    inspectable
+    0x7b840471_5900_4d85_a90b_10cb85fe3552
 );
-impl windows_core::RuntimeType for IDataPackageView {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDataPackageView {
     pub(crate) fn Contains(&self, formatid: &str) -> windows_core::Result<bool> {
         unsafe {
@@ -8895,30 +8459,20 @@ pub struct IDataPackageView_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDataTemplate,
     IDataTemplate_Vtbl,
-    0x08fa70fa_ee75_5e92_a101_f52d0e1e9fab,
-    inspectable
+    0x08fa70fa_ee75_5e92_a101_f52d0e1e9fab
 );
-impl windows_core::RuntimeType for IDataTemplate {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDataTemplate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDatePicker,
     IDatePicker_Vtbl,
-    0xca1dc351_3ae3_5247_8263_16bd516c6e72,
-    inspectable
+    0xca1dc351_3ae3_5247_8263_16bd516c6e72
 );
-impl windows_core::RuntimeType for IDatePicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDatePicker {
     pub(crate) fn SetHeader<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -9010,16 +8564,11 @@ pub struct IDatePicker_Vtbl {
     pub RemoveSelectedDateChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDatePickerFactory,
     IDatePickerFactory_Vtbl,
-    0xa16bea02_b3e0_5fdc_b5bb_25f794dc483b,
-    inspectable
+    0xa16bea02_b3e0_5fdc_b5bb_25f794dc483b
 );
-impl windows_core::RuntimeType for IDatePickerFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDatePickerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9030,16 +8579,11 @@ pub struct IDatePickerFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDatePickerSelectedValueChangedEventArgs,
     IDatePickerSelectedValueChangedEventArgs_Vtbl,
-    0x305ed436_370f_5e82_acf2_f1413e8f9ec4,
-    inspectable
+    0x305ed436_370f_5e82_acf2_f1413e8f9ec4
 );
-impl windows_core::RuntimeType for IDatePickerSelectedValueChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDatePickerSelectedValueChangedEventArgs {
     pub(crate) fn NewDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
@@ -9062,16 +8606,11 @@ pub struct IDatePickerSelectedValueChangedEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDatePickerStatics,
     IDatePickerStatics_Vtbl,
-    0x4d810253_aae7_5be1_b7a8_af451ca433e1,
-    inspectable
+    0x4d810253_aae7_5be1_b7a8_af451ca433e1
 );
-impl windows_core::RuntimeType for IDatePickerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDatePickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9092,16 +8631,11 @@ pub struct IDatePickerStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDependencyObject,
     IDependencyObject_Vtbl,
-    0xe7beaee7_160e_50f7_8789_d63463f979fa,
-    inspectable
+    0xe7beaee7_160e_50f7_8789_d63463f979fa
 );
-impl windows_core::RuntimeType for IDependencyObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDependencyObject {
     pub(crate) fn SetValue<P0, P1>(&self, dp: P0, value: P1) -> windows_core::Result<()>
     where
@@ -9194,44 +8728,29 @@ pub struct IDependencyObject_Vtbl {
         i64,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDependencyProperty,
     IDependencyProperty_Vtbl,
-    0x960eab49_9672_58a0_995b_3a42e5ea6278,
-    inspectable
+    0x960eab49_9672_58a0_995b_3a42e5ea6278
 );
-impl windows_core::RuntimeType for IDependencyProperty {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDependencyProperty_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDesktopAcrylicBackdrop,
     IDesktopAcrylicBackdrop_Vtbl,
-    0xbfd9915b_82a6_5df6_aff0_a4824ddc1143,
-    inspectable
+    0xbfd9915b_82a6_5df6_aff0_a4824ddc1143
 );
-impl windows_core::RuntimeType for IDesktopAcrylicBackdrop {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDesktopAcrylicBackdrop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDesktopAcrylicBackdropFactory,
     IDesktopAcrylicBackdropFactory_Vtbl,
-    0x00922e6d_ae51_564a_bce2_1973d5e463dd,
-    inspectable
+    0x00922e6d_ae51_564a_bce2_1973d5e463dd
 );
-impl windows_core::RuntimeType for IDesktopAcrylicBackdropFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDesktopAcrylicBackdropFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9242,16 +8761,11 @@ pub struct IDesktopAcrylicBackdropFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDesktopChildSiteBridge,
     IDesktopChildSiteBridge_Vtbl,
-    0xb2f2ff7b_1825_51b0_b80b_7599889c569f,
-    inspectable
+    0xb2f2ff7b_1825_51b0_b80b_7599889c569f
 );
-impl windows_core::RuntimeType for IDesktopChildSiteBridge {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDesktopChildSiteBridge {
     pub(crate) fn SetResizePolicy(&self, value: ContentSizePolicy) -> windows_core::Result<()> {
         unsafe {
@@ -9272,30 +8786,20 @@ pub struct IDesktopChildSiteBridge_Vtbl {
         ContentSizePolicy,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDesktopSiteBridge,
     IDesktopSiteBridge_Vtbl,
-    0xf0ae8750_905c_50a2_8a12_4545c6245bb4,
-    inspectable
+    0xf0ae8750_905c_50a2_8a12_4545c6245bb4
 );
-impl windows_core::RuntimeType for IDesktopSiteBridge {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDesktopSiteBridge_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDesktopWindowXamlSource,
     IDesktopWindowXamlSource_Vtbl,
-    0x553af92c_1381_51d6_bee0_f34beb042ea8,
-    inspectable
+    0x553af92c_1381_51d6_bee0_f34beb042ea8
 );
-impl windows_core::RuntimeType for IDesktopWindowXamlSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDesktopWindowXamlSource {
     pub(crate) fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -9352,16 +8856,11 @@ pub struct IDesktopWindowXamlSource_Vtbl {
     pub Initialize:
         unsafe extern "system" fn(*mut core::ffi::c_void, WindowId) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDesktopWindowXamlSource2,
     IDesktopWindowXamlSource2_Vtbl,
-    0xfb02b9f1_8588_5bd3_8951_4664a675d872,
-    inspectable
+    0xfb02b9f1_8588_5bd3_8951_4664a675d872
 );
-impl windows_core::RuntimeType for IDesktopWindowXamlSource2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDesktopWindowXamlSource2 {
     pub(crate) fn SetShouldConstrainPopupsToWorkArea(
         &self,
@@ -9383,16 +8882,11 @@ pub struct IDesktopWindowXamlSource2_Vtbl {
     pub SetShouldConstrainPopupsToWorkArea:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDesktopWindowXamlSourceFactory,
     IDesktopWindowXamlSourceFactory_Vtbl,
-    0x7d2db617_14e7_5d49_aeec_ae10887e595d,
-    inspectable
+    0x7d2db617_14e7_5d49_aeec_ae10887e595d
 );
-impl windows_core::RuntimeType for IDesktopWindowXamlSourceFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDesktopWindowXamlSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9403,16 +8897,11 @@ pub struct IDesktopWindowXamlSourceFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDispatcherQueue,
     IDispatcherQueue_Vtbl,
-    0xf6ebf8fa_be1c_5bf6_a467_73da28738ae8,
-    inspectable
+    0xf6ebf8fa_be1c_5bf6_a467_73da28738ae8
 );
-impl windows_core::RuntimeType for IDispatcherQueue {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDispatcherQueue {
     pub(crate) fn CreateTimer(&self) -> windows_core::Result<DispatcherQueueTimer> {
         unsafe {
@@ -9459,16 +8948,11 @@ pub struct IDispatcherQueue_Vtbl {
         *mut bool,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDispatcherQueueStatics,
     IDispatcherQueueStatics_Vtbl,
-    0xcd3382ea_a455_5124_b63a_ca40d34ca23c,
-    inspectable
+    0xcd3382ea_a455_5124_b63a_ca40d34ca23c
 );
-impl windows_core::RuntimeType for IDispatcherQueueStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDispatcherQueueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9477,16 +8961,11 @@ pub struct IDispatcherQueueStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDispatcherQueueTimer,
     IDispatcherQueueTimer_Vtbl,
-    0xad4d63fd_88fe_541f_ac11_bf2dc1ed2ce5,
-    inspectable
+    0xad4d63fd_88fe_541f_ac11_bf2dc1ed2ce5
 );
-impl windows_core::RuntimeType for IDispatcherQueueTimer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDispatcherQueueTimer {
     pub(crate) fn SetInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe {
@@ -9567,16 +9046,11 @@ pub struct IDispatcherQueueTimer_Vtbl {
     ) -> windows_core::HRESULT,
     pub RemoveTick: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDragEventArgs,
     IDragEventArgs_Vtbl,
-    0x47ac5757_e4bc_52ba_8ab9_1bf81aad7900,
-    inspectable
+    0x47ac5757_e4bc_52ba_8ab9_1bf81aad7900
 );
-impl windows_core::RuntimeType for IDragEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDragEventArgs {
     pub(crate) fn DataView(&self) -> windows_core::Result<DataPackageView> {
         unsafe {
@@ -9648,30 +9122,20 @@ pub struct IDragEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDragItemsCompletedEventArgs,
     IDragItemsCompletedEventArgs_Vtbl,
-    0xc0138552_f467_5c3e_8af4_593607762844,
-    inspectable
+    0xc0138552_f467_5c3e_8af4_593607762844
 );
-impl windows_core::RuntimeType for IDragItemsCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDragItemsCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDragOperationDeferral,
     IDragOperationDeferral_Vtbl,
-    0x462c1880_fc6a_5035_8abf_564bacb78158,
-    inspectable
+    0x462c1880_fc6a_5035_8abf_564bacb78158
 );
-impl windows_core::RuntimeType for IDragOperationDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDragOperationDeferral {
     pub(crate) fn Complete(&self) -> windows_core::Result<()> {
         unsafe {
@@ -9685,16 +9149,11 @@ pub struct IDragOperationDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDragUIOverride,
     IDragUIOverride_Vtbl,
-    0x3260b18b_70df_5df2_b98a_56beb0601f79,
-    inspectable
+    0x3260b18b_70df_5df2_b98a_56beb0601f79
 );
-impl windows_core::RuntimeType for IDragUIOverride {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IDragUIOverride {
     pub(crate) fn SetCaption(&self, value: &str) -> windows_core::Result<()> {
         unsafe {
@@ -9729,30 +9188,20 @@ pub struct IDragUIOverride_Vtbl {
     pub SetIsCaptionVisible:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDropDownButton,
     IDropDownButton_Vtbl,
-    0xc1e9fa91_4f95_5796_8a7b_3b7594a12c69,
-    inspectable
+    0xc1e9fa91_4f95_5796_8a7b_3b7594a12c69
 );
-impl windows_core::RuntimeType for IDropDownButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDropDownButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDropDownButtonFactory,
     IDropDownButtonFactory_Vtbl,
-    0x7cf3e13b_668d_57e7_b5d6_f5ca3dbc80bd,
-    inspectable
+    0x7cf3e13b_668d_57e7_b5d6_f5ca3dbc80bd
 );
-impl windows_core::RuntimeType for IDropDownButtonFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDropDownButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9763,30 +9212,20 @@ pub struct IDropDownButtonFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IElementCompositionPreview,
     IElementCompositionPreview_Vtbl,
-    0xc8ad1ef4_a93f_5a25_85bd_7c498d9856d3,
-    inspectable
+    0xc8ad1ef4_a93f_5a25_85bd_7c498d9856d3
 );
-impl windows_core::RuntimeType for IElementCompositionPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IElementCompositionPreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IElementCompositionPreviewStatics,
     IElementCompositionPreviewStatics_Vtbl,
-    0x84da5a6c_0cfa_532b_9b15_ccd986374342,
-    inspectable
+    0x84da5a6c_0cfa_532b_9b15_ccd986374342
 );
-impl windows_core::RuntimeType for IElementCompositionPreviewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IElementCompositionPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9802,18 +9241,12 @@ pub struct IElementCompositionPreviewStatics_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IElementFactory,
     IElementFactory_Vtbl,
     0x75faba47_2cf2_54ae_91e6_0581556fddaa,
-    inspectable
+    b"Microsoft.UI.Xaml.IElementFactory"
 );
-impl windows_core::RuntimeType for IElementFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Microsoft.UI.Xaml.IElementFactory");
-}
 windows_core::imp::interface_hierarchy!(
     IElementFactory,
     windows_core::IUnknown,
@@ -9894,16 +9327,11 @@ pub struct IElementFactory_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IElementFactoryGetArgs,
     IElementFactoryGetArgs_Vtbl,
-    0xb7017d68_ec9e_5435_b078_be6f906f0953,
-    inspectable
+    0xb7017d68_ec9e_5435_b078_be6f906f0953
 );
-impl windows_core::RuntimeType for IElementFactoryGetArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IElementFactoryGetArgs {
     pub(crate) fn Data(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
@@ -9924,16 +9352,11 @@ pub struct IElementFactoryGetArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IElementFactoryRecycleArgs,
     IElementFactoryRecycleArgs_Vtbl,
-    0x46e444f7_05d3_5c5e_9b7a_5541f63e4ef9,
-    inspectable
+    0x46e444f7_05d3_5c5e_9b7a_5541f63e4ef9
 );
-impl windows_core::RuntimeType for IElementFactoryRecycleArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IElementFactoryRecycleArgs {
     pub(crate) fn Element(&self) -> windows_core::Result<UIElement> {
         unsafe {
@@ -9954,44 +9377,29 @@ pub struct IElementFactoryRecycleArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IEllipse,
     IEllipse_Vtbl,
-    0x805c39aa_fa8a_5e0b_9847_4ab81b42a3df,
-    inspectable
+    0x805c39aa_fa8a_5e0b_9847_4ab81b42a3df
 );
-impl windows_core::RuntimeType for IEllipse {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IEllipse_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IExceptionRoutedEventArgs,
     IExceptionRoutedEventArgs_Vtbl,
-    0xe8bcb6d2_d3f5_5393_a84f_dfcd44a2df34,
-    inspectable
+    0xe8bcb6d2_d3f5_5393_a84f_dfcd44a2df34
 );
-impl windows_core::RuntimeType for IExceptionRoutedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IExceptionRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IExpandCollapseProvider,
     IExpandCollapseProvider_Vtbl,
-    0x6cef349c_b181_5d0b_b297_c3b0166120c3,
-    inspectable
+    0x6cef349c_b181_5d0b_b297_c3b0166120c3
 );
-impl windows_core::RuntimeType for IExpandCollapseProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IExpandCollapseProvider,
     windows_core::IUnknown,
@@ -10024,16 +9432,11 @@ pub struct IExpandCollapseProvider_Vtbl {
     ) -> windows_core::HRESULT,
     pub Collapse: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IExpander,
     IExpander_Vtbl,
-    0xca633942_e584_55c2_b7ee_cffc73c8127a,
-    inspectable
+    0xca633942_e584_55c2_b7ee_cffc73c8127a
 );
-impl windows_core::RuntimeType for IExpander {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IExpander {
     pub(crate) fn SetHeader<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -10073,16 +9476,11 @@ pub struct IExpander_Vtbl {
     pub IsExpanded:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IExpanderFactory,
     IExpanderFactory_Vtbl,
-    0x51a5afc2_b16d_516e_83ae_5a10476b13af,
-    inspectable
+    0x51a5afc2_b16d_516e_83ae_5a10476b13af
 );
-impl windows_core::RuntimeType for IExpanderFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IExpanderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10093,16 +9491,11 @@ pub struct IExpanderFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IExpanderStatics,
     IExpanderStatics_Vtbl,
-    0xb742c27b_c023_5096_8c2a_717d324afb7e,
-    inspectable
+    0xb742c27b_c023_5096_8c2a_717d324afb7e
 );
-impl windows_core::RuntimeType for IExpanderStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IExpanderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10114,30 +9507,20 @@ pub struct IExpanderStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFlipView,
     IFlipView_Vtbl,
-    0x96c35e7f_cc48_5acc_b3b4_8ab4bdf1fe17,
-    inspectable
+    0x96c35e7f_cc48_5acc_b3b4_8ab4bdf1fe17
 );
-impl windows_core::RuntimeType for IFlipView {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFlipView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFlipViewFactory,
     IFlipViewFactory_Vtbl,
-    0xf3a89be6_81e3_53c4_9dc9_98a5a4e79b13,
-    inspectable
+    0xf3a89be6_81e3_53c4_9dc9_98a5a4e79b13
 );
-impl windows_core::RuntimeType for IFlipViewFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFlipViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10148,16 +9531,11 @@ pub struct IFlipViewFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFlyout,
     IFlyout_Vtbl,
-    0xd4a1eb7d_59b8_5df9_87c3_bd5e3856923f,
-    inspectable
+    0xd4a1eb7d_59b8_5df9_87c3_bd5e3856923f
 );
-impl windows_core::RuntimeType for IFlyout {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IFlyout {
     pub(crate) fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -10181,16 +9559,11 @@ pub struct IFlyout_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFlyoutBase,
     IFlyoutBase_Vtbl,
-    0xbb6603bf_744d_5c31_a87d_744394634d77,
-    inspectable
+    0xbb6603bf_744d_5c31_a87d_744394634d77
 );
-impl windows_core::RuntimeType for IFlyoutBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IFlyoutBase {
     pub(crate) fn SetPlacement(&self, value: FlyoutPlacementMode) -> windows_core::Result<()> {
         unsafe {
@@ -10326,16 +9699,11 @@ pub struct IFlyoutBase_Vtbl {
     ShowAtWithOptions: usize,
     pub Hide: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFlyoutFactory,
     IFlyoutFactory_Vtbl,
-    0xfd19002e_66b3_5656_b49c_b2aca11e9602,
-    inspectable
+    0xfd19002e_66b3_5656_b49c_b2aca11e9602
 );
-impl windows_core::RuntimeType for IFlyoutFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFlyoutFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10346,30 +9714,20 @@ pub struct IFlyoutFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFontFamily,
     IFontFamily_Vtbl,
-    0x18fa5bc1_7294_527c_bb02_b213e0b3a2a3,
-    inspectable
+    0x18fa5bc1_7294_527c_bb02_b213e0b3a2a3
 );
-impl windows_core::RuntimeType for IFontFamily {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFontFamily_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFontFamilyFactory,
     IFontFamilyFactory_Vtbl,
-    0x61b88a77_d0f9_5e9e_8c28_eda01fede22e,
-    inspectable
+    0x61b88a77_d0f9_5e9e_8c28_eda01fede22e
 );
-impl windows_core::RuntimeType for IFontFamilyFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFontFamilyFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10381,16 +9739,11 @@ pub struct IFontFamilyFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFontIcon,
     IFontIcon_Vtbl,
-    0x6eba5ed9_d233_5f5e_91a8_f5134292658a,
-    inspectable
+    0x6eba5ed9_d233_5f5e_91a8_f5134292658a
 );
-impl windows_core::RuntimeType for IFontIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IFontIcon {
     pub(crate) fn SetGlyph(&self, value: &str) -> windows_core::Result<()> {
         unsafe {
@@ -10411,16 +9764,11 @@ pub struct IFontIcon_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFontIconFactory,
     IFontIconFactory_Vtbl,
-    0xaa9a24fe_bef8_564a_b200_694cd6f6ba4e,
-    inspectable
+    0xaa9a24fe_bef8_564a_b200_694cd6f6ba4e
 );
-impl windows_core::RuntimeType for IFontIconFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFontIconFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10431,16 +9779,11 @@ pub struct IFontIconFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFontIconSource,
     IFontIconSource_Vtbl,
-    0xb89d614c_e9b5_5b6a_9bec_ad78b1a14b74,
-    inspectable
+    0xb89d614c_e9b5_5b6a_9bec_ad78b1a14b74
 );
-impl windows_core::RuntimeType for IFontIconSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IFontIconSource {
     pub(crate) fn SetGlyph(&self, value: &str) -> windows_core::Result<()> {
         unsafe {
@@ -10461,16 +9804,11 @@ pub struct IFontIconSource_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFontIconSourceFactory,
     IFontIconSourceFactory_Vtbl,
-    0xbb40eeee_64d1_5133_b1d6_ae13c21b6678,
-    inspectable
+    0xbb40eeee_64d1_5133_b1d6_ae13c21b6678
 );
-impl windows_core::RuntimeType for IFontIconSourceFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFontIconSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10481,16 +9819,11 @@ pub struct IFontIconSourceFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFontIconStatics,
     IFontIconStatics_Vtbl,
-    0x55564030_2f80_5be5_8c2a_ebb6ecba07e8,
-    inspectable
+    0x55564030_2f80_5be5_8c2a_ebb6ecba07e8
 );
-impl windows_core::RuntimeType for IFontIconStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFontIconStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10503,16 +9836,11 @@ pub struct IFontIconStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFrameworkElement,
     IFrameworkElement_Vtbl,
-    0xfe08f13d_dc6a_5495_ad44_c2d8d21863b0,
-    inspectable
+    0xfe08f13d_dc6a_5495_ad44_c2d8d21863b0
 );
-impl windows_core::RuntimeType for IFrameworkElement {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IFrameworkElement {
     pub(crate) fn Resources(&self) -> windows_core::Result<ResourceDictionary> {
         unsafe {
@@ -10862,30 +10190,20 @@ pub struct IFrameworkElement_Vtbl {
     pub RemoveActualThemeChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFrameworkElementAutomationPeer,
     IFrameworkElementAutomationPeer_Vtbl,
-    0x7dab4f24_605c_51cb_87db_3eed1b9fb37b,
-    inspectable
+    0x7dab4f24_605c_51cb_87db_3eed1b9fb37b
 );
-impl windows_core::RuntimeType for IFrameworkElementAutomationPeer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFrameworkElementAutomationPeer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFrameworkElementAutomationPeerStatics,
     IFrameworkElementAutomationPeerStatics_Vtbl,
-    0x081f6fbe_6500_528a_a506_f5a4d41ddf6c,
-    inspectable
+    0x081f6fbe_6500_528a_a506_f5a4d41ddf6c
 );
-impl windows_core::RuntimeType for IFrameworkElementAutomationPeerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFrameworkElementAutomationPeerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10896,16 +10214,11 @@ pub struct IFrameworkElementAutomationPeerStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFrameworkElementStatics,
     IFrameworkElementStatics_Vtbl,
-    0x894e2704_14e7_569a_b21e_afc7df7145a1,
-    inspectable
+    0x894e2704_14e7_569a_b21e_afc7df7145a1
 );
-impl windows_core::RuntimeType for IFrameworkElementStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFrameworkElementStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10959,44 +10272,29 @@ pub struct IFrameworkElementStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IFrameworkTemplate,
     IFrameworkTemplate_Vtbl,
-    0x0084c7c2_de48_5b0b_8a5a_e4fb76b7f7d1,
-    inspectable
+    0x0084c7c2_de48_5b0b_8a5a_e4fb76b7f7d1
 );
-impl windows_core::RuntimeType for IFrameworkTemplate {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IFrameworkTemplate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IGeometry,
     IGeometry_Vtbl,
-    0xdc102dcc_3be2_5414_8599_94b6e76ef39b,
-    inspectable
+    0xdc102dcc_3be2_5414_8599_94b6e76ef39b
 );
-impl windows_core::RuntimeType for IGeometry {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IGrid,
     IGrid_Vtbl,
-    0xc4496219_9014_58a1_b4ad_c5044913a5bb,
-    inspectable
+    0xc4496219_9014_58a1_b4ad_c5044913a5bb
 );
-impl windows_core::RuntimeType for IGrid {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IGrid {
     pub(crate) fn RowDefinitions(&self) -> windows_core::Result<RowDefinitionCollection> {
         unsafe {
@@ -11031,16 +10329,11 @@ pub struct IGrid_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IGridFactory,
     IGridFactory_Vtbl,
-    0xb16bf561_fc6c_57c6_8ebc_0b06ce4513aa,
-    inspectable
+    0xb16bf561_fc6c_57c6_8ebc_0b06ce4513aa
 );
-impl windows_core::RuntimeType for IGridFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IGridFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11051,16 +10344,11 @@ pub struct IGridFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IGridStatics,
     IGridStatics_Vtbl,
-    0xef9cf81d_a431_50f4_abf5_3023fe447704,
-    inspectable
+    0xef9cf81d_a431_50f4_abf5_3023fe447704
 );
-impl windows_core::RuntimeType for IGridStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IGridStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11100,30 +10388,20 @@ pub struct IGridStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IGridView,
     IGridView_Vtbl,
-    0xd495f2fa_594d_5170_b1e8_8629a179f9fb,
-    inspectable
+    0xd495f2fa_594d_5170_b1e8_8629a179f9fb
 );
-impl windows_core::RuntimeType for IGridView {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IGridView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IGridViewFactory,
     IGridViewFactory_Vtbl,
-    0x892947ea_6b86_5f17_a9b8_2121b2251271,
-    inspectable
+    0x892947ea_6b86_5f17_a9b8_2121b2251271
 );
-impl windows_core::RuntimeType for IGridViewFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IGridViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11134,30 +10412,20 @@ pub struct IGridViewFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IGridViewItem,
     IGridViewItem_Vtbl,
-    0x9debb4a5_e7b7_5a41_a1ee_f77d8a7b0023,
-    inspectable
+    0x9debb4a5_e7b7_5a41_a1ee_f77d8a7b0023
 );
-impl windows_core::RuntimeType for IGridViewItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IGridViewItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IGridViewItemFactory,
     IGridViewItemFactory_Vtbl,
-    0x96a56215_230c_5efb_8401_0ce01617c657,
-    inspectable
+    0x96a56215_230c_5efb_8401_0ce01617c657
 );
-impl windows_core::RuntimeType for IGridViewItemFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IGridViewItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11168,16 +10436,11 @@ pub struct IGridViewItemFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IHyperlink,
     IHyperlink_Vtbl,
-    0xac09bd16_cdfa_54c2_8d03_a474181545b1,
-    inspectable
+    0xac09bd16_cdfa_54c2_8d03_a474181545b1
 );
-impl windows_core::RuntimeType for IHyperlink {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IHyperlink {
     pub(crate) fn SetNavigateUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -11201,30 +10464,20 @@ pub struct IHyperlink_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IHyperlinkButton,
     IHyperlinkButton_Vtbl,
-    0x6dbee605_8df0_50cc_9a42_250eb138f0c6,
-    inspectable
+    0x6dbee605_8df0_50cc_9a42_250eb138f0c6
 );
-impl windows_core::RuntimeType for IHyperlinkButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IHyperlinkButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IHyperlinkButtonFactory,
     IHyperlinkButtonFactory_Vtbl,
-    0x01f775ea_c5ed_514a_a23d_89c494a8f09d,
-    inspectable
+    0x01f775ea_c5ed_514a_a23d_89c494a8f09d
 );
-impl windows_core::RuntimeType for IHyperlinkButtonFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IHyperlinkButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11235,16 +10488,11 @@ pub struct IHyperlinkButtonFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IHyperlinkButtonStatics,
     IHyperlinkButtonStatics_Vtbl,
-    0xab5c7b77_7c4c_5b26_9c7c_763f8d95258e,
-    inspectable
+    0xab5c7b77_7c4c_5b26_9c7c_763f8d95258e
 );
-impl windows_core::RuntimeType for IHyperlinkButtonStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IHyperlinkButtonStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11254,30 +10502,20 @@ pub struct IHyperlinkButtonStatics_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub type IID = windows_core::GUID;
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IIconElement,
     IIconElement_Vtbl,
-    0x18f69350_279e_50ea_8d23_138e717ed939,
-    inspectable
+    0x18f69350_279e_50ea_8d23_138e717ed939
 );
-impl windows_core::RuntimeType for IIconElement {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IIconElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IIconElementStatics,
     IIconElementStatics_Vtbl,
-    0x4ccfdc81_9d9d_5a02_b95b_ad1add921750,
-    inspectable
+    0x4ccfdc81_9d9d_5a02_b95b_ad1add921750
 );
-impl windows_core::RuntimeType for IIconElementStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IIconElementStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11286,30 +10524,20 @@ pub struct IIconElementStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IIconSource,
     IIconSource_Vtbl,
-    0x39e6b320_a2af_5ee3_b7e9_4ba4aa80541a,
-    inspectable
+    0x39e6b320_a2af_5ee3_b7e9_4ba4aa80541a
 );
-impl windows_core::RuntimeType for IIconSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IIconSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IImage,
     IImage_Vtbl,
-    0x220d3d8d_66de_53a1_a215_ba9c165565ab,
-    inspectable
+    0x220d3d8d_66de_53a1_a215_ba9c165565ab
 );
-impl windows_core::RuntimeType for IImage {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IImage {
     pub(crate) fn SetSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -11417,16 +10645,11 @@ pub struct IImage_Vtbl {
     pub RemoveImageOpened:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IImageIcon,
     IImageIcon_Vtbl,
-    0x78a7b526_e635_59c6_93a1_d7e3c2fac6d5,
-    inspectable
+    0x78a7b526_e635_59c6_93a1_d7e3c2fac6d5
 );
-impl windows_core::RuntimeType for IImageIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IImageIcon {
     pub(crate) fn SetSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -11450,16 +10673,11 @@ pub struct IImageIcon_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IImageIconFactory,
     IImageIconFactory_Vtbl,
-    0x235e0279_a7d0_5fda_a308_9b7cb9c4c912,
-    inspectable
+    0x235e0279_a7d0_5fda_a308_9b7cb9c4c912
 );
-impl windows_core::RuntimeType for IImageIconFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IImageIconFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11470,16 +10688,11 @@ pub struct IImageIconFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IImageIconSource,
     IImageIconSource_Vtbl,
-    0x67f75be0_c84d_57ff_9f68_039c81ea7896,
-    inspectable
+    0x67f75be0_c84d_57ff_9f68_039c81ea7896
 );
-impl windows_core::RuntimeType for IImageIconSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IImageIconSource {
     pub(crate) fn SetImageSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -11503,16 +10716,11 @@ pub struct IImageIconSource_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IImageIconSourceFactory,
     IImageIconSourceFactory_Vtbl,
-    0x24f76321_71bd_530a_8cc8_3f615cd1437a,
-    inspectable
+    0x24f76321_71bd_530a_8cc8_3f615cd1437a
 );
-impl windows_core::RuntimeType for IImageIconSourceFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IImageIconSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11523,16 +10731,11 @@ pub struct IImageIconSourceFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IImageIconStatics,
     IImageIconStatics_Vtbl,
-    0x6bd31828_f8f9_5d86_80d5_e7423546da7d,
-    inspectable
+    0x6bd31828_f8f9_5d86_80d5_e7423546da7d
 );
-impl windows_core::RuntimeType for IImageIconStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IImageIconStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11541,30 +10744,20 @@ pub struct IImageIconStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IImageSource,
     IImageSource_Vtbl,
-    0x6c2038f6_d6d5_55e9_9b9e_082f12dbff60,
-    inspectable
+    0x6c2038f6_d6d5_55e9_9b9e_082f12dbff60
 );
-impl windows_core::RuntimeType for IImageSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IImageSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IImageStatics,
     IImageStatics_Vtbl,
-    0xcb5378a8_996b_547e_9c4c_7bbfd9dbe7dc,
-    inspectable
+    0xcb5378a8_996b_547e_9c4c_7bbfd9dbe7dc
 );
-impl windows_core::RuntimeType for IImageStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IImageStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11577,30 +10770,20 @@ pub struct IImageStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IInfoBadge,
     IInfoBadge_Vtbl,
-    0x82104d7f_03d4_5ea4_872e_f9ecab758601,
-    inspectable
+    0x82104d7f_03d4_5ea4_872e_f9ecab758601
 );
-impl windows_core::RuntimeType for IInfoBadge {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IInfoBadge_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IInfoBadgeFactory,
     IInfoBadgeFactory_Vtbl,
-    0xfb498205_2de0_5986_8aec_2c46ac235087,
-    inspectable
+    0xfb498205_2de0_5986_8aec_2c46ac235087
 );
-impl windows_core::RuntimeType for IInfoBadgeFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IInfoBadgeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11611,16 +10794,11 @@ pub struct IInfoBadgeFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IInfoBadgeStatics,
     IInfoBadgeStatics_Vtbl,
-    0xb0160061_b463_54de_81ac_64f390d4f25d,
-    inspectable
+    0xb0160061_b463_54de_81ac_64f390d4f25d
 );
-impl windows_core::RuntimeType for IInfoBadgeStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IInfoBadgeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11629,16 +10807,11 @@ pub struct IInfoBadgeStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IInfoBar,
     IInfoBar_Vtbl,
-    0xc1c3a438_dd79_5d22_9e42_5a3cdf8113a9,
-    inspectable
+    0xc1c3a438_dd79_5d22_9e42_5a3cdf8113a9
 );
-impl windows_core::RuntimeType for IInfoBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IInfoBar {
     pub(crate) fn IsOpen(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -11726,16 +10899,11 @@ pub struct IInfoBar_Vtbl {
     pub RemoveClosed:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IInfoBarClosedEventArgs,
     IInfoBarClosedEventArgs_Vtbl,
-    0x593af0b3_bded_53da_8f56_80ed3c64322c,
-    inspectable
+    0x593af0b3_bded_53da_8f56_80ed3c64322c
 );
-impl windows_core::RuntimeType for IInfoBarClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IInfoBarClosedEventArgs {
     pub(crate) fn Reason(&self) -> windows_core::Result<InfoBarCloseReason> {
         unsafe {
@@ -11756,16 +10924,11 @@ pub struct IInfoBarClosedEventArgs_Vtbl {
         *mut InfoBarCloseReason,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IInfoBarFactory,
     IInfoBarFactory_Vtbl,
-    0x60618a60_9be7_5df5_be0d_933d34ddb44c,
-    inspectable
+    0x60618a60_9be7_5df5_be0d_933d34ddb44c
 );
-impl windows_core::RuntimeType for IInfoBarFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IInfoBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11776,16 +10939,11 @@ pub struct IInfoBarFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IInfoBarStatics,
     IInfoBarStatics_Vtbl,
-    0x5fb1e80d_ea5d_57ba_9915_b6782b982aca,
-    inspectable
+    0x5fb1e80d_ea5d_57ba_9915_b6782b982aca
 );
-impl windows_core::RuntimeType for IInfoBarStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IInfoBarStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11812,30 +10970,20 @@ pub struct IInfoBarStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IInline,
     IInline_Vtbl,
-    0x813d427a_8980_5a79_a8fa_f27919cfb24f,
-    inspectable
+    0x813d427a_8980_5a79_a8fa_f27919cfb24f
 );
-impl windows_core::RuntimeType for IInline {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IInline_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IItemContainer,
     IItemContainer_Vtbl,
-    0x6332a67f_7fd9_53c7_afd8_cfa1237cf6d1,
-    inspectable
+    0x6332a67f_7fd9_53c7_afd8_cfa1237cf6d1
 );
-impl windows_core::RuntimeType for IItemContainer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IItemContainer {
     pub(crate) fn IsSelected(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -11856,16 +11004,11 @@ pub struct IItemContainer_Vtbl {
     pub IsSelected:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IItemContainerStatics,
     IItemContainerStatics_Vtbl,
-    0xe26e121d_b7bf_5632_85a2_f36040e649f8,
-    inspectable
+    0xe26e121d_b7bf_5632_85a2_f36040e649f8
 );
-impl windows_core::RuntimeType for IItemContainerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IItemContainerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11875,16 +11018,11 @@ pub struct IItemContainerStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IItemsControl,
     IItemsControl_Vtbl,
-    0xbf1ccb54_83e2_5b98_acbc_736f876c3d35,
-    inspectable
+    0xbf1ccb54_83e2_5b98_acbc_736f876c3d35
 );
-impl windows_core::RuntimeType for IItemsControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IItemsControl {
     pub(crate) fn Items(&self) -> windows_core::Result<ItemCollection> {
         unsafe {
@@ -11924,16 +11062,11 @@ pub struct IItemsControl_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IItemsControlStatics,
     IItemsControlStatics_Vtbl,
-    0x4fb961e1_5f91_5585_a692_6825cde3ed1e,
-    inspectable
+    0x4fb961e1_5f91_5585_a692_6825cde3ed1e
 );
-impl windows_core::RuntimeType for IItemsControlStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IItemsControlStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11942,16 +11075,11 @@ pub struct IItemsControlStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IItemsRepeater,
     IItemsRepeater_Vtbl,
-    0x9dabac84_fe81_53d1_a041_7a3befea505f,
-    inspectable
+    0x9dabac84_fe81_53d1_a041_7a3befea505f
 );
-impl windows_core::RuntimeType for IItemsRepeater {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IItemsRepeater {
     pub(crate) fn SetItemsSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -11993,16 +11121,11 @@ pub struct IItemsRepeater_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IItemsRepeaterFactory,
     IItemsRepeaterFactory_Vtbl,
-    0xc3c1f244_67a8_568f_a6f7_5da8b0eadd49,
-    inspectable
+    0xc3c1f244_67a8_568f_a6f7_5da8b0eadd49
 );
-impl windows_core::RuntimeType for IItemsRepeaterFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IItemsRepeaterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12013,18 +11136,12 @@ pub struct IItemsRepeaterFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IKeyIndexMapping,
     IKeyIndexMapping_Vtbl,
     0xb1f3bba0_108e_560d_9681_26391b4bc30d,
-    inspectable
+    b"Microsoft.UI.Xaml.Controls.IKeyIndexMapping"
 );
-impl windows_core::RuntimeType for IKeyIndexMapping {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Microsoft.UI.Xaml.Controls.IKeyIndexMapping");
-}
 windows_core::imp::interface_hierarchy!(
     IKeyIndexMapping,
     windows_core::IUnknown,
@@ -12110,16 +11227,11 @@ pub struct IKeyIndexMapping_Vtbl {
         *mut i32,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IKeyRoutedEventArgs,
     IKeyRoutedEventArgs_Vtbl,
-    0xee357007_a2d6_5c75_9431_05fd66ec7915,
-    inspectable
+    0xee357007_a2d6_5c75_9431_05fd66ec7915
 );
-impl windows_core::RuntimeType for IKeyRoutedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IKeyRoutedEventArgs {
     pub(crate) fn Key(&self) -> windows_core::Result<VirtualKey> {
         unsafe {
@@ -12176,16 +11288,11 @@ pub struct IKeyRoutedEventArgs_Vtbl {
     pub OriginalKey:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut VirtualKey) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IKeyboardAccelerator,
     IKeyboardAccelerator_Vtbl,
-    0x6f8bf1e2_4e91_5cf9_a6be_4770caf3d770,
-    inspectable
+    0x6f8bf1e2_4e91_5cf9_a6be_4770caf3d770
 );
-impl windows_core::RuntimeType for IKeyboardAccelerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IKeyboardAccelerator {
     pub(crate) fn SetKey(&self, value: VirtualKey) -> windows_core::Result<()> {
         unsafe {
@@ -12268,16 +11375,11 @@ pub struct IKeyboardAccelerator_Vtbl {
     pub RemoveInvoked:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IKeyboardAcceleratorFactory,
     IKeyboardAcceleratorFactory_Vtbl,
-    0xca1d410a_af2a_51b9_a1de_6c0af9f3b598,
-    inspectable
+    0xca1d410a_af2a_51b9_a1de_6c0af9f3b598
 );
-impl windows_core::RuntimeType for IKeyboardAcceleratorFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IKeyboardAcceleratorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12288,16 +11390,11 @@ pub struct IKeyboardAcceleratorFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IKeyboardAcceleratorInvokedEventArgs,
     IKeyboardAcceleratorInvokedEventArgs_Vtbl,
-    0x62c9fdb0_b574_527d_97eb_5c7f674441e0,
-    inspectable
+    0x62c9fdb0_b574_527d_97eb_5c7f674441e0
 );
-impl windows_core::RuntimeType for IKeyboardAcceleratorInvokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IKeyboardAcceleratorInvokedEventArgs {
     pub(crate) fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
@@ -12316,44 +11413,29 @@ pub struct IKeyboardAcceleratorInvokedEventArgs_Vtbl {
     pub SetHandled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ILaunchActivatedEventArgs,
     ILaunchActivatedEventArgs_Vtbl,
-    0xd505cea9_1bcb_5b29_a8be_944e00f06f78,
-    inspectable
+    0xd505cea9_1bcb_5b29_a8be_944e00f06f78
 );
-impl windows_core::RuntimeType for ILaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ILayoutInformation,
     ILayoutInformation_Vtbl,
-    0xceea0a8c_5a4f_5d7a_8fea_77b5e0e0230c,
-    inspectable
+    0xceea0a8c_5a4f_5d7a_8fea_77b5e0e0230c
 );
-impl windows_core::RuntimeType for ILayoutInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ILayoutInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ILayoutInformationStatics,
     ILayoutInformationStatics_Vtbl,
-    0x8ddb192d_b7ff_5307_acf4_d4e547da5815,
-    inspectable
+    0x8ddb192d_b7ff_5307_acf4_d4e547da5815
 );
-impl windows_core::RuntimeType for ILayoutInformationStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ILayoutInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12365,44 +11447,29 @@ pub struct ILayoutInformationStatics_Vtbl {
         *mut Size,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ILine,
     ILine_Vtbl,
-    0x507b3858_af7e_559b_a87e_4cc6a5d8ba96,
-    inspectable
+    0x507b3858_af7e_559b_a87e_4cc6a5d8ba96
 );
-impl windows_core::RuntimeType for ILine {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ILine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ILineBreak,
     ILineBreak_Vtbl,
-    0x09307599_7cc2_5f54_b106_728620c16f76,
-    inspectable
+    0x09307599_7cc2_5f54_b106_728620c16f76
 );
-impl windows_core::RuntimeType for ILineBreak {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ILineBreak_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ILineStatics,
     ILineStatics_Vtbl,
-    0xa425bf93_f1f3_5dcb_997e_b6a26f7ae8c0,
-    inspectable
+    0xa425bf93_f1f3_5dcb_997e_b6a26f7ae8c0
 );
-impl windows_core::RuntimeType for ILineStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ILineStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12423,30 +11490,20 @@ pub struct ILineStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IListBox,
     IListBox_Vtbl,
-    0xf3e7dedf_7a3c_59f1_9e05_ae5026b54293,
-    inspectable
+    0xf3e7dedf_7a3c_59f1_9e05_ae5026b54293
 );
-impl windows_core::RuntimeType for IListBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IListBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IListBoxFactory,
     IListBoxFactory_Vtbl,
-    0xd048e0bc_4692_5c60_b2e9_07c4433ce050,
-    inspectable
+    0xd048e0bc_4692_5c60_b2e9_07c4433ce050
 );
-impl windows_core::RuntimeType for IListBoxFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IListBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12457,30 +11514,20 @@ pub struct IListBoxFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IListBoxItem,
     IListBoxItem_Vtbl,
-    0xcc67fb35_04f1_5ead_96c5_b2ea67b225c6,
-    inspectable
+    0xcc67fb35_04f1_5ead_96c5_b2ea67b225c6
 );
-impl windows_core::RuntimeType for IListBoxItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IListBoxItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IListBoxItemFactory,
     IListBoxItemFactory_Vtbl,
-    0x8e9e0e6d_4597_5efa_94bc_7ffadc264c28,
-    inspectable
+    0x8e9e0e6d_4597_5efa_94bc_7ffadc264c28
 );
-impl windows_core::RuntimeType for IListBoxItemFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IListBoxItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12491,30 +11538,20 @@ pub struct IListBoxItemFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IListView,
     IListView_Vtbl,
-    0xf6015db1_df63_52fd_a164_0df44715ee0a,
-    inspectable
+    0xf6015db1_df63_52fd_a164_0df44715ee0a
 );
-impl windows_core::RuntimeType for IListView {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IListView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IListViewBase,
     IListViewBase_Vtbl,
-    0x775c57ac_abce_5beb_8e34_3b8158aedd80,
-    inspectable
+    0x775c57ac_abce_5beb_8e34_3b8158aedd80
 );
-impl windows_core::RuntimeType for IListViewBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IListViewBase {
     pub(crate) fn DragItemsCompleted<F>(
         &self,
@@ -12593,16 +11630,11 @@ pub struct IListViewBase_Vtbl {
     pub RemoveDragItemsCompleted:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IListViewBaseStatics,
     IListViewBaseStatics_Vtbl,
-    0xb8487e94_010f_56d4_9f76_94bf8c462745,
-    inspectable
+    0xb8487e94_010f_56d4_9f76_94bf8c462745
 );
-impl windows_core::RuntimeType for IListViewBaseStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IListViewBaseStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12620,16 +11652,11 @@ pub struct IListViewBaseStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IListViewFactory,
     IListViewFactory_Vtbl,
-    0x03ebefb8_f64a_5bf9_9570_cb09eeea2335,
-    inspectable
+    0x03ebefb8_f64a_5bf9_9570_cb09eeea2335
 );
-impl windows_core::RuntimeType for IListViewFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IListViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12640,30 +11667,20 @@ pub struct IListViewFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IListViewItem,
     IListViewItem_Vtbl,
-    0x05fe41c2_0451_5d38_9c55_5d10cfd08889,
-    inspectable
+    0x05fe41c2_0451_5d38_9c55_5d10cfd08889
 );
-impl windows_core::RuntimeType for IListViewItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IListViewItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IListViewItemFactory,
     IListViewItemFactory_Vtbl,
-    0xd9f4d0b8_ee59_5036_bd7a_7c89cf0bc2ac,
-    inspectable
+    0xd9f4d0b8_ee59_5036_bd7a_7c89cf0bc2ac
 );
-impl windows_core::RuntimeType for IListViewItemFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IListViewItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12674,16 +11691,11 @@ pub struct IListViewItemFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuBar,
     IMenuBar_Vtbl,
-    0xba97f337_8f1e_5141_b53f_e77a8ba3ebbd,
-    inspectable
+    0xba97f337_8f1e_5141_b53f_e77a8ba3ebbd
 );
-impl windows_core::RuntimeType for IMenuBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IMenuBar {
     pub(crate) fn Items(&self) -> windows_core::Result<windows_collections::IVector<MenuBarItem>> {
         unsafe {
@@ -12704,16 +11716,11 @@ pub struct IMenuBar_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuBarFactory,
     IMenuBarFactory_Vtbl,
-    0x76aa8759_04ee_5a4c_b98c_d03742d47cdb,
-    inspectable
+    0x76aa8759_04ee_5a4c_b98c_d03742d47cdb
 );
-impl windows_core::RuntimeType for IMenuBarFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IMenuBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12724,16 +11731,11 @@ pub struct IMenuBarFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuBarItem,
     IMenuBarItem_Vtbl,
-    0xa7900980_51cc_531d_97c5_356b13573398,
-    inspectable
+    0xa7900980_51cc_531d_97c5_356b13573398
 );
-impl windows_core::RuntimeType for IMenuBarItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IMenuBarItem {
     pub(crate) fn Items(
         &self,
@@ -12758,16 +11760,11 @@ pub struct IMenuBarItem_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuBarItemFactory,
     IMenuBarItemFactory_Vtbl,
-    0x87d02172_83cb_5459_940f_173f7501b300,
-    inspectable
+    0x87d02172_83cb_5459_940f_173f7501b300
 );
-impl windows_core::RuntimeType for IMenuBarItemFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IMenuBarItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12778,16 +11775,11 @@ pub struct IMenuBarItemFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuBarItemStatics,
     IMenuBarItemStatics_Vtbl,
-    0xc8a33f46_2e1c_5ce0_bc09_4524e68941c8,
-    inspectable
+    0xc8a33f46_2e1c_5ce0_bc09_4524e68941c8
 );
-impl windows_core::RuntimeType for IMenuBarItemStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IMenuBarItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12796,16 +11788,11 @@ pub struct IMenuBarItemStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuFlyout,
     IMenuFlyout_Vtbl,
-    0xf4c77c6c_1fa5_5d85_8559_5d02b7d4e5e7,
-    inspectable
+    0xf4c77c6c_1fa5_5d85_8559_5d02b7d4e5e7
 );
-impl windows_core::RuntimeType for IMenuFlyout {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IMenuFlyout {
     pub(crate) fn Items(
         &self,
@@ -12828,16 +11815,11 @@ pub struct IMenuFlyout_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuFlyoutFactory,
     IMenuFlyoutFactory_Vtbl,
-    0xa3d225de_6b35_5442_b6c9_06fd24139a63,
-    inspectable
+    0xa3d225de_6b35_5442_b6c9_06fd24139a63
 );
-impl windows_core::RuntimeType for IMenuFlyoutFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IMenuFlyoutFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12848,16 +11830,11 @@ pub struct IMenuFlyoutFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuFlyoutItem,
     IMenuFlyoutItem_Vtbl,
-    0x4252df5a_44f9_5ee8_b1cc_53de9aaa4095,
-    inspectable
+    0x4252df5a_44f9_5ee8_b1cc_53de9aaa4095
 );
-impl windows_core::RuntimeType for IMenuFlyoutItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IMenuFlyoutItem {
     pub(crate) fn SetText(&self, value: &str) -> windows_core::Result<()> {
         unsafe {
@@ -12923,30 +11900,20 @@ pub struct IMenuFlyoutItem_Vtbl {
     pub RemoveClick:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuFlyoutItemBase,
     IMenuFlyoutItemBase_Vtbl,
-    0x4bee2715_44a1_5f94_86e8_02ddbe3dc6b9,
-    inspectable
+    0x4bee2715_44a1_5f94_86e8_02ddbe3dc6b9
 );
-impl windows_core::RuntimeType for IMenuFlyoutItemBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IMenuFlyoutItemBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuFlyoutItemFactory,
     IMenuFlyoutItemFactory_Vtbl,
-    0x9c3c9a1f_89af_521a_81a5_8a01db7a79af,
-    inspectable
+    0x9c3c9a1f_89af_521a_81a5_8a01db7a79af
 );
-impl windows_core::RuntimeType for IMenuFlyoutItemFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IMenuFlyoutItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12957,30 +11924,20 @@ pub struct IMenuFlyoutItemFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuFlyoutSeparator,
     IMenuFlyoutSeparator_Vtbl,
-    0x3eaf5fd5_935e_5ed7_8d05_f6bafa936d25,
-    inspectable
+    0x3eaf5fd5_935e_5ed7_8d05_f6bafa936d25
 );
-impl windows_core::RuntimeType for IMenuFlyoutSeparator {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IMenuFlyoutSeparator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuFlyoutSeparatorFactory,
     IMenuFlyoutSeparatorFactory_Vtbl,
-    0x26156c9c_95ef_5e55_8342_773fc43baac3,
-    inspectable
+    0x26156c9c_95ef_5e55_8342_773fc43baac3
 );
-impl windows_core::RuntimeType for IMenuFlyoutSeparatorFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IMenuFlyoutSeparatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12991,16 +11948,11 @@ pub struct IMenuFlyoutSeparatorFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMenuFlyoutSubItem,
     IMenuFlyoutSubItem_Vtbl,
-    0x6b0688c1_47b0_53b5_b6f9_5ec5d6623b84,
-    inspectable
+    0x6b0688c1_47b0_53b5_b6f9_5ec5d6623b84
 );
-impl windows_core::RuntimeType for IMenuFlyoutSubItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IMenuFlyoutSubItem {
     pub(crate) fn Items(
         &self,
@@ -13037,16 +11989,11 @@ pub struct IMenuFlyoutSubItem_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMicaBackdrop,
     IMicaBackdrop_Vtbl,
-    0xc156a404_3dac_593a_b1f3_7a33c289dc83,
-    inspectable
+    0xc156a404_3dac_593a_b1f3_7a33c289dc83
 );
-impl windows_core::RuntimeType for IMicaBackdrop {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IMicaBackdrop {
     pub(crate) fn SetKind(&self, value: MicaKind) -> windows_core::Result<()> {
         unsafe {
@@ -13065,16 +12012,11 @@ pub struct IMicaBackdrop_Vtbl {
     pub SetKind:
         unsafe extern "system" fn(*mut core::ffi::c_void, MicaKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IMicaBackdropFactory,
     IMicaBackdropFactory_Vtbl,
-    0x774379ce_74bd_59d4_849d_d99c4184d838,
-    inspectable
+    0x774379ce_74bd_59d4_849d_d99c4184d838
 );
-impl windows_core::RuntimeType for IMicaBackdropFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IMicaBackdropFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13087,16 +12029,11 @@ pub struct IMicaBackdropFactory_Vtbl {
 }
 pub type INT = i32;
 pub type INT32 = i32;
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationView,
     INavigationView_Vtbl,
-    0xe77a4b36_3dd1_53d9_9f97_65dccaa74a5c,
-    inspectable
+    0xe77a4b36_3dd1_53d9_9f97_65dccaa74a5c
 );
-impl windows_core::RuntimeType for INavigationView {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl INavigationView {
     pub(crate) fn IsPaneOpen(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -13348,16 +12285,11 @@ pub struct INavigationView_Vtbl {
     pub RemoveDisplayModeChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationView2,
     INavigationView2_Vtbl,
-    0x05b428cf_014c_56dd_896a_a3e7089d73b5,
-    inspectable
+    0x05b428cf_014c_56dd_896a_a3e7089d73b5
 );
-impl windows_core::RuntimeType for INavigationView2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl INavigationView2 {
     pub(crate) fn SetPaneHeader<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -13416,16 +12348,11 @@ pub struct INavigationView2_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewDisplayModeChangedEventArgs,
     INavigationViewDisplayModeChangedEventArgs_Vtbl,
-    0x58dcf1ea_9e56_522c_b3f8_34bd55ecaca4,
-    inspectable
+    0x58dcf1ea_9e56_522c_b3f8_34bd55ecaca4
 );
-impl windows_core::RuntimeType for INavigationViewDisplayModeChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl INavigationViewDisplayModeChangedEventArgs {
     pub(crate) fn DisplayMode(&self) -> windows_core::Result<NavigationViewDisplayMode> {
         unsafe {
@@ -13446,16 +12373,11 @@ pub struct INavigationViewDisplayModeChangedEventArgs_Vtbl {
         *mut NavigationViewDisplayMode,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewFactory,
     INavigationViewFactory_Vtbl,
-    0xffea1ada_9232_5507_a320_ed2fadbe6127,
-    inspectable
+    0xffea1ada_9232_5507_a320_ed2fadbe6127
 );
-impl windows_core::RuntimeType for INavigationViewFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct INavigationViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13466,16 +12388,11 @@ pub struct INavigationViewFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewItem,
     INavigationViewItem_Vtbl,
-    0x3ab3d503_a37c_5836_8adb_2882062e73a1,
-    inspectable
+    0x3ab3d503_a37c_5836_8adb_2882062e73a1
 );
-impl windows_core::RuntimeType for INavigationViewItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl INavigationViewItem {
     pub(crate) fn SetIcon<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -13499,16 +12416,11 @@ pub struct INavigationViewItem_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewItem2,
     INavigationViewItem2_Vtbl,
-    0x2d5bd889_9dac_5675_b254_68226f077a61,
-    inspectable
+    0x2d5bd889_9dac_5675_b254_68226f077a61
 );
-impl windows_core::RuntimeType for INavigationViewItem2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl INavigationViewItem2 {
     pub(crate) fn MenuItems(
         &self,
@@ -13539,30 +12451,20 @@ pub struct INavigationViewItem2_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewItemBase,
     INavigationViewItemBase_Vtbl,
-    0x33586494_af48_513f_be4d_f645e8c89005,
-    inspectable
+    0x33586494_af48_513f_be4d_f645e8c89005
 );
-impl windows_core::RuntimeType for INavigationViewItemBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct INavigationViewItemBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewItemBase2,
     INavigationViewItemBase2_Vtbl,
-    0xd94ee683_d437_5523_9c5c_11d4804e471e,
-    inspectable
+    0xd94ee683_d437_5523_9c5c_11d4804e471e
 );
-impl windows_core::RuntimeType for INavigationViewItemBase2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl INavigationViewItemBase2 {
     pub(crate) fn IsSelected(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -13581,16 +12483,11 @@ pub struct INavigationViewItemBase2_Vtbl {
     pub IsSelected:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewItemBaseStatics,
     INavigationViewItemBaseStatics_Vtbl,
-    0x71a0c438_f0c2_5093_8906_c1c3c02de791,
-    inspectable
+    0x71a0c438_f0c2_5093_8906_c1c3c02de791
 );
-impl windows_core::RuntimeType for INavigationViewItemBaseStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct INavigationViewItemBaseStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13599,16 +12496,11 @@ pub struct INavigationViewItemBaseStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewItemFactory,
     INavigationViewItemFactory_Vtbl,
-    0xde60a001_9385_5535_80e1_2b68f4bfde26,
-    inspectable
+    0xde60a001_9385_5535_80e1_2b68f4bfde26
 );
-impl windows_core::RuntimeType for INavigationViewItemFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct INavigationViewItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13619,16 +12511,11 @@ pub struct INavigationViewItemFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewItemStatics2,
     INavigationViewItemStatics2_Vtbl,
-    0xd49d016f_abd0_51f3_acf0_118ecceea760,
-    inspectable
+    0xd49d016f_abd0_51f3_acf0_118ecceea760
 );
-impl windows_core::RuntimeType for INavigationViewItemStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct INavigationViewItemStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13641,30 +12528,20 @@ pub struct INavigationViewItemStatics2_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewSelectionChangedEventArgs,
     INavigationViewSelectionChangedEventArgs_Vtbl,
-    0x14a064a5_c79d_5f63_ac6e_1c313fe63566,
-    inspectable
+    0x14a064a5_c79d_5f63_ac6e_1c313fe63566
 );
-impl windows_core::RuntimeType for INavigationViewSelectionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct INavigationViewSelectionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewStatics,
     INavigationViewStatics_Vtbl,
-    0xdcd04caf_1904_564b_b0de_babaff9962f5,
-    inspectable
+    0xdcd04caf_1904_564b_b0de_babaff9962f5
 );
-impl windows_core::RuntimeType for INavigationViewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct INavigationViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13698,16 +12575,11 @@ pub struct INavigationViewStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INavigationViewStatics2,
     INavigationViewStatics2_Vtbl,
-    0x79588150_4a1b_5e7c_9f8a_ebc814ce773d,
-    inspectable
+    0x79588150_4a1b_5e7c_9f8a_ebc814ce773d
 );
-impl windows_core::RuntimeType for INavigationViewStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct INavigationViewStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13735,16 +12607,11 @@ pub struct INavigationViewStatics2_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INumberBox,
     INumberBox_Vtbl,
-    0xc18eb0e9_29fb_525d_abbc_d6b2110f542e,
-    inspectable
+    0xc18eb0e9_29fb_525d_abbc_d6b2110f542e
 );
-impl windows_core::RuntimeType for INumberBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl INumberBox {
     pub(crate) fn Value(&self) -> windows_core::Result<f64> {
         unsafe {
@@ -13856,16 +12723,11 @@ pub struct INumberBox_Vtbl {
     pub RemoveValueChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INumberBoxFactory,
     INumberBoxFactory_Vtbl,
-    0x6b81f3cb_45a4_5d19_9bbb_a9fe4656ac4d,
-    inspectable
+    0x6b81f3cb_45a4_5d19_9bbb_a9fe4656ac4d
 );
-impl windows_core::RuntimeType for INumberBoxFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct INumberBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13876,16 +12738,11 @@ pub struct INumberBoxFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INumberBoxStatics,
     INumberBoxStatics_Vtbl,
-    0x251ec05c_a77c_5540_be39_6053f797cde7,
-    inspectable
+    0x251ec05c_a77c_5540_be39_6053f797cde7
 );
-impl windows_core::RuntimeType for INumberBoxStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct INumberBoxStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13921,16 +12778,11 @@ pub struct INumberBoxStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     INumberBoxValueChangedEventArgs,
     INumberBoxValueChangedEventArgs_Vtbl,
-    0xc66cf16e_7c8a_532e_9d23_058c1c98dd50,
-    inspectable
+    0xc66cf16e_7c8a_532e_9d23_058c1c98dd50
 );
-impl windows_core::RuntimeType for INumberBoxValueChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl INumberBoxValueChangedEventArgs {
     pub(crate) fn NewValue(&self) -> windows_core::Result<f64> {
         unsafe {
@@ -13950,16 +12802,11 @@ pub struct INumberBoxValueChangedEventArgs_Vtbl {
     pub NewValue:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IOverlappedPresenter3,
     IOverlappedPresenter3_Vtbl,
-    0x55d26138_4c38_57e7_a0c1_d467b774db8c,
-    inspectable
+    0x55d26138_4c38_57e7_a0c1_d467b774db8c
 );
-impl windows_core::RuntimeType for IOverlappedPresenter3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IOverlappedPresenter3 {
     pub(crate) fn SetPreferredMinimumHeight(&self, value: Option<i32>) -> windows_core::Result<()> {
         let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
@@ -14026,16 +12873,11 @@ pub struct IOverlappedPresenter3_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPanel,
     IPanel_Vtbl,
-    0x27a1b418_56f3_525e_b883_cefed905eed3,
-    inspectable
+    0x27a1b418_56f3_525e_b883_cefed905eed3
 );
-impl windows_core::RuntimeType for IPanel {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IPanel {
     pub(crate) fn Children(&self) -> windows_core::Result<UIElementCollection> {
         unsafe {
@@ -14056,16 +12898,11 @@ pub struct IPanel_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPanelStatics,
     IPanelStatics_Vtbl,
-    0x76a9caa7_a5d4_5061_a325_17c76f66de51,
-    inspectable
+    0x76a9caa7_a5d4_5061_a325_17c76f66de51
 );
-impl windows_core::RuntimeType for IPanelStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPanelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14074,16 +12911,11 @@ pub struct IPanelStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IParagraph,
     IParagraph_Vtbl,
-    0x9ed64c77_329d_502f_a257_f58398edab51,
-    inspectable
+    0x9ed64c77_329d_502f_a257_f58398edab51
 );
-impl windows_core::RuntimeType for IParagraph {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IParagraph {
     pub(crate) fn Inlines(&self) -> windows_core::Result<InlineCollection> {
         unsafe {
@@ -14104,16 +12936,11 @@ pub struct IParagraph_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPasswordBox,
     IPasswordBox_Vtbl,
-    0x6d3ccff7_aaee_5adc_8298_33300fa119da,
-    inspectable
+    0x6d3ccff7_aaee_5adc_8298_33300fa119da
 );
-impl windows_core::RuntimeType for IPasswordBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IPasswordBox {
     pub(crate) fn Password(&self) -> windows_core::Result<String> {
         unsafe {
@@ -14219,16 +13046,11 @@ pub struct IPasswordBox_Vtbl {
     pub RemovePasswordChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPasswordBoxStatics,
     IPasswordBoxStatics_Vtbl,
-    0x90e6559c_5f74_5cd1_87b6_c0514085ab42,
-    inspectable
+    0x90e6559c_5f74_5cd1_87b6_c0514085ab42
 );
-impl windows_core::RuntimeType for IPasswordBoxStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPasswordBoxStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14252,16 +13074,11 @@ pub struct IPasswordBoxStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPathIcon,
     IPathIcon_Vtbl,
-    0x5c8229db_51cd_5a3b_88ef_1d9a8ac97683,
-    inspectable
+    0x5c8229db_51cd_5a3b_88ef_1d9a8ac97683
 );
-impl windows_core::RuntimeType for IPathIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IPathIcon {
     pub(crate) fn SetData<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -14285,16 +13102,11 @@ pub struct IPathIcon_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPathIconFactory,
     IPathIconFactory_Vtbl,
-    0x8e88f087_f2cd_581c_91ca_a99335ca9599,
-    inspectable
+    0x8e88f087_f2cd_581c_91ca_a99335ca9599
 );
-impl windows_core::RuntimeType for IPathIconFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPathIconFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14305,16 +13117,11 @@ pub struct IPathIconFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPathIconSource,
     IPathIconSource_Vtbl,
-    0x7acdc6a5_f9aa_5d7e_8645_3c48989433a0,
-    inspectable
+    0x7acdc6a5_f9aa_5d7e_8645_3c48989433a0
 );
-impl windows_core::RuntimeType for IPathIconSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IPathIconSource {
     pub(crate) fn SetData<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -14338,16 +13145,11 @@ pub struct IPathIconSource_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPathIconSourceFactory,
     IPathIconSourceFactory_Vtbl,
-    0x9fefe31e_5ab6_5394_a6ef_672f174d333b,
-    inspectable
+    0x9fefe31e_5ab6_5394_a6ef_672f174d333b
 );
-impl windows_core::RuntimeType for IPathIconSourceFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPathIconSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14358,16 +13160,11 @@ pub struct IPathIconSourceFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPathIconStatics,
     IPathIconStatics_Vtbl,
-    0x72bba29a_0595_5f6d_a8df_2a0580a2cd78,
-    inspectable
+    0x72bba29a_0595_5f6d_a8df_2a0580a2cd78
 );
-impl windows_core::RuntimeType for IPathIconStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPathIconStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14376,30 +13173,20 @@ pub struct IPathIconStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPersonPicture,
     IPersonPicture_Vtbl,
-    0x30ec982c_0efa_5538_a356_e9ebd5aa363c,
-    inspectable
+    0x30ec982c_0efa_5538_a356_e9ebd5aa363c
 );
-impl windows_core::RuntimeType for IPersonPicture {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPersonPicture_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPersonPictureFactory,
     IPersonPictureFactory_Vtbl,
-    0x7ec0794c_f2cc_5282_a89d_cd3bb765b71a,
-    inspectable
+    0x7ec0794c_f2cc_5282_a89d_cd3bb765b71a
 );
-impl windows_core::RuntimeType for IPersonPictureFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPersonPictureFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14410,16 +13197,11 @@ pub struct IPersonPictureFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPersonPictureStatics,
     IPersonPictureStatics_Vtbl,
-    0x3c769423_9b05_56c1_a169_098493c21f91,
-    inspectable
+    0x3c769423_9b05_56c1_a169_098493c21f91
 );
-impl windows_core::RuntimeType for IPersonPictureStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPersonPictureStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14438,16 +13220,11 @@ pub struct IPersonPictureStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPivot,
     IPivot_Vtbl,
-    0x1c6438e5_ecac_5fb6_8e8e_00de7e922303,
-    inspectable
+    0x1c6438e5_ecac_5fb6_8e8e_00de7e922303
 );
-impl windows_core::RuntimeType for IPivot {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IPivot {
     pub(crate) fn SelectedIndex(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -14530,16 +13307,11 @@ pub struct IPivot_Vtbl {
     pub RemoveSelectionChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPivotFactory,
     IPivotFactory_Vtbl,
-    0xda9d033c_4782_5a69_90af_076ccdf071ae,
-    inspectable
+    0xda9d033c_4782_5a69_90af_076ccdf071ae
 );
-impl windows_core::RuntimeType for IPivotFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPivotFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14550,30 +13322,20 @@ pub struct IPivotFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPivotItem,
     IPivotItem_Vtbl,
-    0x8108c195_63f5_5df9_abcf_418fa2dbfbec,
-    inspectable
+    0x8108c195_63f5_5df9_abcf_418fa2dbfbec
 );
-impl windows_core::RuntimeType for IPivotItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPivotItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPivotItemFactory,
     IPivotItemFactory_Vtbl,
-    0x9149a2ab_606c_55a9_8786_801d55ca8ed6,
-    inspectable
+    0x9149a2ab_606c_55a9_8786_801d55ca8ed6
 );
-impl windows_core::RuntimeType for IPivotItemFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPivotItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14584,16 +13346,11 @@ pub struct IPivotItemFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPivotItemStatics,
     IPivotItemStatics_Vtbl,
-    0xe2ebe630_6629_5b7b_8666_fdeb9b98db2c,
-    inspectable
+    0xe2ebe630_6629_5b7b_8666_fdeb9b98db2c
 );
-impl windows_core::RuntimeType for IPivotItemStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPivotItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14602,16 +13359,11 @@ pub struct IPivotItemStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPivotStatics,
     IPivotStatics_Vtbl,
-    0x619cc35f_b97b_5e32_885e_70949ed97eeb,
-    inspectable
+    0x619cc35f_b97b_5e32_885e_70949ed97eeb
 );
-impl windows_core::RuntimeType for IPivotStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPivotStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14630,30 +13382,20 @@ pub struct IPivotStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPointer,
     IPointer_Vtbl,
-    0x1f9afbf5_11a3_5e68_aa1b_72febfa0ab23,
-    inspectable
+    0x1f9afbf5_11a3_5e68_aa1b_72febfa0ab23
 );
-impl windows_core::RuntimeType for IPointer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPointer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPointerPoint,
     IPointerPoint_Vtbl,
-    0x0d430ee6_252c_59a4_b2a2_d44264dc6a40,
-    inspectable
+    0x0d430ee6_252c_59a4_b2a2_d44264dc6a40
 );
-impl windows_core::RuntimeType for IPointerPoint {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IPointerPoint {
     pub(crate) fn PointerId(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -14701,16 +13443,11 @@ pub struct IPointerPoint_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPointerPointProperties,
     IPointerPointProperties_Vtbl,
-    0xd760ed77_4b10_57a5_b3cc_d9bf3413e996,
-    inspectable
+    0xd760ed77_4b10_57a5_b3cc_d9bf3413e996
 );
-impl windows_core::RuntimeType for IPointerPointProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IPointerPointProperties {
     pub(crate) fn IsLeftButtonPressed(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -14761,16 +13498,11 @@ pub struct IPointerPointProperties_Vtbl {
     pub IsRightButtonPressed:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPointerRoutedEventArgs,
     IPointerRoutedEventArgs_Vtbl,
-    0x66e78a9a_1bec_5f92_b1a1_ea6334ee511c,
-    inspectable
+    0x66e78a9a_1bec_5f92_b1a1_ea6334ee511c
 );
-impl windows_core::RuntimeType for IPointerRoutedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IPointerRoutedEventArgs {
     pub(crate) fn Pointer(&self) -> windows_core::Result<Pointer> {
         unsafe {
@@ -14827,30 +13559,20 @@ pub struct IPointerRoutedEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IProgressBar,
     IProgressBar_Vtbl,
-    0x87555c8c_0aaf_52c1_8390_0db17f40438e,
-    inspectable
+    0x87555c8c_0aaf_52c1_8390_0db17f40438e
 );
-impl windows_core::RuntimeType for IProgressBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IProgressBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IProgressBarFactory,
     IProgressBarFactory_Vtbl,
-    0x189826ad_f6f2_533e_9ddb_b6600e88675b,
-    inspectable
+    0x189826ad_f6f2_533e_9ddb_b6600e88675b
 );
-impl windows_core::RuntimeType for IProgressBarFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IProgressBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14861,16 +13583,11 @@ pub struct IProgressBarFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IProgressBarStatics,
     IProgressBarStatics_Vtbl,
-    0x61bbb127_e4c4_5e22_a8dc_cfcf957236d0,
-    inspectable
+    0x61bbb127_e4c4_5e22_a8dc_cfcf957236d0
 );
-impl windows_core::RuntimeType for IProgressBarStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IProgressBarStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14887,30 +13604,20 @@ pub struct IProgressBarStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IProgressRing,
     IProgressRing_Vtbl,
-    0x2670d03f_e28c_5652_bee2_b5212ebdf7ff,
-    inspectable
+    0x2670d03f_e28c_5652_bee2_b5212ebdf7ff
 );
-impl windows_core::RuntimeType for IProgressRing {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IProgressRing_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IProgressRingFactory,
     IProgressRingFactory_Vtbl,
-    0x092fa98c_62a7_5dbc_9a85_3e556ba81f79,
-    inspectable
+    0x092fa98c_62a7_5dbc_9a85_3e556ba81f79
 );
-impl windows_core::RuntimeType for IProgressRingFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IProgressRingFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14921,16 +13628,11 @@ pub struct IProgressRingFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IProgressRingStatics,
     IProgressRingStatics_Vtbl,
-    0x4ba1166a_cec2_50e2_b26b_66b69dc2e371,
-    inspectable
+    0x4ba1166a_cec2_50e2_b26b_66b69dc2e371
 );
-impl windows_core::RuntimeType for IProgressRingStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IProgressRingStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14955,30 +13657,20 @@ pub struct IProgressRingStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRadioButton,
     IRadioButton_Vtbl,
-    0x38f30cee_e75a_5ba1_ae64_4474a3abeac7,
-    inspectable
+    0x38f30cee_e75a_5ba1_ae64_4474a3abeac7
 );
-impl windows_core::RuntimeType for IRadioButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRadioButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRadioButtonFactory,
     IRadioButtonFactory_Vtbl,
-    0x5772c79a_b3eb_5719_8005_2a513429495a,
-    inspectable
+    0x5772c79a_b3eb_5719_8005_2a513429495a
 );
-impl windows_core::RuntimeType for IRadioButtonFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRadioButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14989,16 +13681,11 @@ pub struct IRadioButtonFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRadioButtonStatics,
     IRadioButtonStatics_Vtbl,
-    0xa8bce4d4_68fe_53d9_a317_74ab409cd4ee,
-    inspectable
+    0xa8bce4d4_68fe_53d9_a317_74ab409cd4ee
 );
-impl windows_core::RuntimeType for IRadioButtonStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRadioButtonStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15007,16 +13694,11 @@ pub struct IRadioButtonStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRadioButtons,
     IRadioButtons_Vtbl,
-    0x966daf80_ee85_5d90_b6b3_80bec9134673,
-    inspectable
+    0x966daf80_ee85_5d90_b6b3_80bec9134673
 );
-impl windows_core::RuntimeType for IRadioButtons {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IRadioButtons {
     pub(crate) fn SelectedIndex(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -15104,16 +13786,11 @@ pub struct IRadioButtons_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRadioButtonsFactory,
     IRadioButtonsFactory_Vtbl,
-    0x2cf95efb_a7a2_5d85_8ead_ea222baa3c55,
-    inspectable
+    0x2cf95efb_a7a2_5d85_8ead_ea222baa3c55
 );
-impl windows_core::RuntimeType for IRadioButtonsFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRadioButtonsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15124,16 +13801,11 @@ pub struct IRadioButtonsFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRadioButtonsStatics,
     IRadioButtonsStatics_Vtbl,
-    0xde0bf0ca_9ae8_5b8a_9738_7d98b344c039,
-    inspectable
+    0xde0bf0ca_9ae8_5b8a_9738_7d98b344c039
 );
-impl windows_core::RuntimeType for IRadioButtonsStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRadioButtonsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15153,16 +13825,11 @@ pub struct IRadioButtonsStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRandomAccessStream,
     IRandomAccessStream_Vtbl,
-    0x905a0fe1_bc53_11df_8c49_001e4fc686da,
-    inspectable
+    0x905a0fe1_bc53_11df_8c49_001e4fc686da
 );
-impl windows_core::RuntimeType for IRandomAccessStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IRandomAccessStream,
     windows_core::IUnknown,
@@ -15172,16 +13839,11 @@ windows_core::imp::interface_hierarchy!(
 pub struct IRandomAccessStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRangeBase,
     IRangeBase_Vtbl,
-    0x540d6d61_8fac_5d5c_b5b0_e172a7dde103,
-    inspectable
+    0x540d6d61_8fac_5d5c_b5b0_e172a7dde103
 );
-impl windows_core::RuntimeType for IRangeBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IRangeBase {
     pub(crate) fn Value(&self) -> windows_core::Result<f64> {
         unsafe {
@@ -15249,16 +13911,11 @@ pub struct IRangeBase_Vtbl {
     pub RemoveValueChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRangeBaseStatics,
     IRangeBaseStatics_Vtbl,
-    0x4aed5e49_64ec_56f1_874d_b8c0f83f9ac8,
-    inspectable
+    0x4aed5e49_64ec_56f1_874d_b8c0f83f9ac8
 );
-impl windows_core::RuntimeType for IRangeBaseStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRangeBaseStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15277,16 +13934,11 @@ pub struct IRangeBaseStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRangeBaseValueChangedEventArgs,
     IRangeBaseValueChangedEventArgs_Vtbl,
-    0xb0181692_9578_51c7_9d1c_adfcf8945aa9,
-    inspectable
+    0xb0181692_9578_51c7_9d1c_adfcf8945aa9
 );
-impl windows_core::RuntimeType for IRangeBaseValueChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IRangeBaseValueChangedEventArgs {
     pub(crate) fn NewValue(&self) -> windows_core::Result<f64> {
         unsafe {
@@ -15306,16 +13958,11 @@ pub struct IRangeBaseValueChangedEventArgs_Vtbl {
     pub NewValue:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRatingControl,
     IRatingControl_Vtbl,
-    0x5488193b_ea4b_52c6_8544_c063219bcd90,
-    inspectable
+    0x5488193b_ea4b_52c6_8544_c063219bcd90
 );
-impl windows_core::RuntimeType for IRatingControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IRatingControl {
     pub(crate) fn Value(&self) -> windows_core::Result<f64> {
         unsafe {
@@ -15390,16 +14037,11 @@ pub struct IRatingControl_Vtbl {
     pub RemoveValueChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRatingControlFactory,
     IRatingControlFactory_Vtbl,
-    0xa53b9b73_bff9_548d_a294_ac63d819f78a,
-    inspectable
+    0xa53b9b73_bff9_548d_a294_ac63d819f78a
 );
-impl windows_core::RuntimeType for IRatingControlFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRatingControlFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15410,16 +14052,11 @@ pub struct IRatingControlFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRatingControlStatics,
     IRatingControlStatics_Vtbl,
-    0xdac61d65_e8f9_5e4d_813d_05c980b2f118,
-    inspectable
+    0xdac61d65_e8f9_5e4d_813d_05c980b2f118
 );
-impl windows_core::RuntimeType for IRatingControlStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRatingControlStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15444,30 +14081,20 @@ pub struct IRatingControlStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRectangle,
     IRectangle_Vtbl,
-    0xbf7d30b9_152c_556e_9f10_d0b7eba4e52f,
-    inspectable
+    0xbf7d30b9_152c_556e_9f10_d0b7eba4e52f
 );
-impl windows_core::RuntimeType for IRectangle {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRectangle_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRectangleStatics,
     IRectangleStatics_Vtbl,
-    0x3cc3cc79_c332_5ad0_8743_1f1b1e670a86,
-    inspectable
+    0x3cc3cc79_c332_5ad0_8743_1f1b1e670a86
 );
-impl windows_core::RuntimeType for IRectangleStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRectangleStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15480,30 +14107,20 @@ pub struct IRectangleStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRelativePanel,
     IRelativePanel_Vtbl,
-    0xc432fcc4_88f2_59d8_9d0e_a237beaeb07f,
-    inspectable
+    0xc432fcc4_88f2_59d8_9d0e_a237beaeb07f
 );
-impl windows_core::RuntimeType for IRelativePanel {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRelativePanel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRelativePanelFactory,
     IRelativePanelFactory_Vtbl,
-    0xc85f1443_d973_50fd_9497_b867f492468f,
-    inspectable
+    0xc85f1443_d973_50fd_9497_b867f492468f
 );
-impl windows_core::RuntimeType for IRelativePanelFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRelativePanelFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15514,16 +14131,11 @@ pub struct IRelativePanelFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRelativePanelStatics,
     IRelativePanelStatics_Vtbl,
-    0xbdd929a2_76cc_59c4_82c1_f14b5da4221a,
-    inspectable
+    0xbdd929a2_76cc_59c4_82c1_f14b5da4221a
 );
-impl windows_core::RuntimeType for IRelativePanelStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRelativePanelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15595,30 +14207,20 @@ pub struct IRelativePanelStatics_Vtbl {
     )
         -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRepeatButton,
     IRepeatButton_Vtbl,
-    0x97f4c728_4a94_56b5_91e4_e7c6f6a1251a,
-    inspectable
+    0x97f4c728_4a94_56b5_91e4_e7c6f6a1251a
 );
-impl windows_core::RuntimeType for IRepeatButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRepeatButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRepeatButtonStatics,
     IRepeatButtonStatics_Vtbl,
-    0xb57320f6_a58a_589c_9f41_aab02f51e829,
-    inspectable
+    0xb57320f6_a58a_589c_9f41_aab02f51e829
 );
-impl windows_core::RuntimeType for IRepeatButtonStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRepeatButtonStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15631,30 +14233,20 @@ pub struct IRepeatButtonStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRepositionThemeTransition,
     IRepositionThemeTransition_Vtbl,
-    0x7728e3f0_24b1_5484_824a_c0b41c2745d5,
-    inspectable
+    0x7728e3f0_24b1_5484_824a_c0b41c2745d5
 );
-impl windows_core::RuntimeType for IRepositionThemeTransition {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRepositionThemeTransition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IResourceDictionary,
     IResourceDictionary_Vtbl,
-    0x1b690975_a710_5783_a6e1_15836f6186c2,
-    inspectable
+    0x1b690975_a710_5783_a6e1_15836f6186c2
 );
-impl windows_core::RuntimeType for IResourceDictionary {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IResourceDictionary {
     pub(crate) fn MergedDictionaries(
         &self,
@@ -15679,16 +14271,11 @@ pub struct IResourceDictionary_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRichEditBox,
     IRichEditBox_Vtbl,
-    0x699163db_723d_5514_a8c9_2c64d99e1ea6,
-    inspectable
+    0x699163db_723d_5514_a8c9_2c64d99e1ea6
 );
-impl windows_core::RuntimeType for IRichEditBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IRichEditBox {
     pub(crate) fn IsReadOnly(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -15826,16 +14413,11 @@ pub struct IRichEditBox_Vtbl {
     pub RemoveTextChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRichEditBoxFactory,
     IRichEditBoxFactory_Vtbl,
-    0x7c993c60_f5b6_589f_bba8_b68b9713e4ae,
-    inspectable
+    0x7c993c60_f5b6_589f_bba8_b68b9713e4ae
 );
-impl windows_core::RuntimeType for IRichEditBoxFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRichEditBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15846,16 +14428,11 @@ pub struct IRichEditBoxFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRichEditBoxStatics,
     IRichEditBoxStatics_Vtbl,
-    0xb3f59239_efd1_5129_bf80_2841a331b24a,
-    inspectable
+    0xb3f59239_efd1_5129_bf80_2841a331b24a
 );
-impl windows_core::RuntimeType for IRichEditBoxStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRichEditBoxStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15876,16 +14453,11 @@ pub struct IRichEditBoxStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRichTextBlock,
     IRichTextBlock_Vtbl,
-    0xd766e4db_a684_50b7_a202_c8e91fa26ff3,
-    inspectable
+    0xd766e4db_a684_50b7_a202_c8e91fa26ff3
 );
-impl windows_core::RuntimeType for IRichTextBlock {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IRichTextBlock {
     pub(crate) fn Blocks(&self) -> windows_core::Result<BlockCollection> {
         unsafe {
@@ -15924,16 +14496,11 @@ pub struct IRichTextBlock_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRichTextBlockStatics,
     IRichTextBlockStatics_Vtbl,
-    0x65dca245_b4fc_5718_b628_a4953f61d6a3,
-    inspectable
+    0x65dca245_b4fc_5718_b628_a4953f61d6a3
 );
-impl windows_core::RuntimeType for IRichTextBlockStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IRichTextBlockStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15962,16 +14529,11 @@ pub struct IRichTextBlockStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRoutedEventArgs,
     IRoutedEventArgs_Vtbl,
-    0x0908c407_1c7d_5de3_9c50_d971c62ec8ec,
-    inspectable
+    0x0908c407_1c7d_5de3_9c50_d971c62ec8ec
 );
-impl windows_core::RuntimeType for IRoutedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IRoutedEventArgs {
     pub(crate) fn OriginalSource(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
@@ -15992,16 +14554,11 @@ pub struct IRoutedEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IRowDefinition,
     IRowDefinition_Vtbl,
-    0xfe870f2f_89ef_5dac_9f33_968d0dc577c3,
-    inspectable
+    0xfe870f2f_89ef_5dac_9f33_968d0dc577c3
 );
-impl windows_core::RuntimeType for IRowDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IRowDefinition {
     pub(crate) fn SetHeight(&self, value: GridLength) -> windows_core::Result<()> {
         unsafe {
@@ -16044,16 +14601,7 @@ pub struct IRowDefinition_Vtbl {
     pub SetMinHeight:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
-    IRun,
-    IRun_Vtbl,
-    0x1f905239_37cb_590b_9132_3ffb7741906e,
-    inspectable
-);
-impl windows_core::RuntimeType for IRun {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
+windows_core::imp::define_winrt_interface!(IRun, IRun_Vtbl, 0x1f905239_37cb_590b_9132_3ffb7741906e);
 impl IRun {
     pub(crate) fn SetText(&self, value: &str) -> windows_core::Result<()> {
         unsafe {
@@ -16074,16 +14622,11 @@ pub struct IRun_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IScalarTransition,
     IScalarTransition_Vtbl,
-    0xc2da2ac8_814c_5889_b2f4_4ebe4b001ee3,
-    inspectable
+    0xc2da2ac8_814c_5889_b2f4_4ebe4b001ee3
 );
-impl windows_core::RuntimeType for IScalarTransition {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IScalarTransition {
     pub(crate) fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe {
@@ -16104,16 +14647,11 @@ pub struct IScalarTransition_Vtbl {
         windows_time::TimeSpan,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IScalarTransitionFactory,
     IScalarTransitionFactory_Vtbl,
-    0xa1650cf8_a15b_54fc_b595_c52491318f58,
-    inspectable
+    0xa1650cf8_a15b_54fc_b595_c52491318f58
 );
-impl windows_core::RuntimeType for IScalarTransitionFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IScalarTransitionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16124,16 +14662,11 @@ pub struct IScalarTransitionFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IScrollView,
     IScrollView_Vtbl,
-    0x8c98c86d_378a_5102_a1e3_3352280fa010,
-    inspectable
+    0x8c98c86d_378a_5102_a1e3_3352280fa010
 );
-impl windows_core::RuntimeType for IScrollView {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IScrollView {
     pub(crate) fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -16157,16 +14690,11 @@ pub struct IScrollView_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IScrollViewFactory,
     IScrollViewFactory_Vtbl,
-    0xf3547344_22e4_5e6c_9ece_66504ef733ed,
-    inspectable
+    0xf3547344_22e4_5e6c_9ece_66504ef733ed
 );
-impl windows_core::RuntimeType for IScrollViewFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IScrollViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16177,16 +14705,11 @@ pub struct IScrollViewFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IScrollViewStatics,
     IScrollViewStatics_Vtbl,
-    0xac966c50_31f1_5485_8e08_ee7a7e9a6fd0,
-    inspectable
+    0xac966c50_31f1_5485_8e08_ee7a7e9a6fd0
 );
-impl windows_core::RuntimeType for IScrollViewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IScrollViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16203,30 +14726,20 @@ pub struct IScrollViewStatics_Vtbl {
     )
         -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IScrollViewer,
     IScrollViewer_Vtbl,
-    0x1dc28c2e_996c_5394_89c3_4dc656b4ad46,
-    inspectable
+    0x1dc28c2e_996c_5394_89c3_4dc656b4ad46
 );
-impl windows_core::RuntimeType for IScrollViewer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IScrollViewer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IScrollViewerStatics,
     IScrollViewerStatics_Vtbl,
-    0xd971fd86_0a96_50c4_a6e1_9975faa2a142,
-    inspectable
+    0xd971fd86_0a96_50c4_a6e1_9975faa2a142
 );
-impl windows_core::RuntimeType for IScrollViewerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IScrollViewerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16268,30 +14781,20 @@ pub struct IScrollViewerStatics_Vtbl {
     )
         -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelectionChangedEventArgs,
     ISelectionChangedEventArgs_Vtbl,
-    0xb6c18076_4b76_5416_ad29_e2dc20c46246,
-    inspectable
+    0xb6c18076_4b76_5416_ad29_e2dc20c46246
 );
-impl windows_core::RuntimeType for ISelectionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISelectionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelector,
     ISelector_Vtbl,
-    0x8f7e2159_e61d_576f_8476_f83fde3d689e,
-    inspectable
+    0x8f7e2159_e61d_576f_8476_f83fde3d689e
 );
-impl windows_core::RuntimeType for ISelector {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISelector {
     pub(crate) fn SelectedIndex(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -16388,16 +14891,11 @@ pub struct ISelector_Vtbl {
     pub RemoveSelectionChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelectorBar,
     ISelectorBar_Vtbl,
-    0x7f4ad191_55ea_508e_bf47_7047d8677370,
-    inspectable
+    0x7f4ad191_55ea_508e_bf47_7047d8677370
 );
-impl windows_core::RuntimeType for ISelectorBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISelectorBar {
     pub(crate) fn Items(
         &self,
@@ -16488,16 +14986,11 @@ pub struct ISelectorBar_Vtbl {
     pub RemoveSelectionChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelectorBarFactory,
     ISelectorBarFactory_Vtbl,
-    0x71243dc7_b46c_5a04_9894_e420e462703f,
-    inspectable
+    0x71243dc7_b46c_5a04_9894_e420e462703f
 );
-impl windows_core::RuntimeType for ISelectorBarFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISelectorBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16508,16 +15001,11 @@ pub struct ISelectorBarFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelectorBarItem,
     ISelectorBarItem_Vtbl,
-    0x3cdba1f9_a13a_56a2_b9a9_f954998d3658,
-    inspectable
+    0x3cdba1f9_a13a_56a2_b9a9_f954998d3658
 );
-impl windows_core::RuntimeType for ISelectorBarItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISelectorBarItem {
     pub(crate) fn Text(&self) -> windows_core::Result<String> {
         unsafe {
@@ -16559,16 +15047,11 @@ pub struct ISelectorBarItem_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelectorBarItemFactory,
     ISelectorBarItemFactory_Vtbl,
-    0xe46b62ea_e60d_5989_bea7_5470da326816,
-    inspectable
+    0xe46b62ea_e60d_5989_bea7_5470da326816
 );
-impl windows_core::RuntimeType for ISelectorBarItemFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISelectorBarItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16579,16 +15062,11 @@ pub struct ISelectorBarItemFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelectorBarItemStatics,
     ISelectorBarItemStatics_Vtbl,
-    0x08b5bdfc_54de_5d4c_aae3_3763a6b4e75b,
-    inspectable
+    0x08b5bdfc_54de_5d4c_aae3_3763a6b4e75b
 );
-impl windows_core::RuntimeType for ISelectorBarItemStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISelectorBarItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16597,30 +15075,20 @@ pub struct ISelectorBarItemStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelectorBarSelectionChangedEventArgs,
     ISelectorBarSelectionChangedEventArgs_Vtbl,
-    0x73b3f6c5_5050_5c5a_899c_4e6e0474cb63,
-    inspectable
+    0x73b3f6c5_5050_5c5a_899c_4e6e0474cb63
 );
-impl windows_core::RuntimeType for ISelectorBarSelectionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISelectorBarSelectionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelectorItem,
     ISelectorItem_Vtbl,
-    0x5772c4de_60ea_5492_8c5e_b3323d5a3ca6,
-    inspectable
+    0x5772c4de_60ea_5492_8c5e_b3323d5a3ca6
 );
-impl windows_core::RuntimeType for ISelectorItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISelectorItem {
     pub(crate) fn IsSelected(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -16639,16 +15107,11 @@ pub struct ISelectorItem_Vtbl {
     pub IsSelected:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelectorItemStatics,
     ISelectorItemStatics_Vtbl,
-    0x4b201a54_a414_5e79_9b6b_3da9de442a35,
-    inspectable
+    0x4b201a54_a414_5e79_9b6b_3da9de442a35
 );
-impl windows_core::RuntimeType for ISelectorItemStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISelectorItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16657,16 +15120,11 @@ pub struct ISelectorItemStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISelectorStatics,
     ISelectorStatics_Vtbl,
-    0x569b2234_1ceb_516e_b64e_0d479452e279,
-    inspectable
+    0x569b2234_1ceb_516e_b64e_0d479452e279
 );
-impl windows_core::RuntimeType for ISelectorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISelectorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16687,30 +15145,20 @@ pub struct ISequentialStream_Vtbl {
     Read: usize,
     Write: usize,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IShape,
     IShape_Vtbl,
-    0x9941aad3_6af2_5ba2_9085_8506d5f2485e,
-    inspectable
+    0x9941aad3_6af2_5ba2_9085_8506d5f2485e
 );
-impl windows_core::RuntimeType for IShape {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IShape_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IShapeStatics,
     IShapeStatics_Vtbl,
-    0xea407c43_8a09_587a_958a_4dd17d217ce1,
-    inspectable
+    0xea407c43_8a09_587a_958a_4dd17d217ce1
 );
-impl windows_core::RuntimeType for IShapeStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IShapeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16728,16 +15176,11 @@ pub struct IShapeStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISizeChangedEventArgs,
     ISizeChangedEventArgs_Vtbl,
-    0xfe76324e_6dfb_58b1_9dcd_886ca8f9a2ea,
-    inspectable
+    0xfe76324e_6dfb_58b1_9dcd_886ca8f9a2ea
 );
-impl windows_core::RuntimeType for ISizeChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISizeChangedEventArgs {
     pub(crate) fn NewSize(&self) -> windows_core::Result<Size> {
         unsafe {
@@ -16757,16 +15200,11 @@ pub struct ISizeChangedEventArgs_Vtbl {
     pub NewSize:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut Size) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISlider,
     ISlider_Vtbl,
-    0xf7418ecf_7c35_5216_8bf1_d82d47cce5df,
-    inspectable
+    0xf7418ecf_7c35_5216_8bf1_d82d47cce5df
 );
-impl windows_core::RuntimeType for ISlider {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISlider {
     pub(crate) fn SetHeader<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -16808,16 +15246,11 @@ pub struct ISlider_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISliderFactory,
     ISliderFactory_Vtbl,
-    0x06604d71_34ca_5f39_9656_29d81d3c110c,
-    inspectable
+    0x06604d71_34ca_5f39_9656_29d81d3c110c
 );
-impl windows_core::RuntimeType for ISliderFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISliderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16828,16 +15261,11 @@ pub struct ISliderFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISliderStatics,
     ISliderStatics_Vtbl,
-    0xf0541f7b_6d81_59e2_997a_2e65fbcccd21,
-    inspectable
+    0xf0541f7b_6d81_59e2_997a_2e65fbcccd21
 );
-impl windows_core::RuntimeType for ISliderStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISliderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16854,16 +15282,11 @@ pub struct ISliderStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISolidColorBrush,
     ISolidColorBrush_Vtbl,
-    0xb3865c31_37c8_55c1_8a72_d41c67642e2a,
-    inspectable
+    0xb3865c31_37c8_55c1_8a72_d41c67642e2a
 );
-impl windows_core::RuntimeType for ISolidColorBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISolidColorBrush {
     pub(crate) fn SetColor(&self, value: Color) -> windows_core::Result<()> {
         unsafe {
@@ -16881,16 +15304,11 @@ pub struct ISolidColorBrush_Vtbl {
     Color: usize,
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, Color) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISpan,
     ISpan_Vtbl,
-    0x91b93d4d_4e28_57b9_bffb_3566c2a3c2a1,
-    inspectable
+    0x91b93d4d_4e28_57b9_bffb_3566c2a3c2a1
 );
-impl windows_core::RuntimeType for ISpan {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISpan {
     pub(crate) fn Inlines(&self) -> windows_core::Result<InlineCollection> {
         unsafe {
@@ -16911,16 +15329,11 @@ pub struct ISpan_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISplitButton,
     ISplitButton_Vtbl,
-    0xf627202d_d2d7_5ff6_bb05_8c48eb6b1fc6,
-    inspectable
+    0xf627202d_d2d7_5ff6_bb05_8c48eb6b1fc6
 );
-impl windows_core::RuntimeType for ISplitButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISplitButton {
     pub(crate) fn SetFlyout<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -16987,30 +15400,20 @@ pub struct ISplitButton_Vtbl {
     pub RemoveClick:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISplitButtonClickEventArgs,
     ISplitButtonClickEventArgs_Vtbl,
-    0x6af896c2_e65a_5998_9c82_2af8f3e0741f,
-    inspectable
+    0x6af896c2_e65a_5998_9c82_2af8f3e0741f
 );
-impl windows_core::RuntimeType for ISplitButtonClickEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISplitButtonClickEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISplitButtonFactory,
     ISplitButtonFactory_Vtbl,
-    0x07510092_2612_55e7_981c_a536ddd4570e,
-    inspectable
+    0x07510092_2612_55e7_981c_a536ddd4570e
 );
-impl windows_core::RuntimeType for ISplitButtonFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISplitButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17021,16 +15424,11 @@ pub struct ISplitButtonFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISplitView,
     ISplitView_Vtbl,
-    0x10ae18f7_1666_5897_bbce_1e687e7784a8,
-    inspectable
+    0x10ae18f7_1666_5897_bbce_1e687e7784a8
 );
-impl windows_core::RuntimeType for ISplitView {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISplitView {
     pub(crate) fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -17141,16 +15539,11 @@ pub struct ISplitView_Vtbl {
     pub RemovePaneClosed:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISplitViewFactory,
     ISplitViewFactory_Vtbl,
-    0x389ece72_75ce_561b_aad3_c52125ca6a50,
-    inspectable
+    0x389ece72_75ce_561b_aad3_c52125ca6a50
 );
-impl windows_core::RuntimeType for ISplitViewFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISplitViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17161,16 +15554,11 @@ pub struct ISplitViewFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISplitViewStatics,
     ISplitViewStatics_Vtbl,
-    0x1c69a263_552c_5505_ac81_49e247fee9db,
-    inspectable
+    0x1c69a263_552c_5505_ac81_49e247fee9db
 );
-impl windows_core::RuntimeType for ISplitViewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISplitViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17194,30 +15582,20 @@ pub struct ISplitViewStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IStackPanel,
     IStackPanel_Vtbl,
-    0x493ab00b_3a6a_5e4a_9452_407cd5197406,
-    inspectable
+    0x493ab00b_3a6a_5e4a_9452_407cd5197406
 );
-impl windows_core::RuntimeType for IStackPanel {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IStackPanel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IStackPanelFactory,
     IStackPanelFactory_Vtbl,
-    0x64c1d388_47a2_5a74_a75b_559d151ee5ac,
-    inspectable
+    0x64c1d388_47a2_5a74_a75b_559d151ee5ac
 );
-impl windows_core::RuntimeType for IStackPanelFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IStackPanelFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17228,16 +15606,11 @@ pub struct IStackPanelFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IStackPanelStatics,
     IStackPanelStatics_Vtbl,
-    0x10bb04e3_eb01_5ea8_9f96_69508479def9,
-    inspectable
+    0x10bb04e3_eb01_5ea8_9f96_69508479def9
 );
-impl windows_core::RuntimeType for IStackPanelStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IStackPanelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17256,16 +15629,11 @@ pub struct IStackPanelStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IStorageItem,
     IStorageItem_Vtbl,
-    0x4207a996_ca2f_42f7_bde8_8b10457a7f30,
-    inspectable
+    0x4207a996_ca2f_42f7_bde8_8b10457a7f30
 );
-impl windows_core::RuntimeType for IStorageItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IStorageItem,
     windows_core::IUnknown,
@@ -17341,30 +15709,20 @@ pub struct IStream_Vtbl {
     Stat: usize,
     Clone: usize,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IStyle,
     IStyle_Vtbl,
-    0x65e1d164_572f_5b0e_a80f_9c02441fac49,
-    inspectable
+    0x65e1d164_572f_5b0e_a80f_9c02441fac49
 );
-impl windows_core::RuntimeType for IStyle {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IStyle_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISvgImageSource,
     ISvgImageSource_Vtbl,
-    0xd5b61d3c_b68d_53a2_b07b_ba6adfdd5887,
-    inspectable
+    0xd5b61d3c_b68d_53a2_b07b_ba6adfdd5887
 );
-impl windows_core::RuntimeType for ISvgImageSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISvgImageSource {
     pub(crate) fn SetUriSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -17495,16 +15853,11 @@ pub struct ISvgImageSource_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISvgImageSourceFactory,
     ISvgImageSourceFactory_Vtbl,
-    0x2f85673f_ac64_570d_9bda_94fa082eead9,
-    inspectable
+    0x2f85673f_ac64_570d_9bda_94fa082eead9
 );
-impl windows_core::RuntimeType for ISvgImageSourceFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISvgImageSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17515,44 +15868,29 @@ pub struct ISvgImageSourceFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISvgImageSourceFailedEventArgs,
     ISvgImageSourceFailedEventArgs_Vtbl,
-    0x76e66278_7804_5439_a50d_14c5ba896714,
-    inspectable
+    0x76e66278_7804_5439_a50d_14c5ba896714
 );
-impl windows_core::RuntimeType for ISvgImageSourceFailedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISvgImageSourceFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISvgImageSourceOpenedEventArgs,
     ISvgImageSourceOpenedEventArgs_Vtbl,
-    0x1c9860d5_38d0_5b21_8d48_072f1e254e39,
-    inspectable
+    0x1c9860d5_38d0_5b21_8d48_072f1e254e39
 );
-impl windows_core::RuntimeType for ISvgImageSourceOpenedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISvgImageSourceOpenedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISwapChainPanel,
     ISwapChainPanel_Vtbl,
-    0x08844f85_aa1b_540d_bef2_b2bb7b257f8c,
-    inspectable
+    0x08844f85_aa1b_540d_bef2_b2bb7b257f8c
 );
-impl windows_core::RuntimeType for ISwapChainPanel {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISwapChainPanel {
     pub(crate) fn CompositionScaleX(&self) -> windows_core::Result<f32> {
         unsafe {
@@ -17625,16 +15963,11 @@ pub struct ISwapChainPanel_Vtbl {
     pub RemoveCompositionScaleChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISwapChainPanelFactory,
     ISwapChainPanelFactory_Vtbl,
-    0x38d00b69_5759_5f37_9e1c_3ae0d4288b26,
-    inspectable
+    0x38d00b69_5759_5f37_9e1c_3ae0d4288b26
 );
-impl windows_core::RuntimeType for ISwapChainPanelFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISwapChainPanelFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17672,16 +16005,11 @@ pub struct ISwapChainPanelNative_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISymbolIcon,
     ISymbolIcon_Vtbl,
-    0xa4322906_0dbe_5eb7_8b64_3e832246eb7f,
-    inspectable
+    0xa4322906_0dbe_5eb7_8b64_3e832246eb7f
 );
-impl windows_core::RuntimeType for ISymbolIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISymbolIcon {
     pub(crate) fn SetSymbol(&self, value: Symbol) -> windows_core::Result<()> {
         unsafe {
@@ -17700,16 +16028,11 @@ pub struct ISymbolIcon_Vtbl {
     pub SetSymbol:
         unsafe extern "system" fn(*mut core::ffi::c_void, Symbol) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISymbolIconSource,
     ISymbolIconSource_Vtbl,
-    0x45120d6b_e868_59f2_a30a_b1915ce374bd,
-    inspectable
+    0x45120d6b_e868_59f2_a30a_b1915ce374bd
 );
-impl windows_core::RuntimeType for ISymbolIconSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISymbolIconSource {
     pub(crate) fn SetSymbol(&self, value: Symbol) -> windows_core::Result<()> {
         unsafe {
@@ -17728,16 +16051,11 @@ pub struct ISymbolIconSource_Vtbl {
     pub SetSymbol:
         unsafe extern "system" fn(*mut core::ffi::c_void, Symbol) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISymbolIconSourceFactory,
     ISymbolIconSourceFactory_Vtbl,
-    0xafbf55fa_ff79_552a_a3a1_48e2ef17152a,
-    inspectable
+    0xafbf55fa_ff79_552a_a3a1_48e2ef17152a
 );
-impl windows_core::RuntimeType for ISymbolIconSourceFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISymbolIconSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17748,16 +16066,11 @@ pub struct ISymbolIconSourceFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISymbolIconStatics,
     ISymbolIconStatics_Vtbl,
-    0xccaa0c34_31f2_50f1_b328_be6edc291aaa,
-    inspectable
+    0xccaa0c34_31f2_50f1_b328_be6edc291aaa
 );
-impl windows_core::RuntimeType for ISymbolIconStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISymbolIconStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17766,30 +16079,20 @@ pub struct ISymbolIconStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISystemBackdrop,
     ISystemBackdrop_Vtbl,
-    0x5aeed5c4_37ac_5852_b73f_1b76ebc3205f,
-    inspectable
+    0x5aeed5c4_37ac_5852_b73f_1b76ebc3205f
 );
-impl windows_core::RuntimeType for ISystemBackdrop {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISystemBackdrop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITabView,
     ITabView_Vtbl,
-    0x07b509e1_1d38_551b_95f4_4732b049f6a6,
-    inspectable
+    0x07b509e1_1d38_551b_95f4_4732b049f6a6
 );
-impl windows_core::RuntimeType for ITabView {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITabView {
     pub(crate) fn TabCloseRequested<F>(
         &self,
@@ -18024,16 +16327,11 @@ pub struct ITabView_Vtbl {
     pub RemoveSelectionChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITabViewFactory,
     ITabViewFactory_Vtbl,
-    0xe7e83685_eedf_5106_9429_884435ab166b,
-    inspectable
+    0xe7e83685_eedf_5106_9429_884435ab166b
 );
-impl windows_core::RuntimeType for ITabViewFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITabViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18044,30 +16342,20 @@ pub struct ITabViewFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITabViewItem,
     ITabViewItem_Vtbl,
-    0x64980afa_97af_5190_90b3_4ba277b1113d,
-    inspectable
+    0x64980afa_97af_5190_90b3_4ba277b1113d
 );
-impl windows_core::RuntimeType for ITabViewItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITabViewItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITabViewItemFactory,
     ITabViewItemFactory_Vtbl,
-    0xb64c2423_7e56_5d41_8a84_1ee28f9826a4,
-    inspectable
+    0xb64c2423_7e56_5d41_8a84_1ee28f9826a4
 );
-impl windows_core::RuntimeType for ITabViewItemFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITabViewItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18078,16 +16366,11 @@ pub struct ITabViewItemFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITabViewItemStatics,
     ITabViewItemStatics_Vtbl,
-    0x4cfc7eab_2eff_5457_8251_c19d374ab34d,
-    inspectable
+    0x4cfc7eab_2eff_5457_8251_c19d374ab34d
 );
-impl windows_core::RuntimeType for ITabViewItemStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITabViewItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18102,16 +16385,11 @@ pub struct ITabViewItemStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITabViewStatics,
     ITabViewStatics_Vtbl,
-    0xf4326c08_1b94_53d7_934f_e6ae0d3d18ab,
-    inspectable
+    0xf4326c08_1b94_53d7_934f_e6ae0d3d18ab
 );
-impl windows_core::RuntimeType for ITabViewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITabViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18142,16 +16420,11 @@ pub struct ITabViewStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITabViewTabCloseRequestedEventArgs,
     ITabViewTabCloseRequestedEventArgs_Vtbl,
-    0xd56ab9b2_e264_5c7e_a1cb_e41a16a6c6c6,
-    inspectable
+    0xd56ab9b2_e264_5c7e_a1cb_e41a16a6c6c6
 );
-impl windows_core::RuntimeType for ITabViewTabCloseRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITabViewTabCloseRequestedEventArgs {
     pub(crate) fn Tab(&self) -> windows_core::Result<TabViewItem> {
         unsafe {
@@ -18173,16 +16446,11 @@ pub struct ITabViewTabCloseRequestedEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITeachingTip,
     ITeachingTip_Vtbl,
-    0xdaebd5f7_3b47_5b12_b804_f4e1442b2113,
-    inspectable
+    0xdaebd5f7_3b47_5b12_b804_f4e1442b2113
 );
-impl windows_core::RuntimeType for ITeachingTip {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITeachingTip {
     pub(crate) fn IsOpen(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -18326,16 +16594,11 @@ pub struct ITeachingTip_Vtbl {
     pub RemoveClosed:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITeachingTipClosedEventArgs,
     ITeachingTipClosedEventArgs_Vtbl,
-    0x2536f506_4038_59db_9e35_a9252fb5adb2,
-    inspectable
+    0x2536f506_4038_59db_9e35_a9252fb5adb2
 );
-impl windows_core::RuntimeType for ITeachingTipClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITeachingTipClosedEventArgs {
     pub(crate) fn Reason(&self) -> windows_core::Result<TeachingTipCloseReason> {
         unsafe {
@@ -18356,16 +16619,11 @@ pub struct ITeachingTipClosedEventArgs_Vtbl {
         *mut TeachingTipCloseReason,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITeachingTipFactory,
     ITeachingTipFactory_Vtbl,
-    0xa3ecd47d_2972_5d19_a62e_ddfbc5e1ad57,
-    inspectable
+    0xa3ecd47d_2972_5d19_a62e_ddfbc5e1ad57
 );
-impl windows_core::RuntimeType for ITeachingTipFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITeachingTipFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18376,16 +16634,11 @@ pub struct ITeachingTipFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITeachingTipStatics,
     ITeachingTipStatics_Vtbl,
-    0x7c3ecddb_0b4d_51c2_a27f_89180afd45a8,
-    inspectable
+    0x7c3ecddb_0b4d_51c2_a27f_89180afd45a8
 );
-impl windows_core::RuntimeType for ITeachingTipStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITeachingTipStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18428,30 +16681,20 @@ pub struct ITeachingTipStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITextBlock,
     ITextBlock_Vtbl,
-    0x1ac8d84f_392c_5c7e_83f5_a53e3bf0abb0,
-    inspectable
+    0x1ac8d84f_392c_5c7e_83f5_a53e3bf0abb0
 );
-impl windows_core::RuntimeType for ITextBlock {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITextBlock_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITextBlockStatics,
     ITextBlockStatics_Vtbl,
-    0x3187104b_65c2_5e53_b889_c8272b1314cd,
-    inspectable
+    0x3187104b_65c2_5e53_b889_c8272b1314cd
 );
-impl windows_core::RuntimeType for ITextBlockStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITextBlockStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18513,16 +16756,11 @@ pub struct ITextBlockStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITextBox,
     ITextBox_Vtbl,
-    0x873af7c2_ab89_5d76_8dbe_3d6325669df5,
-    inspectable
+    0x873af7c2_ab89_5d76_8dbe_3d6325669df5
 );
-impl windows_core::RuntimeType for ITextBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITextBox {
     pub(crate) fn Text(&self) -> windows_core::Result<String> {
         unsafe {
@@ -18707,16 +16945,11 @@ pub struct ITextBox_Vtbl {
     pub RemoveTextChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITextBoxFactory,
     ITextBoxFactory_Vtbl,
-    0xe1d8b82e_bc60_5d27_b646_5ca4c4a69432,
-    inspectable
+    0xe1d8b82e_bc60_5d27_b646_5ca4c4a69432
 );
-impl windows_core::RuntimeType for ITextBoxFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITextBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18727,16 +16960,11 @@ pub struct ITextBoxFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITextBoxStatics,
     ITextBoxStatics_Vtbl,
-    0xa41cf38f_712a_5599_bbed_5a3d9b6bd46e,
-    inspectable
+    0xa41cf38f_712a_5599_bbed_5a3d9b6bd46e
 );
-impl windows_core::RuntimeType for ITextBoxStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITextBoxStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18768,30 +16996,20 @@ pub struct ITextBoxStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITextChangedEventArgs,
     ITextChangedEventArgs_Vtbl,
-    0x71c37e43_7be7_52fc_bf8c_9867f44be5f4,
-    inspectable
+    0x71c37e43_7be7_52fc_bf8c_9867f44be5f4
 );
-impl windows_core::RuntimeType for ITextChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITextChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITextDocument,
     ITextDocument_Vtbl,
-    0x1149d57d_86a6_59dd_88d9_196f27bc5c85,
-    inspectable
+    0x1149d57d_86a6_59dd_88d9_196f27bc5c85
 );
-impl windows_core::RuntimeType for ITextDocument {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITextDocument {
     pub(crate) fn Selection(&self) -> windows_core::Result<ITextSelection> {
         unsafe {
@@ -18872,16 +17090,11 @@ pub struct ITextDocument_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITextElement,
     ITextElement_Vtbl,
-    0xa122ba22_833f_5220_a47e_6cd507531abe,
-    inspectable
+    0xa122ba22_833f_5220_a47e_6cd507531abe
 );
-impl windows_core::RuntimeType for ITextElement {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITextElement {
     pub(crate) fn SetFontWeight(&self, value: FontWeight) -> windows_core::Result<()> {
         unsafe {
@@ -18917,16 +17130,11 @@ pub struct ITextElement_Vtbl {
     pub SetFontStyle:
         unsafe extern "system" fn(*mut core::ffi::c_void, FontStyle) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITextRange,
     ITextRange_Vtbl,
-    0x06d4abcf_0c06_5d12_a743_85537efd09ea,
-    inspectable
+    0x06d4abcf_0c06_5d12_a743_85537efd09ea
 );
-impl windows_core::RuntimeType for ITextRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     ITextRange,
     windows_core::IUnknown,
@@ -19024,16 +17232,11 @@ pub struct ITextRange_Vtbl {
     pub SetRange:
         unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITextSelection,
     ITextSelection_Vtbl,
-    0x8f5e6cb1_2b04_589f_bd24_54e5cd8dd399,
-    inspectable
+    0x8f5e6cb1_2b04_589f_bd24_54e5cd8dd399
 );
-impl windows_core::RuntimeType for ITextSelection {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     ITextSelection,
     windows_core::IUnknown,
@@ -19043,16 +17246,11 @@ windows_core::imp::interface_hierarchy!(
 pub struct ITextSelection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITimePicker,
     ITimePicker_Vtbl,
-    0xed4baa33_c240_5934_9229_82d37b26f846,
-    inspectable
+    0xed4baa33_c240_5934_9229_82d37b26f846
 );
-impl windows_core::RuntimeType for ITimePicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITimePicker {
     pub(crate) fn SetHeader<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -19128,16 +17326,11 @@ pub struct ITimePicker_Vtbl {
     pub RemoveSelectedTimeChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITimePickerFactory,
     ITimePickerFactory_Vtbl,
-    0x1584429e_aafe_5c65_89e9_8c066e5690e7,
-    inspectable
+    0x1584429e_aafe_5c65_89e9_8c066e5690e7
 );
-impl windows_core::RuntimeType for ITimePickerFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITimePickerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19148,16 +17341,11 @@ pub struct ITimePickerFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITimePickerSelectedValueChangedEventArgs,
     ITimePickerSelectedValueChangedEventArgs_Vtbl,
-    0x6ed7edf1_9b0b_5e7b_9e10_f35660a29fd2,
-    inspectable
+    0x6ed7edf1_9b0b_5e7b_9e10_f35660a29fd2
 );
-impl windows_core::RuntimeType for ITimePickerSelectedValueChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITimePickerSelectedValueChangedEventArgs {
     pub(crate) fn NewTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
@@ -19180,16 +17368,11 @@ pub struct ITimePickerSelectedValueChangedEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITimePickerStatics,
     ITimePickerStatics_Vtbl,
-    0x12bef59e_4222_507b_901e_effd04620c4f,
-    inspectable
+    0x12bef59e_4222_507b_901e_effd04620c4f
 );
-impl windows_core::RuntimeType for ITimePickerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITimePickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19204,16 +17387,11 @@ pub struct ITimePickerStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITitleBar,
     ITitleBar_Vtbl,
-    0xc552714d_5d30_5a2b_9c7a_d68bea3dde8d,
-    inspectable
+    0xc552714d_5d30_5a2b_9c7a_d68bea3dde8d
 );
-impl windows_core::RuntimeType for ITitleBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITitleBar {
     pub(crate) fn SetIconSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -19396,16 +17574,11 @@ pub struct ITitleBar_Vtbl {
     pub RemovePaneToggleRequested:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITitleBar2,
     ITitleBar2_Vtbl,
-    0x55533ac5_80bf_5b29_8be9_4fadb734db0a,
-    inspectable
+    0x55533ac5_80bf_5b29_8be9_4fadb734db0a
 );
-impl windows_core::RuntimeType for ITitleBar2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITitleBar2 {
     pub(crate) fn SetAutoRefreshDragRegions(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
@@ -19424,16 +17597,11 @@ pub struct ITitleBar2_Vtbl {
     pub SetAutoRefreshDragRegions:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITitleBarFactory,
     ITitleBarFactory_Vtbl,
-    0xc4452799_4606_59ef_9392_a0548d48b82e,
-    inspectable
+    0xc4452799_4606_59ef_9392_a0548d48b82e
 );
-impl windows_core::RuntimeType for ITitleBarFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITitleBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19444,16 +17612,11 @@ pub struct ITitleBarFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITitleBarStatics,
     ITitleBarStatics_Vtbl,
-    0xf9ada39b_1f24_5955_9b5c_cacbfe9a41cf,
-    inspectable
+    0xf9ada39b_1f24_5955_9b5c_cacbfe9a41cf
 );
-impl windows_core::RuntimeType for ITitleBarStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITitleBarStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19482,16 +17645,11 @@ pub struct ITitleBarStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITitleBarTemplateSettings,
     ITitleBarTemplateSettings_Vtbl,
-    0xbe19011a_4957_5332_98b8_1704401b6a0e,
-    inspectable
+    0xbe19011a_4957_5332_98b8_1704401b6a0e
 );
-impl windows_core::RuntimeType for ITitleBarTemplateSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITitleBarTemplateSettings {
     pub(crate) fn IconElement(&self) -> windows_core::Result<IconElement> {
         unsafe {
@@ -19512,16 +17670,11 @@ pub struct ITitleBarTemplateSettings_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IToggleButton,
     IToggleButton_Vtbl,
-    0x686fbaa4_c866_568b_8f75_481d8d545291,
-    inspectable
+    0x686fbaa4_c866_568b_8f75_481d8d545291
 );
-impl windows_core::RuntimeType for IToggleButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IToggleButton {
     pub(crate) fn IsChecked(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -19621,16 +17774,11 @@ pub struct IToggleButton_Vtbl {
     pub RemoveUnchecked:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IToggleButtonFactory,
     IToggleButtonFactory_Vtbl,
-    0x519511bb_d35b_5e2d_966c_8369405a4408,
-    inspectable
+    0x519511bb_d35b_5e2d_966c_8369405a4408
 );
-impl windows_core::RuntimeType for IToggleButtonFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IToggleButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19641,16 +17789,11 @@ pub struct IToggleButtonFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IToggleButtonStatics,
     IToggleButtonStatics_Vtbl,
-    0x4b8397e3_76fd_59df_824f_40ae339fb00b,
-    inspectable
+    0x4b8397e3_76fd_59df_824f_40ae339fb00b
 );
-impl windows_core::RuntimeType for IToggleButtonStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IToggleButtonStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19659,16 +17802,11 @@ pub struct IToggleButtonStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IToggleSwitch,
     IToggleSwitch_Vtbl,
-    0x1b17eeb1_74bf_5a83_8161_a86f0fdcdf24,
-    inspectable
+    0x1b17eeb1_74bf_5a83_8161_a86f0fdcdf24
 );
-impl windows_core::RuntimeType for IToggleSwitch {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IToggleSwitch {
     pub(crate) fn IsOn(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -19781,16 +17919,11 @@ pub struct IToggleSwitch_Vtbl {
     pub RemoveToggled:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IToggleSwitchStatics,
     IToggleSwitchStatics_Vtbl,
-    0xc9c203d6_0619_504d_9ed8_5054fe3ca51e,
-    inspectable
+    0xc9c203d6_0619_504d_9ed8_5054fe3ca51e
 );
-impl windows_core::RuntimeType for IToggleSwitchStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IToggleSwitchStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19799,30 +17932,20 @@ pub struct IToggleSwitchStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IToolTip,
     IToolTip_Vtbl,
-    0x67e93d74_5e93_59a1_91bf_413efbeb904c,
-    inspectable
+    0x67e93d74_5e93_59a1_91bf_413efbeb904c
 );
-impl windows_core::RuntimeType for IToolTip {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IToolTip_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IToolTipFactory,
     IToolTipFactory_Vtbl,
-    0xbcbb3720_2db8_54e1_8806_fcbed38949a9,
-    inspectable
+    0xbcbb3720_2db8_54e1_8806_fcbed38949a9
 );
-impl windows_core::RuntimeType for IToolTipFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IToolTipFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19833,30 +17956,20 @@ pub struct IToolTipFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IToolTipService,
     IToolTipService_Vtbl,
-    0x01140768_2727_5f89_80e0_5210326a3431,
-    inspectable
+    0x01140768_2727_5f89_80e0_5210326a3431
 );
-impl windows_core::RuntimeType for IToolTipService {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IToolTipService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IToolTipServiceStatics,
     IToolTipServiceStatics_Vtbl,
-    0x5aa38adc_9874_5e0a_8d8e_1574efc0b88f,
-    inspectable
+    0x5aa38adc_9874_5e0a_8d8e_1574efc0b88f
 );
-impl windows_core::RuntimeType for IToolTipServiceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IToolTipServiceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19878,30 +17991,20 @@ pub struct IToolTipServiceStatics_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITransition,
     ITransition_Vtbl,
-    0xe5b71956_8e44_5a38_b41e_274d706102bf,
-    inspectable
+    0xe5b71956_8e44_5a38_b41e_274d706102bf
 );
-impl windows_core::RuntimeType for ITransition {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITransition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITreeView,
     ITreeView_Vtbl,
-    0x1bef9af4_712c_50ef_9bb4_881b975232ab,
-    inspectable
+    0x1bef9af4_712c_50ef_9bb4_881b975232ab
 );
-impl windows_core::RuntimeType for ITreeView {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITreeView {
     pub(crate) fn RootNodes(
         &self,
@@ -19972,16 +18075,11 @@ pub struct ITreeView_Vtbl {
     pub RemoveItemInvoked:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITreeView2,
     ITreeView2_Vtbl,
-    0xb947ca7d_0f6f_594c_83ec_14153d343225,
-    inspectable
+    0xb947ca7d_0f6f_594c_83ec_14153d343225
 );
-impl windows_core::RuntimeType for ITreeView2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITreeView2 {
     pub(crate) fn SetItemTemplate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -20013,16 +18111,11 @@ pub struct ITreeView2_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITreeViewFactory,
     ITreeViewFactory_Vtbl,
-    0x9c6220be_f9eb_518a_b30e_7e41de5efda9,
-    inspectable
+    0x9c6220be_f9eb_518a_b30e_7e41de5efda9
 );
-impl windows_core::RuntimeType for ITreeViewFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITreeViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20033,16 +18126,11 @@ pub struct ITreeViewFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITreeViewItemInvokedEventArgs,
     ITreeViewItemInvokedEventArgs_Vtbl,
-    0x1a05853c_b101_542c_9a1e_775a044c4652,
-    inspectable
+    0x1a05853c_b101_542c_9a1e_775a044c4652
 );
-impl windows_core::RuntimeType for ITreeViewItemInvokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITreeViewItemInvokedEventArgs {
     pub(crate) fn InvokedItem(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
@@ -20063,16 +18151,11 @@ pub struct ITreeViewItemInvokedEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITreeViewNode,
     ITreeViewNode_Vtbl,
-    0x00378a74_790b_5328_8afa_7d65e22da426,
-    inspectable
+    0x00378a74_790b_5328_8afa_7d65e22da426
 );
-impl windows_core::RuntimeType for ITreeViewNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ITreeViewNode {
     pub(crate) fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -20129,16 +18212,11 @@ pub struct ITreeViewNode_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITreeViewNodeFactory,
     ITreeViewNodeFactory_Vtbl,
-    0xc105a5e5_cea8_5efd_8be8_3d89b54cbd5f,
-    inspectable
+    0xc105a5e5_cea8_5efd_8be8_3d89b54cbd5f
 );
-impl windows_core::RuntimeType for ITreeViewNodeFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITreeViewNodeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20149,16 +18227,11 @@ pub struct ITreeViewNodeFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ITreeViewStatics,
     ITreeViewStatics_Vtbl,
-    0x71efaf86_4d73_5f5f_8ea6_a42dfe044917,
-    inspectable
+    0x71efaf86_4d73_5f5f_8ea6_a42dfe044917
 );
-impl windows_core::RuntimeType for ITreeViewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ITreeViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20168,16 +18241,11 @@ pub struct ITreeViewStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IUIElement,
     IUIElement_Vtbl,
-    0xc3c01020_320c_5cf6_9d24_d396bbfa4d8b,
-    inspectable
+    0xc3c01020_320c_5cf6_9d24_d396bbfa4d8b
 );
-impl windows_core::RuntimeType for IUIElement {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IUIElement {
     pub(crate) fn SetAllowDrop(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
@@ -21247,16 +19315,11 @@ pub struct IUIElement_Vtbl {
         *mut bool,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IUIElementStatics,
     IUIElementStatics_Vtbl,
-    0xd2921d87_3584_5e22_8a3a_c2c78dab4f6e,
-    inspectable
+    0xd2921d87_3584_5e22_8a3a_c2c78dab4f6e
 );
-impl windows_core::RuntimeType for IUIElementStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IUIElementStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21352,30 +19415,20 @@ pub struct IUIElementStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IUriRuntimeClass,
     IUriRuntimeClass_Vtbl,
-    0x9e365e57_48b2_4160_956f_c7385120bbfc,
-    inspectable
+    0x9e365e57_48b2_4160_956f_c7385120bbfc
 );
-impl windows_core::RuntimeType for IUriRuntimeClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IUriRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IUriRuntimeClassFactory,
     IUriRuntimeClassFactory_Vtbl,
-    0x44a9796f_723e_4fdf_a218_033e75b0c084,
-    inspectable
+    0x44a9796f_723e_4fdf_a218_033e75b0c084
 );
-impl windows_core::RuntimeType for IUriRuntimeClassFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IUriRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21385,30 +19438,20 @@ pub struct IUriRuntimeClassFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVariableSizedWrapGrid,
     IVariableSizedWrapGrid_Vtbl,
-    0xbfecd12b_e16a_58a0_af5f_4672627462d5,
-    inspectable
+    0xbfecd12b_e16a_58a0_af5f_4672627462d5
 );
-impl windows_core::RuntimeType for IVariableSizedWrapGrid {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IVariableSizedWrapGrid_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVariableSizedWrapGridStatics,
     IVariableSizedWrapGridStatics_Vtbl,
-    0x0d979fe6_64af_5af5_914a_dd38f2ccf2d7,
-    inspectable
+    0x0d979fe6_64af_5af5_914a_dd38f2ccf2d7
 );
-impl windows_core::RuntimeType for IVariableSizedWrapGridStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IVariableSizedWrapGridStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21425,16 +19468,11 @@ pub struct IVariableSizedWrapGridStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVector3Transition,
     IVector3Transition_Vtbl,
-    0x0c408bb9_f9a2_55d7_8aed_143d36d603f2,
-    inspectable
+    0x0c408bb9_f9a2_55d7_8aed_143d36d603f2
 );
-impl windows_core::RuntimeType for IVector3Transition {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IVector3Transition {
     pub(crate) fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe {
@@ -21455,16 +19493,11 @@ pub struct IVector3Transition_Vtbl {
         windows_time::TimeSpan,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVector3TransitionFactory,
     IVector3TransitionFactory_Vtbl,
-    0xa3a084fc_b965_534b_900f_78e288129232,
-    inspectable
+    0xa3a084fc_b965_534b_900f_78e288129232
 );
-impl windows_core::RuntimeType for IVector3TransitionFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IVector3TransitionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21475,16 +19508,11 @@ pub struct IVector3TransitionFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IViewbox,
     IViewbox_Vtbl,
-    0x510683e8_d0fe_5ef4_85bd_e1131076ac22,
-    inspectable
+    0x510683e8_d0fe_5ef4_85bd_e1131076ac22
 );
-impl windows_core::RuntimeType for IViewbox {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IViewbox {
     pub(crate) fn SetChild<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -21508,16 +19536,11 @@ pub struct IViewbox_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IViewboxStatics,
     IViewboxStatics_Vtbl,
-    0x0466c103_1e17_5e83_a262_8855f216b59f,
-    inspectable
+    0x0466c103_1e17_5e83_a262_8855f216b59f
 );
-impl windows_core::RuntimeType for IViewboxStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IViewboxStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21526,44 +19549,29 @@ pub struct IViewboxStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVisual,
     IVisual_Vtbl,
-    0xc0eeab6c_c897_5ac6_a1c9_63abd5055b9b,
-    inspectable
+    0xc0eeab6c_c897_5ac6_a1c9_63abd5055b9b
 );
-impl windows_core::RuntimeType for IVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVisualTreeHelper,
     IVisualTreeHelper_Vtbl,
-    0x5f69ac1e_6504_5e3f_a11c_87684c1db814,
-    inspectable
+    0x5f69ac1e_6504_5e3f_a11c_87684c1db814
 );
-impl windows_core::RuntimeType for IVisualTreeHelper {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IVisualTreeHelper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVisualTreeHelperStatics,
     IVisualTreeHelperStatics_Vtbl,
-    0x5aece43c_7651_5bb5_855c_2198496e455e,
-    inspectable
+    0x5aece43c_7651_5bb5_855c_2198496e455e
 );
-impl windows_core::RuntimeType for IVisualTreeHelperStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IVisualTreeHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21583,16 +19591,11 @@ pub struct IVisualTreeHelperStatics_Vtbl {
         *mut i32,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWebView2,
     IWebView2_Vtbl,
-    0x2b2c76c2_997c_5069_a8f0_9b84cd7e624b,
-    inspectable
+    0x2b2c76c2_997c_5069_a8f0_9b84cd7e624b
 );
-impl windows_core::RuntimeType for IWebView2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IWebView2 {
     pub(crate) fn CoreWebView2(&self) -> windows_core::Result<CoreWebView2> {
         unsafe {
@@ -21693,16 +19696,11 @@ pub struct IWebView2_Vtbl {
     pub RemoveCoreWebView2Initialized:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWebView2Factory,
     IWebView2Factory_Vtbl,
-    0xfb4ec2ce_3074_5c42_b655_64fb81fbd040,
-    inspectable
+    0xfb4ec2ce_3074_5c42_b655_64fb81fbd040
 );
-impl windows_core::RuntimeType for IWebView2Factory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IWebView2Factory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21713,16 +19711,11 @@ pub struct IWebView2Factory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWindow,
     IWindow_Vtbl,
-    0x61f0ec79_5d52_56b5_86fb_40fa4af288b0,
-    inspectable
+    0x61f0ec79_5d52_56b5_86fb_40fa4af288b0
 );
-impl windows_core::RuntimeType for IWindow {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IWindow {
     pub(crate) fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -21853,16 +19846,11 @@ pub struct IWindow_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWindow2,
     IWindow2_Vtbl,
-    0x42febaa5_1c32_522a_a591_57618c6f665d,
-    inspectable
+    0x42febaa5_1c32_522a_a591_57618c6f665d
 );
-impl windows_core::RuntimeType for IWindow2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IWindow2 {
     pub(crate) fn SetSystemBackdrop<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -21900,30 +19888,20 @@ pub struct IWindow2_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWindowEventArgs,
     IWindowEventArgs_Vtbl,
-    0x1140827c_fe0a_5268_bc2b_f4492c2ccb49,
-    inspectable
+    0x1140827c_fe0a_5268_bc2b_f4492c2ccb49
 );
-impl windows_core::RuntimeType for IWindowEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IWindowEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWindowFactory,
     IWindowFactory_Vtbl,
-    0xf0441536_afef_5222_918f_324a9b2dec75,
-    inspectable
+    0xf0441536_afef_5222_918f_324a9b2dec75
 );
-impl windows_core::RuntimeType for IWindowFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IWindowFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21958,30 +19936,20 @@ pub struct IWindowNative_Vtbl {
     pub WindowHandle:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut HWND) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IXamlBindingHelper,
     IXamlBindingHelper_Vtbl,
-    0x607a9bf2_5a6d_5c89_a756_bb44f24f28f8,
-    inspectable
+    0x607a9bf2_5a6d_5c89_a756_bb44f24f28f8
 );
-impl windows_core::RuntimeType for IXamlBindingHelper {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IXamlBindingHelper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IXamlBindingHelperStatics,
     IXamlBindingHelperStatics_Vtbl,
-    0x93c7dad3_f9c2_5372_84dc_9e9c4661d083,
-    inspectable
+    0x93c7dad3_f9c2_5372_84dc_9e9c4661d083
 );
-impl windows_core::RuntimeType for IXamlBindingHelperStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IXamlBindingHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21997,33 +19965,21 @@ pub struct IXamlBindingHelperStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IXamlControlsResources,
     IXamlControlsResources_Vtbl,
-    0x918ca043_f42c_5805_861b_62d6d1d0c162,
-    inspectable
+    0x918ca043_f42c_5805_861b_62d6d1d0c162
 );
-impl windows_core::RuntimeType for IXamlControlsResources {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IXamlControlsResources_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IXamlMetadataProvider,
     IXamlMetadataProvider_Vtbl,
     0xa96251f0_2214_5d53_8746_ce99a2593cd7,
-    inspectable
+    b"Microsoft.UI.Xaml.Markup.IXamlMetadataProvider"
 );
-impl windows_core::RuntimeType for IXamlMetadataProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
-        b"Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
-    );
-}
 windows_core::imp::interface_hierarchy!(
     IXamlMetadataProvider,
     windows_core::IUnknown,
@@ -22192,30 +20148,20 @@ pub struct IXamlMetadataProvider_Vtbl {
         *mut *mut core::mem::MaybeUninit<XmlnsDefinition>,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IXamlReader,
     IXamlReader_Vtbl,
-    0x54ce54c8_38c6_50d9_ac98_4b03eddbde9f,
-    inspectable
+    0x54ce54c8_38c6_50d9_ac98_4b03eddbde9f
 );
-impl windows_core::RuntimeType for IXamlReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IXamlReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IXamlReaderStatics,
     IXamlReaderStatics_Vtbl,
-    0x82a4cd9e_435e_5aeb_8c4f_300cece45cae,
-    inspectable
+    0x82a4cd9e_435e_5aeb_8c4f_300cece45cae
 );
-impl windows_core::RuntimeType for IXamlReaderStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IXamlReaderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -22225,16 +20171,11 @@ pub struct IXamlReaderStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IXamlRoot,
     IXamlRoot_Vtbl,
-    0x60cb215a_ad15_520a_8b01_4416824f0441,
-    inspectable
+    0x60cb215a_ad15_520a_8b01_4416824f0441
 );
-impl windows_core::RuntimeType for IXamlRoot {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IXamlRoot {
     pub(crate) fn RasterizationScale(&self) -> windows_core::Result<f64> {
         unsafe {
@@ -22295,30 +20236,20 @@ pub struct IXamlRoot_Vtbl {
     pub RemoveChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IXamlRootChangedEventArgs,
     IXamlRootChangedEventArgs_Vtbl,
-    0x61d2c719_f8a1_515a_902c_cfa498ba7a7f,
-    inspectable
+    0x61d2c719_f8a1_515a_902c_cfa498ba7a7f
 );
-impl windows_core::RuntimeType for IXamlRootChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IXamlRootChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IXamlType,
     IXamlType_Vtbl,
-    0xd24219df_7ec9_57f1_a27b_6af251d9c5bc,
-    inspectable
+    0xd24219df_7ec9_57f1_a27b_6af251d9c5bc
 );
-impl windows_core::RuntimeType for IXamlType {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IXamlType,
     windows_core::IUnknown,

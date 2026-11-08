@@ -1,15 +1,9 @@
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IItems,
     IItems_Vtbl,
     0x8dfef4bd_8c6e_5d6d_9614_0aca51e6943b,
-    inspectable
+    b"Test.IItems"
 );
-impl windows_core::RuntimeType for IItems {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.IItems");
-}
 windows_core::imp::interface_hierarchy!(IItems, windows_core::IUnknown, windows_core::IInspectable);
 impl windows_core::RuntimeName for IItems {
     const NAME: &'static str = "Test.IItems";
@@ -29,18 +23,12 @@ impl IItems_Vtbl {
 pub struct IItems_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     Item,
     Item_Vtbl,
     0x2d93fccb_fadf_52bd_a462_4bb301d551af,
-    inspectable
+    b"Test.Item"
 );
-impl windows_core::RuntimeType for Item {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.Item");
-}
 windows_core::imp::interface_hierarchy!(Item, windows_core::IUnknown, windows_core::IInspectable);
 impl Item {
     pub fn Read(&self) -> windows_core::Result<i32> {

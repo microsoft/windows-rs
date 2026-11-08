@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IOcrEngine, IOcrEngine_Vtbl, 0x5a14bc41_5b76_3140_b680_8825562683ac, inspectable);
-impl windows_core::RuntimeType for IOcrEngine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Ocr.IOcrEngine");
-}
+windows_core::imp::define_winrt_interface!(IOcrEngine, IOcrEngine_Vtbl, 0x5a14bc41_5b76_3140_b680_8825562683ac, b"Windows.Media.Ocr.IOcrEngine");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOcrEngine_Vtbl {
@@ -16,11 +12,7 @@ pub struct IOcrEngine_Vtbl {
     #[cfg(not(feature = "Globalization"))]
     RecognizerLanguage: usize,
 }
-windows_core::imp::define_interface!(IOcrEngineStatics, IOcrEngineStatics_Vtbl, 0x5bffa85a_3384_3540_9940_699120d428a8, inspectable);
-impl windows_core::RuntimeType for IOcrEngineStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Ocr.IOcrEngineStatics");
-}
+windows_core::imp::define_winrt_interface!(IOcrEngineStatics, IOcrEngineStatics_Vtbl, 0x5bffa85a_3384_3540_9940_699120d428a8, b"Windows.Media.Ocr.IOcrEngineStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOcrEngineStatics_Vtbl {
@@ -40,11 +32,7 @@ pub struct IOcrEngineStatics_Vtbl {
     TryCreateFromLanguage: usize,
     pub TryCreateFromUserProfileLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOcrLine, IOcrLine_Vtbl, 0x0043a16f_e31f_3a24_899c_d444bd088124, inspectable);
-impl windows_core::RuntimeType for IOcrLine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Ocr.IOcrLine");
-}
+windows_core::imp::define_winrt_interface!(IOcrLine, IOcrLine_Vtbl, 0x0043a16f_e31f_3a24_899c_d444bd088124, b"Windows.Media.Ocr.IOcrLine");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOcrLine_Vtbl {
@@ -52,11 +40,7 @@ pub struct IOcrLine_Vtbl {
     pub Words: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOcrResult, IOcrResult_Vtbl, 0x9bd235b2_175b_3d6a_92e2_388c206e2f63, inspectable);
-impl windows_core::RuntimeType for IOcrResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Ocr.IOcrResult");
-}
+windows_core::imp::define_winrt_interface!(IOcrResult, IOcrResult_Vtbl, 0x9bd235b2_175b_3d6a_92e2_388c206e2f63, b"Windows.Media.Ocr.IOcrResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOcrResult_Vtbl {
@@ -65,11 +49,7 @@ pub struct IOcrResult_Vtbl {
     pub TextAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOcrWord, IOcrWord_Vtbl, 0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d, inspectable);
-impl windows_core::RuntimeType for IOcrWord {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Ocr.IOcrWord");
-}
+windows_core::imp::define_winrt_interface!(IOcrWord, IOcrWord_Vtbl, 0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d, b"Windows.Media.Ocr.IOcrWord");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOcrWord_Vtbl {

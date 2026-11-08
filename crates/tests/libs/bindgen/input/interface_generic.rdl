@@ -1,6 +1,10 @@
 //! --filter Test --flat
 #[winrt]
 mod Test {
+    #[guid(0x11111111_2222_3333_4444_555555555555)]
+    interface IValue {}
+    #[guid(0x02b51929_c1c4_4a7e_8940_0312b5c18500)]
+    interface IPair<K, V> {}
     #[guid(auto)]
     interface IVector<T> {
         fn GetAt(&self, #[in] index: u32) -> T;

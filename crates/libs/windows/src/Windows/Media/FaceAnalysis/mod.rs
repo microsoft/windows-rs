@@ -195,11 +195,7 @@ impl windows_core::RuntimeName for FaceTracker {
 }
 unsafe impl Send for FaceTracker {}
 unsafe impl Sync for FaceTracker {}
-windows_core::imp::define_interface!(IDetectedFace, IDetectedFace_Vtbl, 0x8200d454_66bc_34df_9410_e89400195414, inspectable);
-impl windows_core::RuntimeType for IDetectedFace {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.FaceAnalysis.IDetectedFace");
-}
+windows_core::imp::define_winrt_interface!(IDetectedFace, IDetectedFace_Vtbl, 0x8200d454_66bc_34df_9410_e89400195414, b"Windows.Media.FaceAnalysis.IDetectedFace");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectedFace_Vtbl {
@@ -209,11 +205,7 @@ pub struct IDetectedFace_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     FaceBox: usize,
 }
-windows_core::imp::define_interface!(IFaceDetector, IFaceDetector_Vtbl, 0x16b672dc_fe6f_3117_8d95_c3f04d51630c, inspectable);
-impl windows_core::RuntimeType for IFaceDetector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.FaceAnalysis.IFaceDetector");
-}
+windows_core::imp::define_winrt_interface!(IFaceDetector, IFaceDetector_Vtbl, 0x16b672dc_fe6f_3117_8d95_c3f04d51630c, b"Windows.Media.FaceAnalysis.IFaceDetector");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceDetector_Vtbl {
@@ -243,11 +235,7 @@ pub struct IFaceDetector_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMaxDetectableFaceSize: usize,
 }
-windows_core::imp::define_interface!(IFaceDetectorStatics, IFaceDetectorStatics_Vtbl, 0xbc042d67_9047_33f6_881b_6746c1b218b8, inspectable);
-impl windows_core::RuntimeType for IFaceDetectorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.FaceAnalysis.IFaceDetectorStatics");
-}
+windows_core::imp::define_winrt_interface!(IFaceDetectorStatics, IFaceDetectorStatics_Vtbl, 0xbc042d67_9047_33f6_881b_6746c1b218b8, b"Windows.Media.FaceAnalysis.IFaceDetectorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceDetectorStatics_Vtbl {
@@ -263,11 +251,7 @@ pub struct IFaceDetectorStatics_Vtbl {
     IsBitmapPixelFormatSupported: usize,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFaceTracker, IFaceTracker_Vtbl, 0x6ba67d8c_a841_4420_93e6_2420a1884fcf, inspectable);
-impl windows_core::RuntimeType for IFaceTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.FaceAnalysis.IFaceTracker");
-}
+windows_core::imp::define_winrt_interface!(IFaceTracker, IFaceTracker_Vtbl, 0x6ba67d8c_a841_4420_93e6_2420a1884fcf, b"Windows.Media.FaceAnalysis.IFaceTracker");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceTracker_Vtbl {
@@ -290,11 +274,7 @@ pub struct IFaceTracker_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMaxDetectableFaceSize: usize,
 }
-windows_core::imp::define_interface!(IFaceTrackerStatics, IFaceTrackerStatics_Vtbl, 0xe9629198_1801_3fa5_932e_31d767af6c4d, inspectable);
-impl windows_core::RuntimeType for IFaceTrackerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.FaceAnalysis.IFaceTrackerStatics");
-}
+windows_core::imp::define_winrt_interface!(IFaceTrackerStatics, IFaceTrackerStatics_Vtbl, 0xe9629198_1801_3fa5_932e_31d767af6c4d, b"Windows.Media.FaceAnalysis.IFaceTrackerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceTrackerStatics_Vtbl {

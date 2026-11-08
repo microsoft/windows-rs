@@ -26,58 +26,38 @@ impl windows_core::RuntimeName for DependencyObject {
 }
 unsafe impl Send for DependencyObject {}
 unsafe impl Sync for DependencyObject {}
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDependencyObject,
     IDependencyObject_Vtbl,
-    0xe7beaee7_160e_50f7_8789_d63463f979fa,
-    inspectable
+    0xe7beaee7_160e_50f7_8789_d63463f979fa
 );
-impl windows_core::RuntimeType for IDependencyObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IDependencyObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IImageSource,
     IImageSource_Vtbl,
-    0x6c2038f6_d6d5_55e9_9b9e_082f12dbff60,
-    inspectable
+    0x6c2038f6_d6d5_55e9_9b9e_082f12dbff60
 );
-impl windows_core::RuntimeType for IImageSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IImageSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISurfaceImageSource,
     ISurfaceImageSource_Vtbl,
-    0xac078d9c_d0e0_5ff9_b73e_98e82e4c8d36,
-    inspectable
+    0xac078d9c_d0e0_5ff9_b73e_98e82e4c8d36
 );
-impl windows_core::RuntimeType for ISurfaceImageSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISurfaceImageSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISurfaceImageSourceFactory,
     ISurfaceImageSourceFactory_Vtbl,
-    0x09a26ed2_11b3_5ef1_ac56_20d064ccca34,
-    inspectable
+    0x09a26ed2_11b3_5ef1_ac56_20d064ccca34
 );
-impl windows_core::RuntimeType for ISurfaceImageSourceFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISurfaceImageSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

@@ -963,11 +963,7 @@ unsafe impl windows_core::Interface for FolderInformation {
 impl windows_core::RuntimeName for FolderInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FolderInformation";
 }
-windows_core::imp::define_interface!(IFileInformationFactory, IFileInformationFactory_Vtbl, 0x401d88be_960f_4d6d_a7d0_1a3861e76c83, inspectable);
-impl windows_core::RuntimeType for IFileInformationFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.BulkAccess.IFileInformationFactory");
-}
+windows_core::imp::define_winrt_interface!(IFileInformationFactory, IFileInformationFactory_Vtbl, 0x401d88be_960f_4d6d_a7d0_1a3861e76c83, b"Windows.Storage.BulkAccess.IFileInformationFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileInformationFactory_Vtbl {
@@ -994,11 +990,7 @@ pub struct IFileInformationFactory_Vtbl {
     pub GetVirtualizedFilesVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVirtualizedFoldersVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileInformationFactoryFactory, IFileInformationFactoryFactory_Vtbl, 0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5, inspectable);
-impl windows_core::RuntimeType for IFileInformationFactoryFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.BulkAccess.IFileInformationFactoryFactory");
-}
+windows_core::imp::define_winrt_interface!(IFileInformationFactoryFactory, IFileInformationFactoryFactory_Vtbl, 0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5, b"Windows.Storage.BulkAccess.IFileInformationFactoryFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileInformationFactoryFactory_Vtbl {
@@ -1020,11 +1012,7 @@ pub struct IFileInformationFactoryFactory_Vtbl {
     #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
     CreateWithModeAndSizeAndOptionsAndFlags: usize,
 }
-windows_core::imp::define_interface!(IStorageItemInformation, IStorageItemInformation_Vtbl, 0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa, inspectable);
-impl windows_core::RuntimeType for IStorageItemInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.BulkAccess.IStorageItemInformation");
-}
+windows_core::imp::define_winrt_interface!(IStorageItemInformation, IStorageItemInformation_Vtbl, 0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa, b"Windows.Storage.BulkAccess.IStorageItemInformation");
 windows_core::imp::interface_hierarchy!(IStorageItemInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageItemInformation {
     #[cfg(feature = "Storage_FileProperties")]

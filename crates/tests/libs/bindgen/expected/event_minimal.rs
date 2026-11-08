@@ -43,16 +43,11 @@ impl<F: Fn(i32) + Send + Sync + 'static> DelegateBox<F> {
         }
     }
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     Interface,
     Interface_Vtbl,
-    0xca5a6b51_8bab_5a2e_af33_e182fa13377f,
-    inspectable
+    0xca5a6b51_8bab_5a2e_af33_e182fa13377f
 );
-impl windows_core::RuntimeType for Interface {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     Interface,
     windows_core::IUnknown,

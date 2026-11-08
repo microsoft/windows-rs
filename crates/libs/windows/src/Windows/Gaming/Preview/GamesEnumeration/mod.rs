@@ -456,11 +456,7 @@ impl windows_core::RuntimeName for GameModeUserConfiguration {
 }
 unsafe impl Send for GameModeUserConfiguration {}
 unsafe impl Sync for GameModeUserConfiguration {}
-windows_core::imp::define_interface!(IGameListEntry, IGameListEntry_Vtbl, 0x735924d3_811f_4494_b69c_c641a0c61543, inspectable);
-impl windows_core::RuntimeType for IGameListEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Preview.GamesEnumeration.IGameListEntry");
-}
+windows_core::imp::define_winrt_interface!(IGameListEntry, IGameListEntry_Vtbl, 0x735924d3_811f_4494_b69c_c641a0c61543, b"Windows.Gaming.Preview.GamesEnumeration.IGameListEntry");
 windows_core::imp::interface_hierarchy!(IGameListEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl IGameListEntry {
     #[cfg(feature = "ApplicationModel")]
@@ -615,11 +611,7 @@ pub struct IGameListEntry_Vtbl {
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCategoryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, GameListCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameListEntry2, IGameListEntry2_Vtbl, 0xd84a8f8b_8749_4a25_90d3_f6c5a427886d, inspectable);
-impl windows_core::RuntimeType for IGameListEntry2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Preview.GamesEnumeration.IGameListEntry2");
-}
+windows_core::imp::define_winrt_interface!(IGameListEntry2, IGameListEntry2_Vtbl, 0xd84a8f8b_8749_4a25_90d3_f6c5a427886d, b"Windows.Gaming.Preview.GamesEnumeration.IGameListEntry2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameListEntry2_Vtbl {
@@ -642,11 +634,7 @@ pub struct IGameListEntry2_Vtbl {
     pub SetTitleIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GameModeConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameListStatics, IGameListStatics_Vtbl, 0x2ddd0f6f_9c66_4b05_945c_d6ed78491b8c, inspectable);
-impl windows_core::RuntimeType for IGameListStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Preview.GamesEnumeration.IGameListStatics");
-}
+windows_core::imp::define_winrt_interface!(IGameListStatics, IGameListStatics_Vtbl, 0x2ddd0f6f_9c66_4b05_945c_d6ed78491b8c, b"Windows.Gaming.Preview.GamesEnumeration.IGameListStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameListStatics_Vtbl {
@@ -660,11 +648,7 @@ pub struct IGameListStatics_Vtbl {
     pub GameUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveGameUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameListStatics2, IGameListStatics2_Vtbl, 0x395f2098_ea1a_45aa_9268_a83905686f27, inspectable);
-impl windows_core::RuntimeType for IGameListStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Preview.GamesEnumeration.IGameListStatics2");
-}
+windows_core::imp::define_winrt_interface!(IGameListStatics2, IGameListStatics2_Vtbl, 0x395f2098_ea1a_45aa_9268_a83905686f27, b"Windows.Gaming.Preview.GamesEnumeration.IGameListStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameListStatics2_Vtbl {
@@ -672,11 +656,7 @@ pub struct IGameListStatics2_Vtbl {
     pub MergeEntriesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnmergeEntryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameModeConfiguration, IGameModeConfiguration_Vtbl, 0x78e591af_b142_4ef0_8830_55bc2be4f5ea, inspectable);
-impl windows_core::RuntimeType for IGameModeConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Preview.GamesEnumeration.IGameModeConfiguration");
-}
+windows_core::imp::define_winrt_interface!(IGameModeConfiguration, IGameModeConfiguration_Vtbl, 0x78e591af_b142_4ef0_8830_55bc2be4f5ea, b"Windows.Gaming.Preview.GamesEnumeration.IGameModeConfiguration");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameModeConfiguration_Vtbl {
@@ -700,11 +680,7 @@ pub struct IGameModeConfiguration_Vtbl {
     pub SetAffinitizeToExclusiveCpus: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameModeUserConfiguration, IGameModeUserConfiguration_Vtbl, 0x72d34af4_756b_470f_a0c2_ba62a90795db, inspectable);
-impl windows_core::RuntimeType for IGameModeUserConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration");
-}
+windows_core::imp::define_winrt_interface!(IGameModeUserConfiguration, IGameModeUserConfiguration_Vtbl, 0x72d34af4_756b_470f_a0c2_ba62a90795db, b"Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameModeUserConfiguration_Vtbl {
@@ -712,11 +688,7 @@ pub struct IGameModeUserConfiguration_Vtbl {
     pub GamingRelatedProcessNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameModeUserConfigurationStatics, IGameModeUserConfigurationStatics_Vtbl, 0x6e50d97c_66ea_478e_a4a1_f57c0e8d00e7, inspectable);
-impl windows_core::RuntimeType for IGameModeUserConfigurationStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfigurationStatics");
-}
+windows_core::imp::define_winrt_interface!(IGameModeUserConfigurationStatics, IGameModeUserConfigurationStatics_Vtbl, 0x6e50d97c_66ea_478e_a4a1_f57c0e8d00e7, b"Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfigurationStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameModeUserConfigurationStatics_Vtbl {

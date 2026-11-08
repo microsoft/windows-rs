@@ -13,11 +13,7 @@ impl windows_core::RuntimeType for CredentialPromptType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.CredentialPromptType");
 }
-windows_core::imp::define_interface!(IOnlineIdAuthenticator, IOnlineIdAuthenticator_Vtbl, 0xa003f58a_29ab_4817_b884_d7516dad18b9, inspectable);
-impl windows_core::RuntimeType for IOnlineIdAuthenticator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator");
-}
+windows_core::imp::define_winrt_interface!(IOnlineIdAuthenticator, IOnlineIdAuthenticator_Vtbl, 0xa003f58a_29ab_4817_b884_d7516dad18b9, b"Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdAuthenticator_Vtbl {
@@ -30,11 +26,7 @@ pub struct IOnlineIdAuthenticator_Vtbl {
     pub CanSignOut: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub AuthenticatedSafeCustomerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOnlineIdServiceTicket, IOnlineIdServiceTicket_Vtbl, 0xc95c547f_d781_4a94_acb8_c59874238c26, inspectable);
-impl windows_core::RuntimeType for IOnlineIdServiceTicket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket");
-}
+windows_core::imp::define_winrt_interface!(IOnlineIdServiceTicket, IOnlineIdServiceTicket_Vtbl, 0xc95c547f_d781_4a94_acb8_c59874238c26, b"Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdServiceTicket_Vtbl {
@@ -43,11 +35,7 @@ pub struct IOnlineIdServiceTicket_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOnlineIdServiceTicketRequest, IOnlineIdServiceTicketRequest_Vtbl, 0x297445d3_fb63_4135_8909_4e354c061466, inspectable);
-impl windows_core::RuntimeType for IOnlineIdServiceTicketRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest");
-}
+windows_core::imp::define_winrt_interface!(IOnlineIdServiceTicketRequest, IOnlineIdServiceTicketRequest_Vtbl, 0x297445d3_fb63_4135_8909_4e354c061466, b"Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdServiceTicketRequest_Vtbl {
@@ -55,11 +43,7 @@ pub struct IOnlineIdServiceTicketRequest_Vtbl {
     pub Service: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Policy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOnlineIdServiceTicketRequestFactory, IOnlineIdServiceTicketRequestFactory_Vtbl, 0xbebb0a08_9e73_4077_9614_08614c0bc245, inspectable);
-impl windows_core::RuntimeType for IOnlineIdServiceTicketRequestFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequestFactory");
-}
+windows_core::imp::define_winrt_interface!(IOnlineIdServiceTicketRequestFactory, IOnlineIdServiceTicketRequestFactory_Vtbl, 0xbebb0a08_9e73_4077_9614_08614c0bc245, b"Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequestFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdServiceTicketRequestFactory_Vtbl {
@@ -67,11 +51,7 @@ pub struct IOnlineIdServiceTicketRequestFactory_Vtbl {
     pub CreateOnlineIdServiceTicketRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateOnlineIdServiceTicketRequestAdvanced: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOnlineIdSystemAuthenticatorForUser, IOnlineIdSystemAuthenticatorForUser_Vtbl, 0x5798befb_1de4_4186_a2e6_b563f86aaf44, inspectable);
-impl windows_core::RuntimeType for IOnlineIdSystemAuthenticatorForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser");
-}
+windows_core::imp::define_winrt_interface!(IOnlineIdSystemAuthenticatorForUser, IOnlineIdSystemAuthenticatorForUser_Vtbl, 0x5798befb_1de4_4186_a2e6_b563f86aaf44, b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdSystemAuthenticatorForUser_Vtbl {
@@ -84,11 +64,7 @@ pub struct IOnlineIdSystemAuthenticatorForUser_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IOnlineIdSystemAuthenticatorStatics, IOnlineIdSystemAuthenticatorStatics_Vtbl, 0x85047792_f634_41e3_96a4_5164e902c740, inspectable);
-impl windows_core::RuntimeType for IOnlineIdSystemAuthenticatorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorStatics");
-}
+windows_core::imp::define_winrt_interface!(IOnlineIdSystemAuthenticatorStatics, IOnlineIdSystemAuthenticatorStatics_Vtbl, 0x85047792_f634_41e3_96a4_5164e902c740, b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdSystemAuthenticatorStatics_Vtbl {
@@ -99,11 +75,7 @@ pub struct IOnlineIdSystemAuthenticatorStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::define_interface!(IOnlineIdSystemIdentity, IOnlineIdSystemIdentity_Vtbl, 0x743cd20d_b6ca_434d_8124_53ea12685307, inspectable);
-impl windows_core::RuntimeType for IOnlineIdSystemIdentity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemIdentity");
-}
+windows_core::imp::define_winrt_interface!(IOnlineIdSystemIdentity, IOnlineIdSystemIdentity_Vtbl, 0x743cd20d_b6ca_434d_8124_53ea12685307, b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemIdentity");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdSystemIdentity_Vtbl {
@@ -111,11 +83,7 @@ pub struct IOnlineIdSystemIdentity_Vtbl {
     pub Ticket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOnlineIdSystemTicketResult, IOnlineIdSystemTicketResult_Vtbl, 0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6, inspectable);
-impl windows_core::RuntimeType for IOnlineIdSystemTicketResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemTicketResult");
-}
+windows_core::imp::define_winrt_interface!(IOnlineIdSystemTicketResult, IOnlineIdSystemTicketResult_Vtbl, 0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6, b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemTicketResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOnlineIdSystemTicketResult_Vtbl {
@@ -124,11 +92,7 @@ pub struct IOnlineIdSystemTicketResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OnlineIdSystemTicketStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserIdentity, IUserIdentity_Vtbl, 0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88, inspectable);
-impl windows_core::RuntimeType for IUserIdentity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IUserIdentity");
-}
+windows_core::imp::define_winrt_interface!(IUserIdentity, IUserIdentity_Vtbl, 0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88, b"Windows.Security.Authentication.OnlineId.IUserIdentity");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserIdentity_Vtbl {

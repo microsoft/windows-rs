@@ -1,15 +1,9 @@
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     References,
     References_Vtbl,
     0x5bd5266b_b3f8_5ccb_8c91_3cb9f3fdde43,
-    inspectable
+    b"Test.References"
 );
-impl windows_core::RuntimeType for References {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.References");
-}
 windows_core::imp::interface_hierarchy!(
     References,
     windows_core::IUnknown,

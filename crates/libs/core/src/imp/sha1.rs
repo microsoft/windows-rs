@@ -108,7 +108,7 @@ impl ConstBuffer {
         self
     }
 
-    const fn push_guid(self, guid: &crate::GUID) -> Self {
+    pub const fn push_guid(self, guid: &crate::GUID) -> Self {
         self.push(b'{')
             .push_hex_u32(guid.data1)
             .push(b'-')

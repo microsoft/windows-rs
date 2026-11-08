@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IPushNotificationChannel, IPushNotificationChannel_Vtbl, 0x2b28102e_ef0b_4f39_9b8a_a3c194de7081, inspectable);
-impl windows_core::RuntimeType for IPushNotificationChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IPushNotificationChannel");
-}
+windows_core::imp::define_winrt_interface!(IPushNotificationChannel, IPushNotificationChannel_Vtbl, 0x2b28102e_ef0b_4f39_9b8a_a3c194de7081, b"Windows.Networking.PushNotifications.IPushNotificationChannel");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannel_Vtbl {
@@ -13,11 +9,7 @@ pub struct IPushNotificationChannel_Vtbl {
     pub PushNotificationReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemovePushNotificationReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPushNotificationChannelManagerForUser, IPushNotificationChannelManagerForUser_Vtbl, 0xa4c45704_1182_42c7_8890_f563c4890dc4, inspectable);
-impl windows_core::RuntimeType for IPushNotificationChannelManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser");
-}
+windows_core::imp::define_winrt_interface!(IPushNotificationChannelManagerForUser, IPushNotificationChannelManagerForUser_Vtbl, 0xa4c45704_1182_42c7_8890_f563c4890dc4, b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerForUser_Vtbl {
@@ -30,11 +22,7 @@ pub struct IPushNotificationChannelManagerForUser_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IPushNotificationChannelManagerForUser2, IPushNotificationChannelManagerForUser2_Vtbl, 0xc38b066a_7cc1_4dac_87fd_be6e920414a4, inspectable);
-impl windows_core::RuntimeType for IPushNotificationChannelManagerForUser2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser2");
-}
+windows_core::imp::define_winrt_interface!(IPushNotificationChannelManagerForUser2, IPushNotificationChannelManagerForUser2_Vtbl, 0xc38b066a_7cc1_4dac_87fd_be6e920414a4, b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerForUser2_Vtbl {
@@ -48,11 +36,7 @@ pub struct IPushNotificationChannelManagerForUser2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId: usize,
 }
-windows_core::imp::define_interface!(IPushNotificationChannelManagerStatics, IPushNotificationChannelManagerStatics_Vtbl, 0x8baf9b65_77a1_4588_bd19_861529a9dcf0, inspectable);
-impl windows_core::RuntimeType for IPushNotificationChannelManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IPushNotificationChannelManagerStatics, IPushNotificationChannelManagerStatics_Vtbl, 0x8baf9b65_77a1_4588_bd19_861529a9dcf0, b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics_Vtbl {
@@ -61,11 +45,7 @@ pub struct IPushNotificationChannelManagerStatics_Vtbl {
     pub CreatePushNotificationChannelForApplicationAsyncWithId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePushNotificationChannelForSecondaryTileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPushNotificationChannelManagerStatics2, IPushNotificationChannelManagerStatics2_Vtbl, 0xb444a65d_a7e9_4b28_950e_f375a907f9df, inspectable);
-impl windows_core::RuntimeType for IPushNotificationChannelManagerStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics2");
-}
+windows_core::imp::define_winrt_interface!(IPushNotificationChannelManagerStatics2, IPushNotificationChannelManagerStatics2_Vtbl, 0xb444a65d_a7e9_4b28_950e_f375a907f9df, b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics2_Vtbl {
@@ -75,22 +55,14 @@ pub struct IPushNotificationChannelManagerStatics2_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::define_interface!(IPushNotificationChannelManagerStatics3, IPushNotificationChannelManagerStatics3_Vtbl, 0x4701fefe_0ede_4a3f_ae78_bfa471496925, inspectable);
-impl windows_core::RuntimeType for IPushNotificationChannelManagerStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics3");
-}
+windows_core::imp::define_winrt_interface!(IPushNotificationChannelManagerStatics3, IPushNotificationChannelManagerStatics3_Vtbl, 0x4701fefe_0ede_4a3f_ae78_bfa471496925, b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPushNotificationChannelManagerStatics4, IPushNotificationChannelManagerStatics4_Vtbl, 0xbc540efb_7820_5a5b_9c01_b4757f774025, inspectable);
-impl windows_core::RuntimeType for IPushNotificationChannelManagerStatics4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics4");
-}
+windows_core::imp::define_winrt_interface!(IPushNotificationChannelManagerStatics4, IPushNotificationChannelManagerStatics4_Vtbl, 0xbc540efb_7820_5a5b_9c01_b4757f774025, b"Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics4");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics4_Vtbl {
@@ -98,21 +70,13 @@ pub struct IPushNotificationChannelManagerStatics4_Vtbl {
     pub ChannelsRevoked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveChannelsRevoked: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPushNotificationChannelsRevokedEventArgs, IPushNotificationChannelsRevokedEventArgs_Vtbl, 0x20e1a24c_1a34_5beb_aae2_40c232c8c140, inspectable);
-impl windows_core::RuntimeType for IPushNotificationChannelsRevokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IPushNotificationChannelsRevokedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPushNotificationChannelsRevokedEventArgs, IPushNotificationChannelsRevokedEventArgs_Vtbl, 0x20e1a24c_1a34_5beb_aae2_40c232c8c140, b"Windows.Networking.PushNotifications.IPushNotificationChannelsRevokedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelsRevokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IPushNotificationReceivedEventArgs, IPushNotificationReceivedEventArgs_Vtbl, 0xd1065e0c_36cd_484c_b935_0a99b753cf00, inspectable);
-impl windows_core::RuntimeType for IPushNotificationReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IPushNotificationReceivedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IPushNotificationReceivedEventArgs, IPushNotificationReceivedEventArgs_Vtbl, 0xd1065e0c_36cd_484c_b935_0a99b753cf00, b"Windows.Networking.PushNotifications.IPushNotificationReceivedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationReceivedEventArgs_Vtbl {
@@ -134,22 +98,14 @@ pub struct IPushNotificationReceivedEventArgs_Vtbl {
     BadgeNotification: usize,
     pub RawNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRawNotification, IRawNotification_Vtbl, 0x1a227281_3b79_42ac_9963_22ab00d4f0b7, inspectable);
-impl windows_core::RuntimeType for IRawNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IRawNotification");
-}
+windows_core::imp::define_winrt_interface!(IRawNotification, IRawNotification_Vtbl, 0x1a227281_3b79_42ac_9963_22ab00d4f0b7, b"Windows.Networking.PushNotifications.IRawNotification");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRawNotification2, IRawNotification2_Vtbl, 0xe6d0cf19_0c6f_4cdd_9424_eec5be014d26, inspectable);
-impl windows_core::RuntimeType for IRawNotification2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IRawNotification2");
-}
+windows_core::imp::define_winrt_interface!(IRawNotification2, IRawNotification2_Vtbl, 0xe6d0cf19_0c6f_4cdd_9424_eec5be014d26, b"Windows.Networking.PushNotifications.IRawNotification2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawNotification2_Vtbl {
@@ -157,11 +113,7 @@ pub struct IRawNotification2_Vtbl {
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ChannelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRawNotification3, IRawNotification3_Vtbl, 0x62737dde_8a73_424c_ab44_5635f40a96e5, inspectable);
-impl windows_core::RuntimeType for IRawNotification3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.PushNotifications.IRawNotification3");
-}
+windows_core::imp::define_winrt_interface!(IRawNotification3, IRawNotification3_Vtbl, 0x62737dde_8a73_424c_ab44_5635f40a96e5, b"Windows.Networking.PushNotifications.IRawNotification3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawNotification3_Vtbl {

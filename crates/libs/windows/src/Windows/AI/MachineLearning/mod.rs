@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IImageFeatureDescriptor, IImageFeatureDescriptor_Vtbl, 0x365585a5_171a_4a2a_985f_265159d3895a, inspectable);
-impl windows_core::RuntimeType for IImageFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.IImageFeatureDescriptor");
-}
+windows_core::imp::define_winrt_interface!(IImageFeatureDescriptor, IImageFeatureDescriptor_Vtbl, 0x365585a5_171a_4a2a_985f_265159d3895a, b"Windows.AI.MachineLearning.IImageFeatureDescriptor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageFeatureDescriptor_Vtbl {
@@ -18,22 +14,14 @@ pub struct IImageFeatureDescriptor_Vtbl {
     pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IImageFeatureDescriptor2, IImageFeatureDescriptor2_Vtbl, 0x2b27cca7_d533_5862_bb98_1611b155b0e1, inspectable);
-impl windows_core::RuntimeType for IImageFeatureDescriptor2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.IImageFeatureDescriptor2");
-}
+windows_core::imp::define_winrt_interface!(IImageFeatureDescriptor2, IImageFeatureDescriptor2_Vtbl, 0x2b27cca7_d533_5862_bb98_1611b155b0e1, b"Windows.AI.MachineLearning.IImageFeatureDescriptor2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageFeatureDescriptor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PixelRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelPixelRange) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IImageFeatureValue, IImageFeatureValue_Vtbl, 0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037, inspectable);
-impl windows_core::RuntimeType for IImageFeatureValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.IImageFeatureValue");
-}
+windows_core::imp::define_winrt_interface!(IImageFeatureValue, IImageFeatureValue_Vtbl, 0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037, b"Windows.AI.MachineLearning.IImageFeatureValue");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageFeatureValue_Vtbl {
@@ -43,11 +31,7 @@ pub struct IImageFeatureValue_Vtbl {
     #[cfg(not(feature = "Media"))]
     VideoFrame: usize,
 }
-windows_core::imp::define_interface!(IImageFeatureValueStatics, IImageFeatureValueStatics_Vtbl, 0x1bc317fd_23cb_4610_b085_c8e1c87ebaa0, inspectable);
-impl windows_core::RuntimeType for IImageFeatureValueStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.IImageFeatureValueStatics");
-}
+windows_core::imp::define_winrt_interface!(IImageFeatureValueStatics, IImageFeatureValueStatics_Vtbl, 0x1bc317fd_23cb_4610_b085_c8e1c87ebaa0, b"Windows.AI.MachineLearning.IImageFeatureValueStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageFeatureValueStatics_Vtbl {
@@ -57,11 +41,7 @@ pub struct IImageFeatureValueStatics_Vtbl {
     #[cfg(not(feature = "Media"))]
     CreateFromVideoFrame: usize,
 }
-windows_core::imp::define_interface!(ILearningModel, ILearningModel_Vtbl, 0x5b8e4920_489f_4e86_9128_265a327b78fa, inspectable);
-impl windows_core::RuntimeType for ILearningModel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModel");
-}
+windows_core::imp::define_winrt_interface!(ILearningModel, ILearningModel_Vtbl, 0x5b8e4920_489f_4e86_9128_265a327b78fa, b"Windows.AI.MachineLearning.ILearningModel");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModel_Vtbl {
@@ -75,11 +55,7 @@ pub struct ILearningModel_Vtbl {
     pub InputFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OutputFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelBinding, ILearningModelBinding_Vtbl, 0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8, inspectable);
-impl windows_core::RuntimeType for ILearningModelBinding {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelBinding");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelBinding, ILearningModelBinding_Vtbl, 0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8, b"Windows.AI.MachineLearning.ILearningModelBinding");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelBinding_Vtbl {
@@ -91,22 +67,14 @@ pub struct ILearningModelBinding_Vtbl {
     BindWithProperties: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelBindingFactory, ILearningModelBindingFactory_Vtbl, 0xc95f7a7a_e788_475e_8917_23aa381faf0b, inspectable);
-impl windows_core::RuntimeType for ILearningModelBindingFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelBindingFactory");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelBindingFactory, ILearningModelBindingFactory_Vtbl, 0xc95f7a7a_e788_475e_8917_23aa381faf0b, b"Windows.AI.MachineLearning.ILearningModelBindingFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelBindingFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelDevice, ILearningModelDevice_Vtbl, 0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252, inspectable);
-impl windows_core::RuntimeType for ILearningModelDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelDevice");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelDevice, ILearningModelDevice_Vtbl, 0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252, b"Windows.AI.MachineLearning.ILearningModelDevice");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelDevice_Vtbl {
@@ -120,22 +88,14 @@ pub struct ILearningModelDevice_Vtbl {
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     Direct3D11Device: usize,
 }
-windows_core::imp::define_interface!(ILearningModelDeviceFactory, ILearningModelDeviceFactory_Vtbl, 0x9cffd74d_b1e5_4f20_80ad_0a56690db06b, inspectable);
-impl windows_core::RuntimeType for ILearningModelDeviceFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelDeviceFactory");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelDeviceFactory, ILearningModelDeviceFactory_Vtbl, 0x9cffd74d_b1e5_4f20_80ad_0a56690db06b, b"Windows.AI.MachineLearning.ILearningModelDeviceFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelDeviceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, LearningModelDeviceKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelDeviceStatics, ILearningModelDeviceStatics_Vtbl, 0x49f32107_a8bf_42bb_92c7_10b12dc5d21f, inspectable);
-impl windows_core::RuntimeType for ILearningModelDeviceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelDeviceStatics");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelDeviceStatics, ILearningModelDeviceStatics_Vtbl, 0x49f32107_a8bf_42bb_92c7_10b12dc5d21f, b"Windows.AI.MachineLearning.ILearningModelDeviceStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelDeviceStatics_Vtbl {
@@ -145,11 +105,7 @@ pub struct ILearningModelDeviceStatics_Vtbl {
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     CreateFromDirect3D11Device: usize,
 }
-windows_core::imp::define_interface!(ILearningModelEvaluationResult, ILearningModelEvaluationResult_Vtbl, 0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2, inspectable);
-impl windows_core::RuntimeType for ILearningModelEvaluationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelEvaluationResult");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelEvaluationResult, ILearningModelEvaluationResult_Vtbl, 0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2, b"Windows.AI.MachineLearning.ILearningModelEvaluationResult");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelEvaluationResult_Vtbl {
@@ -159,11 +115,7 @@ pub struct ILearningModelEvaluationResult_Vtbl {
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Outputs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelFeatureDescriptor, ILearningModelFeatureDescriptor_Vtbl, 0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f, inspectable);
-impl windows_core::RuntimeType for ILearningModelFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelFeatureDescriptor");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelFeatureDescriptor, ILearningModelFeatureDescriptor_Vtbl, 0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f, b"Windows.AI.MachineLearning.ILearningModelFeatureDescriptor");
 windows_core::imp::interface_hierarchy!(ILearningModelFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl ILearningModelFeatureDescriptor {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -285,11 +237,7 @@ pub struct ILearningModelFeatureDescriptor_Vtbl {
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
     pub IsRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelFeatureValue, ILearningModelFeatureValue_Vtbl, 0xf51005db_4085_4dfe_9fed_95eb0c0cf75c, inspectable);
-impl windows_core::RuntimeType for ILearningModelFeatureValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelFeatureValue");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelFeatureValue, ILearningModelFeatureValue_Vtbl, 0xf51005db_4085_4dfe_9fed_95eb0c0cf75c, b"Windows.AI.MachineLearning.ILearningModelFeatureValue");
 windows_core::imp::interface_hierarchy!(ILearningModelFeatureValue, windows_core::IUnknown, windows_core::IInspectable);
 impl ILearningModelFeatureValue {
     pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
@@ -334,11 +282,7 @@ pub struct ILearningModelFeatureValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelFeatureKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelOperatorProvider, ILearningModelOperatorProvider_Vtbl, 0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04, inspectable);
-impl windows_core::RuntimeType for ILearningModelOperatorProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelOperatorProvider");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelOperatorProvider, ILearningModelOperatorProvider_Vtbl, 0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04, b"Windows.AI.MachineLearning.ILearningModelOperatorProvider");
 windows_core::imp::interface_hierarchy!(ILearningModelOperatorProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl windows_core::RuntimeName for ILearningModelOperatorProvider {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelOperatorProvider";
@@ -357,11 +301,7 @@ impl ILearningModelOperatorProvider_Vtbl {
 pub struct ILearningModelOperatorProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ILearningModelSession, ILearningModelSession_Vtbl, 0x8e58f8f6_b787_4c11_90f0_7129aeca74a9, inspectable);
-impl windows_core::RuntimeType for ILearningModelSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelSession");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelSession, ILearningModelSession_Vtbl, 0x8e58f8f6_b787_4c11_90f0_7129aeca74a9, b"Windows.AI.MachineLearning.ILearningModelSession");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSession_Vtbl {
@@ -377,11 +317,7 @@ pub struct ILearningModelSession_Vtbl {
     pub Evaluate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EvaluateFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelSessionFactory, ILearningModelSessionFactory_Vtbl, 0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579, inspectable);
-impl windows_core::RuntimeType for ILearningModelSessionFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelSessionFactory");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelSessionFactory, ILearningModelSessionFactory_Vtbl, 0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579, b"Windows.AI.MachineLearning.ILearningModelSessionFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionFactory_Vtbl {
@@ -389,22 +325,14 @@ pub struct ILearningModelSessionFactory_Vtbl {
     pub CreateFromModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromModelOnDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelSessionFactory2, ILearningModelSessionFactory2_Vtbl, 0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b, inspectable);
-impl windows_core::RuntimeType for ILearningModelSessionFactory2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelSessionFactory2");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelSessionFactory2, ILearningModelSessionFactory2_Vtbl, 0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b, b"Windows.AI.MachineLearning.ILearningModelSessionFactory2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromModelOnDeviceWithSessionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelSessionOptions, ILearningModelSessionOptions_Vtbl, 0xb8f63fa1_134d_5133_8cff_3a5c3c263beb, inspectable);
-impl windows_core::RuntimeType for ILearningModelSessionOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelSessionOptions");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelSessionOptions, ILearningModelSessionOptions_Vtbl, 0xb8f63fa1_134d_5133_8cff_3a5c3c263beb, b"Windows.AI.MachineLearning.ILearningModelSessionOptions");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions_Vtbl {
@@ -412,11 +340,7 @@ pub struct ILearningModelSessionOptions_Vtbl {
     pub BatchSizeOverride: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetBatchSizeOverride: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelSessionOptions2, ILearningModelSessionOptions2_Vtbl, 0x6fcd1dc4_175f_5bd2_8de5_2f2006a25adf, inspectable);
-impl windows_core::RuntimeType for ILearningModelSessionOptions2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelSessionOptions2");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelSessionOptions2, ILearningModelSessionOptions2_Vtbl, 0x6fcd1dc4_175f_5bd2_8de5_2f2006a25adf, b"Windows.AI.MachineLearning.ILearningModelSessionOptions2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions2_Vtbl {
@@ -424,22 +348,14 @@ pub struct ILearningModelSessionOptions2_Vtbl {
     pub CloseModelOnSessionCreation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetCloseModelOnSessionCreation: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelSessionOptions3, ILearningModelSessionOptions3_Vtbl, 0x58e15cee_d8c2_56fc_92e8_76d751081086, inspectable);
-impl windows_core::RuntimeType for ILearningModelSessionOptions3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelSessionOptions3");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelSessionOptions3, ILearningModelSessionOptions3_Vtbl, 0x58e15cee_d8c2_56fc_92e8_76d751081086, b"Windows.AI.MachineLearning.ILearningModelSessionOptions3");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OverrideNamedDimension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILearningModelStatics, ILearningModelStatics_Vtbl, 0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d, inspectable);
-impl windows_core::RuntimeType for ILearningModelStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ILearningModelStatics");
-}
+windows_core::imp::define_winrt_interface!(ILearningModelStatics, ILearningModelStatics_Vtbl, 0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d, b"Windows.AI.MachineLearning.ILearningModelStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelStatics_Vtbl {
@@ -471,11 +387,7 @@ pub struct ILearningModelStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamWithOperatorProvider: usize,
 }
-windows_core::imp::define_interface!(IMapFeatureDescriptor, IMapFeatureDescriptor_Vtbl, 0x530424bd_a257_436d_9e60_c2981f7cc5c4, inspectable);
-impl windows_core::RuntimeType for IMapFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.IMapFeatureDescriptor");
-}
+windows_core::imp::define_winrt_interface!(IMapFeatureDescriptor, IMapFeatureDescriptor_Vtbl, 0x530424bd_a257_436d_9e60_c2981f7cc5c4, b"Windows.AI.MachineLearning.IMapFeatureDescriptor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapFeatureDescriptor_Vtbl {
@@ -483,22 +395,14 @@ pub struct IMapFeatureDescriptor_Vtbl {
     pub KeyKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TensorKind) -> windows_core::HRESULT,
     pub ValueDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISequenceFeatureDescriptor, ISequenceFeatureDescriptor_Vtbl, 0x84f6945a_562b_4d62_a851_739aced96668, inspectable);
-impl windows_core::RuntimeType for ISequenceFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ISequenceFeatureDescriptor");
-}
+windows_core::imp::define_winrt_interface!(ISequenceFeatureDescriptor, ISequenceFeatureDescriptor_Vtbl, 0x84f6945a_562b_4d62_a851_739aced96668, b"Windows.AI.MachineLearning.ISequenceFeatureDescriptor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISequenceFeatureDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ElementDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensor, ITensor_Vtbl, 0x05489593_a305_4a25_ad09_440119b4b7f6, inspectable);
-impl windows_core::RuntimeType for ITensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensor");
-}
+windows_core::imp::define_winrt_interface!(ITensor, ITensor_Vtbl, 0x05489593_a305_4a25_ad09_440119b4b7f6, b"Windows.AI.MachineLearning.ITensor");
 windows_core::imp::interface_hierarchy!(ITensor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ITensor, ILearningModelFeatureValue);
 impl ITensor {
@@ -575,22 +479,14 @@ pub struct ITensor_Vtbl {
     pub TensorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TensorKind) -> windows_core::HRESULT,
     pub Shape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorBoolean, ITensorBoolean_Vtbl, 0x50f311ed_29e9_4a5c_a44d_8fc512584eed, inspectable);
-impl windows_core::RuntimeType for ITensorBoolean {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorBoolean");
-}
+windows_core::imp::define_winrt_interface!(ITensorBoolean, ITensorBoolean_Vtbl, 0x50f311ed_29e9_4a5c_a44d_8fc512584eed, b"Windows.AI.MachineLearning.ITensorBoolean");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorBoolean_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorBooleanStatics, ITensorBooleanStatics_Vtbl, 0x2796862c_2357_49a7_b476_d0aa3dfe6866, inspectable);
-impl windows_core::RuntimeType for ITensorBooleanStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorBooleanStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorBooleanStatics, ITensorBooleanStatics_Vtbl, 0x2796862c_2357_49a7_b476_d0aa3dfe6866, b"Windows.AI.MachineLearning.ITensorBooleanStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorBooleanStatics_Vtbl {
@@ -600,11 +496,7 @@ pub struct ITensorBooleanStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorBooleanStatics2, ITensorBooleanStatics2_Vtbl, 0xa3a4a501_6a2d_52d7_b04b_c435baee0115, inspectable);
-impl windows_core::RuntimeType for ITensorBooleanStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorBooleanStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorBooleanStatics2, ITensorBooleanStatics2_Vtbl, 0xa3a4a501_6a2d_52d7_b04b_c435baee0115, b"Windows.AI.MachineLearning.ITensorBooleanStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorBooleanStatics2_Vtbl {
@@ -615,22 +507,14 @@ pub struct ITensorBooleanStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorDouble, ITensorDouble_Vtbl, 0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0, inspectable);
-impl windows_core::RuntimeType for ITensorDouble {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorDouble");
-}
+windows_core::imp::define_winrt_interface!(ITensorDouble, ITensorDouble_Vtbl, 0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0, b"Windows.AI.MachineLearning.ITensorDouble");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorDouble_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorDoubleStatics, ITensorDoubleStatics_Vtbl, 0xa86693c5_9538_44e7_a3ca_5df374a5a70c, inspectable);
-impl windows_core::RuntimeType for ITensorDoubleStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorDoubleStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorDoubleStatics, ITensorDoubleStatics_Vtbl, 0xa86693c5_9538_44e7_a3ca_5df374a5a70c, b"Windows.AI.MachineLearning.ITensorDoubleStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorDoubleStatics_Vtbl {
@@ -640,11 +524,7 @@ pub struct ITensorDoubleStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorDoubleStatics2, ITensorDoubleStatics2_Vtbl, 0x93a570de_5e9a_5094_85c8_592c655e68ac, inspectable);
-impl windows_core::RuntimeType for ITensorDoubleStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorDoubleStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorDoubleStatics2, ITensorDoubleStatics2_Vtbl, 0x93a570de_5e9a_5094_85c8_592c655e68ac, b"Windows.AI.MachineLearning.ITensorDoubleStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorDoubleStatics2_Vtbl {
@@ -655,11 +535,7 @@ pub struct ITensorDoubleStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorFeatureDescriptor, ITensorFeatureDescriptor_Vtbl, 0x74455c80_946a_4310_a19c_ee0af028fce4, inspectable);
-impl windows_core::RuntimeType for ITensorFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorFeatureDescriptor");
-}
+windows_core::imp::define_winrt_interface!(ITensorFeatureDescriptor, ITensorFeatureDescriptor_Vtbl, 0x74455c80_946a_4310_a19c_ee0af028fce4, b"Windows.AI.MachineLearning.ITensorFeatureDescriptor");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFeatureDescriptor_Vtbl {
@@ -667,33 +543,21 @@ pub struct ITensorFeatureDescriptor_Vtbl {
     pub TensorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TensorKind) -> windows_core::HRESULT,
     pub Shape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorFloat, ITensorFloat_Vtbl, 0xf2282d82_aa02_42c8_a0c8_df1efc9676e1, inspectable);
-impl windows_core::RuntimeType for ITensorFloat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorFloat");
-}
+windows_core::imp::define_winrt_interface!(ITensorFloat, ITensorFloat_Vtbl, 0xf2282d82_aa02_42c8_a0c8_df1efc9676e1, b"Windows.AI.MachineLearning.ITensorFloat");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFloat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorFloat16Bit, ITensorFloat16Bit_Vtbl, 0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a, inspectable);
-impl windows_core::RuntimeType for ITensorFloat16Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorFloat16Bit");
-}
+windows_core::imp::define_winrt_interface!(ITensorFloat16Bit, ITensorFloat16Bit_Vtbl, 0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a, b"Windows.AI.MachineLearning.ITensorFloat16Bit");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFloat16Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorFloat16BitStatics, ITensorFloat16BitStatics_Vtbl, 0xa52db6f5_318a_44d4_820b_0cdc7054a84a, inspectable);
-impl windows_core::RuntimeType for ITensorFloat16BitStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorFloat16BitStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorFloat16BitStatics, ITensorFloat16BitStatics_Vtbl, 0xa52db6f5_318a_44d4_820b_0cdc7054a84a, b"Windows.AI.MachineLearning.ITensorFloat16BitStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFloat16BitStatics_Vtbl {
@@ -703,11 +567,7 @@ pub struct ITensorFloat16BitStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorFloat16BitStatics2, ITensorFloat16BitStatics2_Vtbl, 0x68545726_2dc7_51bf_b470_0b344cc2a1bc, inspectable);
-impl windows_core::RuntimeType for ITensorFloat16BitStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorFloat16BitStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorFloat16BitStatics2, ITensorFloat16BitStatics2_Vtbl, 0x68545726_2dc7_51bf_b470_0b344cc2a1bc, b"Windows.AI.MachineLearning.ITensorFloat16BitStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFloat16BitStatics2_Vtbl {
@@ -718,11 +578,7 @@ pub struct ITensorFloat16BitStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorFloatStatics, ITensorFloatStatics_Vtbl, 0xdbcd395b_3ba3_452f_b10d_3c135e573fa9, inspectable);
-impl windows_core::RuntimeType for ITensorFloatStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorFloatStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorFloatStatics, ITensorFloatStatics_Vtbl, 0xdbcd395b_3ba3_452f_b10d_3c135e573fa9, b"Windows.AI.MachineLearning.ITensorFloatStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFloatStatics_Vtbl {
@@ -732,11 +588,7 @@ pub struct ITensorFloatStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorFloatStatics2, ITensorFloatStatics2_Vtbl, 0x24610bc1_5e44_5713_b281_8f4ad4d555e8, inspectable);
-impl windows_core::RuntimeType for ITensorFloatStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorFloatStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorFloatStatics2, ITensorFloatStatics2_Vtbl, 0x24610bc1_5e44_5713_b281_8f4ad4d555e8, b"Windows.AI.MachineLearning.ITensorFloatStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorFloatStatics2_Vtbl {
@@ -747,22 +599,14 @@ pub struct ITensorFloatStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorInt16Bit, ITensorInt16Bit_Vtbl, 0x98a32d39_e6d6_44af_8afa_baebc44dc020, inspectable);
-impl windows_core::RuntimeType for ITensorInt16Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt16Bit");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt16Bit, ITensorInt16Bit_Vtbl, 0x98a32d39_e6d6_44af_8afa_baebc44dc020, b"Windows.AI.MachineLearning.ITensorInt16Bit");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt16Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorInt16BitStatics, ITensorInt16BitStatics_Vtbl, 0x98646293_266e_4b1a_821f_e60d70898b91, inspectable);
-impl windows_core::RuntimeType for ITensorInt16BitStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt16BitStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt16BitStatics, ITensorInt16BitStatics_Vtbl, 0x98646293_266e_4b1a_821f_e60d70898b91, b"Windows.AI.MachineLearning.ITensorInt16BitStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt16BitStatics_Vtbl {
@@ -772,11 +616,7 @@ pub struct ITensorInt16BitStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorInt16BitStatics2, ITensorInt16BitStatics2_Vtbl, 0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b, inspectable);
-impl windows_core::RuntimeType for ITensorInt16BitStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt16BitStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt16BitStatics2, ITensorInt16BitStatics2_Vtbl, 0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b, b"Windows.AI.MachineLearning.ITensorInt16BitStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt16BitStatics2_Vtbl {
@@ -787,22 +627,14 @@ pub struct ITensorInt16BitStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorInt32Bit, ITensorInt32Bit_Vtbl, 0x2c0c28d3_207c_4486_a7d2_884522c5e589, inspectable);
-impl windows_core::RuntimeType for ITensorInt32Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt32Bit");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt32Bit, ITensorInt32Bit_Vtbl, 0x2c0c28d3_207c_4486_a7d2_884522c5e589, b"Windows.AI.MachineLearning.ITensorInt32Bit");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt32Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorInt32BitStatics, ITensorInt32BitStatics_Vtbl, 0x6539864b_52fa_4e35_907c_834cac417b50, inspectable);
-impl windows_core::RuntimeType for ITensorInt32BitStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt32BitStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt32BitStatics, ITensorInt32BitStatics_Vtbl, 0x6539864b_52fa_4e35_907c_834cac417b50, b"Windows.AI.MachineLearning.ITensorInt32BitStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt32BitStatics_Vtbl {
@@ -812,11 +644,7 @@ pub struct ITensorInt32BitStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorInt32BitStatics2, ITensorInt32BitStatics2_Vtbl, 0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec, inspectable);
-impl windows_core::RuntimeType for ITensorInt32BitStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt32BitStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt32BitStatics2, ITensorInt32BitStatics2_Vtbl, 0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec, b"Windows.AI.MachineLearning.ITensorInt32BitStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt32BitStatics2_Vtbl {
@@ -827,22 +655,14 @@ pub struct ITensorInt32BitStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorInt64Bit, ITensorInt64Bit_Vtbl, 0x499665ba_1fa2_45ad_af25_a0bd9bda4c87, inspectable);
-impl windows_core::RuntimeType for ITensorInt64Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt64Bit");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt64Bit, ITensorInt64Bit_Vtbl, 0x499665ba_1fa2_45ad_af25_a0bd9bda4c87, b"Windows.AI.MachineLearning.ITensorInt64Bit");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt64Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorInt64BitStatics, ITensorInt64BitStatics_Vtbl, 0x9648ad9d_1198_4d74_9517_783ab62b9cc2, inspectable);
-impl windows_core::RuntimeType for ITensorInt64BitStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt64BitStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt64BitStatics, ITensorInt64BitStatics_Vtbl, 0x9648ad9d_1198_4d74_9517_783ab62b9cc2, b"Windows.AI.MachineLearning.ITensorInt64BitStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt64BitStatics_Vtbl {
@@ -852,11 +672,7 @@ pub struct ITensorInt64BitStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorInt64BitStatics2, ITensorInt64BitStatics2_Vtbl, 0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db, inspectable);
-impl windows_core::RuntimeType for ITensorInt64BitStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt64BitStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt64BitStatics2, ITensorInt64BitStatics2_Vtbl, 0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db, b"Windows.AI.MachineLearning.ITensorInt64BitStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt64BitStatics2_Vtbl {
@@ -867,22 +683,14 @@ pub struct ITensorInt64BitStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorInt8Bit, ITensorInt8Bit_Vtbl, 0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee, inspectable);
-impl windows_core::RuntimeType for ITensorInt8Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt8Bit");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt8Bit, ITensorInt8Bit_Vtbl, 0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee, b"Windows.AI.MachineLearning.ITensorInt8Bit");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt8Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorInt8BitStatics, ITensorInt8BitStatics_Vtbl, 0xb1a12284_095c_4c76_a661_ac4cee1f3e8b, inspectable);
-impl windows_core::RuntimeType for ITensorInt8BitStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt8BitStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt8BitStatics, ITensorInt8BitStatics_Vtbl, 0xb1a12284_095c_4c76_a661_ac4cee1f3e8b, b"Windows.AI.MachineLearning.ITensorInt8BitStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt8BitStatics_Vtbl {
@@ -892,11 +700,7 @@ pub struct ITensorInt8BitStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorInt8BitStatics2, ITensorInt8BitStatics2_Vtbl, 0xc0d59637_c468_56fb_9535_c052bdb93dc0, inspectable);
-impl windows_core::RuntimeType for ITensorInt8BitStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorInt8BitStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorInt8BitStatics2, ITensorInt8BitStatics2_Vtbl, 0xc0d59637_c468_56fb_9535_c052bdb93dc0, b"Windows.AI.MachineLearning.ITensorInt8BitStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorInt8BitStatics2_Vtbl {
@@ -907,22 +711,14 @@ pub struct ITensorInt8BitStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorString, ITensorString_Vtbl, 0x582335c8_bdb1_4610_bc75_35e9cbf009b7, inspectable);
-impl windows_core::RuntimeType for ITensorString {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorString");
-}
+windows_core::imp::define_winrt_interface!(ITensorString, ITensorString_Vtbl, 0x582335c8_bdb1_4610_bc75_35e9cbf009b7, b"Windows.AI.MachineLearning.ITensorString");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorString_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorStringStatics, ITensorStringStatics_Vtbl, 0x83623324_cf26_4f17_a2d4_20ef8d097d53, inspectable);
-impl windows_core::RuntimeType for ITensorStringStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorStringStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorStringStatics, ITensorStringStatics_Vtbl, 0x83623324_cf26_4f17_a2d4_20ef8d097d53, b"Windows.AI.MachineLearning.ITensorStringStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorStringStatics_Vtbl {
@@ -932,33 +728,21 @@ pub struct ITensorStringStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::HSTRING, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorStringStatics2, ITensorStringStatics2_Vtbl, 0x9e355ed0_c8e2_5254_9137_0193a3668fd8, inspectable);
-impl windows_core::RuntimeType for ITensorStringStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorStringStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorStringStatics2, ITensorStringStatics2_Vtbl, 0x9e355ed0_c8e2_5254_9137_0193a3668fd8, b"Windows.AI.MachineLearning.ITensorStringStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorStringStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const i64, u32, *const windows_core::HSTRING, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorUInt16Bit, ITensorUInt16Bit_Vtbl, 0x68140f4b_23c0_42f3_81f6_a891c011bc3f, inspectable);
-impl windows_core::RuntimeType for ITensorUInt16Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt16Bit");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt16Bit, ITensorUInt16Bit_Vtbl, 0x68140f4b_23c0_42f3_81f6_a891c011bc3f, b"Windows.AI.MachineLearning.ITensorUInt16Bit");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt16Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorUInt16BitStatics, ITensorUInt16BitStatics_Vtbl, 0x5df745dd_028a_481a_a27c_c7e6435e52dd, inspectable);
-impl windows_core::RuntimeType for ITensorUInt16BitStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt16BitStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt16BitStatics, ITensorUInt16BitStatics_Vtbl, 0x5df745dd_028a_481a_a27c_c7e6435e52dd, b"Windows.AI.MachineLearning.ITensorUInt16BitStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt16BitStatics_Vtbl {
@@ -968,11 +752,7 @@ pub struct ITensorUInt16BitStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorUInt16BitStatics2, ITensorUInt16BitStatics2_Vtbl, 0x8af40c64_d69f_5315_9348_490877bbd642, inspectable);
-impl windows_core::RuntimeType for ITensorUInt16BitStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt16BitStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt16BitStatics2, ITensorUInt16BitStatics2_Vtbl, 0x8af40c64_d69f_5315_9348_490877bbd642, b"Windows.AI.MachineLearning.ITensorUInt16BitStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt16BitStatics2_Vtbl {
@@ -983,22 +763,14 @@ pub struct ITensorUInt16BitStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorUInt32Bit, ITensorUInt32Bit_Vtbl, 0xd8c9c2ff_7511_45a3_bfac_c38f370d2237, inspectable);
-impl windows_core::RuntimeType for ITensorUInt32Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt32Bit");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt32Bit, ITensorUInt32Bit_Vtbl, 0xd8c9c2ff_7511_45a3_bfac_c38f370d2237, b"Windows.AI.MachineLearning.ITensorUInt32Bit");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt32Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorUInt32BitStatics, ITensorUInt32BitStatics_Vtbl, 0x417c3837_e773_4378_8e7f_0cc33dbea697, inspectable);
-impl windows_core::RuntimeType for ITensorUInt32BitStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt32BitStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt32BitStatics, ITensorUInt32BitStatics_Vtbl, 0x417c3837_e773_4378_8e7f_0cc33dbea697, b"Windows.AI.MachineLearning.ITensorUInt32BitStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt32BitStatics_Vtbl {
@@ -1008,11 +780,7 @@ pub struct ITensorUInt32BitStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorUInt32BitStatics2, ITensorUInt32BitStatics2_Vtbl, 0xef1a1f1c_314e_569d_b496_5c8447d20cd2, inspectable);
-impl windows_core::RuntimeType for ITensorUInt32BitStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt32BitStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt32BitStatics2, ITensorUInt32BitStatics2_Vtbl, 0xef1a1f1c_314e_569d_b496_5c8447d20cd2, b"Windows.AI.MachineLearning.ITensorUInt32BitStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt32BitStatics2_Vtbl {
@@ -1023,22 +791,14 @@ pub struct ITensorUInt32BitStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorUInt64Bit, ITensorUInt64Bit_Vtbl, 0x2e70ffad_04bf_4825_839a_82baef8c7886, inspectable);
-impl windows_core::RuntimeType for ITensorUInt64Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt64Bit");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt64Bit, ITensorUInt64Bit_Vtbl, 0x2e70ffad_04bf_4825_839a_82baef8c7886, b"Windows.AI.MachineLearning.ITensorUInt64Bit");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt64Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorUInt64BitStatics, ITensorUInt64BitStatics_Vtbl, 0x7a7e20eb_242f_47cb_a9c6_f602ecfbfee4, inspectable);
-impl windows_core::RuntimeType for ITensorUInt64BitStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt64BitStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt64BitStatics, ITensorUInt64BitStatics_Vtbl, 0x7a7e20eb_242f_47cb_a9c6_f602ecfbfee4, b"Windows.AI.MachineLearning.ITensorUInt64BitStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt64BitStatics_Vtbl {
@@ -1048,11 +808,7 @@ pub struct ITensorUInt64BitStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorUInt64BitStatics2, ITensorUInt64BitStatics2_Vtbl, 0x085a687d_67e1_5b1e_b232_4fabe9ca20b3, inspectable);
-impl windows_core::RuntimeType for ITensorUInt64BitStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt64BitStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt64BitStatics2, ITensorUInt64BitStatics2_Vtbl, 0x085a687d_67e1_5b1e_b232_4fabe9ca20b3, b"Windows.AI.MachineLearning.ITensorUInt64BitStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt64BitStatics2_Vtbl {
@@ -1063,22 +819,14 @@ pub struct ITensorUInt64BitStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
-windows_core::imp::define_interface!(ITensorUInt8Bit, ITensorUInt8Bit_Vtbl, 0x58e1ae27_622b_48e3_be22_d867aed1daac, inspectable);
-impl windows_core::RuntimeType for ITensorUInt8Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt8Bit");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt8Bit, ITensorUInt8Bit_Vtbl, 0x58e1ae27_622b_48e3_be22_d867aed1daac, b"Windows.AI.MachineLearning.ITensorUInt8Bit");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt8Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAsVectorView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorUInt8BitStatics, ITensorUInt8BitStatics_Vtbl, 0x05f67583_bc24_4220_8a41_2dcd8c5ed33c, inspectable);
-impl windows_core::RuntimeType for ITensorUInt8BitStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt8BitStatics");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt8BitStatics, ITensorUInt8BitStatics_Vtbl, 0x05f67583_bc24_4220_8a41_2dcd8c5ed33c, b"Windows.AI.MachineLearning.ITensorUInt8BitStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt8BitStatics_Vtbl {
@@ -1088,11 +836,7 @@ pub struct ITensorUInt8BitStatics_Vtbl {
     pub CreateFromArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromIterable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITensorUInt8BitStatics2, ITensorUInt8BitStatics2_Vtbl, 0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789, inspectable);
-impl windows_core::RuntimeType for ITensorUInt8BitStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.MachineLearning.ITensorUInt8BitStatics2");
-}
+windows_core::imp::define_winrt_interface!(ITensorUInt8BitStatics2, ITensorUInt8BitStatics2_Vtbl, 0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789, b"Windows.AI.MachineLearning.ITensorUInt8BitStatics2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorUInt8BitStatics2_Vtbl {

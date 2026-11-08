@@ -446,11 +446,7 @@ impl windows_core::RuntimeType for EasRequireEncryptionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult");
 }
-windows_core::imp::define_interface!(IEasClientDeviceInformation, IEasClientDeviceInformation_Vtbl, 0x54dfd981_1968_4ca3_b958_e595d16505eb, inspectable);
-impl windows_core::RuntimeType for IEasClientDeviceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation");
-}
+windows_core::imp::define_winrt_interface!(IEasClientDeviceInformation, IEasClientDeviceInformation_Vtbl, 0x54dfd981_1968_4ca3_b958_e595d16505eb, b"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasClientDeviceInformation_Vtbl {
@@ -462,11 +458,7 @@ pub struct IEasClientDeviceInformation_Vtbl {
     pub SystemProductName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SystemSku: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEasClientDeviceInformation2, IEasClientDeviceInformation2_Vtbl, 0xffb35923_bb26_4d6a_81bc_165aee0ad754, inspectable);
-impl windows_core::RuntimeType for IEasClientDeviceInformation2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation2");
-}
+windows_core::imp::define_winrt_interface!(IEasClientDeviceInformation2, IEasClientDeviceInformation2_Vtbl, 0xffb35923_bb26_4d6a_81bc_165aee0ad754, b"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasClientDeviceInformation2_Vtbl {
@@ -474,11 +466,7 @@ pub struct IEasClientDeviceInformation2_Vtbl {
     pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SystemFirmwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEasClientSecurityPolicy, IEasClientSecurityPolicy_Vtbl, 0x45b72362_dfba_4a9b_aced_6fe2adcb6420, inspectable);
-impl windows_core::RuntimeType for IEasClientSecurityPolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy");
-}
+windows_core::imp::define_winrt_interface!(IEasClientSecurityPolicy, IEasClientSecurityPolicy_Vtbl, 0x45b72362_dfba_4a9b_aced_6fe2adcb6420, b"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasClientSecurityPolicy_Vtbl {
@@ -502,11 +490,7 @@ pub struct IEasClientSecurityPolicy_Vtbl {
     pub CheckCompliance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ApplyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEasComplianceResults, IEasComplianceResults_Vtbl, 0x463c299c_7f19_4c66_b403_cb45dd57a2b3, inspectable);
-impl windows_core::RuntimeType for IEasComplianceResults {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults");
-}
+windows_core::imp::define_winrt_interface!(IEasComplianceResults, IEasComplianceResults_Vtbl, 0x463c299c_7f19_4c66_b403_cb45dd57a2b3, b"Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasComplianceResults_Vtbl {
@@ -521,11 +505,7 @@ pub struct IEasComplianceResults_Vtbl {
     pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxPasswordFailedAttemptsResult) -> windows_core::HRESULT,
     pub MaxInactivityTimeLockResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxInactivityTimeLockResult) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEasComplianceResults2, IEasComplianceResults2_Vtbl, 0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15, inspectable);
-impl windows_core::RuntimeType for IEasComplianceResults2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults2");
-}
+windows_core::imp::define_winrt_interface!(IEasComplianceResults2, IEasComplianceResults2_Vtbl, 0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15, b"Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults2");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasComplianceResults2_Vtbl {

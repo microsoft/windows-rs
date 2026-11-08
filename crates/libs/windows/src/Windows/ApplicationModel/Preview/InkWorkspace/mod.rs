@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IInkWorkspaceHostedAppManager, IInkWorkspaceHostedAppManager_Vtbl, 0xfe0a7990_5e59_4bb7_8a63_7d218cd96300, inspectable);
-impl windows_core::RuntimeType for IInkWorkspaceHostedAppManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManager");
-}
+windows_core::imp::define_winrt_interface!(IInkWorkspaceHostedAppManager, IInkWorkspaceHostedAppManager_Vtbl, 0xfe0a7990_5e59_4bb7_8a63_7d218cd96300, b"Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManager");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkWorkspaceHostedAppManager_Vtbl {
@@ -12,11 +8,7 @@ pub struct IInkWorkspaceHostedAppManager_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetThumbnailAsync: usize,
 }
-windows_core::imp::define_interface!(IInkWorkspaceHostedAppManagerStatics, IInkWorkspaceHostedAppManagerStatics_Vtbl, 0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5, inspectable);
-impl windows_core::RuntimeType for IInkWorkspaceHostedAppManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IInkWorkspaceHostedAppManagerStatics, IInkWorkspaceHostedAppManagerStatics_Vtbl, 0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5, b"Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {

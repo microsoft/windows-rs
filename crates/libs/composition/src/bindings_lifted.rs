@@ -943,30 +943,20 @@ impl windows_core::RuntimeType for DirectXPixelFormat {
         b"enum(Microsoft.Graphics.DirectX.DirectXPixelFormat;i4)",
     );
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionAnimation,
     ICompositionAnimation_Vtbl,
-    0xa829ccc8_6fde_5b90_ad37_efd307e1b631,
-    inspectable
+    0xa829ccc8_6fde_5b90_ad37_efd307e1b631
 );
-impl windows_core::RuntimeType for ICompositionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICompositionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionAnimation2,
     ICompositionAnimation2_Vtbl,
-    0x0926eb58_8965_5c74_bdac_852ebb5e8542,
-    inspectable
+    0x0926eb58_8965_5c74_bdac_852ebb5e8542
 );
-impl windows_core::RuntimeType for ICompositionAnimation2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionAnimation2 {
     pub(crate) fn SetTarget(&self, value: &str) -> windows_core::Result<()> {
         unsafe {
@@ -988,16 +978,11 @@ pub struct ICompositionAnimation2_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionAnimationBase,
     ICompositionAnimationBase_Vtbl,
-    0xa77c0e5a_f059_4e85_bcef_c068694cec78,
-    inspectable
+    0xa77c0e5a_f059_4e85_bcef_c068694cec78
 );
-impl windows_core::RuntimeType for ICompositionAnimationBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     ICompositionAnimationBase,
     windows_core::IUnknown,
@@ -1007,16 +992,11 @@ windows_core::imp::interface_hierarchy!(
 pub struct ICompositionAnimationBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionAnimationGroup,
     ICompositionAnimationGroup_Vtbl,
-    0xa51cdcac_b972_5ae7_81d0_9d91c71ecb7a,
-    inspectable
+    0xa51cdcac_b972_5ae7_81d0_9d91c71ecb7a
 );
-impl windows_core::RuntimeType for ICompositionAnimationGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionAnimationGroup {
     pub(crate) fn Add<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -1040,44 +1020,29 @@ pub struct ICompositionAnimationGroup_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionBatchCompletedEventArgs,
     ICompositionBatchCompletedEventArgs_Vtbl,
-    0xac400334_4358_5fb0_bfc3_117fe581998f,
-    inspectable
+    0xac400334_4358_5fb0_bfc3_117fe581998f
 );
-impl windows_core::RuntimeType for ICompositionBatchCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICompositionBatchCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionBrush,
     ICompositionBrush_Vtbl,
-    0x483924e7_99a5_5377_968b_dec6d40bbccd,
-    inspectable
+    0x483924e7_99a5_5377_968b_dec6d40bbccd
 );
-impl windows_core::RuntimeType for ICompositionBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICompositionBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionColorBrush,
     ICompositionColorBrush_Vtbl,
-    0x3f8ffb69_3e71_55a7_8e79_f27a214c56ae,
-    inspectable
+    0x3f8ffb69_3e71_55a7_8e79_f27a214c56ae
 );
-impl windows_core::RuntimeType for ICompositionColorBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionColorBrush {
     pub(crate) fn Color(&self) -> windows_core::Result<Color> {
         unsafe {
@@ -1106,16 +1071,11 @@ pub struct ICompositionColorBrush_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut Color) -> windows_core::HRESULT,
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, Color) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionContainerShape,
     ICompositionContainerShape_Vtbl,
-    0x064aabd5_2dab_52d3_824b_c72456540f29,
-    inspectable
+    0x064aabd5_2dab_52d3_824b_c72456540f29
 );
-impl windows_core::RuntimeType for ICompositionContainerShape {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionContainerShape {
     pub(crate) fn Shapes(&self) -> windows_core::Result<CompositionShapeCollection> {
         unsafe {
@@ -1136,44 +1096,29 @@ pub struct ICompositionContainerShape_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionDrawingSurface,
     ICompositionDrawingSurface_Vtbl,
-    0x216cab97_a2ee_5a29_ad6b_0bc2df4a1504,
-    inspectable
+    0x216cab97_a2ee_5a29_ad6b_0bc2df4a1504
 );
-impl windows_core::RuntimeType for ICompositionDrawingSurface {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICompositionDrawingSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionEasingFunction,
     ICompositionEasingFunction_Vtbl,
-    0x8e1ecd0d_57d8_5bc9_9bcd_e43d0dd733c4,
-    inspectable
+    0x8e1ecd0d_57d8_5bc9_9bcd_e43d0dd733c4
 );
-impl windows_core::RuntimeType for ICompositionEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICompositionEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionEllipseGeometry,
     ICompositionEllipseGeometry_Vtbl,
-    0xf2a21042_7a57_58c1_8b47_8bc8b21d3aa0,
-    inspectable
+    0xf2a21042_7a57_58c1_8b47_8bc8b21d3aa0
 );
-impl windows_core::RuntimeType for ICompositionEllipseGeometry {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionEllipseGeometry {
     pub(crate) fn SetRadius(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         unsafe {
@@ -1196,30 +1141,20 @@ pub struct ICompositionEllipseGeometry_Vtbl {
         windows_numerics::Vector2,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionGeometry,
     ICompositionGeometry_Vtbl,
-    0x4e40bdb2_450b_5a81_9e9b_149417980cc4,
-    inspectable
+    0x4e40bdb2_450b_5a81_9e9b_149417980cc4
 );
-impl windows_core::RuntimeType for ICompositionGeometry {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICompositionGeometry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionGraphicsDevice,
     ICompositionGraphicsDevice_Vtbl,
-    0x3d47e3f5_f76c_5f1f_88c0_54a5f2a090d6,
-    inspectable
+    0x3d47e3f5_f76c_5f1f_88c0_54a5f2a090d6
 );
-impl windows_core::RuntimeType for ICompositionGraphicsDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionGraphicsDevice {
     pub(crate) fn CreateDrawingSurface(
         &self,
@@ -1251,16 +1186,11 @@ pub struct ICompositionGraphicsDevice_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionNineGridBrush,
     ICompositionNineGridBrush_Vtbl,
-    0xc77a3d21_c7ee_517a_98f4_ad9a7202bc86,
-    inspectable
+    0xc77a3d21_c7ee_517a_98f4_ad9a7202bc86
 );
-impl windows_core::RuntimeType for ICompositionNineGridBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionNineGridBrush {
     pub(crate) fn SetIsCenterHollow(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
@@ -1338,16 +1268,11 @@ pub struct ICompositionNineGridBrush_Vtbl {
         f32,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionObject,
     ICompositionObject_Vtbl,
-    0x0e583d49_fb5e_5481_a426_d3c41e059a5a,
-    inspectable
+    0x0e583d49_fb5e_5481_a426_d3c41e059a5a
 );
-impl windows_core::RuntimeType for ICompositionObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionObject {
     pub(crate) fn Compositor(&self) -> windows_core::Result<Compositor> {
         unsafe {
@@ -1391,16 +1316,11 @@ pub struct ICompositionObject_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionObject2,
     ICompositionObject2_Vtbl,
-    0xbcbbfebf_799c_51ce_9c82_b6e49e7e62e1,
-    inspectable
+    0xbcbbfebf_799c_51ce_9c82_b6e49e7e62e1
 );
-impl windows_core::RuntimeType for ICompositionObject2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionObject2 {
     pub(crate) fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -1426,16 +1346,11 @@ pub struct ICompositionObject2_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionRoundedRectangleGeometry,
     ICompositionRoundedRectangleGeometry_Vtbl,
-    0x02eafc87_8d1f_5445_a416_d81baee8a750,
-    inspectable
+    0x02eafc87_8d1f_5445_a416_d81baee8a750
 );
-impl windows_core::RuntimeType for ICompositionRoundedRectangleGeometry {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionRoundedRectangleGeometry {
     pub(crate) fn SetCornerRadius(
         &self,
@@ -1475,16 +1390,11 @@ pub struct ICompositionRoundedRectangleGeometry_Vtbl {
         windows_numerics::Vector2,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionScopedBatch,
     ICompositionScopedBatch_Vtbl,
-    0xd31ca572_99ce_5969_b042_6c2d330a3859,
-    inspectable
+    0xd31ca572_99ce_5969_b042_6c2d330a3859
 );
-impl windows_core::RuntimeType for ICompositionScopedBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionScopedBatch {
     pub(crate) fn End(&self) -> windows_core::Result<()> {
         unsafe {
@@ -1552,16 +1462,11 @@ pub struct ICompositionScopedBatch_Vtbl {
     pub RemoveCompleted:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionShape,
     ICompositionShape_Vtbl,
-    0xed75d4d8_437f_5640_9720_faae35ce5895,
-    inspectable
+    0xed75d4d8_437f_5640_9720_faae35ce5895
 );
-impl windows_core::RuntimeType for ICompositionShape {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionShape {
     pub(crate) fn SetOffset(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
         unsafe {
@@ -1584,16 +1489,11 @@ pub struct ICompositionShape_Vtbl {
         windows_numerics::Vector2,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionSpriteShape,
     ICompositionSpriteShape_Vtbl,
-    0x982138f2_5781_509a_ba5d_112bcb0b98ef,
-    inspectable
+    0x982138f2_5781_509a_ba5d_112bcb0b98ef
 );
-impl windows_core::RuntimeType for ICompositionSpriteShape {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionSpriteShape {
     pub(crate) fn SetFillBrush<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -1617,16 +1517,11 @@ pub struct ICompositionSpriteShape_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionSurface,
     ICompositionSurface_Vtbl,
-    0x9ec612c3_a5d2_4f97_9df3_6b49ce736215,
-    inspectable
+    0x9ec612c3_a5d2_4f97_9df3_6b49ce736215
 );
-impl windows_core::RuntimeType for ICompositionSurface {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     ICompositionSurface,
     windows_core::IUnknown,
@@ -1636,16 +1531,11 @@ windows_core::imp::interface_hierarchy!(
 pub struct ICompositionSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositionSurfaceBrush,
     ICompositionSurfaceBrush_Vtbl,
-    0x616bb5a5_0a33_512d_b4b1_3d3734f04aca,
-    inspectable
+    0x616bb5a5_0a33_512d_b4b1_3d3734f04aca
 );
-impl windows_core::RuntimeType for ICompositionSurfaceBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositionSurfaceBrush {
     pub(crate) fn SetStretch(&self, value: CompositionStretch) -> windows_core::Result<()> {
         unsafe {
@@ -1670,16 +1560,11 @@ pub struct ICompositionSurfaceBrush_Vtbl {
         CompositionStretch,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositor,
     ICompositor_Vtbl,
-    0x95213c13_c4cb_57de_b267_d21ab901ae38,
-    inspectable
+    0x95213c13_c4cb_57de_b267_d21ab901ae38
 );
-impl windows_core::RuntimeType for ICompositor {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositor {
     pub(crate) fn CreateColorBrushWithColor(
         &self,
@@ -1854,16 +1739,11 @@ pub struct ICompositor_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositor2,
     ICompositor2_Vtbl,
-    0xa9ffedad_3982_576d_a38a_c888ff605819,
-    inspectable
+    0xa9ffedad_3982_576d_a38a_c888ff605819
 );
-impl windows_core::RuntimeType for ICompositor2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositor2 {
     pub(crate) fn CreateAnimationGroup(&self) -> windows_core::Result<CompositionAnimationGroup> {
         unsafe {
@@ -1920,16 +1800,11 @@ pub struct ICompositor2_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICompositor5,
     ICompositor5_Vtbl,
-    0xbb52d644_a030_5c19_b883_577ded739ae7,
-    inspectable
+    0xbb52d644_a030_5c19_b883_577ded739ae7
 );
-impl windows_core::RuntimeType for ICompositor5 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ICompositor5 {
     pub(crate) fn CreateContainerShape(&self) -> windows_core::Result<CompositionContainerShape> {
         unsafe {
@@ -2029,16 +1904,11 @@ pub struct ICompositor5_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IContainerVisual,
     IContainerVisual_Vtbl,
-    0xc70dbce1_2c2f_5d8e_91a4_aae1121e6186,
-    inspectable
+    0xc70dbce1_2c2f_5d8e_91a4_aae1121e6186
 );
-impl windows_core::RuntimeType for IContainerVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IContainerVisual {
     pub(crate) fn Children(&self) -> windows_core::Result<VisualCollection> {
         unsafe {
@@ -2059,44 +1929,29 @@ pub struct IContainerVisual_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ICubicBezierEasingFunction,
     ICubicBezierEasingFunction_Vtbl,
-    0x35e7fcde_f9ce_590a_8b88_64a82a6b4b48,
-    inspectable
+    0x35e7fcde_f9ce_590a_8b88_64a82a6b4b48
 );
-impl windows_core::RuntimeType for ICubicBezierEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ICubicBezierEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IImplicitAnimationCollection,
     IImplicitAnimationCollection_Vtbl,
-    0xc5c0689e_f5ae_5bed_829b_c522cda39717,
-    inspectable
+    0xc5c0689e_f5ae_5bed_829b_c522cda39717
 );
-impl windows_core::RuntimeType for IImplicitAnimationCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IImplicitAnimationCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IKeyFrameAnimation,
     IKeyFrameAnimation_Vtbl,
-    0x5a8f57f0_f059_5b47_b308_c4c80fc71248,
-    inspectable
+    0x5a8f57f0_f059_5b47_b308_c4c80fc71248
 );
-impl windows_core::RuntimeType for IKeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IKeyFrameAnimation {
     pub(crate) fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe {
@@ -2190,16 +2045,11 @@ pub struct IKeyFrameAnimation_Vtbl {
             *mut core::ffi::c_void,
         ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ILinearEasingFunction,
     ILinearEasingFunction_Vtbl,
-    0x79bfeef6_70c7_50a6_bb3a_0e9636148695,
-    inspectable
+    0x79bfeef6_70c7_50a6_bb3a_0e9636148695
 );
-impl windows_core::RuntimeType for ILinearEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ILinearEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -2328,16 +2178,11 @@ pub struct IMicrosoftCompositorInterop_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IScalarKeyFrameAnimation,
     IScalarKeyFrameAnimation_Vtbl,
-    0x5a5f8abe_d129_5b25_8aff_8180fd9bfb22,
-    inspectable
+    0x5a5f8abe_d129_5b25_8aff_8180fd9bfb22
 );
-impl windows_core::RuntimeType for IScalarKeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IScalarKeyFrameAnimation {
     pub(crate) fn InsertKeyFrame(
         &self,
@@ -2385,16 +2230,11 @@ pub struct IScalarKeyFrameAnimation_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IShapeVisual,
     IShapeVisual_Vtbl,
-    0xa911c80b_a5a5_5aca_b8ff_c43f08f06143,
-    inspectable
+    0xa911c80b_a5a5_5aca_b8ff_c43f08f06143
 );
-impl windows_core::RuntimeType for IShapeVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IShapeVisual {
     pub(crate) fn Shapes(&self) -> windows_core::Result<CompositionShapeCollection> {
         unsafe {
@@ -2415,16 +2255,11 @@ pub struct IShapeVisual_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     ISpriteVisual,
     ISpriteVisual_Vtbl,
-    0x7e964632_45e4_5761_806d_5b4022c14f26,
-    inspectable
+    0x7e964632_45e4_5761_806d_5b4022c14f26
 );
-impl windows_core::RuntimeType for ISpriteVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISpriteVisual {
     pub(crate) fn SetBrush<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -2448,16 +2283,11 @@ pub struct ISpriteVisual_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVector3KeyFrameAnimation,
     IVector3KeyFrameAnimation_Vtbl,
-    0xd7da980e_2dde_5dd1_a40c_d6868dd2449e,
-    inspectable
+    0xd7da980e_2dde_5dd1_a40c_d6868dd2449e
 );
-impl windows_core::RuntimeType for IVector3KeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IVector3KeyFrameAnimation {
     pub(crate) fn InsertKeyFrame(
         &self,
@@ -2508,16 +2338,11 @@ pub struct IVector3KeyFrameAnimation_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVisual,
     IVisual_Vtbl,
-    0xc0eeab6c_c897_5ac6_a1c9_63abd5055b9b,
-    inspectable
+    0xc0eeab6c_c897_5ac6_a1c9_63abd5055b9b
 );
-impl windows_core::RuntimeType for IVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IVisual {
     pub(crate) fn SetAnchorPoint(
         &self,
@@ -2726,16 +2551,11 @@ pub struct IVisual_Vtbl {
         windows_numerics::Vector2,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVisual2,
     IVisual2_Vtbl,
-    0x492a7995_0c5c_5993_a283_52e4da3050ee,
-    inspectable
+    0x492a7995_0c5c_5993_a283_52e4da3050ee
 );
-impl windows_core::RuntimeType for IVisual2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IVisual2 {
     pub(crate) fn SetParentForTransform<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -2793,16 +2613,11 @@ pub struct IVisual2_Vtbl {
         windows_numerics::Vector2,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IVisualCollection,
     IVisualCollection_Vtbl,
-    0xd002896d_67d8_5f69_ab70_581fa3bf370f,
-    inspectable
+    0xd002896d_67d8_5f69_ab70_581fa3bf370f
 );
-impl windows_core::RuntimeType for IVisualCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IVisualCollection {
     pub(crate) fn Count(&self) -> windows_core::Result<i32> {
         unsafe {

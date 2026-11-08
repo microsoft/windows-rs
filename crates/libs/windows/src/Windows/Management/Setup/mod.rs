@@ -465,11 +465,7 @@ unsafe impl windows_core::Interface for DevicePreparationExecutionContext {
 impl windows_core::RuntimeName for DevicePreparationExecutionContext {
     const NAME: &'static str = "Windows.Management.Setup.DevicePreparationExecutionContext";
 }
-windows_core::imp::define_interface!(IAgentProvisioningProgressReport, IAgentProvisioningProgressReport_Vtbl, 0x5097398a_70cc_5181_a7af_d31c167323d1, inspectable);
-impl windows_core::RuntimeType for IAgentProvisioningProgressReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IAgentProvisioningProgressReport");
-}
+windows_core::imp::define_winrt_interface!(IAgentProvisioningProgressReport, IAgentProvisioningProgressReport_Vtbl, 0x5097398a_70cc_5181_a7af_d31c167323d1, b"Windows.Management.Setup.IAgentProvisioningProgressReport");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAgentProvisioningProgressReport_Vtbl {
@@ -488,11 +484,7 @@ pub struct IAgentProvisioningProgressReport_Vtbl {
     pub CurrentBatchIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetCurrentBatchIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeploymentSessionConnectionChangedEventArgs, IDeploymentSessionConnectionChangedEventArgs_Vtbl, 0x8d40c631_6e4b_5d59_92f8_0de54c2a3c6b, inspectable);
-impl windows_core::RuntimeType for IDeploymentSessionConnectionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IDeploymentSessionConnectionChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IDeploymentSessionConnectionChangedEventArgs, IDeploymentSessionConnectionChangedEventArgs_Vtbl, 0x8d40c631_6e4b_5d59_92f8_0de54c2a3c6b, b"Windows.Management.Setup.IDeploymentSessionConnectionChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeploymentSessionConnectionChangedEventArgs_Vtbl {
@@ -500,11 +492,7 @@ pub struct IDeploymentSessionConnectionChangedEventArgs_Vtbl {
     pub SessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Change: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DeploymentSessionConnectionChange) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeploymentSessionHeartbeatRequestedEventArgs, IDeploymentSessionHeartbeatRequestedEventArgs_Vtbl, 0x09d81fa0_1036_58e6_b63b_fe343c45005f, inspectable);
-impl windows_core::RuntimeType for IDeploymentSessionHeartbeatRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IDeploymentSessionHeartbeatRequestedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IDeploymentSessionHeartbeatRequestedEventArgs, IDeploymentSessionHeartbeatRequestedEventArgs_Vtbl, 0x09d81fa0_1036_58e6_b63b_fe343c45005f, b"Windows.Management.Setup.IDeploymentSessionHeartbeatRequestedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeploymentSessionHeartbeatRequestedEventArgs_Vtbl {
@@ -512,11 +500,7 @@ pub struct IDeploymentSessionHeartbeatRequestedEventArgs_Vtbl {
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeploymentSessionStateChangedEventArgs, IDeploymentSessionStateChangedEventArgs_Vtbl, 0xfbd3b7f3_88cb_5703_b8a5_0218de8fed81, inspectable);
-impl windows_core::RuntimeType for IDeploymentSessionStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IDeploymentSessionStateChangedEventArgs");
-}
+windows_core::imp::define_winrt_interface!(IDeploymentSessionStateChangedEventArgs, IDeploymentSessionStateChangedEventArgs_Vtbl, 0xfbd3b7f3_88cb_5703_b8a5_0218de8fed81, b"Windows.Management.Setup.IDeploymentSessionStateChangedEventArgs");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeploymentSessionStateChangedEventArgs_Vtbl {
@@ -524,11 +508,7 @@ pub struct IDeploymentSessionStateChangedEventArgs_Vtbl {
     pub SessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Change: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DeploymentSessionStateChange) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeploymentWorkload, IDeploymentWorkload_Vtbl, 0x1cefd3d4_456c_50d1_9312_cc5c818fc12e, inspectable);
-impl windows_core::RuntimeType for IDeploymentWorkload {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IDeploymentWorkload");
-}
+windows_core::imp::define_winrt_interface!(IDeploymentWorkload, IDeploymentWorkload_Vtbl, 0x1cefd3d4_456c_50d1_9312_cc5c818fc12e, b"Windows.Management.Setup.IDeploymentWorkload");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeploymentWorkload_Vtbl {
@@ -553,11 +533,7 @@ pub struct IDeploymentWorkload_Vtbl {
     pub StateDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetStateDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeploymentWorkloadBatch, IDeploymentWorkloadBatch_Vtbl, 0x5e56e3df_b9c0_5fee_ba3f_e89d800a9bf2, inspectable);
-impl windows_core::RuntimeType for IDeploymentWorkloadBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IDeploymentWorkloadBatch");
-}
+windows_core::imp::define_winrt_interface!(IDeploymentWorkloadBatch, IDeploymentWorkloadBatch_Vtbl, 0x5e56e3df_b9c0_5fee_ba3f_e89d800a9bf2, b"Windows.Management.Setup.IDeploymentWorkloadBatch");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeploymentWorkloadBatch_Vtbl {
@@ -567,44 +543,28 @@ pub struct IDeploymentWorkloadBatch_Vtbl {
     pub SetDisplayCategoryTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BatchWorkloads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeploymentWorkloadBatchFactory, IDeploymentWorkloadBatchFactory_Vtbl, 0xd0209697_9560_5a05_bdf6_f1af535cb0d4, inspectable);
-impl windows_core::RuntimeType for IDeploymentWorkloadBatchFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IDeploymentWorkloadBatchFactory");
-}
+windows_core::imp::define_winrt_interface!(IDeploymentWorkloadBatchFactory, IDeploymentWorkloadBatchFactory_Vtbl, 0xd0209697_9560_5a05_bdf6_f1af535cb0d4, b"Windows.Management.Setup.IDeploymentWorkloadBatchFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeploymentWorkloadBatchFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDeploymentWorkloadFactory, IDeploymentWorkloadFactory_Vtbl, 0x41426c72_22a3_5339_bdf1_51268169aa61, inspectable);
-impl windows_core::RuntimeType for IDeploymentWorkloadFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IDeploymentWorkloadFactory");
-}
+windows_core::imp::define_winrt_interface!(IDeploymentWorkloadFactory, IDeploymentWorkloadFactory_Vtbl, 0x41426c72_22a3_5339_bdf1_51268169aa61, b"Windows.Management.Setup.IDeploymentWorkloadFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeploymentWorkloadFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDevicePreparationExecutionContext, IDevicePreparationExecutionContext_Vtbl, 0x084f221b_2484_5e81_a4e7_83f6caf19dc4, inspectable);
-impl windows_core::RuntimeType for IDevicePreparationExecutionContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IDevicePreparationExecutionContext");
-}
+windows_core::imp::define_winrt_interface!(IDevicePreparationExecutionContext, IDevicePreparationExecutionContext_Vtbl, 0x084f221b_2484_5e81_a4e7_83f6caf19dc4, b"Windows.Management.Setup.IDevicePreparationExecutionContext");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePreparationExecutionContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Context: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMachineProvisioningProgressReporter, IMachineProvisioningProgressReporter_Vtbl, 0xebd8677f_dfd2_59da_ac3d_753ee1667cbb, inspectable);
-impl windows_core::RuntimeType for IMachineProvisioningProgressReporter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IMachineProvisioningProgressReporter");
-}
+windows_core::imp::define_winrt_interface!(IMachineProvisioningProgressReporter, IMachineProvisioningProgressReporter_Vtbl, 0xebd8677f_dfd2_59da_ac3d_753ee1667cbb, b"Windows.Management.Setup.IMachineProvisioningProgressReporter");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMachineProvisioningProgressReporter_Vtbl {
@@ -619,11 +579,7 @@ pub struct IMachineProvisioningProgressReporter_Vtbl {
     pub ReportProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDevicePreparationExecutionContextAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMachineProvisioningProgressReporterStatics, IMachineProvisioningProgressReporterStatics_Vtbl, 0x77682c17_5da3_51fc_a042_c7b53458ddb5, inspectable);
-impl windows_core::RuntimeType for IMachineProvisioningProgressReporterStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Setup.IMachineProvisioningProgressReporterStatics");
-}
+windows_core::imp::define_winrt_interface!(IMachineProvisioningProgressReporterStatics, IMachineProvisioningProgressReporterStatics_Vtbl, 0x77682c17_5da3_51fc_a042_c7b53458ddb5, b"Windows.Management.Setup.IMachineProvisioningProgressReporterStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMachineProvisioningProgressReporterStatics_Vtbl {

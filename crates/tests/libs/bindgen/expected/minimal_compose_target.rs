@@ -101,16 +101,11 @@ impl core::ops::Deref for Derived {
 impl windows_core::RuntimeName for Derived {
     const NAME: &'static str = "Test.Derived";
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IBaseFactory,
     IBaseFactory_Vtbl,
-    0xb2b35536_fcb0_54c1_9424_0abe7fedee40,
-    inspectable
+    0xb2b35536_fcb0_54c1_9424_0abe7fedee40
 );
-impl windows_core::RuntimeType for IBaseFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IBaseFactory,
     windows_core::IUnknown,
@@ -150,16 +145,11 @@ pub struct IBaseFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDerived,
     IDerived_Vtbl,
-    0x23cf7109_3cfc_56a0_88cb_06d8fd320cc6,
-    inspectable
+    0x23cf7109_3cfc_56a0_88cb_06d8fd320cc6
 );
-impl windows_core::RuntimeType for IDerived {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IDerived,
     windows_core::IUnknown,
@@ -169,16 +159,11 @@ windows_core::imp::interface_hierarchy!(
 pub struct IDerived_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IDerivedFactory,
     IDerivedFactory_Vtbl,
-    0xa04ab497_ffe5_53d3_a6ad_1bfb9db8c9a1,
-    inspectable
+    0xa04ab497_ffe5_53d3_a6ad_1bfb9db8c9a1
 );
-impl windows_core::RuntimeType for IDerivedFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IDerivedFactory,
     windows_core::IUnknown,
@@ -218,18 +203,12 @@ pub struct IDerivedFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IOverrides,
     IOverrides_Vtbl,
     0x8952afe3_c320_51da_92db_224e61ab57d1,
-    inspectable
+    b"Test.IOverrides"
 );
-impl windows_core::RuntimeType for IOverrides {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Test.IOverrides");
-}
 windows_core::imp::interface_hierarchy!(
     IOverrides,
     windows_core::IUnknown,

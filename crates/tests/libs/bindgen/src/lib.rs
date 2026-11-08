@@ -47,6 +47,9 @@ mod com_results_tests;
 mod delegate_tests;
 
 #[cfg(test)]
+mod interface_tests;
+
+#[cfg(test)]
 mod provenance_tests;
 
 #[test]

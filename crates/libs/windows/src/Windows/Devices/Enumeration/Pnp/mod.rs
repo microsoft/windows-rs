@@ -1,8 +1,4 @@
-windows_core::imp::define_interface!(IPnpObject, IPnpObject_Vtbl, 0x95c66258_733b_4a8f_93a3_db078ac870c1, inspectable);
-impl windows_core::RuntimeType for IPnpObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Enumeration.Pnp.IPnpObject");
-}
+windows_core::imp::define_winrt_interface!(IPnpObject, IPnpObject_Vtbl, 0x95c66258_733b_4a8f_93a3_db078ac870c1, b"Windows.Devices.Enumeration.Pnp.IPnpObject");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPnpObject_Vtbl {
@@ -12,11 +8,7 @@ pub struct IPnpObject_Vtbl {
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPnpObjectStatics, IPnpObjectStatics_Vtbl, 0xb3c32a3d_d168_4660_bbf3_a733b14b6e01, inspectable);
-impl windows_core::RuntimeType for IPnpObjectStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Enumeration.Pnp.IPnpObjectStatics");
-}
+windows_core::imp::define_winrt_interface!(IPnpObjectStatics, IPnpObjectStatics_Vtbl, 0xb3c32a3d_d168_4660_bbf3_a733b14b6e01, b"Windows.Devices.Enumeration.Pnp.IPnpObjectStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPnpObjectStatics_Vtbl {
@@ -27,11 +19,7 @@ pub struct IPnpObjectStatics_Vtbl {
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, PnpObjectType, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWatcherAqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, PnpObjectType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPnpObjectUpdate, IPnpObjectUpdate_Vtbl, 0x6f59e812_001e_4844_bcc6_432886856a17, inspectable);
-impl windows_core::RuntimeType for IPnpObjectUpdate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate");
-}
+windows_core::imp::define_winrt_interface!(IPnpObjectUpdate, IPnpObjectUpdate_Vtbl, 0x6f59e812_001e_4844_bcc6_432886856a17, b"Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPnpObjectUpdate_Vtbl {
@@ -40,11 +28,7 @@ pub struct IPnpObjectUpdate_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPnpObjectWatcher, IPnpObjectWatcher_Vtbl, 0x83c95ca8_4772_4a7a_aca8_e48c42a89c44, inspectable);
-impl windows_core::RuntimeType for IPnpObjectWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher");
-}
+windows_core::imp::define_winrt_interface!(IPnpObjectWatcher, IPnpObjectWatcher_Vtbl, 0x83c95ca8_4772_4a7a_aca8_e48c42a89c44, b"Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPnpObjectWatcher_Vtbl {

@@ -26,16 +26,11 @@ impl core::ops::Deref for Explicit {
 impl windows_core::RuntimeName for Explicit {
     const NAME: &'static str = "Test.Explicit";
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IClose,
     IClose_Vtbl,
-    0x6640a4a8_5f60_5b12_a007_5df289b65a90,
-    inspectable
+    0x6640a4a8_5f60_5b12_a007_5df289b65a90
 );
-impl windows_core::RuntimeType for IClose {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(IClose, windows_core::IUnknown, windows_core::IInspectable);
 impl IClose {
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -50,16 +45,11 @@ pub struct IClose_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IExplicit,
     IExplicit_Vtbl,
-    0x3a3ba593_09db_59a3_bd75_a5183fbfe31e,
-    inspectable
+    0x3a3ba593_09db_59a3_bd75_a5183fbfe31e
 );
-impl windows_core::RuntimeType for IExplicit {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IExplicit,
     windows_core::IUnknown,
@@ -69,32 +59,7 @@ windows_core::imp::interface_hierarchy!(
 pub struct IExplicit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IGeneric<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
-where
-    T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
-    for IGeneric<T>
-{
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
-    for IGeneric<T>
-{
-}
-unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IGeneric<T> {
-    type Vtable = IGeneric_Vtbl<T>;
-    const IID: windows_core::GUID =
-        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-    const INSPECTABLE: bool = true;
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IGeneric<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({e532daa1-6342-5b0f-ae70-f3974d52d36f}")
-        .push_slice(b";")
-        .push_other(T::SIGNATURE)
-        .push_slice(b")");
-}
+windows_core::imp::define_winrt_interface!(IGeneric < T >, IGeneric_Vtbl < T, >, 0xe532daa1_6342_5b0f_ae70_f3974d52d36f);
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IGenericBase<T>>
     for IGeneric<T>
 {
@@ -117,32 +82,7 @@ where
     pub Derived: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IGenericBase<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
-where
-    T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
-    for IGenericBase<T>
-{
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
-    for IGenericBase<T>
-{
-}
-unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IGenericBase<T> {
-    type Vtable = IGenericBase_Vtbl<T>;
-    const IID: windows_core::GUID =
-        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-    const INSPECTABLE: bool = true;
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IGenericBase<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({66c93412-67e7-5d09-9595-53ed77c36338}")
-        .push_slice(b";")
-        .push_other(T::SIGNATURE)
-        .push_slice(b")");
-}
+windows_core::imp::define_winrt_interface!(IGenericBase < T >, IGenericBase_Vtbl < T, >, 0x66c93412_67e7_5d09_9595_53ed77c36338);
 #[repr(C)]
 pub struct IGenericBase_Vtbl<T>
 where
@@ -151,16 +91,11 @@ where
     pub base__: windows_core::IInspectable_Vtbl,
     T: core::marker::PhantomData<T>,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IProducer,
     IProducer_Vtbl,
-    0xf8305d4c_4562_571c_a8b5_b44cb4fe4dd9,
-    inspectable
+    0xf8305d4c_4562_571c_a8b5_b44cb4fe4dd9
 );
-impl windows_core::RuntimeType for IProducer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IProducer,
     windows_core::IUnknown,
@@ -186,16 +121,11 @@ pub struct IProducer_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IStream,
     IStream_Vtbl,
-    0x5e60052b_a650_589f_a12b_8116ca318d97,
-    inspectable
+    0x5e60052b_a650_589f_a12b_8116ca318d97
 );
-impl windows_core::RuntimeType for IStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IStream,
     windows_core::IUnknown,
@@ -218,16 +148,11 @@ pub struct IStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IUnrelated,
     IUnrelated_Vtbl,
-    0xbcfbf36a_f3ac_52b3_a5c5_6d2b554c04d3,
-    inspectable
+    0xbcfbf36a_f3ac_52b3_a5c5_6d2b554c04d3
 );
-impl windows_core::RuntimeType for IUnrelated {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IUnrelated,
     windows_core::IUnknown,
@@ -250,16 +175,11 @@ pub struct IUnrelated_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWhole,
     IWhole_Vtbl,
-    0xa49fce2e_2175_5a27_9117_5eff983bb763,
-    inspectable
+    0xa49fce2e_2175_5a27_9117_5eff983bb763
 );
-impl windows_core::RuntimeType for IWhole {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(IWhole, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IWhole, IWholeBase, IWholeMiddle);
 impl IWhole {
@@ -275,16 +195,11 @@ pub struct IWhole_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Derived: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWholeBase,
     IWholeBase_Vtbl,
-    0x06b44107_967f_543c_a642_b55c6856de98,
-    inspectable
+    0x06b44107_967f_543c_a642_b55c6856de98
 );
-impl windows_core::RuntimeType for IWholeBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IWholeBase,
     windows_core::IUnknown,
@@ -294,16 +209,11 @@ windows_core::imp::interface_hierarchy!(
 pub struct IWholeBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IWholeMiddle,
     IWholeMiddle_Vtbl,
-    0x1953dc42_9bf3_5505_9bce_2bc9fdd39e58,
-    inspectable
+    0x1953dc42_9bf3_5505_9bce_2bc9fdd39e58
 );
-impl windows_core::RuntimeType for IWholeMiddle {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 windows_core::imp::interface_hierarchy!(
     IWholeMiddle,
     windows_core::IUnknown,

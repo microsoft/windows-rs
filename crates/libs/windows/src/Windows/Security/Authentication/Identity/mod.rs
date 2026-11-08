@@ -84,11 +84,7 @@ impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
 }
 unsafe impl Send for EnterpriseKeyCredentialRegistrationManager {}
 unsafe impl Sync for EnterpriseKeyCredentialRegistrationManager {}
-windows_core::imp::define_interface!(IEnterpriseKeyCredentialRegistrationInfo, IEnterpriseKeyCredentialRegistrationInfo_Vtbl, 0x38321acc_672b_4823_b603_6b3c753daf97, inspectable);
-impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationInfo");
-}
+windows_core::imp::define_winrt_interface!(IEnterpriseKeyCredentialRegistrationInfo, IEnterpriseKeyCredentialRegistrationInfo_Vtbl, 0x38321acc_672b_4823_b603_6b3c753daf97, b"Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationInfo");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
@@ -99,22 +95,14 @@ pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
     pub KeyId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub KeyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManager_Vtbl, 0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297, inspectable);
-impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManager");
-}
+windows_core::imp::define_winrt_interface!(IEnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManager_Vtbl, 0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297, b"Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManager");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetRegistrationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEnterpriseKeyCredentialRegistrationManagerStatics, IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl, 0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f, inspectable);
-impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManagerStatics");
-}
+windows_core::imp::define_winrt_interface!(IEnterpriseKeyCredentialRegistrationManagerStatics, IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl, 0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f, b"Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManagerStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {

@@ -76,11 +76,7 @@ impl windows_core::RuntimeName for DataProtectionProvider {
 }
 unsafe impl Send for DataProtectionProvider {}
 unsafe impl Sync for DataProtectionProvider {}
-windows_core::imp::define_interface!(IDataProtectionProvider, IDataProtectionProvider_Vtbl, 0x09639948_ed22_4270_bd1c_6d72c00f8787, inspectable);
-impl windows_core::RuntimeType for IDataProtectionProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.DataProtection.IDataProtectionProvider");
-}
+windows_core::imp::define_winrt_interface!(IDataProtectionProvider, IDataProtectionProvider_Vtbl, 0x09639948_ed22_4270_bd1c_6d72c00f8787, b"Windows.Security.Cryptography.DataProtection.IDataProtectionProvider");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataProtectionProvider_Vtbl {
@@ -102,11 +98,7 @@ pub struct IDataProtectionProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UnprotectStreamAsync: usize,
 }
-windows_core::imp::define_interface!(IDataProtectionProviderFactory, IDataProtectionProviderFactory_Vtbl, 0xadf33dac_4932_4cdf_ac41_7214333514ca, inspectable);
-impl windows_core::RuntimeType for IDataProtectionProviderFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.DataProtection.IDataProtectionProviderFactory");
-}
+windows_core::imp::define_winrt_interface!(IDataProtectionProviderFactory, IDataProtectionProviderFactory_Vtbl, 0xadf33dac_4932_4cdf_ac41_7214333514ca, b"Windows.Security.Cryptography.DataProtection.IDataProtectionProviderFactory");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataProtectionProviderFactory_Vtbl {

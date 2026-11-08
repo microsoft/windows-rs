@@ -12,18 +12,12 @@ impl windows_core::RuntimeType for DateTime {
     const NAME: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.DateTime");
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IPropertyValue,
     IPropertyValue_Vtbl,
     0x4bd682dd_7554_40e9_9a9b_82654ede7e62,
-    inspectable
+    b"Windows.Foundation.IPropertyValue"
 );
-impl windows_core::RuntimeType for IPropertyValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IPropertyValue");
-}
 windows_core::imp::interface_hierarchy!(
     IPropertyValue,
     windows_core::IUnknown,

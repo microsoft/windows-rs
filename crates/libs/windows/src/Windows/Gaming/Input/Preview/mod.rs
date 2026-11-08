@@ -159,11 +159,7 @@ impl windows_core::RuntimeType for HeadsetOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetOperation;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.HeadsetOperation");
 }
-windows_core::imp::define_interface!(IGameControllerProviderInfoStatics, IGameControllerProviderInfoStatics_Vtbl, 0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb, inspectable);
-impl windows_core::RuntimeType for IGameControllerProviderInfoStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.IGameControllerProviderInfoStatics");
-}
+windows_core::imp::define_winrt_interface!(IGameControllerProviderInfoStatics, IGameControllerProviderInfoStatics_Vtbl, 0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb, b"Windows.Gaming.Input.Preview.IGameControllerProviderInfoStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerProviderInfoStatics_Vtbl {
@@ -177,11 +173,7 @@ pub struct IGameControllerProviderInfoStatics_Vtbl {
     #[cfg(not(feature = "Gaming_Input_Custom"))]
     GetProviderId: usize,
 }
-windows_core::imp::define_interface!(ILegacyGipGameControllerProvider, ILegacyGipGameControllerProvider_Vtbl, 0x2da3ed52_ffd9_43e2_825c_1d2790e04d14, inspectable);
-impl windows_core::RuntimeType for ILegacyGipGameControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.ILegacyGipGameControllerProvider");
-}
+windows_core::imp::define_winrt_interface!(ILegacyGipGameControllerProvider, ILegacyGipGameControllerProvider_Vtbl, 0x2da3ed52_ffd9_43e2_825c_1d2790e04d14, b"Windows.Gaming.Input.Preview.ILegacyGipGameControllerProvider");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILegacyGipGameControllerProvider_Vtbl {
@@ -209,11 +201,7 @@ pub struct ILegacyGipGameControllerProvider_Vtbl {
     #[cfg(not(feature = "System"))]
     GetStandardControllerButtonRemapping: usize,
 }
-windows_core::imp::define_interface!(ILegacyGipGameControllerProviderStatics, ILegacyGipGameControllerProviderStatics_Vtbl, 0xd40dda17_b1f4_499a_874c_7095aac15291, inspectable);
-impl windows_core::RuntimeType for ILegacyGipGameControllerProviderStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.ILegacyGipGameControllerProviderStatics");
-}
+windows_core::imp::define_winrt_interface!(ILegacyGipGameControllerProviderStatics, ILegacyGipGameControllerProviderStatics_Vtbl, 0xd40dda17_b1f4_499a_874c_7095aac15291, b"Windows.Gaming.Input.Preview.ILegacyGipGameControllerProviderStatics");
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILegacyGipGameControllerProviderStatics_Vtbl {

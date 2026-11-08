@@ -110,16 +110,11 @@ impl core::ops::Deref for Class {
 impl windows_core::RuntimeName for Class {
     const NAME: &'static str = "Test.Class";
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IClass,
     IClass_Vtbl,
-    0x327dfd65_5684_57ee_85ab_168eff31a838,
-    inspectable
+    0x327dfd65_5684_57ee_85ab_168eff31a838
 );
-impl windows_core::RuntimeType for IClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IClass {
     pub fn Method(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -168,16 +163,11 @@ pub struct IClass_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
+windows_core::imp::define_winrt_interface!(
     IClassStatics,
     IClassStatics_Vtbl,
-    0xe859dd18_1e99_5da7_a6b0_bbb6011bd19d,
-    inspectable
+    0xe859dd18_1e99_5da7_a6b0_bbb6011bd19d
 );
-impl windows_core::RuntimeType for IClassStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IClassStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
