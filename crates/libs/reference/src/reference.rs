@@ -37,6 +37,7 @@ impl<T: RuntimeType + 'static> From<&IReference<T>> for &IInspectable {
 unsafe impl<T: RuntimeType + 'static> Interface for IReference<T> {
     type Vtable = bindings::IReference_Vtbl<T>;
     const IID: GUID = GUID::from_signature(<Self as RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 
 impl<T: RuntimeType + 'static> RuntimeType for IReference<T> {

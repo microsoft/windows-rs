@@ -2,7 +2,8 @@ pub const E_NOTIMPL: windows_core::HRESULT = windows_core::HRESULT(0x80004001_u3
 windows_core::imp::define_interface!(
     IPropertyValue,
     IPropertyValue_Vtbl,
-    0x4bd682dd_7554_40e9_9a9b_82654ede7e62
+    0x4bd682dd_7554_40e9_9a9b_82654ede7e62,
+    inspectable
 );
 impl windows_core::RuntimeType for IPropertyValue {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -866,7 +867,7 @@ impl IPropertyValue_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IPropertyValue, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Type: Type::<Identity, OFFSET>,
             IsNumericScalar: IsNumericScalar::<Identity, OFFSET>,
             GetUInt8: GetUInt8::<Identity, OFFSET>,
@@ -1078,6 +1079,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IReference_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IReference<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
@@ -1128,7 +1130,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IReference<T>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Value: Value::<T, Identity, OFFSET>,
             T: core::marker::PhantomData::<T>,
         }
