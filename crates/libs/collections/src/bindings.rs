@@ -35,6 +35,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IIterable_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterable<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
@@ -97,7 +98,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IIterable<T>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             First: First::<T, Identity, OFFSET>,
             T: core::marker::PhantomData::<T>,
         }
@@ -149,6 +150,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IIterator_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterator<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
@@ -332,7 +334,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IIterator<T>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Current: Current::<T, Identity, OFFSET>,
             HasCurrent: HasCurrent::<T, Identity, OFFSET>,
             MoveNext: MoveNext::<T, Identity, OFFSET>,
@@ -404,6 +406,7 @@ unsafe impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType
     type Vtable = IKeyValuePair_Vtbl<K, V>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     windows_core::RuntimeType for IKeyValuePair<K, V>
@@ -516,7 +519,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IKeyValuePair<K, V>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Key: Key::<K, V, Identity, OFFSET>,
             Value: Value::<K, V, Identity, OFFSET>,
             K: core::marker::PhantomData::<K>,
@@ -569,6 +572,7 @@ unsafe impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType
     type Vtable = IMap_Vtbl<K, V>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     windows_core::RuntimeType for IMap<K, V>
@@ -893,7 +897,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMap<K, V>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Lookup: Lookup::<K, V, Identity, OFFSET>,
             Size: Size::<K, V, Identity, OFFSET>,
             HasKey: HasKey::<K, V, Identity, OFFSET>,
@@ -964,6 +968,7 @@ unsafe impl<K: windows_core::RuntimeType + 'static> windows_core::Interface
     type Vtable = IMapChangedEventArgs_Vtbl<K>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IMapChangedEventArgs<K> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
@@ -1060,8 +1065,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMapChangedEventArgs<K>, OFFSET>(
-            ),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             CollectionChange: CollectionChange::<K, Identity, OFFSET>,
             Key: Key::<K, Identity, OFFSET>,
             K: core::marker::PhantomData::<K>,
@@ -1111,6 +1115,7 @@ unsafe impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType
     type Vtable = IMapView_Vtbl<K, V>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     windows_core::RuntimeType for IMapView<K, V>
@@ -1347,7 +1352,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMapView<K, V>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Lookup: Lookup::<K, V, Identity, OFFSET>,
             Size: Size::<K, V, Identity, OFFSET>,
             HasKey: HasKey::<K, V, Identity, OFFSET>,
@@ -1410,6 +1415,7 @@ unsafe impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType
     type Vtable = IObservableMap_Vtbl<K, V>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     windows_core::RuntimeType for IObservableMap<K, V>
@@ -1649,8 +1655,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IObservableMap<K, V>, OFFSET>(
-            ),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             MapChanged: MapChanged::<K, V, Identity, OFFSET>,
             RemoveMapChanged: RemoveMapChanged::<K, V, Identity, OFFSET>,
             K: core::marker::PhantomData::<K>,
@@ -1697,6 +1702,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface
     type Vtable = IObservableVector_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IObservableVector<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
@@ -1983,8 +1989,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IObservableVector<T>, OFFSET>(
-            ),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             VectorChanged: VectorChanged::<T, Identity, OFFSET>,
             RemoveVectorChanged: RemoveVectorChanged::<T, Identity, OFFSET>,
             T: core::marker::PhantomData::<T>,
@@ -2026,6 +2031,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IVector_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVector<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
@@ -2482,7 +2488,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVector<T>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetAt: GetAt::<T, Identity, OFFSET>,
             Size: Size::<T, Identity, OFFSET>,
             GetView: GetView::<T, Identity, OFFSET>,
@@ -2558,7 +2564,8 @@ where
 windows_core::imp::define_interface!(
     IVectorChangedEventArgs,
     IVectorChangedEventArgs_Vtbl,
-    0x575933df_34fe_4480_af15_07691f3d5d9b
+    0x575933df_34fe_4480_af15_07691f3d5d9b,
+    inspectable
 );
 impl windows_core::RuntimeType for IVectorChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2648,8 +2655,7 @@ impl IVectorChangedEventArgs_Vtbl {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVectorChangedEventArgs, OFFSET>(
-            ),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             CollectionChange: CollectionChange::<Identity, OFFSET>,
             Index: Index::<Identity, OFFSET>,
         }
@@ -2684,6 +2690,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IVectorView_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+    const INSPECTABLE: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVectorView<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
@@ -2915,7 +2922,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             }
         }
         Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVectorView<T>, OFFSET>(),
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             GetAt: GetAt::<T, Identity, OFFSET>,
             Size: Size::<T, Identity, OFFSET>,
             IndexOf: IndexOf::<T, Identity, OFFSET>,
