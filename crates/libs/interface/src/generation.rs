@@ -18,6 +18,9 @@ impl Interface {
         let com_trait = self.gen_com_trait();
         let vtable = self.gen_vtable(&vtable_name);
         let conversions = self.gen_conversions();
+        let inspectable = self.parent.as_ref().map(|parent| {
+            quote! { const INSPECTABLE: bool = <#parent as ::windows_core::Interface>::INSPECTABLE; }
+        });
 
         Ok(quote! {
             #[repr(transparent)]
@@ -27,6 +30,7 @@ impl Interface {
             unsafe impl ::windows_core::Interface for #name {
                 type Vtable = #vtable_name;
                 const IID: ::windows_core::GUID = #guid;
+                #inspectable
             }
             impl ::windows_core::RuntimeName for #name {}
             impl ::core::ops::Deref for #name {
@@ -285,7 +289,15 @@ impl Interface {
         // Parented interfaces delegate through the inheritance chain; scoped interfaces have a
         // raw inner pointer, so they fall back to transmute.
         let into_iunknown_impl = if self.parent.is_some() {
+            let parent = self.parent_type();
             quote! {
+                impl<T> ::windows_core::imp::CanInto<T> for #name
+                where
+                    #parent: ::windows_core::imp::CanInto<T>,
+                {
+                    const QUERY: bool = <#parent as ::windows_core::imp::CanInto<T>>::QUERY;
+                }
+
                 impl ::core::convert::From<#name> for ::windows_core::IUnknown {
                     fn from(value: #name) -> Self {
                         ::windows_core::IUnknown::from(value.0)
