@@ -359,10 +359,18 @@ struct RetainedObject {
     /// The values observations are compared against where `properties` does not hold them: the
     /// declared value of a property whose native state has departed from it, and the native value
     /// recorded for a property the declaration omits.
-    baselines: Vec<Property>,
+    baselines: Vec<PropertyBaseline>,
     events: Option<Rc<Vec<Event>>>,
     relations: Vec<RetainedRelation>,
     virtual_items: Option<Box<RetainedVirtualItems>>,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+struct PropertyBaseline {
+    property: Property,
+    /// The effective value read back from Reactor's write when native constraints prevent the
+    /// declaration from applying exactly. A later report of this value is also settled.
+    applied: Option<PropertyValue>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]

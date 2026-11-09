@@ -1,5 +1,82 @@
 use super::*;
 
+pub(super) struct MultilineFixture {
+    multiline: Option<bool>,
+    calls: u32,
+}
+
+#[derive(Clone)]
+pub(super) enum MultilineMessage {
+    Toggle,
+    OmitMode,
+    Changed,
+}
+
+impl Component for MultilineFixture {
+    type Input = ();
+    type Message = MultilineMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            multiline: Some(false),
+            calls: 0,
+        }
+    }
+
+    fn update(&mut self, message: MultilineMessage, _: &ComponentContext<Self>) {
+        match message {
+            MultilineMessage::Toggle => {
+                self.multiline = Some(!self.multiline.unwrap_or(false));
+            }
+            MultilineMessage::OmitMode => self.multiline = None,
+            MultilineMessage::Changed => self.calls += 1,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let changed = context.callback(|_: Rc<str>| MultilineMessage::Changed);
+        let mut changing = TextBox::new()
+            .automation_id("changing")
+            .text(if self.multiline == Some(true) {
+                "First\rSecond"
+            } else {
+                "First"
+            })
+            .on_text_changed(changed.clone());
+        let mut retained = TextBox::new()
+            .automation_id("retained")
+            .text("First\rSecond")
+            .on_text_changed(changed.clone());
+        if let Some(multiline) = self.multiline {
+            changing = changing.accepts_return(multiline);
+            retained = retained.accepts_return(multiline);
+        }
+        context.window_frame(
+            "Reactor UI fixture: text-multiline",
+            StackPanel::new().margin(20.0).spacing(12.0).children((
+                TextBox::new()
+                    .automation_id("initial")
+                    .text("First\rSecond")
+                    .accepts_return(true)
+                    .on_text_changed(changed),
+                changing,
+                retained,
+                Button::new()
+                    .automation_id("toggle")
+                    .content("Toggle multiline")
+                    .on_click(context.message(MultilineMessage::Toggle)),
+                Button::new()
+                    .automation_id("omit-mode")
+                    .content("Omit multiline mode")
+                    .on_click(context.message(MultilineMessage::OmitMode)),
+                TextBlock::new()
+                    .automation_id("calls")
+                    .text(format!("Calls {}", self.calls)),
+            )),
+        )
+    }
+}
+
 #[derive(Clone, Copy, PartialEq)]
 pub(super) enum TextControl {
     Text,

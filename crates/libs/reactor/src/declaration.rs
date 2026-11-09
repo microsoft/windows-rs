@@ -2202,6 +2202,18 @@ impl Declaration {
     }
 }
 
+/// A declaration of a control or component and its children.
+///
+/// # Property ownership
+///
+/// Supplied properties are reconciled on renders. Omitting a previously supplied property resets
+/// it, then leaves it native-owned. Selectors requiring a selection relinquish ownership without
+/// clearing it. Explicit `None` remains a declared value; it does not relinquish ownership.
+///
+/// Controlled change callbacks report departures from declared state, not every native event.
+/// Reactor's own writes and a return to the declared or coerced value are silent. A callback does
+/// not necessarily mean user input. Send a component message to accept, transform, or restore an
+/// edited value through the next render.
 #[derive(Clone, Debug, PartialEq)]
 pub struct View(pub(crate) DeclaredNode);
 

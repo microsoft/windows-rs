@@ -260,11 +260,13 @@ impl Planner<'_> {
             } = self.retained.get_mut(object);
             if !baselines.is_empty() {
                 baselines.retain(|baseline| {
-                    !previous.iter().any(|property| property.id == baseline.id)
+                    !previous
+                        .iter()
+                        .any(|property| property.id == baseline.property.id)
                         && !declaration
                             .properties
                             .iter()
-                            .any(|property| property.id == baseline.id)
+                            .any(|property| property.id == baseline.property.id)
                 });
             }
         }

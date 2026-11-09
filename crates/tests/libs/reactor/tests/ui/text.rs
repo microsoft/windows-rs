@@ -3,6 +3,39 @@ use super::*;
 const VK_LEFT: i32 = 0x25;
 
 #[test]
+fn multiline_text_is_applied_after_its_mode() -> Result<()> {
+    process::run("text-multiline", |ui| {
+        ui.value("initial", "First\rSecond")?;
+        ui.value("changing", "First")?;
+        ui.value("retained", "First")?;
+        let input = ui.element("changing")?;
+        for expected in ["First\rSecond", "First", "First\rSecond"] {
+            ui.invoke("toggle")?;
+            ui.value("changing", expected)?;
+            ui.value("retained", expected)?;
+            ui.name_stays("calls", "Calls 0", Duration::from_millis(250))?;
+        }
+        ui.invoke("omit-mode")?;
+        ui.value("changing", "First")?;
+        ui.value("retained", "First")?;
+        ui.name_stays("calls", "Calls 0", Duration::from_millis(250))?;
+        ui.invoke("toggle")?;
+        ui.value("changing", "First\rSecond")?;
+        ui.value("retained", "First\rSecond")?;
+        ui.name_stays("calls", "Calls 0", Duration::from_millis(250))?;
+        unsafe {
+            assert!(
+                ui.client
+                    .CompareElements(&input, &ui.element("changing")?)?
+                    .as_bool(),
+                "changing multiline mode recreated the input"
+            );
+        }
+        Ok(())
+    })
+}
+
+#[test]
 fn text_box_transform_keeps_caret_without_echo() -> Result<()> {
     process::run("text-transform", |ui| {
         transform(ui, "input", Automation::value)

@@ -1,6 +1,102 @@
 use super::*;
 use std::time::Duration;
 
+pub(super) struct OwnershipFixture {
+    declared: bool,
+    maximum: bool,
+    revision: u32,
+    calls: Vec<String>,
+}
+
+#[derive(Clone)]
+pub(super) enum OwnershipMessage {
+    Declare(bool),
+    Maximum(bool),
+    Render,
+    Text(Rc<str>),
+    Value(f64),
+    Selection(Option<usize>),
+}
+
+impl Component for OwnershipFixture {
+    type Input = ();
+    type Message = OwnershipMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            declared: true,
+            maximum: true,
+            revision: 0,
+            calls: Vec::new(),
+        }
+    }
+
+    fn update(&mut self, message: OwnershipMessage, _: &ComponentContext<Self>) {
+        match message {
+            OwnershipMessage::Declare(value) => self.declared = value,
+            OwnershipMessage::Maximum(value) => self.maximum = value,
+            OwnershipMessage::Render => self.revision += 1,
+            OwnershipMessage::Text(value) => self.calls.push(format!("text {value}")),
+            OwnershipMessage::Value(value) => self.calls.push(format!("value {value}")),
+            OwnershipMessage::Selection(value) => self.calls.push(format!("selection {value:?}")),
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        use OwnershipMessage as M;
+        let mut text = TextBox::new()
+            .automation_id("text")
+            .on_text_changed(context.callback(M::Text));
+        let mut slider = Slider::new()
+            .automation_id("slider")
+            .on_value_changed(context.callback(M::Value));
+        let mut list = ListView::new()
+            .automation_id("list")
+            .selection_mode(ListViewSelectionMode::Single)
+            .items(["Zero", "One", "Two"].map(|name| DataItem::new(name, name)))
+            .on_selection_changed(context.callback(M::Selection));
+        if self.declared {
+            text = text.text("declared");
+            slider = slider.value(150.0);
+            list = list.selected_index(Some(1));
+        }
+        if self.maximum {
+            slider = slider.maximum(200.0);
+        }
+        context.window_visuals(WindowVisuals::new().client_size(600.0, 700.0));
+        context.window_frame(
+            "Reactor UI fixture: property-ownership",
+            StackPanel::new().margin(20.0).spacing(12.0).children((
+                text,
+                slider,
+                list,
+                StackPanel::new().children(
+                    [
+                        ("omit", M::Declare(false)),
+                        ("declare", M::Declare(true)),
+                        ("clear-maximum", M::Maximum(false)),
+                        ("restore-maximum", M::Maximum(true)),
+                        ("render", M::Render),
+                    ]
+                    .map(|(id, message)| {
+                        Button::new()
+                            .automation_id(id)
+                            .content(id)
+                            .on_click(context.message(message))
+                            .into()
+                    }),
+                ),
+                TextBlock::new()
+                    .automation_id("calls")
+                    .text(self.calls.join("; ")),
+                TextBlock::new()
+                    .automation_id("revision")
+                    .text(self.revision.to_string()),
+            )),
+        )
+    }
+}
+
 /// Controlled toggles and ranged values. Every callback is logged; while rejecting, the state
 /// ignores the reported values so the next render must restore the declared ones. The range
 /// buttons change the bounds of the declared values.
@@ -12,6 +108,7 @@ pub(super) struct ControlledFixture {
     slider: f64,
     number: Option<f64>,
     rating: Option<f64>,
+    minimum: f64,
     maximum: f64,
     max_rating: i32,
     accept: bool,
@@ -30,6 +127,7 @@ pub(super) enum ControlledMessage {
     Program,
     Reject,
     Shrink,
+    Raise,
     Widen,
     Grow,
 }
@@ -47,6 +145,7 @@ impl Component for ControlledFixture {
             slider: 150.0,
             number: Some(150.0),
             rating: Some(4.0),
+            minimum: 0.0,
             maximum: 200.0,
             max_rating: 5,
             accept: true,
@@ -64,7 +163,7 @@ impl Component for ControlledFixture {
             M::Slider(value) => format!("slider {value}"),
             M::Number(value) => format!("number {value:?}"),
             M::Rating(value) => format!("rating {value:?}"),
-            M::Program | M::Reject | M::Shrink | M::Widen | M::Grow => String::new(),
+            M::Program | M::Reject | M::Shrink | M::Raise | M::Widen | M::Grow => String::new(),
         };
         if !call.is_empty() {
             self.calls.push(call);
@@ -94,7 +193,9 @@ impl Component for ControlledFixture {
                 self.maximum = 20.0;
                 self.max_rating = 2;
             }
+            M::Raise => self.minimum = 170.0,
             M::Widen => {
+                self.minimum = 0.0;
                 self.maximum = 200.0;
                 self.max_rating = 5;
             }
@@ -140,12 +241,14 @@ impl Component for ControlledFixture {
             Slider::new()
                 .automation_id("slider")
                 .value(self.slider)
+                .minimum(self.minimum)
                 .maximum(self.maximum)
                 .on_value_changed(context.callback(M::Slider))
                 .into(),
             NumberBox::new()
                 .automation_id("number")
                 .value(self.number)
+                .minimum(self.minimum)
                 .maximum(self.maximum)
                 .on_value_changed(context.callback(M::Number))
                 .into(),
@@ -156,7 +259,14 @@ impl Component for ControlledFixture {
                 .on_value_changed(context.callback(M::Rating))
                 .into(),
         ];
-        let commands: [View; 7] = [
+        let commands: [View; 9] = [
+            ProgressRing::new()
+                .automation_id("ring")
+                .is_indeterminate(false)
+                .value(150.0)
+                .minimum(self.minimum)
+                .maximum(self.maximum)
+                .into(),
             Button::new()
                 .automation_id("program")
                 .content("Program")
@@ -171,6 +281,11 @@ impl Component for ControlledFixture {
                 .automation_id("shrink")
                 .content("Shrink")
                 .on_click(context.message(M::Shrink))
+                .into(),
+            Button::new()
+                .automation_id("raise")
+                .content("Raise")
+                .on_click(context.message(M::Raise))
                 .into(),
             Button::new()
                 .automation_id("widen")

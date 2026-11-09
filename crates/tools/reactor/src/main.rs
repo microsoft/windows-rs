@@ -883,36 +883,33 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
                 property.name
             );
             if let Some(event) = &property.controlled {
+                let event = object
+                    .events
+                    .iter()
+                    .find(|candidate| candidate.name == *event)
+                    .unwrap_or_else(|| {
+                        panic!(
+                            "{}.{} references missing event {event}",
+                            object.name, property.name
+                        )
+                    });
                 assert!(
-                    object
-                        .events
-                        .iter()
-                        .any(|candidate| candidate.name == *event),
-                    "{}.{} references missing event {event}",
+                    event.observes.as_deref() == Some(property.name.as_str()),
+                    "{}.{} must observe {}",
                     object.name,
+                    event.name,
                     property.name
                 );
             }
             if let Some(coerced) = &property.coerces {
-                let position = |name: &str| {
-                    object
-                        .properties
-                        .iter()
-                        .position(|candidate| candidate.name == name)
-                };
                 assert!(
-                    object
-                        .properties
-                        .iter()
-                        .any(|candidate| candidate.name == *coerced
-                            && candidate.controlled.is_some()),
-                    "{}.{} must coerce a controlled property",
-                    object.name,
-                    property.name
-                );
-                assert!(
-                    position(&property.name) < position(coerced),
-                    "{}.{} must precede the {coerced} property it coerces",
+                    property.controlled.is_none()
+                        && object
+                            .properties
+                            .iter()
+                            .any(|candidate| candidate.name == *coerced
+                                && candidate.coerces.is_none()),
+                    "{}.{} must be an uncontrolled property coercing another object property",
                     object.name,
                     property.name
                 );
@@ -1077,6 +1074,32 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
                     "{} selection references missing relation {relation}",
                     object.name
                 );
+            }
+        }
+    }
+
+    // Only move values whose declared constraints follow them. Properties without a dependency
+    // retain their relative order; controlled values do not imply an ordering dependency.
+    for object in &mut schema.objects {
+        let coerced = object
+            .properties
+            .iter()
+            .filter_map(|property| property.coerces.clone())
+            .collect::<BTreeSet<_>>();
+        for name in coerced {
+            let value = object
+                .properties
+                .iter()
+                .position(|property| property.name == name)
+                .unwrap();
+            let constraint = object
+                .properties
+                .iter()
+                .rposition(|property| property.coerces.as_ref() == Some(&name))
+                .unwrap();
+            if value < constraint {
+                let property = object.properties.remove(value);
+                object.properties.insert(constraint, property);
             }
         }
     }
@@ -2053,4 +2076,112 @@ fn rustfmt(source: &str) -> String {
     let output = child.wait_with_output().unwrap();
     assert!(output.status.success());
     String::from_utf8(output.stdout).unwrap()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn normalize(update: impl FnOnce(&mut Schema)) -> Schema {
+        let mut schema: Schema = toml::from_str(include_str!("schema.toml")).unwrap();
+        update(&mut schema);
+        let metadata = tool_reactor_metadata::MetadataResolver::load(&workspace_path(WINMD));
+        normalize_schema(&mut schema, &metadata);
+        schema
+    }
+
+    fn object<'a>(schema: &'a mut Schema, name: &str) -> &'a mut Object {
+        schema
+            .objects
+            .iter_mut()
+            .find(|object| object.name == name)
+            .unwrap()
+    }
+
+    #[test]
+    fn dependencies_order_values_without_reordering_unrelated_properties() {
+        let mut expected = BTreeMap::new();
+        let schema = normalize(|schema| {
+            for name in ["Slider", "ProgressRing"] {
+                let properties = &mut object(schema, name).properties;
+                let index = properties
+                    .iter()
+                    .position(|property| property.name == "Value")
+                    .unwrap();
+                let value = properties.remove(index);
+                properties.insert(0, value);
+            }
+            for object in &schema.objects {
+                let mut names = object
+                    .properties
+                    .iter()
+                    .map(|property| property.name.clone())
+                    .collect::<Vec<_>>();
+                let (value, constraint) = match object.name.as_str() {
+                    "TextBox" => ("Text", "AcceptsReturn"),
+                    "Slider" | "ProgressRing" => ("Value", "Maximum"),
+                    _ => {
+                        expected.insert(object.name.clone(), names);
+                        continue;
+                    }
+                };
+                let index = names.iter().position(|name| name == value).unwrap();
+                names.remove(index);
+                let index = names.iter().position(|name| name == constraint).unwrap();
+                names.insert(index + 1, value.to_string());
+                expected.insert(object.name.clone(), names);
+            }
+        });
+        for object in schema.objects {
+            assert_eq!(
+                object
+                    .properties
+                    .iter()
+                    .map(|property| &property.name)
+                    .collect::<Vec<_>>(),
+                expected[&object.name].iter().collect::<Vec<_>>(),
+                "{}",
+                object.name
+            );
+        }
+    }
+
+    #[test]
+    #[should_panic(expected = "TextBox.TextChanged must observe Text")]
+    fn controlled_event_must_observe_its_property() {
+        normalize(|schema| {
+            object(schema, "TextBox")
+                .events
+                .iter_mut()
+                .find(|event| event.name == "TextChanged")
+                .unwrap()
+                .observes = Some("PlaceholderText".into());
+        });
+    }
+
+    #[test]
+    #[should_panic(expected = "must be an uncontrolled property coercing another object property")]
+    fn coercion_target_must_exist() {
+        normalize(|schema| {
+            object(schema, "Slider")
+                .properties
+                .iter_mut()
+                .find(|property| property.name == "Minimum")
+                .unwrap()
+                .coerces = Some("Missing".into());
+        });
+    }
+
+    #[test]
+    #[should_panic(expected = "must be an uncontrolled property coercing another object property")]
+    fn coercion_chains_are_rejected() {
+        normalize(|schema| {
+            object(schema, "ProgressRing")
+                .properties
+                .iter_mut()
+                .find(|property| property.name == "Value")
+                .unwrap()
+                .coerces = Some("Minimum".into());
+        });
+    }
 }

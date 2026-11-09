@@ -508,10 +508,13 @@ pub fn index_contract(kind: ObjectType) -> Option<IndexContract> {
 }
 pub fn coerced_property(kind: ObjectType, id: PropertyId) -> Option<PropertyId> {
     match (kind, id) {
+        (ObjectType::TextBox, PropertyId::AcceptsReturn) => Some(PropertyId::Text),
         (ObjectType::Slider, PropertyId::Minimum) => Some(PropertyId::Value),
         (ObjectType::Slider, PropertyId::Maximum) => Some(PropertyId::Value),
         (ObjectType::NumberBox, PropertyId::Minimum) => Some(PropertyId::Value),
         (ObjectType::NumberBox, PropertyId::Maximum) => Some(PropertyId::Value),
+        (ObjectType::ProgressRing, PropertyId::Minimum) => Some(PropertyId::Value),
+        (ObjectType::ProgressRing, PropertyId::Maximum) => Some(PropertyId::Value),
         (ObjectType::RatingControl, PropertyId::MaxRating) => Some(PropertyId::Value),
         _ => None,
     }
@@ -1216,10 +1219,6 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
                 ],
             },
         }),
-        (ObjectType::TextBox, PropertyId::Text) => Some(PropertyContract {
-            id,
-            value: ValueType::String,
-        }),
         (ObjectType::TextBox, PropertyId::PlaceholderText) => Some(PropertyContract {
             id,
             value: ValueType::String,
@@ -1227,6 +1226,10 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
         (ObjectType::TextBox, PropertyId::AcceptsReturn) => Some(PropertyContract {
             id,
             value: ValueType::Bool,
+        }),
+        (ObjectType::TextBox, PropertyId::Text) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
         }),
         (ObjectType::TextBox, PropertyId::IsReadOnly) => Some(PropertyContract {
             id,
@@ -2487,9 +2490,9 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::TextBlock, PropertyId::TextTrimming) => 39,
         (ObjectType::TextBlock, PropertyId::MaxLines) => 40,
         (ObjectType::TextBlock, PropertyId::TextAlignment) => 41,
-        (ObjectType::TextBox, PropertyId::Text) => 29,
-        (ObjectType::TextBox, PropertyId::PlaceholderText) => 30,
-        (ObjectType::TextBox, PropertyId::AcceptsReturn) => 31,
+        (ObjectType::TextBox, PropertyId::PlaceholderText) => 29,
+        (ObjectType::TextBox, PropertyId::AcceptsReturn) => 30,
+        (ObjectType::TextBox, PropertyId::Text) => 31,
         (ObjectType::TextBox, PropertyId::IsReadOnly) => 32,
         (ObjectType::TextBox, PropertyId::TextAlignment) => 33,
         (ObjectType::TextBox, PropertyId::TextWrapping) => 34,

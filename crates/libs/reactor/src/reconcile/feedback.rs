@@ -241,7 +241,7 @@ impl RetainedGraph {
                 let baseline = retained
                     .baselines
                     .iter()
-                    .position(|baseline| baseline.id == property_id);
+                    .position(|baseline| baseline.property.id == property_id);
                 // Observing a native value does not make the declaration own that property.
                 let Some(current) = retained
                     .properties
@@ -250,27 +250,62 @@ impl RetainedGraph {
                     .cloned()
                 else {
                     match baseline {
-                        Some(index) if retained.baselines[index] == property => return false,
-                        Some(index) if record => retained.baselines[index] = property,
+                        Some(index) if retained.baselines[index].property == property => {
+                            return false;
+                        }
+                        Some(index) if record => retained.baselines[index].property = property,
                         Some(index) => {
                             retained.baselines.swap_remove(index);
                         }
-                        None if record => retained.baselines.push(property),
+                        None if record => retained.baselines.push(PropertyBaseline {
+                            property,
+                            applied: None,
+                        }),
                         None => {}
                     }
                     return true;
                 };
+                if record {
+                    match baseline {
+                        Some(index) if retained.baselines[index].property == property => {
+                            retained.baselines.swap_remove(index);
+                        }
+                        Some(index) => {
+                            retained.baselines[index].applied = Some(property.value.clone());
+                        }
+                        None if current != property => {
+                            retained.baselines.push(PropertyBaseline {
+                                property: current,
+                                applied: Some(property.value.clone()),
+                            });
+                        }
+                        None => {}
+                    }
+                    retained
+                        .properties
+                        .upsert(|current| current.id == property_id, property);
+                    return false;
+                }
                 // Native state that matches the declaration is settled, whichever write or
-                // notification produced it, so only a departure from the declaration is reported.
+                // notification produced it. The effective value read back from a coerced write
+                // is settled too; a deferred notification must not report it as an edit.
                 let settled = match baseline {
-                    Some(index) if retained.baselines[index] == property => {
+                    Some(index) if retained.baselines[index].property == property => {
                         retained.baselines.swap_remove(index);
+                        true
+                    }
+                    Some(index)
+                        if retained.baselines[index].applied.as_ref() == Some(&property.value) =>
+                    {
                         true
                     }
                     Some(_) => false,
                     None if current == property => return false,
                     None => {
-                        retained.baselines.push(current);
+                        retained.baselines.push(PropertyBaseline {
+                            property: current,
+                            applied: None,
+                        });
                         false
                     }
                 };

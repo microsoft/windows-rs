@@ -128,6 +128,59 @@ fn observation_matching_declared_state_is_not_dispatched() {
 }
 
 #[test]
+fn coerced_readback_is_silent_but_native_departures_are_reported() {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let callback = {
+        let values = Rc::clone(&values);
+        Callback::new(move |value: f64| values.borrow_mut().push(value))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(
+        Slider::new()
+            .value(150.0)
+            .on_value_changed(callback.clone()),
+    );
+    let object = runtime.graph().root().unwrap();
+    let observation = |value| Observation::SetProperty {
+        object,
+        property: Property {
+            id: PropertyId::Value,
+            value: PropertyValue::F64(value),
+        },
+    };
+    runtime.adapter_mut().queue_record(observation(100.0));
+    assert_eq!(runtime.dispatch_native_events(), 0);
+    let mut report = |value| {
+        runtime.adapter_mut().queue_native_event(
+            Some(observation(value)),
+            Some(EventDispatch::new(
+                object,
+                EventId::ValueChanged,
+                EventCall::F64(callback.clone(), value),
+            )),
+        );
+        runtime.dispatch_native_events()
+    };
+    assert_eq!(report(100.0), 0);
+    assert_eq!(report(70.0), 1);
+    assert_eq!(report(100.0), 0);
+    assert_eq!(report(70.0), 1);
+    assert_eq!(&*values.borrow(), &[70.0, 70.0]);
+
+    runtime.update(Slider::new().value(70.0).on_value_changed(callback.clone()));
+    runtime.adapter_mut().queue_native_event(
+        Some(observation(100.0)),
+        Some(EventDispatch::new(
+            object,
+            EventId::ValueChanged,
+            EventCall::F64(callback, 100.0),
+        )),
+    );
+    assert_eq!(runtime.dispatch_native_events(), 1);
+    assert_eq!(&*values.borrow(), &[70.0, 70.0, 100.0]);
+}
+
+#[test]
 fn recorded_value_of_an_omitted_property_is_not_dispatched() {
     let values = Rc::new(RefCell::new(Vec::new()));
     let callback = {
