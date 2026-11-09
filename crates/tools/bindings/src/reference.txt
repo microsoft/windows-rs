@@ -6,5 +6,5 @@
 
 --filter
     Windows.Foundation.IPropertyValue::{}
-    Windows.Foundation.IReference::{}
+    Windows.Foundation.IReference
     E_NOTIMPL

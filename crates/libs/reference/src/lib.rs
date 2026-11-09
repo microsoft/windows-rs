@@ -8,5 +8,10 @@ mod bindings;
 #[cfg(all(windows, feature = "std"))]
 mod reference;
 
+/// A boxed reference to a value of type `T`.
+///
+/// Windows APIs use `Windows.Foundation.IReference<T>` to pass optional or boxed value types.
+/// Use `IReference::<T>::from(value)` to box a value and [`Value`](IReference::Value) to
+/// retrieve it.
 #[cfg(all(windows, feature = "std"))]
-pub use reference::IReference;
+pub use bindings::IReference;
