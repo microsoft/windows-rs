@@ -1,26 +1,5 @@
-use super::bindings;
-use bindings::E_NOTIMPL;
-use windows_core::imp::Type;
+use super::bindings::{self, E_NOTIMPL, IReference};
 use windows_core::*;
-
-/// A boxed reference to a value of type `T`.
-///
-/// `IReference<T>` is the Rust projection of the WinRT `Windows.Foundation.IReference<T>`
-/// interface, which Windows APIs use to pass optional or boxed value-type parameters.
-///
-/// This type intentionally exposes only [`Value`](Self::Value). The underlying
-/// `IPropertyValue` accessors (e.g. `GetInt32`) are not exposed: callers should use
-/// `Value` to retrieve the boxed value.
-///
-/// Use `IReference::<T>::from(value)` to box a value into an `IReference<T>`.
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IReference<T>(IUnknown, core::marker::PhantomData<T>)
-where
-    T: RuntimeType + 'static;
-
-impl<T: RuntimeType + 'static> imp::CanInto<IUnknown> for IReference<T> {}
-impl<T: RuntimeType + 'static> imp::CanInto<IInspectable> for IReference<T> {}
 
 impl<T: RuntimeType + 'static> From<IReference<T>> for IInspectable {
     fn from(value: IReference<T>) -> Self {
@@ -34,53 +13,13 @@ impl<T: RuntimeType + 'static> From<&IReference<T>> for &IInspectable {
     }
 }
 
-unsafe impl<T: RuntimeType + 'static> Interface for IReference<T> {
-    type Vtable = bindings::IReference_Vtbl<T>;
-    const IID: GUID = GUID::from_signature(<Self as RuntimeType>::SIGNATURE);
-    const INSPECTABLE: bool = true;
-}
-
-impl<T: RuntimeType + 'static> RuntimeType for IReference<T> {
-    const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::new()
-        .push_slice(b"pinterface({61c17706-2d65-11e0-9ae8-d48564015472}")
-        .push_slice(b";")
-        .push_other(T::SIGNATURE)
-        .push_slice(b")");
-    const NAME: imp::ConstBuffer = imp::ConstBuffer::new()
-        .push_slice(b"Windows.Foundation.IReference`1<")
-        .push_other(T::NAME)
-        .push_slice(b">");
-}
-
-impl<T: RuntimeType + 'static> RuntimeName for IReference<T> {
-    const NAME: &'static str = "Windows.Foundation.IReference";
-    const RUNTIME_CLASS_NAME: imp::ConstBuffer = <Self as RuntimeType>::NAME;
-}
-
-impl<T: RuntimeType + 'static> IReference<T> {
-    /// Retrieves the boxed value.
-    #[expect(non_snake_case)]
-    pub fn Value(&self) -> Result<T> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (Interface::vtable(self).Value)(Interface::as_raw(self), &mut result__)
-                .and_then(|| Type::from_abi(result__))
-        }
-    }
-}
-
 /// Boxes a value as an `IReference<T>`.
 impl<T> From<T> for IReference<T>
 where
     T: RuntimeType + Clone + 'static,
 {
     fn from(value: T) -> Self {
-        let inner: bindings::IReference<T> =
-            ComObject::new(StockReference { value }).into_interface();
-        // Safety: `IReference<T>` and `bindings::IReference<T>` are both `#[repr(transparent)]`
-        // wrappers over `IUnknown` (plus `PhantomData<T>`) and share the same WinRT IID and
-        // vtable layout. The two types are bit-for-bit identical.
-        unsafe { core::mem::transmute(inner) }
+        ComObject::new(StockReference { value }).into_interface()
     }
 }
 
@@ -115,7 +54,7 @@ where
 
 implement_decl! {
     impl<T> StockReference as StockReference_Impl: [
-        bindings::IReference<T>,
+        IReference<T>,
         bindings::IPropertyValue,
     ]
     where T: RuntimeType + Clone + 'static

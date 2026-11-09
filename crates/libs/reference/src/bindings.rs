@@ -1057,6 +1057,23 @@ pub struct IPropertyValue_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(IReference < T >, IReference_Vtbl < T, >, 0x61c17706_2d65_11e0_9ae8_d48564015472, b"Windows.Foundation.IReference`1");
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropertyValue>
+    for IReference<T>
+{
+    const QUERY: bool = true;
+}
+impl<T: windows_core::RuntimeType + 'static> IReference<T> {
+    pub fn Value(&self) -> windows_core::Result<T> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Value)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IReference<T> {
     const NAME: &'static str = "Windows.Foundation.IReference";
     const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =

@@ -132,6 +132,20 @@ fn cast_to_inspectable() -> Result<()> {
 }
 
 #[test]
+fn inspectable_conversions() -> Result<()> {
+    let reference = IReference::<i32>::from(99);
+    let borrowed: &IInspectable = (&reference).into();
+    assert_eq!(borrowed.as_raw(), reference.as_raw());
+    assert_eq!(borrowed.cast::<IReference<i32>>()?.Value()?, 99);
+
+    let raw = reference.as_raw();
+    let owned: IInspectable = reference.into();
+    assert_eq!(owned.as_raw(), raw);
+    assert_eq!(owned.cast::<IReference<i32>>()?.Value()?, 99);
+    Ok(())
+}
+
+#[test]
 fn cast_to_iunknown() -> Result<()> {
     let r = IReference::<f64>::from(2.0);
     let _unknown: IUnknown = r.cast()?;
