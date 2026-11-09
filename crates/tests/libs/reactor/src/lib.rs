@@ -293,6 +293,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "canvas-root" => App::run_application::<canvas::CanvasRootFixture>(())?,
         "canvas-image" => App::run_component::<canvas_image::CanvasImageFixture>(())?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
+        "property-ownership" => App::run_component::<controlled::OwnershipFixture>(())?,
         "radio" => App::run_component::<controlled::RadioFixture>(())?,
         "controlled-input" => App::run_component::<controlled::InputFixture>(())?,
         "controlled-churn" => App::run_component::<controlled::ChurnFixture>(())?,
@@ -373,6 +374,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
             WindowPolicy::new().client_size(480.0, 320.0),
         )?,
         "text" => App::run_component::<TextFixture>(())?,
+        "text-multiline" => App::run_component::<text::MultilineFixture>(())?,
         "text-transform" => {
             App::run_component::<text::TransformFixture>(text::TextControl::Text)?;
         }

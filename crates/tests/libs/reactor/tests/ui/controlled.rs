@@ -1,5 +1,85 @@
 use super::*;
 
+#[test]
+fn omitted_properties_reset_once_and_can_be_redeclared() -> Result<()> {
+    process::run("property-ownership", |ui| {
+        let original = ["text", "slider", "list"]
+            .map(|id| ui.element(id))
+            .into_iter()
+            .collect::<Result<Vec<_>>>()?;
+        let value = |expected: f64| {
+            ui.wait(
+                &format!("slider value becomes {expected}"),
+                || unsafe {
+                    original[1]
+                        .GetCurrentPatternAs::<IUIAutomationRangeValuePattern>(RANGE_VALUE_PATTERN)?
+                        .CurrentValue()
+                },
+                |value| *value == expected,
+            )
+            .map(drop)
+        };
+        ui.value("text", "declared")?;
+        value(150.0)?;
+        ui.selected_name("list", "One")?;
+        ui.name_stays("calls", "", Duration::from_millis(250))?;
+
+        ui.invoke("omit")?;
+        ui.value("text", "")?;
+        value(0.0)?;
+        ui.selected_list_item("list", None)?;
+        ui.name_stays("calls", "", Duration::from_millis(250))?;
+
+        ui.set_value("text", "native")?;
+        ui.name("calls", "text native")?;
+        unsafe {
+            original[1]
+                .GetCurrentPatternAs::<IUIAutomationRangeValuePattern>(RANGE_VALUE_PATTERN)?
+                .SetValue(70.0)
+                .ok()?;
+        }
+        ui.name("calls", "text native; value 70")?;
+        unsafe {
+            ui.list_item("list", "Two")?
+                .GetCurrentPatternAs::<IUIAutomationSelectionItemPattern>(SELECTION_ITEM_PATTERN)?
+                .Select()
+                .ok()?;
+        }
+        let calls = "text native; value 70; selection Some(2)";
+        ui.name("calls", calls)?;
+        ui.invoke("render")?;
+        ui.name("revision", "1")?;
+        ui.value("text", "native")?;
+        value(70.0)?;
+        ui.selected_name("list", "Two")?;
+        ui.name_stays("calls", calls, Duration::from_millis(250))?;
+
+        ui.invoke("declare")?;
+        ui.value("text", "declared")?;
+        value(150.0)?;
+        ui.selected_name("list", "One")?;
+        ui.name_stays("calls", calls, Duration::from_millis(250))?;
+
+        ui.invoke("clear-maximum")?;
+        value(100.0)?;
+        ui.name_stays("calls", calls, Duration::from_millis(250))?;
+        ui.invoke("restore-maximum")?;
+        value(150.0)?;
+        ui.name_stays("calls", calls, Duration::from_millis(250))?;
+        for (id, original) in ["text", "slider", "list"].into_iter().zip(&original) {
+            unsafe {
+                assert!(
+                    ui.client
+                        .CompareElements(original, &ui.element(id)?)?
+                        .as_bool(),
+                    "{id} was recreated during an ownership transition"
+                );
+            }
+        }
+        Ok(())
+    })
+}
+
 const CONTROLS: [&str; 7] = [
     "check", "toggle", "switch", "expander", "slider", "number", "rating",
 ];
@@ -44,17 +124,39 @@ fn controlled_values_follow_declared_state() -> Result<()> {
 
 /// A range that excludes the declared value coerces the control without reporting it, and the
 /// declared value returns once the range allows it. Widening a range together with the value
-/// writes the range first.
+/// writes the range first. A `ProgressRing` does not keep its requested value when clamped.
 #[test]
 fn controlled_ranges_keep_declared_values() -> Result<()> {
     process::run("controlled", |ui| {
         let controls = Controls::new(ui)?;
+        let ring = ui.element("ring")?;
+        let ring = |expected: f64| {
+            ui.wait(
+                &format!("progress ring becomes {expected}"),
+                || unsafe {
+                    ring.GetCurrentPatternAs::<IUIAutomationRangeValuePattern>(RANGE_VALUE_PATTERN)?
+                        .CurrentValue()
+                },
+                |value| *value == expected,
+            )
+            .map(drop)
+        };
         controls.wait(DECLARED)?;
+        ring(150.0)?;
 
         ui.invoke("shrink")?;
         controls.wait(["off", "off", "off", "collapsed", "20", "20", "2"])?;
+        ring(20.0)?;
         ui.invoke("widen")?;
         controls.wait(DECLARED)?;
+        ring(150.0)?;
+
+        ui.invoke("raise")?;
+        controls.wait(["off", "off", "off", "collapsed", "170", "170", "4"])?;
+        ring(170.0)?;
+        ui.invoke("widen")?;
+        controls.wait(DECLARED)?;
+        ring(150.0)?;
 
         ui.invoke("grow")?;
         controls.wait(["off", "off", "off", "collapsed", "250", "250", "7"])?;

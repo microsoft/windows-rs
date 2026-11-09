@@ -613,16 +613,16 @@ fn text_box_appearance_records_set_and_clear() {
         runtime.graph().properties(text_box).unwrap(),
         [
             Property {
-                id: PropertyId::Text,
-                value: PropertyValue::String(Rc::from("Text")),
-            },
-            Property {
                 id: PropertyId::PlaceholderText,
                 value: PropertyValue::String(Rc::from("Enter text")),
             },
             Property {
                 id: PropertyId::AcceptsReturn,
                 value: PropertyValue::Bool(true),
+            },
+            Property {
+                id: PropertyId::Text,
+                value: PropertyValue::String(Rc::from("Text")),
             },
             Property {
                 id: PropertyId::TextWrapping,
@@ -638,7 +638,13 @@ fn text_box_appearance_records_set_and_clear() {
     let Mutation::SetProperties { set, clear, .. } = &mutations[0] else {
         panic!("expected property mutation");
     };
-    assert!(set.is_empty());
+    assert_eq!(
+        set.as_ref(),
+        [Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("Text")),
+        }]
+    );
     assert_eq!(
         clear.as_ref(),
         [

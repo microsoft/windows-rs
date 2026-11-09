@@ -146,7 +146,7 @@ impl RetainedGraph {
                 declaration
                     .properties
                     .iter()
-                    .any(|property| property.id == baseline.id)
+                    .any(|property| property.id == baseline.property.id)
             })
         {
             return false;

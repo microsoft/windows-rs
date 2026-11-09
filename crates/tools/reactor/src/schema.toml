@@ -207,6 +207,7 @@ name = "PlaceholderText"
 
 [[objects.properties]]
 name = "AcceptsReturn"
+coerces = "Text"
 
 [[objects.properties]]
 name = "IsReadOnly"
@@ -1152,9 +1153,11 @@ enabled = true
 
 [[objects.properties]]
 name = "Minimum"
+coerces = "Value"
 
 [[objects.properties]]
 name = "Maximum"
+coerces = "Value"
 
 [[objects.properties]]
 name = "Value"

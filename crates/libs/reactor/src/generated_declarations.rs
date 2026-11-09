@@ -2020,13 +2020,6 @@ impl TextBox {
         let declaration = Declaration::new(ObjectType::TextBox);
         Self(declaration)
     }
-    pub fn text(mut self, text: impl AsRef<str>) -> Self {
-        self.0 = self.0.property(
-            PropertyId::Text,
-            PropertyValue::String(Rc::from(text.as_ref())),
-        );
-        self
-    }
     pub fn placeholder_text(mut self, placeholder_text: impl AsRef<str>) -> Self {
         self.0 = self.0.property(
             PropertyId::PlaceholderText,
@@ -2038,6 +2031,13 @@ impl TextBox {
         self.0 = self.0.property(
             PropertyId::AcceptsReturn,
             PropertyValue::Bool(accepts_return),
+        );
+        self
+    }
+    pub fn text(mut self, text: impl AsRef<str>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::Text,
+            PropertyValue::String(Rc::from(text.as_ref())),
         );
         self
     }
