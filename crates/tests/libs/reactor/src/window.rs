@@ -1,5 +1,12 @@
 use super::*;
 
+#[derive(Clone, Copy, PartialEq)]
+pub(super) enum FocusMode {
+    Controls,
+    Empty,
+    Hyperlink,
+}
+
 pub(super) struct FocusFixture {
     focus: String,
     activations: usize,
@@ -7,12 +14,12 @@ pub(super) struct FocusFixture {
 }
 
 impl Component for FocusFixture {
-    type Input = bool;
+    type Input = FocusMode;
     type Message = (&'static str, FocusEventInfo);
 
-    fn create(empty: &bool, _: &ComponentContext<Self>) -> Self {
+    fn create(mode: &FocusMode, _: &ComponentContext<Self>) -> Self {
         Self {
-            focus: if *empty {
+            focus: if *mode == FocusMode::Empty {
                 "Empty".into()
             } else {
                 String::new()
@@ -33,10 +40,10 @@ impl Component for FocusFixture {
         }
     }
 
-    fn view(&self, empty: &bool, context: &mut ViewContext<Self>) -> View {
+    fn view(&self, mode: &FocusMode, context: &mut ViewContext<Self>) -> View {
         let mut children: Vec<View> = ["First", "Second"]
             .into_iter()
-            .filter(|_| !*empty)
+            .filter(|_| *mode != FocusMode::Empty)
             .map(|name| {
                 Border::new()
                     .automation_id(name)
@@ -49,6 +56,19 @@ impl Component for FocusFixture {
                     .into()
             })
             .collect();
+        if *mode == FocusMode::Hyperlink {
+            children.insert(
+                0,
+                RichTextBlock::new()
+                    .paragraphs(RichText::new([RichTextParagraph::new([
+                        RichTextInline::Hyperlink(RichTextHyperlink {
+                            text: "Initial link".into(),
+                            uri: "https://example.com".into(),
+                        }),
+                    ])]))
+                    .into(),
+            );
+        }
         children.extend([
             TextBlock::new()
                 .automation_id("focus")
@@ -65,10 +85,10 @@ impl Component for FocusFixture {
         ]);
         context.window_visuals(WindowVisuals::new().client_size(480.0, 320.0));
         context.window_frame(
-            if *empty {
-                "Reactor UI fixture: window-focus-empty"
-            } else {
-                "Reactor UI fixture: window-focus"
+            match mode {
+                FocusMode::Controls => "Reactor UI fixture: window-focus",
+                FocusMode::Empty => "Reactor UI fixture: window-focus-empty",
+                FocusMode::Hyperlink => "Reactor UI fixture: window-focus-hyperlink",
             },
             StackPanel::new()
                 .margin(20.0)

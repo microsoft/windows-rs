@@ -54,7 +54,12 @@ impl NativeWindowState {
             }
             Err(error) => return Err(error),
         };
-        let element = focused.cast::<native::UIElement>()?;
+        let element = match focused.cast::<native::UIElement>() {
+            Ok(element) => element,
+            // Inline hyperlinks are focusable TextElements, not UIElements.
+            Err(error) if error.code() == native::E_NOINTERFACE => return Ok(()),
+            Err(error) => return Err(error),
+        };
         // Initial activation is not keyboard navigation. Keep WinUI's target, not its keyboard cues.
         if element.FocusState()? != native::FocusState::Pointer {
             _ = element.Focus(native::FocusState::Pointer)?;

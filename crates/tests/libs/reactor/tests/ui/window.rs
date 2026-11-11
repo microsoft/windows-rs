@@ -1,6 +1,33 @@
 use super::*;
 
 #[test]
+fn initial_inline_hyperlink_focus_preserves_keyboard_navigation() -> Result<()> {
+    const HYPERLINK: i32 = 50005;
+    process::run("window-focus-hyperlink", |ui| {
+        let link = ui.named(HYPERLINK, "Initial link")?;
+        let focused = || unsafe {
+            ui.client
+                .CompareElements(&ui.client.GetFocusedElement()?, &link)
+        };
+        let _ = ui.wait("inline hyperlink has initial focus", focused, |same| {
+            same.as_bool()
+        })?;
+        ui.name("first-focuses", "0")?;
+        ui.press_keys_on(&link, "Initial link", &[0x09])?;
+        ui.name("focus", "First Keyboard")?;
+        ui.name("first-focuses", "1")?;
+        ui.focused("First")?;
+        ui.press_keys_on(&ui.element("First")?, "First", &[0x10, 0x09])?;
+        let _ = ui.wait(
+            "Shift+Tab returns to the inline hyperlink",
+            focused,
+            |same| same.as_bool(),
+        )?;
+        Ok(())
+    })
+}
+
+#[test]
 fn initial_focus_preserves_keyboard_navigation_and_reactivation() -> Result<()> {
     process::run("window-focus", |ui| {
         ui.name("focus", "First Pointer")?;

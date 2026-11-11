@@ -386,8 +386,13 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,
         "menu-context" => App::run_component::<MenuFixture>(MenuSurface::Context)?,
         "menu-text-context" => App::run_component::<MenuFixture>(MenuSurface::TextContext)?,
-        "window-focus" => App::run_component::<window::FocusFixture>(false)?,
-        "window-focus-empty" => App::run_component::<window::FocusFixture>(true)?,
+        "window-focus" => App::run_component::<window::FocusFixture>(window::FocusMode::Controls)?,
+        "window-focus-empty" => {
+            App::run_component::<window::FocusFixture>(window::FocusMode::Empty)?;
+        }
+        "window-focus-hyperlink" => {
+            App::run_component::<window::FocusFixture>(window::FocusMode::Hyperlink)?;
+        }
         "command-bar" => App::run_component::<MenuFixture>(MenuSurface::CommandBar)?,
         "tray" => App::run_application::<tray::TrayFixture>(())?,
         "window" => App::run_component::<window::WindowFixture>(window::WindowMode::Native)?,

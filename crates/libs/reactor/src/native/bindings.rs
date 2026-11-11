@@ -3827,6 +3827,7 @@ pub const ERROR_FILE_NOT_FOUND: i32 = 2;
 pub const ERROR_INSUFFICIENT_BUFFER: i32 = 122;
 pub const ERROR_PATH_NOT_FOUND: i32 = 3;
 pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
+pub const E_NOINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80004002_u32 as _);
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ElementCompositionPreview(windows_core::IUnknown);
