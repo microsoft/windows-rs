@@ -202,12 +202,9 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
 fn native_queue_expired_report_keeps_only_its_observation() {
     let object = ObjectId::test(1);
     let values = Rc::new(RefCell::new(Vec::new()));
-    let callback = {
-        let values = Rc::clone(&values);
-        Callback::new(move |value: Rc<str>| {
-            values.borrow_mut().push(value);
-        })
-    };
+    let callback = Callback::new(move |value: Rc<str>| {
+        values.borrow_mut().push(value);
+    });
     let observation = |value: &str| Observation::SetProperty {
         object,
         property: Property {
