@@ -1,0 +1,38 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_reactor_setup::as_self_contained();
+
+    windows_bindgen::builder()
+        .output(std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("bindings.rs"))
+        .filters([
+            "ALL_PROCESSOR_GROUPS",
+            "CreateToolhelp32Snapshot",
+            "ERROR_NO_MORE_FILES",
+            "GetActiveProcessorCount",
+            "GetProcessMemoryInfo",
+            "GetProcessTimes",
+            "GetSystemTimePreciseAsFileTime",
+            "GlobalMemoryStatusEx",
+            "INVALID_HANDLE_VALUE",
+            "OpenProcess",
+            "PDH_CSTATUS_NEW_DATA",
+            "PDH_CSTATUS_VALID_DATA",
+            "PDH_FMT_DOUBLE",
+            "PDH_MORE_DATA",
+            "PdhAddEnglishCounterW",
+            "PdhCloseQuery",
+            "PdhCollectQueryData",
+            "PdhGetFormattedCounterValue",
+            "PdhGetFormattedCounterArrayW",
+            "PdhOpenQueryW",
+            "PROCESS_MEMORY_COUNTERS_EX",
+            "PROCESS_QUERY_LIMITED_INFORMATION",
+            "Process32FirstW",
+            "Process32NextW",
+            "QueryFullProcessImageNameW",
+            "TH32CS_SNAPPROCESS",
+        ])
+        .minimal()
+        .flat()
+        .write();
+}

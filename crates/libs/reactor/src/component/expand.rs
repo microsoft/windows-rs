@@ -1,4 +1,5 @@
 use super::*;
+use std::borrow::Cow;
 
 fn merge_attachments(
     current: &mut Option<Box<DeclaredAttachments>>,
@@ -100,7 +101,15 @@ impl<A: Adapter> ComponentHost<A> {
         match node {
             DeclaredNode::Object(declaration) => {
                 self.scope_mut(owner).unwrap().root_child = None;
-                self.expand_declaration(owner, declaration, environment, true, location, expansion)
+                self.expand_declaration(
+                    owner,
+                    Cow::Owned(declaration),
+                    environment,
+                    true,
+                    location,
+                    expansion,
+                )
+                .into_owned()
             }
             DeclaredNode::Provider(provider) => {
                 let mut contexts = environment.contexts.clone();
@@ -142,189 +151,166 @@ impl<A: Adapter> ComponentHost<A> {
         }
     }
 
-    pub(super) fn expand_declaration(
+    pub(super) fn expand_declaration<'a>(
         &mut self,
         owner: ComponentId,
-        mut declaration: Declaration,
+        mut declaration: Cow<'a, Declaration>,
         environment: &ContextEnvironment<'_>,
         scope_root: bool,
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
-    ) -> Declaration {
-        self.expand_declaration_in_place(
-            owner,
-            &mut declaration,
-            environment,
-            scope_root,
-            location,
-            expansion,
-        );
-        declaration
-    }
-
-    fn expand_declaration_in_place(
-        &mut self,
-        owner: ComponentId,
-        declaration: &mut Declaration,
-        environment: &ContextEnvironment<'_>,
-        scope_root: bool,
-        location: ExpansionLocation<'_>,
-        expansion: &mut ExpansionState,
-    ) {
+    ) -> Cow<'a, Declaration> {
+        #[cfg(any(test, feature = "test"))]
+        work::record(|work| work.expanded += 1);
         validate_limits(location.depth, expansion.objects);
         expansion.objects += 1;
-        if scope_root {
-            declaration.component = Some(owner);
+        if scope_root && declaration.component != Some(owner) {
+            declaration.to_mut().component = Some(owner);
         }
-        if let Some(items) = declaration.virtual_items.as_mut() {
-            items.owner = Some(owner);
+        if declaration
+            .virtual_items
+            .as_ref()
+            .is_some_and(|items| items.owner != Some(owner))
+        {
+            declaration.to_mut().virtual_items.as_mut().unwrap().owner = Some(owner);
         }
-        declaration.attachments = self.expand_attachments(
+        let attachments = match &mut declaration {
+            Cow::Borrowed(current) => current.attachments.as_ref().map(Cow::Borrowed),
+            Cow::Owned(current) => current.attachments.take().map(Cow::Owned),
+        };
+        if let Some(Cow::Owned(attachments)) = self.expand_attachments(
             owner,
-            declaration.attachments.take(),
+            attachments,
             environment,
             location.depth,
             expansion,
             location.path,
-        );
-        let mut relations = std::mem::take(&mut declaration.relations);
-        let relation_slice = match &mut relations {
-            SharedList::Empty => &mut [],
-            SharedList::One(relation) => std::slice::from_mut(relation),
-            SharedList::Many(relations) => Rc::make_mut(relations),
-        };
-        for relation in relation_slice {
-            let value = std::mem::replace(&mut relation.value, RelationValue::One(None));
-            relation.value = match value {
+        ) {
+            let attachments = Some(attachments);
+            match &mut declaration {
+                Cow::Borrowed(current) => {
+                    declaration = Cow::Owned(current.clone_with_attachments(attachments));
+                }
+                Cow::Owned(current) => current.attachments = attachments,
+            }
+        }
+        for relation_index in 0..declaration.relations.as_slice().len() {
+            let relation = &declaration.relations.as_slice()[relation_index];
+            let value = match &relation.value {
                 RelationValue::One(Some(child)) => {
-                    let mut retained = Some(child);
                     location.path.push(ComponentPathSegment::Relation(
                         relation.id,
-                        retained.as_ref().unwrap().relation_identity(0),
+                        child.relation_identity(0),
                     ));
-                    let result = if let Some(DeclaredNode::Object(declaration)) =
-                        Rc::get_mut(retained.as_mut().unwrap())
-                    {
-                        self.expand_declaration_in_place(
-                            owner,
-                            declaration,
-                            environment,
-                            false,
-                            ExpansionLocation {
-                                depth: location.depth + 1,
-                                path: location.path,
-                            },
-                            expansion,
-                        );
-                        None
-                    } else {
-                        let child = Rc::try_unwrap(retained.take().unwrap())
-                            .unwrap_or_else(|child| child.as_ref().clone());
-                        Some(self.expand_node(
+                    let result = self.expand_node(
+                        owner,
+                        child,
+                        environment,
+                        location.depth + 1,
+                        expansion,
+                        location.path,
+                    );
+                    location.path.pop();
+                    match result {
+                        Cow::Owned(expanded) => Some(RelationValue::One(Some(Rc::new(
+                            DeclaredNode::Object(expanded),
+                        )))),
+                        Cow::Borrowed(_) => None,
+                    }
+                }
+                RelationValue::Many(children) => {
+                    let mut next = None;
+                    for (index, child) in children.iter().enumerate() {
+                        let identity = child.relation_identity(index);
+                        location
+                            .path
+                            .push(ComponentPathSegment::Relation(relation.id, identity));
+                        let result = self.expand_node(
                             owner,
                             child,
                             environment,
                             location.depth + 1,
                             expansion,
                             location.path,
-                        ))
-                    };
-                    location.path.pop();
-                    match result {
-                        Some(expanded) => {
-                            RelationValue::One(Some(Rc::new(DeclaredNode::Object(expanded))))
-                        }
-                        None => RelationValue::One(retained),
-                    }
-                }
-                RelationValue::Many(mut children) => {
-                    for (index, child) in Rc::make_mut(&mut children).iter_mut().enumerate() {
-                        let identity = child.relation_identity(index);
-                        location
-                            .path
-                            .push(ComponentPathSegment::Relation(relation.id, identity));
-                        let result = match child {
-                            DeclaredNode::Object(declaration) => {
-                                self.expand_declaration_in_place(
-                                    owner,
-                                    declaration,
-                                    environment,
-                                    false,
-                                    ExpansionLocation {
-                                        depth: location.depth + 1,
-                                        path: location.path,
-                                    },
-                                    expansion,
-                                );
-                                None
-                            }
-                            _ => Some(self.expand_node(
-                                owner,
-                                child.clone(),
-                                environment,
-                                location.depth + 1,
-                                expansion,
-                                location.path,
-                            )),
-                        };
+                        );
                         location.path.pop();
-                        if let Some(expanded) = result {
-                            *child = DeclaredNode::Object(expanded);
+                        match result {
+                            Cow::Owned(expanded) => {
+                                let next = next.get_or_insert_with(|| {
+                                    let mut next = Vec::with_capacity(children.len());
+                                    next.extend_from_slice(&children[..index]);
+                                    next
+                                });
+                                next.push(DeclaredNode::Object(expanded));
+                            }
+                            Cow::Borrowed(_) => {
+                                if let Some(next) = &mut next {
+                                    next.push(child.clone());
+                                }
+                            }
                         }
                     }
-                    RelationValue::Many(children)
+                    next.map(|next| RelationValue::Many(Rc::new(next)))
                 }
-                RelationValue::One(None) => RelationValue::One(None),
+                RelationValue::One(None) => None,
             };
+            if let Some(value) = value {
+                let relation = match &mut declaration.to_mut().relations {
+                    SharedList::One(relation) => relation,
+                    SharedList::Many(relations) => &mut Rc::make_mut(relations)[relation_index],
+                    SharedList::Empty => unreachable!(),
+                };
+                relation.value = value;
+            }
         }
-        declaration.relations = relations;
+        declaration
     }
 
-    pub(super) fn expand_node(
+    pub(super) fn expand_node<'a>(
         &mut self,
         owner: ComponentId,
-        node: DeclaredNode,
+        node: &'a DeclaredNode,
         environment: &ContextEnvironment<'_>,
         depth: usize,
         expansion: &mut ExpansionState,
         path: &mut Vec<ComponentPathSegment>,
-    ) -> Declaration {
+    ) -> Cow<'a, Declaration> {
         match node {
             DeclaredNode::Object(declaration) => self.expand_declaration(
                 owner,
-                declaration,
+                Cow::Borrowed(declaration),
                 environment,
                 false,
                 ExpansionLocation { depth, path },
                 expansion,
             ),
-            DeclaredNode::Provider(provider) => self.expand_provider_node(
+            DeclaredNode::Provider(provider) => Cow::Owned(self.expand_provider_node(
                 owner,
-                provider.provision,
-                provider.child,
+                &provider.provision,
+                &provider.child,
                 environment,
                 ExpansionLocation { depth, path },
                 expansion,
-            ),
+            )),
             DeclaredNode::Component {
                 node,
                 relation_key,
                 attachments,
-            } => {
+            } => Cow::Owned(
                 self.expand_component(
                     owner,
                     ComponentExpansion {
-                        attachments,
-                        node,
-                        relation_key,
+                        attachments: attachments.clone(),
+                        node: node.clone(),
+                        relation_key: relation_key.clone(),
                     },
                     environment,
                     depth,
                     expansion,
                     path,
                 )
-                .1
-            }
+                .1,
+            ),
         }
     }
 
@@ -347,14 +333,16 @@ impl<A: Adapter> ComponentHost<A> {
         );
         let mut declaration = expanded.0.object();
         declaration.key = Some(prepared.declaration_key);
-        let attachments = self.expand_attachments(
-            owner,
-            prepared.attachments.take(),
-            environment,
-            depth,
-            expansion,
-            path,
-        );
+        let attachments = self
+            .expand_attachments(
+                owner,
+                prepared.attachments.take().map(Cow::Owned),
+                environment,
+                depth,
+                expansion,
+                path,
+            )
+            .map(Cow::into_owned);
         merge_attachments(&mut declaration.attachments, attachments);
         (prepared.id, declaration)
     }
@@ -464,14 +452,14 @@ impl<A: Adapter> ComponentHost<A> {
     fn expand_provider_node(
         &mut self,
         owner: ComponentId,
-        provision: ContextProvision,
-        child: DeclaredNode,
+        provision: &ContextProvision,
+        child: &DeclaredNode,
         environment: &ContextEnvironment<'_>,
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
     ) -> Declaration {
         let mut contexts = environment.contexts.clone();
-        contexts.insert(provision.id, provision.value);
+        contexts.insert(provision.id, provision.value.clone());
         let mut provided = environment.provided.clone();
         provided.insert(provision.id);
         self.expand_node(
@@ -485,57 +473,60 @@ impl<A: Adapter> ComponentHost<A> {
             expansion,
             location.path,
         )
+        .into_owned()
     }
 
-    fn expand_attachments(
+    fn expand_attachments<'a>(
         &mut self,
         owner: ComponentId,
-        attachments: Option<Box<DeclaredAttachments>>,
+        attachments: Option<Cow<'a, Box<DeclaredAttachments>>>,
         environment: &ContextEnvironment<'_>,
         depth: usize,
         expansion: &mut ExpansionState,
         path: &mut Vec<ComponentPathSegment>,
-    ) -> Option<Box<DeclaredAttachments>> {
+    ) -> Option<Cow<'a, Box<DeclaredAttachments>>> {
         let mut attachments = attachments?;
-        if let Some(mut tooltip) = attachments.tooltip.take() {
+        if let Some(tooltip) = &attachments.tooltip {
             validate_limits(depth, expansion.objects);
             expansion.objects += 1;
             path.push(ComponentPathSegment::Tooltip);
             let result = self.expand_node(
                 owner,
-                *tooltip.content,
+                &tooltip.content,
                 environment,
                 depth + 2,
                 expansion,
                 path,
             );
             path.pop();
-            let expanded = result;
-            tooltip.content = Box::new(DeclaredNode::Object(expanded));
-            attachments.tooltip = Some(tooltip);
+            if let Cow::Owned(content) = result {
+                *attachments.to_mut().tooltip.as_mut().unwrap().content =
+                    DeclaredNode::Object(content);
+            }
         }
-        if let Some(mut flyout) = attachments.flyout.take() {
+        if let Some(flyout) = &attachments.flyout {
             validate_limits(depth, expansion.objects);
             expansion.objects += 1;
             path.push(ComponentPathSegment::Flyout);
             let result = self.expand_node(
                 owner,
-                *flyout.content,
+                &flyout.content,
                 environment,
                 depth + 2,
                 expansion,
                 path,
             );
             path.pop();
-            let expanded = result;
-            flyout.content = Box::new(DeclaredNode::Object(expanded));
-            attachments.flyout = Some(flyout);
+            if let Cow::Owned(content) = result {
+                *attachments.to_mut().flyout.as_mut().unwrap().content =
+                    DeclaredNode::Object(content);
+            }
         }
-        if let Some(mut dialog) = attachments.content_dialog.take() {
+        if let Some(dialog) = &attachments.content_dialog {
             path.push(ComponentPathSegment::ContentDialog);
             let result = self.expand_declaration(
                 owner,
-                dialog.declaration,
+                Cow::Borrowed(&dialog.declaration),
                 environment,
                 false,
                 ExpansionLocation {
@@ -545,8 +536,14 @@ impl<A: Adapter> ComponentHost<A> {
                 expansion,
             );
             path.pop();
-            dialog.declaration = result;
-            attachments.content_dialog = Some(dialog);
+            if let Cow::Owned(declaration) = result {
+                attachments
+                    .to_mut()
+                    .content_dialog
+                    .as_mut()
+                    .unwrap()
+                    .declaration = declaration;
+            }
         }
         Some(attachments)
     }
@@ -558,6 +555,8 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     pub(super) fn refresh_roots_from(&mut self, declaration: &Declaration, object: ObjectId) {
+        #[cfg(any(test, feature = "test"))]
+        work::record(|work| work.refreshed += 1);
         // The declaring component and each ancestor whose view is that component share the root.
         let mut component = declaration.component;
         while let Some(id) = component {

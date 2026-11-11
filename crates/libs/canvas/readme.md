@@ -51,6 +51,10 @@ redraws, `animated_canvas` for every frame, or `canvas_invalidated` with an `Inv
 input-driven drawings. Rebuild cached device-dependent resources when `ctx.device_changed()` is
 true.
 
+Use `Canvas::animated(draw).device_factory(GpuDevice::new_warp)` to select software rendering.
+The factory runs at creation and recovery; it must replace removed devices rather than clone them.
+For several plots, prefer drawing into regions of one canvas to share its device and swap chain.
+
 ## Add drawing operations
 
 Use `PathBuilder` for geometry, `TextLayout` for reusable or measured text, and `load_bitmap` for

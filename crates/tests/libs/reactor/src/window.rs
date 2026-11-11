@@ -1,9 +1,88 @@
 use super::*;
 
+pub(super) struct FocusFixture {
+    focus: String,
+    activations: usize,
+    first_focuses: usize,
+}
+
+impl Component for FocusFixture {
+    type Input = bool;
+    type Message = (&'static str, FocusEventInfo);
+
+    fn create(empty: &bool, _: &ComponentContext<Self>) -> Self {
+        Self {
+            focus: if *empty {
+                "Empty".into()
+            } else {
+                String::new()
+            },
+            activations: 0,
+            first_focuses: 0,
+        }
+    }
+
+    fn update(&mut self, (name, event): Self::Message, context: &ComponentContext<Self>) {
+        self.focus = format!("{name} {:?}", event.state);
+        if name == "First" {
+            self.first_focuses += 1;
+        }
+        if name == "Second" && event.state == ElementFocusState::Keyboard && self.activations == 0 {
+            assert!(context.activate_window());
+            self.activations += 1;
+        }
+    }
+
+    fn view(&self, empty: &bool, context: &mut ViewContext<Self>) -> View {
+        let mut children: Vec<View> = ["First", "Second"]
+            .into_iter()
+            .filter(|_| !*empty)
+            .map(|name| {
+                Border::new()
+                    .automation_id(name)
+                    .automation_name(name)
+                    .is_tab_stop(true)
+                    .background(ThemeBrush::CardBackground)
+                    .padding(16.0)
+                    .on_got_focus(context.callback(move |event| (name, event)))
+                    .content(name)
+                    .into()
+            })
+            .collect();
+        children.extend([
+            TextBlock::new()
+                .automation_id("focus")
+                .text(&self.focus)
+                .into(),
+            TextBlock::new()
+                .automation_id("activations")
+                .text(self.activations.to_string())
+                .into(),
+            TextBlock::new()
+                .automation_id("first-focuses")
+                .text(self.first_focuses.to_string())
+                .into(),
+        ]);
+        context.window_visuals(WindowVisuals::new().client_size(480.0, 320.0));
+        context.window_frame(
+            if *empty {
+                "Reactor UI fixture: window-focus-empty"
+            } else {
+                "Reactor UI fixture: window-focus"
+            },
+            StackPanel::new()
+                .margin(20.0)
+                .spacing(12.0)
+                .children(children),
+        )
+    }
+}
+
 pub(super) struct WindowFixture {
     resized: Option<bool>,
     icon: bool,
     observed: WindowSize,
+    restricted: bool,
 }
 
 #[derive(Clone, Copy, PartialEq)]
@@ -18,6 +97,7 @@ pub(super) enum Message {
     Resize(bool),
     Icon(bool),
     Size(WindowSize),
+    Presentation,
 }
 
 impl Component for WindowFixture {
@@ -29,6 +109,7 @@ impl Component for WindowFixture {
             resized: None,
             icon: false,
             observed: WindowSize::default(),
+            restricted: false,
         }
     }
 
@@ -37,6 +118,7 @@ impl Component for WindowFixture {
             Message::Resize(resized) => self.resized = Some(resized),
             Message::Icon(icon) => self.icon = icon,
             Message::Size(size) => self.observed = size,
+            Message::Presentation => self.restricted = !self.restricted,
         }
     }
 
@@ -55,7 +137,9 @@ impl Component for WindowFixture {
         };
         let suffix = if resized { " updated" } else { "" };
         let title = format!("Reactor UI fixture: {fixture}{suffix}");
-        let mut visuals = WindowVisuals::new();
+        let mut visuals = WindowVisuals::new()
+            .always_on_top(self.restricted)
+            .minimizable(!self.restricted);
         if *mode != WindowMode::CustomPolicy || self.resized.is_some() {
             visuals = visuals.client_size(width, height);
         }
@@ -80,6 +164,10 @@ impl Component for WindowFixture {
                 .automation_id("clear-icon")
                 .content("Clear icon")
                 .on_click(context.message(Message::Icon(false))),
+            Button::new()
+                .automation_id("presentation")
+                .content("Toggle topmost and minimization")
+                .on_click(context.message(Message::Presentation)),
             TextBlock::new().automation_id("size").text(format!(
                 "Size {:.3} x {:.3}",
                 self.observed.width, self.observed.height

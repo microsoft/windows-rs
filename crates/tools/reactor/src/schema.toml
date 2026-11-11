@@ -1045,6 +1045,7 @@ observe_only = true
 
 [[objects]]
 name = "RadioButtons"
+enabled = true
 
 [[objects.properties]]
 name = "MaxColumns"

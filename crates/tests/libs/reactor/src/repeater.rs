@@ -376,6 +376,7 @@ impl Component for Row {
         ROWS_RENDERED.fetch_add(1, Ordering::Relaxed);
         Button::new()
             .automation_id(format!("row-{}", input.index))
+            .horizontal_alignment(HorizontalAlignment::Stretch)
             .min_height(0.0)
             .height(input.height)
             .content(format!(

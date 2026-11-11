@@ -1,4 +1,5 @@
 use super::*;
+use std::borrow::Cow;
 
 struct VirtualRow;
 
@@ -177,20 +178,23 @@ impl<A: Adapter> ComponentHost<A> {
         };
         let mut path = Vec::new();
         let declaration = match view.0 {
-            DeclaredNode::Object(declaration) => self.expand_declaration(
-                owner,
-                declaration,
-                &environment,
-                true,
-                ExpansionLocation {
-                    depth: 0,
-                    path: &mut path,
-                },
-                expansion,
-            ),
+            DeclaredNode::Object(declaration) => self
+                .expand_declaration(
+                    owner,
+                    Cow::Owned(declaration),
+                    &environment,
+                    true,
+                    ExpansionLocation {
+                        depth: 0,
+                        path: &mut path,
+                    },
+                    expansion,
+                )
+                .into_owned(),
             node => {
                 path.push(ComponentPathSegment::VirtualRoot);
-                self.expand_node(owner, node, &environment, 0, expansion, &mut path)
+                self.expand_node(owner, &node, &environment, 0, expansion, &mut path)
+                    .into_owned()
             }
         };
         View(DeclaredNode::Object(declaration))

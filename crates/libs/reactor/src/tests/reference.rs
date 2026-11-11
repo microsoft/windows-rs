@@ -164,6 +164,31 @@ fn stale_imperative_completion_reports_unavailable_after_rebinding() {
 }
 
 #[test]
+fn surface_metrics_observation_does_not_request_rendering_events() {
+    let commands = Rc::new(RefCell::new(Vec::new()));
+    let reference = ElementRef::<SwapChainPanel>::new();
+    let _continuous = reference.observe_surface(|_| {});
+    let _metrics = reference.observe_surface_metrics(|_| {});
+    let mut runtime = Runtime::new(HoldingImperativeAdapter {
+        inner: RecordingAdapter::default(),
+        commands: Rc::clone(&commands),
+    });
+
+    runtime.update(SwapChainPanel::new().element_ref(&reference));
+    runtime.dispatch_native_events();
+
+    let rendering: Vec<_> = commands
+        .borrow()
+        .iter()
+        .filter_map(|request| match request {
+            ImperativeRequest::ObserveSwapChainPanel { rendering, .. } => Some(*rendering),
+            _ => None,
+        })
+        .collect();
+    assert_eq!(rendering, [true, false]);
+}
+
+#[test]
 fn surface_binding_tokens_follow_reference_bindings_not_panel_identity() {
     let commands = Rc::new(RefCell::new(Vec::new()));
     let reference = ElementRef::<SwapChainPanel>::new();

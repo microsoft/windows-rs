@@ -17,6 +17,9 @@ mod sealed {
     pub trait UnitCallback {}
 }
 mod window;
+#[cfg(any(test, feature = "test"))]
+#[path = "test_support/work.rs"]
+mod work;
 
 use std::any::{Any, TypeId};
 use std::cell::{Cell, RefCell};
@@ -93,6 +96,7 @@ pub mod test {
         RetainedMemory, Runtime,
     };
     pub use crate::reference::ImperativeRequest;
+    pub use crate::work::{UpdateWork, measure_work};
 }
 
 #[cfg(test)]

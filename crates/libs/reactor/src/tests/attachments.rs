@@ -345,6 +345,7 @@ fn menu_attachment_callback_updates_preserve_revision_and_click_order() {
         ObjectType::Button,
         ObjectType::DropDownButton,
         ObjectType::MenuBarItem,
+        ObjectType::Border,
     ] {
         let clicked = Rc::new(RefCell::new(Vec::new()));
         let build = |revision, enabled| -> View {
@@ -362,6 +363,7 @@ fn menu_attachment_callback_updates_preserve_revision_and_click_order() {
                 ObjectType::Button => Button::new().menu(menu),
                 ObjectType::DropDownButton => DropDownButton::new().menu(menu),
                 ObjectType::MenuBarItem => MenuBarItem::new().menu(menu),
+                ObjectType::Border => Border::new().menu(menu),
                 _ => unreachable!(),
             }
         };
@@ -388,6 +390,7 @@ fn menu_attachment_callback_updates_preserve_revision_and_click_order() {
             ObjectType::Button => Button::new().menu(retained),
             ObjectType::DropDownButton => DropDownButton::new().menu(retained),
             ObjectType::MenuBarItem => MenuBarItem::new().menu(retained),
+            ObjectType::Border => Border::new().menu(retained),
             _ => unreachable!(),
         };
         assert!(runtime.update(unchanged).is_empty());
@@ -466,12 +469,8 @@ fn command_bar_flyout_callback_updates_preserve_revision() {
 }
 
 #[test]
-fn menu_attachment_rejects_unsupported_targets_and_flyout_conflicts() {
+fn menu_attachment_rejects_flyout_conflicts_and_duplicate_keys() {
     let menu = || Menu::new([MenuItem::item("open", "Open")], |_| {});
-    assert_panics("invalid attachment on TextBlock", || {
-        Runtime::new(RecordingAdapter::default())
-            .update(TextBlock::new().text("Target").menu(menu()));
-    });
     assert_panics("invalid attachment on Button", || {
         Runtime::new(RecordingAdapter::default())
             .update(Button::new().menu(menu()).flyout("Flyout"));

@@ -1,7 +1,11 @@
 use super::*;
 
 fn open(ui: &Automation, label: &str) -> Result<IUIAutomationElement> {
-    ui.invoke("open")?;
+    if unsafe { ui.element("open")?.CurrentName()? } == "Context menu" {
+        ui.press_keys("open", &[0x10, 0x79])?;
+    } else {
+        ui.invoke("open")?;
+    }
     let item = ui.menu_item(label)?;
     ui.menu_item("More")?;
     Ok(item)
@@ -47,6 +51,11 @@ fn menu_bar_callback_replacement_and_removal() -> Result<()> {
     process::run("menu-bar", callback_replacement_and_removal)
 }
 
+#[test]
+fn context_menu_callback_replacement_and_removal() -> Result<()> {
+    process::run("menu-context", callback_replacement_and_removal)
+}
+
 fn callback_replacement_and_removal(ui: &Automation) -> Result<()> {
     ui.focus("replace")?;
     ui.name("state", "Generation 0; attached true")?;
@@ -79,6 +88,11 @@ fn dropdown_content_replacement_retires_open_items() -> Result<()> {
 #[test]
 fn menu_bar_content_replacement_retires_open_items() -> Result<()> {
     process::run("menu-bar", content_replacement_retires_open_items)
+}
+
+#[test]
+fn context_menu_content_replacement_retires_open_items() -> Result<()> {
+    process::run("menu-context", content_replacement_retires_open_items)
 }
 
 fn content_replacement_retires_open_items(ui: &Automation) -> Result<()> {
@@ -173,6 +187,11 @@ fn dropdown_owner_replacement_retires_open_items() -> Result<()> {
 #[test]
 fn menu_bar_owner_replacement_retires_open_items() -> Result<()> {
     process::run("menu-bar", owner_replacement_retires_open_items)
+}
+
+#[test]
+fn context_menu_owner_replacement_retires_open_items() -> Result<()> {
+    process::run("menu-context", owner_replacement_retires_open_items)
 }
 
 fn owner_replacement_retires_open_items(ui: &Automation) -> Result<()> {

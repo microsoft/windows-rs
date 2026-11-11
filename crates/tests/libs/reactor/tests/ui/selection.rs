@@ -10,6 +10,28 @@ const DECLARED: [&str; 7] = [
     "tab-view",
 ];
 
+#[test]
+fn radio_buttons_preserve_selection_when_disabled_and_reenabled() -> Result<()> {
+    process::run("selection-index", |ui| {
+        let control = ui.element("radio-buttons")?;
+        for (step, enabled) in [true, false, true].into_iter().enumerate() {
+            if step > 0 {
+                ui.invoke("toggle-radio-enabled")?;
+            }
+            ui.wait(
+                "radio buttons enabled state",
+                || Ok(unsafe { control.CurrentIsEnabled()? }.as_bool()),
+                |actual| *actual == enabled,
+            )?;
+            ui.selected_name("radio-buttons", "One")?;
+            ui.name("echoes", "Echoes []")?;
+        }
+        user_select_next(ui, "radio-buttons")?;
+        ui.name("echoes", r#"Echoes [("radio-buttons", Some(2))]"#)?;
+        ui.selected_name("radio-buttons", "One")
+    })
+}
+
 /// A declared index is applied after its items and kept across Reactor's own item changes without
 /// reporting those native moves; an undeclared index still reports them.
 #[test]

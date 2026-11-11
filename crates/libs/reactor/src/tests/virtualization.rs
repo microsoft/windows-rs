@@ -421,6 +421,67 @@ fn virtual_items_reject_duplicate_keys() {
     );
 }
 
+fn virtual_key_view(revision: u64, keys: &[Key]) -> ItemsRepeater {
+    let keys = keys.to_vec();
+    ItemsRepeater::new().virtual_source(VirtualSource::new(
+        revision,
+        keys.len(),
+        move |index| keys[index].clone(),
+        |_| TextBlock::new().text("row"),
+    ))
+}
+
+#[test]
+#[should_panic(expected = "duplicate key")]
+fn virtual_source_rejects_duplicate_keys_on_mount() {
+    Runtime::new(RecordingAdapter::new()).update(virtual_key_view(
+        0,
+        &[Key::from("duplicate"), Key::from("duplicate")],
+    ));
+}
+
+#[test]
+#[should_panic(expected = "duplicate key")]
+fn virtual_source_rejects_duplicate_keys_after_revision_change() {
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime.update(virtual_key_view(
+        0,
+        &[Key::from("first"), Key::from("second")],
+    ));
+    runtime.update(virtual_key_view(
+        1,
+        &[Key::from("first"), Key::from("first")],
+    ));
+}
+
+#[test]
+fn virtual_key_revisions_preserve_only_surviving_tokens() {
+    let tokens = |update: UpdateStats| {
+        update
+            .into_iter()
+            .find_map(|mutation| match mutation {
+                Mutation::SetVirtualSource { keys, .. } => Some(keys),
+                _ => None,
+            })
+            .unwrap()
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    let keys = [Key::from(1u64), Key::from("1"), Key::from("")];
+    let original = tokens(runtime.update(virtual_key_view(0, &keys)));
+    let unchanged = runtime.update(virtual_key_view(1, &keys));
+    assert!(
+        !unchanged
+            .iter()
+            .any(|mutation| matches!(mutation, Mutation::SetVirtualSource { .. }))
+    );
+    let reordered =
+        tokens(runtime.update(virtual_key_view(2, &[keys[2].clone(), keys[0].clone()])));
+    assert_eq!(reordered.as_slice(), &[original[2], original[0]]);
+    assert!(tokens(runtime.update(virtual_key_view(3, &[]))).is_empty());
+    let restored = tokens(runtime.update(virtual_key_view(4, &keys)));
+    assert!(restored.iter().all(|token| !original.contains(token)));
+}
+
 #[test]
 fn virtual_items_ignore_stale_source_requests() {
     let mut runtime = Runtime::new(RecordingAdapter::new());

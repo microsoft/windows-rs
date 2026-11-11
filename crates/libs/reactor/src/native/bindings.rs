@@ -4424,6 +4424,75 @@ impl windows_core::RuntimeType for FlyoutPlacementMode {
     );
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct FocusManager(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    FocusManager,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl FocusManager {
+    pub(crate) fn FindFirstFocusableElement<P0>(
+        searchscope: P0,
+    ) -> windows_core::Result<DependencyObject>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IFocusManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindFirstFocusableElement)(
+                windows_core::Interface::as_raw(this),
+                searchscope.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetFocusedElementWithRoot<P0>(
+        xamlroot: P0,
+    ) -> windows_core::Result<windows_core::IInspectable>
+    where
+        P0: windows_core::Param<XamlRoot>,
+    {
+        Self::IFocusManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFocusedElementWithRoot)(
+                windows_core::Interface::as_raw(this),
+                xamlroot.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    fn IFocusManagerStatics<R, F: FnOnce(&IFocusManagerStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<FocusManager, IFocusManagerStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for FocusManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IFocusManager>();
+}
+unsafe impl windows_core::Interface for FocusManager {
+    type Vtable = <IFocusManager as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IFocusManager as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
+}
+impl core::ops::Deref for FocusManager {
+    type Target = IFocusManager;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for FocusManager {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Input.FocusManager";
+}
+unsafe impl Send for FocusManager {}
+unsafe impl Sync for FocusManager {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FocusState(pub i32);
 impl FocusState {
@@ -9715,6 +9784,53 @@ pub struct IFlyoutFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
+    IFocusManager,
+    IFocusManager_Vtbl,
+    0x9fd07bc5_d2d4_53fe_a31a_846de8b7a257
+);
+#[repr(C)]
+pub struct IFocusManager_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
+    IFocusManagerStatics,
+    IFocusManagerStatics_Vtbl,
+    0xe73dce04_e23a_5fb3_96ab_7df04c51dff2
+);
+#[repr(C)]
+pub struct IFocusManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    GotFocus: usize,
+    RemoveGotFocus: usize,
+    LostFocus: usize,
+    RemoveLostFocus: usize,
+    GettingFocus: usize,
+    RemoveGettingFocus: usize,
+    LosingFocus: usize,
+    RemoveLosingFocus: usize,
+    TryFocusAsync: usize,
+    TryMoveFocusAsync: usize,
+    TryMoveFocusWithOptionsAsync: usize,
+    TryMoveFocusWithOptions: usize,
+    FindNextElement: usize,
+    pub FindFirstFocusableElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    FindLastFocusableElement: usize,
+    FindNextElementWithOptions: usize,
+    FindNextFocusableElement: usize,
+    FindNextFocusableElementWithHint: usize,
+    TryMoveFocus: usize,
+    GetFocusedElement: usize,
+    pub GetFocusedElementWithRoot: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
     IFontFamily,
     IFontFamily_Vtbl,
     0x18fa5bc1_7294_527c_bb02_b213e0b3a2a3
@@ -10041,6 +10157,38 @@ impl IFrameworkElement {
             ))
         }
     }
+    pub(crate) fn Loading<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<FrameworkElement>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
+            + 'static,
+    {
+        let handler: TypedEventHandler<FrameworkElement, windows_core::IInspectable> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<FrameworkElement, windows_core::IInspectable>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<FrameworkElement, windows_core::IInspectable, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Loading)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveLoading,
+            ))
+        }
+    }
     pub(crate) fn ActualThemeChanged<F>(
         &self,
         handler: F,
@@ -10180,8 +10328,13 @@ pub struct IFrameworkElement_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     LayoutUpdated: usize,
     RemoveLayoutUpdated: usize,
-    Loading: usize,
-    RemoveLoading: usize,
+    pub Loading: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveLoading:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub ActualThemeChanged: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -12801,6 +12954,45 @@ pub struct INumberBoxValueChangedEventArgs_Vtbl {
     OldValue: usize,
     pub NewValue:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
+    IOverlappedPresenter,
+    IOverlappedPresenter_Vtbl,
+    0x21693970_4f4c_5172_9e9d_682a2d174884
+);
+impl IOverlappedPresenter {
+    pub(crate) fn SetIsAlwaysOnTop(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsAlwaysOnTop)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetIsMinimizable(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsMinimizable)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IOverlappedPresenter_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    HasBorder: usize,
+    HasTitleBar: usize,
+    IsAlwaysOnTop: usize,
+    pub SetIsAlwaysOnTop:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    IsMaximizable: usize,
+    SetIsMaximizable: usize,
+    IsMinimizable: usize,
+    pub SetIsMinimizable:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
     IOverlappedPresenter3,
@@ -18277,6 +18469,18 @@ impl IUIElement {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub(crate) fn SetContextFlyout<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<FlyoutBase>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetContextFlyout)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn KeyboardAccelerators(
         &self,
     ) -> windows_core::Result<windows_collections::IVector<KeyboardAccelerator>> {
@@ -19016,7 +19220,10 @@ pub struct IUIElement_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     ContextFlyout: usize,
-    SetContextFlyout: usize,
+    pub SetContextFlyout: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CompositeMode: usize,
     SetCompositeMode: usize,
     Lights: usize,

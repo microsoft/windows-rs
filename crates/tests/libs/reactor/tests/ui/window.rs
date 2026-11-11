@@ -1,6 +1,26 @@
 use super::*;
 
 #[test]
+fn initial_focus_preserves_keyboard_navigation_and_reactivation() -> Result<()> {
+    process::run("window-focus", |ui| {
+        ui.name("focus", "First Pointer")?;
+        ui.name("first-focuses", "1")?;
+        ui.focused("First")?;
+        let first = ui.element("First")?;
+        ui.press_keys_on(&first, "First", &[0x09])?;
+        ui.name("focus", "Second Keyboard")?;
+        ui.focused("Second")?;
+        ui.name("activations", "1")?;
+        ui.name_stays("focus", "Second Keyboard", Duration::from_millis(250))?;
+        ui.focused("Second")?;
+        let second = ui.element("Second")?;
+        ui.press_keys_on(&second, "Second", &[0x10, 0x09])?;
+        ui.name("focus", "First Keyboard")
+    })?;
+    process::run("window-focus-empty", |ui| ui.name("focus", "Empty"))
+}
+
+#[test]
 fn window_title_and_client_size_updates() -> Result<()> {
     process::run("window", |ui| {
         let original = ui.element("resize")?;
@@ -46,6 +66,29 @@ fn custom_title_bar_client_size_updates() -> Result<()> {
         })?;
     }
     Ok(())
+}
+
+#[test]
+fn window_presentation_updates_native_styles() -> Result<()> {
+    process::run("window", |ui| {
+        let window = ui.window_handle()? as HWND;
+        for (index, restricted) in [false, true, false].into_iter().enumerate() {
+            if index != 0 {
+                ui.invoke("presentation")?;
+            }
+            ui.wait(
+                "native topmost and minimization styles match the declaration",
+                || unsafe {
+                    Ok((
+                        GetWindowLongW(window, GWL_EXSTYLE) & WS_EX_TOPMOST != 0,
+                        GetWindowLongW(window, GWL_STYLE) & WS_MINIMIZEBOX != 0,
+                    ))
+                },
+                |styles| *styles == (restricted, !restricted),
+            )?;
+        }
+        Ok(())
+    })
 }
 
 #[test]

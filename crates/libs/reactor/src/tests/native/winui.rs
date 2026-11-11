@@ -681,6 +681,28 @@ fn window_visual_changes_only_apply_changed_contracts() {
 }
 
 #[test]
+fn window_presentation_changes_reset_to_defaults() {
+    let restricted = WindowVisuals::new().always_on_top(true).minimizable(false);
+    for (previous, next) in [
+        (WindowVisuals::new(), restricted.clone()),
+        (restricted, WindowVisuals::new()),
+    ] {
+        let changes = window_visual_changes(&previous, &next);
+        assert!(changes.always_on_top);
+        assert!(changes.minimizable);
+        assert!(changes.any());
+        assert!(!changes.client_size);
+    }
+    assert!(
+        !window_visual_changes(
+            &WindowVisuals::new(),
+            &WindowVisuals::new().minimizable(true)
+        )
+        .any()
+    );
+}
+
+#[test]
 fn window_visual_changes_detect_icon_removal() {
     let previous = WindowVisuals::new().icon("test.ico");
     let changes = window_visual_changes(&previous, &WindowVisuals::new());
