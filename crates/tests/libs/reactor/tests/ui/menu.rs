@@ -56,6 +56,20 @@ fn context_menu_callback_replacement_and_removal() -> Result<()> {
     process::run("menu-context", callback_replacement_and_removal)
 }
 
+#[test]
+fn context_menu_removal_restores_native_text_commands() -> Result<()> {
+    process::run("menu-text-context", |ui| {
+        ui.focus("replace")?;
+        open(ui, "Command")?;
+        ui.invoke("remove")?;
+        ui.name("state", "Generation 0; attached false")?;
+        closed(ui, "Command")?;
+        ui.press_keys("open", &[0x10, 0x79])?;
+        ui.menu_item("Select All")?;
+        ui.menu_gone("Command")
+    })
+}
+
 fn callback_replacement_and_removal(ui: &Automation) -> Result<()> {
     ui.focus("replace")?;
     ui.name("state", "Generation 0; attached true")?;

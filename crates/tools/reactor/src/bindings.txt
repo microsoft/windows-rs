@@ -309,6 +309,7 @@ Microsoft::UI::Xaml::Style::{}
 Microsoft::UI::Xaml::Thickness
 Microsoft::UI::Xaml::UIElement::{}
 Microsoft::UI::Xaml::IUIElement::put_ContextFlyout
+Microsoft::UI::Xaml::UIElement::ContextFlyoutProperty
 Microsoft::UI::Xaml::Input::FocusManager::GetFocusedElementWithRoot
 Microsoft::UI::Xaml::Input::FocusManager::FindFirstFocusableElement
 Microsoft::UI::Xaml::IFrameworkElement::{add_Loading, remove_Loading}

@@ -19589,7 +19589,10 @@ pub struct IUIElementStatics_Vtbl {
     IsHoldingEnabledProperty: usize,
     ManipulationModeProperty: usize,
     PointerCapturesProperty: usize,
-    ContextFlyoutProperty: usize,
+    pub ContextFlyoutProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CompositeModeProperty: usize,
     LightsProperty: usize,
     CanBeScrollAnchorProperty: usize,
@@ -29057,6 +29060,16 @@ impl UIElement {
         Self::IUIElementStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransitionsProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn ContextFlyoutProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IUIElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContextFlyoutProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )

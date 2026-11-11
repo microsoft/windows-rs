@@ -39,6 +39,7 @@ enum MenuSurface {
     DropDown,
     MenuBar,
     Context,
+    TextContext,
     CommandBar,
 }
 
@@ -133,6 +134,14 @@ impl Component for MenuFixture {
                     .background(ThemeBrush::CardBackground)
                     .padding(16.0)
                     .content(TextBlock::new().text("Open context menu"))
+                    .into(),
+            ),
+            MenuSurface::TextContext => (
+                "Reactor UI fixture: menu-text-context",
+                TextBox::new()
+                    .automation_id("open")
+                    .automation_name("Context menu")
+                    .text("Editable text")
                     .into(),
             ),
         };
@@ -376,6 +385,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "menu-dropdown" => App::run_component::<MenuFixture>(MenuSurface::DropDown)?,
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,
         "menu-context" => App::run_component::<MenuFixture>(MenuSurface::Context)?,
+        "menu-text-context" => App::run_component::<MenuFixture>(MenuSurface::TextContext)?,
         "window-focus" => App::run_component::<window::FocusFixture>(false)?,
         "window-focus-empty" => App::run_component::<window::FocusFixture>(true)?,
         "command-bar" => App::run_component::<MenuFixture>(MenuSurface::CommandBar)?,

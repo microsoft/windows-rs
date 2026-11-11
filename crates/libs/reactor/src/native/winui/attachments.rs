@@ -218,9 +218,11 @@ impl WinUiAdapter {
                         items.RemoveAtEnd()?;
                     }
                 }
+                // Clearing restores style-provided flyouts, such as TextBox editing commands.
                 _ => self
                     .ui_element(target)?
-                    .SetContextFlyout(None::<&native::FlyoutBase>)?,
+                    .cast::<native::IDependencyObject>()?
+                    .ClearValue(&native::UIElement::ContextFlyoutProperty()?)?,
             }
             drop(previous);
         }
