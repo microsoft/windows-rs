@@ -1,7 +1,7 @@
 use super::*;
 use crate::reactor_bindings;
 use std::cell::{Cell, RefCell};
-use std::rc::Rc;
+use std::rc::{Rc, Weak};
 use windows_reactor::{
     Callback, Component, ComponentContext, ElementRef, IntegrationError, SwapChainPanel,
     SwapChainPanelBinding, SwapChainPanelEvent, View, ViewContext,
@@ -49,22 +49,37 @@ impl<'a> std::ops::Deref for DrawContext<'a> {
     }
 }
 
-/// Shared repaint state for a demand-driven canvas.
+/// Shared repaint requests for demand-driven canvases.
 ///
-/// A new invalidator starts invalidated. Calling [`invalidate`](Self::invalidate) coalesces with
-/// any pending repaint.
+/// Each canvas draws an initial frame. Calling [`invalidate`](Self::invalidate) coalesces with
+/// any pending repaint for each attached canvas.
 #[derive(Clone)]
-pub struct Invalidator(Rc<Cell<bool>>);
+pub struct Invalidator(Rc<RefCell<Vec<Weak<CanvasRuntime>>>>);
 
 impl Invalidator {
-    /// Creates invalidated repaint state.
+    /// Creates shared repaint requests.
     pub fn new() -> Self {
-        Self(Rc::new(Cell::new(true)))
+        Self(Rc::default())
     }
 
     /// Requests a future draw callback.
     pub fn invalidate(&self) {
-        self.0.set(true);
+        for runtime in self.0.borrow().iter().filter_map(Weak::upgrade) {
+            runtime.invalidate();
+        }
+    }
+
+    fn attach(&self, runtime: &Rc<CanvasRuntime>) {
+        let mut attached = self.0.borrow_mut();
+        attached.retain(|runtime| runtime.strong_count() > 0);
+        attached.push(Rc::downgrade(runtime));
+    }
+
+    fn detach(&self, runtime: &Rc<CanvasRuntime>) {
+        let target = Rc::downgrade(runtime);
+        self.0
+            .borrow_mut()
+            .retain(|runtime| !runtime.ptr_eq(&target));
     }
 }
 
@@ -90,19 +105,6 @@ impl Canvas {
         )
     }
 
-    /// Creates a continuously rendered canvas using `device`.
-    pub fn animated_with_device(
-        device: GpuDevice,
-        draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
-    ) -> Self {
-        Self::new(
-            Rc::new(move || Ok(device.clone())),
-            Rc::new(draw),
-            RenderMode::Continuous,
-            Invalidator::new(),
-        )
-    }
-
     /// Creates a canvas that draws only when `invalidator` requests a frame.
     pub fn invalidated(
         invalidator: &Invalidator,
@@ -114,6 +116,16 @@ impl Canvas {
             RenderMode::Demand,
             invalidator.clone(),
         )
+    }
+
+    /// Selects the device factory used at surface creation and after device loss.
+    ///
+    /// For example, pass [`GpuDevice::new_warp`] to use software rendering. The factory must
+    /// return a usable device on every call, not keep cloning a removed device. A factory that
+    /// shares devices between canvases owns their coordinated replacement.
+    pub fn device_factory(mut self, make_device: impl Fn() -> Result<GpuDevice> + 'static) -> Self {
+        self.input.make_device = Rc::new(make_device);
+        self
     }
 
     /// Replaces the default panic-on-error handler.
@@ -153,14 +165,6 @@ fn fail_fast(error: IntegrationError) {
 /// Creates a canvas that draws on every composition rendering event.
 pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> View {
     Canvas::animated(draw).into()
-}
-
-/// Creates a continuously rendered canvas using `device`.
-pub fn animated_canvas_with_device(
-    device: GpuDevice,
-    draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
-) -> View {
-    Canvas::animated_with_device(device, draw).into()
 }
 
 /// Creates a demand-driven canvas with initially invalidated repaint state.
@@ -305,13 +309,13 @@ impl<P: Copy + Eq> SurfaceLifecycle<P> {
 fn update_surface_metrics(
     current: &mut SurfaceMetrics,
     next: SurfaceMetrics,
-    invalidator: &Invalidator,
+    dirty: &Cell<bool>,
 ) -> bool {
     if *current == next {
         return false;
     }
     *current = next;
-    invalidator.invalidate();
+    dirty.set(true);
     true
 }
 
@@ -344,39 +348,29 @@ impl Component for CanvasHost {
 
     fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
         Self {
-            runtime: Rc::new(CanvasRuntime {
-                panel: ElementRef::new(),
-                input: RefCell::new(input.clone()),
-                surface: Cell::new(None),
-                state: RefCell::new(None),
-                error: Cell::new(None),
-                frame_requested: Cell::new(false),
-                frame_queued: Cell::new(false),
-                frame_running: Cell::new(false),
-                recovery_allowed: Cell::new(true),
-            }),
+            runtime: CanvasRuntime::new(input),
         }
     }
 
     fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.runtime.error.set(None);
-        *self.runtime.input.borrow_mut() = input.clone();
-        input.invalidator.invalidate();
+        self.runtime.set_input(input);
     }
 
-    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         let runtime = Rc::clone(&self.runtime);
-        let cleanup = Rc::clone(&self.runtime);
-        context.use_effect("surface", (), move || {
-            let callback_runtime = Rc::clone(&runtime);
-            let observation = runtime.panel.observe_surface(move |event| {
-                callback_runtime.handle_event(event);
-            });
-            Some(Box::new(move || {
-                drop(observation);
-                cleanup.state.borrow_mut().take();
-                _ = cleanup.panel.request_clear_swap_chain(|_| {});
-            }))
+        context.use_effect("lifetime", (), move || {
+            runtime.activate();
+            Some(Box::new(move || runtime.deactivate()))
+        });
+        let runtime = Rc::clone(&self.runtime);
+        let callback_runtime = Rc::clone(&runtime);
+        let mode = input.mode;
+        context.use_effect_guard("surface", mode, move || {
+            let callback = move |event| callback_runtime.handle_event(event);
+            match mode {
+                RenderMode::Continuous => runtime.panel.observe_surface(callback),
+                RenderMode::Demand => runtime.panel.observe_surface_metrics(callback),
+            }
         });
         SwapChainPanel::new()
             .element_ref(&self.runtime.panel)
@@ -400,6 +394,8 @@ struct CanvasRuntime {
     frame_queued: Cell<bool>,
     frame_running: Cell<bool>,
     recovery_allowed: Cell<bool>,
+    active: Cell<bool>,
+    dirty: Cell<bool>,
 }
 
 struct RenderState {
@@ -412,6 +408,51 @@ struct RenderState {
 }
 
 impl CanvasRuntime {
+    fn new(input: &CanvasInput) -> Rc<Self> {
+        Rc::new(Self {
+            panel: ElementRef::new(),
+            input: RefCell::new(input.clone()),
+            surface: Cell::new(None),
+            state: RefCell::new(None),
+            error: Cell::new(None),
+            frame_requested: Cell::new(false),
+            frame_queued: Cell::new(false),
+            frame_running: Cell::new(false),
+            recovery_allowed: Cell::new(true),
+            active: Cell::new(false),
+            dirty: Cell::new(true),
+        })
+    }
+
+    fn activate(self: &Rc<Self>) {
+        self.active.set(true);
+        self.input.borrow().invalidator.attach(self);
+    }
+
+    fn deactivate(self: &Rc<Self>) {
+        self.active.set(false);
+        self.input.borrow().invalidator.detach(self);
+        self.frame_requested.set(false);
+        self.surface.set(None);
+        self.state.borrow_mut().take();
+        _ = self.panel.request_clear_swap_chain(|_| {});
+    }
+
+    fn set_input(self: &Rc<Self>, input: &CanvasInput) {
+        let previous = self.input.replace(input.clone());
+        if self.active.get() && !Rc::ptr_eq(&previous.invalidator.0, &input.invalidator.0) {
+            previous.invalidator.detach(self);
+            input.invalidator.attach(self);
+        }
+        self.error.set(None);
+        self.invalidate();
+    }
+
+    fn invalidate(self: &Rc<Self>) {
+        self.dirty.set(true);
+        self.request_frame(true);
+    }
+
     fn handle_event(self: &Rc<Self>, event: SwapChainPanelEvent) {
         match event {
             SwapChainPanelEvent::Metrics {
@@ -426,11 +467,8 @@ impl CanvasRuntime {
                 self.request_frame(true);
             }
             SwapChainPanelEvent::Rendering => {
-                let input = self.input.borrow();
-                let should_render =
-                    input.mode == RenderMode::Continuous || input.invalidator.0.get();
-                drop(input);
-                if should_render {
+                let continuous = self.input.borrow().mode == RenderMode::Continuous;
+                if continuous {
                     self.recovery_allowed.set(true);
                     self.run_frame();
                 }
@@ -440,10 +478,13 @@ impl CanvasRuntime {
 
     fn update_surface(&self, surface: ObservedSurface) {
         self.surface.set(Some(surface));
-        self.input.borrow().invalidator.invalidate();
+        self.dirty.set(true);
     }
 
     fn request_frame(self: &Rc<Self>, external: bool) {
+        if !self.active.get() {
+            return;
+        }
         self.frame_requested.set(true);
         if external {
             self.recovery_allowed.set(true);
@@ -479,7 +520,7 @@ impl CanvasRuntime {
     }
 
     fn run_frame(self: &Rc<Self>) {
-        if self.frame_running.replace(true) {
+        if !self.active.get() || self.frame_running.replace(true) {
             return;
         }
         self.frame_requested.set(false);
@@ -523,8 +564,7 @@ enum SurfacePreparation {
 impl CanvasRuntime {
     fn synchronize_surface(&self, state: &mut RenderState, surface: ObservedSurface) {
         state.lifecycle.update_panel(surface.binding);
-        let invalidator = self.input.borrow().invalidator.clone();
-        if update_surface_metrics(&mut state.metrics, surface.metrics, &invalidator) {
+        if update_surface_metrics(&mut state.metrics, surface.metrics, &self.dirty) {
             state.changed = true;
             state.lifecycle.require_resize();
         }
@@ -595,10 +635,7 @@ impl CanvasRuntime {
     }
 
     fn initialize_surface(&self, metrics: SurfaceMetrics) -> bool {
-        let (make_device, invalidator) = {
-            let input = self.input.borrow();
-            (Rc::clone(&input.make_device), input.invalidator.clone())
-        };
+        let make_device = Rc::clone(&self.input.borrow().make_device);
         let device = match make_device() {
             Ok(device) => device,
             Err(error) => {
@@ -623,7 +660,7 @@ impl CanvasRuntime {
             changed: true,
             lifecycle: SurfaceLifecycle::new(),
         });
-        invalidator.invalidate();
+        self.dirty.set(true);
         true
     }
 
@@ -670,7 +707,7 @@ impl CanvasRuntime {
             match result {
                 Ok(()) => {
                     self.error.set(None);
-                    self.input.borrow().invalidator.invalidate();
+                    self.dirty.set(true);
                     self.request_frame(false);
                 }
                 Err(error) => report_error_ref(&self.input, &self.error, error),
@@ -679,19 +716,15 @@ impl CanvasRuntime {
     }
 
     fn render_frame(self: &Rc<Self>) {
-        let (mode, invalidator, draw) = {
+        let (mode, draw) = {
             let input = self.input.borrow();
-            (
-                input.mode,
-                input.invalidator.clone(),
-                Rc::clone(&input.draw),
-            )
+            (input.mode, Rc::clone(&input.draw))
         };
-        if mode == RenderMode::Demand && !invalidator.0.get() {
+        if mode == RenderMode::Demand && !self.dirty.get() {
             return;
         }
         if !self.ensure_surface() {
-            invalidator.invalidate();
+            self.dirty.set(true);
             return;
         }
 
@@ -702,7 +735,7 @@ impl CanvasRuntime {
         if state.metrics.width <= 0.0 || state.metrics.height <= 0.0 {
             return;
         }
-        invalidator.0.set(false);
+        self.dirty.set(false);
         let outcome = state.chain.begin_draw().and_then(|session| {
             let context = DrawContext {
                 session,
@@ -725,7 +758,7 @@ impl CanvasRuntime {
             || matches!(&outcome, Err(error) if is_device_lost(error.code()));
         if needs_rebuild {
             state.lifecycle.require_rebuild();
-            invalidator.invalidate();
+            self.dirty.set(true);
         } else {
             match outcome {
                 Ok(true) => self.error.set(None),
@@ -905,26 +938,137 @@ mod tests {
     use super::*;
 
     #[test]
-    fn metric_changes_invalidate_demand_rendering() {
+    fn invalidation_reaches_each_live_canvas_without_retaining_retired_canvases() {
         let invalidator = Invalidator::new();
+        invalidator.invalidate();
+        let input = Canvas::invalidated(&invalidator, |_| Ok(())).input;
+        let first = CanvasRuntime::new(&input);
+        let second = CanvasRuntime::new(&input);
+        assert!(first.dirty.get());
+        first.activate();
+        second.activate();
+        first.dirty.set(false);
+        second.dirty.set(false);
+
+        invalidator.invalidate();
+        assert!(first.dirty.get());
+        assert!(second.dirty.get());
+        assert!(first.frame_requested.get());
+        assert!(second.frame_requested.get());
+        first.dirty.set(false);
+        assert!(second.dirty.get());
+
+        first.deactivate();
+        invalidator.invalidate();
+        assert!(!first.dirty.get());
+        assert!(!first.frame_requested.get());
+        let weak = Rc::downgrade(&first);
+        drop(first);
+        assert!(weak.upgrade().is_none());
+        second.deactivate();
+        assert!(invalidator.0.borrow().is_empty());
+    }
+
+    #[test]
+    fn replacing_an_invalidator_disconnects_the_previous_controller() {
+        let previous = Invalidator::new();
+        let next = Invalidator::new();
+        let input = Canvas::invalidated(&previous, |_| Ok(())).input;
+        let runtime = CanvasRuntime::new(&input);
+        runtime.activate();
+        runtime.set_input(&Canvas::invalidated(&next, |_| Ok(())).input);
+        runtime.dirty.set(false);
+        runtime.frame_requested.set(false);
+
+        previous.invalidate();
+        assert!(!runtime.dirty.get());
+        assert!(!runtime.frame_requested.get());
+        next.invalidate();
+        assert!(runtime.dirty.get());
+        assert!(runtime.frame_requested.get());
+
+        runtime.deactivate();
+        assert!(previous.0.borrow().is_empty());
+        assert!(next.0.borrow().is_empty());
+    }
+
+    #[test]
+    fn invalidating_during_a_frame_preserves_the_next_frame_request() {
+        let invalidator = Invalidator::new();
+        let input = Canvas::invalidated(&invalidator, |_| Ok(())).input;
+        let runtime = CanvasRuntime::new(&input);
+        runtime.activate();
+        runtime.frame_running.set(true);
+        runtime.dirty.set(false);
+
+        invalidator.invalidate();
+        invalidator.invalidate();
+        assert!(runtime.dirty.get());
+        assert!(runtime.frame_requested.get());
+        assert!(!runtime.frame_queued.get());
+
+        runtime.deactivate();
+    }
+
+    #[test]
+    fn custom_factory_replaces_the_device_on_rebuild() {
+        let attempts = Rc::new(Cell::new(0));
+        let created = Rc::clone(&attempts);
+        let input = Canvas::invalidated(&Invalidator::new(), |_| Ok(()))
+            .device_factory(move || {
+                created.set(created.get() + 1);
+                GpuDevice::new_warp()
+            })
+            .input;
+        let device = (input.make_device)().unwrap();
+        let original = device.d3d_device().clone();
+        let chain = device.create_swap_chain(32, 32).unwrap();
+        let mut state = RenderState {
+            device,
+            chain,
+            chain_generation: 1,
+            metrics: SurfaceMetrics::new(32.0, 32.0, 1.0),
+            changed: false,
+            lifecycle: SurfaceLifecycle::new(),
+        };
+        state.lifecycle.require_rebuild();
+
+        rebuild_surface(&mut state, &input.make_device).unwrap();
+
+        assert_eq!(attempts.get(), 2);
+        assert_ne!(&original, state.device.d3d_device());
+        assert_eq!(state.chain_generation, 2);
+        assert!(state.changed);
+        assert_eq!(state.lifecycle.content, ContentState::Clean);
+        assert_eq!(state.lifecycle.attachment, AttachmentState::Detached);
+        state
+            .chain
+            .begin_draw()
+            .unwrap()
+            .clear(ColorF::CORNFLOWER_BLUE);
+        assert!(!state.chain.is_device_lost());
+    }
+
+    #[test]
+    fn metric_changes_invalidate_demand_rendering() {
+        let dirty = Cell::new(false);
         let mut current = SurfaceMetrics::new(100.0, 80.0, 1.0);
-        invalidator.0.set(false);
 
         assert!(!update_surface_metrics(
             &mut current,
             SurfaceMetrics::new(100.0, 80.0, 1.0),
-            &invalidator
+            &dirty
         ));
-        assert!(!invalidator.0.get());
+        assert!(!dirty.get());
 
         for next in [
             SurfaceMetrics::new(120.0, 80.0, 1.0),
             SurfaceMetrics::new(120.0, 90.0, 1.0),
             SurfaceMetrics::new(120.0, 90.0, 1.5),
         ] {
-            invalidator.0.set(false);
-            assert!(update_surface_metrics(&mut current, next, &invalidator));
-            assert!(invalidator.0.get());
+            dirty.set(false);
+            assert!(update_surface_metrics(&mut current, next, &dirty));
+            assert!(dirty.get());
         }
     }
 
@@ -1062,17 +1206,7 @@ mod tests {
         )
         .on_error(|_| {})
         .input;
-        let runtime = CanvasRuntime {
-            panel: ElementRef::new(),
-            input: RefCell::new(input),
-            surface: Cell::new(None),
-            state: RefCell::new(None),
-            error: Cell::new(None),
-            frame_requested: Cell::new(false),
-            frame_queued: Cell::new(false),
-            frame_running: Cell::new(false),
-            recovery_allowed: Cell::new(true),
-        };
+        let runtime = CanvasRuntime::new(&input);
         let metrics = SurfaceMetrics::new(100.0, 80.0, 1.0);
 
         assert!(!runtime.initialize_surface(metrics));

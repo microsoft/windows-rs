@@ -96,7 +96,7 @@ impl WindowConstraints {
     }
 }
 
-/// Window appearance, client sizing, and initial placement declared by a component.
+/// Window appearance, presentation, client sizing, and initial placement declared by a component.
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct WindowVisuals {
     pub(crate) backdrop: WindowBackdrop,
@@ -106,6 +106,8 @@ pub struct WindowVisuals {
     pub(crate) theme: WindowTheme,
     pub(crate) initial_position: Option<ScreenPoint>,
     pub(crate) initial_placement: Option<WindowPlacement>,
+    pub(crate) always_on_top: bool,
+    pub(crate) minimizable: Option<bool>,
 }
 
 impl WindowVisuals {
@@ -115,6 +117,18 @@ impl WindowVisuals {
 
     pub fn backdrop(mut self, backdrop: WindowBackdrop) -> Self {
         self.backdrop = backdrop;
+        self
+    }
+
+    /// Keeps the window above non-topmost windows. Disabled by default.
+    pub fn always_on_top(mut self, value: bool) -> Self {
+        self.always_on_top = value;
+        self
+    }
+
+    /// Enables or disables window minimization. Enabled by default.
+    pub fn minimizable(mut self, value: bool) -> Self {
+        self.minimizable = Some(value);
         self
     }
 

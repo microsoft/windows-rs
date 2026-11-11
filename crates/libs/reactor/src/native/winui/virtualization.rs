@@ -372,6 +372,12 @@ pub(super) struct RealizedShell {
 impl RealizedShell {
     fn new() -> Result<Self, windows_core::Error> {
         let control = native::ContentControl::new()?;
+        let alignment: IInspectable =
+            windows_reference::IReference::from(native::HorizontalAlignment::Stretch).into();
+        control.cast::<native::IDependencyObject>()?.SetValue(
+            &native::Control::HorizontalContentAlignmentProperty()?,
+            &alignment,
+        )?;
         let identity = com_identity(&control)?;
         Ok(Self { control, identity })
     }

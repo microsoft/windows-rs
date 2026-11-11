@@ -1127,6 +1127,7 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
                 | ObjectType::ToggleSwitch
                 | ObjectType::ToggleButton
                 | ObjectType::RadioButton
+                | ObjectType::RadioButtons
                 | ObjectType::ProgressRing
                 | ObjectType::ListBox
                 | ObjectType::ComboBox
@@ -2619,6 +2620,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::RadioButtons, PropertyId::MaxColumns) => 29,
         (ObjectType::RadioButtons, PropertyId::ItemsSource) => 30,
         (ObjectType::RadioButtons, PropertyId::SelectedIndex) => 31,
+        (ObjectType::RadioButtons, PropertyId::IsEnabled) => 32,
         (ObjectType::InfoBadge, PropertyId::Value) => 29,
         (ObjectType::InfoBar, PropertyId::Title) => 29,
         (ObjectType::InfoBar, PropertyId::Message) => 30,

@@ -295,13 +295,27 @@ impl ElementRef<SwapChainPanel> {
     }
 
     #[must_use]
+    /// Observes surface metrics and composition rendering events.
     pub fn observe_surface(
         &self,
         callback: impl Fn(SwapChainPanelEvent) + 'static,
     ) -> ElementObservation {
-        self.observe(ReferenceObservation::SwapChainPanel(Callback::new(
-            callback,
-        )))
+        self.observe(ReferenceObservation::SwapChainPanel {
+            callback: Callback::new(callback),
+            rendering: true,
+        })
+    }
+
+    #[must_use]
+    /// Observes size and scale changes without subscribing to composition rendering events.
+    pub fn observe_surface_metrics(
+        &self,
+        callback: impl Fn(SwapChainPanelEvent) + 'static,
+    ) -> ElementObservation {
+        self.observe(ReferenceObservation::SwapChainPanel {
+            callback: Callback::new(callback),
+            rendering: false,
+        })
     }
 
     fn request_swap_chain(
@@ -533,7 +547,10 @@ struct ObservationRegistration {
 }
 
 enum ReferenceObservation {
-    SwapChainPanel(Callback<SwapChainPanelEvent>),
+    SwapChainPanel {
+        callback: Callback<SwapChainPanelEvent>,
+        rendering: bool,
+    },
     ImageScale(Callback<f64>),
     CompositionHost(Callback<CompositionHostEvent>),
 }
@@ -545,19 +562,21 @@ impl ObservationRegistration {
         binding: &ReferenceBinding,
     ) -> ImperativeRequest {
         match &self.kind {
-            ReferenceObservation::SwapChainPanel(callback) => {
-                ImperativeRequest::ObserveSwapChainPanel {
-                    object: binding.object,
-                    observation: self.id,
-                    binding: binding.id,
-                    callback: current_observation(
-                        Rc::downgrade(target),
-                        binding.id,
-                        self.id,
-                        callback.clone(),
-                    ),
-                }
-            }
+            ReferenceObservation::SwapChainPanel {
+                callback,
+                rendering,
+            } => ImperativeRequest::ObserveSwapChainPanel {
+                object: binding.object,
+                observation: self.id,
+                binding: binding.id,
+                rendering: *rendering,
+                callback: current_observation(
+                    Rc::downgrade(target),
+                    binding.id,
+                    self.id,
+                    callback.clone(),
+                ),
+            },
             ReferenceObservation::ImageScale(callback) => ImperativeRequest::ObserveImageScale {
                 object: binding.object,
                 observation: self.id,
@@ -748,6 +767,7 @@ pub enum ImperativeRequest {
         object: ObjectId,
         observation: u64,
         binding: u64,
+        rendering: bool,
         callback: Callback<SwapChainPanelEvent>,
     },
     RequestSwapChainPanelFrame {

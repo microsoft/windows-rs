@@ -1,0 +1,20 @@
+[package]
+name = "reactor-process-monitor"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+serde = { workspace = true, features = ["derive", "std"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+windows-canvas = { workspace = true, features = ["reactor"] }
+windows-core = { workspace = true }
+windows-reactor = { workspace = true }
+windows-text = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

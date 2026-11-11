@@ -1755,7 +1755,7 @@ impl DeclaredAttachments {
     };
 }
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub(crate) struct Declaration {
     pub kind: ObjectType,
     pub key: Option<Key>,
@@ -1768,6 +1768,12 @@ pub(crate) struct Declaration {
     pub events: SharedList<Event>,
     pub relations: SharedList<DeclaredRelation>,
     pub virtual_items: Option<Box<DeclaredVirtualItems>>,
+}
+
+impl Clone for Declaration {
+    fn clone(&self) -> Self {
+        self.clone_with_attachments(self.attachments.clone())
+    }
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -2042,6 +2048,26 @@ impl DeclaredNode {
 }
 
 impl Declaration {
+    // Expansion replaces attachments without copying the ones it would immediately discard.
+    pub(crate) fn clone_with_attachments(
+        &self,
+        attachments: Option<Box<DeclaredAttachments>>,
+    ) -> Self {
+        Self {
+            kind: self.kind,
+            key: self.key.clone(),
+            component: self.component,
+            reference: self.reference.clone(),
+            exit_transition: self.exit_transition,
+            window_title_bar: self.window_title_bar,
+            attachments,
+            properties: self.properties.clone(),
+            events: self.events.clone(),
+            relations: self.relations.clone(),
+            virtual_items: self.virtual_items.clone(),
+        }
+    }
+
     pub(crate) fn new(kind: ObjectType) -> Self {
         Self {
             kind,
@@ -2262,6 +2288,10 @@ pub trait FlyoutExt: Into<View> + Sized {
 impl<T> FlyoutExt for T where T: Into<View> {}
 
 pub trait MenuExt: Into<View> + Sized {
+    /// Attaches a menu to a [`Button`], [`DropDownButton`], or [`MenuBarItem`], or a context menu
+    /// to another visual.
+    ///
+    /// Context menus use the native right-click, touch, and keyboard invocation behavior.
     fn menu(self, menu: Menu) -> View {
         let mut visual = self.into();
         let menu = DeclaredMenu { menu };

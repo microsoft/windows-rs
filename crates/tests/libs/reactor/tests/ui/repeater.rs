@@ -1,6 +1,31 @@
 use super::*;
 
 #[test]
+fn repeater_rows_stretch_to_the_viewport() -> Result<()> {
+    process::run("repeater_virtual", |ui| {
+        let viewport = ui.element("rows")?;
+        let row = ui.element("row-0")?;
+        ui.wait(
+            "stretched row fills the viewport",
+            || unsafe {
+                Ok((
+                    viewport.CurrentBoundingRectangle()?,
+                    row.CurrentBoundingRectangle()?,
+                ))
+            },
+            |(viewport, row)| {
+                let viewport_width = viewport.right - viewport.left;
+                let row_width = row.right - row.left;
+                viewport_width > 0
+                    && (row.left - viewport.left).abs() <= 2
+                    && row_width >= viewport_width * 9 / 10
+            },
+        )?;
+        Ok(())
+    })
+}
+
+#[test]
 fn repeater_creation_and_rendering_follow_visible_changes() -> Result<()> {
     for fixture in ["repeater_items", "repeater_virtual"] {
         process::run(fixture, |ui| check_row_work(ui, 128))?;

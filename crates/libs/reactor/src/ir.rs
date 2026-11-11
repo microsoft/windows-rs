@@ -266,6 +266,8 @@ fn validate_object(
     content_dialog_allowed: bool,
     internal_kind: Option<ObjectType>,
 ) {
+    #[cfg(any(test, feature = "test"))]
+    work::record(|work| work.validated += 1);
     validate_limits(depth, *objects);
     *objects += 1;
     if matches!(
@@ -317,10 +319,7 @@ fn validate_object(
             );
         }
         if let Some(menu) = &attachments.menu {
-            if !matches!(
-                declaration.kind,
-                ObjectType::Button | ObjectType::DropDownButton | ObjectType::MenuBarItem
-            ) {
+            if object_category(declaration.kind) != ObjectCategory::Visual {
                 invalid_attachment(declaration.kind);
             }
             validate_menu_items(&menu.menu.items, &mut HashSet::new());

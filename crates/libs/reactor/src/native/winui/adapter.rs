@@ -498,6 +498,7 @@ impl WinUiAdapter {
                 object,
                 observation,
                 binding,
+                rendering,
                 callback,
             } => {
                 let Some(Handle::Generated(GeneratedHandle::SwapChainPanel(control))) =
@@ -549,11 +550,15 @@ impl WinUiAdapter {
                             });
                         }
                     }))?;
-                let rendering_callback = callback;
-                let rendering =
-                    native::CompositionTarget::Rendering(local::handler(move |_, _| {
-                        rendering_callback.call(SwapChainPanelEvent::Rendering);
-                    }))?;
+                let rendering = if rendering {
+                    Some(native::CompositionTarget::Rendering(local::handler(
+                        move |_, _| {
+                            callback.call(SwapChainPanelEvent::Rendering);
+                        },
+                    ))?)
+                } else {
+                    None
+                };
                 self.observations.insert(
                     (object, observation),
                     ObservationSubscription::SwapChainPanel {

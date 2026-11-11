@@ -1436,6 +1436,7 @@ pub fn windows_reactor::ElementRef<windows_reactor::Image>::observe_rasterizatio
 pub fn windows_reactor::ElementRef<windows_reactor::Image>::request_set_native_source(&self, core::option::Option<windows_core::unknown::IUnknown>, impl core::ops::function::Fn(core::result::Result<(), windows_reactor::IntegrationError>) + 'static) -> bool
 impl windows_reactor::ElementRef<windows_reactor::SwapChainPanel>
 pub fn windows_reactor::ElementRef<windows_reactor::SwapChainPanel>::observe_surface(&self, impl core::ops::function::Fn(windows_reactor::SwapChainPanelEvent) + 'static) -> windows_reactor::ElementObservation
+pub fn windows_reactor::ElementRef<windows_reactor::SwapChainPanel>::observe_surface_metrics(&self, impl core::ops::function::Fn(windows_reactor::SwapChainPanelEvent) + 'static) -> windows_reactor::ElementObservation
 pub fn windows_reactor::ElementRef<windows_reactor::SwapChainPanel>::request_clear_swap_chain(&self, impl core::ops::function::Fn(core::result::Result<(), windows_reactor::IntegrationError>) + 'static) -> bool
 pub fn windows_reactor::ElementRef<windows_reactor::SwapChainPanel>::request_set_swap_chain(&self, windows_core::unknown::IUnknown, impl core::ops::function::Fn(core::result::Result<(), windows_reactor::IntegrationError>) + 'static) -> bool
 pub fn windows_reactor::ElementRef<windows_reactor::SwapChainPanel>::request_surface_frame(&self, impl core::ops::function::Fn(core::result::Result<(), windows_reactor::IntegrationError>) + 'static) -> bool
@@ -2999,6 +3000,7 @@ pub fn windows_reactor::RadioButtons::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::RadioButtons::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::RadioButtons::height(self, f64) -> Self
 pub fn windows_reactor::RadioButtons::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::RadioButtons::is_enabled(self, bool) -> Self
 pub fn windows_reactor::RadioButtons::items_source(self, impl core::iter::traits::collect::IntoIterator<Item = impl core::convert::Into<alloc::rcs::rc::Rc<str>>>) -> Self
 pub fn windows_reactor::RadioButtons::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::RadioButtons::max_columns(self, i32) -> Self
@@ -4643,12 +4645,14 @@ pub windows_reactor::WindowSize::height: f64
 pub windows_reactor::WindowSize::width: f64
 pub struct windows_reactor::WindowVisuals
 impl windows_reactor::WindowVisuals
+pub fn windows_reactor::WindowVisuals::always_on_top(self, bool) -> Self
 pub fn windows_reactor::WindowVisuals::backdrop(self, windows_reactor::WindowBackdrop) -> Self
 pub fn windows_reactor::WindowVisuals::client_size(self, f64, f64) -> Self
 pub fn windows_reactor::WindowVisuals::constraints(self, windows_reactor::WindowConstraints) -> Self
 pub fn windows_reactor::WindowVisuals::icon(self, impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self
 pub fn windows_reactor::WindowVisuals::initial_placement(self, windows_reactor::WindowPlacement) -> Self
 pub fn windows_reactor::WindowVisuals::initial_position(self, windows_reactor::ScreenPoint) -> Self
+pub fn windows_reactor::WindowVisuals::minimizable(self, bool) -> Self
 pub fn windows_reactor::WindowVisuals::new() -> Self
 pub fn windows_reactor::WindowVisuals::theme(self, windows_reactor::WindowTheme) -> Self
 pub trait windows_reactor::Application: core::marker::Sized + 'static

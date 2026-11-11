@@ -3,6 +3,15 @@ fn main() {
     windows_reactor_setup::as_self_contained();
 
     windows_bindgen::builder()
+        .output(
+            std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("canvas_bindings.rs"),
+        )
+        .filters(["ID3D11Device::SetPrivateDataInterface"])
+        .flat()
+        .minimal()
+        .write();
+
+    windows_bindgen::builder()
         .output(std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("bindings.rs"))
         .implements([
             "Windows.Win32.IDataObject",
@@ -22,7 +31,7 @@ fn main() {
             "IUIAutomation5::AddNotificationEventHandler",
             "IUIAutomationEventHandler",
             "IUIAutomationNotificationEventHandler",
-            "IUIAutomationElement::{FindAll,CurrentName,CurrentAutomationId,CurrentControlType,CurrentIsOffscreen,CurrentNativeWindowHandle,CurrentBoundingRectangle,GetCurrentPatternAs,SetFocus,CurrentHelpText,GetCurrentPropertyValue}",
+            "IUIAutomationElement::{FindAll,CurrentName,CurrentAutomationId,CurrentControlType,CurrentIsEnabled,CurrentIsOffscreen,CurrentNativeWindowHandle,CurrentBoundingRectangle,GetCurrentPatternAs,SetFocus,CurrentHelpText,GetCurrentPropertyValue}",
             "IUIAutomationElement2::CurrentLiveSetting",
             "IUIAutomationElement6::CurrentFullDescription",
             "IUIAutomationElementArray::{Length,GetElement}",
@@ -141,6 +150,11 @@ fn main() {
             "WM_CLOSE",
             "GetClientRect",
             "GetWindowRect",
+            "GetWindowLongW",
+            "GWL_STYLE",
+            "GWL_EXSTYLE",
+            "WS_EX_TOPMOST",
+            "WS_MINIMIZEBOX",
             "SetWindowPos",
             "SWP_NOACTIVATE",
             "SWP_NOZORDER",

@@ -6,6 +6,7 @@ use std::time::{Duration, Instant};
 use windows_reactor as reactor;
 
 mod allocator;
+mod component_work;
 
 struct Perf {
     median_ns: f64,
@@ -1237,6 +1238,7 @@ enum Mode {
     VirtualMemory,
     VirtualItems,
     KeyedScaling,
+    ComponentWork,
     Profile(String),
 }
 
@@ -1281,6 +1283,7 @@ impl Options {
                         "--virtual-memory" => Mode::VirtualMemory,
                         "--virtual-items" => Mode::VirtualItems,
                         "--keyed-scaling" => Mode::KeyedScaling,
+                        "--component-work" => Mode::ComponentWork,
                         "--profile-workload" => Mode::Profile(
                             arguments
                                 .next()
@@ -1439,6 +1442,10 @@ fn main() {
 fn run(options: Options) -> Result<(), String> {
     let samples = options.samples;
     let batch = options.batch;
+    if options.mode == Mode::ComponentWork {
+        component_work::run(options.count);
+        return Ok(());
+    }
     if let Mode::Profile(workload) = &options.mode {
         return run_profile_workload(
             workload,

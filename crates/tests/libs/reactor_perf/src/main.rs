@@ -1,5 +1,7 @@
 #![windows_subsystem = "windows"]
 
+mod tasks;
+
 use std::alloc::{GlobalAlloc, Layout, System};
 use std::cell::{Cell, RefCell};
 use std::fmt::Write;
@@ -49,6 +51,9 @@ static GLOBAL: CountingAllocator = CountingAllocator;
 
 #[derive(Clone, Copy, PartialEq)]
 struct Options {
+    tasks: bool,
+    count: usize,
+    cycles: usize,
     duration: Duration,
     headless: bool,
     json: bool,
@@ -58,6 +63,9 @@ struct Options {
 impl Options {
     fn parse() -> Self {
         let mut options = Self {
+            tasks: false,
+            count: 1_000,
+            cycles: 20,
             duration: Duration::from_secs(10),
             headless: false,
             json: false,
@@ -66,6 +74,15 @@ impl Options {
         let mut arguments = std::env::args().skip(1);
         while let Some(argument) = arguments.next() {
             match argument.as_str() {
+                "--workload" => {
+                    options.tasks = match arguments.next().unwrap().as_str() {
+                        "grid" => false,
+                        "tasks" => true,
+                        value => panic!("unknown workload: {value}"),
+                    };
+                }
+                "--count" => options.count = arguments.next().unwrap().parse().unwrap(),
+                "--cycles" => options.cycles = arguments.next().unwrap().parse().unwrap(),
                 "--duration" => {
                     options.duration =
                         Duration::from_secs(arguments.next().unwrap().parse().unwrap());
@@ -81,6 +98,8 @@ impl Options {
             "percent must be between 0 and 100"
         );
         assert!(!options.duration.is_zero(), "duration must be positive");
+        assert!(options.count >= 2, "count must be at least two");
+        assert!(options.cycles > 0, "cycles must be positive");
         options
     }
 }
@@ -639,6 +658,10 @@ fn report_path(extension: &str) -> std::path::PathBuf {
 
 fn main() {
     let options = Options::parse();
+    if options.tasks {
+        tasks::run(options);
+        return;
+    }
     App::run_component_with_policy::<StockGrid>(
         options,
         WindowPolicy::new()

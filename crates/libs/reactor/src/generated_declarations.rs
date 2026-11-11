@@ -4366,6 +4366,7 @@ impl RadioButtons {
         );
         self
     }
+    enabled_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///

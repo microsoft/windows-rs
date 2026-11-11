@@ -38,6 +38,8 @@ enum MenuSurface {
     Button,
     DropDown,
     MenuBar,
+    Context,
+    TextContext,
     CommandBar,
 }
 
@@ -121,6 +123,25 @@ impl Component for MenuFixture {
                 Button::new()
                     .automation_id("open")
                     .content("Open commands")
+                    .into(),
+            ),
+            MenuSurface::Context => (
+                "Reactor UI fixture: menu-context",
+                Border::new()
+                    .automation_id("open")
+                    .automation_name("Context menu")
+                    .is_tab_stop(true)
+                    .background(ThemeBrush::CardBackground)
+                    .padding(16.0)
+                    .content(TextBlock::new().text("Open context menu"))
+                    .into(),
+            ),
+            MenuSurface::TextContext => (
+                "Reactor UI fixture: menu-text-context",
+                TextBox::new()
+                    .automation_id("open")
+                    .automation_name("Context menu")
+                    .text("Editable text")
                     .into(),
             ),
         };
@@ -289,7 +310,8 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "callback-lifetime" => callback_lifetime::run()?,
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
         "exit-with-window" => App::run_application::<application::ExitFixture>(())?,
-        "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
+        "canvas" => App::run_component::<canvas::CanvasFixture>(false)?,
+        "canvas-demand" => App::run_component::<canvas::CanvasFixture>(true)?,
         "canvas-root" => App::run_application::<canvas::CanvasRootFixture>(())?,
         "canvas-image" => App::run_component::<canvas_image::CanvasImageFixture>(())?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
@@ -362,6 +384,15 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "menu" => App::run_component::<MenuFixture>(MenuSurface::Button)?,
         "menu-dropdown" => App::run_component::<MenuFixture>(MenuSurface::DropDown)?,
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,
+        "menu-context" => App::run_component::<MenuFixture>(MenuSurface::Context)?,
+        "menu-text-context" => App::run_component::<MenuFixture>(MenuSurface::TextContext)?,
+        "window-focus" => App::run_component::<window::FocusFixture>(window::FocusMode::Controls)?,
+        "window-focus-empty" => {
+            App::run_component::<window::FocusFixture>(window::FocusMode::Empty)?;
+        }
+        "window-focus-hyperlink" => {
+            App::run_component::<window::FocusFixture>(window::FocusMode::Hyperlink)?;
+        }
         "command-bar" => App::run_component::<MenuFixture>(MenuSurface::CommandBar)?,
         "tray" => App::run_application::<tray::TrayFixture>(())?,
         "window" => App::run_component::<window::WindowFixture>(window::WindowMode::Native)?,

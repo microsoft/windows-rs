@@ -7,6 +7,7 @@ pub(super) struct IndexSelectionFixture {
     names: Vec<&'static str>,
     echoes: Vec<(&'static str, Option<usize>)>,
     free: Option<usize>,
+    radio_enabled: bool,
 }
 
 #[derive(Clone)]
@@ -16,6 +17,7 @@ pub(super) enum IndexMessage {
     RemoveFirst,
     InsertFirst,
     Rotate,
+    ToggleRadioEnabled,
 }
 
 impl Component for IndexSelectionFixture {
@@ -27,6 +29,7 @@ impl Component for IndexSelectionFixture {
             names: vec!["Zero", "One", "Two"],
             echoes: Vec::new(),
             free: None,
+            radio_enabled: true,
         }
     }
 
@@ -37,6 +40,7 @@ impl Component for IndexSelectionFixture {
             IndexMessage::RemoveFirst => _ = self.names.remove(0),
             IndexMessage::InsertFirst => self.names.insert(0, "Front"),
             IndexMessage::Rotate => self.names.rotate_right(1),
+            IndexMessage::ToggleRadioEnabled => self.radio_enabled = !self.radio_enabled,
         }
     }
 
@@ -73,6 +77,7 @@ impl Component for IndexSelectionFixture {
                 .into(),
             RadioButtons::new()
                 .automation_id("radio-buttons")
+                .is_enabled(self.radio_enabled)
                 .items_source(names.iter().copied())
                 .selected_index(Some(1))
                 .on_selection_changed(echo("radio-buttons"))
@@ -106,7 +111,7 @@ impl Component for IndexSelectionFixture {
                 .text(format!("Echoes {:?}", self.echoes))
                 .into(),
         ];
-        let free: [View; 5] = [
+        let free: [View; 6] = [
             ListView::new()
                 .automation_id("free-list")
                 .selection_mode(ListViewSelectionMode::Single)
@@ -131,6 +136,11 @@ impl Component for IndexSelectionFixture {
                 .automation_id("rotate")
                 .content("Rotate")
                 .on_click(context.message(IndexMessage::Rotate))
+                .into(),
+            Button::new()
+                .automation_id("toggle-radio-enabled")
+                .content("Toggle radio enabled")
+                .on_click(context.message(IndexMessage::ToggleRadioEnabled))
                 .into(),
         ];
         context.window_title("Reactor UI fixture: selection-index");

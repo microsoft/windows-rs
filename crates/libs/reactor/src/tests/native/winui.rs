@@ -202,12 +202,9 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
 fn native_queue_expired_report_keeps_only_its_observation() {
     let object = ObjectId::test(1);
     let values = Rc::new(RefCell::new(Vec::new()));
-    let callback = {
-        let values = Rc::clone(&values);
-        Callback::new(move |value: Rc<str>| {
-            values.borrow_mut().push(value);
-        })
-    };
+    let callback = Callback::new(move |value: Rc<str>| {
+        values.borrow_mut().push(value);
+    });
     let observation = |value: &str| Observation::SetProperty {
         object,
         property: Property {
@@ -678,6 +675,28 @@ fn window_visual_changes_only_apply_changed_contracts() {
     assert!(changes.theme);
     assert!(changes.any());
     assert!(!window_visual_changes(&next, &next).any());
+}
+
+#[test]
+fn window_presentation_changes_reset_to_defaults() {
+    let restricted = WindowVisuals::new().always_on_top(true).minimizable(false);
+    for (previous, next) in [
+        (WindowVisuals::new(), restricted.clone()),
+        (restricted, WindowVisuals::new()),
+    ] {
+        let changes = window_visual_changes(&previous, &next);
+        assert!(changes.always_on_top);
+        assert!(changes.minimizable);
+        assert!(changes.any());
+        assert!(!changes.client_size);
+    }
+    assert!(
+        !window_visual_changes(
+            &WindowVisuals::new(),
+            &WindowVisuals::new().minimizable(true)
+        )
+        .any()
+    );
 }
 
 #[test]

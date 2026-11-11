@@ -907,7 +907,7 @@ fn closed_queue_rejects_stale_sender_completion_and_callback() {
     let rendered = Rc::new(RefCell::new(String::new()));
     let seen = Rc::new(RefCell::new(Vec::new()));
     let input = OrderedInput {
-        rendered: Rc::clone(&rendered),
+        rendered,
         seen: Rc::clone(&seen),
     };
     let host = ComponentHost::mount(

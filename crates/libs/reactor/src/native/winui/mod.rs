@@ -249,7 +249,7 @@ include!("../generated.rs");
 
 enum ObservationSubscription {
     SwapChainPanel {
-        _rendering: windows_core::EventRevoker,
+        _rendering: Option<windows_core::EventRevoker>,
         _scale: windows_core::EventRevoker,
         _size: windows_core::EventRevoker,
     },

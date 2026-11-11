@@ -17,6 +17,7 @@ Microsoft::UI::Windowing::IAppWindow::{add_Changed, get_Presenter, get_Size, get
 Microsoft::UI::Windowing::IAppWindow2::get_ClientSize
 Microsoft::UI::Windowing::IAppWindowTitleBar2::put_PreferredHeightOption
 Microsoft::UI::Windowing::IAppWindowTitleBar3::put_PreferredTheme
+Microsoft::UI::Windowing::IOverlappedPresenter::{put_IsAlwaysOnTop, put_IsMinimizable}
 Microsoft::UI::Windowing::IOverlappedPresenter3::{put_PreferredMaximumHeight, put_PreferredMaximumWidth, put_PreferredMinimumHeight, put_PreferredMinimumWidth}
 Microsoft::UI::Windowing::TitleBarHeightOption::{Collapsed, Standard, Tall}
 Microsoft::UI::Windowing::TitleBarTheme::{Dark, Light, UseDefaultAppMode}
@@ -307,6 +308,11 @@ Microsoft::UI::Xaml::Shapes::Rectangle::CreateInstance
 Microsoft::UI::Xaml::Style::{}
 Microsoft::UI::Xaml::Thickness
 Microsoft::UI::Xaml::UIElement::{}
+Microsoft::UI::Xaml::IUIElement::put_ContextFlyout
+Microsoft::UI::Xaml::UIElement::ContextFlyoutProperty
+Microsoft::UI::Xaml::Input::FocusManager::GetFocusedElementWithRoot
+Microsoft::UI::Xaml::Input::FocusManager::FindFirstFocusableElement
+Microsoft::UI::Xaml::IFrameworkElement::{add_Loading, remove_Loading}
 Microsoft::UI::Xaml::Vector3Transition::CreateInstance
 Microsoft::UI::Xaml::Window::CreateInstance
 Microsoft::UI::Xaml::XamlTypeInfo::XamlControlsXamlMetaDataProvider::CreateInstance
@@ -328,6 +334,7 @@ Windows::Win32::BSOS_DEFAULT
 Windows::Win32::SHCreateMemStream
 Windows::Win32::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
 Windows::Win32::E_FAIL
+Windows::Win32::E_NOINTERFACE
 Windows::Win32::ERROR_FILE_NOT_FOUND
 Windows::Win32::ERROR_INSUFFICIENT_BUFFER
 Windows::Win32::ERROR_PATH_NOT_FOUND

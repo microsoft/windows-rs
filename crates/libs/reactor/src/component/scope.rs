@@ -63,6 +63,8 @@ impl<C: Component> TypedScope<C> {
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> ComponentRender {
+        #[cfg(any(test, feature = "test"))]
+        work::record(|work| work.views += 1);
         let mut context: ViewContext<'_, C> = ViewContext {
             context: self.context(&self.input, reference),
             contexts,
