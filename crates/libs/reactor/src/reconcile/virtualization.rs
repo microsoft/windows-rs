@@ -426,6 +426,14 @@ impl<A: Adapter> Runtime<A> {
                 };
                 planner.reconcile_object(current, &declaration);
             } else {
+                if moved_container.is_none() {
+                    self.mutations.push(Mutation::Recycle {
+                        parent: lease.collection,
+                        relation: relation_id,
+                        container: lease.container,
+                        child: Some(current),
+                    });
+                }
                 let relation = self.graph.relation_mut(lease.collection, relation_id);
                 let RetainedRelationValue::Many(children) = &mut relation.value else {
                     unreachable!();

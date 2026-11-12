@@ -1,6 +1,36 @@
 use super::*;
 
 #[test]
+fn repeater_row_root_can_change_control_type() -> Result<()> {
+    for fixture in ["repeater_items", "repeater_virtual"] {
+        process::run(fixture, |ui| {
+            let retained = ui.element("row-1")?;
+            ui.invoke("row-0")?;
+            ui.name("row-0", "Row 0; value 0; clicks 1")?;
+            ui.invoke("toggle-editor")?;
+            ui.gone("row-0")?;
+            ui.value("row-editor", "")?;
+            ui.set_value("row-editor", "draft")?;
+            ui.invoke("rerender")?;
+            ui.value("row-editor", "draft")?;
+            ui.name("drops", "Clicked row 0 drops 1")?;
+            ui.invoke("toggle-editor")?;
+            ui.gone("row-editor")?;
+            ui.name("row-0", "Row 0; value 0; clicks 0")?;
+            ui.invoke("row-0")?;
+            ui.name("row-0", "Row 0; value 0; clicks 1")?;
+            assert!(unsafe {
+                ui.client
+                    .CompareElements(&retained, &ui.element("row-1")?)?
+                    .as_bool()
+            });
+            Ok(())
+        })?;
+    }
+    Ok(())
+}
+
+#[test]
 fn repeater_rows_stretch_to_the_viewport() -> Result<()> {
     process::run("repeater_virtual", |ui| {
         let viewport = ui.element("rows")?;
