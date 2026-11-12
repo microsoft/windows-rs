@@ -9,13 +9,13 @@ repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
 
-[dependencies]
-windows-core = { workspace = true, default-features = false }
-windows-time = { workspace = true }
+[target.'cfg(windows)'.dependencies]
+windows-core = { workspace = true, default-features = false, optional = true }
+windows-time = { workspace = true, optional = true }
 
 [features]
 default = ["std"]
-std = ["windows-core/std", "windows-time/std"]
+std = ["dep:windows-core", "windows-core/std", "dep:windows-time", "windows-time/std"]
 
 [lints]
 workspace = true

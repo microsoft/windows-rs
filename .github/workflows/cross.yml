@@ -92,7 +92,12 @@ jobs:
         shell: pwsh
         if: contains(matrix.target, 'gnullvm') || endsWith(matrix.target, 'gnu')
         run: |
-          cargo test --no-run --target ${{ matrix.target }} -p test_windows
-          if (-Not (Resolve-Path "target/*/debug/deps/test_windows-*.exe" | Test-Path)) {
+          $artifacts = @(cargo test --no-run --target ${{ matrix.target }} -p test_windows --message-format=json-render-diagnostics |
+            ConvertFrom-Json |
+            Where-Object { $_.reason -eq "compiler-artifact" -and $_.target.name -eq "test_windows" -and $_.profile.test })
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }
+          if ($artifacts.Count -ne 1 -or -Not (Test-Path -LiteralPath $artifacts[0].executable -PathType Leaf)) {
             throw "Failed to find test_windows executable."
           }

@@ -24,17 +24,16 @@ impl Sampler {
     }
 
     pub fn snapshot(&mut self, cancel: &CancellationToken) -> io::Result<Snapshot> {
-        let mut capture_time = FILETIME::default();
-        unsafe { GetSystemTimePreciseAsFileTime(&mut capture_time) };
-        let snapshot = unsafe { CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS as u32, 0) };
-        if snapshot == INVALID_HANDLE_VALUE {
-            return Err(io::Error::last_os_error());
-        }
-        let snapshot = unsafe { OwnedHandle::from_raw_handle(snapshot) };
+        self.sample(|| cancel.is_cancelled())
+    }
+
+    fn sample(&mut self, is_cancelled: impl Fn() -> bool) -> io::Result<Snapshot> {
         let processors = unsafe { GetActiveProcessorCount(ALL_PROCESSOR_GROUPS as u16) };
         if processors == 0 {
             return Err(io::Error::last_os_error());
         }
+        let buffer = system_processes()?;
+        let sampled_at = self.elapsed();
         self.sequence = self.sequence.checked_add(1).unwrap();
         let mut result = Snapshot {
             version: 3,
@@ -43,46 +42,55 @@ impl Sampler {
             processes: Vec::new(),
             system: Some(self.system(processors)),
         };
-        let mut entry = PROCESSENTRY32W {
-            dwSize: size_of::<PROCESSENTRY32W>() as u32,
-            ..Default::default()
-        };
-        let mut found = unsafe { Process32FirstW(snapshot.as_raw_handle(), &mut entry) };
-        while found.as_bool() {
-            if cancel.is_cancelled() {
+        let bytes = buffer.as_ptr().cast::<u8>();
+        let mut offset = 0;
+        loop {
+            if is_cancelled() {
                 return Err(io::Error::new(
                     io::ErrorKind::Interrupted,
                     "Sampling cancelled",
                 ));
             }
-            let length = entry
-                .szExeFile
-                .iter()
-                .position(|v| *v == 0)
-                .unwrap_or(entry.szExeFile.len());
-            let mut process = Observation {
-                pid: entry.th32ProcessID,
-                parent_pid: entry.th32ParentProcessID,
-                created: None,
-                name: String::from_utf16_lossy(&entry.szExeFile[..length]),
-                threads: entry.cntThreads,
-                sampled_at: 0,
-                cpu_ticks: None,
-                working_set: None,
-                private_bytes: None,
-                unavailable: None,
+            // Entries are aligned for SYSTEM_PROCESS_INFORMATION within the u64-aligned buffer.
+            let entry = unsafe { &*bytes.add(offset).cast::<SYSTEM_PROCESS_INFORMATION>() };
+            let times = ProcessTimes::from(entry);
+            let name = if entry.ImageName.Buffer.is_null() {
+                "System Idle Process".into()
+            } else {
+                String::from_utf16_lossy(unsafe {
+                    std::slice::from_raw_parts(
+                        entry.ImageName.Buffer.0,
+                        usize::from(entry.ImageName.Length) / 2,
+                    )
+                })
             };
-            if let Err(error) = self.read_counters(&mut process, ticks(capture_time)) {
-                process.unavailable = Some(error.to_string());
+            result.processes.push(Observation {
+                pid: entry.UniqueProcessId as usize as u32,
+                parent_pid: entry.InheritedFromUniqueProcessId as usize as u32,
+                created: Some(times.created),
+                name,
+                threads: entry.NumberOfThreads,
+                sampled_at,
+                cpu_ticks: Some(times.cpu),
+                working_set: Some(entry.WorkingSetSize as u64),
+                private_bytes: Some(entry.PrivatePageCount as u64),
+                unavailable: None,
+            });
+            if entry.NextEntryOffset == 0 {
+                break;
             }
-            result.processes.push(process);
-            found = unsafe { Process32NextW(snapshot.as_raw_handle(), &mut entry) };
-        }
-        let error = io::Error::last_os_error();
-        if error.raw_os_error() != Some(ERROR_NO_MORE_FILES) {
-            return Err(error);
+            offset += entry.NextEntryOffset as usize;
         }
         Ok(result)
+    }
+
+    fn elapsed(&self) -> u64 {
+        self.started
+            .elapsed()
+            .as_nanos()
+            .div_euclid(100)
+            .try_into()
+            .unwrap()
     }
 
     fn system(&mut self, processors: u32) -> SystemObservation {
@@ -122,13 +130,7 @@ impl Sampler {
             Err(error) => (None, Some(error)),
         };
         SystemObservation {
-            sampled_at: self
-                .started
-                .elapsed()
-                .as_nanos()
-                .div_euclid(100)
-                .try_into()
-                .unwrap(),
+            sampled_at: self.elapsed(),
             cpu_percent,
             cpu_error,
             logical_cpus,
@@ -137,40 +139,49 @@ impl Sampler {
             memory_error,
         }
     }
+}
 
-    fn read_counters(&self, process: &mut Observation, capture_time: u64) -> io::Result<()> {
-        let handle = open(process.pid)?;
-        let (created, cpu) = times(&handle)?;
-        if created > capture_time {
-            return Err(io::Error::other("Process changed during enumeration"));
-        }
-        process.created = Some(created);
-        process.cpu_ticks = Some(cpu);
-        process.sampled_at = self
-            .started
-            .elapsed()
-            .as_nanos()
-            .div_euclid(100)
-            .try_into()
-            .unwrap();
-        let mut memory = PROCESS_MEMORY_COUNTERS_EX {
-            cb: size_of::<PROCESS_MEMORY_COUNTERS_EX>() as u32,
-            ..Default::default()
-        };
-        if !unsafe {
-            GetProcessMemoryInfo(
-                handle.as_raw_handle(),
-                (&mut memory as *mut PROCESS_MEMORY_COUNTERS_EX).cast(),
-                memory.cb,
+/// Returns the `SystemProcessInformation` entries in a u64-aligned buffer.
+fn system_processes() -> io::Result<Vec<u64>> {
+    let mut buffer = Vec::<u64>::new();
+    loop {
+        let capacity = u32::try_from(buffer.len() * size_of::<u64>()).unwrap();
+        let mut length = 0;
+        let status = unsafe {
+            NtQuerySystemInformation(
+                SystemProcessInformation,
+                buffer.as_mut_ptr().cast(),
+                capacity,
+                &mut length,
             )
+        };
+        if status == STATUS_INFO_LENGTH_MISMATCH {
+            // Processes can start between the size query and the next attempt.
+            buffer = vec![0; (length as usize + 16 * 1024).div_ceil(size_of::<u64>())];
+            continue;
         }
-        .as_bool()
-        {
-            return Err(io::Error::last_os_error());
+        status.ok().map_err(io::Error::other)?;
+        return Ok(buffer);
+    }
+}
+
+/// Process times from `SYSTEM_PROCESS_INFORMATION::Reserved1`, which the SDK leaves opaque. The
+/// native layout is `WorkingSetPrivateSize`, `HardFaultCount`, `NumberOfThreadsHighWatermark`,
+/// `CycleTime`, `CreateTime`, `UserTime`, and `KernelTime`.
+struct ProcessTimes {
+    created: u64,
+    cpu: u64,
+}
+
+impl From<&SYSTEM_PROCESS_INFORMATION> for ProcessTimes {
+    fn from(entry: &SYSTEM_PROCESS_INFORMATION) -> Self {
+        let field = |offset: usize| {
+            u64::from_le_bytes(entry.Reserved1[offset..offset + 8].try_into().unwrap())
+        };
+        Self {
+            created: field(24),
+            cpu: field(32).checked_add(field(40)).unwrap(),
         }
-        process.working_set = Some(memory.WorkingSetSize as u64);
-        process.private_bytes = Some(memory.PrivateUsage as u64);
-        Ok(())
     }
 }
 
@@ -441,6 +452,55 @@ pub fn image_path(id: ProcessId) -> Result<String, String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn sampling_preserves_unopenable_process_identity() {
+        assert!(open(0).is_err());
+        let mut sampler = Sampler::new();
+        let mut model = crate::model::Model::default();
+        model.apply(sampler.sample(|| false).unwrap()).unwrap();
+        let idle = *model.processes.keys().find(|id| id.pid == 0).unwrap();
+        assert!(idle.created.is_some());
+        model.selected = Some(idle);
+        model.apply(sampler.sample(|| false).unwrap()).unwrap();
+        assert_eq!(model.selected, Some(idle));
+        assert!(model.processes.contains_key(&idle));
+    }
+
+    #[test]
+    fn cancelled_sampling_does_not_return_a_partial_snapshot() {
+        let mut sampler = Sampler::new();
+        let calls = std::cell::Cell::new(0);
+        let error = sampler
+            .sample(|| {
+                calls.set(calls.get() + 1);
+                calls.get() == 2
+            })
+            .unwrap_err();
+        assert_eq!(error.kind(), io::ErrorKind::Interrupted);
+    }
+
+    #[test]
+    fn system_processes_match_process_times() {
+        let pid = std::process::id();
+        let handle = open(pid).unwrap();
+        let (created, before) = times(&handle).unwrap();
+        let buffer = system_processes().unwrap();
+        let (_, after) = times(&handle).unwrap();
+        let bytes = buffer.as_ptr().cast::<u8>();
+        let mut offset = 0;
+        let current = loop {
+            let entry = unsafe { &*bytes.add(offset).cast::<SYSTEM_PROCESS_INFORMATION>() };
+            if entry.UniqueProcessId as usize as u32 == pid {
+                break entry;
+            }
+            assert_ne!(entry.NextEntryOffset, 0);
+            offset += entry.NextEntryOffset as usize;
+        };
+        let times = ProcessTimes::from(current);
+        assert_eq!(times.created, created);
+        assert!((before..=after).contains(&times.cpu));
+    }
 
     #[test]
     fn logical_counter_names_preserve_nodes_and_exclude_totals() {

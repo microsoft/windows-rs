@@ -12,11 +12,11 @@ readme = "readme.md"
 [dependencies]
 windows-core = { workspace = true, default-features = false }
 windows-link = { workspace = true }
-windows-threading = { workspace = true }
+windows-threading = { workspace = true, optional = true }
 
 [features]
 default = ["std"]
-std = ["windows-core/std"]
+std = ["windows-core/std", "dep:windows-threading"]
 
 [lints]
 workspace = true
