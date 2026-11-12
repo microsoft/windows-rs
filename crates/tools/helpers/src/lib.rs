@@ -34,6 +34,7 @@ impl PartialOrd for Crate {
 
 #[derive(Deserialize)]
 pub struct Lints {
+    #[serde(default)]
     pub workspace: bool,
 }
 

@@ -9,7 +9,7 @@ repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
 
-[dependencies]
+[target.'cfg(windows)'.dependencies]
 windows-link = { workspace = true }
 
 [features]
