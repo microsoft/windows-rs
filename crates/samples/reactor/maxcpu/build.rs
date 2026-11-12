@@ -4,7 +4,16 @@ fn main() {
 
     windows_bindgen::builder()
         .output(std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("bindings.rs"))
-        .filters(["SetThreadPriority", "THREAD_PRIORITY_LOWEST"])
+        .filters([
+            "SetThreadPriority",
+            "THREAD_PRIORITY_LOWEST",
+            "VirtualAlloc",
+            "VirtualFree",
+            "MEM_COMMIT",
+            "MEM_RESERVE",
+            "MEM_RELEASE",
+            "PAGE_READWRITE",
+        ])
         .minimal()
         .flat()
         .write();
