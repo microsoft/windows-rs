@@ -1,6 +1,72 @@
 use super::*;
 
 #[test]
+fn virtual_row_kind_changes_detach_once_before_destruction() {
+    for container in [RealizedContainer(1), RealizedContainer(2)] {
+        let mut adapter = RecordingAdapter::new();
+        adapter.record_batches(true);
+        let mut runtime = Runtime::new(adapter);
+        runtime.update(
+            ItemsRepeater::new().item("row", Border::new().content(TextBlock::new().text("row"))),
+        );
+        let collection = runtime.graph().root().unwrap();
+        runtime
+            .adapter_mut()
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container: RealizedContainer(1),
+                index: 0,
+                source_revision: 0,
+            });
+        runtime.dispatch_native_events();
+        let previous = runtime
+            .graph()
+            .virtual_realization(collection, RealizedContainer(1))
+            .unwrap();
+        let start = runtime.adapter().batches().len();
+        runtime
+            .adapter_mut()
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container,
+                index: 0,
+                source_revision: 0,
+            });
+        let Some(NativeWork::Virtual(VirtualWork::Realize { lease, index, .. })) =
+            runtime.next_native_work()
+        else {
+            panic!("expected realization");
+        };
+        runtime.realize_virtual(&lease, index, TextBox::new());
+        let mutations = runtime.adapter().batches()[start..]
+            .iter()
+            .flatten()
+            .collect::<Vec<_>>();
+        let detached = mutations.iter().enumerate().filter_map(|(index, mutation)| {
+            matches!(mutation, Mutation::Recycle { child: Some(child), .. } if *child == previous)
+                .then_some(index)
+        }).collect::<Vec<_>>();
+        assert_eq!(detached.len(), 1);
+        let destroyed = mutations
+            .iter()
+            .position(|mutation| {
+                matches!(
+                    mutation, Mutation::Destroy { object } if *object == previous
+                )
+            })
+            .unwrap();
+        assert!(detached[0] < destroyed);
+        let replacement = runtime
+            .graph()
+            .virtual_realization(collection, container)
+            .unwrap();
+        assert_eq!(runtime.graph().kind(previous), None);
+        assert_eq!(runtime.graph().kind(replacement), Some(ObjectType::TextBox));
+        assert_eq!(runtime.adapter().object_count(), 2);
+    }
+}
+
+#[test]
 fn virtual_row_content_updates_do_not_reset_the_native_source() {
     for lazy in [false, true] {
         let view = |text: &'static str| {

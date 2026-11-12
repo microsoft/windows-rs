@@ -40,6 +40,7 @@ pub(super) struct RepeaterFixture {
     revision: u32,
     sample: usize,
     counts: [usize; 3],
+    editing: bool,
 }
 
 #[derive(Clone)]
@@ -50,6 +51,7 @@ pub(super) enum Message {
     ToggleFirst,
     ToggleEmpty,
     Count,
+    ToggleEditor,
 }
 
 impl Component for RepeaterFixture {
@@ -64,12 +66,14 @@ impl Component for RepeaterFixture {
             revision: 0,
             sample: 0,
             counts: [0; 3],
+            editing: false,
         }
     }
 
     fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
         match message {
             Message::Rerender => {}
+            Message::ToggleEditor => self.editing = !self.editing,
             Message::Change => Rc::make_mut(&mut self.values)[0] += 1,
             Message::SwapFirst => {
                 if self.keys.len() >= 2 {
@@ -121,8 +125,16 @@ impl Component for RepeaterFixture {
         let row_keys = Rc::clone(&self.keys);
         let swap = context.message(Message::SwapFirst);
         let rows = *rows;
+        let editing = self.editing;
         let row = move |index: usize| {
             let index = row_keys[index];
+            if editing && index == 0 {
+                return TextBox::new()
+                    .automation_id("row-editor")
+                    .automation_name("Edit row 0")
+                    .height(rows.height(index))
+                    .into();
+            }
             View::component::<Row>(RowInput {
                 index,
                 value: values[index],
@@ -178,6 +190,10 @@ impl Component for RepeaterFixture {
                                 .automation_id("toggle-empty")
                                 .content("Toggle empty")
                                 .on_click(context.message(Message::ToggleEmpty)),
+                            Button::new()
+                                .automation_id("toggle-editor")
+                                .content("Edit row 0")
+                                .on_click(context.message(Message::ToggleEditor)),
                         )),
                 )),
                 ScrollViewer::new()
