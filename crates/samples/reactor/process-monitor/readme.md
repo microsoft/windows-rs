@@ -2,8 +2,10 @@
 
 A read-only Reactor sample with a Task Manager-style navigation shell, a virtualized process tree,
 CPU and memory columns, filtering, sorting, stable selection, and on-demand executable paths.
-It uses documented Win32 APIs without elevation, debug privileges, process termination, or
-process-memory reads.
+It runs without elevation, debug privileges, process termination, or process-memory reads.
+Process sampling uses `NtQuerySystemInformation`, so identity and counters do not require opening
+each process. Creation and CPU times depend on the native `SYSTEM_PROCESS_INFORMATION` layout,
+including fields reserved in the SDK declaration.
 
 ```powershell
 cargo run -p reactor-process-monitor --release
@@ -112,5 +114,6 @@ cargo clippy -p reactor-process-monitor --all-targets -- -D warnings
 ```
 
 The tests cover CPU normalization, PID reuse, tree filtering, unavailable identities, replay
-compatibility, NUMA-qualified processor identities, bounded history, executable-path identity
-checks, and drawing aggregate and logical graphs with gaps on a shared WARP surface.
+compatibility, NUMA-qualified processor identities, bounded history, stable identity for processes
+that cannot be opened, native process-time decoding, sampling cancellation, executable-path
+identity checks, and drawing aggregate and logical graphs with gaps on a shared WARP surface.

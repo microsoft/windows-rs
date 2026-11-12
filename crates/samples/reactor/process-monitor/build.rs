@@ -6,14 +6,10 @@ fn main() {
         .output(std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("bindings.rs"))
         .filters([
             "ALL_PROCESSOR_GROUPS",
-            "CreateToolhelp32Snapshot",
-            "ERROR_NO_MORE_FILES",
             "GetActiveProcessorCount",
-            "GetProcessMemoryInfo",
             "GetProcessTimes",
-            "GetSystemTimePreciseAsFileTime",
             "GlobalMemoryStatusEx",
-            "INVALID_HANDLE_VALUE",
+            "NtQuerySystemInformation",
             "OpenProcess",
             "PDH_CSTATUS_NEW_DATA",
             "PDH_CSTATUS_VALID_DATA",
@@ -25,12 +21,11 @@ fn main() {
             "PdhGetFormattedCounterValue",
             "PdhGetFormattedCounterArrayW",
             "PdhOpenQueryW",
-            "PROCESS_MEMORY_COUNTERS_EX",
             "PROCESS_QUERY_LIMITED_INFORMATION",
-            "Process32FirstW",
-            "Process32NextW",
             "QueryFullProcessImageNameW",
-            "TH32CS_SNAPPROCESS",
+            "STATUS_INFO_LENGTH_MISMATCH",
+            "SYSTEM_PROCESS_INFORMATION",
+            "SystemProcessInformation",
         ])
         .minimal()
         .flat()
