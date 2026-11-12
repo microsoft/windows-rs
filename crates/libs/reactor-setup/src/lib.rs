@@ -671,52 +671,48 @@ mod tests {
 
     #[test]
     fn finds_profile_in_standard_cargo_out_dir() {
-        let out = Path::new(r"C:\repo\target\debug\build\package-hash\out");
-        assert_eq!(
-            target_dir_for_out(out),
-            Some(PathBuf::from(r"C:\repo\target\debug"))
-        );
+        let target = Path::new("repo").join("target").join("debug");
+        let out = target.join("build").join("package-hash").join("out");
+        assert_eq!(target_dir_for_out(&out), Some(target));
     }
 
     #[test]
     fn finds_profile_in_split_package_cargo_out_dir() {
-        let out = Path::new(r"C:\repo\target\debug\build\package\hash\out");
-        assert_eq!(
-            target_dir_for_out(out),
-            Some(PathBuf::from(r"C:\repo\target\debug"))
-        );
+        let target = Path::new("repo").join("target").join("debug");
+        let out = target
+            .join("build")
+            .join("package")
+            .join("hash")
+            .join("out");
+        assert_eq!(target_dir_for_out(&out), Some(target));
     }
 
     #[test]
     fn custom_profile_ignores_release_named_ancestors() {
-        for (out, target) in [
-            (
-                r"C:\release\target\profiling\build\package-hash\out",
-                r"C:\release\target\profiling",
-            ),
-            (
-                r"C:\release\target\profiling\build\package\hash\out",
-                r"C:\release\target\profiling",
-            ),
-            (
-                r"C:\release\target\profiling\build\build\hash\out",
-                r"C:\release\target\profiling",
-            ),
-            (
-                r"C:\release\target\aarch64-pc-windows-msvc\profiling\build\package\hash\out",
-                r"C:\release\target\aarch64-pc-windows-msvc\profiling",
-            ),
+        let root = Path::new("release").join("target");
+        for target in [
+            root.join("profiling"),
+            root.join("aarch64-pc-windows-msvc").join("profiling"),
         ] {
-            assert_eq!(
-                target_dir_for_out(Path::new(out)),
-                Some(PathBuf::from(target))
-            );
+            for package in [
+                PathBuf::from("package-hash"),
+                Path::new("package").join("hash"),
+                Path::new("build").join("hash"),
+            ] {
+                let out = target.join("build").join(package).join("out");
+                assert_eq!(target_dir_for_out(&out), Some(target.clone()));
+            }
         }
     }
 
     #[test]
     #[should_panic(expected = "unsupported Cargo OUT_DIR")]
     fn unrecognized_out_dir_is_rejected() {
-        target_dir_from_out(Path::new(r"C:\release\target\profiling\package\out"));
+        let out = Path::new("release")
+            .join("target")
+            .join("profiling")
+            .join("package")
+            .join("out");
+        target_dir_from_out(&out);
     }
 }
