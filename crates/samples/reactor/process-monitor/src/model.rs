@@ -389,6 +389,9 @@ impl Model {
         let parents: HashMap<_, _> = ordered
             .iter()
             .filter_map(|process| {
+                if process.parent_pid == 0 {
+                    return None;
+                }
                 let parent = *by_pid.get(&process.parent_pid)?;
                 // A reused or unverified parent PID is not evidence of ancestry.
                 (self.tree && parent.created? < process.id.created? && parent.pid != process.id.pid)
@@ -707,6 +710,41 @@ mod tests {
         assert_eq!(model.selected, None);
         assert_eq!(model.visible[0].process.cpu_tenths, None);
         assert_ne!(model.visible[0].process.id, id);
+    }
+
+    #[test]
+    fn idle_is_not_a_parent_of_parentless_processes() {
+        let mut sample = snapshot(1, 100, 0);
+        let mut idle = sample.processes[0].clone();
+        idle.pid = 0;
+        idle.created = Some(0);
+        idle.name = "System Idle Process".into();
+        let mut child = sample.processes[0].clone();
+        child.pid = 20;
+        child.parent_pid = 10;
+        child.created = Some(150);
+        child.name = "child.exe".into();
+        sample.processes.extend([idle, child]);
+        let mut model = Model {
+            sort: Sort::Pid,
+            ..Default::default()
+        };
+        model.apply(sample).unwrap();
+        let rows = |model: &Model| {
+            model
+                .visible
+                .iter()
+                .map(|row| (row.process.id.pid, row.depth))
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(rows(&model), [(0, 0), (10, 0), (20, 1)]);
+        assert!(!model.visible[0].has_children);
+        model.collapsed.insert(model.visible[0].process.id);
+        model.rebuild();
+        assert_eq!(rows(&model), [(0, 0), (10, 0), (20, 1)]);
+        model.filter = "child".into();
+        model.rebuild();
+        assert_eq!(rows(&model), [(10, 0), (20, 1)]);
     }
 
     #[test]
