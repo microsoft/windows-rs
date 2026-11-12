@@ -7,6 +7,7 @@ mod Test {
         fn add_Changed(&self, #[in] handler: Handler) -> i64;
         #[special]
         fn remove_Changed(&self, #[in] token: i64);
+        fn SetHandler(&self, #[in] handler: Handler);
     }
     #[guid(auto)]
     delegate fn Handler(#[in] value: i32);

@@ -1,0 +1,17 @@
+//! --filter Test.ISource::Changed --filter Test.ISink::{} --implement Test.ISink --flat --minimal
+#[winrt]
+mod Test {
+    #[guid(auto)]
+    interface ISource {
+        #[special]
+        fn add_Changed(&self, #[in] handler: Handler) -> i64;
+        #[special]
+        fn remove_Changed(&self, #[in] token: i64);
+    }
+    #[guid(auto)]
+    interface ISink {
+        fn SetHandler(&self, #[in] handler: Handler);
+    }
+    #[guid(auto)]
+    delegate fn Handler(#[in] value: i32);
+}

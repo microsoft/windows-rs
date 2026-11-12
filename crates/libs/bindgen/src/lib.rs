@@ -619,8 +619,6 @@ impl Bindgen {
             filter.validate_implements(implements);
         }
 
-        let event_only_delegates = compute_event_only_delegates(&types, reader);
-
         let config = Config {
             bindgen: self,
             reader,
@@ -631,10 +629,15 @@ impl Bindgen {
             implement: implements.as_ref(),
             link,
             namespace: "",
-            event_only_delegates: &event_only_delegates,
+            event_only_delegates: &HashSet::new(),
             self_ty: None,
             self_generics: Vec::new(),
             prunable: std::sync::Arc::new(BTreeSet::new()),
+        };
+        let event_only_delegates = compute_event_only_delegates(&config);
+        let config = Config {
+            event_only_delegates: &event_only_delegates,
+            ..config
         };
         let filter_config = Config {
             implement: None,
@@ -776,11 +779,11 @@ fn expand_input(input: &[Input], input_default: bool) -> Vec<File> {
 }
 
 /// Finds delegates used only as event-handler parameters.
-fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<TypeName> {
+fn compute_event_only_delegates(config: &Config) -> HashSet<TypeName> {
     let mut event_delegates: HashSet<TypeName> = HashSet::new();
     let mut non_event_delegates: HashSet<TypeName> = HashSet::new();
 
-    for type_set in types.values() {
+    for type_set in config.types.values() {
         for ty in type_set {
             let (methods, generics): (Box<dyn Iterator<Item = MethodDef>>, &[Type]) = match ty {
                 Type::Interface(i) => (Box::new(i.def.methods()), &i.generics),
@@ -788,10 +791,13 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
             };
 
             for method in methods {
+                let sig = method.method_signature(generics, config.reader);
+                if method_is_skipped(method, ty.type_name(), &sig, config) {
+                    continue;
+                }
                 let is_event_add = method.flags().contains(MethodAttributes::SpecialName)
                     && method.name().starts_with("add_");
 
-                let sig = method.method_signature(generics, reader);
                 for param in &sig.params {
                     if let Type::Delegate(d) = &param.ty {
                         if is_event_add {
