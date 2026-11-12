@@ -23,8 +23,9 @@ windows-time = { workspace = true }
 test = false
 doctest = false
 
-[lints]
-workspace = true
+[lints.cargo]
+# Dependencies are used only by the enabled generated API features.
+unused_dependencies = "allow"
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"

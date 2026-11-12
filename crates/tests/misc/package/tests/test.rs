@@ -4,9 +4,10 @@ fn test() {
         let package = &toml.package;
         println!("package: {}", package.name);
 
-        assert!(
+        assert_eq!(
             toml.lints.is_some_and(|lints| lints.workspace),
-            "`{}` missing workspace lints",
+            !matches!(package.name.as_str(), "windows" | "windows-sys"),
+            "`{}` workspace lint inheritance",
             package.name
         );
 
