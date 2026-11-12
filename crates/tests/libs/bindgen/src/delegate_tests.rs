@@ -5,6 +5,11 @@ use std::sync::{
 };
 use windows_core::{Event, GUID, HRESULT, IUnknown, Interface, imp::IAgileObject};
 
+#[test]
+fn implemented_non_event_methods_keep_delegate_constructors() {
+    let _handler = super::narrow_event_implemented::Handler::new(|_| {});
+}
+
 struct Capture {
     calls: Arc<AtomicUsize>,
     drops: Arc<AtomicUsize>,

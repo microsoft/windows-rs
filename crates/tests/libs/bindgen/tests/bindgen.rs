@@ -1,6 +1,66 @@
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
 #[test]
+fn narrow_event_delegates_respect_dead_code() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("narrow-event-dead-code");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/narrow_event_minimal.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::builder()
+        .input(&winmd)
+        .filter("Test.ISource::Changed")
+        .minimal()
+        .dead_code()
+        .flat()
+        .output(scratch.join("bindings.rs"))
+        .write();
+    let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap()
+        .join("libs")
+        .join("core");
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"narrow-event-dead-code\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n[lib]\npath = \"lib.rs\"\n\
+             [dependencies]\nwindows-core = {{ path = '{}', default-features = false }}\n",
+            core.display()
+        ),
+    )
+    .unwrap();
+    std::fs::write(
+        scratch.join("lib.rs"),
+        r#"#![deny(warnings)]
+#![allow(nonstandard_style)]
+mod bindings;
+pub fn subscribe(source: &bindings::ISource) -> windows_core::Result<windows_core::EventRevoker> {
+    source.Changed(|_| {})
+}
+"#,
+    )
+    .unwrap();
+    let output = std::process::Command::new("cargo")
+        .args(["check", "--quiet", "--offline", "--manifest-path"])
+        .arg(&manifest)
+        .arg("--target-dir")
+        .arg(scratch.join("target"))
+        .output()
+        .unwrap();
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+}
+
+#[test]
 fn delegate_thread_safety() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("delegate_thread_safety");
     std::fs::create_dir_all(&scratch).unwrap();
