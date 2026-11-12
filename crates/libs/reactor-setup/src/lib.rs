@@ -38,11 +38,11 @@ fn stage_self_contained() -> io::Result<()> {
     assert_windows();
 
     let out_dir = out_dir();
+    let dest = target_dir_from_out(&out_dir);
     let temp_dir = temp_dir()?;
     let arch = target_arch();
     let runtime = stage_pkg(RUNTIME_PKG, RUNTIME_VER, &temp_dir, &runtime_msix(arch))?;
     let extract = ensure_msix_extracted(&runtime, arch)?;
-    let dest = target_dir_from_out(&out_dir);
     fs::create_dir_all(&dest)
         .map_err(|error| file_error("create output directory", &dest, error))?;
     let _destination_lock = lock_file(&dest.join(".windows-reactor-setup.lock"))?;
@@ -293,14 +293,21 @@ fn run(command: &mut Command) -> io::Result<()> {
 }
 
 fn target_dir_from_out(out: &Path) -> PathBuf {
-    env::var_os("PROFILE")
-        .and_then(|profile| target_dir_for_profile(out, &profile))
-        .unwrap_or_else(|| out.ancestors().nth(3).unwrap_or(out).to_path_buf())
+    target_dir_for_out(out)
+        .unwrap_or_else(|| panic!("unsupported Cargo OUT_DIR: {}", out.display()))
 }
 
-fn target_dir_for_profile(out: &Path, profile: &OsStr) -> Option<PathBuf> {
-    out.ancestors()
-        .find(|path| path.file_name() == Some(profile))
+// PROFILE reports debug or release even for custom profiles. Find the profile directory from
+// `<profile>/build/<package>-<hash>/out` or `<profile>/build/<package>/<hash>/out` instead.
+fn target_dir_for_out(out: &Path) -> Option<PathBuf> {
+    if out.file_name() != Some(OsStr::new("out")) {
+        return None;
+    }
+    [3, 2]
+        .into_iter()
+        .filter_map(|index| out.ancestors().nth(index))
+        .find(|path| path.file_name() == Some(OsStr::new("build")))
+        .and_then(Path::parent)
         .map(Path::to_path_buf)
 }
 
@@ -536,7 +543,7 @@ mod tests {
                 .join(WEBVIEW2_CORE_DLL),
             &payload,
         );
-        let dest = temp.0.join("target").join("debug");
+        let dest = temp.0.join("release").join("target").join("profiling");
         write(&dest.join("Microsoft.ui.xaml.dll"), "previous deployment");
         let destination_lock = lock_file(&dest.join(".windows-reactor-setup.lock")).unwrap();
         // An active writer keeps its output unavailable until it releases the destination lock.
@@ -547,10 +554,12 @@ mod tests {
             .unwrap();
         let mut workers = Vec::new();
         for index in 0..8 {
-            let out = dest
-                .join("build")
-                .join(format!("worker-{index}"))
-                .join("out");
+            let package = if index % 2 == 0 {
+                PathBuf::from(format!("worker-{index}-hash"))
+            } else {
+                PathBuf::from(format!("worker-{index}")).join("hash")
+            };
+            let out = dest.join("build").join(package).join("out");
             fs::create_dir_all(&out).unwrap();
             let log = fs::File::create(temp.0.join(format!("worker-{index}.log"))).unwrap();
             workers.push(Worker(
@@ -559,7 +568,7 @@ mod tests {
                     .env(WORKER_ROOT, &temp.0)
                     .env("LOCALAPPDATA", &temp.0)
                     .env("OUT_DIR", out)
-                    .env("PROFILE", "debug")
+                    .env("PROFILE", "release")
                     .env("CARGO_CFG_TARGET_OS", "windows")
                     .env("CARGO_CFG_TARGET_ARCH", "x86_64")
                     .env("CARGO_CFG_TARGET_ENV", "msvc")
@@ -664,7 +673,7 @@ mod tests {
     fn finds_profile_in_standard_cargo_out_dir() {
         let out = Path::new(r"C:\repo\target\debug\build\package-hash\out");
         assert_eq!(
-            target_dir_for_profile(out, OsStr::new("debug")),
+            target_dir_for_out(out),
             Some(PathBuf::from(r"C:\repo\target\debug"))
         );
     }
@@ -673,8 +682,41 @@ mod tests {
     fn finds_profile_in_split_package_cargo_out_dir() {
         let out = Path::new(r"C:\repo\target\debug\build\package\hash\out");
         assert_eq!(
-            target_dir_for_profile(out, OsStr::new("debug")),
+            target_dir_for_out(out),
             Some(PathBuf::from(r"C:\repo\target\debug"))
         );
+    }
+
+    #[test]
+    fn custom_profile_ignores_release_named_ancestors() {
+        for (out, target) in [
+            (
+                r"C:\release\target\profiling\build\package-hash\out",
+                r"C:\release\target\profiling",
+            ),
+            (
+                r"C:\release\target\profiling\build\package\hash\out",
+                r"C:\release\target\profiling",
+            ),
+            (
+                r"C:\release\target\profiling\build\build\hash\out",
+                r"C:\release\target\profiling",
+            ),
+            (
+                r"C:\release\target\aarch64-pc-windows-msvc\profiling\build\package\hash\out",
+                r"C:\release\target\aarch64-pc-windows-msvc\profiling",
+            ),
+        ] {
+            assert_eq!(
+                target_dir_for_out(Path::new(out)),
+                Some(PathBuf::from(target))
+            );
+        }
+    }
+
+    #[test]
+    #[should_panic(expected = "unsupported Cargo OUT_DIR")]
+    fn unrecognized_out_dir_is_rejected() {
+        target_dir_from_out(Path::new(r"C:\release\target\profiling\package\out"));
     }
 }
