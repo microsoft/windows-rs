@@ -1,0 +1,17 @@
+[package]
+name = "text-vertical"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-canvas = { workspace = true, features = ["system"] }
+windows-core = { workspace = true }
+windows-text = { workspace = true }
+windows-window = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

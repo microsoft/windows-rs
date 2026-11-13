@@ -179,6 +179,9 @@ impl FontFace {
     /// Positions are not snapped, matching
     /// [`TextLayout::glyph_runs`]. A color glyph rasterizes as its outline; use
     /// [`color_layers`](Self::color_layers) to draw it in color.
+    ///
+    /// This uses a horizontal glyph origin. It does not apply a [`GlyphRun`]'s orientation or
+    /// sideways metrics; draw oriented runs through DirectWrite or Direct2D instead.
     pub fn rasterize(&self, glyph: u16, size: f32, offset: Vector2) -> Option<GlyphImage> {
         self.rasterize_with(glyph, size, offset, false)
     }

@@ -3,9 +3,15 @@
 --implement
     Windows.Win32.IDWritePixelSnapping
     Windows.Win32.IDWriteTextRenderer
+    Windows.Win32.IDWriteTextRenderer1
 
 --filter
+    IDWriteTextRenderer1::{}
     DWRITE_E_NOCOLOR
+    DWRITE_GLYPH_ORIENTATION_ANGLE_0_DEGREES
+    DWRITE_GLYPH_ORIENTATION_ANGLE_90_DEGREES
+    DWRITE_GLYPH_ORIENTATION_ANGLE_180_DEGREES
+    DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES
     DWRITE_FACTORY_TYPE_SHARED
     DWRITE_MEASURING_MODE_NATURAL
     DWRITE_OUTLINE_THRESHOLD_ANTIALIASED
@@ -32,6 +38,14 @@
     DWRITE_WORD_WRAPPING_NO_WRAP
     DWRITE_READING_DIRECTION_LEFT_TO_RIGHT
     DWRITE_READING_DIRECTION_RIGHT_TO_LEFT
+    DWRITE_READING_DIRECTION_TOP_TO_BOTTOM
+    DWRITE_READING_DIRECTION_BOTTOM_TO_TOP
+    DWRITE_FLOW_DIRECTION_TOP_TO_BOTTOM
+    DWRITE_FLOW_DIRECTION_BOTTOM_TO_TOP
+    DWRITE_FLOW_DIRECTION_LEFT_TO_RIGHT
+    DWRITE_FLOW_DIRECTION_RIGHT_TO_LEFT
+    DWRITE_VERTICAL_GLYPH_ORIENTATION_DEFAULT
+    DWRITE_VERTICAL_GLYPH_ORIENTATION_STACKED
     DWRITE_TRIMMING_GRANULARITY_NONE
     DWRITE_TRIMMING_GRANULARITY_CHARACTER
     DWRITE_TRIMMING_GRANULARITY_WORD
@@ -39,7 +53,7 @@
     DWRITE_LINE_SPACING_METHOD_UNIFORM
     DWRITE_LINE_SPACING_METHOD_PROPORTIONAL
     DWRITE_FONT_LINE_GAP_USAGE_DEFAULT
-    DWRITE_TEXT_METRICS
+    DWRITE_TEXT_METRICS1
     DWRITE_TEXT_RANGE
     DWRITE_LINE_METRICS
     DWRITE_CLUSTER_METRICS
@@ -74,10 +88,11 @@
     IDWriteRenderingParams::{GetClearTypeLevel, GetEnhancedContrast, GetGamma, GetPixelGeometry}
     IDWriteRenderingParams1::GetGrayscaleEnhancedContrast
     IDWriteInlineObject::Draw
-    IDWriteTextFormat::{SetIncrementalTabStop, SetReadingDirection, SetTextAlignment, SetParagraphAlignment, SetTrimming, SetWordWrapping}
-    IDWriteTextFormat1::SetFontFallback
+    IDWriteTextFormat::{SetIncrementalTabStop, SetReadingDirection, SetFlowDirection, GetReadingDirection, GetFlowDirection, SetTextAlignment, SetParagraphAlignment, SetTrimming, SetWordWrapping}
+    IDWriteTextFormat1::{SetFontFallback, SetVerticalGlyphOrientation}
     IDWriteTextFormat2::SetLineSpacing
-    IDWriteTextLayout::{GetMetrics, HitTestPoint, HitTestTextPosition, HitTestTextRange, SetMaxWidth, SetMaxHeight}
+    IDWriteTextLayout::{HitTestPoint, HitTestTextPosition, HitTestTextRange, SetMaxWidth, SetMaxHeight}
+    IDWriteTextLayout2::GetMetrics
     IDWriteTextLayout::{Draw, GetClusterMetrics, GetLineMetrics}
     IDWriteTextLayout::{SetFontCollection, SetFontFamilyName, SetFontSize, SetFontStyle, SetFontWeight, SetLocaleName, SetStrikethrough, SetTypography, SetUnderline}
     IDWriteTypography::AddFontFeature

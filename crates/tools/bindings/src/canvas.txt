@@ -2,6 +2,8 @@
 --flat --minimal --dead-code
 
 --filter
+    D2D1_ANTIALIAS_MODE_ALIASED
+    ID2D1RenderTarget::{PushAxisAlignedClip, PopAxisAlignedClip}
     D2DERR_RECREATE_TARGET
     E_INVALIDARG
     E_FAIL

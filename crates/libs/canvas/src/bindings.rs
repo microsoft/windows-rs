@@ -8,6 +8,8 @@ pub const CLSID_WICImagingFactory: windows_core::GUID =
 pub type D2D1_ALPHA_MODE = i32;
 pub const D2D1_ALPHA_MODE_IGNORE: D2D1_ALPHA_MODE = 3;
 pub const D2D1_ALPHA_MODE_PREMULTIPLIED: D2D1_ALPHA_MODE = 1;
+pub type D2D1_ANTIALIAS_MODE = i32;
+pub const D2D1_ANTIALIAS_MODE_ALIASED: D2D1_ANTIALIAS_MODE = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_BEZIER_SEGMENT {
@@ -1496,6 +1498,26 @@ impl ID2D1RenderTarget {
             );
         }
     }
+    pub(crate) unsafe fn PushAxisAlignedClip(
+        &self,
+        cliprect: *const D2D1_RECT_F,
+        antialiasmode: D2D1_ANTIALIAS_MODE,
+    ) {
+        unsafe {
+            (windows_core::Interface::vtable(self).PushAxisAlignedClip)(
+                windows_core::Interface::as_raw(self),
+                cliprect,
+                antialiasmode,
+            );
+        }
+    }
+    pub(crate) unsafe fn PopAxisAlignedClip(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).PopAxisAlignedClip)(
+                windows_core::Interface::as_raw(self),
+            );
+        }
+    }
     pub(crate) unsafe fn Clear(&self, clearcolor: Option<*const D2D1_COLOR_F>) {
         unsafe {
             (windows_core::Interface::vtable(self).Clear)(
@@ -1686,8 +1708,9 @@ pub struct ID2D1RenderTarget_Vtbl {
     Flush: usize,
     SaveDrawingState: usize,
     RestoreDrawingState: usize,
-    PushAxisAlignedClip: usize,
-    PopAxisAlignedClip: usize,
+    pub PushAxisAlignedClip:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_RECT_F, D2D1_ANTIALIAS_MODE),
+    pub PopAxisAlignedClip: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_COLOR_F),
     pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub EndDraw: unsafe extern "system" fn(

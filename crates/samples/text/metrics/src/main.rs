@@ -38,7 +38,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
 
     // Each line's baseline is below its top.
     for line in layout.line_metrics() {
-        let y = MARGIN + line.top + line.baseline;
+        let y = MARGIN + line.bounds.top + line.baseline;
         ctx.draw_line(
             Vector2::new(MARGIN, y),
             Vector2::new(MARGIN + width, y),

@@ -2,8 +2,9 @@
 
 Load fonts and lay out, measure, and hit-test text with DirectWrite. The crate does not draw: use
 [windows-canvas](https://docs.rs/windows-canvas) to draw a `TextLayout`, or draw its
-`glyph_runs` and `decorations` with your own renderer, using `FontFace::rasterize` for glyph
-images. The [glyph-atlas sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/text/glyph-atlas)
+`glyph_runs` and `decorations` with your own renderer. `FontFace::rasterize` produces horizontal
+glyph images; oriented glyphs require native drawing with their orientation and sideways metrics.
+The [glyph-atlas sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/text/glyph-atlas)
 draws them with Direct3D 11.
 
 - 📦 [crates.io](https://crates.io/crates/windows-text)
@@ -54,7 +55,7 @@ fn main() {
     layout.set_font_features(18.., &[FontFeature::new(b"liga", 0)]);
 
     for line in layout.line_metrics() {
-        println!("{:?} is {} high", line.text_range, line.height);
+        println!("{:?} occupies {:?}", line.text_range, line.bounds);
     }
     let selection = layout.range_bounds(6..16);
     println!("selection covers {} rectangle(s)", selection.len());
@@ -63,7 +64,7 @@ fn main() {
 
 ## Paragraphs
 
-A format sets paragraph options: alignment (including justified), reading direction, line
+A format sets paragraph options: alignment (including justified), writing mode, line
 spacing, tab width, and trimming, which ends overflowing text with an ellipsis:
 
 ```rust
@@ -78,6 +79,29 @@ fn main() {
     println!("{} line(s)", layout.metrics().line_count);
 }
 ```
+
+## Vertical text
+
+```rust
+use windows_text::*;
+
+fn main() {
+    let format = TextFormat::new("Yu Gothic", 18.0)
+        .with_locale("ja-jp")
+        .with_writing_mode(WritingMode::VerticalRightToLeft);
+    let layout = TextLayout::new("日本語 ABC", &format, 300.0, 200.0);
+    println!("{:?}", layout.metrics().bounds());
+}
+```
+
+Vertical modes read top to bottom and choose leftward or rightward column flow. Text alignment
+follows the reading axis; paragraph alignment follows column flow. Bounds remain physical x/y
+coordinates and hit tests still use UTF-8 byte offsets. Use `VerticalGlyphOrientation::Stacked` to
+keep Latin upright, not for tate-chu-yoko.
+
+Draw vertical layouts through Canvas to preserve color emoji. See the
+[vertical sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/text/vertical)
+for clickable choices, caret bounds, and resizing.
 
 ## Fonts
 

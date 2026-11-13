@@ -31,6 +31,40 @@ mod tests {
     }
 
     #[test]
+    fn scoped_clips_intersect_and_restore() {
+        let device = GpuDevice::new_warp().unwrap();
+        let target = device.create_render_target(12, 12).unwrap();
+        target
+            .draw(|session| {
+                session.clear(ColorF::BLACK);
+                let red = session.create_solid_brush(ColorF::RED)?;
+                let green = session.create_solid_brush(ColorF::from_rgb8(0, 255, 0))?;
+                let blue = session.create_solid_brush(ColorF::BLUE)?;
+                session.with_clip(&Rect::from_xywh(2.0, 2.0, 8.0, 8.0), || {
+                    session.with_clip(&Rect::from_xywh(0.0, 0.0, 6.0, 6.0), || {
+                        session.fill_rect(&Rect::from_xywh(0.0, 0.0, 12.0, 12.0), &red);
+                    });
+                    session.fill_rect(&Rect::from_xywh(8.0, 8.0, 4.0, 4.0), &green);
+                });
+                let panic = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                    session.with_clip(&Rect::from_xywh(4.0, 4.0, 1.0, 1.0), || panic!("test"));
+                }));
+                assert!(panic.is_err());
+                session.fill_rect(&Rect::from_xywh(0.0, 0.0, 1.0, 1.0), &blue);
+                Ok(())
+            })
+            .unwrap();
+        let pixels = target.read_pixels().unwrap();
+        let pixel = |x: usize, y: usize| &pixels[(y * 12 + x) * 4..(y * 12 + x + 1) * 4];
+        assert_eq!(pixel(0, 0), [255, 0, 0, 255]);
+        assert_eq!(pixel(1, 1), [0, 0, 0, 255]);
+        assert_eq!(pixel(2, 2), [0, 0, 255, 255]);
+        assert_eq!(pixel(6, 6), [0, 0, 0, 255]);
+        assert_eq!(pixel(8, 8), [0, 255, 0, 255]);
+        assert_eq!(pixel(10, 10), [0, 0, 0, 255]);
+    }
+
+    #[test]
     fn create_device() {
         let device = GpuDevice::new_warp().expect("Failed to create WARP device");
         let _d3d = device.d3d_device();
