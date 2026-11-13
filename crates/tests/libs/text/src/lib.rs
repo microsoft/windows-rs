@@ -40,7 +40,7 @@ mod tests {
         let leading = TextFormat::new("Segoe UI", 24.0);
         let centered = TextFormat::new("Segoe UI", 24.0)
             .with_alignment(TextAlignment::Center)
-            .with_paragraph_alignment(ParagraphAlignment::Bottom);
+            .with_paragraph_alignment(ParagraphAlignment::Trailing);
         let leading = TextLayout::new("Hi", &leading, 400.0, 200.0);
         let centered = TextLayout::new("Hi", &centered, 400.0, 200.0);
         assert_eq!(leading.metrics().left, 0.0);
@@ -392,7 +392,7 @@ mod tests {
         assert!(
             lines
                 .iter()
-                .all(|line| line.height > 0.0 && line.baseline > 0.0)
+                .all(|line| line.bounds.height() > 0.0 && line.baseline > 0.0)
         );
 
         let format = TextFormat::new("Segoe UI", 24.0);
@@ -416,12 +416,12 @@ mod tests {
         let lines = centered.line_metrics();
         assert_eq!(lines.len(), 3);
         assert!(metrics.top > 0.0);
-        assert_eq!(lines[0].top, metrics.top);
+        assert_eq!(lines[0].bounds.top, metrics.top);
         for line in &lines {
             let caret = centered.caret_bounds(line.text_range.start, false);
-            assert!((caret.top - line.top).abs() < 0.01);
+            assert!((caret.top - line.bounds.top).abs() < 0.01);
         }
-        assert!(lines[1].height > lines[0].height);
+        assert!(lines[1].bounds.height() > lines[0].bounds.height());
     }
 
     #[test]
@@ -853,7 +853,7 @@ mod tests {
     #[test]
     fn reading_direction() {
         let format =
-            TextFormat::new("Segoe UI", 24.0).with_reading_direction(ReadingDirection::RightToLeft);
+            TextFormat::new("Segoe UI", 24.0).with_writing_mode(WritingMode::HorizontalRightToLeft);
         let layout = TextLayout::new("Hi", &format, 400.0, 100.0);
 
         // The leading edge is on the right, so the text aligns there.
@@ -906,11 +906,11 @@ mod tests {
 
         // Proportional spacing splits the extra space evenly above and below the text.
         let double = lines(LineSpacing::Proportional(2.0));
-        let (height, baseline) = (default[0].height, default[0].baseline);
+        let (height, baseline) = (default[0].bounds.height(), default[0].baseline);
         for (index, line) in double.iter().enumerate() {
-            assert!(close(line.height, 2.0 * height));
+            assert!(close(line.bounds.height(), 2.0 * height));
             assert!(close(line.baseline, baseline + height / 2.0));
-            assert!(close(line.top, index as f32 * 2.0 * height));
+            assert!(close(line.bounds.top, index as f32 * 2.0 * height));
         }
 
         let uniform = lines(LineSpacing::Uniform {
@@ -919,7 +919,7 @@ mod tests {
         });
         for (index, line) in uniform.iter().enumerate() {
             assert_eq!(
-                (line.top, line.height, line.baseline),
+                (line.bounds.top, line.bounds.height(), line.baseline),
                 (index as f32 * 40.0, 40.0, 30.0)
             );
         }

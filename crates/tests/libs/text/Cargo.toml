@@ -6,6 +6,12 @@ publish = false
 
 [dev-dependencies]
 windows-text = { workspace = true }
+windows-core = { workspace = true }
+windows-canvas = { workspace = true }
+windows-numerics = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
 
 [lints]
 workspace = true

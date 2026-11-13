@@ -374,6 +374,25 @@ impl<'a> DrawingSession<'a> {
         self.set_transform(&prev);
     }
 
+    /// Clips drawing for the duration of the closure, then restores the previous clip.
+    ///
+    /// `rect` is in DIPs under the current transform. Direct2D uses its axis-aligned bounding
+    /// box in target space, with aliased edges. Nested clips intersect.
+    pub fn with_clip(&self, rect: &Rect, f: impl FnOnce()) {
+        struct PopClip<'a>(&'a ID2D1DeviceContext);
+        impl Drop for PopClip<'_> {
+            fn drop(&mut self) {
+                unsafe { self.0.PopAxisAlignedClip() };
+            }
+        }
+        unsafe {
+            self.context
+                .PushAxisAlignedClip(&rect.to_abi(), D2D1_ANTIALIAS_MODE_ALIASED);
+        }
+        let _clip = PopClip(self.context);
+        f();
+    }
+
     /// Borrows the underlying `ID2D1DeviceContext` as `T` without a `QueryInterface` call.
     ///
     /// `T` is `ID2D1DeviceContext` from other bindings, such as the `windows` crate; other

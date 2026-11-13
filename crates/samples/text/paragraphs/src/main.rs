@@ -6,7 +6,7 @@ use windows_reactor::{
     App, Border, Component, ComponentContext, View, ViewContext, WindowBackdrop, WindowVisuals,
 };
 use windows_text::{
-    LineSpacing, ReadingDirection, TextAlignment, TextFormat, TextLayout, Trimming, WordWrapping,
+    LineSpacing, TextAlignment, TextFormat, TextLayout, Trimming, WordWrapping, WritingMode,
 };
 
 const MARGIN: f32 = 36.0;
@@ -84,7 +84,7 @@ fn panels() -> Vec<Panel> {
             format: body
                 .clone()
                 .with_locale("ar-eg")
-                .with_reading_direction(ReadingDirection::RightToLeft),
+                .with_writing_mode(WritingMode::HorizontalRightToLeft),
             lines: None,
         },
         Panel {

@@ -1,55 +1,75 @@
 use super::*;
 use std::sync::{Arc, OnceLock};
 
-/// Horizontal text alignment.
+/// Alignment along the reading axis.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 #[non_exhaustive]
 pub enum TextAlignment {
-    /// Align to the leading edge (left in LTR).
+    /// Align to the start of the line: left in horizontal LTR, right in horizontal RTL, or top
+    /// in vertical text.
     #[default]
     Leading,
-    /// Center horizontally.
+    /// Center along the reading axis.
     Center,
-    /// Align to the trailing edge (right in LTR).
+    /// Align to the end of the line.
     Trailing,
-    /// Stretch each wrapped line to fill the width by widening the spaces between words. The last
-    /// line of a paragraph aligns to the leading edge.
+    /// Stretch each wrapped line to fill the available advance by widening spaces between words.
+    /// The last line of a paragraph aligns to the leading edge.
     Justified,
 }
 
-/// Vertical paragraph alignment.
+/// Alignment along the direction in which lines or columns flow.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 #[non_exhaustive]
 pub enum ParagraphAlignment {
-    /// Align to the top edge.
+    /// Align to the first edge: top for horizontal text, right for columns flowing left, or
+    /// left for columns flowing right.
     #[default]
-    Top,
-    /// Center vertically.
+    Leading,
+    /// Center the lines or columns within the layout box.
     Center,
-    /// Align to the bottom edge.
-    Bottom,
+    /// Align to the last edge in flow order.
+    Trailing,
 }
 
-/// How text wraps when it reaches the layout width.
+/// How text wraps when it reaches the layout width, or height for vertical text.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 #[non_exhaustive]
 pub enum WordWrapping {
     /// Wrap onto the next line at word boundaries.
     #[default]
     Wrap,
-    /// Do not wrap; text may extend past the layout width.
+    /// Do not wrap; text may extend past the layout along the reading axis.
     NoWrap,
 }
 
-/// The direction in which a paragraph reads.
+/// The reading direction and flow of lines or columns.
+///
+/// Each mode selects an orthogonal reading/flow pair. Vertical modes read top to bottom;
+/// their names describe the direction in which columns progress.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 #[non_exhaustive]
-pub enum ReadingDirection {
-    /// Left to right, as in English. The leading edge is on the left.
+pub enum WritingMode {
+    /// Read left to right, with lines progressing downward.
     #[default]
-    LeftToRight,
-    /// Right to left, as in Arabic and Hebrew. The leading edge is on the right.
-    RightToLeft,
+    HorizontalLeftToRight,
+    /// Read right to left, with lines progressing downward.
+    HorizontalRightToLeft,
+    /// Read top to bottom, with columns progressing from right to left.
+    VerticalRightToLeft,
+    /// Read top to bottom, with columns progressing from left to right.
+    VerticalLeftToRight,
+}
+
+/// Glyph orientation within vertical text. Horizontal text is unaffected.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+#[non_exhaustive]
+pub enum VerticalGlyphOrientation {
+    /// Use the script's vertical orientation: CJK upright and Latin rotated, for example.
+    #[default]
+    Default,
+    /// Keep glyphs upright and stack them vertically. This is not tate-chu-yoko.
+    Stacked,
 }
 
 /// Where text that overflows the layout box is cut off and replaced by an ellipsis.
@@ -69,17 +89,18 @@ pub enum Trimming {
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 #[non_exhaustive]
 pub enum LineSpacing {
-    /// Each line is as tall as its fonts and inline content need.
+    /// Each line or column is as thick as its fonts and inline content need.
     #[default]
     Default,
-    /// Each line is this many times its default height, with the extra space split evenly above
-    /// and below the text, as in CSS `line-height`.
+    /// Each line or column is this many times its default thickness, with extra space split
+    /// evenly on either side of the text, as in CSS `line-height`.
     Proportional(f32),
-    /// Every line is `height` tall, with its baseline `baseline` below the top of the line.
+    /// Every line or column has this thickness and baseline distance.
     Uniform {
-        /// The height of each line in device-independent pixels.
+        /// The height of a horizontal line, or width of a vertical column, in DIPs.
         height: f32,
-        /// The distance from the top of each line to its baseline.
+        /// The native baseline distance: from the top of a horizontal line, or right of a
+        /// vertical column. This edge does not change with column flow.
         baseline: f32,
     },
 }
@@ -123,7 +144,8 @@ struct Settings {
     alignment: TextAlignment,
     paragraph_alignment: ParagraphAlignment,
     word_wrapping: WordWrapping,
-    reading_direction: ReadingDirection,
+    writing_mode: WritingMode,
+    vertical_glyph_orientation: VerticalGlyphOrientation,
     trimming: Trimming,
     line_spacing: LineSpacing,
     tab_width: Option<f32>,
@@ -145,7 +167,8 @@ impl TextFormat {
             alignment: TextAlignment::default(),
             paragraph_alignment: ParagraphAlignment::default(),
             word_wrapping: WordWrapping::default(),
-            reading_direction: ReadingDirection::default(),
+            writing_mode: WritingMode::default(),
+            vertical_glyph_orientation: VerticalGlyphOrientation::default(),
             trimming: Trimming::default(),
             line_spacing: LineSpacing::default(),
             tab_width: None,
@@ -178,12 +201,12 @@ impl TextFormat {
         self.update(|settings| settings.locale = Some(wide(locale)))
     }
 
-    /// Sets the horizontal text alignment.
+    /// Sets alignment along the reading axis.
     pub fn with_alignment(self, alignment: TextAlignment) -> Self {
         self.update(|settings| settings.alignment = alignment)
     }
 
-    /// Sets the vertical paragraph alignment.
+    /// Sets alignment along the line or column flow.
     pub fn with_paragraph_alignment(self, alignment: ParagraphAlignment) -> Self {
         self.update(|settings| settings.paragraph_alignment = alignment)
     }
@@ -193,13 +216,18 @@ impl TextFormat {
         self.update(|settings| settings.word_wrapping = wrapping)
     }
 
-    /// Sets the reading direction of each paragraph, which also decides which edge is leading.
-    pub fn with_reading_direction(self, direction: ReadingDirection) -> Self {
-        self.update(|settings| settings.reading_direction = direction)
+    /// Sets the reading direction and line or column flow together.
+    pub fn with_writing_mode(self, mode: WritingMode) -> Self {
+        self.update(|settings| settings.writing_mode = mode)
+    }
+
+    /// Sets glyph orientation within vertical text. Horizontal text is unaffected.
+    pub fn with_vertical_glyph_orientation(self, orientation: VerticalGlyphOrientation) -> Self {
+        self.update(|settings| settings.vertical_glyph_orientation = orientation)
     }
 
     /// Sets how text that overflows the layout box is trimmed. Combine with
-    /// [`WordWrapping::NoWrap`] to trim a single line to the width.
+    /// [`WordWrapping::NoWrap`] to trim one line to the width, or one column to the height.
     pub fn with_trimming(self, trimming: Trimming) -> Self {
         self.update(|settings| settings.trimming = trimming)
     }
@@ -287,17 +315,35 @@ impl Settings {
             TextAlignment::Justified => DWRITE_TEXT_ALIGNMENT_JUSTIFIED,
         };
         let paragraph_alignment = match self.paragraph_alignment {
-            ParagraphAlignment::Top => DWRITE_PARAGRAPH_ALIGNMENT_NEAR,
+            ParagraphAlignment::Leading => DWRITE_PARAGRAPH_ALIGNMENT_NEAR,
             ParagraphAlignment::Center => DWRITE_PARAGRAPH_ALIGNMENT_CENTER,
-            ParagraphAlignment::Bottom => DWRITE_PARAGRAPH_ALIGNMENT_FAR,
+            ParagraphAlignment::Trailing => DWRITE_PARAGRAPH_ALIGNMENT_FAR,
         };
         let word_wrapping = match self.word_wrapping {
             WordWrapping::Wrap => DWRITE_WORD_WRAPPING_WRAP,
             WordWrapping::NoWrap => DWRITE_WORD_WRAPPING_NO_WRAP,
         };
-        let reading_direction = match self.reading_direction {
-            ReadingDirection::LeftToRight => DWRITE_READING_DIRECTION_LEFT_TO_RIGHT,
-            ReadingDirection::RightToLeft => DWRITE_READING_DIRECTION_RIGHT_TO_LEFT,
+        let (reading_direction, flow_direction) = match self.writing_mode {
+            WritingMode::HorizontalLeftToRight => (
+                DWRITE_READING_DIRECTION_LEFT_TO_RIGHT,
+                DWRITE_FLOW_DIRECTION_TOP_TO_BOTTOM,
+            ),
+            WritingMode::HorizontalRightToLeft => (
+                DWRITE_READING_DIRECTION_RIGHT_TO_LEFT,
+                DWRITE_FLOW_DIRECTION_TOP_TO_BOTTOM,
+            ),
+            WritingMode::VerticalRightToLeft => (
+                DWRITE_READING_DIRECTION_TOP_TO_BOTTOM,
+                DWRITE_FLOW_DIRECTION_RIGHT_TO_LEFT,
+            ),
+            WritingMode::VerticalLeftToRight => (
+                DWRITE_READING_DIRECTION_TOP_TO_BOTTOM,
+                DWRITE_FLOW_DIRECTION_LEFT_TO_RIGHT,
+            ),
+        };
+        let orientation = match self.vertical_glyph_orientation {
+            VerticalGlyphOrientation::Default => DWRITE_VERTICAL_GLYPH_ORIENTATION_DEFAULT,
+            VerticalGlyphOrientation::Stacked => DWRITE_VERTICAL_GLYPH_ORIENTATION_STACKED,
         };
         let granularity = match self.trimming {
             Trimming::None => DWRITE_TRIMMING_GRANULARITY_NONE,
@@ -319,6 +365,8 @@ impl Settings {
             raw.SetParagraphAlignment(paragraph_alignment).unwrap();
             raw.SetWordWrapping(word_wrapping).unwrap();
             raw.SetReadingDirection(reading_direction).unwrap();
+            raw.SetFlowDirection(flow_direction).unwrap();
+            raw.SetVerticalGlyphOrientation(orientation).unwrap();
 
             // The ellipsis is drawn in the format's font, so it is created from the format.
             let sign = (self.trimming != Trimming::None)

@@ -81,11 +81,11 @@ jobs:
         # incompatible lifted Composition stack. Cross-language tests run in interop.yml.
         run: >-
           cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }}
-          --exclude windows-composition --exclude canvas-standalone --exclude test_composition
+          --exclude windows-composition --exclude canvas-standalone --exclude text-vertical --exclude test_composition
           --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
           --exclude test_interop --exclude 'csharp-*'
       - name: Test system Composition stack
-        run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
+        run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p text-vertical -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
       - name: Test COM diagnostics
         env:
           RUSTFLAGS: "-D warnings --cfg windows_cast_diagnostics"

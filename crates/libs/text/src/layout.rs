@@ -3,8 +3,8 @@ use std::ops::{Range, RangeBounds};
 
 /// Measured size and position of laid-out text, in device-independent pixels.
 ///
-/// Returned by [`TextLayout::metrics`]. `left`/`top` are the offset of the inked text within the
-/// layout box (for example, when centered).
+/// Returned by [`TextLayout::metrics`]. Coordinates are physical: x increases to the right and y
+/// increases downward. These layout measurements exclude glyph overhang.
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 #[non_exhaustive]
 pub struct TextMetrics {
@@ -16,8 +16,10 @@ pub struct TextMetrics {
     pub width: f32,
     /// Width of the formatted text, including trailing whitespace.
     pub width_including_trailing_whitespace: f32,
-    /// Height of the formatted text.
+    /// Height of the formatted text, ignoring trailing whitespace.
     pub height: f32,
+    /// Height of the formatted text, including trailing whitespace.
+    pub height_including_trailing_whitespace: f32,
     /// Maximum width given to the layout (its layout box width).
     pub layout_width: f32,
     /// Maximum height given to the layout (its layout box height).
@@ -27,7 +29,7 @@ pub struct TextMetrics {
 }
 
 impl TextMetrics {
-    /// The bounding rectangle of the inked text within the layout box.
+    /// The formatted text bounds, excluding trailing whitespace and glyph overhang.
     pub fn bounds(&self) -> Rect {
         Rect::from_xywh(self.left, self.top, self.width, self.height)
     }
@@ -75,11 +77,12 @@ pub struct LineMetrics {
     pub trailing_whitespace_length: usize,
     /// UTF-8 byte length of the newline at the end of the line, or zero.
     pub newline_length: usize,
-    /// Top edge of the line relative to the layout box.
-    pub top: f32,
-    /// Height of the line.
-    pub height: f32,
-    /// Distance from the top of the line to its baseline.
+    /// The line's physical band relative to the layout box. Horizontal lines span the layout
+    /// width; vertical columns span its height. This is not the bounds of the glyphs.
+    pub bounds: Rect,
+    /// Distance to the line baseline from the band's leading edge in flow order: top for
+    /// downward flow, bottom for upward flow, left for rightward flow, or right for leftward
+    /// flow. Individual runs can use other baselines, such as rotated Latin in a CJK column.
     pub baseline: f32,
 }
 
@@ -91,7 +94,7 @@ pub struct LineMetrics {
 pub struct ClusterMetrics {
     /// UTF-8 byte range of the cluster.
     pub text_range: Range<usize>,
-    /// Advance width of the cluster.
+    /// Advance along the reading axis: horizontal width or vertical height.
     pub width: f32,
     /// `true` if a line can break after the cluster.
     pub can_wrap_line_after: bool,
@@ -129,7 +132,7 @@ impl FontFeature {
 /// A layout shapes the text once, then answers geometry queries without re-shaping. Text
 /// positions are UTF-8 byte offsets into the string passed to [`TextLayout::new`].
 pub struct TextLayout {
-    raw: IDWriteTextLayout,
+    raw: IDWriteTextLayout2,
     offsets: Offsets,
 }
 
@@ -154,6 +157,8 @@ impl TextLayout {
                     max_height,
                 )
                 .unwrap()
+                .cast()
+                .unwrap()
         };
         Self { raw, offsets }
     }
@@ -165,14 +170,16 @@ impl TextLayout {
 
     /// Measures the laid-out text.
     pub fn metrics(&self) -> TextMetrics {
-        let mut m = DWRITE_TEXT_METRICS::default();
-        unsafe { self.raw.GetMetrics(&mut m).unwrap() };
+        let mut metrics = DWRITE_TEXT_METRICS1::default();
+        unsafe { self.raw.GetMetrics(&mut metrics).unwrap() };
+        let m = metrics.base;
         TextMetrics {
             left: m.left,
             top: m.top,
             width: m.width,
             width_including_trailing_whitespace: m.widthIncludingTrailingWhitespace,
             height: m.height,
+            height_including_trailing_whitespace: metrics.heightIncludingTrailingWhitespace,
             layout_width: m.layoutWidth,
             layout_height: m.layoutHeight,
             line_count: m.lineCount,
@@ -202,8 +209,8 @@ impl TextLayout {
 
     /// Returns the caret rectangle for the character at `position`, a UTF-8 byte offset that
     /// must lie on a character boundary. Pass `trailing = true` for the caret after the
-    /// character. The rect is a zero-width vertical line at the caret, spanning the line
-    /// height.
+    /// character. The rect spans the native hit-test box across the reading axis: a zero-width
+    /// vertical line for horizontal text, or a zero-height horizontal line for vertical text.
     pub fn caret_bounds(&self, position: usize, trailing: bool) -> Rect {
         let mut x = 0.0f32;
         let mut y = 0.0f32;
@@ -219,7 +226,14 @@ impl TextLayout {
                 )
                 .unwrap();
         }
-        Rect::from_xywh(x, y, 0.0, m.height)
+        if matches!(
+            unsafe { self.raw.GetReadingDirection() },
+            DWRITE_READING_DIRECTION_TOP_TO_BOTTOM | DWRITE_READING_DIRECTION_BOTTOM_TO_TOP
+        ) {
+            Rect::from_xywh(m.left, y, m.width, 0.0)
+        } else {
+            Rect::from_xywh(x, m.top, 0.0, m.height)
+        }
     }
 
     /// Resizes the layout box. Wrapping, alignment, and trimming reflow to the new size. Panics if
@@ -231,7 +245,7 @@ impl TextLayout {
         }
     }
 
-    /// Returns the metrics of each line, in order.
+    /// Returns the metrics of each line or column, in text order.
     pub fn line_metrics(&self) -> Vec<LineMetrics> {
         let metrics = self.metrics();
         let lines = read_array(metrics.line_count, |buffer, len, count| unsafe {
@@ -240,8 +254,8 @@ impl TextLayout {
 
         let mut cursor = self.offsets.cursor();
         let mut start = 0;
-        // Lines stack down from the top of the text.
-        let mut top = metrics.top;
+        let flow = unsafe { self.raw.GetFlowDirection() };
+        let mut advance = 0.0;
 
         lines
             .iter()
@@ -253,16 +267,53 @@ impl TextLayout {
                 let newline = cursor.utf8(end - line.newlineLength);
                 let text_end = cursor.utf8(end);
                 start = end;
-                let line_top = top;
-                top += line.height;
+                let (bounds, baseline) = match flow {
+                    DWRITE_FLOW_DIRECTION_TOP_TO_BOTTOM => (
+                        Rect::from_xywh(
+                            0.0,
+                            metrics.top + advance,
+                            metrics.layout_width,
+                            line.height,
+                        ),
+                        line.baseline,
+                    ),
+                    DWRITE_FLOW_DIRECTION_BOTTOM_TO_TOP => (
+                        Rect::from_xywh(
+                            0.0,
+                            metrics.top + metrics.height - advance - line.height,
+                            metrics.layout_width,
+                            line.height,
+                        ),
+                        line.height - line.baseline,
+                    ),
+                    DWRITE_FLOW_DIRECTION_LEFT_TO_RIGHT => (
+                        Rect::from_xywh(
+                            metrics.left + advance,
+                            0.0,
+                            line.height,
+                            metrics.layout_height,
+                        ),
+                        line.height - line.baseline,
+                    ),
+                    DWRITE_FLOW_DIRECTION_RIGHT_TO_LEFT => (
+                        Rect::from_xywh(
+                            metrics.left + metrics.width - advance - line.height,
+                            0.0,
+                            line.height,
+                            metrics.layout_height,
+                        ),
+                        line.baseline,
+                    ),
+                    _ => panic!("invalid flow direction"),
+                };
+                advance += line.height;
 
                 LineMetrics {
                     text_range: text_start..text_end,
                     trailing_whitespace_length: text_end - whitespace,
                     newline_length: text_end - newline,
-                    top: line_top,
-                    height: line.height,
-                    baseline: line.baseline,
+                    bounds,
+                    baseline,
                 }
             })
             .collect()
@@ -300,8 +351,9 @@ impl TextLayout {
     }
 
     /// Returns the rectangles covering `range`, a UTF-8 byte range, relative to the layout box.
-    /// A range that spans lines or changes direction has more than one rectangle, and an empty
-    /// range has one zero-width rectangle at its position. Use this to draw a selection.
+    /// A range that spans lines or changes direction has more than one rectangle. An empty
+    /// range has one rectangle with zero extent along the reading axis. Use this to draw a
+    /// selection.
     pub fn range_bounds(&self, range: impl RangeBounds<usize>) -> Vec<Rect> {
         let range = self.offsets.range(range);
         // A selection usually covers a few lines, with more rectangles where direction changes.
@@ -433,7 +485,8 @@ impl TextLayout {
     /// interfaces fail to build. Use [`to_interface`](Self::to_interface) to query for other
     /// interfaces.
     pub fn as_interface<T: Interface>(&self) -> &T {
-        self.raw.as_interface()
+        let raw: &IDWriteTextLayout = &self.raw;
+        raw.as_interface()
     }
 
     /// Casts the underlying `IDWriteTextLayout` to `T`.
