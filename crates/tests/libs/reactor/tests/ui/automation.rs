@@ -239,7 +239,7 @@ impl Automation {
                         {
                             continue;
                         }
-                        // DataItem text belongs to the container's child peer.
+                        // Item text belongs to a descendant of the container.
                         let content = item.FindAll(TreeScope_Descendants, &all)?;
                         let mut matches = false;
                         for index in 0..content.Length()? {
@@ -293,7 +293,7 @@ impl Automation {
     }
 
     /// Waits until the selection of `id` is one element named `name`, either directly or through
-    /// a descendant such as a DataItem's text. Controls without a selection pattern, such as
+    /// a descendant such as an item's text. Controls without a selection pattern, such as
     /// RadioButtons, are checked through the named descendant's selection item pattern.
     pub fn selected_name(&self, id: &str, name: &str) -> Result<()> {
         const SELECTION_ITEM_PATTERN: i32 = 10010;

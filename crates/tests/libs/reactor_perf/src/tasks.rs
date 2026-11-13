@@ -499,8 +499,8 @@ impl Component for TaskList {
         input.shared.0.borrow_mut().views[1] += 1;
         let keys = Rc::clone(&input.tasks);
         let input = input.clone();
-        ScrollViewer::new()
-            .content(ItemsRepeater::new().virtual_source(VirtualSource::new(
+        ListView::new()
+            .virtual_source(VirtualSource::new(
                 input.key_revision,
                 input.tasks.len(),
                 move |index| keys[index].id,
@@ -511,7 +511,7 @@ impl Component for TaskList {
                         input.shared.clone(),
                     ))
                 },
-            )))
+            ))
             .into()
     }
 }

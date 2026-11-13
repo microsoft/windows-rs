@@ -17,7 +17,6 @@ impl WinUiAdapter {
             return Err(WinUiError::InvalidObject(child));
         }
         let child_element = self.ui_element(child)?;
-        let data_content_key = self.data_content_key.clone();
         match (self.handle(parent)?, relation) {
             (Handle::Generated(value), relation) => {
                 value
@@ -27,12 +26,6 @@ impl WinUiAdapter {
             (Handle::TreeNode(parent), RelationId::Content) => {
                 parent.value.SetContent(&child_element)?;
                 parent.content = Some(child);
-            }
-            (Handle::Data(parent), RelationId::Content) => {
-                let properties = parent.cast::<IMap<HSTRING, IInspectable>>()?;
-                let content: IInspectable = child_element.cast()?;
-                properties.Insert(&data_content_key, &content)?;
-                properties.Insert(&self.data_text_visibility_key, &data_string("Collapsed"))?;
             }
             _ => return Err(WinUiError::InvalidRelation(parent, relation)),
         }
@@ -49,7 +42,6 @@ impl WinUiAdapter {
         if self.owners.get(&child) != Some(&(parent, relation)) {
             return Err(WinUiError::ChildNotFound(child));
         }
-        let data_content_key = self.data_content_key.clone();
         match (self.handle(parent)?, relation) {
             (Handle::Generated(value), relation) => {
                 value
@@ -61,11 +53,6 @@ impl WinUiAdapter {
                     windows_reference::IReference::from(parent.text.clone()).into();
                 parent.value.SetContent(&content)?;
                 parent.content = None;
-            }
-            (Handle::Data(parent), RelationId::Content) => {
-                let properties = parent.cast::<IMap<HSTRING, IInspectable>>()?;
-                properties.Insert(&data_content_key, None)?;
-                properties.Insert(&self.data_text_visibility_key, &data_string("Visible"))?;
             }
             _ => return Err(WinUiError::InvalidRelation(parent, relation)),
         }
@@ -123,8 +110,7 @@ impl WinUiAdapter {
                         .InsertAt(index32(index)?, &self.tree_node(child)?)?;
                 }
                 Realization::Container => {
-                    self.items(parent)?
-                        .InsertAt(index32(index)?, &self.inspectable(child)?)?;
+                    return Err(WinUiError::InvalidRelation(parent, relation));
                 }
             }
             self.owners.insert(child, (parent, relation));
@@ -191,11 +177,7 @@ impl WinUiAdapter {
                     values.RemoveAt(index32(index)?)?;
                 }
                 Realization::Container => {
-                    let values = self.items(parent)?;
-                    if values.GetAt(index32(index)?)? != self.inspectable(child)? {
-                        return Err(WinUiError::ChildNotFound(child));
-                    }
-                    values.RemoveAt(index32(index)?)?;
+                    return Err(WinUiError::InvalidRelation(parent, relation));
                 }
             }
             self.owners.remove(&child);
@@ -220,7 +202,7 @@ impl WinUiAdapter {
         children: &[ObjectId],
     ) -> Result<(), WinUiError> {
         let selection = selection_for_relation(self.kind(parent)?, relation);
-        let mut selected = selection
+        let selected = selection
             .map(|selection| self.read_selected_item(parent, selection))
             .transpose()?
             .flatten();
@@ -268,38 +250,7 @@ impl WinUiAdapter {
                     }
                 }
                 Realization::Container => {
-                    let values = self.items(parent)?;
-                    if moves.len().saturating_add(1) >= children.len() {
-                        let children = children
-                            .iter()
-                            .map(|child| self.inspectable(*child).map(Some))
-                            .collect::<Result<Vec<_>, _>>()?;
-                        values.ReplaceAll(&children)?;
-                    } else {
-                        for movement in moves {
-                            let child = self.inspectable(movement.child)?;
-                            let mut previous = 0;
-                            if !values.IndexOf(&child, &mut previous)? {
-                                return Err(WinUiError::ChildNotFound(movement.child));
-                            }
-                            let moved = self.reissue_data_item(movement.child)?;
-                            if selected.as_ref() == Some(&child) {
-                                selected = Some(moved.clone());
-                            }
-                            values.RemoveAt(previous)?;
-                            let index = if let Some(before) = movement.before {
-                                let before = self.inspectable(before)?;
-                                let mut index = 0;
-                                if !values.IndexOf(&before, &mut index)? {
-                                    return Err(WinUiError::ChildNotFound(movement.child));
-                                }
-                                index
-                            } else {
-                                values.Size()?
-                            };
-                            values.InsertAt(index, &moved)?;
-                        }
-                    }
+                    return Err(WinUiError::InvalidRelation(parent, relation));
                 }
             }
             if let (Some(selection), Some(selected)) = (selection, selected.as_ref()) {
@@ -339,7 +290,7 @@ impl WinUiAdapter {
 
     /// Drops the owner's selection notifications while Reactor mutates a relation whose children
     /// carry the selection, or whose index the same batch writes afterwards.
-    fn suppress_selection(
+    pub(super) fn suppress_selection(
         &self,
         owner: ObjectId,
         relation: RelationId,
@@ -369,7 +320,7 @@ impl WinUiAdapter {
             .map(|contract| contract.event))
     }
 
-    fn release_selection(&self, owner: ObjectId, event: Option<EventId>) {
+    pub(super) fn release_selection(&self, owner: ObjectId, event: Option<EventId>) {
         if let Some(event) = event {
             self.event_queue.feedback.borrow_mut().release(owner, event);
         }
@@ -384,7 +335,7 @@ impl WinUiAdapter {
         match relation_contract(self.kind(parent)?, relation)?.realization {
             Realization::Owned => com_identity(&self.ui_element(child)?),
             Realization::Structural => com_identity(&self.tree_node(child)?),
-            Realization::Container => com_identity(&self.inspectable(child)?),
+            Realization::Container => Err(WinUiError::InvalidRelation(parent, relation)),
         }
     }
 
@@ -444,7 +395,6 @@ impl WinUiAdapter {
                 Handle::Generated(value) => value.kind(),
                 Handle::TreeView(_) => ObjectType::TreeView,
                 Handle::TreeNode(_) => ObjectType::TreeNode,
-                Handle::Data(_) => ObjectType::DataItem,
             },
         )
     }
@@ -457,41 +407,7 @@ impl WinUiAdapter {
         {
             Handle::Generated(value) => value.ui_element(),
             Handle::TreeView(value) => Ok(value.value.cast()?),
-            Handle::TreeNode(_) | Handle::Data(_) => Err(WinUiError::InvalidObject(object)),
-        }
-    }
-
-    /// Replaces a data item's native object before Reactor moves it within `Items`. WinUI keeps the
-    /// removed entry's container bound to the old object until its next layout pass, and a
-    /// selection write in the same batch can prepare a container for the moved item first. The old
-    /// object releases its content so the two containers never claim the same element.
-    fn reissue_data_item(&mut self, object: ObjectId) -> Result<IInspectable, WinUiError> {
-        let Some(Handle::Data(previous)) = self.handles.get(&object) else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        let previous = previous.clone();
-        let values = previous
-            .First()?
-            .map(|pair| Ok((pair.Key()?, pair.Value().ok())))
-            .collect::<Result<BTreeMap<_, _>, WinUiError>>()?;
-        previous.Insert(&self.data_content_key, None)?;
-        let value: IObservableMap<HSTRING, IInspectable> = values.into();
-        let inspectable: IInspectable = value.cast()?;
-        if let Some(item) = self.event_queue.items.borrow_mut().get_mut(&object) {
-            item.identity = com_identity(&inspectable)?;
-        }
-        self.handles.insert(object, Handle::Data(value));
-        Ok(inspectable)
-    }
-
-    fn inspectable(&self, object: ObjectId) -> Result<IInspectable, WinUiError> {
-        match self
-            .handles
-            .get(&object)
-            .ok_or(WinUiError::MissingObject(object))?
-        {
-            Handle::Data(value) => Ok(value.cast()?),
-            _ => Err(WinUiError::InvalidObject(object)),
+            Handle::TreeNode(_) => Err(WinUiError::InvalidObject(object)),
         }
     }
 
@@ -535,29 +451,6 @@ impl WinUiAdapter {
         }
     }
 
-    fn items(&self, object: ObjectId) -> Result<native::ItemCollection, WinUiError> {
-        match self
-            .handles
-            .get(&object)
-            .ok_or(WinUiError::MissingObject(object))?
-        {
-            Handle::Generated(GeneratedHandle::ListView(value)) => {
-                Ok(value.value.cast::<native::IItemsControl>()?.Items()?)
-            }
-            _ => Err(WinUiError::InvalidObject(object)),
-        }
-    }
-
-    pub(super) fn set_data_text(&mut self, object: ObjectId, text: &str) -> Result<(), WinUiError> {
-        let text_key = self.data_text_key.clone();
-        let Handle::Data(value) = self.handle(object)? else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        let properties = value.cast::<IMap<HSTRING, IInspectable>>()?;
-        properties.Insert(&text_key, &data_string(text))?;
-        Ok(())
-    }
-
     pub(super) fn tree_template(&mut self) -> Result<native::DataTemplate, WinUiError> {
         if let Some(template) = &self.tree_template {
             return Ok(template.clone());
@@ -571,24 +464,6 @@ impl WinUiAdapter {
         )?
         .cast::<native::DataTemplate>()?;
         self.tree_template = Some(template.clone());
-        Ok(template)
-    }
-
-    pub(super) fn list_template(&mut self) -> Result<native::DataTemplate, WinUiError> {
-        if let Some(template) = &self.list_template {
-            return Ok(template.clone());
-        }
-        let template = native::XamlReader::Load(
-            "<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>\
-             <Grid>\
-             <TextBlock HorizontalAlignment='Left' Text='{Binding [Text]}' \
-             Visibility='{Binding [TextVisibility]}'/>\
-             <ContentPresenter Content='{Binding [Content]}'/>\
-             </Grid>\
-             </DataTemplate>",
-        )?
-        .cast::<native::DataTemplate>()?;
-        self.list_template = Some(template.clone());
         Ok(template)
     }
 
@@ -692,6 +567,7 @@ impl WinUiAdapter {
         // notifications from replaying an order that a later render has already replaced.
         let mut observation = observation.cloned();
         let mut native_order = None;
+        let mut native_tokens = None;
         if let Some(Observation::Reorder {
             object,
             relation,
@@ -701,9 +577,18 @@ impl WinUiAdapter {
             if !self.handles.contains_key(object) {
                 return None;
             }
-            let native = self.native_children(*object, *relation).unwrap();
-            children.clone_from(&native);
-            native_order = Some(native);
+            if let Some(items) = self.virtual_items.get(object) {
+                let tokens = items.tokens();
+                native_tokens = Some(Arc::clone(&tokens));
+                observation = Some(Observation::VirtualReorder {
+                    object: *object,
+                    tokens,
+                });
+            } else {
+                let native = self.native_children(*object, *relation).unwrap();
+                children.clone_from(&native);
+                native_order = Some(native);
+            }
         }
         let event = event.and_then(|queued| {
             let call = match (&queued.handler, queued.event) {
@@ -722,9 +607,14 @@ impl WinUiAdapter {
                     unreachable!("{event:?} has no presentation")
                 }
             }?;
-            let call = match (call, native_order) {
-                (EventCall::Items(callback, _), Some(native)) => EventCall::Items(callback, native),
-                (call, _) => call,
+            let call = match (call, native_order, native_tokens.clone()) {
+                (EventCall::Items(callback, _), Some(native), _) => {
+                    EventCall::Items(callback, native)
+                }
+                (EventCall::Items(callback, _), _, Some(tokens)) => {
+                    EventCall::Tokens(callback, tokens)
+                }
+                (call, ..) => call,
             };
             Some(EventDispatch::new(queued.object, queued.event, call))
         });
@@ -744,13 +634,9 @@ impl WinUiAdapter {
                     .map(|index| com_identity(&values.get_at(index)?))
                     .collect::<Result<Vec<_>, _>>()?
             }
-            Realization::Container => {
-                let values = self.items(object)?;
-                (0..values.Size()?)
-                    .map(|index| com_identity(&values.GetAt(index)?))
-                    .collect::<Result<Vec<_>, _>>()?
+            Realization::Container | Realization::Structural => {
+                return Err(WinUiError::InvalidRelation(object, relation));
             }
-            Realization::Structural => return Err(WinUiError::InvalidRelation(object, relation)),
         };
         let items = self.event_queue.items.borrow();
         let registered = items
@@ -763,8 +649,4 @@ impl WinUiAdapter {
             .filter_map(|identity| registered.get(identity).copied())
             .collect())
     }
-}
-
-pub(super) fn data_string(value: &str) -> IInspectable {
-    windows_reference::IReference::from(HSTRING::from(value)).into()
 }

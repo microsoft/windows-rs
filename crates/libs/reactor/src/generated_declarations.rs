@@ -3128,6 +3128,12 @@ impl TreeNode {
         self
     }
 }
+/// A virtualized list of keyed rows.
+///
+/// Rows from [`Self::item`], [`Self::items`], and [`Self::virtual_source`] mount on
+/// demand and are disposed when recycled. Stable keys preserve a retained row's
+/// identity, but not its component-local state after recycling. Keep durable row
+/// state in an owning component or shared model outside the row.
 #[derive(Clone, Debug, PartialEq)]
 pub struct ListView(Declaration);
 impl ListView {
@@ -3170,22 +3176,20 @@ impl ListView {
     }
     enabled_methods!();
     visual_methods!();
-    /// Rejects values outside this relation's generated type contract.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor::*;
-    /// let _ = ListView::new().items([TextBlock::new().text("Text")]);
-    /// ```
-    pub fn items(mut self, children: impl IntoIterator<Item = DataItem>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Items,
-            RelationValue::Many(Rc::new(
-                children
-                    .into_iter()
-                    .map(|child| DeclaredNode::Object(child.0))
-                    .collect(),
-            )),
-        );
+    pub fn item(mut self, key: impl Into<Key>, visual: impl Into<View>) -> Self {
+        self.0 = self.0.virtual_item(RelationId::Items, keyed(key, visual));
+        self
+    }
+    pub fn items(mut self, items: impl IntoIterator<Item = KeyedView>) -> Self {
+        self.0 = self
+            .0
+            .virtual_items(RelationId::Items, VirtualItems::eager(items));
+        self
+    }
+    pub fn virtual_source(mut self, source: VirtualSource) -> Self {
+        self.0 = self
+            .0
+            .virtual_items(RelationId::Items, VirtualItems::Lazy(source));
         self
     }
     pub fn on_selection_changed(
@@ -3214,32 +3218,6 @@ impl Default for ListView {
 impl From<ListView> for View {
     fn from(value: ListView) -> Self {
         Self(DeclaredNode::Object(value.0))
-    }
-}
-#[derive(Clone, Debug, PartialEq)]
-pub struct DataItem(Declaration);
-impl DataItem {
-    pub fn new(key: impl Into<Key>, text: impl AsRef<str>) -> Self {
-        let declaration = Declaration::new(ObjectType::DataItem);
-        let declaration = declaration.key(key);
-        let declaration = declaration.property(
-            PropertyId::Text,
-            PropertyValue::String(Rc::from(text.as_ref())),
-        );
-        Self(declaration)
-    }
-    /// Rejects values outside this relation's generated type contract.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor::*;
-    /// let _ = DataItem::new("key", "Text").content(TreeNode::new("node", "Node"));
-    /// ```
-    pub fn content(mut self, content: impl Into<View>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Content,
-            RelationValue::One(Some(Rc::new(content.into().0))),
-        );
-        self
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -4399,41 +4377,6 @@ impl Default for RadioButtons {
 }
 impl From<RadioButtons> for View {
     fn from(value: RadioButtons) -> Self {
-        Self(DeclaredNode::Object(value.0))
-    }
-}
-#[derive(Clone, Debug, PartialEq)]
-pub struct ItemsRepeater(Declaration);
-impl ItemsRepeater {
-    pub fn new() -> Self {
-        let declaration = Declaration::new(ObjectType::ItemsRepeater);
-        Self(declaration)
-    }
-    visual_methods!();
-    pub fn item(mut self, key: impl Into<Key>, visual: impl Into<View>) -> Self {
-        self.0 = self.0.virtual_item(RelationId::Items, keyed(key, visual));
-        self
-    }
-    pub fn items(mut self, items: impl IntoIterator<Item = KeyedView>) -> Self {
-        self.0 = self
-            .0
-            .virtual_items(RelationId::Items, VirtualItems::eager(items));
-        self
-    }
-    pub fn virtual_source(mut self, source: VirtualSource) -> Self {
-        self.0 = self
-            .0
-            .virtual_items(RelationId::Items, VirtualItems::Lazy(source));
-        self
-    }
-}
-impl Default for ItemsRepeater {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-impl From<ItemsRepeater> for View {
-    fn from(value: ItemsRepeater) -> Self {
         Self(DeclaredNode::Object(value.0))
     }
 }

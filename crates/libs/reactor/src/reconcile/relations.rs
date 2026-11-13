@@ -80,10 +80,16 @@ impl Planner<'_> {
         let (set, clear): (Rc<[Property]>, Rc<[PropertyId]>) = match declared {
             Some(declared) if items_changed || Some(declared) != previous => {
                 let len = match contract.items {
-                    IndexItems::Relation(relation) => self
-                        .retained
-                        .children(object, relation)
-                        .map_or(0, <[_]>::len),
+                    IndexItems::Relation(relation) => {
+                        let retained = self.retained.get(object).unwrap();
+                        match &retained.virtual_items {
+                            Some(items) if items.relation == relation => items.keys.len(),
+                            _ => self
+                                .retained
+                                .children(object, relation)
+                                .map_or(0, <[_]>::len),
+                        }
+                    }
                     IndexItems::Property(items) => declaration
                         .properties
                         .as_slice()

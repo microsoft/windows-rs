@@ -26,15 +26,16 @@ fn disparate_controls_mount_into_the_same_retained_arena() {
             keyed(
                 "list",
                 ListView::new().items([
-                    DataItem::new("first", "First"),
-                    DataItem::new("second", "Second"),
+                    keyed("first", text("First")),
+                    keyed("second", text("Second")),
                 ]),
             ),
         ]),
     );
     let root = runtime.graph().root().unwrap();
 
-    assert_eq!(runtime.graph().object_count(), 10);
+    // List rows wait for native realization.
+    assert_eq!(runtime.graph().object_count(), 8);
     assert_eq!(runtime.graph().kind(root), Some(ObjectType::Grid));
     assert_eq!(
         runtime
@@ -205,38 +206,6 @@ fn hierarchical_objects_use_the_same_keyed_relation_reconciler() {
         !mutations
             .iter()
             .any(|mutation| matches!(mutation, Mutation::Create { .. } | Mutation::Destroy { .. }))
-    );
-}
-
-#[test]
-fn container_generated_data_uses_the_same_keyed_relation_reconciler() {
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(ListView::new().items([
-        DataItem::new("first", "First"),
-        DataItem::new("second", "Second"),
-    ]));
-    let list = runtime.graph().root().unwrap();
-    let before = runtime
-        .graph()
-        .children(list, RelationId::Items)
-        .unwrap()
-        .to_vec();
-
-    let mutations = runtime.update(ListView::new().items([
-        DataItem::new("second", "Second"),
-        DataItem::new("first", "Changed"),
-    ]));
-
-    assert_eq!(
-        runtime.graph().children(list, RelationId::Items),
-        Some([before[1], before[0]].as_slice())
-    );
-    assert_eq!(
-        mutations
-            .iter()
-            .filter(|mutation| matches!(mutation, Mutation::Reorder { .. }))
-            .count(),
-        1
     );
 }
 

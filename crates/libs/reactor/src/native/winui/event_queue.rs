@@ -95,6 +95,15 @@ impl NativeEventQueue {
         self.push(NativeEvent::Realization(request));
     }
 
+    /// Returns whether a realization into the container is still queued.
+    pub(super) fn realization_pending(
+        &self,
+        collection: ObjectId,
+        container: RealizedContainer,
+    ) -> bool {
+        pending_realization(&self.events.borrow(), collection, container).is_some()
+    }
+
     /// Schedules one dispatcher callback to run the waker, if any, for the queued work.
     pub(super) fn wake(self: &Rc<Self>) {
         if self.waker.borrow().is_none() || self.wake_pending.replace(true) {
@@ -153,7 +162,24 @@ fn coalesce_queued_realization(
     else {
         return request;
     };
-    let pending = events.iter().rposition(|event| {
+    if let Some(pending) = pending_realization(events, collection, container) {
+        events.remove(pending);
+        RealizationRequest::Cancel {
+            collection,
+            container,
+            source_revision,
+        }
+    } else {
+        request
+    }
+}
+
+fn pending_realization(
+    events: &VecDeque<QueuedNativeEvent>,
+    collection: ObjectId,
+    container: RealizedContainer,
+) -> Option<usize> {
+    events.iter().rposition(|event| {
         matches!(
             event,
             NativeEvent::Realization(RealizationRequest::Realize {
@@ -166,17 +192,7 @@ fn coalesce_queued_realization(
                 ..
             }) if *pending_collection == collection && *pending_container == container
         )
-    });
-    if let Some(pending) = pending {
-        events.remove(pending);
-        RealizationRequest::Cancel {
-            collection,
-            container,
-            source_revision,
-        }
-    } else {
-        request
-    }
+    })
 }
 
 impl WinUiAdapter {

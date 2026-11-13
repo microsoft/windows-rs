@@ -247,10 +247,10 @@ impl Component for TaskEditor {
                         .maximum(1.0)
                         .is_indeterminate(self.load.is_some()),
                 )),
-                ScrollViewer::new()
+                ListView::new()
                     .grid_row(1)
                     .margin(Thickness::new(0.0, 8.0, 0.0, 0.0))
-                    .content(ItemsRepeater::new().virtual_source(rows)),
+                    .virtual_source(rows),
             ))
             .into()
     }

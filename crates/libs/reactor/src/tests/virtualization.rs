@@ -1,13 +1,225 @@
 use super::*;
 
 #[test]
+fn virtual_refreshes_do_not_revive_released_containers_after_reset() {
+    struct ResetAdapter {
+        inner: RecordingAdapter,
+        released: Option<ObjectId>,
+        reclaim: bool,
+    }
+
+    impl Adapter for ResetAdapter {
+        fn peek_native_event(&self) -> Option<NativeEvent> {
+            self.inner.peek_native_event()
+        }
+
+        fn pop_native_event(&mut self) -> Option<NativeEvent> {
+            self.inner.pop_native_event()
+        }
+
+        fn container_leased(&self, collection: ObjectId, container: RealizedContainer) -> bool {
+            self.released != Some(collection) || container != RealizedContainer(1)
+        }
+
+        fn apply(&mut self, mutations: &[Mutation]) {
+            for mutation in mutations {
+                if let Mutation::SetVirtualSource {
+                    object,
+                    keys,
+                    source_revision: 1,
+                } = mutation
+                {
+                    // Reset ends the old native lease before LayoutUpdated queues its recycle.
+                    self.released = Some(*object);
+                    if self.reclaim {
+                        self.inner
+                            .queue_realization(RealizationRequest::RealizeKey {
+                                collection: *object,
+                                container: RealizedContainer(3),
+                                index: 1,
+                                token: keys[1],
+                            });
+                    }
+                }
+                if let Mutation::Realize {
+                    parent, container, ..
+                } = mutation
+                {
+                    assert!(
+                        self.container_leased(*parent, *container),
+                        "refresh into ended lease"
+                    );
+                }
+            }
+            self.inner.apply(mutations);
+        }
+    }
+
+    for reclaim in [false, true] {
+        let mut runtime = Runtime::new(ResetAdapter {
+            inner: RecordingAdapter::new(),
+            released: None,
+            reclaim,
+        });
+        runtime.update(
+            ListView::new()
+                .item(0_u64, TextBlock::new().text("zero"))
+                .item(1_u64, TextBlock::new().text("one")),
+        );
+        let collection = runtime.graph().root().unwrap();
+        for index in 0..2 {
+            runtime
+                .adapter_mut()
+                .inner
+                .queue_realization(RealizationRequest::Realize {
+                    collection,
+                    container: RealizedContainer(index as u64 + 1),
+                    index,
+                    source_revision: 0,
+                });
+        }
+        runtime.dispatch_native_events();
+        let old = runtime
+            .graph()
+            .virtual_realization(collection, RealizedContainer(1))
+            .unwrap();
+        let retained = runtime
+            .graph()
+            .virtual_realization(collection, RealizedContainer(2))
+            .unwrap();
+
+        runtime.update(
+            ListView::new()
+                .item(1_u64, TextBlock::new().text("updated one"))
+                .item(0_u64, TextBlock::new().text("updated zero")),
+        );
+        runtime.dispatch_native_events();
+        assert_eq!(
+            runtime.graph().properties(retained).unwrap()[0].value,
+            PropertyValue::String(Rc::from("updated one"))
+        );
+        assert_eq!(runtime.graph().kind(old), Some(ObjectType::TextBlock));
+        if reclaim {
+            assert_eq!(
+                runtime
+                    .graph()
+                    .virtual_realization(collection, RealizedContainer(3)),
+                Some(old)
+            );
+            assert_eq!(
+                runtime.graph().properties(old).unwrap()[0].value,
+                PropertyValue::String(Rc::from("updated zero"))
+            );
+        }
+
+        runtime
+            .adapter_mut()
+            .inner
+            .queue_realization(RealizationRequest::Recycle {
+                collection,
+                container: RealizedContainer(1),
+                source_revision: 1,
+            });
+        runtime.dispatch_native_events();
+        assert_eq!(
+            runtime.graph().kind(old),
+            reclaim.then_some(ObjectType::TextBlock)
+        );
+        assert_eq!(
+            runtime.adapter().inner.realized_count(collection),
+            if reclaim { 2 } else { 1 }
+        );
+    }
+}
+
+#[test]
+fn virtual_rows_follow_keys_after_native_reorder_before_render() {
+    check_native_reorder_before_render(false);
+}
+
+#[test]
+fn lazy_virtual_rows_follow_keys_after_native_reorder_before_render() {
+    check_native_reorder_before_render(true);
+}
+
+fn check_native_reorder_before_render(lazy: bool) {
+    let keys = ["first", "second", "third"];
+    let view = |keys: [&'static str; 3], prefix: &'static str| {
+        let list = ListView::new().can_drag_items(true).can_reorder_items(true);
+        if lazy {
+            list.virtual_source(VirtualSource::new(
+                0,
+                keys.len(),
+                move |index| keys[index],
+                move |index| TextBlock::new().text(format!("{prefix}{}", keys[index])),
+            ))
+        } else {
+            list.items(keys.map(|key| keyed(key, TextBlock::new().text(format!("{prefix}{key}")))))
+        }
+    };
+    for adopt in [false, true] {
+        let mut runtime = Runtime::new(RecordingAdapter::new());
+        let mutations = runtime.update(view(keys, ""));
+        let collection = runtime.graph().root().unwrap();
+        let tokens = mutations
+            .into_iter()
+            .find_map(|mutation| match mutation {
+                Mutation::SetVirtualSource { keys, .. } => Some(keys),
+                _ => None,
+            })
+            .unwrap();
+        for order in [[1, 2, 0], [2, 0, 1]] {
+            runtime.adapter_mut().observe(Observation::VirtualReorder {
+                object: collection,
+                tokens: Arc::new(order.map(|index| tokens[index]).to_vec()),
+            });
+            runtime
+                .adapter_mut()
+                .queue_realization(RealizationRequest::RealizeKey {
+                    collection,
+                    container: RealizedContainer(1),
+                    index: 0,
+                    token: tokens[order[0]],
+                });
+            runtime.dispatch_native_events();
+            let row = runtime
+                .graph()
+                .virtual_realization(collection, RealizedContainer(1))
+                .unwrap();
+            assert_eq!(
+                runtime.graph().properties(row).unwrap()[0].value,
+                PropertyValue::String(Rc::from(keys[order[0]])),
+                "lazy={lazy}, order={order:?}"
+            );
+        }
+
+        let next = if adopt {
+            [keys[2], keys[0], keys[1]]
+        } else {
+            keys
+        };
+        runtime.update(view(next, "updated "));
+        runtime.dispatch_native_events();
+        let row = runtime
+            .graph()
+            .virtual_realization(collection, RealizedContainer(1))
+            .unwrap();
+        assert_eq!(
+            runtime.graph().properties(row).unwrap()[0].value,
+            PropertyValue::String(Rc::from("updated third")),
+            "lazy={lazy}, adopt={adopt}"
+        );
+    }
+}
+
+#[test]
 fn virtual_row_kind_changes_detach_once_before_destruction() {
     for container in [RealizedContainer(1), RealizedContainer(2)] {
         let mut adapter = RecordingAdapter::new();
         adapter.record_batches(true);
         let mut runtime = Runtime::new(adapter);
         runtime.update(
-            ItemsRepeater::new().item("row", Border::new().content(TextBlock::new().text("row"))),
+            ListView::new().item("row", Border::new().content(TextBlock::new().text("row"))),
         );
         let collection = runtime.graph().root().unwrap();
         runtime
@@ -71,14 +283,14 @@ fn virtual_row_content_updates_do_not_reset_the_native_source() {
     for lazy in [false, true] {
         let view = |text: &'static str| {
             if lazy {
-                ItemsRepeater::new().virtual_source(VirtualSource::new(
+                ListView::new().virtual_source(VirtualSource::new(
                     0,
                     1,
                     |_| "row",
                     move |_| TextBlock::new().text(text),
                 ))
             } else {
-                ItemsRepeater::new().item("row", TextBlock::new().text(text))
+                ListView::new().item("row", TextBlock::new().text(text))
             }
         };
         let mut runtime = Runtime::new(RecordingAdapter::new());
@@ -106,14 +318,14 @@ fn virtual_row_content_updates_do_not_reset_the_native_source() {
 
         // Fresh view/source closures must not reset the native key/index sequence.
         let next = if lazy {
-            ItemsRepeater::new().virtual_source(VirtualSource::new(
+            ListView::new().virtual_source(VirtualSource::new(
                 0,
                 1,
                 |_| "row",
                 |_| TextBlock::new().text("After"),
             ))
         } else {
-            ItemsRepeater::new().item("row", TextBlock::new().text("After"))
+            ListView::new().item("row", TextBlock::new().text("After"))
         };
         let mutations = runtime.update(next);
         assert!(
@@ -147,7 +359,7 @@ fn virtual_items_realize_only_requested_rows() {
     let source = VirtualSource::new(1, 10_000, Key::from, |index| -> View {
         TextBlock::new().text(index.to_string()).into()
     });
-    runtime.update(ItemsRepeater::new().virtual_source(source));
+    runtime.update(ListView::new().virtual_source(source));
     let collection = runtime.graph().root().unwrap();
     assert_eq!(runtime.adapter().object_count(), 1);
 
@@ -183,7 +395,7 @@ fn virtual_items_realize_only_requested_rows() {
 fn virtual_items_recycle_and_reuse_containers_without_stale_ownership() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime.update(
-        ItemsRepeater::new()
+        ListView::new()
             .item(1_u64, TextBlock::new().text("one"))
             .item(2_u64, TextBlock::new().text("two")),
     );
@@ -257,7 +469,7 @@ fn invalid_virtual_replacement_rolls_back_container_ownership() {
     let replacement: ElementRef = ElementRef::default();
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime.update(
-        ItemsRepeater::new()
+        ListView::new()
             .item("original", Button::new().element_ref(&original))
             .item("replacement", TextBox::new().element_ref(&replacement)),
     );
@@ -305,7 +517,7 @@ fn invalid_virtual_replacement_rolls_back_container_ownership() {
 fn virtual_items_preserve_keyed_child_across_reorder() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime.update(
-        ItemsRepeater::new()
+        ListView::new()
             .item("a", TextBlock::new().text("a"))
             .item("b", TextBlock::new().text("b")),
     );
@@ -334,7 +546,7 @@ fn virtual_items_preserve_keyed_child_across_reorder() {
         .to_vec();
 
     runtime.update(
-        ItemsRepeater::new()
+        ListView::new()
             .item("b", TextBlock::new().text("b"))
             .item("a", TextBlock::new().text("updated")),
     );
@@ -368,7 +580,7 @@ fn virtual_items_preserve_keyed_child_across_reorder() {
 #[test]
 fn virtual_items_acknowledge_recycle_after_source_reset() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
-    runtime.update(ItemsRepeater::new().item("a", TextBlock::new().text("a")));
+    runtime.update(ListView::new().item("a", TextBlock::new().text("a")));
     let collection = runtime.graph().root().unwrap();
     let container = RealizedContainer(1);
     runtime
@@ -380,7 +592,7 @@ fn virtual_items_acknowledge_recycle_after_source_reset() {
             source_revision: 0,
         });
     runtime.dispatch_native_events();
-    runtime.update(ItemsRepeater::new());
+    runtime.update(ListView::new());
     runtime
         .adapter_mut()
         .queue_realization(RealizationRequest::Recycle {
@@ -408,7 +620,7 @@ fn virtual_items_acknowledge_recycle_after_source_reset() {
 #[test]
 fn virtual_items_resolve_native_keys_without_reviving_removed_rows() {
     let view = |keys: &[Key]| {
-        let mut view = ItemsRepeater::new();
+        let mut view = ListView::new();
         for key in keys {
             view = view.item(key.clone(), TextBlock::new().text("row"));
         }
@@ -479,17 +691,17 @@ fn virtual_items_resolve_native_keys_without_reviving_removed_rows() {
 #[should_panic(expected = "duplicate key")]
 fn virtual_items_reject_duplicate_keys() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
-    runtime.update(ItemsRepeater::new());
+    runtime.update(ListView::new());
     runtime.update(
-        ItemsRepeater::new()
+        ListView::new()
             .item("duplicate", TextBlock::new().text("first"))
             .item("duplicate", TextBlock::new().text("second")),
     );
 }
 
-fn virtual_key_view(revision: u64, keys: &[Key]) -> ItemsRepeater {
+fn virtual_key_view(revision: u64, keys: &[Key]) -> ListView {
     let keys = keys.to_vec();
-    ItemsRepeater::new().virtual_source(VirtualSource::new(
+    ListView::new().virtual_source(VirtualSource::new(
         revision,
         keys.len(),
         move |index| keys[index].clone(),
@@ -551,9 +763,9 @@ fn virtual_key_revisions_preserve_only_surviving_tokens() {
 #[test]
 fn virtual_items_ignore_stale_source_requests() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
-    runtime.update(ItemsRepeater::new().item("first", TextBlock::new().text("first")));
+    runtime.update(ListView::new().item("first", TextBlock::new().text("first")));
     let collection = runtime.graph().root().unwrap();
-    runtime.update(ItemsRepeater::new().item("second", TextBlock::new().text("second")));
+    runtime.update(ListView::new().item("second", TextBlock::new().text("second")));
     runtime
         .adapter_mut()
         .queue_realization(RealizationRequest::Realize {
@@ -574,7 +786,7 @@ fn virtual_items_ignore_stale_source_requests() {
 #[test]
 fn virtual_items_remove_active_rows_when_source_becomes_empty() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
-    runtime.update(ItemsRepeater::new().item("first", TextBlock::new().text("first")));
+    runtime.update(ListView::new().item("first", TextBlock::new().text("first")));
     let collection = runtime.graph().root().unwrap();
     runtime
         .adapter_mut()
@@ -592,7 +804,7 @@ fn virtual_items_remove_active_rows_when_source_becomes_empty() {
     };
     runtime.realize_virtual(&lease, index, *view);
 
-    runtime.update(ItemsRepeater::new());
+    runtime.update(ListView::new());
     assert_eq!(runtime.adapter().object_count(), 1);
     assert_eq!(runtime.adapter().realized_count(collection), 0);
     assert!(
@@ -608,7 +820,7 @@ fn virtual_items_remove_active_rows_when_source_becomes_empty() {
 fn virtual_realization_requests_validate_at_work_boundaries() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime.update(
-        ItemsRepeater::new()
+        ListView::new()
             .width(100.0)
             .item("only", TextBlock::new().text("only")),
     );
@@ -668,7 +880,7 @@ fn virtual_realization_requests_validate_at_work_boundaries() {
 #[test]
 fn duplicate_virtual_recycle_is_idempotent() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
-    runtime.update(ItemsRepeater::new().item("only", TextBlock::new().text("only")));
+    runtime.update(ListView::new().item("only", TextBlock::new().text("only")));
     let collection = runtime.graph().root().unwrap();
     runtime
         .adapter_mut()
@@ -699,18 +911,18 @@ fn realized_virtual_children_recycle_before_repeater_destruction() {
     adapter.record_batches(true);
     let mut runtime = Runtime::new(adapter);
     runtime.update(Grid::new().keyed_children([keyed(
-        "repeater",
-        ItemsRepeater::new().item("row", TextBlock::new().text("row")),
+        "list",
+        ListView::new().item("row", TextBlock::new().text("row")),
     )]));
     let root = runtime.graph().root().unwrap();
-    let repeater = runtime
+    let list = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap()[0];
     runtime
         .adapter_mut()
         .queue_realization(RealizationRequest::Realize {
-            collection: repeater,
+            collection: list,
             container: RealizedContainer(1),
             index: 0,
             source_revision: 0,
@@ -724,7 +936,7 @@ fn realized_virtual_children_recycle_before_repeater_destruction() {
         .position(|mutation| {
             matches!(
                 mutation,
-                Mutation::Recycle { parent, .. } if *parent == repeater
+                Mutation::Recycle { parent, .. } if *parent == list
             )
         })
         .unwrap();
@@ -733,7 +945,7 @@ fn realized_virtual_children_recycle_before_repeater_destruction() {
         .position(|mutation| {
             matches!(
                 mutation,
-                Mutation::Destroy { object } if *object == repeater
+                Mutation::Destroy { object } if *object == list
             )
         })
         .unwrap();
@@ -745,7 +957,7 @@ fn realized_virtual_children_recycle_before_repeater_destruction() {
                 parent,
                 relation: RelationId::Items,
                 ..
-            } if *parent == repeater
+            } if *parent == list
         )
     }));
 }
@@ -757,17 +969,17 @@ fn realized_virtual_children_recycle_before_repeater_replacement() {
     let mut runtime = Runtime::new(adapter);
     runtime.update(Grid::new().keyed_children([keyed(
         "slot",
-        ItemsRepeater::new().item("row", TextBlock::new().text("row")),
+        ListView::new().item("row", TextBlock::new().text("row")),
     )]));
     let root = runtime.graph().root().unwrap();
-    let repeater = runtime
+    let list = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap()[0];
     runtime
         .adapter_mut()
         .queue_realization(RealizationRequest::Realize {
-            collection: repeater,
+            collection: list,
             container: RealizedContainer(1),
             index: 0,
             source_revision: 0,
@@ -781,7 +993,7 @@ fn realized_virtual_children_recycle_before_repeater_replacement() {
         .position(|mutation| {
             matches!(
                 mutation,
-                Mutation::Recycle { parent, .. } if *parent == repeater
+                Mutation::Recycle { parent, .. } if *parent == list
             )
         })
         .unwrap();
@@ -790,7 +1002,7 @@ fn realized_virtual_children_recycle_before_repeater_replacement() {
         .position(|mutation| {
             matches!(
                 mutation,
-                Mutation::Destroy { object } if *object == repeater
+                Mutation::Destroy { object } if *object == list
             )
         })
         .unwrap();
@@ -802,14 +1014,14 @@ fn realized_virtual_children_recycle_before_repeater_replacement() {
                 parent,
                 relation: RelationId::Items,
                 ..
-            } if *parent == repeater
+            } if *parent == list
         )
     }));
 }
 
 #[test]
 fn update_peeks_pending_virtual_work_without_consuming_it() {
-    let view = || ItemsRepeater::new().item("row", TextBlock::new().text("row"));
+    let view = || ListView::new().item("row", TextBlock::new().text("row"));
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime.update(view());
     let collection = runtime.graph().root().unwrap();
@@ -844,7 +1056,7 @@ fn update_peeks_pending_virtual_work_without_consuming_it() {
 fn public_event_api_preserves_virtual_work_until_ordered_dispatch() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime.update(
-        ItemsRepeater::new()
+        ListView::new()
             .item("old", TextBlock::new().text("old"))
             .item("new", TextBlock::new().text("new")),
     );
@@ -909,7 +1121,7 @@ fn public_event_api_preserves_virtual_work_until_ordered_dispatch() {
 fn recycle_before_dispatch_cancels_realization_and_allows_token_reuse() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime.update(
-        ItemsRepeater::new()
+        ListView::new()
             .item("old", TextBlock::new().text("old"))
             .item("new", TextBlock::new().text("new")),
     );
@@ -943,6 +1155,6 @@ fn recycle_before_dispatch_cancels_realization_and_allows_token_reuse() {
     assert_eq!(runtime.adapter().realized_count(collection), 1);
     assert_eq!(runtime.graph().object_count(), 2);
     assert_eq!(runtime.dispatch_native_events(), 0);
-    runtime.update(ItemsRepeater::new());
+    runtime.update(ListView::new());
     assert_eq!(runtime.graph().full_reference_scan_count(), 0);
 }

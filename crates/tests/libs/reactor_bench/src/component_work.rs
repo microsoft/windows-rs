@@ -222,7 +222,7 @@ fn measure(name: &'static str, mut operation: impl FnMut() -> usize) -> Row {
 }
 
 fn virtual_list(count: usize, revision: u64, reversed: bool, offset: usize) -> reactor::View {
-    reactor::ItemsRepeater::new()
+    reactor::ListView::new()
         .virtual_source(reactor::VirtualSource::new(
             revision,
             count,

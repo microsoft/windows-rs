@@ -49,7 +49,6 @@ Microsoft::UI::Xaml::Controls::ColumnDefinitionCollection::{}
 Microsoft::UI::Xaml::Controls::ComboBox::CreateInstance
 Microsoft::UI::Xaml::Controls::CommandBar::CreateInstance
 Microsoft::UI::Xaml::Controls::CommandBarFlyout::CreateInstance
-Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance
 Microsoft::UI::Xaml::Controls::ContentDialog::CreateInstance
 Microsoft::UI::Xaml::Controls::ContentDialogResult::{None, Primary, Secondary}
 Microsoft::UI::Xaml::Controls::DatePicker::CreateInstance
@@ -82,7 +81,7 @@ Microsoft::UI::Xaml::Controls::IColumnDefinition::{put_MaxWidth, put_MinWidth, p
 Microsoft::UI::Xaml::Controls::IComboBox::put_Header
 Microsoft::UI::Xaml::Controls::ICommandBar::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft::UI::Xaml::Controls::ICommandBarFlyout::{get_PrimaryCommands, get_SecondaryCommands}
-Microsoft::UI::Xaml::Controls::IContentControl::put_Content
+Microsoft::UI::Xaml::Controls::IContentControl::{get_ContentTemplateRoot, put_Content}
 Microsoft::UI::Xaml::Controls::IContentDialog::{add_Closed, Hide, remove_Closed, ShowAsync}
 Microsoft::UI::Xaml::Controls::IContentDialogClosedEventArgs::get_Result
 Microsoft::UI::Xaml::Controls::IControl::put_IsEnabled
@@ -99,10 +98,9 @@ Microsoft::UI::Xaml::Controls::IImageIconSource::put_ImageSource
 Microsoft::UI::Xaml::Controls::IInfoBar::{add_Closed, get_IsOpen, remove_Closed}
 Microsoft::UI::Xaml::Controls::IInfoBarClosedEventArgs::get_Reason
 Microsoft::UI::Xaml::Controls::IItemContainer::get_IsSelected
-Microsoft::UI::Xaml::Controls::IItemsControl::{get_Items, put_ItemTemplate}
-Microsoft::UI::Xaml::Controls::IItemsRepeater::{put_ItemsSource, put_ItemTemplate}
-Microsoft::UI::Xaml::Controls::IKeyIndexMapping::{}
-Microsoft::UI::Xaml::Controls::IListViewBase::{add_DragItemsCompleted, remove_DragItemsCompleted}
+Microsoft::UI::Xaml::Controls::IContainerContentChangingEventArgs::{get_InRecycleQueue, get_Item, get_ItemContainer, get_ItemIndex, get_Phase, put_Handled}
+Microsoft::UI::Xaml::Controls::IItemsControl::{get_Items, put_ItemContainerStyle, put_ItemContainerTransitions, put_ItemsPanel, put_ItemsSource, put_ItemTemplate}
+Microsoft::UI::Xaml::Controls::IListViewBase::{add_ContainerContentChanging, add_DragItemsCompleted, put_ShowsScrollingPlaceholders, remove_ContainerContentChanging, remove_DragItemsCompleted}
 Microsoft::UI::Xaml::Controls::Image::CreateInstance
 Microsoft::UI::Xaml::Controls::ImageIcon::CreateInstance
 Microsoft::UI::Xaml::Controls::ImageIconSource::CreateInstance
@@ -146,7 +144,7 @@ Microsoft::UI::Xaml::Controls::ITabViewTabCloseRequestedEventArgs::get_Tab
 Microsoft::UI::Xaml::Controls::ITeachingTip::{add_ActionButtonClick, add_Closed, get_IsOpen, remove_ActionButtonClick, remove_Closed}
 Microsoft::UI::Xaml::Controls::ITeachingTipClosedEventArgs::get_Reason
 Microsoft::UI::Xaml::Controls::ItemCollection::{}
-Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
+Microsoft::UI::Xaml::Controls::ItemsPanelTemplate::{}
 Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, get_SelectionLength, get_SelectionStart, get_Text, put_Header, put_SelectionLength, put_SelectionStart, put_Text, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::ITimePicker::{add_SelectedTimeChanged, put_Header, remove_SelectedTimeChanged}
 Microsoft::UI::Xaml::Controls::ITimePickerSelectedValueChangedEventArgs::get_NewTime
@@ -202,6 +200,7 @@ Microsoft::UI::Xaml::Controls::RowDefinition::CreateInstance
 Microsoft::UI::Xaml::Controls::RowDefinitionCollection::{}
 Microsoft::UI::Xaml::Controls::ScrollView::CreateInstance
 Microsoft::UI::Xaml::Controls::ScrollViewer::CreateInstance
+Microsoft::UI::Xaml::Controls::IScrollViewer::{get_HorizontalOffset, get_VerticalOffset, ChangeViewWithOptionalAnimation}
 Microsoft::UI::Xaml::Controls::SelectorBar::CreateInstance
 Microsoft::UI::Xaml::Controls::SelectorBarItem::CreateInstance
 Microsoft::UI::Xaml::Controls::Slider::CreateInstance
@@ -256,10 +255,7 @@ Microsoft::UI::Xaml::IDependencyObject::{ClearValue, RegisterPropertyChangedCall
 Microsoft::UI::Xaml::IDragEventArgs::{get_DataView, get_DragUIOverride, GetDeferral, put_AcceptedOperation}
 Microsoft::UI::Xaml::IDragOperationDeferral::Complete
 Microsoft::UI::Xaml::IDragUIOverride::{put_Caption, put_IsCaptionVisible}
-Microsoft::UI::Xaml::IElementFactory::{}
-Microsoft::UI::Xaml::IElementFactoryGetArgs::get_Data
-Microsoft::UI::Xaml::IElementFactoryRecycleArgs::get_Element
-Microsoft::UI::Xaml::IFrameworkElement::{add_ActualThemeChanged, add_Loaded, add_SizeChanged, get_ActualHeight, get_ActualTheme, get_ActualWidth, get_IsLoaded, get_Name, get_Resources, get_Tag, put_Height, put_HorizontalAlignment, put_RequestedTheme, put_Style, put_VerticalAlignment, put_Width, remove_ActualThemeChanged, remove_Loaded, remove_SizeChanged}
+Microsoft::UI::Xaml::IFrameworkElement::{add_ActualThemeChanged, add_LayoutUpdated, add_Loaded, add_SizeChanged, get_ActualHeight, get_ActualTheme, get_ActualWidth, get_IsLoaded, get_Name, get_Resources, get_Tag, put_Height, put_HorizontalAlignment, put_RequestedTheme, put_Style, put_VerticalAlignment, put_Width, remove_ActualThemeChanged, remove_LayoutUpdated, remove_Loaded, remove_SizeChanged}
 Microsoft::UI::Xaml::Input::ICharacterReceivedRoutedEventArgs::{get_Character, get_KeyStatus, put_Handled}
 Microsoft::UI::Xaml::Input::IKeyboardAccelerator::{Invoked, put_Key, put_Modifiers}
 Microsoft::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs::put_Handled

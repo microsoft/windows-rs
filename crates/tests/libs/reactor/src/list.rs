@@ -58,16 +58,14 @@ impl Component for ListFixture {
 
     fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
         let items = self.keys.iter().map(|&key| {
-            let item = DataItem::new(key, title(key));
-            if key == "rich" {
-                item.content(
-                    TextBlock::new()
-                        .automation_id("rich-content")
-                        .text("Rich content"),
-                )
+            let text = if key == "rich" {
+                TextBlock::new()
+                    .automation_id("rich-content")
+                    .text("Rich content")
             } else {
-                item
-            }
+                TextBlock::new().text(title(key))
+            };
+            keyed(key, text)
         });
         let selectable = ListView::new()
             .automation_id("selectable")
@@ -77,7 +75,9 @@ impl Component for ListFixture {
                 ListViewSelectionMode::None
             })
             .selected_index(self.selectable.then_some(2))
-            .items(["one", "two", "three"].map(|key| DataItem::new(key, title(key))));
+            .items(
+                ["one", "two", "three"].map(|key| keyed(key, TextBlock::new().text(title(key)))),
+            );
         context.window_title("Reactor UI fixture: list");
         context.window_visuals(WindowVisuals::new().client_size(600.0, 700.0));
         StackPanel::new()
@@ -88,7 +88,10 @@ impl Component for ListFixture {
                     .automation_id("mounted")
                     .selection_mode(ListViewSelectionMode::Single)
                     .selected_index(Some(1))
-                    .items(["first", "second"].map(|key| DataItem::new(key, title(key)))),
+                    .items(
+                        ["first", "second"]
+                            .map(|key| keyed(key, TextBlock::new().text(title(key)))),
+                    ),
                 ListView::new()
                     .automation_id("items")
                     .selected_index(

@@ -63,7 +63,8 @@ impl Component for ListViewPage {
                         "Basic ListView",
                         ListView::new().height(220.0).items(
                             INBOX_ITEMS.into_iter().enumerate().map(|(index, subject)| {
-                                DataItem::new(subject, subject).content(
+                                keyed(
+                                    subject,
                                     StackPanel::new().spacing(2.0).children((
                                         TextBlock::new()
                                             .text(subject)
@@ -89,7 +90,11 @@ impl Component for ListViewPage {
                                 .height(180.0)
                                 .selected_index(self.selected_contact)
                                 .on_selection_changed(context.callback(Message::SelectContact))
-                                .items(CONTACTS.into_iter().map(|name| DataItem::new(name, name))),
+                                .items(
+                                    CONTACTS
+                                        .into_iter()
+                                        .map(|name| keyed(name, TextBlock::new().text(name))),
+                                ),
                             TextBlock::new()
                                 .text(format!("Selected contact: {contact_label}"))
                                 .opacity(0.6),
@@ -106,7 +111,8 @@ impl Component for ListViewPage {
                                 .selected_index(self.selected_playlist)
                                 .on_selection_changed(context.callback(Message::SelectPlaylist))
                                 .items(PLAYLISTS.into_iter().enumerate().map(|(index, name)| {
-                                    DataItem::new(name, name).content(
+                                    keyed(
+                                        name,
                                         StackPanel::new().spacing(2.0).children((
                                             TextBlock::new()
                                                 .text(name)

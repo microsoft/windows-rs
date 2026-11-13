@@ -436,7 +436,7 @@ fn bench_reactor_retirement_remount(samples: usize, batch: usize) -> Row {
 }
 
 fn virtual_items_view(revision: u64) -> reactor::View {
-    reactor::ItemsRepeater::new()
+    reactor::ListView::new()
         .virtual_source(reactor::VirtualSource::new(
             1,
             10_000,
@@ -497,7 +497,7 @@ fn bench_reactor_virtual_source_replace(samples: usize, batch: usize) -> Row {
         batch,
         || {
             let mut runtime = reactor_runtime();
-            runtime.update(reactor::ItemsRepeater::new());
+            runtime.update(reactor::ListView::new());
             runtime
         },
         |runtime| {

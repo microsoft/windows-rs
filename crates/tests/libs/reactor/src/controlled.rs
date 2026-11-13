@@ -53,7 +53,7 @@ impl Component for OwnershipFixture {
         let mut list = ListView::new()
             .automation_id("list")
             .selection_mode(ListViewSelectionMode::Single)
-            .items(["Zero", "One", "Two"].map(|name| DataItem::new(name, name)))
+            .items(["Zero", "One", "Two"].map(|name| keyed(name, TextBlock::new().text(name))))
             .on_selection_changed(context.callback(M::Selection));
         if self.declared {
             text = text.text("declared");
@@ -739,7 +739,11 @@ impl Component for ChurnFixture {
                 .automation_id("list")
                 .selection_mode(ListViewSelectionMode::Single)
                 .selected_index(self.selected)
-                .items(CHURN_ITEMS.iter().map(|name| DataItem::new(*name, *name)))
+                .items(
+                    CHURN_ITEMS
+                        .iter()
+                        .map(|name| keyed(*name, TextBlock::new().text(*name))),
+                )
                 .on_selection_changed(context.callback(M::Selected))
                 .into(),
         ];

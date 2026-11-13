@@ -1,19 +1,15 @@
 use super::*;
 
-implement_decl! {
-    impl NativeElementFactory as NativeElementFactory_Impl: [IElementFactory]
-}
-
-struct NativeElementFactory {
-    collection: ObjectId,
-    queue: Rc<NativeEventQueue>,
-    source: ComObject<NativeVirtualSource>,
-    source_revision: Rc<Cell<u64>>,
-    shells: Rc<RealizedShells>,
+/// The templates every virtual list shares.
+pub(super) struct ListTemplates {
+    item: native::DataTemplate,
+    container: native::Style,
+    panel: native::ItemsPanelTemplate,
 }
 
 pub(super) struct NativeVirtualItems {
-    _factory: IElementFactory,
+    _changing: windows_core::EventRevoker,
+    _layout: windows_core::EventRevoker,
     source: ComObject<NativeVirtualSource>,
     source_revision: Rc<Cell<u64>>,
     pub(super) shells: Rc<RealizedShells>,
@@ -21,7 +17,8 @@ pub(super) struct NativeVirtualItems {
 
 impl NativeVirtualItems {
     pub(super) fn new(
-        repeater: &native::ItemsRepeater,
+        list: &native::ListView,
+        templates: &ListTemplates,
         collection: ObjectId,
         keys: &Arc<Vec<u64>>,
         source_revision: u64,
@@ -30,32 +27,251 @@ impl NativeVirtualItems {
         let shells = Rc::new(RealizedShells::default());
         let source_revision = Rc::new(Cell::new(source_revision));
         let source = ComObject::new(NativeVirtualSource::new(Arc::clone(keys))?);
-        let factory: IElementFactory = ComObject::new(NativeElementFactory {
+        let binder = Rc::new(ContainerBinder {
             collection,
             queue,
-            source: source.clone(),
             source_revision: Rc::clone(&source_revision),
             shells: Rc::clone(&shells),
-        })
-        .into_interface();
+            bound: RefCell::default(),
+            orphans: RefCell::default(),
+        });
+        let base = list.cast::<native::IListViewBase>()?;
+        // Rows are realized while their containers are prepared, so placeholders only flash.
+        base.SetShowsScrollingPlaceholders(false)?;
+        let changing = base.ContainerContentChanging(local::handler::<
+            _,
+            native::ContainerContentChangingEventArgs,
+            _,
+        >({
+            let binder = Rc::clone(&binder);
+            move |_, args| binder.changing(args.unwrap()).unwrap()
+        }))?;
+        let layout = list
+            .cast::<native::IFrameworkElement>()?
+            .LayoutUpdated(local::handler(move |_, _| binder.flush().unwrap()))?;
+        let items = list.cast::<native::IItemsControl>()?;
+        items.SetItemTemplate(&templates.item)?;
+        items.SetItemContainerStyle(&templates.container)?;
+        items.SetItemsPanel(&templates.panel)?;
+        // The default container transitions restart on every source change, so rows that update
+        // frequently would stay invisible.
+        items.SetItemContainerTransitions(&native::TransitionCollection::new()?)?;
         let source_interface: IObservableVector<IInspectable> = source.to_interface();
-        repeater.SetItemTemplate(&factory)?;
-        repeater.SetItemsSource(&source_interface)?;
+        items.SetItemsSource(&source_interface)?;
         Ok(Self {
-            _factory: factory,
+            _changing: changing,
+            _layout: layout,
             source,
             source_revision,
             shells,
         })
     }
 
+    pub(super) fn templates() -> windows_core::Result<ListTemplates> {
+        // A list item takes its UIA name from its row host, which forwards the row's own name.
+        // Otherwise UIA would read the item's token.
+        let item = native::XamlReader::Load(
+            "<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>\
+             <ContentControl IsTabStop='False' HorizontalContentAlignment='Stretch' \
+             AutomationProperties.Name='{Binding Content.(AutomationProperties.Name), \
+             RelativeSource={RelativeSource Self}}' \
+             AutomationProperties.HelpText='{Binding Content.(AutomationProperties.HelpText), \
+             RelativeSource={RelativeSource Self}}'/>\
+             </DataTemplate>",
+        )?
+        .cast()?;
+        // Rows size their items. The default 40 pixel minimum is too tall for dense data.
+        let container = native::XamlReader::Load(
+            "<Style xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' \
+             TargetType='ListViewItem'>\
+             <Setter Property='HorizontalContentAlignment' Value='Stretch'/>\
+             <Setter Property='MinHeight' Value='0'/>\
+             </Style>",
+        )?
+        .cast()?;
+        // The default panel adjusts the offset to keep the first visible item in view as items are
+        // inserted and removed, as when ListView moves a dragged item.
+        let panel = native::XamlReader::Load(
+            "<ItemsPanelTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>\
+             <ItemsStackPanel ItemsUpdatingScrollMode='KeepScrollOffset' CacheLength='1'/>\
+             </ItemsPanelTemplate>",
+        )?
+        .cast()?;
+        Ok(ListTemplates {
+            item,
+            container,
+            panel,
+        })
+    }
+
+    pub(super) fn tokens(&self) -> Arc<Vec<u64>> {
+        self.source.tokens()
+    }
+
     pub(super) fn reset(
         &self,
+        list: &native::ListView,
         keys: &Arc<Vec<u64>>,
         source_revision: u64,
     ) -> windows_core::Result<()> {
+        let viewport = list_scroll_viewer(&list.cast()?)?
+            .map(|scroll| -> windows_core::Result<_> {
+                let horizontal = scroll.HorizontalOffset()?;
+                let vertical = scroll.VerticalOffset()?;
+                Ok((scroll, horizontal, vertical))
+            })
+            .transpose()?;
         self.source_revision.set(source_revision);
-        self.source.reset(Arc::clone(keys))
+        self.source.update(Arc::clone(keys))?;
+        if let Some((scroll, horizontal, vertical)) = viewport {
+            // Reset requests offset zero when its old item identities disappear. Replace that
+            // request in the same update, before layout, without following a moved key.
+            scroll.ChangeViewWithOptionalAnimation(Some(horizontal), Some(vertical), None, true)?;
+        }
+        Ok(())
+    }
+}
+
+fn list_scroll_viewer(
+    object: &native::DependencyObject,
+) -> windows_core::Result<Option<native::ScrollViewer>> {
+    for index in 0..native::VisualTreeHelper::GetChildrenCount(object)? {
+        let child = native::VisualTreeHelper::GetChild(object, index)?;
+        if let Ok(scroll) = child.cast::<native::ScrollViewer>() {
+            return Ok(Some(scroll));
+        }
+        if let Some(scroll) = list_scroll_viewer(&child)? {
+            return Ok(Some(scroll));
+        }
+    }
+    Ok(None)
+}
+
+/// A row bound to a ListView container.
+struct Binding {
+    container: RealizedContainer,
+    token: u64,
+    /// ListView recycled the container, but may hand it the same item again in this layout pass.
+    parked: bool,
+}
+
+/// Binds Reactor rows into the containers ListView realizes, keyed by container COM identity.
+///
+/// ListView recycles every container on a reset and then reuses them for arbitrary items. A
+/// recycled row stays alive until the layout pass ends, so an item that lands in another container
+/// moves its row there and keeps its state. Rows that no container reclaims are then recycled.
+struct ContainerBinder {
+    collection: ObjectId,
+    queue: Rc<NativeEventQueue>,
+    source_revision: Rc<Cell<u64>>,
+    shells: Rc<RealizedShells>,
+    bound: RefCell<HashMap<usize, Binding>>,
+    /// Retired containers whose rows Reactor recycles when the layout pass ends.
+    orphans: RefCell<Vec<RealizedContainer>>,
+}
+
+impl ContainerBinder {
+    fn changing(
+        &self,
+        args: &native::ContainerContentChangingEventArgs,
+    ) -> windows_core::Result<()> {
+        args.SetHandled(true)?;
+        if args.Phase()? != 0 {
+            return Ok(());
+        }
+        let item = args.ItemContainer()?;
+        let identity = com_identity(&item)?;
+        if args.InRecycleQueue()? {
+            if let Some(binding) = self.bound.borrow_mut().get_mut(&identity) {
+                binding.parked = true;
+            }
+            return Ok(());
+        }
+        let token = virtual_token(&args.Item()?)?;
+        {
+            let mut bound = self.bound.borrow_mut();
+            if let Some(binding) = bound.get_mut(&identity)
+                && binding.token == token
+            {
+                // The container still holds this item's row, which updates by key.
+                binding.parked = false;
+                return Ok(());
+            }
+            // The container's previous row, and the item's row in any other container, wait for
+            // the end of the layout pass. Realizing the item here moves its row.
+            let other = bound
+                .iter()
+                .find_map(|(other, binding)| (binding.token == token).then_some(*other));
+            for identity in [Some(identity), other].into_iter().flatten() {
+                if let Some(binding) = bound.remove(&identity) {
+                    self.orphan(binding.container)?;
+                }
+            }
+        }
+        let index = usize::try_from(args.ItemIndex()?)
+            .map_err(|_| windows_core::Error::new(native::E_FAIL, "negative item index"))?;
+        let host = item
+            .cast::<native::IContentControl>()?
+            .ContentTemplateRoot()?
+            .cast::<native::ContentControl>()?;
+        let container = self.shells.take(host)?;
+        self.bound.borrow_mut().insert(
+            identity,
+            Binding {
+                container,
+                token,
+                parked: false,
+            },
+        );
+        self.queue
+            .queue_realization(RealizationRequest::RealizeKey {
+                collection: self.collection,
+                container,
+                index,
+                token,
+            });
+        self.queue.realize_now();
+        Ok(())
+    }
+
+    /// Ends a container's lease. A row Reactor has not yet realized there is canceled now; a
+    /// realized row waits for the end of the layout pass, when another container may hold it.
+    fn orphan(&self, container: RealizedContainer) -> windows_core::Result<()> {
+        self.shells.retire(container)?;
+        if self.queue.realization_pending(self.collection, container) {
+            self.recycle(container);
+        } else {
+            self.orphans.borrow_mut().push(container);
+        }
+        Ok(())
+    }
+
+    fn recycle(&self, container: RealizedContainer) {
+        self.queue.queue_realization(RealizationRequest::Recycle {
+            collection: self.collection,
+            container,
+            source_revision: self.source_revision.get(),
+        });
+    }
+
+    /// Recycles the rows no container reclaimed during the layout pass.
+    fn flush(&self) -> windows_core::Result<()> {
+        let mut orphans = self.orphans.take();
+        self.bound.borrow_mut().retain(|_, binding| {
+            if binding.parked {
+                orphans.push(binding.container);
+            }
+            !binding.parked
+        });
+        if orphans.is_empty() {
+            return Ok(());
+        }
+        for container in orphans {
+            self.shells.retire(container)?;
+            self.recycle(container);
+        }
+        self.queue.realize_now();
+        Ok(())
     }
 }
 
@@ -75,20 +291,20 @@ type NativeIterator = IIterator<IInspectable>;
 
 type NativeVectorChangedEventArgs = IVectorChangedEventArgs;
 
-type NativeKeyIndexMapping = native::IKeyIndexMapping;
-
 implement_decl! {
     impl NativeVirtualSource as pub(super) NativeVirtualSource_Impl: [
         NativeObservableVector,
         NativeVector,
         NativeVectorView,
         NativeIterable,
-        NativeKeyIndexMapping,
     ]
 }
 
+/// The ListView item source. Each item is its key's boxed token. A reset boxes new items, so
+/// ListView does not anchor to a moved key. The owner restores the viewport after the reset.
 pub(super) struct NativeVirtualSource {
     keys: Mutex<Arc<Vec<u64>>>,
+    values: Mutex<HashMap<u64, IInspectable>>,
     handlers: WinEvent<VectorChangedEventHandler<IInspectable>>,
 }
 
@@ -97,6 +313,7 @@ impl NativeVirtualSource {
         virtual_item_count(keys.len())?;
         Ok(Self {
             keys: Mutex::new(keys),
+            values: Mutex::default(),
             handlers: WinEvent::new(),
         })
     }
@@ -108,28 +325,42 @@ impl NativeVirtualSource_Impl {
     }
 
     fn get_at(&self, index: u32) -> windows_core::Result<IInspectable> {
-        if index >= self.count() {
-            return Err(E_BOUNDS.into());
-        }
-        virtual_item_value(index)
+        let token = *self
+            .keys
+            .lock()
+            .unwrap()
+            .get(index as usize)
+            .ok_or(E_BOUNDS)?;
+        Ok(self
+            .values
+            .lock()
+            .unwrap()
+            .entry(token)
+            .or_insert_with(|| windows_reference::IReference::from(token).into())
+            .clone())
     }
 
     fn index_of(&self, value: Ref<IInspectable>, result: &mut u32) -> windows_core::Result<bool> {
-        let value = value
-            .ok()?
-            .cast::<windows_reference::IReference<i32>>()?
-            .Value()?;
-        let Ok(value) = u32::try_from(value) else {
-            *result = 0;
+        *result = 0;
+        let value = value.ok()?;
+        let Ok(token) = virtual_token(value) else {
             return Ok(false);
         };
-        if value < self.count() {
-            *result = value;
-            Ok(true)
-        } else {
-            *result = 0;
-            Ok(false)
+        let current = self.values.lock().unwrap().get(&token).cloned();
+        if current.map(|current| com_identity(&current)).transpose()? != Some(com_identity(value)?)
+        {
+            return Ok(false);
         }
+        let index = self
+            .keys
+            .lock()
+            .unwrap()
+            .iter()
+            .position(|key| *key == token);
+        if let Some(index) = index {
+            *result = index.try_into().unwrap();
+        }
+        Ok(index.is_some())
     }
 
     fn get_many(
@@ -147,7 +378,7 @@ impl NativeVirtualSource_Impl {
         for (offset, item) in items[..actual].iter_mut().enumerate() {
             let offset = u32::try_from(offset)
                 .map_err(|_| windows_core::Error::new(E_BOUNDS, "item buffer is too large"))?;
-            *item = Some(virtual_item_value(start_index + offset)?);
+            *item = Some(self.get_at(start_index + offset)?);
         }
         u32::try_from(actual)
             .map_err(|_| windows_core::Error::new(E_BOUNDS, "item buffer is too large"))
@@ -157,12 +388,51 @@ impl NativeVirtualSource_Impl {
         windows_core::Error::new(E_ILLEGAL_METHOD_CALL, "virtual item source is read-only")
     }
 
-    pub(super) fn reset(&self, keys: Arc<Vec<u64>>) -> windows_core::Result<()> {
+    /// ListView moves a dragged item by removing it and inserting it again, so the source accepts
+    /// removal and the reinsertion of a removed item.
+    fn remove_at(&self, index: u32) -> windows_core::Result<()> {
+        {
+            let mut keys = self.keys.lock().unwrap();
+            if index as usize >= keys.len() {
+                return Err(E_BOUNDS.into());
+            }
+            Arc::make_mut(&mut keys).remove(index as usize);
+        }
+        self.notify(CollectionChange::ItemRemoved, index)
+    }
+
+    fn insert_at(&self, index: u32, value: &IInspectable) -> windows_core::Result<()> {
+        let token = virtual_token(value)?;
+        {
+            let mut keys = self.keys.lock().unwrap();
+            if index as usize > keys.len() {
+                return Err(E_BOUNDS.into());
+            }
+            if keys.contains(&token) || !self.values.lock().unwrap().contains_key(&token) {
+                return Err(Self::read_only_error());
+            }
+            Arc::make_mut(&mut keys).insert(index as usize, token);
+        }
+        self.notify(CollectionChange::ItemInserted, index)
+    }
+
+    /// The source's tokens in native order.
+    pub(super) fn tokens(&self) -> Arc<Vec<u64>> {
+        Arc::clone(&self.keys.lock().unwrap())
+    }
+
+    /// Replaces the source's keys with a reset.
+    pub(super) fn update(&self, keys: Arc<Vec<u64>>) -> windows_core::Result<()> {
         virtual_item_count(keys.len())?;
+        self.values.lock().unwrap().clear();
         *self.keys.lock().unwrap() = keys;
+        self.notify(CollectionChange::Reset, 0)
+    }
+
+    fn notify(&self, change: CollectionChange, index: u32) -> windows_core::Result<()> {
         let source: IObservableVector<IInspectable> = self.to_object().into_interface();
         let args: IVectorChangedEventArgs =
-            ComObject::new(NativeVirtualChangedEventArgs).into_interface();
+            ComObject::new(NativeVirtualChangedEventArgs { change, index }).into_interface();
         let mut result = Ok(());
         self.handlers
             .call(|handler: &VectorChangedEventHandler<IInspectable>| {
@@ -175,36 +445,6 @@ impl NativeVirtualSource_Impl {
         result
     }
 }
-
-impl native::IKeyIndexMapping_Impl for NativeVirtualSource_Impl {
-    fn KeyFromIndex(&self, index: i32) -> windows_core::Result<HSTRING> {
-        let index = usize::try_from(index).map_err(|_| windows_core::Error::from(E_BOUNDS))?;
-        self.keys
-            .lock()
-            .unwrap()
-            .get(index)
-            .map(|token| HSTRING::from(token.to_string()))
-            .ok_or_else(|| E_BOUNDS.into())
-    }
-
-    fn IndexFromKey(&self, key: &HSTRING) -> windows_core::Result<i32> {
-        let text = key.to_string_lossy();
-        let Ok(token) = text.parse::<u64>() else {
-            return Ok(-1);
-        };
-        if text != token.to_string() {
-            return Ok(-1);
-        }
-        Ok(self
-            .keys
-            .lock()
-            .unwrap()
-            .iter()
-            .position(|candidate| *candidate == token)
-            .map_or(-1, |index| index.try_into().unwrap()))
-    }
-}
-
 impl IObservableVector_Impl<IInspectable> for NativeVirtualSource_Impl {
     fn VectorChanged(
         &self,
@@ -250,12 +490,12 @@ impl IVector_Impl<IInspectable> for NativeVirtualSource_Impl {
         Err(Self::read_only_error())
     }
 
-    fn InsertAt(&self, _index: u32, _value: Ref<IInspectable>) -> windows_core::Result<()> {
-        Err(Self::read_only_error())
+    fn InsertAt(&self, index: u32, value: Ref<IInspectable>) -> windows_core::Result<()> {
+        self.insert_at(index, value.ok()?)
     }
 
-    fn RemoveAt(&self, _index: u32) -> windows_core::Result<()> {
-        Err(Self::read_only_error())
+    fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
+        self.remove_at(index)
     }
 
     fn Append(&self, _value: Ref<IInspectable>) -> windows_core::Result<()> {
@@ -349,128 +589,74 @@ implement_decl! {
     ]
 }
 
-struct NativeVirtualChangedEventArgs;
+struct NativeVirtualChangedEventArgs {
+    change: CollectionChange,
+    index: u32,
+}
 
 impl IVectorChangedEventArgs_Impl for NativeVirtualChangedEventArgs_Impl {
     fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {
-        Ok(CollectionChange::Reset)
+        Ok(self.change)
     }
 
     fn Index(&self) -> windows_core::Result<u32> {
-        Ok(0)
+        Ok(self.index)
     }
 }
 
 #[derive(Default)]
 pub(super) struct RealizedShells {
-    pub(super) pool: RefCell<ShellPool<RealizedShell>>,
+    pub(super) pool: RefCell<ShellPool<native::ContentControl>>,
 }
 
-/// A pooled container and its COM identity, which `recycle` uses to find the shell that WinUI
-/// returns.
-#[derive(Clone)]
-pub(super) struct RealizedShell {
-    control: native::ContentControl,
-    identity: usize,
-}
-
-impl RealizedShell {
-    fn new() -> Result<Self, windows_core::Error> {
-        let control = native::ContentControl::new()?;
-        let alignment: IInspectable =
-            windows_reference::IReference::from(native::HorizontalAlignment::Stretch).into();
-        control.cast::<native::IDependencyObject>()?.SetValue(
-            &native::Control::HorizontalContentAlignmentProperty()?,
-            &alignment,
-        )?;
-        let identity = com_identity(&control)?;
-        Ok(Self { control, identity })
-    }
-}
-
+/// Leases containers to Reactor rows. Each lease gets a new identity, so a retired container's
+/// pending recycle cannot clear the row of the container's next lease.
 pub(super) struct ShellPool<T> {
-    available: Vec<T>,
     next: u64,
-    pub(super) retired: HashSet<RealizedContainer>,
     pub(super) shells: HashMap<RealizedContainer, T>,
 }
 
 impl<T> Default for ShellPool<T> {
     fn default() -> Self {
         Self {
-            available: Vec::new(),
             next: 0,
-            retired: HashSet::new(),
             shells: HashMap::new(),
         }
     }
 }
 
-impl<T: Clone> ShellPool<T> {
-    pub(super) fn take(
-        &mut self,
-        create: impl FnOnce() -> Result<T, windows_core::Error>,
-    ) -> Result<(RealizedContainer, T), windows_core::Error> {
+impl<T> ShellPool<T> {
+    pub(super) fn take(&mut self, shell: T) -> Result<RealizedContainer, windows_core::Error> {
         let container = RealizedContainer(self.next);
         self.next = self.next.checked_add(1).ok_or_else(|| {
             windows_core::Error::new(native::E_FAIL, "container identity exhausted")
         })?;
-        let shell = if let Some(shell) = self.available.pop() {
-            shell
-        } else {
-            create()?
-        };
-        self.shells.insert(container, shell.clone());
-        Ok((container, shell))
+        self.shells.insert(container, shell);
+        Ok(container)
     }
 
-    pub(super) fn retire(&mut self, container: RealizedContainer) -> bool {
-        let Some(shell) = self.shells.remove(&container) else {
-            return false;
-        };
-        self.available.push(shell);
-        self.retired.insert(container);
-        true
+    pub(super) fn retire(&mut self, container: RealizedContainer) -> Option<T> {
+        self.shells.remove(&container)
     }
 
-    pub(super) fn acknowledge_recycle(&mut self, container: RealizedContainer) {
-        self.retired.remove(&container);
-    }
-}
-
-impl ShellPool<RealizedShell> {
-    fn recycle(
-        &mut self,
-        element: &native::UIElement,
-    ) -> Result<Option<RealizedContainer>, windows_core::Error> {
-        let identity = com_identity(element)?;
-        let Some((container, shell)) = self.shells.iter().find_map(|(container, shell)| {
-            (shell.identity == identity).then(|| (*container, shell.control.clone()))
-        }) else {
-            return Ok(None);
-        };
-        shell.SetContent(None::<&IInspectable>)?;
-        if !self.retire(container) {
-            return Err(windows_core::Error::new(
-                native::E_FAIL,
-                "realized container retired twice",
-            ));
-        }
-        Ok(Some(container))
+    pub(super) fn issued(&self, container: RealizedContainer) -> bool {
+        container.0 < self.next
     }
 }
 
 impl RealizedShells {
-    fn take(&self) -> Result<(RealizedContainer, native::UIElement), windows_core::Error> {
-        let (container, shell) = self.pool.borrow_mut().take(RealizedShell::new)?;
-        Ok((container, shell.control.cast()?))
+    fn take(&self, host: native::ContentControl) -> Result<RealizedContainer, windows_core::Error> {
+        self.pool.borrow_mut().take(host)
     }
 
-    fn recycle(
-        &self,
-        element: &native::UIElement,
-    ) -> Result<Option<RealizedContainer>, windows_core::Error> {
-        self.pool.borrow_mut().recycle(element)
+    /// Ends a lease, detaching its row. Retiring an ended lease does nothing.
+    fn retire(&self, container: RealizedContainer) -> Result<(), windows_core::Error> {
+        let shell = self.pool.borrow_mut().retire(container);
+        shell.map_or(Ok(()), |shell| shell.SetContent(None::<&IInspectable>))
+    }
+
+    pub(super) fn leased(&self, container: RealizedContainer) -> bool {
+        self.pool.borrow().shells.contains_key(&container)
     }
 
     pub(super) fn set_content(
@@ -480,7 +666,7 @@ impl RealizedShells {
     ) -> Result<(), windows_core::Error> {
         let pool = self.pool.borrow();
         let Some(shell) = pool.shells.get(&container) else {
-            return if content.is_none() && pool.retired.contains(&container) {
+            return if content.is_none() && pool.issued(container) {
                 Ok(())
             } else {
                 Err(windows_core::Error::new(
@@ -490,57 +676,10 @@ impl RealizedShells {
             };
         };
         if let Some(content) = content {
-            shell.control.SetContent(content)
+            shell.SetContent(content)
         } else {
-            shell.control.SetContent(None::<&IInspectable>)
+            shell.SetContent(None::<&IInspectable>)
         }
-    }
-
-    pub(super) fn acknowledge_recycle(
-        &self,
-        container: RealizedContainer,
-    ) -> Result<(), windows_core::Error> {
-        self.pool.borrow_mut().acknowledge_recycle(container);
-        Ok(())
-    }
-}
-
-impl native::IElementFactory_Impl for NativeElementFactory_Impl {
-    fn GetElement(
-        &self,
-        args: Ref<native::ElementFactoryGetArgs>,
-    ) -> windows_core::Result<native::UIElement> {
-        let data = args.ok()?.Data()?;
-        let value = data.cast::<windows_reference::IReference<i32>>()?.Value()?;
-        let index = usize::try_from(value)
-            .map_err(|_| windows_core::Error::new(native::E_FAIL, "negative item index"))?;
-        let token = self.source.keys.lock().unwrap()[index];
-        let (container, element) = self.shells.take()?;
-        self.queue
-            .queue_realization(RealizationRequest::RealizeKey {
-                collection: self.collection,
-                container,
-                index,
-                token,
-            });
-        self.queue.realize_now();
-        Ok(element)
-    }
-
-    fn RecycleElement(
-        &self,
-        args: Ref<native::ElementFactoryRecycleArgs>,
-    ) -> windows_core::Result<()> {
-        let element = args.ok()?.Element()?;
-        let container = self.shells.recycle(&element)?.ok_or_else(|| {
-            windows_core::Error::new(native::E_FAIL, "element factory received an unknown shell")
-        })?;
-        self.queue.queue_realization(RealizationRequest::Recycle {
-            collection: self.collection,
-            container,
-            source_revision: self.source_revision.get(),
-        });
-        Ok(())
     }
 }
 
@@ -557,8 +696,6 @@ pub(super) fn virtual_item_count(item_count: usize) -> windows_core::Result<u32>
         .map_err(|_| windows_core::Error::new(native::E_FAIL, "item count exceeds u32"))
 }
 
-pub(super) fn virtual_item_value(index: u32) -> windows_core::Result<IInspectable> {
-    let index = i32::try_from(index)
-        .map_err(|_| windows_core::Error::new(E_BOUNDS, "item index exceeds i32"))?;
-    Ok(windows_reference::IReference::<i32>::from(index).into())
+pub(super) fn virtual_token(value: &IInspectable) -> windows_core::Result<u64> {
+    value.cast::<windows_reference::IReference<u64>>()?.Value()
 }

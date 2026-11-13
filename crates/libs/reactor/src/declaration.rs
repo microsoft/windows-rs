@@ -1499,7 +1499,9 @@ pub enum EventCall {
     Item(Callback<Key>, ObjectId),
     /// Native children in native order.
     Items(Callback<Vec<Key>>, Vec<ObjectId>),
-    /// The keys of reordered children, resolved from `Items`.
+    /// A virtual list's item tokens in native order.
+    Tokens(Callback<Vec<Key>>, Arc<Vec<u64>>),
+    /// The keys of reordered children, resolved from `Items` or `Tokens`.
     Keys(Callback<Vec<Key>>, Vec<Key>),
     Selection(Callback<Option<Rc<str>>>, SelectionChange),
     SelectionIndex(Callback<Option<usize>>, Option<usize>),
@@ -1566,7 +1568,7 @@ pub struct Event {
 /// A lazily materialized keyed source for a virtualizing declaration.
 ///
 /// ```
-/// use windows_reactor::{ItemsRepeater, Key, TextBlock, VirtualSource, View};
+/// use windows_reactor::{Key, ListView, TextBlock, VirtualSource, View};
 ///
 /// let source = VirtualSource::new(
 ///     7,
@@ -1574,7 +1576,7 @@ pub struct Event {
 ///     Key::from,
 ///     |index| -> View { TextBlock::new().text(index.to_string()).into() },
 /// );
-/// let view: View = ItemsRepeater::new().virtual_source(source).into();
+/// let view: View = ListView::new().virtual_source(source).into();
 /// ```
 #[derive(Clone)]
 pub struct VirtualSource {

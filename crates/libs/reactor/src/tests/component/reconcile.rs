@@ -472,7 +472,7 @@ fn expansion_copies_changed_paths_without_mutating_shared_input() {
         .children((
             Border::new().content(TextBlock::new().text("shared")),
             Border::new().content(component::<Label>("child", Rc::from("expanded"))),
-            ItemsRepeater::new().virtual_source(VirtualSource::new(0, 1, Key::from, |_| {
+            ListView::new().virtual_source(VirtualSource::new(0, 1, Key::from, |_| {
                 TextBlock::new().text("row")
             })),
             Border::new().content(TextBlock::new().text("shared after changes")),

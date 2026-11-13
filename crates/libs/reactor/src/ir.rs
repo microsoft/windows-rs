@@ -4,7 +4,6 @@ use super::*;
 pub enum ObjectCategory {
     Visual,
     Structural,
-    Data,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Cardinality {

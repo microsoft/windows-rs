@@ -1314,10 +1314,6 @@ impl core::convert::From<f64> for windows_reactor::CornerRadius
 pub fn windows_reactor::CornerRadius::from(f64) -> Self
 impl core::convert::From<windows_reactor::CornerRadius> for windows_reactor::ResourceValue
 pub fn windows_reactor::ResourceValue::from(windows_reactor::CornerRadius) -> Self
-pub struct windows_reactor::DataItem(_)
-impl windows_reactor::DataItem
-pub fn windows_reactor::DataItem::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::DataItem::new(impl core::convert::Into<windows_reactor::Key>, impl core::convert::AsRef<str>) -> Self
 pub struct windows_reactor::DatePicker(_)
 impl windows_reactor::DatePicker
 pub fn windows_reactor::DatePicker::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
@@ -2069,48 +2065,6 @@ pub const windows_reactor::InputModifiers::WINDOWS: Self
 pub const fn windows_reactor::InputModifiers::contains(self, Self) -> bool
 impl core::ops::bit::BitOrAssign for windows_reactor::InputModifiers
 pub fn windows_reactor::InputModifiers::bitor_assign(&mut self, Self)
-pub struct windows_reactor::ItemsRepeater(_)
-impl windows_reactor::ItemsRepeater
-pub fn windows_reactor::ItemsRepeater::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
-pub fn windows_reactor::ItemsRepeater::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
-pub fn windows_reactor::ItemsRepeater::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
-pub fn windows_reactor::ItemsRepeater::automation_id(self, impl core::convert::AsRef<str>) -> Self
-pub fn windows_reactor::ItemsRepeater::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
-pub fn windows_reactor::ItemsRepeater::automation_name(self, impl core::convert::AsRef<str>) -> Self
-pub fn windows_reactor::ItemsRepeater::canvas_left(self, f64) -> Self
-pub fn windows_reactor::ItemsRepeater::canvas_top(self, f64) -> Self
-pub fn windows_reactor::ItemsRepeater::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ItemsRepeater::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
-pub fn windows_reactor::ItemsRepeater::grid_column(self, i32) -> Self
-pub fn windows_reactor::ItemsRepeater::grid_column_span(self, i32) -> Self
-pub fn windows_reactor::ItemsRepeater::grid_row(self, i32) -> Self
-pub fn windows_reactor::ItemsRepeater::grid_row_span(self, i32) -> Self
-pub fn windows_reactor::ItemsRepeater::height(self, f64) -> Self
-pub fn windows_reactor::ItemsRepeater::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
-pub fn windows_reactor::ItemsRepeater::item(self, impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::ItemsRepeater::items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
-pub fn windows_reactor::ItemsRepeater::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
-pub fn windows_reactor::ItemsRepeater::max_height(self, f64) -> Self
-pub fn windows_reactor::ItemsRepeater::max_width(self, f64) -> Self
-pub fn windows_reactor::ItemsRepeater::min_height(self, f64) -> Self
-pub fn windows_reactor::ItemsRepeater::min_width(self, f64) -> Self
-pub fn windows_reactor::ItemsRepeater::new() -> Self
-pub fn windows_reactor::ItemsRepeater::opacity(self, f64) -> Self
-pub fn windows_reactor::ItemsRepeater::relative_align_bottom(self) -> Self
-pub fn windows_reactor::ItemsRepeater::relative_align_horizontal_center(self) -> Self
-pub fn windows_reactor::ItemsRepeater::relative_align_left(self) -> Self
-pub fn windows_reactor::ItemsRepeater::relative_align_right(self) -> Self
-pub fn windows_reactor::ItemsRepeater::relative_align_top(self) -> Self
-pub fn windows_reactor::ItemsRepeater::relative_align_vertical_center(self) -> Self
-pub fn windows_reactor::ItemsRepeater::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
-pub fn windows_reactor::ItemsRepeater::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
-pub fn windows_reactor::ItemsRepeater::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
-pub fn windows_reactor::ItemsRepeater::virtual_source(self, windows_reactor::VirtualSource) -> Self
-pub fn windows_reactor::ItemsRepeater::width(self, f64) -> Self
-impl core::convert::From<windows_reactor::ItemsRepeater> for windows_reactor::View
-pub fn windows_reactor::View::from(windows_reactor::ItemsRepeater) -> Self
-impl core::default::Default for windows_reactor::ItemsRepeater
-pub fn windows_reactor::ItemsRepeater::default() -> Self
 pub struct windows_reactor::Key(_)
 impl windows_reactor::Key
 pub fn windows_reactor::Key::as_str(&self) -> core::option::Option<&str>
@@ -2290,7 +2244,8 @@ pub fn windows_reactor::ListView::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ListView::height(self, f64) -> Self
 pub fn windows_reactor::ListView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ListView::is_enabled(self, bool) -> Self
-pub fn windows_reactor::ListView::items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::DataItem>) -> Self
+pub fn windows_reactor::ListView::item(self, impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::ListView::items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::ListView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ListView::max_height(self, f64) -> Self
 pub fn windows_reactor::ListView::max_width(self, f64) -> Self
@@ -2311,6 +2266,7 @@ pub fn windows_reactor::ListView::selection_mode(self, windows_reactor::ListView
 pub fn windows_reactor::ListView::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ListView::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ListView::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
+pub fn windows_reactor::ListView::virtual_source(self, windows_reactor::VirtualSource) -> Self
 pub fn windows_reactor::ListView::width(self, f64) -> Self
 impl core::convert::From<windows_reactor::ListView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ListView) -> Self
@@ -4366,8 +4322,6 @@ impl core::convert::From<windows_reactor::InfoBadge> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::InfoBadge) -> Self
 impl core::convert::From<windows_reactor::InfoBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::InfoBar) -> Self
-impl core::convert::From<windows_reactor::ItemsRepeater> for windows_reactor::View
-pub fn windows_reactor::View::from(windows_reactor::ItemsRepeater) -> Self
 impl core::convert::From<windows_reactor::Line> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Line) -> Self
 impl core::convert::From<windows_reactor::ListBox> for windows_reactor::View

@@ -622,6 +622,7 @@ item = "TreeNode"
 [[objects]]
 name = "ListView"
 enabled = true
+virtual_items = true
 
 [[objects.properties]]
 name = "SelectionMode"
@@ -643,11 +644,9 @@ indexes = "Items"
 
 [[objects.relations]]
 name = "Items"
-child = "Data"
 cardinality = "Many"
 identity = "Keyed"
 realization = "Container"
-item = "DataItem"
 
 [[objects.events]]
 name = "SelectionChanged"
@@ -657,20 +656,6 @@ observes = "SelectedIndex"
 name = "DragItemsCompleted"
 field = "on_reordered"
 reorders = "Items"
-
-[[objects]]
-name = "DataItem"
-category = "Data"
-handwritten = true
-key = true
-
-[[objects.properties]]
-name = "Text"
-value = "String"
-required = true
-
-[[objects.relations]]
-name = "Content"
 
 [[objects]]
 name = "HyperlinkButton"
@@ -1067,16 +1052,6 @@ name = "Header"
 [[objects.events]]
 name = "SelectionChanged"
 observes = "SelectedIndex"
-
-[[objects]]
-name = "ItemsRepeater"
-virtual_items = true
-
-[[objects.relations]]
-name = "Items"
-cardinality = "Many"
-identity = "Keyed"
-realization = "Container"
 
 [[objects]]
 name = "InfoBadge"

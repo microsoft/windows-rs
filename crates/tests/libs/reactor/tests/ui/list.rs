@@ -1,6 +1,6 @@
 use super::*;
 
-/// Keyed DataItem edits keep the native item order and text, and a selected index applied at mount
+/// Keyed item edits keep the native item order and text, and a selected index applied at mount
 /// or with a selection mode change lands after the items and mode it depends on.
 #[test]
 fn list_items_and_selection() -> Result<()> {
@@ -56,8 +56,8 @@ fn list_move_selected_content() -> Result<()> {
     })
 }
 
-/// Waits until the list items in "items" have the given names, in order. A DataItem's text, or
-/// its rich content, belongs to the first named descendant of the item container.
+/// Waits until the list items in "items" have the given names, in order. An item's text, or its
+/// rich content, belongs to the first named descendant of the item container.
 fn order(ui: &Automation, expected: &[&str]) -> Result<()> {
     let list = ui.element("items")?;
     ui.wait(

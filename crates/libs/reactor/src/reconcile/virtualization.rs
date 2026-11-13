@@ -56,12 +56,84 @@ pub(super) fn retain_virtual_items(declaration: &Declaration) -> Option<Box<Reta
         next_token,
         source_revision: 0,
         lease_revision: 0,
+        source_indices: None,
         active: HashMap::new(),
         containers: HashMap::new(),
     }))
 }
 
 impl RetainedGraph {
+    /// Returns the keys in the native order of `tokens` when it is a permutation of the retained
+    /// tokens.
+    pub(super) fn virtual_order(&self, object: ObjectId, tokens: &[u64]) -> Option<Vec<Key>> {
+        let items = self.get(object)?.virtual_items.as_ref()?;
+        if tokens.len() != items.tokens.len() {
+            return None;
+        }
+        let mut positions = items
+            .tokens
+            .iter()
+            .enumerate()
+            .map(|(index, token)| (*token, index))
+            .collect::<HashMap<_, _>>();
+        tokens
+            .iter()
+            .map(|token| Some(items.keys[positions.remove(token)?].clone()))
+            .collect()
+    }
+
+    /// Adopts a native reorder of a virtual list. Returns `false` when the order is unchanged, as
+    /// when an item is dropped in place.
+    pub(super) fn observe_virtual_order(
+        &mut self,
+        object: ObjectId,
+        tokens: Arc<Vec<u64>>,
+    ) -> bool {
+        let keys = self.virtual_order(object, &tokens).unwrap();
+        let items = self.get_mut(object).virtual_items.as_mut().unwrap();
+        if items.tokens == tokens {
+            return false;
+        }
+        items.source_indices.get_or_insert_with(|| {
+            Rc::new(
+                items
+                    .keys
+                    .iter()
+                    .cloned()
+                    .enumerate()
+                    .map(|(index, key)| (key, index))
+                    .collect(),
+            )
+        });
+        let indices = virtual_key_indices(&keys)
+            .into_iter()
+            .map(|(key, index)| (key.clone(), index))
+            .collect::<HashMap<_, _>>();
+        for realization in items.containers.values_mut() {
+            realization.index = indices[&realization.key];
+        }
+        let mut children = items
+            .containers
+            .values()
+            .filter_map(|realization| realization.child.map(|child| (realization.index, child)))
+            .collect::<Vec<_>>();
+        children.sort_unstable_by_key(|(index, _)| *index);
+        items.keys = Rc::new(keys);
+        items.tokens = tokens;
+        // Requests made for the previous order name stale indexes.
+        items.source_revision = items.source_revision.checked_add(1).unwrap();
+        let relation = items.relation;
+        let retained = self
+            .get_mut(object)
+            .relations
+            .iter_mut()
+            .find(|retained| retained.id == relation)
+            .unwrap();
+        retained.value =
+            RetainedRelationValue::Many(children.into_iter().map(|(_, child)| child).collect());
+        true
+    }
+
     fn resolve_realization_request(
         &self,
         request: RealizationRequest,
@@ -226,6 +298,10 @@ impl RetainedGraph {
                     .as_ref()
                     .unwrap();
                 let key = items.keys[index].clone();
+                let source_index = items
+                    .source_indices
+                    .as_ref()
+                    .map_or(index, |indices| indices[&key]);
                 let revision = match items.active.get(&key) {
                     Some((revision, _)) => *revision,
                     None => items.lease_revision.checked_add(1).unwrap(),
@@ -238,7 +314,7 @@ impl RetainedGraph {
                         revision,
                     },
                     index,
-                    view: Box::new(items.items.view(index).unwrap()),
+                    view: Box::new(items.items.view(source_index).unwrap()),
                     owner: items.owner,
                 })
             }
@@ -610,7 +686,8 @@ impl Planner<'_> {
         );
         let keys = match (&previous.items, &declared.items) {
             (VirtualItems::Lazy(previous_source), VirtualItems::Lazy(next_source))
-                if previous_source.key_revision == next_source.key_revision
+                if previous.source_indices.is_none()
+                    && previous_source.key_revision == next_source.key_revision
                     && previous_source.len == next_source.len =>
             {
                 Rc::clone(&previous.keys)
@@ -669,7 +746,7 @@ impl Planner<'_> {
                 }
                 continue;
             };
-            // WinUI's keyed reset keeps each surviving shell with its item, not its old index.
+            // Keep surviving rows by key until native requests move or recycle their leases.
             containers.insert(
                 *container,
                 RetainedRealization {
@@ -704,6 +781,7 @@ impl Planner<'_> {
         retained.tokens = tokens;
         retained.next_token = next_token;
         retained.source_revision = source_revision;
+        retained.source_indices = None;
         retained.containers = containers;
         retained.active = active;
         if keys_changed {

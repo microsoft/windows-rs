@@ -33,7 +33,7 @@ impl Rows {
     }
 }
 
-pub(super) struct RepeaterFixture {
+pub(super) struct VirtualListFixture {
     values: Rc<Vec<u32>>,
     keys: Rc<Vec<usize>>,
     key_revision: u64,
@@ -41,6 +41,7 @@ pub(super) struct RepeaterFixture {
     sample: usize,
     counts: [usize; 3],
     editing: bool,
+    selected: bool,
 }
 
 #[derive(Clone)]
@@ -48,13 +49,17 @@ pub(super) enum Message {
     Rerender,
     Change,
     SwapFirst,
+    Reverse,
+    SelectFirst,
+    Shorten,
+    Reorder(Vec<Key>),
     ToggleFirst,
     ToggleEmpty,
     Count,
     ToggleEditor,
 }
 
-impl Component for RepeaterFixture {
+impl Component for VirtualListFixture {
     type Input = Rows;
     type Message = Message;
 
@@ -67,6 +72,7 @@ impl Component for RepeaterFixture {
             sample: 0,
             counts: [0; 3],
             editing: false,
+            selected: false,
         }
     }
 
@@ -79,6 +85,24 @@ impl Component for RepeaterFixture {
                 if self.keys.len() >= 2 {
                     Rc::make_mut(&mut self.keys).swap(0, 1);
                 }
+                self.key_revision += 1;
+            }
+            Message::Reverse => {
+                Rc::make_mut(&mut self.keys).reverse();
+                self.key_revision += 1;
+            }
+            Message::SelectFirst => self.selected = true,
+            Message::Shorten => {
+                Rc::make_mut(&mut self.keys).truncate(3);
+                self.key_revision += 1;
+            }
+            Message::Reorder(order) => {
+                let keys: std::collections::HashMap<_, _> = self
+                    .keys
+                    .iter()
+                    .map(|key| (Key::from(*key), *key))
+                    .collect();
+                self.keys = Rc::new(order.iter().map(|key| keys[key]).collect());
                 self.key_revision += 1;
             }
             Message::ToggleFirst => {
@@ -113,11 +137,11 @@ impl Component for RepeaterFixture {
 
     fn view(&self, rows: &Rows, context: &mut ViewContext<Self>) -> View {
         context.window_title(match rows {
-            Rows::Default => "Reactor UI fixture: repeater",
-            Rows::Items => "Reactor UI fixture: repeater_items",
-            Rows::Virtual => "Reactor UI fixture: repeater_virtual",
-            Rows::Short => "Reactor UI fixture: repeater_short",
-            Rows::Mixed => "Reactor UI fixture: repeater_mixed",
+            Rows::Default => "Reactor UI fixture: virtual_list",
+            Rows::Items => "Reactor UI fixture: virtual_list_items",
+            Rows::Virtual => "Reactor UI fixture: virtual_list_virtual",
+            Rows::Short => "Reactor UI fixture: virtual_list_short",
+            Rows::Mixed => "Reactor UI fixture: virtual_list_mixed",
         });
         context.window_visuals(WindowVisuals::new().client_size(500.0, 360.0));
         let values = Rc::clone(&self.values);
@@ -142,11 +166,21 @@ impl Component for RepeaterFixture {
                 height: rows.height(index),
             })
         };
-        let repeater = if rows == Rows::Items {
-            ItemsRepeater::new()
-                .items((0..self.keys.len()).map(|index| keyed(keys[index], row(index))))
+        let mut list = ListView::new().automation_id("rows").grid_row(1);
+        if self.selected {
+            list = list.selected_index(self.keys.iter().position(|key| *key == 0));
+        }
+        if rows == Rows::Virtual {
+            list = list
+                .can_drag_items(true)
+                .can_reorder_items(true)
+                .allow_drop(true)
+                .on_reordered(context.callback(Message::Reorder));
+        }
+        let list = if rows == Rows::Items {
+            list.items((0..self.keys.len()).map(|index| keyed(keys[index], row(index))))
         } else {
-            ItemsRepeater::new().virtual_source(VirtualSource::new(
+            list.virtual_source(VirtualSource::new(
                 self.key_revision,
                 self.keys.len(),
                 move |index| keys[index],
@@ -160,6 +194,22 @@ impl Component for RepeaterFixture {
                     TextBlock::new()
                         .automation_id("revision")
                         .text(format!("Revision {}", self.revision)),
+                    StackPanel::new()
+                        .orientation(Orientation::Horizontal)
+                        .children((
+                            Button::new()
+                                .automation_id("reverse")
+                                .content("Reverse")
+                                .on_click(context.message(Message::Reverse)),
+                            Button::new()
+                                .automation_id("select-first")
+                                .content("Select row 0")
+                                .on_click(context.message(Message::SelectFirst)),
+                            Button::new()
+                                .automation_id("shorten")
+                                .content("Keep three")
+                                .on_click(context.message(Message::Shorten)),
+                        )),
                     TextBlock::new().automation_id("drops").text(format!(
                         "Clicked row 0 drops {}",
                         CLICKED_ROW_ZERO_DROPS.load(Ordering::Relaxed)
@@ -196,10 +246,7 @@ impl Component for RepeaterFixture {
                                 .on_click(context.message(Message::ToggleEditor)),
                         )),
                 )),
-                ScrollViewer::new()
-                    .automation_id("rows")
-                    .grid_row(1)
-                    .content(repeater),
+                list,
             ))
             .into()
     }
@@ -221,9 +268,9 @@ pub(super) enum Selector {
 }
 
 /// Loads the rows and changes a selector's index in one update. Applying the selection lays out
-/// the window while Reactor is applying the update, so the repeater requests rows from within the
+/// the window while Reactor is applying the update, so the list requests rows from within the
 /// update. `Count` shows how many rows have been created.
-pub(super) struct RepeaterLayoutFixture {
+pub(super) struct VirtualListLayoutFixture {
     loaded: bool,
     created: usize,
 }
@@ -234,7 +281,7 @@ pub(super) enum LayoutMessage {
     Count,
 }
 
-impl Component for RepeaterLayoutFixture {
+impl Component for VirtualListLayoutFixture {
     type Input = Selector;
     type Message = LayoutMessage;
 
@@ -254,12 +301,12 @@ impl Component for RepeaterLayoutFixture {
 
     fn view(&self, selector: &Selector, context: &mut ViewContext<Self>) -> View {
         context.window_title(match selector {
-            Selector::RadioButtons => "Reactor UI fixture: repeater_layout",
-            Selector::FlipView => "Reactor UI fixture: repeater_layout_flip_view",
-            Selector::FlipViewBeforeReset => "Reactor UI fixture: repeater_layout_keyed_reset",
-            Selector::FlipViewShort => "Reactor UI fixture: repeater_layout_short",
-            Selector::FlipViewMixed => "Reactor UI fixture: repeater_layout_mixed",
-            Selector::Pivot => "Reactor UI fixture: repeater_layout_pivot",
+            Selector::RadioButtons => "Reactor UI fixture: virtual_list_layout",
+            Selector::FlipView => "Reactor UI fixture: virtual_list_layout_flip_view",
+            Selector::FlipViewBeforeReset => "Reactor UI fixture: virtual_list_layout_keyed_reset",
+            Selector::FlipViewShort => "Reactor UI fixture: virtual_list_layout_short",
+            Selector::FlipViewMixed => "Reactor UI fixture: virtual_list_layout_mixed",
+            Selector::Pivot => "Reactor UI fixture: virtual_list_layout_pivot",
         });
         context.window_visuals(WindowVisuals::new().client_size(500.0, 360.0));
         let before_reset = *selector == Selector::FlipViewBeforeReset;
@@ -314,10 +361,10 @@ impl Component for RepeaterLayoutFixture {
                     .on_click(context.message(LayoutMessage::Count)),
                 selector,
             ));
-        let rows = ScrollViewer::new()
+        let rows = ListView::new()
             .automation_id("rows")
             .grid_row(1)
-            .content(ItemsRepeater::new().virtual_source(VirtualSource::new(
+            .virtual_source(VirtualSource::new(
                 u64::from(swapped),
                 count,
                 move |index| if swapped { index ^ 1 } else { index },
@@ -330,7 +377,7 @@ impl Component for RepeaterLayoutFixture {
                         height: rows.height(index),
                     })
                 },
-            )));
+            ));
         // Shrinking the header lets synchronous layout request more rows before the keyed reset.
         let children: [View; 2] = if before_reset {
             [

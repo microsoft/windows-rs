@@ -420,6 +420,8 @@ struct RetainedVirtualItems {
     next_token: u64,
     source_revision: u64,
     lease_revision: u64,
+    /// Declared source positions while the native keys are reordered.
+    source_indices: Option<Rc<HashMap<Key, usize>>>,
     active: HashMap<Key, (u64, RealizedContainer)>,
     containers: HashMap<RealizedContainer, RetainedRealization>,
 }
@@ -511,6 +513,12 @@ pub trait Adapter {
     /// Applies an imperative request or completes it as unavailable.
     fn imperative(&mut self, request: ImperativeRequest) {
         request.complete_unavailable();
+    }
+
+    /// Returns whether the native control still leases a container to its row. A released
+    /// container's recycle request follows, so Reactor does not refresh the row there.
+    fn container_leased(&self, _collection: ObjectId, _container: RealizedContainer) -> bool {
+        true
     }
 }
 

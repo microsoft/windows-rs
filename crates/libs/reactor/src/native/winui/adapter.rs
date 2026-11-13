@@ -125,6 +125,14 @@ impl Adapter for SharedWinUiAdapter {
     fn imperative(&mut self, request: ImperativeRequest) {
         self.state.borrow_mut().apply_imperative(request).unwrap();
     }
+
+    fn container_leased(&self, collection: ObjectId, container: RealizedContainer) -> bool {
+        self.state
+            .borrow()
+            .virtual_items
+            .get(&collection)
+            .is_some_and(|items| items.shells.leased(container))
+    }
 }
 
 impl WinUiAdapter {
@@ -184,25 +192,39 @@ impl WinUiAdapter {
                     keys,
                     source_revision,
                 } => {
-                    if let Some(items) = self.virtual_items.get(object) {
-                        items.reset(keys, *source_revision)?;
+                    let list = match self.handles.get(object) {
+                        Some(Handle::Generated(GeneratedHandle::ListView(list))) => {
+                            list.value.clone()
+                        }
+                        Some(_) => return Err(WinUiError::InvalidObject(*object)),
+                        None => return Err(WinUiError::MissingObject(*object)),
+                    };
+                    // ListView drops its selection when the source resets, and the batch applies
+                    // the controlled index afterwards.
+                    let feedback = self.suppress_selection(*object, RelationId::Items, None)?;
+                    let result = if let Some(items) = self.virtual_items.get(object) {
+                        items
+                            .reset(&list, keys, *source_revision)
+                            .map_err(WinUiError::from)
                     } else {
-                        let repeater = match self.handles.get(object) {
-                            Some(Handle::Generated(GeneratedHandle::ItemsRepeater(repeater))) => {
-                                repeater.clone()
+                        (|| {
+                            if self.list_templates.is_none() {
+                                self.list_templates = Some(NativeVirtualItems::templates()?);
                             }
-                            Some(_) => return Err(WinUiError::InvalidObject(*object)),
-                            None => return Err(WinUiError::MissingObject(*object)),
-                        };
-                        let items = NativeVirtualItems::new(
-                            &repeater,
-                            *object,
-                            keys,
-                            *source_revision,
-                            Rc::clone(&self.event_queue),
-                        )?;
-                        self.virtual_items.insert(*object, items);
-                    }
+                            let items = NativeVirtualItems::new(
+                                &list,
+                                self.list_templates.as_ref().unwrap(),
+                                *object,
+                                keys,
+                                *source_revision,
+                                Rc::clone(&self.event_queue),
+                            )?;
+                            self.virtual_items.insert(*object, items);
+                            Ok(())
+                        })()
+                    };
+                    self.release_selection(*object, feedback);
+                    result?;
                 }
                 Mutation::Realize {
                     parent,
@@ -230,7 +252,6 @@ impl WinUiAdapter {
                         .get(parent)
                         .ok_or(WinUiError::InvalidObject(*parent))?;
                     items.shells.set_content(*container, None)?;
-                    items.shells.acknowledge_recycle(*container)?;
                     if let Some(child) = child
                         && self
                             .owners

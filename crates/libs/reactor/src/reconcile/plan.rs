@@ -354,8 +354,8 @@ impl Planner<'_> {
             self.mutations
                 .push(Mutation::SetEvents { object, set, clear });
         }
-        self.reconcile_virtual_items(object, declaration);
         let start = self.mutations.len();
+        self.reconcile_virtual_items(object, declaration);
         for contract in relation_contracts(declaration.kind) {
             self.reconcile_relation(object, declaration, contract);
         }
@@ -373,6 +373,7 @@ impl Planner<'_> {
                         | Mutation::Reorder {
                             parent, relation, ..
                         } => *parent == object && contract.items == IndexItems::Relation(*relation),
+                        Mutation::SetVirtualSource { object: owner, .. } => *owner == object,
                         _ => false,
                     })
             });

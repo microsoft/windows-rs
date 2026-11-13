@@ -169,8 +169,18 @@ impl<A: Adapter> Runtime<A> {
         if let Some(work) = self.pop_native_work() {
             return Some(work);
         }
-        if let Some(request) = self.virtual_refreshes.pop_front() {
-            return Some(self.realization_work(request));
+        while let Some(request) = self.virtual_refreshes.pop_front() {
+            let RealizationRequest::Realize {
+                collection,
+                container,
+                ..
+            } = request
+            else {
+                unreachable!();
+            };
+            if self.adapter.container_leased(collection, container) {
+                return Some(self.realization_work(request));
+            }
         }
         for _ in 0..64 {
             if !self.dispatch_imperative() {

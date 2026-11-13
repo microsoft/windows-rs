@@ -416,82 +416,82 @@ fn content_dialog_schedule_ignores_stale_completion_generation() {
     assert_eq!(schedule.active, None);
 }
 
-fn virtual_index(value: IInspectable) -> i32 {
-    value
-        .cast::<windows_reference::IReference<i32>>()
-        .unwrap()
-        .Value()
-        .unwrap()
+fn token(value: IInspectable) -> u64 {
+    virtual_token(&value).unwrap()
 }
 
 #[test]
-fn recycled_physical_shell_keeps_old_token_until_acknowledged() {
+fn retired_container_identity_is_not_reused() {
     let mut shells = ShellPool::<usize>::default();
-    let (old, physical) = shells.take(|| Ok::<_, windows_core::Error>(42)).unwrap();
+    let old = shells.take(42).unwrap();
 
-    assert!(shells.retire(old));
-    assert!(shells.retired.contains(&old));
-    let (new, reused) = shells
-        .take(|| panic!("retired physical shell was not reused"))
-        .unwrap();
+    assert_eq!(shells.retire(old), Some(42));
+    assert_eq!(shells.retire(old), None);
+    assert!(shells.issued(old));
+    let new = shells.take(42).unwrap();
 
     assert_ne!(new, old);
-    assert_eq!(reused, physical);
-    assert!(shells.retired.contains(&old));
+    assert!(!shells.shells.contains_key(&old));
     assert!(shells.shells.contains_key(&new));
-
-    shells.acknowledge_recycle(old);
-    assert!(!shells.retired.contains(&old));
-    assert!(shells.shells.contains_key(&new));
+    assert!(!shells.issued(RealizedContainer(new.0 + 1)));
 }
 
 #[test]
-fn virtual_source_generates_indices_on_demand() {
-    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![0, 1, 2])).unwrap());
+fn virtual_source_items_are_token_objects() {
+    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![5, 7, 9])).unwrap());
     let vector: IObservableVector<IInspectable> = source.to_interface();
 
     assert_eq!(vector.Size().unwrap(), 3);
-    assert_eq!(virtual_index(vector.GetAt(0).unwrap()), 0);
-    assert_eq!(virtual_index(vector.GetAt(2).unwrap()), 2);
+    assert_eq!(token(vector.GetAt(0).unwrap()), 5);
+    assert_eq!(token(vector.GetAt(2).unwrap()), 9);
     assert_eq!(vector.GetAt(3).unwrap_err().code(), E_BOUNDS);
+    let first = vector.GetAt(0).unwrap();
+    assert_eq!(first, vector.GetAt(0).unwrap());
 
     let mut index = u32::MAX;
     assert!(
         vector
-            .IndexOf(&virtual_item_value(2).unwrap(), &mut index)
+            .IndexOf(&vector.GetAt(2).unwrap(), &mut index)
             .unwrap()
     );
     assert_eq!(index, 2);
-    let missing: IInspectable = windows_reference::IReference::<i32>::from(9).into();
+    let missing: IInspectable = windows_reference::IReference::<u64>::from(8).into();
     assert!(!vector.IndexOf(&missing, &mut index).unwrap());
     assert_eq!(index, 0);
-    let negative: IInspectable = windows_reference::IReference::<i32>::from(-1).into();
-    assert!(!vector.IndexOf(&negative, &mut index).unwrap());
     let invalid: IInspectable =
         windows_reference::IReference::<HSTRING>::from(HSTRING::from("invalid")).into();
-    assert!(vector.IndexOf(&invalid, &mut index).is_err());
+    assert!(!vector.IndexOf(&invalid, &mut index).unwrap());
 
     let mut values = vec![None; 4];
     assert_eq!(vector.GetMany(1, &mut values).unwrap(), 2);
-    assert_eq!(virtual_index(values[0].take().unwrap()), 1);
-    assert_eq!(virtual_index(values[1].take().unwrap()), 2);
+    assert_eq!(token(values[0].take().unwrap()), 7);
+    assert_eq!(token(values[1].take().unwrap()), 9);
     assert!(values[2].is_none());
 
     let view = vector.GetView().unwrap();
     assert_eq!(view.Size().unwrap(), 3);
-    assert_eq!(virtual_index(view.GetAt(1).unwrap()), 1);
+    assert_eq!(token(view.GetAt(1).unwrap()), 7);
 
     let iterator = vector.First().unwrap();
     assert!(iterator.HasCurrent().unwrap());
-    assert_eq!(virtual_index(iterator.Current().unwrap()), 0);
+    assert_eq!(token(iterator.Current().unwrap()), 5);
     assert!(iterator.MoveNext().unwrap());
-    assert_eq!(virtual_index(iterator.Current().unwrap()), 1);
+    assert_eq!(token(iterator.Current().unwrap()), 7);
     let mut tail = vec![None; 3];
     assert_eq!(iterator.GetMany(&mut tail).unwrap(), 2);
-    assert_eq!(virtual_index(tail[0].take().unwrap()), 1);
-    assert_eq!(virtual_index(tail[1].take().unwrap()), 2);
+    assert_eq!(token(tail[0].take().unwrap()), 7);
+    assert_eq!(token(tail[1].take().unwrap()), 9);
     assert!(!iterator.HasCurrent().unwrap());
     assert_eq!(iterator.Current().unwrap_err().code(), E_BOUNDS);
+
+    // An update boxes new items, so ListView does not find the item it scrolled to before.
+    source.update(Arc::new(vec![9, 5])).unwrap();
+    assert!(!vector.IndexOf(&first, &mut index).unwrap());
+    let moved = vector.GetAt(1).unwrap();
+    assert_eq!(token(moved.clone()), 5);
+    assert_ne!(first, moved);
+    assert!(vector.IndexOf(&moved, &mut index).unwrap());
+    assert_eq!(index, 1);
 }
 
 #[test]
@@ -523,36 +523,51 @@ fn native_recycling_cancels_pending_keyed_realization() {
 }
 
 #[test]
-fn virtual_source_is_read_only_and_validates_index_limits() {
+fn virtual_source_accepts_only_moves_and_validates_index_limits() {
     let max_count = i32::MAX as usize + 1;
-    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![0])).unwrap());
+    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![0, 1, 2])).unwrap());
     let vector: IObservableVector<IInspectable> = source.to_interface();
+    let changes = Arc::new(Mutex::new(Vec::new()));
+    let observed = Arc::clone(&changes);
+    let _revoker = vector
+        .VectorChanged(move |_, args| {
+            let args = args.ok().unwrap();
+            observed
+                .lock()
+                .unwrap()
+                .push((args.CollectionChange().unwrap(), args.Index().unwrap()));
+        })
+        .unwrap();
 
     assert_eq!(virtual_item_count(max_count).unwrap(), max_count as u32);
-    assert_eq!(
-        virtual_index(virtual_item_value(i32::MAX as u32).unwrap()),
-        i32::MAX
-    );
-    assert_eq!(
-        virtual_item_value(i32::MAX as u32 + 1).unwrap_err().code(),
-        E_BOUNDS
-    );
     assert!(virtual_item_count(max_count + 1).is_err());
 
-    let value = virtual_item_value(0).unwrap();
+    // A drag removes the item and inserts it again.
+    let moved = vector.GetAt(2).unwrap();
+    vector.RemoveAt(2).unwrap();
+    vector.InsertAt(0, &moved).unwrap();
+    assert_eq!(*source.tokens(), [2, 0, 1]);
     assert_eq!(
-        vector.SetAt(0, &value).unwrap_err().code(),
-        E_ILLEGAL_METHOD_CALL
+        *changes.lock().unwrap(),
+        [
+            (CollectionChange::ItemRemoved, 2),
+            (CollectionChange::ItemInserted, 0)
+        ]
     );
-    assert_eq!(
-        vector.Append(&value).unwrap_err().code(),
-        E_ILLEGAL_METHOD_CALL
-    );
-    assert_eq!(vector.Clear().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
-    assert_eq!(
-        vector.ReplaceAll(&[Some(value)]).unwrap_err().code(),
-        E_ILLEGAL_METHOD_CALL
-    );
+    assert_eq!(vector.RemoveAt(3).unwrap_err().code(), E_BOUNDS);
+
+    let unknown: IInspectable = windows_reference::IReference::<u64>::from(8).into();
+    let value = vector.GetAt(0).unwrap();
+    for error in [
+        vector.InsertAt(0, &value).unwrap_err(),
+        vector.InsertAt(0, &unknown).unwrap_err(),
+        vector.SetAt(0, &value).unwrap_err(),
+        vector.Append(&value).unwrap_err(),
+        vector.Clear().unwrap_err(),
+        vector.ReplaceAll(&[Some(value)]).unwrap_err(),
+    ] {
+        assert_eq!(error.code(), E_ILLEGAL_METHOD_CALL);
+    }
 }
 
 #[test]
@@ -577,19 +592,18 @@ fn virtual_source_reset_notifies_once_and_honors_event_removal() {
         })
         .unwrap();
 
-    let keys = Arc::new((0..10_000).collect::<Vec<_>>());
-    source.reset(keys.clone()).unwrap();
+    source.update(Arc::new((0..10_000).collect())).unwrap();
     assert_eq!(vector.Size().unwrap(), 10_000);
     assert_eq!(first.load(Ordering::Relaxed), 1);
     assert_eq!(second.load(Ordering::Relaxed), 1);
 
     drop(first_revoker);
-    source.reset(keys).unwrap();
+    source.update(Arc::new((10_000..20_000).collect())).unwrap();
     assert_eq!(first.load(Ordering::Relaxed), 1);
     assert_eq!(second.load(Ordering::Relaxed), 2);
 
     drop(second_revoker);
-    source.reset(Arc::default()).unwrap();
+    source.update(Arc::default()).unwrap();
     assert_eq!(vector.Size().unwrap(), 0);
     assert_eq!(first.load(Ordering::Relaxed), 1);
     assert_eq!(second.load(Ordering::Relaxed), 2);
@@ -619,38 +633,9 @@ fn virtual_source_reset_returns_handler_failure() {
         ))
         .unwrap();
 
-    let error = source.reset(Arc::new(vec![0])).unwrap_err();
+    let error = source.update(Arc::new(vec![0])).unwrap_err();
     assert_eq!(error.code(), E_FAIL);
     assert_eq!(observed.load(Ordering::Relaxed), 1);
-}
-
-#[test]
-fn virtual_source_maps_native_tokens_across_reset() {
-    use native::IKeyIndexMapping_Impl;
-
-    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![0, 1, 2])).unwrap());
-    let mapping = &*source;
-    let tokens = [0, 1, 2].map(|index| mapping.KeyFromIndex(index).unwrap());
-    assert_ne!(tokens[0], tokens[1]);
-    assert_ne!(tokens[1], tokens[2]);
-    assert_eq!(mapping.KeyFromIndex(-1).unwrap_err().code(), E_BOUNDS);
-    assert_eq!(mapping.KeyFromIndex(3).unwrap_err().code(), E_BOUNDS);
-    for missing in ["", "unknown", "+0", "00"] {
-        assert_eq!(mapping.IndexFromKey(&HSTRING::from(missing)).unwrap(), -1);
-    }
-
-    source.reset(Arc::new(vec![2, 0])).unwrap();
-    assert_eq!(mapping.KeyFromIndex(0).unwrap(), tokens[2]);
-    assert_eq!(mapping.KeyFromIndex(1).unwrap(), tokens[0]);
-    assert_eq!(mapping.IndexFromKey(&tokens[2]).unwrap(), 0);
-    assert_eq!(mapping.IndexFromKey(&tokens[0]).unwrap(), 1);
-    assert_eq!(mapping.IndexFromKey(&tokens[1]).unwrap(), -1);
-
-    source.reset(Arc::new(vec![0, 3, 2])).unwrap();
-    assert_eq!(mapping.KeyFromIndex(0).unwrap(), tokens[0]);
-    assert_eq!(mapping.KeyFromIndex(2).unwrap(), tokens[2]);
-    assert_ne!(mapping.KeyFromIndex(1).unwrap(), tokens[1]);
-    assert_eq!(mapping.IndexFromKey(&tokens[1]).unwrap(), -1);
 }
 
 #[test]

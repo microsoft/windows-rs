@@ -670,9 +670,12 @@ fn recorder<T: 'static>() -> (Rc<RefCell<Vec<T>>>, Callback<T>) {
     (values, callback)
 }
 
-fn data_list(keys: &[&str], on_reordered: &Callback<Vec<Key>>) -> ListView {
-    ListView::new()
-        .items(keys.iter().map(|key| DataItem::new(*key, *key)))
+fn grid(keys: &[&'static str], on_reordered: &Callback<Vec<Key>>) -> GridView {
+    GridView::new()
+        .keyed_items(
+            keys.iter()
+                .map(|key| keyed(*key, TextBlock::new().text(*key))),
+        )
         .on_reordered(on_reordered.clone())
 }
 
@@ -724,10 +727,10 @@ fn drag(
 }
 
 #[test]
-fn list_view_reorder_delivers_item_keys_and_adopting_it_needs_no_mutation() {
+fn grid_view_reorder_delivers_item_keys_and_adopting_it_needs_no_mutation() {
     let (values, callback) = recorder();
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(data_list(&["a", "b", "c"], &callback));
+    runtime.update(grid(&["a", "b", "c"], &callback));
     let list = runtime.graph().root().unwrap();
     let items = runtime
         .graph()
@@ -754,11 +757,11 @@ fn list_view_reorder_delivers_item_keys_and_adopting_it_needs_no_mutation() {
     );
 
     // The native collection already has the adopted order.
-    let mutations = runtime.update(data_list(&["c", "a", "b"], &callback));
+    let mutations = runtime.update(grid(&["c", "a", "b"], &callback));
     assert_eq!(reorder_count(mutations.as_slice()), 0);
 
     // Removal indexes follow the observed order rather than the original declaration.
-    let mutations = runtime.update(data_list(&["c", "b"], &callback));
+    let mutations = runtime.update(grid(&["c", "b"], &callback));
     assert!(mutations.iter().any(|mutation| matches!(
         mutation,
         Mutation::Remove { parent, relation: RelationId::Items, child, index: 1 }
@@ -815,7 +818,7 @@ fn reorder_rejects_echoed_stale_and_partial_native_orders() {
     let (first_values, first) = recorder();
     let (second_values, second) = recorder();
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(data_list(&["a", "b", "c"], &first));
+    runtime.update(grid(&["a", "b", "c"], &first));
     let list = runtime.graph().root().unwrap();
     let items = runtime
         .graph()
@@ -866,7 +869,7 @@ fn reorder_rejects_echoed_stale_and_partial_native_orders() {
     assert_eq!(runtime.dispatch_native_events(), 0);
 
     // A drag queued before a callback replacement reaches the callback it fired under.
-    runtime.update(data_list(&["a", "b", "c"], &second));
+    runtime.update(grid(&["a", "b", "c"], &second));
     drag(
         &mut runtime,
         list,
@@ -900,7 +903,7 @@ fn reorder_rejects_echoed_stale_and_partial_native_orders() {
     );
 
     // Native collections may still hold removed items while they retire.
-    runtime.update(data_list(&["a", "c"], &second));
+    runtime.update(grid(&["a", "c"], &second));
     drag(
         &mut runtime,
         list,
@@ -935,8 +938,8 @@ impl Component for IgnoredReorder {
     }
 
     fn view(&self, _: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        ListView::new()
-            .items(["a", "b", "c"].map(|key| DataItem::new(key, key)))
+        GridView::new()
+            .keyed_items(["a", "b", "c"].map(|key| keyed(key, TextBlock::new().text(key))))
             .on_reordered(context.callback(|_: Vec<Key>| ()))
             .into()
     }

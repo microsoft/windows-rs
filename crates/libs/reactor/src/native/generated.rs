@@ -531,7 +531,6 @@ enum GeneratedHandle {
     ToggleButton(Box<GeneratedToggleButton>),
     RadioButton(Box<GeneratedRadioButton>),
     RadioButtons(Box<GeneratedRadioButtons>),
-    ItemsRepeater(native::ItemsRepeater),
     InfoBadge(native::InfoBadge),
     InfoBar(Box<GeneratedInfoBar>),
     PersonPicture(native::PersonPicture),
@@ -1429,7 +1428,6 @@ impl GeneratedHandle {
                     _selection_changed,
                 }))
             }
-            ObjectType::ItemsRepeater => Self::ItemsRepeater(native::ItemsRepeater::new()?),
             ObjectType::InfoBadge => Self::InfoBadge(native::InfoBadge::new()?),
             ObjectType::InfoBar => {
                 let value = native::InfoBar::new()?;
@@ -2324,7 +2322,6 @@ impl GeneratedHandle {
             Self::ToggleButton(_) => ObjectType::ToggleButton,
             Self::RadioButton(_) => ObjectType::RadioButton,
             Self::RadioButtons(_) => ObjectType::RadioButtons,
-            Self::ItemsRepeater(_) => ObjectType::ItemsRepeater,
             Self::InfoBadge(_) => ObjectType::InfoBadge,
             Self::InfoBar(_) => ObjectType::InfoBar,
             Self::PersonPicture(_) => ObjectType::PersonPicture,
@@ -2406,7 +2403,6 @@ impl GeneratedHandle {
             Self::ToggleButton(value) => Ok(value.value.cast()?),
             Self::RadioButton(value) => Ok(value.value.cast()?),
             Self::RadioButtons(value) => Ok(value.value.cast()?),
-            Self::ItemsRepeater(value) => Ok(value.cast()?),
             Self::InfoBadge(value) => Ok(value.cast()?),
             Self::InfoBar(value) => Ok(value.value.cast()?),
             Self::PersonPicture(value) => Ok(value.cast()?),

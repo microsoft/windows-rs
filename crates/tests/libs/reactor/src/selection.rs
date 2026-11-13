@@ -46,7 +46,11 @@ impl Component for IndexSelectionFixture {
 
     fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
         let names = &self.names;
-        let data_items = || names.iter().map(|name| DataItem::new(*name, *name));
+        let data_items = || {
+            names
+                .iter()
+                .map(|name| keyed(*name, TextBlock::new().text(*name)))
+        };
         let keyed_text = || {
             names
                 .iter()
@@ -339,9 +343,9 @@ impl Component for SelectionFixture {
             .selection_mode(ListViewSelectionMode::Single)
             .selected_index(self.selected)
             .items([
-                DataItem::new("alpha", "Alpha"),
-                DataItem::new("beta", "Beta"),
-                DataItem::new("gamma", "Gamma"),
+                keyed("alpha", TextBlock::new().text("Alpha")),
+                keyed("beta", TextBlock::new().text("Beta")),
+                keyed("gamma", TextBlock::new().text("Gamma")),
             ]);
         if self.attached {
             let generation = self.generation;

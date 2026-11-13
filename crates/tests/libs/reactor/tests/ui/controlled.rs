@@ -611,7 +611,7 @@ fn churn_read(
                 if selection.Length()? == 0 {
                     return Ok("none".to_string());
                 }
-                // DataItem text belongs to the container's child peer.
+                // Item text belongs to a descendant of the container.
                 let all = ui.client.CreateTrueCondition()?;
                 let content = selection
                     .GetElement(0)?

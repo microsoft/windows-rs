@@ -23,7 +23,6 @@ use dependency::*;
 use event_queue::*;
 use images::*;
 use objects::set_properties;
-use relations::*;
 use style::*;
 use virtualization::*;
 pub use window::*;
@@ -32,7 +31,6 @@ enum Handle {
     Generated(GeneratedHandle),
     TreeView(NativeTreeView),
     TreeNode(NativeTreeNode),
-    Data(IObservableMap<HSTRING, IInspectable>),
 }
 
 struct NativeTreeView {
@@ -523,10 +521,7 @@ pub struct WinUiAdapter {
     apply_depth: usize,
     live_regions: HashSet<ObjectId>,
     tree_template: Option<native::DataTemplate>,
-    list_template: Option<native::DataTemplate>,
-    data_content_key: HSTRING,
-    data_text_key: HSTRING,
-    data_text_visibility_key: HSTRING,
+    list_templates: Option<ListTemplates>,
     event_queue: Rc<NativeEventQueue>,
     retirements: HashMap<ObjectId, NativeRetirement>,
     virtual_items: HashMap<ObjectId, NativeVirtualItems>,
@@ -569,10 +564,7 @@ impl Default for WinUiAdapter {
             apply_depth: 0,
             live_regions: HashSet::new(),
             tree_template: None,
-            list_template: None,
-            data_content_key: HSTRING::from("Content"),
-            data_text_key: HSTRING::from("Text"),
-            data_text_visibility_key: HSTRING::from("TextVisibility"),
+            list_templates: None,
             event_queue: Rc::new(NativeEventQueue::default()),
             retirements: HashMap::new(),
             virtual_items: HashMap::new(),

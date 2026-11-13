@@ -162,7 +162,7 @@ enum Message {
     Filter(String),
     Sort(Sort),
     Tree(bool),
-    Select(ProcessId),
+    Select(Option<ProcessId>),
     Collapse(ProcessId),
     Pause,
     Navigate(Option<String>),
@@ -190,7 +190,6 @@ struct Monitor {
     error: Option<String>,
     frames: usize,
     measurements: Rc<RefCell<Measurements>>,
-    on_select: Callback<ProcessId>,
     on_collapse: Callback<ProcessId>,
     page: Page,
     show_details: bool,
@@ -240,7 +239,6 @@ impl Component for Monitor {
             error: None,
             frames: 0,
             measurements: Rc::default(),
-            on_select: context.callback(Message::Select),
             on_collapse: context.callback(Message::Collapse),
             page: Page::Processes,
             show_details: false,
@@ -312,8 +310,8 @@ impl Component for Monitor {
                 self.model.rebuild();
             }
             Message::Select(id) => {
-                if self.model.processes.contains_key(&id) {
-                    self.model.selected = Some(id);
+                if id.is_none_or(|id| self.model.processes.contains_key(&id)) {
+                    self.model.selected = id;
                 }
             }
             Message::Collapse(id) => {
@@ -597,8 +595,7 @@ impl Monitor {
     fn processes_page(&self, options: &Options, context: &ViewContext<Self>) -> View {
         let rows = Rc::clone(&self.model.visible);
         let keys = Rc::clone(&rows);
-        let selected = self.model.selected;
-        let on_select = self.on_select.clone();
+        let selected = Rc::clone(&rows);
         let on_collapse = self.on_collapse.clone();
         let source = VirtualSource::new(
             self.model.key_revision,
@@ -607,8 +604,6 @@ impl Monitor {
             move |index| {
                 View::component::<ProcessRow>(RowInput {
                     row: rows[index].clone(),
-                    selected: selected == Some(rows[index].process.id),
-                    on_select: on_select.clone(),
                     on_collapse: on_collapse.clone(),
                 })
             },
@@ -653,7 +648,7 @@ impl Monitor {
                     } else {
                         format!("Sort by {label}")
                     })
-                    .height(44.0)
+                    .height(32.0)
                     .style(ButtonStyle::Subtle)
                     .horizontal_alignment(HorizontalAlignment::Stretch)
                     .horizontal_content_alignment(if column == 0 {
@@ -684,10 +679,19 @@ impl Monitor {
             ),
             keyed(
                 "rows",
-                ScrollViewer::new()
+                ListView::new()
                     .automation_id("processes")
                     .grid_row(1)
-                    .content(ItemsRepeater::new().virtual_source(source)),
+                    .virtual_source(source)
+                    .selected_index(
+                        self.model
+                            .visible
+                            .iter()
+                            .position(|row| Some(row.process.id) == self.model.selected),
+                    )
+                    .on_selection_changed(context.callback(move |index: Option<usize>| {
+                        Message::Select(index.map(|index| selected[index].process.id))
+                    })),
             ),
         ];
         if self.model.visible.is_empty() {
@@ -758,8 +762,6 @@ fn cpu(process: &Process) -> String {
 #[derive(Clone, PartialEq)]
 struct RowInput {
     row: Row,
-    selected: bool,
-    on_select: Callback<ProcessId>,
     on_collapse: Callback<ProcessId>,
 }
 
@@ -776,7 +778,6 @@ impl Component for ProcessRow {
     fn view(&self, input: &RowInput, _: &mut ViewContext<Self>) -> View {
         let row = &input.row;
         let process = &row.process;
-        let select = input.on_select.clone();
         let collapse = input.on_collapse.clone();
         let id = process.id;
         let indent = (row.depth.min(12) * 12) as f64;
@@ -810,44 +811,7 @@ impl Component for ProcessRow {
                     .into(),
             );
         }
-        if input.selected {
-            cells.push(
-                Border::new()
-                    .width(3.0)
-                    .height(18.0)
-                    .corner_radius(1.5)
-                    .horizontal_alignment(HorizontalAlignment::Left)
-                    .vertical_alignment(VerticalAlignment::Center)
-                    .background(ThemeBrush::Accent)
-                    .into(),
-            );
-        }
-        let mut children: Vec<View> = vec![
-            Button::new()
-                .automation_id(format!("process-{}", id.pid))
-                .automation_name(&process.name)
-                .automation_help_text(format!(
-                    "PID {}{}. {}",
-                    id.pid,
-                    if input.selected { ", selected" } else { "" },
-                    process
-                        .unavailable
-                        .as_deref()
-                        .unwrap_or("Select to inspect process details.")
-                ))
-                .style(ButtonStyle::Subtle)
-                .background(if input.selected {
-                    ThemeBrush::CardBackground
-                } else {
-                    ThemeBrush::SolidBackground
-                })
-                .height(32.0)
-                .horizontal_alignment(HorizontalAlignment::Stretch)
-                .horizontal_content_alignment(HorizontalAlignment::Stretch)
-                .content(Grid::new().columns(columns()).children(cells))
-                .on_click(move || select.call(id))
-                .into(),
-        ];
+        let mut children: Vec<View> = vec![Grid::new().columns(columns()).children(cells).into()];
         if row.has_children {
             children.push(
                 Button::new()
@@ -859,7 +823,7 @@ impl Component for ProcessRow {
                     ))
                     .style(ButtonStyle::Subtle)
                     .width(36.0)
-                    .height(32.0)
+                    .height(24.0)
                     .min_height(0.0)
                     .horizontal_alignment(HorizontalAlignment::Left)
                     .vertical_alignment(VerticalAlignment::Center)
@@ -873,7 +837,20 @@ impl Component for ProcessRow {
                     .into(),
             );
         }
-        Grid::new().children(children).into()
+        Grid::new()
+            .automation_id(format!("process-{}", id.pid))
+            .automation_name(&process.name)
+            .automation_help_text(format!(
+                "PID {}. {}",
+                id.pid,
+                process
+                    .unavailable
+                    .as_deref()
+                    .unwrap_or("Select to inspect process details.")
+            ))
+            .height(24.0)
+            .children(children)
+            .into()
     }
 }
 

@@ -16,11 +16,6 @@ impl WinUiAdapter {
         }
         let handle = if let Some(handle) = GeneratedHandle::create(kind, object, &self.event_queue)?
         {
-            if let GeneratedHandle::ListView(list) = &handle {
-                list.value
-                    .cast::<native::IItemsControl>()?
-                    .SetItemTemplate(&self.list_template()?)?;
-            }
             Handle::Generated(handle)
         } else {
             match kind {
@@ -72,17 +67,6 @@ impl WinUiAdapter {
                         text: HSTRING::new(),
                         content: None,
                     })
-                }
-                ObjectType::DataItem => {
-                    let values = BTreeMap::from([
-                        (self.data_text_key.clone(), Some(data_string(""))),
-                        (self.data_content_key.clone(), None),
-                        (
-                            self.data_text_visibility_key.clone(),
-                            Some(data_string("Visible")),
-                        ),
-                    ]);
-                    Handle::Data(values.into())
                 }
                 _ => unreachable!("generated object was not created"),
             }
@@ -306,15 +290,6 @@ impl WinUiAdapter {
                 );
             }
             return Ok(());
-        }
-        if property == PropertyId::Text
-            && matches!(self.handles.get(&object), Some(Handle::Data(_)))
-        {
-            match value {
-                None => return self.set_data_text(object, ""),
-                Some(PropertyValue::String(text)) => return self.set_data_text(object, text),
-                _ => {}
-            }
         }
         let tree_node_texts = Rc::clone(&self.tree_node_texts);
         match (self.handle(object)?, property, value) {
@@ -576,8 +551,8 @@ pub(super) fn set_properties(
             && let Some(element) = element.as_ref()
         {
             // Measure only this control so its item containers exist. `UpdateLayout` would lay out
-            // the whole window, including virtualized repeaters elsewhere in the tree, while their
-            // element factories cannot render rows.
+            // the whole window, including virtualized lists elsewhere in the tree, while their rows
+            // cannot be rendered.
             element.Measure(native::LayoutInformation::GetAvailableSize(element)?)?;
         }
         let write =

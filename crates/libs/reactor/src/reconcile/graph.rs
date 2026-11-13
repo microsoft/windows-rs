@@ -215,7 +215,8 @@ impl RetainedGraph {
         }
         if let Some(current_virtual) = &current.virtual_items {
             let declared = declaration.virtual_items.as_ref();
-            if declared.map(|declared| &declared.items) != Some(&current_virtual.items)
+            if current_virtual.source_indices.is_some()
+                || declared.map(|declared| &declared.items) != Some(&current_virtual.items)
                 || declared
                     .and_then(|declared| declared.owner)
                     .or(declaration.component)

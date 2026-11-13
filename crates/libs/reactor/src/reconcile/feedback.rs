@@ -16,6 +16,11 @@ pub enum Observation {
         relation: RelationId,
         children: Vec<ObjectId>,
     },
+    /// The native control reordered a virtual list's items, listed by token in native order.
+    VirtualReorder {
+        object: ObjectId,
+        tokens: Arc<Vec<u64>>,
+    },
 }
 
 /// The item a native selector reports as selected.
@@ -42,7 +47,8 @@ impl Observation {
         match self {
             Self::SetProperty { object, .. }
             | Self::SetSelection { object, .. }
-            | Self::Reorder { object, .. } => *object,
+            | Self::Reorder { object, .. }
+            | Self::VirtualReorder { object, .. } => *object,
         }
     }
 }
@@ -122,7 +128,7 @@ impl EventCall {
             #[cfg(any(test, feature = "test"))]
             Self::KeyEventInfo(..) => ValueType::KeyEventInfo,
             Self::Item(..) => ValueType::Key,
-            Self::Items(..) => ValueType::Keys,
+            Self::Items(..) | Self::Tokens(..) => ValueType::Keys,
             Self::Selection(..) => ValueType::Selection,
             Self::SelectionIndex(..) => ValueType::SelectionIndex,
             Self::Unit(..) => ValueType::Unit,
@@ -156,7 +162,9 @@ impl EventCall {
             Self::Selection(callback, value) => callback.call(value.value),
             Self::SelectionIndex(callback, value) => callback.call(value),
             Self::Unit(callback) => callback.call(()),
-            Self::Item(..) | Self::Items(..) => unreachable!("native items resolve to keys"),
+            Self::Item(..) | Self::Items(..) | Self::Tokens(..) => {
+                unreachable!("native items resolve to keys")
+            }
         }
     }
 }
@@ -200,6 +208,21 @@ impl RetainedGraph {
                 );
                 self.reordered_children(*object, *relation, children)
                     .is_some()
+            }
+            Observation::VirtualReorder { object, tokens } => {
+                let Some(owner) = self.get(*object) else {
+                    return false;
+                };
+                let Some(items) = &owner.virtual_items else {
+                    panic!("{object:?} does not realize virtual items");
+                };
+                assert!(
+                    reorder_event(owner.kind, items.relation).is_some(),
+                    "invalid relation {:?} for {:?}",
+                    items.relation,
+                    owner.kind
+                );
+                self.virtual_order(*object, tokens).is_some()
             }
         }
     }
@@ -377,6 +400,9 @@ impl RetainedGraph {
                     retained.value = RetainedRelationValue::Many(children);
                 }
             }
+            Observation::VirtualReorder { object, tokens } => {
+                return self.observe_virtual_order(object, tokens);
+            }
         }
         true
     }
@@ -448,6 +474,21 @@ impl RetainedGraph {
                     .map(|child| self.get(*child)?.key.clone())
                     .collect::<Option<Vec<_>>>()?;
                 EventCall::Keys(callback, keys)
+            }
+            EventCall::Tokens(callback, tokens) => {
+                let items = object.virtual_items.as_ref()?;
+                assert!(
+                    reorder_contracts(object.kind)
+                        .iter()
+                        .any(|contract| contract.event == event
+                            && contract.relation == items.relation),
+                    "invalid payload for event {event:?}"
+                );
+                // A stale payload no longer describes the retained order.
+                if items.tokens != tokens {
+                    return None;
+                }
+                EventCall::Keys(callback, items.keys.as_ref().clone())
             }
             EventCall::Selection(
                 _,

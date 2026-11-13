@@ -18,7 +18,6 @@ mod list;
 mod pane;
 mod pointer;
 mod reference;
-mod repeater;
 mod retirement;
 mod selection;
 mod smoke;
@@ -29,6 +28,7 @@ mod timer;
 mod tray;
 mod tree;
 mod typography;
+mod virtual_list;
 mod window;
 
 pub use controlled::{CHURN_ITEMS, date};
@@ -341,37 +341,49 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "keyboard" => App::run_component::<keyboard::KeyboardFixture>(())?,
         "list" => App::run_component::<list::ListFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
-        "repeater" => App::run_component::<repeater::RepeaterFixture>(repeater::Rows::Default)?,
-        "repeater_items" => App::run_component::<repeater::RepeaterFixture>(repeater::Rows::Items)?,
-        "repeater_virtual" => {
-            App::run_component::<repeater::RepeaterFixture>(repeater::Rows::Virtual)?;
+        "virtual_list" => {
+            App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Default)?;
         }
-        "repeater_short" => App::run_component::<repeater::RepeaterFixture>(repeater::Rows::Short)?,
-        "repeater_mixed" => App::run_component::<repeater::RepeaterFixture>(repeater::Rows::Mixed)?,
-        "repeater_layout_short" => {
-            App::run_component::<repeater::RepeaterLayoutFixture>(
-                repeater::Selector::FlipViewShort,
+        "virtual_list_items" => {
+            App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Items)?;
+        }
+        "virtual_list_virtual" => {
+            App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Virtual)?;
+        }
+        "virtual_list_short" => {
+            App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Short)?;
+        }
+        "virtual_list_mixed" => {
+            App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Mixed)?;
+        }
+        "virtual_list_layout_short" => {
+            App::run_component::<virtual_list::VirtualListLayoutFixture>(
+                virtual_list::Selector::FlipViewShort,
             )?;
         }
-        "repeater_layout_mixed" => {
-            App::run_component::<repeater::RepeaterLayoutFixture>(
-                repeater::Selector::FlipViewMixed,
+        "virtual_list_layout_mixed" => {
+            App::run_component::<virtual_list::VirtualListLayoutFixture>(
+                virtual_list::Selector::FlipViewMixed,
             )?;
         }
-        "repeater_layout" => {
-            App::run_component::<repeater::RepeaterLayoutFixture>(
-                repeater::Selector::RadioButtons,
+        "virtual_list_layout" => {
+            App::run_component::<virtual_list::VirtualListLayoutFixture>(
+                virtual_list::Selector::RadioButtons,
             )?;
         }
-        "repeater_layout_flip_view" => {
-            App::run_component::<repeater::RepeaterLayoutFixture>(repeater::Selector::FlipView)?;
+        "virtual_list_layout_flip_view" => {
+            App::run_component::<virtual_list::VirtualListLayoutFixture>(
+                virtual_list::Selector::FlipView,
+            )?;
         }
-        "repeater_layout_pivot" => {
-            App::run_component::<repeater::RepeaterLayoutFixture>(repeater::Selector::Pivot)?;
+        "virtual_list_layout_pivot" => {
+            App::run_component::<virtual_list::VirtualListLayoutFixture>(
+                virtual_list::Selector::Pivot,
+            )?;
         }
-        "repeater_layout_keyed_reset" => {
-            App::run_component::<repeater::RepeaterLayoutFixture>(
-                repeater::Selector::FlipViewBeforeReset,
+        "virtual_list_layout_keyed_reset" => {
+            App::run_component::<virtual_list::VirtualListLayoutFixture>(
+                virtual_list::Selector::FlipViewBeforeReset,
             )?;
         }
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,

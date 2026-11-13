@@ -161,7 +161,7 @@ fn native_queue_observation_bursts_are_linear() {
 fn native_queue_realizations_are_linear() {
     for count in [1_000, 10_000] {
         let mut runtime = Runtime::new(QueueCountingAdapter::new());
-        runtime.update(ItemsRepeater::new().virtual_source(VirtualSource::new(
+        runtime.update(ListView::new().virtual_source(VirtualSource::new(
             0,
             count,
             Key::from,
@@ -210,7 +210,7 @@ impl Component for VirtualQueue {
     }
 
     fn view(&self, count: &usize, _: &mut ViewContext<Self>) -> View {
-        ItemsRepeater::new()
+        ListView::new()
             .virtual_source(VirtualSource::new(0, *count, Key::from, |index| {
                 TextBlock::new().text(index.to_string())
             }))

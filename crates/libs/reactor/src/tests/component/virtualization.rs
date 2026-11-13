@@ -42,7 +42,7 @@ impl Component for VirtualParent {
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
         let log = input.clone();
-        ItemsRepeater::new()
+        ListView::new()
             .virtual_source(VirtualSource::new(
                 1,
                 10_000,
@@ -64,7 +64,7 @@ impl Component for VirtualContextParent {
     }
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        ItemsRepeater::new()
+        ListView::new()
             .item("row", component::<ContextReader>("row", input.clone()))
             .into()
     }
@@ -89,9 +89,7 @@ impl Component for VirtualContextOwner {
 
     fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         let _ = context.use_context(&input.context);
-        ItemsRepeater::new()
-            .virtual_source(self.source.clone())
-            .into()
+        ListView::new().virtual_source(self.source.clone()).into()
     }
 }
 
@@ -114,9 +112,7 @@ impl Component for VirtualRemovingOwner {
 
     fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         if context.use_context(&input.context) == 0 {
-            ItemsRepeater::new()
-                .virtual_source(self.source.clone())
-                .into()
+            ListView::new().virtual_source(self.source.clone()).into()
         } else {
             TextBlock::new().into()
         }
@@ -186,7 +182,7 @@ impl Component for VirtualCleanupParent {
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
         let input = input.clone();
-        ItemsRepeater::new()
+        ListView::new()
             .virtual_source(VirtualSource::new(1, 1, Key::from, move |_| {
                 let input = VirtualCleanupInput {
                     rendered: input.revision.get(),
@@ -872,7 +868,7 @@ impl Component for NestedVirtualParent {
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
         let log = input.clone();
-        ItemsRepeater::new()
+        ListView::new()
             .virtual_source(VirtualSource::new(1, 10, Key::from, move |outer| {
                 component::<VirtualParent>(outer, log.clone())
             }))
@@ -952,7 +948,7 @@ impl Component for NestedCleanupParent {
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
         let input = input.clone();
-        ItemsRepeater::new()
+        ListView::new()
             .virtual_source(VirtualSource::new(1, 1, Key::from, move |_| {
                 component::<VirtualCleanupParent>("inner", input.clone())
             }))

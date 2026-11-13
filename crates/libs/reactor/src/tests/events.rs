@@ -383,7 +383,7 @@ fn native_queue_callback_boundary_precedes_later_realization_validation() {
     runtime.update(
         Grid::new().children([
             Button::new().on_click(callback.clone()).into(),
-            ItemsRepeater::new()
+            ListView::new()
                 .item("only", TextBlock::new().text("Only"))
                 .into(),
         ]),

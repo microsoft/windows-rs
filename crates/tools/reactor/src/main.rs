@@ -56,7 +56,6 @@ enum ObjectCategory {
     #[default]
     Visual,
     Structural,
-    Data,
 }
 
 impl ObjectCategory {
@@ -64,7 +63,6 @@ impl ObjectCategory {
         match self {
             Self::Visual => "Visual",
             Self::Structural => "Structural",
-            Self::Data => "Data",
         }
     }
 }
@@ -1649,6 +1647,16 @@ fn generate_declarations(
             continue;
         }
         let content_dialog = object.content_dialog_attachment;
+        if object.virtual_items {
+            output.push_str(
+                "/// A virtualized list of keyed rows.\n\
+                 ///\n\
+                 /// Rows from [`Self::item`], [`Self::items`], and [`Self::virtual_source`] mount on\n\
+                 /// demand and are disposed when recycled. Stable keys preserve a retained row's\n\
+                 /// identity, but not its component-local state after recycling. Keep durable row\n\
+                 /// state in an owning component or shared model outside the row.\n",
+            );
+        }
         output.push_str("#[derive(Clone, Debug, PartialEq)]\n");
         if content_dialog {
             output.push_str(&format!(
@@ -1825,9 +1833,7 @@ fn generate_declarations(
                 ("Visual", "Many", "Positional") => {
                     "keyed(\"text\", TextBlock::new().text(\"Text\"))"
                 }
-                ("Structural", "Many", _) | ("Data", "Many", _) => {
-                    "TextBlock::new().text(\"Text\")"
-                }
+                ("Structural", "Many", _) => "TextBlock::new().text(\"Text\")",
                 _ => unreachable!("unsupported relation shape"),
             };
             let argument = if relation.cardinality == Cardinality::One {

@@ -32,7 +32,6 @@ mod pane;
 mod pointer;
 mod process;
 mod reference;
-mod repeater;
 mod retirement;
 mod selection;
 mod smoke;
@@ -42,6 +41,7 @@ mod text;
 mod timer;
 mod tree;
 mod typography;
+mod virtual_list;
 mod window;
 
 use automation::*;
