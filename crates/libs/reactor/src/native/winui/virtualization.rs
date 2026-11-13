@@ -163,11 +163,16 @@ impl NativeVirtualSource_Impl {
         let source: IObservableVector<IInspectable> = self.to_object().into_interface();
         let args: IVectorChangedEventArgs =
             ComObject::new(NativeVirtualChangedEventArgs).into_interface();
+        let mut result = Ok(());
         self.handlers
             .call(|handler: &VectorChangedEventHandler<IInspectable>| {
-                handler.Invoke(&source, &args)
+                let invoked = handler.Invoke(&source, &args);
+                if let (Ok(()), Err(error)) = (&result, &invoked) {
+                    result = Err(error.clone());
+                }
+                invoked
             });
-        Ok(())
+        result
     }
 }
 
