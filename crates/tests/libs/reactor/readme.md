@@ -41,7 +41,7 @@ cargo test -p test-reactor
 
 ## Opt-in drag/drop coverage
 
-Five drag/drop cases are ignored by default. They require a non-elevated terminal and an idle
+Seven drag/drop cases are ignored by default. They require a non-elevated terminal and an idle
 interactive desktop. WinUI does not support this path in elevated processes
 ([microsoft/microsoft-ui-xaml#7690](https://github.com/microsoft/microsoft-ui-xaml/issues/7690));
 GitHub-hosted Windows runners run elevated.
@@ -49,7 +49,13 @@ GitHub-hosted Windows runners run elevated.
 ```text
 cargo test -p test-reactor --test ui drop_policy -- --ignored
 cargo test -p test-reactor --test ui drag_source_is_stopped_after_driver_failure -- --ignored
+cargo test -p test-reactor --test ui drag_reorders_keyed_rows -- --ignored
 ```
+
+The list reorder cases share a driver between Reactor and a native-control fixture. The native
+fixture uses the same item source without Reactor reconciliation or container binding. Read-only
+UIA polling reports provider timeouts and continues within its original deadline; actions are not
+replayed.
 
 `cancelled_drag_can_be_restarted` has an unresolved intermittent UIA timeout (`0x80131505`).
 To run all opt-in cases, including that regression:

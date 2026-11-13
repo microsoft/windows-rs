@@ -3,6 +3,37 @@ fn main() {
     windows_reactor_setup::as_self_contained();
 
     windows_bindgen::builder()
+        .input("../../../tools/reactor-metadata/winmd")
+        .input_default()
+        .output(std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("native_bindings.rs"))
+        .filters([
+            "extras::IWindowNative::get_WindowHandle",
+            "Microsoft::UI::Xaml::Application::{Current, Exit}",
+            "Microsoft::UI::Xaml::Window::CreateInstance",
+            "Microsoft::UI::Xaml::IWindow::{Activate, add_Closed, put_Content, put_Title, remove_Closed}",
+            "Microsoft::UI::Xaml::IFrameworkElement::{FindName, put_Height, put_HorizontalAlignment}",
+            "Microsoft::UI::Xaml::Controls::IListViewBase::{add_ContainerContentChanging, add_DragItemsCompleted, remove_ContainerContentChanging, remove_DragItemsCompleted}",
+            "Microsoft::UI::Xaml::Controls::IContainerContentChangingEventArgs::{get_InRecycleQueue, get_Item, get_ItemContainer, get_ItemIndex, get_Phase, put_Handled}",
+            "Microsoft::UI::Xaml::Controls::IDragItemsCompletedEventArgs::get_DropResult",
+            "Microsoft::UI::Xaml::Controls::IItemsControl::put_ItemsSource",
+            "Microsoft::UI::Xaml::Controls::IContentControl::{get_ContentTemplateRoot, put_Content}",
+            "Microsoft::UI::Xaml::Controls::ITextBlock::put_Text",
+            "Microsoft::UI::Xaml::Controls::Button::CreateInstance",
+            "Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}",
+            "Microsoft::UI::Xaml::Automation::AutomationProperties::{SetAutomationId, SetName}",
+            "Microsoft::UI::Xaml::Markup::XamlReader::Load",
+            "GetDpiForWindow",
+            "GetClientRect",
+            "GetWindowRect",
+            "SetWindowPos",
+            "SWP_NOZORDER",
+            "SWP_NOACTIVATE",
+        ])
+        .flat()
+        .minimal()
+        .write();
+
+    windows_bindgen::builder()
         .output(
             std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("canvas_bindings.rs"),
         )
@@ -40,7 +71,8 @@ fn main() {
             "IUIAutomationTextRange::{GetAttributeValue,GetText}",
             "IUIAutomationValuePattern::{CurrentValue,SetValue}",
             "IUIAutomationSelectionPattern::GetCurrentSelection",
-            "IUIAutomationSelectionItemPattern::{Select,CurrentIsSelected}",
+            "UIA_E_TIMEOUT",
+            "IUIAutomationSelectionItemPattern::{Select,AddToSelection,CurrentIsSelected}",
             "IUIAutomationTogglePattern::{Toggle,CurrentToggleState}",
             "IUIAutomationExpandCollapsePattern::{Expand,Collapse,CurrentExpandCollapseState}",
             "IUIAutomationRangeValuePattern::{SetValue,CurrentValue}",

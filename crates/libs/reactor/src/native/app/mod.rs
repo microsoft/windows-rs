@@ -628,6 +628,14 @@ impl App {
     }
 }
 
+/// Runs test-owned native controls without Reactor reconciliation.
+#[cfg(feature = "test")]
+pub fn run_native_fixture<T: 'static>(
+    startup: impl FnOnce() -> windows_core::Result<T> + 'static,
+) -> windows_core::Result<()> {
+    run(move |_| startup())
+}
+
 /// Starts WinUI on the current thread and runs until the application exits.
 ///
 /// `startup` creates the host that owns the application's windows. The host is dropped before

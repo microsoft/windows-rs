@@ -24,6 +24,8 @@ use event_queue::*;
 use images::*;
 use objects::set_properties;
 use style::*;
+#[cfg(feature = "test")]
+pub use virtualization::native_test_list_source;
 use virtualization::*;
 pub use window::*;
 

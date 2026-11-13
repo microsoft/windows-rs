@@ -95,13 +95,20 @@ impl Adapter for SharedWinUiAdapter {
         let index_writes = mutations
             .iter()
             .filter_map(|mutation| match mutation {
-                Mutation::SetProperties { object, set, .. } => Some((object, set)),
+                Mutation::SetProperties { object, set, clear } => Some((object, set, clear)),
                 _ => None,
             })
-            .flat_map(|(object, set)| {
+            .flat_map(|(object, set, clear)| {
                 set.iter()
                     .filter(|property| matches!(property.value, PropertyValue::SelectionIndex(_)))
-                    .map(|property| (*object, property.id))
+                    .map(|property| property.id)
+                    .chain(
+                        clear
+                            .iter()
+                            .copied()
+                            .filter(|id| *id == PropertyId::SelectedIndex),
+                    )
+                    .map(|id| (*object, id))
             })
             .collect();
         // A batch applied within another restores the outer batch's index writes and leaves the
@@ -192,19 +199,27 @@ impl WinUiAdapter {
                     keys,
                     source_revision,
                 } => {
-                    let list = match self.handles.get(object) {
+                    let (list, selection_changed) = match self.handles.get(object) {
                         Some(Handle::Generated(GeneratedHandle::ListView(list))) => {
-                            list.value.clone()
+                            (list.value.clone(), Rc::clone(&list.selection_changed))
                         }
                         Some(_) => return Err(WinUiError::InvalidObject(*object)),
                         None => return Err(WinUiError::MissingObject(*object)),
                     };
-                    // ListView drops its selection when the source resets, and the batch applies
-                    // the controlled index afterwards.
-                    let feedback = self.suppress_selection(*object, RelationId::Items, None)?;
+                    let controlled = self
+                        .index_writes
+                        .contains(&(*object, PropertyId::SelectedIndex));
+                    let selector = list.cast::<native::ISelector>()?;
+                    let previous = selector.SelectedIndex()?;
+                    let selected_items = list.cast::<native::IListViewBase>()?.SelectedItems()?;
+                    let previous_count = selected_items.Size()?;
+                    self.event_queue
+                        .feedback
+                        .borrow_mut()
+                        .suppress(*object, EventId::SelectionChanged);
                     let result = if let Some(items) = self.virtual_items.get(object) {
                         items
-                            .reset(&list, keys, *source_revision)
+                            .reset(&list, keys, *source_revision, !controlled)
                             .map_err(WinUiError::from)
                     } else {
                         (|| {
@@ -223,8 +238,28 @@ impl WinUiAdapter {
                             Ok(())
                         })()
                     };
-                    self.release_selection(*object, feedback);
+                    self.release_selection(*object, Some(EventId::SelectionChanged));
                     result?;
+                    if !controlled && self.event_queue.reports(*object, EventId::SelectionChanged) {
+                        let current = selector.SelectedIndex()?;
+                        if current != previous || selected_items.Size()? != previous_count {
+                            let observed = usize::try_from(current).ok();
+                            Self::dispatch(
+                                &selection_changed,
+                                &self.event_queue,
+                                *object,
+                                EventId::SelectionChanged,
+                                Some(Observation::SetProperty {
+                                    object: *object,
+                                    property: Property {
+                                        id: PropertyId::SelectedIndex,
+                                        value: PropertyValue::SelectionIndex(observed),
+                                    },
+                                }),
+                                observed,
+                            );
+                        }
+                    }
                 }
                 Mutation::Realize {
                     parent,

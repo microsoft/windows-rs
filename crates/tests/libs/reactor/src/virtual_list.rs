@@ -13,14 +13,17 @@ pub(super) enum Rows {
     Virtual,
     Short,
     Mixed,
+    Multiple,
+    Extended,
+    Bulk,
 }
 
 impl Rows {
     fn count(self) -> usize {
         match self {
             Self::Default => 256,
-            Self::Items | Self::Virtual => 200,
-            Self::Short | Self::Mixed => 10_000,
+            Self::Items | Self::Virtual | Self::Multiple | Self::Extended => 200,
+            Self::Short | Self::Mixed | Self::Bulk => 10_000,
         }
     }
 
@@ -41,7 +44,8 @@ pub(super) struct VirtualListFixture {
     sample: usize,
     counts: [usize; 3],
     editing: bool,
-    selected: bool,
+    selected: Option<Option<usize>>,
+    selection_events: Vec<Option<usize>>,
 }
 
 #[derive(Clone)]
@@ -51,6 +55,11 @@ pub(super) enum Message {
     SwapFirst,
     Reverse,
     SelectFirst,
+    ControlReset,
+    ClearReset,
+    ReleaseReset,
+    Append,
+    Selection(Option<usize>),
     Shorten,
     Reorder(Vec<Key>),
     ToggleFirst,
@@ -72,12 +81,38 @@ impl Component for VirtualListFixture {
             sample: 0,
             counts: [0; 3],
             editing: false,
-            selected: false,
+            selected: None,
+            selection_events: Vec::new(),
         }
     }
 
     fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
         match message {
+            Message::Selection(index) => {
+                self.selection_events.push(index);
+                return;
+            }
+            Message::ControlReset => {
+                self.selected = Some(Some(0));
+                Rc::make_mut(&mut self.keys).reverse();
+                self.key_revision += 1;
+            }
+            Message::ClearReset => {
+                self.selected = Some(None);
+                Rc::make_mut(&mut self.keys).reverse();
+                self.key_revision += 1;
+            }
+            Message::ReleaseReset => {
+                self.selected = None;
+                Rc::make_mut(&mut self.keys).reverse();
+                self.key_revision += 1;
+            }
+            Message::Append => {
+                let key = self.values.len();
+                Rc::make_mut(&mut self.values).push(0);
+                Rc::make_mut(&mut self.keys).push(key);
+                self.key_revision += 1;
+            }
             Message::Rerender => {}
             Message::ToggleEditor => self.editing = !self.editing,
             Message::Change => Rc::make_mut(&mut self.values)[0] += 1,
@@ -91,7 +126,7 @@ impl Component for VirtualListFixture {
                 Rc::make_mut(&mut self.keys).reverse();
                 self.key_revision += 1;
             }
-            Message::SelectFirst => self.selected = true,
+            Message::SelectFirst => self.selected = Some(Some(0)),
             Message::Shorten => {
                 Rc::make_mut(&mut self.keys).truncate(3);
                 self.key_revision += 1;
@@ -142,6 +177,9 @@ impl Component for VirtualListFixture {
             Rows::Virtual => "Reactor UI fixture: virtual_list_virtual",
             Rows::Short => "Reactor UI fixture: virtual_list_short",
             Rows::Mixed => "Reactor UI fixture: virtual_list_mixed",
+            Rows::Multiple => "Reactor UI fixture: virtual_list_multiple",
+            Rows::Extended => "Reactor UI fixture: virtual_list_extended",
+            Rows::Bulk => "Reactor UI fixture: virtual_list_bulk",
         });
         context.window_visuals(WindowVisuals::new().client_size(500.0, 360.0));
         let values = Rc::clone(&self.values);
@@ -166,9 +204,19 @@ impl Component for VirtualListFixture {
                 height: rows.height(index),
             })
         };
-        let mut list = ListView::new().automation_id("rows").grid_row(1);
-        if self.selected {
-            list = list.selected_index(self.keys.iter().position(|key| *key == 0));
+        let mut list = ListView::new()
+            .automation_id("rows")
+            .grid_row(1)
+            .selection_mode(match rows {
+                Rows::Multiple => ListViewSelectionMode::Multiple,
+                Rows::Extended | Rows::Bulk => ListViewSelectionMode::Extended,
+                _ => ListViewSelectionMode::Single,
+            })
+            .on_selection_changed(context.callback(Message::Selection));
+        if let Some(selected) = self.selected {
+            list = list.selected_index(
+                selected.and_then(|selected| self.keys.iter().position(|key| *key == selected)),
+            );
         }
         if rows == Rows::Virtual {
             list = list
@@ -194,6 +242,9 @@ impl Component for VirtualListFixture {
                     TextBlock::new()
                         .automation_id("revision")
                         .text(format!("Revision {}", self.revision)),
+                    TextBlock::new()
+                        .automation_id("selection-events")
+                        .text(format!("{:?}", self.selection_events)),
                     StackPanel::new()
                         .orientation(Orientation::Horizontal)
                         .children((
@@ -203,12 +254,28 @@ impl Component for VirtualListFixture {
                                 .on_click(context.message(Message::Reverse)),
                             Button::new()
                                 .automation_id("select-first")
-                                .content("Select row 0")
+                                .content("Select")
                                 .on_click(context.message(Message::SelectFirst)),
                             Button::new()
                                 .automation_id("shorten")
-                                .content("Keep three")
+                                .content("Keep 3")
                                 .on_click(context.message(Message::Shorten)),
+                            Button::new()
+                                .automation_id("append")
+                                .content("Append")
+                                .on_click(context.message(Message::Append)),
+                            Button::new()
+                                .automation_id("control-reset")
+                                .content("Set")
+                                .on_click(context.message(Message::ControlReset)),
+                            Button::new()
+                                .automation_id("clear-reset")
+                                .content("Clear")
+                                .on_click(context.message(Message::ClearReset)),
+                            Button::new()
+                                .automation_id("release-reset")
+                                .content("Release")
+                                .on_click(context.message(Message::ReleaseReset)),
                         )),
                     TextBlock::new().automation_id("drops").text(format!(
                         "Clicked row 0 drops {}",

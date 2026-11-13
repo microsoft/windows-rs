@@ -91,6 +91,8 @@ pub mod test {
         LiveRenderingSubscription, LiveTickSubscription, schedule_live_test_exit,
         subscribe_live_interval, subscribe_live_rendering,
     };
+    #[cfg(feature = "test")]
+    pub use crate::native::{native_test_handler, native_test_list_source, run_native_fixture};
     pub use crate::reconcile::{
         Adapter, EventDispatch, Mutation, ObjectId, RealizationRequest, RealizedContainer,
         RetainedMemory, Runtime,

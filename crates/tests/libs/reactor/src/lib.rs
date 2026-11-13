@@ -15,6 +15,7 @@ mod flyout;
 mod image;
 mod keyboard;
 mod list;
+mod native_list;
 mod pane;
 mod pointer;
 mod reference;
@@ -350,11 +351,21 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "virtual_list_virtual" => {
             App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Virtual)?;
         }
+        "native_list" => native_list::run()?,
         "virtual_list_short" => {
             App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Short)?;
         }
         "virtual_list_mixed" => {
             App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Mixed)?;
+        }
+        "virtual_list_multiple" => {
+            App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Multiple)?;
+        }
+        "virtual_list_extended" => {
+            App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Extended)?;
+        }
+        "virtual_list_bulk" => {
+            App::run_component::<virtual_list::VirtualListFixture>(virtual_list::Rows::Bulk)?;
         }
         "virtual_list_layout_short" => {
             App::run_component::<virtual_list::VirtualListLayoutFixture>(

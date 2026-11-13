@@ -165,7 +165,15 @@ impl Automation {
                 Ok(value) if ready(value) => return Ok(observed?),
                 Ok(_) => {}
                 Err(error) if error.code() == ELEMENT_UNAVAILABLE => {}
-                Err(error) => return Err(format!("{description}: {error}").into()),
+                Err(error) if error.code() == HRESULT(UIA_E_TIMEOUT as i32) => {
+                    eprintln!("{description}: UIA provider timed out; observation is not ready");
+                }
+                Err(error) => {
+                    if let Err(diagnostic) = self.dump() {
+                        eprintln!("could not finish UI tree diagnostic: {diagnostic}");
+                    }
+                    return Err(format!("{description}: {error}").into());
+                }
             }
             if Instant::now() >= deadline {
                 if let Err(error) = self.dump() {

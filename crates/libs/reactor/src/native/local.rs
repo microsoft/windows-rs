@@ -85,7 +85,7 @@ pub(super) fn task(callback: impl Fn() + 'static) -> impl Fn() + Send + Sync {
     move || callback.with(|callback| callback())
 }
 
-pub(super) fn handler<A, B, F>(callback: F) -> impl Fn(InRef<'_, A>, InRef<'_, B>) + Send + Sync
+pub fn handler<A, B, F>(callback: F) -> impl Fn(InRef<'_, A>, InRef<'_, B>) + Send + Sync
 where
     A: RuntimeType + 'static,
     B: RuntimeType + 'static,

@@ -113,7 +113,13 @@ impl NativeVirtualItems {
         list: &native::ListView,
         keys: &Arc<Vec<u64>>,
         source_revision: u64,
+        preserve_selection: bool,
     ) -> windows_core::Result<()> {
+        let mut selected = if preserve_selection {
+            selected_indices(list, keys)?
+        } else {
+            Vec::new()
+        };
         let viewport = list_scroll_viewer(&list.cast()?)?
             .map(|scroll| -> windows_core::Result<_> {
                 let horizontal = scroll.HorizontalOffset()?;
@@ -123,6 +129,20 @@ impl NativeVirtualItems {
             .transpose()?;
         self.source_revision.set(source_revision);
         self.source.update(Arc::clone(keys))?;
+        if let Some((first, rest)) = selected.split_first_mut() {
+            list.cast::<native::ISelector>()?
+                .SetSelectedItem(&self.source.get_at(*first)?)?;
+            if !rest.is_empty() {
+                let list = list.cast::<native::IListViewBase>()?;
+                rest.sort_unstable();
+                for range in rest.chunk_by(|left, right| *left + 1 == *right) {
+                    list.SelectRange(&native::ItemIndexRange::CreateInstance(
+                        range[0].try_into().unwrap(),
+                        range.len().try_into().unwrap(),
+                    )?)?;
+                }
+            }
+        }
         if let Some((scroll, horizontal, vertical)) = viewport {
             // Reset requests offset zero when its old item identities disappear. Replace that
             // request in the same update, before layout, without following a moved key.
@@ -130,6 +150,26 @@ impl NativeVirtualItems {
         }
         Ok(())
     }
+}
+
+fn selected_indices(list: &native::ListView, keys: &[u64]) -> windows_core::Result<Vec<u32>> {
+    let items = list.cast::<native::IListViewBase>()?.SelectedItems()?;
+    let count = items.Size()?;
+    if count == 0 {
+        return Ok(Vec::new());
+    }
+    let mut selected = HashMap::with_capacity(count as usize);
+    for index in 0..count {
+        selected.insert(virtual_token(&items.GetAt(index)?)?, index as usize);
+    }
+    // Keep the primary selected item first without scanning the source once per selection.
+    let mut indices = vec![None; count as usize];
+    for (index, token) in keys.iter().enumerate() {
+        if let Some(order) = selected.get(token) {
+            indices[*order] = Some(index.try_into().unwrap());
+        }
+    }
+    Ok(indices.into_iter().flatten().collect())
 }
 
 fn list_scroll_viewer(
@@ -306,6 +346,11 @@ pub(super) struct NativeVirtualSource {
     keys: Mutex<Arc<Vec<u64>>>,
     values: Mutex<HashMap<u64, IInspectable>>,
     handlers: WinEvent<VectorChangedEventHandler<IInspectable>>,
+}
+
+#[cfg(feature = "test")]
+pub fn native_test_list_source(keys: Vec<u64>) -> windows_core::Result<IInspectable> {
+    Ok(ComObject::new(NativeVirtualSource::new(Arc::new(keys))?).into_interface())
 }
 
 impl NativeVirtualSource {

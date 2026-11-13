@@ -11120,6 +11120,32 @@ pub struct IItemContainerStatics_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
+    IItemIndexRange,
+    IItemIndexRange_Vtbl,
+    0xeba09846_2554_5b86_ac17_614f05105fa2
+);
+#[repr(C)]
+pub struct IItemIndexRange_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
+    IItemIndexRangeFactory,
+    IItemIndexRangeFactory_Vtbl,
+    0x9fc73213_eda0_5238_aa2c_401c9921f0f9
+);
+#[repr(C)]
+pub struct IItemIndexRangeFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        u32,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
     IItemsControl,
     IItemsControl_Vtbl,
     0xbf1ccb54_83e2_5b98_acbc_736f876c3d35
@@ -11585,6 +11611,18 @@ windows_core::imp::define_winrt_interface!(
     0x775c57ac_abce_5beb_8e34_3b8158aedd80
 );
 impl IListViewBase {
+    pub(crate) fn SelectedItems(
+        &self,
+    ) -> windows_core::Result<windows_collections::IVector<windows_core::IInspectable>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SelectedItems)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn SetShowsScrollingPlaceholders(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetShowsScrollingPlaceholders)(
@@ -11666,11 +11704,26 @@ impl IListViewBase {
             ))
         }
     }
+    pub(crate) fn SelectRange<P0>(&self, itemindexrange: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ItemIndexRange>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SelectRange)(
+                windows_core::Interface::as_raw(self),
+                itemindexrange.param().abi(),
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct IListViewBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    SelectedItems: usize,
+    pub SelectedItems: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     SelectionMode: usize,
     SetSelectionMode: usize,
     IsSwipeEnabled: usize,
@@ -11715,6 +11768,19 @@ pub struct IListViewBase_Vtbl {
     ) -> windows_core::HRESULT,
     pub RemoveContainerContentChanging:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    ChoosingItemContainer: usize,
+    RemoveChoosingItemContainer: usize,
+    ChoosingGroupHeaderContainer: usize,
+    RemoveChoosingGroupHeaderContainer: usize,
+    ScrollIntoView: usize,
+    SelectAll: usize,
+    LoadMoreItemsAsync: usize,
+    ScrollIntoViewWithAlignment: usize,
+    SetDesiredContainerUpdateDuration: usize,
+    pub SelectRange: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
     IListViewBaseStatics,
@@ -21223,6 +21289,57 @@ impl windows_core::RuntimeName for ItemContainer {
 }
 unsafe impl Send for ItemContainer {}
 unsafe impl Sync for ItemContainer {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ItemIndexRange(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ItemIndexRange,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl ItemIndexRange {
+    pub(crate) fn CreateInstance(firstindex: i32, length: u32) -> windows_core::Result<Self> {
+        Self::IItemIndexRangeFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                firstindex,
+                length,
+                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    fn IItemIndexRangeFactory<R, F: FnOnce(&IItemIndexRangeFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ItemIndexRange, IItemIndexRangeFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ItemIndexRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IItemIndexRange>();
+}
+unsafe impl windows_core::Interface for ItemIndexRange {
+    type Vtable = <IItemIndexRange as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IItemIndexRange as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
+}
+impl core::ops::Deref for ItemIndexRange {
+    type Target = IItemIndexRange;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ItemIndexRange {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Data.ItemIndexRange";
+}
+unsafe impl Send for ItemIndexRange {}
+unsafe impl Sync for ItemIndexRange {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ItemsControl(windows_core::IUnknown);

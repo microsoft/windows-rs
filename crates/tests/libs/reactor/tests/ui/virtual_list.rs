@@ -1,5 +1,225 @@
 use super::*;
 
+fn selected_rows(list: &IUIAutomationElement) -> windows_core::Result<Vec<String>> {
+    unsafe {
+        let items = list
+            .GetCurrentPatternAs::<IUIAutomationSelectionPattern>(SELECTION_PATTERN)?
+            .GetCurrentSelection()?;
+        let mut names = Vec::new();
+        for index in 0..items.Length()? {
+            names.push(String::from_utf16_lossy(
+                &items.GetElement(index)?.CurrentName()?,
+            ));
+        }
+        names.sort();
+        Ok(names)
+    }
+}
+
+fn select_row(ui: &Automation, key: usize, add: bool) -> Result<()> {
+    let item = ui.list_item("rows", &format!("Row {key}; value 0; clicks 0"))?;
+    unsafe {
+        let selection = item.GetCurrentPatternAs::<IUIAutomationSelectionItemPattern>(10010)?;
+        if add {
+            selection.AddToSelection().ok()?;
+        } else {
+            selection.Select().ok()?;
+        }
+    }
+    Ok(())
+}
+
+#[test]
+fn virtual_list_selection_survives_source_edits() -> Result<()> {
+    process::run("virtual_list", |ui| {
+        check_selection_source_edits(ui, 1, false)
+    })?;
+    process::run("virtual_list_multiple", |ui| {
+        check_selection_source_edits(ui, 3, true)
+    })?;
+    process::run("virtual_list_extended", |ui| {
+        check_selection_source_edits(ui, 1, true)
+    })
+}
+
+fn check_selection_source_edits(ui: &Automation, primary: usize, multiple: bool) -> Result<()> {
+    let list = ui.element("rows")?;
+    select_row(ui, primary, false)?;
+    if multiple {
+        select_row(ui, if primary == 3 { 1 } else { 3 }, true)?;
+    }
+    let mut events = vec![Some(primary)];
+    if multiple {
+        events.push(Some(primary));
+    }
+    ui.name("selection-events", &format!("{events:?}"))?;
+    let expected = ui.wait(
+        "initial selection",
+        || selected_rows(&list),
+        |rows| rows.len() == if multiple { 2 } else { 1 },
+    )?;
+    for (index, action) in [
+        "append",
+        "toggle-first",
+        "toggle-first",
+        "reverse",
+        "reverse",
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        ui.invoke(action)?;
+        ui.name("revision", &format!("Revision {}", index + 1))?;
+        ui.wait(
+            "surviving selection count",
+            || selected_rows(&list),
+            |rows| rows.len() == expected.len(),
+        )?;
+        if index != 3 {
+            ui.wait(
+                "surviving selection keys",
+                || selected_rows(&list),
+                |rows| *rows == expected,
+            )?;
+        }
+        if index > 0 {
+            events.push(Some(match index {
+                1 => primary - 1,
+                3 => (if multiple { 200 } else { 256 }) - primary,
+                _ => primary,
+            }));
+        }
+        ui.name("selection-events", &format!("{events:?}"))?;
+    }
+    ui.invoke("shorten")?;
+    ui.name("revision", "Revision 6")?;
+    ui.selected_name("rows", "Row 1; value 0; clicks 0")?;
+    if multiple {
+        events.push(Some(1));
+    }
+    ui.name("selection-events", &format!("{events:?}"))?;
+    ui.invoke("toggle-empty")?;
+    ui.name("revision", "Revision 7")?;
+    ui.wait("empty selection", || selected_rows(&list), Vec::is_empty)?;
+    ui.invoke("toggle-empty")?;
+    ui.name("revision", "Revision 8")?;
+    assert!(
+        selected_rows(&list)?.is_empty(),
+        "removed selections returned"
+    );
+    Ok(())
+}
+
+#[test]
+fn virtual_list_controlled_selection_overrides_preserved_selection() -> Result<()> {
+    process::run("virtual_list_multiple", |ui| {
+        let list = ui.element("rows")?;
+        select_row(ui, 1, false)?;
+        select_row(ui, 3, true)?;
+        ui.wait(
+            "two selected rows",
+            || selected_rows(&list),
+            |rows| rows.len() == 2,
+        )?;
+        let events =
+            String::from_utf16_lossy(&unsafe { ui.element("selection-events")?.CurrentName()? });
+        ui.invoke("control-reset")?;
+        ui.name("revision", "Revision 1")?;
+        unsafe {
+            list.GetCurrentPatternAs::<IUIAutomationScrollPattern>(10004)?
+                .SetScrollPercent(-1.0, 100.0)
+                .ok()?;
+        }
+        ui.selected_name("rows", "Row 0; value 0; clicks 0")?;
+        ui.name("selection-events", &events)?;
+        ui.invoke("clear-reset")?;
+        ui.name("revision", "Revision 2")?;
+        ui.wait(
+            "explicitly cleared selection",
+            || selected_rows(&list),
+            Vec::is_empty,
+        )?;
+        ui.name("selection-events", &events)?;
+        ui.invoke("control-reset")?;
+        ui.name("revision", "Revision 3")?;
+        ui.wait(
+            "controlled selection restored",
+            || selected_rows(&list),
+            |rows| rows.len() == 1,
+        )?;
+        ui.invoke("release-reset")?;
+        ui.name("revision", "Revision 4")?;
+        ui.wait(
+            "released selection declaration",
+            || selected_rows(&list),
+            Vec::is_empty,
+        )?;
+        ui.name("selection-events", &events)?;
+        Ok(())
+    })
+}
+
+#[test]
+fn virtual_list_bulk_selection_survives_reset() -> Result<()> {
+    process::run("virtual_list_bulk", |ui| {
+        let list = ui.element("rows")?;
+        let selection = unsafe {
+            list.GetCurrentPatternAs::<IUIAutomationSelectionPattern>(SELECTION_PATTERN)?
+        };
+        let count = || unsafe { selection.GetCurrentSelection()?.Length() };
+        select_row(ui, 0, false)?;
+        ui.name("selection-events", "[Some(0)]")?;
+        ui.press_keys("row-0", &[0x11, 0x41])?;
+        ui.name("selection-events", "[Some(0), Some(0)]")?;
+        ui.invoke("append")?;
+        ui.name("revision", "Revision 1")?;
+        ui.name("selection-events", "[Some(0), Some(0)]")?;
+        ui.invoke("reverse")?;
+        ui.name("revision", "Revision 2")?;
+        ui.name("selection-events", "[Some(0), Some(0), Some(10000)]")?;
+        ui.invoke("shorten")?;
+        ui.name("revision", "Revision 3")?;
+        ui.wait("only surviving rows selected", count, |value| *value == 2)?;
+        Ok(())
+    })
+}
+
+#[test]
+fn virtual_list_uncontrolled_selection_preserves_scrolled_offset() -> Result<()> {
+    for fixture in ["virtual_list", "virtual_list_mixed"] {
+        process::run(fixture, |ui| {
+            select_row(ui, 0, false)?;
+            let list = ui.element("rows")?;
+            let scroll = unsafe { list.GetCurrentPatternAs::<IUIAutomationScrollPattern>(10004)? };
+            let offset = || unsafe {
+                let viewport = list.CurrentBoundingRectangle()?;
+                let height = f64::from(viewport.bottom - viewport.top);
+                Ok(
+                    (height * 100.0 / scroll.CurrentVerticalViewSize()? - height)
+                        * scroll.CurrentVerticalScrollPercent()?
+                        / 100.0,
+                )
+            };
+            unsafe { scroll.SetScrollPercent(-1.0, 40.0).ok()? };
+            let before = ui.wait("scrolled offset", offset, |value| *value > 1000.0)?;
+            for revision in 1..=3 {
+                ui.invoke("reverse")?;
+                ui.name("revision", &format!("Revision {revision}"))?;
+                ui.wait("same pixel offset", offset, |value| {
+                    (*value - before).abs() < 1.0
+                })?;
+                ui.wait(
+                    "selection survives offscreen",
+                    || selected_rows(&list),
+                    |rows| rows.len() == 1,
+                )?;
+            }
+            Ok(())
+        })?;
+    }
+    Ok(())
+}
+
 #[test]
 fn virtual_list_row_root_can_change_control_type() -> Result<()> {
     for fixture in ["virtual_list_items", "virtual_list_virtual"] {
@@ -370,50 +590,76 @@ fn check_scrolled_reset(ui: &Automation, count: usize) -> Result<()> {
 }
 
 #[test]
+#[ignore = "requires a non-elevated interactive desktop; WinUI issue microsoft/microsoft-ui-xaml#7690"]
 fn virtual_list_drag_reorders_keyed_rows() -> Result<()> {
-    process::run("virtual_list_virtual", |ui| {
-        ui.invoke("row-0")?;
-        ui.name("row-0", "Row 0; value 0; clicks 1")?;
-        let original = ui.element("row-0")?;
-        let first = ui.list_item("rows", "Row 0; value 0; clicks 1")?;
-        let list = ui.element("rows")?;
-        let start = unsafe { first.CurrentBoundingRectangle()? };
-        let bounds = unsafe { list.CurrentBoundingRectangle()? };
-        ui.pointer_move_to(&first, "first row", 0.02, 0.5)?;
-        ui.pointer_button(true)?;
-        for step in 1..=8 {
-            let y = f64::from(start.top - bounds.top)
-                + f64::from(start.bottom - start.top) * (0.5 + f64::from(step) * 0.4);
-            ui.pointer_move_to(
-                &list,
-                "drag target",
-                0.02,
-                y / f64::from(bounds.bottom - bounds.top),
-            )?;
-            std::thread::sleep(Duration::from_millis(50));
-        }
-        ui.pointer_button(false)?;
-        ui.name("revision", "Revision 1")?;
-        ui.name("row-0", "Row 0; value 0; clicks 1")?;
-        let moved = ui.element("row-0")?;
-        let second = ui.element("row-1")?;
-        ui.wait(
-            "dragged row follows row 1",
-            || unsafe {
-                Ok((
-                    moved.CurrentBoundingRectangle()?.top,
-                    second.CurrentBoundingRectangle()?.top,
-                ))
-            },
-            |(first, second)| first > second,
+    drag::require_non_elevated()?;
+    process::run("virtual_list_virtual", drag_reorders_keyed_rows)
+}
+
+#[test]
+#[ignore = "requires a non-elevated interactive desktop; WinUI issue microsoft/microsoft-ui-xaml#7690"]
+fn native_list_drag_reorders_keyed_rows() -> Result<()> {
+    drag::require_non_elevated()?;
+    process::run("native_list", drag_reorders_keyed_rows)
+}
+
+fn drag_reorders_keyed_rows(ui: &Automation) -> Result<()> {
+    ui.invoke("row-0")?;
+    ui.name("row-0", "Row 0; value 0; clicks 1")?;
+    let original = ui.element("row-0")?;
+    let first = ui.list_item("rows", "Row 0; value 0; clicks 1")?;
+    let list = ui.element("rows")?;
+    let start = unsafe { first.CurrentBoundingRectangle()? };
+    let bounds = unsafe { list.CurrentBoundingRectangle()? };
+    ui.pointer_move_to(&first, "first row", 0.02, 0.5)?;
+    ui.pointer_button(true)?;
+    for step in 1..=8 {
+        let y = f64::from(start.top - bounds.top)
+            + f64::from(start.bottom - start.top) * (0.5 + f64::from(step) * 0.4);
+        ui.pointer_move_to(
+            &list,
+            "drag target",
+            0.02,
+            y / f64::from(bounds.bottom - bounds.top),
         )?;
-        assert!(unsafe {
-            ui.client
-                .CompareElements(&original, &ui.element("row-0")?)?
-                .as_bool()
-        });
-        Ok(())
-    })
+        std::thread::sleep(Duration::from_millis(50));
+    }
+    ui.pointer_button(false)?;
+    ui.name("revision", "Revision 1")?;
+    ui.name("row-0", "Row 0; value 0; clicks 1")?;
+    // Native drag can scroll the earlier rows out of view.
+    ui.wait(
+        "native item order after drag",
+        || unsafe {
+            let all = ui.client.CreateTrueCondition()?;
+            let elements = list.FindAll(TreeScope_Descendants, &all)?;
+            let mut names = Vec::new();
+            for index in 0..elements.Length()? {
+                let element = elements.GetElement(index)?;
+                if element.CurrentControlType()? == LIST_ITEM {
+                    names.push(String::from_utf16_lossy(&element.CurrentName()?));
+                    if names.len() == 4 {
+                        break;
+                    }
+                }
+            }
+            Ok(names)
+        },
+        |names| {
+            names.iter().map(String::as_str).eq([
+                "Row 1; value 0; clicks 0",
+                "Row 2; value 0; clicks 0",
+                "Row 3; value 0; clicks 0",
+                "Row 0; value 0; clicks 1",
+            ])
+        },
+    )?;
+    assert!(unsafe {
+        ui.client
+            .CompareElements(&original, &ui.element("row-0")?)?
+            .as_bool()
+    });
+    Ok(())
 }
 
 #[test]

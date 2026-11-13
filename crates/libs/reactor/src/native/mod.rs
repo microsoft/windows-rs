@@ -26,6 +26,9 @@ mod winui;
 pub use app::*;
 pub use winui::*;
 
+#[cfg(feature = "test")]
+pub use local::handler as native_test_handler;
+
 struct PhysicalCoordinates(bindings::DPI_AWARENESS_CONTEXT);
 
 impl PhysicalCoordinates {

@@ -97,7 +97,10 @@ pub fn run(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> Result
     let _serial = SERIAL.lock().unwrap();
     let mut host = Host::spawn(fixture)?;
     match drive(&mut host, fixture, test) {
-        Ok(()) => host.remove_logs(),
+        Ok(()) => {
+            eprintln!("{}", host.output()?);
+            host.remove_logs()
+        }
         Err(error) => {
             if let Err(cleanup) = host.stop() {
                 eprintln!("fixture cleanup also failed: {cleanup}");

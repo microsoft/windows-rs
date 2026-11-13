@@ -100,7 +100,8 @@ Microsoft::UI::Xaml::Controls::IInfoBarClosedEventArgs::get_Reason
 Microsoft::UI::Xaml::Controls::IItemContainer::get_IsSelected
 Microsoft::UI::Xaml::Controls::IContainerContentChangingEventArgs::{get_InRecycleQueue, get_Item, get_ItemContainer, get_ItemIndex, get_Phase, put_Handled}
 Microsoft::UI::Xaml::Controls::IItemsControl::{get_Items, put_ItemContainerStyle, put_ItemContainerTransitions, put_ItemsPanel, put_ItemsSource, put_ItemTemplate}
-Microsoft::UI::Xaml::Controls::IListViewBase::{add_ContainerContentChanging, add_DragItemsCompleted, put_ShowsScrollingPlaceholders, remove_ContainerContentChanging, remove_DragItemsCompleted}
+Microsoft::UI::Xaml::Controls::IListViewBase::{SelectRange, add_ContainerContentChanging, add_DragItemsCompleted, get_SelectedItems, put_ShowsScrollingPlaceholders, remove_ContainerContentChanging, remove_DragItemsCompleted}
+Microsoft::UI::Xaml::Data::ItemIndexRange::CreateInstance
 Microsoft::UI::Xaml::Controls::Image::CreateInstance
 Microsoft::UI::Xaml::Controls::ImageIcon::CreateInstance
 Microsoft::UI::Xaml::Controls::ImageIconSource::CreateInstance
