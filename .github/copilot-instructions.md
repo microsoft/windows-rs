@@ -357,6 +357,7 @@ Keep native reproductions separate from Reactor-only observations; do not add ti
 | `NavigationView.IsPaneOpen` | Reopening before layout leaves compact width while the property reads true | Plain C# WinUI |
 | `TeachingTip.IsOpen` | Changes during open/close animation can be ignored without an event | Reactor only |
 | `ListView.ScrollIntoView` (#5146) | Access violation after seven removals, insert, append, and scroll on the next tick | Rust and C# WinUI; C# hangs after the same access violation |
+| `ItemsRepeater` pinned element (microsoft/microsoft-ui-xaml#12659) | A focused row scrolled out of view keeps its old index after a reorder; the next keyed Reset fails with "unique id is not unique" | Plain C# WinUI; the same steps in ListView are correct |
 
 For `NavigationView`, reopening from `PaneClosed` avoided the width defect in the native repro,
 but visibly closes and reopens the pane. That behavior is not implemented in Reactor; the `pane`

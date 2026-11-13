@@ -596,6 +596,35 @@ fn virtual_source_reset_notifies_once_and_honors_event_removal() {
 }
 
 #[test]
+fn virtual_source_reset_returns_handler_failure() {
+    use crate::native::bindings::E_FAIL;
+    let source = ComObject::new(NativeVirtualSource::new(Arc::default()).unwrap());
+    let failing = VectorChangedEventHandler::<IInspectable>::new(|_, _| {
+        Err(windows_core::Error::new(E_FAIL, "not unique"))
+    });
+    let observed = Arc::new(AtomicUsize::new(0));
+    let counted = Arc::clone(&observed);
+    let counting = VectorChangedEventHandler::<IInspectable>::new(move |_, _| {
+        counted.fetch_add(1, Ordering::Relaxed);
+        Ok(())
+    });
+    source
+        .VectorChanged(<Ref<VectorChangedEventHandler<IInspectable>>>::from(
+            &failing,
+        ))
+        .unwrap();
+    source
+        .VectorChanged(<Ref<VectorChangedEventHandler<IInspectable>>>::from(
+            &counting,
+        ))
+        .unwrap();
+
+    let error = source.reset(Arc::new(vec![0])).unwrap_err();
+    assert_eq!(error.code(), E_FAIL);
+    assert_eq!(observed.load(Ordering::Relaxed), 1);
+}
+
+#[test]
 fn virtual_source_maps_native_tokens_across_reset() {
     use native::IKeyIndexMapping_Impl;
 
