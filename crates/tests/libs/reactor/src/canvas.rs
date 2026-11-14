@@ -22,6 +22,7 @@ pub(super) struct CanvasFixture {
     lose_device: Rc<Cell<bool>>,
     repaint: Rc<Repaint>,
     repaint_status: String,
+    draw_errors: u32,
 }
 
 #[derive(Clone)]
@@ -35,12 +36,15 @@ pub(super) enum Message {
     Probe,
     Invalidate(bool),
     Repainted(String),
+    FailDraw,
+    DrawError(IntegrationError),
 }
 
 #[derive(Default)]
 struct Repaint {
     revision: Cell<u32>,
     again: Cell<bool>,
+    fail: Cell<bool>,
 }
 
 #[derive(Default)]
@@ -97,6 +101,7 @@ fn surface(
     let repaint = Rc::clone(repaint);
     let redraw = invalidator.clone();
     let repainted = context.callback(Message::Repainted);
+    let failed = context.callback(Message::DrawError);
     let counts = Cell::new((0, 0));
     let demand = *context.input();
     let draw = move |frame: &windows_canvas::DrawContext<'_>| {
@@ -105,6 +110,16 @@ fn surface(
         if lose_device.replace(false) {
             return Err(windows_core::Error::from_hresult(windows_core::HRESULT(
                 0x887A_0005_u32 as i32,
+            )));
+        }
+        if repaint.fail.replace(false) {
+            unsafe {
+                frame
+                    .as_interface::<bindings::ID2D1DeviceContext>()
+                    .PopAxisAlignedClip();
+            }
+            return Err(windows_core::Error::from_hresult(windows_core::HRESULT(
+                0x8000_4004_u32 as i32,
             )));
         }
         let size = (frame.width, frame.height);
@@ -137,6 +152,7 @@ fn surface(
     let devices = Arc::clone(devices);
     let completion = context.completion();
     canvas
+        .on_error(move |error| failed.call(error))
         .device_factory(move || {
             let device = GpuDevice::new_warp()?;
             let native: bindings::ID3D11Device = device.d3d_device().cast()?;
@@ -186,6 +202,7 @@ impl Component for CanvasFixture {
             lose_device,
             repaint,
             repaint_status: String::new(),
+            draw_errors: 0,
         }
     }
 
@@ -229,6 +246,17 @@ impl Component for CanvasFixture {
                 }
             }
             Message::Repainted(status) => self.repaint_status = status,
+            Message::FailDraw => {
+                self.repaint.fail.set(true);
+                self.invalidator.invalidate();
+            }
+            Message::DrawError(error) => {
+                assert_eq!(
+                    error,
+                    IntegrationError::Native(bindings::D2DERR_PUSH_POP_UNBALANCED.0)
+                );
+                self.draw_errors += 1;
+            }
         }
     }
 
@@ -269,6 +297,10 @@ impl Component for CanvasFixture {
                     .content("Inject device loss")
                     .on_click(context.message(Message::LoseDevice)),
                 Button::new()
+                    .automation_id("fail-draw")
+                    .content("Fail drawing and callback")
+                    .on_click(context.message(Message::FailDraw)),
+                Button::new()
                     .automation_id("invalidate")
                     .content("Invalidate three times")
                     .on_click(context.message(Message::Invalidate(false))),
@@ -287,6 +319,9 @@ impl Component for CanvasFixture {
                 TextBlock::new()
                     .automation_id("repaint")
                     .text(&self.repaint_status),
+                TextBlock::new()
+                    .automation_id("draw-errors")
+                    .text(format!("Draw errors {}", self.draw_errors)),
             ))
             .into()
     }

@@ -4,7 +4,7 @@ use super::*;
 pub struct RenderTarget {
     context: ID2D1DeviceContext,
     target: ID2D1Bitmap1,
-    device_lost_flag: Cell<bool>,
+    end_draw_result: Cell<HRESULT>,
     width: u32,
     height: u32,
 }
@@ -34,7 +34,7 @@ impl RenderTarget {
         Ok(Self {
             context,
             target,
-            device_lost_flag: Cell::new(false),
+            end_draw_result: Cell::new(HRESULT(0)),
             width,
             height,
         })
@@ -51,18 +51,34 @@ impl RenderTarget {
     }
 
     /// Draws one frame into the target with a [`DrawingSession`].
+    ///
+    /// Reports deferred native drawing errors as well as errors returned by `f`.
+    ///
+    /// | Condition (first match) | Result |
+    /// | --- | --- |
+    /// | `EndDraw` reports device loss | [`device_lost_error`] |
+    /// | `f` reports device loss | Original callback error |
+    /// | `EndDraw` fails | Native drawing error |
+    /// | Otherwise | Result returned by `f` |
     pub fn draw(&self, f: impl FnOnce(&DrawingSession<'_>) -> Result<()>) -> Result<()> {
-        self.device_lost_flag.set(false);
+        self.end_draw_result.set(HRESULT(0));
         unsafe { self.context.SetTarget(&self.target) };
         let draw_result = {
-            let session = DrawingSession::new(&self.context, &self.device_lost_flag)?;
+            let session = DrawingSession::new(&self.context, &self.end_draw_result)?;
             f(&session)
-        }; // `EndDraw` runs here, flagging any device loss.
+        };
         unsafe { self.context.SetTarget(None::<&ID2D1Image>) };
-        if self.device_lost_flag.get() {
-            return Err(Error::from_hresult(D2DERR_RECREATE_TARGET));
+        Self::finish_draw(draw_result, self.end_draw_result.get())
+    }
+
+    fn finish_draw(draw_result: Result<()>, end_result: HRESULT) -> Result<()> {
+        if is_device_lost(end_result) {
+            Err(device_lost_error())
+        } else if check_device_lost(&draw_result) {
+            draw_result
+        } else {
+            end_result.ok().and(draw_result)
         }
-        draw_result
     }
 
     /// Copies the rendered pixels as tightly packed, top-down 32-bit premultiplied BGRA.
@@ -123,4 +139,35 @@ fn copy_mapped_pixels(mapped: &D2D1_MAPPED_RECT, width: u32, height: u32) -> Res
         bgra[dst_start..dst_start + row_bytes].copy_from_slice(src);
     }
     Ok(bgra)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn draw_completion_error_precedence() {
+        let success = HRESULT(0);
+        let callbacks = [success, E_INVALIDARG, DXGI_ERROR_DEVICE_REMOVED];
+        let completions = [success, E_FAIL, DXGI_ERROR_DEVICE_RESET];
+        let expected = [
+            [success, E_FAIL, D2DERR_RECREATE_TARGET],
+            [E_INVALIDARG, E_FAIL, D2DERR_RECREATE_TARGET],
+            [
+                DXGI_ERROR_DEVICE_REMOVED,
+                DXGI_ERROR_DEVICE_REMOVED,
+                D2DERR_RECREATE_TARGET,
+            ],
+        ];
+        for (draw_result, expected) in callbacks.into_iter().zip(expected) {
+            for (end_result, expected) in completions.into_iter().zip(expected) {
+                let actual = RenderTarget::finish_draw(draw_result.ok(), end_result)
+                    .map_or_else(|error| error.code(), |()| success);
+                assert_eq!(
+                    actual, expected,
+                    "callback {draw_result:?}, EndDraw {end_result:?}"
+                );
+            }
+        }
+    }
 }

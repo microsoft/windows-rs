@@ -23,6 +23,9 @@ fn canvas_draws_resizes_and_releases_callbacks_on_removal() -> Result<()> {
 fn demand_canvas_recovers_and_releases_native_devices_on_removal() -> Result<()> {
     process::run("canvas-demand", |ui| {
         ui.name("frame", "Canvas 0: 240 x 160; changed true; device 1")?;
+        ui.invoke("fail-draw")?;
+        ui.name("draw-errors", "Draw errors 1")?;
+        devices(ui, 1, 0)?;
         ui.invoke("invalidate")?;
         ui.name("repaint", "Revision 1; draws 1")?;
         ui.name_stays("repaint", "Revision 1; draws 1", Duration::from_millis(250))?;

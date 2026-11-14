@@ -3,7 +3,7 @@ use super::*;
 /// An active Direct2D draw pass.
 ///
 /// Drawing coordinates and stroke widths use device-independent pixels (DIPs). Dropping an owned
-/// session ends its draw pass and records device loss.
+/// session ends its draw pass and records its result for the owning target or swap chain.
 pub struct DrawingSession<'a> {
     context: &'a ID2D1DeviceContext,
     mode: Mode<'a>,
@@ -11,7 +11,7 @@ pub struct DrawingSession<'a> {
 
 enum Mode<'a> {
     /// This session owns the `BeginDraw`/`EndDraw` bracket.
-    Owned { device_lost_flag: &'a Cell<bool> },
+    Owned { end_draw_result: &'a Cell<HRESULT> },
     /// This borrowed context is already bracketed by its owner.
     Borrowed { offset: Matrix3x2 },
 }
@@ -19,12 +19,12 @@ enum Mode<'a> {
 impl<'a> DrawingSession<'a> {
     pub(crate) fn new(
         context: &'a ID2D1DeviceContext,
-        device_lost_flag: &'a Cell<bool>,
+        end_draw_result: &'a Cell<HRESULT>,
     ) -> Result<Self> {
         unsafe { context.BeginDraw() };
         Ok(Self {
             context,
-            mode: Mode::Owned { device_lost_flag },
+            mode: Mode::Owned { end_draw_result },
         })
     }
 
@@ -485,14 +485,9 @@ impl<'a> DrawingSession<'a> {
 
 impl Drop for DrawingSession<'_> {
     fn drop(&mut self) {
-        let Mode::Owned { device_lost_flag } = self.mode else {
+        let Mode::Owned { end_draw_result } = self.mode else {
             return;
         };
-        unsafe {
-            let result = self.context.EndDraw(None, None);
-            if is_device_lost(result) {
-                device_lost_flag.set(true);
-            }
-        }
+        end_draw_result.set(unsafe { self.context.EndDraw(None, None) });
     }
 }
