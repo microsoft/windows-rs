@@ -50,6 +50,8 @@ not remove the native device or measure physical display.
 
 `pointer-routing` checks queued delivery, routed bubbling, handled events, and mode replacement.
 Headless pointer tests separately check synchronous capture and reentrant callback replacement.
+Mode replacement must preserve queued occurrences and their original callbacks before any removal
+or teardown; those later operations cancel pending occurrences.
 
 ```powershell
 cargo test -p test-reactor --test ui -- `

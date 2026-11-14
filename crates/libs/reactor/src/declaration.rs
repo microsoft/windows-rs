@@ -1448,6 +1448,9 @@ pub struct PointerEventInfo {
 /// Closures and [`Callback`] values retain queued delivery. A [`RoutedCallback`] runs during
 /// native input delivery and returns whether to stop routing. Use it to resolve hit tests against
 /// submitted geometry before queuing component messages, not to run component updates directly.
+///
+/// Replacing a handler, including changing its delivery mode, preserves queued occurrences and
+/// their original callbacks. Removing the handler or its owner cancels pending occurrences.
 #[derive(Clone, Debug, PartialEq)]
 pub enum PointerCallback {
     Queued(Callback<PointerEventInfo>),

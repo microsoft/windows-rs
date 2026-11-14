@@ -47,18 +47,18 @@ struct NativeTreeNode {
     content: Option<ObjectId>,
 }
 
-struct NativeValueEvent<T> {
-    subscription: Option<NativeSubscription<T>>,
+struct NativeCallbackEvent<C> {
+    subscription: Option<NativeSubscription<C>>,
 }
 
 /// A subscribed native event. Replacing the callback keeps the subscription; removing it ends the
 /// subscription and invalidates occurrences still queued or pending under it.
-struct NativeSubscription<T> {
-    callback: Callback<T>,
+struct NativeSubscription<C> {
+    callback: C,
     live: Rc<Cell<bool>>,
 }
 
-impl<T> Clone for NativeSubscription<T> {
+impl<C: Clone> Clone for NativeSubscription<C> {
     fn clone(&self) -> Self {
         Self {
             callback: self.callback.clone(),
@@ -67,7 +67,7 @@ impl<T> Clone for NativeSubscription<T> {
     }
 }
 
-impl<T: EventArg> NativeSubscription<T> {
+impl<T: EventArg> NativeSubscription<Callback<T>> {
     /// The handler for an occurrence under this subscription.
     fn handler(self, value: T::Native) -> QueuedHandler {
         QueuedHandler::Callback {
@@ -77,14 +77,14 @@ impl<T: EventArg> NativeSubscription<T> {
     }
 }
 
-impl<T> Default for NativeValueEvent<T> {
+impl<C> Default for NativeCallbackEvent<C> {
     fn default() -> Self {
         Self { subscription: None }
     }
 }
 
-impl<T> NativeValueEvent<T> {
-    fn set(&mut self, callback: Option<Callback<T>>) {
+impl<C> NativeCallbackEvent<C> {
+    fn set(&mut self, callback: Option<C>) {
         match (&mut self.subscription, callback) {
             (Some(subscription), Some(callback)) => subscription.callback = callback,
             (_, callback) => {
@@ -98,7 +98,9 @@ impl<T> NativeValueEvent<T> {
             }
         }
     }
+}
 
+impl<T> NativeCallbackEvent<Callback<T>> {
     /// The handler for an occurrence firing now under the current subscription.
     fn handler(&self, value: T::Native) -> Option<QueuedHandler>
     where
@@ -126,6 +128,7 @@ impl<T> NativeRoutedValueEvent<T> {
     }
 }
 
+type NativeValueEvent<T> = NativeCallbackEvent<Callback<T>>;
 type NativeBoolEvent = NativeValueEvent<bool>;
 type NativeColorEvent = NativeValueEvent<Color>;
 type NativeCharacterEventInfoEvent = NativeRoutedValueEvent<CharacterEventInfo>;
@@ -139,30 +142,7 @@ type NativeOptionalDateTimeEvent = NativeValueEvent<Option<DateTime>>;
 type NativeOptionalF64Event = NativeValueEvent<Option<f64>>;
 type NativeOptionalTimeSpanEvent = NativeValueEvent<Option<TimeSpan>>;
 type NativeNavigationViewDisplayModeEvent = NativeValueEvent<NavigationViewDisplayMode>;
-#[derive(Default)]
-struct NativePointerEventInfoEvent {
-    queued: NativeValueEvent<PointerEventInfo>,
-    routed: Option<RoutedCallback<PointerEventInfo>>,
-}
-
-impl NativePointerEventInfoEvent {
-    fn set(&mut self, callback: Option<PointerCallback>) {
-        match callback {
-            Some(PointerCallback::Queued(callback)) => {
-                self.routed = None;
-                self.queued.set(Some(callback));
-            }
-            Some(PointerCallback::Routed(callback)) => {
-                self.queued.set(None);
-                self.routed = Some(callback);
-            }
-            None => {
-                self.queued.set(None);
-                self.routed = None;
-            }
-        }
-    }
-}
+type NativePointerEventInfoEvent = NativeCallbackEvent<PointerCallback>;
 type NativeKeyEvent = NativeValueEvent<Key>;
 type NativeKeyEventInfoEvent = NativeRoutedValueEvent<KeyEventInfo>;
 type NativeKeysEvent = NativeValueEvent<Vec<Key>>;

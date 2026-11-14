@@ -8,24 +8,28 @@ impl WinUiAdapter {
         event_id: EventId,
         value: PointerEventInfo,
     ) -> bool {
-        let (routed, queued) = {
-            let event = event.borrow();
-            (event.routed.clone(), event.queued.handler(value))
-        };
-        if let Some(callback) = routed {
-            return callback.call(value);
+        let subscription = event.borrow().subscription.clone();
+        match subscription {
+            Some(NativeSubscription {
+                callback: PointerCallback::Routed(callback),
+                ..
+            }) => callback.call(value),
+            Some(NativeSubscription {
+                callback: PointerCallback::Queued(callback),
+                live,
+            }) => {
+                event_queue.queue(
+                    None,
+                    Some(QueuedEvent {
+                        object,
+                        event: event_id,
+                        handler: NativeSubscription { callback, live }.handler(value),
+                    }),
+                );
+                false
+            }
+            None => false,
         }
-        if let Some(handler) = queued {
-            event_queue.queue(
-                None,
-                Some(QueuedEvent {
-                    object,
-                    event: event_id,
-                    handler,
-                }),
-            );
-        }
-        false
     }
 
     pub(super) fn dispatch<T: EventArg>(

@@ -261,7 +261,9 @@ Keep this section to current decisions, not a chronological account of rewrites.
   `test-reactor`; a successful draw closure is not completion.
 - `Canvas::on_submitted` runs only after successful drawing and swap-chain submission, outside the
   render-state borrow. Publish prepared hit-test geometry there and resolve it in routed pointer
-  callbacks before queuing messages. Queued pointer callbacks retain deferred delivery. Preserve
+  callbacks before queuing messages. Changing pointer delivery mode replaces the callback, not the
+  subscription: queued occurrences retain their original callbacks. Test replacement before removal
+  or teardown, which cancel pending occurrences and can mask a replacement bug. Preserve
   the native submitted-input and routing fixtures described in the `test-reactor` README; neither
   submission nor their injected callback device loss proves physical display or native removal.
 
