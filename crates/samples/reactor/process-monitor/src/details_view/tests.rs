@@ -109,7 +109,7 @@ fn fractional_wheel_and_capture_loss_preserve_viewport_contract() {
         ..pointer
     });
     assert_eq!(state.widths[0], 200.0);
-    state.cancel();
+    state.cancel(pointer.pointer_id);
     state.move_pointer(PointerEventInfo {
         x: 298.0,
         ..pointer
@@ -118,6 +118,101 @@ fn fractional_wheel_and_capture_loss_preserve_viewport_contract() {
     state.scroll = [1_000_000.0; 2];
     state.resize(200.0, 200.0);
     assert_eq!(state.scroll, [state.maximum(0), state.maximum(1)]);
+}
+
+#[test]
+fn column_dividers_resize_from_both_sides_after_horizontal_scroll() {
+    for scroll in [0.0, 40.0] {
+        for distance in [-4.0, 0.0, 4.0] {
+            let mut state = State::new(input(100));
+            state.resize(200.0, 200.0);
+            state.scroll[0] = scroll;
+            let pointer = PointerEventInfo {
+                pointer_id: 7,
+                x: 150.0 - scroll + distance,
+                y: 12.0,
+                is_left_button_pressed: true,
+                is_captured: true,
+                ..Default::default()
+            };
+            assert!(state.press(pointer).is_none(), "divider must not sort");
+            state.move_pointer(PointerEventInfo {
+                x: pointer.x + 60.0,
+                ..pointer
+            });
+            assert_eq!(state.widths, [210.0, 150.0]);
+            let mut next = state.input.clone();
+            next.rows.values += 1;
+            state.set_input(next);
+            state.resize(220.0, 220.0);
+            assert_eq!(state.widths, [210.0, 150.0]);
+        }
+    }
+}
+
+#[test]
+fn scrollbar_gutters_share_the_body_background() {
+    let device = windows_canvas::GpuDevice::new_warp().unwrap();
+    let target = device.create_render_target(314, 150).unwrap();
+    for scheme in [ColorScheme::Light, ColorScheme::Dark] {
+        let mut input = input(1);
+        input.scheme = scheme;
+        let mut state = State::new(input);
+        state.resize(314.0, 150.0);
+        let mut renderer = Renderer::new();
+        target
+            .draw(|session| renderer.draw(session, &state, 1.0, true))
+            .unwrap();
+        let pixels = target.read_pixels().unwrap();
+        let pixel = |x: usize, y: usize| &pixels[(y * 314 + x) * 4..(y * 314 + x + 1) * 4];
+        assert_eq!(pixel(10, 100), pixel(305, 100));
+        assert_eq!(pixel(10, 100), pixel(10, 145));
+        assert_eq!(pixel(10, 100), pixel(305, 145));
+    }
+}
+
+#[test]
+fn only_the_initiating_pointer_can_move_or_end_a_drag() {
+    for (x, y) in [(150.0, 12.0), (193.0, f64::from(HEADER + 5.0))] {
+        let mut state = State::new(input(100));
+        state.resize(200.0, 200.0);
+        let pointer = PointerEventInfo {
+            pointer_id: 7,
+            x,
+            y,
+            is_left_button_pressed: true,
+            is_captured: true,
+            ..Default::default()
+        };
+        state.press(pointer);
+        let other = PointerEventInfo {
+            pointer_id: 8,
+            x: x + 30.0,
+            y: y + 30.0,
+            ..pointer
+        };
+        assert!(state.press(other).is_none());
+        state.move_pointer(other);
+        state.cancel(other.pointer_id);
+        assert_eq!(state.widths, [150.0, 150.0]);
+        assert_eq!(state.scroll, [0.0; 2]);
+        state.move_pointer(PointerEventInfo {
+            x: other.x,
+            y: other.y,
+            ..pointer
+        });
+        assert!(state.widths[0] > 150.0 || state.scroll[1] > 0.0);
+        let widths = state.widths.clone();
+        let scroll = state.scroll;
+        state.cancel(pointer.pointer_id);
+        state.move_pointer(PointerEventInfo {
+            x: x + 60.0,
+            y: y + 60.0,
+            ..pointer
+        });
+        assert_eq!(state.widths, widths);
+        assert_eq!(state.scroll, scroll);
+    }
 }
 
 #[test]

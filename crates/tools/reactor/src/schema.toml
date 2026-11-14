@@ -350,6 +350,10 @@ name = "CapturePointerOnPress"
 adapter = "pointer_capture"
 
 [[objects.properties]]
+name = "PointerCursor"
+adapter = "pointer_cursor"
+
+[[objects.properties]]
 name = "FocusOnPointerRelease"
 adapter = "pointer_focus"
 
@@ -389,9 +393,11 @@ active_properties = ["capture_pointer_on_press", "focus_on_pointer_release"]
 
 [[objects.events]]
 name = "PointerCaptureLost"
+adapter = "pointer"
 
 [[objects.events]]
 name = "PointerCanceled"
+adapter = "pointer"
 
 [[objects.events]]
 name = "PreviewKeyDown"

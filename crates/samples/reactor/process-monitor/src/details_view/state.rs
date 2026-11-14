@@ -13,15 +13,25 @@ pub(super) enum Action {
 
 enum Drag {
     Column {
+        pointer: u32,
         index: usize,
         start: f32,
         width: f32,
     },
     Scroll {
+        pointer: u32,
         axis: usize,
         start: f32,
         offset: f64,
     },
+}
+
+impl Drag {
+    fn pointer(&self) -> u32 {
+        match self {
+            Self::Column { pointer, .. } | Self::Scroll { pointer, .. } => *pointer,
+        }
+    }
 }
 
 pub(super) struct State<R: Rows> {
@@ -31,6 +41,7 @@ pub(super) struct State<R: Rows> {
     pub size: [f32; 2],
     pub scroll: [f64; 2],
     pub hover: Option<usize>,
+    pub divider: Option<usize>,
     pub focused: bool,
     indices: HashMap<Key, usize>,
     drag: Option<Drag>,
@@ -46,6 +57,7 @@ impl<R: Rows> State<R> {
             size: [0.0; 2],
             scroll: [0.0; 2],
             hover: None,
+            divider: None,
             focused: false,
             indices: HashMap::new(),
             drag: None,
@@ -91,6 +103,7 @@ impl<R: Rows> State<R> {
         if columns_changed {
             self.widths = Self::widths(&input);
             self.drag = None;
+            self.divider = None;
         }
         self.input = input;
         if order_changed {
@@ -163,12 +176,31 @@ impl<R: Rows> State<R> {
         (index < self.input.rows.len()).then_some(index)
     }
 
-    fn column_at(&self, x: f32) -> Option<(usize, f32)> {
+    fn divider_at(&self, x: f32, y: f32) -> Option<usize> {
+        if !(0.0..HEADER).contains(&y) || !(0.0..self.viewport()[0]).contains(&x) {
+            return None;
+        }
+        let mut end = -self.scroll[0] as f32;
+        self.widths.iter().position(|width| {
+            end += width;
+            end > 0.0 && end < self.viewport()[0] && (end - x).abs() <= 5.0
+        })
+    }
+
+    pub fn cursor(&self) -> InputSystemCursorShape {
+        if matches!(self.drag, Some(Drag::Column { .. })) || self.divider.is_some() {
+            InputSystemCursorShape::SizeWestEast
+        } else {
+            InputSystemCursorShape::Arrow
+        }
+    }
+
+    fn column_at(&self, x: f32) -> Option<usize> {
         let mut end = -self.scroll[0] as f32;
         for (index, width) in self.widths.iter().enumerate() {
             end += width;
             if x < end {
-                return Some((index, end));
+                return Some(index);
             }
         }
         None
@@ -187,30 +219,28 @@ impl<R: Rows> State<R> {
     }
 
     pub fn press(&mut self, info: PointerEventInfo) -> Option<Action> {
-        if !info.is_left_button_pressed {
+        if !info.is_left_button_pressed || self.drag.is_some() {
             return None;
         }
-        self.drag = None;
         let x = info.x as f32;
         let y = info.y as f32;
         let viewport = self.viewport();
         if x >= viewport[0] && y >= HEADER && y < HEADER + viewport[1] {
-            self.press_scroll(1, y - HEADER, info.is_captured);
+            self.press_scroll(1, y - HEADER, info);
         } else if y >= HEADER + viewport[1] && x >= 0.0 && x < viewport[0] {
-            self.press_scroll(0, x, info.is_captured);
+            self.press_scroll(0, x, info);
         } else if (0.0..HEADER).contains(&y) && (0.0..viewport[0]).contains(&x) {
-            if let Some((index, end)) = self.column_at(x) {
-                if end - x <= 5.0 {
-                    if info.is_captured {
-                        self.drag = Some(Drag::Column {
-                            index,
-                            start: x,
-                            width: self.widths[index],
-                        });
-                    }
-                } else {
-                    return Some(Action::Sort(index));
+            if let Some(index) = self.divider_at(x, y) {
+                if info.is_captured {
+                    self.drag = Some(Drag::Column {
+                        pointer: info.pointer_id,
+                        index,
+                        start: x,
+                        width: self.widths[index],
+                    });
                 }
+            } else if let Some(index) = self.column_at(x) {
+                return Some(Action::Sort(index));
             }
         } else if let Some(index) = self.row_at(x, y) {
             return self.select(index);
@@ -218,11 +248,12 @@ impl<R: Rows> State<R> {
         None
     }
 
-    fn press_scroll(&mut self, axis: usize, position: f32, captured: bool) {
+    fn press_scroll(&mut self, axis: usize, position: f32, info: PointerEventInfo) {
         let (start, length) = self.thumb(axis);
         if position >= start && position <= start + length {
-            if captured {
+            if info.is_captured {
                 self.drag = Some(Drag::Scroll {
+                    pointer: info.pointer_id,
                     axis,
                     start: position,
                     offset: self.scroll[axis],
@@ -236,22 +267,34 @@ impl<R: Rows> State<R> {
     }
 
     pub fn move_pointer(&mut self, info: PointerEventInfo) {
+        if let Some(drag) = &self.drag {
+            if drag.pointer() != info.pointer_id {
+                return;
+            }
+            if !info.is_captured || !info.is_left_button_pressed {
+                self.drag = None;
+            }
+        }
         let x = info.x as f32;
         let y = info.y as f32;
         self.hover = self.row_at(x, y);
+        self.divider = self.divider_at(x, y);
         match self.drag {
             Some(Drag::Column {
                 index,
                 start,
                 width,
-            }) if info.is_captured => {
+                ..
+            }) => {
                 self.widths[index] = (width + x - start).clamp(48.0, 1200.0);
+                self.divider = Some(index);
             }
             Some(Drag::Scroll {
                 axis,
                 start,
                 offset,
-            }) if info.is_captured => {
+                ..
+            }) => {
                 let position = if axis == 0 { x } else { y - HEADER };
                 let travel = self.viewport()[axis] - self.thumb(axis).1;
                 if travel > 0.0 {
@@ -264,8 +307,15 @@ impl<R: Rows> State<R> {
         self.clamp();
     }
 
-    pub fn cancel(&mut self) {
-        self.drag = None;
+    pub fn cancel(&mut self, pointer: u32) {
+        if self
+            .drag
+            .as_ref()
+            .is_some_and(|drag| drag.pointer() == pointer)
+        {
+            self.drag = None;
+            self.divider = None;
+        }
     }
 
     pub fn wheel(&mut self, info: PointerEventInfo, amount: f64) {

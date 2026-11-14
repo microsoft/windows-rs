@@ -87,6 +87,40 @@ fn pointer_policy_records_set_and_clear() {
 }
 
 #[test]
+fn pointer_termination_preserves_the_pointer_identity() {
+    let received = Rc::new(RefCell::new(Vec::new()));
+    let callback = {
+        let received = Rc::clone(&received);
+        Callback::new(move |info: PointerEventInfo| received.borrow_mut().push(info.pointer_id))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(
+        Border::new()
+            .on_pointer_capture_lost(callback.clone())
+            .on_pointer_canceled(callback.clone()),
+    );
+    let border = runtime.graph().root().unwrap();
+    for (event, pointer_id) in [
+        (EventId::PointerCaptureLost, 7),
+        (EventId::PointerCanceled, 8),
+    ] {
+        runtime.adapter_mut().queue_event(EventDispatch::new(
+            border,
+            event,
+            EventCall::PointerEventInfo(
+                callback.clone(),
+                PointerEventInfo {
+                    pointer_id,
+                    ..Default::default()
+                },
+            ),
+        ));
+    }
+    assert_eq!(runtime.dispatch_native_events(), 2);
+    assert_eq!(&*received.borrow(), &[7, 8]);
+}
+
+#[test]
 fn routed_keyboard_payloads_preserve_the_handled_result() {
     let key = KeyEventInfo {
         key: VirtualKey::ENTER,

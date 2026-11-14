@@ -10,6 +10,7 @@ Microsoft::UI::Dispatching::DispatcherQueuePriority::{High, Low, Normal}
 Microsoft::UI::Dispatching::IDispatcherQueue::{CreateTimer, TryEnqueueWithPriority}
 Microsoft::UI::Dispatching::IDispatcherQueueTimer::{add_Tick, put_Interval, put_IsRepeating, remove_Tick, Start, Stop}
 Microsoft::UI::Input::IPointerPoint::{get_Position, get_Properties}
+Microsoft::UI::Input::InputSystemCursor::Create
 Microsoft::UI::Input::IPointerPointProperties::{get_IsHorizontalMouseWheel, get_IsLeftButtonPressed, get_IsMiddleButtonPressed, get_IsRightButtonPressed, get_MouseWheelDelta}
 Microsoft::UI::Text::ITextDocument::{get_Selection, GetText, SetText}
 Microsoft::UI::Text::ITextRange::{get_EndPosition, get_StartPosition, SetRange}
@@ -22,6 +23,7 @@ Microsoft::UI::Windowing::IOverlappedPresenter3::{put_PreferredMaximumHeight, pu
 Microsoft::UI::Windowing::TitleBarHeightOption::{Collapsed, Standard, Tall}
 Microsoft::UI::Windowing::TitleBarTheme::{Dark, Light, UseDefaultAppMode}
 Microsoft::UI::Xaml::Application::{CreateInstance, Current, Exit, Start}
+Microsoft::UI::Xaml::IUIElementProtected::put_ProtectedCursor
 Microsoft::UI::Xaml::Automation::ExpandCollapseState::Expanded
 Microsoft::UI::Xaml::Automation::Peers::AutomationEvents::LiveRegionChanged
 Microsoft::UI::Xaml::Automation::Peers::AutomationNotificationKind::{ActionAborted, ActionCompleted, ItemAdded, ItemRemoved, Other}

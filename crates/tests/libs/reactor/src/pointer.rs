@@ -5,6 +5,7 @@ struct Fixture {
     moved: Option<PointerEventInfo>,
     focused: bool,
     outside_released: bool,
+    captured_pointer: Option<u32>,
 }
 
 #[derive(Clone)]
@@ -14,6 +15,8 @@ enum Message {
     Focused(FocusEventInfo),
     Blurred,
     Outside(PointerEventInfo),
+    Pressed(PointerEventInfo),
+    CaptureLost(PointerEventInfo),
 }
 
 impl Component for Fixture {
@@ -26,6 +29,7 @@ impl Component for Fixture {
             moved: None,
             focused: false,
             outside_released: false,
+            captured_pointer: None,
         }
     }
 
@@ -46,6 +50,14 @@ impl Component for Fixture {
             }
             Message::Blurred => self.focused = false,
             Message::Outside(value) => self.outside_released = !value.is_left_button_pressed,
+            Message::Pressed(value) => {
+                self.captured_pointer = value.is_captured.then_some(value.pointer_id);
+            }
+            Message::CaptureLost(value) => {
+                if let Some(pointer) = self.captured_pointer.take() {
+                    assert_eq!(pointer, value.pointer_id);
+                }
+            }
         }
     }
 
@@ -56,6 +68,8 @@ impl Component for Fixture {
             .background(Color::rgb(240, 240, 240))
             .is_tab_stop(true)
             .on_pointer_moved(context.callback(Message::Moved))
+            .on_pointer_pressed(context.callback(Message::Pressed))
+            .on_pointer_capture_lost(context.callback(Message::CaptureLost))
             .on_got_focus(context.callback(Message::Focused))
             .on_lost_focus(context.callback(|_| Message::Blurred))
             .content(

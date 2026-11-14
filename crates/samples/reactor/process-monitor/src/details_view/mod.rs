@@ -61,7 +61,7 @@ pub enum Message {
     Wheel(PointerEventInfo),
     Key(VirtualKey),
     Focus(bool),
-    Cancel,
+    Cancel(u32),
     Exit,
 }
 
@@ -116,12 +116,13 @@ impl<R: Rows> Component for DetailsView<R> {
                     state.focused = value;
                     None
                 }
-                Message::Cancel => {
-                    state.cancel();
+                Message::Cancel(pointer) => {
+                    state.cancel(pointer);
                     None
                 }
                 Message::Exit => {
                     state.hover = None;
+                    state.divider = None;
                     None
                 }
             }
@@ -145,13 +146,20 @@ impl<R: Rows> Component for DetailsView<R> {
             )
             .is_tab_stop(true)
             .capture_pointer_on_press(true)
+            .pointer_cursor(self.state.borrow().cursor())
             .focus_on_pointer_release(true)
             .on_pointer_pressed(context.callback(Message::Press))
             .on_pointer_moved(context.callback(Message::Move))
-            .on_pointer_released(context.callback(|_| Message::Cancel))
+            .on_pointer_released(
+                context.callback(|info: PointerEventInfo| Message::Cancel(info.pointer_id)),
+            )
             .on_pointer_wheel_changed(context.callback(Message::Wheel))
-            .on_pointer_capture_lost(context.message(Message::Cancel))
-            .on_pointer_canceled(context.message(Message::Cancel))
+            .on_pointer_capture_lost(
+                context.callback(|info: PointerEventInfo| Message::Cancel(info.pointer_id)),
+            )
+            .on_pointer_canceled(
+                context.callback(|info: PointerEventInfo| Message::Cancel(info.pointer_id)),
+            )
             .on_pointer_exited(context.callback(|_| Message::Exit))
             .on_got_focus(context.callback(|info: FocusEventInfo| Message::Focus(info.is_direct)))
             .on_lost_focus(context.callback(|_| Message::Focus(false)))

@@ -11,9 +11,10 @@ fn custom_details_navigate_sort_resize_and_remove_during_updates() -> Result<()>
         ui.name("selected", "9999")?;
         ui.press_keys("custom-details", &[0x28])?;
         ui.name("selected", "9998")?;
-        ui.pointer_move("custom-details", 179.0 / 600.0, 0.03)?;
+        ui.pointer_move("custom-details", 182.0 / 600.0, 0.03)?;
+        cursor(ui, windows_core::PCWSTR(IDC_SIZEWE.0.cast()))?;
         ui.pointer_button(true)?;
-        ui.pointer_move("custom-details", 239.0 / 600.0, 0.03)?;
+        ui.pointer_move("custom-details", 242.0 / 600.0, 0.03)?;
         ui.pointer_button(false)?;
         ui.pointer_move("custom-details", 210.0 / 600.0, 0.03)?;
         ui.pointer_clicks(1)?;
@@ -21,6 +22,7 @@ fn custom_details_navigate_sort_resize_and_remove_during_updates() -> Result<()>
         ui.press_keys("custom-details", &[0x24])?;
         ui.name("selected", "0")?;
         ui.pointer_move("custom-details", 0.1, 0.12)?;
+        cursor(ui, windows_core::PCWSTR(IDC_ARROW.0.cast()))?;
         ui.pointer_wheel(-120)?;
         ui.pointer_clicks(1)?;
         let mut lines = 0u32;
@@ -51,4 +53,26 @@ fn custom_details_navigate_sort_resize_and_remove_during_updates() -> Result<()>
         ui.name("selected", if selected == 0 { "1" } else { "0" })?;
         ui.focused("custom-details")
     })
+}
+
+fn cursor(ui: &Automation, shape: windows_core::PCWSTR) -> Result<()> {
+    let expected = unsafe { LoadCursorW(std::ptr::null_mut(), shape) };
+    if expected.is_null() {
+        return Err(windows_core::Error::from_thread().into());
+    }
+    ui.wait(
+        "pointer shows the expected system cursor",
+        || {
+            let mut info = CURSORINFO {
+                cbSize: size_of::<CURSORINFO>() as u32,
+                ..Default::default()
+            };
+            if !unsafe { GetCursorInfo(&mut info) }.as_bool() {
+                return Err(windows_core::Error::from_thread());
+            }
+            Ok(info.hCursor == expected)
+        },
+        |matches| *matches,
+    )?;
+    Ok(())
 }

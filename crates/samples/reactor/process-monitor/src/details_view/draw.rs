@@ -14,6 +14,7 @@ struct Cell {
 }
 
 struct Brushes {
+    background: Brush,
     text: Brush,
     header: Brush,
     hover: Brush,
@@ -118,6 +119,7 @@ impl Renderer {
             self.brushes = Some((
                 state.input.scheme,
                 Brushes {
+                    background: session.create_solid_brush(background)?,
                     text: session.create_solid_brush(if dark {
                         ColorF::from_rgb8(240, 240, 240)
                     } else {
@@ -208,7 +210,11 @@ impl Renderer {
                     Vector2::new(edge, 7.0),
                     Vector2::new(edge, HEADER - 7.0),
                     &brushes.line,
-                    pixel,
+                    if state.divider == Some(column) {
+                        2.0 * pixel
+                    } else {
+                        pixel
+                    },
                 );
                 if let Some((sorted, descending)) = state.input.sort
                     && sorted == column
@@ -234,11 +240,11 @@ impl Renderer {
         }
         session.fill_rect(
             &Rect::from_xywh(viewport[0], 0.0, BAR, state.size[1]),
-            &brushes.header,
+            &brushes.background,
         );
         session.fill_rect(
             &Rect::from_xywh(0.0, HEADER + viewport[1], state.size[0], BAR),
-            &brushes.header,
+            &brushes.background,
         );
         if state.maximum(1) > 0.0 {
             let (start, length) = state.thumb(1);

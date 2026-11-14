@@ -234,9 +234,9 @@ struct GeneratedBorder {
     _pointer_exited: Option<GeneratedRevoker>,
     pointer_released: Rc<RefCell<NativePointerEventInfoEvent>>,
     _pointer_released: Option<GeneratedRevoker>,
-    pointer_capture_lost: Rc<RefCell<NativeUnitEvent>>,
+    pointer_capture_lost: Rc<RefCell<NativePointerEventInfoEvent>>,
     _pointer_capture_lost: Option<GeneratedRevoker>,
-    pointer_canceled: Rc<RefCell<NativeUnitEvent>>,
+    pointer_canceled: Rc<RefCell<NativePointerEventInfoEvent>>,
     _pointer_canceled: Option<GeneratedRevoker>,
     preview_key_down: Rc<RefCell<NativeKeyEventInfoEvent>>,
     _preview_key_down: Option<GeneratedRevoker>,
@@ -751,9 +751,11 @@ impl GeneratedHandle {
                 let pointer_released =
                     Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
                 let _pointer_released = None;
-                let pointer_capture_lost = Rc::new(RefCell::new(NativeUnitEvent::default()));
+                let pointer_capture_lost =
+                    Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
                 let _pointer_capture_lost = None;
-                let pointer_canceled = Rc::new(RefCell::new(NativeUnitEvent::default()));
+                let pointer_canceled =
+                    Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
                 let _pointer_canceled = None;
                 let preview_key_down = Rc::new(RefCell::new(NativeKeyEventInfoEvent::default()));
                 let _preview_key_down = None;
@@ -4419,6 +4421,57 @@ impl GeneratedHandle {
                 object.capture_pointer_on_press.set(*value);
                 Some(Ok(()))
             }
+            (Self::Border(object), PropertyId::PointerCursor, None) => Some(
+                object
+                    .value
+                    .cast::<native::IUIElementProtected>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetProtectedCursor(None::<&native::InputCursor>)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::Border(object),
+                PropertyId::PointerCursor,
+                Some(PropertyValue::Enum {
+                    kind: "InputSystemCursorShape",
+                    variant,
+                }),
+            ) => {
+                let shape = match *variant {
+                    "Arrow" => native::InputSystemCursorShape::Arrow,
+                    "Cross" => native::InputSystemCursorShape::Cross,
+                    "Hand" => native::InputSystemCursorShape::Hand,
+                    "Help" => native::InputSystemCursorShape::Help,
+                    "IBeam" => native::InputSystemCursorShape::IBeam,
+                    "SizeAll" => native::InputSystemCursorShape::SizeAll,
+                    "SizeNortheastSouthwest" => {
+                        native::InputSystemCursorShape::SizeNortheastSouthwest
+                    }
+                    "SizeNorthSouth" => native::InputSystemCursorShape::SizeNorthSouth,
+                    "SizeNorthwestSoutheast" => {
+                        native::InputSystemCursorShape::SizeNorthwestSoutheast
+                    }
+                    "SizeWestEast" => native::InputSystemCursorShape::SizeWestEast,
+                    "UniversalNo" => native::InputSystemCursorShape::UniversalNo,
+                    "UpArrow" => native::InputSystemCursorShape::UpArrow,
+                    "Wait" => native::InputSystemCursorShape::Wait,
+                    "Pin" => native::InputSystemCursorShape::Pin,
+                    "Person" => native::InputSystemCursorShape::Person,
+                    "AppStarting" => native::InputSystemCursorShape::AppStarting,
+                    _ => unreachable!("validated enum variant"),
+                };
+                Some((|| -> Result<(), WinUiError> {
+                    let cursor = native::InputSystemCursor::Create(shape)?;
+                    object
+                        .value
+                        .cast::<native::IUIElementProtected>()?
+                        .SetProtectedCursor(&cursor)?;
+                    Ok(())
+                })())
+            }
             (Self::Border(object), PropertyId::FocusOnPointerRelease, None) => {
                 object.focus_on_pointer_release.set(false);
                 Some(Ok(()))
@@ -4714,14 +4767,14 @@ impl GeneratedHandle {
                                 .set(Some(callback.clone()));
                             object.subscribe_pointer_released(object_id, context)?;
                         }
-                        (EventId::PointerCaptureLost, EventValue::Unit(callback)) => {
+                        (EventId::PointerCaptureLost, EventValue::PointerEventInfo(callback)) => {
                             object
                                 .pointer_capture_lost
                                 .borrow_mut()
                                 .set(Some(callback.clone()));
                             object.subscribe_pointer_capture_lost(object_id, context)?;
                         }
-                        (EventId::PointerCanceled, EventValue::Unit(callback)) => {
+                        (EventId::PointerCanceled, EventValue::PointerEventInfo(callback)) => {
                             object
                                 .pointer_canceled
                                 .borrow_mut()
@@ -6212,22 +6265,36 @@ impl GeneratedBorder {
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.pointer_capture_lost);
         let event_queue_pointer_capture_lost = Rc::clone(context.event_queue);
+        let source_pointer_capture_lost = value.cast::<native::UIElement>()?;
+        let pending_focus_states_pointer_capture_lost = Rc::clone(context.pending_focus_states);
         let revoker = value
             .cast::<native::IUIElement>()?
-            .PointerCaptureLost(local::handler(move |_, _| {
-                let dispatch = true;
-                let observation = None;
-                if dispatch {
-                    WinUiAdapter::dispatch(
-                        &event_for_callback,
-                        &event_queue_pointer_capture_lost,
+            .PointerCaptureLost(local::handler(
+                move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
+                    let dispatch = true;
+                    let observation = None;
+                    let value = WinUiAdapter::pointer_event_info(
                         object,
-                        EventId::PointerCaptureLost,
-                        observation,
-                        (),
-                    );
-                }
-            }))?;
+                        &source_pointer_capture_lost,
+                        args,
+                        None,
+                        false,
+                        false,
+                        &pending_focus_states_pointer_capture_lost,
+                    )
+                    .unwrap();
+                    if dispatch {
+                        WinUiAdapter::dispatch(
+                            &event_for_callback,
+                            &event_queue_pointer_capture_lost,
+                            object,
+                            EventId::PointerCaptureLost,
+                            observation,
+                            value,
+                        );
+                    }
+                },
+            ))?;
         self._pointer_capture_lost = Some(GeneratedRevoker::Event(revoker));
         Ok(())
     }
@@ -6242,22 +6309,36 @@ impl GeneratedBorder {
         let value = &self.value;
         let event_for_callback = Rc::clone(&self.pointer_canceled);
         let event_queue_pointer_canceled = Rc::clone(context.event_queue);
+        let source_pointer_canceled = value.cast::<native::UIElement>()?;
+        let pending_focus_states_pointer_canceled = Rc::clone(context.pending_focus_states);
         let revoker = value
             .cast::<native::IUIElement>()?
-            .PointerCanceled(local::handler(move |_, _| {
-                let dispatch = true;
-                let observation = None;
-                if dispatch {
-                    WinUiAdapter::dispatch(
-                        &event_for_callback,
-                        &event_queue_pointer_canceled,
+            .PointerCanceled(local::handler(
+                move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
+                    let dispatch = true;
+                    let observation = None;
+                    let value = WinUiAdapter::pointer_event_info(
                         object,
-                        EventId::PointerCanceled,
-                        observation,
-                        (),
-                    );
-                }
-            }))?;
+                        &source_pointer_canceled,
+                        args,
+                        None,
+                        false,
+                        false,
+                        &pending_focus_states_pointer_canceled,
+                    )
+                    .unwrap();
+                    if dispatch {
+                        WinUiAdapter::dispatch(
+                            &event_for_callback,
+                            &event_queue_pointer_canceled,
+                            object,
+                            EventId::PointerCanceled,
+                            observation,
+                            value,
+                        );
+                    }
+                },
+            ))?;
         self._pointer_canceled = Some(GeneratedRevoker::Event(revoker));
         Ok(())
     }
