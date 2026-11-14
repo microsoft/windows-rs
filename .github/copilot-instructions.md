@@ -255,9 +255,10 @@ Keep this section to current decisions, not a chronological account of rewrites.
 - Device-lost recovery is automatic.
 - Owned drawing sessions retain the complete `EndDraw` result until the owner checks it.
   `SwapChain::present` must reject failed drawing before calling DXGI; `RenderTarget::draw` must
-  report deferred errors without changing callback device-loss errors. Borrowed sessions leave
-  draw completion to their caller. Preserve the native-error regressions in `test_canvas` and
-  the Canvas error-path fixture in `test-reactor`; a successful draw closure is not completion.
+  report deferred errors. Native `EndDraw` device loss takes precedence; otherwise callback
+  device-loss errors are preserved. Borrowed sessions leave draw completion to their caller.
+  Preserve the native-error regressions in `test_canvas` and the Canvas error-path fixture in
+  `test-reactor`; a successful draw closure is not completion.
 
 ## Conventions
 
