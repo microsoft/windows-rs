@@ -5935,8 +5935,7 @@ impl GeneratedBorder {
             .cast::<native::IUIElement>()?
             .PointerPressed(local::handler(
                 move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
-                    let dispatch = true;
-                    let observation = None;
+                    let args = args.unwrap();
                     let value = WinUiAdapter::pointer_event_info(
                         object,
                         &source_pointer_pressed,
@@ -5947,15 +5946,14 @@ impl GeneratedBorder {
                         &pending_focus_states_pointer_pressed,
                     )
                     .unwrap();
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_pointer_pressed,
-                            object,
-                            EventId::PointerPressed,
-                            observation,
-                            value,
-                        );
+                    if WinUiAdapter::dispatch_pointer(
+                        &event_for_callback,
+                        &event_queue_pointer_pressed,
+                        object,
+                        EventId::PointerPressed,
+                        value,
+                    ) {
+                        args.SetHandled(true).unwrap();
                     }
                 },
             ))?;
@@ -5979,8 +5977,7 @@ impl GeneratedBorder {
             .cast::<native::IUIElement>()?
             .PointerMoved(local::handler(
                 move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
-                    let dispatch = true;
-                    let observation = None;
+                    let args = args.unwrap();
                     let value = WinUiAdapter::pointer_event_info(
                         object,
                         &source_pointer_moved,
@@ -5991,15 +5988,14 @@ impl GeneratedBorder {
                         &pending_focus_states_pointer_moved,
                     )
                     .unwrap();
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_pointer_moved,
-                            object,
-                            EventId::PointerMoved,
-                            observation,
-                            value,
-                        );
+                    if WinUiAdapter::dispatch_pointer(
+                        &event_for_callback,
+                        &event_queue_pointer_moved,
+                        object,
+                        EventId::PointerMoved,
+                        value,
+                    ) {
+                        args.SetHandled(true).unwrap();
                     }
                 },
             ))?;
@@ -6023,8 +6019,7 @@ impl GeneratedBorder {
             .cast::<native::IUIElement>()?
             .PointerEntered(local::handler(
                 move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
-                    let dispatch = true;
-                    let observation = None;
+                    let args = args.unwrap();
                     let value = WinUiAdapter::pointer_event_info(
                         object,
                         &source_pointer_entered,
@@ -6035,15 +6030,14 @@ impl GeneratedBorder {
                         &pending_focus_states_pointer_entered,
                     )
                     .unwrap();
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_pointer_entered,
-                            object,
-                            EventId::PointerEntered,
-                            observation,
-                            value,
-                        );
+                    if WinUiAdapter::dispatch_pointer(
+                        &event_for_callback,
+                        &event_queue_pointer_entered,
+                        object,
+                        EventId::PointerEntered,
+                        value,
+                    ) {
+                        args.SetHandled(true).unwrap();
                     }
                 },
             ))?;
@@ -6067,8 +6061,7 @@ impl GeneratedBorder {
             .cast::<native::IUIElement>()?
             .PointerExited(local::handler(
                 move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
-                    let dispatch = true;
-                    let observation = None;
+                    let args = args.unwrap();
                     let value = WinUiAdapter::pointer_event_info(
                         object,
                         &source_pointer_exited,
@@ -6079,15 +6072,14 @@ impl GeneratedBorder {
                         &pending_focus_states_pointer_exited,
                     )
                     .unwrap();
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_pointer_exited,
-                            object,
-                            EventId::PointerExited,
-                            observation,
-                            value,
-                        );
+                    if WinUiAdapter::dispatch_pointer(
+                        &event_for_callback,
+                        &event_queue_pointer_exited,
+                        object,
+                        EventId::PointerExited,
+                        value,
+                    ) {
+                        args.SetHandled(true).unwrap();
                     }
                 },
             ))?;
@@ -6113,8 +6105,7 @@ impl GeneratedBorder {
             .cast::<native::IUIElement>()?
             .PointerReleased(local::handler(
                 move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
-                    let dispatch = true;
-                    let observation = None;
+                    let args = args.unwrap();
                     let value = WinUiAdapter::pointer_event_info(
                         object,
                         &source_pointer_released,
@@ -6125,15 +6116,14 @@ impl GeneratedBorder {
                         &pending_focus_states_pointer_released,
                     )
                     .unwrap();
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_pointer_released,
-                            object,
-                            EventId::PointerReleased,
-                            observation,
-                            value,
-                        );
+                    if WinUiAdapter::dispatch_pointer(
+                        &event_for_callback,
+                        &event_queue_pointer_released,
+                        object,
+                        EventId::PointerReleased,
+                        value,
+                    ) {
+                        args.SetHandled(true).unwrap();
                     }
                 },
             ))?;

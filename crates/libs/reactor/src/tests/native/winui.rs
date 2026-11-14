@@ -742,7 +742,7 @@ fn pointer_event_queue_preserves_payload_and_callback() {
     let object = runtime.graph().root().unwrap();
     let callback = Callback::new(|_| {});
     let event = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
-    event.borrow_mut().set(Some(callback.clone()));
+    event.borrow_mut().set(Some(callback.clone().into()));
     let event_queue = Rc::new(NativeEventQueue::default());
     let payload = PointerEventInfo {
         pointer_id: 42,
@@ -752,14 +752,13 @@ fn pointer_event_queue_preserves_payload_and_callback() {
         ..Default::default()
     };
 
-    WinUiAdapter::dispatch(
+    assert!(!WinUiAdapter::dispatch_pointer(
         &event,
         &event_queue,
         object,
         EventId::PointerReleased,
-        None,
         payload,
-    );
+    ));
     let queued = event_queue.events.borrow();
     assert_eq!(queued.len(), 1);
     let NativeEvent::Event {
@@ -825,6 +824,118 @@ fn queued_occurrences_follow_their_subscription() {
     let pending = event.borrow().handler(()).unwrap();
     event.borrow_mut().set(None);
     assert!(matches!(pending, QueuedHandler::Callback { live, .. } if !live.get()));
+}
+
+#[test]
+fn pointer_mode_replacement_preserves_queued_occurrences() {
+    let object = ObjectId::test(1);
+    let event = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
+    let mut adapter = WinUiAdapter::default();
+    let first = Callback::new(|_| {});
+    let second = Callback::new(|_| {});
+    let routed = RoutedCallback::new(|_| false);
+    let payload = PointerEventInfo {
+        pointer_id: 42,
+        ..Default::default()
+    };
+    let queue = |adapter: &WinUiAdapter| {
+        assert!(!WinUiAdapter::dispatch_pointer(
+            &event,
+            &adapter.event_queue,
+            object,
+            EventId::PointerPressed,
+            payload,
+        ));
+    };
+    let delivered = |callback: &Callback<PointerEventInfo>| {
+        Some(NativeEvent::Event {
+            observation: None,
+            event: EventDispatch::new(
+                object,
+                EventId::PointerPressed,
+                EventCall::PointerEventInfo(callback.clone(), payload),
+            ),
+        })
+    };
+
+    event.borrow_mut().set(Some(first.clone().into()));
+    queue(&adapter);
+    event.borrow_mut().set(Some(routed.clone().into()));
+    assert_eq!(adapter.pop_native_event(), delivered(&first));
+
+    event.borrow_mut().set(Some(first.clone().into()));
+    queue(&adapter);
+    event.borrow_mut().set(Some(routed.clone().into()));
+    event
+        .borrow_mut()
+        .set(Some(RoutedCallback::new(|_| true).into()));
+    event.borrow_mut().set(Some(second.clone().into()));
+    queue(&adapter);
+    assert_eq!(adapter.pop_native_event(), delivered(&first));
+    assert_eq!(adapter.pop_native_event(), delivered(&second));
+    assert_eq!(adapter.pop_native_event(), None);
+
+    event.borrow_mut().set(Some(first.into()));
+    queue(&adapter);
+    event.borrow_mut().set(Some(routed.into()));
+    event.borrow_mut().set(None);
+    event.borrow_mut().set(Some(second.clone().into()));
+    assert_eq!(adapter.pop_native_event(), None);
+    queue(&adapter);
+    assert_eq!(adapter.pop_native_event(), delivered(&second));
+
+    queue(&adapter);
+    event
+        .borrow_mut()
+        .set(Some(RoutedCallback::new(|_| false).into()));
+    adapter.event_queue.discard_object(object);
+    assert_eq!(adapter.pop_native_event(), None);
+}
+
+#[test]
+fn routed_pointer_captures_before_deferral_and_allows_replacement() {
+    let object = ObjectId::test(1);
+    let event = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
+    let mut adapter = WinUiAdapter::default();
+    let frame = Rc::new(Cell::new(7));
+    let captured = Rc::new(Cell::new(None));
+    let dispatch = |adapter: &WinUiAdapter| {
+        WinUiAdapter::dispatch_pointer(
+            &event,
+            &adapter.event_queue,
+            object,
+            EventId::PointerPressed,
+            PointerEventInfo::default(),
+        )
+    };
+    event.borrow_mut().set(Some(Callback::new(|_| {}).into()));
+    assert!(!dispatch(&adapter));
+
+    let weak = Rc::downgrade(&event);
+    let current = Rc::clone(&frame);
+    let result = Rc::clone(&captured);
+    event.borrow_mut().set(Some(
+        RoutedCallback::new(move |_| {
+            result.set(Some(current.get()));
+            weak.upgrade().unwrap().borrow_mut().set(None);
+            true
+        })
+        .into(),
+    ));
+    assert!(dispatch(&adapter));
+    frame.set(8);
+    assert_eq!(captured.get(), Some(7));
+    assert!(adapter.pop_native_event().is_none());
+    assert!(!dispatch(&adapter));
+
+    event
+        .borrow_mut()
+        .set(Some(RoutedCallback::new(|_| false).into()));
+    assert!(!dispatch(&adapter));
+    assert!(adapter.pop_native_event().is_none());
+    event.borrow_mut().set(Some(Callback::new(|_| {}).into()));
+    assert!(!dispatch(&adapter));
+    assert!(adapter.pop_native_event().is_some());
 }
 
 #[test]

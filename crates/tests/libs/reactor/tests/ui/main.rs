@@ -133,6 +133,30 @@ fn queued_clicks_reach_the_callback_they_fired_under() -> Result<()> {
     })
 }
 
+#[test]
+fn pointer_delivery_modes_preserve_routing_and_queued_order() -> Result<()> {
+    process::run("pointer-routing", |ui| {
+        for (index, expected) in [
+            "parent, queued",
+            "routed, parent",
+            "routed",
+            "parent, queued",
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            if index != 0 {
+                ui.invoke("mode")?;
+                ui.name("mode-state", &format!("Mode {}", index % 3))?;
+            }
+            ui.pointer_move("routing-target", 0.5, 0.5)?;
+            ui.pointer_clicks(1)?;
+            ui.name("calls", expected)?;
+        }
+        Ok(())
+    })
+}
+
 fn enable_pointer_policy(ui: &Automation) -> Result<()> {
     let original = ui.element("left")?;
     ui.name("policy", "Absent")?;

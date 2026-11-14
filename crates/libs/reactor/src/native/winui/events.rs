@@ -1,6 +1,37 @@
 use super::*;
 
 impl WinUiAdapter {
+    pub(super) fn dispatch_pointer(
+        event: &Rc<RefCell<NativePointerEventInfoEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        value: PointerEventInfo,
+    ) -> bool {
+        let subscription = event.borrow().subscription.clone();
+        match subscription {
+            Some(NativeSubscription {
+                callback: PointerCallback::Routed(callback),
+                ..
+            }) => callback.call(value),
+            Some(NativeSubscription {
+                callback: PointerCallback::Queued(callback),
+                live,
+            }) => {
+                event_queue.queue(
+                    None,
+                    Some(QueuedEvent {
+                        object,
+                        event: event_id,
+                        handler: NativeSubscription { callback, live }.handler(value),
+                    }),
+                );
+                false
+            }
+            None => false,
+        }
+    }
+
     pub(super) fn dispatch<T: EventArg>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
@@ -211,13 +242,12 @@ impl WinUiAdapter {
     pub(super) fn pointer_event_info(
         object: ObjectId,
         element: &native::UIElement,
-        args: Ref<native::PointerRoutedEventArgs>,
+        args: &native::PointerRoutedEventArgs,
         capture_on_press: Option<bool>,
         release_capture: bool,
         focus_on_release: bool,
         pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
     ) -> Result<PointerEventInfo, WinUiError> {
-        let args = args.unwrap();
         let local = args.GetCurrentPoint(element)?;
         let local_position = local.Position()?;
         let window = args.GetCurrentPoint(None::<&native::UIElement>)?;

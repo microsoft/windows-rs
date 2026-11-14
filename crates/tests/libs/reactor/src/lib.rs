@@ -312,6 +312,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "exit-with-window" => App::run_application::<application::ExitFixture>(())?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(false)?,
         "canvas-demand" => App::run_component::<canvas::CanvasFixture>(true)?,
+        "canvas-submitted-input" => App::run_component::<canvas::SubmittedInputFixture>(())?,
         "canvas-root" => App::run_application::<canvas::CanvasRootFixture>(())?,
         "canvas-image" => App::run_component::<canvas_image::CanvasImageFixture>(())?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
@@ -425,6 +426,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "pointer-focus-mounted" => pointer::run(false, true)?,
         "pointer-focus-added" => pointer::run(false, false)?,
         "pointer-clicks" => pointer::run_clicks()?,
+        "pointer-routing" => pointer::run_routing()?,
         "drag-mounted" => drag::run(true)?,
         "drag-added" => drag::run(false)?,
         "exit" => {}

@@ -259,6 +259,13 @@ Keep this section to current decisions, not a chronological account of rewrites.
   device-loss errors are preserved. Borrowed sessions leave draw completion to their caller.
   Preserve the native-error regressions in `test_canvas` and the Canvas error-path fixture in
   `test-reactor`; a successful draw closure is not completion.
+- `Canvas::on_submitted` runs only after successful drawing and swap-chain submission, outside the
+  render-state borrow. Publish prepared hit-test geometry there and resolve it in routed pointer
+  callbacks before queuing messages. Changing pointer delivery mode replaces the callback, not the
+  subscription: queued occurrences retain their original callbacks. Test replacement before removal
+  or teardown, which cancel pending occurrences and can mask a replacement bug. Preserve
+  the native submitted-input and routing fixtures described in the `test-reactor` README; neither
+  submission nor their injected callback device loss proves physical display or native removal.
 
 ## Conventions
 
@@ -440,15 +447,15 @@ not a patch to import wholesale. Paths and symbols for the custom control below 
 experimental branch until ported. Keep each iteration independently reviewable and leave the
 sample runnable. Subscription-lifetime fixes can be assessed separately.
 
-Current gate: maintainer review and acceptance of the bounded drawing-completion change. The next
-implementation iteration is submitted-frame input, followed by hardening the existing table under
-churn and adopting it in Task Manager. Keep these changes separate. Measure performance against the
-same workload and an agreed baseline; do not use drawing time as input-to-pixel latency.
+Current gate: maintainer acceptance of the bounded submitted-frame input change. After acceptance,
+integrate that boundary into the existing table, harden it under churn, and adopt it in Task Manager,
+keeping those changes separate. Measure performance against the same workload and an agreed
+baseline; drawing time is not input-to-pixel latency.
 
-1. **Establish submitted-frame input.** In `crates/libs/canvas/src/reactor.rs`, publish geometry
-   only after successful drawing completion and swap-chain submission, not physical display.
-   Add a fixture marker at that boundary in the native Canvas/details tests. Verify that failed
-   drawing does not publish a frame and that input before a new submission uses the old frame.
+1. **Integrate submitted-frame input in the table.** Use `Canvas::on_submitted` to publish prepared
+   geometry and routed pointer callbacks to resolve row targets before queuing messages. Retain
+   the small Canvas fixture while adding control-level coverage; do not infer the table's behavior
+   from the framework fixture.
    In `crates/tests/libs/reactor/tests/ui/canvas_details.rs`, wheel injection alone is not evidence
    that the scrolled frame was submitted; observe the marker before asserting a new-frame click.
 2. **One submitted geometry for input feedback.** In
@@ -456,11 +463,11 @@ same workload and an agreed baseline; do not use drawing time as input-to-pixel 
    state, and drawing together. Hover and divider feedback must follow the submitted geometry
    when scrolling or resizing without pointer movement. Cover wheel, keyboard, and scrollbar
    changes, stale row targets, and failed-frame publication with focused cases.
-3. **Resolve the cursor observation without changing the reproduction.** In the `RoutingFixture`
-   in `crates/tests/libs/reactor/src/pointer.rs`, change a child's cursor while the pointer stays
-   over it and its ancestor has an explicit cursor. The experimental test in `tests/ui/main.rs`
-   moves away before changing mode; it proves re-entry behavior only. Compare the unchanged case
-   with native WinUI before fixing Reactor or documenting a native limitation.
+3. **Resolve the cursor observation without changing the reproduction.** In the experimental
+   `RoutingFixture` in `crates/tests/libs/reactor/src/pointer.rs`, change a child's cursor while the
+   pointer stays over it and its ancestor has an explicit cursor. The experimental test in
+   `tests/ui/main.rs` moves away before changing mode; it proves re-entry behavior only. Compare the
+   unchanged case with native WinUI before fixing Reactor or documenting a native limitation.
 
 The drawing-completion contract is a prerequisite for claiming successful-frame publication.
 Only then assess the complete process-view replacement. Remove resolved items from this recovery

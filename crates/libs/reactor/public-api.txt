@@ -195,6 +195,13 @@ pub windows_reactor::Orientation::Vertical
 pub windows_reactor::PasswordRevealMode::Hidden
 pub windows_reactor::PasswordRevealMode::Peek
 pub windows_reactor::PasswordRevealMode::Visible
+pub enum windows_reactor::PointerCallback
+pub windows_reactor::PointerCallback::Queued(windows_reactor::Callback<windows_reactor::PointerEventInfo>)
+pub windows_reactor::PointerCallback::Routed(windows_reactor::RoutedCallback<windows_reactor::PointerEventInfo>)
+impl core::convert::From<windows_reactor::RoutedCallback<windows_reactor::PointerEventInfo>> for windows_reactor::PointerCallback
+pub fn windows_reactor::PointerCallback::from(windows_reactor::RoutedCallback<windows_reactor::PointerEventInfo>) -> Self
+impl<T: windows_reactor::IntoPayloadCallback<windows_reactor::PointerEventInfo>> core::convert::From<T> for windows_reactor::PointerCallback
+pub fn windows_reactor::PointerCallback::from(T) -> Self
 pub enum windows_reactor::ResourceValue
 pub windows_reactor::ResourceValue::Color(windows_reactor::Color)
 pub windows_reactor::ResourceValue::CornerRadius(windows_reactor::CornerRadius)
@@ -757,11 +764,11 @@ pub fn windows_reactor::Border::on_key_up(self, windows_reactor::RoutedCallback<
 pub fn windows_reactor::Border::on_lost_focus(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::FocusEventInfo>) -> Self
 pub fn windows_reactor::Border::on_pointer_canceled(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::Border::on_pointer_capture_lost(self, impl windows_reactor::IntoUnitCallback) -> Self
-pub fn windows_reactor::Border::on_pointer_entered(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::PointerEventInfo>) -> Self
-pub fn windows_reactor::Border::on_pointer_exited(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::PointerEventInfo>) -> Self
-pub fn windows_reactor::Border::on_pointer_moved(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::PointerEventInfo>) -> Self
-pub fn windows_reactor::Border::on_pointer_pressed(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::PointerEventInfo>) -> Self
-pub fn windows_reactor::Border::on_pointer_released(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::PointerEventInfo>) -> Self
+pub fn windows_reactor::Border::on_pointer_entered(self, impl core::convert::Into<windows_reactor::PointerCallback>) -> Self
+pub fn windows_reactor::Border::on_pointer_exited(self, impl core::convert::Into<windows_reactor::PointerCallback>) -> Self
+pub fn windows_reactor::Border::on_pointer_moved(self, impl core::convert::Into<windows_reactor::PointerCallback>) -> Self
+pub fn windows_reactor::Border::on_pointer_pressed(self, impl core::convert::Into<windows_reactor::PointerCallback>) -> Self
+pub fn windows_reactor::Border::on_pointer_released(self, impl core::convert::Into<windows_reactor::PointerCallback>) -> Self
 pub fn windows_reactor::Border::on_preview_key_down(self, windows_reactor::RoutedCallback<windows_reactor::KeyEventInfo>) -> Self
 pub fn windows_reactor::Border::opacity(self, f64) -> Self
 pub fn windows_reactor::Border::opacity_transition(self, core::time::Duration) -> Self
@@ -3314,6 +3321,8 @@ pub struct windows_reactor::RoutedCallback<T>(_)
 impl<T> windows_reactor::RoutedCallback<T>
 pub fn windows_reactor::RoutedCallback<T>::call(&self, T) -> bool
 pub fn windows_reactor::RoutedCallback<T>::new(impl core::ops::function::Fn(T) -> bool + 'static) -> Self
+impl core::convert::From<windows_reactor::RoutedCallback<windows_reactor::PointerEventInfo>> for windows_reactor::PointerCallback
+pub fn windows_reactor::PointerCallback::from(windows_reactor::RoutedCallback<windows_reactor::PointerEventInfo>) -> Self
 impl<T> core::clone::Clone for windows_reactor::RoutedCallback<T>
 pub fn windows_reactor::RoutedCallback<T>::clone(&self) -> Self
 impl<T> core::cmp::PartialEq for windows_reactor::RoutedCallback<T>

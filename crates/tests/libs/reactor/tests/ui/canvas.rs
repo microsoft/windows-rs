@@ -1,6 +1,41 @@
 use super::*;
 
 #[test]
+fn canvas_input_follows_submission_not_pending_drawing() -> Result<()> {
+    process::run("canvas-submitted-input", |ui| {
+        ui.name("submitted", "Submitted Some(0)")?;
+        ui.invoke("stage")?;
+        ui.name("requested", "Requested 1")?;
+        let click = |expected| -> Result<()> {
+            ui.pointer_move("canvas-input", 0.5, 0.25)?;
+            ui.pointer_clicks(1)?;
+            ui.name("pressed", expected)
+        };
+        click("Pressed 1 Some((0, \"red\"))")?;
+        ui.invoke("fail-native")?;
+        ui.name("errors", "Errors 1")?;
+        ui.name("submitted", "Submitted Some(0)")?;
+        click("Pressed 2 Some((0, \"red\"))")?;
+        ui.invoke("fail-callback")?;
+        ui.name("errors", "Errors 2")?;
+        ui.name("submitted", "Submitted Some(0)")?;
+        ui.invoke("submit")?;
+        ui.name("submitted", "Submitted Some(1)")?;
+        click("Pressed 3 Some((1, \"blue\"))")?;
+        ui.invoke("stage")?;
+        ui.name("requested", "Requested 2")?;
+        ui.invoke("lose-device")?;
+        ui.name("submitted", "Submitted Some(2)")?;
+        click("Pressed 4 Some((2, \"red\"))")?;
+        ui.invoke("again")?;
+        ui.name("submitted", "Submitted Some(3)")?;
+        click("Pressed 5 Some((3, \"blue\"))")?;
+        ui.invoke("remove")?;
+        ui.name("released", "Released true")
+    })
+}
+
+#[test]
 fn canvas_draws_resizes_and_releases_callbacks_on_removal() -> Result<()> {
     process::run("canvas", |ui| {
         ui.name("frame", "Canvas 0: 240 x 160; changed true; device 1")?;

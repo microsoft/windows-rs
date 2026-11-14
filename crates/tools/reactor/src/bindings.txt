@@ -264,7 +264,7 @@ Microsoft::UI::Xaml::Input::ICharacterReceivedRoutedEventArgs::{get_Character, g
 Microsoft::UI::Xaml::Input::IKeyboardAccelerator::{Invoked, put_Key, put_Modifiers}
 Microsoft::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs::put_Handled
 Microsoft::UI::Xaml::Input::IKeyRoutedEventArgs::{get_Key, get_KeyStatus, get_OriginalKey, put_Handled}
-Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::{get_KeyModifiers, get_Pointer, GetCurrentPoint}
+Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::{get_KeyModifiers, get_Pointer, GetCurrentPoint, put_Handled}
 Microsoft::UI::Xaml::Input::KeyboardAccelerator::CreateInstance
 Microsoft::UI::Xaml::Input::KeyboardAcceleratorPlacementMode::Hidden
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
