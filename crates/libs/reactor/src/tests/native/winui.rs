@@ -212,24 +212,24 @@ fn native_queue_expired_report_keeps_only_its_observation() {
             value: PropertyValue::String(Rc::from(value)),
         },
     };
-    let report = |value: &str, live: bool| QueuedNativeEvent::Event {
+    let report = |value: &str, live| QueuedNativeEvent::Event {
         observation: Some(observation(value)),
         event: QueuedEvent {
             object,
             event: EventId::TextChanged,
             handler: QueuedHandler::Callback {
                 call: EventCall::String(callback.clone(), Rc::from(value)),
-                live: Rc::new(Cell::new(live)),
+                live,
             },
         },
     };
     let mut adapter = WinUiAdapter::default();
+    let live = Rc::new(());
     // `on_text_changed` was removed and added again between the two reports.
-    adapter
-        .event_queue
-        .events
-        .borrow_mut()
-        .extend([report("Expired", false), report("Live", true)]);
+    adapter.event_queue.events.borrow_mut().extend([
+        report("Expired", Weak::new()),
+        report("Live", Rc::downgrade(&live)),
+    ]);
     let expected = Some(NativeEvent::Event {
         observation: Some(observation("Live")),
         event: EventDispatch::new(
@@ -251,12 +251,13 @@ fn image_source_change_discards_only_queued_load_results() {
     let image = ObjectId::test(1);
     let other = ObjectId::test(2);
     let queue = Rc::new(NativeEventQueue::default());
+    let live = Rc::new(());
     let event = |object, event| QueuedEvent {
         object,
         event,
         handler: QueuedHandler::Callback {
             call: EventCall::Unit(Callback::new(|()| {})),
-            live: Rc::new(Cell::new(true)),
+            live: Rc::downgrade(&live),
         },
     };
     queue.queue(None, Some(event(image, EventId::ImageOpened)));
@@ -781,6 +782,37 @@ fn pointer_event_queue_preserves_payload_and_callback() {
 }
 
 #[test]
+fn dropping_native_event_owner_cancels_queued_and_pending_occurrences() {
+    let object = ObjectId::test(1);
+    let event = Rc::new(RefCell::new(NativeUnitEvent::default()));
+    event
+        .borrow_mut()
+        .set(Some(Callback::new(|()| panic!("expired event"))));
+    let mut adapter = WinUiAdapter::default();
+    WinUiAdapter::dispatch(
+        &event,
+        &adapter.event_queue,
+        object,
+        EventId::Click,
+        None,
+        (),
+    );
+    let pending = event.borrow().capture().unwrap();
+    drop(event);
+
+    assert_eq!(adapter.pop_native_event(), None);
+    adapter.event_queue.queue(
+        None,
+        Some(QueuedEvent {
+            object,
+            event: EventId::Click,
+            handler: pending(()),
+        }),
+    );
+    assert_eq!(adapter.pop_native_event(), None);
+}
+
+#[test]
 fn queued_occurrences_follow_their_subscription() {
     let object = ObjectId::test(1);
     let first = Callback::new(|_: ()| {});
@@ -822,9 +854,17 @@ fn queued_occurrences_follow_their_subscription() {
     assert_eq!(adapter.pop_native_event(), delivered(&third));
 
     // An occurrence completing asynchronously captures its handler when the event fires.
-    let pending = event.borrow().handler(()).unwrap();
+    let pending = event.borrow().capture().unwrap();
     event.borrow_mut().set(None);
-    assert!(matches!(pending, QueuedHandler::Callback { live, .. } if !live.get()));
+    adapter.event_queue.queue(
+        None,
+        Some(QueuedEvent {
+            object,
+            event: EventId::Click,
+            handler: pending(()),
+        }),
+    );
+    assert_eq!(adapter.pop_native_event(), None);
 }
 
 #[test]

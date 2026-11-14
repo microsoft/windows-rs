@@ -83,7 +83,7 @@ impl WinUiAdapter {
             return Ok(());
         };
         args.SetAcceptedOperation(Self::native_drag_operation(action.operation))?;
-        let subscription = event.borrow().subscription.clone();
+        let subscription = event.borrow().capture();
         let result = Arc::new(Mutex::new(None::<windows_core::Result<DroppedData>>));
         let result_for_handler = Arc::clone(&result);
         let event_queue = Rc::clone(event_queue);
@@ -102,7 +102,7 @@ impl WinUiAdapter {
                     Some(QueuedEvent {
                         object,
                         event: event_id,
-                        handler: subscription.handler(value),
+                        handler: subscription(value),
                     }),
                 );
             }

@@ -54,27 +54,9 @@ struct NativeValueEvent<T> {
 /// A subscribed native event. Replacing the callback keeps the subscription; removing it ends the
 /// subscription and invalidates occurrences still queued or pending under it.
 struct NativeSubscription<T> {
+    // Expire queued occurrences before releasing the callback's captures.
+    live: Rc<()>,
     callback: Callback<T>,
-    live: Rc<Cell<bool>>,
-}
-
-impl<T> Clone for NativeSubscription<T> {
-    fn clone(&self) -> Self {
-        Self {
-            callback: self.callback.clone(),
-            live: Rc::clone(&self.live),
-        }
-    }
-}
-
-impl<T: EventArg> NativeSubscription<T> {
-    /// The handler for an occurrence under this subscription.
-    fn handler(self, value: T::Native) -> QueuedHandler {
-        QueuedHandler::Callback {
-            call: T::bind(self.callback, value),
-            live: self.live,
-        }
-    }
 }
 
 impl<T> Default for NativeValueEvent<T> {
@@ -88,12 +70,9 @@ impl<T> NativeValueEvent<T> {
         match (&mut self.subscription, callback) {
             (Some(subscription), Some(callback)) => subscription.callback = callback,
             (_, callback) => {
-                if let Some(subscription) = self.subscription.take() {
-                    subscription.live.set(false);
-                }
                 self.subscription = callback.map(|callback| NativeSubscription {
+                    live: Rc::new(()),
                     callback,
-                    live: Rc::new(Cell::new(true)),
                 });
             }
         }
@@ -104,9 +83,21 @@ impl<T> NativeValueEvent<T> {
     where
         T: EventArg,
     {
-        self.subscription
-            .clone()
-            .map(|subscription| subscription.handler(value))
+        self.capture().map(|handler| handler(value))
+    }
+
+    /// Captures an occurrence without extending the subscription's lifetime.
+    fn capture(&self) -> Option<impl FnOnce(T::Native) -> QueuedHandler + use<T>>
+    where
+        T: EventArg,
+    {
+        let subscription = self.subscription.as_ref()?;
+        let callback = subscription.callback.clone();
+        let live = Rc::downgrade(&subscription.live);
+        Some(move |value| QueuedHandler::Callback {
+            call: T::bind(callback, value),
+            live,
+        })
     }
 }
 

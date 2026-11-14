@@ -9,12 +9,9 @@ pub(super) struct QueuedEvent {
 pub(super) enum QueuedHandler {
     /// The callback subscribed when the native event fired. Delivering to it keeps an occurrence
     /// queued behind a render from being lost when that render replaces the callback. `live`
-    /// is cleared when the subscription ends, so removing or re-adding the event, or replacing
-    /// the control, drops the occurrence.
-    Callback {
-        call: EventCall,
-        live: Rc<Cell<bool>>,
-    },
+    /// expires when the subscription ends, so removing or re-adding the event, or dropping its
+    /// owner, drops the occurrence.
+    Callback { call: EventCall, live: Weak<()> },
     /// The menu or command bar flyout presentation revision that raised a click on the item with
     /// this key. Callback-only updates keep the presentation, so the click resolves to the current
     /// `on_click`.
