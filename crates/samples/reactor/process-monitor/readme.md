@@ -14,9 +14,6 @@ view remains the default. The canvas table does not yet expose accessible rows/c
 high-contrast colors, multiple selection, tree mode, or touch panning. It is not a production
 replacement for the native view.
 
-The prototype owns its scrolling; host it outside an ancestor `ScrollViewer`. Wheel events are
-not yet consumed at the native routing boundary.
-
 ```powershell
 cargo run -p reactor-process-monitor --release
 cargo run -p reactor-process-monitor --release -- --demo

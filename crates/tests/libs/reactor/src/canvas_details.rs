@@ -28,6 +28,8 @@ pub(super) struct Fixture {
     selected: Option<Key>,
     revision: u64,
     sort: Option<usize>,
+    churn: bool,
+    transient: Option<Key>,
     timer: ComponentTimer,
 }
 
@@ -36,6 +38,7 @@ pub(super) enum Message {
     Select(Key),
     Sort(usize),
     Remove,
+    Churn,
     Tick,
 }
 
@@ -52,6 +55,8 @@ impl Component for Fixture {
             selected: None,
             revision: 0,
             sort: None,
+            churn: false,
+            transient: None,
             timer: context
                 .set_local_timeout(std::time::Duration::from_millis(100), || Message::Tick),
         }
@@ -59,7 +64,12 @@ impl Component for Fixture {
 
     fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
         match message {
-            Message::Select(key) => self.selected = Some(key),
+            Message::Select(key) => {
+                if self.source.keys.contains(&key) {
+                    self.selected = Some(key);
+                }
+            }
+            Message::Churn => self.churn = !self.churn,
             Message::Sort(column) => {
                 Rc::make_mut(&mut self.source.keys).reverse();
                 self.revision += 1;
@@ -72,6 +82,22 @@ impl Component for Fixture {
             }
             Message::Tick => {
                 self.source.tick += 1;
+                if self.churn {
+                    let keys = Rc::make_mut(&mut self.source.keys);
+                    if let Some(key) = self.transient.take() {
+                        keys.retain(|item| *item != key);
+                        if self.selected.as_ref() == Some(&key) {
+                            self.selected = None;
+                        }
+                    }
+                    if self.source.tick % 2 == 0 {
+                        let key = Key::from(format!("new-{}", self.source.tick));
+                        keys.insert(0, key.clone());
+                        self.transient = Some(key);
+                    }
+                    keys.rotate_left(1);
+                    self.revision += 1;
+                }
                 self.timer = context
                     .set_local_timeout(std::time::Duration::from_millis(100), || Message::Tick);
             }
@@ -100,9 +126,27 @@ impl Component for Fixture {
                             .automation_id("remove")
                             .content("Remove selected")
                             .on_click(context.message(Message::Remove)),
+                        Button::new()
+                            .automation_id("churn")
+                            .content(if self.churn {
+                                "Stop churn"
+                            } else {
+                                "Start churn"
+                            })
+                            .on_click(context.message(Message::Churn)),
+                        TextBlock::new().automation_id("last").text(
+                            self.source
+                                .keys
+                                .last()
+                                .and_then(Key::as_str)
+                                .unwrap_or("None"),
+                        ),
                     )),
                 Border::new()
                     .grid_row(1)
+                    .on_pointer_wheel_changed(RoutedCallback::new(|_| {
+                        panic!("details wheel input reached its ancestor")
+                    }))
                     .content(View::component::<DetailsView<Source>>(Input {
                         automation_id: Rc::from("custom-details"),
                         name: Rc::from("Custom details fixture"),

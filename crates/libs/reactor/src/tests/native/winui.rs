@@ -743,7 +743,7 @@ fn pointer_event_queue_preserves_payload_and_callback() {
     let object = runtime.graph().root().unwrap();
     let callback = Callback::new(|_| {});
     let event = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
-    event.borrow_mut().set(Some(callback.clone()));
+    event.borrow_mut().set(Some(callback.clone().into()));
     let event_queue = Rc::new(NativeEventQueue::default());
     let payload = PointerEventInfo {
         pointer_id: 42,
@@ -753,14 +753,13 @@ fn pointer_event_queue_preserves_payload_and_callback() {
         ..Default::default()
     };
 
-    WinUiAdapter::dispatch(
+    assert!(!WinUiAdapter::dispatch_pointer(
         &event,
         &event_queue,
         object,
         EventId::PointerReleased,
-        None,
         payload,
-    );
+    ));
     let queued = event_queue.events.borrow();
     assert_eq!(queued.len(), 1);
     let NativeEvent::Event {
@@ -779,6 +778,62 @@ fn pointer_event_queue_preserves_payload_and_callback() {
             ..
         } if *queued == callback && *value == payload
     ));
+}
+
+#[test]
+fn routed_pointer_resolves_before_queue_drain_and_can_unsubscribe() {
+    let event = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
+    let weak = Rc::downgrade(&event);
+    let observed = Rc::new(Cell::new(0));
+    let snapshot = Rc::new(Cell::new(7));
+    let observed_callback = Rc::clone(&observed);
+    let snapshot_callback = Rc::clone(&snapshot);
+    event.borrow_mut().set(Some(
+        RoutedCallback::new(move |_: PointerEventInfo| {
+            observed_callback.set(snapshot_callback.get());
+            weak.upgrade().unwrap().borrow_mut().set(None);
+            true
+        })
+        .into(),
+    ));
+    let queue = Rc::new(NativeEventQueue::default());
+    assert!(WinUiAdapter::dispatch_pointer(
+        &event,
+        &queue,
+        ObjectId::test(1),
+        EventId::PointerPressed,
+        PointerEventInfo::default(),
+    ));
+    snapshot.set(8);
+    assert_eq!(observed.get(), 7);
+    assert!(queue.events.borrow().is_empty());
+    assert!(!WinUiAdapter::dispatch_pointer(
+        &event,
+        &queue,
+        ObjectId::test(1),
+        EventId::PointerPressed,
+        PointerEventInfo::default(),
+    ));
+}
+
+#[test]
+fn replacing_queued_pointer_with_routed_handler_expires_queued_occurrences() {
+    let event = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
+    event.borrow_mut().set(Some(
+        Callback::new(|_: PointerEventInfo| panic!("expired")).into(),
+    ));
+    let mut adapter = WinUiAdapter::default();
+    WinUiAdapter::dispatch_pointer(
+        &event,
+        &adapter.event_queue,
+        ObjectId::test(1),
+        EventId::PointerPressed,
+        PointerEventInfo::default(),
+    );
+    event
+        .borrow_mut()
+        .set(Some(RoutedCallback::new(|_| true).into()));
+    assert_eq!(adapter.pop_native_event(), None);
 }
 
 #[test]

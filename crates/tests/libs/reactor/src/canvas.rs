@@ -1,5 +1,5 @@
 use super::*;
-use std::cell::Cell;
+use std::cell::{Cell, RefCell};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicU32, Ordering};
 use windows_canvas::{Canvas, ColorF, GpuDevice, Invalidator};
@@ -92,6 +92,8 @@ fn surface(
     };
     let observed = Cell::new(None);
     let drawn = context.callback(Message::Frame);
+    let pending = Rc::new(RefCell::new(None));
+    let submitted = Rc::clone(&pending);
     let draw_devices = Arc::clone(devices);
     let lose_device = Rc::clone(lose_device);
     let repaint = Rc::clone(repaint);
@@ -101,6 +103,7 @@ fn surface(
     let demand = *context.input();
     let draw = move |frame: &windows_canvas::DrawContext<'_>| {
         let _keep_alive = &lifetime;
+        pending.borrow_mut().take();
         frame.clear(ColorF::CORNFLOWER_BLUE);
         if lose_device.replace(false) {
             return Err(windows_core::Error::from_hresult(windows_core::HRESULT(
@@ -108,25 +111,32 @@ fn surface(
             )));
         }
         let size = (frame.width, frame.height);
-        if observed.replace(Some(size)) != Some(size) || frame.device_changed() {
-            drawn.call(format!(
+        let frame_changed = if observed.replace(Some(size)) != Some(size) || frame.device_changed()
+        {
+            Some(format!(
                 "Canvas {generation}: {:.0} x {:.0}; changed {}; device {}",
                 frame.width,
                 frame.height,
                 frame.device_changed(),
                 draw_devices.created.load(Ordering::SeqCst),
-            ));
-        }
-        if demand {
+            ))
+        } else {
+            None
+        };
+        let repaint_changed = if demand {
             let revision = repaint.revision.get();
             let (previous, count) = counts.get();
             let count = if revision == previous { count + 1 } else { 1 };
             counts.set((revision, count));
-            repainted.call(format!("Revision {revision}; draws {count}"));
+            let changed = format!("Revision {revision}; draws {count}");
             if repaint.again.replace(false) {
                 redraw.invalidate();
             }
-        }
+            Some(changed)
+        } else {
+            None
+        };
+        *pending.borrow_mut() = Some((frame_changed, repaint_changed));
         Ok(())
     };
     let canvas = if *context.input() {
@@ -137,6 +147,15 @@ fn surface(
     let devices = Arc::clone(devices);
     let completion = context.completion();
     canvas
+        .on_presented(move || {
+            let (frame, repaint) = submitted.borrow_mut().take().unwrap();
+            if let Some(frame) = frame {
+                drawn.call(frame);
+            }
+            if let Some(repaint) = repaint {
+                repainted.call(repaint);
+            }
+        })
         .device_factory(move || {
             let device = GpuDevice::new_warp()?;
             let native: bindings::ID3D11Device = device.d3d_device().cast()?;

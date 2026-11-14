@@ -2514,83 +2514,59 @@ impl Border {
         );
         self
     }
-    pub fn on_pointer_pressed(
-        mut self,
-        callback: impl IntoPayloadCallback<PointerEventInfo>,
-    ) -> Self {
+    pub fn on_pointer_pressed(mut self, callback: impl Into<PointerCallback>) -> Self {
         self.0 = self.0.event(
             EventId::PointerPressed,
-            EventValue::PointerEventInfo(callback.into_payload_callback()),
+            EventValue::PointerEventInfo(callback.into()),
         );
         self
     }
-    pub fn on_pointer_moved(
-        mut self,
-        callback: impl IntoPayloadCallback<PointerEventInfo>,
-    ) -> Self {
+    pub fn on_pointer_moved(mut self, callback: impl Into<PointerCallback>) -> Self {
         self.0 = self.0.event(
             EventId::PointerMoved,
-            EventValue::PointerEventInfo(callback.into_payload_callback()),
+            EventValue::PointerEventInfo(callback.into()),
         );
         self
     }
-    pub fn on_pointer_wheel_changed(
-        mut self,
-        callback: impl IntoPayloadCallback<PointerEventInfo>,
-    ) -> Self {
+    pub fn on_pointer_wheel_changed(mut self, callback: impl Into<PointerCallback>) -> Self {
         self.0 = self.0.event(
             EventId::PointerWheelChanged,
-            EventValue::PointerEventInfo(callback.into_payload_callback()),
+            EventValue::PointerEventInfo(callback.into()),
         );
         self
     }
-    pub fn on_pointer_entered(
-        mut self,
-        callback: impl IntoPayloadCallback<PointerEventInfo>,
-    ) -> Self {
+    pub fn on_pointer_entered(mut self, callback: impl Into<PointerCallback>) -> Self {
         self.0 = self.0.event(
             EventId::PointerEntered,
-            EventValue::PointerEventInfo(callback.into_payload_callback()),
+            EventValue::PointerEventInfo(callback.into()),
         );
         self
     }
-    pub fn on_pointer_exited(
-        mut self,
-        callback: impl IntoPayloadCallback<PointerEventInfo>,
-    ) -> Self {
+    pub fn on_pointer_exited(mut self, callback: impl Into<PointerCallback>) -> Self {
         self.0 = self.0.event(
             EventId::PointerExited,
-            EventValue::PointerEventInfo(callback.into_payload_callback()),
+            EventValue::PointerEventInfo(callback.into()),
         );
         self
     }
-    pub fn on_pointer_released(
-        mut self,
-        callback: impl IntoPayloadCallback<PointerEventInfo>,
-    ) -> Self {
+    pub fn on_pointer_released(mut self, callback: impl Into<PointerCallback>) -> Self {
         self.0 = self.0.event(
             EventId::PointerReleased,
-            EventValue::PointerEventInfo(callback.into_payload_callback()),
+            EventValue::PointerEventInfo(callback.into()),
         );
         self
     }
-    pub fn on_pointer_capture_lost(
-        mut self,
-        callback: impl IntoPayloadCallback<PointerEventInfo>,
-    ) -> Self {
+    pub fn on_pointer_capture_lost(mut self, callback: impl Into<PointerCallback>) -> Self {
         self.0 = self.0.event(
             EventId::PointerCaptureLost,
-            EventValue::PointerEventInfo(callback.into_payload_callback()),
+            EventValue::PointerEventInfo(callback.into()),
         );
         self
     }
-    pub fn on_pointer_canceled(
-        mut self,
-        callback: impl IntoPayloadCallback<PointerEventInfo>,
-    ) -> Self {
+    pub fn on_pointer_canceled(mut self, callback: impl Into<PointerCallback>) -> Self {
         self.0 = self.0.event(
             EventId::PointerCanceled,
-            EventValue::PointerEventInfo(callback.into_payload_callback()),
+            EventValue::PointerEventInfo(callback.into()),
         );
         self
     }

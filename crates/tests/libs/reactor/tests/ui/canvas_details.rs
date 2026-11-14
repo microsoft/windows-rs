@@ -55,6 +55,36 @@ fn custom_details_navigate_sort_resize_and_remove_during_updates() -> Result<()>
     })
 }
 
+#[test]
+fn custom_details_keep_selection_and_drag_ownership_during_key_churn() -> Result<()> {
+    process::run("canvas-details", |ui| {
+        ui.press_keys("custom-details", &[0x24])?;
+        ui.name("selected", "0")?;
+        ui.invoke("churn")?;
+        ui.name_stays("selected", "0", Duration::from_millis(350))?;
+        ui.pointer_move("custom-details", 182.0 / 600.0, 0.03)?;
+        cursor(ui, windows_core::PCWSTR(IDC_SIZEWE.0.cast()))?;
+        ui.pointer_button(true)?;
+        ui.name_stays("selected", "0", Duration::from_millis(350))?;
+        ui.pointer_move("custom-details", 242.0 / 600.0, 0.03)?;
+        ui.pointer_button(false)?;
+        ui.pointer_move("custom-details", 210.0 / 600.0, 0.03)?;
+        ui.pointer_clicks(1)?;
+        ui.name("sorted", "Some(0)")?;
+        ui.move_resize_window(100, 100, 800, 600)?;
+        ui.pointer_move("custom-details", 0.1, 0.2)?;
+        ui.pointer_wheel(-120)?;
+        ui.name_stays("selected", "0", Duration::from_millis(350))?;
+        ui.invoke("churn")?;
+        ui.name("churn", "Start churn")?;
+        let last = String::from_utf16(&unsafe { ui.element("last")?.CurrentName()? })?;
+        ui.press_keys("custom-details", &[0x23])?;
+        ui.name("selected", &last)?;
+        ui.invoke("remove")?;
+        ui.name("selected", "None")
+    })
+}
+
 fn cursor(ui: &Automation, shape: windows_core::PCWSTR) -> Result<()> {
     let expected = unsafe { LoadCursorW(std::ptr::null_mut(), shape) };
     if expected.is_null() {

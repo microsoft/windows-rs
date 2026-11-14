@@ -1940,6 +1940,14 @@ fn generate_declarations(
                 .and_then(|field| field.strip_prefix("on_"))
                 .map_or_else(|| snake_case(&event.name), str::to_string);
             match &event.value {
+                Value::PointerEventInfo => {
+                    output.push_str(&format!(
+                        "pub fn on_{method}(mut self, callback: impl Into<PointerCallback>) -> Self {{ \
+                         self.0 = self.0.event(EventId::{}, \
+                         EventValue::PointerEventInfo(callback.into())); self }}\n",
+                        event.name
+                    ));
+                }
                 Value::CharacterEventInfo => {
                     output.push_str(&format!(
                         "pub fn on_{method}(mut self, callback: \

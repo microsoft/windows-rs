@@ -103,17 +103,25 @@ fn fractional_wheel_and_capture_loss_preserve_viewport_contract() {
         is_captured: true,
         ..Default::default()
     };
-    assert!(state.press(pointer).is_none());
-    state.move_pointer(PointerEventInfo {
-        x: 198.0,
-        ..pointer
-    });
+    let mut frame = state::Frame::default();
+    frame.record(&state);
+    assert!(state.press(pointer, &frame).is_none());
+    state.move_pointer(
+        PointerEventInfo {
+            x: 198.0,
+            ..pointer
+        },
+        &frame,
+    );
     assert_eq!(state.widths[0], 200.0);
     state.cancel(pointer.pointer_id);
-    state.move_pointer(PointerEventInfo {
-        x: 298.0,
-        ..pointer
-    });
+    state.move_pointer(
+        PointerEventInfo {
+            x: 298.0,
+            ..pointer
+        },
+        &frame,
+    );
     assert_eq!(state.widths[0], 200.0);
     state.scroll = [1_000_000.0; 2];
     state.resize(200.0, 200.0);
@@ -135,11 +143,19 @@ fn column_dividers_resize_from_both_sides_after_horizontal_scroll() {
                 is_captured: true,
                 ..Default::default()
             };
-            assert!(state.press(pointer).is_none(), "divider must not sort");
-            state.move_pointer(PointerEventInfo {
-                x: pointer.x + 60.0,
-                ..pointer
-            });
+            let mut frame = state::Frame::default();
+            frame.record(&state);
+            assert!(
+                state.press(pointer, &frame).is_none(),
+                "divider must not sort"
+            );
+            state.move_pointer(
+                PointerEventInfo {
+                    x: pointer.x + 60.0,
+                    ..pointer
+                },
+                &frame,
+            );
             assert_eq!(state.widths, [210.0, 150.0]);
             let mut next = state.input.clone();
             next.rows.values += 1;
@@ -184,35 +200,116 @@ fn only_the_initiating_pointer_can_move_or_end_a_drag() {
             is_captured: true,
             ..Default::default()
         };
-        state.press(pointer);
+        let mut frame = state::Frame::default();
+        frame.record(&state);
+        state.press(pointer, &frame);
         let other = PointerEventInfo {
             pointer_id: 8,
             x: x + 30.0,
             y: y + 30.0,
             ..pointer
         };
-        assert!(state.press(other).is_none());
-        state.move_pointer(other);
+        assert!(state.press(other, &frame).is_none());
+        state.move_pointer(other, &frame);
         state.cancel(other.pointer_id);
         assert_eq!(state.widths, [150.0, 150.0]);
         assert_eq!(state.scroll, [0.0; 2]);
-        state.move_pointer(PointerEventInfo {
-            x: other.x,
-            y: other.y,
-            ..pointer
-        });
+        state.move_pointer(
+            PointerEventInfo {
+                x: other.x,
+                y: other.y,
+                ..pointer
+            },
+            &frame,
+        );
         assert!(state.widths[0] > 150.0 || state.scroll[1] > 0.0);
         let widths = state.widths.clone();
         let scroll = state.scroll;
         state.cancel(pointer.pointer_id);
-        state.move_pointer(PointerEventInfo {
-            x: x + 60.0,
-            y: y + 60.0,
-            ..pointer
-        });
+        state.move_pointer(
+            PointerEventInfo {
+                x: x + 60.0,
+                y: y + 60.0,
+                ..pointer
+            },
+            &frame,
+        );
         assert_eq!(state.widths, widths);
         assert_eq!(state.scroll, scroll);
     }
+}
+
+#[test]
+fn row_hits_keep_submitted_identity_across_model_and_frame_changes() {
+    let mut state = State::new(input(3));
+    state.resize(314.0, 200.0);
+    let mut frames = Frames::default();
+    let pointer = PointerEventInfo {
+        x: 10.0,
+        y: f64::from(HEADER + 10.0),
+        is_left_button_pressed: true,
+        ..Default::default()
+    };
+    frames.pending.record(&state);
+    assert!(state.press(pointer, &frames.current).is_none());
+    frames.present();
+    let mut next = state.input.clone();
+    next.rows.keys = Rc::new(vec![2, 1, 0]);
+    next.order_revision += 1;
+    state.set_input(next);
+    frames.pending.record(&state);
+
+    let action = state.press(pointer, &frames.current).unwrap();
+    assert!(matches!(&action, Action::Select(key) if *key == Key::from(0usize)));
+    frames.present();
+    assert!(
+        matches!(state.apply_action(action.clone()), Some(Action::Select(key)) if key == Key::from(0usize))
+    );
+
+    let mut next = state.input.clone();
+    next.rows.keys = Rc::new(vec![2, 1]);
+    next.order_revision += 1;
+    next.selected = None;
+    state.set_input(next);
+    assert!(state.apply_action(action).is_none());
+    assert!(state.input.selected.is_none());
+}
+
+#[test]
+fn row_hits_use_submitted_scroll_and_reject_retired_columns() {
+    let mut state = State::new(input(100));
+    state.resize(314.0, 200.0);
+    let mut frame = state::Frame::default();
+    frame.record(&state);
+    state.key(VirtualKey::END);
+    let action = state
+        .press(
+            PointerEventInfo {
+                x: 10.0,
+                y: f64::from(HEADER + 10.0),
+                is_left_button_pressed: true,
+                ..Default::default()
+            },
+            &frame,
+        )
+        .unwrap();
+    assert!(matches!(action, Action::Select(key) if key == Key::from(0usize)));
+    let header = PointerEventInfo {
+        x: 10.0,
+        y: 10.0,
+        is_left_button_pressed: true,
+        ..Default::default()
+    };
+    let sort = state.press(header, &frame).unwrap();
+    let mut next = state.input.clone();
+    next.columns = Rc::from([Column {
+        title: "Other",
+        width: 100.0,
+        right_aligned: false,
+    }]);
+    state.set_input(next);
+    assert!(state.apply_action(sort).is_none());
+    assert!(state.press(header, &frame).is_none());
 }
 
 #[test]

@@ -7,7 +7,7 @@ mod draw;
 mod input;
 mod state;
 use draw::Renderer;
-use state::{Action, State};
+use state::{Action, Frames, State};
 
 #[cfg(test)]
 mod tests;
@@ -44,25 +44,93 @@ pub struct Input<R: Rows> {
     pub on_sort: Callback<usize>,
 }
 
-/// An experimental, read-only canvas table. Host outside an ancestor ScrollViewer.
+/// An experimental, read-only canvas table.
 ///
 /// Row/cell automation, high-contrast colors, touch panning, and multiple selection are not
 /// implemented.
 pub struct DetailsView<R: Rows> {
     state: Rc<RefCell<State<R>>>,
+    frames: Rc<RefCell<Frames>>,
     invalidator: Invalidator,
     surface: View,
 }
 
 #[derive(Clone)]
-pub enum Message {
-    Press(PointerEventInfo),
-    Move(PointerEventInfo),
-    Wheel(PointerEventInfo),
+pub struct Message(MessageKind);
+
+#[derive(Clone)]
+enum MessageKind {
+    Action(Action),
     Key(VirtualKey),
     Focus(bool),
-    Cancel(u32),
+    Refresh,
+}
+
+#[derive(Clone, Copy)]
+enum PointerInput {
+    Press,
+    Move,
+    Wheel,
+    End,
     Exit,
+}
+
+impl<R: Rows> DetailsView<R> {
+    fn pointer(
+        &self,
+        context: &ViewContext<Self>,
+        event: PointerInput,
+    ) -> RoutedCallback<PointerEventInfo> {
+        let state = Rc::clone(&self.state);
+        let frames = Rc::clone(&self.frames);
+        let invalidator = self.invalidator.clone();
+        let send = context.forward();
+        RoutedCallback::new(move |info: PointerEventInfo| {
+            let (action, cursor_changed) = {
+                let mut state = state.borrow_mut();
+                let frames = frames.borrow();
+                let cursor = state.cursor();
+                let action = match event {
+                    PointerInput::Press => state.press(info, &frames.current),
+                    PointerInput::Move => {
+                        state.move_pointer(info, &frames.current);
+                        None
+                    }
+                    PointerInput::Wheel => {
+                        let horizontal = info.is_horizontal_wheel
+                            || info.modifiers.contains(InputModifiers::SHIFT);
+                        let amount = input::wheel_amount(
+                            horizontal,
+                            state.viewport()[usize::from(!horizontal)],
+                        );
+                        state.wheel(info, amount);
+                        None
+                    }
+                    PointerInput::End => {
+                        state.cancel(info.pointer_id);
+                        None
+                    }
+                    PointerInput::Exit => {
+                        state.hover = None;
+                        state.divider = None;
+                        None
+                    }
+                };
+                (action, state.cursor() != cursor)
+            };
+            invalidator.invalidate();
+            if let Some(action) = action {
+                send.call(Message(MessageKind::Action(action)));
+            } else if cursor_changed {
+                send.call(Message(MessageKind::Refresh));
+            }
+            match event {
+                PointerInput::Press => info.is_left_button_pressed,
+                PointerInput::Wheel => info.wheel_delta != 0,
+                _ => false,
+            }
+        })
+    }
 }
 
 impl<R: Rows> Component for DetailsView<R> {
@@ -71,6 +139,9 @@ impl<R: Rows> Component for DetailsView<R> {
 
     fn create(input: &Self::Input, _: &ComponentContext<Self>) -> Self {
         let state = Rc::new(RefCell::new(State::new(input.clone())));
+        let frames = Rc::new(RefCell::new(Frames::default()));
+        let draw_frames = Rc::clone(&frames);
+        let presented_frames = Rc::clone(&frames);
         let draw_state = Rc::clone(&state);
         let renderer = RefCell::new(Renderer::new());
         let invalidator = Invalidator::new();
@@ -79,11 +150,15 @@ impl<R: Rows> Component for DetailsView<R> {
             state.resize(ctx.width, ctx.height);
             renderer
                 .borrow_mut()
-                .draw(ctx, &state, ctx.scale(), ctx.device_changed())
+                .draw(ctx, &state, ctx.scale(), ctx.device_changed())?;
+            draw_frames.borrow_mut().pending.record(&state);
+            Ok(())
         })
+        .on_presented(move || presented_frames.borrow_mut().present())
         .into();
         Self {
             state,
+            frames,
             invalidator,
             surface,
         }
@@ -97,47 +172,27 @@ impl<R: Rows> Component for DetailsView<R> {
     fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
         let action = {
             let mut state = self.state.borrow_mut();
-            match message {
-                Message::Press(info) => state.press(info),
-                Message::Move(info) => {
-                    state.move_pointer(info);
-                    None
-                }
-                Message::Wheel(info) => {
-                    let horizontal =
-                        info.is_horizontal_wheel || info.modifiers.contains(InputModifiers::SHIFT);
-                    let amount =
-                        input::wheel_amount(horizontal, state.viewport()[usize::from(!horizontal)]);
-                    state.wheel(info, amount);
-                    None
-                }
-                Message::Key(key) => state.key(key),
-                Message::Focus(value) => {
+            match message.0 {
+                MessageKind::Action(action) => state.apply_action(action),
+                MessageKind::Key(key) => state.key(key),
+                MessageKind::Focus(value) => {
                     state.focused = value;
                     None
                 }
-                Message::Cancel(pointer) => {
-                    state.cancel(pointer);
-                    None
-                }
-                Message::Exit => {
-                    state.hover = None;
-                    state.divider = None;
-                    None
-                }
+                MessageKind::Refresh => None,
             }
         };
         self.invalidator.invalidate();
         let input = self.state.borrow().input.clone();
         match action {
             Some(Action::Select(key)) => input.on_select.call(key),
-            Some(Action::Sort(column)) => input.on_sort.call(column),
+            Some(Action::Sort { column, .. }) => input.on_sort.call(column),
             None => {}
         }
     }
 
     fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        let on_key = context.callback(Message::Key);
+        let on_key = context.callback(|key| Message(MessageKind::Key(key)));
         Border::new()
             .automation_id(input.automation_id.clone())
             .automation_name(input.name.clone())
@@ -148,21 +203,18 @@ impl<R: Rows> Component for DetailsView<R> {
             .capture_pointer_on_press(true)
             .pointer_cursor(self.state.borrow().cursor())
             .focus_on_pointer_release(true)
-            .on_pointer_pressed(context.callback(Message::Press))
-            .on_pointer_moved(context.callback(Message::Move))
-            .on_pointer_released(
-                context.callback(|info: PointerEventInfo| Message::Cancel(info.pointer_id)),
+            .on_pointer_pressed(self.pointer(context, PointerInput::Press))
+            .on_pointer_moved(self.pointer(context, PointerInput::Move))
+            .on_pointer_released(self.pointer(context, PointerInput::End))
+            .on_pointer_wheel_changed(self.pointer(context, PointerInput::Wheel))
+            .on_pointer_capture_lost(self.pointer(context, PointerInput::End))
+            .on_pointer_canceled(self.pointer(context, PointerInput::End))
+            .on_pointer_exited(self.pointer(context, PointerInput::Exit))
+            .on_got_focus(
+                context
+                    .callback(|info: FocusEventInfo| Message(MessageKind::Focus(info.is_direct))),
             )
-            .on_pointer_wheel_changed(context.callback(Message::Wheel))
-            .on_pointer_capture_lost(
-                context.callback(|info: PointerEventInfo| Message::Cancel(info.pointer_id)),
-            )
-            .on_pointer_canceled(
-                context.callback(|info: PointerEventInfo| Message::Cancel(info.pointer_id)),
-            )
-            .on_pointer_exited(context.callback(|_| Message::Exit))
-            .on_got_focus(context.callback(|info: FocusEventInfo| Message::Focus(info.is_direct)))
-            .on_lost_focus(context.callback(|_| Message::Focus(false)))
+            .on_lost_focus(context.callback(|_| Message(MessageKind::Focus(false))))
             .on_preview_key_down(RoutedCallback::new(move |info: KeyEventInfo| {
                 if matches!(
                     info.key,

@@ -1446,6 +1446,35 @@ pub struct PointerEventInfo {
     pub is_horizontal_wheel: bool,
 }
 
+/// A queued pointer callback or a synchronous routed handler.
+///
+/// Closures and [`Callback`] values retain queued delivery. A [`RoutedCallback`] runs during
+/// native input delivery and returns whether to stop routing. Use it to resolve custom-control
+/// hit tests before queuing component messages; do not run component updates inside the handler.
+#[derive(Clone, Debug, PartialEq)]
+pub enum PointerCallback {
+    Queued(Callback<PointerEventInfo>),
+    Routed(RoutedCallback<PointerEventInfo>),
+}
+
+impl<F: Fn(PointerEventInfo) + 'static> From<F> for PointerCallback {
+    fn from(value: F) -> Self {
+        Self::Queued(Callback::new(value))
+    }
+}
+
+impl From<Callback<PointerEventInfo>> for PointerCallback {
+    fn from(value: Callback<PointerEventInfo>) -> Self {
+        Self::Queued(value)
+    }
+}
+
+impl From<RoutedCallback<PointerEventInfo>> for PointerCallback {
+    fn from(value: RoutedCallback<PointerEventInfo>) -> Self {
+        Self::Routed(value)
+    }
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub enum EventValue {
     Bool(Callback<bool>),
@@ -1462,7 +1491,7 @@ pub enum EventValue {
     OptionalF64(Callback<Option<f64>>),
     OptionalTimeSpan(Callback<Option<TimeSpan>>),
     NavigationViewDisplayMode(Callback<NavigationViewDisplayMode>),
-    PointerEventInfo(Callback<PointerEventInfo>),
+    PointerEventInfo(PointerCallback),
     KeyEventInfo(RoutedCallback<KeyEventInfo>),
     Key(Callback<Key>),
     Keys(Callback<Vec<Key>>),
