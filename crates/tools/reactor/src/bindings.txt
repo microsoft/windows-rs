@@ -10,7 +10,7 @@ Microsoft::UI::Dispatching::DispatcherQueuePriority::{High, Low, Normal}
 Microsoft::UI::Dispatching::IDispatcherQueue::{CreateTimer, TryEnqueueWithPriority}
 Microsoft::UI::Dispatching::IDispatcherQueueTimer::{add_Tick, put_Interval, put_IsRepeating, remove_Tick, Start, Stop}
 Microsoft::UI::Input::IPointerPoint::{get_PointerId, get_Position, get_Properties}
-Microsoft::UI::Input::IPointerPointProperties::{get_IsLeftButtonPressed, get_IsMiddleButtonPressed, get_IsRightButtonPressed}
+Microsoft::UI::Input::IPointerPointProperties::{get_IsHorizontalMouseWheel, get_IsLeftButtonPressed, get_IsMiddleButtonPressed, get_IsRightButtonPressed, get_MouseWheelDelta}
 Microsoft::UI::Text::ITextDocument::{get_Selection, GetText, SetText}
 Microsoft::UI::Text::ITextRange::{get_EndPosition, get_StartPosition, SetRange}
 Microsoft::UI::Windowing::IAppWindow::{add_Changed, get_Presenter, get_Size, get_TitleBar, remove_Changed, Resize, SetIcon}
@@ -265,6 +265,7 @@ Microsoft::UI::Xaml::Input::IKeyboardAccelerator::{Invoked, put_Key, put_Modifie
 Microsoft::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs::put_Handled
 Microsoft::UI::Xaml::Input::IKeyRoutedEventArgs::{get_Key, get_KeyStatus, get_OriginalKey, put_Handled}
 Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::{get_KeyModifiers, get_Pointer, GetCurrentPoint, put_Handled}
+Microsoft::UI::Xaml::IUIElement::{add_PointerWheelChanged, remove_PointerWheelChanged}
 Microsoft::UI::Xaml::Input::KeyboardAccelerator::CreateInstance
 Microsoft::UI::Xaml::Input::KeyboardAcceleratorPlacementMode::Hidden
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries

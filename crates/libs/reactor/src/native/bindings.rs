@@ -13642,6 +13642,16 @@ windows_core::imp::define_winrt_interface!(
     0xd760ed77_4b10_57a5_b3cc_d9bf3413e996
 );
 impl IPointerPointProperties {
+    pub(crate) fn IsHorizontalMouseWheel(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsHorizontalMouseWheel)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn IsLeftButtonPressed(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -13672,6 +13682,16 @@ impl IPointerPointProperties {
             .map(|| result__)
         }
     }
+    pub(crate) fn MouseWheelDelta(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MouseWheelDelta)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
 }
 #[repr(C)]
 pub struct IPointerPointProperties_Vtbl {
@@ -13680,7 +13700,8 @@ pub struct IPointerPointProperties_Vtbl {
     IsBarrelButtonPressed: usize,
     IsCanceled: usize,
     IsEraser: usize,
-    IsHorizontalMouseWheel: usize,
+    pub IsHorizontalMouseWheel:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     IsInRange: usize,
     IsInverted: usize,
     pub IsLeftButtonPressed:
@@ -13690,6 +13711,10 @@ pub struct IPointerPointProperties_Vtbl {
     IsPrimary: usize,
     pub IsRightButtonPressed:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    IsXButton1Pressed: usize,
+    IsXButton2Pressed: usize,
+    pub MouseWheelDelta:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
     IPointerRoutedEventArgs,
@@ -19105,6 +19130,40 @@ impl IUIElement {
             ))
         }
     }
+    pub(crate) fn PointerWheelChanged<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<PointerRoutedEventArgs>,
+            ) + Send
+            + Sync
+            + 'static,
+    {
+        let handler: PointerEventHandler = {
+            let com = windows_core::imp::DelegateBox::<PointerEventHandler, F>::new(
+                &PointerEventHandlerBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).PointerWheelChanged)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemovePointerWheelChanged,
+            ))
+        }
+    }
     pub(crate) fn PreviewKeyDown<F>(
         &self,
         handler: F,
@@ -19455,8 +19514,13 @@ pub struct IUIElement_Vtbl {
     ) -> windows_core::HRESULT,
     pub RemovePointerCanceled:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    PointerWheelChanged: usize,
-    RemovePointerWheelChanged: usize,
+    pub PointerWheelChanged: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemovePointerWheelChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     Tapped: usize,
     RemoveTapped: usize,
     DoubleTapped: usize,

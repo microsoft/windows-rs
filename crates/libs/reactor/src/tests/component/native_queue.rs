@@ -101,6 +101,8 @@ fn native_queue_callback_bursts_are_linear() {
                             window_y: 1.0,
                             pointer_id,
                             modifiers: InputModifiers::NONE,
+                            wheel_delta: 0,
+                            is_horizontal_wheel: false,
                             capture_succeeded: None,
                             is_captured: false,
                             is_left_button_pressed: false,

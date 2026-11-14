@@ -17,6 +17,8 @@ fn pointer_event_payload_round_trips_through_recording_protocol() {
         window_y: 224.5,
         pointer_id: 42,
         modifiers: InputModifiers::CONTROL,
+        wheel_delta: 0,
+        is_horizontal_wheel: false,
         capture_succeeded: None,
         is_captured: true,
         is_left_button_pressed: false,

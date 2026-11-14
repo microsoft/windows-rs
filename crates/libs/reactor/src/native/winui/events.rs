@@ -304,6 +304,8 @@ impl WinUiAdapter {
             window_y: f64::from(window_position.y),
             pointer_id: local.PointerId()?,
             modifiers: Self::input_modifiers_from_virtual_keys(args.KeyModifiers()?),
+            wheel_delta: properties.MouseWheelDelta()?,
+            is_horizontal_wheel: properties.IsHorizontalMouseWheel()?,
             capture_succeeded,
             is_captured,
             is_left_button_pressed: properties.IsLeftButtonPressed()?,

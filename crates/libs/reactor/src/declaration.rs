@@ -1436,6 +1436,11 @@ pub struct PointerEventInfo {
     pub window_y: f64,
     pub pointer_id: u32,
     pub modifiers: InputModifiers,
+    /// Raw wheel delta: 120 units per detent, with smaller deltas for high-resolution input.
+    /// Positive values indicate forward rotation or a tilt to the right.
+    pub wheel_delta: i32,
+    /// Whether wheel input is horizontal. Modifier keys do not change this native axis.
+    pub is_horizontal_wheel: bool,
     pub capture_succeeded: Option<bool>,
     pub is_captured: bool,
     pub is_left_button_pressed: bool,

@@ -77,6 +77,8 @@ fn main() {
             "MOUSEEVENTF_VIRTUALDESK",
             "MOUSEEVENTF_LEFTDOWN",
             "MOUSEEVENTF_LEFTUP",
+            "MOUSEEVENTF_WHEEL",
+            "MOUSEEVENTF_HWHEEL",
             "GetSystemMetrics",
             "SM_XVIRTUALSCREEN",
             "SM_YVIRTUALSCREEN",

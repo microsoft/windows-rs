@@ -187,14 +187,14 @@ pub fn run_clicks() -> windows_core::Result<()> {
 
 struct RoutingFixture {
     mode: usize,
-    calls: Rc<std::cell::RefCell<Vec<&'static str>>>,
+    calls: Rc<std::cell::RefCell<Vec<String>>>,
 }
 
 impl Component for RoutingFixture {
-    type Input = ();
+    type Input = bool;
     type Message = bool;
 
-    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+    fn create(_: &bool, _: &ComponentContext<Self>) -> Self {
         Self {
             mode: 0,
             calls: Rc::default(),
@@ -203,57 +203,91 @@ impl Component for RoutingFixture {
 
     fn update(&mut self, change_mode: bool, _: &ComponentContext<Self>) {
         if change_mode {
-            self.mode = (self.mode + 1) % 3;
+            self.mode += 1;
             self.calls.borrow_mut().clear();
         }
     }
 
-    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+    fn view(&self, wheel: &bool, context: &mut ViewContext<Self>) -> View {
+        let wheel = *wheel;
+        let mode = self.mode % if wheel { 4 } else { 3 };
+        let record = move |name: &str, info: PointerEventInfo| {
+            if wheel {
+                format!(
+                    "{name} delta {} horizontal {} shift {} control {}",
+                    info.wheel_delta,
+                    info.is_horizontal_wheel,
+                    info.modifiers.contains(InputModifiers::SHIFT),
+                    info.modifiers.contains(InputModifiers::CONTROL),
+                )
+            } else {
+                name.to_owned()
+            }
+        };
         let calls = Rc::clone(&self.calls);
         let notify = context.message(false);
-        let callback: PointerCallback = if self.mode == 0 {
-            Callback::new(move |_: PointerEventInfo| {
-                calls.borrow_mut().push("queued");
+        let callback: PointerCallback = if mode == 0 {
+            Callback::new(move |info: PointerEventInfo| {
+                calls.borrow_mut().push(record("queued", info));
                 notify.call(());
             })
             .into()
         } else {
-            let handled = self.mode == 2;
-            RoutedCallback::new(move |_: PointerEventInfo| {
-                calls.borrow_mut().push("routed");
+            let handled = mode == 2;
+            RoutedCallback::new(move |info: PointerEventInfo| {
+                calls.borrow_mut().push(record("routed", info));
                 notify.call(());
                 handled
             })
             .into()
         };
         let calls = Rc::clone(&self.calls);
+        let notify = context.message(false);
+        let parent_callback = RoutedCallback::new(move |info| {
+            calls.borrow_mut().push(record("parent", info));
+            notify.call(());
+            false
+        });
+        let child = Border::new()
+            .width(200.0)
+            .height(100.0)
+            .background(Color::rgb(240, 240, 240))
+            .content(
+                TextBlock::new()
+                    .automation_id("routing-target")
+                    .text("Pointer target"),
+            );
+        let parent = Border::new();
+        let (parent, child) = if wheel {
+            (
+                parent.on_pointer_wheel_changed(parent_callback),
+                if mode == 3 {
+                    child
+                } else {
+                    child.on_pointer_wheel_changed(callback)
+                },
+            )
+        } else {
+            (
+                parent.on_pointer_pressed(parent_callback),
+                child.on_pointer_pressed(callback),
+            )
+        };
         context.window_frame(
-            "Reactor UI fixture: pointer-routing",
+            if wheel {
+                "Reactor UI fixture: pointer-wheel"
+            } else {
+                "Reactor UI fixture: pointer-routing"
+            },
             StackPanel::new().margin(20.0).spacing(12.0).children((
                 Button::new()
                     .automation_id("mode")
                     .content("Change mode")
                     .on_click(context.message(true)),
-                Border::new()
-                    .on_pointer_pressed(RoutedCallback::new(move |_| {
-                        calls.borrow_mut().push("parent");
-                        false
-                    }))
-                    .content(
-                        Border::new()
-                            .width(200.0)
-                            .height(100.0)
-                            .background(Color::rgb(240, 240, 240))
-                            .on_pointer_pressed(callback)
-                            .content(
-                                TextBlock::new()
-                                    .automation_id("routing-target")
-                                    .text("Pointer target"),
-                            ),
-                    ),
+                parent.content(child),
                 TextBlock::new()
                     .automation_id("mode-state")
-                    .text(format!("Mode {}", self.mode)),
+                    .text(format!("Mode {mode}")),
                 TextBlock::new()
                     .automation_id("calls")
                     .text(self.calls.borrow().join(", ")),
@@ -262,6 +296,6 @@ impl Component for RoutingFixture {
     }
 }
 
-pub fn run_routing() -> windows_core::Result<()> {
-    App::run_component::<RoutingFixture>(())
+pub fn run_routing(wheel: bool) -> windows_core::Result<()> {
+    App::run_component::<RoutingFixture>(wheel)
 }

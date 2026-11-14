@@ -447,10 +447,12 @@ not a patch to import wholesale. Paths and symbols for the custom control below 
 experimental branch until ported. Keep each iteration independently reviewable and leave the
 sample runnable. Subscription-lifetime fixes can be assessed separately.
 
-Current gate: maintainer acceptance of the bounded submitted-frame input change. After acceptance,
-integrate that boundary into the existing table, harden it under churn, and adopt it in Task Manager,
-keeping those changes separate. Measure performance against the same workload and an agreed
-baseline; drawing time is not input-to-pixel latency.
+Current gate: maintainer acceptance of native wheel input, a bounded prerequisite for table
+integration. The submitted-frame boundary is merged. The experimental table still needs cursor and
+pointer-termination APIs; assess those separately rather than importing them with the control.
+Then integrate the table, harden it under churn, and adopt it in Task Manager, keeping those changes
+separate. Measure performance against the same workload and an agreed baseline; drawing time is not
+input-to-pixel latency.
 
 1. **Integrate submitted-frame input in the table.** Use `Canvas::on_submitted` to publish prepared
    geometry and routed pointer callbacks to resolve row targets before queuing messages. Retain
@@ -474,6 +476,12 @@ Only then assess the complete process-view replacement. Remove resolved items fr
 section rather than extending it into a change journal.
 
 #### Other native observations
+
+Evaluate the five ignored drag/drop cases in `crates/tests/libs/reactor/tests/ui/drag.rs` and
+`process.rs` on a non-elevated, idle desktop. Separate elevation restrictions from fixture or runtime
+defects, especially `cancelled_drag_can_be_restarted` and its intermittent UIA timeout
+(`0x80131505`). Decide which cases can run routinely and which must remain opt-in; preserve failing
+conditions rather than adding retries. Run instructions are in `crates/tests/libs/reactor/readme.md`.
 
 Investigate `MenuThemeState::refresh` and `show_pending` in
 `crates/libs/reactor/src/native/transient_menu.rs`: a CI run observed a flyout item remaining Light

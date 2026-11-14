@@ -157,6 +157,43 @@ fn pointer_delivery_modes_preserve_routing_and_queued_order() -> Result<()> {
     })
 }
 
+#[test]
+fn wheel_delivery_preserves_delta_axis_modifiers_and_routing() -> Result<()> {
+    process::run("pointer-wheel", |ui| {
+        for (index, (delta, horizontal, keys, handlers)) in [
+            (30, false, &[][..], &["parent", "queued"][..]),
+            (-45, false, &[0x10][..], &["routed", "parent"][..]),
+            (120, true, &[0x11][..], &["routed"][..]),
+            (-30, true, &[0x10, 0x11][..], &["parent"][..]),
+            (240, false, &[][..], &["parent", "queued"][..]),
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            if index != 0 {
+                ui.invoke("mode")?;
+                ui.name("mode-state", &format!("Mode {}", index % 4))?;
+            }
+            ui.pointer_move("routing-target", 0.5, 0.5)?;
+            ui.pointer_wheel(delta, horizontal, keys)?;
+            let expected = handlers
+                .iter()
+                .map(|handler| {
+                    format!(
+                        "{handler} delta {delta} horizontal {horizontal} shift {} control {}",
+                        keys.contains(&0x10),
+                        keys.contains(&0x11),
+                    )
+                })
+                .collect::<Vec<_>>()
+                .join(", ");
+            ui.name("calls", &expected)?;
+            ui.release_wheel_modifiers()?;
+        }
+        Ok(())
+    })
+}
+
 fn enable_pointer_policy(ui: &Automation) -> Result<()> {
     let original = ui.element("left")?;
     ui.name("policy", "Absent")?;

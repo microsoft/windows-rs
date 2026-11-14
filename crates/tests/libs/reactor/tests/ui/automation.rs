@@ -47,6 +47,7 @@ pub struct Automation {
     window: Cell<Option<usize>>,
     cancelled: Arc<AtomicBool>,
     pressed: Arc<Mutex<bool>>,
+    modifiers: Arc<Mutex<Vec<i32>>>,
 }
 
 impl Automation {
@@ -55,6 +56,7 @@ impl Automation {
         fixture: &str,
         cancelled: Arc<AtomicBool>,
         pressed: Arc<Mutex<bool>>,
+        modifiers: Arc<Mutex<Vec<i32>>>,
     ) -> Result<Self> {
         unsafe {
             let mut raw = std::ptr::null_mut();
@@ -91,6 +93,7 @@ impl Automation {
                 window: Cell::new(None),
                 cancelled,
                 pressed,
+                modifiers,
             })
         }
     }
@@ -765,6 +768,59 @@ impl Automation {
         Ok(())
     }
 
+    pub fn pointer_wheel(&self, delta: i32, horizontal: bool, keys: &[i32]) -> Result<()> {
+        eprintln!("wheel delta {delta}, horizontal {horizontal}, keys {keys:x?}");
+        let _coordinates = PhysicalCoordinates::new()?;
+        let pressed = self.pressed.lock().unwrap();
+        let mut held = self.modifiers.lock().unwrap();
+        if !held.is_empty() {
+            return Err("previous wheel modifiers have not been released".into());
+        }
+        self.pointer_over_process()?;
+        if *pressed || unsafe { GetAsyncKeyState(0x01) } & i16::MIN != 0 {
+            return Err("left mouse button is already held".into());
+        }
+        for &key in keys {
+            if unsafe { GetAsyncKeyState(key) } & i16::MIN != 0 {
+                return Err("wheel modifier key is already held".into());
+            }
+        }
+        let mut inputs = keys
+            .iter()
+            .map(|&key| key_input(key, 0))
+            .collect::<Vec<_>>();
+        inputs.push(INPUT {
+            r#type: INPUT_MOUSE as u32,
+            Anonymous: INPUT_0 {
+                mi: MOUSEINPUT {
+                    mouseData: delta as u32,
+                    dwFlags: if horizontal {
+                        MOUSEEVENTF_HWHEEL
+                    } else {
+                        MOUSEEVENTF_WHEEL
+                    } as u32,
+                    ..Default::default()
+                },
+            },
+        });
+        let inserted = unsafe {
+            SendInput(
+                inputs.len() as u32,
+                inputs.as_mut_ptr(),
+                size_of::<INPUT>() as i32,
+            )
+        } as usize;
+        held.extend_from_slice(&keys[..inserted.min(keys.len())]);
+        if inserted != inputs.len() {
+            return Err(format!("wheel input accepted {inserted}/{} events", inputs.len()).into());
+        }
+        Ok(())
+    }
+
+    pub fn release_wheel_modifiers(&self) -> Result<()> {
+        PointerInput::release_modifiers(&self.modifiers)
+    }
+
     pub fn type_text(&self, id: &str, text: &str) -> Result<()> {
         eprintln!("type Unicode input {text:?} into {id:?}");
         let element = self.focus(id)?;
@@ -823,25 +879,6 @@ impl Automation {
     ) -> Result<()> {
         eprintln!("press virtual keys {keys:x?} into {id:?}");
         assert!(!keys.is_empty());
-        let input = |key: i32, flags| INPUT {
-            r#type: INPUT_KEYBOARD as u32,
-            Anonymous: INPUT_0 {
-                ki: KEYBDINPUT {
-                    wVk: key.try_into().unwrap(),
-                    dwFlags: flags,
-                    ..Default::default()
-                },
-            },
-        };
-        let mut inputs = keys
-            .iter()
-            .map(|&key| input(key, 0))
-            .chain(
-                keys.iter()
-                    .rev()
-                    .map(|&key| input(key, KEYEVENTF_KEYUP as u32)),
-            )
-            .collect::<Vec<_>>();
         unsafe {
             assert!(
                 self.client
@@ -856,36 +893,8 @@ impl Automation {
             let mut owner = 0;
             GetWindowThreadProcessId(GetForegroundWindow(), &mut owner);
             assert_eq!(owner, self.process, "refusing input to another process");
-            let inserted = SendInput(
-                inputs.len() as u32,
-                inputs.as_mut_ptr(),
-                size_of::<INPUT>() as i32,
-            ) as usize;
-            if inserted != inputs.len() {
-                // The accepted prefix contains key-downs followed by reversed key-ups.
-                let held = inserted.min(inputs.len() - inserted);
-                let mut releases = keys[..held]
-                    .iter()
-                    .rev()
-                    .map(|&key| input(key, KEYEVENTF_KEYUP as u32))
-                    .collect::<Vec<_>>();
-                let released = if releases.is_empty() {
-                    0
-                } else {
-                    SendInput(
-                        releases.len() as u32,
-                        releases.as_mut_ptr(),
-                        size_of::<INPUT>() as i32,
-                    )
-                };
-                return Err(format!(
-                    "keyboard input accepted {inserted}/{} events; released {released}/{held} held keys",
-                    inputs.len()
-                )
-                .into());
-            }
         }
-        Ok(())
+        send_key_chord(keys)
     }
 
     pub fn window_handle(&self) -> Result<usize> {

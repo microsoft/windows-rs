@@ -59,6 +59,21 @@ cargo test -p test-reactor --test ui -- `
     pointer_delivery_modes_preserve_routing_and_queued_order
 ```
 
+## Wheel input
+
+`pointer-wheel` uses the nested borders from `pointer-routing` to check signed vertical and
+horizontal deltas, sub-detent input, modifiers, queued/routed delivery, and handler removal and
+reattachment. These are event-delivery checks, not scrolling or frame-submission checks.
+
+The driver holds wheel modifiers until the fixture reports delivery, then releases them. Sending
+key-down, wheel, and key-up in one batch can release modifiers before the native wheel handler reads
+them. The supervisor also releases owned modifiers on driver failure; a separate case checks that
+cleanup.
+
+```text
+cargo test -p test-reactor --test ui wheel_
+```
+
 ## Opt-in drag/drop coverage
 
 Five drag/drop cases are ignored by default. They require a non-elevated terminal and an idle

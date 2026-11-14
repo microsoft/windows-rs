@@ -828,68 +828,76 @@ fn queued_occurrences_follow_their_subscription() {
 
 #[test]
 fn pointer_mode_replacement_preserves_queued_occurrences() {
-    let object = ObjectId::test(1);
-    let event = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
-    let mut adapter = WinUiAdapter::default();
-    let first = Callback::new(|_| {});
-    let second = Callback::new(|_| {});
-    let routed = RoutedCallback::new(|_| false);
-    let payload = PointerEventInfo {
-        pointer_id: 42,
-        ..Default::default()
-    };
-    let queue = |adapter: &WinUiAdapter| {
-        assert!(!WinUiAdapter::dispatch_pointer(
-            &event,
-            &adapter.event_queue,
-            object,
-            EventId::PointerPressed,
-            payload,
-        ));
-    };
-    let delivered = |callback: &Callback<PointerEventInfo>| {
-        Some(NativeEvent::Event {
-            observation: None,
-            event: EventDispatch::new(
+    for event_id in [EventId::PointerPressed, EventId::PointerWheelChanged] {
+        let object = ObjectId::test(1);
+        let event = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
+        let mut adapter = WinUiAdapter::default();
+        let first = Callback::new(|_| {});
+        let second = Callback::new(|_| {});
+        let routed = RoutedCallback::new(|_| false);
+        let payload = PointerEventInfo {
+            pointer_id: 42,
+            x: 12.5,
+            y: 8.5,
+            window_x: 32.5,
+            window_y: 48.5,
+            wheel_delta: -30,
+            is_horizontal_wheel: true,
+            ..Default::default()
+        };
+        let queue = |adapter: &WinUiAdapter| {
+            assert!(!WinUiAdapter::dispatch_pointer(
+                &event,
+                &adapter.event_queue,
                 object,
-                EventId::PointerPressed,
-                EventCall::PointerEventInfo(callback.clone(), payload),
-            ),
-        })
-    };
+                event_id,
+                payload,
+            ));
+        };
+        let delivered = |callback: &Callback<PointerEventInfo>| {
+            Some(NativeEvent::Event {
+                observation: None,
+                event: EventDispatch::new(
+                    object,
+                    event_id,
+                    EventCall::PointerEventInfo(callback.clone(), payload),
+                ),
+            })
+        };
 
-    event.borrow_mut().set(Some(first.clone().into()));
-    queue(&adapter);
-    event.borrow_mut().set(Some(routed.clone().into()));
-    assert_eq!(adapter.pop_native_event(), delivered(&first));
+        event.borrow_mut().set(Some(first.clone().into()));
+        queue(&adapter);
+        event.borrow_mut().set(Some(routed.clone().into()));
+        assert_eq!(adapter.pop_native_event(), delivered(&first));
 
-    event.borrow_mut().set(Some(first.clone().into()));
-    queue(&adapter);
-    event.borrow_mut().set(Some(routed.clone().into()));
-    event
-        .borrow_mut()
-        .set(Some(RoutedCallback::new(|_| true).into()));
-    event.borrow_mut().set(Some(second.clone().into()));
-    queue(&adapter);
-    assert_eq!(adapter.pop_native_event(), delivered(&first));
-    assert_eq!(adapter.pop_native_event(), delivered(&second));
-    assert_eq!(adapter.pop_native_event(), None);
+        event.borrow_mut().set(Some(first.clone().into()));
+        queue(&adapter);
+        event.borrow_mut().set(Some(routed.clone().into()));
+        event
+            .borrow_mut()
+            .set(Some(RoutedCallback::new(|_| true).into()));
+        event.borrow_mut().set(Some(second.clone().into()));
+        queue(&adapter);
+        assert_eq!(adapter.pop_native_event(), delivered(&first));
+        assert_eq!(adapter.pop_native_event(), delivered(&second));
+        assert_eq!(adapter.pop_native_event(), None);
 
-    event.borrow_mut().set(Some(first.into()));
-    queue(&adapter);
-    event.borrow_mut().set(Some(routed.into()));
-    event.borrow_mut().set(None);
-    event.borrow_mut().set(Some(second.clone().into()));
-    assert_eq!(adapter.pop_native_event(), None);
-    queue(&adapter);
-    assert_eq!(adapter.pop_native_event(), delivered(&second));
+        event.borrow_mut().set(Some(first.into()));
+        queue(&adapter);
+        event.borrow_mut().set(Some(routed.into()));
+        event.borrow_mut().set(None);
+        event.borrow_mut().set(Some(second.clone().into()));
+        assert_eq!(adapter.pop_native_event(), None);
+        queue(&adapter);
+        assert_eq!(adapter.pop_native_event(), delivered(&second));
 
-    queue(&adapter);
-    event
-        .borrow_mut()
-        .set(Some(RoutedCallback::new(|_| false).into()));
-    adapter.event_queue.discard_object(object);
-    assert_eq!(adapter.pop_native_event(), None);
+        queue(&adapter);
+        event
+            .borrow_mut()
+            .set(Some(RoutedCallback::new(|_| false).into()));
+        adapter.event_queue.discard_object(object);
+        assert_eq!(adapter.pop_native_event(), None);
+    }
 }
 
 #[test]

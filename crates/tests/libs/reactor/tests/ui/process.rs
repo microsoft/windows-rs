@@ -129,9 +129,10 @@ fn drive(
     let driver_cancelled = cancelled.clone();
     let pointer = PointerInput::default();
     let pressed = pointer.pressed.clone();
+    let modifiers = pointer.modifiers.clone();
     let driver = std::thread::spawn(move || {
         let _com = Com::new()?;
-        let ui = Automation::new(process, fixture, driver_cancelled, pressed)?;
+        let ui = Automation::new(process, fixture, driver_cancelled, pressed, modifiers)?;
         test(&ui)?;
         ui.window_handle()
     });
@@ -156,6 +157,9 @@ fn drive(
     })??;
     if *pointer.pressed.lock().unwrap() {
         return Err("UI test finished with an injected mouse button still pressed".into());
+    }
+    if !pointer.modifiers.lock().unwrap().is_empty() {
+        return Err("UI test finished with injected wheel modifiers still pressed".into());
     }
     unsafe {
         let window = window as HWND;
@@ -184,6 +188,20 @@ fn pointer_button_is_released_after_driver_failure() -> Result<()> {
 }
 
 #[test]
+fn wheel_modifiers_are_released_after_driver_failure() -> Result<()> {
+    input_failure("pointer-wheel", |ui| {
+        ui.pointer_move("routing-target", 0.5, 0.5)?;
+        ui.pointer_wheel(30, false, &[0x10, 0x11])?;
+        ui.name(
+            "calls",
+            "parent delta 30 horizontal false shift true control true, \
+             queued delta 30 horizontal false shift true control true",
+        )?;
+        Err("input driver failure probe".into())
+    })
+}
+
+#[test]
 #[ignore = "requires a non-elevated interactive desktop; WinUI issue microsoft/microsoft-ui-xaml#7690"]
 fn drag_source_is_stopped_after_driver_failure() -> Result<()> {
     drag::require_non_elevated()?;
@@ -200,17 +218,22 @@ fn input_failure(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> 
     let mut host = Host::spawn(fixture)?;
     let result = drive(&mut host, fixture, test);
     let deadline = Instant::now() + Duration::from_secs(5);
-    while unsafe { GetAsyncKeyState(0x01) } & i16::MIN != 0 && Instant::now() < deadline {
+    let released = || {
+        [0x01, 0x10, 0x11]
+            .into_iter()
+            .all(|key| unsafe { GetAsyncKeyState(key) } & i16::MIN == 0)
+    };
+    while !released() && Instant::now() < deadline {
         std::thread::sleep(Duration::from_millis(10));
     }
-    let released = unsafe { GetAsyncKeyState(0x01) } & i16::MIN == 0;
+    let released = released();
     host.stop()?;
     drop(serial);
     let error = result.unwrap_err();
     assert_eq!(error.to_string(), "input driver failure probe");
     assert!(
         released,
-        "failed driver left the injected mouse button pressed"
+        "failed driver left an injected mouse button or modifier pressed"
     );
     host.remove_logs()
 }

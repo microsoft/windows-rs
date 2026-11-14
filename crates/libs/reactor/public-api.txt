@@ -769,6 +769,7 @@ pub fn windows_reactor::Border::on_pointer_exited(self, impl core::convert::Into
 pub fn windows_reactor::Border::on_pointer_moved(self, impl core::convert::Into<windows_reactor::PointerCallback>) -> Self
 pub fn windows_reactor::Border::on_pointer_pressed(self, impl core::convert::Into<windows_reactor::PointerCallback>) -> Self
 pub fn windows_reactor::Border::on_pointer_released(self, impl core::convert::Into<windows_reactor::PointerCallback>) -> Self
+pub fn windows_reactor::Border::on_pointer_wheel_changed(self, impl core::convert::Into<windows_reactor::PointerCallback>) -> Self
 pub fn windows_reactor::Border::on_preview_key_down(self, windows_reactor::RoutedCallback<windows_reactor::KeyEventInfo>) -> Self
 pub fn windows_reactor::Border::opacity(self, f64) -> Self
 pub fn windows_reactor::Border::opacity_transition(self, core::time::Duration) -> Self
@@ -2842,11 +2843,13 @@ pub fn windows_reactor::PivotItem::default() -> Self
 pub struct windows_reactor::PointerEventInfo
 pub windows_reactor::PointerEventInfo::capture_succeeded: core::option::Option<bool>
 pub windows_reactor::PointerEventInfo::is_captured: bool
+pub windows_reactor::PointerEventInfo::is_horizontal_wheel: bool
 pub windows_reactor::PointerEventInfo::is_left_button_pressed: bool
 pub windows_reactor::PointerEventInfo::is_middle_button_pressed: bool
 pub windows_reactor::PointerEventInfo::is_right_button_pressed: bool
 pub windows_reactor::PointerEventInfo::modifiers: windows_reactor::InputModifiers
 pub windows_reactor::PointerEventInfo::pointer_id: u32
+pub windows_reactor::PointerEventInfo::wheel_delta: i32
 pub windows_reactor::PointerEventInfo::window_x: f64
 pub windows_reactor::PointerEventInfo::window_y: f64
 pub windows_reactor::PointerEventInfo::x: f64
