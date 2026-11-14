@@ -184,3 +184,84 @@ impl Component for ClickFixture {
 pub fn run_clicks() -> windows_core::Result<()> {
     App::run_component::<ClickFixture>(())
 }
+
+struct RoutingFixture {
+    mode: usize,
+    calls: Rc<std::cell::RefCell<Vec<&'static str>>>,
+}
+
+impl Component for RoutingFixture {
+    type Input = ();
+    type Message = bool;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            mode: 0,
+            calls: Rc::default(),
+        }
+    }
+
+    fn update(&mut self, change_mode: bool, _: &ComponentContext<Self>) {
+        if change_mode {
+            self.mode = (self.mode + 1) % 3;
+            self.calls.borrow_mut().clear();
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let calls = Rc::clone(&self.calls);
+        let notify = context.message(false);
+        let callback: PointerCallback = if self.mode == 0 {
+            Callback::new(move |_: PointerEventInfo| {
+                calls.borrow_mut().push("queued");
+                notify.call(());
+            })
+            .into()
+        } else {
+            let handled = self.mode == 2;
+            RoutedCallback::new(move |_: PointerEventInfo| {
+                calls.borrow_mut().push("routed");
+                notify.call(());
+                handled
+            })
+            .into()
+        };
+        let calls = Rc::clone(&self.calls);
+        context.window_frame(
+            "Reactor UI fixture: pointer-routing",
+            StackPanel::new().margin(20.0).spacing(12.0).children((
+                Button::new()
+                    .automation_id("mode")
+                    .content("Change mode")
+                    .on_click(context.message(true)),
+                Border::new()
+                    .on_pointer_pressed(RoutedCallback::new(move |_| {
+                        calls.borrow_mut().push("parent");
+                        false
+                    }))
+                    .content(
+                        Border::new()
+                            .width(200.0)
+                            .height(100.0)
+                            .background(Color::rgb(240, 240, 240))
+                            .on_pointer_pressed(callback)
+                            .content(
+                                TextBlock::new()
+                                    .automation_id("routing-target")
+                                    .text("Pointer target"),
+                            ),
+                    ),
+                TextBlock::new()
+                    .automation_id("mode-state")
+                    .text(format!("Mode {}", self.mode)),
+                TextBlock::new()
+                    .automation_id("calls")
+                    .text(self.calls.borrow().join(", ")),
+            )),
+        )
+    }
+}
+
+pub fn run_routing() -> windows_core::Result<()> {
+    App::run_component::<RoutingFixture>(())
+}

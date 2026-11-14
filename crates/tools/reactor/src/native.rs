@@ -440,7 +440,7 @@ fn emit_event(
         ));
     } else if managed_source.is_some() {
         code.push_str("let dispatch = !managed_source.get();\nlet observation = None;\n");
-    } else if !event.routed {
+    } else if !event.routed && event.value != Value::PointerEventInfo {
         code.push_str("let dispatch = true;\nlet observation = None;\n");
     }
     if selection.is_none()
@@ -541,11 +541,15 @@ fn emit_event(
                 "false"
             };
             code.push_str(&format!(
-                "let value = WinUiAdapter::pointer_event_info(\
+                "let args = args.unwrap();\n\
+                 let value = WinUiAdapter::pointer_event_info(\
                              object, &source_{field}, args, {capture_on_press}, {release_capture}, \
-                             {focus_on_release}, &pending_focus_states_{field}).unwrap();\n"
+                             {focus_on_release}, &pending_focus_states_{field}).unwrap();\n\
+                 if WinUiAdapter::dispatch_pointer(&event_for_callback, &event_queue_{field}, \
+                 object, EventId::{}, value) {{ args.SetHandled(true).unwrap(); }}\n",
+                event.name
             ));
-            Some("value")
+            None
         }
         Value::FocusEventInfo => {
             let got_focus = event.name == "GotFocus";

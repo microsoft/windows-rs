@@ -39,6 +39,24 @@ $env:RUSTFLAGS = "--cfg windows_cast_diagnostics"
 cargo test -p test-reactor
 ```
 
+## Submitted-frame input
+
+`canvas-submitted-input` stages a two-row layout separately from drawing it. Its `submitted`
+marker is updated from `Canvas::on_submitted`, not from the draw callback. New-frame clicks wait
+for that marker; staged or failed drawing must leave old-frame hit testing intact. Click sequence
+numbers prevent an old result from satisfying a later assertion. The fixture also checks callback
+invalidation and removal. Its device-loss case returns an error from the draw callback; it does
+not remove the native device or measure physical display.
+
+`pointer-routing` checks queued delivery, routed bubbling, handled events, and mode replacement.
+Headless pointer tests separately check synchronous capture and reentrant callback replacement.
+
+```powershell
+cargo test -p test-reactor --test ui -- `
+    canvas_input_follows_submission_not_pending_drawing `
+    pointer_delivery_modes_preserve_routing_and_queued_order
+```
+
 ## Opt-in drag/drop coverage
 
 Five drag/drop cases are ignored by default. They require a non-elevated terminal and an idle

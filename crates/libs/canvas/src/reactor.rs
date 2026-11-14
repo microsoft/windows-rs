@@ -134,6 +134,16 @@ impl Canvas {
         self
     }
 
+    /// Runs synchronously after successful drawing completion and swap-chain presentation.
+    ///
+    /// Use this to publish hit-test geometry prepared by the draw callback. Failed or device-lost
+    /// frames do not call this handler. Submission does not mean the compositor has displayed
+    /// the frame. The handler may request another frame through an [`Invalidator`].
+    pub fn on_submitted(mut self, handler: impl Fn() + 'static) -> Self {
+        self.input.on_submitted = Some(Callback::new(move |()| handler()));
+        self
+    }
+
     fn new(
         make_device: Rc<dyn Fn() -> Result<GpuDevice>>,
         draw: Rc<dyn Fn(&DrawContext<'_>) -> Result<()>>,
@@ -147,6 +157,7 @@ impl Canvas {
                 mode,
                 invalidator,
                 on_error: Callback::new(fail_fast),
+                on_submitted: None,
             },
         }
     }
@@ -326,6 +337,7 @@ struct CanvasInput {
     mode: RenderMode,
     invalidator: Invalidator,
     on_error: Callback<IntegrationError>,
+    on_submitted: Option<Callback<()>>,
 }
 
 impl PartialEq for CanvasInput {
@@ -335,6 +347,7 @@ impl PartialEq for CanvasInput {
             && self.mode == other.mode
             && Rc::ptr_eq(&self.invalidator.0, &other.invalidator.0)
             && self.on_error == other.on_error
+            && self.on_submitted == other.on_submitted
     }
 }
 
@@ -716,9 +729,13 @@ impl CanvasRuntime {
     }
 
     fn render_frame(self: &Rc<Self>) {
-        let (mode, draw) = {
+        let (mode, draw, on_submitted) = {
             let input = self.input.borrow();
-            (input.mode, Rc::clone(&input.draw))
+            (
+                input.mode,
+                Rc::clone(&input.draw),
+                input.on_submitted.clone(),
+            )
         };
         if mode == RenderMode::Demand && !self.dirty.get() {
             return;
@@ -759,6 +776,7 @@ impl CanvasRuntime {
             });
         let needs_rebuild = matches!(outcome, Ok(false))
             || matches!(&outcome, Err(error) if is_device_lost(error.code()));
+        let submitted = matches!(outcome, Ok(true));
         if needs_rebuild {
             state.lifecycle.require_rebuild();
             self.dirty.set(true);
@@ -772,6 +790,9 @@ impl CanvasRuntime {
             }
         }
         drop(state_slot);
+        if submitted && let Some(on_submitted) = on_submitted {
+            on_submitted.call(());
+        }
         if needs_rebuild && self.recovery_allowed.replace(false) {
             self.request_frame(false);
         }

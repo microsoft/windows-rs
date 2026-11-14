@@ -139,7 +139,30 @@ type NativeOptionalDateTimeEvent = NativeValueEvent<Option<DateTime>>;
 type NativeOptionalF64Event = NativeValueEvent<Option<f64>>;
 type NativeOptionalTimeSpanEvent = NativeValueEvent<Option<TimeSpan>>;
 type NativeNavigationViewDisplayModeEvent = NativeValueEvent<NavigationViewDisplayMode>;
-type NativePointerEventInfoEvent = NativeValueEvent<PointerEventInfo>;
+#[derive(Default)]
+struct NativePointerEventInfoEvent {
+    queued: NativeValueEvent<PointerEventInfo>,
+    routed: Option<RoutedCallback<PointerEventInfo>>,
+}
+
+impl NativePointerEventInfoEvent {
+    fn set(&mut self, callback: Option<PointerCallback>) {
+        match callback {
+            Some(PointerCallback::Queued(callback)) => {
+                self.routed = None;
+                self.queued.set(Some(callback));
+            }
+            Some(PointerCallback::Routed(callback)) => {
+                self.queued.set(None);
+                self.routed = Some(callback);
+            }
+            None => {
+                self.queued.set(None);
+                self.routed = None;
+            }
+        }
+    }
+}
 type NativeKeyEvent = NativeValueEvent<Key>;
 type NativeKeyEventInfoEvent = NativeRoutedValueEvent<KeyEventInfo>;
 type NativeKeysEvent = NativeValueEvent<Vec<Key>>;

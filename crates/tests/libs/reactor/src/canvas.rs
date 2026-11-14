@@ -47,6 +47,275 @@ struct Repaint {
     fail: Cell<bool>,
 }
 
+#[derive(Clone, Copy, Default)]
+pub(super) enum DrawFailure {
+    #[default]
+    None,
+    Native,
+    Callback,
+    Device,
+}
+
+#[derive(Clone, Copy, Default)]
+pub(super) enum AfterSubmission {
+    #[default]
+    None,
+    Invalidate,
+    Remove,
+}
+
+#[derive(Default)]
+struct SubmittedFrames {
+    requested: Cell<u32>,
+    attempt: Cell<u32>,
+    pending: Cell<Option<(u32, u32, f32)>>,
+    current: Cell<Option<(u32, u32, f32)>>,
+    failed_attempt: Cell<Option<u32>>,
+    failure: Cell<DrawFailure>,
+    after: Cell<AfterSubmission>,
+}
+
+pub(super) struct SubmittedInputFixture {
+    surface: Option<View>,
+    frames: Rc<SubmittedFrames>,
+    invalidator: Invalidator,
+    submitted: Option<u32>,
+    pressed: Option<(u32, &'static str)>,
+    presses: u32,
+    errors: u32,
+    expected_error: Option<IntegrationError>,
+    released: bool,
+}
+
+#[derive(Clone)]
+pub(super) enum SubmittedMessage {
+    Stage,
+    Draw(DrawFailure, AfterSubmission),
+    Submitted(u32),
+    Pressed(u32, &'static str),
+    Error(IntegrationError),
+    Remove,
+    Released,
+}
+
+impl Component for SubmittedInputFixture {
+    type Input = ();
+    type Message = SubmittedMessage;
+
+    fn create(_: &(), context: &ComponentContext<Self>) -> Self {
+        let frames = Rc::new(SubmittedFrames::default());
+        let invalidator = Invalidator::new();
+        let lifetime = Rc::new(DrawLifetime {
+            generation: 0,
+            dropped: context.callback(|_| SubmittedMessage::Released),
+        });
+        let draw_lifetime = Rc::clone(&lifetime);
+        let drawing = Rc::clone(&frames);
+        let completed = Rc::clone(&frames);
+        let redraw = invalidator.clone();
+        let submitted = context.callback(SubmittedMessage::Submitted);
+        let remove = context.message(SubmittedMessage::Remove);
+        let error = context.callback(SubmittedMessage::Error);
+        let canvas: View = Canvas::invalidated(&invalidator, move |frame| {
+            let _keep_alive = &draw_lifetime;
+            let revision = drawing.requested.get();
+            let attempt = drawing.attempt.get() + 1;
+            drawing.attempt.set(attempt);
+            drawing.pending.set(Some((attempt, revision, frame.height)));
+            frame.clear(ColorF::BLUE);
+            let brush = frame.create_solid_brush(ColorF::RED)?;
+            let y = if revision.is_multiple_of(2) {
+                0.0
+            } else {
+                frame.height / 2.0
+            };
+            frame.fill_rect(
+                &windows_canvas::Rect::from_xywh(0.0, y, frame.width, frame.height / 2.0),
+                &brush,
+            );
+            let failure = drawing.failure.take();
+            if !matches!(failure, DrawFailure::None) {
+                drawing.failed_attempt.set(Some(attempt));
+            }
+            match failure {
+                DrawFailure::None => Ok(()),
+                DrawFailure::Native => {
+                    unsafe {
+                        frame
+                            .as_interface::<bindings::ID2D1DeviceContext>()
+                            .PopAxisAlignedClip();
+                    }
+                    Ok(())
+                }
+                DrawFailure::Callback => Err(windows_core::Error::from_hresult(
+                    windows_core::HRESULT(0x8000_4004_u32 as i32),
+                )),
+                DrawFailure::Device => Err(windows_canvas::device_lost_error()),
+            }
+        })
+        .device_factory(GpuDevice::new_warp)
+        .on_error(move |value| error.call(value))
+        .on_submitted(move || {
+            let _keep_alive = &lifetime;
+            let frame = completed.pending.take().unwrap();
+            assert_ne!(Some(frame.0), completed.failed_attempt.get());
+            completed.current.set(Some(frame));
+            submitted.call(frame.1);
+            match completed.after.take() {
+                AfterSubmission::None => {}
+                AfterSubmission::Invalidate => {
+                    completed.requested.set(frame.1 + 1);
+                    redraw.invalidate();
+                }
+                AfterSubmission::Remove => {
+                    redraw.invalidate();
+                    remove.call(());
+                }
+            }
+        })
+        .into();
+        let current = Rc::clone(&frames);
+        let pressed = context.callback(|(revision, row)| SubmittedMessage::Pressed(revision, row));
+        let surface = Border::new()
+            .width(240.0)
+            .height(120.0)
+            .on_pointer_pressed(RoutedCallback::new(move |pointer: PointerEventInfo| {
+                let (_, revision, height) = current.current.get().unwrap();
+                let top = pointer.y < f64::from(height / 2.0);
+                let row = if top == revision.is_multiple_of(2) {
+                    "red"
+                } else {
+                    "blue"
+                };
+                pressed.call((revision, row));
+                true
+            }))
+            .content(
+                Grid::new().children((
+                    canvas,
+                    TextBlock::new()
+                        .automation_id("canvas-input")
+                        .text("Two canvas rows"),
+                )),
+            )
+            .into();
+        Self {
+            surface: Some(surface),
+            frames,
+            invalidator,
+            submitted: None,
+            pressed: None,
+            presses: 0,
+            errors: 0,
+            expected_error: None,
+            released: false,
+        }
+    }
+
+    fn update(&mut self, message: Self::Message, _: &ComponentContext<Self>) {
+        match message {
+            SubmittedMessage::Stage => self.frames.requested.set(self.frames.requested.get() + 1),
+            SubmittedMessage::Draw(failure, after) => {
+                self.expected_error = match failure {
+                    DrawFailure::Native => Some(IntegrationError::Native(
+                        bindings::D2DERR_PUSH_POP_UNBALANCED.0,
+                    )),
+                    DrawFailure::Callback => Some(IntegrationError::Native(0x8000_4004_u32 as i32)),
+                    DrawFailure::None | DrawFailure::Device => None,
+                };
+                self.frames.failure.set(failure);
+                self.frames.after.set(after);
+                self.invalidator.invalidate();
+            }
+            SubmittedMessage::Submitted(revision) => self.submitted = Some(revision),
+            SubmittedMessage::Pressed(revision, row) => {
+                self.presses += 1;
+                self.pressed = Some((revision, row));
+            }
+            SubmittedMessage::Error(error) => {
+                assert_eq!(Some(error), self.expected_error.take());
+                self.errors += 1;
+            }
+            SubmittedMessage::Remove => self.surface = None,
+            SubmittedMessage::Released => self.released = true,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Reactor UI fixture: canvas-submitted-input");
+        context.window_visuals(WindowVisuals::new().client_size(600.0, 700.0));
+        let draw = |id, label, failure, after| {
+            Button::new()
+                .automation_id(id)
+                .content(label)
+                .on_click(context.message(SubmittedMessage::Draw(failure, after)))
+        };
+        StackPanel::new()
+            .margin(20.0)
+            .spacing(8.0)
+            .children((
+                Button::new()
+                    .automation_id("stage")
+                    .content("Stage next layout")
+                    .on_click(context.message(SubmittedMessage::Stage)),
+                draw(
+                    "submit",
+                    "Submit layout",
+                    DrawFailure::None,
+                    AfterSubmission::None,
+                ),
+                draw(
+                    "fail-native",
+                    "Fail EndDraw",
+                    DrawFailure::Native,
+                    AfterSubmission::None,
+                ),
+                draw(
+                    "fail-callback",
+                    "Fail callback",
+                    DrawFailure::Callback,
+                    AfterSubmission::None,
+                ),
+                draw(
+                    "lose-device",
+                    "Return device loss",
+                    DrawFailure::Device,
+                    AfterSubmission::None,
+                ),
+                draw(
+                    "again",
+                    "Invalidate from submission",
+                    DrawFailure::None,
+                    AfterSubmission::Invalidate,
+                ),
+                draw(
+                    "remove",
+                    "Remove from submission",
+                    DrawFailure::None,
+                    AfterSubmission::Remove,
+                ),
+                StackPanel::new()
+                    .keyed_children(self.surface.clone().map(|surface| keyed("canvas", surface))),
+                TextBlock::new()
+                    .automation_id("requested")
+                    .text(format!("Requested {}", self.frames.requested.get())),
+                TextBlock::new()
+                    .automation_id("submitted")
+                    .text(format!("Submitted {:?}", self.submitted)),
+                TextBlock::new()
+                    .automation_id("pressed")
+                    .text(format!("Pressed {} {:?}", self.presses, self.pressed)),
+                TextBlock::new()
+                    .automation_id("errors")
+                    .text(format!("Errors {}", self.errors)),
+                TextBlock::new()
+                    .automation_id("released")
+                    .text(format!("Released {}", self.released)),
+            ))
+            .into()
+    }
+}
+
 #[derive(Default)]
 struct DeviceCounts {
     created: AtomicU32,

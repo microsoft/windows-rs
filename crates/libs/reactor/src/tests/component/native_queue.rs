@@ -83,7 +83,7 @@ fn native_queue_callback_bursts_are_linear() {
         );
         let object = host.reference(&Key::from("burst")).unwrap().get().unwrap();
         let event = host.runtime().graph().events(object).unwrap()[0].clone();
-        let EventValue::PointerEventInfo(callback) = event.value else {
+        let EventValue::PointerEventInfo(PointerCallback::Queued(callback)) = event.value else {
             panic!("expected a pointer event");
         };
         for pointer_id in 0..count {

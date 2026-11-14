@@ -1443,6 +1443,29 @@ pub struct PointerEventInfo {
     pub is_middle_button_pressed: bool,
 }
 
+/// A queued pointer callback or a synchronous routed handler.
+///
+/// Closures and [`Callback`] values retain queued delivery. A [`RoutedCallback`] runs during
+/// native input delivery and returns whether to stop routing. Use it to resolve hit tests against
+/// submitted geometry before queuing component messages, not to run component updates directly.
+#[derive(Clone, Debug, PartialEq)]
+pub enum PointerCallback {
+    Queued(Callback<PointerEventInfo>),
+    Routed(RoutedCallback<PointerEventInfo>),
+}
+
+impl<T: IntoPayloadCallback<PointerEventInfo>> From<T> for PointerCallback {
+    fn from(value: T) -> Self {
+        Self::Queued(value.into_payload_callback())
+    }
+}
+
+impl From<RoutedCallback<PointerEventInfo>> for PointerCallback {
+    fn from(value: RoutedCallback<PointerEventInfo>) -> Self {
+        Self::Routed(value)
+    }
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub enum EventValue {
     Bool(Callback<bool>),
@@ -1459,7 +1482,7 @@ pub enum EventValue {
     OptionalF64(Callback<Option<f64>>),
     OptionalTimeSpan(Callback<Option<TimeSpan>>),
     NavigationViewDisplayMode(Callback<NavigationViewDisplayMode>),
-    PointerEventInfo(Callback<PointerEventInfo>),
+    PointerEventInfo(PointerCallback),
     KeyEventInfo(RoutedCallback<KeyEventInfo>),
     Key(Callback<Key>),
     Keys(Callback<Vec<Key>>),
