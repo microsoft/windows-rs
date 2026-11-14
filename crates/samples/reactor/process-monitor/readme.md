@@ -1,23 +1,20 @@
 # Process monitor
 
-A read-only Reactor sample with a Task Manager-style navigation shell, a virtualized process tree,
+A read-only Reactor sample with a Task Manager-style navigation shell, a custom process table,
 CPU and memory columns, filtering, sorting, stable selection, and on-demand executable paths.
 It runs without elevation, debug privileges, process termination, or process-memory reads.
 Process sampling uses `NtQuerySystemInformation`, so identity and counters do not require opening
 each process. Creation and CPU times depend on the native `SYSTEM_PROCESS_INFORMATION` layout,
 including fields reserved in the SDK declaration.
 
-`--canvas-details` selects an experimental flat details table drawn with `windows-canvas` and
-`windows-text`. It supports keyed selection, keyboard navigation, wheel and scrollbar scrolling,
-sorting by pressing column headers, and dragging column boundaries to resize them. The original
-view remains the default. The canvas table does not yet expose accessible rows/cells or support
-high-contrast colors, multiple selection, tree mode, or touch panning. It is not a production
-replacement for the native view.
+The process table uses `windows-canvas` and `windows-text` to draw only visible cells on one
+viewport-sized surface, without native row controls. It does not yet expose accessible rows/cells
+or support high-contrast colors, multiple selection, tree mode, or touch panning. It demonstrates a
+specialized custom control, not a general replacement for ListView.
 
 ```powershell
 cargo run -p reactor-process-monitor --release
 cargo run -p reactor-process-monitor --release -- --demo
-cargo run -p reactor-process-monitor --release -- --canvas-details
 ```
 
 The build deploys a self-contained Windows App Runtime. An interactive Windows desktop is required.
@@ -25,12 +22,12 @@ The demo has 60 deterministic snapshots with changing metrics, process exits, an
 does not enumerate real processes.
 
 The **Processes** page supports full-row selection; choose **Show details** to load the selected
-process's executable path. Tab and Enter/Space activate rows and controls. Use the chevrons to expand
-or collapse branches. Click a column heading to sort, then click again to reverse direction.
-Name/PID initially sort ascending and CPU/memory descending; unavailable values stay last. Tree mode
-sorts siblings. Turn off **Process tree** for a global ranking. Filtering retains ancestors of
-matching processes and expands their paths. Pause stops scheduling new snapshots; an in-flight
-snapshot can still complete.
+process's executable path. Tab focuses the table; Up/Down, Home/End, and Page Up/Page Down select
+rows. Scroll with the mouse wheel or scrollbars; Shift+wheel scrolls horizontally. Click a column
+heading to sort, then click again to reverse direction. Drag column boundaries to resize them.
+Name/PID initially sort ascending and CPU/memory descending; unavailable values stay last.
+Filtering matches process names or PIDs. Pause stops scheduling new snapshots; an in-flight snapshot
+can still complete.
 
 The **Performance** page charts aggregate CPU and physical memory with `windows-canvas`. CPU uses
 the language-neutral PDH `Processor Information(_Total)\% Processor Time` counter, not a sum of
@@ -49,11 +46,12 @@ Memory labels follow Task Manager's MB/GB convention, using powers of 1024.
 History covers the last 60 recorded seconds, retaining the latest observation per second. CPU
 collection runs at most once per second even when process refresh is faster. Pause freezes the
 display. Sampling continues across pages, and history, chart selection, process selection, sorting,
-and filtering are retained. Returning to Processes recreates its native list and starts at the top.
-CPU and Memory share one demand-driven drawing surface. Switching metrics reuses its GPU device;
-leaving Performance unmounts the surface but keeps the bounded history. The CPU graph choice is
-retained across metric and page changes. Logical histories have the same 60-second bound; missing
-or failed counters produce gaps, not zeros. The grid updates when the observed topology changes.
+and filtering are retained. Returning to Processes recreates the table with its initial column
+widths and scroll position. CPU and Memory share one demand-driven drawing surface. Switching
+metrics reuses its GPU device; leaving Performance unmounts the surface but keeps the bounded
+history. The CPU graph choice is retained across metric and page changes. Logical histories have
+the same 60-second bound; missing or failed counters produce gaps, not zeros. The grid updates when
+the observed topology changes.
 
 Use `cargo run -p reactor-maxcpu --release` to exercise the graphs. Its workers are not pinned, so
 busy work can move between logical processors. Stop the load before collecting performance numbers.
@@ -102,14 +100,13 @@ logical processor count, rounded to one decimal place. It is not Task Manager's 
 CPU utilization. A new process needs two samples. Working set includes shared resident pages;
 private bytes measure private committed memory, not private resident memory.
 
-Process identity combines PID and creation time. Parent links require a known, older parent
-instance, avoiding links to reused PIDs. When identity or counters cannot be queried, values remain
-unavailable rather than becoming zero. Selection of an unverified identity expires on the next
-snapshot. A collection failure leaves the last snapshot visible with a stale-data error.
+Process identity combines PID and creation time. When identity or counters cannot be queried, values
+remain unavailable rather than becoming zero. Selection of an unverified identity expires on the
+next snapshot. A collection failure leaves the last snapshot visible with a stale-data error.
 
 For repeatable UI investigations, replay the same file at the same interval and window/display
 settings on a quiet machine. Reports include startup and measure snapshot handling through the
-post-commit effect, excluding later layout, virtualization, and presentation. Reports also separate
+post-commit effect, excluding later layout, canvas drawing, and presentation. Reports also separate
 model/projection time from the rest of the update-to-effect interval. Acquisition includes
 sampling or replay parsing and optional recording. These reports do not establish frame rate,
 input latency, or a speed advantage over Task Manager.
@@ -121,7 +118,8 @@ cargo test -p reactor-process-monitor
 cargo clippy -p reactor-process-monitor --all-targets -- -D warnings
 ```
 
-The tests cover CPU normalization, PID reuse, tree filtering, unavailable identities, replay
+The tests cover CPU normalization, PID reuse, name/PID filtering, unavailable identities, replay
 compatibility, NUMA-qualified processor identities, bounded history, stable identity for processes
 that cannot be opened, native process-time decoding, sampling cancellation, executable-path
 identity checks, and drawing aggregate and logical graphs with gaps on a shared WARP surface.
+The details table has state and WARP tests here, plus native input coverage in `test-reactor`.

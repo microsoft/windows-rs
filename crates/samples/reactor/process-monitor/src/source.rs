@@ -155,12 +155,12 @@ mod tests {
                 replayed
                     .visible
                     .iter()
-                    .map(|r| r.process.id)
+                    .map(|process| process.id)
                     .collect::<Vec<_>>(),
                 direct
                     .visible
                     .iter()
-                    .map(|r| r.process.id)
+                    .map(|process| process.id)
                     .collect::<Vec<_>>(),
             );
             assert_eq!(replayed.key_revision, direct.key_revision);

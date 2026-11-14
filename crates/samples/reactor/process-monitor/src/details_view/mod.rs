@@ -44,7 +44,7 @@ pub struct Input<R: Rows> {
     pub on_sort: Callback<usize>,
 }
 
-/// An experimental, read-only canvas table.
+/// A read-only canvas table with keyed selection and viewport-bounded rendering.
 ///
 /// Row/cell automation, high-contrast colors, touch panning, and multiple selection are not
 /// implemented.
@@ -197,7 +197,8 @@ impl<R: Rows> Component for DetailsView<R> {
             .automation_id(input.automation_id.clone())
             .automation_name(input.name.clone())
             .automation_help_text(
-                "Canvas prototype; accessible rows and cells are not implemented.",
+                "Use Up/Down, Home/End, or Page Up/Page Down to select a row. \
+                 Accessible rows and cells are not implemented.",
             )
             .is_tab_stop(true)
             .capture_pointer_on_press(true)

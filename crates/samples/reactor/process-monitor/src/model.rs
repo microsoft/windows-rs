@@ -230,14 +230,6 @@ pub struct Process {
     pub unavailable: Option<String>,
 }
 
-#[derive(Clone, PartialEq)]
-pub struct Row {
-    pub process: Rc<Process>,
-    pub depth: usize,
-    pub has_children: bool,
-    pub expanded: bool,
-}
-
 #[derive(Clone, Copy, Default, PartialEq)]
 pub enum Sort {
     #[default]
@@ -250,13 +242,11 @@ pub enum Sort {
 
 pub struct Model {
     pub processes: BTreeMap<ProcessId, Rc<Process>>,
-    pub visible: Rc<Vec<Row>>,
+    pub visible: Rc<Vec<Rc<Process>>>,
     pub selected: Option<ProcessId>,
     pub filter: String,
     pub sort: Sort,
     pub descending: bool,
-    pub tree: bool,
-    pub collapsed: HashSet<ProcessId>,
     pub key_revision: u64,
     pub history: Rc<History>,
     previous: HashMap<ProcessId, (u64, u64)>,
@@ -272,8 +262,6 @@ impl Default for Model {
             filter: String::new(),
             sort: Sort::Name,
             descending: false,
-            tree: true,
-            collapsed: HashSet::new(),
             key_revision: 0,
             history: Rc::default(),
             previous: HashMap::new(),
@@ -364,13 +352,22 @@ impl Model {
         self.processes = processes;
         self.previous = counters;
         self.selected = self.selected.filter(|id| self.processes.contains_key(id));
-        self.collapsed.retain(|id| self.processes.contains_key(id));
         self.rebuild();
         Ok(())
     }
 
     pub fn rebuild(&mut self) {
-        let mut ordered: Vec<_> = self.processes.values().cloned().collect();
+        let filter = self.filter.to_lowercase();
+        let mut ordered: Vec<_> = self
+            .processes
+            .values()
+            .filter(|process| {
+                filter.is_empty()
+                    || process.name_lowercase.contains(&filter)
+                    || process.id.pid.to_string().contains(&filter)
+            })
+            .cloned()
+            .collect();
         ordered.sort_by(|a, b| {
             let order = match self.sort {
                 Sort::Name => compare(
@@ -385,75 +382,15 @@ impl Model {
             };
             order.then_with(|| a.id.cmp(&b.id))
         });
-        let by_pid: HashMap<_, _> = ordered.iter().map(|p| (p.id.pid, p.id)).collect();
-        let parents: HashMap<_, _> = ordered
-            .iter()
-            .filter_map(|process| {
-                if process.parent_pid == 0 {
-                    return None;
-                }
-                let parent = *by_pid.get(&process.parent_pid)?;
-                // A reused or unverified parent PID is not evidence of ancestry.
-                (self.tree && parent.created? < process.id.created? && parent.pid != process.id.pid)
-                    .then_some((process.id, parent))
-            })
-            .collect();
-        let filter = self.filter.to_lowercase();
-        let mut included = HashSet::new();
-        for process in &ordered {
-            if filter.is_empty()
-                || process.name_lowercase.contains(&filter)
-                || process.id.pid.to_string().contains(&filter)
-            {
-                let mut id = process.id;
-                loop {
-                    included.insert(id);
-                    let Some(parent) = parents.get(&id) else {
-                        break;
-                    };
-                    id = *parent;
-                }
-            }
-        }
-        let mut children: HashMap<Option<ProcessId>, Vec<Rc<Process>>> = HashMap::new();
-        for process in ordered {
-            if included.contains(&process.id) {
-                children
-                    .entry(parents.get(&process.id).copied())
-                    .or_default()
-                    .push(process);
-            }
-        }
-        let mut pending: Vec<_> = children
-            .get(&None)
-            .into_iter()
-            .flatten()
-            .rev()
-            .map(|p| (Rc::clone(p), 0))
-            .collect();
-        let mut rows = Vec::new();
-        while let Some((process, depth)) = pending.pop() {
-            let descendants = children.get(&Some(process.id));
-            let expanded = !filter.is_empty() || !self.collapsed.contains(&process.id);
-            if expanded && let Some(descendants) = descendants {
-                pending.extend(descendants.iter().rev().map(|p| (Rc::clone(p), depth + 1)));
-            }
-            rows.push(Row {
-                process,
-                depth,
-                has_children: descendants.is_some(),
-                expanded,
-            });
-        }
         if !self
             .visible
             .iter()
-            .map(|r| r.process.id)
-            .eq(rows.iter().map(|r| r.process.id))
+            .map(|process| process.id)
+            .eq(ordered.iter().map(|process| process.id))
         {
             self.key_revision = self.key_revision.checked_add(1).unwrap();
         }
-        self.visible = Rc::new(rows);
+        self.visible = Rc::new(ordered);
     }
 }
 
@@ -672,13 +609,13 @@ mod tests {
         }
         let mut model = Model::default();
         model.apply(sample).unwrap();
-        let selected = model.visible[0].process.id;
+        let selected = model.visible[0].id;
         model.selected = Some(selected);
         let ids = |model: &Model| {
             model
                 .visible
                 .iter()
-                .map(|r| r.process.id.pid)
+                .map(|process| process.id.pid)
                 .collect::<Vec<_>>()
         };
         model.sort_by(Sort::Memory);
@@ -698,22 +635,22 @@ mod tests {
     fn cpu_and_selection_follow_process_instances() {
         let mut model = Model::default();
         model.apply(snapshot(1, 100, 0)).unwrap();
-        let id = model.visible[0].process.id;
+        let id = model.visible[0].id;
         model.selected = Some(id);
-        assert_eq!(model.visible[0].process.cpu_tenths, None);
+        assert_eq!(model.visible[0].cpu_tenths, None);
         let revision = model.key_revision;
         model.apply(snapshot(2, 100, 10_000_000)).unwrap();
-        assert_eq!(model.visible[0].process.cpu_tenths, Some(250));
+        assert_eq!(model.visible[0].cpu_tenths, Some(250));
         assert_eq!(model.selected, Some(id));
         assert_eq!(model.key_revision, revision);
         model.apply(snapshot(3, 200, 1)).unwrap();
         assert_eq!(model.selected, None);
-        assert_eq!(model.visible[0].process.cpu_tenths, None);
-        assert_ne!(model.visible[0].process.id, id);
+        assert_eq!(model.visible[0].cpu_tenths, None);
+        assert_ne!(model.visible[0].id, id);
     }
 
     #[test]
-    fn idle_is_not_a_parent_of_parentless_processes() {
+    fn filtering_matches_name_or_pid_without_including_relatives() {
         let mut sample = snapshot(1, 100, 0);
         let mut idle = sample.processes[0].clone();
         idle.pid = 0;
@@ -730,48 +667,32 @@ mod tests {
             ..Default::default()
         };
         model.apply(sample).unwrap();
-        let rows = |model: &Model| {
+        let ids = |model: &Model| {
             model
                 .visible
                 .iter()
-                .map(|row| (row.process.id.pid, row.depth))
+                .map(|process| process.id.pid)
                 .collect::<Vec<_>>()
         };
-        assert_eq!(rows(&model), [(0, 0), (10, 0), (20, 1)]);
-        assert!(!model.visible[0].has_children);
-        model.collapsed.insert(model.visible[0].process.id);
+        assert_eq!(ids(&model), [0, 10, 20]);
+        let selected = model.visible[1].id;
+        model.selected = Some(selected);
+        let revision = model.key_revision;
+        model.filter = "CHILD".into();
         model.rebuild();
-        assert_eq!(rows(&model), [(0, 0), (10, 0), (20, 1)]);
-        model.filter = "child".into();
+        assert_eq!(ids(&model), [20]);
+        assert!(model.key_revision > revision);
+        assert_eq!(model.selected, Some(selected));
+        model.filter = "10".into();
         model.rebuild();
-        assert_eq!(rows(&model), [(10, 0), (20, 1)]);
-    }
-
-    #[test]
-    fn tree_filter_retains_ancestors_but_not_reused_parents() {
-        let mut sample = snapshot(1, 100, 0);
-        sample.processes[0].parent_pid = 20;
-        let mut parent = sample.processes[0].clone();
-        parent.pid = 20;
-        parent.parent_pid = 0;
-        parent.created = Some(50);
-        parent.name = "parent.exe".into();
-        sample.processes.push(parent);
-        let mut model = Model {
-            filter: "worker".into(),
-            ..Default::default()
-        };
-        model.apply(sample.clone()).unwrap();
-        assert_eq!(
-            model.visible.iter().map(|r| r.depth).collect::<Vec<_>>(),
-            [0, 1]
-        );
-        sample.sequence = 2;
-        sample.processes[0].sampled_at += 10_000_000;
-        sample.processes[1].created = Some(150);
-        model.apply(sample).unwrap();
-        assert_eq!(model.visible.len(), 1);
-        assert_eq!(model.visible[0].depth, 0);
+        assert_eq!(ids(&model), [10]);
+        model.filter = "missing".into();
+        model.rebuild();
+        assert!(model.visible.is_empty());
+        model.filter.clear();
+        model.rebuild();
+        assert_eq!(ids(&model), [0, 10, 20]);
+        assert_eq!(model.selected, Some(selected));
     }
 
     #[test]
@@ -782,7 +703,7 @@ mod tests {
         sample.processes[0].unavailable = Some("Access denied".into());
         let mut model = Model::default();
         model.apply(sample.clone()).unwrap();
-        model.selected = Some(model.visible[0].process.id);
+        model.selected = Some(model.visible[0].id);
         sample.sequence = 2;
         model.apply(sample).unwrap();
         assert_eq!(model.selected, None);

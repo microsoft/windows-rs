@@ -16,7 +16,7 @@ mod performance;
 mod process;
 mod source;
 
-use model::{Model, Process, ProcessId, Row, Snapshot, Sort};
+use model::{Model, Process, ProcessId, Snapshot, Sort};
 use source::Source;
 use std::cell::RefCell;
 use std::io::Write;
@@ -39,7 +39,6 @@ impl PartialEq for Outcome {
 struct Options {
     outcome: Outcome,
     demo: bool,
-    canvas_details: bool,
     replay: Option<PathBuf>,
     record: Option<PathBuf>,
     report: Option<PathBuf>,
@@ -53,7 +52,6 @@ impl Options {
         let mut options = Self {
             outcome: Outcome::default(),
             demo: false,
-            canvas_details: false,
             replay: None,
             record: None,
             report: None,
@@ -64,7 +62,6 @@ impl Options {
         while let Some(arg) = args.next() {
             match arg.as_str() {
                 "--demo" => options.demo = true,
-                "--canvas-details" => options.canvas_details = true,
                 "--replay" => options.replay = Some(args.next().unwrap().into()),
                 "--record" => options.record = Some(args.next().unwrap().into()),
                 "--report" => options.report = Some(args.next().unwrap().into()),
@@ -165,9 +162,7 @@ enum Message {
     Sampled(Result<Box<Batch>, String>),
     Filter(String),
     Sort(Sort),
-    Tree(bool),
     Select(ProcessId),
-    Collapse(ProcessId),
     Pause,
     Navigate(Option<String>),
     Details,
@@ -195,7 +190,6 @@ struct Monitor {
     frames: usize,
     measurements: Rc<RefCell<Measurements>>,
     on_select: Callback<ProcessId>,
-    on_collapse: Callback<ProcessId>,
     page: Page,
     show_details: bool,
     metric: performance::Metric,
@@ -232,7 +226,7 @@ impl Component for Monitor {
     type Input = Options;
     type Message = Message;
 
-    fn create(options: &Options, context: &ComponentContext<Self>) -> Self {
+    fn create(_: &Options, context: &ComponentContext<Self>) -> Self {
         let mut monitor = Self {
             model: Model::default(),
             source: None,
@@ -245,16 +239,12 @@ impl Component for Monitor {
             frames: 0,
             measurements: Rc::default(),
             on_select: context.callback(Message::Select),
-            on_collapse: context.callback(Message::Collapse),
             page: Page::Processes,
             show_details: false,
             metric: performance::Metric::default(),
             cpu_view: performance::CpuView::default(),
             color_scheme: ColorScheme::default(),
         };
-        if options.canvas_details {
-            monitor.model.tree = false;
-        }
         monitor.acquire(context);
         monitor
     }
@@ -314,20 +304,10 @@ impl Component for Monitor {
             Message::Sort(sort) => {
                 self.model.sort_by(sort);
             }
-            Message::Tree(tree) => {
-                self.model.tree = tree;
-                self.model.rebuild();
-            }
             Message::Select(id) => {
                 if self.model.processes.contains_key(&id) {
                     self.model.selected = Some(id);
                 }
-            }
-            Message::Collapse(id) => {
-                if !self.model.collapsed.remove(&id) {
-                    self.model.collapsed.insert(id);
-                }
-                self.model.rebuild();
             }
             Message::Pause => {
                 self.paused = !self.paused;
@@ -410,15 +390,7 @@ impl Component for Monitor {
         };
         let mut actions = Vec::new();
         if self.page == Page::Processes {
-            actions.extend([
-                CheckBox::new()
-                    .content("Process tree")
-                    .is_enabled(!options.canvas_details)
-                    .is_checked(self.model.tree)
-                    .on_is_checked_changed(
-                        context.callback(|value: Option<bool>| Message::Tree(value == Some(true))),
-                    )
-                    .into(),
+            actions.push(
                 Button::new()
                     .automation_id("details-toggle")
                     .style(ButtonStyle::Subtle)
@@ -430,7 +402,7 @@ impl Component for Monitor {
                     })
                     .on_click(context.callback(|()| Message::Details))
                     .into(),
-            ]);
+            );
         }
         actions.push(self.pause_button(context).into());
         let mut page = vec![
@@ -603,149 +575,6 @@ impl Monitor {
     }
 
     fn processes_page(&self, options: &Options, context: &ViewContext<Self>) -> View {
-        if options.canvas_details {
-            return self.canvas_processes_page(options, context);
-        }
-        let rows = Rc::clone(&self.model.visible);
-        let keys = Rc::clone(&rows);
-        let selected = self.model.selected;
-        let on_select = self.on_select.clone();
-        let on_collapse = self.on_collapse.clone();
-        let source = VirtualSource::new(
-            self.model.key_revision,
-            rows.len(),
-            move |index| keys[index].process.key.clone(),
-            move |index| {
-                View::component::<ProcessRow>(RowInput {
-                    row: rows[index].clone(),
-                    selected: selected == Some(rows[index].process.id),
-                    on_select: on_select.clone(),
-                    on_collapse: on_collapse.clone(),
-                })
-            },
-        );
-        let header = Grid::new().columns(columns()).children(
-            [
-                (Sort::Name, "Name", "sort-name"),
-                (Sort::Pid, "PID", "sort-pid"),
-                (Sort::Cpu, "CPU", "sort-cpu"),
-                (Sort::Memory, "Memory (MB)", "sort-memory"),
-                (Sort::Private, "Private (MB)", "sort-private"),
-            ]
-            .into_iter()
-            .enumerate()
-            .map(|(column, (sort, label, id))| {
-                let active = self.model.sort == sort;
-                let mut content: Vec<View> = vec![TextBlock::new().text(label).into()];
-                if active {
-                    content.push(
-                        FontIcon::new()
-                            .glyph(if self.model.descending {
-                                "\u{e70d}"
-                            } else {
-                                "\u{e70e}"
-                            })
-                            .font_size(10.0)
-                            .into(),
-                    );
-                }
-                Button::new()
-                    .grid_column(column as i32)
-                    .automation_id(id)
-                    .automation_name(if active {
-                        format!(
-                            "{label}, sorted {}",
-                            if self.model.descending {
-                                "descending"
-                            } else {
-                                "ascending"
-                            }
-                        )
-                    } else {
-                        format!("Sort by {label}")
-                    })
-                    .height(44.0)
-                    .style(ButtonStyle::Subtle)
-                    .horizontal_alignment(HorizontalAlignment::Stretch)
-                    .horizontal_content_alignment(if column == 0 {
-                        HorizontalAlignment::Left
-                    } else {
-                        HorizontalAlignment::Right
-                    })
-                    .content(
-                        StackPanel::new()
-                            .orientation(Orientation::Horizontal)
-                            .spacing(6.0)
-                            .children(content),
-                    )
-                    .on_click(context.callback(move |()| Message::Sort(sort)))
-                    .into()
-            })
-            .collect::<Vec<View>>(),
-        );
-        let mut children = vec![
-            keyed(
-                "header",
-                Border::new()
-                    .background(ThemeBrush::CardBackground)
-                    .border_brush(ThemeBrush::CardStroke)
-                    .border_thickness(Thickness::new(0.0, 1.0, 0.0, 1.0))
-                    .padding(Thickness::xy(12.0, 0.0))
-                    .content(header),
-            ),
-            keyed(
-                "rows",
-                ScrollViewer::new()
-                    .automation_id("processes")
-                    .grid_row(1)
-                    .content(ItemsRepeater::new().virtual_source(source)),
-            ),
-        ];
-        if self.model.visible.is_empty() {
-            children.push(keyed(
-                "empty",
-                TextBlock::new()
-                    .grid_row(1)
-                    .horizontal_alignment(HorizontalAlignment::Center)
-                    .vertical_alignment(VerticalAlignment::Center)
-                    .text(if self.frames == 0 {
-                        "Waiting for a snapshot..."
-                    } else {
-                        "No matching processes"
-                    }),
-            ));
-        }
-        if self.show_details {
-            children.push(keyed(
-                "details",
-                Border::new()
-                    .grid_row(2)
-                    .border_brush(ThemeBrush::CardStroke)
-                    .border_thickness(Thickness::new(0.0, 1.0, 0.0, 0.0))
-                    .padding(Thickness::xy(12.0, 16.0))
-                    .content(
-                        ScrollViewer::new()
-                            .max_height(190.0)
-                            .content(component::<Details>(
-                                "details",
-                                DetailInput {
-                                    process: self
-                                        .model
-                                        .selected
-                                        .and_then(|id| self.model.processes.get(&id).cloned()),
-                                    live: options.live(),
-                                },
-                            )),
-                    ),
-            ));
-        }
-        Grid::new()
-            .rows([GridLength::Auto, GridLength::STAR, GridLength::Auto])
-            .keyed_children(children)
-            .into()
-    }
-
-    fn canvas_processes_page(&self, options: &Options, context: &ViewContext<Self>) -> View {
         let rows = Rc::clone(&self.model.visible);
         let select_rows = Rc::clone(&rows);
         let select = self.on_select.clone();
@@ -784,8 +613,8 @@ impl Monitor {
             },
         ]);
         let input = details_view::Input {
-            automation_id: Rc::from("custom-details"),
-            name: Rc::from("Experimental process details"),
+            automation_id: Rc::from("processes"),
+            name: Rc::from("Processes"),
             rows: ProcessRows(rows),
             order_revision: self.model.key_revision,
             columns,
@@ -800,54 +629,62 @@ impl Monitor {
                 .map(|column| (column, self.model.descending)),
             scheme: self.color_scheme,
             on_select: Callback::new(move |key| {
-                let row = select_rows
+                let process = select_rows
                     .iter()
-                    .find(|row| row.process.key == key)
+                    .find(|process| process.key == key)
                     .unwrap();
-                select.call(row.process.id);
+                select.call(process.id);
             }),
             on_sort: context.callback(move |column| Message::Sort(sorts[column])),
         };
-        let mut children = vec![
-            TextBlock::new()
-                .text("Experimental canvas details - row accessibility is not implemented")
-                .margin(Thickness::new(0.0, 0.0, 0.0, 8.0))
-                .into(),
-            Border::new()
-                .grid_row(1)
-                .content(component::<details_view::DetailsView<ProcessRows>>(
-                    "canvas-details",
-                    input,
-                ))
-                .into(),
-        ];
+        let mut children =
+            vec![component::<details_view::DetailsView<ProcessRows>>("processes", input).keyed()];
+        if self.model.visible.is_empty() {
+            children.push(keyed(
+                "empty",
+                TextBlock::new()
+                    .horizontal_alignment(HorizontalAlignment::Center)
+                    .vertical_alignment(VerticalAlignment::Center)
+                    .text(if self.frames == 0 {
+                        "Waiting for a snapshot..."
+                    } else {
+                        "No matching processes"
+                    }),
+            ));
+        }
         if self.show_details {
-            children.push(
+            children.push(keyed(
+                "details",
                 Border::new()
-                    .grid_row(2)
-                    .padding(12.0)
-                    .content(component::<Details>(
-                        "details",
-                        DetailInput {
-                            process: self
-                                .model
-                                .selected
-                                .and_then(|id| self.model.processes.get(&id).cloned()),
-                            live: options.live(),
-                        },
-                    ))
-                    .into(),
-            );
+                    .grid_row(1)
+                    .border_brush(ThemeBrush::CardStroke)
+                    .border_thickness(Thickness::new(0.0, 1.0, 0.0, 0.0))
+                    .padding(Thickness::xy(12.0, 16.0))
+                    .content(
+                        ScrollViewer::new()
+                            .max_height(190.0)
+                            .content(component::<Details>(
+                                "details",
+                                DetailInput {
+                                    process: self
+                                        .model
+                                        .selected
+                                        .and_then(|id| self.model.processes.get(&id).cloned()),
+                                    live: options.live(),
+                                },
+                            )),
+                    ),
+            ));
         }
         Grid::new()
-            .rows([GridLength::Auto, GridLength::STAR, GridLength::Auto])
-            .children(children)
+            .rows([GridLength::STAR, GridLength::Auto])
+            .keyed_children(children)
             .into()
     }
 }
 
 #[derive(Clone)]
-struct ProcessRows(Rc<Vec<Row>>);
+struct ProcessRows(Rc<Vec<Rc<Process>>>);
 
 impl PartialEq for ProcessRows {
     fn eq(&self, other: &Self) -> bool {
@@ -860,10 +697,10 @@ impl details_view::Rows for ProcessRows {
         self.0.len()
     }
     fn key(&self, index: usize) -> Key {
-        self.0[index].process.key.clone()
+        self.0[index].key.clone()
     }
     fn cell(&self, index: usize, column: usize) -> String {
-        let process = &self.0[index].process;
+        let process = &self.0[index];
         match column {
             0 => process.name.clone(),
             1 => process.id.pid.to_string(),
@@ -875,16 +712,6 @@ impl details_view::Rows for ProcessRows {
     }
 }
 
-fn columns() -> [GridLength; 5] {
-    [
-        GridLength::STAR,
-        GridLength::Pixel(70.0),
-        GridLength::Pixel(85.0),
-        GridLength::Pixel(140.0),
-        GridLength::Pixel(140.0),
-    ]
-}
-
 fn memory(value: Option<u64>) -> String {
     value.map_or_else(|| "--".into(), |v| format!("{:.1}", v as f64 / 1_048_576.0))
 }
@@ -893,128 +720,6 @@ fn cpu(process: &Process) -> String {
     process
         .cpu_tenths
         .map_or_else(|| "--".into(), |v| format!("{:.1}", f64::from(v) / 10.0))
-}
-
-#[derive(Clone, PartialEq)]
-struct RowInput {
-    row: Row,
-    selected: bool,
-    on_select: Callback<ProcessId>,
-    on_collapse: Callback<ProcessId>,
-}
-
-struct ProcessRow;
-
-impl Component for ProcessRow {
-    type Input = RowInput;
-    type Message = ();
-
-    fn create(_: &RowInput, _: &ComponentContext<Self>) -> Self {
-        Self
-    }
-
-    fn view(&self, input: &RowInput, _: &mut ViewContext<Self>) -> View {
-        let row = &input.row;
-        let process = &row.process;
-        let select = input.on_select.clone();
-        let collapse = input.on_collapse.clone();
-        let id = process.id;
-        let indent = (row.depth.min(12) * 12) as f64;
-        let mut cells: Vec<View> = vec![
-            TextBlock::new()
-                .text(&process.name)
-                .text_trimming(TextTrimming::CharacterEllipsis)
-                .vertical_alignment(VerticalAlignment::Center)
-                .margin(Thickness::new(indent + 36.0, 0.0, 12.0, 0.0))
-                .into(),
-        ];
-        for (index, value) in [
-            process.id.pid.to_string(),
-            process
-                .cpu_tenths
-                .map_or_else(|| "--".into(), |_| format!("{}%", cpu(process))),
-            memory(process.working_set),
-            memory(process.private_bytes),
-        ]
-        .into_iter()
-        .enumerate()
-        {
-            cells.push(
-                TextBlock::new()
-                    .grid_column(index as i32 + 1)
-                    .automation_id(format!("cell-{}-{index}", id.pid))
-                    .vertical_alignment(VerticalAlignment::Center)
-                    .text_alignment(TextAlignment::Right)
-                    .margin(Thickness::xy(12.0, 0.0))
-                    .text(value)
-                    .into(),
-            );
-        }
-        if input.selected {
-            cells.push(
-                Border::new()
-                    .width(3.0)
-                    .height(18.0)
-                    .corner_radius(1.5)
-                    .horizontal_alignment(HorizontalAlignment::Left)
-                    .vertical_alignment(VerticalAlignment::Center)
-                    .background(ThemeBrush::Accent)
-                    .into(),
-            );
-        }
-        let mut children: Vec<View> = vec![
-            Button::new()
-                .automation_id(format!("process-{}", id.pid))
-                .automation_name(&process.name)
-                .automation_help_text(format!(
-                    "PID {}{}. {}",
-                    id.pid,
-                    if input.selected { ", selected" } else { "" },
-                    process
-                        .unavailable
-                        .as_deref()
-                        .unwrap_or("Select to inspect process details.")
-                ))
-                .style(ButtonStyle::Subtle)
-                .background(if input.selected {
-                    ThemeBrush::CardBackground
-                } else {
-                    ThemeBrush::SolidBackground
-                })
-                .height(32.0)
-                .horizontal_alignment(HorizontalAlignment::Stretch)
-                .horizontal_content_alignment(HorizontalAlignment::Stretch)
-                .content(Grid::new().columns(columns()).children(cells))
-                .on_click(move || select.call(id))
-                .into(),
-        ];
-        if row.has_children {
-            children.push(
-                Button::new()
-                    .automation_id(format!("expand-{}", id.pid))
-                    .automation_name(format!(
-                        "{} {}",
-                        if row.expanded { "Collapse" } else { "Expand" },
-                        process.name
-                    ))
-                    .style(ButtonStyle::Subtle)
-                    .width(36.0)
-                    .height(32.0)
-                    .min_height(0.0)
-                    .horizontal_alignment(HorizontalAlignment::Left)
-                    .vertical_alignment(VerticalAlignment::Center)
-                    .margin(Thickness::new(indent + 12.0, 0.0, 0.0, 0.0))
-                    .content(FontIcon::new().font_size(10.0).glyph(if row.expanded {
-                        "\u{e70d}"
-                    } else {
-                        "\u{e76c}"
-                    }))
-                    .on_click(move || collapse.call(id))
-                    .into(),
-            );
-        }
-        Grid::new().children(children).into()
-    }
 }
 
 #[derive(Clone, PartialEq)]
