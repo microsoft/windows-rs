@@ -4,7 +4,7 @@ use super::*;
 pub struct SwapChain {
     pub(crate) swap_chain: IDXGISwapChain1,
     d2d_context: ID2D1DeviceContext,
-    device_lost_flag: Cell<bool>,
+    end_draw_result: Cell<HRESULT>,
     width: u32,
     height: u32,
     dpi_x: f32,
@@ -85,7 +85,7 @@ impl SwapChain {
         let mut result = Self {
             swap_chain,
             d2d_context,
-            device_lost_flag: Cell::new(false),
+            end_draw_result: Cell::new(HRESULT(0)),
             width,
             height,
             dpi_x: 96.0,
@@ -113,15 +113,18 @@ impl SwapChain {
 
     /// Begins drawing a frame, returning a [`DrawingSession`].
     pub fn begin_draw(&mut self) -> Result<DrawingSession<'_>> {
-        self.device_lost_flag.set(false);
-        DrawingSession::new(&self.d2d_context, &self.device_lost_flag)
+        self.end_draw_result.set(HRESULT(0));
+        DrawingSession::new(&self.d2d_context, &self.end_draw_result)
     }
 
-    /// Returns `Ok(false)` if the device was lost.
+    /// Presents the last draw pass, or returns its error without presenting.
+    ///
+    /// Returns `Ok(false)` if drawing or presentation reports device loss.
     pub fn present(&self) -> Result<bool> {
-        if self.device_lost_flag.get() {
+        if self.is_device_lost() {
             return Ok(false);
         }
+        self.end_draw_result()?;
         let result = unsafe { self.swap_chain.Present(1, 0) };
         if is_device_lost(result) {
             return Ok(false);
@@ -187,7 +190,11 @@ impl SwapChain {
 
     /// Returns `true` if the device was lost during the last frame.
     pub fn is_device_lost(&self) -> bool {
-        self.device_lost_flag.get()
+        is_device_lost(self.end_draw_result.get())
+    }
+
+    pub(crate) fn end_draw_result(&self) -> Result<()> {
+        self.end_draw_result.get().ok()
     }
 
     fn set_target(&mut self) -> Result<()> {

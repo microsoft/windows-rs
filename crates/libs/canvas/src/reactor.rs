@@ -749,11 +749,14 @@ impl CanvasRuntime {
             drop(context);
             result
         });
-        let outcome = if state.chain.is_device_lost() {
-            Ok(false)
-        } else {
-            outcome.and_then(|()| state.chain.present())
-        };
+        let outcome = device_lost::classify_draw_results(outcome, state.chain.end_draw_result())
+            .and_then(|drawn| {
+                if drawn {
+                    state.chain.present()
+                } else {
+                    Ok(false)
+                }
+            });
         let needs_rebuild = matches!(outcome, Ok(false))
             || matches!(&outcome, Err(error) if is_device_lost(error.code()));
         if needs_rebuild {

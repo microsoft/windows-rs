@@ -4,7 +4,7 @@ use super::*;
 pub struct RenderTarget {
     context: ID2D1DeviceContext,
     target: ID2D1Bitmap1,
-    device_lost_flag: Cell<bool>,
+    end_draw_result: Cell<HRESULT>,
     width: u32,
     height: u32,
 }
@@ -34,7 +34,7 @@ impl RenderTarget {
         Ok(Self {
             context,
             target,
-            device_lost_flag: Cell::new(false),
+            end_draw_result: Cell::new(HRESULT(0)),
             width,
             height,
         })
@@ -51,18 +51,25 @@ impl RenderTarget {
     }
 
     /// Draws one frame into the target with a [`DrawingSession`].
+    ///
+    /// Reports deferred native drawing errors as well as errors returned by `f`.
+    /// Native device loss returns [`device_lost_error`]; callback device-loss errors are preserved.
     pub fn draw(&self, f: impl FnOnce(&DrawingSession<'_>) -> Result<()>) -> Result<()> {
-        self.device_lost_flag.set(false);
+        self.end_draw_result.set(HRESULT(0));
         unsafe { self.context.SetTarget(&self.target) };
         let draw_result = {
-            let session = DrawingSession::new(&self.context, &self.device_lost_flag)?;
+            let session = DrawingSession::new(&self.context, &self.end_draw_result)?;
             f(&session)
-        }; // `EndDraw` runs here, flagging any device loss.
+        };
         unsafe { self.context.SetTarget(None::<&ID2D1Image>) };
-        if self.device_lost_flag.get() {
-            return Err(Error::from_hresult(D2DERR_RECREATE_TARGET));
+        let end_result = self.end_draw_result.get();
+        if is_device_lost(end_result) {
+            Err(device_lost_error())
+        } else if check_device_lost(&draw_result) {
+            draw_result
+        } else {
+            end_result.ok().and(draw_result)
         }
-        draw_result
     }
 
     /// Copies the rendered pixels as tightly packed, top-down 32-bit premultiplied BGRA.

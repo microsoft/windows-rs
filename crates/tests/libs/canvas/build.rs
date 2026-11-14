@@ -8,7 +8,10 @@ fn main() {
             "ID2D1PathGeometry1::{}",
             "ID2D1PathGeometry::GetFigureCount",
             "ID2D1RenderTarget::GetPixelSize",
+            "ID2D1RenderTarget::PopAxisAlignedClip",
             "IDXGISwapChain1::GetDesc1",
+            "IDXGISwapChain::GetLastPresentCount",
+            "D2DERR_PUSH_POP_UNBALANCED",
         ])
         .flat()
         .minimal()

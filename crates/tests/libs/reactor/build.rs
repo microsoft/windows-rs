@@ -6,7 +6,12 @@ fn main() {
         .output(
             std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("canvas_bindings.rs"),
         )
-        .filters(["ID3D11Device::SetPrivateDataInterface"])
+        .filters([
+            "ID3D11Device::SetPrivateDataInterface",
+            "ID2D1DeviceContext::{}",
+            "ID2D1RenderTarget::PopAxisAlignedClip",
+            "D2DERR_PUSH_POP_UNBALANCED",
+        ])
         .flat()
         .minimal()
         .write();
