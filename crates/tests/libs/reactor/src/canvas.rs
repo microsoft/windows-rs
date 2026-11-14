@@ -33,14 +33,20 @@ pub(super) enum Message {
     Dropped(u32),
     LoseDevice,
     Probe,
-    Invalidate(bool),
+    Invalidate(Option<InvalidateDuring>),
     Repainted(String),
 }
 
 #[derive(Default)]
 struct Repaint {
     revision: Cell<u32>,
-    again: Cell<bool>,
+    again: Cell<Option<InvalidateDuring>>,
+}
+
+#[derive(Clone, Copy, PartialEq)]
+pub(super) enum InvalidateDuring {
+    Draw,
+    Submitted,
 }
 
 #[derive(Default)]
@@ -97,7 +103,9 @@ fn surface(
     let draw_devices = Arc::clone(devices);
     let lose_device = Rc::clone(lose_device);
     let repaint = Rc::clone(repaint);
+    let submitted_repaint = Rc::clone(&repaint);
     let redraw = invalidator.clone();
+    let submitted_redraw = invalidator.clone();
     let repainted = context.callback(Message::Repainted);
     let counts = Cell::new((0, 0));
     let demand = *context.input();
@@ -129,7 +137,8 @@ fn surface(
             let count = if revision == previous { count + 1 } else { 1 };
             counts.set((revision, count));
             let changed = format!("Revision {revision}; draws {count}");
-            if repaint.again.replace(false) {
+            if repaint.again.get() == Some(InvalidateDuring::Draw) {
+                repaint.again.set(None);
                 redraw.invalidate();
             }
             Some(changed)
@@ -154,6 +163,10 @@ fn surface(
             }
             if let Some(repaint) = repaint {
                 repainted.call(repaint);
+            }
+            if submitted_repaint.again.get() == Some(InvalidateDuring::Submitted) {
+                submitted_repaint.again.set(None);
+                submitted_redraw.invalidate();
             }
         })
         .device_factory(move || {
@@ -290,11 +303,17 @@ impl Component for CanvasFixture {
                 Button::new()
                     .automation_id("invalidate")
                     .content("Invalidate three times")
-                    .on_click(context.message(Message::Invalidate(false))),
+                    .on_click(context.message(Message::Invalidate(None))),
                 Button::new()
                     .automation_id("invalidate-again")
                     .content("Invalidate while drawing")
-                    .on_click(context.message(Message::Invalidate(true))),
+                    .on_click(context.message(Message::Invalidate(Some(InvalidateDuring::Draw)))),
+                Button::new()
+                    .automation_id("invalidate-submitted")
+                    .content("Invalidate after submission")
+                    .on_click(
+                        context.message(Message::Invalidate(Some(InvalidateDuring::Submitted))),
+                    ),
                 StackPanel::new().keyed_children(surface),
                 TextBlock::new().automation_id("frame").text(&self.frame),
                 TextBlock::new()

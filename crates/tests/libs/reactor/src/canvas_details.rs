@@ -90,7 +90,7 @@ impl Component for Fixture {
                             self.selected = None;
                         }
                     }
-                    if self.source.tick % 2 == 0 {
+                    if self.source.tick.is_multiple_of(2) {
                         let key = Key::from(format!("new-{}", self.source.tick));
                         keys.insert(0, key.clone());
                         self.transient = Some(key);

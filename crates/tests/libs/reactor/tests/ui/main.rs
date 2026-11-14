@@ -123,6 +123,35 @@ fn pointer_focus_policy_added_to_existing_border() -> Result<()> {
 }
 
 #[test]
+fn pointer_routing_preserves_queued_delivery_and_switches_handling_and_cursor() -> Result<()> {
+    process::run("pointer-routing", |ui| {
+        for (step, expected) in [
+            "parent, queued",
+            "routed, parent",
+            "routed",
+            "parent, queued",
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            let mode = step % 3;
+            ui.pointer_move("routing-mode", 0.5, 0.5)?;
+            if step != 0 {
+                ui.invoke("routing-mode")?;
+            }
+            ui.name("routing-mode", &format!("Mode {mode}"))?;
+            ui.pointer_move("routing-target", 0.5, 0.5)?;
+            ui.cursor(windows_core::PCWSTR(
+                if mode == 0 { IDC_ARROW } else { IDC_SIZEWE }.0.cast(),
+            ))?;
+            ui.pointer_clicks(1)?;
+            ui.name("routing-calls", expected)?;
+        }
+        Ok(())
+    })
+}
+
+#[test]
 fn queued_clicks_reach_the_callback_they_fired_under() -> Result<()> {
     process::run("pointer-clicks", |ui| {
         ui.name("clicks", "Clicks 0")?;

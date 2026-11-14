@@ -766,6 +766,28 @@ impl Automation {
         Ok(())
     }
 
+    pub fn cursor(&self, shape: windows_core::PCWSTR) -> Result<()> {
+        let expected = unsafe { LoadCursorW(std::ptr::null_mut(), shape) };
+        if expected.is_null() {
+            return Err(windows_core::Error::from_thread().into());
+        }
+        self.wait(
+            "pointer shows the expected system cursor",
+            || {
+                let mut info = CURSORINFO {
+                    cbSize: size_of::<CURSORINFO>() as u32,
+                    ..Default::default()
+                };
+                if !unsafe { GetCursorInfo(&mut info) }.as_bool() {
+                    return Err(windows_core::Error::from_thread());
+                }
+                Ok(info.hCursor == expected)
+            },
+            |matches| *matches,
+        )?;
+        Ok(())
+    }
+
     /// Clicks the left button `count` times without waiting for the UI thread in between.
     pub fn pointer_clicks(&self, count: usize) -> Result<()> {
         eprintln!("click left mouse button {count} times");

@@ -29,6 +29,9 @@ fn demand_canvas_recovers_and_releases_native_devices_on_removal() -> Result<()>
         ui.invoke("invalidate-again")?;
         ui.name("repaint", "Revision 2; draws 2")?;
         ui.name_stays("repaint", "Revision 2; draws 2", Duration::from_millis(250))?;
+        ui.invoke("invalidate-submitted")?;
+        ui.name("repaint", "Revision 3; draws 2")?;
+        ui.name_stays("repaint", "Revision 3; draws 2", Duration::from_millis(250))?;
         ui.invoke("lose-device")?;
         ui.name("frame", "Canvas 0: 240 x 160; changed true; device 2")?;
         devices(ui, 2, 1)?;

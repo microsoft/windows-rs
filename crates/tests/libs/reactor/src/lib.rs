@@ -427,6 +427,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "pointer-focus-mounted" => pointer::run(false, true)?,
         "pointer-focus-added" => pointer::run(false, false)?,
         "pointer-clicks" => pointer::run_clicks()?,
+        "pointer-routing" => App::run_component::<pointer::RoutingFixture>(())?,
         "drag-mounted" => drag::run(true)?,
         "drag-added" => drag::run(false)?,
         "exit" => {}

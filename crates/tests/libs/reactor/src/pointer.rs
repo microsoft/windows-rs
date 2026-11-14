@@ -201,3 +201,84 @@ impl Component for ClickFixture {
 pub fn run_clicks() -> windows_core::Result<()> {
     App::run_component::<ClickFixture>(())
 }
+
+pub(super) struct RoutingFixture {
+    mode: usize,
+    calls: Rc<std::cell::RefCell<Vec<&'static str>>>,
+}
+
+#[derive(Clone)]
+pub(super) enum RoutingMessage {
+    Next,
+    Report,
+}
+
+impl Component for RoutingFixture {
+    type Input = ();
+    type Message = RoutingMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            mode: 0,
+            calls: Rc::default(),
+        }
+    }
+
+    fn update(&mut self, message: RoutingMessage, _: &ComponentContext<Self>) {
+        if let RoutingMessage::Next = message {
+            self.mode = (self.mode + 1) % 3;
+            self.calls.borrow_mut().clear();
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let calls = Rc::clone(&self.calls);
+        let report = context.callback(|()| RoutingMessage::Report);
+        let record = Callback::new(move |name| {
+            calls.borrow_mut().push(name);
+            report.call(());
+        });
+        let child_record = record.clone();
+        let mode = self.mode;
+        let callback = if mode == 0 {
+            PointerCallback::Queued(Callback::new(move |_| child_record.call("queued")))
+        } else {
+            PointerCallback::Routed(RoutedCallback::new(move |_| {
+                child_record.call("routed");
+                mode == 2
+            }))
+        };
+        let mut target = Border::new()
+            .width(200.0)
+            .height(120.0)
+            .background(Color::rgb(240, 240, 240))
+            .on_pointer_pressed(callback)
+            .content(
+                TextBlock::new()
+                    .automation_id("routing-target")
+                    .text("Pointer target"),
+            );
+        if mode != 0 {
+            target = target.pointer_cursor(InputSystemCursorShape::SizeWestEast);
+        }
+        context.window_frame(
+            "Reactor UI fixture: pointer-routing",
+            StackPanel::new().margin(20.0).spacing(12.0).children((
+                Button::new()
+                    .automation_id("routing-mode")
+                    .content(format!("Mode {mode}"))
+                    .on_click(context.message(RoutingMessage::Next)),
+                Border::new()
+                    .pointer_cursor(InputSystemCursorShape::Arrow)
+                    .on_pointer_pressed(RoutedCallback::new(move |_| {
+                        record.call("parent");
+                        false
+                    }))
+                    .content(target),
+                TextBlock::new()
+                    .automation_id("routing-calls")
+                    .text(self.calls.borrow().join(", ")),
+            )),
+        )
+    }
+}
