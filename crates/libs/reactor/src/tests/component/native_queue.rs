@@ -106,6 +106,8 @@ fn native_queue_callback_bursts_are_linear() {
                             is_left_button_pressed: false,
                             is_right_button_pressed: false,
                             is_middle_button_pressed: false,
+                            wheel_delta: 0,
+                            is_horizontal_wheel: false,
                         },
                     ),
                 ));

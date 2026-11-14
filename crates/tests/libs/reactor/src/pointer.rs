@@ -29,10 +29,13 @@ impl Component for Fixture {
         }
     }
 
-    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+    fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
         match message {
             Message::Enable => self.enabled = true,
             Message::Moved(value) => {
+                if self.enabled && context.input().0 && value.is_left_button_pressed {
+                    assert!(value.is_captured);
+                }
                 self.moved = Some(value);
                 if value.is_left_button_pressed {
                     self.outside_released = false;

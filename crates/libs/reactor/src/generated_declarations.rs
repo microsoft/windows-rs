@@ -2438,6 +2438,16 @@ impl Border {
         );
         self
     }
+    pub fn on_pointer_wheel_changed(
+        mut self,
+        callback: impl IntoPayloadCallback<PointerEventInfo>,
+    ) -> Self {
+        self.0 = self.0.event(
+            EventId::PointerWheelChanged,
+            EventValue::PointerEventInfo(callback.into_payload_callback()),
+        );
+        self
+    }
     pub fn on_pointer_entered(
         mut self,
         callback: impl IntoPayloadCallback<PointerEventInfo>,

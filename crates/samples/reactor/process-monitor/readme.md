@@ -7,9 +7,20 @@ Process sampling uses `NtQuerySystemInformation`, so identity and counters do no
 each process. Creation and CPU times depend on the native `SYSTEM_PROCESS_INFORMATION` layout,
 including fields reserved in the SDK declaration.
 
+`--canvas-details` selects an experimental flat details table drawn with `windows-canvas` and
+`windows-text`. It supports keyed selection, keyboard navigation, wheel and scrollbar scrolling,
+sorting by pressing column headers, and dragging column boundaries to resize them. The original
+view remains the default. The canvas table does not yet expose accessible rows/cells or support
+high-contrast colors, multiple selection, tree mode, or touch panning. It is not a production
+replacement for the native view.
+
+The prototype owns its scrolling; host it outside an ancestor `ScrollViewer`. Wheel events are
+not yet consumed at the native routing boundary.
+
 ```powershell
 cargo run -p reactor-process-monitor --release
 cargo run -p reactor-process-monitor --release -- --demo
+cargo run -p reactor-process-monitor --release -- --canvas-details
 ```
 
 The build deploys a self-contained Windows App Runtime. An interactive Windows desktop is required.

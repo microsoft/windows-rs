@@ -1,0 +1,54 @@
+use super::*;
+
+#[test]
+fn custom_details_navigate_sort_resize_and_remove_during_updates() -> Result<()> {
+    process::run("canvas-details", |ui| {
+        ui.press_keys("custom-details", &[0x23])?;
+        ui.name("selected", "9999")?;
+        ui.pointer_move("custom-details", 30.0 / 600.0, 0.03)?;
+        ui.pointer_clicks(1)?;
+        ui.name("sorted", "Some(0)")?;
+        ui.name("selected", "9999")?;
+        ui.press_keys("custom-details", &[0x28])?;
+        ui.name("selected", "9998")?;
+        ui.pointer_move("custom-details", 179.0 / 600.0, 0.03)?;
+        ui.pointer_button(true)?;
+        ui.pointer_move("custom-details", 239.0 / 600.0, 0.03)?;
+        ui.pointer_button(false)?;
+        ui.pointer_move("custom-details", 210.0 / 600.0, 0.03)?;
+        ui.pointer_clicks(1)?;
+        ui.name("sorted", "Some(0)")?;
+        ui.press_keys("custom-details", &[0x24])?;
+        ui.name("selected", "0")?;
+        ui.pointer_move("custom-details", 0.1, 0.12)?;
+        ui.pointer_wheel(-120)?;
+        ui.pointer_clicks(1)?;
+        let mut lines = 0u32;
+        if !unsafe {
+            SystemParametersInfoW(
+                SPI_GETWHEELSCROLLLINES as u32,
+                0,
+                (&mut lines as *mut u32).cast(),
+                0,
+            )
+        }
+        .as_bool()
+        {
+            return Err(windows_core::Error::from_thread().into());
+        }
+        let body_height = 388.0 - 32.0 - 14.0;
+        let offset = if lines == u32::MAX {
+            body_height
+        } else {
+            f64::from(lines) * 26.0
+        };
+        let offset = offset.min(10_000.0 * 26.0 - body_height);
+        let selected = ((offset + 388.0 * 0.12 - 32.0) / 26.0).floor() as usize;
+        ui.name("selected", &selected.to_string())?;
+        ui.invoke("remove")?;
+        ui.name("selected", "None")?;
+        ui.press_keys("custom-details", &[0x28])?;
+        ui.name("selected", if selected == 0 { "1" } else { "0" })?;
+        ui.focused("custom-details")
+    })
+}

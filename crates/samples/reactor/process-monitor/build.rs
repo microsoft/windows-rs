@@ -3,6 +3,19 @@ fn main() {
     windows_reactor_setup::as_self_contained();
 
     windows_bindgen::builder()
+        .output(
+            std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("details_bindings.rs"),
+        )
+        .filters([
+            "SystemParametersInfoW",
+            "SPI_GETWHEELSCROLLLINES",
+            "SPI_GETWHEELSCROLLCHARS",
+        ])
+        .minimal()
+        .flat()
+        .write();
+
+    windows_bindgen::builder()
         .output(std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("bindings.rs"))
         .filters([
             "ALL_PROCESSOR_GROUPS",

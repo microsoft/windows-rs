@@ -1441,6 +1441,9 @@ pub struct PointerEventInfo {
     pub is_left_button_pressed: bool,
     pub is_right_button_pressed: bool,
     pub is_middle_button_pressed: bool,
+    /// Raw wheel delta; 120 represents one detent.
+    pub wheel_delta: i32,
+    pub is_horizontal_wheel: bool,
 }
 
 #[derive(Clone, Debug, PartialEq)]

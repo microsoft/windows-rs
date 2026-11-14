@@ -371,6 +371,10 @@ name = "PointerMoved"
 adapter = "pointer"
 
 [[objects.events]]
+name = "PointerWheelChanged"
+adapter = "pointer"
+
+[[objects.events]]
 name = "PointerEntered"
 adapter = "pointer"
 

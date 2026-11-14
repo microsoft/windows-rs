@@ -22,6 +22,8 @@ fn pointer_event_payload_round_trips_through_recording_protocol() {
         is_left_button_pressed: false,
         is_right_button_pressed: true,
         is_middle_button_pressed: false,
+        wheel_delta: 0,
+        is_horizontal_wheel: false,
     };
     runtime.adapter_mut().queue_event(EventDispatch::new(
         border,

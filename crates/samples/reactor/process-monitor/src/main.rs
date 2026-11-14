@@ -10,6 +10,7 @@ mod bindings {
     include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 }
 
+use reactor_process_monitor::details_view;
 mod model;
 mod performance;
 mod process;
@@ -38,6 +39,7 @@ impl PartialEq for Outcome {
 struct Options {
     outcome: Outcome,
     demo: bool,
+    canvas_details: bool,
     replay: Option<PathBuf>,
     record: Option<PathBuf>,
     report: Option<PathBuf>,
@@ -51,6 +53,7 @@ impl Options {
         let mut options = Self {
             outcome: Outcome::default(),
             demo: false,
+            canvas_details: false,
             replay: None,
             record: None,
             report: None,
@@ -61,6 +64,7 @@ impl Options {
         while let Some(arg) = args.next() {
             match arg.as_str() {
                 "--demo" => options.demo = true,
+                "--canvas-details" => options.canvas_details = true,
                 "--replay" => options.replay = Some(args.next().unwrap().into()),
                 "--record" => options.record = Some(args.next().unwrap().into()),
                 "--report" => options.report = Some(args.next().unwrap().into()),
@@ -228,7 +232,7 @@ impl Component for Monitor {
     type Input = Options;
     type Message = Message;
 
-    fn create(_: &Options, context: &ComponentContext<Self>) -> Self {
+    fn create(options: &Options, context: &ComponentContext<Self>) -> Self {
         let mut monitor = Self {
             model: Model::default(),
             source: None,
@@ -248,6 +252,9 @@ impl Component for Monitor {
             cpu_view: performance::CpuView::default(),
             color_scheme: ColorScheme::default(),
         };
+        if options.canvas_details {
+            monitor.model.tree = false;
+        }
         monitor.acquire(context);
         monitor
     }
@@ -406,6 +413,7 @@ impl Component for Monitor {
             actions.extend([
                 CheckBox::new()
                     .content("Process tree")
+                    .is_enabled(!options.canvas_details)
                     .is_checked(self.model.tree)
                     .on_is_checked_changed(
                         context.callback(|value: Option<bool>| Message::Tree(value == Some(true))),
@@ -595,6 +603,9 @@ impl Monitor {
     }
 
     fn processes_page(&self, options: &Options, context: &ViewContext<Self>) -> View {
+        if options.canvas_details {
+            return self.canvas_processes_page(options, context);
+        }
         let rows = Rc::clone(&self.model.visible);
         let keys = Rc::clone(&rows);
         let selected = self.model.selected;
@@ -732,6 +743,135 @@ impl Monitor {
             .rows([GridLength::Auto, GridLength::STAR, GridLength::Auto])
             .keyed_children(children)
             .into()
+    }
+
+    fn canvas_processes_page(&self, options: &Options, context: &ViewContext<Self>) -> View {
+        let rows = Rc::clone(&self.model.visible);
+        let select_rows = Rc::clone(&rows);
+        let select = self.on_select.clone();
+        let sorts = [
+            Sort::Name,
+            Sort::Pid,
+            Sort::Cpu,
+            Sort::Memory,
+            Sort::Private,
+        ];
+        let columns = Rc::from([
+            details_view::Column {
+                title: "Name",
+                width: 300.0,
+                right_aligned: false,
+            },
+            details_view::Column {
+                title: "PID",
+                width: 80.0,
+                right_aligned: true,
+            },
+            details_view::Column {
+                title: "CPU %",
+                width: 90.0,
+                right_aligned: true,
+            },
+            details_view::Column {
+                title: "Memory (MB)",
+                width: 140.0,
+                right_aligned: true,
+            },
+            details_view::Column {
+                title: "Private (MB)",
+                width: 140.0,
+                right_aligned: true,
+            },
+        ]);
+        let input = details_view::Input {
+            automation_id: Rc::from("custom-details"),
+            name: Rc::from("Experimental process details"),
+            rows: ProcessRows(rows),
+            order_revision: self.model.key_revision,
+            columns,
+            selected: self
+                .model
+                .selected
+                .and_then(|id| self.model.processes.get(&id))
+                .map(|process| process.key.clone()),
+            sort: sorts
+                .iter()
+                .position(|sort| *sort == self.model.sort)
+                .map(|column| (column, self.model.descending)),
+            scheme: self.color_scheme,
+            on_select: Callback::new(move |key| {
+                let row = select_rows
+                    .iter()
+                    .find(|row| row.process.key == key)
+                    .unwrap();
+                select.call(row.process.id);
+            }),
+            on_sort: context.callback(move |column| Message::Sort(sorts[column])),
+        };
+        let mut children = vec![
+            TextBlock::new()
+                .text("Experimental canvas details - row accessibility is not implemented")
+                .margin(Thickness::new(0.0, 0.0, 0.0, 8.0))
+                .into(),
+            Border::new()
+                .grid_row(1)
+                .content(component::<details_view::DetailsView<ProcessRows>>(
+                    "canvas-details",
+                    input,
+                ))
+                .into(),
+        ];
+        if self.show_details {
+            children.push(
+                Border::new()
+                    .grid_row(2)
+                    .padding(12.0)
+                    .content(component::<Details>(
+                        "details",
+                        DetailInput {
+                            process: self
+                                .model
+                                .selected
+                                .and_then(|id| self.model.processes.get(&id).cloned()),
+                            live: options.live(),
+                        },
+                    ))
+                    .into(),
+            );
+        }
+        Grid::new()
+            .rows([GridLength::Auto, GridLength::STAR, GridLength::Auto])
+            .children(children)
+            .into()
+    }
+}
+
+#[derive(Clone)]
+struct ProcessRows(Rc<Vec<Row>>);
+
+impl PartialEq for ProcessRows {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.0, &other.0)
+    }
+}
+
+impl details_view::Rows for ProcessRows {
+    fn len(&self) -> usize {
+        self.0.len()
+    }
+    fn key(&self, index: usize) -> Key {
+        self.0[index].process.key.clone()
+    }
+    fn cell(&self, index: usize, column: usize) -> String {
+        let process = &self.0[index].process;
+        match column {
+            0 => process.name.clone(),
+            1 => process.id.pid.to_string(),
+            2 => cpu(process),
+            3 => memory(process.working_set),
+            4 => memory(process.private_bytes),
+            _ => unreachable!(),
+        }
     }
 }
 

@@ -747,6 +747,25 @@ impl Automation {
         Ok(())
     }
 
+    pub fn pointer_wheel(&self, delta: i32) -> Result<()> {
+        let _coordinates = PhysicalCoordinates::new()?;
+        self.pointer_over_process()?;
+        let mut input = INPUT {
+            r#type: INPUT_MOUSE as u32,
+            Anonymous: INPUT_0 {
+                mi: MOUSEINPUT {
+                    mouseData: delta as u32,
+                    dwFlags: MOUSEEVENTF_WHEEL as u32,
+                    ..Default::default()
+                },
+            },
+        };
+        if unsafe { SendInput(1, &mut input, size_of::<INPUT>() as i32) } != 1 {
+            return Err("wheel input was not accepted".into());
+        }
+        Ok(())
+    }
+
     /// Clicks the left button `count` times without waiting for the UI thread in between.
     pub fn pointer_clicks(&self, count: usize) -> Result<()> {
         eprintln!("click left mouse button {count} times");

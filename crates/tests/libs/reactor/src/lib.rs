@@ -6,6 +6,7 @@ mod application;
 mod background;
 mod callback_lifetime;
 mod canvas;
+mod canvas_details;
 mod canvas_image;
 mod controlled;
 mod dialog;
@@ -311,6 +312,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
         "exit-with-window" => App::run_application::<application::ExitFixture>(())?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(false)?,
+        "canvas-details" => App::run_component::<canvas_details::Fixture>(())?,
         "canvas-demand" => App::run_component::<canvas::CanvasFixture>(true)?,
         "canvas-root" => App::run_application::<canvas::CanvasRootFixture>(())?,
         "canvas-image" => App::run_component::<canvas_image::CanvasImageFixture>(())?,

@@ -229,12 +229,21 @@ impl WinUiAdapter {
         } else {
             capture_on_press.map(|_| false)
         };
-        let mut capture_index = 0;
-        let is_captured = element
-            .PointerCaptures()
-            .ok()
-            .and_then(|captures| captures.IndexOf(&pointer, &mut capture_index).ok())
-            .unwrap_or(false);
+        let pointer_id = pointer.PointerId()?;
+        let mut is_captured = false;
+        // Capture entries can be different Pointer objects for the same pointer ID.
+        match element.PointerCaptures() {
+            Ok(captures) => {
+                for index in 0..captures.Size()? {
+                    if captures.GetAt(index)?.PointerId()? == pointer_id {
+                        is_captured = true;
+                        break;
+                    }
+                }
+            }
+            Err(error) if error.code().is_ok() => {}
+            Err(error) => return Err(error.into()),
+        }
         if release_capture {
             element.ReleasePointerCapture(&pointer)?;
         }
@@ -272,13 +281,15 @@ impl WinUiAdapter {
             y: f64::from(local_position.y),
             window_x: f64::from(window_position.x),
             window_y: f64::from(window_position.y),
-            pointer_id: local.PointerId()?,
+            pointer_id,
             modifiers: Self::input_modifiers_from_virtual_keys(args.KeyModifiers()?),
             capture_succeeded,
             is_captured,
             is_left_button_pressed: properties.IsLeftButtonPressed()?,
             is_right_button_pressed: properties.IsRightButtonPressed()?,
             is_middle_button_pressed: properties.IsMiddleButtonPressed()?,
+            wheel_delta: properties.MouseWheelDelta()?,
+            is_horizontal_wheel: properties.IsHorizontalMouseWheel()?,
         })
     }
 
