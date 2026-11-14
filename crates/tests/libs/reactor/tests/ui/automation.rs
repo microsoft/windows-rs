@@ -701,6 +701,9 @@ impl Automation {
             if !*pressed && GetAsyncKeyState(0x01) & i16::MIN != 0 {
                 return Err("left mouse button is held by another input source".into());
             }
+            let mut previous = POINT::default();
+            GetCursorPos(&mut previous).ok()?;
+            eprintln!("pointer move starts at ({}, {})", previous.x, previous.y);
             send_mouse(
                 MOUSEEVENTF_MOVE
                     | MOUSEEVENTF_MOVE_NOCOALESCE
@@ -716,8 +719,9 @@ impl Automation {
         unsafe {
             let mut point = POINT::default();
             GetCursorPos(&mut point).ok()?;
+            let window = WindowFromPoint(point);
             let mut owner = 0;
-            GetWindowThreadProcessId(WindowFromPoint(point), &mut owner);
+            GetWindowThreadProcessId(window, &mut owner);
             eprintln!(
                 "pointer at ({}, {}), window owner PID {owner}",
                 point.x, point.y
@@ -730,6 +734,25 @@ impl Automation {
                 )
                 .into());
             }
+            let mut class = [0u16; 256];
+            let length = GetClassNameW(
+                window,
+                windows_core::PWSTR(class.as_mut_ptr()),
+                class.len() as i32,
+            );
+            if length == 0 {
+                return Err(windows_core::Error::from_thread().into());
+            }
+            let mut bounds = RECT::default();
+            GetWindowRect(window, &mut bounds).ok()?;
+            eprintln!(
+                "pointer hit window class {:?}, bounds ({}, {})-({}, {})",
+                String::from_utf16_lossy(&class[..length as usize]),
+                bounds.left,
+                bounds.top,
+                bounds.right,
+                bounds.bottom,
+            );
         }
         self.pointer_ready()
     }
@@ -1063,12 +1086,17 @@ impl Automation {
                 let elements = roots.GetElement(index)?.FindAll(TreeScope_Subtree, &all)?;
                 for index in 0..elements.Length()?.min(80) {
                     let element = elements.GetElement(index)?;
+                    let bounds = element.CurrentBoundingRectangle()?;
                     eprintln!(
-                        "UI: type={} id={:?} name={:?} offscreen={}",
+                        "UI: type={} id={:?} name={:?} offscreen={} bounds=({}, {})-({}, {})",
                         element.CurrentControlType()?,
                         element.CurrentAutomationId()?,
                         element.CurrentName()?,
                         element.CurrentIsOffscreen()?.as_bool(),
+                        bounds.left,
+                        bounds.top,
+                        bounds.right,
+                        bounds.bottom,
                     );
                 }
             }

@@ -85,6 +85,7 @@ fn main() {
             "SM_CXVIRTUALSCREEN",
             "SM_CYVIRTUALSCREEN",
             "WindowFromPoint",
+            "GetClassNameW",
             "GetCursorPos",
             "SetThreadDpiAwarenessContext",
             "DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2",
