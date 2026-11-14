@@ -668,6 +668,10 @@ impl Automation {
             x: x.round() as i32,
             y: y.round() as i32,
         };
+        eprintln!(
+            "pointer target {id:?}: bounds ({}, {})-({}, {}), physical point ({}, {})",
+            bounds.left, bounds.top, bounds.right, bounds.bottom, point.x, point.y,
+        );
         unsafe {
             let mut owner = 0;
             GetWindowThreadProcessId(WindowFromPoint(point), &mut owner);
@@ -714,6 +718,10 @@ impl Automation {
             GetCursorPos(&mut point).ok()?;
             let mut owner = 0;
             GetWindowThreadProcessId(WindowFromPoint(point), &mut owner);
+            eprintln!(
+                "pointer at ({}, {}), window owner PID {owner}",
+                point.x, point.y
+            );
             if owner != self.process {
                 return Err(format!(
                     "pointer at ({}, {}) is over another process; refusing button input: \

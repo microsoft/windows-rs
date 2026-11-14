@@ -229,6 +229,7 @@ fn input_failure(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> 
     let released = released();
     host.stop()?;
     drop(serial);
+    eprintln!("{}", host.output()?);
     let error = result.unwrap_err();
     assert_eq!(error.to_string(), "input driver failure probe");
     assert!(

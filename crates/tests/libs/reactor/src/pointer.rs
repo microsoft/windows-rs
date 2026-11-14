@@ -211,8 +211,12 @@ impl Component for RoutingFixture {
     fn view(&self, wheel: &bool, context: &mut ViewContext<Self>) -> View {
         let wheel = *wheel;
         let mode = self.mode % if wheel { 4 } else { 3 };
+        if wheel {
+            eprintln!("wheel view: mode {mode}, calls {:?}", self.calls.borrow());
+        }
         let record = move |name: &str, info: PointerEventInfo| {
             if wheel {
+                eprintln!("wheel callback: {name}, mode {mode}, {info:?}");
                 format!(
                     "{name} delta {} horizontal {} shift {} control {}",
                     info.wheel_delta,
@@ -259,6 +263,16 @@ impl Component for RoutingFixture {
             );
         let parent = Border::new();
         let (parent, child) = if wheel {
+            let trace = |event| {
+                RoutedCallback::new(move |info: PointerEventInfo| {
+                    eprintln!("wheel target {event}: {info:?}");
+                    false
+                })
+            };
+            let child = child
+                .on_pointer_entered(trace("entered"))
+                .on_pointer_moved(trace("moved"))
+                .on_pointer_exited(trace("exited"));
             (
                 parent.on_pointer_wheel_changed(parent_callback),
                 if mode == 3 {
