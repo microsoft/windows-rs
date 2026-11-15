@@ -16,6 +16,7 @@ mod image;
 mod input_trace;
 mod keyboard;
 mod list;
+mod native_pointer;
 mod pane;
 mod pointer;
 mod reference;
@@ -429,6 +430,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "pointer-clicks" => pointer::run_clicks()?,
         "pointer-routing" => pointer::run_routing(false)?,
         "pointer-wheel" => pointer::run_routing(true)?,
+        "pointer-wheel-native" => native_pointer::run()?,
         "drag-mounted" => drag::run(true)?,
         "drag-added" => drag::run(false)?,
         "exit" => {}

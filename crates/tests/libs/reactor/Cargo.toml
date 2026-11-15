@@ -10,6 +10,7 @@ test = false
 
 [dependencies]
 windows-canvas = { workspace = true, features = ["reactor"] }
+windows-collections = { workspace = true }
 windows-core = { workspace = true, features = ["proc-macros"] }
 windows-reactor = { workspace = true }
 windows-time = { workspace = true }

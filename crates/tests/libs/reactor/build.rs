@@ -215,6 +215,47 @@ fn main() {
         .input_default()
         .output(
             std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap())
+                .join("native_pointer_bindings.rs"),
+        )
+        .implements([
+            "Microsoft.UI.Xaml.IApplicationOverrides",
+            "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
+        ])
+        .compose("Microsoft.UI.Xaml.Application")
+        .filters([
+            "CoInitializeEx",
+            "COINIT_APARTMENTTHREADED",
+            "SetProcessDpiAwarenessContext",
+            "DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2",
+            "Microsoft.UI.Xaml.Application::{CreateInstance,Start,Current,Resources,Exit}",
+            "Microsoft.UI.Xaml.IApplicationOverrides",
+            "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
+            "Microsoft.UI.Xaml.Window::{CreateInstance,Activate,Title,Content,ExtendsContentIntoTitleBar,SetTitleBar,Closed,AppWindow}",
+            "Microsoft.UI.Windowing.AppWindow.TitleBar",
+            "Microsoft.UI.Windowing.AppWindowTitleBar.PreferredHeightOption",
+            "Microsoft.UI.Windowing.TitleBarHeightOption.Standard",
+            "Microsoft.UI.Xaml.Controls.TitleBar.AutoRefreshDragRegions",
+            "Microsoft.UI.Xaml.Controls.XamlControlsResources.CreateInstance",
+            "Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider.CreateInstance",
+            "Microsoft.UI.Xaml.ResourceDictionary.MergedDictionaries",
+            "Microsoft.UI.Xaml.Markup.XamlReader.Load",
+            "Microsoft.UI.Xaml.FrameworkElement.FindName",
+            "Microsoft.UI.Xaml.UIElement::{PointerEntered,PointerMoved,PointerWheelChanged}",
+            "Microsoft.UI.Xaml.Controls.TextBlock.Text",
+            "Microsoft.UI.Xaml.Input.PointerRoutedEventArgs::{GetCurrentPoint,KeyModifiers}",
+            "Microsoft.UI.Input.PointerPoint::{Position,Properties}",
+            "Microsoft.UI.Input.PointerPointProperties::{MouseWheelDelta,IsHorizontalMouseWheel}",
+            "Windows.System.VirtualKeyModifiers::{Shift,Control}",
+        ])
+        .flat()
+        .minimal()
+        .write();
+
+    windows_bindgen::builder()
+        .input("../../../tools/reactor-metadata/winmd")
+        .input_default()
+        .output(
+            std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap())
                 .join("callback_bindings.rs"),
         )
         .filters([

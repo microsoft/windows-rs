@@ -159,6 +159,28 @@ fn pointer_delivery_modes_preserve_routing_and_queued_order() -> Result<()> {
 }
 
 #[test]
+fn native_wheel_input_without_modifiers() -> Result<()> {
+    process::run("pointer-wheel-native", |ui| {
+        ui.pointer_move("routing-target", 0.5, 0.5)?;
+        ui.pointer_wheel(30, false, &[])?;
+        ui.name(
+            "calls",
+            "delta 30 horizontal false shift false control false",
+        )
+    })
+}
+
+#[test]
+fn native_wheel_input_with_modifiers() -> Result<()> {
+    process::run("pointer-wheel-native", |ui| {
+        ui.pointer_move("routing-target", 0.5, 0.5)?;
+        ui.pointer_wheel(30, false, &[0x10, 0x11])?;
+        ui.name("calls", "delta 30 horizontal false shift true control true")?;
+        ui.release_wheel_modifiers()
+    })
+}
+
+#[test]
 fn wheel_delivery_preserves_delta_axis_modifiers_and_routing() -> Result<()> {
     process::run("pointer-wheel", |ui| {
         for (index, (delta, horizontal, keys, handlers)) in [

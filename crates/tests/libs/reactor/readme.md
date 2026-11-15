@@ -65,6 +65,11 @@ cargo test -p test-reactor --test ui -- `
 horizontal deltas, sub-detent input, modifiers, queued/routed delivery, and handler removal and
 reattachment. These are event-delivery checks, not scrolling or frame-submission checks.
 
+`pointer-wheel-native` builds the same pointer target with native WinUI and handles wheel input
+without Reactor components or event dispatch. Its two cases compare the first sub-detent wheel
+event with and without modifiers using the same injector. This is a diagnostic comparison, not a
+replacement for the Reactor routing cases.
+
 The driver holds wheel modifiers until the fixture reports delivery, then releases them. Sending
 key-down, wheel, and key-up in one batch can release modifiers before the native wheel handler reads
 them. The supervisor also releases owned modifiers on driver failure; a separate case checks that

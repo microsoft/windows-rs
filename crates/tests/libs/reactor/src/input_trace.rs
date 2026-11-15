@@ -32,7 +32,7 @@ impl InputTrace {
     }
 }
 
-fn subscribe() -> windows_core::Result<Vec<EventRevoker>> {
+pub(super) fn subscribe() -> windows_core::Result<Vec<EventRevoker>> {
     let compositor = CompositionTarget::GetCompositorForCurrentThread()?;
     let islands = ContentIsland::FindAllForCompositor(&compositor)?;
     assert!(!islands.is_empty(), "input trace found no content islands");
