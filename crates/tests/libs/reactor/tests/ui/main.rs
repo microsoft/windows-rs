@@ -29,6 +29,7 @@ mod keyboard;
 mod list;
 mod menu;
 mod pane;
+mod platform;
 mod pointer;
 mod process;
 mod reference;

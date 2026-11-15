@@ -99,6 +99,7 @@ pub fn run(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> Result
     match drive(&mut host, fixture, test) {
         Ok(()) => host.remove_logs(),
         Err(error) => {
+            platform::dump(host.child.id());
             if let Err(cleanup) = host.stop() {
                 eprintln!("fixture cleanup also failed: {cleanup}");
             }
@@ -227,6 +228,9 @@ fn input_failure(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> 
         std::thread::sleep(Duration::from_millis(10));
     }
     let released = released();
+    if result.is_err() {
+        platform::dump(host.child.id());
+    }
     host.stop()?;
     drop(serial);
     eprintln!("{}", host.output()?);
