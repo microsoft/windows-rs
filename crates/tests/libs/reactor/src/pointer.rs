@@ -188,16 +188,18 @@ pub fn run_clicks() -> windows_core::Result<()> {
 struct RoutingFixture {
     mode: usize,
     calls: Rc<std::cell::RefCell<Vec<String>>>,
+    input_trace: Option<input_trace::InputTrace>,
 }
 
 impl Component for RoutingFixture {
     type Input = bool;
     type Message = bool;
 
-    fn create(_: &bool, _: &ComponentContext<Self>) -> Self {
+    fn create(wheel: &bool, _: &ComponentContext<Self>) -> Self {
         Self {
             mode: 0,
             calls: Rc::default(),
+            input_trace: wheel.then(input_trace::InputTrace::new),
         }
     }
 
@@ -209,6 +211,9 @@ impl Component for RoutingFixture {
     }
 
     fn view(&self, wheel: &bool, context: &mut ViewContext<Self>) -> View {
+        if let Some(trace) = &self.input_trace {
+            context.on_window_size(trace.on_size());
+        }
         let wheel = *wheel;
         let mode = self.mode % if wheel { 4 } else { 3 };
         if wheel {
@@ -259,6 +264,7 @@ impl Component for RoutingFixture {
             .content(
                 TextBlock::new()
                     .automation_id("routing-target")
+                    .foreground(Color::rgb(0, 0, 0))
                     .text("Pointer target"),
             );
         let parent = Border::new();
@@ -287,6 +293,37 @@ impl Component for RoutingFixture {
                 child.on_pointer_pressed(callback),
             )
         };
+        let calls = TextBlock::new()
+            .automation_id("calls")
+            .text(self.calls.borrow().join(if wheel { "\n" } else { ", " }));
+        let report: View = if wheel {
+            StackPanel::new()
+                .spacing(8.0)
+                .children((
+                    TextBlock::new()
+                        .text(match mode {
+                            0 => "Queued child: parent runs first, then the queued child.",
+                            1 => "Routed child: child runs first, then the parent.",
+                            2 => "Handled by child: only the routed child runs.",
+                            _ => "Child handler removed: only the parent runs.",
+                        })
+                        .text_wrapping(TextWrapping::Wrap),
+                    TextBlock::new()
+                        .text(
+                            "Wheel over Pointer target. Try Shift, Ctrl, or wheel tilt.\n\
+                             Each line is one callback, in delivery order. Delta is raw wheel input; \
+                             horizontal identifies wheel tilt.\n\
+                             Change mode clears the log.",
+                        )
+                        .text_wrapping(TextWrapping::Wrap),
+                    ScrollViewer::new()
+                        .height(180.0)
+                        .content(calls.text_wrapping(TextWrapping::Wrap)),
+                ))
+                .into()
+        } else {
+            calls.into()
+        };
         context.window_frame(
             if wheel {
                 "Reactor UI fixture: pointer-wheel"
@@ -302,9 +339,7 @@ impl Component for RoutingFixture {
                 TextBlock::new()
                     .automation_id("mode-state")
                     .text(format!("Mode {mode}")),
-                TextBlock::new()
-                    .automation_id("calls")
-                    .text(self.calls.borrow().join(", ")),
+                report,
             )),
         )
     }

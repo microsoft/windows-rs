@@ -194,7 +194,7 @@ fn wheel_modifiers_are_released_after_driver_failure() -> Result<()> {
         ui.pointer_wheel(30, false, &[0x10, 0x11])?;
         ui.name(
             "calls",
-            "parent delta 30 horizontal false shift true control true, \
+            "parent delta 30 horizontal false shift true control true\n\
              queued delta 30 horizontal false shift true control true",
         )?;
         Err("input driver failure probe".into())

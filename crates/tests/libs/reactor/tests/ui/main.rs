@@ -186,7 +186,7 @@ fn wheel_delivery_preserves_delta_axis_modifiers_and_routing() -> Result<()> {
                     )
                 })
                 .collect::<Vec<_>>()
-                .join(", ");
+                .join("\n");
             ui.name("calls", &expected)?;
             ui.release_wheel_modifiers()?;
         }

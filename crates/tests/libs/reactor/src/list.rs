@@ -4,6 +4,7 @@ pub(super) struct ListFixture {
     keys: Vec<&'static str>,
     selectable: bool,
     selected: Option<&'static str>,
+    input_trace: input_trace::InputTrace,
 }
 
 #[derive(Clone, Debug)]
@@ -26,6 +27,7 @@ impl Component for ListFixture {
             keys: vec!["alpha", "beta", "rich"],
             selectable: false,
             selected: None,
+            input_trace: input_trace::InputTrace::new(),
         }
     }
 
@@ -57,6 +59,7 @@ impl Component for ListFixture {
     }
 
     fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        context.on_window_size(self.input_trace.on_size());
         let items = self.keys.iter().map(|&key| {
             let item = DataItem::new(key, title(key));
             if key == "rich" {

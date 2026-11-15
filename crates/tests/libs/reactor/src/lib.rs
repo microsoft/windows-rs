@@ -13,6 +13,7 @@ mod dialog_theme;
 mod drag;
 mod flyout;
 mod image;
+mod input_trace;
 mod keyboard;
 mod list;
 mod pane;

@@ -703,7 +703,12 @@ impl Automation {
             }
             let mut previous = POINT::default();
             GetCursorPos(&mut previous).ok()?;
-            eprintln!("pointer move starts at ({}, {})", previous.x, previous.y);
+            eprintln!(
+                "pointer move starts at ({}, {}), tick {}",
+                previous.x,
+                previous.y,
+                GetTickCount(),
+            );
             send_mouse(
                 MOUSEEVENTF_MOVE
                     | MOUSEEVENTF_MOVE_NOCOALESCE
@@ -721,10 +726,12 @@ impl Automation {
             GetCursorPos(&mut point).ok()?;
             let window = WindowFromPoint(point);
             let mut owner = 0;
-            GetWindowThreadProcessId(window, &mut owner);
+            let thread = GetWindowThreadProcessId(window, &mut owner);
             eprintln!(
-                "pointer at ({}, {}), window owner PID {owner}",
-                point.x, point.y
+                "pointer at ({}, {}), window {window:?}, owner PID {owner}, thread {thread}, tick {}",
+                point.x,
+                point.y,
+                GetTickCount(),
             );
             if owner != self.process {
                 return Err(format!(
@@ -752,6 +759,21 @@ impl Automation {
                 bounds.top,
                 bounds.right,
                 bounds.bottom,
+            );
+            let mut info = GUITHREADINFO {
+                cbSize: size_of::<GUITHREADINFO>() as u32,
+                ..Default::default()
+            };
+            GetGUIThreadInfo(thread, &mut info).ok()?;
+            eprintln!(
+                "pointer GUI thread: flags {:#x}, active {:?}, focus {:?}, capture {:?}, \
+                 menu owner {:?}, move/size {:?}",
+                info.flags,
+                info.hwndActive,
+                info.hwndFocus,
+                info.hwndCapture,
+                info.hwndMenuOwner,
+                info.hwndMoveSize,
             );
         }
         self.pointer_ready()

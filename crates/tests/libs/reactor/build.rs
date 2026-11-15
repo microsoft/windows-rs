@@ -87,6 +87,7 @@ fn main() {
             "WindowFromPoint",
             "GetClassNameW",
             "GetCursorPos",
+            "GetTickCount",
             "SetThreadDpiAwarenessContext",
             "DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2",
             "IDataObject",
@@ -173,6 +174,26 @@ fn main() {
             "WM_GETICON",
             "ICON_BIG",
             "ICON_SMALL",
+        ])
+        .flat()
+        .minimal()
+        .write();
+
+    windows_bindgen::builder()
+        .output(
+            std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap())
+                .join("input_trace_bindings.rs"),
+        )
+        .input("../../../tools/reactor-metadata/winmd")
+        .input_default()
+        .filters([
+            "GetTickCount",
+            "Microsoft.UI.Xaml.Media.CompositionTarget.GetCompositorForCurrentThread",
+            "Microsoft.UI.Content.ContentIsland::{FindAllForCompositor,Id,IsConnected,IsIslandEnabled,IsIslandVisible,IsSiteEnabled,IsSiteVisible,StateChanged}",
+            "Microsoft.UI.Input.InputPointerSource::{GetForIsland,PointerEntered,PointerExited,PointerMoved,PointerPressed,PointerReleased,PointerWheelChanged}",
+            "Microsoft.UI.Input.PointerEventArgs::{CurrentPoint,KeyModifiers,Handled}",
+            "Microsoft.UI.Input.PointerPoint::{Position,PointerId,Timestamp,Properties}",
+            "Microsoft.UI.Input.PointerPointProperties::{MouseWheelDelta,IsHorizontalMouseWheel}",
         ])
         .flat()
         .minimal()
