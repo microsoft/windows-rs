@@ -1,6 +1,6 @@
 use bindings::*;
 use std::{cell::RefCell, rc::Rc};
-use windows_core::{EventRevoker, Ref};
+use windows_core::{EventRevoker, Interface, Ref};
 use windows_reactor::{Callback, WindowSize};
 
 #[allow(dead_code, nonstandard_style, clippy::all)]
@@ -44,6 +44,19 @@ pub(super) fn subscribe() -> windows_core::Result<Vec<EventRevoker>> {
         events.push(island.StateChanged(|sender, _| {
             state(sender.unwrap(), "changed").unwrap();
         })?);
+        let activation = InputActivationListener::GetForIsland(island)?;
+        eprintln!(
+            "native island activation: id {id:?}, state {:?}, tick {}",
+            activation.State()?,
+            unsafe { GetTickCount() },
+        );
+        events.push(activation.InputActivationChanged(move |sender, _| {
+            eprintln!(
+                "native island activation changed: id {id:?}, state {:?}, tick {}",
+                sender.unwrap().State().unwrap(),
+                unsafe { GetTickCount() },
+            );
+        })?);
         let source = InputPointerSource::GetForIsland(island)?;
         let handler = move |name| {
             move |_: Ref<InputPointerSource>, args: Ref<PointerEventArgs>| {
@@ -82,13 +95,14 @@ pub(super) fn subscribe() -> windows_core::Result<Vec<EventRevoker>> {
 fn state(island: &ContentIsland, phase: &str) -> windows_core::Result<()> {
     eprintln!(
         "native island {phase}: id {:?}, connected {}, island enabled {}, visible {}, \
-         site enabled {}, visible {}, tick {}",
+         site enabled {}, visible {}, processes pointer input {}, tick {}",
         island.Id()?,
         island.IsConnected()?,
         island.IsIslandEnabled()?,
         island.IsIslandVisible()?,
         island.IsSiteEnabled()?,
         island.IsSiteVisible()?,
+        island.cast::<IContentIsland2>()?.ProcessesPointerInput()?,
         unsafe { GetTickCount() },
     );
     Ok(())

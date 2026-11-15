@@ -70,6 +70,11 @@ without Reactor components or event dispatch. Its two cases compare the first su
 event with and without modifiers using the same injector. This is a diagnostic comparison, not a
 replacement for the Reactor routing cases.
 
+A separate native comparison waits for the target's background pixels to appear on the desktop
+before the first wheel input. This distinguishes UIA target discovery from observed rendering;
+neither observation alone establishes native input readiness. The immediate-input cases remain
+unchanged.
+
 The driver holds wheel modifiers until the fixture reports delivery, then releases them. Sending
 key-down, wheel, and key-up in one batch can release modifiers before the native wheel handler reads
 them. The supervisor also releases owned modifiers on driver failure; a separate case checks that

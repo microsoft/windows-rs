@@ -181,6 +181,43 @@ fn native_wheel_input_with_modifiers() -> Result<()> {
 }
 
 #[test]
+fn native_wheel_input_after_target_pixels_appear() -> Result<()> {
+    process::run("pointer-wheel-native", |ui| {
+        let target = ui.element("routing-target")?;
+        let coordinates = PhysicalCoordinates::new()?;
+        ui.wait(
+            "native target background appears on the desktop",
+            || unsafe {
+                let bounds = target.CurrentBoundingRectangle()?;
+                let dc = GetDC(std::ptr::null_mut());
+                assert!(!dc.is_null(), "GetDC failed");
+                let width = bounds.right - bounds.left;
+                let height = bounds.bottom - bounds.top;
+                let pixels = [1, 5, 9].map(|part| {
+                    GetPixel(
+                        dc,
+                        bounds.left + width * part / 10,
+                        bounds.top + height * 3 / 4,
+                    )
+                });
+                assert_ne!(ReleaseDC(std::ptr::null_mut(), dc), 0);
+                assert!(!pixels.contains(&u32::MAX), "GetPixel failed");
+                eprintln!("native target pixels: {pixels:x?}, tick {}", GetTickCount());
+                Ok(pixels)
+            },
+            |pixels| *pixels == [0x00f0f0f0; 3],
+        )?;
+        drop(coordinates);
+        ui.pointer_move_to(&target, "routing-target", 0.5, 0.5)?;
+        ui.pointer_wheel(30, false, &[])?;
+        ui.name(
+            "calls",
+            "delta 30 horizontal false shift false control false",
+        )
+    })
+}
+
+#[test]
 fn wheel_delivery_preserves_delta_axis_modifiers_and_routing() -> Result<()> {
     process::run("pointer-wheel", |ui| {
         for (index, (delta, horizontal, keys, handlers)) in [

@@ -199,7 +199,8 @@ fn main() {
         .filters([
             "GetTickCount",
             "Microsoft.UI.Xaml.Media.CompositionTarget.GetCompositorForCurrentThread",
-            "Microsoft.UI.Content.ContentIsland::{FindAllForCompositor,Id,IsConnected,IsIslandEnabled,IsIslandVisible,IsSiteEnabled,IsSiteVisible,StateChanged}",
+            "Microsoft.UI.Content.ContentIsland::{FindAllForCompositor,Id,IsConnected,IsIslandEnabled,IsIslandVisible,IsSiteEnabled,IsSiteVisible,ProcessesPointerInput,StateChanged}",
+            "Microsoft.UI.Input.InputActivationListener::{GetForIsland,State,InputActivationChanged}",
             "Microsoft.UI.Input.InputPointerSource::{GetForIsland,PointerEntered,PointerExited,PointerMoved,PointerPressed,PointerReleased,PointerWheelChanged}",
             "Microsoft.UI.Input.PointerEventArgs::{CurrentPoint,KeyModifiers,Handled}",
             "Microsoft.UI.Input.PointerPoint::{Position,PointerId,Timestamp,Properties}",
