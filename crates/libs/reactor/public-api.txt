@@ -487,6 +487,9 @@ pub windows_reactor::ThemeBrush::SystemCriticalBackground
 impl core::convert::From<windows_reactor::ThemeBrush> for windows_reactor::Brush
 pub fn windows_reactor::Brush::from(windows_reactor::ThemeBrush) -> Self
 #[non_exhaustive] pub enum windows_reactor::ThemeTransition
+pub windows_reactor::ThemeTransition::AddDelete
+pub windows_reactor::ThemeTransition::Content
+pub windows_reactor::ThemeTransition::Entrance
 pub windows_reactor::ThemeTransition::Reposition
 pub enum windows_reactor::TooltipPlacement
 pub windows_reactor::TooltipPlacement::Bottom
@@ -532,8 +535,6 @@ pub fn windows_reactor::AppBarButton::automation_live_setting(self, windows_reac
 pub fn windows_reactor::AppBarButton::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AppBarButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::AppBarButton::canvas_top(self, f64) -> Self
-pub fn windows_reactor::AppBarButton::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::AppBarButton::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::AppBarButton::grid_column(self, i32) -> Self
 pub fn windows_reactor::AppBarButton::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::AppBarButton::grid_row(self, i32) -> Self
@@ -575,8 +576,6 @@ pub fn windows_reactor::AppBarSeparator::automation_live_setting(self, windows_r
 pub fn windows_reactor::AppBarSeparator::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AppBarSeparator::canvas_left(self, f64) -> Self
 pub fn windows_reactor::AppBarSeparator::canvas_top(self, f64) -> Self
-pub fn windows_reactor::AppBarSeparator::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::AppBarSeparator::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::AppBarSeparator::grid_column(self, i32) -> Self
 pub fn windows_reactor::AppBarSeparator::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::AppBarSeparator::grid_row(self, i32) -> Self
@@ -633,8 +632,6 @@ pub fn windows_reactor::AutoSuggestBox::automation_name(self, impl core::convert
 pub fn windows_reactor::AutoSuggestBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::AutoSuggestBox::canvas_top(self, f64) -> Self
 pub fn windows_reactor::AutoSuggestBox::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::AutoSuggestBox>
-pub fn windows_reactor::AutoSuggestBox::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::AutoSuggestBox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::AutoSuggestBox::grid_column(self, i32) -> Self
 pub fn windows_reactor::AutoSuggestBox::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::AutoSuggestBox::grid_row(self, i32) -> Self
@@ -687,8 +684,6 @@ pub fn windows_reactor::BitmapIcon::automation_live_setting(self, windows_reacto
 pub fn windows_reactor::BitmapIcon::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::BitmapIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::BitmapIcon::canvas_top(self, f64) -> Self
-pub fn windows_reactor::BitmapIcon::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::BitmapIcon::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::BitmapIcon::grid_column(self, i32) -> Self
 pub fn windows_reactor::BitmapIcon::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::BitmapIcon::grid_row(self, i32) -> Self
@@ -734,12 +729,11 @@ pub fn windows_reactor::Border::border_thickness(self, impl core::convert::Into<
 pub fn windows_reactor::Border::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Border::canvas_top(self, f64) -> Self
 pub fn windows_reactor::Border::capture_pointer_on_press(self, bool) -> Self
+pub fn windows_reactor::Border::child_transitions(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>) -> Self
 pub fn windows_reactor::Border::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::Border::corner_radius(self, impl core::convert::Into<windows_reactor::CornerRadius>) -> Self
 pub fn windows_reactor::Border::drop_policy(self, windows_reactor::DragDropPolicy) -> Self
 pub fn windows_reactor::Border::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::Border>
-pub fn windows_reactor::Border::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Border::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Border::focus_on_pointer_release(self, bool) -> Self
 pub fn windows_reactor::Border::grid_column(self, i32) -> Self
 pub fn windows_reactor::Border::grid_column_span(self, i32) -> Self
@@ -802,8 +796,6 @@ pub fn windows_reactor::BreadcrumbBar::automation_live_setting(self, windows_rea
 pub fn windows_reactor::BreadcrumbBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::BreadcrumbBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::BreadcrumbBar::canvas_top(self, f64) -> Self
-pub fn windows_reactor::BreadcrumbBar::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::BreadcrumbBar::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::BreadcrumbBar::grid_column(self, i32) -> Self
 pub fn windows_reactor::BreadcrumbBar::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::BreadcrumbBar::grid_row(self, i32) -> Self
@@ -846,8 +838,6 @@ pub fn windows_reactor::Button::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Button::canvas_top(self, f64) -> Self
 pub fn windows_reactor::Button::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::Button::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::Button>
-pub fn windows_reactor::Button::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Button::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Button::grid_column(self, i32) -> Self
 pub fn windows_reactor::Button::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::Button::grid_row(self, i32) -> Self
@@ -894,8 +884,6 @@ pub fn windows_reactor::CalendarDatePicker::automation_name(self, impl core::con
 pub fn windows_reactor::CalendarDatePicker::canvas_left(self, f64) -> Self
 pub fn windows_reactor::CalendarDatePicker::canvas_top(self, f64) -> Self
 pub fn windows_reactor::CalendarDatePicker::date(self, impl core::convert::Into<core::option::Option<windows_time::bindings::DateTime>>) -> Self
-pub fn windows_reactor::CalendarDatePicker::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::CalendarDatePicker::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::CalendarDatePicker::grid_column(self, i32) -> Self
 pub fn windows_reactor::CalendarDatePicker::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::CalendarDatePicker::grid_row(self, i32) -> Self
@@ -941,8 +929,6 @@ pub fn windows_reactor::CalendarView::automation_live_setting(self, windows_reac
 pub fn windows_reactor::CalendarView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CalendarView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::CalendarView::canvas_top(self, f64) -> Self
-pub fn windows_reactor::CalendarView::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::CalendarView::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::CalendarView::grid_column(self, i32) -> Self
 pub fn windows_reactor::CalendarView::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::CalendarView::grid_row(self, i32) -> Self
@@ -1002,8 +988,7 @@ pub fn windows_reactor::Canvas::automation_name(self, impl core::convert::AsRef<
 pub fn windows_reactor::Canvas::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Canvas::canvas_top(self, f64) -> Self
 pub fn windows_reactor::Canvas::children(self, impl windows_reactor::IntoViews) -> Self
-pub fn windows_reactor::Canvas::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Canvas::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
+pub fn windows_reactor::Canvas::children_transitions(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>) -> Self
 pub fn windows_reactor::Canvas::grid_column(self, i32) -> Self
 pub fn windows_reactor::Canvas::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::Canvas::grid_row(self, i32) -> Self
@@ -1047,8 +1032,6 @@ pub fn windows_reactor::CheckBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::CheckBox::canvas_top(self, f64) -> Self
 pub fn windows_reactor::CheckBox::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::CheckBox::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::CheckBox>
-pub fn windows_reactor::CheckBox::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::CheckBox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::CheckBox::grid_column(self, i32) -> Self
 pub fn windows_reactor::CheckBox::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::CheckBox::grid_row(self, i32) -> Self
@@ -1105,8 +1088,6 @@ pub fn windows_reactor::ColorPicker::automation_name(self, impl core::convert::A
 pub fn windows_reactor::ColorPicker::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ColorPicker::canvas_top(self, f64) -> Self
 pub fn windows_reactor::ColorPicker::color(self, windows_reactor::Color) -> Self
-pub fn windows_reactor::ColorPicker::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ColorPicker::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ColorPicker::grid_column(self, i32) -> Self
 pub fn windows_reactor::ColorPicker::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ColorPicker::grid_row(self, i32) -> Self
@@ -1151,8 +1132,6 @@ pub fn windows_reactor::ComboBox::automation_name(self, impl core::convert::AsRe
 pub fn windows_reactor::ComboBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ComboBox::canvas_top(self, f64) -> Self
 pub fn windows_reactor::ComboBox::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::ComboBox>
-pub fn windows_reactor::ComboBox::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ComboBox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ComboBox::grid_column(self, i32) -> Self
 pub fn windows_reactor::ComboBox::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ComboBox::grid_row(self, i32) -> Self
@@ -1198,8 +1177,6 @@ pub fn windows_reactor::CommandBar::automation_live_setting(self, windows_reacto
 pub fn windows_reactor::CommandBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CommandBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::CommandBar::canvas_top(self, f64) -> Self
-pub fn windows_reactor::CommandBar::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::CommandBar::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::CommandBar::grid_column(self, i32) -> Self
 pub fn windows_reactor::CommandBar::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::CommandBar::grid_row(self, i32) -> Self
@@ -1334,8 +1311,6 @@ pub fn windows_reactor::DatePicker::automation_name(self, impl core::convert::As
 pub fn windows_reactor::DatePicker::canvas_left(self, f64) -> Self
 pub fn windows_reactor::DatePicker::canvas_top(self, f64) -> Self
 pub fn windows_reactor::DatePicker::day_visible(self, bool) -> Self
-pub fn windows_reactor::DatePicker::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::DatePicker::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::DatePicker::grid_column(self, i32) -> Self
 pub fn windows_reactor::DatePicker::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::DatePicker::grid_row(self, i32) -> Self
@@ -1392,8 +1367,6 @@ pub fn windows_reactor::DropDownButton::automation_name(self, impl core::convert
 pub fn windows_reactor::DropDownButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::DropDownButton::canvas_top(self, f64) -> Self
 pub fn windows_reactor::DropDownButton::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::DropDownButton::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::DropDownButton::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::DropDownButton::grid_column(self, i32) -> Self
 pub fn windows_reactor::DropDownButton::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::DropDownButton::grid_row(self, i32) -> Self
@@ -1476,8 +1449,6 @@ pub fn windows_reactor::Ellipse::automation_live_setting(self, windows_reactor::
 pub fn windows_reactor::Ellipse::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Ellipse::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Ellipse::canvas_top(self, f64) -> Self
-pub fn windows_reactor::Ellipse::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Ellipse::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Ellipse::fill(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::Ellipse::grid_column(self, i32) -> Self
 pub fn windows_reactor::Ellipse::grid_column_span(self, i32) -> Self
@@ -1517,10 +1488,6 @@ impl core::cmp::PartialEq for windows_reactor::EncodedImage
 pub fn windows_reactor::EncodedImage::eq(&self, &Self) -> bool
 impl core::fmt::Debug for windows_reactor::EncodedImage
 pub fn windows_reactor::EncodedImage::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result
-pub struct windows_reactor::ExitTransition
-impl windows_reactor::ExitTransition
-pub const fn windows_reactor::ExitTransition::duration(self) -> core::time::Duration
-pub fn windows_reactor::ExitTransition::fade(core::time::Duration) -> core::option::Option<Self>
 pub struct windows_reactor::Expander(_)
 impl windows_reactor::Expander
 pub fn windows_reactor::Expander::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
@@ -1532,8 +1499,6 @@ pub fn windows_reactor::Expander::automation_name(self, impl core::convert::AsRe
 pub fn windows_reactor::Expander::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Expander::canvas_top(self, f64) -> Self
 pub fn windows_reactor::Expander::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::Expander::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Expander::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Expander::grid_column(self, i32) -> Self
 pub fn windows_reactor::Expander::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::Expander::grid_row(self, i32) -> Self
@@ -1576,8 +1541,6 @@ pub fn windows_reactor::FlipView::automation_live_setting(self, windows_reactor:
 pub fn windows_reactor::FlipView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::FlipView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::FlipView::canvas_top(self, f64) -> Self
-pub fn windows_reactor::FlipView::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::FlipView::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::FlipView::grid_column(self, i32) -> Self
 pub fn windows_reactor::FlipView::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::FlipView::grid_row(self, i32) -> Self
@@ -1627,8 +1590,6 @@ pub fn windows_reactor::FontIcon::automation_live_setting(self, windows_reactor:
 pub fn windows_reactor::FontIcon::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::FontIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::FontIcon::canvas_top(self, f64) -> Self
-pub fn windows_reactor::FontIcon::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::FontIcon::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::FontIcon::font_size(self, f64) -> Self
 pub fn windows_reactor::FontIcon::foreground(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::FontIcon::glyph(self, impl core::convert::AsRef<str>) -> Self
@@ -1686,11 +1647,10 @@ pub fn windows_reactor::Grid::background(self, impl core::convert::Into<windows_
 pub fn windows_reactor::Grid::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Grid::canvas_top(self, f64) -> Self
 pub fn windows_reactor::Grid::children(self, impl windows_reactor::IntoViews) -> Self
+pub fn windows_reactor::Grid::children_transitions(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>) -> Self
 pub fn windows_reactor::Grid::column_spacing(self, f64) -> Self
 pub fn windows_reactor::Grid::columns(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::GridLength>) -> Self
 pub fn windows_reactor::Grid::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::Grid>
-pub fn windows_reactor::Grid::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Grid::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Grid::grid_column(self, i32) -> Self
 pub fn windows_reactor::Grid::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::Grid::grid_row(self, i32) -> Self
@@ -1744,8 +1704,6 @@ pub fn windows_reactor::GridView::can_drag_items(self, bool) -> Self
 pub fn windows_reactor::GridView::can_reorder_items(self, bool) -> Self
 pub fn windows_reactor::GridView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::GridView::canvas_top(self, f64) -> Self
-pub fn windows_reactor::GridView::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::GridView::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::GridView::grid_column(self, i32) -> Self
 pub fn windows_reactor::GridView::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::GridView::grid_row(self, i32) -> Self
@@ -1790,8 +1748,6 @@ pub fn windows_reactor::GridViewItem::automation_name(self, impl core::convert::
 pub fn windows_reactor::GridViewItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::GridViewItem::canvas_top(self, f64) -> Self
 pub fn windows_reactor::GridViewItem::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::GridViewItem::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::GridViewItem::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::GridViewItem::grid_column(self, i32) -> Self
 pub fn windows_reactor::GridViewItem::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::GridViewItem::grid_row(self, i32) -> Self
@@ -1833,8 +1789,6 @@ pub fn windows_reactor::HyperlinkButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::HyperlinkButton::canvas_top(self, f64) -> Self
 pub fn windows_reactor::HyperlinkButton::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::HyperlinkButton::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::HyperlinkButton>
-pub fn windows_reactor::HyperlinkButton::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::HyperlinkButton::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::HyperlinkButton::grid_column(self, i32) -> Self
 pub fn windows_reactor::HyperlinkButton::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::HyperlinkButton::grid_row(self, i32) -> Self
@@ -1891,8 +1845,6 @@ pub fn windows_reactor::Image::automation_name(self, impl core::convert::AsRef<s
 pub fn windows_reactor::Image::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Image::canvas_top(self, f64) -> Self
 pub fn windows_reactor::Image::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::Image>
-pub fn windows_reactor::Image::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Image::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Image::grid_column(self, i32) -> Self
 pub fn windows_reactor::Image::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::Image::grid_row(self, i32) -> Self
@@ -1939,8 +1891,6 @@ pub fn windows_reactor::ImageIcon::automation_live_setting(self, windows_reactor
 pub fn windows_reactor::ImageIcon::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ImageIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ImageIcon::canvas_top(self, f64) -> Self
-pub fn windows_reactor::ImageIcon::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ImageIcon::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ImageIcon::grid_column(self, i32) -> Self
 pub fn windows_reactor::ImageIcon::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ImageIcon::grid_row(self, i32) -> Self
@@ -1989,8 +1939,6 @@ pub fn windows_reactor::InfoBadge::automation_live_setting(self, windows_reactor
 pub fn windows_reactor::InfoBadge::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::InfoBadge::canvas_left(self, f64) -> Self
 pub fn windows_reactor::InfoBadge::canvas_top(self, f64) -> Self
-pub fn windows_reactor::InfoBadge::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::InfoBadge::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::InfoBadge::grid_column(self, i32) -> Self
 pub fn windows_reactor::InfoBadge::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::InfoBadge::grid_row(self, i32) -> Self
@@ -2029,8 +1977,6 @@ pub fn windows_reactor::InfoBar::automation_live_setting(self, windows_reactor::
 pub fn windows_reactor::InfoBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::InfoBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::InfoBar::canvas_top(self, f64) -> Self
-pub fn windows_reactor::InfoBar::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::InfoBar::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::InfoBar::grid_column(self, i32) -> Self
 pub fn windows_reactor::InfoBar::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::InfoBar::grid_row(self, i32) -> Self
@@ -2084,8 +2030,6 @@ pub fn windows_reactor::ItemsRepeater::automation_live_setting(self, windows_rea
 pub fn windows_reactor::ItemsRepeater::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ItemsRepeater::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ItemsRepeater::canvas_top(self, f64) -> Self
-pub fn windows_reactor::ItemsRepeater::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ItemsRepeater::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ItemsRepeater::grid_column(self, i32) -> Self
 pub fn windows_reactor::ItemsRepeater::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ItemsRepeater::grid_row(self, i32) -> Self
@@ -2153,8 +2097,6 @@ pub fn windows_reactor::Line::automation_live_setting(self, windows_reactor::Aut
 pub fn windows_reactor::Line::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Line::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Line::canvas_top(self, f64) -> Self
-pub fn windows_reactor::Line::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Line::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Line::grid_column(self, i32) -> Self
 pub fn windows_reactor::Line::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::Line::grid_row(self, i32) -> Self
@@ -2198,8 +2140,6 @@ pub fn windows_reactor::ListBox::automation_live_setting(self, windows_reactor::
 pub fn windows_reactor::ListBox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ListBox::canvas_top(self, f64) -> Self
-pub fn windows_reactor::ListBox::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ListBox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ListBox::grid_column(self, i32) -> Self
 pub fn windows_reactor::ListBox::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ListBox::grid_row(self, i32) -> Self
@@ -2242,8 +2182,6 @@ pub fn windows_reactor::ListBoxItem::automation_name(self, impl core::convert::A
 pub fn windows_reactor::ListBoxItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ListBoxItem::canvas_top(self, f64) -> Self
 pub fn windows_reactor::ListBoxItem::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::ListBoxItem::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ListBoxItem::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ListBoxItem::grid_column(self, i32) -> Self
 pub fn windows_reactor::ListBoxItem::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ListBoxItem::grid_row(self, i32) -> Self
@@ -2286,8 +2224,6 @@ pub fn windows_reactor::ListView::can_drag_items(self, bool) -> Self
 pub fn windows_reactor::ListView::can_reorder_items(self, bool) -> Self
 pub fn windows_reactor::ListView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ListView::canvas_top(self, f64) -> Self
-pub fn windows_reactor::ListView::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ListView::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ListView::grid_column(self, i32) -> Self
 pub fn windows_reactor::ListView::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ListView::grid_row(self, i32) -> Self
@@ -2332,8 +2268,6 @@ pub fn windows_reactor::ListViewItem::automation_name(self, impl core::convert::
 pub fn windows_reactor::ListViewItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ListViewItem::canvas_top(self, f64) -> Self
 pub fn windows_reactor::ListViewItem::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::ListViewItem::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ListViewItem::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ListViewItem::grid_column(self, i32) -> Self
 pub fn windows_reactor::ListViewItem::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ListViewItem::grid_row(self, i32) -> Self
@@ -2384,8 +2318,6 @@ pub fn windows_reactor::MenuBar::automation_live_setting(self, windows_reactor::
 pub fn windows_reactor::MenuBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::MenuBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::MenuBar::canvas_top(self, f64) -> Self
-pub fn windows_reactor::MenuBar::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::MenuBar::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::MenuBar::grid_column(self, i32) -> Self
 pub fn windows_reactor::MenuBar::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::MenuBar::grid_row(self, i32) -> Self
@@ -2424,8 +2356,6 @@ pub fn windows_reactor::MenuBarItem::automation_live_setting(self, windows_react
 pub fn windows_reactor::MenuBarItem::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::MenuBarItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::MenuBarItem::canvas_top(self, f64) -> Self
-pub fn windows_reactor::MenuBarItem::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::MenuBarItem::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::MenuBarItem::grid_column(self, i32) -> Self
 pub fn windows_reactor::MenuBarItem::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::MenuBarItem::grid_row(self, i32) -> Self
@@ -2466,8 +2396,6 @@ pub fn windows_reactor::NavigationView::automation_name(self, impl core::convert
 pub fn windows_reactor::NavigationView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::NavigationView::canvas_top(self, f64) -> Self
 pub fn windows_reactor::NavigationView::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::NavigationView::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::NavigationView::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::NavigationView::footer_menu_items(self, impl windows_reactor::IntoViews) -> Self
 pub fn windows_reactor::NavigationView::grid_column(self, i32) -> Self
 pub fn windows_reactor::NavigationView::grid_column_span(self, i32) -> Self
@@ -2527,8 +2455,6 @@ pub fn windows_reactor::NavigationViewItem::automation_name(self, impl core::con
 pub fn windows_reactor::NavigationViewItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::NavigationViewItem::canvas_top(self, f64) -> Self
 pub fn windows_reactor::NavigationViewItem::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::NavigationViewItem::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::NavigationViewItem::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::NavigationViewItem::grid_column(self, i32) -> Self
 pub fn windows_reactor::NavigationViewItem::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::NavigationViewItem::grid_row(self, i32) -> Self
@@ -2580,8 +2506,6 @@ pub fn windows_reactor::NumberBox::automation_name(self, impl core::convert::AsR
 pub fn windows_reactor::NumberBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::NumberBox::canvas_top(self, f64) -> Self
 pub fn windows_reactor::NumberBox::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::NumberBox>
-pub fn windows_reactor::NumberBox::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::NumberBox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::NumberBox::grid_column(self, i32) -> Self
 pub fn windows_reactor::NumberBox::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::NumberBox::grid_row(self, i32) -> Self
@@ -2629,8 +2553,6 @@ pub fn windows_reactor::PasswordBox::automation_name(self, impl core::convert::A
 pub fn windows_reactor::PasswordBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::PasswordBox::canvas_top(self, f64) -> Self
 pub fn windows_reactor::PasswordBox::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::PasswordBox>
-pub fn windows_reactor::PasswordBox::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::PasswordBox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::PasswordBox::grid_column(self, i32) -> Self
 pub fn windows_reactor::PasswordBox::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::PasswordBox::grid_row(self, i32) -> Self
@@ -2676,8 +2598,6 @@ pub fn windows_reactor::PathIcon::automation_name(self, impl core::convert::AsRe
 pub fn windows_reactor::PathIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::PathIcon::canvas_top(self, f64) -> Self
 pub fn windows_reactor::PathIcon::data(self, impl core::convert::AsRef<str>) -> Self
-pub fn windows_reactor::PathIcon::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::PathIcon::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::PathIcon::grid_column(self, i32) -> Self
 pub fn windows_reactor::PathIcon::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::PathIcon::grid_row(self, i32) -> Self
@@ -2716,8 +2636,6 @@ pub fn windows_reactor::PersonPicture::automation_name(self, impl core::convert:
 pub fn windows_reactor::PersonPicture::canvas_left(self, f64) -> Self
 pub fn windows_reactor::PersonPicture::canvas_top(self, f64) -> Self
 pub fn windows_reactor::PersonPicture::display_name(self, impl core::convert::AsRef<str>) -> Self
-pub fn windows_reactor::PersonPicture::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::PersonPicture::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::PersonPicture::grid_column(self, i32) -> Self
 pub fn windows_reactor::PersonPicture::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::PersonPicture::grid_row(self, i32) -> Self
@@ -2763,8 +2681,6 @@ pub fn windows_reactor::Pivot::automation_live_setting(self, windows_reactor::Au
 pub fn windows_reactor::Pivot::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Pivot::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Pivot::canvas_top(self, f64) -> Self
-pub fn windows_reactor::Pivot::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Pivot::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Pivot::grid_column(self, i32) -> Self
 pub fn windows_reactor::Pivot::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::Pivot::grid_row(self, i32) -> Self
@@ -2807,8 +2723,6 @@ pub fn windows_reactor::PivotItem::automation_name(self, impl core::convert::AsR
 pub fn windows_reactor::PivotItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::PivotItem::canvas_top(self, f64) -> Self
 pub fn windows_reactor::PivotItem::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::PivotItem::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::PivotItem::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::PivotItem::grid_column(self, i32) -> Self
 pub fn windows_reactor::PivotItem::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::PivotItem::grid_row(self, i32) -> Self
@@ -2859,8 +2773,6 @@ pub fn windows_reactor::ProgressBar::automation_live_setting(self, windows_react
 pub fn windows_reactor::ProgressBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ProgressBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ProgressBar::canvas_top(self, f64) -> Self
-pub fn windows_reactor::ProgressBar::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ProgressBar::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ProgressBar::grid_column(self, i32) -> Self
 pub fn windows_reactor::ProgressBar::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ProgressBar::grid_row(self, i32) -> Self
@@ -2905,8 +2817,6 @@ pub fn windows_reactor::ProgressRing::automation_live_setting(self, windows_reac
 pub fn windows_reactor::ProgressRing::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ProgressRing::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ProgressRing::canvas_top(self, f64) -> Self
-pub fn windows_reactor::ProgressRing::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ProgressRing::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ProgressRing::grid_column(self, i32) -> Self
 pub fn windows_reactor::ProgressRing::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ProgressRing::grid_row(self, i32) -> Self
@@ -2952,8 +2862,6 @@ pub fn windows_reactor::RadioButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RadioButton::canvas_top(self, f64) -> Self
 pub fn windows_reactor::RadioButton::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::RadioButton::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::RadioButton>
-pub fn windows_reactor::RadioButton::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::RadioButton::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::RadioButton::grid_column(self, i32) -> Self
 pub fn windows_reactor::RadioButton::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::RadioButton::grid_row(self, i32) -> Self
@@ -2996,8 +2904,6 @@ pub fn windows_reactor::RadioButtons::automation_live_setting(self, windows_reac
 pub fn windows_reactor::RadioButtons::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RadioButtons::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RadioButtons::canvas_top(self, f64) -> Self
-pub fn windows_reactor::RadioButtons::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::RadioButtons::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::RadioButtons::grid_column(self, i32) -> Self
 pub fn windows_reactor::RadioButtons::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::RadioButtons::grid_row(self, i32) -> Self
@@ -3043,8 +2949,6 @@ pub fn windows_reactor::RatingControl::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RatingControl::canvas_top(self, f64) -> Self
 pub fn windows_reactor::RatingControl::caption(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RatingControl::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::RatingControl>
-pub fn windows_reactor::RatingControl::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::RatingControl::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::RatingControl::grid_column(self, i32) -> Self
 pub fn windows_reactor::RatingControl::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::RatingControl::grid_row(self, i32) -> Self
@@ -3087,8 +2991,6 @@ pub fn windows_reactor::Rectangle::automation_live_setting(self, windows_reactor
 pub fn windows_reactor::Rectangle::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Rectangle::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Rectangle::canvas_top(self, f64) -> Self
-pub fn windows_reactor::Rectangle::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Rectangle::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Rectangle::fill(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::Rectangle::grid_column(self, i32) -> Self
 pub fn windows_reactor::Rectangle::grid_column_span(self, i32) -> Self
@@ -3132,8 +3034,7 @@ pub fn windows_reactor::RelativePanel::automation_name(self, impl core::convert:
 pub fn windows_reactor::RelativePanel::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RelativePanel::canvas_top(self, f64) -> Self
 pub fn windows_reactor::RelativePanel::children(self, impl windows_reactor::IntoViews) -> Self
-pub fn windows_reactor::RelativePanel::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::RelativePanel::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
+pub fn windows_reactor::RelativePanel::children_transitions(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>) -> Self
 pub fn windows_reactor::RelativePanel::grid_column(self, i32) -> Self
 pub fn windows_reactor::RelativePanel::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::RelativePanel::grid_row(self, i32) -> Self
@@ -3173,8 +3074,6 @@ pub fn windows_reactor::RepeatButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RepeatButton::canvas_top(self, f64) -> Self
 pub fn windows_reactor::RepeatButton::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::RepeatButton::delay(self, i32) -> Self
-pub fn windows_reactor::RepeatButton::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::RepeatButton::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::RepeatButton::grid_column(self, i32) -> Self
 pub fn windows_reactor::RepeatButton::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::RepeatButton::grid_row(self, i32) -> Self
@@ -3220,8 +3119,6 @@ pub fn windows_reactor::RichEditBox::automation_name(self, impl core::convert::A
 pub fn windows_reactor::RichEditBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RichEditBox::canvas_top(self, f64) -> Self
 pub fn windows_reactor::RichEditBox::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::RichEditBox>
-pub fn windows_reactor::RichEditBox::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::RichEditBox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::RichEditBox::grid_column(self, i32) -> Self
 pub fn windows_reactor::RichEditBox::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::RichEditBox::grid_row(self, i32) -> Self
@@ -3270,8 +3167,6 @@ pub fn windows_reactor::RichTextBlock::automation_live_setting(self, windows_rea
 pub fn windows_reactor::RichTextBlock::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RichTextBlock::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RichTextBlock::canvas_top(self, f64) -> Self
-pub fn windows_reactor::RichTextBlock::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::RichTextBlock::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::RichTextBlock::font_size(self, f64) -> Self
 pub fn windows_reactor::RichTextBlock::grid_column(self, i32) -> Self
 pub fn windows_reactor::RichTextBlock::grid_column_span(self, i32) -> Self
@@ -3343,8 +3238,6 @@ pub fn windows_reactor::ScrollView::automation_name(self, impl core::convert::As
 pub fn windows_reactor::ScrollView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ScrollView::canvas_top(self, f64) -> Self
 pub fn windows_reactor::ScrollView::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::ScrollView::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ScrollView::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ScrollView::grid_column(self, i32) -> Self
 pub fn windows_reactor::ScrollView::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ScrollView::grid_row(self, i32) -> Self
@@ -3385,8 +3278,6 @@ pub fn windows_reactor::ScrollViewer::automation_name(self, impl core::convert::
 pub fn windows_reactor::ScrollViewer::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ScrollViewer::canvas_top(self, f64) -> Self
 pub fn windows_reactor::ScrollViewer::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::ScrollViewer::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ScrollViewer::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ScrollViewer::grid_column(self, i32) -> Self
 pub fn windows_reactor::ScrollViewer::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ScrollViewer::grid_row(self, i32) -> Self
@@ -3426,8 +3317,6 @@ pub fn windows_reactor::SelectorBar::automation_live_setting(self, windows_react
 pub fn windows_reactor::SelectorBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SelectorBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SelectorBar::canvas_top(self, f64) -> Self
-pub fn windows_reactor::SelectorBar::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::SelectorBar::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::SelectorBar::grid_column(self, i32) -> Self
 pub fn windows_reactor::SelectorBar::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::SelectorBar::grid_row(self, i32) -> Self
@@ -3468,8 +3357,6 @@ pub fn windows_reactor::SelectorBarItem::automation_live_setting(self, windows_r
 pub fn windows_reactor::SelectorBarItem::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SelectorBarItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SelectorBarItem::canvas_top(self, f64) -> Self
-pub fn windows_reactor::SelectorBarItem::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::SelectorBarItem::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::SelectorBarItem::grid_column(self, i32) -> Self
 pub fn windows_reactor::SelectorBarItem::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::SelectorBarItem::grid_row(self, i32) -> Self
@@ -3511,8 +3398,6 @@ pub fn windows_reactor::Slider::automation_name(self, impl core::convert::AsRef<
 pub fn windows_reactor::Slider::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Slider::canvas_top(self, f64) -> Self
 pub fn windows_reactor::Slider::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::Slider>
-pub fn windows_reactor::Slider::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Slider::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Slider::grid_column(self, i32) -> Self
 pub fn windows_reactor::Slider::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::Slider::grid_row(self, i32) -> Self
@@ -3560,8 +3445,6 @@ pub fn windows_reactor::SplitButton::automation_name(self, impl core::convert::A
 pub fn windows_reactor::SplitButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SplitButton::canvas_top(self, f64) -> Self
 pub fn windows_reactor::SplitButton::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::SplitButton::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::SplitButton::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::SplitButton::grid_column(self, i32) -> Self
 pub fn windows_reactor::SplitButton::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::SplitButton::grid_row(self, i32) -> Self
@@ -3604,8 +3487,6 @@ pub fn windows_reactor::SplitView::canvas_top(self, f64) -> Self
 pub fn windows_reactor::SplitView::compact_pane_length(self, f64) -> Self
 pub fn windows_reactor::SplitView::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::SplitView::display_mode(self, windows_reactor::SplitViewDisplayMode) -> Self
-pub fn windows_reactor::SplitView::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::SplitView::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::SplitView::grid_column(self, i32) -> Self
 pub fn windows_reactor::SplitView::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::SplitView::grid_row(self, i32) -> Self
@@ -3648,8 +3529,7 @@ pub fn windows_reactor::StackPanel::automation_name(self, impl core::convert::As
 pub fn windows_reactor::StackPanel::canvas_left(self, f64) -> Self
 pub fn windows_reactor::StackPanel::canvas_top(self, f64) -> Self
 pub fn windows_reactor::StackPanel::children(self, impl windows_reactor::IntoViews) -> Self
-pub fn windows_reactor::StackPanel::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::StackPanel::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
+pub fn windows_reactor::StackPanel::children_transitions(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>) -> Self
 pub fn windows_reactor::StackPanel::grid_column(self, i32) -> Self
 pub fn windows_reactor::StackPanel::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::StackPanel::grid_row(self, i32) -> Self
@@ -3691,8 +3571,6 @@ pub fn windows_reactor::SwapChainPanel::automation_name(self, impl core::convert
 pub fn windows_reactor::SwapChainPanel::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SwapChainPanel::canvas_top(self, f64) -> Self
 pub fn windows_reactor::SwapChainPanel::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::SwapChainPanel>
-pub fn windows_reactor::SwapChainPanel::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::SwapChainPanel::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::SwapChainPanel::grid_column(self, i32) -> Self
 pub fn windows_reactor::SwapChainPanel::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::SwapChainPanel::grid_row(self, i32) -> Self
@@ -3732,8 +3610,6 @@ pub fn windows_reactor::SymbolIcon::automation_live_setting(self, windows_reacto
 pub fn windows_reactor::SymbolIcon::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SymbolIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SymbolIcon::canvas_top(self, f64) -> Self
-pub fn windows_reactor::SymbolIcon::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::SymbolIcon::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::SymbolIcon::grid_column(self, i32) -> Self
 pub fn windows_reactor::SymbolIcon::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::SymbolIcon::grid_row(self, i32) -> Self
@@ -3773,8 +3649,6 @@ pub fn windows_reactor::TabView::automation_name(self, impl core::convert::AsRef
 pub fn windows_reactor::TabView::can_reorder_tabs(self, bool) -> Self
 pub fn windows_reactor::TabView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TabView::canvas_top(self, f64) -> Self
-pub fn windows_reactor::TabView::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::TabView::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::TabView::grid_column(self, i32) -> Self
 pub fn windows_reactor::TabView::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::TabView::grid_row(self, i32) -> Self
@@ -3821,8 +3695,6 @@ pub fn windows_reactor::TabViewItem::automation_name(self, impl core::convert::A
 pub fn windows_reactor::TabViewItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TabViewItem::canvas_top(self, f64) -> Self
 pub fn windows_reactor::TabViewItem::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::TabViewItem::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::TabViewItem::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::TabViewItem::grid_column(self, i32) -> Self
 pub fn windows_reactor::TabViewItem::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::TabViewItem::grid_row(self, i32) -> Self
@@ -3865,8 +3737,6 @@ pub fn windows_reactor::TeachingTip::automation_name(self, impl core::convert::A
 pub fn windows_reactor::TeachingTip::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TeachingTip::canvas_top(self, f64) -> Self
 pub fn windows_reactor::TeachingTip::close_button_content(self, impl core::convert::AsRef<str>) -> Self
-pub fn windows_reactor::TeachingTip::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::TeachingTip::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::TeachingTip::grid_column(self, i32) -> Self
 pub fn windows_reactor::TeachingTip::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::TeachingTip::grid_row(self, i32) -> Self
@@ -3912,8 +3782,6 @@ pub fn windows_reactor::TextBlock::automation_name(self, impl core::convert::AsR
 pub fn windows_reactor::TextBlock::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TextBlock::canvas_top(self, f64) -> Self
 pub fn windows_reactor::TextBlock::character_spacing(self, i32) -> Self
-pub fn windows_reactor::TextBlock::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::TextBlock::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::TextBlock::font_family(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TextBlock::font_size(self, f64) -> Self
 pub fn windows_reactor::TextBlock::font_weight(self, windows_reactor::FontWeight) -> Self
@@ -3968,8 +3836,6 @@ pub fn windows_reactor::TextBox::border_thickness(self, impl core::convert::Into
 pub fn windows_reactor::TextBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TextBox::canvas_top(self, f64) -> Self
 pub fn windows_reactor::TextBox::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::TextBox>
-pub fn windows_reactor::TextBox::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::TextBox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::TextBox::grid_column(self, i32) -> Self
 pub fn windows_reactor::TextBox::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::TextBox::grid_row(self, i32) -> Self
@@ -4032,8 +3898,6 @@ pub fn windows_reactor::TimePicker::automation_name(self, impl core::convert::As
 pub fn windows_reactor::TimePicker::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TimePicker::canvas_top(self, f64) -> Self
 pub fn windows_reactor::TimePicker::clock_identifier(self, impl core::convert::AsRef<str>) -> Self
-pub fn windows_reactor::TimePicker::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::TimePicker::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::TimePicker::grid_column(self, i32) -> Self
 pub fn windows_reactor::TimePicker::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::TimePicker::grid_row(self, i32) -> Self
@@ -4076,8 +3940,6 @@ pub fn windows_reactor::TitleBar::automation_name(self, impl core::convert::AsRe
 pub fn windows_reactor::TitleBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TitleBar::canvas_top(self, f64) -> Self
 pub fn windows_reactor::TitleBar::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::TitleBar::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::TitleBar::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::TitleBar::grid_column(self, i32) -> Self
 pub fn windows_reactor::TitleBar::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::TitleBar::grid_row(self, i32) -> Self
@@ -4128,8 +3990,6 @@ pub fn windows_reactor::ToggleButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ToggleButton::canvas_top(self, f64) -> Self
 pub fn windows_reactor::ToggleButton::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::ToggleButton::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::ToggleButton>
-pub fn windows_reactor::ToggleButton::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ToggleButton::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ToggleButton::grid_column(self, i32) -> Self
 pub fn windows_reactor::ToggleButton::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ToggleButton::grid_row(self, i32) -> Self
@@ -4172,8 +4032,6 @@ pub fn windows_reactor::ToggleSwitch::automation_name(self, impl core::convert::
 pub fn windows_reactor::ToggleSwitch::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ToggleSwitch::canvas_top(self, f64) -> Self
 pub fn windows_reactor::ToggleSwitch::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::ToggleSwitch>
-pub fn windows_reactor::ToggleSwitch::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::ToggleSwitch::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::ToggleSwitch::grid_column(self, i32) -> Self
 pub fn windows_reactor::ToggleSwitch::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::ToggleSwitch::grid_row(self, i32) -> Self
@@ -4229,8 +4087,6 @@ pub fn windows_reactor::TreeView::automation_live_setting(self, windows_reactor:
 pub fn windows_reactor::TreeView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TreeView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TreeView::canvas_top(self, f64) -> Self
-pub fn windows_reactor::TreeView::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::TreeView::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::TreeView::grid_column(self, i32) -> Self
 pub fn windows_reactor::TreeView::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::TreeView::grid_row(self, i32) -> Self
@@ -4273,8 +4129,7 @@ pub fn windows_reactor::VariableSizedWrapGrid::automation_name(self, impl core::
 pub fn windows_reactor::VariableSizedWrapGrid::canvas_left(self, f64) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::canvas_top(self, f64) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::children(self, impl windows_reactor::IntoViews) -> Self
-pub fn windows_reactor::VariableSizedWrapGrid::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::VariableSizedWrapGrid::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
+pub fn windows_reactor::VariableSizedWrapGrid::children_transitions(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::grid_column(self, i32) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::grid_row(self, i32) -> Self
@@ -4499,8 +4354,6 @@ pub fn windows_reactor::Viewbox::automation_name(self, impl core::convert::AsRef
 pub fn windows_reactor::Viewbox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Viewbox::canvas_top(self, f64) -> Self
 pub fn windows_reactor::Viewbox::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::Viewbox::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::Viewbox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Viewbox::grid_column(self, i32) -> Self
 pub fn windows_reactor::Viewbox::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::Viewbox::grid_row(self, i32) -> Self
@@ -4596,8 +4449,6 @@ pub fn windows_reactor::WebView2::automation_name(self, impl core::convert::AsRe
 pub fn windows_reactor::WebView2::canvas_left(self, f64) -> Self
 pub fn windows_reactor::WebView2::canvas_top(self, f64) -> Self
 pub fn windows_reactor::WebView2::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::WebView2>
-pub fn windows_reactor::WebView2::exit_fade(self, core::time::Duration) -> Self
-pub fn windows_reactor::WebView2::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::WebView2::grid_column(self, i32) -> Self
 pub fn windows_reactor::WebView2::grid_column_span(self, i32) -> Self
 pub fn windows_reactor::WebView2::grid_row(self, i32) -> Self

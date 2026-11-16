@@ -531,7 +531,6 @@ pub struct WinUiAdapter {
     data_text_key: HSTRING,
     data_text_visibility_key: HSTRING,
     event_queue: Rc<NativeEventQueue>,
-    retirements: HashMap<ObjectId, NativeRetirement>,
     virtual_items: HashMap<ObjectId, NativeVirtualItems>,
     observations: HashMap<(ObjectId, u64), ObservationSubscription>,
     webview_initializations: Rc<RefCell<HashMap<ObjectId, WebViewInitialization>>>,
@@ -552,14 +551,6 @@ pub struct WinUiAdapter {
     tree_node_texts: Rc<RefCell<HashMap<usize, Rc<str>>>>,
 }
 
-struct NativeRetirement {
-    nodes: Vec<ObjectId>,
-    parent: ObjectId,
-    relation: RelationId,
-    timer: native::DispatcherQueueTimer,
-    _tick: windows_core::EventRevoker,
-}
-
 impl Default for WinUiAdapter {
     fn default() -> Self {
         Self {
@@ -577,7 +568,6 @@ impl Default for WinUiAdapter {
             data_text_key: HSTRING::from("Text"),
             data_text_visibility_key: HSTRING::from("TextVisibility"),
             event_queue: Rc::new(NativeEventQueue::default()),
-            retirements: HashMap::new(),
             virtual_items: HashMap::new(),
             observations: HashMap::new(),
             webview_initializations: Rc::new(RefCell::new(HashMap::new())),
@@ -602,10 +592,6 @@ impl Default for WinUiAdapter {
 
 impl Drop for WinUiAdapter {
     fn drop(&mut self) {
-        for retirement in self.retirements.values() {
-            _ = retirement.timer.Stop();
-        }
-        self.retirements.clear();
         let hide = self.event_queue.content_dialogs.borrow_mut().reset();
         for dialog in hide {
             _ = dialog.Hide();

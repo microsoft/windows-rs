@@ -268,30 +268,6 @@ impl WinUiAdapter {
                     moves,
                     children,
                 } => self.reorder(*parent, *relation, moves, children)?,
-                Mutation::Retire {
-                    root,
-                    nodes,
-                    parent,
-                    relation,
-                    duration,
-                } => {
-                    self.start_retirement(*root, nodes.clone(), *parent, *relation, *duration)?;
-                }
-                Mutation::CompleteRetirement { root, nodes } => {
-                    if nodes.iter().any(|object| {
-                        self.tooltips.contains_key(object)
-                            || self.tooltip_owners.contains_key(object)
-                            || self.flyouts.contains_key(object)
-                            || self.flyout_owners.contains_key(object)
-                            || self.menus.contains_key(object)
-                            || self.command_bar_flyouts.contains_key(object)
-                            || self.content_dialogs.contains_key(object)
-                            || self.content_dialog_owners.contains_key(object)
-                    }) {
-                        return Err(WinUiError::StillOwned(*root));
-                    }
-                    self.complete_retirement(*root, nodes)?;
-                }
                 Mutation::Destroy { object } => {
                     if self
                         .window_title_bar

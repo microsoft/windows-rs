@@ -1,6 +1,5 @@
 use super::*;
 use std::cell::Cell;
-use std::time::Duration;
 
 pub(super) struct RetirementFixture {
     target: ElementRef<Button>,
@@ -84,8 +83,8 @@ impl Component for RetirementFixture {
             3u32,
             TextBlock::new().automation_id("second").text("Second"),
         );
-        // Removal retires the fading child in its native slot and appends a replacement. Swap
-        // then moves the active siblings around that slot.
+        // Removal retires the child while WinUI animates it out and appends a replacement. Swap
+        // then moves the remaining siblings.
         let children = if let Some(callback) = &self.callback {
             vec![
                 first,
@@ -94,7 +93,6 @@ impl Component for RetirementFixture {
                     Button::new()
                         .automation_id("old")
                         .element_ref(&self.target)
-                        .exit_fade(Duration::from_secs(2))
                         .content("Old action")
                         .on_click(callback.clone()),
                 ),
@@ -126,10 +124,20 @@ impl Component for RetirementFixture {
             .margin(20.0)
             .spacing(12.0)
             .children((
-                StackPanel::new().keyed_children(children),
+                Border::new()
+                    .child_transitions([ThemeTransition::Content])
+                    .content(
+                        StackPanel::new()
+                            .children_transitions([
+                                ThemeTransition::AddDelete,
+                                ThemeTransition::Entrance,
+                                ThemeTransition::Reposition,
+                            ])
+                            .keyed_children(children),
+                    ),
                 Button::new()
                     .automation_id("remove")
-                    .content("Remove fading child")
+                    .content("Remove child")
                     .on_click(context.message(Message::Remove)),
                 Button::new()
                     .automation_id("swap")

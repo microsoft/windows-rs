@@ -1,7 +1,7 @@
 use super::*;
 
 #[test]
-fn exit_fade_retires_callbacks_and_removes_native_child() -> Result<()> {
+fn removal_transition_retires_callbacks_and_removes_native_child() -> Result<()> {
     process::run("retirement", |ui| {
         ui.name(
             "publication",
@@ -29,13 +29,10 @@ fn exit_fade_retires_callbacks_and_removes_native_child() -> Result<()> {
                 "retirement reused the old native child"
             );
         }
-        // The fading child keeps its native slot while active siblings are inserted and moved.
-        stacked(ui, &[&first, &original, &second, &replacement])?;
-        ui.invoke("swap")?;
-        stacked(ui, &[&second, &original, &first, &replacement])?;
-
+        // WinUI may still render and expose the removed child while it animates out.
         retired(ui, &invoke, "Selected 0; calls 1")?;
         ui.removed_from_tree("old")?;
+        ui.invoke("swap")?;
         for (key, element) in [("first", &first), ("second", &second)] {
             unsafe {
                 assert!(

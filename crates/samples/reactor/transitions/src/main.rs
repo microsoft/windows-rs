@@ -81,18 +81,33 @@ impl Component for Transitions {
                 .into(),
         ];
 
-        // An exit transition keeps the removed element visible until its animation completes.
+        // WinUI animates the replaced child of a Border with ChildTransitions.
+        let page: View = if toggled {
+            swatch("Page B").into()
+        } else {
+            TextBlock::new().text("Page A").font_size(24.0).into()
+        };
+        children.push(
+            Border::new()
+                .height(48.0)
+                .child_transitions([ThemeTransition::Content])
+                .content(page)
+                .into(),
+        );
+
+        // WinUI animates children added to or removed from a panel with ChildrenTransitions.
         if !toggled {
-            children.push(
-                swatch("Exit")
-                    .exit_transition(ExitTransition::fade(Duration::from_millis(600)))
-                    .into(),
-            );
+            children.push(swatch("Exit").into());
         }
 
         Border::new()
             .padding(Thickness::uniform(24.0))
-            .content(StackPanel::new().spacing(16.0).children(children))
+            .content(
+                StackPanel::new()
+                    .spacing(16.0)
+                    .children_transitions([ThemeTransition::AddDelete])
+                    .children(children),
+            )
             .into()
     }
 }

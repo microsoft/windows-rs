@@ -298,6 +298,10 @@ name = "Border"
 focus = true
 
 [[objects.properties]]
+name = "ChildTransitions"
+adapter = "theme_transitions"
+
+[[objects.properties]]
 name = "Background"
 adapter = "theme_brush"
 
@@ -435,6 +439,10 @@ name = "Grid"
 reference = true
 
 [[objects.properties]]
+name = "ChildrenTransitions"
+adapter = "theme_transitions"
+
+[[objects.properties]]
 name = "GridRows"
 adapter = "grid_rows"
 
@@ -464,6 +472,10 @@ identity = "Keyed"
 name = "StackPanel"
 
 [[objects.properties]]
+name = "ChildrenTransitions"
+adapter = "theme_transitions"
+
+[[objects.properties]]
 name = "Spacing"
 
 [[objects.properties]]
@@ -475,6 +487,10 @@ identity = "Keyed"
 
 [[objects]]
 name = "Canvas"
+
+[[objects.properties]]
+name = "ChildrenTransitions"
+adapter = "theme_transitions"
 
 [[objects.relations]]
 name = "Children"
@@ -717,6 +733,10 @@ payload_adapter = "inspectable_string"
 
 [[objects]]
 name = "VariableSizedWrapGrid"
+
+[[objects.properties]]
+name = "ChildrenTransitions"
+adapter = "theme_transitions"
 
 [[objects.properties]]
 name = "Orientation"
@@ -1838,6 +1858,10 @@ name = "Content"
 
 [[objects]]
 name = "RelativePanel"
+
+[[objects.properties]]
+name = "ChildrenTransitions"
+adapter = "theme_transitions"
 
 [[objects.relations]]
 name = "Children"

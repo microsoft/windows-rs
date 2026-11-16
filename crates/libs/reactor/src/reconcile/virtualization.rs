@@ -310,9 +310,7 @@ impl Runtime {
                 {
                     return None;
                 }
-                NativeEvent::Observation(_) | NativeEvent::Retirement(_)
-                    if self.native_event_active.get() =>
-                {
+                NativeEvent::Observation(_) if self.native_event_active.get() => {
                     return None;
                 }
                 _ => {}

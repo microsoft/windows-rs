@@ -44,7 +44,7 @@ impl RetainedGraph {
 
     pub(crate) fn owner(&self, child: ObjectId) -> Option<(ObjectId, RelationId)> {
         self.objects.iter().enumerate().find_map(|(index, slot)| {
-            let object = (!slot.retiring).then_some(slot.object.as_ref()).flatten()?;
+            let object = slot.object.as_ref()?;
             object.relations.iter().find_map(|relation| {
                 let contains = match &relation.value {
                     RetainedRelationValue::One(current) => *current == Some(child),
@@ -67,22 +67,14 @@ impl RetainedGraph {
 
     pub(super) fn get(&self, object: ObjectId) -> Option<&RetainedObject> {
         let slot = self.objects.get(object.index as usize)?;
-        (slot.generation == object.generation && !slot.retiring)
+        (slot.generation == object.generation)
             .then_some(slot.object.as_ref())
             .flatten()
-    }
-
-    /// Returns whether the adapter still owns the object, including during an exit transition.
-    pub(super) fn is_allocated(&self, object: ObjectId) -> bool {
-        self.objects
-            .get(object.index as usize)
-            .is_some_and(|slot| slot.generation == object.generation && slot.object.is_some())
     }
 
     pub(super) fn get_mut(&mut self, object: ObjectId) -> &mut RetainedObject {
         let slot = &mut self.objects[object.index as usize];
         assert_eq!(slot.generation, object.generation);
-        assert!(!slot.retiring);
         slot.object.as_mut().unwrap()
     }
 
@@ -132,7 +124,6 @@ impl RetainedGraph {
         if current.kind != declaration.kind
             || (compare_key && current.key != declaration.key)
             || current.reference != declaration.reference
-            || current.exit_transition != declaration.exit_transition
             || current.window_title_bar != declaration.window_title_bar
             || current.properties.as_slice() != declaration.properties.as_slice()
             || retained_events(&current.events) != declaration.events.as_slice()
@@ -314,7 +305,6 @@ impl RetainedGraph {
         if let Some(index) = self.free.pop() {
             let slot = &mut self.objects[index as usize];
             slot.object = Some(object);
-            slot.retiring = false;
             ObjectId {
                 index,
                 generation: slot.generation,
@@ -324,7 +314,6 @@ impl RetainedGraph {
             self.objects.push(RetainedSlot {
                 generation: 0,
                 object: Some(object),
-                retiring: false,
             });
             ObjectId {
                 index,
@@ -337,7 +326,6 @@ impl RetainedGraph {
         let slot = &mut self.objects[object.index as usize];
         assert_eq!(slot.generation, object.generation);
         slot.object = None;
-        slot.retiring = false;
         slot.generation = slot.generation.wrapping_add(1);
         self.free.push(object.index);
     }

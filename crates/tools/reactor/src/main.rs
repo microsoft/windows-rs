@@ -430,6 +430,7 @@ impl Value {
             Self::CornerRadius => format!("{name}: impl Into<CornerRadius>"),
             Self::F64 => format!("{name}: f64"),
             Self::GridLengths => format!("{name}: impl IntoIterator<Item = GridLength>"),
+            Self::ThemeTransitions => format!("{name}: impl IntoIterator<Item = ThemeTransition>"),
             Self::I32 => format!("{name}: i32"),
             Self::Icon => format!("{name}: impl Into<Icon>"),
             Self::OptionalF64 => format!("{name}: impl Into<Option<f64>>"),
@@ -449,8 +450,8 @@ impl Value {
             Self::String => format!("PropertyValue::String(Rc::from({name}.as_ref()))"),
             Self::Brush | Self::Icon => format!("PropertyValue::{self}({name}.into())"),
             Self::DragDropPolicy => format!("PropertyValue::DragDropPolicy(Rc::new({name}))"),
-            Self::GridLengths => {
-                format!("PropertyValue::GridLengths({name}.into_iter().collect())")
+            Self::GridLengths | Self::ThemeTransitions => {
+                format!("PropertyValue::{self}({name}.into_iter().collect())")
             }
             Self::OptionalF64
             | Self::OptionalBool

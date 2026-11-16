@@ -2278,6 +2278,16 @@ impl Border {
         let declaration = Declaration::new(ObjectType::Border);
         Self(declaration)
     }
+    pub fn child_transitions(
+        mut self,
+        child_transitions: impl IntoIterator<Item = ThemeTransition>,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ChildTransitions,
+            PropertyValue::ThemeTransitions(child_transitions.into_iter().collect()),
+        );
+        self
+    }
     pub fn background(mut self, background: impl Into<Brush>) -> Self {
         self.0 = self.0.property(
             PropertyId::Background,
@@ -2548,6 +2558,16 @@ impl Grid {
         let declaration = Declaration::new(ObjectType::Grid);
         Self(declaration)
     }
+    pub fn children_transitions(
+        mut self,
+        children_transitions: impl IntoIterator<Item = ThemeTransition>,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ChildrenTransitions,
+            PropertyValue::ThemeTransitions(children_transitions.into_iter().collect()),
+        );
+        self
+    }
     pub fn rows(mut self, values: impl IntoIterator<Item = GridLength>) -> Self {
         self.0 = self.0.property(
             PropertyId::GridRows,
@@ -2638,6 +2658,16 @@ impl StackPanel {
         let declaration = Declaration::new(ObjectType::StackPanel);
         Self(declaration)
     }
+    pub fn children_transitions(
+        mut self,
+        children_transitions: impl IntoIterator<Item = ThemeTransition>,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ChildrenTransitions,
+            PropertyValue::ThemeTransitions(children_transitions.into_iter().collect()),
+        );
+        self
+    }
     pub fn spacing(mut self, spacing: f64) -> Self {
         self.0 = self
             .0
@@ -2697,6 +2727,16 @@ impl Canvas {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::Canvas);
         Self(declaration)
+    }
+    pub fn children_transitions(
+        mut self,
+        children_transitions: impl IntoIterator<Item = ThemeTransition>,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ChildrenTransitions,
+            PropertyValue::ThemeTransitions(children_transitions.into_iter().collect()),
+        );
+        self
     }
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -3365,6 +3405,16 @@ impl VariableSizedWrapGrid {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::VariableSizedWrapGrid);
         Self(declaration)
+    }
+    pub fn children_transitions(
+        mut self,
+        children_transitions: impl IntoIterator<Item = ThemeTransition>,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ChildrenTransitions,
+            PropertyValue::ThemeTransitions(children_transitions.into_iter().collect()),
+        );
+        self
     }
     pub fn orientation(mut self, orientation: Orientation) -> Self {
         self.0 = self
@@ -6648,6 +6698,16 @@ impl RelativePanel {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::RelativePanel);
         Self(declaration)
+    }
+    pub fn children_transitions(
+        mut self,
+        children_transitions: impl IntoIterator<Item = ThemeTransition>,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ChildrenTransitions,
+            PropertyValue::ThemeTransitions(children_transitions.into_iter().collect()),
+        );
+        self
     }
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.

@@ -10,7 +10,6 @@ mod runtime;
 mod virtualization;
 
 pub use feedback::*;
-use retirement::NativeChildren;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct ObjectId {
@@ -157,17 +156,6 @@ pub enum Mutation {
         moves: Vec<Move>,
         children: Vec<ObjectId>,
     },
-    Retire {
-        root: ObjectId,
-        nodes: Vec<ObjectId>,
-        parent: ObjectId,
-        relation: RelationId,
-        duration: Duration,
-    },
-    CompleteRetirement {
-        root: ObjectId,
-        nodes: Vec<ObjectId>,
-    },
     Destroy {
         object: ObjectId,
     },
@@ -198,11 +186,6 @@ impl NativeBatch {
     pub(crate) fn mutations(&self) -> &[Mutation] {
         &self.mutations
     }
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct RetirementCompletion {
-    pub root: ObjectId,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -281,7 +264,6 @@ pub enum NativeEvent<E = EventDispatch> {
         observation: Option<Observation>,
         event: E,
     },
-    Retirement(RetirementCompletion),
     Realization(RealizationRequest),
 }
 
@@ -303,7 +285,7 @@ impl<E> NativeEvent<E> {
         match self {
             Self::Observation(observation) | Self::Record(observation) => Some(observation),
             Self::Event { observation, .. } => observation.as_ref(),
-            Self::Retirement(_) | Self::Realization(_) => None,
+            Self::Realization(_) => None,
         }
     }
 
@@ -358,7 +340,6 @@ struct RetainedObject {
     kind: ObjectType,
     key: Option<Key>,
     reference: Option<ElementRef>,
-    exit_transition: Option<ExitTransition>,
     window_title_bar: Option<WindowTitleBarHeight>,
     attachments: Option<Box<RetainedAttachments>>,
     properties: SharedList<Property>,
@@ -438,13 +419,6 @@ struct RetainedRealization {
     child: Option<ObjectId>,
 }
 
-#[derive(Clone, Debug, PartialEq)]
-struct RetainedRetirement {
-    nodes: Vec<ObjectId>,
-    parent: ObjectId,
-    relation: RelationId,
-}
-
 fn retained_events(events: &Option<Rc<Vec<Event>>>) -> &[Event] {
     events.as_deref().map_or(&[], Vec::as_slice)
 }
@@ -468,10 +442,6 @@ pub struct RetainedGraph {
     root: Option<ObjectId>,
     objects: Vec<RetainedSlot>,
     free: Vec<u32>,
-    retirements: HashMap<ObjectId, RetainedRetirement>,
-    /// The native order of each relation with retiring children, which keep their native slots
-    /// until their retirement completes. Other relations' native order is their active order.
-    native_orders: HashMap<(ObjectId, RelationId), Vec<ObjectId>>,
     window_title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
 }
 
@@ -479,7 +449,6 @@ pub struct RetainedGraph {
 struct RetainedSlot {
     generation: u32,
     object: Option<RetainedObject>,
-    retiring: bool,
 }
 
 /// Owns retained state and the native adapter.
