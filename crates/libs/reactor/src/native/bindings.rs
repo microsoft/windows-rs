@@ -15124,6 +15124,192 @@ impl IScrollView {
             .ok()
         }
     }
+    pub(crate) fn HorizontalOffset(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).HorizontalOffset)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn VerticalOffset(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).VerticalOffset)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn ExtentWidth(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ExtentWidth)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn ExtentHeight(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ExtentHeight)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn ViewportWidth(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ViewportWidth)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn ViewportHeight(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ViewportHeight)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn ScrollToWithOptions<P2>(
+        &self,
+        horizontaloffset: f64,
+        verticaloffset: f64,
+        options: P2,
+    ) -> windows_core::Result<i32>
+    where
+        P2: windows_core::Param<ScrollingScrollOptions>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ScrollToWithOptions)(
+                windows_core::Interface::as_raw(self),
+                horizontaloffset,
+                verticaloffset,
+                options.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn ExtentChanged<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<ScrollView>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
+            + 'static,
+    {
+        let handler: TypedEventHandler<ScrollView, windows_core::IInspectable> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<ScrollView, windows_core::IInspectable>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<ScrollView, windows_core::IInspectable, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).ExtentChanged)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveExtentChanged,
+            ))
+        }
+    }
+    pub(crate) fn ViewChanged<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<ScrollView>, windows_core::Ref<windows_core::IInspectable>)
+            + Send
+            + Sync
+            + 'static,
+    {
+        let handler: TypedEventHandler<ScrollView, windows_core::IInspectable> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<ScrollView, windows_core::IInspectable>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<ScrollView, windows_core::IInspectable, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).ViewChanged)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveViewChanged,
+            ))
+        }
+    }
+    pub(crate) fn ScrollCompleted<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<ScrollView>, windows_core::Ref<ScrollingScrollCompletedEventArgs>)
+            + Send
+            + Sync
+            + 'static,
+    {
+        let handler: TypedEventHandler<ScrollView, ScrollingScrollCompletedEventArgs> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<ScrollView, ScrollingScrollCompletedEventArgs>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<ScrollView, ScrollingScrollCompletedEventArgs, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).ScrollCompleted)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveScrollCompleted,
+            ))
+        }
+    }
 }
 #[repr(C)]
 pub struct IScrollView_Vtbl {
@@ -15133,6 +15319,106 @@ pub struct IScrollView_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+    CurrentAnchor: usize,
+    ScrollPresenter: usize,
+    ExpressionAnimationSources: usize,
+    pub HorizontalOffset:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub VerticalOffset:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    ZoomFactor: usize,
+    pub ExtentWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub ExtentHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub ViewportWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub ViewportHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    ScrollableWidth: usize,
+    ScrollableHeight: usize,
+    State: usize,
+    HorizontalScrollBarVisibility: usize,
+    SetHorizontalScrollBarVisibility: usize,
+    VerticalScrollBarVisibility: usize,
+    SetVerticalScrollBarVisibility: usize,
+    ContentOrientation: usize,
+    SetContentOrientation: usize,
+    HorizontalScrollChainMode: usize,
+    SetHorizontalScrollChainMode: usize,
+    VerticalScrollChainMode: usize,
+    SetVerticalScrollChainMode: usize,
+    HorizontalScrollRailMode: usize,
+    SetHorizontalScrollRailMode: usize,
+    VerticalScrollRailMode: usize,
+    SetVerticalScrollRailMode: usize,
+    HorizontalScrollMode: usize,
+    SetHorizontalScrollMode: usize,
+    VerticalScrollMode: usize,
+    SetVerticalScrollMode: usize,
+    ComputedHorizontalScrollBarVisibility: usize,
+    ComputedVerticalScrollBarVisibility: usize,
+    ComputedHorizontalScrollMode: usize,
+    ComputedVerticalScrollMode: usize,
+    ZoomChainMode: usize,
+    SetZoomChainMode: usize,
+    ZoomMode: usize,
+    SetZoomMode: usize,
+    IgnoredInputKinds: usize,
+    SetIgnoredInputKinds: usize,
+    MinZoomFactor: usize,
+    SetMinZoomFactor: usize,
+    MaxZoomFactor: usize,
+    SetMaxZoomFactor: usize,
+    HorizontalAnchorRatio: usize,
+    SetHorizontalAnchorRatio: usize,
+    VerticalAnchorRatio: usize,
+    SetVerticalAnchorRatio: usize,
+    RegisterAnchorCandidate: usize,
+    UnregisterAnchorCandidate: usize,
+    ScrollTo: usize,
+    pub ScrollToWithOptions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        f64,
+        f64,
+        *mut core::ffi::c_void,
+        *mut i32,
+    ) -> windows_core::HRESULT,
+    ScrollBy: usize,
+    ScrollByWithOptions: usize,
+    AddScrollVelocity: usize,
+    ZoomTo: usize,
+    ZoomToWithOptions: usize,
+    ZoomBy: usize,
+    ZoomByWithOptions: usize,
+    AddZoomVelocity: usize,
+    pub ExtentChanged: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveExtentChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    StateChanged: usize,
+    RemoveStateChanged: usize,
+    pub ViewChanged: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveViewChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    ScrollAnimationStarting: usize,
+    RemoveScrollAnimationStarting: usize,
+    ZoomAnimationStarting: usize,
+    RemoveZoomAnimationStarting: usize,
+    pub ScrollCompleted: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveScrollCompleted:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
     IScrollViewFactory,
@@ -15224,6 +15510,54 @@ pub struct IScrollViewerStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     )
         -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
+    IScrollingScrollCompletedEventArgs,
+    IScrollingScrollCompletedEventArgs_Vtbl,
+    0x9bdeae9c_972c_54ae_9c62_fc1a03ff3fa8
+);
+impl IScrollingScrollCompletedEventArgs {
+    pub(crate) fn CorrelationId(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CorrelationId)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct IScrollingScrollCompletedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CorrelationId:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
+    IScrollingScrollOptions,
+    IScrollingScrollOptions_Vtbl,
+    0x30b2e77b_2553_5b09_b308_b4b06fc8f9af
+);
+#[repr(C)]
+pub struct IScrollingScrollOptions_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
+    IScrollingScrollOptionsFactory,
+    IScrollingScrollOptionsFactory_Vtbl,
+    0x31eb58fe_0f6a_51ec_90db_5ccaa0a288a6
+);
+#[repr(C)]
+pub struct IScrollingScrollOptionsFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        ScrollingAnimationMode,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
     ISelectionChangedEventArgs,
@@ -25860,6 +26194,24 @@ unsafe impl Send for ScrollViewer {}
 unsafe impl Sync for ScrollViewer {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ScrollingAnimationMode(pub i32);
+impl ScrollingAnimationMode {
+    pub const Disabled: Self = Self(0);
+    pub const Auto: Self = Self(2);
+}
+impl windows_core::imp::TypeKind for ScrollingAnimationMode {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for ScrollingAnimationMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Controls.ScrollingAnimationMode;i4)",
+    );
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Microsoft.UI.Xaml.Controls.ScrollingAnimationMode",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScrollingScrollBarVisibility(pub i32);
 impl ScrollingScrollBarVisibility {
     pub const Auto: Self = Self(0);
@@ -25877,6 +26229,92 @@ impl windows_core::RuntimeType for ScrollingScrollBarVisibility {
         b"Microsoft.UI.Xaml.Controls.ScrollingScrollBarVisibility",
     );
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ScrollingScrollCompletedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ScrollingScrollCompletedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for ScrollingScrollCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IScrollingScrollCompletedEventArgs>();
+}
+unsafe impl windows_core::Interface for ScrollingScrollCompletedEventArgs {
+    type Vtable = <IScrollingScrollCompletedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <IScrollingScrollCompletedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
+}
+impl core::ops::Deref for ScrollingScrollCompletedEventArgs {
+    type Target = IScrollingScrollCompletedEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ScrollingScrollCompletedEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ScrollingScrollCompletedEventArgs";
+}
+unsafe impl Send for ScrollingScrollCompletedEventArgs {}
+unsafe impl Sync for ScrollingScrollCompletedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ScrollingScrollOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ScrollingScrollOptions,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl ScrollingScrollOptions {
+    pub(crate) fn CreateInstance(
+        animationmode: ScrollingAnimationMode,
+    ) -> windows_core::Result<Self> {
+        Self::IScrollingScrollOptionsFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                animationmode,
+                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    fn IScrollingScrollOptionsFactory<
+        R,
+        F: FnOnce(&IScrollingScrollOptionsFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            ScrollingScrollOptions,
+            IScrollingScrollOptionsFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ScrollingScrollOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IScrollingScrollOptions>();
+}
+unsafe impl windows_core::Interface for ScrollingScrollOptions {
+    type Vtable = <IScrollingScrollOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IScrollingScrollOptions as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
+}
+impl core::ops::Deref for ScrollingScrollOptions {
+    type Target = IScrollingScrollOptions;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ScrollingScrollOptions {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ScrollingScrollOptions";
+}
+unsafe impl Send for ScrollingScrollOptions {}
+unsafe impl Sync for ScrollingScrollOptions {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SelectionChangedEventArgs(windows_core::IUnknown);

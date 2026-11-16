@@ -132,7 +132,8 @@ Microsoft::UI::Xaml::Controls::IRatingControl::{add_ValueChanged, get_Value, rem
 Microsoft::UI::Xaml::Controls::IRichEditBox::{add_TextChanged, get_Document, get_IsReadOnly, put_Header, put_IsReadOnly, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::IRichTextBlock::get_Blocks
 Microsoft::UI::Xaml::Controls::IRowDefinition::{put_Height, put_MaxHeight, put_MinHeight}
-Microsoft::UI::Xaml::Controls::IScrollView::put_Content
+Microsoft::UI::Xaml::Controls::IScrollingScrollCompletedEventArgs::get_CorrelationId
+Microsoft::UI::Xaml::Controls::IScrollView::{add_ExtentChanged, add_ScrollCompleted, add_ViewChanged, get_ExtentHeight, get_ExtentWidth, get_HorizontalOffset, get_VerticalOffset, get_ViewportHeight, get_ViewportWidth, put_Content, remove_ExtentChanged, remove_ScrollCompleted, remove_ViewChanged, ScrollToWithOptions}
 Microsoft::UI::Xaml::Controls::ISelectorBar::{add_SelectionChanged, get_Items, get_SelectedItem, put_SelectedItem, remove_SelectionChanged}
 Microsoft::UI::Xaml::Controls::ISelectorBarItem::{get_Text, put_Icon}
 Microsoft::UI::Xaml::Controls::ISlider::put_Header
@@ -200,6 +201,8 @@ Microsoft::UI::Xaml::Controls::RichEditBox::CreateInstance
 Microsoft::UI::Xaml::Controls::RichTextBlock::CreateInstance
 Microsoft::UI::Xaml::Controls::RowDefinition::CreateInstance
 Microsoft::UI::Xaml::Controls::RowDefinitionCollection::{}
+Microsoft::UI::Xaml::Controls::ScrollingAnimationMode::{Auto, Disabled}
+Microsoft::UI::Xaml::Controls::ScrollingScrollOptions::CreateInstance
 Microsoft::UI::Xaml::Controls::ScrollView::CreateInstance
 Microsoft::UI::Xaml::Controls::ScrollViewer::CreateInstance
 Microsoft::UI::Xaml::Controls::SelectorBar::CreateInstance

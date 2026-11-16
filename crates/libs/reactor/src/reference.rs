@@ -358,6 +358,63 @@ impl ElementRef<Image> {
     }
 }
 
+impl ElementRef<ScrollView> {
+    /// Observes the scroll offsets, viewport, and extent.
+    ///
+    /// The callback runs once the view is bound and again whenever any of these values change,
+    /// including during user and animated scrolling.
+    #[must_use]
+    pub fn observe_view(
+        &self,
+        callback: impl Fn(ScrollViewMetrics) + 'static,
+    ) -> ElementObservation {
+        self.observe(ReferenceObservation::ScrollView(Callback::new(callback)))
+    }
+
+    /// Scrolls to the given offsets, which WinUI clamps to the scrollable range.
+    ///
+    /// With `animate`, the scroll animates unless system animations are turned off. The
+    /// completion reports the view when the scroll ends, which is earlier than the target if
+    /// another scroll or user input interrupts it. It reports [`IntegrationError::Unavailable`]
+    /// if the view is removed first or WinUI does not start the scroll, such as when the view
+    /// has no content.
+    ///
+    /// # Panics
+    ///
+    /// Panics if either offset is not finite.
+    #[must_use]
+    pub fn request_scroll_to(
+        &self,
+        horizontal_offset: f64,
+        vertical_offset: f64,
+        animate: bool,
+        completion: impl Fn(Result<ScrollViewMetrics, IntegrationError>) + 'static,
+    ) -> bool {
+        assert!(
+            horizontal_offset.is_finite() && vertical_offset.is_finite(),
+            "scroll offsets must be finite"
+        );
+        self.enqueue(move |object, binding, target| ImperativeRequest::ScrollTo {
+            object,
+            horizontal_offset,
+            vertical_offset,
+            animate,
+            completion: current_completion(target, binding, completion),
+        })
+    }
+}
+
+/// The scroll position and sizes of a [`ScrollView`], in view pixels.
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ScrollViewMetrics {
+    pub horizontal_offset: f64,
+    pub vertical_offset: f64,
+    pub viewport_width: f64,
+    pub viewport_height: f64,
+    pub extent_width: f64,
+    pub extent_height: f64,
+}
+
 impl ElementRef<Grid> {
     #[must_use]
     pub fn observe_composition_host(
@@ -553,6 +610,7 @@ enum ReferenceObservation {
     },
     ImageScale(Callback<f64>),
     CompositionHost(Callback<CompositionHostEvent>),
+    ScrollView(Callback<ScrollViewMetrics>),
 }
 
 impl ObservationRegistration {
@@ -599,6 +657,16 @@ impl ObservationRegistration {
                     ),
                 }
             }
+            ReferenceObservation::ScrollView(callback) => ImperativeRequest::ObserveScrollView {
+                object: binding.object,
+                observation: self.id,
+                callback: current_observation(
+                    Rc::downgrade(target),
+                    binding.id,
+                    self.id,
+                    callback.clone(),
+                ),
+            },
         }
     }
 }
@@ -791,6 +859,11 @@ pub enum ImperativeRequest {
         observation: u64,
         callback: Callback<CompositionHostEvent>,
     },
+    ObserveScrollView {
+        object: ObjectId,
+        observation: u64,
+        callback: Callback<ScrollViewMetrics>,
+    },
     RevokeObservation {
         object: ObjectId,
         observation: u64,
@@ -799,6 +872,13 @@ pub enum ImperativeRequest {
         object: ObjectId,
         visual: Option<windows_core::IUnknown>,
         completion: Callback<Result<(), IntegrationError>>,
+    },
+    ScrollTo {
+        object: ObjectId,
+        horizontal_offset: f64,
+        vertical_offset: f64,
+        animate: bool,
+        completion: Callback<Result<ScrollViewMetrics, IntegrationError>>,
     },
 }
 
@@ -816,6 +896,11 @@ impl ImperativeRequest {
                 ..
             }
             | Self::ObserveCompositionHost {
+                object,
+                observation,
+                ..
+            }
+            | Self::ObserveScrollView {
                 object,
                 observation,
                 ..
@@ -842,6 +927,9 @@ impl ImperativeRequest {
             | Self::SetSwapChain { completion, .. }
             | Self::SetNativeImageSource { completion, .. }
             | Self::SetCompositionChildVisual { completion, .. } => {
+                completion.call(Err(IntegrationError::Unavailable));
+            }
+            Self::ScrollTo { completion, .. } => {
                 completion.call(Err(IntegrationError::Unavailable));
             }
             _ => {}

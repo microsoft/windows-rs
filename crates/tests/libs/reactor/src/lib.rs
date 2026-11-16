@@ -22,6 +22,7 @@ mod reference;
 mod repeater;
 mod resources;
 mod retirement;
+mod scroll;
 mod selection;
 mod smoke;
 mod surface;
@@ -380,6 +381,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "events" => App::run_component::<events::EventsFixture>(())?,
         "resources" => App::run_component::<resources::ResourcesFixture>(())?,
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
+        "scroll" => App::run_component::<scroll::ScrollFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
         "selection-index" => App::run_component::<selection::IndexSelectionFixture>(())?,
         "selection-items" => App::run_component::<selection::ItemSelectionFixture>(())?,
