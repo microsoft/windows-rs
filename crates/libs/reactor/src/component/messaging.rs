@@ -1,7 +1,5 @@
 use super::*;
 
-pub(super) const MESSAGE_CAPACITY: usize = 4_096;
-
 pub(super) struct Message {
     pub(super) component: ComponentId,
     pub(super) control: Option<Arc<TaskControl>>,
@@ -112,6 +110,10 @@ impl<M> Clone for LocalSender<M> {
 }
 
 impl<M: 'static> LocalSender<M> {
+    /// Queues a message without a fixed capacity limit.
+    ///
+    /// Returns `false` if the host has closed. An accepted message is discarded if its component
+    /// is removed before delivery. Producers that outpace delivery can grow the queue.
     #[must_use]
     pub fn send(&self, value: M) -> bool {
         let mut wake_queue = self.wake.lock().unwrap();
@@ -119,9 +121,6 @@ impl<M: 'static> LocalSender<M> {
             return false;
         }
         let mut queue = self.queue.borrow_mut();
-        if queue.len() >= MESSAGE_CAPACITY {
-            return false;
-        }
         let sequence = wake_queue.next_sequence;
         wake_queue.next_sequence = wake_queue.next_sequence.wrapping_add(1);
         queue.push_back(LocalMessage {
@@ -192,6 +191,7 @@ impl<M> Clone for ComponentSender<M> {
 }
 
 impl<M: Send + 'static> ComponentSender<M> {
+    /// Queues a message from any thread, with the same delivery rules as [`LocalSender::send`].
     #[must_use]
     pub fn send(&self, value: M) -> bool {
         self.enqueue(MessageValue::Send(Box::new(value)), None)
@@ -242,9 +242,10 @@ impl<M: 'static> ComponentSender<M> {
 
     pub(super) fn enqueue(&self, value: MessageValue, control: Option<Arc<TaskControl>>) -> bool {
         let mut queue = self.queue.lock().unwrap();
-        if queue.closed || queue.messages.len() >= MESSAGE_CAPACITY {
+        if queue.closed {
+            drop(queue);
             if let Some(control) = control {
-                control.reject();
+                control.cancel();
             }
             return false;
         }
@@ -288,8 +289,7 @@ impl<M: 'static> ComponentCompletion<M> {
     /// the message is delivered, without holding the message queue lock. If the component is
     /// removed before delivery, the factory is dropped without being called.
     ///
-    /// Returns `false` if the host has closed or its message queue is full. Factory captures
-    /// may be dropped on the submitting thread when the message is rejected.
+    /// Returns `false` if the host has closed, dropping factory captures on the submitting thread.
     #[must_use]
     pub fn complete_with(self, factory: impl FnOnce() -> M + Send + 'static) -> bool {
         self.0.enqueue(

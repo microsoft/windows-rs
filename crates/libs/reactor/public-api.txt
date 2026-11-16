@@ -1283,11 +1283,9 @@ pub fn windows_reactor::ComponentSender<M>::clone(&self) -> Self
 pub struct windows_reactor::ComponentTask
 impl windows_reactor::ComponentTask
 pub fn windows_reactor::ComponentTask::cancel(&self)
-pub fn windows_reactor::ComponentTask::is_rejected(&self) -> bool
 pub struct windows_reactor::ComponentTimer
 impl windows_reactor::ComponentTimer
 pub fn windows_reactor::ComponentTimer::cancel(&self)
-pub fn windows_reactor::ComponentTimer::is_rejected(&self) -> bool
 impl core::ops::drop::Drop for windows_reactor::ComponentTimer
 pub fn windows_reactor::ComponentTimer::drop(&mut self)
 pub struct windows_reactor::ContentDialog(_, _)
