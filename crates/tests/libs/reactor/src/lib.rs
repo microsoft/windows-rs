@@ -19,6 +19,7 @@ mod pane;
 mod pointer;
 mod reference;
 mod repeater;
+mod resources;
 mod retirement;
 mod selection;
 mod smoke;
@@ -375,6 +376,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
                 repeater::Selector::FlipViewBeforeReset,
             )?;
         }
+        "resources" => App::run_component::<resources::ResourcesFixture>(())?,
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
         "selection-index" => App::run_component::<selection::IndexSelectionFixture>(())?,

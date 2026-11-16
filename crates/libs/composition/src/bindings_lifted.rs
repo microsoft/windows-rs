@@ -12,6 +12,9 @@ impl windows_core::RuntimeType for AnimationIterationBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Microsoft.UI.Composition.AnimationIterationBehavior;i4)",
     );
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Microsoft.UI.Composition.AnimationIterationBehavior",
+    );
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -27,6 +30,8 @@ impl windows_core::imp::TypeKind for Color {
 impl windows_core::RuntimeType for Color {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Color");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -141,6 +146,9 @@ impl windows_core::RuntimeType for CompositionBatchTypes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Microsoft.UI.Composition.CompositionBatchTypes;u4)",
     );
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Microsoft.UI.Composition.CompositionBatchTypes",
+    );
 }
 impl CompositionBatchTypes {
     pub const fn contains(&self, other: Self) -> bool {
@@ -189,6 +197,9 @@ impl windows_core::imp::TypeKind for CompositionBorderMode {
 impl windows_core::RuntimeType for CompositionBorderMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Microsoft.UI.Composition.CompositionBorderMode;i4)",
+    );
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Microsoft.UI.Composition.CompositionBorderMode",
     );
 }
 #[repr(transparent)]
@@ -667,6 +678,8 @@ impl windows_core::RuntimeType for CompositionStretch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Microsoft.UI.Composition.CompositionStretch;i4)",
     );
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Microsoft.UI.Composition.CompositionStretch");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -807,6 +820,8 @@ impl windows_core::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Microsoft.Graphics.DirectX.DirectXAlphaMode;i4)",
     );
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Microsoft.Graphics.DirectX.DirectXAlphaMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -941,6 +956,9 @@ impl windows_core::imp::TypeKind for DirectXPixelFormat {
 impl windows_core::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Microsoft.Graphics.DirectX.DirectXPixelFormat;i4)",
+    );
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Microsoft.Graphics.DirectX.DirectXPixelFormat",
     );
 }
 windows_core::imp::define_winrt_interface!(
@@ -2885,6 +2903,8 @@ impl windows_core::imp::TypeKind for Size {
 impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Size");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

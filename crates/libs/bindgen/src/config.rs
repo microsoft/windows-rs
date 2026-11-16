@@ -83,13 +83,9 @@ impl Config<'_> {
 
     /// Emits the value-type runtime name used by non-minimal generic signatures.
     pub fn write_value_name_const(&self, type_name: TypeName) -> TokenStream {
-        if self.bindgen.style.is_minimal() {
-            quote! {}
-        } else {
-            let type_name_bytes = Literal::byte_string(format!("{type_name}").as_bytes());
-            quote! {
-                const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
-            }
+        let type_name_bytes = Literal::byte_string(format!("{type_name}").as_bytes());
+        quote! {
+            const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
         }
     }
 
