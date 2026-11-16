@@ -117,7 +117,7 @@ cargo run -p tool-bindings --quiet
 cargo check -p windows-reactor --quiet
 
 # Unit tests (headless, fast)
-cargo test -p windows-reactor --all-features --quiet
+cargo test -p windows-reactor --quiet
 
 # Public API tests (x64 interactive desktop; Cargo deploys the runtime)
 cargo test -p test-reactor

@@ -96,7 +96,7 @@ impl<A: Adapter> ComponentHost<A> {
     ) -> WindowPublication {
         let mut publication = WindowPublication::default();
         for (index, slot) in self.scopes.iter().enumerate() {
-            #[cfg(any(test, feature = "test"))]
+            #[cfg(test)]
             work::record(|work| work.window_scopes += 1);
             let Some(scope) = &slot.scope else {
                 continue;
@@ -109,7 +109,7 @@ impl<A: Adapter> ComponentHost<A> {
                 continue;
             }
             let window = match pending.iter().find(|pending| {
-                #[cfg(any(test, feature = "test"))]
+                #[cfg(test)]
                 work::record(|work| work.window_pending += 1);
                 pending.id == id
             }) {

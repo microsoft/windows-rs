@@ -3,12 +3,11 @@
 mod tasks;
 
 use std::alloc::{GlobalAlloc, Layout, System};
-use std::cell::{Cell, RefCell};
+use std::cell::RefCell;
 use std::fmt::Write;
 use std::rc::Rc;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::{Duration, Instant};
-use windows_reactor::test::*;
 use windows_reactor::*;
 use windows_sys::Win32::{GetCurrentProcess, GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS};
 
@@ -487,15 +486,20 @@ impl Metrics {
 
 struct Message;
 
+const TICK: Duration = Duration::from_millis(33);
+
 struct StockGrid {
     cells: Vec<View>,
     data: Vec<StockItem>,
+    finished: bool,
+    frames: ElementRef<SwapChainPanel>,
     metrics: Rc<RefCell<Metrics>>,
     options: Options,
-    _rendering: LiveRenderingSubscription,
+    _rendering: ElementObservation,
     revision: u64,
     source: StockDataSource,
-    _timer: LiveTickSubscription,
+    started: Instant,
+    _timer: ComponentTimer,
 }
 
 impl Component for StockGrid {
@@ -506,51 +510,48 @@ impl Component for StockGrid {
         let source = StockDataSource::new();
         let metrics = Rc::new(RefCell::new(Metrics::default()));
         metrics.borrow_mut().start();
-        let rendering = subscribe_live_rendering({
+        let frames = ElementRef::new();
+        let rendering = frames.observe_surface({
             let metrics = Rc::clone(&metrics);
-            move || metrics.borrow_mut().frame_rendered()
-        })
-        .unwrap();
-        let sender = context.sender();
-        let started = Instant::now();
-        let finished = Rc::new(Cell::new(false));
-        let timer = subscribe_live_interval(Duration::from_millis(33), {
-            let finished = Rc::clone(&finished);
-            let duration = options.duration;
-            let json = options.json;
-            let metrics = Rc::clone(&metrics);
-            let percent = options.percent;
-            move || {
-                if started.elapsed() >= duration {
-                    if finished.replace(true) {
-                        return;
-                    }
-                    let metrics = metrics.borrow();
-                    std::fs::write(report_path("report.txt"), metrics.report(percent)).unwrap();
-                    if json {
-                        std::fs::write(report_path("metrics.json"), metrics.json(percent)).unwrap();
-                    }
-                    schedule_live_test_exit(true).unwrap();
-                } else {
-                    _ = sender.send(Message);
+            move |event| {
+                if matches!(event, SwapChainPanelEvent::Rendering) {
+                    metrics.borrow_mut().frame_rendered();
                 }
             }
-        })
-        .unwrap();
+        });
+        let started = Instant::now();
         let data = source.snapshot();
         Self {
             cells: data.iter().enumerate().map(build_cell).collect(),
             data,
+            finished: false,
+            frames,
             metrics,
             options: *options,
             _rendering: rendering,
             revision: 0,
             source,
-            _timer: timer,
+            started,
+            _timer: context.set_timeout(TICK, Message),
         }
     }
 
-    fn update(&mut self, _message: Message, _context: &ComponentContext<Self>) {
+    fn update(&mut self, _message: Message, context: &ComponentContext<Self>) {
+        if self.finished {
+            return;
+        }
+        if self.started.elapsed() >= self.options.duration {
+            self.finished = true;
+            let metrics = self.metrics.borrow();
+            let percent = self.options.percent;
+            std::fs::write(report_path("report.txt"), metrics.report(percent)).unwrap();
+            if self.options.json {
+                std::fs::write(report_path("metrics.json"), metrics.json(percent)).unwrap();
+            }
+            _ = context.close_window();
+            return;
+        }
+        self._timer = context.set_timeout(TICK, Message);
         let allocation_start = ALLOCATED_BYTES.load(Ordering::Relaxed);
         let started = Instant::now();
         let changed = self.source.update(self.options.percent);
@@ -602,6 +603,10 @@ impl Component for StockGrid {
                         format!("Renders: {}", self.metrics.borrow().render_count),
                     )),
                 ScrollViewer::new().grid_row(1).content(grid),
+                SwapChainPanel::new()
+                    .element_ref(&self.frames)
+                    .width(0.0)
+                    .height(0.0),
             ))
             .into();
         self.metrics.borrow_mut().tree_built(

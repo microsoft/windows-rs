@@ -1,6 +1,6 @@
 #![doc = include_str!("../readme.md")]
 
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 #[path = "test_support/adapter.rs"]
 mod adapter;
 mod application;
@@ -17,7 +17,7 @@ mod sealed {
     pub trait UnitCallback {}
 }
 mod window;
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 #[path = "test_support/work.rs"]
 mod work;
 
@@ -41,7 +41,7 @@ pub use application::{
 };
 pub(crate) use sealed::Sealed;
 
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 use adapter::*;
 use component::*;
 pub use component::{
@@ -77,27 +77,6 @@ pub use reference::{
 };
 pub use window::*;
 pub use windows_time::{DateTime, TimeSpan};
-
-/// Internals for Reactor's own tests, benchmarks, and samples. Not a stable API.
-#[cfg(any(test, feature = "test"))]
-#[doc(hidden)]
-pub mod test {
-    pub use crate::adapter::RecordingAdapter;
-    pub use crate::component::{ComponentDrain, ComponentHost};
-    pub use crate::declaration::{EventCall, EventValue, PropertyValue};
-    pub use crate::generated::{EventId, ObjectType, PropertyId, RelationId};
-    #[cfg(feature = "test")]
-    pub use crate::native::{
-        LiveRenderingSubscription, LiveTickSubscription, schedule_live_test_exit,
-        subscribe_live_interval, subscribe_live_rendering,
-    };
-    pub use crate::reconcile::{
-        Adapter, EventDispatch, Mutation, ObjectId, RealizationRequest, RealizedContainer,
-        RetainedMemory, Runtime,
-    };
-    pub use crate::reference::ImperativeRequest;
-    pub use crate::work::{UpdateWork, measure_work};
-}
 
 #[cfg(test)]
 mod tests;

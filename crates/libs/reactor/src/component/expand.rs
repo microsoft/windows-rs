@@ -160,7 +160,7 @@ impl<A: Adapter> ComponentHost<A> {
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
     ) -> Cow<'a, Declaration> {
-        #[cfg(any(test, feature = "test"))]
+        #[cfg(test)]
         work::record(|work| work.expanded += 1);
         validate_limits(location.depth, expansion.objects);
         expansion.objects += 1;
@@ -555,7 +555,7 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     pub(super) fn refresh_roots_from(&mut self, declaration: &Declaration, object: ObjectId) {
-        #[cfg(any(test, feature = "test"))]
+        #[cfg(test)]
         work::record(|work| work.refreshed += 1);
         // The declaring component and each ancestor whose view is that component share the root.
         let mut component = declaration.component;

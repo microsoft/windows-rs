@@ -150,12 +150,6 @@ impl ComponentTimerRegistration for ThreadPoolTimer {
     }
 }
 
-impl ComponentHost<RecordingAdapter> {
-    pub fn focus(&mut self, reference: &ElementRef) -> bool {
-        self.runtime.focus(reference)
-    }
-}
-
 impl<A: Adapter> ComponentHost<A> {
     fn scope_depth(&self, mut id: ComponentId) -> usize {
         let mut depth = 0;
@@ -186,10 +180,6 @@ impl<A: Adapter> ComponentHost<A> {
             Rc::new(DefaultComponentUiServices),
             components,
         )
-    }
-
-    pub fn adapter(&self) -> &A {
-        self.runtime.adapter()
     }
 
     pub fn sender<C: Component>(&self, key: &Key) -> Option<ComponentSender<C::Message>>

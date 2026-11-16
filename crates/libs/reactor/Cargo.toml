@@ -9,9 +9,6 @@ repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
 
-[features]
-test = []
-
 [dependencies]
 windows-collections = { workspace = true, features = ["std"] }
 windows-core = { workspace = true }

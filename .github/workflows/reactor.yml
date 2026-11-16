@@ -65,7 +65,6 @@ jobs:
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
           cargo clippy -p windows-reactor --all-targets --quiet
-          cargo clippy -p windows-reactor --all-features --all-targets --quiet
           cargo clippy -p test-reactor --all-targets --quiet
           cargo clippy -p windows-canvas --no-default-features `
             --features reactor --all-targets --quiet
@@ -105,26 +104,3 @@ jobs:
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
           cargo test -p test-reactor --quiet
-
-  performance:
-    name: Reactor performance
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-    runs-on: windows-2025-vs2026
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Update toolchain
-        run: rustup update --no-self-update stable && rustup default stable
-
-      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
-
-      - name: Report performance measurements
-        shell: pwsh
-        env:
-          RUSTFLAGS: "-D warnings"
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          cargo run -p test-reactor-bench --release --quiet -- `
-            --architecture-report --samples 6

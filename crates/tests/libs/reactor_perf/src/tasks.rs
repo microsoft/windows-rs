@@ -348,15 +348,12 @@ impl Model {
 #[derive(Clone, PartialEq)]
 struct Input {
     options: Options,
-    live: bool,
     shared: Shared,
 }
 
 struct Workspace {
     model: Model,
     revision: usize,
-    _timer: Option<LiveTickSubscription>,
-    _rendering: Option<LiveRenderingSubscription>,
 }
 
 impl Component for Workspace {
@@ -365,42 +362,9 @@ impl Component for Workspace {
 
     fn create(input: &Input, context: &ComponentContext<Self>) -> Self {
         input.shared.0.borrow_mut().root = Some(context.sender());
-        let (timer, rendering) = if input.live {
-            let shared = input.shared.clone();
-            let options = input.options;
-            let step = Cell::new(0);
-            let finished = Cell::new(false);
-            let timer = subscribe_live_interval(Duration::from_millis(33), move || {
-                if finished.get() || !shared.settle() {
-                    return;
-                }
-                let current = step.get();
-                if current == (options.cycles + 1) * SCRIPT.len() {
-                    finished.set(true);
-                    let path = std::env::current_exe()
-                        .unwrap()
-                        .with_file_name("TaskViewer.Reactor.report.txt");
-                    std::fs::write(path, shared.report(options)).unwrap();
-                    schedule_live_test_exit(true).unwrap();
-                } else {
-                    let action = SCRIPT[current % SCRIPT.len()];
-                    shared.begin(action, current < SCRIPT.len());
-                    shared.dispatch(action, current);
-                    step.set(current + 1);
-                }
-            })
-            .unwrap();
-            let shared = input.shared.clone();
-            let rendering = subscribe_live_rendering(move || shared.rendered()).unwrap();
-            (Some(timer), Some(rendering))
-        } else {
-            (None, None)
-        };
         Self {
             model: Model::new(input.options.count),
             revision: 0,
-            _timer: timer,
-            _rendering: rendering,
         }
     }
 
@@ -471,7 +435,72 @@ impl Component for Workspace {
                     .grid_row(2)
                     .grid_column_span(2)
                     .content(component::<Status>("status", input.shared.clone())),
+                component::<Driver>("driver", (input.options, input.shared.clone())),
             ))
+            .into()
+    }
+}
+
+struct Driver {
+    finished: bool,
+    frames: ElementRef<SwapChainPanel>,
+    _rendering: ElementObservation,
+    step: usize,
+    _timer: ComponentTimer,
+}
+
+impl Component for Driver {
+    type Input = (Options, Shared);
+    type Message = ();
+
+    fn create((_, shared): &Self::Input, context: &ComponentContext<Self>) -> Self {
+        let frames = ElementRef::new();
+        let rendering = frames.observe_surface({
+            let shared = shared.clone();
+            move |event| {
+                if matches!(event, SwapChainPanelEvent::Rendering) {
+                    shared.rendered();
+                }
+            }
+        });
+        Self {
+            finished: false,
+            frames,
+            _rendering: rendering,
+            step: 0,
+            _timer: context.set_timeout(TICK, ()),
+        }
+    }
+
+    fn update(&mut self, _: (), context: &ComponentContext<Self>) {
+        if self.finished {
+            return;
+        }
+        self._timer = context.set_timeout(TICK, ());
+        let (options, shared) = context.input();
+        if !shared.settle() {
+            return;
+        }
+        if self.step == (options.cycles + 1) * SCRIPT.len() {
+            self.finished = true;
+            let path = std::env::current_exe()
+                .unwrap()
+                .with_file_name("TaskViewer.Reactor.report.txt");
+            std::fs::write(path, shared.report(*options)).unwrap();
+            _ = context.close_window();
+        } else {
+            let action = SCRIPT[self.step % SCRIPT.len()];
+            shared.begin(action, self.step < SCRIPT.len());
+            shared.dispatch(action, self.step);
+            self.step += 1;
+        }
+    }
+
+    fn view(&self, _: &Self::Input, _: &mut ViewContext<Self>) -> View {
+        SwapChainPanel::new()
+            .element_ref(&self.frames)
+            .width(0.0)
+            .height(0.0)
             .into()
     }
 }
@@ -650,7 +679,6 @@ pub(super) fn run(options: Options) {
     App::run_component_with_policy::<Workspace>(
         Input {
             options,
-            live: true,
             shared: Shared::default(),
         },
         WindowPolicy::new()
@@ -663,18 +691,6 @@ pub(super) fn run(options: Options) {
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    fn options() -> Options {
-        Options {
-            tasks: true,
-            count: 100,
-            cycles: 2,
-            duration: Duration::from_secs(1),
-            headless: false,
-            json: false,
-            percent: 10.0,
-        }
-    }
 
     #[test]
     fn model_revisions_follow_keys_not_row_values() {
@@ -694,78 +710,5 @@ mod tests {
         model.apply(Action::Reverse);
         assert_eq!(model.key_revision, 4);
         assert_eq!(model.visible[0].id, 0);
-    }
-
-    #[test]
-    fn replay_is_local_and_remounts_only_the_closed_detail() {
-        let shared = Shared::default();
-        let options = options();
-        let mut host = ComponentHost::mount(
-            RecordingAdapter::new(),
-            [component::<Workspace>(
-                "workspace",
-                Input {
-                    options,
-                    live: false,
-                    shared: shared.clone(),
-                },
-            )],
-        );
-        let detail_path = [Key::from("workspace"), Key::from("detail")];
-        let list = host
-            .reference_at(&[Key::from("workspace"), Key::from("list")])
-            .unwrap();
-        let list_object = list.get().unwrap();
-        let mut draft = None;
-        for step in 0..(options.cycles + 1) * SCRIPT.len() {
-            let action = SCRIPT[step % SCRIPT.len()];
-            let detail = host.reference_at(&detail_path);
-            let detail_object = detail.as_ref().and_then(ElementRef::get);
-            shared.begin(action, step < SCRIPT.len());
-            shared.dispatch(action, step);
-            host.drain(100);
-            assert!(shared.settle());
-            assert!(shared.0.borrow().pending.is_none());
-            assert_eq!(list.get(), Some(list_object));
-            match action {
-                Action::Close => {
-                    assert!(host.reference_at(&detail_path).is_none());
-                    assert!(detail.unwrap().get().is_none());
-                    draft = None;
-                }
-                Action::Open => {
-                    assert!(host.reference_at(&detail_path).unwrap().get().is_some());
-                }
-                _ => {
-                    assert_eq!(
-                        host.reference_at(&detail_path).unwrap().get(),
-                        detail_object,
-                    );
-                    if action == Action::Type {
-                        draft = Some(format!("Draft {step}"));
-                    } else if action == Action::Select {
-                        draft = None;
-                    }
-                }
-            }
-            if let Some(expected) = &draft {
-                assert!(host.runtime().graph().objects().any(|object| {
-                    host.runtime().graph().properties(object).unwrap().iter().any(|property| {
-                        matches!(&property.value, PropertyValue::String(text) if text.as_ref() == expected)
-                    })
-                }));
-            }
-        }
-        let state = shared.0.borrow();
-        assert_eq!(state.detail_mounts, 4);
-        for sample in &state.samples {
-            match sample.action {
-                Action::Type => assert_eq!(sample.views, [0, 0, 1, 0, 0]),
-                Action::Status => assert_eq!(sample.views, [0, 0, 0, 1, 0]),
-                _ => assert_eq!(sample.views[0], 1),
-            }
-        }
-        drop(state);
-        assert!(shared.report(options).contains("24 actions"));
     }
 }

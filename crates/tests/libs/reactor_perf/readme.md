@@ -19,7 +19,7 @@ cargo run -p test_reactor_perf --release -- --percent 10 --duration 10
 
 This opens a WinUI window and requires an interactive desktop. The `--headless` option is accepted
 for the comparison harness, but only changes the displayed label; it does not disable the window
-or rendering. For non-UI measurements, use [`test-reactor-bench`](../reactor_bench/readme.md).
+or rendering.
 
 The report is written next to the executable as `StressPerf.Reactor.report.txt`. Add `--json` to
 also write `StressPerf.Reactor.metrics.json`.
