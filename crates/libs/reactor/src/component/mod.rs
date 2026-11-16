@@ -645,7 +645,7 @@ impl<A: Adapter> ComponentHost<A> {
 #[path = "../tests/component/mod.rs"]
 mod tests;
 
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 #[path = "../test_support/component.rs"]
 mod test_support;
 #[cfg(test)]

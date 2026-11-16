@@ -209,7 +209,7 @@ impl Planner<'_> {
         object: ObjectId,
         declaration: &Declaration,
     ) -> ObjectId {
-        #[cfg(any(test, feature = "test"))]
+        #[cfg(test)]
         work::record(|work| work.reconciled += 1);
         debug_assert_eq!(self.retained.get(object).unwrap().kind, declaration.kind);
         if self.retained.get(object).unwrap().reference != declaration.reference {

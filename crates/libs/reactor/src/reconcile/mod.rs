@@ -576,8 +576,6 @@ fn defer_window_title_bar_sets(mutations: &mut Vec<Mutation>) {
     mutations.extend(deferred);
 }
 
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 #[path = "../test_support/reconcile.rs"]
 mod test_support;
-#[cfg(any(test, feature = "test"))]
-pub use test_support::*;

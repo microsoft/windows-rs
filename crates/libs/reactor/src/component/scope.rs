@@ -28,9 +28,9 @@ pub(super) trait ErasedComponent {
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> ComponentRender;
     fn cached_view(&self) -> View;
-    #[cfg(any(test, feature = "test"))]
+    #[cfg(test)]
     fn sender(&self) -> &dyn Any;
-    #[cfg(any(test, feature = "test"))]
+    #[cfg(test)]
     fn tracked_tasks(&self) -> usize;
 }
 
@@ -63,7 +63,7 @@ impl<C: Component> TypedScope<C> {
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> ComponentRender {
-        #[cfg(any(test, feature = "test"))]
+        #[cfg(test)]
         work::record(|work| work.views += 1);
         let mut context: ViewContext<'_, C> = ViewContext {
             context: self.context(&self.input, reference),
@@ -141,12 +141,12 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
         self.view.clone().unwrap()
     }
 
-    #[cfg(any(test, feature = "test"))]
+    #[cfg(test)]
     fn sender(&self) -> &dyn Any {
         &self.sender
     }
 
-    #[cfg(any(test, feature = "test"))]
+    #[cfg(test)]
     fn tracked_tasks(&self) -> usize {
         self.tasks
             .lock()

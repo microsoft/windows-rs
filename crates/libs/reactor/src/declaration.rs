@@ -1501,7 +1501,7 @@ pub enum EventCall {
     Bool(Callback<bool>, bool),
     Color(Callback<Color>, Color),
     ContentDialogResult(Callback<ContentDialogResult>, ContentDialogResult),
-    #[cfg(any(test, feature = "test"))]
+    #[cfg(test)]
     CharacterEventInfo(RoutedCallback<CharacterEventInfo>, CharacterEventInfo),
     String(Callback<Rc<str>>, Rc<str>),
     F64(Callback<f64>, f64),
@@ -1517,7 +1517,7 @@ pub enum EventCall {
         NavigationViewDisplayMode,
     ),
     PointerEventInfo(Callback<PointerEventInfo>, PointerEventInfo),
-    #[cfg(any(test, feature = "test"))]
+    #[cfg(test)]
     KeyEventInfo(RoutedCallback<KeyEventInfo>, KeyEventInfo),
     /// A menu or command bar item's key, or the key resolved from `Item`.
     Key(Callback<Key>, Key),

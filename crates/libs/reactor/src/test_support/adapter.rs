@@ -307,14 +307,6 @@ impl RecordingAdapter {
             .count()
     }
 
-    pub fn realization_count(&self) -> usize {
-        self.realizations.len()
-    }
-
-    pub fn queued_native_event_count(&self) -> usize {
-        self.native_events.len()
-    }
-
     fn coalesce_realization(
         events: &mut VecDeque<NativeEvent>,
         request: RealizationRequest,
@@ -996,14 +988,6 @@ impl RecordingAdapter {
 }
 
 impl Runtime<RecordingAdapter> {
-    pub fn record_batches(&mut self, record: bool) {
-        self.adapter_mut().record_batches(record);
-    }
-
-    pub fn complete_retirement(&mut self, root: ObjectId) -> bool {
-        self.adapter_mut().complete_retirement(root)
-    }
-
     pub fn complete_content_dialog(
         &mut self,
         dialog: ObjectId,
@@ -1022,10 +1006,6 @@ impl Runtime<RecordingAdapter> {
 }
 
 impl ComponentHost<RecordingAdapter> {
-    pub fn record_batches(&mut self, record: bool) {
-        self.runtime_mut_internal().record_batches(record);
-    }
-
     pub fn queue_event(&mut self, event: EventDispatch) {
         self.runtime_mut_internal().queue_event(event);
     }

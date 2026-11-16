@@ -126,7 +126,7 @@ impl RetainedGraph {
         remaining: &mut usize,
         compare_key: bool,
     ) -> bool {
-        #[cfg(any(test, feature = "test"))]
+        #[cfg(test)]
         work::record(|work| work.compared += 1);
         let Some(next) = remaining.checked_sub(1) else {
             panic!("declaration exceeds the maximum of {MAX_OBJECTS} objects");

@@ -3105,7 +3105,7 @@ pub(crate) fn object_index(kind: ObjectType) -> usize {
         ObjectType::SwapChainPanel => 80,
     }
 }
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 pub(crate) fn focus_capable(kind: ObjectType) -> bool {
     matches!(
         kind,

@@ -2,12 +2,8 @@
 
 `test-reactor` exercises Reactor's public API in real WinUI applications. Fixtures live in `src/`;
 UI Automation tests live in `tests/ui/`. Keep deterministic unit tests in `windows-reactor` and
-performance benchmarks separate.
-
-| Benchmark | Purpose |
-| --- | --- |
-| [`test-reactor-bench`](../reactor_bench/readme.md) | Headless update, allocation, and memory measurements |
-| [`test_reactor_perf`](../reactor_perf/readme.md) | Live WinUI workload for the Rust/C# comparison harness |
+performance benchmarks separate. [`test_reactor_perf`](../reactor_perf/readme.md) is the live WinUI
+workload for the Rust/C# comparison harness.
 
 ## Running
 
@@ -25,9 +21,6 @@ the child process's stdout/stderr log directory; successful cases remove their l
 
 `build.rs` generates native bindings and deploys the Windows App Runtime and WebView2 projection
 DLL. The first build needs network access for the pinned packages. Canvas uses WARP rendering.
-
-Run this crate alone to check default features; workspace builds can enable Reactor's `test`
-feature through benchmark dependencies.
 
 ## Leak checks
 

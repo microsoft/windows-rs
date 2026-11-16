@@ -876,6 +876,6 @@ impl<T: ReferenceElement> CompatibleElementRef<T> for ElementRef<AnyElement> {
     }
 }
 
-#[cfg(any(test, feature = "test"))]
+#[cfg(test)]
 #[path = "test_support/reference.rs"]
 mod test_support;

@@ -74,10 +74,6 @@ impl UpdateStats {
     pub fn iter(&self) -> std::slice::Iter<'_, Mutation> {
         self.details.iter()
     }
-
-    pub fn first(&self) -> Option<&Mutation> {
-        self.details.first()
-    }
 }
 
 impl EventDispatch {
@@ -199,24 +195,6 @@ impl RetainedGraph {
     #[cfg(test)]
     pub(crate) fn full_reference_scan_count(&self) -> usize {
         self.full_reference_scans.0.get()
-    }
-
-    pub fn objects(&self) -> impl Iterator<Item = ObjectId> + '_ {
-        self.objects.iter().enumerate().filter_map(|(index, slot)| {
-            (slot.object.is_some() && !slot.retiring).then_some(ObjectId {
-                index: index.try_into().unwrap(),
-                generation: slot.generation,
-            })
-        })
-    }
-}
-
-#[cfg(feature = "test")]
-impl<A: Adapter> Runtime<A> {
-    pub fn release_test_scratch(&mut self) {
-        self.mutations = Vec::new();
-        self.virtual_refreshes = VecDeque::new();
-        self.validator = DeclarationValidator::default();
     }
 }
 
