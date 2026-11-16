@@ -27,6 +27,52 @@ windows_core::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : HWND, lpopera
 windows_core::link!("user32.dll" "system" fn ShowWindow(hwnd : HWND, ncmdshow : i32) -> windows_core::BOOL);
 windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn TryCreatePackageDependency(user : PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
 pub const APPMODEL_ERROR_NO_PACKAGE: i32 = 15700;
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AddDeleteThemeTransition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    AddDeleteThemeTransition,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(AddDeleteThemeTransition, Transition, DependencyObject);
+impl AddDeleteThemeTransition {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            AddDeleteThemeTransition,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for AddDeleteThemeTransition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IAddDeleteThemeTransition>();
+}
+unsafe impl windows_core::Interface for AddDeleteThemeTransition {
+    type Vtable = <IAddDeleteThemeTransition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IAddDeleteThemeTransition as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
+}
+impl core::ops::Deref for AddDeleteThemeTransition {
+    type Target = IAddDeleteThemeTransition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for AddDeleteThemeTransition {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.Animation.AddDeleteThemeTransition";
+}
+unsafe impl Send for AddDeleteThemeTransition {}
+unsafe impl Sync for AddDeleteThemeTransition {}
 pub type AddPackageDependencyOptions = i32;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1188,6 +1234,16 @@ impl Border {
         Self::IBorderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PaddingProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn ChildTransitionsProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IBorderStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChildTransitionsProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
@@ -2717,6 +2773,52 @@ impl windows_core::RuntimeType for ContentSizePolicy {
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ContentThemeTransition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ContentThemeTransition,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(ContentThemeTransition, Transition, DependencyObject);
+impl ContentThemeTransition {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            ContentThemeTransition,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ContentThemeTransition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IContentThemeTransition>();
+}
+unsafe impl windows_core::Interface for ContentThemeTransition {
+    type Vtable = <IContentThemeTransition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IContentThemeTransition as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
+}
+impl core::ops::Deref for ContentThemeTransition {
+    type Target = IContentThemeTransition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ContentThemeTransition {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.Animation.ContentThemeTransition";
+}
+unsafe impl Send for ContentThemeTransition {}
+unsafe impl Sync for ContentThemeTransition {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Control(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     Control,
@@ -4021,6 +4123,52 @@ impl windows_core::RuntimeName for Ellipse {
 }
 unsafe impl Send for Ellipse {}
 unsafe impl Sync for Ellipse {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct EntranceThemeTransition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    EntranceThemeTransition,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(EntranceThemeTransition, Transition, DependencyObject);
+impl EntranceThemeTransition {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            EntranceThemeTransition,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for EntranceThemeTransition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IEntranceThemeTransition>();
+}
+unsafe impl windows_core::Interface for EntranceThemeTransition {
+    type Vtable = <IEntranceThemeTransition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IEntranceThemeTransition as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
+}
+impl core::ops::Deref for EntranceThemeTransition {
+    type Target = IEntranceThemeTransition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for EntranceThemeTransition {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition";
+}
+unsafe impl Send for EntranceThemeTransition {}
+unsafe impl Sync for EntranceThemeTransition {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EventHandler<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
@@ -5420,6 +5568,15 @@ impl windows_core::RuntimeName for HyperlinkButton {
 unsafe impl Send for HyperlinkButton {}
 unsafe impl Sync for HyperlinkButton {}
 windows_core::imp::define_winrt_interface!(
+    IAddDeleteThemeTransition,
+    IAddDeleteThemeTransition_Vtbl,
+    0x3728595e_0ea2_524b_9348_86cfb860a0ff
+);
+#[repr(C)]
+pub struct IAddDeleteThemeTransition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
     IAppBar,
     IAppBar_Vtbl,
     0x3d8c2927_5ac5_51bb_8bec_13ff4c1bd6c8
@@ -6749,6 +6906,10 @@ pub struct IBorderStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub PaddingProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub ChildTransitionsProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -8284,6 +8445,15 @@ pub struct IContentDialogStatics_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
+    IContentThemeTransition,
+    IContentThemeTransition_Vtbl,
+    0xdff47071_cc51_556c_a3fe_8bbb4cba6195
+);
+#[repr(C)]
+pub struct IContentThemeTransition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
     IControl,
     IControl_Vtbl,
     0x857d6e8a_d45a_5c69_a99c_bf6a5c54fb38
@@ -9454,6 +9624,15 @@ windows_core::imp::define_winrt_interface!(
 );
 #[repr(C)]
 pub struct IEllipse_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
+    IEntranceThemeTransition,
+    IEntranceThemeTransition_Vtbl,
+    0x8eb681fa_1629_5e29_ac1e_70f3639329f8
+);
+#[repr(C)]
+pub struct IEntranceThemeTransition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
@@ -13100,6 +13279,11 @@ windows_core::imp::define_winrt_interface!(
 pub struct IPanelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BackgroundProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    IsItemsHostProperty: usize,
+    pub ChildrenTransitionsProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -18459,15 +18643,6 @@ impl IUIElement {
             .ok()
         }
     }
-    pub(crate) fn SetOpacity(&self, value: f64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).SetOpacity)(
-                windows_core::Interface::as_raw(self),
-                value,
-            )
-            .ok()
-        }
-    }
     pub(crate) fn PointerCaptures(
         &self,
     ) -> windows_core::Result<windows_collections::IVectorView<Pointer>> {
@@ -19192,7 +19367,7 @@ pub struct IUIElement_Vtbl {
     pub SetAllowDrop:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     Opacity: usize,
-    pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    SetOpacity: usize,
     Clip: usize,
     SetClip: usize,
     RenderTransform: usize,
@@ -23150,6 +23325,16 @@ impl Panel {
         Self::IPanelStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackgroundProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn ChildrenTransitionsProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IPanelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChildrenTransitionsProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )

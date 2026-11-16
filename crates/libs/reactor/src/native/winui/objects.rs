@@ -344,8 +344,8 @@ impl WinUiAdapter {
         }
     }
 
-    /// Drops all adapter state for an object whose handle was just removed. Destroy, retirement
-    /// completion, and replacement all end an object's native lifetime through this path.
+    /// Drops all adapter state for an object whose handle was just removed. Destroy and
+    /// replacement both end an object's native lifetime through this path.
     pub(super) fn release_object(
         &mut self,
         object: ObjectId,

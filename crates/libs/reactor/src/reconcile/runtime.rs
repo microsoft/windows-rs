@@ -62,13 +62,9 @@ impl Runtime {
         let Some(queued) = self.references.pop() else {
             return false;
         };
-        // Revocations must also reach retiring objects, whose native subscriptions stay live until
-        // the exit transition completes.
-        let available = if matches!(queued.request, ImperativeRequest::RevokeObservation { .. }) {
-            self.graph.is_allocated(queued.object)
-        } else {
-            self.graph.kind(queued.object).is_some() && queued.is_current()
-        };
+        let available = self.graph.kind(queued.object).is_some()
+            && (matches!(queued.request, ImperativeRequest::RevokeObservation { .. })
+                || queued.is_current());
         if available {
             self.adapter.imperative(queued.request);
         } else {
@@ -85,10 +81,6 @@ impl Runtime {
             }
             NativeEvent::Record(observation) => {
                 self.graph.apply_observation(observation, true);
-                return Some(NativeWork::Maintenance);
-            }
-            NativeEvent::Retirement(completion) => {
-                self.apply_retirement_completion(completion);
                 return Some(NativeWork::Maintenance);
             }
             NativeEvent::Realization(request) => {
@@ -187,8 +179,8 @@ impl Runtime {
             .map_or(NativeWork::Maintenance, NativeWork::Virtual)
     }
 
-    /// Applies queued native observations and retirement completions. Returns `false` while a
-    /// native callback or virtual realization must run before the next update.
+    /// Applies queued native observations. Returns `false` while a native callback or virtual
+    /// realization must run before the next update.
     pub(crate) fn prepare_update(&mut self) -> bool {
         if self.native_event_active.get() {
             return true;

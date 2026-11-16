@@ -2937,6 +2937,9 @@ impl GeneratedHandle {
             (ObjectType::CheckBox, PropertyId::IsChecked) => {
                 (native::ToggleButton::IsCheckedProperty, Conversion::Value)
             }
+            (ObjectType::Border, PropertyId::ChildTransitions) => {
+                (native::Border::ChildTransitionsProperty, Conversion::Value)
+            }
             (ObjectType::Border, PropertyId::Background) => {
                 (native::Border::BackgroundProperty, Conversion::Value)
             }
@@ -2959,6 +2962,10 @@ impl GeneratedHandle {
                 native::FrameworkElement::AllowFocusOnInteractionProperty,
                 Conversion::Value,
             ),
+            (ObjectType::Grid, PropertyId::ChildrenTransitions) => (
+                native::Panel::ChildrenTransitionsProperty,
+                Conversion::Value,
+            ),
             (ObjectType::Grid, PropertyId::RowSpacing) => {
                 (native::Grid::RowSpacingProperty, Conversion::Value)
             }
@@ -2968,12 +2975,20 @@ impl GeneratedHandle {
             (ObjectType::Grid, PropertyId::Background) => {
                 (native::Panel::BackgroundProperty, Conversion::Value)
             }
+            (ObjectType::StackPanel, PropertyId::ChildrenTransitions) => (
+                native::Panel::ChildrenTransitionsProperty,
+                Conversion::Value,
+            ),
             (ObjectType::StackPanel, PropertyId::Spacing) => {
                 (native::StackPanel::SpacingProperty, Conversion::Value)
             }
             (ObjectType::StackPanel, PropertyId::Orientation) => {
                 (native::StackPanel::OrientationProperty, Conversion::Value)
             }
+            (ObjectType::Canvas, PropertyId::ChildrenTransitions) => (
+                native::Panel::ChildrenTransitionsProperty,
+                Conversion::Value,
+            ),
             (ObjectType::ScrollViewer, PropertyId::HorizontalScrollBarVisibility) => (
                 native::ScrollViewer::HorizontalScrollBarVisibilityProperty,
                 Conversion::Value,
@@ -3051,6 +3066,10 @@ impl GeneratedHandle {
             }
             (ObjectType::BreadcrumbBar, PropertyId::ItemsSource) => (
                 native::BreadcrumbBar::ItemsSourceProperty,
+                Conversion::Value,
+            ),
+            (ObjectType::VariableSizedWrapGrid, PropertyId::ChildrenTransitions) => (
+                native::Panel::ChildrenTransitionsProperty,
                 Conversion::Value,
             ),
             (ObjectType::VariableSizedWrapGrid, PropertyId::Orientation) => (
@@ -3540,6 +3559,10 @@ impl GeneratedHandle {
             (ObjectType::GridViewItem, PropertyId::Tag) => {
                 (native::FrameworkElement::TagProperty, Conversion::Value)
             }
+            (ObjectType::RelativePanel, PropertyId::ChildrenTransitions) => (
+                native::Panel::ChildrenTransitionsProperty,
+                Conversion::Value,
+            ),
             (ObjectType::RichEditBox, PropertyId::PlaceholderText) => (
                 native::RichEditBox::PlaceholderTextProperty,
                 Conversion::Value,

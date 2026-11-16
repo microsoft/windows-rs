@@ -16,7 +16,6 @@ impl Planner<'_> {
         let previous_attachments = self.take_attachments(object);
         self.detach_attachments(object, &previous_attachments);
         let previous = std::mem::take(&mut self.retained.get_mut(object).relations);
-        self.complete_child_retirements(object);
         for relation in previous {
             match relation.value {
                 RetainedRelationValue::One(Some(child)) => {
@@ -67,7 +66,6 @@ impl Planner<'_> {
             kind: declaration.kind,
             key,
             reference: declaration.reference.clone(),
-            exit_transition: declaration.exit_transition,
             window_title_bar: declaration.window_title_bar,
             attachments: None,
             properties: declaration.properties.clone(),
@@ -134,7 +132,6 @@ impl Planner<'_> {
             kind: declaration.kind,
             key: declaration.key.clone(),
             reference: declaration.reference.clone(),
-            exit_transition: declaration.exit_transition,
             window_title_bar: declaration.window_title_bar,
             attachments: None,
             properties: declaration.properties.clone(),
@@ -225,9 +222,6 @@ impl Planner<'_> {
                 .get_mut(object)
                 .reference
                 .clone_from(&declaration.reference);
-        }
-        if self.retained.get(object).unwrap().exit_transition != declaration.exit_transition {
-            self.retained.get_mut(object).exit_transition = declaration.exit_transition;
         }
         let previous_title_bar = self.retained.get(object).unwrap().window_title_bar;
         if previous_title_bar != declaration.window_title_bar {

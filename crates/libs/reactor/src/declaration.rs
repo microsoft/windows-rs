@@ -340,21 +340,6 @@ impl ResourceOverrides {
     }
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ExitTransition {
-    duration: Duration,
-}
-
-impl ExitTransition {
-    pub fn fade(duration: Duration) -> Option<Self> {
-        (!duration.is_zero()).then_some(Self { duration })
-    }
-
-    pub const fn duration(self) -> Duration {
-        self.duration
-    }
-}
-
 /// Converts a closure or existing callback into a payload callback.
 ///
 /// This trait is sealed; applications use it through callback-taking APIs.
@@ -669,6 +654,9 @@ impl From<f64> for Thickness {
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ThemeTransition {
+    AddDelete,
+    Content,
+    Entrance,
     Reposition,
 }
 
@@ -1783,7 +1771,6 @@ pub(crate) struct Declaration {
     pub key: Option<Key>,
     pub component: Option<ComponentId>,
     pub reference: Option<ElementRef>,
-    pub exit_transition: Option<ExitTransition>,
     pub window_title_bar: Option<WindowTitleBarHeight>,
     pub attachments: Option<Box<DeclaredAttachments>>,
     pub properties: SharedList<Property>,
@@ -2080,7 +2067,6 @@ impl Declaration {
             key: self.key.clone(),
             component: self.component,
             reference: self.reference.clone(),
-            exit_transition: self.exit_transition,
             window_title_bar: self.window_title_bar,
             attachments,
             properties: self.properties.clone(),
@@ -2096,7 +2082,6 @@ impl Declaration {
             key: None,
             component: None,
             reference: None,
-            exit_transition: None,
             window_title_bar: None,
             attachments: None,
             properties: SharedList::Empty,
@@ -2580,13 +2565,6 @@ macro_rules! uri_methods {
 // `attached_methods` is generated from the schema's attached properties.
 macro_rules! visual_methods {
     () => {
-        pub fn exit_transition(mut self, transition: Option<ExitTransition>) -> Self {
-            self.0.exit_transition = transition;
-            self
-        }
-        pub fn exit_fade(self, duration: std::time::Duration) -> Self {
-            self.exit_transition(ExitTransition::fade(duration))
-        }
         attached_methods!();
     };
 }

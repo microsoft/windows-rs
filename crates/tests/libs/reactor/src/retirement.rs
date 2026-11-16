@@ -1,6 +1,5 @@
 use super::*;
 use std::cell::Cell;
-use std::time::Duration;
 
 pub(super) struct RetirementFixture {
     target: ElementRef<Button>,
@@ -8,6 +7,7 @@ pub(super) struct RetirementFixture {
     released: Rc<Cell<bool>>,
     publication: Option<(bool, bool)>,
     swapped: bool,
+    paged: bool,
     selected: u32,
     calls: u32,
 }
@@ -16,6 +16,7 @@ pub(super) struct RetirementFixture {
 pub(super) enum Message {
     Remove,
     Swap,
+    Page,
     Selected(u32),
     Published(bool, bool),
 }
@@ -53,6 +54,7 @@ impl Component for RetirementFixture {
             released,
             publication: None,
             swapped: false,
+            paged: false,
             selected: 0,
             calls: 0,
         }
@@ -62,6 +64,7 @@ impl Component for RetirementFixture {
         match message {
             Message::Remove => self.callback = None,
             Message::Swap => self.swapped = true,
+            Message::Page => self.paged = !self.paged,
             Message::Selected(generation) => {
                 self.selected = generation;
                 self.calls += 1;
@@ -84,8 +87,8 @@ impl Component for RetirementFixture {
             3u32,
             TextBlock::new().automation_id("second").text("Second"),
         );
-        // Removal retires the fading child in its native slot and appends a replacement. Swap
-        // then moves the active siblings around that slot.
+        // Removal retires the child while WinUI animates it out and appends a replacement. Swap
+        // then moves the remaining siblings.
         let children = if let Some(callback) = &self.callback {
             vec![
                 first,
@@ -94,7 +97,6 @@ impl Component for RetirementFixture {
                     Button::new()
                         .automation_id("old")
                         .element_ref(&self.target)
-                        .exit_fade(Duration::from_secs(2))
                         .content("Old action")
                         .on_click(callback.clone()),
                 ),
@@ -120,21 +122,48 @@ impl Component for RetirementFixture {
             }
             None => "Awaiting publication".to_owned(),
         };
+        // Paging replaces the Border's whole subtree, which WinUI animates with its content transition.
+        let page: View = if self.paged {
+            Grid::new()
+                .children((StackPanel::new().children((
+                    TextBlock::new().automation_id("page-text").text("Page B"),
+                    Button::new()
+                        .automation_id("page-action")
+                        .content("Page action")
+                        .on_click(context.message(Message::Selected(2))),
+                )),))
+                .into()
+        } else {
+            StackPanel::new()
+                .children_transitions([
+                    ThemeTransition::AddDelete,
+                    ThemeTransition::Entrance,
+                    ThemeTransition::Reposition,
+                ])
+                .keyed_children(children)
+                .into()
+        };
         context.window_title("Reactor UI fixture: retirement");
         context.window_visuals(WindowVisuals::new().client_size(500.0, 500.0));
         StackPanel::new()
             .margin(20.0)
             .spacing(12.0)
             .children((
-                StackPanel::new().keyed_children(children),
+                Border::new()
+                    .child_transitions([ThemeTransition::Content])
+                    .content(page),
                 Button::new()
                     .automation_id("remove")
-                    .content("Remove fading child")
+                    .content("Remove child")
                     .on_click(context.message(Message::Remove)),
                 Button::new()
                     .automation_id("swap")
                     .content("Swap siblings")
                     .on_click(context.message(Message::Swap)),
+                Button::new()
+                    .automation_id("page")
+                    .content("Swap page")
+                    .on_click(context.message(Message::Page)),
                 TextBlock::new()
                     .automation_id("publication")
                     .text(publication),
