@@ -227,9 +227,49 @@ impl SmokeFixture {
                     .automation_id("grid-item")
                     .content(text("grid-text")),)),
             ));
+        let styles = StackPanel::new()
+            .orientation(Orientation::Horizontal)
+            .spacing(8.0)
+            .children((
+                Border::new()
+                    .corner_radius(if odd { 8.0 } else { 2.0 })
+                    .background(color)
+                    .padding(4.0)
+                    .opacity_transition(std::time::Duration::from_millis(100))
+                    .scale_transition(std::time::Duration::from_millis(100))
+                    .translation_transition(std::time::Duration::from_millis(100))
+                    .translation(if odd { 4.0 } else { 0.0 }, 0.0)
+                    .content(
+                        TextBlock::new()
+                            .automation_id("weighted-text")
+                            .font_weight(if odd {
+                                FontWeight::BOLD
+                            } else {
+                                FontWeight::NORMAL
+                            })
+                            .text(label.as_str()),
+                    ),
+                Button::new()
+                    .automation_id("styled")
+                    .style(if odd {
+                        ButtonStyle::Accent
+                    } else {
+                        ButtonStyle::Default
+                    })
+                    .content(label.as_str()),
+                HyperlinkButton::new()
+                    .automation_id("uri-link")
+                    .navigate_uri(if odd {
+                        "https://example.com/odd"
+                    } else {
+                        "https://example.com/even"
+                    })
+                    .unwrap()
+                    .content(label.as_str()),
+            ));
         StackPanel::new()
             .spacing(8.0)
-            .children((shapes, progress, containers, pickers))
+            .children((shapes, progress, containers, styles, pickers))
             .into()
     }
 }
