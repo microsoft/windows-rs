@@ -653,7 +653,7 @@ fn current_observation<T: 'static>(
 pub(crate) struct ReferenceEndpoint {
     queue: Rc<RefCell<VecDeque<QueuedImperative>>>,
     routine_pending: Rc<Cell<usize>>,
-    waker: Rc<RefCell<Option<Rc<dyn Fn()>>>>,
+    drain: Rc<RefCell<Option<UiCallback>>>,
 }
 
 impl ReferenceEndpoint {
@@ -661,7 +661,7 @@ impl ReferenceEndpoint {
         Self {
             queue: Rc::new(RefCell::new(VecDeque::new())),
             routine_pending: Rc::new(Cell::new(0)),
-            waker: Rc::new(RefCell::new(None)),
+            drain: Rc::new(RefCell::new(None)),
         }
     }
 
@@ -688,9 +688,7 @@ impl ReferenceEndpoint {
         }
         queue.push_back(request);
         drop(queue);
-        if let Some(waker) = self.waker.borrow().as_ref() {
-            waker();
-        }
+        self.wake();
         true
     }
 
@@ -704,18 +702,17 @@ impl ReferenceEndpoint {
         Some(request)
     }
 
-    pub(crate) fn set_waker(&self, waker: impl Fn() + 'static) {
-        let waker: Rc<dyn Fn()> = Rc::new(waker);
-        *self.waker.borrow_mut() = Some(Rc::clone(&waker));
+    pub(crate) fn set_drain(&self, drain: UiCallback) {
+        *self.drain.borrow_mut() = Some(drain);
         if !self.queue.borrow().is_empty() {
-            waker();
+            self.wake();
         }
     }
 
     pub(crate) fn wake(&self) {
-        let waker = self.waker.borrow().clone();
-        if let Some(waker) = waker {
-            waker();
+        let drain = self.drain.borrow().clone();
+        if let Some(drain) = drain {
+            drain.wake();
         }
     }
 
@@ -725,7 +722,7 @@ impl ReferenceEndpoint {
         for request in requests {
             request.request.complete_unavailable();
         }
-        self.waker.borrow_mut().take();
+        self.drain.borrow_mut().take();
     }
 }
 

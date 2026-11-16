@@ -1,26 +1,6 @@
 use super::*;
 
-impl Runtime {
-    pub fn set_native_event_wakers(
-        &mut self,
-        native: impl Fn() + 'static,
-        imperative: impl Fn() + 'static,
-    ) {
-        self.adapter().state.borrow_mut().set_event_waker(native);
-        self.set_imperative_waker(imperative);
-    }
-}
-
 impl ComponentHost {
-    pub fn set_native_event_wakers(
-        &mut self,
-        native: impl Fn() + 'static,
-        imperative: impl Fn() + 'static,
-    ) {
-        self.runtime_mut_internal()
-            .set_native_event_wakers(native, imperative);
-    }
-
     pub(crate) fn set_realizer(&mut self, realizer: impl Fn() + 'static) {
         self.runtime()
             .adapter()
@@ -79,6 +59,10 @@ impl SharedWinUiAdapter {
 }
 
 impl SharedWinUiAdapter {
+    pub(crate) fn set_event_drain(&self, drain: UiCallback) {
+        self.state.borrow_mut().set_event_drain(drain);
+    }
+
     pub(crate) fn peek_native_event(&self) -> Option<NativeEvent> {
         self.state.borrow().peek_native_event()
     }
