@@ -480,10 +480,10 @@ Investigate `MenuThemeState::refresh` and `show_pending` in
 while its anchor reported Dark. The cause is unconfirmed; headless preference and callback tests
 do not establish native theme propagation.
 
-Live coverage still needs flyout-driven `DatePicker::on_date_changed` and
-`TimePicker::on_time_changed` cases. Objects without UIA peers (`InfoBadge`, `PersonPicture`,
-shapes, icons) have lifecycle coverage without observed property values. WebView process failure,
-actual downloads, and deferral paths also need behavioral coverage.
+Live coverage still needs a flyout-driven `DatePicker::on_date_changed` case. Objects without UIA
+peers (`InfoBadge`, `PersonPicture`, shapes, icons) have lifecycle coverage without observed
+property values. WebView process failure, actual downloads, and deferral paths also need behavioral
+coverage.
 
 Keep native reproductions separate from Reactor-only observations; do not add timing workarounds:
 
