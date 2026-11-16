@@ -70,7 +70,7 @@ impl<T> WindowObserverLifetime<T> {
     }
 }
 
-impl<A: Adapter> ComponentHost<A> {
+impl ComponentHost {
     pub(crate) fn window_color_scheme_callback(
         &self,
         generation: u64,
@@ -96,8 +96,6 @@ impl<A: Adapter> ComponentHost<A> {
     ) -> WindowPublication {
         let mut publication = WindowPublication::default();
         for (index, slot) in self.scopes.iter().enumerate() {
-            #[cfg(test)]
-            work::record(|work| work.window_scopes += 1);
             let Some(scope) = &slot.scope else {
                 continue;
             };
@@ -108,11 +106,7 @@ impl<A: Adapter> ComponentHost<A> {
             if retired.iter().any(|retired| self.owns_scope(*retired, id)) {
                 continue;
             }
-            let window = match pending.iter().find(|pending| {
-                #[cfg(test)]
-                work::record(|work| work.window_pending += 1);
-                pending.id == id
-            }) {
+            let window = match pending.iter().find(|pending| pending.id == id) {
                 Some(pending) => pending.window.as_deref(),
                 None => scope.window.as_deref(),
             };

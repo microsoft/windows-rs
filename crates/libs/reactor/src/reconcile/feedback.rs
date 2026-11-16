@@ -106,8 +106,6 @@ impl EventCall {
             Self::Bool(..) => ValueType::Bool,
             Self::Color(..) => ValueType::Color,
             Self::ContentDialogResult(..) => ValueType::ContentDialogResult,
-            #[cfg(test)]
-            Self::CharacterEventInfo(..) => ValueType::CharacterEventInfo,
             Self::String(..) => ValueType::String,
             Self::F64(..) => ValueType::F64,
             Self::FocusEventInfo(..) => ValueType::FocusEventInfo,
@@ -119,8 +117,6 @@ impl EventCall {
             Self::OptionalTimeSpan(..) => ValueType::OptionalTimeSpan,
             Self::NavigationViewDisplayMode(..) => ValueType::NavigationViewDisplayMode,
             Self::PointerEventInfo(..) => ValueType::PointerEventInfo,
-            #[cfg(test)]
-            Self::KeyEventInfo(..) => ValueType::KeyEventInfo,
             Self::Item(..) => ValueType::Key,
             Self::Items(..) => ValueType::Keys,
             Self::Selection(..) => ValueType::Selection,
@@ -136,8 +132,6 @@ impl EventCall {
             Self::Bool(callback, value) => callback.call(value),
             Self::Color(callback, value) => callback.call(value),
             Self::ContentDialogResult(callback, value) => callback.call(value),
-            #[cfg(test)]
-            Self::CharacterEventInfo(callback, value) => _ = callback.call(value),
             Self::String(callback, value) => callback.call(value),
             Self::F64(callback, value) => callback.call(value),
             Self::FocusEventInfo(callback, value) => callback.call(value),
@@ -149,8 +143,6 @@ impl EventCall {
             Self::OptionalTimeSpan(callback, value) => callback.call(value),
             Self::NavigationViewDisplayMode(callback, value) => callback.call(value),
             Self::PointerEventInfo(callback, value) => callback.call(value),
-            #[cfg(test)]
-            Self::KeyEventInfo(callback, value) => _ = callback.call(value),
             Self::Key(callback, value) => callback.call(value),
             Self::Keys(callback, value) => callback.call(value),
             Self::Selection(callback, value) => callback.call(value.value),

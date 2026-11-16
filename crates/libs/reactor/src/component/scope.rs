@@ -28,10 +28,6 @@ pub(super) trait ErasedComponent {
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> ComponentRender;
     fn cached_view(&self) -> View;
-    #[cfg(test)]
-    fn sender(&self) -> &dyn Any;
-    #[cfg(test)]
-    fn tracked_tasks(&self) -> usize;
 }
 
 pub(super) struct TypedScope<C: Component> {
@@ -63,8 +59,6 @@ impl<C: Component> TypedScope<C> {
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> ComponentRender {
-        #[cfg(test)]
-        work::record(|work| work.views += 1);
         let mut context: ViewContext<'_, C> = ViewContext {
             context: self.context(&self.input, reference),
             contexts,
@@ -140,21 +134,6 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
     fn cached_view(&self) -> View {
         self.view.clone().unwrap()
     }
-
-    #[cfg(test)]
-    fn sender(&self) -> &dyn Any {
-        &self.sender
-    }
-
-    #[cfg(test)]
-    fn tracked_tasks(&self) -> usize {
-        self.tasks
-            .lock()
-            .unwrap()
-            .iter()
-            .filter(|task| task.strong_count() != 0)
-            .count()
-    }
 }
 
 pub(super) struct Scope {
@@ -201,7 +180,7 @@ pub(super) struct PendingScopeRender {
     pub(super) window: Option<Box<WindowPublication>>,
 }
 
-impl<A: Adapter> ComponentHost<A> {
+impl ComponentHost {
     pub(super) fn owns_scope(&self, owner: ComponentId, mut child: ComponentId) -> bool {
         loop {
             if owner == child {

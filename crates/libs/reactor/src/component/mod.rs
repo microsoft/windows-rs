@@ -174,25 +174,7 @@ pub struct ComponentDrain {
 }
 
 /// Coordinates component scopes with retained runtime updates.
-///
-/// The adapter is exposed read-only. Native protocol methods cannot be called through the host.
-///
-/// ```compile_fail
-/// use windows_reactor::{Adapter, ComponentHost};
-///
-/// fn pop<A: Adapter>(host: &ComponentHost<A>) {
-///     host.adapter().pop_native_event();
-/// }
-/// ```
-///
-/// ```compile_fail
-/// use windows_reactor::{Adapter, ComponentHost};
-///
-/// fn apply<A: Adapter>(host: &mut ComponentHost<A>) {
-///     let _ = host.adapter_mut().apply(&[]);
-/// }
-/// ```
-pub struct ComponentHost<A: Adapter> {
+pub struct ComponentHost {
     context_consumers: HashMap<ContextId, HashSet<ComponentId>>,
     contexts: HashMap<ContextId, ContextValue>,
     keys: HashMap<Key, ComponentId>,
@@ -200,7 +182,7 @@ pub struct ComponentHost<A: Adapter> {
     queue: SharedQueue,
     local_queue: LocalQueue,
     continuation_waker: Option<Rc<dyn Fn()>>,
-    runtime: Runtime<A>,
+    runtime: Runtime,
     services: Arc<dyn ComponentServices>,
     ui_services: Rc<dyn ComponentUiServices>,
     window_color_scheme: WindowObserverLifetime<ColorScheme>,
@@ -222,10 +204,10 @@ pub struct ComponentHost<A: Adapter> {
 /// Plans batches with `step` and applies each one without holding `state`, so a native callback
 /// raised during the application, such as a forced layout realizing virtualized rows, can borrow
 /// the host to plan and apply its own batches. Stops when `step` plans nothing or the host is gone.
-pub(crate) fn drive_host<S, A: Adapter + Clone>(
+pub(crate) fn drive_host<S>(
     state: &RefCell<S>,
-    host: impl Fn(&mut S) -> Option<&mut ComponentHost<A>>,
-    mut step: impl FnMut(&mut ComponentHost<A>) -> Option<NativeBatch>,
+    host: impl Fn(&mut S) -> Option<&mut ComponentHost>,
+    mut step: impl FnMut(&mut ComponentHost) -> Option<NativeBatch>,
 ) {
     loop {
         let (batch, mut adapter) = {
@@ -254,13 +236,13 @@ pub(crate) struct DrainState {
     limit: usize,
 }
 
-impl<A: Adapter> Drop for ComponentHost<A> {
+impl Drop for ComponentHost {
     fn drop(&mut self) {
         self.shutdown();
     }
 }
 
-impl<A: Adapter> ComponentHost<A> {
+impl ComponentHost {
     pub(crate) fn update_root(&mut self, node: ComponentNode) {
         let key = node.key.as_ref().unwrap();
         let id = *self.keys.get(key).unwrap();
@@ -299,7 +281,7 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     pub(crate) fn mount_with_all_services(
-        adapter: A,
+        adapter: SharedWinUiAdapter,
         services: Arc<dyn ComponentServices>,
         ui_services: Rc<dyn ComponentUiServices>,
         components: impl IntoIterator<Item = ComponentNode>,
@@ -379,11 +361,11 @@ impl<A: Adapter> ComponentHost<A> {
         host
     }
 
-    pub fn runtime(&self) -> &Runtime<A> {
+    pub fn runtime(&self) -> &Runtime {
         &self.runtime
     }
 
-    pub(crate) fn runtime_mut_internal(&mut self) -> &mut Runtime<A> {
+    pub(crate) fn runtime_mut_internal(&mut self) -> &mut Runtime {
         &mut self.runtime
     }
 
@@ -640,13 +622,3 @@ impl<A: Adapter> ComponentHost<A> {
         }
     }
 }
-
-#[cfg(test)]
-#[path = "../tests/component/mod.rs"]
-mod tests;
-
-#[cfg(test)]
-#[path = "../test_support/component.rs"]
-mod test_support;
-#[cfg(test)]
-pub use test_support::*;

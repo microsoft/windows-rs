@@ -16,7 +16,7 @@ impl Component for VirtualRow {
     }
 }
 
-impl<A: Adapter> ComponentHost<A> {
+impl ComponentHost {
     /// Plans the realization at the front of the native queue, unless it targets a row whose batch
     /// is being applied or renders a row whose effects are not yet committed.
     pub(crate) fn next_realization_batch(&mut self) -> Option<NativeBatch> {

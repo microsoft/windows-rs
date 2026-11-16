@@ -291,7 +291,7 @@ impl RetainedGraph {
     }
 }
 
-impl<A: Adapter> Runtime<A> {
+impl Runtime {
     /// Returns the virtual work for a realization at the front of the native queue, after applying
     /// the observations ahead of it. Returns `None` when a native event comes first, when the
     /// realization would replace one of the `busy` rows, or when a native event is being

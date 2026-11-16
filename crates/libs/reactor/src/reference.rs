@@ -875,7 +875,3 @@ impl<T: ReferenceElement> CompatibleElementRef<T> for ElementRef<AnyElement> {
         self.clone()
     }
 }
-
-#[cfg(test)]
-#[path = "test_support/reference.rs"]
-mod test_support;

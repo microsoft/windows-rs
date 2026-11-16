@@ -84,7 +84,7 @@ pub(super) struct OwnedContextEnvironment {
     pub(super) provided: HashSet<ContextId>,
 }
 
-impl<A: Adapter> ComponentHost<A> {
+impl ComponentHost {
     pub(super) fn replace_dependencies(
         &mut self,
         id: ComponentId,

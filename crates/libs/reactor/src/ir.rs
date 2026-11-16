@@ -266,8 +266,6 @@ fn validate_object(
     content_dialog_allowed: bool,
     internal_kind: Option<ObjectType>,
 ) {
-    #[cfg(test)]
-    work::record(|work| work.validated += 1);
     validate_limits(depth, *objects);
     *objects += 1;
     if matches!(
