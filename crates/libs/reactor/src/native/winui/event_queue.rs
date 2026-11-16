@@ -35,7 +35,7 @@ pub(super) struct NativeEventQueue {
     pub(super) events: RefCell<VecDeque<QueuedNativeEvent>>,
     pub(super) feedback: RefCell<FeedbackState>,
     pub(super) items: RefCell<HashMap<ObjectId, NativeItem>>,
-    pub(super) waker: RefCell<Option<Rc<dyn Fn()>>>,
+    pub(super) drain: RefCell<Option<UiCallback>>,
     realizer: RefCell<Option<Rc<dyn Fn()>>>,
     pub(super) wake_pending: Cell<bool>,
     wake: std::cell::OnceCell<UiCallback>,
@@ -95,9 +95,9 @@ impl NativeEventQueue {
         self.push(NativeEvent::Realization(request));
     }
 
-    /// Schedules one dispatcher callback to run the waker, if any, for the queued work.
+    /// Schedules one dispatcher callback to run the drain, if any, for the queued work.
     pub(super) fn wake(self: &Rc<Self>) {
-        if self.waker.borrow().is_none() || self.wake_pending.replace(true) {
+        if self.drain.borrow().is_none() || self.wake_pending.replace(true) {
             return;
         }
         let wake = self.wake.get_or_init(|| {
@@ -107,9 +107,9 @@ impl NativeEventQueue {
                 move || {
                     if let Some(event_queue) = event_queue.upgrade() {
                         event_queue.wake_pending.set(false);
-                        let waker = event_queue.waker.borrow().clone();
-                        if let Some(waker) = waker {
-                            waker();
+                        let drain = event_queue.drain.borrow().clone();
+                        if let Some(drain) = drain {
+                            drain.invoke();
                         }
                     }
                 },
@@ -180,8 +180,8 @@ fn coalesce_queued_realization(
 }
 
 impl WinUiAdapter {
-    pub fn set_event_waker(&mut self, waker: impl Fn() + 'static) {
-        *self.event_queue.waker.borrow_mut() = Some(Rc::new(waker));
+    pub(crate) fn set_event_drain(&mut self, drain: UiCallback) {
+        *self.event_queue.drain.borrow_mut() = Some(drain);
         if !self.event_queue.events.borrow().is_empty() {
             self.event_queue.wake();
         }

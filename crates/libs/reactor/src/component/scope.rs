@@ -36,9 +36,9 @@ pub(super) struct TypedScope<C: Component> {
     pub(super) view: Option<View>,
     pub(super) local_sender: LocalSender<C::Message>,
     pub(super) sender: ComponentSender<C::Message>,
-    pub(super) services: Arc<dyn ComponentServices>,
+    pub(super) services: Arc<ComponentServices>,
     pub(super) tasks: Arc<Mutex<Vec<SyncWeak<TaskControl>>>>,
-    pub(super) ui_services: Rc<dyn ComponentUiServices>,
+    pub(super) ui_services: Rc<WindowServices>,
 }
 
 impl<C: Component> TypedScope<C> {

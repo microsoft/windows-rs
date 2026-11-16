@@ -1,37 +1,5 @@
 use super::*;
 
-pub trait ComponentTimerRegistration: Send + Sync {
-    fn cancel(&self);
-}
-
-pub trait ComponentServices: Send + Sync {
-    fn spawn_background(&self, work: Box<dyn FnOnce() + Send>);
-
-    fn set_timeout(
-        &self,
-        delay: Duration,
-        callback: Box<dyn FnOnce() + Send>,
-    ) -> Arc<dyn ComponentTimerRegistration>;
-}
-
-pub(crate) trait ComponentUiServices {
-    fn open_window(&self, root: ComponentNode, policy: WindowPolicy) -> bool;
-
-    fn publish_window(&self, _publication: WindowPublication) {}
-
-    fn activate_window(&self) -> bool {
-        false
-    }
-
-    fn close_window(&self) -> bool {
-        false
-    }
-
-    fn run_window(&self, _operation: Box<dyn FnOnce(*mut core::ffi::c_void)>) -> bool {
-        false
-    }
-}
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ComponentTaskStatus {
     Running,
@@ -42,7 +10,7 @@ pub enum ComponentTaskStatus {
 
 pub(super) struct TaskControl {
     status: AtomicU8,
-    timer: Mutex<Option<Arc<dyn ComponentTimerRegistration>>>,
+    timer: Mutex<Option<Arc<TimerRegistration>>>,
 }
 
 impl Default for TaskControl {
@@ -55,7 +23,7 @@ impl Default for TaskControl {
 }
 
 impl TaskControl {
-    pub(super) fn set_timer(&self, timer: Arc<dyn ComponentTimerRegistration>) {
+    pub(super) fn set_timer(&self, timer: Arc<TimerRegistration>) {
         let mut current = self.timer.lock().unwrap();
         if self.status() == ComponentTaskStatus::Running {
             *current = Some(timer);

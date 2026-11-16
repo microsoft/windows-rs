@@ -75,8 +75,8 @@ trait ErasedFactory {
         id: ComponentId,
         queues: ComponentQueues,
         reference: ElementRef,
-        services: Arc<dyn ComponentServices>,
-        ui_services: Rc<dyn ComponentUiServices>,
+        services: Arc<ComponentServices>,
+        ui_services: Rc<WindowServices>,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> (Box<dyn ErasedComponent>, ComponentRender);
     fn input(&self) -> &dyn Any;
@@ -96,8 +96,8 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
         id: ComponentId,
         queues: ComponentQueues,
         reference: ElementRef,
-        services: Arc<dyn ComponentServices>,
-        ui_services: Rc<dyn ComponentUiServices>,
+        services: Arc<ComponentServices>,
+        ui_services: Rc<WindowServices>,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> (Box<dyn ErasedComponent>, ComponentRender) {
         let sender = ComponentSender {
@@ -181,10 +181,10 @@ pub struct ComponentHost {
     order: Vec<ComponentId>,
     queue: SharedQueue,
     local_queue: LocalQueue,
-    continuation_waker: Option<Rc<dyn Fn()>>,
+    continuation: Option<UiCallback>,
     runtime: Runtime,
-    services: Arc<dyn ComponentServices>,
-    ui_services: Rc<dyn ComponentUiServices>,
+    services: Arc<ComponentServices>,
+    ui_services: Rc<WindowServices>,
     window_color_scheme: WindowObserverLifetime<ColorScheme>,
     window_size: WindowObserverLifetime<WindowSize>,
     window_placement: WindowObserverLifetime<WindowPlacement>,
@@ -282,8 +282,8 @@ impl ComponentHost {
 
     pub(crate) fn mount_with_all_services(
         adapter: SharedWinUiAdapter,
-        services: Arc<dyn ComponentServices>,
-        ui_services: Rc<dyn ComponentUiServices>,
+        services: Arc<ComponentServices>,
+        ui_services: Rc<WindowServices>,
         components: impl IntoIterator<Item = ComponentNode>,
     ) -> Self {
         let queue = Arc::new(Mutex::new(MessageQueue::default()));
@@ -295,7 +295,7 @@ impl ComponentHost {
             order: Vec::new(),
             queue,
             local_queue,
-            continuation_waker: None,
+            continuation: None,
             runtime: Runtime::new(adapter),
             services,
             ui_services,
@@ -365,28 +365,25 @@ impl ComponentHost {
         &self.runtime
     }
 
-    pub(crate) fn runtime_mut_internal(&mut self) -> &mut Runtime {
-        &mut self.runtime
-    }
-
-    pub fn set_waker(&mut self, waker: impl Fn() + Send + Sync + 'static) {
+    /// Routes every source of drain work (messages, native events, imperative requests, and
+    /// continuations past the drain budget) to the window's drain callback.
+    pub(crate) fn set_drain(&mut self, drain: &UiCallback) {
+        self.runtime.adapter().set_event_drain(drain.clone());
+        self.runtime.set_imperative_drain(drain.clone());
+        self.continuation = Some(drain.clone());
         let mut queue = self.queue.lock().unwrap();
         if queue.closed {
             return;
         }
-        let waker = Arc::new(waker);
-        queue.waker = Some(waker.clone());
+        let wake = drain.clone();
+        queue.waker = Some(Arc::new(move || wake.wake()));
         let wake = (!queue.messages.is_empty() || !self.local_queue.borrow().is_empty())
             && !queue.wake_pending;
         queue.wake_pending |= wake;
         drop(queue);
         if wake {
-            waker();
+            drain.wake();
         }
-    }
-
-    pub(crate) fn set_continuation_waker(&mut self, waker: impl Fn() + 'static) {
-        self.continuation_waker = Some(Rc::new(waker));
     }
 
     pub(crate) fn begin_drain(&mut self, limit: usize) -> DrainState {
@@ -403,8 +400,8 @@ impl ComponentHost {
     pub(crate) fn drain_step(&mut self, state: &mut DrainState) -> Option<NativeBatch> {
         loop {
             if state.active_event.is_none() && state.processed >= state.limit {
-                if let Some(waker) = self.continuation_waker.clone() {
-                    waker();
+                if let Some(drain) = &self.continuation {
+                    drain.wake();
                 }
                 return None;
             }

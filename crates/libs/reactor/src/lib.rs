@@ -58,8 +58,10 @@ pub use declaration::{
 };
 use generated::*;
 use ir::*;
-use native::SharedWinUiAdapter;
 pub use native::{App, ScreenPoint, WindowTitleBarHeight};
+use native::{
+    ComponentServices, SharedWinUiAdapter, TimerRegistration, UiCallback, WindowServices,
+};
 use reconcile::*;
 use reference::*;
 pub use reference::{

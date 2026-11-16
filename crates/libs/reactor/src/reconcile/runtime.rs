@@ -54,8 +54,8 @@ impl Runtime {
         stats
     }
 
-    pub(crate) fn set_imperative_waker(&self, waker: impl Fn() + 'static) {
-        self.references.set_waker(waker);
+    pub(crate) fn set_imperative_drain(&self, drain: UiCallback) {
+        self.references.set_drain(drain);
     }
 
     fn dispatch_imperative(&mut self) -> bool {
