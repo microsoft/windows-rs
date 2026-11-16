@@ -185,6 +185,8 @@ pub fn run_clicks() -> windows_core::Result<()> {
     App::run_component::<ClickFixture>(())
 }
 
+// Stderr records each delivery stage so a failure log shows whether the injected input or the
+// queued callback was lost.
 struct RoutingFixture {
     mode: usize,
     calls: Rc<std::cell::RefCell<Vec<&'static str>>>,
@@ -202,6 +204,7 @@ impl Component for RoutingFixture {
     }
 
     fn update(&mut self, change_mode: bool, _: &ComponentContext<Self>) {
+        eprintln!("routing: update change_mode={change_mode}");
         if change_mode {
             self.mode = (self.mode + 1) % 3;
             self.calls.borrow_mut().clear();
@@ -209,10 +212,16 @@ impl Component for RoutingFixture {
     }
 
     fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        eprintln!(
+            "routing: view mode={} calls={:?}",
+            self.mode,
+            self.calls.borrow()
+        );
         let calls = Rc::clone(&self.calls);
         let notify = context.message(false);
         let callback: PointerCallback = if self.mode == 0 {
             Callback::new(move |_: PointerEventInfo| {
+                eprintln!("routing: queued");
                 calls.borrow_mut().push("queued");
                 notify.call(());
             })
@@ -220,6 +229,7 @@ impl Component for RoutingFixture {
         } else {
             let handled = self.mode == 2;
             RoutedCallback::new(move |_: PointerEventInfo| {
+                eprintln!("routing: routed");
                 calls.borrow_mut().push("routed");
                 notify.call(());
                 handled
@@ -236,6 +246,7 @@ impl Component for RoutingFixture {
                     .on_click(context.message(true)),
                 Border::new()
                     .on_pointer_pressed(RoutedCallback::new(move |_| {
+                        eprintln!("routing: parent");
                         calls.borrow_mut().push("parent");
                         false
                     }))
