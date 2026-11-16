@@ -1,8 +1,5 @@
 #![doc = include_str!("../readme.md")]
 
-#[cfg(test)]
-#[path = "test_support/adapter.rs"]
-mod adapter;
 mod application;
 mod component;
 mod declaration;
@@ -17,9 +14,6 @@ mod sealed {
     pub trait UnitCallback {}
 }
 mod window;
-#[cfg(test)]
-#[path = "test_support/work.rs"]
-mod work;
 
 use std::any::{Any, TypeId};
 use std::cell::{Cell, RefCell};
@@ -41,8 +35,6 @@ pub use application::{
 };
 pub(crate) use sealed::Sealed;
 
-#[cfg(test)]
-use adapter::*;
 use component::*;
 pub use component::{
     CancellationToken, Component, ComponentCompletion, ComponentContext, ComponentNode,
@@ -66,6 +58,7 @@ pub use declaration::{
 };
 use generated::*;
 use ir::*;
+use native::SharedWinUiAdapter;
 pub use native::{App, ScreenPoint, WindowTitleBarHeight};
 use reconcile::*;
 use reference::*;

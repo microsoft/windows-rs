@@ -1,7 +1,7 @@
 use super::*;
 
-impl<A: Adapter> Runtime<A> {
-    pub fn new(adapter: A) -> Self {
+impl Runtime {
+    pub fn new(adapter: SharedWinUiAdapter) -> Self {
         Self {
             graph: RetainedGraph::default(),
             adapter,
@@ -17,7 +17,7 @@ impl<A: Adapter> Runtime<A> {
         &self.graph
     }
 
-    pub fn adapter(&self) -> &A {
+    pub fn adapter(&self) -> &SharedWinUiAdapter {
         &self.adapter
     }
 

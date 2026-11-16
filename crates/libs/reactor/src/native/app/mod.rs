@@ -217,7 +217,7 @@ fn queue_exit(dispatcher: &DispatcherQueue) {
 pub struct App;
 
 struct ComponentWindowState {
-    host: ComponentHost<SharedWinUiAdapter>,
+    host: ComponentHost,
     window: NativeWindow,
     lifecycle: Rc<Cell<ComponentWindowLifecycle>>,
     color_scheme_generation: Option<u64>,
@@ -732,9 +732,7 @@ fn report_casts() {
     }
 }
 
-fn window_host(
-    state: &mut Option<ComponentWindowState>,
-) -> Option<&mut ComponentHost<SharedWinUiAdapter>> {
+fn window_host(state: &mut Option<ComponentWindowState>) -> Option<&mut ComponentHost> {
     state.as_mut().map(|state| &mut state.host)
 }
 

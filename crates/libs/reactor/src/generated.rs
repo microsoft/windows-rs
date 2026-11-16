@@ -3105,27 +3105,6 @@ pub(crate) fn object_index(kind: ObjectType) -> usize {
         ObjectType::SwapChainPanel => 80,
     }
 }
-#[cfg(test)]
-pub(crate) fn focus_capable(kind: ObjectType) -> bool {
-    matches!(
-        kind,
-        ObjectType::TextBox
-            | ObjectType::Button
-            | ObjectType::CheckBox
-            | ObjectType::Border
-            | ObjectType::Slider
-            | ObjectType::HyperlinkButton
-            | ObjectType::AutoSuggestBox
-            | ObjectType::PasswordBox
-            | ObjectType::NumberBox
-            | ObjectType::ToggleSwitch
-            | ObjectType::ToggleButton
-            | ObjectType::RadioButton
-            | ObjectType::RatingControl
-            | ObjectType::ComboBox
-            | ObjectType::RichEditBox
-    )
-}
 pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
     match kind {
         ObjectType::TextBlock => &[],

@@ -66,7 +66,7 @@ impl ExpansionState {
     }
 }
 
-impl<A: Adapter> ComponentHost<A> {
+impl ComponentHost {
     pub(super) fn expand_view(
         &mut self,
         owner: ComponentId,
@@ -160,8 +160,6 @@ impl<A: Adapter> ComponentHost<A> {
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
     ) -> Cow<'a, Declaration> {
-        #[cfg(test)]
-        work::record(|work| work.expanded += 1);
         validate_limits(location.depth, expansion.objects);
         expansion.objects += 1;
         if scope_root && declaration.component != Some(owner) {
@@ -555,8 +553,6 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     pub(super) fn refresh_roots_from(&mut self, declaration: &Declaration, object: ObjectId) {
-        #[cfg(test)]
-        work::record(|work| work.refreshed += 1);
         // The declaring component and each ancestor whose view is that component share the root.
         let mut component = declaration.component;
         while let Some(id) = component {

@@ -1464,26 +1464,6 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
         output.push_str(&format!("ObjectType::{} => {index},", object.name));
     }
     output.push_str("} }\n");
-    output.push_str(
-        "#[cfg(test)]\n\
-         pub(crate) fn focus_capable(kind: ObjectType) -> bool { matches!(kind,",
-    );
-    if !schema.objects.iter().any(|object| object.focus) {
-        output.push_str("_ if false");
-    } else {
-        for (index, object) in schema
-            .objects
-            .iter()
-            .filter(|object| object.focus)
-            .enumerate()
-        {
-            if index != 0 {
-                output.push('|');
-            }
-            output.push_str(&format!("ObjectType::{}", object.name));
-        }
-    }
-    output.push_str(") }\n");
 
     output.push_str(
         "pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] { match kind {\n",

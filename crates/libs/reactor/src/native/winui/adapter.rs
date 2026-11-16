@@ -1,6 +1,6 @@
 use super::*;
 
-impl Runtime<SharedWinUiAdapter> {
+impl Runtime {
     pub fn set_native_event_wakers(
         &mut self,
         native: impl Fn() + 'static,
@@ -11,7 +11,7 @@ impl Runtime<SharedWinUiAdapter> {
     }
 }
 
-impl ComponentHost<SharedWinUiAdapter> {
+impl ComponentHost {
     pub fn set_native_event_wakers(
         &mut self,
         native: impl Fn() + 'static,
@@ -78,20 +78,20 @@ impl SharedWinUiAdapter {
     }
 }
 
-impl Adapter for SharedWinUiAdapter {
-    fn peek_native_event(&self) -> Option<NativeEvent> {
+impl SharedWinUiAdapter {
+    pub(crate) fn peek_native_event(&self) -> Option<NativeEvent> {
         self.state.borrow().peek_native_event()
     }
 
-    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
+    pub(crate) fn peek_native_dispatch(&self) -> Option<NativeEvent> {
         self.state.borrow().peek_native_dispatch()
     }
 
-    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+    pub(crate) fn pop_native_event(&mut self) -> Option<NativeEvent> {
         self.state.borrow_mut().pop_native_event()
     }
 
-    fn apply(&mut self, mutations: &[Mutation]) {
+    pub(crate) fn apply(&mut self, mutations: &[Mutation]) {
         let index_writes = mutations
             .iter()
             .filter_map(|mutation| match mutation {
@@ -122,7 +122,7 @@ impl Adapter for SharedWinUiAdapter {
         }
     }
 
-    fn imperative(&mut self, request: ImperativeRequest) {
+    pub(crate) fn imperative(&mut self, request: ImperativeRequest) {
         self.state.borrow_mut().apply_imperative(request).unwrap();
     }
 }

@@ -736,50 +736,6 @@ fn window_visual_changes_detect_icon_removal() {
 }
 
 #[test]
-fn pointer_event_queue_preserves_payload_and_callback() {
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(Border::new());
-    let object = runtime.graph().root().unwrap();
-    let callback = Callback::new(|_| {});
-    let event = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
-    event.borrow_mut().set(Some(callback.clone().into()));
-    let event_queue = Rc::new(NativeEventQueue::default());
-    let payload = PointerEventInfo {
-        pointer_id: 42,
-        modifiers: InputModifiers::CONTROL,
-        is_captured: true,
-        is_right_button_pressed: true,
-        ..Default::default()
-    };
-
-    assert!(!WinUiAdapter::dispatch_pointer(
-        &event,
-        &event_queue,
-        object,
-        EventId::PointerReleased,
-        payload,
-    ));
-    let queued = event_queue.events.borrow();
-    assert_eq!(queued.len(), 1);
-    let NativeEvent::Event {
-        observation: None,
-        event,
-    } = &queued[0]
-    else {
-        panic!("expected an event without an observation");
-    };
-    assert_eq!(event.object, object);
-    assert_eq!(event.event, EventId::PointerReleased);
-    assert!(matches!(
-        &event.handler,
-        QueuedHandler::Callback {
-            call: EventCall::PointerEventInfo(queued, value),
-            ..
-        } if *queued == callback && *value == payload
-    ));
-}
-
-#[test]
 fn queued_occurrences_follow_their_subscription() {
     let object = ObjectId::test(1);
     let first = Callback::new(|_: ()| {});

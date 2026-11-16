@@ -243,7 +243,7 @@ fn longest_increasing_positions(sequence: &[(usize, usize)], len: usize) -> Vec<
     positions
 }
 
-impl<A: Adapter> Runtime<A> {
+impl Runtime {
     pub(super) fn apply_retirement_completion(&mut self, completion: RetirementCompletion) {
         self.mutations.clear();
         let Some(nodes) = self.graph.retirement_nodes(completion.root) else {

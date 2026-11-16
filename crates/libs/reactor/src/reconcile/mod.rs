@@ -18,6 +18,16 @@ pub struct ObjectId {
     generation: u32,
 }
 
+#[cfg(test)]
+impl ObjectId {
+    pub(crate) const fn test(index: u32) -> Self {
+        Self {
+            index,
+            generation: 0,
+        }
+    }
+}
+
 #[derive(Clone, Debug, PartialEq)]
 struct RetainedMenu {
     menu: Menu,
@@ -166,16 +176,12 @@ pub enum Mutation {
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct UpdateStats {
     mutations: usize,
-    #[cfg(test)]
-    details: Vec<Mutation>,
 }
 
 impl UpdateStats {
     fn capture(mutations: &[Mutation]) -> Self {
         Self {
             mutations: mutations.len(),
-            #[cfg(test)]
-            details: mutations.to_vec(),
         }
     }
 }
@@ -467,13 +473,7 @@ pub struct RetainedGraph {
     /// until their retirement completes. Other relations' native order is their active order.
     native_orders: HashMap<(ObjectId, RelationId), Vec<ObjectId>>,
     window_title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
-    #[cfg(test)]
-    full_reference_scans: ReferenceScanCounter,
 }
-
-#[cfg(test)]
-#[derive(Clone, Debug, Default)]
-struct ReferenceScanCounter(Cell<usize>);
 
 #[derive(Clone, Debug, Default, PartialEq)]
 struct RetainedSlot {
@@ -482,51 +482,10 @@ struct RetainedSlot {
     retiring: bool,
 }
 
-/// Backend contract for applying retained mutations and publishing ordered native work.
-///
-/// `peek_native_event` returns the event that the next `pop_native_event` call removes, without
-/// consuming it. A backend that cannot apply a mutation batch panics: native mutations cannot be
-/// rolled back, so a partially applied batch leaves no state worth continuing from.
-pub trait Adapter {
-    /// Returns the next native event without consuming it.
-    fn peek_native_event(&self) -> Option<NativeEvent> {
-        None
-    }
-
-    /// Removes the next native event.
-    fn pop_native_event(&mut self) -> Option<NativeEvent> {
-        None
-    }
-
-    /// Returns the first queued native event that carries a dispatch, without consuming any.
-    /// Reactor uses it to coalesce repeated state reports across the observations and
-    /// realizations queued between them; the default sees only the next event.
-    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
-        self.peek_native_event().filter(NativeEvent::dispatches)
-    }
-
-    /// Applies a mutation batch in order.
-    fn apply(&mut self, mutations: &[Mutation]);
-
-    /// Applies an imperative request or completes it as unavailable.
-    fn imperative(&mut self, request: ImperativeRequest) {
-        request.complete_unavailable();
-    }
-}
-
-/// Owns retained state and the adapter protocol.
-///
-/// Mutable adapter access is intentionally unavailable so callers cannot bypass reconciliation.
-///
-/// ```compile_fail
-/// use windows_reactor::{RecordingAdapter, Runtime};
-///
-/// let mut runtime = Runtime::new(RecordingAdapter::new());
-/// let _: &mut RecordingAdapter = runtime.adapter_mut();
-/// ```
-pub struct Runtime<A> {
+/// Owns retained state and the native adapter.
+pub struct Runtime {
     graph: RetainedGraph,
-    adapter: A,
+    adapter: SharedWinUiAdapter,
     mutations: Vec<Mutation>,
     virtual_refreshes: VecDeque<RealizationRequest>,
     validator: DeclarationValidator,
@@ -534,7 +493,7 @@ pub struct Runtime<A> {
     references: ReferenceEndpoint,
 }
 
-impl<A> Drop for Runtime<A> {
+impl Drop for Runtime {
     fn drop(&mut self) {
         self.graph.clear_references(&self.references);
         self.references.clear();
@@ -575,7 +534,3 @@ fn defer_window_title_bar_sets(mutations: &mut Vec<Mutation>) {
     *mutations = immediate;
     mutations.extend(deferred);
 }
-
-#[cfg(test)]
-#[path = "../test_support/reconcile.rs"]
-mod test_support;

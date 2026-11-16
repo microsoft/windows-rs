@@ -2,10 +2,6 @@ use super::*;
 
 impl RetainedGraph {
     pub(super) fn clear_references(&self, endpoint: &ReferenceEndpoint) {
-        #[cfg(test)]
-        self.full_reference_scans
-            .0
-            .set(self.full_reference_scans.0.get() + 1);
         for (index, slot) in self.objects.iter().enumerate() {
             let Some(object) = slot.object.as_ref() else {
                 continue;
@@ -126,8 +122,6 @@ impl RetainedGraph {
         remaining: &mut usize,
         compare_key: bool,
     ) -> bool {
-        #[cfg(test)]
-        work::record(|work| work.compared += 1);
         let Some(next) = remaining.checked_sub(1) else {
             panic!("declaration exceeds the maximum of {MAX_OBJECTS} objects");
         };

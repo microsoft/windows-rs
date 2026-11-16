@@ -209,8 +209,6 @@ impl Planner<'_> {
         object: ObjectId,
         declaration: &Declaration,
     ) -> ObjectId {
-        #[cfg(test)]
-        work::record(|work| work.reconciled += 1);
         debug_assert_eq!(self.retained.get(object).unwrap().kind, declaration.kind);
         if self.retained.get(object).unwrap().reference != declaration.reference {
             if let Some(reference) = self.retained.get_mut(object).reference.take() {
