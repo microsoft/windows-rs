@@ -7,6 +7,7 @@ pub(super) struct RetirementFixture {
     released: Rc<Cell<bool>>,
     publication: Option<(bool, bool)>,
     swapped: bool,
+    paged: bool,
     selected: u32,
     calls: u32,
 }
@@ -15,6 +16,7 @@ pub(super) struct RetirementFixture {
 pub(super) enum Message {
     Remove,
     Swap,
+    Page,
     Selected(u32),
     Published(bool, bool),
 }
@@ -52,6 +54,7 @@ impl Component for RetirementFixture {
             released,
             publication: None,
             swapped: false,
+            paged: false,
             selected: 0,
             calls: 0,
         }
@@ -61,6 +64,7 @@ impl Component for RetirementFixture {
         match message {
             Message::Remove => self.callback = None,
             Message::Swap => self.swapped = true,
+            Message::Page => self.paged = !self.paged,
             Message::Selected(generation) => {
                 self.selected = generation;
                 self.calls += 1;
@@ -118,6 +122,27 @@ impl Component for RetirementFixture {
             }
             None => "Awaiting publication".to_owned(),
         };
+        // Paging replaces the Border's whole subtree, which WinUI animates with its content transition.
+        let page: View = if self.paged {
+            Grid::new()
+                .children((StackPanel::new().children((
+                    TextBlock::new().automation_id("page-text").text("Page B"),
+                    Button::new()
+                        .automation_id("page-action")
+                        .content("Page action")
+                        .on_click(context.message(Message::Selected(2))),
+                )),))
+                .into()
+        } else {
+            StackPanel::new()
+                .children_transitions([
+                    ThemeTransition::AddDelete,
+                    ThemeTransition::Entrance,
+                    ThemeTransition::Reposition,
+                ])
+                .keyed_children(children)
+                .into()
+        };
         context.window_title("Reactor UI fixture: retirement");
         context.window_visuals(WindowVisuals::new().client_size(500.0, 500.0));
         StackPanel::new()
@@ -126,15 +151,7 @@ impl Component for RetirementFixture {
             .children((
                 Border::new()
                     .child_transitions([ThemeTransition::Content])
-                    .content(
-                        StackPanel::new()
-                            .children_transitions([
-                                ThemeTransition::AddDelete,
-                                ThemeTransition::Entrance,
-                                ThemeTransition::Reposition,
-                            ])
-                            .keyed_children(children),
-                    ),
+                    .content(page),
                 Button::new()
                     .automation_id("remove")
                     .content("Remove child")
@@ -143,6 +160,10 @@ impl Component for RetirementFixture {
                     .automation_id("swap")
                     .content("Swap siblings")
                     .on_click(context.message(Message::Swap)),
+                Button::new()
+                    .automation_id("page")
+                    .content("Swap page")
+                    .on_click(context.message(Message::Page)),
                 TextBlock::new()
                     .automation_id("publication")
                     .text(publication),

@@ -45,7 +45,32 @@ fn removal_transition_retires_callbacks_and_removes_native_child() -> Result<()>
         }
         stacked(ui, &[&second, &first, &replacement])?;
         ui.invoke("replacement")?;
-        ui.name("selection", "Selected 1; calls 2")
+        ui.name("selection", "Selected 1; calls 2")?;
+
+        // Replacing the Border's content retires the old page's callbacks and native subtree.
+        let page = unsafe {
+            replacement.GetCurrentPatternAs::<IUIAutomationInvokePattern>(INVOKE_PATTERN)?
+        };
+        ui.invoke("page")?;
+        ui.name("page-text", "Page B")?;
+        retired(ui, &page, "Selected 1; calls 2")?;
+        ui.removed_from_tree("replacement")?;
+        ui.invoke("page-action")?;
+        ui.name("selection", "Selected 2; calls 3")?;
+
+        ui.invoke("page")?;
+        let restored = ui.element("replacement")?;
+        unsafe {
+            assert!(
+                !ui.client
+                    .CompareElements(&replacement, &restored)?
+                    .as_bool(),
+                "page swap reused the old native child"
+            );
+        }
+        ui.removed_from_tree("page-action")?;
+        ui.invoke("replacement")?;
+        ui.name("selection", "Selected 1; calls 4")
     })
 }
 
