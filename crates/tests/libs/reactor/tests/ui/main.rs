@@ -33,6 +33,7 @@ mod pointer;
 mod process;
 mod reference;
 mod repeater;
+mod resources;
 mod retirement;
 mod selection;
 mod smoke;

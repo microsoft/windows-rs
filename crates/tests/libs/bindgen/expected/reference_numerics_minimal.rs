@@ -10,4 +10,6 @@ impl windows_core::RuntimeType for Transform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"struct(Test.Transform;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))",
     );
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Test.Transform");
 }

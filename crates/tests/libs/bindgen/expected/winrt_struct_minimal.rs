@@ -10,4 +10,6 @@ impl windows_core::imp::TypeKind for Struct {
 impl windows_core::RuntimeType for Struct {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Test.Struct;i4;i4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Test.Struct");
 }

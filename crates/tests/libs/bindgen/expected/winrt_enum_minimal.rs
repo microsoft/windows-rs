@@ -12,4 +12,6 @@ impl windows_core::imp::TypeKind for Enum {
 impl windows_core::RuntimeType for Enum {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"enum(Test.Enum;i4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Test.Enum");
 }
