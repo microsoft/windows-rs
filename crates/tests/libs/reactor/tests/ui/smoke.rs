@@ -65,13 +65,16 @@ fn tooltip_shows_and_updates_declared_text() -> Result<()> {
     })
 }
 
-const DISPLAYED: [&str; 12] = [
+const DISPLAYED: [&str; 15] = [
     "viewbox-text",
     "scroll-text",
     "wrap-text",
     "relative-text",
     "list-item",
     "grid-item",
+    "weighted-text",
+    "styled",
+    "uri-link",
     "rich",
     "progress-bar",
     "progress-ring",
@@ -82,7 +85,7 @@ const DISPLAYED: [&str; 12] = [
 
 /// Waits for the display objects to show `label` and `value`.
 fn displayed(ui: &Automation, label: &str, value: f64) -> Result<()> {
-    for id in &DISPLAYED[..6] {
+    for id in &DISPLAYED[..9] {
         ui.name(id, label)?;
     }
     let rich = ui.element("rich")?;
