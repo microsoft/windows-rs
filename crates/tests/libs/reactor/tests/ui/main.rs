@@ -23,6 +23,7 @@ mod controlled;
 mod dialog;
 mod dialog_theme;
 mod drag;
+mod events;
 mod flyout;
 mod image;
 mod keyboard;

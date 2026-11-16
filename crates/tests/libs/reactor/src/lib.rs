@@ -11,6 +11,7 @@ mod controlled;
 mod dialog;
 mod dialog_theme;
 mod drag;
+mod events;
 mod flyout;
 mod image;
 mod keyboard;
@@ -376,6 +377,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
                 repeater::Selector::FlipViewBeforeReset,
             )?;
         }
+        "events" => App::run_component::<events::EventsFixture>(())?,
         "resources" => App::run_component::<resources::ResourcesFixture>(())?,
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
