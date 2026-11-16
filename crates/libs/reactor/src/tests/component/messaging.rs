@@ -447,6 +447,34 @@ fn local_and_cross_thread_messages_preserve_enqueue_order() {
 }
 
 #[test]
+fn callback_bursts_preserve_every_message_in_order() {
+    let input = MessageOrderInput {
+        local: Rc::new(RefCell::new(None)),
+        seen: Rc::new(RefCell::new(Vec::new())),
+    };
+    let mut host = ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<MessageOrderProbe>("probe", input.clone())],
+    );
+    let local = input.local.borrow().as_ref().unwrap().forward();
+    let shared = host
+        .sender::<MessageOrderProbe>(&Key::from("probe"))
+        .unwrap()
+        .forward();
+    let expected: Vec<_> = (0..=u8::MAX).cycle().take(10_000).collect();
+    for (index, value) in expected.iter().copied().enumerate() {
+        if index % 2 == 0 {
+            local.call(value);
+        } else {
+            shared.call(value);
+        }
+    }
+
+    assert_eq!(host.drain(usize::MAX).dispatched, expected.len());
+    assert_eq!(*input.seen.borrow(), expected);
+}
+
+#[test]
 fn injected_services_preserve_task_and_timer_statuses() {
     let services = Arc::new(TestServices::default());
     let input = ServiceProbeInput::default();
@@ -463,19 +491,16 @@ fn injected_services_preserve_task_and_timer_statuses() {
         input.task.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Running
     );
-    assert!(!input.task.lock().unwrap().as_ref().unwrap().is_rejected());
     services.run_background();
     assert_eq!(
         input.task.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Queued
     );
-    assert!(!input.task.lock().unwrap().as_ref().unwrap().is_rejected());
     assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(
         input.task.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Delivered
     );
-    assert!(!input.task.lock().unwrap().as_ref().unwrap().is_rejected());
 
     assert!(sender.send(ServiceProbeMessage::Timer));
     assert_eq!(host.drain(1).dispatched, 1);
@@ -483,19 +508,16 @@ fn injected_services_preserve_task_and_timer_statuses() {
         input.timer.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Running
     );
-    assert!(!input.timer.lock().unwrap().as_ref().unwrap().is_rejected());
     services.fire_timer();
     assert_eq!(
         input.timer.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Queued
     );
-    assert!(!input.timer.lock().unwrap().as_ref().unwrap().is_rejected());
     assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(
         input.timer.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Delivered
     );
-    assert!(!input.timer.lock().unwrap().as_ref().unwrap().is_rejected());
 }
 
 #[test]
@@ -601,7 +623,7 @@ fn dropping_host_cancels_work_and_releases_component_ownership() {
 }
 
 #[test]
-fn task_and_timer_rejection_distinguishes_capacity_from_cancellation() {
+fn task_and_timer_bursts_preserve_delivery_and_cancellation() {
     for cancelled in [false, true] {
         for message in [
             ServiceProbeMessage::Background,
@@ -619,49 +641,42 @@ fn task_and_timer_rejection_distinguishes_capacity_from_cancellation() {
             let sender = host.sender::<ServiceProbe>(&Key::from("probe")).unwrap();
             assert!(sender.send(message));
             assert_eq!(host.drain(1).dispatched, 1);
-            for _ in 0..MESSAGE_CAPACITY {
+            for _ in 0..5_000 {
                 assert!(sender.send(ServiceProbeMessage::BackgroundComplete));
             }
-            assert!(!sender.send(ServiceProbeMessage::BackgroundComplete));
-
-            if background {
-                let task = input.task.lock().unwrap().as_ref().unwrap().clone();
-                assert!(!task.is_rejected());
-                if cancelled {
-                    task.cancel();
-                }
-                services.run_background();
-                assert_eq!(task.is_rejected(), !cancelled);
-                task.cancel();
-                assert_eq!(task.is_rejected(), !cancelled);
-                assert_eq!(
-                    task.status(),
-                    if cancelled {
-                        ComponentTaskStatus::Cancelled
-                    } else {
-                        ComponentTaskStatus::Rejected
-                    }
-                );
+            let task = if background {
+                input.task.lock().unwrap().as_ref().unwrap().clone()
             } else {
-                let timer = input.timer.lock().unwrap().take().unwrap();
-                assert!(!timer.is_rejected());
-                if cancelled {
-                    timer.cancel();
-                }
-                services.fire_timer();
-                assert_eq!(timer.is_rejected(), !cancelled);
-                timer.cancel();
-                assert_eq!(timer.is_rejected(), !cancelled);
-                assert_eq!(
-                    timer.status(),
-                    if cancelled {
-                        ComponentTaskStatus::Cancelled
-                    } else {
-                        ComponentTaskStatus::Rejected
-                    }
-                );
+                input.timer.lock().unwrap().as_ref().unwrap().task.clone()
+            };
+            if cancelled {
+                task.cancel();
             }
-            assert_eq!(host.queue.lock().unwrap().messages.len(), MESSAGE_CAPACITY);
+            if background {
+                services.run_background();
+            } else {
+                services.fire_timer();
+            }
+            assert_eq!(
+                task.status(),
+                if cancelled {
+                    ComponentTaskStatus::Cancelled
+                } else {
+                    ComponentTaskStatus::Queued
+                }
+            );
+            assert_eq!(
+                host.drain(usize::MAX).dispatched,
+                5_000 + usize::from(!cancelled)
+            );
+            assert_eq!(
+                task.status(),
+                if cancelled {
+                    ComponentTaskStatus::Cancelled
+                } else {
+                    ComponentTaskStatus::Delivered
+                }
+            );
         }
     }
 }
@@ -942,7 +957,7 @@ fn closed_queue_rejects_stale_sender_completion_and_callback() {
 }
 
 #[test]
-fn queue_capacity_and_closure_release_all_payloads() {
+fn queue_closure_releases_all_payloads_after_a_burst() {
     let drops = Arc::new(AtomicUsize::new(0));
     let host = ComponentHost::mount(
         RecordingAdapter::default(),
@@ -951,22 +966,29 @@ fn queue_capacity_and_closure_release_all_payloads() {
     let sender = host
         .sender::<PayloadComponent>(&Key::from("payload"))
         .unwrap();
-    for _ in 0..MESSAGE_CAPACITY {
+    for _ in 0..5_000 {
         assert!(sender.send(DropPayload(Arc::clone(&drops))));
     }
-    assert!(!sender.send(DropPayload(Arc::clone(&drops))));
-    assert_eq!(drops.load(Ordering::Relaxed), 1);
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
     let queue = Arc::clone(&host.queue);
 
     drop(host);
-    assert_eq!(drops.load(Ordering::Relaxed), MESSAGE_CAPACITY + 1);
+    assert_eq!(drops.load(Ordering::Relaxed), 5_000);
     assert!(!sender.send(DropPayload(Arc::clone(&drops))));
-    assert_eq!(drops.load(Ordering::Relaxed), MESSAGE_CAPACITY + 2);
+    assert_eq!(drops.load(Ordering::Relaxed), 5_001);
     assert!(queue.lock().unwrap().messages.is_empty());
 }
 
 #[test]
-fn controlled_task_send_after_closure_is_cancelled_or_rejected() {
+fn controlled_task_send_after_closure_is_cancelled_outside_the_queue_lock() {
+    struct Registration(SharedQueue);
+
+    impl ComponentTimerRegistration for Registration {
+        fn cancel(&self) {
+            assert!(self.0.try_lock().is_ok());
+        }
+    }
+
     let services = Arc::new(TestServices::default());
     let task_input = ServiceProbeInput::default();
     let mut host = ComponentHost::mount_with_services(
@@ -990,13 +1012,13 @@ fn controlled_task_send_after_closure_is_cancelled_or_rejected() {
     assert_eq!(control.status(), ComponentTaskStatus::Cancelled);
 
     let untracked = Arc::new(TaskControl::default());
+    untracked.set_timer(Arc::new(Registration(Arc::clone(&sender.queue))));
     assert!(untracked.queue());
     assert!(!sender.send_controlled(
         ServiceProbeMessage::BackgroundComplete,
         Arc::clone(&untracked)
     ));
-    assert_eq!(untracked.status(), ComponentTaskStatus::Rejected);
-    assert!(ComponentTask { control: untracked }.is_rejected());
+    assert_eq!(untracked.status(), ComponentTaskStatus::Cancelled);
 }
 
 #[test]
