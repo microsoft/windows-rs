@@ -110,6 +110,12 @@ impl WinUiAdapter {
                     Handle::Generated(GeneratedHandle::Button(control)) => {
                         control.value.SetFlyout(&flyout)?;
                     }
+                    Handle::Generated(GeneratedHandle::DropDownButton(control)) => {
+                        control
+                            .value
+                            .cast::<native::IButton>()?
+                            .SetFlyout(&flyout)?;
+                    }
                     Handle::Generated(GeneratedHandle::SplitButton(control)) => {
                         control.value.SetFlyout(&flyout)?;
                     }
@@ -166,6 +172,12 @@ impl WinUiAdapter {
             match handle {
                 Handle::Generated(GeneratedHandle::Button(control)) => {
                     control.value.SetFlyout(None::<&native::FlyoutBase>)?;
+                }
+                Handle::Generated(GeneratedHandle::DropDownButton(control)) => {
+                    control
+                        .value
+                        .cast::<native::IButton>()?
+                        .SetFlyout(None::<&native::FlyoutBase>)?;
                 }
                 Handle::Generated(GeneratedHandle::SplitButton(control)) => {
                     control.value.SetFlyout(None::<&native::FlyoutBase>)?;

@@ -95,6 +95,27 @@ impl Planner<'_> {
         replaced: bool,
     ) {
         let desired = desired.unwrap_or(&DeclaredAttachments::EMPTY);
+        let mut previous = previous;
+        // Flyouts, menus, and command bar flyouts share `Button.Flyout`, so clear removed kinds
+        // before setting another.
+        if !replaced {
+            if desired.flyout.is_none()
+                && let Some(flyout) = previous.flyout.take()
+            {
+                self.detach_flyout(target, &flyout);
+                self.retire(flyout.object);
+            }
+            if desired.menu.is_none()
+                && let Some(menu) = previous.menu.take()
+            {
+                self.detach_menu(target, &menu);
+            }
+            if desired.command_bar_flyout.is_none()
+                && let Some(flyout) = previous.command_bar_flyout.take()
+            {
+                self.detach_command_bar_flyout(target, &flyout);
+            }
+        }
         self.reconcile_tooltip(target, previous.tooltip, desired.tooltip.as_ref(), replaced);
         self.reconcile_flyout(target, previous.flyout, desired.flyout.as_ref(), replaced);
         self.reconcile_menu(target, previous.menu, desired.menu.as_ref(), replaced);

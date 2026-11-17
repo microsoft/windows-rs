@@ -300,7 +300,7 @@ fn validate_object(
         if let Some(flyout) = &attachments.flyout {
             if !matches!(
                 declaration.kind,
-                ObjectType::Button | ObjectType::SplitButton
+                ObjectType::Button | ObjectType::DropDownButton | ObjectType::SplitButton
             ) {
                 invalid_attachment(declaration.kind);
             }
