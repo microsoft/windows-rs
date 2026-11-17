@@ -1,7 +1,7 @@
 # Process monitor
 
 A read-only Reactor sample with a Task Manager-style navigation shell, a virtualized process tree,
-CPU and memory columns, filtering, sorting, stable selection, and on-demand executable paths.
+CPU and memory columns, filtering, sorting, stable selection, and a per-process details page.
 It runs without elevation, debug privileges, process termination, or process-memory reads.
 Process sampling uses `NtQuerySystemInformation`, so identity and counters do not require opening
 each process. Creation and CPU times depend on the native `SYSTEM_PROCESS_INFORMATION` layout,
@@ -17,12 +17,19 @@ The demo has 60 deterministic snapshots with changing metrics, process exits, an
 does not enumerate real processes.
 
 The **Processes** page supports full-row selection; double-click a row, or select it and choose
-**Details**, to see the process and its executable path. Tab and Enter/Space activate rows and controls. Use the chevrons to expand
-or collapse branches. Click a column heading to sort, then click again to reverse direction.
-Name/PID initially sort ascending and CPU/memory descending; unavailable values stay last. Tree mode
-sorts siblings. Turn off **Process tree** for a global ranking. Filtering retains ancestors of
-matching processes and expands their paths. Pause stops scheduling new snapshots; an in-flight
-snapshot can still complete.
+**Details**, to inspect the process. Tab and Enter/Space activate rows and controls. Use the
+chevrons to expand or collapse branches. Click a column heading to sort, then click again to reverse
+direction. Name/PID initially sort ascending and CPU/memory descending; unavailable values stay
+last. Tree mode sorts siblings. Turn off **Process tree** for a global ranking. Filtering retains
+ancestors of matching processes and expands their paths. Pause stops scheduling new snapshots; an
+in-flight snapshot can still complete.
+
+The **Details** page opens the selected process with `PROCESS_QUERY_LIMITED_INFORMATION` and checks
+its creation time before every query, so a reused PID is never described as the original process.
+It shows the image path and version resources, user, elevation, architecture, start time, kernel
+and user CPU, priority, memory, I/O, and handle and GDI/USER object counts. Counters refresh with
+each snapshot. Processes that deny access, such as protected system processes when not elevated,
+show only their snapshot values.
 
 The **Performance** page charts aggregate CPU and physical memory with `windows-canvas`. CPU uses
 the language-neutral PDH `Processor Information(_Total)\% Processor Time` counter, not a sum of
@@ -115,5 +122,5 @@ cargo clippy -p reactor-process-monitor --all-targets -- -D warnings
 
 The tests cover CPU normalization, PID reuse, tree filtering, unavailable identities, replay
 compatibility, NUMA-qualified processor identities, bounded history, stable identity for processes
-that cannot be opened, native process-time decoding, sampling cancellation, executable-path
-identity checks, and drawing aggregate and logical graphs with gaps on a shared WARP surface.
+that cannot be opened, native process-time decoding, sampling cancellation, details identity checks,
+version resources, and drawing aggregate and logical graphs with gaps on a shared WARP surface.
