@@ -76,6 +76,8 @@ jobs:
           path=$(cargo run -q -p tool-clang -- path)
           echo "LIBCLANG_PATH=$path" >> "$GITHUB_ENV"
         shell: bash
+      - uses: ./.github/actions/enable-animations
+        if: matrix.target == 'x86_64-pc-windows-msvc'
       - name: Test
         # The system Composition graph is excluded because Reactor consumers select the
         # incompatible lifted Composition stack. Cross-language tests run in interop.yml.

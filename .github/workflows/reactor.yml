@@ -94,6 +94,8 @@ jobs:
             throw "windows-reactor public API changed"
           }
 
+      - uses: ./.github/actions/enable-animations
+
       - name: Run Reactor tests
         # Workspace tests cover feature unification; keep this default-feature run isolated.
         # Cast diagnostics also fail any fixture that leaks COM objects or delegates.
