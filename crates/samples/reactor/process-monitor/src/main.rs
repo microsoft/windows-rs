@@ -997,10 +997,13 @@ impl Component for Details {
                     .into(),
             ]);
         }
-        Grid::new()
-            .columns([GridLength::STAR, GridLength::STAR])
-            .rows([GridLength::Auto; 5])
-            .children(children)
+        ScrollViewer::new()
+            .content(
+                Grid::new()
+                    .columns([GridLength::STAR, GridLength::STAR])
+                    .rows([GridLength::Auto; 5])
+                    .children(children),
+            )
             .into()
     }
 }
