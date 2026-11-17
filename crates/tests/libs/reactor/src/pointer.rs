@@ -307,7 +307,10 @@ impl Component for CursorFixture {
         match message {
             CursorMessage::Inner => self.inner = (self.inner + 1) % 3,
             CursorMessage::Outer => self.outer = !self.outer,
-            CursorMessage::Entered => self.entered += 1,
+            CursorMessage::Entered => {
+                self.entered += 1;
+                eprintln!("cursor: inner entered message {}", self.entered);
+            }
         }
     }
 
@@ -323,14 +326,7 @@ impl Component for CursorFixture {
             .background(Color::rgb(200, 200, 200))
             .horizontal_alignment(HorizontalAlignment::Left)
             .vertical_alignment(VerticalAlignment::Top)
-            .on_pointer_entered({
-                let entered = context.message(CursorMessage::Entered);
-                RoutedCallback::new(move |info: PointerEventInfo| {
-                    eprintln!("cursor: inner entered at ({:.1}, {:.1})", info.x, info.y);
-                    entered.call(());
-                    false
-                })
-            })
+            .on_pointer_entered(context.callback(|_| CursorMessage::Entered))
             .content(TextBlock::new().automation_id("cursor-inner").text("Inner"));
         if let Some(shape) = inner_shape {
             inner = inner.pointer_cursor(shape);
@@ -367,7 +363,6 @@ impl Component for CursorFixture {
         context.window_frame(
             "Reactor UI fixture: pointer-cursor",
             Border::new()
-                .background(Color::rgb(255, 255, 255))
                 .on_pointer_entered(log("entered"))
                 .on_pointer_moved(log("moved"))
                 .content(
