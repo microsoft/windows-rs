@@ -10,6 +10,10 @@ fn keyboard_routing_and_accelerator_callback_replacement() -> Result<()> {
         ui.name("keys", "Preview 1; child 0")?;
         ui.press_keys("input", &[VK_SPACE])?;
         ui.name("characters", "Characters [32]")?;
+        ui.press_keys("input", &[VK_SHIFT, VK_SPACE])?;
+        ui.press_keys("input", &[VK_CONTROL, VK_SHIFT, VK_SPACE])?;
+        ui.name("shifted", "Shifted [Shift, Control+Shift]")?;
+        ui.name("keys", "Preview 1; child 0")?;
         ui.press_keys("input", &[VK_CONTROL, VK_RETURN])?;
         ui.name("accelerators", "Accelerators [0]")?;
 

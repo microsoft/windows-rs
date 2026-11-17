@@ -312,8 +312,8 @@ impl ComponentHost {
             scope.contexts = environment.contexts;
             scope.provided_contexts = environment.provided;
             scope.window = pending.window;
+            scope.dependencies = pending.dependencies;
             self.prepared_effects.push((pending.id, effects));
-            self.replace_dependencies(pending.id, pending.dependencies);
         }
     }
 
@@ -344,9 +344,6 @@ impl ComponentHost {
             .unwrap_or_default();
         for child in children {
             self.retire_scope(child);
-        }
-        for consumers in self.context_consumers.values_mut() {
-            consumers.remove(&id);
         }
         let slot = &mut self.scopes[id.index as usize];
         let Some(mut scope) = slot.scope.take() else {

@@ -1,5 +1,7 @@
 use super::*;
 
+const SVG: &[u8] = b"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='6'/></svg>";
+
 /// Mounts action and display-only objects. Action controls log their callbacks; the display
 /// objects can be updated, removed, and mounted again.
 pub(super) struct SmokeFixture {
@@ -70,6 +72,15 @@ impl Component for SmokeFixture {
                         .icon(Symbol::Accept)
                         .on_click(event("app-bar")),
                     AppBarSeparator::new(),
+                    AppBarButton::new()
+                        .label("Font")
+                        .icon(Icon::font("\u{E734}")),
+                    AppBarButton::new()
+                        .label("Path")
+                        .icon(Icon::path("M 0,0 L 16,0 L 8,16 Z")),
+                    AppBarButton::new()
+                        .label("Image")
+                        .icon(Icon::image_data(EncodedImage::from_static(image::PNG))),
                 )),
                 BreadcrumbBar::new()
                     .automation_id("crumbs")
@@ -79,6 +90,11 @@ impl Component for SmokeFixture {
         let mut children = vec![
             TitleBar::new()
                 .title("Reactor UI fixture: smoke")
+                .icon(match self.generation % 3 {
+                    0 => Icon::font("\u{E721}"),
+                    1 => Icon::path("M 0,8 L 6,14 L 16,2 Z"),
+                    _ => Icon::image_svg(EncodedImage::from_static(SVG)),
+                })
                 .is_back_button_visible(true)
                 .is_back_button_enabled(true)
                 .on_back_requested(event("back"))

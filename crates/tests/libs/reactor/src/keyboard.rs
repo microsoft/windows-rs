@@ -5,6 +5,7 @@ pub(super) struct KeyboardFixture {
     preview: u32,
     child: u32,
     characters: Vec<u16>,
+    shifted: Vec<InputModifiers>,
     accelerators: Vec<u32>,
 }
 
@@ -12,6 +13,7 @@ pub(super) struct KeyboardFixture {
 pub(super) enum Message {
     Key(KeyEventInfo, bool),
     Character(CharacterEventInfo),
+    Shifted(InputModifiers),
     Accelerator(u32),
     Replace,
 }
@@ -26,6 +28,7 @@ impl Component for KeyboardFixture {
             preview: 0,
             child: 0,
             characters: Vec::new(),
+            shifted: Vec::new(),
             accelerators: Vec::new(),
         }
     }
@@ -52,6 +55,7 @@ impl Component for KeyboardFixture {
                 assert!(!info.status.is_released);
                 self.characters.push(info.character);
             }
+            Message::Shifted(modifiers) => self.shifted.push(modifiers),
             Message::Accelerator(generation) => self.accelerators.push(generation),
             Message::Replace => self.generation += 1,
         }
@@ -62,11 +66,11 @@ impl Component for KeyboardFixture {
         let handled = generation == 0;
         let preview_sender = context.sender();
         let child_sender = context.sender();
+        let shifted_sender = context.sender();
         let character_sender = context.sender();
         let input = Border::new()
             .on_preview_key_down(RoutedCallback::new(move |info: KeyEventInfo| {
-                if info.key == VirtualKey::SPACE && info.modifiers.contains(InputModifiers::CONTROL)
-                {
+                if info.key == VirtualKey::SPACE && info.modifiers == InputModifiers::CONTROL {
                     assert!(preview_sender.send(Message::Key(info, false)));
                     handled
                 } else {
@@ -81,9 +85,14 @@ impl Component for KeyboardFixture {
                     .padding(12.0)
                     .on_preview_key_down(RoutedCallback::new(move |info: KeyEventInfo| {
                         if info.key == VirtualKey::SPACE
-                            && info.modifiers.contains(InputModifiers::CONTROL)
+                            && info.modifiers == InputModifiers::CONTROL
                         {
                             assert!(child_sender.send(Message::Key(info, true)));
+                        }
+                        if info.key == VirtualKey::SPACE
+                            && info.modifiers.contains(InputModifiers::SHIFT)
+                        {
+                            assert!(shifted_sender.send(Message::Shifted(info.modifiers)));
                         }
                         false
                     }))
@@ -117,6 +126,9 @@ impl Component for KeyboardFixture {
                         .automation_id("characters")
                         .text(format!("Characters {:?}", self.characters)),
                     TextBlock::new()
+                        .automation_id("shifted")
+                        .text(format!("Shifted {}", modifier_names(&self.shifted))),
+                    TextBlock::new()
                         .automation_id("accelerators")
                         .text(format!("Accelerators {:?}", self.accelerators)),
                     TextBlock::new()
@@ -130,4 +142,25 @@ impl Component for KeyboardFixture {
                 .into()])
             .into()
     }
+}
+
+fn modifier_names(values: &[InputModifiers]) -> String {
+    let names = [
+        (InputModifiers::CONTROL, "Control"),
+        (InputModifiers::SHIFT, "Shift"),
+        (InputModifiers::ALT, "Alt"),
+        (InputModifiers::WINDOWS, "Windows"),
+    ];
+    let values = values
+        .iter()
+        .map(|value| {
+            names
+                .iter()
+                .filter(|(flag, _)| value.contains(*flag))
+                .map(|(_, name)| *name)
+                .collect::<Vec<_>>()
+                .join("+")
+        })
+        .collect::<Vec<_>>();
+    format!("[{}]", values.join(", "))
 }
