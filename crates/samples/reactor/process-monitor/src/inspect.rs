@@ -30,8 +30,8 @@ pub struct Counters {
     pub user: u64,
     pub priority: Result<&'static str, String>,
     pub handles: Result<u32, String>,
-    pub gdi_objects: u32,
-    pub user_objects: u32,
+    pub gdi_objects: Result<u32, String>,
+    pub user_objects: Result<u32, String>,
     pub io: Result<IO_COUNTERS, String>,
     pub memory: Result<PROCESS_MEMORY_COUNTERS_EX, String>,
 }
@@ -75,13 +75,24 @@ pub fn counters(id: ProcessId) -> Result<Counters, String> {
             _ => Ok("Unknown"),
         },
         handles: check(unsafe { GetProcessHandleCount(raw, &mut handles) }).map(|()| handles),
-        // GetGuiResources returns zero both on failure and for processes without GUI objects.
-        gdi_objects: unsafe { GetGuiResources(raw, GR_GDIOBJECTS as u32) },
-        user_objects: unsafe { GetGuiResources(raw, GR_USEROBJECTS as u32) },
+        gdi_objects: gui_resources(&handle, GR_GDIOBJECTS),
+        user_objects: gui_resources(&handle, GR_USEROBJECTS),
         io: check(unsafe { GetProcessIoCounters(raw, &mut io) }).map(|()| io),
         memory: check(unsafe { K32GetProcessMemoryInfo(raw, (&raw mut memory).cast(), memory.cb) })
             .map(|()| memory),
     })
+}
+
+// Zero is both a valid count and the failure result, so the last error tells them apart. The
+// call fails for processes in another session.
+fn gui_resources(handle: &OwnedHandle, kind: i32) -> Result<u32, String> {
+    unsafe {
+        SetLastError(0);
+        match GetGuiResources(handle.as_raw_handle(), kind as u32) {
+            0 if GetLastError() != 0 => Err(io::Error::last_os_error().to_string()),
+            count => Ok(count),
+        }
+    }
 }
 
 pub fn open(pid: u32) -> io::Result<OwnedHandle> {
@@ -402,8 +413,11 @@ mod tests {
         identity.elevated.unwrap();
         assert_ne!(identity.architecture.unwrap(), "Unknown");
         let counters = counters(current()).unwrap();
-        assert_eq!(counters.priority.unwrap(), "Normal");
+        // CI runners may start tests below normal priority, so only require a known class.
+        assert_ne!(counters.priority.unwrap(), "Unknown");
         assert!(counters.handles.unwrap() > 0);
+        counters.gdi_objects.unwrap();
+        counters.user_objects.unwrap();
         assert!(counters.memory.unwrap().PrivateUsage > 0);
     }
 

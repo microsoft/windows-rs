@@ -7,6 +7,8 @@ use windows_reactor::*;
 pub struct DetailInput {
     pub process: Option<Rc<Process>>,
     pub live: bool,
+    /// Committed snapshot count, so each snapshot refreshes counters even when list values match.
+    pub snapshot: usize,
 }
 
 pub enum Message {
@@ -172,8 +174,14 @@ impl Details {
                     "Handles",
                     text(counters.handles.as_ref().map(|&h| count(u64::from(h)))),
                 ),
-                ("GDI objects", count(u64::from(counters.gdi_objects))),
-                ("USER objects", count(u64::from(counters.user_objects))),
+                (
+                    "GDI objects",
+                    text(counters.gdi_objects.as_ref().map(|&n| count(u64::from(n)))),
+                ),
+                (
+                    "USER objects",
+                    text(counters.user_objects.as_ref().map(|&n| count(u64::from(n)))),
+                ),
             ],
         ));
         sections

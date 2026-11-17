@@ -410,6 +410,7 @@ impl Component for Monitor {
                         .selected
                         .and_then(|id| self.model.processes.get(&id).cloned()),
                     live: options.live(),
+                    snapshot: self.frames,
                 },
             )
             .into(),
