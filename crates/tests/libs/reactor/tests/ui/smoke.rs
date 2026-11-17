@@ -44,8 +44,47 @@ fn display_objects_update_remove_and_remount() -> Result<()> {
         }
         ui.invoke("advance")?;
         ui.invoke("show")?;
-        displayed(ui, "Gen 2", 30.0)
+        displayed(ui, "Gen 2", 30.0)?;
+        // The image-backed icon element and icon source both render.
+        shows_red(ui, "AppBarButton image icon", "image-icon", |button| {
+            let height = button.bottom - button.top;
+            (button.top + height * 47 / 100, button.left, button.right)
+        })?;
+        let back = unsafe { ui.element("PART_BackButton")?.CurrentBoundingRectangle()? };
+        shows_red(ui, "TitleBar SVG icon", "PART_TitleText", |title| {
+            ((title.top + title.bottom) / 2, back.right, title.left)
+        })
     })
+}
+
+/// Waits for a red pixel in the row `region` derives from the element's physical bounds.
+fn shows_red(
+    ui: &Automation,
+    description: &str,
+    id: &str,
+    region: impl Fn(RECT) -> (i32, i32, i32),
+) -> Result<()> {
+    let _physical = PhysicalCoordinates::new()?;
+    let element = ui.element(id)?;
+    ui.wait(
+        &format!("{description} shows red"),
+        || unsafe {
+            let (y, left, right) = region(element.CurrentBoundingRectangle()?);
+            let dc = GetDC(std::ptr::null_mut());
+            assert!(!dc.is_null(), "GetDC failed");
+            let red = (left..right).any(|x| {
+                let pixel = GetPixel(dc, x, y);
+                pixel != u32::MAX
+                    && pixel & 0xff > 200
+                    && (pixel >> 8) & 0xff < 60
+                    && (pixel >> 16) & 0xff < 60
+            });
+            assert_ne!(ReleaseDC(std::ptr::null_mut(), dc), 0);
+            Ok(red)
+        },
+        |red| *red,
+    )?;
+    Ok(())
 }
 
 #[test]

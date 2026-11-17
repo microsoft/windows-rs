@@ -308,12 +308,23 @@ fn window_visuals_constraints_position_theme_and_backdrop() -> Result<()> {
 
         ui.invoke("theme")?;
         background(ui, false)?;
-        for backdrop in ["mica", "mica-alt", "acrylic", "no-backdrop"] {
-            ui.invoke(backdrop)?;
+        // A backdrop replaces the solid background; without one the cleared surface shows black.
+        // Clearing between backdrops keeps a previous backdrop from masking a missing one.
+        for (id, name) in [
+            ("mica", "Mica"),
+            ("no-backdrop", "None"),
+            ("mica-alt", "MicaAlt"),
+            ("no-backdrop", "None"),
+            ("acrylic", "Acrylic"),
+            ("no-backdrop", "None"),
+        ] {
+            ui.invoke(id)?;
+            ui.name(
+                "state",
+                &format!("Constrained false; dark false; {name}; moved true"),
+            )?;
+            background(ui, false)?;
         }
-        ui.name("state", "Constrained false; dark false; None; moved true")?;
-        // Removing the backdrop restores the solid theme background.
-        background(ui, false)?;
         ui.invoke("theme")?;
         background(ui, true)
     })
