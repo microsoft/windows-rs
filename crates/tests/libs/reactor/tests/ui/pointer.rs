@@ -54,16 +54,21 @@ pub fn system_cursor(ui: &Automation, name: &str, id: windows_core::PCSTR) -> Re
         return Err(windows_core::Error::from_thread().into());
     }
     ui.wait(
-        &format!("cursor becomes {name}"),
+        &format!("cursor becomes {name} ({expected:?})"),
         || unsafe {
             let mut info = CURSORINFO {
                 cbSize: size_of::<CURSORINFO>() as u32,
                 ..Default::default()
             };
             GetCursorInfo(&mut info).ok()?;
-            Ok(info.hCursor)
+            Ok((
+                info.hCursor,
+                info.flags,
+                info.ptScreenPos.x,
+                info.ptScreenPos.y,
+            ))
         },
-        |cursor| *cursor == expected,
+        |observed| observed.0 == expected,
     )?;
     Ok(())
 }

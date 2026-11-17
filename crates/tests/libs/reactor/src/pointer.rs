@@ -281,12 +281,14 @@ pub fn run_routing() -> windows_core::Result<()> {
 struct CursorFixture {
     inner: usize,
     outer: bool,
+    entered: usize,
 }
 
 #[derive(Clone)]
 enum CursorMessage {
     Inner,
     Outer,
+    Entered,
 }
 
 impl Component for CursorFixture {
@@ -297,6 +299,7 @@ impl Component for CursorFixture {
         Self {
             inner: 0,
             outer: true,
+            entered: 0,
         }
     }
 
@@ -304,6 +307,7 @@ impl Component for CursorFixture {
         match message {
             CursorMessage::Inner => self.inner = (self.inner + 1) % 3,
             CursorMessage::Outer => self.outer = !self.outer,
+            CursorMessage::Entered => self.entered += 1,
         }
     }
 
@@ -319,6 +323,7 @@ impl Component for CursorFixture {
             .background(Color::rgb(200, 200, 200))
             .horizontal_alignment(HorizontalAlignment::Left)
             .vertical_alignment(VerticalAlignment::Top)
+            .on_pointer_entered(context.callback(|_| CursorMessage::Entered))
             .content(TextBlock::new().automation_id("cursor-inner").text("Inner"));
         if let Some(shape) = inner_shape {
             inner = inner.pointer_cursor(shape);
@@ -358,6 +363,9 @@ impl Component for CursorFixture {
                     "Inner {inner_shape:?}; outer {}",
                     if self.outer { "Hand" } else { "None" }
                 )),
+                TextBlock::new()
+                    .automation_id("cursor-entered")
+                    .text(format!("Entered {}", self.entered)),
             )),
         )
     }
