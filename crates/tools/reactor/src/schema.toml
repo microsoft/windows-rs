@@ -354,6 +354,10 @@ name = "CapturePointerOnPress"
 adapter = "pointer_capture"
 
 [[objects.properties]]
+name = "PointerCursor"
+adapter = "pointer_cursor"
+
+[[objects.properties]]
 name = "FocusOnPointerRelease"
 adapter = "pointer_focus"
 

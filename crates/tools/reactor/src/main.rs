@@ -195,6 +195,7 @@ enum PropertyAdapter {
     OptionalDateTime,
     PathData,
     PointerCapture,
+    PointerCursor,
     PointerFocus,
     RatingValue,
     ResourceOverrides,
@@ -232,6 +233,7 @@ impl PropertyAdapter {
             Self::NumberBoxValue | Self::RatingValue => Value::OptionalF64,
             Self::OptionalDateTime => Value::OptionalDateTime,
             Self::PointerCapture | Self::PointerFocus => Value::Bool,
+            Self::PointerCursor => Value::Enum("InputSystemCursorShape".to_string()),
             Self::ResourceOverrides => Value::ResourceOverrides,
             Self::ResourceStyle => Value::ButtonStyle,
             Self::RichTextBlocks => Value::RichText,
@@ -1387,14 +1389,7 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
             let value = if property.value.enum_name().is_none() {
                 format!("ValueType::{}", property.value)
             } else {
-                let (_, variants) = metadata
-                    .enum_info(
-                        &native_name(object),
-                        &format!("put_{}", native_property(property)),
-                    )
-                    .unwrap_or_else(|| {
-                        panic!("{}.{} is not an enum property", object.name, property.name)
-                    });
+                let variants = property_enum_variants(object, property, metadata);
                 format!(
                     "ValueType::Enum {{ kind: \"{}\", variants: &[{}] }}",
                     property.value,
@@ -1532,12 +1527,7 @@ fn generate_declarations(
             let Some(kind) = property.value.enum_name() else {
                 continue;
             };
-            let (_, variants) = metadata
-                .enum_info(
-                    &native_name(object),
-                    &format!("put_{}", native_property(property)),
-                )
-                .unwrap();
+            let variants = property_enum_variants(object, property, metadata);
             if let Some(previous) = enums.insert(kind, variants.to_vec()) {
                 assert_eq!(previous, variants, "conflicting enum definitions");
             }
@@ -2028,6 +2018,24 @@ fn example_constructor(object: &Object) -> String {
 
 fn native_property(property: &Property) -> &str {
     property.native.as_deref().unwrap_or(&property.name)
+}
+
+/// Enum variants come from the native setter, except cursors, which WinUI creates from a shape.
+fn property_enum_variants<'a>(
+    object: &Object,
+    property: &Property,
+    metadata: &'a tool_reactor_metadata::MetadataResolver,
+) -> &'a [String] {
+    let info = if property.adapter == Some(PropertyAdapter::PointerCursor) {
+        metadata.static_enum_info("InputSystemCursor", "Create")
+    } else {
+        metadata.enum_info(
+            &native_name(object),
+            &format!("put_{}", native_property(property)),
+        )
+    };
+    info.unwrap_or_else(|| panic!("{}.{} is not an enum property", object.name, property.name))
+        .1
 }
 
 fn snake_case(value: &str) -> String {

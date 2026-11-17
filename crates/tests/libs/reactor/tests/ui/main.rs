@@ -160,6 +160,27 @@ fn pointer_delivery_modes_preserve_routing_and_queued_order() -> Result<()> {
     })
 }
 
+#[test]
+fn pointer_cursor_follows_declarations_under_a_stationary_pointer() -> Result<()> {
+    process::run("pointer-cursor", |ui| {
+        ui.pointer_move("cursor-inner", 0.5, 0.5)?;
+        ui.name("cursor-entered", "Entered 1")?;
+        system_cursor(ui, "SizeWestEast", IDC_SIZEWE)?;
+        // Invoke changes declarations without moving the pointer.
+        ui.invoke("inner-cursor")?;
+        ui.name("cursor-state", "Inner None; outer Hand")?;
+        system_cursor(ui, "inherited Hand", IDC_HAND)?;
+        ui.invoke("inner-cursor")?;
+        ui.name("cursor-state", "Inner Some(IBeam); outer Hand")?;
+        system_cursor(ui, "IBeam", IDC_IBEAM)?;
+        ui.pointer_move("cursor-outer", 0.5, 0.5)?;
+        system_cursor(ui, "Hand", IDC_HAND)?;
+        ui.invoke("outer-cursor")?;
+        ui.name("cursor-state", "Inner Some(IBeam); outer None")?;
+        system_cursor(ui, "Arrow", IDC_ARROW)
+    })
+}
+
 fn enable_pointer_policy(ui: &Automation) -> Result<()> {
     let original = ui.element("left")?;
     ui.name("policy", "Absent")?;

@@ -46,6 +46,33 @@ pub fn send_mouse(flags: i32, x: i32, y: i32) -> Result<()> {
 
 pub struct PhysicalCoordinates(DPI_AWARENESS_CONTEXT);
 
+/// Waits until the global cursor is the given system cursor. Shared system cursors keep one
+/// handle, so the handle identifies the shape the target process set.
+pub fn system_cursor(ui: &Automation, name: &str, id: windows_core::PCSTR) -> Result<()> {
+    let expected = unsafe { LoadCursorW(std::ptr::null_mut(), windows_core::PCWSTR(id.0 as _)) };
+    if expected.is_null() {
+        return Err(windows_core::Error::from_thread().into());
+    }
+    ui.wait(
+        &format!("cursor becomes {name} ({expected:?})"),
+        || unsafe {
+            let mut info = CURSORINFO {
+                cbSize: size_of::<CURSORINFO>() as u32,
+                ..Default::default()
+            };
+            GetCursorInfo(&mut info).ok()?;
+            Ok((
+                info.hCursor,
+                info.flags,
+                info.ptScreenPos.x,
+                info.ptScreenPos.y,
+            ))
+        },
+        |observed| observed.0 == expected,
+    )?;
+    Ok(())
+}
+
 impl PhysicalCoordinates {
     pub fn new() -> Result<Self> {
         let previous =
