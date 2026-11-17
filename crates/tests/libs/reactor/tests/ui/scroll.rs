@@ -176,8 +176,18 @@ fn items_repeater_keeps_visible_row_when_items_are_prepended() -> Result<()> {
     process::run("scroll-prepend", |ui| {
         ui.invoke("middle")?;
         ui.name("metrics", "Offset 400; extent 2000; first Row 1010")?;
+        let row = ui.element("row-1010")?;
+        let top = unsafe { row.CurrentBoundingRectangle()?.top };
         ui.invoke("prepend")?;
         ui.name("metrics", "Offset 600; extent 2200; first Row 1010")?;
+        let after = ui.element("row-1010")?;
+        unsafe {
+            assert!(
+                ui.client.CompareElements(&row, &after)?.as_bool(),
+                "prepending replaced Row 1010"
+            );
+            assert_eq!(after.CurrentBoundingRectangle()?.top, top);
+        }
         ui.invoke("top")?;
         ui.name("metrics", "Offset 0; extent 2200; first Row 995")?;
         ui.invoke("prepend")?;

@@ -450,9 +450,11 @@ impl Component for ScrollPrependFixture {
         let rows = self.rows.iter().fold(ItemsRepeater::new(), |list, &id| {
             list.item(
                 id,
-                Border::new()
-                    .height(ROW_HEIGHT)
-                    .content(TextBlock::new().text(format!("Row {id}"))),
+                Border::new().height(ROW_HEIGHT).content(
+                    TextBlock::new()
+                        .automation_id(format!("row-{id}"))
+                        .text(format!("Row {id}")),
+                ),
             )
         });
         let metrics = self.metrics;

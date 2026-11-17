@@ -416,9 +416,9 @@ fn content_dialog_schedule_ignores_stale_completion_generation() {
     assert_eq!(schedule.active, None);
 }
 
-fn virtual_index(value: IInspectable) -> i32 {
+fn virtual_key(value: IInspectable) -> u64 {
     value
-        .cast::<windows_reference::IReference<i32>>()
+        .cast::<windows_reference::IReference<u64>>()
         .unwrap()
         .Value()
         .unwrap()
@@ -446,50 +446,44 @@ fn recycled_physical_shell_keeps_old_token_until_acknowledged() {
 }
 
 #[test]
-fn virtual_source_generates_indices_on_demand() {
-    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![0, 1, 2])).unwrap());
+fn virtual_source_exposes_keys_as_values() {
+    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![10, 11, 12])).unwrap());
     let vector: IObservableVector<IInspectable> = source.to_interface();
 
     assert_eq!(vector.Size().unwrap(), 3);
-    assert_eq!(virtual_index(vector.GetAt(0).unwrap()), 0);
-    assert_eq!(virtual_index(vector.GetAt(2).unwrap()), 2);
+    assert_eq!(virtual_key(vector.GetAt(0).unwrap()), 10);
+    assert_eq!(virtual_key(vector.GetAt(2).unwrap()), 12);
     assert_eq!(vector.GetAt(3).unwrap_err().code(), E_BOUNDS);
 
     let mut index = u32::MAX;
-    assert!(
-        vector
-            .IndexOf(&virtual_item_value(2).unwrap(), &mut index)
-            .unwrap()
-    );
+    assert!(vector.IndexOf(&virtual_item_value(12), &mut index).unwrap());
     assert_eq!(index, 2);
-    let missing: IInspectable = windows_reference::IReference::<i32>::from(9).into();
-    assert!(!vector.IndexOf(&missing, &mut index).unwrap());
+    assert!(!vector.IndexOf(&virtual_item_value(2), &mut index).unwrap());
     assert_eq!(index, 0);
-    let negative: IInspectable = windows_reference::IReference::<i32>::from(-1).into();
-    assert!(!vector.IndexOf(&negative, &mut index).unwrap());
     let invalid: IInspectable =
         windows_reference::IReference::<HSTRING>::from(HSTRING::from("invalid")).into();
     assert!(vector.IndexOf(&invalid, &mut index).is_err());
 
     let mut values = vec![None; 4];
     assert_eq!(vector.GetMany(1, &mut values).unwrap(), 2);
-    assert_eq!(virtual_index(values[0].take().unwrap()), 1);
-    assert_eq!(virtual_index(values[1].take().unwrap()), 2);
+    assert_eq!(virtual_key(values[0].take().unwrap()), 11);
+    assert_eq!(virtual_key(values[1].take().unwrap()), 12);
     assert!(values[2].is_none());
+    assert_eq!(vector.GetMany(3, &mut values).unwrap(), 0);
 
     let view = vector.GetView().unwrap();
     assert_eq!(view.Size().unwrap(), 3);
-    assert_eq!(virtual_index(view.GetAt(1).unwrap()), 1);
+    assert_eq!(virtual_key(view.GetAt(1).unwrap()), 11);
 
     let iterator = vector.First().unwrap();
     assert!(iterator.HasCurrent().unwrap());
-    assert_eq!(virtual_index(iterator.Current().unwrap()), 0);
+    assert_eq!(virtual_key(iterator.Current().unwrap()), 10);
     assert!(iterator.MoveNext().unwrap());
-    assert_eq!(virtual_index(iterator.Current().unwrap()), 1);
+    assert_eq!(virtual_key(iterator.Current().unwrap()), 11);
     let mut tail = vec![None; 3];
     assert_eq!(iterator.GetMany(&mut tail).unwrap(), 2);
-    assert_eq!(virtual_index(tail[0].take().unwrap()), 1);
-    assert_eq!(virtual_index(tail[1].take().unwrap()), 2);
+    assert_eq!(virtual_key(tail[0].take().unwrap()), 11);
+    assert_eq!(virtual_key(tail[1].take().unwrap()), 12);
     assert!(!iterator.HasCurrent().unwrap());
     assert_eq!(iterator.Current().unwrap_err().code(), E_BOUNDS);
 }
@@ -529,17 +523,9 @@ fn virtual_source_is_read_only_and_validates_index_limits() {
     let vector: IObservableVector<IInspectable> = source.to_interface();
 
     assert_eq!(virtual_item_count(max_count).unwrap(), max_count as u32);
-    assert_eq!(
-        virtual_index(virtual_item_value(i32::MAX as u32).unwrap()),
-        i32::MAX
-    );
-    assert_eq!(
-        virtual_item_value(i32::MAX as u32 + 1).unwrap_err().code(),
-        E_BOUNDS
-    );
     assert!(virtual_item_count(max_count + 1).is_err());
 
-    let value = virtual_item_value(0).unwrap();
+    let value = virtual_item_value(0);
     assert_eq!(
         vector.SetAt(0, &value).unwrap_err().code(),
         E_ILLEGAL_METHOD_CALL
@@ -639,6 +625,98 @@ fn virtual_source_reports_ordered_changes_individually() {
         std::mem::take(&mut *changes.lock().unwrap()),
         [(CollectionChange::Reset, 0, 1)]
     );
+}
+
+#[test]
+fn virtual_source_changes_replay_to_current_values() {
+    fn values(vector: &IObservableVector<IInspectable>) -> Vec<u64> {
+        (0..vector.Size().unwrap())
+            .map(|index| virtual_key(vector.GetAt(index).unwrap()))
+            .collect()
+    }
+
+    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![10, 20, 30, 40])).unwrap());
+    let vector: IObservableVector<IInspectable> = source.to_interface();
+    let replica = Arc::new(Mutex::new(values(&vector)));
+    let observed = Arc::clone(&replica);
+    let _revoker = vector
+        .VectorChanged(move |sender, args| {
+            let sender = sender.ok().unwrap();
+            let args = args.ok().unwrap();
+            let index = args.Index().unwrap();
+            let mut replica = observed.lock().unwrap();
+            match args.CollectionChange().unwrap() {
+                CollectionChange::ItemRemoved => {
+                    replica.remove(index as usize);
+                }
+                CollectionChange::ItemInserted => {
+                    replica.insert(index as usize, virtual_key(sender.GetAt(index).unwrap()));
+                }
+                change => panic!("unexpected {change:?}"),
+            }
+            assert_eq!(*replica, values(sender));
+        })
+        .unwrap();
+
+    for keys in [
+        vec![5, 10, 30, 35, 40, 45],
+        vec![30, 45],
+        vec![1, 2, 30, 3, 45, 4],
+    ] {
+        source.set_keys(Arc::new(keys)).unwrap();
+        let after = values(&vector);
+        assert_eq!(*replica.lock().unwrap(), after);
+        for position in 0..vector.Size().unwrap() {
+            let mut index = u32::MAX;
+            assert!(
+                vector
+                    .IndexOf(&vector.GetAt(position).unwrap(), &mut index)
+                    .unwrap()
+            );
+            assert_eq!(index, position);
+        }
+    }
+}
+
+#[test]
+fn virtual_source_continues_from_partially_reported_change() {
+    use crate::native::bindings::E_FAIL;
+    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![1, 2, 3])).unwrap());
+    let vector: IObservableVector<IInspectable> = source.to_interface();
+    let failing = VectorChangedEventHandler::<IInspectable>::new(|_, _| {
+        Err(windows_core::Error::new(E_FAIL, "failed"))
+    });
+    let token = source
+        .VectorChanged(<Ref<VectorChangedEventHandler<IInspectable>>>::from(
+            &failing,
+        ))
+        .unwrap();
+    assert_eq!(
+        source.set_keys(Arc::new(vec![1, 3, 4])).unwrap_err().code(),
+        E_FAIL
+    );
+    source.RemoveVectorChanged(token).unwrap();
+
+    let changes = Arc::new(Mutex::new(Vec::new()));
+    let observed = Arc::clone(&changes);
+    let _revoker = vector
+        .VectorChanged(move |_, args| {
+            let args = args.ok().unwrap();
+            observed
+                .lock()
+                .unwrap()
+                .push((args.CollectionChange().unwrap(), args.Index().unwrap()));
+        })
+        .unwrap();
+    source.set_keys(Arc::new(vec![1, 3, 4])).unwrap();
+    assert_eq!(
+        *changes.lock().unwrap(),
+        [(CollectionChange::ItemInserted, 2)]
+    );
+    let values: Vec<u64> = (0..vector.Size().unwrap())
+        .map(|index| virtual_key(vector.GetAt(index).unwrap()))
+        .collect();
+    assert_eq!(values, [1, 3, 4]);
 }
 
 #[test]

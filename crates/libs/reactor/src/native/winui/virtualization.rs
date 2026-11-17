@@ -88,15 +88,68 @@ implement_decl! {
 }
 
 pub(super) struct NativeVirtualSource {
-    keys: Mutex<Arc<Vec<u64>>>,
+    keys: Mutex<Keys>,
     handlers: WinEvent<VectorChangedEventHandler<IInspectable>>,
+}
+
+/// The keys WinUI observes: `head[..head_len]` followed by `tail[tail_start..]`. Between granular
+/// notifications this describes each intermediate state without shifting either vector.
+struct Keys {
+    head: Arc<Vec<u64>>,
+    head_len: usize,
+    tail: Arc<Vec<u64>>,
+    tail_start: usize,
+}
+
+impl Keys {
+    fn new(keys: Arc<Vec<u64>>) -> Self {
+        Self {
+            head_len: keys.len(),
+            head: keys,
+            tail: Arc::default(),
+            tail_start: 0,
+        }
+    }
+
+    fn iter(&self) -> impl Iterator<Item = u64> + '_ {
+        self.head[..self.head_len]
+            .iter()
+            .chain(&self.tail[self.tail_start..])
+            .copied()
+    }
+
+    fn len(&self) -> usize {
+        self.head_len + self.tail.len() - self.tail_start
+    }
+
+    fn get(&self, index: usize) -> Option<u64> {
+        if index < self.head_len {
+            Some(self.head[index])
+        } else {
+            self.tail
+                .get(self.tail_start + index - self.head_len)
+                .copied()
+        }
+    }
+
+    fn position(&self, key: u64) -> Option<usize> {
+        self.iter().position(|candidate| candidate == key)
+    }
+
+    fn current(&self) -> Arc<Vec<u64>> {
+        if self.head_len == self.head.len() && self.tail_start == self.tail.len() {
+            Arc::clone(&self.head)
+        } else {
+            Arc::new(self.iter().collect())
+        }
+    }
 }
 
 impl NativeVirtualSource {
     pub(super) fn new(keys: Arc<Vec<u64>>) -> windows_core::Result<Self> {
         virtual_item_count(keys.len())?;
         Ok(Self {
-            keys: Mutex::new(keys),
+            keys: Mutex::new(Keys::new(keys)),
             handlers: WinEvent::new(),
         })
     }
@@ -107,29 +160,23 @@ impl NativeVirtualSource_Impl {
         self.keys.lock().unwrap().len().try_into().unwrap()
     }
 
+    pub(super) fn position(&self, key: u64) -> Option<usize> {
+        self.keys.lock().unwrap().position(key)
+    }
+
     fn get_at(&self, index: u32) -> windows_core::Result<IInspectable> {
-        if index >= self.count() {
-            return Err(E_BOUNDS.into());
-        }
-        virtual_item_value(index)
+        let key = self.keys.lock().unwrap().get(index as usize);
+        key.map(virtual_item_value).ok_or_else(|| E_BOUNDS.into())
     }
 
     fn index_of(&self, value: Ref<IInspectable>, result: &mut u32) -> windows_core::Result<bool> {
-        let value = value
+        let key = value
             .ok()?
-            .cast::<windows_reference::IReference<i32>>()?
+            .cast::<windows_reference::IReference<u64>>()?
             .Value()?;
-        let Ok(value) = u32::try_from(value) else {
-            *result = 0;
-            return Ok(false);
-        };
-        if value < self.count() {
-            *result = value;
-            Ok(true)
-        } else {
-            *result = 0;
-            Ok(false)
-        }
+        let index = self.position(key);
+        *result = index.map_or(0, |index| index.try_into().unwrap());
+        Ok(index.is_some())
     }
 
     fn get_many(
@@ -137,20 +184,13 @@ impl NativeVirtualSource_Impl {
         start_index: u32,
         items: &mut [Option<IInspectable>],
     ) -> windows_core::Result<u32> {
-        let count = self.count();
-        if start_index >= count {
-            return Ok(0);
+        let keys = self.keys.lock().unwrap();
+        let mut count = 0;
+        for (item, key) in items.iter_mut().zip(keys.iter().skip(start_index as usize)) {
+            *item = Some(virtual_item_value(key));
+            count += 1;
         }
-        let available = usize::try_from(count - start_index)
-            .map_err(|_| windows_core::Error::new(E_BOUNDS, "item count exceeds usize"))?;
-        let actual = available.min(items.len());
-        for (offset, item) in items[..actual].iter_mut().enumerate() {
-            let offset = u32::try_from(offset)
-                .map_err(|_| windows_core::Error::new(E_BOUNDS, "item buffer is too large"))?;
-            *item = Some(virtual_item_value(start_index + offset)?);
-        }
-        u32::try_from(actual)
-            .map_err(|_| windows_core::Error::new(E_BOUNDS, "item buffer is too large"))
+        Ok(count)
     }
 
     fn read_only_error() -> windows_core::Error {
@@ -162,50 +202,55 @@ impl NativeVirtualSource_Impl {
     /// reorder, or a change that keeps no keys, is reported as a reset.
     pub(super) fn set_keys(&self, keys: Arc<Vec<u64>>) -> windows_core::Result<()> {
         virtual_item_count(keys.len())?;
-        let previous = Arc::clone(&self.keys.lock().unwrap());
+        let previous = self.keys.lock().unwrap().current();
         let next: HashSet<u64> = keys.iter().copied().collect();
-        let kept: HashSet<u64> = previous
-            .iter()
-            .copied()
-            .filter(|key| next.contains(key))
-            .collect();
-        let ordered = previous
+        let survivors: Arc<Vec<u64>> = Arc::new(
+            previous
+                .iter()
+                .copied()
+                .filter(|key| next.contains(key))
+                .collect(),
+        );
+        let kept: HashSet<u64> = survivors.iter().copied().collect();
+        let ordered = keys
             .iter()
             .filter(|key| kept.contains(key))
-            .eq(keys.iter().filter(|key| kept.contains(key)));
-        if kept.is_empty() || !ordered {
-            *self.keys.lock().unwrap() = keys;
+            .eq(survivors.iter());
+        if survivors.is_empty() || !ordered {
+            *self.keys.lock().unwrap() = Keys::new(keys);
             return self.notify(CollectionChange::Reset, 0);
         }
+        // Handlers read the source, so it reflects each change before it is reported.
         let removed: Vec<usize> = previous
             .iter()
             .enumerate()
             .filter(|(_, key)| !kept.contains(key))
             .map(|(index, _)| index)
             .collect();
-        drop(previous);
-        // Handlers read the source, so it reflects each change before it is reported. The first
-        // edit copies keys shared with the caller; later edits update them in place.
-        for index in removed.into_iter().rev() {
-            Arc::make_mut(&mut self.keys.lock().unwrap()).remove(index);
+        for (count, &index) in removed.iter().enumerate().rev() {
+            *self.keys.lock().unwrap() = Keys {
+                head: Arc::clone(&previous),
+                head_len: index,
+                tail: Arc::clone(&survivors),
+                tail_start: index - count,
+            };
             self.notify(CollectionChange::ItemRemoved, index)?;
         }
+        let mut survivor = 0;
         for (index, key) in keys.iter().enumerate() {
-            let inserted = {
-                let mut current = self.keys.lock().unwrap();
-                let current = Arc::make_mut(&mut current);
-                if current.get(index) == Some(key) {
-                    false
-                } else {
-                    current.insert(index, *key);
-                    true
-                }
-            };
-            if inserted {
-                self.notify(CollectionChange::ItemInserted, index)?;
+            if survivors.get(survivor) == Some(key) {
+                survivor += 1;
+                continue;
             }
+            *self.keys.lock().unwrap() = Keys {
+                head: Arc::clone(&keys),
+                head_len: index + 1,
+                tail: Arc::clone(&survivors),
+                tail_start: survivor,
+            };
+            self.notify(CollectionChange::ItemInserted, index)?;
         }
-        *self.keys.lock().unwrap() = keys;
+        *self.keys.lock().unwrap() = Keys::new(keys);
         Ok(())
     }
 
@@ -248,11 +293,7 @@ impl native::IKeyIndexMapping_Impl for NativeVirtualSource_Impl {
             return Ok(-1);
         }
         Ok(self
-            .keys
-            .lock()
-            .unwrap()
-            .iter()
-            .position(|candidate| *candidate == token)
+            .position(token)
             .map_or(-1, |index| index.try_into().unwrap()))
     }
 }
@@ -565,11 +606,14 @@ impl native::IElementFactory_Impl for NativeElementFactory_Impl {
         &self,
         args: Ref<native::ElementFactoryGetArgs>,
     ) -> windows_core::Result<native::UIElement> {
-        let data = args.ok()?.Data()?;
-        let value = data.cast::<windows_reference::IReference<i32>>()?.Value()?;
-        let index = usize::try_from(value)
-            .map_err(|_| windows_core::Error::new(native::E_FAIL, "negative item index"))?;
-        let token = self.source.keys.lock().unwrap()[index];
+        let token = args
+            .ok()?
+            .Data()?
+            .cast::<windows_reference::IReference<u64>>()?
+            .Value()?;
+        let index = self.source.position(token).ok_or_else(|| {
+            windows_core::Error::new(native::E_FAIL, "element factory received an unknown item")
+        })?;
         let (container, element) = self.shells.take()?;
         self.queue
             .queue_realization(RealizationRequest::RealizeKey {
@@ -612,8 +656,6 @@ pub(super) fn virtual_item_count(item_count: usize) -> windows_core::Result<u32>
         .map_err(|_| windows_core::Error::new(native::E_FAIL, "item count exceeds u32"))
 }
 
-pub(super) fn virtual_item_value(index: u32) -> windows_core::Result<IInspectable> {
-    let index = i32::try_from(index)
-        .map_err(|_| windows_core::Error::new(E_BOUNDS, "item index exceeds i32"))?;
-    Ok(windows_reference::IReference::<i32>::from(index).into())
+pub(super) fn virtual_item_value(key: u64) -> IInspectable {
+    windows_reference::IReference::<u64>::from(key).into()
 }
