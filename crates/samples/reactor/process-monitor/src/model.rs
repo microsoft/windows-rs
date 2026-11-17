@@ -3,7 +3,7 @@ use std::collections::{BTreeMap, HashMap, HashSet, VecDeque};
 use std::rc::Rc;
 use windows_reactor::Key;
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Observation {
     pub pid: u32,
@@ -16,6 +16,21 @@ pub struct Observation {
     pub working_set: Option<u64>,
     pub private_bytes: Option<u64>,
     pub unavailable: Option<String>,
+    #[serde(default)]
+    pub counters: Counters,
+}
+
+/// Optional per-process values. Recordings made before these were captured leave them unset.
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct Counters {
+    pub session: Option<u32>,
+    pub priority: Option<u32>,
+    pub handles: Option<u32>,
+    pub peak_working_set: Option<u64>,
+    pub virtual_size: Option<u64>,
+    pub paged_pool: Option<u64>,
+    pub nonpaged_pool: Option<u64>,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -228,6 +243,7 @@ pub struct Process {
     pub working_set: Option<u64>,
     pub private_bytes: Option<u64>,
     pub unavailable: Option<String>,
+    pub counters: Counters,
 }
 
 #[derive(Clone, PartialEq)]
@@ -238,14 +254,132 @@ pub struct Row {
     pub expanded: bool,
 }
 
-#[derive(Clone, Copy, Default, PartialEq)]
-pub enum Sort {
+/// A Processes page column. Every column except `Name` can be hidden, and every column sorts.
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
+pub enum Column {
     #[default]
     Name,
     Pid,
+    ParentPid,
+    Session,
+    Priority,
     Cpu,
-    Memory,
+    Threads,
+    Handles,
+    WorkingSet,
+    PeakWorkingSet,
     Private,
+    Virtual,
+    PagedPool,
+    NonPagedPool,
+}
+
+impl Column {
+    pub const ALL: [Self; 14] = [
+        Self::Name,
+        Self::Pid,
+        Self::ParentPid,
+        Self::Session,
+        Self::Priority,
+        Self::Cpu,
+        Self::Threads,
+        Self::Handles,
+        Self::WorkingSet,
+        Self::PeakWorkingSet,
+        Self::Private,
+        Self::Virtual,
+        Self::PagedPool,
+        Self::NonPagedPool,
+    ];
+
+    pub const DEFAULT: [Self; 5] = [
+        Self::Name,
+        Self::Pid,
+        Self::Cpu,
+        Self::WorkingSet,
+        Self::Private,
+    ];
+
+    pub fn label(self) -> &'static str {
+        match self {
+            Self::Name => "Name",
+            Self::Pid => "PID",
+            Self::ParentPid => "Parent PID",
+            Self::Session => "Session",
+            Self::Priority => "Priority",
+            Self::Cpu => "CPU",
+            Self::Threads => "Threads",
+            Self::Handles => "Handles",
+            Self::WorkingSet => "Working set (MB)",
+            Self::PeakWorkingSet => "Peak working set (MB)",
+            Self::Private => "Private (MB)",
+            Self::Virtual => "Virtual (MB)",
+            Self::PagedPool => "Paged pool (KB)",
+            Self::NonPagedPool => "Non-paged pool (KB)",
+        }
+    }
+
+    /// The narrowest width a column can be resized to.
+    pub const MIN_WIDTH: f64 = 48.0;
+
+    fn default_width(self) -> f64 {
+        match self {
+            Self::Name => 280.0,
+            Self::Pid | Self::Session | Self::Priority | Self::Cpu | Self::Threads => 90.0,
+            Self::ParentPid | Self::Handles => 105.0,
+            Self::PeakWorkingSet | Self::NonPagedPool => 175.0,
+            Self::WorkingSet | Self::Private | Self::Virtual | Self::PagedPool => 150.0,
+        }
+    }
+
+    /// A stable identifier for automation ids.
+    pub fn id(self) -> &'static str {
+        match self {
+            Self::Name => "name",
+            Self::Pid => "pid",
+            Self::ParentPid => "parent-pid",
+            Self::Session => "session",
+            Self::Priority => "priority",
+            Self::Cpu => "cpu",
+            Self::Threads => "threads",
+            Self::Handles => "handles",
+            Self::WorkingSet => "working-set",
+            Self::PeakWorkingSet => "peak-working-set",
+            Self::Private => "private",
+            Self::Virtual => "virtual",
+            Self::PagedPool => "paged-pool",
+            Self::NonPagedPool => "nonpaged-pool",
+        }
+    }
+
+    /// Resource columns sort largest first; identity columns sort ascending.
+    fn descending_first(self) -> bool {
+        !matches!(
+            self,
+            Self::Name | Self::Pid | Self::ParentPid | Self::Session | Self::Priority
+        )
+    }
+
+    /// The numeric value shown and sorted for every column except `Name`.
+    pub fn value(self, process: &Process) -> Option<u64> {
+        let counters = &process.counters;
+        match self {
+            Self::Name => None,
+            Self::Pid => Some(process.id.pid.into()),
+            Self::ParentPid => Some(process.parent_pid.into()),
+            Self::Session => counters.session.map(u64::from),
+            Self::Priority => counters.priority.map(u64::from),
+            Self::Cpu => process.cpu_tenths.map(u64::from),
+            Self::Threads => Some(process.threads.into()),
+            Self::Handles => counters.handles.map(u64::from),
+            Self::WorkingSet => process.working_set,
+            Self::PeakWorkingSet => counters.peak_working_set,
+            Self::Private => process.private_bytes,
+            Self::Virtual => counters.virtual_size,
+            Self::PagedPool => counters.paged_pool,
+            Self::NonPagedPool => counters.nonpaged_pool,
+        }
+    }
 }
 
 pub struct Model {
@@ -253,7 +387,9 @@ pub struct Model {
     pub visible: Rc<Vec<Row>>,
     pub selected: Option<ProcessId>,
     pub filter: String,
-    pub sort: Sort,
+    pub columns: Rc<[Column]>,
+    pub widths: Rc<[f64; Column::ALL.len()]>,
+    pub sort: Column,
     pub descending: bool,
     pub tree: bool,
     pub collapsed: HashSet<ProcessId>,
@@ -270,7 +406,9 @@ impl Default for Model {
             visible: Rc::default(),
             selected: None,
             filter: String::new(),
-            sort: Sort::Name,
+            columns: Rc::new(Column::DEFAULT),
+            widths: Rc::new(Column::ALL.map(Column::default_width)),
+            sort: Column::Name,
             descending: false,
             tree: true,
             collapsed: HashSet::new(),
@@ -283,14 +421,48 @@ impl Default for Model {
 }
 
 impl Model {
-    pub fn sort_by(&mut self, sort: Sort) {
+    pub fn sort_by(&mut self, sort: Column) {
         self.descending = if self.sort == sort {
             !self.descending
         } else {
-            matches!(sort, Sort::Cpu | Sort::Memory | Sort::Private)
+            sort.descending_first()
         };
         self.sort = sort;
         self.rebuild();
+    }
+
+    pub fn width(&self, column: Column) -> f64 {
+        self.widths[column as usize]
+    }
+
+    pub fn resize_column(&mut self, column: Column, width: f64) {
+        let width = width.max(Column::MIN_WIDTH);
+        if self.width(column) != width {
+            Rc::make_mut(&mut self.widths)[column as usize] = width;
+        }
+    }
+
+    /// Shows or hides a column, keeping columns in their standard order. Hiding the sorted
+    /// column sorts by name.
+    pub fn show_column(&mut self, column: Column, visible: bool) {
+        if column == Column::Name || self.columns.contains(&column) == visible {
+            return;
+        }
+        self.columns = Column::ALL
+            .into_iter()
+            .filter(|&c| {
+                if c == column {
+                    visible
+                } else {
+                    self.columns.contains(&c)
+                }
+            })
+            .collect();
+        if !visible && self.sort == column {
+            self.sort = Column::Name;
+            self.descending = false;
+            self.rebuild();
+        }
     }
 
     pub fn apply(&mut self, snapshot: Snapshot) -> Result<(), String> {
@@ -348,6 +520,7 @@ impl Model {
                 working_set: item.working_set,
                 private_bytes: item.private_bytes,
                 unavailable: item.unavailable,
+                counters: item.counters,
             };
             let process = match old {
                 Some(old) if **old == process => Rc::clone(old),
@@ -373,15 +546,12 @@ impl Model {
         let mut ordered: Vec<_> = self.processes.values().cloned().collect();
         ordered.sort_by(|a, b| {
             let order = match self.sort {
-                Sort::Name => compare(
+                Column::Name => compare(
                     Some(&a.name_lowercase),
                     Some(&b.name_lowercase),
                     self.descending,
                 ),
-                Sort::Pid => compare(Some(a.id.pid), Some(b.id.pid), self.descending),
-                Sort::Cpu => compare(a.cpu_tenths, b.cpu_tenths, self.descending),
-                Sort::Memory => compare(a.working_set, b.working_set, self.descending),
-                Sort::Private => compare(a.private_bytes, b.private_bytes, self.descending),
+                column => compare(column.value(a), column.value(b), self.descending),
             };
             order.then_with(|| a.id.cmp(&b.id))
         });
@@ -487,7 +657,7 @@ mod tests {
                 cpu_ticks: Some(cpu),
                 working_set: Some(4096),
                 private_bytes: Some(8192),
-                unavailable: None,
+                ..Default::default()
             }],
             system: None,
         }
@@ -681,17 +851,76 @@ mod tests {
                 .map(|r| r.process.id.pid)
                 .collect::<Vec<_>>()
         };
-        model.sort_by(Sort::Memory);
+        model.sort_by(Column::WorkingSet);
         assert_eq!(ids(&model), [20, 10, 30]);
         let revision = model.key_revision;
-        model.sort_by(Sort::Memory);
+        model.sort_by(Column::WorkingSet);
         assert_eq!(ids(&model), [10, 20, 30]);
         assert!(model.key_revision > revision);
         assert_eq!(model.selected, Some(selected));
-        model.sort_by(Sort::Pid);
+        model.sort_by(Column::Pid);
         assert_eq!(ids(&model), [10, 20, 30]);
-        model.sort_by(Sort::Pid);
+        model.sort_by(Column::Pid);
         assert_eq!(ids(&model), [30, 20, 10]);
+    }
+
+    #[test]
+    fn resized_columns_keep_a_minimum_width_and_share_unchanged_widths() {
+        let mut model = Model::default();
+        let widths = Rc::clone(&model.widths);
+        model.resize_column(Column::Pid, model.width(Column::Pid));
+        assert!(Rc::ptr_eq(&widths, &model.widths));
+        model.resize_column(Column::Name, 400.0);
+        assert_eq!(model.width(Column::Name), 400.0);
+        model.resize_column(Column::Pid, -20.0);
+        assert_eq!(model.width(Column::Pid), Column::MIN_WIDTH);
+        assert_eq!(widths[Column::Name as usize], 280.0);
+    }
+
+    #[test]
+    fn columns_keep_standard_order_and_hiding_the_sort_column_sorts_by_name() {
+        let mut sample = snapshot(1, 100, 0);
+        for (pid, handles) in [(20, Some(500)), (30, None)] {
+            let mut item = sample.processes[0].clone();
+            item.pid = pid;
+            item.name = format!("a-worker-{pid}.exe");
+            item.counters.handles = handles;
+            sample.processes.push(item);
+        }
+        sample.processes[0].counters.handles = Some(50);
+        let mut model = Model::default();
+        model.apply(sample).unwrap();
+        let ids = |model: &Model| {
+            model
+                .visible
+                .iter()
+                .map(|r| r.process.id.pid)
+                .collect::<Vec<_>>()
+        };
+        model.show_column(Column::Handles, true);
+        model.show_column(Column::Session, true);
+        model.show_column(Column::Name, false);
+        assert_eq!(
+            *model.columns,
+            [
+                Column::Name,
+                Column::Pid,
+                Column::Session,
+                Column::Cpu,
+                Column::Handles,
+                Column::WorkingSet,
+                Column::Private
+            ]
+        );
+        model.sort_by(Column::Handles);
+        assert_eq!(ids(&model), [20, 10, 30]);
+        model.show_column(Column::Pid, false);
+        assert_eq!(ids(&model), [20, 10, 30]);
+        model.show_column(Column::Handles, false);
+        assert_eq!(model.sort, Column::Name);
+        assert!(!model.descending);
+        assert_eq!(ids(&model), [20, 30, 10]);
+        assert!(!model.columns.contains(&Column::Handles));
     }
 
     #[test]
@@ -726,7 +955,7 @@ mod tests {
         child.name = "child.exe".into();
         sample.processes.extend([idle, child]);
         let mut model = Model {
-            sort: Sort::Pid,
+            sort: Column::Pid,
             ..Default::default()
         };
         model.apply(sample).unwrap();

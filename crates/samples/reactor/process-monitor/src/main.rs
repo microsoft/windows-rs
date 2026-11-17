@@ -18,7 +18,7 @@ mod process;
 mod source;
 
 use details::{DetailInput, Details};
-use model::{Model, Process, ProcessId, Row, Snapshot, Sort};
+use model::{Column, Model, Process, ProcessId, Row, Snapshot};
 use source::Source;
 use std::cell::RefCell;
 use std::io::Write;
@@ -163,7 +163,11 @@ enum Message {
     Tick,
     Sampled(Result<Box<Batch>, String>),
     Filter(String),
-    Sort(Sort),
+    Sort(Column),
+    ShowColumn(Column, bool),
+    ResizeStart(Column, PointerEventInfo),
+    ResizeMove(PointerEventInfo),
+    ResizeEnd,
     Tree(bool),
     Select(ProcessId),
     Collapse(ProcessId),
@@ -198,6 +202,7 @@ struct Monitor {
     on_collapse: Callback<ProcessId>,
     on_open: Callback<ProcessId>,
     page: Page,
+    resizing: Option<(Column, f64, f64)>,
     metric: performance::Metric,
     cpu_view: performance::CpuView,
     color_scheme: ColorScheme,
@@ -248,6 +253,7 @@ impl Component for Monitor {
             on_collapse: context.callback(Message::Collapse),
             on_open: context.callback(Message::Open),
             page: Page::Processes,
+            resizing: None,
             metric: performance::Metric::default(),
             cpu_view: performance::CpuView::default(),
             color_scheme: ColorScheme::default(),
@@ -311,6 +317,23 @@ impl Component for Monitor {
             Message::Sort(sort) => {
                 self.model.sort_by(sort);
             }
+            Message::ShowColumn(column, visible) => {
+                self.model.show_column(column, visible);
+            }
+            Message::ResizeStart(column, info) => {
+                if info.is_left_button_pressed && info.capture_succeeded == Some(true) {
+                    self.resizing = Some((column, info.window_x, self.model.width(column)));
+                }
+            }
+            Message::ResizeMove(info) => {
+                if !info.is_left_button_pressed {
+                    self.resizing = None;
+                } else if let Some((column, start_x, start_width)) = self.resizing {
+                    self.model
+                        .resize_column(column, start_width + info.window_x - start_x);
+                }
+            }
+            Message::ResizeEnd => self.resizing = None,
             Message::Tree(tree) => {
                 self.model.tree = tree;
                 self.model.rebuild();
@@ -434,6 +457,7 @@ impl Component for Monitor {
                     )
                     .into(),
             );
+            actions.push(self.columns_button(context));
         }
         actions.push(self.pause_button(context).into());
         let mut page = vec![
@@ -570,6 +594,39 @@ impl Component for Monitor {
 }
 
 impl Monitor {
+    fn columns_button(&self, context: &ViewContext<Self>) -> View {
+        let choices: Vec<View> = Column::ALL
+            .into_iter()
+            .map(|column| {
+                CheckBox::new()
+                    .automation_id(format!("column-{}", column.id()))
+                    .content(column.label())
+                    .is_checked(self.model.columns.contains(&column))
+                    .is_enabled(column != Column::Name)
+                    .on_is_checked_changed(context.callback(move |value: Option<bool>| {
+                        Message::ShowColumn(column, value == Some(true))
+                    }))
+                    .into()
+            })
+            .collect();
+        Button::new()
+            .automation_id("columns")
+            .vertical_alignment(VerticalAlignment::Center)
+            .content(
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .spacing(8.0)
+                    .children((
+                        TextBlock::new().text("Columns"),
+                        FontIcon::new().glyph("\u{e70d}").font_size(10.0),
+                    )),
+            )
+            .flyout_with(
+                Flyout::rich(StackPanel::new().children(choices))
+                    .placement(FlyoutPlacement::BottomEdgeAlignedRight),
+            )
+    }
+
     fn pause_button(&self, context: &ViewContext<Self>) -> Button {
         Button::new()
             .automation_id("pause")
@@ -621,6 +678,8 @@ impl Monitor {
         let on_select = self.on_select.clone();
         let on_collapse = self.on_collapse.clone();
         let on_open = self.on_open.clone();
+        let columns = Rc::clone(&self.model.columns);
+        let column_widths = Rc::clone(&self.model.widths);
         let source = VirtualSource::new(
             self.model.key_revision,
             rows.len(),
@@ -632,68 +691,100 @@ impl Monitor {
                     on_select: on_select.clone(),
                     on_collapse: on_collapse.clone(),
                     on_open: on_open.clone(),
+                    columns: Rc::clone(&columns),
+                    widths: Rc::clone(&column_widths),
                 })
             },
         );
-        let header = Grid::new().columns(columns()).children(
-            [
-                (Sort::Name, "Name", "sort-name"),
-                (Sort::Pid, "PID", "sort-pid"),
-                (Sort::Cpu, "CPU", "sort-cpu"),
-                (Sort::Memory, "Memory (MB)", "sort-memory"),
-                (Sort::Private, "Private (MB)", "sort-private"),
-            ]
-            .into_iter()
+        let resize_grips = self
+            .model
+            .columns
+            .iter()
             .enumerate()
-            .map(|(column, (sort, label, id))| {
-                let active = self.model.sort == sort;
-                let mut content: Vec<View> = vec![TextBlock::new().text(label).into()];
-                if active {
-                    content.push(
-                        FontIcon::new()
-                            .glyph(if self.model.descending {
-                                "\u{e70d}"
-                            } else {
-                                "\u{e70e}"
-                            })
-                            .font_size(10.0)
-                            .into(),
-                    );
-                }
-                Button::new()
-                    .grid_column(column as i32)
-                    .automation_id(id)
-                    .automation_name(if active {
-                        format!(
-                            "{label}, sorted {}",
-                            if self.model.descending {
-                                "descending"
-                            } else {
-                                "ascending"
-                            }
-                        )
-                    } else {
-                        format!("Sort by {label}")
-                    })
-                    .height(44.0)
-                    .style(ButtonStyle::Subtle)
-                    .horizontal_alignment(HorizontalAlignment::Stretch)
-                    .horizontal_content_alignment(if column == 0 {
-                        HorizontalAlignment::Left
-                    } else {
-                        HorizontalAlignment::Right
-                    })
-                    .content(
-                        StackPanel::new()
-                            .orientation(Orientation::Horizontal)
-                            .spacing(6.0)
-                            .children(content),
+            .map(|(index, &column)| {
+                // A transparent strip over the right edge of each header cell. Pointer capture keeps
+                // moves flowing while the grip itself moves with the column edge.
+                Border::new()
+                    .grid_column(index as i32)
+                    .automation_id(format!("resize-{}", column.id()))
+                    .width(8.0)
+                    .horizontal_alignment(HorizontalAlignment::Right)
+                    .background(Color::transparent())
+                    .capture_pointer_on_press(true)
+                    .on_pointer_pressed(
+                        context.callback(move |info| Message::ResizeStart(column, info)),
                     )
-                    .on_click(context.callback(move |()| Message::Sort(sort)))
+                    .on_pointer_moved(context.callback(Message::ResizeMove))
+                    .on_pointer_released(context.callback(|_| Message::ResizeEnd))
+                    .on_pointer_capture_lost(context.callback(|_| Message::ResizeEnd))
+                    .on_pointer_canceled(context.callback(|_| Message::ResizeEnd))
+                    .content(
+                        Border::new()
+                            .width(1.0)
+                            .margin(Thickness::xy(0.0, 10.0))
+                            .horizontal_alignment(HorizontalAlignment::Right)
+                            .background(ThemeBrush::CardStroke),
+                    )
                     .into()
-            })
-            .collect::<Vec<View>>(),
-        );
+            });
+        let header = Grid::new()
+            .columns(widths(&self.model.columns, &self.model.widths))
+            .children(
+                self.model
+                    .columns
+                    .iter()
+                    .enumerate()
+                    .map(|(index, &sort)| {
+                        let label = sort.label();
+                        let active = self.model.sort == sort;
+                        let mut content: Vec<View> = vec![TextBlock::new().text(label).into()];
+                        if active {
+                            content.push(
+                                FontIcon::new()
+                                    .glyph(if self.model.descending {
+                                        "\u{e70d}"
+                                    } else {
+                                        "\u{e70e}"
+                                    })
+                                    .font_size(10.0)
+                                    .into(),
+                            );
+                        }
+                        Button::new()
+                            .grid_column(index as i32)
+                            .automation_id(format!("sort-{}", sort.id()))
+                            .automation_name(if active {
+                                format!(
+                                    "{label}, sorted {}",
+                                    if self.model.descending {
+                                        "descending"
+                                    } else {
+                                        "ascending"
+                                    }
+                                )
+                            } else {
+                                format!("Sort by {label}")
+                            })
+                            .height(44.0)
+                            .style(ButtonStyle::Subtle)
+                            .horizontal_alignment(HorizontalAlignment::Stretch)
+                            .horizontal_content_alignment(if sort == Column::Name {
+                                HorizontalAlignment::Left
+                            } else {
+                                HorizontalAlignment::Right
+                            })
+                            .content(
+                                StackPanel::new()
+                                    .orientation(Orientation::Horizontal)
+                                    .spacing(6.0)
+                                    .children(content),
+                            )
+                            .on_click(context.callback(move |()| Message::Sort(sort)))
+                            .into()
+                    })
+                    .chain(resize_grips)
+                    .collect::<Vec<View>>(),
+            );
         let mut children = vec![
             keyed(
                 "header",
@@ -726,31 +817,49 @@ impl Monitor {
                     }),
             ));
         }
-        Grid::new()
-            .rows([GridLength::Auto, GridLength::STAR])
-            .keyed_children(children)
+        // The table keeps its column widths and scrolls horizontally when the window is narrower,
+        // rather than letting the grid clip columns. Disabling vertical scrolling here keeps the
+        // height constrained so the inner rows scroller still virtualizes.
+        let table_width = self
+            .model
+            .columns
+            .iter()
+            .map(|&column| self.model.width(column))
+            .sum::<f64>()
+            + 24.0;
+        ScrollViewer::new()
+            .automation_id("table")
+            .horizontal_scroll_bar_visibility(ScrollBarVisibility::Auto)
+            .vertical_scroll_bar_visibility(ScrollBarVisibility::Disabled)
+            .content(
+                Grid::new()
+                    .min_width(table_width)
+                    .rows([GridLength::Auto, GridLength::STAR])
+                    .keyed_children(children),
+            )
             .into()
     }
 }
 
-fn columns() -> [GridLength; 5] {
-    [
-        GridLength::STAR,
-        GridLength::Pixel(70.0),
-        GridLength::Pixel(85.0),
-        GridLength::Pixel(140.0),
-        GridLength::Pixel(140.0),
-    ]
+fn widths(columns: &[Column], widths: &[f64; Column::ALL.len()]) -> Vec<GridLength> {
+    columns
+        .iter()
+        .map(|&column| GridLength::Pixel(widths[column as usize]))
+        .collect()
 }
 
-fn memory(value: Option<u64>) -> String {
-    value.map_or_else(|| "--".into(), |v| format!("{:.1}", v as f64 / 1_048_576.0))
-}
-
-fn cpu(process: &Process) -> String {
-    process
-        .cpu_tenths
-        .map_or_else(|| "--".into(), |v| format!("{:.1}", f64::from(v) / 10.0))
+fn cell(column: Column, process: &Process) -> String {
+    let Some(value) = column.value(process) else {
+        return "--".into();
+    };
+    match column {
+        Column::Cpu => format!("{:.1}%", value as f64 / 10.0),
+        Column::WorkingSet | Column::PeakWorkingSet | Column::Private | Column::Virtual => {
+            format!("{:.1}", value as f64 / 1_048_576.0)
+        }
+        Column::PagedPool | Column::NonPagedPool => format!("{:.0}", value as f64 / 1024.0),
+        _ => value.to_string(),
+    }
 }
 
 #[derive(Clone, PartialEq)]
@@ -760,6 +869,8 @@ struct RowInput {
     on_select: Callback<ProcessId>,
     on_collapse: Callback<ProcessId>,
     on_open: Callback<ProcessId>,
+    columns: Rc<[Column]>,
+    widths: Rc<[f64; Column::ALL.len()]>,
 }
 
 struct ProcessRow;
@@ -787,25 +898,15 @@ impl Component for ProcessRow {
                 .margin(Thickness::new(indent + 36.0, 0.0, 12.0, 0.0))
                 .into(),
         ];
-        for (index, value) in [
-            process.id.pid.to_string(),
-            process
-                .cpu_tenths
-                .map_or_else(|| "--".into(), |_| format!("{}%", cpu(process))),
-            memory(process.working_set),
-            memory(process.private_bytes),
-        ]
-        .into_iter()
-        .enumerate()
-        {
+        for (index, &column) in input.columns.iter().enumerate().skip(1) {
             cells.push(
                 TextBlock::new()
-                    .grid_column(index as i32 + 1)
-                    .automation_id(format!("cell-{}-{index}", id.pid))
+                    .grid_column(index as i32)
+                    .automation_id(format!("cell-{}-{}", id.pid, column.id()))
                     .vertical_alignment(VerticalAlignment::Center)
                     .text_alignment(TextAlignment::Right)
                     .margin(Thickness::xy(12.0, 0.0))
-                    .text(value)
+                    .text(cell(column, process))
                     .into(),
             );
         }
@@ -847,7 +948,11 @@ impl Component for ProcessRow {
                         .height(32.0)
                         .horizontal_alignment(HorizontalAlignment::Stretch)
                         .horizontal_content_alignment(HorizontalAlignment::Stretch)
-                        .content(Grid::new().columns(columns()).children(cells))
+                        .content(
+                            Grid::new()
+                                .columns(widths(&input.columns, &input.widths))
+                                .children(cells),
+                        )
                         .on_click(move || select.call(id)),
                 )
                 .into(),

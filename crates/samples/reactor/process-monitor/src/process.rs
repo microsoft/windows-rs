@@ -1,6 +1,7 @@
 use crate::bindings::*;
 use crate::model::{
-    LogicalCpuObservation, MemoryObservation, Observation, ProcessorId, Snapshot, SystemObservation,
+    Counters, LogicalCpuObservation, MemoryObservation, Observation, ProcessorId, Snapshot,
+    SystemObservation,
 };
 use std::io;
 use std::time::{Duration, Instant};
@@ -73,6 +74,15 @@ impl Sampler {
                 working_set: Some(entry.WorkingSetSize as u64),
                 private_bytes: Some(entry.PrivatePageCount as u64),
                 unavailable: None,
+                counters: Counters {
+                    session: Some(entry.SessionId),
+                    priority: u32::try_from(entry.BasePriority).ok(),
+                    handles: Some(entry.HandleCount),
+                    peak_working_set: Some(entry.PeakWorkingSetSize as u64),
+                    virtual_size: Some(entry.VirtualSize as u64),
+                    paged_pool: Some(entry.QuotaPagedPoolUsage as u64),
+                    nonpaged_pool: Some(entry.QuotaNonPagedPoolUsage as u64),
+                },
             });
             if entry.NextEntryOffset == 0 {
                 break;
