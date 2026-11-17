@@ -63,6 +63,14 @@ impl Component for EventsFixture {
                         TextBlock::new()
                             .automation_id("mode")
                             .text(format!("Mode {:?}", self.mode)),
+                        Border::new()
+                            .horizontal_alignment(HorizontalAlignment::Left)
+                            .on_double_tapped(event("double"))
+                            .content(
+                                Button::new()
+                                    .automation_id("double-target")
+                                    .content("Double-click"),
+                            ),
                         Button::new()
                             .automation_id("minimal")
                             .content("Minimal")

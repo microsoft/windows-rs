@@ -166,7 +166,7 @@ enum Message {
     Collapse(ProcessId),
     Pause,
     Navigate(Option<String>),
-    Details,
+    Open(ProcessId),
     Metric(performance::Metric),
     CpuView(performance::CpuView),
     ColorScheme(ColorScheme),
@@ -176,6 +176,7 @@ enum Message {
 #[derive(Clone, Copy, PartialEq)]
 enum Page {
     Processes,
+    Details,
     Performance,
 }
 
@@ -192,8 +193,8 @@ struct Monitor {
     measurements: Rc<RefCell<Measurements>>,
     on_select: Callback<ProcessId>,
     on_collapse: Callback<ProcessId>,
+    on_open: Callback<ProcessId>,
     page: Page,
-    show_details: bool,
     metric: performance::Metric,
     cpu_view: performance::CpuView,
     color_scheme: ColorScheme,
@@ -242,8 +243,8 @@ impl Component for Monitor {
             measurements: Rc::default(),
             on_select: context.callback(Message::Select),
             on_collapse: context.callback(Message::Collapse),
+            on_open: context.callback(Message::Open),
             page: Page::Processes,
-            show_details: false,
             metric: performance::Metric::default(),
             cpu_view: performance::CpuView::default(),
             color_scheme: ColorScheme::default(),
@@ -331,11 +332,17 @@ impl Component for Monitor {
             }
             Message::Navigate(tag) => match tag.as_deref() {
                 Some("processes") => self.page = Page::Processes,
+                Some("details") => self.page = Page::Details,
                 Some("performance") => self.page = Page::Performance,
                 None => {}
                 Some(_) => unreachable!(),
             },
-            Message::Details => self.show_details = !self.show_details,
+            Message::Open(id) => {
+                if self.model.processes.contains_key(&id) {
+                    self.model.selected = Some(id);
+                    self.page = Page::Details;
+                }
+            }
             Message::Metric(metric) => self.metric = metric,
             Message::CpuView(view) => self.cpu_view = view,
             Message::ColorScheme(scheme) => self.color_scheme = scheme,
@@ -391,7 +398,18 @@ impl Component for Monitor {
             None
         });
         let content = match self.page {
-            Page::Processes => self.processes_page(options, context),
+            Page::Processes => self.processes_page(context),
+            Page::Details => component::<Details>(
+                "details",
+                DetailInput {
+                    process: self
+                        .model
+                        .selected
+                        .and_then(|id| self.model.processes.get(&id).cloned()),
+                    live: options.live(),
+                },
+            )
+            .into(),
             Page::Performance => performance::page(
                 &self.model.history,
                 self.metric,
@@ -403,7 +421,7 @@ impl Component for Monitor {
         };
         let mut actions = Vec::new();
         if self.page == Page::Processes {
-            actions.extend([
+            actions.push(
                 CheckBox::new()
                     .content("Process tree")
                     .is_checked(self.model.tree)
@@ -411,18 +429,7 @@ impl Component for Monitor {
                         context.callback(|value: Option<bool>| Message::Tree(value == Some(true))),
                     )
                     .into(),
-                Button::new()
-                    .automation_id("details-toggle")
-                    .style(ButtonStyle::Subtle)
-                    .is_enabled(self.show_details || self.model.selected.is_some())
-                    .content(if self.show_details {
-                        "Hide details"
-                    } else {
-                        "Show details"
-                    })
-                    .on_click(context.callback(|()| Message::Details))
-                    .into(),
-            ]);
+            );
         }
         actions.push(self.pause_button(context).into());
         let mut page = vec![
@@ -436,6 +443,7 @@ impl Component for Monitor {
                             .automation_id("page-title")
                             .text(match self.page {
                                 Page::Processes => "Processes",
+                                Page::Details => "Details",
                                 Page::Performance => "Performance",
                             })
                             .font_size(24.0)
@@ -457,6 +465,7 @@ impl Component for Monitor {
                     .keyed_children([keyed(
                         match self.page {
                             Page::Processes => "processes",
+                            Page::Details => "details",
                             Page::Performance => "performance",
                         },
                         content,
@@ -518,6 +527,12 @@ impl Component for Monitor {
                             .content("Processes")
                             .is_selected(self.page == Page::Processes),
                         NavigationViewItem::new()
+                            .tag("details")
+                            .automation_id("nav-details")
+                            .icon(Symbol::ContactInfo)
+                            .content("Details")
+                            .is_selected(self.page == Page::Details),
+                        NavigationViewItem::new()
                             .tag("performance")
                             .automation_id("nav-performance")
                             .icon(Icon::font("\u{e9d9}"))
@@ -532,6 +547,7 @@ impl Component for Monitor {
                             .automation_id("page")
                             .automation_name(match self.page {
                                 Page::Processes => "Processes page",
+                                Page::Details => "Details page",
                                 Page::Performance => "Performance page",
                             })
                             .automation_help_text(self.status(options))
@@ -594,12 +610,13 @@ impl Monitor {
         }
     }
 
-    fn processes_page(&self, options: &Options, context: &ViewContext<Self>) -> View {
+    fn processes_page(&self, context: &ViewContext<Self>) -> View {
         let rows = Rc::clone(&self.model.visible);
         let keys = Rc::clone(&rows);
         let selected = self.model.selected;
         let on_select = self.on_select.clone();
         let on_collapse = self.on_collapse.clone();
+        let on_open = self.on_open.clone();
         let source = VirtualSource::new(
             self.model.key_revision,
             rows.len(),
@@ -610,6 +627,7 @@ impl Monitor {
                     selected: selected == Some(rows[index].process.id),
                     on_select: on_select.clone(),
                     on_collapse: on_collapse.clone(),
+                    on_open: on_open.clone(),
                 })
             },
         );
@@ -704,32 +722,8 @@ impl Monitor {
                     }),
             ));
         }
-        if self.show_details {
-            children.push(keyed(
-                "details",
-                Border::new()
-                    .grid_row(2)
-                    .border_brush(ThemeBrush::CardStroke)
-                    .border_thickness(Thickness::new(0.0, 1.0, 0.0, 0.0))
-                    .padding(Thickness::xy(12.0, 16.0))
-                    .content(
-                        ScrollViewer::new()
-                            .max_height(190.0)
-                            .content(component::<Details>(
-                                "details",
-                                DetailInput {
-                                    process: self
-                                        .model
-                                        .selected
-                                        .and_then(|id| self.model.processes.get(&id).cloned()),
-                                    live: options.live(),
-                                },
-                            )),
-                    ),
-            ));
-        }
         Grid::new()
-            .rows([GridLength::Auto, GridLength::STAR, GridLength::Auto])
+            .rows([GridLength::Auto, GridLength::STAR])
             .keyed_children(children)
             .into()
     }
@@ -761,6 +755,7 @@ struct RowInput {
     selected: bool,
     on_select: Callback<ProcessId>,
     on_collapse: Callback<ProcessId>,
+    on_open: Callback<ProcessId>,
 }
 
 struct ProcessRow;
@@ -822,30 +817,35 @@ impl Component for ProcessRow {
                     .into(),
             );
         }
+        let open = input.on_open.clone();
         let mut children: Vec<View> = vec![
-            Button::new()
-                .automation_id(format!("process-{}", id.pid))
-                .automation_name(&process.name)
-                .automation_help_text(format!(
-                    "PID {}{}. {}",
-                    id.pid,
-                    if input.selected { ", selected" } else { "" },
-                    process
-                        .unavailable
-                        .as_deref()
-                        .unwrap_or("Select to inspect process details.")
-                ))
-                .style(ButtonStyle::Subtle)
-                .background(if input.selected {
-                    ThemeBrush::CardBackground
-                } else {
-                    ThemeBrush::SolidBackground
-                })
-                .height(32.0)
-                .horizontal_alignment(HorizontalAlignment::Stretch)
-                .horizontal_content_alignment(HorizontalAlignment::Stretch)
-                .content(Grid::new().columns(columns()).children(cells))
-                .on_click(move || select.call(id))
+            Border::new()
+                .on_double_tapped(move || open.call(id))
+                .content(
+                    Button::new()
+                        .automation_id(format!("process-{}", id.pid))
+                        .automation_name(&process.name)
+                        .automation_help_text(format!(
+                            "PID {}{}. {}",
+                            id.pid,
+                            if input.selected { ", selected" } else { "" },
+                            process
+                                .unavailable
+                                .as_deref()
+                                .unwrap_or("Select to inspect process details.")
+                        ))
+                        .style(ButtonStyle::Subtle)
+                        .background(if input.selected {
+                            ThemeBrush::CardBackground
+                        } else {
+                            ThemeBrush::SolidBackground
+                        })
+                        .height(32.0)
+                        .horizontal_alignment(HorizontalAlignment::Stretch)
+                        .horizontal_content_alignment(HorizontalAlignment::Stretch)
+                        .content(Grid::new().columns(columns()).children(cells))
+                        .on_click(move || select.call(id)),
+                )
                 .into(),
         ];
         if row.has_children {
@@ -997,10 +997,13 @@ impl Component for Details {
                     .into(),
             ]);
         }
-        Grid::new()
-            .columns([GridLength::STAR, GridLength::STAR])
-            .rows([GridLength::Auto; 5])
-            .children(children)
+        ScrollViewer::new()
+            .content(
+                Grid::new()
+                    .columns([GridLength::STAR, GridLength::STAR])
+                    .rows([GridLength::Auto; 5])
+                    .children(children),
+            )
             .into()
     }
 }

@@ -3735,6 +3735,95 @@ impl windows_core::RuntimeType for DispatcherShutdownMode {
     const NAME: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"Microsoft.UI.Xaml.DispatcherShutdownMode");
 }
+windows_core::imp::define_interface!(
+    DoubleTappedEventHandler,
+    DoubleTappedEventHandler_Vtbl,
+    0xf7a501b9_e277_5611_87b0_0e0607622183
+);
+impl windows_core::RuntimeType for DoubleTappedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct DoubleTappedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        e: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+struct DoubleTappedEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<windows_core::IInspectable>,
+            windows_core::Ref<DoubleTappedRoutedEventArgs>,
+        ) + Send
+        + Sync
+        + 'static,
+>(core::marker::PhantomData<(fn() -> F,)>);
+impl<
+    F: Fn(
+            windows_core::Ref<windows_core::IInspectable>,
+            windows_core::Ref<DoubleTappedRoutedEventArgs>,
+        ) + Send
+        + Sync
+        + 'static,
+> DoubleTappedEventHandlerBox<F>
+{
+    const VTABLE: DoubleTappedEventHandler_Vtbl = DoubleTappedEventHandler_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface:
+                windows_core::imp::DelegateBox::<DoubleTappedEventHandler, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<DoubleTappedEventHandler, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<DoubleTappedEventHandler, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        e: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &*(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<DoubleTappedEventHandler, F>);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&e),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DoubleTappedRoutedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    DoubleTappedRoutedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(DoubleTappedRoutedEventArgs, RoutedEventArgs);
+impl windows_core::RuntimeType for DoubleTappedRoutedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IDoubleTappedRoutedEventArgs>();
+}
+unsafe impl windows_core::Interface for DoubleTappedRoutedEventArgs {
+    type Vtable = <IDoubleTappedRoutedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IDoubleTappedRoutedEventArgs as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
+}
+impl core::ops::Deref for DoubleTappedRoutedEventArgs {
+    type Target = IDoubleTappedRoutedEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for DoubleTappedRoutedEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Input.DoubleTappedRoutedEventArgs";
+}
+unsafe impl Send for DoubleTappedRoutedEventArgs {}
+unsafe impl Sync for DoubleTappedRoutedEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DragEventArgs(windows_core::IUnknown);
@@ -9342,6 +9431,15 @@ pub struct IDispatcherQueueTimer_Vtbl {
         *mut i64,
     ) -> windows_core::HRESULT,
     pub RemoveTick: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
+    IDoubleTappedRoutedEventArgs,
+    IDoubleTappedRoutedEventArgs_Vtbl,
+    0x32b9549d_11d8_53a5_a953_02409537a11f
+);
+#[repr(C)]
+pub struct IDoubleTappedRoutedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
     IDragEventArgs,
@@ -19698,6 +19796,40 @@ impl IUIElement {
             ))
         }
     }
+    pub(crate) fn DoubleTapped<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<DoubleTappedRoutedEventArgs>,
+            ) + Send
+            + Sync
+            + 'static,
+    {
+        let handler: DoubleTappedEventHandler = {
+            let com = windows_core::imp::DelegateBox::<DoubleTappedEventHandler, F>::new(
+                &DoubleTappedEventHandlerBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).DoubleTapped)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveDoubleTapped,
+            ))
+        }
+    }
     pub(crate) fn PreviewKeyDown<F>(
         &self,
         handler: F,
@@ -20052,8 +20184,13 @@ pub struct IUIElement_Vtbl {
     RemovePointerWheelChanged: usize,
     Tapped: usize,
     RemoveTapped: usize,
-    DoubleTapped: usize,
-    RemoveDoubleTapped: usize,
+    pub DoubleTapped: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveDoubleTapped:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     Holding: usize,
     RemoveHolding: usize,
     ContextRequested: usize,

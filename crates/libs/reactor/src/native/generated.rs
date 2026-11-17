@@ -236,6 +236,8 @@ struct GeneratedBorder {
     _pointer_capture_lost: Option<GeneratedRevoker>,
     pointer_canceled: Rc<RefCell<NativeUnitEvent>>,
     _pointer_canceled: Option<GeneratedRevoker>,
+    double_tapped: Rc<RefCell<NativeUnitEvent>>,
+    _double_tapped: Option<GeneratedRevoker>,
     preview_key_down: Rc<RefCell<NativeKeyEventInfoEvent>>,
     _preview_key_down: Option<GeneratedRevoker>,
     key_up: Rc<RefCell<NativeKeyEventInfoEvent>>,
@@ -750,6 +752,8 @@ impl GeneratedHandle {
                 let _pointer_capture_lost = None;
                 let pointer_canceled = Rc::new(RefCell::new(NativeUnitEvent::default()));
                 let _pointer_canceled = None;
+                let double_tapped = Rc::new(RefCell::new(NativeUnitEvent::default()));
+                let _double_tapped = None;
                 let preview_key_down = Rc::new(RefCell::new(NativeKeyEventInfoEvent::default()));
                 let _preview_key_down = None;
                 let key_up = Rc::new(RefCell::new(NativeKeyEventInfoEvent::default()));
@@ -788,6 +792,8 @@ impl GeneratedHandle {
                     _pointer_capture_lost,
                     pointer_canceled,
                     _pointer_canceled,
+                    double_tapped,
+                    _double_tapped,
                     preview_key_down,
                     _preview_key_down,
                     key_up,
@@ -4676,6 +4682,9 @@ impl GeneratedHandle {
                 if clear.contains(&EventId::PointerCanceled) {
                     object.pointer_canceled.borrow_mut().set(None);
                 }
+                if clear.contains(&EventId::DoubleTapped) {
+                    object.double_tapped.borrow_mut().set(None);
+                }
                 if clear.contains(&EventId::PreviewKeyDown) {
                     object.preview_key_down.borrow_mut().set(None);
                 }
@@ -4753,6 +4762,13 @@ impl GeneratedHandle {
                                 .borrow_mut()
                                 .set(Some(callback.clone()));
                             object.subscribe_pointer_canceled(object_id, context)?;
+                        }
+                        (EventId::DoubleTapped, EventValue::Unit(callback)) => {
+                            object
+                                .double_tapped
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
+                            object.subscribe_double_tapped(object_id, context)?;
                         }
                         (EventId::PreviewKeyDown, EventValue::KeyEventInfo(callback)) => {
                             object
@@ -6231,6 +6247,36 @@ impl GeneratedBorder {
                 }
             }))?;
         self._pointer_canceled = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+    fn subscribe_double_tapped(
+        &mut self,
+        object: ObjectId,
+        context: EventContext,
+    ) -> Result<(), WinUiError> {
+        if self._double_tapped.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.double_tapped);
+        let event_queue_double_tapped = Rc::clone(context.event_queue);
+        let revoker = value
+            .cast::<native::IUIElement>()?
+            .DoubleTapped(local::handler(move |_, _| {
+                let dispatch = true;
+                let observation = None;
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_double_tapped,
+                        object,
+                        EventId::DoubleTapped,
+                        observation,
+                        (),
+                    );
+                }
+            }))?;
+        self._double_tapped = Some(GeneratedRevoker::Event(revoker));
         Ok(())
     }
     fn subscribe_preview_key_down(

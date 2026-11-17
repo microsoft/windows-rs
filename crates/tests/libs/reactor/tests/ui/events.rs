@@ -20,6 +20,9 @@ fn native_events_report_converted_arguments() -> Result<()> {
         expect("pane-toggle")?;
         ui.invoke("AddButton")?;
         expect("add-tab")?;
+        ui.pointer_move("double-target", 0.5, 0.5)?;
+        ui.pointer_clicks(2)?;
+        expect("double")?;
 
         let calendar = ui.element("calendar")?;
         let day = ui.wait(

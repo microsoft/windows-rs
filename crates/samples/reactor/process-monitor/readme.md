@@ -16,8 +16,8 @@ The build deploys a self-contained Windows App Runtime. An interactive Windows d
 The demo has 60 deterministic snapshots with changing metrics, process exits, and PID reuse. It
 does not enumerate real processes.
 
-The **Processes** page supports full-row selection; choose **Show details** to load the selected
-process's executable path. Tab and Enter/Space activate rows and controls. Use the chevrons to expand
+The **Processes** page supports full-row selection; double-click a row, or select it and choose
+**Details**, to see the process and its executable path. Tab and Enter/Space activate rows and controls. Use the chevrons to expand
 or collapse branches. Click a column heading to sort, then click again to reverse direction.
 Name/PID initially sort ascending and CPU/memory descending; unavailable values stay last. Tree mode
 sorts siblings. Turn off **Process tree** for a global ranking. Filtering retains ancestors of
