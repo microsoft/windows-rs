@@ -39,7 +39,7 @@ the language-neutral PDH `Processor Information(_Total)\% Processor Time` counte
 process rows or frequency-adjusted utilization. Memory shows total physical memory minus available
 memory. Counter errors are shown as unavailable, and missing observations leave gaps in the charts.
 
-Right-click the CPU chart, or focus it and press Shift+F10, then choose **Change graph to**.
+Use the **Graph** button above the CPU chart to choose a view.
 **Overall utilization** shows the aggregate counter and **Logical processors** shows a grid
 covering all active logical processors. Labels use PDH's `Nnode:number` identity: the NUMA node and
 processor number within that node, not physical core numbers or processor-affinity groups. All

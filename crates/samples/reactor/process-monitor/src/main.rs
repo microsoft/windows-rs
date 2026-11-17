@@ -443,23 +443,28 @@ impl Component for Monitor {
                 self.cpu_view,
                 self.color_scheme,
                 context.callback(Message::Metric),
-                context.callback(Message::CpuView),
             ),
         };
         let mut actions = Vec::new();
         if self.page == Page::Processes {
-            actions.push(
+            actions.push(keyed(
+                "tree",
                 CheckBox::new()
                     .content("Process tree")
                     .is_checked(self.model.tree)
                     .on_is_checked_changed(
                         context.callback(|value: Option<bool>| Message::Tree(value == Some(true))),
-                    )
-                    .into(),
-            );
-            actions.push(self.columns_button(context));
+                    ),
+            ));
+            actions.push(keyed("columns", self.columns_button(context)));
         }
-        actions.push(self.pause_button(context).into());
+        if self.page == Page::Performance && self.metric == performance::Metric::Cpu {
+            actions.push(keyed(
+                "graph",
+                performance::graph_button(self.cpu_view, context.callback(Message::CpuView)),
+            ));
+        }
+        actions.push(keyed("pause", self.pause_button(context)));
         let mut page = vec![
             keyed(
                 "heading",
@@ -481,7 +486,7 @@ impl Component for Monitor {
                             .grid_column(1)
                             .orientation(Orientation::Horizontal)
                             .spacing(12.0)
-                            .children(actions),
+                            .keyed_children(actions),
                     )),
             ),
             keyed(
