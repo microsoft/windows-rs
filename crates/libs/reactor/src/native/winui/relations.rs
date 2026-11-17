@@ -490,7 +490,7 @@ impl WinUiAdapter {
             .get(&object)
             .ok_or(WinUiError::MissingObject(object))?
         {
-            Handle::Data(value) => Ok(value.cast()?),
+            Handle::Data(value) => Ok(value.clone().into()),
             _ => Err(WinUiError::InvalidObject(object)),
         }
     }

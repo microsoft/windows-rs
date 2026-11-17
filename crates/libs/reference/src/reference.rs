@@ -1,18 +1,6 @@
 use super::bindings::{self, E_NOTIMPL, IReference};
 use windows_core::*;
 
-impl<T: RuntimeType + 'static> From<IReference<T>> for IInspectable {
-    fn from(value: IReference<T>) -> Self {
-        unsafe { core::mem::transmute(value) }
-    }
-}
-
-impl<T: RuntimeType + 'static> From<&IReference<T>> for &IInspectable {
-    fn from(value: &IReference<T>) -> Self {
-        unsafe { core::mem::transmute(value) }
-    }
-}
-
 /// Boxes a value as an `IReference<T>`.
 impl<T> From<T> for IReference<T>
 where

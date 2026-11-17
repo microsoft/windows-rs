@@ -7,7 +7,7 @@ use windows_reference::IReference;
 #[test]
 fn vector_i32() {
     let v = IVector::<i32>::from(vec![1, 2, 3]);
-    let inspectable: IInspectable = v.cast().unwrap();
+    let inspectable: IInspectable = v.into();
     let name = inspectable.GetRuntimeClassName().unwrap();
     assert_eq!(&name, "Windows.Foundation.Collections.IVector`1<Int32>");
 }
@@ -15,7 +15,7 @@ fn vector_i32() {
 #[test]
 fn vector_string() {
     let v = IVector::<HSTRING>::from(vec![HSTRING::from("a")]);
-    let inspectable: IInspectable = v.cast().unwrap();
+    let inspectable: IInspectable = v.into();
     let name = inspectable.GetRuntimeClassName().unwrap();
     assert_eq!(&name, "Windows.Foundation.Collections.IVector`1<String>");
 }
@@ -23,7 +23,7 @@ fn vector_string() {
 #[test]
 fn vector_view_i32() {
     let v = IVectorView::<i32>::from(vec![1, 2, 3]);
-    let inspectable: IInspectable = v.cast().unwrap();
+    let inspectable: IInspectable = v.into();
     let name = inspectable.GetRuntimeClassName().unwrap();
     assert_eq!(&name, "Windows.Foundation.Collections.IVectorView`1<Int32>");
 }
@@ -31,7 +31,7 @@ fn vector_view_i32() {
 #[test]
 fn iterable_i32() {
     let v = IIterable::<i32>::from(vec![1, 2, 3]);
-    let inspectable: IInspectable = v.cast().unwrap();
+    let inspectable: IInspectable = v.into();
     let name = inspectable.GetRuntimeClassName().unwrap();
     assert_eq!(&name, "Windows.Foundation.Collections.IIterable`1<Int32>");
 }
@@ -41,7 +41,7 @@ fn map_string_i32() {
     let mut map = BTreeMap::new();
     map.insert(HSTRING::from("a"), 1i32);
     let m = IMap::<HSTRING, i32>::from(map);
-    let inspectable: IInspectable = m.cast().unwrap();
+    let inspectable: IInspectable = m.into();
     let name = inspectable.GetRuntimeClassName().unwrap();
     assert_eq!(
         &name,
@@ -54,7 +54,7 @@ fn map_view_string_i32() {
     let mut map = BTreeMap::new();
     map.insert(HSTRING::from("a"), 1i32);
     let m = IMapView::<HSTRING, i32>::from(map);
-    let inspectable: IInspectable = m.cast().unwrap();
+    let inspectable: IInspectable = m.into();
     let name = inspectable.GetRuntimeClassName().unwrap();
     assert_eq!(
         &name,
@@ -65,7 +65,7 @@ fn map_view_string_i32() {
 #[test]
 fn observable_vector_i32() {
     let v = IObservableVector::<i32>::from(vec![1, 2, 3]);
-    let inspectable: IInspectable = v.cast().unwrap();
+    let inspectable: IInspectable = v.into();
     let name = inspectable.GetRuntimeClassName().unwrap();
     assert_eq!(
         &name,
@@ -78,7 +78,7 @@ fn observable_map_string_i32() {
     let mut map = BTreeMap::new();
     map.insert(HSTRING::from("a"), 1i32);
     let m = IObservableMap::<HSTRING, i32>::from(map);
-    let inspectable: IInspectable = m.cast().unwrap();
+    let inspectable: IInspectable = m.into();
     let name = inspectable.GetRuntimeClassName().unwrap();
     assert_eq!(
         &name,
@@ -90,7 +90,7 @@ fn observable_map_string_i32() {
 #[test]
 fn nested_vector_of_reference() {
     let v = IVector::<IReference<f32>>::from(vec![Some(IReference::<f32>::from(2.5f32))]);
-    let inspectable: IInspectable = v.cast().unwrap();
+    let inspectable: IInspectable = v.into();
     let name = inspectable.GetRuntimeClassName().unwrap();
     assert_eq!(
         &name,
