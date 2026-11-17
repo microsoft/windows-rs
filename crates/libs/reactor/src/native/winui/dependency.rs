@@ -117,7 +117,7 @@ fn box_property_value(
                 .map(|value| Some(windows_reference::IReference::from(value.as_ref()).into()))
                 .collect();
             let values: IVector<IInspectable> = values.into();
-            object(values.cast::<IInspectable>())
+            object(Ok(values))
         }
         (PropertyValue::ThemeTransitions(values), _) => theme_transitions(values),
         (PropertyValue::Enum { kind, variant }, _) => {

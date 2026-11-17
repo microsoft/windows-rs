@@ -97,10 +97,7 @@ impl WinUiAdapter {
         let selection_item =
             selection.filter(|selection| self.kind(child).is_ok_and(|kind| kind == selection.item));
         let child_value = selection_item
-            .map(|_| {
-                self.ui_element(child)
-                    .and_then(|value| value.cast::<IInspectable>().map_err(Into::into))
-            })
+            .map(|_| self.ui_element(child).map(IInspectable::from))
             .transpose()?;
         let child_selected = selection_item
             .map(|selection| self.selection_item_is_selected(child, selection))
@@ -168,10 +165,7 @@ impl WinUiAdapter {
         let selection_item =
             selection.filter(|selection| self.kind(child).is_ok_and(|kind| kind == selection.item));
         let child_value = selection_item
-            .map(|_| {
-                self.ui_element(child)
-                    .and_then(|value| value.cast::<IInspectable>().map_err(Into::into))
-            })
+            .map(|_| self.ui_element(child).map(IInspectable::from))
             .transpose()?;
         let feedback = self.suppress_selection(parent, relation, selection)?;
         let result = (|| {

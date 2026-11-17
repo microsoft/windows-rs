@@ -215,7 +215,7 @@ macro_rules! generated_collection {
                 match self {
                     Self::Visual(value) => value.InsertAt(index, child).map_err(Into::into),
                     Self::Inspectable(value) => value
-                        .InsertAt(index, &child.cast::<IInspectable>()?)
+                        .InsertAt(index, child)
                         .map_err(Into::into),
                     $(Self::$item(value) => value
                         .InsertAt(index, &child.cast::<native::$item>()?)
@@ -228,7 +228,7 @@ macro_rules! generated_collection {
                 let found = match self {
                     Self::Visual(value) => value.IndexOf(child, &mut index)?,
                     Self::Inspectable(value) => {
-                        value.IndexOf(&child.cast::<IInspectable>()?, &mut index)?
+                        value.IndexOf(child, &mut index)?
                     }
                     $(Self::$item(value) => {
                         value.IndexOf(&child.cast::<native::$item>()?, &mut index)?

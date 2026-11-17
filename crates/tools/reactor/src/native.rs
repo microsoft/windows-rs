@@ -356,8 +356,17 @@ fn emit_event(
                          local::handler(move |_, _| {{\n"
         ));
     } else {
-        let event_target =
-            native_interface_value("value", &native_name(object), interface.unwrap(), metadata);
+        let event_target = if selection.is_none()
+            && matches!(event.value, Value::PointerEventInfo | Value::FocusEventInfo)
+            && interface == Some("IUIElement")
+            && !metadata.is_default_interface(&native_name(object), "IUIElement")
+        {
+            // `source_{field}` already holds the `UIElement`, whose default interface raises
+            // these events.
+            format!("source_{field}.clone()")
+        } else {
+            native_interface_value("value", &native_name(object), interface.unwrap(), metadata)
+        };
         let args = if args == "_" {
             args.to_string()
         } else {
@@ -379,8 +388,7 @@ fn emit_event(
             format!("source_{field}.{}()", selection.selected_item_property)
         } else {
             format!(
-                "source_{field}.{}().and_then(|selected| \
-                             selected.cast::<IInspectable>())",
+                "source_{field}.{}().map(IInspectable::from)",
                 selection.selected_item_property
             )
         };
@@ -450,7 +458,7 @@ fn emit_event(
             code.push_str(&format!(
                 "let args = args.unwrap();\n\
                              let payload = event_queue_{field}.item_object(object, \
-                             &args.{payload}().and_then(|value| value.cast::<IInspectable>())\
+                             &args.{payload}().map(IInspectable::from)\
                              .unwrap());\n\
                              let Some(payload) = payload else {{ return; }};\n"
             ));
@@ -776,9 +784,7 @@ fn emit_selected_item(
                 let selected = if selected_is_object {
                     "Ok(selected) => Ok(Some(selected))".to_string()
                 } else {
-                    "Ok(selected) => selected.cast::<IInspectable>().map(Some)\
-                     .map_err(Into::into)"
-                        .to_string()
+                    "Ok(selected) => Ok(Some(selected.into()))".to_string()
                 };
                 format!(
                     "match {object}.{}() {{ \
