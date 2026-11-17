@@ -366,6 +366,36 @@ impl ScrollBarVisibility {
 }
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ScrollingContentOrientation {
+    Vertical,
+    Horizontal,
+    None,
+    Both,
+}
+impl ScrollingContentOrientation {
+    pub(crate) fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Vertical => PropertyValue::Enum {
+                kind: "ScrollingContentOrientation",
+                variant: "Vertical",
+            },
+            Self::Horizontal => PropertyValue::Enum {
+                kind: "ScrollingContentOrientation",
+                variant: "Horizontal",
+            },
+            Self::None => PropertyValue::Enum {
+                kind: "ScrollingContentOrientation",
+                variant: "None",
+            },
+            Self::Both => PropertyValue::Enum {
+                kind: "ScrollingContentOrientation",
+                variant: "Both",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ScrollingScrollBarVisibility {
     Auto,
     Visible,
@@ -4596,6 +4626,35 @@ impl ScrollView {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::ScrollView);
         Self(declaration)
+    }
+    pub fn content_orientation(mut self, content_orientation: ScrollingContentOrientation) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ContentOrientation,
+            content_orientation.property_value(),
+        );
+        self
+    }
+    pub fn horizontal_anchor_ratio(mut self, horizontal_anchor_ratio: f64) -> Self {
+        assert!(
+            horizontal_anchor_ratio.is_nan() || (0.0..=1.0).contains(&horizontal_anchor_ratio),
+            "ScrollView.HorizontalAnchorRatio requires NaN or between 0 and 1"
+        );
+        self.0 = self.0.property(
+            PropertyId::HorizontalAnchorRatio,
+            PropertyValue::F64(horizontal_anchor_ratio),
+        );
+        self
+    }
+    pub fn vertical_anchor_ratio(mut self, vertical_anchor_ratio: f64) -> Self {
+        assert!(
+            vertical_anchor_ratio.is_nan() || (0.0..=1.0).contains(&vertical_anchor_ratio),
+            "ScrollView.VerticalAnchorRatio requires NaN or between 0 and 1"
+        );
+        self.0 = self.0.property(
+            PropertyId::VerticalAnchorRatio,
+            PropertyValue::F64(vertical_anchor_ratio),
+        );
+        self
     }
     pub fn horizontal_scroll_bar_visibility(
         mut self,

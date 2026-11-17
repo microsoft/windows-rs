@@ -202,6 +202,23 @@ fn shared_value_validation_rejects_invalid_inputs() {
 }
 
 #[test]
+fn scroll_anchor_ratios_enforce_native_boundaries() {
+    for ratio in [f64::NEG_INFINITY, -0.01, 1.01, f64::INFINITY] {
+        assert!(
+            std::panic::catch_unwind(|| ScrollView::new().horizontal_anchor_ratio(ratio)).is_err()
+        );
+        assert!(
+            std::panic::catch_unwind(|| ScrollView::new().vertical_anchor_ratio(ratio)).is_err()
+        );
+    }
+    for ratio in [0.0, 0.5, 1.0, f64::NAN] {
+        ScrollView::new()
+            .horizontal_anchor_ratio(ratio)
+            .vertical_anchor_ratio(ratio);
+    }
+}
+
+#[test]
 fn grid_placement_builders_enforce_native_boundaries() {
     assert!(std::panic::catch_unwind(|| Button::new().grid_row(-1)).is_err());
     assert!(std::panic::catch_unwind(|| Button::new().grid_column(-1)).is_err());
