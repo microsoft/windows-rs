@@ -1,6 +1,7 @@
 use crate::Options;
 use crate::model::{
-    LogicalCpuObservation, MemoryObservation, Observation, ProcessorId, Snapshot, SystemObservation,
+    Counters, LogicalCpuObservation, MemoryObservation, Observation, ProcessorId, Snapshot,
+    SystemObservation,
 };
 use crate::process::Sampler;
 use std::fs::{File, OpenOptions};
@@ -94,6 +95,15 @@ pub fn demo(sequence: u64) -> Snapshot {
                 working_set: Some((20 + (u64::from(pid) * 7 + sequence) % 400) * 1_048_576),
                 private_bytes: Some((30 + u64::from(pid) * 3) * 1_048_576),
                 unavailable: None,
+                counters: Counters {
+                    session: Some(u32::from(pid != 0)),
+                    priority: Some(8),
+                    handles: Some(50 + pid * 5),
+                    peak_working_set: Some((420 + u64::from(pid) * 7) * 1_048_576),
+                    virtual_size: Some((2048 + u64::from(pid) * 16) * 1_048_576),
+                    paged_pool: Some((64 + u64::from(pid)) * 1024),
+                    nonpaged_pool: Some((8 + u64::from(pid % 16)) * 1024),
+                },
             }
         })
         .collect();

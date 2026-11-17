@@ -1,7 +1,7 @@
 # Process monitor
 
 A read-only Reactor sample with a Task Manager-style navigation shell, a virtualized process tree,
-CPU and memory columns, filtering, sorting, stable selection, and a per-process details page.
+selectable columns, filtering, sorting, stable selection, and a per-process details page.
 It runs without elevation, debug privileges, process termination, or process-memory reads.
 Process sampling uses `NtQuerySystemInformation`, so identity and counters do not require opening
 each process. Creation and CPU times depend on the native `SYSTEM_PROCESS_INFORMATION` layout,
@@ -18,11 +18,14 @@ does not enumerate real processes.
 
 The **Processes** page supports full-row selection; double-click a row, or select it and choose
 **Details**, to inspect the process. Tab and Enter/Space activate rows and controls. Use the
-chevrons to expand or collapse branches. Click a column heading to sort, then click again to reverse
-direction. Name/PID initially sort ascending and CPU/memory descending; unavailable values stay
-last. Tree mode sorts siblings. Turn off **Process tree** for a global ranking. Filtering retains
-ancestors of matching processes and expands their paths. Pause stops scheduling new snapshots; an
-in-flight snapshot can still complete.
+chevrons to expand or collapse branches. **Columns** adds or removes PID, parent PID, session,
+priority, CPU, threads, handles, memory, and pool usage columns, all from the same system snapshot.
+Click a column heading to sort, then click again to reverse direction. Identity columns initially
+sort ascending and resource columns descending; unavailable values stay last. Hiding the sorted
+column sorts by name. Drag the divider at the right edge of a heading to resize a column; the table
+scrolls horizontally when the window is narrower than its columns. Tree mode sorts siblings. Turn
+off **Process tree** for a global ranking. Filtering retains ancestors of matching processes and
+expands their paths. Pause stops scheduling new snapshots; an in-flight snapshot can still complete.
 
 The **Details** page opens the selected process with `PROCESS_QUERY_LIMITED_INFORMATION` and checks
 its creation time before every query, so a reused PID is never described as the original process.
