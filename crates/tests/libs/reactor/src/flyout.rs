@@ -15,10 +15,10 @@ pub(super) enum Message {
 }
 
 impl Component for FlyoutFixture {
-    type Input = ();
+    type Input = bool;
     type Message = Message;
 
-    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+    fn create(_: &bool, _: &ComponentContext<Self>) -> Self {
         Self {
             attached: true,
             generation: 0,
@@ -38,7 +38,7 @@ impl Component for FlyoutFixture {
         }
     }
 
-    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+    fn view(&self, drop_down: &bool, context: &mut ViewContext<Self>) -> View {
         let generation = self.generation;
         let owner = self.attached.then(|| {
             let content = StackPanel::new().spacing(8.0).children((
@@ -55,20 +55,27 @@ impl Component for FlyoutFixture {
                     .content("Remove owner")
                     .on_click(context.message(Message::Remove)),
             ));
-            keyed(
-                "owner",
+            let flyout =
+                Flyout::rich(StackPanel::new().keyed_children([keyed(generation, content)]))
+                    .placement(FlyoutPlacement::Bottom);
+            let owner: View = if *drop_down {
+                DropDownButton::new()
+                    .automation_id("open")
+                    .content("Open flyout")
+                    .flyout_with(flyout)
+            } else {
                 Button::new()
                     .automation_id("open")
                     .content("Open flyout")
-                    .flyout_with(
-                        Flyout::rich(
-                            StackPanel::new().keyed_children([keyed(generation, content)]),
-                        )
-                        .placement(FlyoutPlacement::Bottom),
-                    ),
-            )
+                    .flyout_with(flyout)
+            };
+            keyed("owner", owner)
         });
-        context.window_title("Reactor UI fixture: flyout");
+        context.window_title(if *drop_down {
+            "Reactor UI fixture: flyout-dropdown"
+        } else {
+            "Reactor UI fixture: flyout"
+        });
         context.window_visuals(WindowVisuals::new().client_size(500.0, 400.0));
         StackPanel::new()
             .margin(20.0)

@@ -609,18 +609,10 @@ impl Monitor {
                     .into()
             })
             .collect();
-        Button::new()
+        DropDownButton::new()
             .automation_id("columns")
             .vertical_alignment(VerticalAlignment::Center)
-            .content(
-                StackPanel::new()
-                    .orientation(Orientation::Horizontal)
-                    .spacing(8.0)
-                    .children((
-                        TextBlock::new().text("Columns"),
-                        FontIcon::new().glyph("\u{e70d}").font_size(10.0),
-                    )),
-            )
+            .content("Columns")
             .flyout_with(
                 Flyout::rich(StackPanel::new().children(choices))
                     .placement(FlyoutPlacement::BottomEdgeAlignedRight),

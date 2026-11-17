@@ -2319,10 +2319,12 @@ pub trait TooltipExt: Into<View> + Sized {
 impl<T> TooltipExt for T where T: Into<View> {}
 
 pub trait FlyoutExt: Into<View> + Sized {
+    /// Attaches a text flyout to a [`Button`], [`DropDownButton`], or [`SplitButton`].
     fn flyout(self, value: impl AsRef<str>) -> View {
         self.flyout_with(Flyout::text(value))
     }
 
+    /// Attaches a flyout to a [`Button`], [`DropDownButton`], or [`SplitButton`].
     fn flyout_with(self, flyout: Flyout) -> View {
         let mut visual = self.into();
         let flyout = DeclaredFlyout {

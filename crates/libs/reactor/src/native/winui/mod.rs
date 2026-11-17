@@ -643,6 +643,11 @@ impl Drop for WinUiAdapter {
                 Some(Handle::Generated(GeneratedHandle::Button(control))) => {
                     _ = control.value.SetFlyout(None::<&native::FlyoutBase>);
                 }
+                Some(Handle::Generated(GeneratedHandle::DropDownButton(control))) => {
+                    if let Ok(button) = control.value.cast::<native::IButton>() {
+                        _ = button.SetFlyout(None::<&native::FlyoutBase>);
+                    }
+                }
                 Some(Handle::Generated(GeneratedHandle::SplitButton(control))) => {
                     _ = control.value.SetFlyout(None::<&native::FlyoutBase>);
                 }
