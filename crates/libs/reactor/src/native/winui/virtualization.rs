@@ -92,19 +92,42 @@ pub(super) struct NativeVirtualSource {
     handlers: WinEvent<VectorChangedEventHandler<IInspectable>>,
 }
 
+/// Keys with their positions, so that resolving a realized item does not scan the list.
+#[derive(Default)]
+struct KeyList {
+    keys: Arc<Vec<u64>>,
+    positions: HashMap<u64, usize>,
+}
+
+impl KeyList {
+    fn new(keys: Arc<Vec<u64>>) -> Arc<Self> {
+        let positions: HashMap<u64, usize> = keys
+            .iter()
+            .enumerate()
+            .map(|(index, &key)| (key, index))
+            .collect();
+        debug_assert_eq!(positions.len(), keys.len());
+        Arc::new(Self { keys, positions })
+    }
+
+    fn contains(&self, key: u64) -> bool {
+        self.positions.contains_key(&key)
+    }
+}
+
 /// The keys WinUI observes: `head[..head_len]` followed by `tail[tail_start..]`. Between granular
 /// notifications this describes each intermediate state without shifting either vector.
 struct Keys {
-    head: Arc<Vec<u64>>,
+    head: Arc<KeyList>,
     head_len: usize,
-    tail: Arc<Vec<u64>>,
+    tail: Arc<KeyList>,
     tail_start: usize,
 }
 
 impl Keys {
-    fn new(keys: Arc<Vec<u64>>) -> Self {
+    fn new(keys: Arc<KeyList>) -> Self {
         Self {
-            head_len: keys.len(),
+            head_len: keys.keys.len(),
             head: keys,
             tail: Arc::default(),
             tail_start: 0,
@@ -112,35 +135,44 @@ impl Keys {
     }
 
     fn iter(&self) -> impl Iterator<Item = u64> + '_ {
-        self.head[..self.head_len]
+        self.head.keys[..self.head_len]
             .iter()
-            .chain(&self.tail[self.tail_start..])
+            .chain(&self.tail.keys[self.tail_start..])
             .copied()
     }
 
     fn len(&self) -> usize {
-        self.head_len + self.tail.len() - self.tail_start
+        self.head_len + self.tail.keys.len() - self.tail_start
     }
 
     fn get(&self, index: usize) -> Option<u64> {
         if index < self.head_len {
-            Some(self.head[index])
+            Some(self.head.keys[index])
         } else {
             self.tail
+                .keys
                 .get(self.tail_start + index - self.head_len)
                 .copied()
         }
     }
 
     fn position(&self, key: u64) -> Option<usize> {
-        self.iter().position(|candidate| candidate == key)
+        match self.head.positions.get(&key) {
+            Some(&index) if index < self.head_len => Some(index),
+            _ => self
+                .tail
+                .positions
+                .get(&key)
+                .filter(|&&index| index >= self.tail_start)
+                .map(|index| self.head_len + index - self.tail_start),
+        }
     }
 
-    fn current(&self) -> Arc<Vec<u64>> {
-        if self.head_len == self.head.len() && self.tail_start == self.tail.len() {
+    fn current(&self) -> Arc<KeyList> {
+        if self.head_len == self.head.keys.len() && self.tail_start == self.tail.keys.len() {
             Arc::clone(&self.head)
         } else {
-            Arc::new(self.iter().collect())
+            KeyList::new(Arc::new(self.iter().collect()))
         }
     }
 }
@@ -149,7 +181,7 @@ impl NativeVirtualSource {
     pub(super) fn new(keys: Arc<Vec<u64>>) -> windows_core::Result<Self> {
         virtual_item_count(keys.len())?;
         Ok(Self {
-            keys: Mutex::new(Keys::new(keys)),
+            keys: Mutex::new(Keys::new(KeyList::new(keys))),
             handlers: WinEvent::new(),
         })
     }
@@ -203,28 +235,30 @@ impl NativeVirtualSource_Impl {
     pub(super) fn set_keys(&self, keys: Arc<Vec<u64>>) -> windows_core::Result<()> {
         virtual_item_count(keys.len())?;
         let previous = self.keys.lock().unwrap().current();
-        let next: HashSet<u64> = keys.iter().copied().collect();
-        let survivors: Arc<Vec<u64>> = Arc::new(
+        let keys = KeyList::new(keys);
+        let survivors = KeyList::new(Arc::new(
             previous
+                .keys
                 .iter()
                 .copied()
-                .filter(|key| next.contains(key))
+                .filter(|&key| keys.contains(key))
                 .collect(),
-        );
-        let kept: HashSet<u64> = survivors.iter().copied().collect();
+        ));
         let ordered = keys
+            .keys
             .iter()
-            .filter(|key| kept.contains(key))
-            .eq(survivors.iter());
-        if survivors.is_empty() || !ordered {
+            .filter(|&&key| survivors.contains(key))
+            .eq(survivors.keys.iter());
+        if survivors.keys.is_empty() || !ordered {
             *self.keys.lock().unwrap() = Keys::new(keys);
             return self.notify(CollectionChange::Reset, 0);
         }
         // Handlers read the source, so it reflects each change before it is reported.
         let removed: Vec<usize> = previous
+            .keys
             .iter()
             .enumerate()
-            .filter(|(_, key)| !kept.contains(key))
+            .filter(|&(_, &key)| !survivors.contains(key))
             .map(|(index, _)| index)
             .collect();
         for (count, &index) in removed.iter().enumerate().rev() {
@@ -237,8 +271,8 @@ impl NativeVirtualSource_Impl {
             self.notify(CollectionChange::ItemRemoved, index)?;
         }
         let mut survivor = 0;
-        for (index, key) in keys.iter().enumerate() {
-            if survivors.get(survivor) == Some(key) {
+        for (index, key) in keys.keys.iter().enumerate() {
+            if survivors.keys.get(survivor) == Some(key) {
                 survivor += 1;
                 continue;
             }
@@ -253,7 +287,6 @@ impl NativeVirtualSource_Impl {
         *self.keys.lock().unwrap() = Keys::new(keys);
         Ok(())
     }
-
     fn notify(&self, change: CollectionChange, index: usize) -> windows_core::Result<()> {
         let source: IObservableVector<IInspectable> = self.to_object().into_interface();
         let args: IVectorChangedEventArgs = ComObject::new(NativeVirtualChangedEventArgs {

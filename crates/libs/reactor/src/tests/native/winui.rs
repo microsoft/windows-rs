@@ -647,7 +647,13 @@ fn virtual_source_changes_replay_to_current_values() {
             let mut replica = observed.lock().unwrap();
             match args.CollectionChange().unwrap() {
                 CollectionChange::ItemRemoved => {
-                    replica.remove(index as usize);
+                    let removed = replica.remove(index as usize);
+                    let mut position = 0;
+                    assert!(
+                        !sender
+                            .IndexOf(&virtual_item_value(removed), &mut position)
+                            .unwrap()
+                    );
                 }
                 CollectionChange::ItemInserted => {
                     replica.insert(index as usize, virtual_key(sender.GetAt(index).unwrap()));
@@ -655,6 +661,15 @@ fn virtual_source_changes_replay_to_current_values() {
                 change => panic!("unexpected {change:?}"),
             }
             assert_eq!(*replica, values(sender));
+            for (expected, &key) in replica.iter().enumerate() {
+                let mut position = u32::MAX;
+                assert!(
+                    sender
+                        .IndexOf(&virtual_item_value(key), &mut position)
+                        .unwrap()
+                );
+                assert_eq!(position as usize, expected);
+            }
         })
         .unwrap();
 
