@@ -1802,7 +1802,7 @@ impl GeneratedHandle {
                         EventId::SelectionChanged,
                         source_selection_changed
                             .SelectedItem()
-                            .and_then(|selected| selected.cast::<IInspectable>()),
+                            .map(IInspectable::from),
                         PropertyId::Text,
                     );
                 }))?;
@@ -2672,10 +2672,7 @@ impl GeneratedHandle {
             ),
             (Self::SelectorBar(object), EventId::SelectionChanged) => {
                 Some(match object.value.SelectedItem() {
-                    Ok(selected) => selected
-                        .cast::<IInspectable>()
-                        .map(Some)
-                        .map_err(Into::into),
+                    Ok(selected) => Ok(Some(selected.into())),
                     Err(error) if error.code().is_ok() => Ok(None),
                     Err(error) => Err(error.into()),
                 })
@@ -6041,8 +6038,8 @@ impl GeneratedBorder {
         let source_pointer_pressed = value.cast::<native::UIElement>()?;
         let pending_focus_states_pointer_pressed = Rc::clone(context.pending_focus_states);
         let capture_pointer_on_press_pointer_pressed = Rc::clone(&self.capture_pointer_on_press);
-        let revoker = value
-            .cast::<native::IUIElement>()?
+        let revoker = source_pointer_pressed
+            .clone()
             .PointerPressed(local::handler(
                 move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
                     let args = args.unwrap();
@@ -6083,32 +6080,30 @@ impl GeneratedBorder {
         let event_queue_pointer_moved = Rc::clone(context.event_queue);
         let source_pointer_moved = value.cast::<native::UIElement>()?;
         let pending_focus_states_pointer_moved = Rc::clone(context.pending_focus_states);
-        let revoker = value
-            .cast::<native::IUIElement>()?
-            .PointerMoved(local::handler(
-                move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
-                    let args = args.unwrap();
-                    let value = WinUiAdapter::pointer_event_info(
-                        object,
-                        &source_pointer_moved,
-                        args,
-                        None,
-                        false,
-                        false,
-                        &pending_focus_states_pointer_moved,
-                    )
-                    .unwrap();
-                    if WinUiAdapter::dispatch_pointer(
-                        &event_for_callback,
-                        &event_queue_pointer_moved,
-                        object,
-                        EventId::PointerMoved,
-                        value,
-                    ) {
-                        args.SetHandled(true).unwrap();
-                    }
-                },
-            ))?;
+        let revoker = source_pointer_moved.clone().PointerMoved(local::handler(
+            move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
+                let args = args.unwrap();
+                let value = WinUiAdapter::pointer_event_info(
+                    object,
+                    &source_pointer_moved,
+                    args,
+                    None,
+                    false,
+                    false,
+                    &pending_focus_states_pointer_moved,
+                )
+                .unwrap();
+                if WinUiAdapter::dispatch_pointer(
+                    &event_for_callback,
+                    &event_queue_pointer_moved,
+                    object,
+                    EventId::PointerMoved,
+                    value,
+                ) {
+                    args.SetHandled(true).unwrap();
+                }
+            },
+        ))?;
         self._pointer_moved = Some(GeneratedRevoker::Event(revoker));
         Ok(())
     }
@@ -6125,8 +6120,8 @@ impl GeneratedBorder {
         let event_queue_pointer_entered = Rc::clone(context.event_queue);
         let source_pointer_entered = value.cast::<native::UIElement>()?;
         let pending_focus_states_pointer_entered = Rc::clone(context.pending_focus_states);
-        let revoker = value
-            .cast::<native::IUIElement>()?
+        let revoker = source_pointer_entered
+            .clone()
             .PointerEntered(local::handler(
                 move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
                     let args = args.unwrap();
@@ -6167,32 +6162,30 @@ impl GeneratedBorder {
         let event_queue_pointer_exited = Rc::clone(context.event_queue);
         let source_pointer_exited = value.cast::<native::UIElement>()?;
         let pending_focus_states_pointer_exited = Rc::clone(context.pending_focus_states);
-        let revoker = value
-            .cast::<native::IUIElement>()?
-            .PointerExited(local::handler(
-                move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
-                    let args = args.unwrap();
-                    let value = WinUiAdapter::pointer_event_info(
-                        object,
-                        &source_pointer_exited,
-                        args,
-                        None,
-                        false,
-                        false,
-                        &pending_focus_states_pointer_exited,
-                    )
-                    .unwrap();
-                    if WinUiAdapter::dispatch_pointer(
-                        &event_for_callback,
-                        &event_queue_pointer_exited,
-                        object,
-                        EventId::PointerExited,
-                        value,
-                    ) {
-                        args.SetHandled(true).unwrap();
-                    }
-                },
-            ))?;
+        let revoker = source_pointer_exited.clone().PointerExited(local::handler(
+            move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
+                let args = args.unwrap();
+                let value = WinUiAdapter::pointer_event_info(
+                    object,
+                    &source_pointer_exited,
+                    args,
+                    None,
+                    false,
+                    false,
+                    &pending_focus_states_pointer_exited,
+                )
+                .unwrap();
+                if WinUiAdapter::dispatch_pointer(
+                    &event_for_callback,
+                    &event_queue_pointer_exited,
+                    object,
+                    EventId::PointerExited,
+                    value,
+                ) {
+                    args.SetHandled(true).unwrap();
+                }
+            },
+        ))?;
         self._pointer_exited = Some(GeneratedRevoker::Event(revoker));
         Ok(())
     }
@@ -6211,8 +6204,8 @@ impl GeneratedBorder {
         let pending_focus_states_pointer_released = Rc::clone(context.pending_focus_states);
         let capture_pointer_on_press_pointer_released = Rc::clone(&self.capture_pointer_on_press);
         let focus_on_pointer_release_pointer_released = Rc::clone(&self.focus_on_pointer_release);
-        let revoker = value
-            .cast::<native::IUIElement>()?
+        let revoker = source_pointer_released
+            .clone()
             .PointerReleased(local::handler(
                 move |_, args: windows_core::InRef<'_, native::PointerRoutedEventArgs>| {
                     let args = args.unwrap();
@@ -6427,32 +6420,30 @@ impl GeneratedBorder {
         let event_queue_got_focus = Rc::clone(context.event_queue);
         let source_got_focus = value.cast::<native::UIElement>()?;
         let pending_focus_states_got_focus = Rc::clone(context.pending_focus_states);
-        let revoker = value
-            .cast::<native::IUIElement>()?
-            .GotFocus(local::handler(
-                move |_, args: windows_core::InRef<'_, native::RoutedEventArgs>| {
-                    let dispatch = true;
-                    let observation = None;
-                    let value = WinUiAdapter::focus_event_info(
+        let revoker = source_got_focus.clone().GotFocus(local::handler(
+            move |_, args: windows_core::InRef<'_, native::RoutedEventArgs>| {
+                let dispatch = true;
+                let observation = None;
+                let value = WinUiAdapter::focus_event_info(
+                    object,
+                    &source_got_focus,
+                    args,
+                    true,
+                    &pending_focus_states_got_focus,
+                )
+                .unwrap();
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_got_focus,
                         object,
-                        &source_got_focus,
-                        args,
-                        true,
-                        &pending_focus_states_got_focus,
-                    )
-                    .unwrap();
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_got_focus,
-                            object,
-                            EventId::GotFocus,
-                            observation,
-                            value,
-                        );
-                    }
-                },
-            ))?;
+                        EventId::GotFocus,
+                        observation,
+                        value,
+                    );
+                }
+            },
+        ))?;
         self._got_focus = Some(GeneratedRevoker::Event(revoker));
         Ok(())
     }
@@ -6469,32 +6460,30 @@ impl GeneratedBorder {
         let event_queue_lost_focus = Rc::clone(context.event_queue);
         let source_lost_focus = value.cast::<native::UIElement>()?;
         let pending_focus_states_lost_focus = Rc::clone(context.pending_focus_states);
-        let revoker = value
-            .cast::<native::IUIElement>()?
-            .LostFocus(local::handler(
-                move |_, args: windows_core::InRef<'_, native::RoutedEventArgs>| {
-                    let dispatch = true;
-                    let observation = None;
-                    let value = WinUiAdapter::focus_event_info(
+        let revoker = source_lost_focus.clone().LostFocus(local::handler(
+            move |_, args: windows_core::InRef<'_, native::RoutedEventArgs>| {
+                let dispatch = true;
+                let observation = None;
+                let value = WinUiAdapter::focus_event_info(
+                    object,
+                    &source_lost_focus,
+                    args,
+                    false,
+                    &pending_focus_states_lost_focus,
+                )
+                .unwrap();
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_lost_focus,
                         object,
-                        &source_lost_focus,
-                        args,
-                        false,
-                        &pending_focus_states_lost_focus,
-                    )
-                    .unwrap();
-                    if dispatch {
-                        WinUiAdapter::dispatch(
-                            &event_for_callback,
-                            &event_queue_lost_focus,
-                            object,
-                            EventId::LostFocus,
-                            observation,
-                            value,
-                        );
-                    }
-                },
-            ))?;
+                        EventId::LostFocus,
+                        observation,
+                        value,
+                    );
+                }
+            },
+        ))?;
         self._lost_focus = Some(GeneratedRevoker::Event(revoker));
         Ok(())
     }
@@ -6919,13 +6908,8 @@ impl GeneratedTabView {
                 let dispatch = true;
                 let observation = None;
                 let args = args.unwrap();
-                let payload = event_queue_tab_close_requested.item_object(
-                    object,
-                    &args
-                        .Tab()
-                        .and_then(|value| value.cast::<IInspectable>())
-                        .unwrap(),
-                );
+                let payload = event_queue_tab_close_requested
+                    .item_object(object, &args.Tab().map(IInspectable::from).unwrap());
                 let Some(payload) = payload else {
                     return;
                 };

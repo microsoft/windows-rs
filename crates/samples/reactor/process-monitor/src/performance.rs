@@ -38,13 +38,37 @@ impl Metric {
     }
 }
 
+/// Chooses between the overall CPU graph and one graph per logical processor.
+pub fn graph_button(cpu_view: CpuView, on_cpu_view: Callback<CpuView>) -> View {
+    DropDownButton::new()
+        .automation_id("cpu-graph")
+        .vertical_alignment(VerticalAlignment::Center)
+        .content("Graph")
+        .flyout_with(
+            Flyout::rich(
+                RadioButtons::new()
+                    .automation_id("cpu-graph-choices")
+                    .items_source(["Overall utilization", "Logical processors"])
+                    .selected_index(match cpu_view {
+                        CpuView::Overall => 0,
+                        CpuView::Logical => 1,
+                    })
+                    .on_selection_changed(move |index: Option<usize>| match index {
+                        Some(0) => on_cpu_view.call(CpuView::Overall),
+                        Some(1) => on_cpu_view.call(CpuView::Logical),
+                        _ => {}
+                    }),
+            )
+            .placement(FlyoutPlacement::BottomEdgeAlignedRight),
+        )
+}
+
 pub fn page(
     history: &Rc<History>,
     metric: Metric,
     cpu_view: CpuView,
     color_scheme: ColorScheme,
     on_select: Callback<Metric>,
-    on_cpu_view: Callback<CpuView>,
 ) -> View {
     let summary = |metric: Metric| {
         history
@@ -150,43 +174,13 @@ pub fn page(
                 .vertical_alignment(VerticalAlignment::Center),
         ));
     }
-    let mut help = chart_help(history, metric, cpu_view);
-    if metric == Metric::Cpu {
-        help.push_str(" Right-click or press Shift+F10 to change the CPU graph.");
-    }
     let chart = Border::new()
         .grid_row(2)
         .automation_id("history-chart")
         .automation_name(format!("{} history chart", metric.label()))
-        .automation_help_text(help)
+        .automation_help_text(chart_help(history, metric, cpu_view))
         .is_tab_stop(metric == Metric::Cpu)
         .content(Grid::new().keyed_children(chart));
-    let chart: View = if metric == Metric::Cpu {
-        chart.menu(Menu::new(
-            [MenuItem::submenu(
-                "view",
-                "Change graph to",
-                [
-                    ("overall", "Overall utilization", CpuView::Overall),
-                    ("logical", "Logical processors", CpuView::Logical),
-                ]
-                .map(|(key, label, view)| {
-                    if cpu_view == view {
-                        MenuItem::disabled(key, format!("{label} (current)"))
-                    } else {
-                        MenuItem::item(key, label)
-                    }
-                }),
-            )],
-            move |key: Key| match key.as_str() {
-                Some("overall") => on_cpu_view.call(CpuView::Overall),
-                Some("logical") => on_cpu_view.call(CpuView::Logical),
-                _ => unreachable!(),
-            },
-        ))
-    } else {
-        chart.into()
-    };
     Grid::new()
         .columns([GridLength::Pixel(150.0), GridLength::STAR])
         .children((
