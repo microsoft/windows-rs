@@ -323,7 +323,14 @@ impl Component for CursorFixture {
             .background(Color::rgb(200, 200, 200))
             .horizontal_alignment(HorizontalAlignment::Left)
             .vertical_alignment(VerticalAlignment::Top)
-            .on_pointer_entered(context.callback(|_| CursorMessage::Entered))
+            .on_pointer_entered({
+                let entered = context.message(CursorMessage::Entered);
+                RoutedCallback::new(move |info: PointerEventInfo| {
+                    eprintln!("cursor: inner entered at ({:.1}, {:.1})", info.x, info.y);
+                    entered.call(());
+                    false
+                })
+            })
             .content(TextBlock::new().automation_id("cursor-inner").text("Inner"));
         if let Some(shape) = inner_shape {
             inner = inner.pointer_cursor(shape);
@@ -347,26 +354,42 @@ impl Component for CursorFixture {
             outer = outer.pointer_cursor(InputSystemCursorShape::Hand);
         }
         context.window_visuals(WindowVisuals::new().client_size(640.0, 400.0));
+        // Logs whether pointer input reaches the content at all, separately from the inner target.
+        let log = |event: &'static str| {
+            RoutedCallback::new(move |info: PointerEventInfo| {
+                eprintln!(
+                    "cursor: root {event} at ({:.1}, {:.1})",
+                    info.window_x, info.window_y
+                );
+                false
+            })
+        };
         context.window_frame(
             "Reactor UI fixture: pointer-cursor",
-            StackPanel::new().margin(20.0).spacing(12.0).children((
-                Button::new()
-                    .automation_id("inner-cursor")
-                    .content("Change inner cursor")
-                    .on_click(context.message(CursorMessage::Inner)),
-                Button::new()
-                    .automation_id("outer-cursor")
-                    .content("Toggle outer cursor")
-                    .on_click(context.message(CursorMessage::Outer)),
-                outer,
-                TextBlock::new().automation_id("cursor-state").text(format!(
-                    "Inner {inner_shape:?}; outer {}",
-                    if self.outer { "Hand" } else { "None" }
-                )),
-                TextBlock::new()
-                    .automation_id("cursor-entered")
-                    .text(format!("Entered {}", self.entered)),
-            )),
+            Border::new()
+                .background(Color::rgb(255, 255, 255))
+                .on_pointer_entered(log("entered"))
+                .on_pointer_moved(log("moved"))
+                .content(
+                    StackPanel::new().margin(20.0).spacing(12.0).children((
+                        Button::new()
+                            .automation_id("inner-cursor")
+                            .content("Change inner cursor")
+                            .on_click(context.message(CursorMessage::Inner)),
+                        Button::new()
+                            .automation_id("outer-cursor")
+                            .content("Toggle outer cursor")
+                            .on_click(context.message(CursorMessage::Outer)),
+                        outer,
+                        TextBlock::new().automation_id("cursor-state").text(format!(
+                            "Inner {inner_shape:?}; outer {}",
+                            if self.outer { "Hand" } else { "None" }
+                        )),
+                        TextBlock::new()
+                            .automation_id("cursor-entered")
+                            .text(format!("Entered {}", self.entered)),
+                    )),
+                ),
         )
     }
 }

@@ -694,6 +694,8 @@ impl Automation {
             if !*pressed && GetAsyncKeyState(0x01) & i16::MIN != 0 {
                 return Err("left mouse button is held by another input source".into());
             }
+            let mut before = POINT::default();
+            GetCursorPos(&mut before).ok()?;
             send_mouse(
                 MOUSEEVENTF_MOVE
                     | MOUSEEVENTF_MOVE_NOCOALESCE
@@ -701,7 +703,14 @@ impl Automation {
                     | MOUSEEVENTF_VIRTUALDESK,
                 ((f64::from(point.x - x) * 65535.0) / f64::from(width - 1)).round() as i32,
                 ((f64::from(point.y - y) * 65535.0) / f64::from(height - 1)).round() as i32,
-            )
+            )?;
+            let mut after = POINT::default();
+            GetCursorPos(&mut after).ok()?;
+            eprintln!(
+                "pointer target ({}, {}); cursor ({}, {}) -> ({}, {})",
+                point.x, point.y, before.x, before.y, after.x, after.y
+            );
+            Ok(())
         }
     }
 
