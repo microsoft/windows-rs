@@ -402,3 +402,92 @@ impl Component for ScrollFixture {
             .into()
     }
 }
+
+pub(super) struct ScrollPrependFixture {
+    view: ElementRef<ScrollView>,
+    _observation: ElementObservation,
+    metrics: ScrollViewMetrics,
+    rows: Vec<u32>,
+}
+
+#[derive(Clone)]
+pub(super) enum PrependMessage {
+    View(ScrollViewMetrics),
+    Scroll(f64),
+    Prepend,
+}
+
+impl Component for ScrollPrependFixture {
+    type Input = ();
+    type Message = PrependMessage;
+
+    fn create(_: &(), context: &ComponentContext<Self>) -> Self {
+        let view = ElementRef::new();
+        let observed = context.callback(PrependMessage::View);
+        let observation = view.observe_view(move |metrics| observed.call(metrics));
+        Self {
+            view,
+            _observation: observation,
+            metrics: ScrollViewMetrics::default(),
+            rows: (1000..1050).collect(),
+        }
+    }
+
+    fn update(&mut self, message: PrependMessage, _: &ComponentContext<Self>) {
+        match message {
+            PrependMessage::View(metrics) => self.metrics = metrics,
+            PrependMessage::Scroll(offset) => {
+                assert!(self.view.request_scroll_to(0.0, offset, false, |_| {}));
+            }
+            PrependMessage::Prepend => {
+                let first = self.rows[0];
+                self.rows.splice(0..0, first - 5..first);
+            }
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let rows = self.rows.iter().fold(ItemsRepeater::new(), |list, &id| {
+            list.item(
+                id,
+                Border::new()
+                    .height(ROW_HEIGHT)
+                    .content(TextBlock::new().text(format!("Row {id}"))),
+            )
+        });
+        let metrics = self.metrics;
+        let first = self.rows[(metrics.vertical_offset / ROW_HEIGHT) as usize];
+        context.window_title("Reactor UI fixture: scroll-prepend");
+        context.window_visuals(WindowVisuals::new().client_size(500.0, 500.0));
+        StackPanel::new()
+            .margin(20.0)
+            .spacing(8.0)
+            .children((
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .children((
+                        Button::new()
+                            .automation_id("top")
+                            .content("Top")
+                            .on_click(context.message(PrependMessage::Scroll(0.0))),
+                        Button::new()
+                            .automation_id("middle")
+                            .content("Middle")
+                            .on_click(context.message(PrependMessage::Scroll(400.0))),
+                        Button::new()
+                            .automation_id("prepend")
+                            .content("Prepend")
+                            .on_click(context.message(PrependMessage::Prepend)),
+                    )),
+                TextBlock::new().automation_id("metrics").text(format!(
+                    "Offset {:.0}; extent {:.0}; first Row {first}",
+                    metrics.vertical_offset, metrics.extent_height
+                )),
+                ScrollView::new()
+                    .height(200.0)
+                    .element_ref(&self.view)
+                    .content(rows),
+            ))
+            .into()
+    }
+}

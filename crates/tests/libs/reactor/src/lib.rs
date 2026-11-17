@@ -384,6 +384,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "scroll" => App::run_component::<scroll::ScrollFixture>(())?,
         "scroll-layout" => App::run_component::<scroll::ScrollLayoutFixture>(false)?,
         "scroll-orientation" => App::run_component::<scroll::ScrollLayoutFixture>(true)?,
+        "scroll-prepend" => App::run_component::<scroll::ScrollPrependFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
         "selection-index" => App::run_component::<selection::IndexSelectionFixture>(())?,
         "selection-items" => App::run_component::<selection::ItemSelectionFixture>(())?,

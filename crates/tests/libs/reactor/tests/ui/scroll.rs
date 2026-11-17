@@ -170,3 +170,17 @@ fn scroll_view_reports_view_changes_and_scroll_completions() -> Result<()> {
         Ok(())
     })
 }
+
+#[test]
+fn items_repeater_keeps_visible_row_when_items_are_prepended() -> Result<()> {
+    process::run("scroll-prepend", |ui| {
+        ui.invoke("middle")?;
+        ui.name("metrics", "Offset 400; extent 2000; first Row 1010")?;
+        ui.invoke("prepend")?;
+        ui.name("metrics", "Offset 600; extent 2200; first Row 1010")?;
+        ui.invoke("top")?;
+        ui.name("metrics", "Offset 0; extent 2200; first Row 995")?;
+        ui.invoke("prepend")?;
+        ui.name("metrics", "Offset 0; extent 2400; first Row 990")
+    })
+}

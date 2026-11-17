@@ -578,21 +578,67 @@ fn virtual_source_reset_notifies_once_and_honors_event_removal() {
         .unwrap();
 
     let keys = Arc::new((0..10_000).collect::<Vec<_>>());
-    source.reset(keys.clone()).unwrap();
+    source.set_keys(keys).unwrap();
     assert_eq!(vector.Size().unwrap(), 10_000);
     assert_eq!(first.load(Ordering::Relaxed), 1);
     assert_eq!(second.load(Ordering::Relaxed), 1);
 
     drop(first_revoker);
-    source.reset(keys).unwrap();
+    source
+        .set_keys(Arc::new((0..10_000).rev().collect()))
+        .unwrap();
     assert_eq!(first.load(Ordering::Relaxed), 1);
     assert_eq!(second.load(Ordering::Relaxed), 2);
 
     drop(second_revoker);
-    source.reset(Arc::default()).unwrap();
+    source.set_keys(Arc::default()).unwrap();
     assert_eq!(vector.Size().unwrap(), 0);
     assert_eq!(first.load(Ordering::Relaxed), 1);
     assert_eq!(second.load(Ordering::Relaxed), 2);
+}
+
+#[test]
+fn virtual_source_reports_ordered_changes_individually() {
+    let source = ComObject::new(NativeVirtualSource::new(Arc::new(vec![1, 2, 3])).unwrap());
+    let vector: IObservableVector<IInspectable> = source.to_interface();
+    let changes = Arc::new(Mutex::new(Vec::new()));
+    let observed = Arc::clone(&changes);
+    let _revoker = vector
+        .VectorChanged(move |sender, args| {
+            let args = args.ok().unwrap();
+            let size = sender.ok().unwrap().Size().unwrap();
+            observed.lock().unwrap().push((
+                args.CollectionChange().unwrap(),
+                args.Index().unwrap(),
+                size,
+            ));
+        })
+        .unwrap();
+
+    source.set_keys(Arc::new(vec![0, 1, 3, 4])).unwrap();
+    assert_eq!(
+        std::mem::take(&mut *changes.lock().unwrap()),
+        [
+            (CollectionChange::ItemRemoved, 1, 2),
+            (CollectionChange::ItemInserted, 0, 3),
+            (CollectionChange::ItemInserted, 3, 4),
+        ]
+    );
+
+    source.set_keys(Arc::new(vec![0, 1, 3, 4])).unwrap();
+    assert!(changes.lock().unwrap().is_empty());
+
+    source.set_keys(Arc::new(vec![1, 0, 3, 4])).unwrap();
+    assert_eq!(
+        std::mem::take(&mut *changes.lock().unwrap()),
+        [(CollectionChange::Reset, 0, 4)]
+    );
+
+    source.set_keys(Arc::new(vec![5])).unwrap();
+    assert_eq!(
+        std::mem::take(&mut *changes.lock().unwrap()),
+        [(CollectionChange::Reset, 0, 1)]
+    );
 }
 
 #[test]
@@ -619,7 +665,7 @@ fn virtual_source_reset_returns_handler_failure() {
         ))
         .unwrap();
 
-    let error = source.reset(Arc::new(vec![0])).unwrap_err();
+    let error = source.set_keys(Arc::new(vec![0])).unwrap_err();
     assert_eq!(error.code(), E_FAIL);
     assert_eq!(observed.load(Ordering::Relaxed), 1);
 }
@@ -639,14 +685,14 @@ fn virtual_source_maps_native_tokens_across_reset() {
         assert_eq!(mapping.IndexFromKey(&HSTRING::from(missing)).unwrap(), -1);
     }
 
-    source.reset(Arc::new(vec![2, 0])).unwrap();
+    source.set_keys(Arc::new(vec![2, 0])).unwrap();
     assert_eq!(mapping.KeyFromIndex(0).unwrap(), tokens[2]);
     assert_eq!(mapping.KeyFromIndex(1).unwrap(), tokens[0]);
     assert_eq!(mapping.IndexFromKey(&tokens[2]).unwrap(), 0);
     assert_eq!(mapping.IndexFromKey(&tokens[0]).unwrap(), 1);
     assert_eq!(mapping.IndexFromKey(&tokens[1]).unwrap(), -1);
 
-    source.reset(Arc::new(vec![0, 3, 2])).unwrap();
+    source.set_keys(Arc::new(vec![0, 3, 2])).unwrap();
     assert_eq!(mapping.KeyFromIndex(0).unwrap(), tokens[0]);
     assert_eq!(mapping.KeyFromIndex(2).unwrap(), tokens[2]);
     assert_ne!(mapping.KeyFromIndex(1).unwrap(), tokens[1]);

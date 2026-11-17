@@ -55,7 +55,7 @@ impl NativeVirtualItems {
         source_revision: u64,
     ) -> windows_core::Result<()> {
         self.source_revision.set(source_revision);
-        self.source.reset(Arc::clone(keys))
+        self.source.set_keys(Arc::clone(keys))
     }
 }
 
@@ -157,12 +157,52 @@ impl NativeVirtualSource_Impl {
         windows_core::Error::new(E_ILLEGAL_METHOD_CALL, "virtual item source is read-only")
     }
 
-    pub(super) fn reset(&self, keys: Arc<Vec<u64>>) -> windows_core::Result<()> {
+    /// Replaces the keys, reporting removals and insertions individually when the surviving keys
+    /// keep their order so that WinUI can preserve realized elements and scroll anchoring. A
+    /// reorder, or a change that keeps no keys, is reported as a reset.
+    pub(super) fn set_keys(&self, keys: Arc<Vec<u64>>) -> windows_core::Result<()> {
         virtual_item_count(keys.len())?;
+        let previous = Arc::clone(&self.keys.lock().unwrap());
+        let next: HashSet<u64> = keys.iter().copied().collect();
+        let kept: HashSet<u64> = previous
+            .iter()
+            .copied()
+            .filter(|key| next.contains(key))
+            .collect();
+        let ordered = previous
+            .iter()
+            .filter(|key| kept.contains(key))
+            .eq(keys.iter().filter(|key| kept.contains(key)));
+        if kept.is_empty() || !ordered {
+            *self.keys.lock().unwrap() = keys;
+            return self.notify(CollectionChange::Reset, 0);
+        }
+        let mut current = previous.to_vec();
+        for index in (0..current.len()).rev() {
+            if !kept.contains(&current[index]) {
+                current.remove(index);
+                *self.keys.lock().unwrap() = Arc::new(current.clone());
+                self.notify(CollectionChange::ItemRemoved, index)?;
+            }
+        }
+        for (index, key) in keys.iter().enumerate() {
+            if current.get(index) != Some(key) {
+                current.insert(index, *key);
+                *self.keys.lock().unwrap() = Arc::new(current.clone());
+                self.notify(CollectionChange::ItemInserted, index)?;
+            }
+        }
         *self.keys.lock().unwrap() = keys;
+        Ok(())
+    }
+
+    fn notify(&self, change: CollectionChange, index: usize) -> windows_core::Result<()> {
         let source: IObservableVector<IInspectable> = self.to_object().into_interface();
-        let args: IVectorChangedEventArgs =
-            ComObject::new(NativeVirtualChangedEventArgs).into_interface();
+        let args: IVectorChangedEventArgs = ComObject::new(NativeVirtualChangedEventArgs {
+            change,
+            index: index.try_into().unwrap(),
+        })
+        .into_interface();
         let mut result = Ok(());
         self.handlers
             .call(|handler: &VectorChangedEventHandler<IInspectable>| {
@@ -175,7 +215,6 @@ impl NativeVirtualSource_Impl {
         result
     }
 }
-
 impl native::IKeyIndexMapping_Impl for NativeVirtualSource_Impl {
     fn KeyFromIndex(&self, index: i32) -> windows_core::Result<HSTRING> {
         let index = usize::try_from(index).map_err(|_| windows_core::Error::from(E_BOUNDS))?;
@@ -349,15 +388,18 @@ implement_decl! {
     ]
 }
 
-struct NativeVirtualChangedEventArgs;
+struct NativeVirtualChangedEventArgs {
+    change: CollectionChange,
+    index: u32,
+}
 
 impl IVectorChangedEventArgs_Impl for NativeVirtualChangedEventArgs_Impl {
     fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {
-        Ok(CollectionChange::Reset)
+        Ok(self.change)
     }
 
     fn Index(&self) -> windows_core::Result<u32> {
-        Ok(0)
+        Ok(self.index)
     }
 }
 
