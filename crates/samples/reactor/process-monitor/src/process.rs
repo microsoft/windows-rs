@@ -1,10 +1,8 @@
 use crate::bindings::*;
 use crate::model::{
-    LogicalCpuObservation, MemoryObservation, Observation, ProcessId, ProcessorId, Snapshot,
-    SystemObservation,
+    LogicalCpuObservation, MemoryObservation, Observation, ProcessorId, Snapshot, SystemObservation,
 };
 use std::io;
-use std::os::windows::io::{AsRawHandle, FromRawHandle, OwnedHandle};
 use std::time::{Duration, Instant};
 use windows_reactor::CancellationToken;
 
@@ -385,73 +383,10 @@ fn pdh_status(operation: &str, status: i32) -> Result<(), String> {
     }
 }
 
-fn open(pid: u32) -> io::Result<OwnedHandle> {
-    let handle =
-        unsafe { OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION as u32, false.into(), pid) };
-    if handle.is_null() {
-        Err(io::Error::last_os_error())
-    } else {
-        Ok(unsafe { OwnedHandle::from_raw_handle(handle) })
-    }
-}
-
-fn ticks(time: FILETIME) -> u64 {
-    (u64::from(time.dwHighDateTime) << 32) | u64::from(time.dwLowDateTime)
-}
-
-fn times(handle: &OwnedHandle) -> io::Result<(u64, u64)> {
-    let mut created = FILETIME::default();
-    let mut exited = FILETIME::default();
-    let mut kernel = FILETIME::default();
-    let mut user = FILETIME::default();
-    if !unsafe {
-        GetProcessTimes(
-            handle.as_raw_handle(),
-            &mut created,
-            &mut exited,
-            &mut kernel,
-            &mut user,
-        )
-    }
-    .as_bool()
-    {
-        return Err(io::Error::last_os_error());
-    }
-    if ticks(exited) != 0 {
-        return Err(io::Error::other("Process exited"));
-    }
-    Ok((
-        ticks(created),
-        ticks(kernel).checked_add(ticks(user)).unwrap(),
-    ))
-}
-
-pub fn image_path(id: ProcessId) -> Result<String, String> {
-    let created = id.created.ok_or("Process identity is unavailable")?;
-    let handle = open(id.pid).map_err(|error| error.to_string())?;
-    if times(&handle).map_err(|error| error.to_string())?.0 != created {
-        return Err("Process exited or its PID was reused".into());
-    }
-    let mut buffer = vec![0u16; 32_768];
-    let mut length = buffer.len() as u32;
-    if !unsafe {
-        QueryFullProcessImageNameW(
-            handle.as_raw_handle(),
-            0,
-            windows_core::PWSTR(buffer.as_mut_ptr()),
-            &mut length,
-        )
-    }
-    .as_bool()
-    {
-        return Err(io::Error::last_os_error().to_string());
-    }
-    Ok(String::from_utf16_lossy(&buffer[..length as usize]))
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::inspect::{open, times};
 
     #[test]
     fn sampling_preserves_unopenable_process_identity() {
@@ -484,9 +419,9 @@ mod tests {
     fn system_processes_match_process_times() {
         let pid = std::process::id();
         let handle = open(pid).unwrap();
-        let (created, before) = times(&handle).unwrap();
+        let before = times(&handle).unwrap();
         let buffer = system_processes().unwrap();
-        let (_, after) = times(&handle).unwrap();
+        let after = times(&handle).unwrap();
         let bytes = buffer.as_ptr().cast::<u8>();
         let mut offset = 0;
         let current = loop {
@@ -498,8 +433,8 @@ mod tests {
             offset += entry.NextEntryOffset as usize;
         };
         let times = ProcessTimes::from(current);
-        assert_eq!(times.created, created);
-        assert!((before..=after).contains(&times.cpu));
+        assert_eq!(times.created, before.created);
+        assert!((before.kernel + before.user..=after.kernel + after.user).contains(&times.cpu));
     }
 
     #[test]
@@ -530,24 +465,5 @@ mod tests {
         );
         assert!(cpus.windows(2).all(|pair| pair[0].id < pair[1].id));
         assert!(cpus.iter().any(|cpu| cpu.percent.is_some()));
-    }
-
-    #[test]
-    fn details_verify_creation_time_before_querying_path() {
-        let pid = std::process::id();
-        let created = times(&open(pid).unwrap()).unwrap().0;
-        let id = ProcessId {
-            pid,
-            created: Some(created),
-            observation: 0,
-        };
-        assert!(!image_path(id).unwrap().is_empty());
-        assert!(
-            image_path(ProcessId {
-                created: Some(created + 1),
-                ..id
-            })
-            .is_err()
-        );
     }
 }

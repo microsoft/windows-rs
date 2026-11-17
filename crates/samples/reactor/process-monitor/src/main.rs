@@ -10,11 +10,14 @@ mod bindings {
     include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 }
 
+mod details;
+mod inspect;
 mod model;
 mod performance;
 mod process;
 mod source;
 
+use details::{DetailInput, Details};
 use model::{Model, Process, ProcessId, Row, Snapshot, Sort};
 use source::Source;
 use std::cell::RefCell;
@@ -874,137 +877,6 @@ impl Component for ProcessRow {
             );
         }
         Grid::new().children(children).into()
-    }
-}
-
-#[derive(Clone, PartialEq)]
-struct DetailInput {
-    process: Option<Rc<Process>>,
-    live: bool,
-}
-
-struct Details {
-    id: Option<ProcessId>,
-    path: String,
-    task: Option<ComponentTask>,
-}
-
-impl Details {
-    fn load(&mut self, input: &DetailInput, context: &ComponentContext<Self>) {
-        if let Some(task) = self.task.take() {
-            task.cancel();
-        }
-        self.id = input.process.as_ref().map(|p| p.id);
-        self.path = match self.id {
-            None => "Select a process.".into(),
-            Some(_) if !input.live => {
-                "Executable paths are not recorded or queried during replay.".into()
-            }
-            Some(id) if id.created.is_none() => {
-                "Process identity unavailable; details cannot be verified.".into()
-            }
-            Some(id) => {
-                self.task = Some(context.spawn_background(move |_| (id, process::image_path(id))));
-                "Loading executable path...".into()
-            }
-        };
-    }
-}
-
-impl Component for Details {
-    type Input = DetailInput;
-    type Message = (ProcessId, Result<String, String>);
-
-    fn create(input: &DetailInput, context: &ComponentContext<Self>) -> Self {
-        let mut details = Self {
-            id: None,
-            path: String::new(),
-            task: None,
-        };
-        details.load(input, context);
-        details
-    }
-
-    fn input_changed(&mut self, input: &DetailInput, context: &ComponentContext<Self>) {
-        if self.id != input.process.as_ref().map(|p| p.id) {
-            self.load(input, context);
-        }
-    }
-
-    fn update(&mut self, (id, result): Self::Message, _: &ComponentContext<Self>) {
-        if self.id == Some(id) {
-            self.task = None;
-            self.path = result.unwrap_or_else(|error| format!("Unavailable: {error}"));
-        }
-    }
-
-    fn view(&self, input: &DetailInput, _: &mut ViewContext<Self>) -> View {
-        let mut children: Vec<View> = vec![
-            TextBlock::new()
-                .text(
-                    input
-                        .process
-                        .as_ref()
-                        .map_or("Process details", |p| p.name.as_str()),
-                )
-                .font_size(18.0)
-                .font_weight(FontWeight::SEMI_BOLD)
-                .grid_column_span(2)
-                .into(),
-            TextBlock::new()
-                .grid_row(1)
-                .grid_column_span(2)
-                .margin(Thickness::xy(0.0, 8.0))
-                .text(self.path.clone())
-                .text_wrapping(TextWrapping::Wrap)
-                .into(),
-        ];
-        if let Some(process) = &input.process {
-            children.extend([
-                TextBlock::new()
-                    .grid_row(2)
-                    .text(format!(
-                        "PID: {}  Parent PID: {}",
-                        process.id.pid, process.parent_pid
-                    ))
-                    .into(),
-                TextBlock::new()
-                    .grid_row(2)
-                    .grid_column(1)
-                    .text(format!("Threads: {}", process.threads))
-                    .into(),
-                TextBlock::new()
-                    .grid_row(3)
-                    .text(format!("Working set: {} MB", memory(process.working_set)))
-                    .into(),
-                TextBlock::new()
-                    .grid_row(3)
-                    .grid_column(1)
-                    .text(format!(
-                        "Private commit: {} MB",
-                        memory(process.private_bytes)
-                    ))
-                    .into(),
-                TextBlock::new()
-                    .grid_row(4)
-                    .grid_column_span(2)
-                    .margin(Thickness::new(0.0, 8.0, 0.0, 0.0))
-                    .font_size(12.0)
-                    .text(process.unavailable.as_deref().unwrap_or(
-                        "CPU requires two samples. Working set includes shared resident pages.",
-                    ))
-                    .text_wrapping(TextWrapping::Wrap)
-                    .into(),
-            ]);
-        }
-        ScrollViewer::new()
-            .content(
-                Grid::new()
-                    .columns([GridLength::STAR, GridLength::STAR])
-                    .rows([GridLength::Auto; 5])
-                    .children(children),
-            )
-            .into()
     }
 }
 
