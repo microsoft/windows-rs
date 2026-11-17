@@ -306,6 +306,7 @@ pub enum EventId {
     CommandInvoked,
     DateChanged,
     DisplayModeChanged,
+    DoubleTapped,
     DragEnter,
     DragItemsCompleted,
     DragLeave,
@@ -617,6 +618,10 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
             },
             EventContract {
                 id: EventId::PointerCanceled,
+                value: ValueType::Unit,
+            },
+            EventContract {
+                id: EventId::DoubleTapped,
                 value: ValueType::Unit,
             },
             EventContract {

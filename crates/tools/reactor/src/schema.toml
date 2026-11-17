@@ -394,6 +394,9 @@ name = "PointerCaptureLost"
 name = "PointerCanceled"
 
 [[objects.events]]
+name = "DoubleTapped"
+
+[[objects.events]]
 name = "PreviewKeyDown"
 adapter = "key"
 routed = true

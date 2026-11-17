@@ -2507,6 +2507,13 @@ impl Border {
         );
         self
     }
+    pub fn on_double_tapped(mut self, callback: impl IntoUnitCallback) -> Self {
+        self.0 = self.0.event(
+            EventId::DoubleTapped,
+            EventValue::Unit(callback.into_unit_callback()),
+        );
+        self
+    }
     pub fn on_preview_key_down(mut self, callback: RoutedCallback<KeyEventInfo>) -> Self {
         self.0 = self
             .0
