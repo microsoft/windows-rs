@@ -82,6 +82,7 @@ impl Component for Pointer {
                     .width(44.0)
                     .background(Color::rgb(90, 90, 100))
                     .capture_pointer_on_press(true)
+                    .pointer_cursor(InputSystemCursorShape::SizeWestEast)
                     .on_pointer_pressed(context.callback(Message::ResizeStart))
                     .on_pointer_moved(context.callback(Message::ResizeMove))
                     .on_pointer_released(context.callback(|_| Message::ResizeEnd))

@@ -711,6 +711,7 @@ impl Monitor {
                     .horizontal_alignment(HorizontalAlignment::Right)
                     .background(Color::transparent())
                     .capture_pointer_on_press(true)
+                    .pointer_cursor(InputSystemCursorShape::SizeWestEast)
                     .on_pointer_pressed(
                         context.callback(move |info| Message::ResizeStart(column, info)),
                     )
