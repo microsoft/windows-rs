@@ -168,6 +168,34 @@ macro_rules! define_winrt_interface {
             $crate::imp::CanInto<$crate::IUnknown> for $name<$($generic),+> {}
         impl<$($generic: $crate::RuntimeType + 'static),+>
             $crate::imp::CanInto<$crate::IInspectable> for $name<$($generic),+> {}
+        impl<$($generic: $crate::RuntimeType + 'static),+>
+            ::core::convert::From<$name<$($generic),+>> for $crate::IUnknown
+        {
+            fn from(value: $name<$($generic),+>) -> Self {
+                value.0
+            }
+        }
+        impl<'a, $($generic: $crate::RuntimeType + 'static),+>
+            ::core::convert::From<&'a $name<$($generic),+>> for &'a $crate::IUnknown
+        {
+            fn from(value: &'a $name<$($generic),+>) -> Self {
+                &value.0
+            }
+        }
+        impl<$($generic: $crate::RuntimeType + 'static),+>
+            ::core::convert::From<$name<$($generic),+>> for $crate::IInspectable
+        {
+            fn from(value: $name<$($generic),+>) -> Self {
+                $crate::IInspectable(value.0)
+            }
+        }
+        impl<'a, $($generic: $crate::RuntimeType + 'static),+>
+            ::core::convert::From<&'a $name<$($generic),+>> for &'a $crate::IInspectable
+        {
+            fn from(value: &'a $name<$($generic),+>) -> Self {
+                unsafe { ::core::mem::transmute::<&$crate::IUnknown, &$crate::IInspectable>(&value.0) }
+            }
+        }
         unsafe impl<$($generic: $crate::RuntimeType + 'static),+>
             $crate::Interface for $name<$($generic),+>
         {
