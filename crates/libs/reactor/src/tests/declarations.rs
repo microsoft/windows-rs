@@ -219,6 +219,22 @@ fn scroll_anchor_ratios_enforce_native_boundaries() {
 }
 
 #[test]
+fn unchanged_nan_properties_are_not_changes() {
+    let declare = || {
+        View::from(
+            ScrollView::new()
+                .horizontal_anchor_ratio(f64::NAN)
+                .vertical_anchor_ratio(f64::NAN),
+        )
+        .0
+        .object()
+        .properties
+        .clone()
+    };
+    assert_eq!(declare().as_slice(), declare().as_slice());
+}
+
+#[test]
 fn grid_placement_builders_enforce_native_boundaries() {
     assert!(std::panic::catch_unwind(|| Button::new().grid_row(-1)).is_err());
     assert!(std::panic::catch_unwind(|| Button::new().grid_column(-1)).is_err());
