@@ -221,6 +221,11 @@ pub windows_reactor::ScrollBarVisibility::Auto
 pub windows_reactor::ScrollBarVisibility::Disabled
 pub windows_reactor::ScrollBarVisibility::Hidden
 pub windows_reactor::ScrollBarVisibility::Visible
+#[non_exhaustive] pub enum windows_reactor::ScrollingContentOrientation
+pub windows_reactor::ScrollingContentOrientation::Both
+pub windows_reactor::ScrollingContentOrientation::Horizontal
+pub windows_reactor::ScrollingContentOrientation::None
+pub windows_reactor::ScrollingContentOrientation::Vertical
 #[non_exhaustive] pub enum windows_reactor::ScrollingScrollBarVisibility
 pub windows_reactor::ScrollingScrollBarVisibility::Auto
 pub windows_reactor::ScrollingScrollBarVisibility::Hidden
@@ -3241,6 +3246,7 @@ pub fn windows_reactor::ScrollView::automation_name(self, impl core::convert::As
 pub fn windows_reactor::ScrollView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ScrollView::canvas_top(self, f64) -> Self
 pub fn windows_reactor::ScrollView::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::ScrollView::content_orientation(self, windows_reactor::ScrollingContentOrientation) -> Self
 pub fn windows_reactor::ScrollView::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::ScrollView>
 pub fn windows_reactor::ScrollView::grid_column(self, i32) -> Self
 pub fn windows_reactor::ScrollView::grid_column_span(self, i32) -> Self
@@ -3248,6 +3254,7 @@ pub fn windows_reactor::ScrollView::grid_row(self, i32) -> Self
 pub fn windows_reactor::ScrollView::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ScrollView::height(self, f64) -> Self
 pub fn windows_reactor::ScrollView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::ScrollView::horizontal_anchor_ratio(self, f64) -> Self
 pub fn windows_reactor::ScrollView::horizontal_scroll_bar_visibility(self, windows_reactor::ScrollingScrollBarVisibility) -> Self
 pub fn windows_reactor::ScrollView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ScrollView::max_height(self, f64) -> Self
@@ -3265,6 +3272,7 @@ pub fn windows_reactor::ScrollView::relative_align_vertical_center(self) -> Self
 pub fn windows_reactor::ScrollView::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ScrollView::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ScrollView::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
+pub fn windows_reactor::ScrollView::vertical_anchor_ratio(self, f64) -> Self
 pub fn windows_reactor::ScrollView::vertical_scroll_bar_visibility(self, windows_reactor::ScrollingScrollBarVisibility) -> Self
 pub fn windows_reactor::ScrollView::width(self, f64) -> Self
 impl core::convert::From<windows_reactor::ScrollView> for windows_reactor::View

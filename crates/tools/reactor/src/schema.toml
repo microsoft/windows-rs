@@ -1142,6 +1142,17 @@ name = "ScrollView"
 reference = true
 
 [[objects.properties]]
+name = "ContentOrientation"
+
+[[objects.properties]]
+name = "HorizontalAnchorRatio"
+validation = "anchor_ratio"
+
+[[objects.properties]]
+name = "VerticalAnchorRatio"
+validation = "anchor_ratio"
+
+[[objects.properties]]
 name = "HorizontalScrollBarVisibility"
 
 [[objects.properties]]

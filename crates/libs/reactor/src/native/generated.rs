@@ -3251,6 +3251,18 @@ impl GeneratedHandle {
             (ObjectType::PersonPicture, PropertyId::Initials) => {
                 (native::PersonPicture::InitialsProperty, Conversion::Value)
             }
+            (ObjectType::ScrollView, PropertyId::ContentOrientation) => (
+                native::ScrollView::ContentOrientationProperty,
+                Conversion::Value,
+            ),
+            (ObjectType::ScrollView, PropertyId::HorizontalAnchorRatio) => (
+                native::ScrollView::HorizontalAnchorRatioProperty,
+                Conversion::Value,
+            ),
+            (ObjectType::ScrollView, PropertyId::VerticalAnchorRatio) => (
+                native::ScrollView::VerticalAnchorRatioProperty,
+                Conversion::Value,
+            ),
             (ObjectType::ScrollView, PropertyId::HorizontalScrollBarVisibility) => (
                 native::ScrollView::HorizontalScrollBarVisibilityProperty,
                 Conversion::Value,
@@ -3684,6 +3696,14 @@ impl GeneratedHandle {
                 "Auto" => native::ScrollBarVisibility::Auto,
                 "Hidden" => native::ScrollBarVisibility::Hidden,
                 "Visible" => native::ScrollBarVisibility::Visible,
+                _ => unreachable!("validated enum variant"),
+            })
+            .into(),
+            "ScrollingContentOrientation" => windows_reference::IReference::from(match variant {
+                "Vertical" => native::ScrollingContentOrientation::Vertical,
+                "Horizontal" => native::ScrollingContentOrientation::Horizontal,
+                "None" => native::ScrollingContentOrientation::None,
+                "Both" => native::ScrollingContentOrientation::Both,
                 _ => unreachable!("validated enum variant"),
             })
             .into(),

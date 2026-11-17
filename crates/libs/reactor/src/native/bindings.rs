@@ -15455,6 +15455,33 @@ pub struct IScrollViewStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     )
         -> windows_core::HRESULT,
+    pub ContentOrientationProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    HorizontalScrollChainModeProperty: usize,
+    VerticalScrollChainModeProperty: usize,
+    HorizontalScrollRailModeProperty: usize,
+    VerticalScrollRailModeProperty: usize,
+    HorizontalScrollModeProperty: usize,
+    VerticalScrollModeProperty: usize,
+    ComputedHorizontalScrollBarVisibilityProperty: usize,
+    ComputedVerticalScrollBarVisibilityProperty: usize,
+    ComputedHorizontalScrollModeProperty: usize,
+    ComputedVerticalScrollModeProperty: usize,
+    ZoomChainModeProperty: usize,
+    ZoomModeProperty: usize,
+    IgnoredInputKindsProperty: usize,
+    MinZoomFactorProperty: usize,
+    MaxZoomFactorProperty: usize,
+    pub HorizontalAnchorRatioProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub VerticalAnchorRatioProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
     IScrollViewer,
@@ -26075,6 +26102,36 @@ impl ScrollView {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub(crate) fn ContentOrientationProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IScrollViewStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContentOrientationProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn HorizontalAnchorRatioProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IScrollViewStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HorizontalAnchorRatioProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn VerticalAnchorRatioProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IScrollViewStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).VerticalAnchorRatioProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
     fn IScrollViewFactory<R, F: FnOnce(&IScrollViewFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -26208,6 +26265,26 @@ impl windows_core::RuntimeType for ScrollingAnimationMode {
     );
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"Microsoft.UI.Xaml.Controls.ScrollingAnimationMode",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ScrollingContentOrientation(pub i32);
+impl ScrollingContentOrientation {
+    pub const Vertical: Self = Self(0);
+    pub const Horizontal: Self = Self(1);
+    pub const None: Self = Self(2);
+    pub const Both: Self = Self(3);
+}
+impl windows_core::imp::TypeKind for ScrollingContentOrientation {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for ScrollingContentOrientation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Controls.ScrollingContentOrientation;i4)",
+    );
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Microsoft.UI.Xaml.Controls.ScrollingContentOrientation",
     );
 }
 #[repr(transparent)]

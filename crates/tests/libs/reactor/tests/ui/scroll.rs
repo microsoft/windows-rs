@@ -1,6 +1,74 @@
 use super::*;
 
 #[test]
+fn scroll_view_content_orientation_controls_measurement_and_resets() -> Result<()> {
+    process::run("scroll-orientation", |ui| {
+        ui.name("metrics", "Offset 0,0; viewport 300,200; extent 200,200")?;
+        ui.invoke("vertical")?;
+        ui.name("metrics", "Offset 0,100; viewport 300,200; extent 300,300")?;
+        ui.invoke("horizontal")?;
+        ui.name("metrics", "Offset 0,0; viewport 300,200; extent 200,200")?;
+        ui.invoke("vertical")?;
+        ui.name("metrics", "Offset 0,100; viewport 300,200; extent 300,300")?;
+        ui.invoke("neither")?;
+        ui.name("metrics", "Offset 0,0; viewport 300,200; extent 200,200")?;
+        ui.invoke("default-orientation")?;
+        ui.name("metrics", "Offset 0,100; viewport 300,200; extent 300,300")?;
+        Ok(())
+    })
+}
+
+#[test]
+fn scroll_view_far_edge_anchoring_follows_content_only_at_the_edge() -> Result<()> {
+    process::run("scroll-layout", |ui| {
+        ui.name("metrics", "Offset 0,0; viewport 200,200; extent 400,400")?;
+        ui.invoke("end")?;
+        ui.name("completed", "Completed 1: 200,200")?;
+        ui.invoke("grow")?;
+        ui.name(
+            "metrics",
+            "Offset 280,280; viewport 200,200; extent 480,480",
+        )?;
+        ui.invoke("shrink")?;
+        ui.name(
+            "metrics",
+            "Offset 200,200; viewport 200,200; extent 400,400",
+        )?;
+
+        ui.invoke("middle")?;
+        ui.name("completed", "Completed 2: 100,100")?;
+        ui.invoke("grow")?;
+        ui.name(
+            "metrics",
+            "Offset 100,100; viewport 200,200; extent 480,480",
+        )?;
+
+        ui.invoke("end")?;
+        ui.name("completed", "Completed 3: 280,280")?;
+        ui.invoke("disabled")?;
+        ui.name("anchor", "Some(NaN)")?;
+        ui.invoke("grow")?;
+        ui.name(
+            "metrics",
+            "Offset 280,280; viewport 200,200; extent 560,560",
+        )?;
+
+        ui.invoke("far")?;
+        ui.name("anchor", "Some(1.0)")?;
+        ui.invoke("end")?;
+        ui.name("completed", "Completed 4: 360,360")?;
+        ui.invoke("default-anchor")?;
+        ui.name("anchor", "None")?;
+        ui.invoke("grow")?;
+        ui.name(
+            "metrics",
+            "Offset 360,360; viewport 200,200; extent 640,640",
+        )?;
+        Ok(())
+    })
+}
+
+#[test]
 fn scroll_view_observes_viewport_and_extent_changes() -> Result<()> {
     process::run("scroll", |ui| {
         ui.name("metrics", "Offset 0; viewport 200; extent 2000")?;

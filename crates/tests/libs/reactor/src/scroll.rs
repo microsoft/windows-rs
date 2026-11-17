@@ -46,6 +46,188 @@ fn scroll(
     assert!(view.request_scroll_to(0.0, offset, animate, move |result| completed.call(result)));
 }
 
+pub(super) struct ScrollLayoutFixture {
+    view: ElementRef<ScrollView>,
+    _observation: ElementObservation,
+    metrics: ScrollViewMetrics,
+    orientation: Option<ScrollingContentOrientation>,
+    anchor: Option<f64>,
+    cells: usize,
+    completions: usize,
+    completed: String,
+}
+
+#[derive(Clone)]
+pub(super) enum LayoutMessage {
+    View(ScrollViewMetrics),
+    Orientation(Option<ScrollingContentOrientation>),
+    Anchor(Option<f64>),
+    Grow,
+    Shrink,
+    Scroll(f64),
+    Completed(Result<ScrollViewMetrics, IntegrationError>),
+}
+
+impl Component for ScrollLayoutFixture {
+    type Input = bool;
+    type Message = LayoutMessage;
+
+    fn create(_: &bool, context: &ComponentContext<Self>) -> Self {
+        let view = ElementRef::new();
+        let observed = context.callback(LayoutMessage::View);
+        let observation = view.observe_view(move |metrics| observed.call(metrics));
+        Self {
+            view,
+            _observation: observation,
+            metrics: ScrollViewMetrics::default(),
+            orientation: Some(ScrollingContentOrientation::Both),
+            anchor: Some(1.0),
+            cells: 10,
+            completions: 0,
+            completed: String::new(),
+        }
+    }
+
+    fn update(&mut self, message: LayoutMessage, context: &ComponentContext<Self>) {
+        match message {
+            LayoutMessage::View(metrics) => self.metrics = metrics,
+            LayoutMessage::Orientation(value) => self.orientation = value,
+            LayoutMessage::Anchor(value) => self.anchor = value,
+            LayoutMessage::Grow => self.cells += 2,
+            LayoutMessage::Shrink => self.cells -= 2,
+            LayoutMessage::Scroll(offset) => {
+                let completed = context.callback(LayoutMessage::Completed);
+                assert!(
+                    self.view
+                        .request_scroll_to(offset, offset, false, move |result| {
+                            completed.call(result);
+                        })
+                );
+            }
+            LayoutMessage::Completed(result) => {
+                let metrics = result.unwrap();
+                self.completions += 1;
+                self.completed = format!(
+                    "Completed {}: {:.0},{:.0}",
+                    self.completions, metrics.horizontal_offset, metrics.vertical_offset
+                );
+            }
+        }
+    }
+
+    fn view(&self, image: &bool, context: &mut ViewContext<Self>) -> View {
+        let rows: Vec<View> = (0..self.cells)
+            .map(|_| {
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .children(
+                        (0..self.cells)
+                            .map(|_| Border::new().width(40.0).height(40.0).into())
+                            .collect::<Vec<View>>(),
+                    )
+                    .into()
+            })
+            .collect();
+        let content: View = if *image {
+            Image::new()
+                .source_data(EncodedImage::from_static(image::PNG))
+                .stretch(Stretch::Uniform)
+                .into()
+        } else {
+            StackPanel::new().children(rows).into()
+        };
+        let mut view = ScrollView::new()
+            .width(if *image { 300.0 } else { 200.0 })
+            .height(200.0)
+            .element_ref(&self.view)
+            .content(content);
+        if let Some(orientation) = self.orientation {
+            view = view.content_orientation(orientation);
+        }
+        if let Some(anchor) = self.anchor {
+            view = view
+                .horizontal_anchor_ratio(anchor)
+                .vertical_anchor_ratio(anchor);
+        }
+        let orientation_buttons: [View; 5] = [
+            ("both", Some(ScrollingContentOrientation::Both)),
+            ("horizontal", Some(ScrollingContentOrientation::Horizontal)),
+            ("vertical", Some(ScrollingContentOrientation::Vertical)),
+            ("neither", Some(ScrollingContentOrientation::None)),
+            ("default-orientation", None),
+        ]
+        .map(|(id, value)| {
+            Button::new()
+                .automation_id(id)
+                .content(id)
+                .on_click(context.message(LayoutMessage::Orientation(value)))
+                .into()
+        });
+        let anchor_buttons: [View; 3] = [
+            ("far", Some(1.0)),
+            ("disabled", Some(f64::NAN)),
+            ("default-anchor", None),
+        ]
+        .map(|(id, value)| {
+            Button::new()
+                .automation_id(id)
+                .content(id)
+                .on_click(context.message(LayoutMessage::Anchor(value)))
+                .into()
+        });
+        let actions: [View; 4] = [
+            ("end", LayoutMessage::Scroll(1e6)),
+            ("middle", LayoutMessage::Scroll(100.0)),
+            ("grow", LayoutMessage::Grow),
+            ("shrink", LayoutMessage::Shrink),
+        ]
+        .map(|(id, message)| {
+            Button::new()
+                .automation_id(id)
+                .content(id)
+                .on_click(context.message(message))
+                .into()
+        });
+        let metrics = self.metrics;
+        context.window_title(if *image {
+            "Reactor UI fixture: scroll-orientation"
+        } else {
+            "Reactor UI fixture: scroll-layout"
+        });
+        context.window_visuals(WindowVisuals::new().client_size(700.0, 500.0));
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .children(Vec::from(orientation_buttons)),
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .children(Vec::from(anchor_buttons)),
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .children(Vec::from(actions)),
+                TextBlock::new()
+                    .automation_id("anchor")
+                    .text(format!("{:?}", self.anchor)),
+                TextBlock::new().automation_id("metrics").text(format!(
+                    "Offset {:.0},{:.0}; viewport {:.0},{:.0}; extent {:.0},{:.0}",
+                    metrics.horizontal_offset,
+                    metrics.vertical_offset,
+                    metrics.viewport_width,
+                    metrics.viewport_height,
+                    metrics.extent_width,
+                    metrics.extent_height,
+                )),
+                TextBlock::new()
+                    .automation_id("completed")
+                    .text(&self.completed),
+                view,
+            ))
+            .into()
+    }
+}
+
 impl Component for ScrollFixture {
     type Input = ();
     type Message = Message;

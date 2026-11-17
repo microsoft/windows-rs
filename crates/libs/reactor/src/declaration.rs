@@ -1092,7 +1092,7 @@ impl From<usize> for Key {
     }
 }
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub enum PropertyValue {
     String(Rc<str>),
     Bool(bool),
@@ -1124,6 +1124,52 @@ pub enum PropertyValue {
         kind: &'static str,
         variant: &'static str,
     },
+}
+
+// Floats compare by bits so that an unchanged NaN, such as a disabled anchor ratio, is not
+// reported as a change and written to the native object on every update.
+impl PartialEq for PropertyValue {
+    fn eq(&self, other: &Self) -> bool {
+        let same = |a: &f64, b: &f64| a.to_bits() == b.to_bits();
+        match self {
+            Self::String(a) => matches!(other, Self::String(b) if a == b),
+            Self::Bool(a) => matches!(other, Self::Bool(b) if a == b),
+            Self::Brush(a) => matches!(other, Self::Brush(b) if a == b),
+            Self::ButtonStyle(a) => matches!(other, Self::ButtonStyle(b) if a == b),
+            Self::Color(a) => matches!(other, Self::Color(b) if a == b),
+            Self::CornerRadius(a) => matches!(other, Self::CornerRadius(b) if a == b),
+            Self::DateTime(a) => matches!(other, Self::DateTime(b) if a == b),
+            Self::Duration(a) => matches!(other, Self::Duration(b) if a == b),
+            Self::DragDropPolicy(a) => matches!(other, Self::DragDropPolicy(b) if a == b),
+            Self::F64(a) => matches!(other, Self::F64(b) if same(a, b)),
+            Self::FontWeight(a) => matches!(other, Self::FontWeight(b) if a == b),
+            Self::GridLengths(a) => matches!(other, Self::GridLengths(b) if a == b),
+            Self::I32(a) => matches!(other, Self::I32(b) if a == b),
+            Self::Icon(a) => matches!(other, Self::Icon(b) if a == b),
+            Self::ImageSource(a) => matches!(other, Self::ImageSource(b) if a == b),
+            Self::KeyAccelerators(a) => matches!(other, Self::KeyAccelerators(b) if a == b),
+            Self::OptionalF64(a) => matches!(
+                other,
+                Self::OptionalF64(b) if a.map(f64::to_bits) == b.map(f64::to_bits)
+            ),
+            Self::OptionalBool(a) => matches!(other, Self::OptionalBool(b) if a == b),
+            Self::OptionalDateTime(a) => matches!(other, Self::OptionalDateTime(b) if a == b),
+            Self::ResourceOverrides(a) => matches!(other, Self::ResourceOverrides(b) if a == b),
+            Self::RichText(a) => matches!(other, Self::RichText(b) if a == b),
+            Self::SelectionIndex(a) => matches!(other, Self::SelectionIndex(b) if a == b),
+            Self::StringList(a) => matches!(other, Self::StringList(b) if a == b),
+            Self::ThemeTransitions(a) => matches!(other, Self::ThemeTransitions(b) if a == b),
+            Self::Thickness(a) => matches!(other, Self::Thickness(b) if a == b),
+            Self::Vector2([ax, ay]) => {
+                matches!(other, Self::Vector2([bx, by]) if same(ax, bx) && same(ay, by))
+            }
+            Self::Enum { kind, variant } => matches!(
+                other,
+                Self::Enum { kind: other_kind, variant: other_variant }
+                    if kind == other_kind && variant == other_variant
+            ),
+        }
+    }
 }
 
 #[derive(Clone, Debug, PartialEq)]

@@ -150,6 +150,7 @@ enum Validation {
     NonNegative,
     Positive,
     ZeroToFiftyNine,
+    AnchorRatio,
 }
 
 impl std::fmt::Display for Validation {
@@ -161,6 +162,7 @@ impl std::fmt::Display for Validation {
             Self::NonNegative => "non_negative",
             Self::Positive => "positive",
             Self::ZeroToFiftyNine => "zero_to_fifty_nine",
+            Self::AnchorRatio => "NaN or between 0 and 1",
         };
         formatter.write_str(value)
     }
@@ -1996,6 +1998,7 @@ fn validation_expression(name: &str, value: &Value, validation: Validation) -> S
         Validation::NonNegative => format!("{name} >= 0"),
         Validation::Positive => format!("{name} > 0"),
         Validation::ZeroToFiftyNine => format!("(0..=59).contains(&{name})"),
+        Validation::AnchorRatio => format!("{name}.is_nan() || (0.0..=1.0).contains(&{name})"),
     }
 }
 

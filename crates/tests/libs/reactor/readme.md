@@ -36,6 +36,15 @@ $env:RUSTFLAGS = "--cfg windows_cast_diagnostics"
 cargo test -p test-reactor
 ```
 
+## Scroll layout
+
+`scroll-layout` checks far-edge anchoring on both axes during content growth and shrinkage,
+scrolling away from the edge, disabling anchoring with `NaN`, and clearing the declared ratios.
+It does not register anchor candidates or test row preservation inside the content or during
+animated scrolling. `scroll-orientation` uses a stretched square image to observe measurement
+constraints and the restored native default; content orientation does not cap explicitly sized
+children.
+
 ## Submitted-frame input
 
 `canvas-submitted-input` stages a two-row layout separately from drawing it. Its `submitted`
