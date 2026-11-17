@@ -78,6 +78,8 @@ fn main() {
             "MOUSEEVENTF_LEFTDOWN",
             "MOUSEEVENTF_LEFTUP",
             "GetSystemMetrics",
+            "SystemParametersInfoW",
+            "SPI_GETCLIENTAREAANIMATION",
             "SM_XVIRTUALSCREEN",
             "SM_YVIRTUALSCREEN",
             "SM_CXVIRTUALSCREEN",

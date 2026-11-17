@@ -1,0 +1,17 @@
+name: Enable desktop animations
+description: Configure the CI desktop for native animated-scroll coverage
+runs:
+  using: composite
+  steps:
+    - shell: pwsh
+      run: |
+        Add-Type -Namespace ReactorTests -Name Desktop -MemberDefinition @'
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        [return: System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.Bool)]
+        public static extern bool SystemParametersInfoW(uint action, uint param, System.IntPtr value, uint flags);
+        '@
+        # SPI_SETCLIENTAREAANIMATION, SPIF_SENDCHANGE. Only changes the CI runner's session.
+        if (-not [ReactorTests.Desktop]::SystemParametersInfoW(0x1043, 0, [IntPtr]1, 2)) {
+          throw [System.ComponentModel.Win32Exception]::new(
+            [System.Runtime.InteropServices.Marshal]::GetLastWin32Error())
+        }

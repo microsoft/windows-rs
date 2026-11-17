@@ -4590,6 +4590,8 @@ impl From<PersonPicture> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct ScrollView(Declaration);
+impl Sealed for ScrollView {}
+impl ReferenceElement for ScrollView {}
 impl ScrollView {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::ScrollView);
@@ -4615,6 +4617,7 @@ impl ScrollView {
         );
         self
     }
+    reference_methods!(ScrollView);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///

@@ -265,6 +265,37 @@ enum ObservationSubscription {
         _loaded: windows_core::EventRevoker,
         _size: windows_core::EventRevoker,
     },
+    ScrollView {
+        _view: windows_core::EventRevoker,
+        _extent: windows_core::EventRevoker,
+        _size: windows_core::EventRevoker,
+    },
+}
+
+/// Scrolls requested on one `ScrollView`, keyed by the correlation id its `ScrollCompleted`
+/// event reports.
+struct ScrollRequests {
+    _completed: windows_core::EventRevoker,
+    completions: HashMap<i32, Callback<Result<ScrollViewMetrics, IntegrationError>>>,
+}
+
+impl ScrollRequests {
+    fn cancel(self) {
+        for completion in self.completions.into_values() {
+            completion.call(Err(IntegrationError::Unavailable));
+        }
+    }
+}
+
+fn scroll_view_metrics(view: &native::ScrollView) -> windows_core::Result<ScrollViewMetrics> {
+    Ok(ScrollViewMetrics {
+        horizontal_offset: view.HorizontalOffset()?,
+        vertical_offset: view.VerticalOffset()?,
+        viewport_width: view.ViewportWidth()?,
+        viewport_height: view.ViewportHeight()?,
+        extent_width: view.ExtentWidth()?,
+        extent_height: view.ExtentHeight()?,
+    })
 }
 
 struct WebViewInitialization {
@@ -534,6 +565,7 @@ pub struct WinUiAdapter {
     virtual_items: HashMap<ObjectId, NativeVirtualItems>,
     observations: HashMap<(ObjectId, u64), ObservationSubscription>,
     webview_initializations: Rc<RefCell<HashMap<ObjectId, WebViewInitialization>>>,
+    scroll_requests: Rc<RefCell<HashMap<ObjectId, ScrollRequests>>>,
     windows: Rc<RefCell<Vec<Weak<NativeWindowState>>>>,
     window_title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
     tooltips: HashMap<ObjectId, (ObjectId, TooltipPlacement)>,
@@ -571,6 +603,7 @@ impl Default for WinUiAdapter {
             virtual_items: HashMap::new(),
             observations: HashMap::new(),
             webview_initializations: Rc::new(RefCell::new(HashMap::new())),
+            scroll_requests: Rc::new(RefCell::new(HashMap::new())),
             windows: Rc::new(RefCell::new(Vec::new())),
             window_title_bar: None,
             tooltips: HashMap::new(),
@@ -623,6 +656,10 @@ impl Drop for WinUiAdapter {
             for completion in initialization.completions {
                 completion.call(Err(IntegrationError::Unavailable));
             }
+        }
+        let scrolls = std::mem::take(&mut *self.scroll_requests.borrow_mut());
+        for requests in scrolls.into_values() {
+            requests.cancel();
         }
     }
 }

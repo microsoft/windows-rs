@@ -16,6 +16,10 @@ Use Cargo name filters to select cases and `-- --nocapture` to see driver steps.
 
 Live UI tests run on x64 and require an interactive desktop. Start them from a foreground terminal,
 keep other windows from covering the fixtures, and leave the mouse and keyboard idle.
+Active-scroll removal coverage requires Windows animation effects to be enabled. It removes the
+view after observing an intermediate offset, checks one `Unavailable` completion per request, and
+compares delegate counts across repeated removals when COM diagnostics are enabled.
+CI enables animation effects on its disposable runners; the tests do not change desktop settings.
 Cases are serialized and run in separate fixture processes with bounded timeouts. Failures report
 the child process's stdout/stderr log directory; successful cases remove their logs.
 

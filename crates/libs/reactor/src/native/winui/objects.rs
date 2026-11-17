@@ -363,6 +363,10 @@ impl WinUiAdapter {
                 completion.call(Err(IntegrationError::Unavailable));
             }
         }
+        let scrolls = self.scroll_requests.borrow_mut().remove(&object);
+        if let Some(requests) = scrolls {
+            requests.cancel();
+        }
         self.event_queue.items.borrow_mut().remove(&object);
         match handle {
             Handle::TreeNode(node) => {

@@ -1139,6 +1139,7 @@ name = "Initials"
 
 [[objects]]
 name = "ScrollView"
+reference = true
 
 [[objects.properties]]
 name = "HorizontalScrollBarVisibility"
