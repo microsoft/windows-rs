@@ -11,6 +11,12 @@ pub(super) struct ScrollFixture {
     metrics: ScrollViewMetrics,
     attached: bool,
     completions: Vec<String>,
+    remove_active: bool,
+    active_started: bool,
+    resized: bool,
+    grown: bool,
+    #[cfg(windows_cast_diagnostics)]
+    detached_delegates: Option<usize>,
 }
 
 #[derive(Clone)]
@@ -22,6 +28,10 @@ pub(super) enum Message {
     Remove,
     ShowEmpty,
     Empty,
+    RemoveActive,
+    Attach,
+    Resize,
+    Grow,
     Completed(&'static str, Result<ScrollViewMetrics, IntegrationError>),
 }
 
@@ -52,12 +62,28 @@ impl Component for ScrollFixture {
             metrics: ScrollViewMetrics::default(),
             attached: true,
             completions: Vec::new(),
+            remove_active: false,
+            active_started: false,
+            resized: false,
+            grown: false,
+            #[cfg(windows_cast_diagnostics)]
+            detached_delegates: None,
         }
     }
 
     fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
         match message {
-            Message::View(metrics) => self.metrics = metrics,
+            Message::View(metrics) => {
+                self.metrics = metrics;
+                if self.remove_active
+                    && metrics.vertical_offset > 0.0
+                    && metrics.vertical_offset < metrics.extent_height - metrics.viewport_height
+                {
+                    self.active_started = true;
+                    self.remove_active = false;
+                    self.attached = false;
+                }
+            }
             Message::Jump => scroll(&self.view, "jump", 500.0, false, context),
             Message::End => scroll(&self.view, "end", 1e6, false, context),
             Message::Interrupt => {
@@ -73,15 +99,42 @@ impl Component for ScrollFixture {
                 scroll(&self.empty, "empty 1", 100.0, false, context);
                 scroll(&self.empty, "empty 2", 100.0, false, context);
             }
-            Message::Completed(name, result) => self.completions.push(match result {
-                Ok(metrics) => format!("{name} {:.0}", metrics.vertical_offset),
-                Err(error) => format!("{name} {error:?}"),
-            }),
+            Message::RemoveActive => {
+                self.remove_active = true;
+                let count = std::cell::Cell::new(0);
+                let completed = context.callback(|result| Message::Completed("active", result));
+                assert!(
+                    self.view
+                        .request_scroll_to(0.0, 1800.0, true, move |result| {
+                            assert_eq!(count.replace(count.get() + 1), 0);
+                            completed.call(result);
+                        })
+                );
+            }
+            Message::Attach => {
+                self.active_started = false;
+                self.attached = true;
+            }
+            Message::Resize => self.resized = true,
+            Message::Grow => self.grown = true,
+            Message::Completed(name, result) => {
+                #[cfg(windows_cast_diagnostics)]
+                if name == "active" {
+                    let delegates = windows_core::imp::live_objects().delegates;
+                    if let Some(previous) = self.detached_delegates.replace(delegates) {
+                        assert_eq!(delegates, previous, "scroll subscriptions survived removal");
+                    }
+                }
+                self.completions.push(match result {
+                    Ok(metrics) => format!("{name} {:.0}", metrics.vertical_offset),
+                    Err(error) => format!("{name} {error:?}"),
+                });
+            }
         }
     }
 
     fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
-        let rows = (0..ROWS).map(|index| {
+        let rows = (0..if self.grown { ROWS + 10 } else { ROWS }).map(|index| {
             Border::new()
                 .height(ROW_HEIGHT)
                 .content(TextBlock::new().text(format!("Row {index}")))
@@ -89,13 +142,13 @@ impl Component for ScrollFixture {
         let view = self.attached.then(|| {
             ScrollView::new()
                 .automation_id("view")
-                .height(200.0)
+                .height(if self.resized { 240.0 } else { 200.0 })
                 .element_ref(&self.view)
                 .content(StackPanel::new().children(rows.map(View::from).collect::<Vec<_>>()))
         });
         let metrics = self.metrics;
         context.window_title("Reactor UI fixture: scroll");
-        context.window_visuals(WindowVisuals::new().client_size(500.0, 500.0));
+        context.window_visuals(WindowVisuals::new().client_size(500.0, 700.0));
         StackPanel::new()
             .margin(20.0)
             .spacing(8.0)
@@ -124,6 +177,29 @@ impl Component for ScrollFixture {
                     .automation_id("show-empty")
                     .content("Show empty")
                     .on_click(context.message(Message::ShowEmpty)),
+                Button::new()
+                    .automation_id("remove-active")
+                    .content("Remove active")
+                    .on_click(context.message(Message::RemoveActive)),
+                Button::new()
+                    .automation_id("attach")
+                    .content("Attach")
+                    .on_click(context.message(Message::Attach)),
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .children((
+                        Button::new()
+                            .automation_id("resize")
+                            .content("Resize")
+                            .on_click(context.message(Message::Resize)),
+                        Button::new()
+                            .automation_id("grow")
+                            .content("Grow")
+                            .on_click(context.message(Message::Grow)),
+                    )),
+                TextBlock::new()
+                    .automation_id("active-started")
+                    .text(self.active_started.to_string()),
                 TextBlock::new().automation_id("metrics").text(format!(
                     "Offset {:.0}; viewport {:.0}; extent {:.0}",
                     metrics.vertical_offset, metrics.viewport_height, metrics.extent_height

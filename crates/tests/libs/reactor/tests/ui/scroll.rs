@@ -1,6 +1,53 @@
 use super::*;
 
 #[test]
+fn scroll_view_observes_viewport_and_extent_changes() -> Result<()> {
+    process::run("scroll", |ui| {
+        ui.name("metrics", "Offset 0; viewport 200; extent 2000")?;
+        ui.invoke("resize")?;
+        ui.name("metrics", "Offset 0; viewport 240; extent 2000")?;
+        ui.invoke("grow")?;
+        ui.name("metrics", "Offset 0; viewport 240; extent 2400")?;
+        Ok(())
+    })
+}
+
+#[test]
+fn removing_scroll_view_cancels_active_request() -> Result<()> {
+    let mut animations = 0i32;
+    unsafe {
+        SystemParametersInfoW(
+            SPI_GETCLIENTAREAANIMATION as u32,
+            0,
+            std::ptr::from_mut(&mut animations).cast(),
+            Default::default(),
+        )
+        .ok()?;
+    }
+    assert_ne!(
+        animations, 0,
+        "active-scroll coverage requires Windows animations"
+    );
+    process::run("scroll", |ui| {
+        ui.name("metrics", "Offset 0; viewport 200; extent 2000")?;
+        ui.invoke("remove-active")?;
+        ui.name("active-started", "true")?;
+        ui.name("completions", "Completed active Unavailable")?;
+
+        ui.invoke("attach")?;
+        ui.name("active-started", "false")?;
+        ui.name("metrics", "Offset 0; viewport 200; extent 2000")?;
+        ui.invoke("remove-active")?;
+        ui.name("active-started", "true")?;
+        ui.name(
+            "completions",
+            "Completed active Unavailable, active Unavailable",
+        )?;
+        Ok(())
+    })
+}
+
+#[test]
 fn scroll_view_reports_view_changes_and_scroll_completions() -> Result<()> {
     const SCROLL_PATTERN: i32 = 10004;
     const NO_SCROLL: f64 = -1.0;
