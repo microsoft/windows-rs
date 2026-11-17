@@ -177,18 +177,31 @@ impl NativeVirtualSource_Impl {
             *self.keys.lock().unwrap() = keys;
             return self.notify(CollectionChange::Reset, 0);
         }
-        let mut current = previous.to_vec();
-        for index in (0..current.len()).rev() {
-            if !kept.contains(&current[index]) {
-                current.remove(index);
-                *self.keys.lock().unwrap() = Arc::new(current.clone());
-                self.notify(CollectionChange::ItemRemoved, index)?;
-            }
+        let removed: Vec<usize> = previous
+            .iter()
+            .enumerate()
+            .filter(|(_, key)| !kept.contains(key))
+            .map(|(index, _)| index)
+            .collect();
+        drop(previous);
+        // Handlers read the source, so it reflects each change before it is reported. The first
+        // edit copies keys shared with the caller; later edits update them in place.
+        for index in removed.into_iter().rev() {
+            Arc::make_mut(&mut self.keys.lock().unwrap()).remove(index);
+            self.notify(CollectionChange::ItemRemoved, index)?;
         }
         for (index, key) in keys.iter().enumerate() {
-            if current.get(index) != Some(key) {
-                current.insert(index, *key);
-                *self.keys.lock().unwrap() = Arc::new(current.clone());
+            let inserted = {
+                let mut current = self.keys.lock().unwrap();
+                let current = Arc::make_mut(&mut current);
+                if current.get(index) == Some(key) {
+                    false
+                } else {
+                    current.insert(index, *key);
+                    true
+                }
+            };
+            if inserted {
                 self.notify(CollectionChange::ItemInserted, index)?;
             }
         }
