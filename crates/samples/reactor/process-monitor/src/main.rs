@@ -889,7 +889,9 @@ impl Component for ProcessRow {
         let select = input.on_select.clone();
         let collapse = input.on_collapse.clone();
         let id = process.id;
-        let indent = (row.depth.min(12) * 12) as f64;
+        // Keep the expander (12 DIP offset, 36 DIP wide) inside the Name cell when it is narrow.
+        let indent = ((row.depth.min(12) * 12) as f64)
+            .min((input.widths[Column::Name as usize] - 48.0).max(0.0));
         let mut cells: Vec<View> = vec![
             TextBlock::new()
                 .text(&process.name)
