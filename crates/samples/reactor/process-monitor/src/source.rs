@@ -77,7 +77,7 @@ fn read_snapshot(reader: &mut impl BufRead) -> Result<Option<Snapshot>, String> 
 
 pub fn demo(sequence: u64) -> Snapshot {
     let processes = (0..256u32)
-        .filter(|pid| *pid < 240 || (sequence / 5 + u64::from(*pid)) % 3 != 0)
+        .filter(|pid| *pid < 240 || !(sequence / 5 + u64::from(*pid)).is_multiple_of(3))
         .map(|pid| {
             let generation = if pid >= 240 { sequence / 10 } else { 0 };
             Observation {
