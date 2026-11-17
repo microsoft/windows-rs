@@ -179,6 +179,7 @@ pub fn page(
         .automation_id("history-chart")
         .automation_name(format!("{} history chart", metric.label()))
         .automation_help_text(chart_help(history, metric, cpu_view))
+        .is_tab_stop(metric == Metric::Cpu)
         .content(Grid::new().keyed_children(chart));
     Grid::new()
         .columns([GridLength::Pixel(150.0), GridLength::STAR])
