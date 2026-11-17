@@ -176,6 +176,96 @@ impl InfoBarSeverity {
 }
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum InputSystemCursorShape {
+    Arrow,
+    Cross,
+    Hand,
+    Help,
+    IBeam,
+    SizeAll,
+    SizeNortheastSouthwest,
+    SizeNorthSouth,
+    SizeNorthwestSoutheast,
+    SizeWestEast,
+    UniversalNo,
+    UpArrow,
+    Wait,
+    Pin,
+    Person,
+    AppStarting,
+}
+impl InputSystemCursorShape {
+    pub(crate) fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Arrow => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "Arrow",
+            },
+            Self::Cross => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "Cross",
+            },
+            Self::Hand => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "Hand",
+            },
+            Self::Help => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "Help",
+            },
+            Self::IBeam => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "IBeam",
+            },
+            Self::SizeAll => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "SizeAll",
+            },
+            Self::SizeNortheastSouthwest => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "SizeNortheastSouthwest",
+            },
+            Self::SizeNorthSouth => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "SizeNorthSouth",
+            },
+            Self::SizeNorthwestSoutheast => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "SizeNorthwestSoutheast",
+            },
+            Self::SizeWestEast => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "SizeWestEast",
+            },
+            Self::UniversalNo => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "UniversalNo",
+            },
+            Self::UpArrow => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "UpArrow",
+            },
+            Self::Wait => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "Wait",
+            },
+            Self::Pin => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "Pin",
+            },
+            Self::Person => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "Person",
+            },
+            Self::AppStarting => PropertyValue::Enum {
+                kind: "InputSystemCursorShape",
+                variant: "AppStarting",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ListViewSelectionMode {
     None,
     Single,
@@ -2427,6 +2517,12 @@ impl Border {
             PropertyId::CapturePointerOnPress,
             PropertyValue::Bool(capture_pointer_on_press),
         );
+        self
+    }
+    pub fn pointer_cursor(mut self, pointer_cursor: InputSystemCursorShape) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::PointerCursor, pointer_cursor.property_value());
         self
     }
     pub fn focus_on_pointer_release(mut self, focus_on_pointer_release: bool) -> Self {

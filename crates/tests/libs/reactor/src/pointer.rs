@@ -276,3 +276,93 @@ impl Component for RoutingFixture {
 pub fn run_routing() -> windows_core::Result<()> {
     App::run_component::<RoutingFixture>(())
 }
+
+#[derive(Default)]
+struct CursorFixture {
+    inner: usize,
+    outer: bool,
+}
+
+#[derive(Clone)]
+enum CursorMessage {
+    Inner,
+    Outer,
+}
+
+impl Component for CursorFixture {
+    type Input = ();
+    type Message = CursorMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            inner: 0,
+            outer: true,
+        }
+    }
+
+    fn update(&mut self, message: CursorMessage, _: &ComponentContext<Self>) {
+        match message {
+            CursorMessage::Inner => self.inner = (self.inner + 1) % 3,
+            CursorMessage::Outer => self.outer = !self.outer,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let inner_shape = [
+            Some(InputSystemCursorShape::SizeWestEast),
+            None,
+            Some(InputSystemCursorShape::IBeam),
+        ][self.inner];
+        let mut inner = Border::new()
+            .width(160.0)
+            .height(80.0)
+            .background(Color::rgb(200, 200, 200))
+            .horizontal_alignment(HorizontalAlignment::Left)
+            .vertical_alignment(VerticalAlignment::Top)
+            .content(TextBlock::new().automation_id("cursor-inner").text("Inner"));
+        if let Some(shape) = inner_shape {
+            inner = inner.pointer_cursor(shape);
+        }
+        let mut outer = Border::new()
+            .width(320.0)
+            .height(160.0)
+            .background(Color::rgb(240, 240, 240))
+            .content(
+                Grid::new()
+                    .rows([GridLength::STAR, GridLength::Auto])
+                    .children((
+                        inner,
+                        TextBlock::new()
+                            .automation_id("cursor-outer")
+                            .grid_row(1)
+                            .text("Outer"),
+                    )),
+            );
+        if self.outer {
+            outer = outer.pointer_cursor(InputSystemCursorShape::Hand);
+        }
+        context.window_visuals(WindowVisuals::new().client_size(640.0, 400.0));
+        context.window_frame(
+            "Reactor UI fixture: pointer-cursor",
+            StackPanel::new().margin(20.0).spacing(12.0).children((
+                Button::new()
+                    .automation_id("inner-cursor")
+                    .content("Change inner cursor")
+                    .on_click(context.message(CursorMessage::Inner)),
+                Button::new()
+                    .automation_id("outer-cursor")
+                    .content("Toggle outer cursor")
+                    .on_click(context.message(CursorMessage::Outer)),
+                outer,
+                TextBlock::new().automation_id("cursor-state").text(format!(
+                    "Inner {inner_shape:?}; outer {}",
+                    if self.outer { "Hand" } else { "None" }
+                )),
+            )),
+        )
+    }
+}
+
+pub fn run_cursor() -> windows_core::Result<()> {
+    App::run_component::<CursorFixture>(())
+}

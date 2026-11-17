@@ -1516,6 +1516,35 @@ fn emit_native_property_arms(
     metadata: &tool_reactor_metadata::MetadataResolver,
 ) {
     match adapter {
+        PropertyAdapter::PointerCursor => {
+            // ProtectedCursor is protected in XAML, but WinUI elements implement
+            // IUIElementProtected and accept the cursor through it.
+            let interface = metadata
+                .resolve("UIElement", "put_ProtectedCursor")
+                .unwrap()
+                .short_name();
+            output.push_str(&format!(
+                "{pattern}None) => Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+                 .and_then(|object| object.SetProtectedCursor(None::<&native::InputCursor>).map_err(Into::into))),\n\
+                 {pattern}Some(PropertyValue::Enum {{ kind: \"InputSystemCursorShape\", variant }})) => {{\n\
+                 let shape = match *variant {{\n"
+            ));
+            let (_, variants) = metadata
+                .static_enum_info("InputSystemCursor", "Create")
+                .unwrap();
+            for variant in variants {
+                output.push_str(&format!(
+                    "\"{variant}\" => native::InputSystemCursorShape::{variant},\n"
+                ));
+            }
+            output.push_str(&format!(
+                "_ => unreachable!(\"validated enum variant\"), }};\n\
+                 Some((|| -> Result<(), WinUiError> {{\n\
+                 let cursor = native::InputSystemCursor::Create(shape)?;\n\
+                 {target}.cast::<native::{interface}>()?.SetProtectedCursor(&cursor)?;\n\
+                 Ok(()) }})()) }},\n"
+            ));
+        }
         PropertyAdapter::ImplicitTranslation => output.push_str(&format!(
             "{pattern}None) => Some({target}.cast::<native::UIElement>().map_err(Into::into)\
              .and_then(|object| object.SetTranslation(native::Vector3::default()).map_err(Into::into))),\n\

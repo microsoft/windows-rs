@@ -146,6 +146,23 @@ pub windows_reactor::InfoBarSeverity::Error
 pub windows_reactor::InfoBarSeverity::Informational
 pub windows_reactor::InfoBarSeverity::Success
 pub windows_reactor::InfoBarSeverity::Warning
+#[non_exhaustive] pub enum windows_reactor::InputSystemCursorShape
+pub windows_reactor::InputSystemCursorShape::AppStarting
+pub windows_reactor::InputSystemCursorShape::Arrow
+pub windows_reactor::InputSystemCursorShape::Cross
+pub windows_reactor::InputSystemCursorShape::Hand
+pub windows_reactor::InputSystemCursorShape::Help
+pub windows_reactor::InputSystemCursorShape::IBeam
+pub windows_reactor::InputSystemCursorShape::Person
+pub windows_reactor::InputSystemCursorShape::Pin
+pub windows_reactor::InputSystemCursorShape::SizeAll
+pub windows_reactor::InputSystemCursorShape::SizeNorthSouth
+pub windows_reactor::InputSystemCursorShape::SizeNortheastSouthwest
+pub windows_reactor::InputSystemCursorShape::SizeNorthwestSoutheast
+pub windows_reactor::InputSystemCursorShape::SizeWestEast
+pub windows_reactor::InputSystemCursorShape::UniversalNo
+pub windows_reactor::InputSystemCursorShape::UpArrow
+pub windows_reactor::InputSystemCursorShape::Wait
 pub enum windows_reactor::IntegrationError
 pub windows_reactor::IntegrationError::Native(i32)
 pub windows_reactor::IntegrationError::Unavailable
@@ -773,6 +790,7 @@ pub fn windows_reactor::Border::on_preview_key_down(self, windows_reactor::Route
 pub fn windows_reactor::Border::opacity(self, f64) -> Self
 pub fn windows_reactor::Border::opacity_transition(self, core::time::Duration) -> Self
 pub fn windows_reactor::Border::padding(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
+pub fn windows_reactor::Border::pointer_cursor(self, windows_reactor::InputSystemCursorShape) -> Self
 pub fn windows_reactor::Border::relative_align_bottom(self) -> Self
 pub fn windows_reactor::Border::relative_align_horizontal_center(self) -> Self
 pub fn windows_reactor::Border::relative_align_left(self) -> Self

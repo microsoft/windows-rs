@@ -122,9 +122,9 @@ impl MetadataResolver {
         let mut dependency_properties = HashMap::new();
 
         // Walk all types in the index, collecting method-to-interface mappings for classes
-        // in Microsoft.UI.Xaml namespaces.
+        // in Microsoft.UI.Xaml and Microsoft.UI.Input namespaces.
         for (namespace, name, typedef) in index.iter() {
-            if namespace.starts_with("Microsoft.UI.Xaml")
+            if (namespace.starts_with("Microsoft.UI.Xaml") || namespace == "Microsoft.UI.Input")
                 && typedef.category() == TypeCategory::Class
             {
                 let path = format!("{namespace}.{name}");
@@ -170,7 +170,7 @@ impl MetadataResolver {
         }
 
         for (namespace, name, typedef) in index.iter() {
-            if !namespace.starts_with("Microsoft.UI.Xaml") {
+            if !namespace.starts_with("Microsoft.UI.Xaml") && namespace != "Microsoft.UI.Input" {
                 continue;
             }
             let Some(class_name) = name

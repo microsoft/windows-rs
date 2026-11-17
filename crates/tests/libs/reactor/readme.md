@@ -59,6 +59,9 @@ Headless pointer tests separately check synchronous capture and reentrant callba
 Mode replacement must preserve queued occurrences and their original callbacks before any removal
 or teardown; those later operations cancel pending occurrences.
 
+`pointer-cursor` checks that a Border's declared cursor, its inherited ancestor cursor, and clearing
+both apply while the pointer stays still. It compares the global cursor with shared system cursors.
+
 ```powershell
 cargo test -p test-reactor --test ui -- `
     canvas_input_follows_submission_not_pending_drawing `

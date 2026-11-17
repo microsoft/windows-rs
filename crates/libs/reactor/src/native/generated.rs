@@ -4461,6 +4461,57 @@ impl GeneratedHandle {
                 object.capture_pointer_on_press.set(*value);
                 Some(Ok(()))
             }
+            (Self::Border(object), PropertyId::PointerCursor, None) => Some(
+                object
+                    .value
+                    .cast::<native::IUIElementProtected>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetProtectedCursor(None::<&native::InputCursor>)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::Border(object),
+                PropertyId::PointerCursor,
+                Some(PropertyValue::Enum {
+                    kind: "InputSystemCursorShape",
+                    variant,
+                }),
+            ) => {
+                let shape = match *variant {
+                    "Arrow" => native::InputSystemCursorShape::Arrow,
+                    "Cross" => native::InputSystemCursorShape::Cross,
+                    "Hand" => native::InputSystemCursorShape::Hand,
+                    "Help" => native::InputSystemCursorShape::Help,
+                    "IBeam" => native::InputSystemCursorShape::IBeam,
+                    "SizeAll" => native::InputSystemCursorShape::SizeAll,
+                    "SizeNortheastSouthwest" => {
+                        native::InputSystemCursorShape::SizeNortheastSouthwest
+                    }
+                    "SizeNorthSouth" => native::InputSystemCursorShape::SizeNorthSouth,
+                    "SizeNorthwestSoutheast" => {
+                        native::InputSystemCursorShape::SizeNorthwestSoutheast
+                    }
+                    "SizeWestEast" => native::InputSystemCursorShape::SizeWestEast,
+                    "UniversalNo" => native::InputSystemCursorShape::UniversalNo,
+                    "UpArrow" => native::InputSystemCursorShape::UpArrow,
+                    "Wait" => native::InputSystemCursorShape::Wait,
+                    "Pin" => native::InputSystemCursorShape::Pin,
+                    "Person" => native::InputSystemCursorShape::Person,
+                    "AppStarting" => native::InputSystemCursorShape::AppStarting,
+                    _ => unreachable!("validated enum variant"),
+                };
+                Some((|| -> Result<(), WinUiError> {
+                    let cursor = native::InputSystemCursor::Create(shape)?;
+                    object
+                        .value
+                        .cast::<native::IUIElementProtected>()?
+                        .SetProtectedCursor(&cursor)?;
+                    Ok(())
+                })())
+            }
             (Self::Border(object), PropertyId::FocusOnPointerRelease, None) => {
                 object.focus_on_pointer_release.set(false);
                 Some(Ok(()))
