@@ -443,7 +443,6 @@ impl Component for Monitor {
                 self.cpu_view,
                 self.color_scheme,
                 context.callback(Message::Metric),
-                context.callback(Message::CpuView),
             ),
         };
         let mut actions = Vec::new();
@@ -458,6 +457,12 @@ impl Component for Monitor {
                     .into(),
             );
             actions.push(self.columns_button(context));
+        }
+        if self.page == Page::Performance && self.metric == performance::Metric::Cpu {
+            actions.push(performance::graph_button(
+                self.cpu_view,
+                context.callback(Message::CpuView),
+            ));
         }
         actions.push(self.pause_button(context).into());
         let mut page = vec![
