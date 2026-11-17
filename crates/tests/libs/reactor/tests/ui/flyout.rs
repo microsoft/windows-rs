@@ -12,6 +12,14 @@ fn dropdown_flyout_content_replacement_and_owner_removal() -> Result<()> {
 
 fn content_replacement_and_owner_removal(ui: &Automation) -> Result<()> {
     let owner = ui.focus("open")?;
+    ui.invoke("open")?;
+    unsafe {
+        ui.menu_item("Use flyout")?
+            .GetCurrentPatternAs::<IUIAutomationInvokePattern>(INVOKE_PATTERN)?
+            .Invoke()
+            .ok()?;
+    }
+    ui.menu_gone("Use flyout")?;
     ui.gone("action")?;
     ui.invoke("open")?;
     ui.name("action", "Action 0")?;

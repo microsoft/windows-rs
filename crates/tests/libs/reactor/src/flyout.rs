@@ -1,6 +1,7 @@
 use super::*;
 
 pub(super) struct FlyoutFixture {
+    rich: bool,
     attached: bool,
     generation: u32,
     selected: u32,
@@ -9,6 +10,7 @@ pub(super) struct FlyoutFixture {
 
 #[derive(Clone)]
 pub(super) enum Message {
+    Rich,
     Replace,
     Remove,
     Selected(u32),
@@ -20,6 +22,7 @@ impl Component for FlyoutFixture {
 
     fn create(_: &bool, _: &ComponentContext<Self>) -> Self {
         Self {
+            rich: false,
             attached: true,
             generation: 0,
             selected: 0,
@@ -29,6 +32,7 @@ impl Component for FlyoutFixture {
 
     fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
         match message {
+            Message::Rich => self.rich = true,
             Message::Replace => self.generation += 1,
             Message::Remove => self.attached = false,
             Message::Selected(generation) => {
@@ -58,16 +62,29 @@ impl Component for FlyoutFixture {
             let flyout =
                 Flyout::rich(StackPanel::new().keyed_children([keyed(generation, content)]))
                     .placement(FlyoutPlacement::Bottom);
-            let owner: View = if *drop_down {
-                DropDownButton::new()
+            // Starts with a menu so the switch to a rich flyout reuses the owner's
+            // `Button.Flyout` property.
+            let menu = Menu::new(
+                [MenuItem::item("rich", "Use flyout")],
+                context.callback(|_: Key| Message::Rich),
+            );
+            let owner: View = match (*drop_down, self.rich) {
+                (true, true) => DropDownButton::new()
                     .automation_id("open")
                     .content("Open flyout")
-                    .flyout_with(flyout)
-            } else {
-                Button::new()
+                    .flyout_with(flyout),
+                (true, false) => DropDownButton::new()
                     .automation_id("open")
                     .content("Open flyout")
-                    .flyout_with(flyout)
+                    .menu(menu),
+                (false, true) => Button::new()
+                    .automation_id("open")
+                    .content("Open flyout")
+                    .flyout_with(flyout),
+                (false, false) => Button::new()
+                    .automation_id("open")
+                    .content("Open flyout")
+                    .menu(menu),
             };
             keyed("owner", owner)
         });
