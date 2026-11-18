@@ -875,8 +875,7 @@ impl IAsyncAction_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncAction_Impl::Completed(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1091,8 +1090,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vt
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncActionWithProgress_Impl::Progress(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1130,8 +1128,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vt
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncActionWithProgress_Impl::Completed(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1499,8 +1496,7 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult>
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncOperation_Impl::Completed(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1523,8 +1519,7 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult>
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncOperation_Impl::GetResults(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1759,8 +1754,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncOperationWithProgress_Impl::Progress(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1803,8 +1797,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncOperationWithProgress_Impl::Completed(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1828,8 +1821,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncOperationWithProgress_Impl::GetResults(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

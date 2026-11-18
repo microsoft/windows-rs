@@ -235,8 +235,7 @@ impl IGetActivationFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGetActivationFactory_Impl::GetActivationFactory(this, &*(&raw const activatableclassid).cast()) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -295,8 +294,7 @@ impl IMemoryBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMemoryBuffer_Impl::CreateReference(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -865,8 +863,7 @@ impl IPropertyValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetString(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1482,7 +1479,7 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
                 match IReferenceArray_Impl::Value(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1533,8 +1530,7 @@ impl IStringable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStringable_Impl::ToString(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1633,8 +1629,7 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWwwFormUrlDecoderEntry_Impl::Name(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1649,8 +1644,7 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWwwFormUrlDecoderEntry_Impl::Value(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

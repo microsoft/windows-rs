@@ -454,8 +454,7 @@ impl ICoreDropOperationTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreDropOperationTarget_Impl::EnterAsync(this, core::mem::transmute_copy(&draginfo), core::mem::transmute_copy(&draguioverride)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -470,8 +469,7 @@ impl ICoreDropOperationTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreDropOperationTarget_Impl::OverAsync(this, core::mem::transmute_copy(&draginfo), core::mem::transmute_copy(&draguioverride)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -486,8 +484,7 @@ impl ICoreDropOperationTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreDropOperationTarget_Impl::LeaveAsync(this, core::mem::transmute_copy(&draginfo)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -502,8 +499,7 @@ impl ICoreDropOperationTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreDropOperationTarget_Impl::DropAsync(this, core::mem::transmute_copy(&draginfo)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

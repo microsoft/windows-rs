@@ -227,7 +227,7 @@ impl<F: Fn() -> windows_core::Result<windows_core::Array<u32>> + Send + Sync + '
             match (this.invoke)() {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    result__.write(ok_data__);
+                    result__.write(ok_data__.cast());
                     result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
@@ -402,8 +402,7 @@ impl<T: windows_core::RuntimeType + 'static> GenericResult_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match GenericResult_Impl::Get(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -556,8 +555,7 @@ impl<
                 core::mem::transmute_copy(&output),
             ) {
                 Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
+                    core::ptr::write(result__.cast(), ok__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => {
@@ -637,8 +635,7 @@ impl<F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Sen
                 as *mut windows_core::imp::DelegateBox<InterfaceOutputs, F>);
             match (this.invoke)(core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
+                    core::ptr::write(result__.cast(), ok__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => {
@@ -836,8 +833,7 @@ impl OwnedResult_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match OwnedResult_Impl::Get(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -855,8 +851,7 @@ impl OwnedResult_Vtbl {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let ok__ = OwnedResult_Impl::Infallible(this);
-                result__.write(core::mem::transmute_copy(&ok__));
-                core::mem::forget(ok__);
+                core::ptr::write(result__.cast(), ok__);
                 windows_core::HRESULT(0)
             }
         }
@@ -963,8 +958,7 @@ impl<
                 core::mem::transmute_copy(&output),
             ) {
                 Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
+                    core::ptr::write(result__.cast(), ok__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => {

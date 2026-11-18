@@ -46,8 +46,7 @@ impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> window
             let this = &*(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<AttestationChallengeHandler, F>);
             match (this.invoke)(core::mem::transmute_copy(&challenge)) {
                 Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
+                    core::ptr::write(result__.cast(), ok__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => {
@@ -159,8 +158,7 @@ impl IKeyCredentialCacheConfigurationFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKeyCredentialCacheConfigurationFactory_Impl::CreateInstance(this, cacheoption, &*(&raw const timeout).cast(), usagecount) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -316,8 +314,7 @@ impl IWebAccount_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWebAccount_Impl::WebAccountProvider(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -332,8 +329,7 @@ impl IWebAccount_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWebAccount_Impl::UserName(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

@@ -63,19 +63,12 @@ impl Method {
                     }
                 }
             }
-            Type::Array(element_type) => {
-                // Pointer-ABI arrays need transmute; value arrays already match their ABI type.
-                let write_result = if element_type.has_pointer_abi() {
-                    quote! { result__.write(ok_data__.cast()); }
-                } else {
-                    quote! { result__.write(ok_data__); }
-                };
-
+            Type::Array(_) => {
                 if noexcept {
                     quote! {
                         let ok__ = #inner(#this #(#invoke_args,)*);
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        #write_result
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -84,7 +77,7 @@ impl Method {
                         match #inner(#this #(#invoke_args,)*) {
                             Ok(ok__) => {
                                 let (ok_data__, ok_data_len__) = ok__.into_abi();
-                                #write_result
+                                result__.write(ok_data__.cast());
                                 result_size__.write(ok_data_len__);
                                 windows_core::HRESULT(0)
                             }
@@ -98,14 +91,10 @@ impl Method {
                 }
             }
             _ => {
-                // Non-copyable return values need ABI transmute without double-drop.
                 let write_result = if self.signature.return_type.is_copyable(reader) {
                     quote! { result__.write(ok__); }
                 } else {
-                    quote! {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
-                    }
+                    quote! { core::ptr::write(result__.cast(), ok__); }
                 };
 
                 if noexcept {
