@@ -424,7 +424,10 @@ fn surface(
         .on_error(move |error| failed.call(error))
         .device_factory(move || {
             let device = GpuDevice::new_warp()?;
-            let native: bindings::ID3D11Device = device.d3d_device().cast()?;
+            let native: bindings::ID3D11Device = device
+                .d3d_device()
+                .as_interface::<bindings::ID3D11Device>()
+                .clone();
             let lifetime: IDeviceLifetime = DeviceLifetime {
                 counts: Arc::clone(&devices),
                 completion: completion.clone(),
