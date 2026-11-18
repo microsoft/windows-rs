@@ -209,7 +209,7 @@ impl Component for Details {
         if self.id != input.process.as_ref().map(|p| p.id) {
             self.load(input, context);
         } else if input.live {
-            // Each new snapshot refreshes the counters, so pausing the monitor also pauses them.
+            // Each new snapshot refreshes the counters, so pausing updates also pauses them.
             self.refresh(context);
         }
     }

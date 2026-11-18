@@ -1,6 +1,6 @@
-# Process monitor
+# Task Manager
 
-A Reactor sample with a Task Manager-style navigation shell, a virtualized process tree, selectable
+A Reactor version of Task Manager with a navigation shell, a virtualized process tree, selectable
 columns, filtering, sorting, stable selection, a per-process details page, and ending processes.
 It runs without elevation, debug privileges, or process-memory reads.
 Process sampling uses `NtQuerySystemInformation`, so identity and counters do not require opening
@@ -8,8 +8,8 @@ each process. Creation and CPU times depend on the native `SYSTEM_PROCESS_INFORM
 including fields reserved in the SDK declaration.
 
 ```powershell
-cargo run -p reactor-process-monitor --release
-cargo run -p reactor-process-monitor --release -- --demo
+cargo run -p reactor-task-manager --release
+cargo run -p reactor-task-manager --release -- --demo
 ```
 
 The build deploys a self-contained Windows App Runtime. An interactive Windows desktop is required.
@@ -32,7 +32,7 @@ choose **End task** above the table. Both ask for confirmation. Windows has no p
 like .NET's `Process.Kill(entireProcessTree: true)`, ending a tree is best effort: descendants are
 captured from parent PIDs and creation times when the dialog opens, then each process is ended
 before its descendants, without waiting for it to exit. A failure does not stop the rest of the
-tree. A tree that includes the monitor itself is refused. Each process is opened with
+tree. A tree that includes Task Manager itself is refused. Each process is opened with
 `PROCESS_TERMINATE` and its creation time checked first, so a reused PID is never ended. Failures,
 such as access denied for elevated or protected processes, are listed in a closable error bar.
 Ending processes is available only in live mode.
@@ -73,8 +73,8 @@ busy work can move between logical processors. Stop the load before collecting p
 ## Record and replay
 
 ```powershell
-cargo run -p reactor-process-monitor --release -- --record processes.jsonl --frames 60 --exit
-cargo run -p reactor-process-monitor --release -- --replay processes.jsonl --exit
+cargo run -p reactor-task-manager --release -- --record processes.jsonl --frames 60 --exit
+cargo run -p reactor-task-manager --release -- --replay processes.jsonl --exit
 ```
 
 Recording is opt-in. Files contain process names, PIDs, creation times, counters, and query errors,
@@ -129,8 +129,8 @@ input latency, or a speed advantage over Task Manager.
 ## Development
 
 ```powershell
-cargo test -p reactor-process-monitor
-cargo clippy -p reactor-process-monitor --all-targets -- -D warnings
+cargo test -p reactor-task-manager
+cargo clippy -p reactor-task-manager --all-targets -- -D warnings
 ```
 
 The tests cover CPU normalization, PID reuse, tree filtering, unavailable identities, replay
