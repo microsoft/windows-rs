@@ -5,6 +5,114 @@ use std::sync::{
 };
 use windows_core::{Array, InRef, Interface, OutParam, OutRef, Param, ParamValue};
 
+#[windows_core::implement(OwnedResult, GenericResult<OwnedValue>, NativeResult)]
+struct ResultProducer;
+
+fn owned_result() -> OwnedValue {
+    OwnedValue {
+        enabled: true,
+        number: 42.25,
+        ..Default::default()
+    }
+}
+
+impl OwnedResult_Impl for ResultProducer_Impl {
+    fn Get(&self) -> windows_core::Result<OwnedValue> {
+        Ok(owned_result())
+    }
+
+    fn Infallible(&self) -> OwnedValue {
+        owned_result()
+    }
+}
+
+impl GenericResult_Impl<OwnedValue> for ResultProducer_Impl {
+    fn Get(&self) -> windows_core::Result<OwnedValue> {
+        Ok(owned_result())
+    }
+}
+
+impl NativeResult_Impl for ResultProducer_Impl {
+    fn Get(&self) -> windows_core::Result<OwnedValue> {
+        Ok(owned_result())
+    }
+}
+
+#[test]
+fn owning_return_abi() {
+    let concrete: OwnedResult = ResultProducer.into();
+    let generic: GenericResult<OwnedValue> = ResultProducer.into();
+    let native: NativeResult = ResultProducer.into();
+    for value in [
+        concrete.Get().unwrap(),
+        concrete.Infallible(),
+        generic.Get().unwrap(),
+        unsafe { native.Get().unwrap() },
+    ] {
+        assert!(value.text.is_empty());
+        assert!(value.enabled);
+        assert_eq!(value.number, 42.25);
+        assert!(value.object.is_none());
+    }
+}
+
+#[cfg(any(not(miri), windows_slim_errors))]
+#[test]
+fn failed_owning_return_is_not_read() {
+    unsafe extern "system" fn fail(
+        _: *mut core::ffi::c_void,
+        result: *mut windows_core::imp::AbiType<OwnedValue>,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            // Even malformed failure bytes must remain unread storage.
+            result
+                .cast::<u8>()
+                .write_bytes(0xff, size_of::<OwnedValue>());
+        }
+        windows_core::HRESULT(0x80004005_u32 as i32)
+    }
+
+    unsafe extern "system" fn uninitialized(
+        _: *mut core::ffi::c_void,
+        result: *mut windows_core::imp::AbiType<OwnedValue>,
+    ) -> windows_core::HRESULT {
+        let value = core::mem::MaybeUninit::uninit();
+        unsafe {
+            core::ptr::copy_nonoverlapping(value.as_ptr(), result, 1);
+        }
+        windows_core::HRESULT(0x80004005_u32 as i32)
+    }
+
+    for callback in [fail, uninitialized] {
+        let mut concrete = OwnedResult_Vtbl::new::<ResultProducer_Impl, 0>();
+        concrete.Get = callback;
+        let vtable = &concrete;
+        let raw = &vtable as *const _ as *mut core::ffi::c_void;
+        unsafe {
+            let borrowed = OwnedResult::from_raw_borrowed(&raw).unwrap();
+            assert!(borrowed.Get().is_err());
+        }
+
+        let mut generic = GenericResult_Vtbl::<OwnedValue>::new::<ResultProducer_Impl, 0>();
+        generic.Get = callback;
+        let vtable = &generic;
+        let raw = &vtable as *const _ as *mut core::ffi::c_void;
+        unsafe {
+            let borrowed = GenericResult::<OwnedValue>::from_raw_borrowed(&raw).unwrap();
+            assert!(borrowed.Get().is_err());
+        }
+
+        let mut native = NativeResult_Vtbl::new::<ResultProducer_Impl, 0>();
+        native.Get = callback;
+        let vtable = &native;
+        let raw = &vtable as *const _ as *mut core::ffi::c_void;
+        unsafe {
+            let borrowed = NativeResult::from_raw_borrowed(&raw).unwrap();
+            assert!(borrowed.Get().is_err());
+        }
+    }
+}
+
 struct Lifetime(Arc<AtomicUsize>);
 
 impl Drop for Lifetime {
@@ -225,6 +333,74 @@ fn parameter_value_lifetimes() {
     assert_eq!(drops.load(Ordering::Relaxed), 1);
     let absent: ParamValue<Tracked> = unsafe { None::<&Tracked>.param() };
     assert!(absent.borrow().is_null());
+}
+
+#[cfg(not(miri))]
+#[test]
+fn owning_record_abi_lifetimes() {
+    let status = windows_core::HRESULT(0x80004005u32 as i32);
+    for generic in [false, true] {
+        for failure in [None, Some(false), Some(true)] {
+            let input_drops = Arc::new(AtomicUsize::new(0));
+            let old_drops = Arc::new(AtomicUsize::new(0));
+            let input = OwnedValue {
+                text: "borrowed\0text".into(),
+                enabled: true,
+                number: 1.25,
+                object: Some(tracked(&input_drops)),
+            };
+            let mut output = OwnedValue {
+                object: Some(tracked(&old_drops)),
+                ..Default::default()
+            };
+            let invoke = move |input: &OwnedValue, output: &mut OwnedValue| {
+                assert_eq!(input.text, "borrowed\0text");
+                assert!(input.enabled);
+                assert_eq!(input.number, 1.25);
+                input.object.as_ref().unwrap().Invoke().unwrap();
+                assert!(output.object.is_none());
+                if failure != Some(false) {
+                    *output = input.clone();
+                }
+                if failure.is_some() {
+                    Err(windows_core::Error::from_hresult(status))
+                } else {
+                    Ok(input.clone())
+                }
+            };
+            let result = if generic {
+                GenericRoundtrip::<OwnedValue>::new(move |input, output| {
+                    invoke(input.unwrap(), output)
+                })
+                .Invoke(&input, &mut output)
+            } else {
+                OwnedRoundtrip::new(invoke).Invoke(&input, &mut output)
+            };
+            assert_eq!(old_drops.load(Ordering::Relaxed), 1);
+            assert_eq!(input_drops.load(Ordering::Relaxed), 0);
+            assert_eq!(input.text, "borrowed\0text");
+            if failure.is_some() {
+                assert_eq!(result.as_ref().unwrap_err().code(), status);
+            } else {
+                assert_eq!(result.as_ref().unwrap(), &input);
+            }
+            drop(input);
+            if failure == Some(false) {
+                assert!(output.object.is_none());
+                assert_eq!(input_drops.load(Ordering::Relaxed), 1);
+            } else {
+                output.object.as_ref().unwrap().Invoke().unwrap();
+                assert_eq!(input_drops.load(Ordering::Relaxed), 0);
+            }
+            drop(output);
+            assert_eq!(
+                input_drops.load(Ordering::Relaxed),
+                usize::from(failure.is_some())
+            );
+            drop(result);
+            assert_eq!(input_drops.load(Ordering::Relaxed), 1);
+        }
+    }
 }
 
 #[test]

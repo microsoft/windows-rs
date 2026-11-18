@@ -105,3 +105,26 @@ fn test_out_ref() {
     let error = return_object(InRef::default(), OutRef::default()).unwrap_err();
     assert_eq!(error.code(), E_POINTER);
 }
+
+#[test]
+fn bstr_borrowed_abi_and_output() {
+    let input = BSTR::from("borrowed\0text");
+    let borrowed: ParamValue<BSTR> = unsafe { (&input).param() };
+    let retained = borrowed.borrow().cloned().unwrap();
+    drop(borrowed);
+    assert_eq!(&*input, &*retained);
+    assert_ne!(input.as_ptr(), retained.as_ptr());
+    drop(input);
+    assert_eq!(retained.display().to_string(), "borrowed\0text");
+
+    let mut output = BSTR::from("old");
+    OutRef::<BSTR>::from(&mut output).write(retained).unwrap();
+    assert_eq!(output.display().to_string(), "borrowed\0text");
+    assert_eq!(
+        OutRef::<BSTR>::default()
+            .write(BSTR::from("rejected"))
+            .unwrap_err()
+            .code(),
+        E_POINTER
+    );
+}

@@ -1,4 +1,4 @@
-//! --filter Test --flat
+//! --filter Test TestNative --flat
 #[winrt]
 mod Test {
     #[guid(auto)]
@@ -19,4 +19,54 @@ mod Test {
 
     #[guid(auto)]
     delegate fn EmptyArray() -> [u32];
+
+    struct OwnedValue {
+        text: String,
+        enabled: bool,
+        number: f64,
+        object: Tracked,
+    }
+
+    #[guid(auto)]
+    delegate fn OwnedRoundtrip(#[in] input: OwnedValue, #[out] output: OwnedValue) -> OwnedValue;
+
+    #[guid(auto)]
+    delegate fn GenericRoundtrip<T>(#[in] input: T, #[out] output: T) -> T;
+
+    #[guid(auto)]
+    interface OwnedResult {
+        fn Get(&self) -> OwnedValue;
+        #[Windows::Foundation::Metadata::NoException]
+        fn Infallible(&self) -> OwnedValue;
+    }
+
+    #[guid(auto)]
+    interface GenericResult<T> {
+        fn Get(&self) -> T;
+    }
+}
+
+#[win32]
+mod TestNative {
+    #[guid(auto)]
+    interface NativeResult: Windows::Win32::IUnknown {
+        fn Get(&self, #[out] #[retval] value: *mut Test::OwnedValue) -> HRESULT;
+    }
+
+    #[library("test.dll")]
+    extern fn GetOwned(#[out] #[retval] value: *mut Test::OwnedValue) -> HRESULT;
+}
+
+mod Windows {
+    #[win32]
+    mod Win32 {
+        #[guid(0x00000000_0000_0000_c000_000000000046)]
+        interface IUnknown {}
+    }
+    #[winrt]
+    mod Foundation {
+        mod Metadata {
+            attribute NoExceptionAttribute { fn(); }
+        }
+    }
 }

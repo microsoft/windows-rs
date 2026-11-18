@@ -1065,12 +1065,12 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropert
 impl<T: windows_core::RuntimeType + 'static> IReference<T> {
     pub fn Value(&self) -> windows_core::Result<T> {
         unsafe {
-            let mut result__ = core::mem::zeroed();
+            let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(self).Value)(
                 windows_core::Interface::as_raw(self),
-                &mut result__,
+                result__.as_mut_ptr(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
         }
     }
 }

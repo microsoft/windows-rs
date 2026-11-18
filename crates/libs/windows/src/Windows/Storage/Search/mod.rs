@@ -1563,8 +1563,8 @@ impl SortEntryVector {
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<SortEntry> {
         unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {

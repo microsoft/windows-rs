@@ -256,6 +256,9 @@ impl CppFn {
                 let map = ty
                     .projection_type(config.reader)
                     .write_result_map(config.reader);
+                let init = ty
+                    .projection_type(config.reader)
+                    .write_result_init(config.reader);
                 let return_type = ty.write_name(config);
 
                 quote! {
@@ -264,7 +267,7 @@ impl CppFn {
                     pub unsafe fn #name<#generics>(#params) -> #result Result<#return_type> #where_clause {
                         #link
                         unsafe {
-                            let mut result__ = core::mem::zeroed();
+                            #init
                             #name(#args).#map
                         }
                     }

@@ -23,13 +23,13 @@ windows_core::imp::define_winrt_interface!(IVector < T >, IVector_Vtbl < T, >, 0
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
         unsafe {
-            let mut result__ = core::mem::zeroed();
+            let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(self).GetAt)(
                 windows_core::Interface::as_raw(self),
                 index,
-                &mut result__,
+                result__.as_mut_ptr(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
