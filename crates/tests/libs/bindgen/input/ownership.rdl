@@ -51,10 +51,16 @@ mod TestNative {
     #[guid(auto)]
     interface NativeResult: Windows::Win32::IUnknown {
         fn Get(&self, #[out] #[retval] value: *mut Test::OwnedValue) -> HRESULT;
+        fn GetArray(&self, #[out] #[retval] value: *mut [Test::OwnedValue; 2]) -> HRESULT;
+        fn GetNestedArray(&self, #[out] #[retval] value: *mut [[Test::OwnedValue; 2]; 2]) -> HRESULT;
     }
 
     #[library("test.dll")]
     extern fn GetOwned(#[out] #[retval] value: *mut Test::OwnedValue) -> HRESULT;
+    #[library("test.dll")]
+    extern fn GetOwnedArray(#[out] #[retval] value: *mut [Test::OwnedValue; 2]) -> HRESULT;
+    #[library("test.dll")]
+    extern fn GetOwnedNestedArray(#[out] #[retval] value: *mut [[Test::OwnedValue; 2]; 2]) -> HRESULT;
 }
 
 mod Windows {

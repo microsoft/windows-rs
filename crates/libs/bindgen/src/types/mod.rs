@@ -1349,8 +1349,12 @@ impl Type {
     }
 
     pub fn needs_result_storage(&self, reader: &Reader) -> bool {
-        matches!(self, Self::Generic(_))
-            || matches!(self, Self::Struct(_)) && !self.is_copyable(reader)
+        match self {
+            Self::Generic(_) => true,
+            Self::Struct(_) => !self.is_copyable(reader),
+            Self::ArrayFixed(ty, _) => ty.needs_result_storage(reader),
+            _ => false,
+        }
     }
 
     pub fn write_result_init(&self, reader: &Reader) -> TokenStream {

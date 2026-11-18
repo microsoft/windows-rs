@@ -6,6 +6,23 @@ pub unsafe fn GetOwned() -> windows_core::Result<OwnedValue> {
         GetOwned(result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
     }
 }
+#[inline]
+pub unsafe fn GetOwnedArray() -> windows_core::Result<[OwnedValue; 2]> {
+    windows_core::link!("test.dll" "system" fn GetOwnedArray(value : *mut [core::mem::ManuallyDrop < OwnedValue >; 2]) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::MaybeUninit::zeroed();
+        GetOwnedArray(result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
+    }
+}
+#[inline]
+pub unsafe fn GetOwnedNestedArray() -> windows_core::Result<[[OwnedValue; 2]; 2]> {
+    windows_core::link!("test.dll" "system" fn GetOwnedNestedArray(value : *mut [[core::mem::ManuallyDrop < OwnedValue >; 2]; 2]) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::MaybeUninit::zeroed();
+        GetOwnedNestedArray(result__.as_mut_ptr())
+            .map(|| core::mem::transmute(result__.assume_init()))
+    }
+}
 windows_core::imp::define_interface!(
     ArrayRoundtrip,
     ArrayRoundtrip_Vtbl,
@@ -635,7 +652,7 @@ impl<F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Sen
 windows_core::imp::define_interface!(
     NativeResult,
     NativeResult_Vtbl,
-    0xfe827672_7170_5492_b0d7_a3ae2ad89b1b
+    0x176f5c04_39ba_5f30_a468_c991c44f766c
 );
 windows_core::imp::interface_hierarchy!(NativeResult, windows_core::IUnknown);
 impl NativeResult {
@@ -643,6 +660,26 @@ impl NativeResult {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(self).Get)(
+                windows_core::Interface::as_raw(self),
+                result__.as_mut_ptr(),
+            )
+            .map(|| core::mem::transmute(result__.assume_init()))
+        }
+    }
+    pub unsafe fn GetArray(&self) -> windows_core::Result<[OwnedValue; 2]> {
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).GetArray)(
+                windows_core::Interface::as_raw(self),
+                result__.as_mut_ptr(),
+            )
+            .map(|| core::mem::transmute(result__.assume_init()))
+        }
+    }
+    pub unsafe fn GetNestedArray(&self) -> windows_core::Result<[[OwnedValue; 2]; 2]> {
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).GetNestedArray)(
                 windows_core::Interface::as_raw(self),
                 result__.as_mut_ptr(),
             )
@@ -657,9 +694,19 @@ pub struct NativeResult_Vtbl {
         *mut core::ffi::c_void,
         *mut core::mem::ManuallyDrop<OwnedValue>,
     ) -> windows_core::HRESULT,
+    pub GetArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut [core::mem::ManuallyDrop<OwnedValue>; 2],
+    ) -> windows_core::HRESULT,
+    pub GetNestedArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut [[core::mem::ManuallyDrop<OwnedValue>; 2]; 2],
+    ) -> windows_core::HRESULT,
 }
 pub trait NativeResult_Impl: windows_core::IUnknownImpl {
     fn Get(&self) -> windows_core::Result<OwnedValue>;
+    fn GetArray(&self) -> windows_core::Result<[OwnedValue; 2]>;
+    fn GetNestedArray(&self) -> windows_core::Result<[[OwnedValue; 2]; 2]>;
 }
 impl NativeResult_Vtbl {
     pub const fn new<Identity: NativeResult_Impl, const OFFSET: isize>() -> Self {
@@ -682,9 +729,52 @@ impl NativeResult_Vtbl {
                 }
             }
         }
+        unsafe extern "system" fn GetArray<Identity: NativeResult_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            value: *mut [core::mem::ManuallyDrop<OwnedValue>; 2],
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match NativeResult_Impl::GetArray(this) {
+                    Ok(ok__) => {
+                        value.cast::<[OwnedValue; 2]>().write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
+                }
+            }
+        }
+        unsafe extern "system" fn GetNestedArray<
+            Identity: NativeResult_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut [[core::mem::ManuallyDrop<OwnedValue>; 2]; 2],
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match NativeResult_Impl::GetNestedArray(this) {
+                    Ok(ok__) => {
+                        value.cast::<[[OwnedValue; 2]; 2]>().write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
+                }
+            }
+        }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Get: Get::<Identity, OFFSET>,
+            GetArray: GetArray::<Identity, OFFSET>,
+            GetNestedArray: GetNestedArray::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

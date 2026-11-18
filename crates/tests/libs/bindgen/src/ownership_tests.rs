@@ -6,7 +6,7 @@ use std::sync::{
 use windows_core::{Array, InRef, Interface, OutParam, OutRef, Param, ParamValue};
 
 #[windows_core::implement(OwnedResult, GenericResult<OwnedValue>, NativeResult)]
-struct ResultProducer;
+struct ResultProducer(OwnedValue);
 
 fn owned_result() -> OwnedValue {
     OwnedValue {
@@ -18,31 +18,41 @@ fn owned_result() -> OwnedValue {
 
 impl OwnedResult_Impl for ResultProducer_Impl {
     fn Get(&self) -> windows_core::Result<OwnedValue> {
-        Ok(owned_result())
+        Ok(self.0.clone())
     }
 
     fn Infallible(&self) -> OwnedValue {
-        owned_result()
+        self.0.clone()
     }
 }
 
 impl GenericResult_Impl<OwnedValue> for ResultProducer_Impl {
     fn Get(&self) -> windows_core::Result<OwnedValue> {
-        Ok(owned_result())
+        Ok(self.0.clone())
     }
 }
 
 impl NativeResult_Impl for ResultProducer_Impl {
     fn Get(&self) -> windows_core::Result<OwnedValue> {
-        Ok(owned_result())
+        Ok(self.0.clone())
+    }
+
+    fn GetArray(&self) -> windows_core::Result<[OwnedValue; 2]> {
+        Ok(core::array::from_fn(|_| self.0.clone()))
+    }
+
+    fn GetNestedArray(&self) -> windows_core::Result<[[OwnedValue; 2]; 2]> {
+        Ok(core::array::from_fn(|_| {
+            core::array::from_fn(|_| self.0.clone())
+        }))
     }
 }
 
 #[test]
 fn owning_return_abi() {
-    let concrete: OwnedResult = ResultProducer.into();
-    let generic: GenericResult<OwnedValue> = ResultProducer.into();
-    let native: NativeResult = ResultProducer.into();
+    let concrete: OwnedResult = ResultProducer(owned_result()).into();
+    let generic: GenericResult<OwnedValue> = ResultProducer(owned_result()).into();
+    let native: NativeResult = ResultProducer(owned_result()).into();
     for value in [
         concrete.Get().unwrap(),
         concrete.Infallible(),
@@ -56,25 +66,46 @@ fn owning_return_abi() {
     }
 }
 
+#[test]
+fn owning_array_return_lifetimes() {
+    let drops = Arc::new(AtomicUsize::new(0));
+    let native: NativeResult = ResultProducer(OwnedValue {
+        object: Some(tracked(&drops)),
+        ..owned_result()
+    })
+    .into();
+    let array = unsafe { native.GetArray().unwrap() };
+    let nested = unsafe { native.GetNestedArray().unwrap() };
+    drop(native);
+    for value in array.iter().chain(nested.iter().flatten()) {
+        assert!(value.enabled);
+        assert_eq!(value.number, 42.25);
+        value.object.as_ref().unwrap().Invoke().unwrap();
+    }
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    drop(array);
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    drop(nested);
+    assert_eq!(drops.load(Ordering::Relaxed), 1);
+}
+
 #[cfg(any(not(miri), windows_slim_errors))]
 #[test]
 fn failed_owning_return_is_not_read() {
-    unsafe extern "system" fn fail(
+    unsafe extern "system" fn fail<T>(
         _: *mut core::ffi::c_void,
-        result: *mut windows_core::imp::AbiType<OwnedValue>,
+        result: *mut T,
     ) -> windows_core::HRESULT {
         unsafe {
             // Even malformed failure bytes must remain unread storage.
-            result
-                .cast::<u8>()
-                .write_bytes(0xff, size_of::<OwnedValue>());
+            result.cast::<u8>().write_bytes(0xff, size_of::<T>());
         }
         windows_core::HRESULT(0x80004005_u32 as i32)
     }
 
-    unsafe extern "system" fn uninitialized(
+    unsafe extern "system" fn uninitialized<T>(
         _: *mut core::ffi::c_void,
-        result: *mut windows_core::imp::AbiType<OwnedValue>,
+        result: *mut T,
     ) -> windows_core::HRESULT {
         let value = core::mem::MaybeUninit::uninit();
         unsafe {
@@ -109,6 +140,28 @@ fn failed_owning_return_is_not_read() {
         unsafe {
             let borrowed = NativeResult::from_raw_borrowed(&raw).unwrap();
             assert!(borrowed.Get().is_err());
+        }
+    }
+
+    for callback in [fail, uninitialized] {
+        let mut native = NativeResult_Vtbl::new::<ResultProducer_Impl, 0>();
+        native.GetArray = callback;
+        let vtable = &native;
+        let raw = &vtable as *const _ as *mut core::ffi::c_void;
+        unsafe {
+            let borrowed = NativeResult::from_raw_borrowed(&raw).unwrap();
+            assert!(borrowed.GetArray().is_err());
+        }
+    }
+
+    for callback in [fail, uninitialized] {
+        let mut native = NativeResult_Vtbl::new::<ResultProducer_Impl, 0>();
+        native.GetNestedArray = callback;
+        let vtable = &native;
+        let raw = &vtable as *const _ as *mut core::ffi::c_void;
+        unsafe {
+            let borrowed = NativeResult::from_raw_borrowed(&raw).unwrap();
+            assert!(borrowed.GetNestedArray().is_err());
         }
     }
 }
