@@ -56,7 +56,6 @@ fn main() {
             "REALTIME_PRIORITY_CLASS",
             "SetLastError",
             "STATUS_INFO_LENGTH_MISMATCH",
-            "SYNCHRONIZE",
             "SYSTEM_PROCESS_INFORMATION",
             "SystemProcessInformation",
             "SystemTimeToTzSpecificLocalTime",
@@ -67,7 +66,6 @@ fn main() {
             "TokenElevation",
             "TokenUser",
             "VerQueryValueW",
-            "WaitForSingleObject",
         ])
         .minimal()
         .flat()

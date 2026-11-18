@@ -28,11 +28,12 @@ off **Process tree** for a global ranking. Filtering retains ancestors of matchi
 expands their paths. Pause stops scheduling new snapshots; an in-flight snapshot can still complete.
 
 Right-click a row for **Details**, **End task**, and **End process tree**, or select a row and
-choose **End task** above the table. Both ask for confirmation. The process tree is captured when
-the dialog opens and is ended on a background thread, parents before children: each process must
-exit, within 5 seconds, before its descendants are ended, so a parent cannot replace children that
-were just ended. A tree that includes the monitor itself is refused. Each process is opened with
-PROCESS_TERMINATE and its creation time checked first, so a reused PID is never ended. Failures,
+choose **End task** above the table. Both ask for confirmation. Windows has no process tree, so,
+like .NET's `Process.Kill(entireProcessTree: true)`, ending a tree is best effort: descendants are
+captured from parent PIDs and creation times when the dialog opens, then each process is ended
+before its descendants, without waiting for it to exit. A failure does not stop the rest of the
+tree. A tree that includes the monitor itself is refused. Each process is opened with
+`PROCESS_TERMINATE` and its creation time checked first, so a reused PID is never ended. Failures,
 such as access denied for elevated or protected processes, are listed in a closable error bar.
 Ending processes is available only in live mode.
 

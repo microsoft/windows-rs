@@ -176,7 +176,6 @@ enum Message {
     Open(ProcessId),
     End(ProcessId, bool),
     Confirmed(ContentDialogResult),
-    Ended(Vec<String>),
     DismissActionError,
     Metric(performance::Metric),
     CpuView(performance::CpuView),
@@ -213,7 +212,6 @@ struct Monitor {
     on_open: Callback<ProcessId>,
     on_end: Callback<(ProcessId, bool)>,
     pending: Option<Pending>,
-    ending: Option<ComponentTask>,
     action_error: Option<String>,
     page: Page,
     resizing: Option<(Column, f64, f64)>,
@@ -268,7 +266,6 @@ impl Component for Monitor {
             on_open: context.callback(Message::Open),
             on_end: context.callback(|(id, tree)| Message::End(id, tree)),
             pending: None,
-            ending: None,
             action_error: None,
             page: Page::Processes,
             resizing: None,
@@ -390,7 +387,6 @@ impl Component for Monitor {
             Message::End(id, tree) => {
                 if let Some(process) = self.model.processes.get(&id)
                     && context.input().live()
-                    && self.ending.is_none()
                 {
                     self.pending = Some(Pending {
                         name: process.name.clone(),
@@ -412,40 +408,22 @@ impl Component for Monitor {
                         .iter()
                         .any(|id| id.pid == std::process::id())
                     {
-                        self.action_error =
-                            Some("The process tree includes this Task Manager.".into());
+                        self.action_error = Some("Task Manager cannot end itself.".into());
                         return;
                     }
-                    let targets: Vec<_> = pending
+                    // Best effort, like Process.Kill(entireProcessTree): each process is ended
+                    // before its descendants, and a failure does not stop the rest of the tree.
+                    let failures: Vec<_> = pending
                         .targets
                         .into_iter()
-                        .map(|id| {
-                            let name = self
-                                .model
-                                .processes
-                                .get(&id)
-                                .map_or(String::new(), |p| p.name.clone());
-                            (id, name)
+                        .filter_map(|id| {
+                            let error = inspect::terminate(id).err()?;
+                            let name = self.model.processes.get(&id).map_or("", |p| &p.name);
+                            Some(format!("{name} (PID {}): {error}", id.pid))
                         })
                         .collect();
-                    // Each process must exit before its descendants are ended.
-                    self.ending = Some(context.spawn_background(move |_| {
-                        Message::Ended(
-                            targets
-                                .into_iter()
-                                .filter_map(|(id, name)| {
-                                    let error =
-                                        inspect::terminate(id, Duration::from_secs(5)).err()?;
-                                    Some(format!("{name} (PID {}): {error}", id.pid))
-                                })
-                                .collect(),
-                        )
-                    }));
+                    self.action_error = (!failures.is_empty()).then(|| failures.join("\n"));
                 }
-            }
-            Message::Ended(failures) => {
-                self.ending = None;
-                self.action_error = (!failures.is_empty()).then(|| failures.join("\n"));
             }
             Message::DismissActionError => self.action_error = None,
             Message::Metric(metric) => self.metric = metric,
@@ -502,7 +480,7 @@ impl Component for Monitor {
             }
             None
         });
-        let can_end = options.live() && self.ending.is_none();
+        let can_end = options.live();
         let content = match self.page {
             Page::Processes => self.processes_page(can_end, context),
             Page::Details => component::<Details>(
