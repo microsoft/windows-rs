@@ -122,7 +122,7 @@ impl Measurements {
         let mut times = self.commit_ms.clone();
         times.sort_by(f64::total_cmp);
         if times.is_empty() {
-            return "Process monitor: no snapshots committed\n".into();
+            return "Task Manager: no snapshots committed\n".into();
         }
         let mut model = self.model_ms.clone();
         model.sort_by(f64::total_cmp);
@@ -134,7 +134,7 @@ impl Measurements {
             .collect();
         remaining.sort_by(f64::total_cmp);
         format!(
-            "Process monitor: {} snapshots committed\n\
+            "Task Manager: {} snapshots committed\n\
              Update-to-effect median: {:.4} ms\n\
              Update-to-effect p95: {:.4} ms\n\
              Model/projection median: {:.4} ms\n\
@@ -196,7 +196,7 @@ enum Page {
     Performance,
 }
 
-struct Monitor {
+struct TaskManager {
     model: Model,
     source: Option<Source>,
     task: Option<ComponentTask>,
@@ -220,7 +220,7 @@ struct Monitor {
     color_scheme: ColorScheme,
 }
 
-impl Monitor {
+impl TaskManager {
     fn acquire(&mut self, context: &ComponentContext<Self>) {
         if self.paused || self.finished || self.task.is_some() {
             return;
@@ -245,12 +245,12 @@ impl Monitor {
     }
 }
 
-impl Component for Monitor {
+impl Component for TaskManager {
     type Input = Options;
     type Message = Message;
 
     fn create(_: &Options, context: &ComponentContext<Self>) -> Self {
-        let mut monitor = Self {
+        let mut manager = Self {
             model: Model::default(),
             source: None,
             task: None,
@@ -273,8 +273,8 @@ impl Component for Monitor {
             cpu_view: performance::CpuView::default(),
             color_scheme: ColorScheme::default(),
         };
-        monitor.acquire(context);
-        monitor
+        manager.acquire(context);
+        manager
     }
 
     fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
@@ -458,7 +458,7 @@ impl Component for Monitor {
     }
 
     fn view(&self, options: &Options, context: &mut ViewContext<Self>) -> View {
-        context.window_title("Process monitor");
+        context.window_title("Task Manager");
         context.on_color_scheme(context.callback(Message::ColorScheme));
         context.window_visuals(
             WindowVisuals::new()
@@ -639,7 +639,7 @@ impl Component for Monitor {
             .rows([GridLength::Auto, GridLength::STAR])
             .children((
                 TitleBar::new()
-                    .title("Process monitor")
+                    .title("Task Manager")
                     .subtitle(if options.demo {
                         "Demo"
                     } else if options.live() {
@@ -720,7 +720,7 @@ impl Component for Monitor {
     }
 }
 
-impl Monitor {
+impl TaskManager {
     fn columns_button(&self, context: &ViewContext<Self>) -> View {
         let choices: Vec<View> = Column::ALL
             .into_iter()
@@ -1141,10 +1141,10 @@ impl Component for ProcessRow {
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let options = Options::parse(std::env::args().skip(1));
     let outcome = options.outcome.clone();
-    App::run_component_with_policy::<Monitor>(
+    App::run_component_with_policy::<TaskManager>(
         options,
         WindowPolicy::new()
-            .title("Process monitor")
+            .title("Task Manager")
             .client_size(1250.0, 800.0),
     )?;
     if let Some(error) = outcome.0.lock().unwrap().take() {

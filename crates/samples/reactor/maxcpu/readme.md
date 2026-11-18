@@ -24,6 +24,6 @@ sliders to zero to release the load. High settings consume power, generate heat,
 affect other applications.
 Do not run it during unrelated performance measurements.
 
-Run beside the process monitor's **Performance** page or Task Manager to watch CPU and memory usage
-rise and fall. Their CPU percentages can differ because the sample measures processor time rather
-than Task Manager's frequency-adjusted utilization.
+Run beside the Task Manager sample's **Performance** page or Windows Task Manager to watch CPU and
+memory usage rise and fall. Their CPU percentages can differ because the sample's page measures
+processor time rather than Windows Task Manager's frequency-adjusted utilization.

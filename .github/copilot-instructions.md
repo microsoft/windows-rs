@@ -459,7 +459,7 @@ baseline; drawing time is not input-to-pixel latency.
    In `crates/tests/libs/reactor/tests/ui/canvas_details.rs`, wheel injection alone is not evidence
    that the scrolled frame was submitted; observe the marker before asserting a new-frame click.
 2. **One submitted geometry for input feedback.** In
-   `crates/samples/reactor/process-monitor/src/details_view/`, review `Frames::present`, pointer
+   `crates/samples/reactor/task-manager/src/details_view/`, review `Frames::present`, pointer
    state, and drawing together. Hover and divider feedback must follow the submitted geometry
    when scrolling or resizing without pointer movement. Cover wheel, keyboard, and scrollbar
    changes, stale row targets, and failed-frame publication with focused cases.
