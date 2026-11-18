@@ -99,10 +99,63 @@ pub fn run(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> Result
     match drive(&mut host, fixture, test) {
         Ok(()) => host.remove_logs(),
         Err(error) => {
+            probe_windows(host.child.id());
             if let Err(cleanup) = host.stop() {
                 eprintln!("fixture cleanup also failed: {cleanup}");
             }
             Err(format!("{fixture}: {error}\n{}", host.output()?).into())
+        }
+    }
+}
+
+// Tells a stalled fixture UI thread apart from a slow UI Automation service after a failure, using
+// window messages that do not go through UI Automation.
+fn probe_windows(process: u32) {
+    unsafe {
+        let mut window = std::ptr::null_mut();
+        loop {
+            window = FindWindowExW(
+                std::ptr::null_mut(),
+                window,
+                windows_core::PCWSTR::null(),
+                windows_core::PCWSTR::null(),
+            );
+            if window.is_null() {
+                break;
+            }
+            let mut owner = 0;
+            let thread = GetWindowThreadProcessId(window, &mut owner);
+            if owner != process {
+                continue;
+            }
+            let mut class = [0u16; 64];
+            let length = GetClassNameW(
+                window,
+                windows_core::PWSTR(class.as_mut_ptr()),
+                class.len() as i32,
+            ) as usize;
+            let class = String::from_utf16_lossy(&class[..length]);
+            let start = Instant::now();
+            let mut result = 0;
+            let replied = SendMessageTimeoutW(
+                window,
+                WM_NULL as u32,
+                0,
+                0,
+                SMTO_BLOCK as u32,
+                5000,
+                &mut result,
+            ) != 0;
+            let elapsed = start.elapsed().as_millis();
+            if replied {
+                eprintln!(
+                    "probe: {class} {window:?} thread {thread} replied to WM_NULL in {elapsed} ms"
+                );
+            } else {
+                eprintln!(
+                    "probe: {class} {window:?} thread {thread} no WM_NULL reply after {elapsed} ms"
+                );
+            }
         }
     }
 }
