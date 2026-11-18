@@ -644,6 +644,45 @@ impl Automation {
         self.pointer_move_to(&self.element(id)?, id, x, y)
     }
 
+    /// Moves the pointer onto `id` until the fixture reports `expected` as the name of `observed`.
+    /// WinUI drops pointer input for a short time after a window is first shown, with no signal
+    /// for when input is accepted, so a move that the fixture does not observe is repeated. See
+    /// microsoft/microsoft-ui-xaml#12753.
+    pub fn pointer_enter(&self, id: &str, observed: &str, expected: &str) -> Result<()> {
+        let element = self.element(id)?;
+        let deadline = Instant::now() + Duration::from_secs(5);
+        let mut x = 0.5;
+        loop {
+            self.pointer_move_to(&element, id, x, 0.5)?;
+            x = if x == 0.5 { 0.52 } else { 0.5 };
+            let delivered = Instant::now() + Duration::from_millis(100);
+            loop {
+                let name = unsafe {
+                    self.find(observed, None).and_then(|element| {
+                        element.map(|element| element.CurrentName()).transpose()
+                    })
+                };
+                match name {
+                    Ok(Some(name)) if name == expected => return Ok(()),
+                    Ok(_) => {}
+                    Err(error) if error.code() == ELEMENT_UNAVAILABLE => {}
+                    Err(error) => return Err(error.into()),
+                }
+                if Instant::now() >= delivered {
+                    break;
+                }
+                std::thread::sleep(Duration::from_millis(20));
+            }
+            if Instant::now() >= deadline {
+                return Err(format!(
+                    "pointer did not enter {id:?}: {observed:?} is not {expected:?}"
+                )
+                .into());
+            }
+            eprintln!("pointer move onto {id:?} was not delivered");
+        }
+    }
+
     pub fn pointer_move_to(
         &self,
         element: &IUIAutomationElement,

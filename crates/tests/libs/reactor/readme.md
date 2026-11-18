@@ -63,6 +63,9 @@ or teardown; those later operations cancel pending occurrences.
 
 `pointer-cursor` checks that a Border's declared cursor, its inherited ancestor cursor, and clearing
 both apply while the pointer stays still. It compares the global cursor with shared system cursors.
+WinUI can drop the first pointer move shortly after a window is shown
+([microsoft/microsoft-ui-xaml#12753](https://github.com/microsoft/microsoft-ui-xaml/issues/12753)),
+so the test repeats its first move until the fixture observes the pointer entering.
 
 ```powershell
 cargo test -p test-reactor --test ui -- `
