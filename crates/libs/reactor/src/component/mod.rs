@@ -175,7 +175,6 @@ pub struct ComponentDrain {
 
 /// Coordinates component scopes with retained runtime updates.
 pub struct ComponentHost {
-    context_consumers: HashMap<ContextId, HashSet<ComponentId>>,
     contexts: HashMap<ContextId, ContextValue>,
     keys: HashMap<Key, ComponentId>,
     order: Vec<ComponentId>,
@@ -289,7 +288,6 @@ impl ComponentHost {
         let queue = Arc::new(Mutex::new(MessageQueue::default()));
         let local_queue = Rc::new(RefCell::new(VecDeque::new()));
         let mut host = Self {
-            context_consumers: HashMap::new(),
             contexts: HashMap::new(),
             keys: HashMap::new(),
             order: Vec::new(),
@@ -352,10 +350,10 @@ impl ComponentHost {
             host.scope_mut(pending.id).unwrap().window = pending.window;
             host.scope_mut(pending.id).unwrap().contexts = environment.contexts;
             host.scope_mut(pending.id).unwrap().provided_contexts = environment.provided;
+            host.scope_mut(pending.id).unwrap().dependencies = pending.dependencies;
             pending
                 .effects
                 .commit(&mut host.scope_mut(pending.id).unwrap().effects);
-            host.replace_dependencies(pending.id, pending.dependencies);
         }
         host.publish_committed_window(publication);
         host
@@ -560,7 +558,6 @@ impl ComponentHost {
         self.window_color_scheme = WindowObserverLifetime::default();
         self.window_size = WindowObserverLifetime::default();
         self.window_placement = WindowObserverLifetime::default();
-        self.context_consumers.clear();
         self.contexts.clear();
         self.keys.clear();
         self.order.clear();

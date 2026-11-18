@@ -1,5 +1,17 @@
 use super::*;
 
+// Red stays distinguishable from either theme's background and text in pixel checks.
+const RED_SVG: &[u8] = b"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='#ff0000'/></svg>";
+
+/// An 8 x 8 solid red PNG.
+const RED_PNG: &[u8] = &[
+    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d, 0x49, 0x48, 0x44, 0x52,
+    0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x08, 0x08, 0x02, 0x00, 0x00, 0x00, 0x4b, 0x6d, 0x29,
+    0xdc, 0x00, 0x00, 0x00, 0x11, 0x49, 0x44, 0x41, 0x54, 0x78, 0xda, 0x63, 0xf8, 0xcf, 0xc0, 0x80,
+    0x15, 0x31, 0x0c, 0x2d, 0x09, 0x00, 0x28, 0xff, 0x3f, 0xc1, 0xce, 0x77, 0xc8, 0x4f, 0x00, 0x00,
+    0x00, 0x00, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82,
+];
+
 /// Mounts action and display-only objects. Action controls log their callbacks; the display
 /// objects can be updated, removed, and mounted again.
 pub(super) struct SmokeFixture {
@@ -70,6 +82,16 @@ impl Component for SmokeFixture {
                         .icon(Symbol::Accept)
                         .on_click(event("app-bar")),
                     AppBarSeparator::new(),
+                    AppBarButton::new()
+                        .label("Font")
+                        .icon(Icon::font("\u{E734}")),
+                    AppBarButton::new()
+                        .label("Path")
+                        .icon(Icon::path("M 0,0 L 16,0 L 8,16 Z")),
+                    AppBarButton::new()
+                        .automation_id("image-icon")
+                        .label("Image")
+                        .icon(Icon::image_data(EncodedImage::from_static(RED_PNG))),
                 )),
                 BreadcrumbBar::new()
                     .automation_id("crumbs")
@@ -79,6 +101,11 @@ impl Component for SmokeFixture {
         let mut children = vec![
             TitleBar::new()
                 .title("Reactor UI fixture: smoke")
+                .icon(match self.generation % 3 {
+                    0 => Icon::font("\u{E721}"),
+                    1 => Icon::path("M 0,8 L 6,14 L 16,2 Z"),
+                    _ => Icon::image_svg(EncodedImage::from_static(RED_SVG)),
+                })
                 .is_back_button_visible(true)
                 .is_back_button_enabled(true)
                 .on_back_requested(event("back"))
