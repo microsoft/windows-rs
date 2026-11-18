@@ -1124,10 +1124,10 @@ impl Automation {
     }
 }
 
-// A search that overlaps an element being removed fails with ELEMENT_UNAVAILABLE. When the removed
-// element is a WinUI popup window, the search can instead fail with UIA_E_TIMEOUT after about
-// 100 ms; WinForms popups only produce ELEMENT_UNAVAILABLE. Both mean the tree changed during the
-// search, so the sample is repeated until the caller's deadline.
+// A search that overlaps a change to the UI tree can fail with ELEMENT_UNAVAILABLE. WinUI can
+// instead fail it with UIA_E_TIMEOUT within about 100 ms, for example while a popup window closes
+// or while a fixture starts; a WinForms popup only produced ELEMENT_UNAVAILABLE. Both mean the
+// tree changed during the search, so the sample is repeated until the caller's deadline.
 fn transient(error: &windows_core::Error) -> bool {
     error.code() == ELEMENT_UNAVAILABLE || error.code() == UIA_TIMEOUT
 }
