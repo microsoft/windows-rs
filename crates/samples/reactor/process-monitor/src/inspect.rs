@@ -5,7 +5,7 @@ use crate::bindings::*;
 use crate::model::ProcessId;
 use std::io;
 use std::os::windows::io::{AsRawHandle, FromRawHandle, OwnedHandle};
-use std::time::Instant;
+use std::time::{Duration, Instant};
 use windows_core::{PCWSTR, PWSTR};
 
 pub struct Identity {
@@ -108,18 +108,28 @@ fn open_with(pid: u32, access: u32) -> io::Result<OwnedHandle> {
     }
 }
 
-/// Terminates the process after verifying that its PID was not reused.
-pub fn terminate(id: ProcessId) -> Result<(), String> {
+/// Terminates the process after verifying that its PID was not reused, then waits for it to exit.
+/// Termination is asynchronous, so success is reported only once the process has exited.
+pub fn terminate(id: ProcessId, timeout: Duration) -> Result<(), String> {
     let created = id.created.ok_or("Process identity is unavailable")?;
     let handle = open_with(
         id.pid,
-        (PROCESS_TERMINATE | PROCESS_QUERY_LIMITED_INFORMATION) as u32,
+        (PROCESS_TERMINATE | PROCESS_QUERY_LIMITED_INFORMATION | SYNCHRONIZE) as u32,
     )
     .map_err(|error| error.to_string())?;
     if times(&handle).map_err(|error| error.to_string())?.created != created {
         return Err("Process exited or its PID was reused".into());
     }
-    check(unsafe { TerminateProcess(handle.as_raw_handle(), 1) })
+    check(unsafe { TerminateProcess(handle.as_raw_handle(), 1) })?;
+    let milliseconds = u32::try_from(timeout.as_millis()).unwrap_or(u32::MAX);
+    match unsafe { WaitForSingleObject(handle.as_raw_handle(), milliseconds) } {
+        // WAIT_OBJECT_0
+        0 => Ok(()),
+        _ => Err(format!(
+            "Process did not exit within {} s",
+            timeout.as_secs()
+        )),
+    }
 }
 
 pub struct Times {
@@ -434,10 +444,10 @@ mod tests {
             created: Some(id.created.unwrap() + 1),
             ..id
         };
-        assert!(terminate(reused).is_err());
+        assert!(terminate(reused, Duration::from_secs(5)).is_err());
         assert!(child.try_wait().unwrap().is_none());
-        terminate(id).unwrap();
-        assert_eq!(child.wait().unwrap().code(), Some(1));
+        terminate(id, Duration::from_secs(5)).unwrap();
+        assert_eq!(child.try_wait().unwrap().unwrap().code(), Some(1));
     }
 
     #[test]

@@ -176,6 +176,7 @@ enum Message {
     Open(ProcessId),
     End(ProcessId, bool),
     Confirmed(ContentDialogResult),
+    Ended(Vec<String>),
     DismissActionError,
     Metric(performance::Metric),
     CpuView(performance::CpuView),
@@ -212,6 +213,7 @@ struct Monitor {
     on_open: Callback<ProcessId>,
     on_end: Callback<(ProcessId, bool)>,
     pending: Option<Pending>,
+    ending: Option<ComponentTask>,
     action_error: Option<String>,
     page: Page,
     resizing: Option<(Column, f64, f64)>,
@@ -266,6 +268,7 @@ impl Component for Monitor {
             on_open: context.callback(Message::Open),
             on_end: context.callback(|(id, tree)| Message::End(id, tree)),
             pending: None,
+            ending: None,
             action_error: None,
             page: Page::Processes,
             resizing: None,
@@ -387,6 +390,7 @@ impl Component for Monitor {
             Message::End(id, tree) => {
                 if let Some(process) = self.model.processes.get(&id)
                     && context.input().live()
+                    && self.ending.is_none()
                 {
                     self.pending = Some(Pending {
                         name: process.name.clone(),
@@ -403,21 +407,45 @@ impl Component for Monitor {
                 if let Some(pending) = self.pending.take()
                     && result == ContentDialogResult::Primary
                 {
-                    let failures: Vec<_> = pending
+                    if pending
                         .targets
                         .iter()
-                        .filter_map(|&id| {
-                            let error = inspect::terminate(id).err()?;
+                        .any(|id| id.pid == std::process::id())
+                    {
+                        self.action_error =
+                            Some("The process tree includes this Task Manager.".into());
+                        return;
+                    }
+                    let targets: Vec<_> = pending
+                        .targets
+                        .into_iter()
+                        .map(|id| {
                             let name = self
                                 .model
                                 .processes
                                 .get(&id)
-                                .map_or("", |p| p.name.as_str());
-                            Some(format!("{name} (PID {}): {error}", id.pid))
+                                .map_or(String::new(), |p| p.name.clone());
+                            (id, name)
                         })
                         .collect();
-                    self.action_error = (!failures.is_empty()).then(|| failures.join("\n"));
+                    // Each process must exit before its descendants are ended.
+                    self.ending = Some(context.spawn_background(move |_| {
+                        Message::Ended(
+                            targets
+                                .into_iter()
+                                .filter_map(|(id, name)| {
+                                    let error =
+                                        inspect::terminate(id, Duration::from_secs(5)).err()?;
+                                    Some(format!("{name} (PID {}): {error}", id.pid))
+                                })
+                                .collect(),
+                        )
+                    }));
                 }
+            }
+            Message::Ended(failures) => {
+                self.ending = None;
+                self.action_error = (!failures.is_empty()).then(|| failures.join("\n"));
             }
             Message::DismissActionError => self.action_error = None,
             Message::Metric(metric) => self.metric = metric,
@@ -474,8 +502,9 @@ impl Component for Monitor {
             }
             None
         });
+        let can_end = options.live() && self.ending.is_none();
         let content = match self.page {
-            Page::Processes => self.processes_page(options.live(), context),
+            Page::Processes => self.processes_page(can_end, context),
             Page::Details => component::<Details>(
                 "details",
                 DetailInput {
@@ -515,7 +544,7 @@ impl Component for Monitor {
                     .vertical_alignment(VerticalAlignment::Center)
                     .content("End task")
                     .is_enabled(
-                        options.live()
+                        can_end
                             && self
                                 .model
                                 .selected
@@ -783,7 +812,7 @@ impl Monitor {
         }
     }
 
-    fn processes_page(&self, live: bool, context: &ViewContext<Self>) -> View {
+    fn processes_page(&self, can_end: bool, context: &ViewContext<Self>) -> View {
         let rows = Rc::clone(&self.model.visible);
         let keys = Rc::clone(&rows);
         let selected = self.model.selected;
@@ -805,7 +834,7 @@ impl Monitor {
                     on_collapse: on_collapse.clone(),
                     on_open: on_open.clone(),
                     on_end: on_end.clone(),
-                    live,
+                    can_end,
                     columns: Rc::clone(&columns),
                     widths: Rc::clone(&column_widths),
                 })
@@ -986,7 +1015,7 @@ struct RowInput {
     on_collapse: Callback<ProcessId>,
     on_open: Callback<ProcessId>,
     on_end: Callback<(ProcessId, bool)>,
-    live: bool,
+    can_end: bool,
     columns: Rc<[Column]>,
     widths: Rc<[f64; Column::ALL.len()]>,
 }
@@ -1045,7 +1074,7 @@ impl Component for ProcessRow {
         let open = input.on_open.clone();
         let end = input.on_end.clone();
         let action = |key, label| {
-            if input.live {
+            if input.can_end {
                 MenuItem::item(key, label)
             } else {
                 MenuItem::disabled(key, label)

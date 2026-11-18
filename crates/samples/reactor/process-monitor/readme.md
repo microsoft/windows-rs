@@ -29,10 +29,12 @@ expands their paths. Pause stops scheduling new snapshots; an in-flight snapshot
 
 Right-click a row for **Details**, **End task**, and **End process tree**, or select a row and
 choose **End task** above the table. Both ask for confirmation. The process tree is captured when
-the dialog opens and ends parents before children, so a parent cannot replace children that were
-just ended. Each process is opened with PROCESS_TERMINATE and its creation time checked first, so
-a reused PID is never ended. Failures, such as access denied for elevated or protected processes,
-are listed in a closable error bar. Ending processes is available only in live mode.
+the dialog opens and is ended on a background thread, parents before children: each process must
+exit, within 5 seconds, before its descendants are ended, so a parent cannot replace children that
+were just ended. A tree that includes the monitor itself is refused. Each process is opened with
+PROCESS_TERMINATE and its creation time checked first, so a reused PID is never ended. Failures,
+such as access denied for elevated or protected processes, are listed in a closable error bar.
+Ending processes is available only in live mode.
 
 The **Details** page opens the selected process with `PROCESS_QUERY_LIMITED_INFORMATION` and checks
 its creation time before every query, so a reused PID is never described as the original process.
