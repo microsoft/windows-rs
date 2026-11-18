@@ -189,25 +189,41 @@ pub fn run_clicks() -> windows_core::Result<()> {
 // queued callback was lost.
 struct RoutingFixture {
     mode: usize,
+    entered: usize,
     calls: Rc<std::cell::RefCell<Vec<&'static str>>>,
+}
+
+#[derive(Clone)]
+enum RoutingMessage {
+    Mode,
+    Call,
+    Entered,
 }
 
 impl Component for RoutingFixture {
     type Input = ();
-    type Message = bool;
+    type Message = RoutingMessage;
 
     fn create(_: &(), _: &ComponentContext<Self>) -> Self {
         Self {
             mode: 0,
+            entered: 0,
             calls: Rc::default(),
         }
     }
 
-    fn update(&mut self, change_mode: bool, _: &ComponentContext<Self>) {
-        eprintln!("routing: update change_mode={change_mode}");
-        if change_mode {
-            self.mode = (self.mode + 1) % 3;
-            self.calls.borrow_mut().clear();
+    fn update(&mut self, message: RoutingMessage, _: &ComponentContext<Self>) {
+        match message {
+            RoutingMessage::Mode => {
+                eprintln!("routing: update mode");
+                self.mode = (self.mode + 1) % 3;
+                self.calls.borrow_mut().clear();
+            }
+            RoutingMessage::Call => eprintln!("routing: update call"),
+            RoutingMessage::Entered => {
+                self.entered += 1;
+                eprintln!("routing: entered {}", self.entered);
+            }
         }
     }
 
@@ -218,7 +234,7 @@ impl Component for RoutingFixture {
             self.calls.borrow()
         );
         let calls = Rc::clone(&self.calls);
-        let notify = context.message(false);
+        let notify = context.message(RoutingMessage::Call);
         let callback: PointerCallback = if self.mode == 0 {
             Callback::new(move |_: PointerEventInfo| {
                 eprintln!("routing: queued");
@@ -243,7 +259,7 @@ impl Component for RoutingFixture {
                 Button::new()
                     .automation_id("mode")
                     .content("Change mode")
-                    .on_click(context.message(true)),
+                    .on_click(context.message(RoutingMessage::Mode)),
                 Border::new()
                     .on_pointer_pressed(RoutedCallback::new(move |_| {
                         eprintln!("routing: parent");
@@ -255,6 +271,7 @@ impl Component for RoutingFixture {
                             .width(200.0)
                             .height(100.0)
                             .background(Color::rgb(240, 240, 240))
+                            .on_pointer_entered(context.callback(|_| RoutingMessage::Entered))
                             .on_pointer_pressed(callback)
                             .content(
                                 TextBlock::new()
@@ -268,6 +285,9 @@ impl Component for RoutingFixture {
                 TextBlock::new()
                     .automation_id("calls")
                     .text(self.calls.borrow().join(", ")),
+                TextBlock::new()
+                    .automation_id("routing-entered")
+                    .text(format!("Entered {}", self.entered)),
             )),
         )
     }

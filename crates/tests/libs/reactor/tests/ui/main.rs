@@ -149,11 +149,13 @@ fn pointer_delivery_modes_preserve_routing_and_queued_order() -> Result<()> {
         .into_iter()
         .enumerate()
         {
-            if index != 0 {
+            if index == 0 {
+                ui.pointer_enter("routing-target", "routing-entered", "Entered 1")?;
+            } else {
                 ui.invoke("mode")?;
                 ui.name("mode-state", &format!("Mode {}", index % 3))?;
+                ui.pointer_move("routing-target", 0.5, 0.5)?;
             }
-            ui.pointer_move("routing-target", 0.5, 0.5)?;
             ui.pointer_clicks(1)?;
             ui.name("calls", expected)?;
         }

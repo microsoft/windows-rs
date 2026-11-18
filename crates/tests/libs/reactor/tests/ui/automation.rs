@@ -5,6 +5,7 @@ use std::sync::{Arc, Mutex};
 use windows_core::{HRESULT, Interface};
 
 pub const ELEMENT_UNAVAILABLE: HRESULT = HRESULT(0x80040201u32 as i32);
+const UIA_TIMEOUT: HRESULT = HRESULT(0x80131505u32 as i32);
 pub const INVOKE_PATTERN: i32 = 10000;
 pub(super) const VALUE_PATTERN: i32 = 10002;
 pub(super) const RANGE_VALUE_PATTERN: i32 = 10003;
@@ -166,7 +167,14 @@ impl Automation {
             match &observed {
                 Ok(value) if ready(value) => return Ok(observed?),
                 Ok(_) => {}
-                Err(error) if error.code() == ELEMENT_UNAVAILABLE => {}
+                Err(error) if transient(error) => {
+                    if error.code() == UIA_TIMEOUT {
+                        eprintln!(
+                            "sample timed out after {} ms; repeating",
+                            started.elapsed().as_millis()
+                        );
+                    }
+                }
                 Err(error) => {
                     eprintln!(
                         "sample failed after {} ms: {error}",
@@ -665,7 +673,7 @@ impl Automation {
                 match name {
                     Ok(Some(name)) if name == expected => return Ok(()),
                     Ok(_) => {}
-                    Err(error) if error.code() == ELEMENT_UNAVAILABLE => {}
+                    Err(error) if transient(&error) => {}
                     Err(error) => return Err(error.into()),
                 }
                 if Instant::now() >= delivered {
@@ -1116,9 +1124,17 @@ impl Automation {
     }
 }
 
+// A search that overlaps a change to the UI tree can fail with ELEMENT_UNAVAILABLE. WinUI can
+// instead fail it with UIA_E_TIMEOUT within about 100 ms, for example while a popup window closes
+// or while a fixture starts; a WinForms popup only produced ELEMENT_UNAVAILABLE. Both mean the
+// tree changed during the search, so the sample is repeated until the caller's deadline.
+fn transient(error: &windows_core::Error) -> bool {
+    error.code() == ELEMENT_UNAVAILABLE || error.code() == UIA_TIMEOUT
+}
+
 // Identifies the top-level window whose subtree failed so it can be matched with the window probe.
 fn log_root(root: &IUIAutomationElement, error: &windows_core::Error) {
-    if error.code() == ELEMENT_UNAVAILABLE {
+    if transient(error) {
         return;
     }
     let window = unsafe { root.CurrentNativeWindowHandle() };
