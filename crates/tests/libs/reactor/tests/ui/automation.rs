@@ -120,9 +120,10 @@ impl Automation {
             let all = self.client.CreateTrueCondition()?;
             let mut found = None;
             for root in 0..roots.Length()? {
-                let elements = roots
-                    .GetElement(root)?
-                    .FindAll(TreeScope_Descendants, &all)?;
+                let root = roots.GetElement(root)?;
+                let elements = root
+                    .FindAll(TreeScope_Descendants, &all)
+                    .inspect_err(|error| log_root(&root, error))?;
                 for index in 0..elements.Length()? {
                     let element = elements.GetElement(index)?;
                     let name = if let Some(control_type) = control_type {
@@ -159,13 +160,20 @@ impl Automation {
         let deadline = Instant::now() + Duration::from_secs(5);
         loop {
             self.ensure_active()?;
+            let started = Instant::now();
             let observed = sample();
             self.ensure_active()?;
             match &observed {
                 Ok(value) if ready(value) => return Ok(observed?),
                 Ok(_) => {}
                 Err(error) if error.code() == ELEMENT_UNAVAILABLE => {}
-                Err(error) => return Err(format!("{description}: {error}").into()),
+                Err(error) => {
+                    eprintln!(
+                        "sample failed after {} ms: {error}",
+                        started.elapsed().as_millis()
+                    );
+                    return Err(format!("{description}: {error}").into());
+                }
             }
             if Instant::now() >= deadline {
                 if let Err(error) = self.dump() {
@@ -1067,4 +1075,14 @@ impl Automation {
         }
         Ok(())
     }
+}
+
+// Identifies the top-level window whose subtree failed so it can be matched with the window probe.
+fn log_root(root: &IUIAutomationElement, error: &windows_core::Error) {
+    if error.code() == ELEMENT_UNAVAILABLE {
+        return;
+    }
+    let window = unsafe { root.CurrentNativeWindowHandle() };
+    let name = unsafe { root.CurrentName() };
+    eprintln!("root {window:?} {name:?} failed: {error}");
 }
