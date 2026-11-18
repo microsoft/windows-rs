@@ -364,13 +364,14 @@ impl Component for TaskManager {
                 }
                 self.model.rebuild();
             }
-            Message::Pause => {
+            Message::Pause if !self.finished => {
                 self.paused = !self.paused;
                 self.timer = None;
                 if !self.paused {
                     self.acquire(context);
                 }
             }
+            Message::Pause => {}
             Message::Navigate(tag) => match tag.as_deref() {
                 Some("processes") => self.page = Page::Processes,
                 Some("details") => self.page = Page::Details,
@@ -545,7 +546,6 @@ impl Component for TaskManager {
                 performance::graph_button(self.cpu_view, context.callback(Message::CpuView)),
             ));
         }
-        actions.push(keyed("pause", self.pause_button(context)));
         let mut page = vec![
             keyed(
                 "heading",
@@ -635,18 +635,31 @@ impl Component for TaskManager {
                 .primary_button_text("End process"),
             None => ContentDialog::new(),
         };
-        Grid::new()
+        let pause = context.callback(|()| Message::Pause);
+        let root = Grid::new()
             .rows([GridLength::Auto, GridLength::STAR])
             .children((
                 TitleBar::new()
                     .title("Task Manager")
-                    .subtitle(if options.demo {
-                        "Demo"
-                    } else if options.live() {
-                        "Live"
-                    } else {
-                        "Replay"
-                    })
+                    .subtitle(format!(
+                        "{}{}",
+                        if options.demo {
+                            "Demo"
+                        } else if options.live() {
+                            "Live"
+                        } else {
+                            "Replay"
+                        },
+                        if self.error.is_some() {
+                            " - stopped"
+                        } else if self.finished {
+                            " - complete"
+                        } else if self.paused {
+                            " - paused (Ctrl+Space to resume)"
+                        } else {
+                            ""
+                        }
+                    ))
                     .preferred_height(WindowTitleBarHeight::Tall)
                     .content(
                         TextBox::new()
@@ -716,7 +729,20 @@ impl Component for TaskManager {
                     .default_button(ContentDialogButton::Close)
                     .is_open(self.pending.is_some())
                     .on_closed(context.callback(Message::Confirmed)),
-            )
+            );
+        // Ctrl+Space pauses wherever focus is. A preview handler runs before the focused control,
+        // which would otherwise treat it as Space and activate a row or button.
+        Border::new()
+            .on_preview_key_down(RoutedCallback::new(move |info: KeyEventInfo| {
+                let toggle =
+                    info.key == VirtualKey::SPACE && info.modifiers == InputModifiers::CONTROL;
+                if toggle && !info.status.was_down {
+                    pause.call(());
+                }
+                toggle
+            }))
+            .content(root)
+            .into()
     }
 }
 
@@ -744,24 +770,6 @@ impl TaskManager {
                 Flyout::rich(StackPanel::new().children(choices))
                     .placement(FlyoutPlacement::BottomEdgeAlignedRight),
             )
-    }
-
-    fn pause_button(&self, context: &ViewContext<Self>) -> Button {
-        Button::new()
-            .automation_id("pause")
-            .min_width(88.0)
-            .vertical_alignment(VerticalAlignment::Center)
-            .content(if self.error.is_some() {
-                "Stopped"
-            } else if self.finished {
-                "Complete"
-            } else if self.paused {
-                "Resume"
-            } else {
-                "Pause"
-            })
-            .is_enabled(!self.finished)
-            .on_click(context.callback(|()| Message::Pause))
     }
 
     fn status(&self, options: &Options) -> String {
@@ -1020,6 +1028,7 @@ impl Component for ProcessRow {
         let mut cells: Vec<View> = vec![
             TextBlock::new()
                 .text(&process.name)
+                .foreground(ThemeBrush::PrimaryText)
                 .text_trimming(TextTrimming::CharacterEllipsis)
                 .vertical_alignment(VerticalAlignment::Center)
                 .margin(Thickness::new(indent + 36.0, 0.0, 12.0, 0.0))
@@ -1034,6 +1043,7 @@ impl Component for ProcessRow {
                     .text_alignment(TextAlignment::Right)
                     .margin(Thickness::xy(12.0, 0.0))
                     .text(cell(column, process))
+                    .foreground(ThemeBrush::PrimaryText)
                     .into(),
             );
         }
@@ -1075,9 +1085,24 @@ impl Component for ProcessRow {
                 }
             },
         );
+        let right_select = input.on_select.clone();
         let mut children: Vec<View> = vec![
+            // The selection background is drawn here rather than on the button, whose hover and
+            // pressed states are made transparent, so moving or clicking does not change colors.
             Border::new()
+                .corner_radius(4.0)
+                .background(if input.selected {
+                    Brush::from(ThemeBrush::CardBackground)
+                } else {
+                    Color::transparent().into()
+                })
                 .on_double_tapped(move || open.call(id))
+                // Like Task Manager and Process Explorer, right-clicking a row selects it.
+                .on_pointer_pressed(move |info: PointerEventInfo| {
+                    if info.is_right_button_pressed {
+                        right_select.call(id);
+                    }
+                })
                 .content(
                     Button::new()
                         .automation_id(format!("process-{}", id.pid))
@@ -1092,11 +1117,13 @@ impl Component for ProcessRow {
                                 .unwrap_or("Select to inspect process details.")
                         ))
                         .style(ButtonStyle::Subtle)
-                        .background(if input.selected {
-                            ThemeBrush::CardBackground
-                        } else {
-                            ThemeBrush::SolidBackground
-                        })
+                        .resource_overrides(
+                            ResourceOverrides::new()
+                                .set("SubtleButtonBackgroundPointerOver", Color::transparent())
+                                .set("SubtleButtonBackgroundPressed", Color::transparent())
+                                .set("SubtleButtonBorderBrushPointerOver", Color::transparent())
+                                .set("SubtleButtonBorderBrushPressed", Color::transparent()),
+                        )
                         .height(32.0)
                         .horizontal_alignment(HorizontalAlignment::Stretch)
                         .horizontal_content_alignment(HorizontalAlignment::Stretch)
