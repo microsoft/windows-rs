@@ -25,14 +25,15 @@ sort ascending and resource columns descending; unavailable values stay last. Hi
 column sorts by name. Drag the divider at the right edge of a heading to resize a column; the table
 scrolls horizontally when the window is narrower than its columns. Tree mode sorts siblings. Turn
 off **Process tree** for a global ranking. Filtering retains ancestors of matching processes and
-expands their paths. Pause stops scheduling new snapshots; an in-flight snapshot can still complete.
+expands their paths. Ctrl+Space pauses and resumes updates, as shown in the title bar; pausing stops
+scheduling new snapshots, but an in-flight snapshot can still complete.
 
-Right-click a row for **Details**, **End task**, and **End process tree**, or select a row and
-choose **End task** above the table. Both ask for confirmation. Windows has no process tree, so,
-like .NET's `Process.Kill(entireProcessTree: true)`, ending a tree is best effort: descendants are
-captured from parent PIDs and creation times when the dialog opens, then each process is ended
-before its descendants, without waiting for it to exit. A failure does not stop the rest of the
-tree. A tree that includes Task Manager itself is refused. Each process is opened with
+Right-click a row to select it and show **Details**, **End task**, and **End process tree**, or
+select a row and choose **End task** above the table. Both ask for confirmation. Windows has no
+process tree, so, like .NET's `Process.Kill(entireProcessTree: true)`, ending a tree is best effort:
+descendants are captured from parent PIDs and creation times when the dialog opens, then each
+process is ended before its descendants, without waiting for it to exit. A failure does not stop the
+rest of the tree. A tree that includes Task Manager itself is refused. Each process is opened with
 `PROCESS_TERMINATE` and its creation time checked first, so a reused PID is never ended. Failures,
 such as access denied for elevated or protected processes, are listed in a closable error bar.
 Ending processes is available only in live mode.
@@ -59,7 +60,7 @@ identity. The chart's accessibility help text includes each processor's current 
 Memory labels follow Task Manager's MB/GB convention, using powers of 1024.
 
 History covers the last 60 recorded seconds, retaining the latest observation per second. CPU
-collection runs at most once per second even when process refresh is faster. Pause freezes the
+collection runs at most once per second even when process refresh is faster. Pausing freezes the
 display. Sampling continues across pages, and history, chart selection, process selection, sorting,
 and filtering are retained. Returning to Processes recreates its native list and starts at the top.
 CPU and Memory share one demand-driven drawing surface. Switching metrics reuses its GPU device;
