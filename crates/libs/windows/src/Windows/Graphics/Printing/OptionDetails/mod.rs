@@ -171,8 +171,7 @@ impl IPrintCustomOptionDetails_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintCustomOptionDetails_Impl::DisplayName(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -324,8 +323,7 @@ impl IPrintItemListOptionDetails_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintItemListOptionDetails_Impl::Items(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -562,8 +560,7 @@ impl IPrintOptionDetails_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintOptionDetails_Impl::OptionId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -599,8 +596,7 @@ impl IPrintOptionDetails_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintOptionDetails_Impl::ErrorText(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -636,8 +632,7 @@ impl IPrintOptionDetails_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintOptionDetails_Impl::Value(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

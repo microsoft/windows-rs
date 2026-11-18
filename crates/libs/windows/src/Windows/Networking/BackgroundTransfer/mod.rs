@@ -1322,8 +1322,7 @@ impl IBackgroundTransferBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferBase_Impl::ServerCredential(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1344,8 +1343,7 @@ impl IBackgroundTransferBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferBase_Impl::ProxyCredential(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1366,8 +1364,7 @@ impl IBackgroundTransferBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferBase_Impl::Method(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1388,8 +1385,7 @@ impl IBackgroundTransferBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferBase_Impl::Group(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1535,8 +1531,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferContentPartFactory_Impl::CreateWithName(this, &*(&raw const name).cast()) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1551,8 +1546,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferContentPartFactory_Impl::CreateWithNameAndFileName(this, &*(&raw const name).cast(), &*(&raw const filename).cast()) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1693,8 +1687,7 @@ impl IBackgroundTransferOperation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferOperation_Impl::RequestedUri(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1709,8 +1702,7 @@ impl IBackgroundTransferOperation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferOperation_Impl::Method(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1725,8 +1717,7 @@ impl IBackgroundTransferOperation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferOperation_Impl::Group(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1762,8 +1753,7 @@ impl IBackgroundTransferOperation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferOperation_Impl::GetResultStreamAt(this, position) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1778,8 +1768,7 @@ impl IBackgroundTransferOperation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundTransferOperation_Impl::GetResponseInformation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

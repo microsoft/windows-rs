@@ -393,8 +393,7 @@ impl IActivatedEventArgsDeferral_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActivatedEventArgsDeferral_Impl::ActivatedOperation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -626,8 +625,7 @@ impl IWebUINavigatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWebUINavigatedEventArgs_Impl::NavigatedOperation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

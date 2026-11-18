@@ -1835,8 +1835,7 @@ impl IActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActivatedEventArgs_Impl::SplashScreen(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1914,8 +1913,7 @@ impl IActivatedEventArgsWithUser_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActivatedEventArgsWithUser_Impl::User(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2055,8 +2053,7 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentsProviderActivatedEventArgs_Impl::Verb(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2134,8 +2131,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl::AddAppointmentOperation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2216,8 +2212,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl::RemoveAppointmentOperation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2298,8 +2293,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl::ReplaceAppointmentOperation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2390,8 +2384,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::InstanceStartDate(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2406,8 +2399,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::LocalId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2422,8 +2414,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::RoamingId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2580,8 +2571,7 @@ impl IBackgroundActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundActivatedEventArgs_Impl::TaskInstance(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2651,8 +2641,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBarcodeScannerPreviewActivatedEventArgs_Impl::ConnectionId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2723,8 +2712,7 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICachedFileUpdaterActivatedEventArgs_Impl::CachedFileUpdaterUI(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2801,8 +2789,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICameraSettingsActivatedEventArgs_Impl::VideoDeviceController(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2817,8 +2804,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICameraSettingsActivatedEventArgs_Impl::VideoDeviceExtension(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2890,8 +2876,7 @@ impl ICommandLineActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICommandLineActivatedEventArgs_Impl::Operation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2969,8 +2954,7 @@ impl IContactActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactActivatedEventArgs_Impl::Verb(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3062,8 +3046,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactCallActivatedEventArgs_Impl::ServiceId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3078,8 +3061,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactCallActivatedEventArgs_Impl::ServiceUserId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3094,8 +3076,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactCallActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3191,8 +3172,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactMapActivatedEventArgs_Impl::Address(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3207,8 +3187,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactMapActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3307,8 +3286,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactMessageActivatedEventArgs_Impl::ServiceId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3323,8 +3301,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactMessageActivatedEventArgs_Impl::ServiceUserId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3339,8 +3316,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactMessageActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3407,8 +3383,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactPanelActivatedEventArgs_Impl::ContactPanel(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3423,8 +3398,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactPanelActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3506,8 +3480,7 @@ impl IContactPickerActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactPickerActivatedEventArgs_Impl::ContactPickerUI(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3602,8 +3575,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactPostActivatedEventArgs_Impl::ServiceId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3618,8 +3590,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactPostActivatedEventArgs_Impl::ServiceUserId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3634,8 +3605,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactPostActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3737,8 +3707,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactVideoCallActivatedEventArgs_Impl::ServiceId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3753,8 +3722,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactVideoCallActivatedEventArgs_Impl::ServiceUserId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3769,8 +3737,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactVideoCallActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3847,8 +3814,7 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactsProviderActivatedEventArgs_Impl::Verb(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3919,8 +3885,7 @@ impl IContinuationActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContinuationActivatedEventArgs_Impl::ContinuationData(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -3997,8 +3962,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeviceActivatedEventArgs_Impl::DeviceInformationId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4013,8 +3977,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeviceActivatedEventArgs_Impl::Verb(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4090,8 +4053,7 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDevicePairingActivatedEventArgs_Impl::DeviceInformation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4175,8 +4137,7 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDialReceiverActivatedEventArgs_Impl::AppName(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4254,8 +4215,7 @@ impl IFileActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileActivatedEventArgs_Impl::Files(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4270,8 +4230,7 @@ impl IFileActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileActivatedEventArgs_Impl::Verb(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4342,8 +4301,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileActivatedEventArgsWithCallerPackageFamilyName_Impl::CallerPackageFamilyName(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4429,8 +4387,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileActivatedEventArgsWithNeighboringFiles_Impl::NeighboringFilesQuery(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4504,8 +4461,7 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileOpenPickerActivatedEventArgs_Impl::FileOpenPickerUI(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4553,8 +4509,7 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileOpenPickerActivatedEventArgs2_Impl::CallerPackageFamilyName(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4633,8 +4588,7 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileOpenPickerContinuationEventArgs_Impl::Files(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4708,8 +4662,7 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSavePickerActivatedEventArgs_Impl::FileSavePickerUI(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4764,8 +4717,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSavePickerActivatedEventArgs2_Impl::CallerPackageFamilyName(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4780,8 +4732,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSavePickerActivatedEventArgs2_Impl::EnterpriseId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4865,8 +4816,7 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSavePickerContinuationEventArgs_Impl::File(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4948,8 +4898,7 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFolderPickerContinuationEventArgs_Impl::Folder(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5026,8 +4975,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILaunchActivatedEventArgs_Impl::Arguments(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5042,8 +4990,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILaunchActivatedEventArgs_Impl::TileId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5125,8 +5072,7 @@ impl ILaunchActivatedEventArgs2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILaunchActivatedEventArgs2_Impl::TileActivatedInfo(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5193,8 +5139,7 @@ impl ILockScreenActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILockScreenActivatedEventArgs_Impl::Info(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5279,8 +5224,7 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILockScreenCallActivatedEventArgs_Impl::CallUI(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5417,8 +5361,7 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPickerReturnedActivatedEventArgs_Impl::PickerOperationId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5556,8 +5499,7 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrint3DWorkflowActivatedEventArgs_Impl::Workflow(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5631,8 +5573,7 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintTaskSettingsActivatedEventArgs_Impl::Configuration(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5702,8 +5643,7 @@ impl IProtocolActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProtocolActivatedEventArgs_Impl::Uri(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5781,8 +5721,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl::CallerPackageFamilyName(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5797,8 +5736,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl::Data(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5877,8 +5815,7 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProtocolForResultsActivatedEventArgs_Impl::ProtocolForResultsOperation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -5948,8 +5885,7 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRestrictedLaunchActivatedEventArgs_Impl::SharedContext(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6023,8 +5959,7 @@ impl ISearchActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISearchActivatedEventArgs_Impl::QueryText(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6039,8 +5974,7 @@ impl ISearchActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISearchActivatedEventArgs_Impl::Language(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6094,8 +6028,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISearchActivatedEventArgsWithLinguisticDetails_Impl::LinguisticDetails(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6169,8 +6102,7 @@ impl IShareTargetActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IShareTargetActivatedEventArgs_Impl::ShareOperation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6249,8 +6181,7 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStartupTaskActivatedEventArgs_Impl::TaskId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6338,8 +6269,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IToastNotificationActivatedEventArgs_Impl::Argument(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6354,8 +6284,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IToastNotificationActivatedEventArgs_Impl::UserInput(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6434,8 +6363,7 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUserDataAccountProviderActivatedEventArgs_Impl::Operation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6509,8 +6437,7 @@ impl IViewSwitcherProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewSwitcherProvider_Impl::ViewSwitcher(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6584,8 +6511,7 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVoiceCommandActivatedEventArgs_Impl::Result(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6673,8 +6599,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWalletActionActivatedEventArgs_Impl::ItemId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6704,8 +6629,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWalletActionActivatedEventArgs_Impl::ActionId(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6786,8 +6710,7 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWebAccountProviderActivatedEventArgs_Impl::Operation(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -6869,8 +6792,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWebAuthenticationBrokerContinuationEventArgs_Impl::WebAuthenticationResult(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

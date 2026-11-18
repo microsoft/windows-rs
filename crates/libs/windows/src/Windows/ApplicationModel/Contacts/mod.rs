@@ -4301,8 +4301,7 @@ impl IContactField_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactField_Impl::Name(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4317,8 +4316,7 @@ impl IContactField_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactField_Impl::Value(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4386,8 +4384,7 @@ impl IContactFieldFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactFieldFactory_Impl::CreateField_Default(this, &*(&raw const value).cast(), r#type) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4402,8 +4399,7 @@ impl IContactFieldFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactFieldFactory_Impl::CreateField_Category(this, &*(&raw const value).cast(), r#type, category) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4418,8 +4414,7 @@ impl IContactFieldFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactFieldFactory_Impl::CreateField_Custom(this, &*(&raw const name).cast(), &*(&raw const value).cast(), r#type, category) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4521,8 +4516,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_Default(this, &*(&raw const username).cast()) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4537,8 +4531,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_Category(this, &*(&raw const username).cast(), category) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4553,8 +4546,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_All(this, &*(&raw const username).cast(), category, &*(&raw const service).cast(), &*(&raw const displaytext).cast(), core::mem::transmute_copy(&verb)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4804,8 +4796,7 @@ impl IContactLocationFieldFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactLocationFieldFactory_Impl::CreateLocation_Default(this, &*(&raw const unstructuredaddress).cast()) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4820,8 +4811,7 @@ impl IContactLocationFieldFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactLocationFieldFactory_Impl::CreateLocation_Category(this, &*(&raw const unstructuredaddress).cast(), category) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -4836,8 +4826,7 @@ impl IContactLocationFieldFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactLocationFieldFactory_Impl::CreateLocation_All(this, &*(&raw const unstructuredaddress).cast(), category, &*(&raw const street).cast(), &*(&raw const city).cast(), &*(&raw const region).cast(), &*(&raw const country).cast(), &*(&raw const postalcode).cast()) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

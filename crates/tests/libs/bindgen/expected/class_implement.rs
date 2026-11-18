@@ -102,8 +102,7 @@ impl IClass_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IClass_Impl::Name(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

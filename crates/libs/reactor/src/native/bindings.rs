@@ -9675,8 +9675,7 @@ impl IElementFactory_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IElementFactory_Impl::GetElement(this, core::mem::transmute_copy(&args)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -11689,8 +11688,7 @@ impl IKeyIndexMapping_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKeyIndexMapping_Impl::KeyFromIndex(this, index) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -21065,8 +21063,7 @@ impl IXamlMetadataProvider_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXamlMetadataProvider_Impl::GetXamlType(this, &*(&raw const r#type).cast()) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -21092,8 +21089,7 @@ impl IXamlMetadataProvider_Vtbl {
                     &*(&raw const fullname).cast(),
                 ) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -21117,7 +21113,7 @@ impl IXamlMetadataProvider_Vtbl {
                 match IXamlMetadataProvider_Impl::GetXmlnsDefinitions(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }

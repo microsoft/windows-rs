@@ -107,8 +107,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISysStorageProviderHandlerFactory_Impl::GetHttpRequestProvider(this, &*(&raw const syncrootid).cast()) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -123,8 +122,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISysStorageProviderHandlerFactory_Impl::GetEventSource(this, &*(&raw const syncrootid).cast(), &*(&raw const eventname).cast()) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -181,8 +179,7 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISysStorageProviderHttpRequestProvider_Impl::SendRequestAsync(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {

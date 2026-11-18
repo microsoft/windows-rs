@@ -913,23 +913,6 @@ impl Type {
         matches!(self, Self::ArrayRef(_))
     }
 
-    /// Returns `true` when `write_abi` emits `*mut core::ffi::c_void` for this
-    /// type - i.e. the ABI representation is a raw COM/HSTRING pointer rather
-    /// than the Rust type itself or `ManuallyDrop<Self>`.
-    pub fn has_pointer_abi(&self) -> bool {
-        matches!(
-            self,
-            Self::IUnknown
-                | Self::Object
-                | Self::Delegate(_)
-                | Self::Class(_)
-                | Self::CppInterface(_)
-                | Self::Interface(_)
-                | Self::String
-                | Self::BSTR
-        )
-    }
-
     pub fn is_async(&self) -> bool {
         match self {
             Self::Interface(ty) => ty.def.is_async(),

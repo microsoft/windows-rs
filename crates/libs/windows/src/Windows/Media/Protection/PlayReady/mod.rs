@@ -94,7 +94,7 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
                 match INDClosedCaptionDataReceivedEventArgs_Impl::ClosedCaptionData(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -158,7 +158,7 @@ impl INDCustomData_Vtbl {
                 match INDCustomData_Impl::CustomDataTypeID(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -176,7 +176,7 @@ impl INDCustomData_Vtbl {
                 match INDCustomData_Impl::CustomData(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -354,8 +354,7 @@ impl INDDownloadEngine_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDDownloadEngine_Impl::Notifier(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -518,8 +517,7 @@ impl INDLicenseFetchCompletedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDLicenseFetchCompletedEventArgs_Impl::ResponseCustomData(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -602,7 +600,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
                 match INDLicenseFetchDescriptor_Impl::ContentID(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -619,8 +617,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDLicenseFetchDescriptor_Impl::LicenseFetchChallengeCustomData(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -687,8 +684,7 @@ impl INDLicenseFetchResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDLicenseFetchResult_Impl::ResponseCustomData(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -754,8 +750,7 @@ impl INDMessenger_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDMessenger_Impl::SendRegistrationRequestAsync(this, windows_core::imp::array_slice(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size), windows_core::imp::array_slice(core::mem::transmute_copy(&challengedatabytes), challengedatabytes_array_size)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -770,8 +765,7 @@ impl INDMessenger_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDMessenger_Impl::SendProximityDetectionStartAsync(this, pdtype, windows_core::imp::array_slice(core::mem::transmute_copy(&transmitterchannelbytes), transmitterchannelbytes_array_size), windows_core::imp::array_slice(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size), windows_core::imp::array_slice(core::mem::transmute_copy(&challengedatabytes), challengedatabytes_array_size)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -786,8 +780,7 @@ impl INDMessenger_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDMessenger_Impl::SendProximityDetectionResponseAsync(this, pdtype, windows_core::imp::array_slice(core::mem::transmute_copy(&transmitterchannelbytes), transmitterchannelbytes_array_size), windows_core::imp::array_slice(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size), windows_core::imp::array_slice(core::mem::transmute_copy(&responsedatabytes), responsedatabytes_array_size)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -802,8 +795,7 @@ impl INDMessenger_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDMessenger_Impl::SendLicenseFetchRequestAsync(this, windows_core::imp::array_slice(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size), windows_core::imp::array_slice(core::mem::transmute_copy(&challengedatabytes), challengedatabytes_array_size)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -923,8 +915,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDRegistrationCompletedEventArgs_Impl::ResponseCustomData(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -939,8 +930,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDRegistrationCompletedEventArgs_Impl::TransmitterProperties(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1017,7 +1007,7 @@ impl INDSendResult_Vtbl {
                 match INDSendResult_Impl::Response(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1068,8 +1058,7 @@ impl INDStartResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDStartResult_Impl::MediaStreamSource(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1124,8 +1113,7 @@ impl INDStorageFileHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDStorageFileHelper_Impl::GetFileURLs(this, core::mem::transmute_copy(&file)) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1232,8 +1220,7 @@ impl INDStreamParser_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDStreamParser_Impl::Notifier(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1503,7 +1490,7 @@ impl INDTransmitterProperties_Vtbl {
                 match INDTransmitterProperties_Impl::SupportedFeatures(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1566,7 +1553,7 @@ impl INDTransmitterProperties_Vtbl {
                 match INDTransmitterProperties_Impl::ClientID(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1584,7 +1571,7 @@ impl INDTransmitterProperties_Vtbl {
                 match INDTransmitterProperties_Impl::ModelDigest(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1601,8 +1588,7 @@ impl INDTransmitterProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDTransmitterProperties_Impl::ModelManufacturerName(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1617,8 +1603,7 @@ impl INDTransmitterProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDTransmitterProperties_Impl::ModelName(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1633,8 +1618,7 @@ impl INDTransmitterProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDTransmitterProperties_Impl::ModelNumber(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1822,8 +1806,7 @@ impl IPlayReadyDomain_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyDomain_Impl::FriendlyName(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -1838,8 +1821,7 @@ impl IPlayReadyDomain_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyDomain_Impl::DomainJoinUrl(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2012,8 +1994,7 @@ impl IPlayReadyLicense_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyLicense_Impl::ExpirationDate(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2236,8 +2217,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyLicenseAcquisitionServiceRequest_Impl::ContentHeader(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2353,8 +2333,7 @@ impl IPlayReadyLicenseSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyLicenseSession_Impl::CreateLAServiceRequest(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2428,8 +2407,7 @@ impl IPlayReadyLicenseSession2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyLicenseSession2_Impl::CreateLicenseIterable(this, core::mem::transmute_copy(&contentheader), fullyevaluated) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2670,7 +2648,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                 match IPlayReadySecureStopServiceRequest_Impl::PublisherCertificate(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(ok_data__.cast());
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -2804,8 +2782,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyServiceRequest_Impl::Uri(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2826,8 +2803,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyServiceRequest_Impl::ResponseCustomData(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2842,8 +2818,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyServiceRequest_Impl::ChallengeCustomData(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2864,8 +2839,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyServiceRequest_Impl::BeginServiceRequest(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2880,8 +2854,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyServiceRequest_Impl::NextServiceRequest(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
@@ -2896,8 +2869,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadyServiceRequest_Impl::GenerateManualEnablingChallenge(this) {
                     Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
+                        core::ptr::write(result__.cast(), ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => {
