@@ -177,6 +177,8 @@ fn main() {
             "SendMessageTimeoutW",
             "SMTO_ABORTIFHUNG",
             "SMTO_BLOCK",
+            "WM_NULL",
+            "GetClassNameW",
             "WM_GETICON",
             "ICON_BIG",
             "ICON_SMALL",
