@@ -164,8 +164,7 @@ fn pointer_delivery_modes_preserve_routing_and_queued_order() -> Result<()> {
 #[test]
 fn pointer_cursor_follows_declarations_under_a_stationary_pointer() -> Result<()> {
     process::run("pointer-cursor", |ui| {
-        ui.pointer_move("cursor-inner", 0.5, 0.5)?;
-        ui.name("cursor-entered", "Entered 1")?;
+        ui.pointer_enter("cursor-inner", "cursor-entered", "Entered 1")?;
         system_cursor(ui, "SizeWestEast", IDC_SIZEWE)?;
         // Invoke changes declarations without moving the pointer.
         ui.invoke("inner-cursor")?;
