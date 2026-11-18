@@ -379,3 +379,136 @@ impl Component for PlacementFixture {
             .into()
     }
 }
+
+pub(super) struct VisualsFixture {
+    constrained: bool,
+    dark: bool,
+    backdrop: WindowBackdrop,
+    moved: bool,
+    observed: WindowSize,
+}
+
+#[derive(Clone, Copy)]
+pub(super) enum VisualsMessage {
+    Constraints,
+    Theme,
+    Backdrop(WindowBackdrop),
+    Move,
+    Size(WindowSize),
+}
+
+impl Component for VisualsFixture {
+    type Input = ();
+    type Message = VisualsMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            constrained: true,
+            dark: true,
+            backdrop: WindowBackdrop::None,
+            moved: false,
+            observed: WindowSize::default(),
+        }
+    }
+
+    fn update(&mut self, message: VisualsMessage, _: &ComponentContext<Self>) {
+        match message {
+            VisualsMessage::Constraints => self.constrained = !self.constrained,
+            VisualsMessage::Theme => self.dark = !self.dark,
+            VisualsMessage::Backdrop(backdrop) => self.backdrop = backdrop,
+            VisualsMessage::Move => self.moved = true,
+            VisualsMessage::Size(size) => self.observed = size,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Reactor UI fixture: window-visuals");
+        context.on_window_size(context.callback(VisualsMessage::Size));
+        let position = if self.moved {
+            ScreenPoint::new(300, 260)
+        } else {
+            ScreenPoint::new(120, 90)
+        };
+        let mut visuals = WindowVisuals::new()
+            .client_size(480.0, 320.0)
+            .initial_position(position)
+            .backdrop(self.backdrop)
+            .theme(if self.dark {
+                WindowTheme::Dark
+            } else {
+                WindowTheme::Light
+            });
+        if self.constrained {
+            visuals = visuals.constraints(WindowConstraints {
+                min_width: Some(400.0),
+                min_height: Some(300.0),
+                max_width: Some(640.0),
+                max_height: Some(480.0),
+            });
+        }
+        context.window_visuals(visuals);
+        let backdrop = |id, name, backdrop| {
+            Button::new()
+                .automation_id(id)
+                .content(name)
+                .on_click(context.message(VisualsMessage::Backdrop(backdrop)))
+        };
+        Grid::new()
+            .rows([
+                GridLength::Auto,
+                GridLength::Auto,
+                GridLength::Auto,
+                GridLength::Auto,
+                GridLength::STAR,
+            ])
+            .margin(12.0)
+            .row_spacing(8.0)
+            .children((
+                TextBlock::new().automation_id("size").text(format!(
+                    "Size {:.3} x {:.3}",
+                    self.observed.width, self.observed.height
+                )),
+                TextBlock::new()
+                    .grid_row(1)
+                    .automation_id("state")
+                    .text(format!(
+                        "Constrained {}; dark {}; {:?}; moved {}",
+                        self.constrained, self.dark, self.backdrop, self.moved
+                    )),
+                StackPanel::new()
+                    .grid_row(2)
+                    .orientation(Orientation::Horizontal)
+                    .spacing(8.0)
+                    .children((
+                        Button::new()
+                            .automation_id("constraints")
+                            .content("Constraints")
+                            .on_click(context.message(VisualsMessage::Constraints)),
+                        Button::new()
+                            .automation_id("theme")
+                            .content("Theme")
+                            .on_click(context.message(VisualsMessage::Theme)),
+                        Button::new()
+                            .automation_id("move")
+                            .content("Position")
+                            .on_click(context.message(VisualsMessage::Move)),
+                    )),
+                StackPanel::new()
+                    .grid_row(3)
+                    .orientation(Orientation::Horizontal)
+                    .spacing(8.0)
+                    .children((
+                        backdrop("mica", "Mica", WindowBackdrop::Mica),
+                        backdrop("mica-alt", "Mica alt", WindowBackdrop::MicaAlt),
+                        backdrop("acrylic", "Acrylic", WindowBackdrop::Acrylic),
+                        backdrop("no-backdrop", "None", WindowBackdrop::None),
+                    )),
+                // Leaves the window background visible for pixel checks.
+                Border::new()
+                    .grid_row(4)
+                    .automation_id("swatch")
+                    .automation_name("Background"),
+            ))
+            .into()
+    }
+}

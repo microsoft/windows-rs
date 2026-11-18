@@ -68,6 +68,7 @@ fn main() {
             "KEYEVENTF_UNICODE",
             "KEYEVENTF_KEYUP",
             "VK_CONTROL",
+            "VK_SHIFT",
             "VK_SPACE",
             "VK_RETURN",
             "INPUT_MOUSE",

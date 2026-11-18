@@ -7,6 +7,7 @@ mod background;
 mod callback_lifetime;
 mod canvas;
 mod canvas_image;
+mod context;
 mod controlled;
 mod dialog;
 mod dialog_theme;
@@ -318,6 +319,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "canvas-submitted-input" => App::run_component::<canvas::SubmittedInputFixture>(())?,
         "canvas-root" => App::run_application::<canvas::CanvasRootFixture>(())?,
         "canvas-image" => App::run_component::<canvas_image::CanvasImageFixture>(())?,
+        "context" => App::run_component::<context::ContextFixture>(())?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
         "property-ownership" => App::run_component::<controlled::OwnershipFixture>(())?,
         "radio" => App::run_component::<controlled::RadioFixture>(())?,
@@ -408,6 +410,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "tray" => App::run_application::<tray::TrayFixture>(())?,
         "window" => App::run_component::<window::WindowFixture>(window::WindowMode::Native)?,
         "window-placement" => App::run_component::<window::PlacementFixture>(())?,
+        "window-visuals" => App::run_component::<window::VisualsFixture>(())?,
         "window-titlebar-initial" => App::run_component::<window::TitleBarFixture>(true)?,
         "window-titlebar-dynamic" => App::run_component::<window::TitleBarFixture>(false)?,
         "window-frame" => App::run_component::<window::WindowFixture>(window::WindowMode::Custom)?,
