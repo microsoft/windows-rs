@@ -108,10 +108,21 @@ pub fn run(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> Result
     }
 }
 
-// Tells a stalled fixture UI thread apart from a slow UI Automation service after a failure, using
-// window messages that do not go through UI Automation.
+// Logs the window under the cursor and the foreground window, to show whether injected input could
+// reach the fixture, then tells a stalled fixture UI thread apart from a slow UI Automation service
+// using window messages that do not go through UI Automation.
 fn probe_windows(process: u32) {
     unsafe {
+        let mut cursor = POINT::default();
+        if GetCursorPos(&mut cursor).as_bool() {
+            eprintln!(
+                "probe: cursor ({}, {}) over {}; foreground {}",
+                cursor.x,
+                cursor.y,
+                describe_window(WindowFromPoint(cursor)),
+                describe_window(GetForegroundWindow())
+            );
+        }
         let mut window = std::ptr::null_mut();
         loop {
             window = FindWindowExW(
@@ -128,13 +139,7 @@ fn probe_windows(process: u32) {
             if owner != process {
                 continue;
             }
-            let mut class = [0u16; 64];
-            let length = GetClassNameW(
-                window,
-                windows_core::PWSTR(class.as_mut_ptr()),
-                class.len() as i32,
-            ) as usize;
-            let class = String::from_utf16_lossy(&class[..length]);
+            let class = window_class(window);
             let start = Instant::now();
             let mut result = 0;
             let replied = SendMessageTimeoutW(
@@ -158,6 +163,27 @@ fn probe_windows(process: u32) {
             }
         }
     }
+}
+
+fn window_class(window: HWND) -> String {
+    let mut class = [0u16; 64];
+    let length = unsafe {
+        GetClassNameW(
+            window,
+            windows_core::PWSTR(class.as_mut_ptr()),
+            class.len() as i32,
+        )
+    } as usize;
+    String::from_utf16_lossy(&class[..length])
+}
+
+fn describe_window(window: HWND) -> String {
+    if window.is_null() {
+        return "no window".to_string();
+    }
+    let mut process = 0;
+    unsafe { GetWindowThreadProcessId(window, &mut process) };
+    format!("{} {window:?} pid {process}", window_class(window))
 }
 
 pub fn run_to_exit(fixture: &str) -> Result<()> {

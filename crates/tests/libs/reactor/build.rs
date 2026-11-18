@@ -179,6 +179,8 @@ fn main() {
             "SMTO_BLOCK",
             "WM_NULL",
             "GetClassNameW",
+            "GetForegroundWindow",
+            "WindowFromPoint",
             "WM_GETICON",
             "ICON_BIG",
             "ICON_SMALL",
