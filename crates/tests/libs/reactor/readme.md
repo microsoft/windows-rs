@@ -26,10 +26,12 @@ the child process's stdout/stderr log directory; successful cases remove their l
 `build.rs` generates native bindings and deploys the Windows App Runtime and WebView2 projection
 DLL. The first build needs network access for the pinned packages. Canvas uses WARP rendering.
 
-## Leak checks
+## Leak and cast checks
 
 With `RUSTFLAGS=--cfg windows_cast_diagnostics`, each fixture process asserts that no
-`#[implement]` objects or delegates remain alive after the app exits. CI runs the suite this way.
+`#[implement]` objects or delegates remain alive after the app exits and that it made no avoidable
+casts: a cast to the same interface or from a WinRT interface to `IInspectable`, which need no
+`QueryInterface` call. CI runs the suite this way.
 
 ```text
 $env:RUSTFLAGS = "--cfg windows_cast_diagnostics"

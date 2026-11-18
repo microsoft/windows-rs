@@ -30,8 +30,7 @@ impl WinUiAdapter {
             }
             (Handle::Data(parent), RelationId::Content) => {
                 let properties = parent.cast::<IMap<HSTRING, IInspectable>>()?;
-                let content: IInspectable = child_element.cast()?;
-                properties.Insert(&data_content_key, &content)?;
+                properties.Insert(&data_content_key, &child_element)?;
                 properties.Insert(&self.data_text_visibility_key, &data_string("Collapsed"))?;
             }
             _ => return Err(WinUiError::InvalidRelation(parent, relation)),
@@ -470,7 +469,7 @@ impl WinUiAdapter {
             .collect::<Result<BTreeMap<_, _>, WinUiError>>()?;
         previous.Insert(&self.data_content_key, None)?;
         let value: IObservableMap<HSTRING, IInspectable> = values.into();
-        let inspectable: IInspectable = value.cast()?;
+        let inspectable: IInspectable = value.clone().into();
         if let Some(item) = self.event_queue.items.borrow_mut().get_mut(&object) {
             item.identity = com_identity(&inspectable)?;
         }
