@@ -1,3 +1,28 @@
+#[inline]
+pub unsafe fn GetOwned() -> windows_core::Result<OwnedValue> {
+    windows_core::link!("test.dll" "system" fn GetOwned(value : *mut core::mem::ManuallyDrop < OwnedValue >) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::MaybeUninit::zeroed();
+        GetOwned(result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
+    }
+}
+#[inline]
+pub unsafe fn GetOwnedArray() -> windows_core::Result<[OwnedValue; 2]> {
+    windows_core::link!("test.dll" "system" fn GetOwnedArray(value : *mut [core::mem::ManuallyDrop < OwnedValue >; 2]) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::MaybeUninit::zeroed();
+        GetOwnedArray(result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
+    }
+}
+#[inline]
+pub unsafe fn GetOwnedNestedArray() -> windows_core::Result<[[OwnedValue; 2]; 2]> {
+    windows_core::link!("test.dll" "system" fn GetOwnedNestedArray(value : *mut [[core::mem::ManuallyDrop < OwnedValue >; 2]; 2]) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::MaybeUninit::zeroed();
+        GetOwnedNestedArray(result__.as_mut_ptr())
+            .map(|| core::mem::transmute(result__.assume_init()))
+    }
+}
 windows_core::imp::define_interface!(
     ArrayRoundtrip,
     ArrayRoundtrip_Vtbl,
@@ -338,6 +363,211 @@ impl<
         }
     }
 }
+windows_core::imp::define_winrt_interface!(GenericResult < T >, GenericResult_Vtbl < T, >, 0x24cf7e0a_922a_51a3_b2e7_7c35bc1a3068, b"Test.GenericResult`1");
+impl<T: windows_core::RuntimeType + 'static> GenericResult<T> {
+    pub fn Get(&self) -> windows_core::Result<T> {
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).Get)(
+                windows_core::Interface::as_raw(self),
+                result__.as_mut_ptr(),
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+        }
+    }
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for GenericResult<T> {
+    const NAME: &'static str = "Test.GenericResult";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
+}
+pub trait GenericResult_Impl<T>: windows_core::IUnknownImpl
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    fn Get(&self) -> windows_core::Result<T>;
+}
+impl<T: windows_core::RuntimeType + 'static> GenericResult_Vtbl<T> {
+    pub const fn new<Identity: GenericResult_Impl<T>, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Get<
+            T: windows_core::RuntimeType + 'static,
+            Identity: GenericResult_Impl<T>,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            result__: *mut windows_core::imp::AbiType<T>,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match GenericResult_Impl::Get(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
+                }
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
+            Get: Get::<T, Identity, OFFSET>,
+            T: core::marker::PhantomData::<T>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<GenericResult<T> as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct GenericResult_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Get: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::imp::AbiType<T>,
+    ) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct GenericRoundtrip<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
+where
+    T: windows_core::RuntimeType + 'static;
+unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface
+    for GenericRoundtrip<T>
+{
+    type Vtable = GenericRoundtrip_Vtbl<T>;
+    const IID: windows_core::GUID =
+        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for GenericRoundtrip<T> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"pinterface({a812a876-8e1b-571c-9d41-496d6548d463}")
+        .push_slice(b";")
+        .push_other(T::SIGNATURE)
+        .push_slice(b")");
+}
+impl<T: windows_core::RuntimeType + 'static> GenericRoundtrip<T> {
+    pub fn new<
+        F: Fn(
+                windows_core::Ref<T>,
+                &mut <T as windows_core::imp::Type<T>>::Default,
+            ) -> windows_core::Result<T>
+            + Send
+            + Sync
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &GenericRoundtripBox::<T, F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+    pub fn Invoke<P0>(
+        &self,
+        input: P0,
+        output: &mut <T as windows_core::imp::Type<T>>::Default,
+    ) -> windows_core::Result<T>
+    where
+        P0: windows_core::Param<T>,
+    {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+            *output = unsafe { core::mem::zeroed() };
+        }
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
+                input.param().abi(),
+                output as *mut _ as _,
+                result__.as_mut_ptr(),
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+        }
+    }
+}
+#[repr(C)]
+pub struct GenericRoundtrip_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        input: windows_core::imp::AbiType<T>,
+        output: *mut windows_core::imp::AbiType<T>,
+        result__: *mut windows_core::imp::AbiType<T>,
+    ) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
+}
+struct GenericRoundtripBox<
+    T,
+    F: Fn(
+            windows_core::Ref<T>,
+            &mut <T as windows_core::imp::Type<T>>::Default,
+        ) -> windows_core::Result<T>
+        + Send
+        + Sync
+        + 'static,
+>(core::marker::PhantomData<(T, fn() -> F)>)
+where
+    T: windows_core::RuntimeType + 'static;
+impl<
+    T: windows_core::RuntimeType + 'static,
+    F: Fn(
+            windows_core::Ref<T>,
+            &mut <T as windows_core::imp::Type<T>>::Default,
+        ) -> windows_core::Result<T>
+        + Send
+        + Sync
+        + 'static,
+> GenericRoundtripBox<T, F>
+{
+    const VTABLE: GenericRoundtrip_Vtbl<T> = GenericRoundtrip_Vtbl::<T> {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface:
+                windows_core::imp::DelegateBox::<GenericRoundtrip<T>, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<GenericRoundtrip<T>, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<GenericRoundtrip<T>, F>::Release,
+        },
+        Invoke: Self::Invoke,
+        T: core::marker::PhantomData::<T>,
+    };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        input: windows_core::imp::AbiType<T>,
+        output: *mut windows_core::imp::AbiType<T>,
+        result__: *mut windows_core::imp::AbiType<T>,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &*(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<GenericRoundtrip<T>, F>);
+            match (this.invoke)(
+                core::mem::transmute_copy(&input),
+                core::mem::transmute_copy(&output),
+            ) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => {
+                    result__.write_bytes(0, 1);
+                    err.into()
+                }
+            }
+        }
+    }
+}
 windows_core::imp::define_interface!(
     InterfaceOutputs,
     InterfaceOutputs_Vtbl,
@@ -418,6 +648,350 @@ impl<F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Sen
             }
         }
     }
+}
+windows_core::imp::define_interface!(
+    NativeResult,
+    NativeResult_Vtbl,
+    0x176f5c04_39ba_5f30_a468_c991c44f766c
+);
+windows_core::imp::interface_hierarchy!(NativeResult, windows_core::IUnknown);
+impl NativeResult {
+    pub unsafe fn Get(&self) -> windows_core::Result<OwnedValue> {
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).Get)(
+                windows_core::Interface::as_raw(self),
+                result__.as_mut_ptr(),
+            )
+            .map(|| core::mem::transmute(result__.assume_init()))
+        }
+    }
+    pub unsafe fn GetArray(&self) -> windows_core::Result<[OwnedValue; 2]> {
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).GetArray)(
+                windows_core::Interface::as_raw(self),
+                result__.as_mut_ptr(),
+            )
+            .map(|| core::mem::transmute(result__.assume_init()))
+        }
+    }
+    pub unsafe fn GetNestedArray(&self) -> windows_core::Result<[[OwnedValue; 2]; 2]> {
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).GetNestedArray)(
+                windows_core::Interface::as_raw(self),
+                result__.as_mut_ptr(),
+            )
+            .map(|| core::mem::transmute(result__.assume_init()))
+        }
+    }
+}
+#[repr(C)]
+pub struct NativeResult_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Get: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::mem::ManuallyDrop<OwnedValue>,
+    ) -> windows_core::HRESULT,
+    pub GetArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut [core::mem::ManuallyDrop<OwnedValue>; 2],
+    ) -> windows_core::HRESULT,
+    pub GetNestedArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut [[core::mem::ManuallyDrop<OwnedValue>; 2]; 2],
+    ) -> windows_core::HRESULT,
+}
+pub trait NativeResult_Impl: windows_core::IUnknownImpl {
+    fn Get(&self) -> windows_core::Result<OwnedValue>;
+    fn GetArray(&self) -> windows_core::Result<[OwnedValue; 2]>;
+    fn GetNestedArray(&self) -> windows_core::Result<[[OwnedValue; 2]; 2]>;
+}
+impl NativeResult_Vtbl {
+    pub const fn new<Identity: NativeResult_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Get<Identity: NativeResult_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            value: *mut core::mem::ManuallyDrop<OwnedValue>,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match NativeResult_Impl::Get(this) {
+                    Ok(ok__) => {
+                        value.cast::<OwnedValue>().write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
+                }
+            }
+        }
+        unsafe extern "system" fn GetArray<Identity: NativeResult_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            value: *mut [core::mem::ManuallyDrop<OwnedValue>; 2],
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match NativeResult_Impl::GetArray(this) {
+                    Ok(ok__) => {
+                        value.cast::<[OwnedValue; 2]>().write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
+                }
+            }
+        }
+        unsafe extern "system" fn GetNestedArray<
+            Identity: NativeResult_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut [[core::mem::ManuallyDrop<OwnedValue>; 2]; 2],
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match NativeResult_Impl::GetNestedArray(this) {
+                    Ok(ok__) => {
+                        value.cast::<[[OwnedValue; 2]; 2]>().write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        value.write_bytes(0, 1);
+                        err.into()
+                    }
+                }
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Get: Get::<Identity, OFFSET>,
+            GetArray: GetArray::<Identity, OFFSET>,
+            GetNestedArray: GetNestedArray::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<NativeResult as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for NativeResult {}
+windows_core::imp::define_winrt_interface!(
+    OwnedResult,
+    OwnedResult_Vtbl,
+    0xb006f953_e201_549a_b3d2_c4627a99f8fb,
+    b"Test.OwnedResult"
+);
+windows_core::imp::interface_hierarchy!(
+    OwnedResult,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl OwnedResult {
+    pub fn Get(&self) -> windows_core::Result<OwnedValue> {
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).Get)(
+                windows_core::Interface::as_raw(self),
+                result__.as_mut_ptr(),
+            )
+            .map(|| core::mem::transmute(result__.assume_init()))
+        }
+    }
+    pub fn Infallible(&self) -> OwnedValue {
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let hresult__ = (windows_core::Interface::vtable(self).Infallible)(
+                windows_core::Interface::as_raw(self),
+                result__.as_mut_ptr(),
+            );
+            debug_assert!(hresult__.0 == 0);
+            core::mem::transmute::<core::mem::ManuallyDrop<OwnedValue>, OwnedValue>(
+                result__.assume_init(),
+            )
+        }
+    }
+}
+impl windows_core::RuntimeName for OwnedResult {
+    const NAME: &'static str = "Test.OwnedResult";
+}
+pub trait OwnedResult_Impl: windows_core::IUnknownImpl {
+    fn Get(&self) -> windows_core::Result<OwnedValue>;
+    fn Infallible(&self) -> OwnedValue;
+}
+impl OwnedResult_Vtbl {
+    pub const fn new<Identity: OwnedResult_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Get<Identity: OwnedResult_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut core::mem::ManuallyDrop<OwnedValue>,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match OwnedResult_Impl::Get(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        err.into()
+                    }
+                }
+            }
+        }
+        unsafe extern "system" fn Infallible<Identity: OwnedResult_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut core::mem::ManuallyDrop<OwnedValue>,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let ok__ = OwnedResult_Impl::Infallible(this);
+                result__.write(core::mem::transmute_copy(&ok__));
+                core::mem::forget(ok__);
+                windows_core::HRESULT(0)
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
+            Get: Get::<Identity, OFFSET>,
+            Infallible: Infallible::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<OwnedResult as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct OwnedResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Get: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::mem::ManuallyDrop<OwnedValue>,
+    ) -> windows_core::HRESULT,
+    pub Infallible: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::mem::ManuallyDrop<OwnedValue>,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    OwnedRoundtrip,
+    OwnedRoundtrip_Vtbl,
+    0x95157be5_5f47_5813_81ee_d63666d4de8a
+);
+impl windows_core::RuntimeType for OwnedRoundtrip {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl OwnedRoundtrip {
+    pub fn new<
+        F: Fn(&OwnedValue, &mut OwnedValue) -> windows_core::Result<OwnedValue>
+            + Send
+            + Sync
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com =
+            windows_core::imp::DelegateBox::<Self, F>::new(&OwnedRoundtripBox::<F>::VTABLE, invoke);
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+    pub fn Invoke(
+        &self,
+        input: &OwnedValue,
+        output: &mut OwnedValue,
+    ) -> windows_core::Result<OwnedValue> {
+        if core::mem::needs_drop::<OwnedValue>() {
+            *output = unsafe { core::mem::zeroed() };
+        }
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute_copy(input),
+                output as *mut _ as _,
+                result__.as_mut_ptr(),
+            )
+            .map(|| core::mem::transmute(result__.assume_init()))
+        }
+    }
+}
+#[repr(C)]
+pub struct OwnedRoundtrip_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        input: core::mem::ManuallyDrop<OwnedValue>,
+        output: *mut core::mem::ManuallyDrop<OwnedValue>,
+        result__: *mut core::mem::ManuallyDrop<OwnedValue>,
+    ) -> windows_core::HRESULT,
+}
+struct OwnedRoundtripBox<
+    F: Fn(&OwnedValue, &mut OwnedValue) -> windows_core::Result<OwnedValue> + Send + Sync + 'static,
+>(core::marker::PhantomData<(fn() -> F,)>);
+impl<
+    F: Fn(&OwnedValue, &mut OwnedValue) -> windows_core::Result<OwnedValue> + Send + Sync + 'static,
+> OwnedRoundtripBox<F>
+{
+    const VTABLE: OwnedRoundtrip_Vtbl = OwnedRoundtrip_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<OwnedRoundtrip, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<OwnedRoundtrip, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<OwnedRoundtrip, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        input: core::mem::ManuallyDrop<OwnedValue>,
+        output: *mut core::mem::ManuallyDrop<OwnedValue>,
+        result__: *mut core::mem::ManuallyDrop<OwnedValue>,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &*(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<OwnedRoundtrip, F>);
+            match (this.invoke)(
+                &*(&raw const input).cast(),
+                core::mem::transmute_copy(&output),
+            ) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => {
+                    result__.write_bytes(0, 1);
+                    err.into()
+                }
+            }
+        }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct OwnedValue {
+    pub text: windows_core::HSTRING,
+    pub enabled: bool,
+    pub number: f64,
+    pub object: Option<Tracked>,
+}
+impl windows_core::imp::TypeKind for OwnedValue {
+    type TypeKind = windows_core::imp::CloneType;
+}
+impl windows_core::RuntimeType for OwnedValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"struct(Test.OwnedValue;string;b1;f8;delegate({1cc94528-d335-506f-b2c7-3ec2a56e820c}))",
+    );
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Test.OwnedValue");
 }
 windows_core::imp::define_interface!(
     Tracked,

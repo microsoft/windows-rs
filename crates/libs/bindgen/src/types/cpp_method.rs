@@ -230,12 +230,15 @@ impl CppMethod {
                 let map = ty
                     .projection_type(config.reader)
                     .write_result_map(config.reader);
+                let init = ty
+                    .projection_type(config.reader)
+                    .write_result_init(config.reader);
                 let return_type = ty.write_name(config);
 
                 quote! {
                     #vis unsafe fn #name<#generics>(&self, #params) -> #result Result<#return_type> #where_clause {
                         unsafe {
-                            let mut result__ = core::mem::zeroed();
+                            #init
                             (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).#map
                         }
                     }
@@ -580,6 +583,13 @@ impl CppMethod {
                             .is_interface_with_reader(config.reader)
                     {
                         quote! { core::ptr::from_mut::<*mut core::ffi::c_void>(&mut result__).cast(), }
+                    } else if self.return_hint == ReturnHint::ResultValue
+                        && param
+                            .projection_pointee(config.reader)
+                            .projection_type(config.reader)
+                            .needs_result_storage(config.reader)
+                    {
+                        quote! { result__.as_mut_ptr(), }
                     } else {
                         quote! { &mut result__, }
                     }

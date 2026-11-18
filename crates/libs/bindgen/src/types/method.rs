@@ -429,6 +429,8 @@ impl Method {
             ty => {
                 if ty.is_winrt_array() {
                     quote! { &mut result_size__, &mut result__ }
+                } else if ty.needs_result_storage(config.reader) {
+                    quote! { result__.as_mut_ptr() }
                 } else {
                     quote! { &mut result__ }
                 }
@@ -699,13 +701,15 @@ impl Method {
                     }
                 }
                 _ => {
+                    let init = self.signature.return_type.write_result_init(config.reader);
+                    let value = self.signature.return_type.write_result_value(config.reader);
                     if noexcept {
                         if self.signature.return_type.is_copyable(config.reader) {
                             quote! {
-                                let mut result__ = core::mem::zeroed();
+                                #init
                                 let hresult__ = #vcall;
                                 #assert_success
-                                result__
+                                #value
                             }
                         } else if config
                             .bindgen
@@ -713,10 +717,10 @@ impl Method {
                             .minimal_string_return(&self.signature.return_type)
                         {
                             quote! {
-                                let mut result__ = core::mem::zeroed();
+                                #init
                                 let hresult__ = #vcall;
                                 #assert_success
-                                let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                                let hstring: windows_core::HSTRING = core::mem::transmute(#value);
                                 hstring.to_string_lossy()
                             }
                         } else {
@@ -728,10 +732,10 @@ impl Method {
                                 name
                             };
                             quote! {
-                                let mut result__ = core::mem::zeroed();
+                                #init
                                 let hresult__ = #vcall;
                                 #assert_success
-                                core::mem::transmute::<#abi, #name>(result__)
+                                core::mem::transmute::<#abi, #name>(#value)
                             }
                         }
                     } else {
@@ -743,7 +747,7 @@ impl Method {
                             // Explicit type annotation pins `from_abi`'s generic.
                             let iref = self.signature.return_type.write_name(config);
                             quote! {
-                                let mut result__ = core::mem::zeroed();
+                                #init
                                 #vcall.#map.and_then(|r__: #iref| r__.Value())
                             }
                         } else if config
@@ -753,15 +757,15 @@ impl Method {
                         {
                             // In minimal mode, return String instead of HSTRING.
                             quote! {
-                                let mut result__ = core::mem::zeroed();
+                                #init
                                 #vcall.map(|| {
-                                    let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                                    let hstring: windows_core::HSTRING = core::mem::transmute(#value);
                                     hstring.to_string_lossy()
                                 })
                             }
                         } else {
                             quote! {
-                                let mut result__ = core::mem::zeroed();
+                                #init
                                 #vcall.#map
                             }
                         }

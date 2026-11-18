@@ -83,7 +83,7 @@ impl<T> Type<T, CloneType> for T
 where
     T: TypeKind<TypeKind = CloneType> + Clone,
 {
-    type Abi = core::mem::MaybeUninit<Self>;
+    type Abi = core::mem::ManuallyDrop<Self>;
     type Default = Self;
     type Ref<'a>
         = InRef<'a, Self>
@@ -95,11 +95,11 @@ where
     }
 
     unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self {
-        unsafe { abi.assume_init_ref() }
+        abi
     }
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        unsafe { Ok(abi.assume_init()) }
+        Ok(core::mem::ManuallyDrop::into_inner(abi))
     }
 
     fn from_default(default: &Self::Default) -> Result<Self> {

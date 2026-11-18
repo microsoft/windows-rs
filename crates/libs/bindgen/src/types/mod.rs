@@ -814,7 +814,7 @@ impl Type {
                 if ty.is_copyable(config.reader) {
                     name
                 } else {
-                    quote! { core::mem::MaybeUninit<#name> }
+                    quote! { core::mem::ManuallyDrop<#name> }
                 }
             }
             Self::PtrMut(ty, pointers) => {
@@ -915,7 +915,7 @@ impl Type {
 
     /// Returns `true` when `write_abi` emits `*mut core::ffi::c_void` for this
     /// type - i.e. the ABI representation is a raw COM/HSTRING pointer rather
-    /// than the Rust type itself or `MaybeUninit<Self>`.
+    /// than the Rust type itself or `ManuallyDrop<Self>`.
     pub fn has_pointer_abi(&self) -> bool {
         matches!(
             self,
@@ -1348,13 +1348,39 @@ impl Type {
         )
     }
 
-    pub fn write_result_map(&self, reader: &Reader) -> TokenStream {
-        if self.is_copyable(reader) {
-            quote! { map(|| result__) }
-        } else if self.is_convertible() {
-            quote! { and_then(||windows_core::imp::Type::from_abi(result__)) }
+    pub fn needs_result_storage(&self, reader: &Reader) -> bool {
+        match self {
+            Self::Generic(_) => true,
+            Self::Struct(_) => !self.is_copyable(reader),
+            Self::ArrayFixed(ty, _) => ty.needs_result_storage(reader),
+            _ => false,
+        }
+    }
+
+    pub fn write_result_init(&self, reader: &Reader) -> TokenStream {
+        if self.needs_result_storage(reader) {
+            quote! { let mut result__ = core::mem::MaybeUninit::zeroed(); }
         } else {
-            quote! { map(|| core::mem::transmute(result__)) }
+            quote! { let mut result__ = core::mem::zeroed(); }
+        }
+    }
+
+    pub fn write_result_value(&self, reader: &Reader) -> TokenStream {
+        if self.needs_result_storage(reader) {
+            quote! { result__.assume_init() }
+        } else {
+            quote! { result__ }
+        }
+    }
+
+    pub fn write_result_map(&self, reader: &Reader) -> TokenStream {
+        let result = self.write_result_value(reader);
+        if self.is_copyable(reader) {
+            quote! { map(|| #result) }
+        } else if self.is_convertible() {
+            quote! { and_then(||windows_core::imp::Type::from_abi(#result)) }
+        } else {
+            quote! { map(|| core::mem::transmute(#result)) }
         }
     }
 }

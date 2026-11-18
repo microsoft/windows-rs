@@ -76,8 +76,8 @@ impl AccessListEntryView {
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<AccessListEntry> {
         unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -132,7 +132,7 @@ windows_core::imp::define_winrt_interface!(IItemRemovedEventArgs, IItemRemovedEv
 #[doc(hidden)]
 pub struct IItemRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RemovedEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<AccessListEntry>) -> windows_core::HRESULT,
+    pub RemovedEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::ManuallyDrop<AccessListEntry>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(IStorageApplicationPermissionsStatics, IStorageApplicationPermissionsStatics_Vtbl, 0x4391dfaa_d033_48f9_8060_3ec847d2e3f1, b"Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics");
 #[repr(C)]
@@ -582,8 +582,8 @@ windows_core::imp::interface_hierarchy!(ItemRemovedEventArgs, windows_core::IUnk
 impl ItemRemovedEventArgs {
     pub fn RemovedEntry(&self) -> windows_core::Result<AccessListEntry> {
         unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemovedEntry)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).RemovedEntry)(windows_core::Interface::as_raw(self), result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
         }
     }
 }

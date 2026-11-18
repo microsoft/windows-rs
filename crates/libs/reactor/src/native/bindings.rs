@@ -20971,7 +20971,7 @@ pub struct IXamlBindingHelperStatics_Vtbl {
     ResumeRendering: usize,
     pub ConvertValue: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        core::mem::MaybeUninit<TypeName>,
+        core::mem::ManuallyDrop<TypeName>,
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -21057,7 +21057,7 @@ impl IXamlMetadataProvider_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            r#type: core::mem::MaybeUninit<TypeName>,
+            r#type: core::mem::ManuallyDrop<TypeName>,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             unsafe {
@@ -21109,7 +21109,7 @@ impl IXamlMetadataProvider_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             result_size__: *mut u32,
-            result__: *mut *mut core::mem::MaybeUninit<XmlnsDefinition>,
+            result__: *mut *mut core::mem::ManuallyDrop<XmlnsDefinition>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -21145,7 +21145,7 @@ pub struct IXamlMetadataProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetXamlType: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        core::mem::MaybeUninit<TypeName>,
+        core::mem::ManuallyDrop<TypeName>,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub GetXamlTypeByFullName: unsafe extern "system" fn(
@@ -21156,7 +21156,7 @@ pub struct IXamlMetadataProvider_Vtbl {
     pub GetXmlnsDefinitions: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut u32,
-        *mut *mut core::mem::MaybeUninit<XmlnsDefinition>,
+        *mut *mut core::mem::ManuallyDrop<XmlnsDefinition>,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
