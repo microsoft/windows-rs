@@ -1,8 +1,8 @@
 # Process monitor
 
-A read-only Reactor sample with a Task Manager-style navigation shell, a virtualized process tree,
-selectable columns, filtering, sorting, stable selection, and a per-process details page.
-It runs without elevation, debug privileges, process termination, or process-memory reads.
+A Reactor sample with a Task Manager-style navigation shell, a virtualized process tree, selectable
+columns, filtering, sorting, stable selection, a per-process details page, and ending processes.
+It runs without elevation, debug privileges, or process-memory reads.
 Process sampling uses `NtQuerySystemInformation`, so identity and counters do not require opening
 each process. Creation and CPU times depend on the native `SYSTEM_PROCESS_INFORMATION` layout,
 including fields reserved in the SDK declaration.
@@ -26,6 +26,13 @@ column sorts by name. Drag the divider at the right edge of a heading to resize 
 scrolls horizontally when the window is narrower than its columns. Tree mode sorts siblings. Turn
 off **Process tree** for a global ranking. Filtering retains ancestors of matching processes and
 expands their paths. Pause stops scheduling new snapshots; an in-flight snapshot can still complete.
+
+Right-click a row for **Details**, **End task**, and **End process tree**, or select a row and
+choose **End task** above the table. Both ask for confirmation. The process tree is captured when
+the dialog opens and ends parents before children, so a parent cannot replace children that were
+just ended. Each process is opened with PROCESS_TERMINATE and its creation time checked first, so
+a reused PID is never ended. Failures, such as access denied for elevated or protected processes,
+are listed in a closable error bar. Ending processes is available only in live mode.
 
 The **Details** page opens the selected process with `PROCESS_QUERY_LIMITED_INFORMATION` and checks
 its creation time before every query, so a reused PID is never described as the original process.
@@ -125,5 +132,6 @@ cargo clippy -p reactor-process-monitor --all-targets -- -D warnings
 
 The tests cover CPU normalization, PID reuse, tree filtering, unavailable identities, replay
 compatibility, NUMA-qualified processor identities, bounded history, stable identity for processes
-that cannot be opened, native process-time decoding, sampling cancellation, details identity checks,
-version resources, and drawing aggregate and logical graphs with gaps on a shared WARP surface.
+that cannot be opened, native process-time decoding, sampling cancellation, details and termination
+identity checks, process-tree descendants, version resources, and drawing aggregate and logical
+graphs with gaps on a shared WARP surface.

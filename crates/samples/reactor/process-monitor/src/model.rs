@@ -558,15 +558,8 @@ impl Model {
         let by_pid: HashMap<_, _> = ordered.iter().map(|p| (p.id.pid, p.id)).collect();
         let parents: HashMap<_, _> = ordered
             .iter()
-            .filter_map(|process| {
-                if process.parent_pid == 0 {
-                    return None;
-                }
-                let parent = *by_pid.get(&process.parent_pid)?;
-                // A reused or unverified parent PID is not evidence of ancestry.
-                (self.tree && parent.created? < process.id.created? && parent.pid != process.id.pid)
-                    .then_some((process.id, parent))
-            })
+            .filter(|_| self.tree)
+            .filter_map(|process| Some((process.id, parent(&by_pid, process)?)))
             .collect();
         let filter = self.filter.to_lowercase();
         let mut included = HashSet::new();
@@ -625,6 +618,33 @@ impl Model {
         }
         self.visible = Rc::new(rows);
     }
+
+    /// Returns `root` followed by its verified descendants, each listed before its children.
+    pub fn descendants(&self, root: ProcessId) -> Vec<ProcessId> {
+        let by_pid: HashMap<_, _> = self.processes.keys().map(|id| (id.pid, *id)).collect();
+        let mut children: HashMap<ProcessId, Vec<ProcessId>> = HashMap::new();
+        for process in self.processes.values() {
+            if let Some(parent) = parent(&by_pid, process) {
+                children.entry(parent).or_default().push(process.id);
+            }
+        }
+        let mut result = Vec::new();
+        let mut pending = vec![root];
+        while let Some(id) = pending.pop() {
+            result.push(id);
+            pending.extend(children.get(&id).into_iter().flatten());
+        }
+        result
+    }
+}
+
+// A reused or unverified parent PID is not evidence of ancestry.
+fn parent(by_pid: &HashMap<u32, ProcessId>, process: &Process) -> Option<ProcessId> {
+    if process.parent_pid == 0 {
+        return None;
+    }
+    let parent = *by_pid.get(&process.parent_pid)?;
+    (parent.created? < process.id.created? && parent.pid != process.id.pid).then_some(parent)
 }
 
 fn compare<T: Ord>(a: Option<T>, b: Option<T>, descending: bool) -> std::cmp::Ordering {
@@ -1001,6 +1021,35 @@ mod tests {
         model.apply(sample).unwrap();
         assert_eq!(model.visible.len(), 1);
         assert_eq!(model.visible[0].depth, 0);
+    }
+
+    #[test]
+    fn descendants_follow_verified_ancestry() {
+        let mut sample = snapshot(1, 100, 0);
+        let template = sample.processes[0].clone();
+        let mut add = |pid, parent_pid, created| {
+            let mut process = template.clone();
+            process.pid = pid;
+            process.parent_pid = parent_pid;
+            process.created = Some(created);
+            sample.processes.push(process);
+        };
+        add(20, 10, 110);
+        add(30, 20, 120);
+        // Created before PID 10, so its parent PID refers to an earlier process.
+        add(40, 10, 50);
+        let mut model = Model {
+            tree: false,
+            ..Default::default()
+        };
+        model.apply(sample).unwrap();
+        let root = model.visible.iter().find(|r| r.process.id.pid == 10);
+        let pids: Vec<_> = model
+            .descendants(root.unwrap().process.id)
+            .iter()
+            .map(|id| id.pid)
+            .collect();
+        assert_eq!(pids, [10, 20, 30]);
     }
 
     #[test]
