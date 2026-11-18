@@ -8,6 +8,8 @@ fn main() -> windows_core::Result<()> {
     {
         let live = windows_core::imp::live_objects();
         assert_eq!((live.objects, live.delegates), (0, 0), "{live:?}");
+        let avoidable = windows_core::imp::avoidable_casts();
+        assert!(avoidable.is_empty(), "{avoidable:#?}");
     }
 
     Ok(())

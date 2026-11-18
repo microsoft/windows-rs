@@ -99,6 +99,9 @@ pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
             get_activation_factory(library, &name)
         })
     {
+        if I::IID == IGenericFactory::IID {
+            return Ok(unsafe { I::from_raw(i.into_raw()) });
+        }
         return i.cast();
     }
 

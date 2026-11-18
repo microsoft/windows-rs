@@ -4,17 +4,19 @@
 //! Every cast is counted by call site and source/target type, including failed casts, since each
 //! one costs a `QueryInterface` call. Use [`take_cast_counts`] to drain the counts.
 //!
-//! A cast whose `QueryInterface` returns the source pointer is reported on stderr once per call
-//! site as a hint to examine. It may be an upcast that `Deref` or `.into()` would do without a
-//! call, or a necessary downcast between interfaces that share a vtable through COM inheritance;
-//! the two cannot be told apart at run time. The hint is skipped when the source is type-erased
-//! (`IUnknown` or `IInspectable`, where a cast is the only way to recover the type) or the target
-//! is `IUnknown` or `IAgileObject`, whose IUnknown-only vtables share the object's identity
-//! pointer.
+//! A cast is avoidable when the result can be had without a query whatever the object: the target
+//! has the source's IID (use `as_interface`), or the target is `IInspectable` and the source derives
+//! from it (use `.into()`). Casts to `IUnknown` are excluded since they return the object's
+//! identity. Avoidable casts are reported on stderr once per call site and returned by
+//! [`avoidable_casts`].
+//!
+//! A cast to a shorter vtable that returns the source pointer is reported on stderr once per call
+//! site as a hint only. It is likely an upcast that `Deref` or `.into()` would do, but COM objects
+//! may also share one vtable between unrelated interfaces whose layouts happen to be prefixes, so
+//! it is not counted as avoidable.
 
 extern crate std;
 
-use super::*;
 use crate::{IInspectable, IUnknown, Interface};
 use alloc::collections::BTreeMap;
 use alloc::vec::Vec;
@@ -35,7 +37,8 @@ type Key = (&'static str, u32, u32, &'static str, &'static str);
 struct Site {
     location: &'static Location<'static>,
     count: u64,
-    warned: bool,
+    avoidable: bool,
+    hinted: bool,
 }
 
 static SITES: Mutex<BTreeMap<Key, Site>> = Mutex::new(BTreeMap::new());
@@ -77,22 +80,56 @@ pub(crate) fn record_cast<S: Interface, T: Interface>(
     let site = sites.entry(key).or_insert(Site {
         location,
         count: 0,
-        warned: false,
+        avoidable: false,
+        hinted: false,
     });
     site.count += 1;
 
-    if same_pointer
-        && !site.warned
-        && S::IID != IUnknown::IID
-        && S::IID != IInspectable::IID
-        && T::IID != IUnknown::IID
-        && T::IID != IAgileObject::IID
-    {
-        site.warned = true;
+    let source_size = size_of::<S::Vtable>();
+    let target_size = size_of::<T::Vtable>();
+    let unknown_size = size_of::<<IUnknown as Interface>::Vtable>();
+    let instead = if S::IID == T::IID && T::IID != IUnknown::IID {
+        Some("as_interface")
+    } else if S::INSPECTABLE && T::IID == IInspectable::IID {
+        Some(".into()")
+    } else {
+        None
+    };
+
+    if site.hinted {
+        return;
+    }
+
+    if let Some(instead) = instead {
+        site.avoidable = true;
+        site.hinted = true;
+        drop(sites);
+        std::eprintln!(
+            "windows-core: cast::<{target}> from {source} at {location} is avoidable; use \
+             {instead} instead",
+        );
+    } else if same_pointer && target_size > unknown_size && target_size < source_size {
+        site.hinted = true;
         drop(sites);
         std::eprintln!(
             "windows-core: cast::<{target}> from {source} at {location} returned the same \
              interface pointer; if {target} is a base of {source}, use Deref or .into() instead",
         );
     }
+}
+
+/// Returns the call sites that made an avoidable cast since the process started.
+pub fn avoidable_casts() -> Vec<CastCount> {
+    SITES
+        .lock()
+        .unwrap()
+        .iter()
+        .filter(|(_, site)| site.avoidable)
+        .map(|((.., source, target), site)| CastCount {
+            location: site.location,
+            source,
+            target,
+            count: site.count,
+        })
+        .collect()
 }
