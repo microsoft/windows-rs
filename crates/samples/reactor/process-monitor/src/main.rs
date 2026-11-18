@@ -174,10 +174,19 @@ enum Message {
     Pause,
     Navigate(Option<String>),
     Open(ProcessId),
+    End(ProcessId, bool),
+    Confirmed(ContentDialogResult),
+    DismissActionError,
     Metric(performance::Metric),
     CpuView(performance::CpuView),
     ColorScheme(ColorScheme),
     Finish,
+}
+
+struct Pending {
+    name: String,
+    tree: bool,
+    targets: Vec<ProcessId>,
 }
 
 #[derive(Clone, Copy, PartialEq)]
@@ -201,6 +210,9 @@ struct Monitor {
     on_select: Callback<ProcessId>,
     on_collapse: Callback<ProcessId>,
     on_open: Callback<ProcessId>,
+    on_end: Callback<(ProcessId, bool)>,
+    pending: Option<Pending>,
+    action_error: Option<String>,
     page: Page,
     resizing: Option<(Column, f64, f64)>,
     metric: performance::Metric,
@@ -252,6 +264,9 @@ impl Component for Monitor {
             on_select: context.callback(Message::Select),
             on_collapse: context.callback(Message::Collapse),
             on_open: context.callback(Message::Open),
+            on_end: context.callback(|(id, tree)| Message::End(id, tree)),
+            pending: None,
+            action_error: None,
             page: Page::Processes,
             resizing: None,
             metric: performance::Metric::default(),
@@ -369,6 +384,48 @@ impl Component for Monitor {
                     self.page = Page::Details;
                 }
             }
+            Message::End(id, tree) => {
+                if let Some(process) = self.model.processes.get(&id)
+                    && context.input().live()
+                {
+                    self.pending = Some(Pending {
+                        name: process.name.clone(),
+                        tree,
+                        targets: if tree {
+                            self.model.descendants(id)
+                        } else {
+                            vec![id]
+                        },
+                    });
+                }
+            }
+            Message::Confirmed(result) => {
+                if let Some(pending) = self.pending.take()
+                    && result == ContentDialogResult::Primary
+                {
+                    if pending
+                        .targets
+                        .iter()
+                        .any(|id| id.pid == std::process::id())
+                    {
+                        self.action_error = Some("Task Manager cannot end itself.".into());
+                        return;
+                    }
+                    // Best effort, like Process.Kill(entireProcessTree): each process is ended
+                    // before its descendants, and a failure does not stop the rest of the tree.
+                    let failures: Vec<_> = pending
+                        .targets
+                        .into_iter()
+                        .filter_map(|id| {
+                            let error = inspect::terminate(id).err()?;
+                            let name = self.model.processes.get(&id).map_or("", |p| &p.name);
+                            Some(format!("{name} (PID {}): {error}", id.pid))
+                        })
+                        .collect();
+                    self.action_error = (!failures.is_empty()).then(|| failures.join("\n"));
+                }
+            }
+            Message::DismissActionError => self.action_error = None,
             Message::Metric(metric) => self.metric = metric,
             Message::CpuView(view) => self.cpu_view = view,
             Message::ColorScheme(scheme) => self.color_scheme = scheme,
@@ -423,8 +480,9 @@ impl Component for Monitor {
             }
             None
         });
+        let can_end = options.live();
         let content = match self.page {
-            Page::Processes => self.processes_page(context),
+            Page::Processes => self.processes_page(can_end, context),
             Page::Details => component::<Details>(
                 "details",
                 DetailInput {
@@ -457,6 +515,29 @@ impl Component for Monitor {
                     ),
             ));
             actions.push(keyed("columns", self.columns_button(context)));
+            actions.push(keyed(
+                "end",
+                Button::new()
+                    .automation_id("end-task")
+                    .vertical_alignment(VerticalAlignment::Center)
+                    .content("End task")
+                    .is_enabled(
+                        can_end
+                            && self
+                                .model
+                                .selected
+                                .is_some_and(|id| self.model.processes.contains_key(&id)),
+                    )
+                    .on_click({
+                        let on_end = self.on_end.clone();
+                        let selected = self.model.selected;
+                        move || {
+                            if let Some(id) = selected {
+                                on_end.call((id, false));
+                            }
+                        }
+                    }),
+            ));
         }
         if self.page == Page::Performance && self.metric == performance::Metric::Cpu {
             actions.push(keyed(
@@ -505,13 +586,12 @@ impl Component for Monitor {
                     )]),
             ),
         ];
+        let mut notices = Vec::new();
         if let Some(error) = &self.error {
-            page.push(keyed(
+            notices.push(keyed(
                 "error",
                 InfoBar::new()
                     .automation_id("sampling-error")
-                    .grid_row(1)
-                    .margin(Thickness::new(0.0, 0.0, 0.0, 16.0))
                     .is_open(true)
                     .is_closable(false)
                     .severity(InfoBarSeverity::Error)
@@ -519,6 +599,42 @@ impl Component for Monitor {
                     .message(error),
             ));
         }
+        if let Some(error) = &self.action_error {
+            notices.push(keyed(
+                "action-error",
+                InfoBar::new()
+                    .automation_id("action-error")
+                    .is_open(true)
+                    .severity(InfoBarSeverity::Error)
+                    .title("Some processes could not be ended")
+                    .message(error)
+                    .on_closed(context.callback(|()| Message::DismissActionError)),
+            ));
+        }
+        if !notices.is_empty() {
+            page.push(keyed(
+                "notices",
+                StackPanel::new()
+                    .grid_row(1)
+                    .spacing(8.0)
+                    .margin(Thickness::new(0.0, 0.0, 0.0, 16.0))
+                    .keyed_children(notices),
+            ));
+        }
+        let dialog = match &self.pending {
+            Some(pending) if pending.tree => ContentDialog::new()
+                .title(format!("End {} and its descendants?", pending.name))
+                .content(format!(
+                    "{} processes will be ended. Unsaved data will be lost.",
+                    pending.targets.len()
+                ))
+                .primary_button_text("End process tree"),
+            Some(pending) => ContentDialog::new()
+                .title(format!("End {}?", pending.name))
+                .content("Unsaved data will be lost.")
+                .primary_button_text("End process"),
+            None => ContentDialog::new(),
+        };
         Grid::new()
             .rows([GridLength::Auto, GridLength::STAR])
             .children((
@@ -594,7 +710,13 @@ impl Component for Monitor {
                             ),
                     ),
             ))
-            .into()
+            .content_dialog(
+                dialog
+                    .close_button_text("Cancel")
+                    .default_button(ContentDialogButton::Close)
+                    .is_open(self.pending.is_some())
+                    .on_closed(context.callback(Message::Confirmed)),
+            )
     }
 }
 
@@ -650,7 +772,7 @@ impl Monitor {
                 if options.demo {
                     "Demo / no process queries"
                 } else if options.live() {
-                    "Live / read-only"
+                    "Live"
                 } else {
                     "Replay / no process queries"
                 },
@@ -668,13 +790,14 @@ impl Monitor {
         }
     }
 
-    fn processes_page(&self, context: &ViewContext<Self>) -> View {
+    fn processes_page(&self, can_end: bool, context: &ViewContext<Self>) -> View {
         let rows = Rc::clone(&self.model.visible);
         let keys = Rc::clone(&rows);
         let selected = self.model.selected;
         let on_select = self.on_select.clone();
         let on_collapse = self.on_collapse.clone();
         let on_open = self.on_open.clone();
+        let on_end = self.on_end.clone();
         let columns = Rc::clone(&self.model.columns);
         let column_widths = Rc::clone(&self.model.widths);
         let source = VirtualSource::new(
@@ -688,6 +811,8 @@ impl Monitor {
                     on_select: on_select.clone(),
                     on_collapse: on_collapse.clone(),
                     on_open: on_open.clone(),
+                    on_end: on_end.clone(),
+                    can_end,
                     columns: Rc::clone(&columns),
                     widths: Rc::clone(&column_widths),
                 })
@@ -867,6 +992,8 @@ struct RowInput {
     on_select: Callback<ProcessId>,
     on_collapse: Callback<ProcessId>,
     on_open: Callback<ProcessId>,
+    on_end: Callback<(ProcessId, bool)>,
+    can_end: bool,
     columns: Rc<[Column]>,
     widths: Rc<[f64; Column::ALL.len()]>,
 }
@@ -923,6 +1050,31 @@ impl Component for ProcessRow {
             );
         }
         let open = input.on_open.clone();
+        let end = input.on_end.clone();
+        let action = |key, label| {
+            if input.can_end {
+                MenuItem::item(key, label)
+            } else {
+                MenuItem::disabled(key, label)
+            }
+        };
+        let menu = Menu::new(
+            [
+                MenuItem::item("details", "Details"),
+                MenuItem::separator("separator"),
+                action("end", "End task"),
+                action("tree", "End process tree"),
+            ],
+            {
+                let open = open.clone();
+                move |key: Key| match key.as_str() {
+                    Some("details") => open.call(id),
+                    Some("end") => end.call((id, false)),
+                    Some("tree") => end.call((id, true)),
+                    _ => unreachable!(),
+                }
+            },
+        );
         let mut children: Vec<View> = vec![
             Border::new()
                 .on_double_tapped(move || open.call(id))
@@ -955,7 +1107,7 @@ impl Component for ProcessRow {
                         )
                         .on_click(move || select.call(id)),
                 )
-                .into(),
+                .menu(menu),
         ];
         if row.has_children {
             children.push(

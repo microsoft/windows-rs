@@ -96,13 +96,31 @@ fn gui_resources(handle: &OwnedHandle, kind: i32) -> Result<u32, String> {
 }
 
 pub fn open(pid: u32) -> io::Result<OwnedHandle> {
-    let handle =
-        unsafe { OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION as u32, false.into(), pid) };
+    open_with(pid, PROCESS_QUERY_LIMITED_INFORMATION as u32)
+}
+
+fn open_with(pid: u32, access: u32) -> io::Result<OwnedHandle> {
+    let handle = unsafe { OpenProcess(access, false.into(), pid) };
     if handle.is_null() {
         Err(io::Error::last_os_error())
     } else {
         Ok(unsafe { OwnedHandle::from_raw_handle(handle) })
     }
+}
+
+/// Requests termination after verifying that the PID was not reused. Termination is asynchronous,
+/// so the process may still be exiting when this returns.
+pub fn terminate(id: ProcessId) -> Result<(), String> {
+    let created = id.created.ok_or("Process identity is unavailable")?;
+    let handle = open_with(
+        id.pid,
+        (PROCESS_TERMINATE | PROCESS_QUERY_LIMITED_INFORMATION) as u32,
+    )
+    .map_err(|error| error.to_string())?;
+    if times(&handle).map_err(|error| error.to_string())?.created != created {
+        return Err("Process exited or its PID was reused".into());
+    }
+    check(unsafe { TerminateProcess(handle.as_raw_handle(), 1) })
 }
 
 pub struct Times {
@@ -399,6 +417,28 @@ mod tests {
         };
         assert!(identity(reused).is_err());
         assert!(counters(reused).is_err());
+    }
+
+    #[test]
+    fn terminate_verifies_creation_time() {
+        let mut child = std::process::Command::new("ping")
+            .args(["-n", "30", "127.0.0.1"])
+            .stdout(std::process::Stdio::null())
+            .spawn()
+            .unwrap();
+        let id = ProcessId {
+            pid: child.id(),
+            created: Some(times(&open(child.id()).unwrap()).unwrap().created),
+            observation: 0,
+        };
+        let reused = ProcessId {
+            created: Some(id.created.unwrap() + 1),
+            ..id
+        };
+        assert!(terminate(reused).is_err());
+        assert!(child.try_wait().unwrap().is_none());
+        terminate(id).unwrap();
+        assert_eq!(child.wait().unwrap().code(), Some(1));
     }
 
     #[test]
