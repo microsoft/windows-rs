@@ -20,7 +20,7 @@ where
     fn Current(&self) -> Result<T> {
         unsafe {
             let this = self.0.get();
-            let owner = (*this).0.as_impl();
+            let owner: &Iterable<T> = (*this).0.as_impl();
 
             if owner.0.len() > (*this).1 {
                 Ok(owner.0[(*this).1].clone())
@@ -33,7 +33,7 @@ where
     fn HasCurrent(&self) -> Result<bool> {
         unsafe {
             let this = self.0.get();
-            let owner = (*this).0.as_impl();
+            let owner: &Iterable<T> = (*this).0.as_impl();
             Ok(owner.0.len() > (*this).1)
         }
     }
@@ -41,7 +41,7 @@ where
     fn MoveNext(&self) -> Result<bool> {
         unsafe {
             let this = self.0.get();
-            let owner = (*this).0.as_impl();
+            let owner: &Iterable<T> = (*this).0.as_impl();
             (*this).1 += 1;
             Ok(owner.0.len() > (*this).1)
         }
@@ -50,7 +50,7 @@ where
     fn GetMany(&self, items: &mut [T::Default]) -> Result<u32> {
         unsafe {
             let this = self.0.get();
-            let owner = (*this).0.as_impl();
+            let owner: &Iterable<T> = (*this).0.as_impl();
             let current = (*this).1;
 
             let actual = std::cmp::min(owner.0.len().saturating_sub(current), items.len());

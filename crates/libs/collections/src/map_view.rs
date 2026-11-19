@@ -5,8 +5,7 @@ struct StockMapView<K, V>
 where
     K: RuntimeType + 'static,
     V: RuntimeType + 'static,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     map: std::collections::BTreeMap<K::Default, V::Default>,
 }
@@ -16,15 +15,14 @@ implement_decl! {
         IMapView<K, V>,
         IIterable<IKeyValuePair<K, V>>,
     ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
+    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Ord
 }
 
 impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockMapView_Impl<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     fn First(&self) -> Result<IIterator<IKeyValuePair<K, V>>> {
         let snapshot: Vec<(K::Default, V::Default)> = self
@@ -44,8 +42,7 @@ impl<K, V> IMapView_Impl<K, V> for StockMapView_Impl<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     fn Lookup(&self, key: Ref<K>) -> Result<V> {
         let value = self
@@ -75,8 +72,7 @@ struct StockMapViewIterator<K, V>
 where
     K: RuntimeType + 'static,
     V: RuntimeType + 'static,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     snapshot: Vec<(K::Default, V::Default)>,
     current: std::sync::atomic::AtomicUsize,
@@ -86,15 +82,14 @@ implement_decl! {
     impl<K, V> StockMapViewIterator as StockMapViewIterator_Impl: [
         IIterator<IKeyValuePair<K, V>>,
     ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
+    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Ord
 }
 
 impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockMapViewIterator_Impl<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     fn Current(&self) -> Result<IKeyValuePair<K, V>> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
@@ -157,8 +152,7 @@ impl<K, V> From<std::collections::BTreeMap<K::Default, V::Default>> for IMapView
 where
     K: RuntimeType,
     V: RuntimeType,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     /// Creates a read-only `IMapView<K, V>` from the given key/value pairs.
     fn from(map: std::collections::BTreeMap<K::Default, V::Default>) -> Self {

@@ -4,7 +4,7 @@ use windows_core::*;
 struct StockVectorView<T>
 where
     T: RuntimeType + 'static,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     values: Vec<T::Default>,
 }
@@ -14,13 +14,13 @@ implement_decl! {
         IVectorView<T>,
         IIterable<T>,
     ]
-    where T: RuntimeType + 'static, T::Default: Clone + PartialEq
+    where T: RuntimeType + 'static, T::Default: PartialEq
 }
 
 impl<T> IIterable_Impl<T> for StockVectorView_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn First(&self) -> Result<IIterator<T>> {
         Ok(ComObject::new(StockVectorViewIterator {
@@ -34,7 +34,7 @@ where
 impl<T> IVectorView_Impl<T> for StockVectorView_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn GetAt(&self, index: u32) -> Result<T> {
         let item = self
@@ -80,7 +80,7 @@ where
 struct StockVectorViewIterator<T>
 where
     T: RuntimeType + 'static,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     owner: ComObject<StockVectorView<T>>,
     current: std::sync::atomic::AtomicUsize,
@@ -90,13 +90,13 @@ implement_decl! {
     impl<T> StockVectorViewIterator as StockVectorViewIterator_Impl: [
         IIterator<T>,
     ]
-    where T: RuntimeType + 'static, T::Default: Clone + PartialEq
+    where T: RuntimeType + 'static, T::Default: PartialEq
 }
 
 impl<T> IIterator_Impl<T> for StockVectorViewIterator_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn Current(&self) -> Result<T> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
@@ -145,7 +145,7 @@ where
 impl<T> From<Vec<T::Default>> for IVectorView<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     /// Creates a read-only `IVectorView<T>` over the given values.
     fn from(values: Vec<T::Default>) -> Self {

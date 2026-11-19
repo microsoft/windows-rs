@@ -4,7 +4,7 @@ use windows_core::*;
 struct StockObservableVector<T>
 where
     T: RuntimeType + 'static,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     values: std::sync::RwLock<Vec<T::Default>>,
     handlers: Event<VectorChangedEventHandler<T>>,
@@ -16,13 +16,13 @@ implement_decl! {
         IVector<T>,
         IIterable<T>,
     ]
-    where T: RuntimeType + 'static, T::Default: Clone + PartialEq
+    where T: RuntimeType + 'static, T::Default: PartialEq
 }
 
 impl<T> IObservableVector_Impl<T> for StockObservableVector_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn VectorChanged(&self, vhnd: Ref<VectorChangedEventHandler<T>>) -> Result<i64> {
         self.handlers.add(vhnd.ok()?)
@@ -37,7 +37,7 @@ where
 impl<T> IIterable_Impl<T> for StockObservableVector_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn First(&self) -> Result<IIterator<T>> {
         Ok(ComObject::new(StockObservableVectorIterator {
@@ -51,7 +51,7 @@ where
 impl<T> IVector_Impl<T> for StockObservableVector_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn GetAt(&self, index: u32) -> Result<T> {
         let values = self.values.read().unwrap();
@@ -179,7 +179,7 @@ where
 impl<T> StockObservableVector_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn fire_changed(&self, change: CollectionChange, index: u32) {
         let observable: IObservableVector<T> = self.to_object().into_interface();
@@ -212,7 +212,7 @@ impl IVectorChangedEventArgs_Impl for StockVectorChangedEventArgs_Impl {
 struct StockObservableVectorIterator<T>
 where
     T: RuntimeType + 'static,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     owner: ComObject<StockObservableVector<T>>,
     current: std::sync::atomic::AtomicUsize,
@@ -222,13 +222,13 @@ implement_decl! {
     impl<T> StockObservableVectorIterator as StockObservableVectorIterator_Impl: [
         IIterator<T>,
     ]
-    where T: RuntimeType + 'static, T::Default: Clone + PartialEq
+    where T: RuntimeType + 'static, T::Default: PartialEq
 }
 
 impl<T> IIterator_Impl<T> for StockObservableVectorIterator_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn Current(&self) -> Result<T> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
@@ -283,7 +283,7 @@ where
 impl<T> From<Vec<T::Default>> for IObservableVector<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     /// Creates an `IObservableVector<T>` containing the given values.
     fn from(values: Vec<T::Default>) -> Self {

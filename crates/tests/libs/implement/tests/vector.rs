@@ -23,12 +23,12 @@ pub(crate) fn err_memory() -> Error {
 struct Vector<T>(RwLock<Vec<T::Default>>)
 where
     T: RuntimeType + 'static,
-    <T as Type<T>>::Default: PartialEq + Clone;
+    <T as Type<T>>::Default: PartialEq;
 
 impl<T> Vector<T>
 where
     T: RuntimeType + 'static,
-    <T as Type<T>>::Default: PartialEq + Clone,
+    <T as Type<T>>::Default: PartialEq,
 {
     fn new(vec: Vec<T::Default>) -> Self {
         Self(RwLock::new(vec))
@@ -38,7 +38,7 @@ where
 impl<T> Vector_Impl<T>
 where
     T: RuntimeType + 'static,
-    <T as Type<T>>::Default: PartialEq + Clone,
+    <T as Type<T>>::Default: PartialEq,
 {
     // Methods common to IVector and IVectorView:
     fn GetAt(&self, index: u32) -> Result<T> {
@@ -71,7 +71,7 @@ where
 impl<T> IVector_Impl<T> for Vector_Impl<T>
 where
     T: RuntimeType + 'static,
-    <T as Type<T>>::Default: PartialEq + Clone,
+    <T as Type<T>>::Default: PartialEq,
 {
     fn GetAt(&self, index: u32) -> Result<T> {
         self.GetAt(index)
@@ -151,7 +151,7 @@ where
 impl<T> IVectorView_Impl<T> for Vector_Impl<T>
 where
     T: RuntimeType + 'static,
-    <T as Type<T>>::Default: PartialEq + Clone,
+    <T as Type<T>>::Default: PartialEq,
 {
     fn GetAt(&self, index: u32) -> Result<T> {
         self.GetAt(index)
@@ -170,7 +170,7 @@ where
 impl<T> IIterable_Impl<T> for Vector_Impl<T>
 where
     T: RuntimeType + 'static,
-    <T as Type<T>>::Default: PartialEq + Clone,
+    <T as Type<T>>::Default: PartialEq,
 {
     fn First(&self) -> Result<IIterator<T>> {
         unimplemented!()

@@ -5,8 +5,7 @@ struct StockObservableMap<K, V>
 where
     K: RuntimeType + 'static,
     V: RuntimeType + 'static,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     map: std::sync::RwLock<std::collections::BTreeMap<K::Default, V::Default>>,
     handlers: Event<MapChangedEventHandler<K, V>>,
@@ -18,15 +17,14 @@ implement_decl! {
         IMap<K, V>,
         IIterable<IKeyValuePair<K, V>>,
     ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
+    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Ord
 }
 
 impl<K, V> IObservableMap_Impl<K, V> for StockObservableMap_Impl<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     fn MapChanged(&self, vhnd: Ref<MapChangedEventHandler<K, V>>) -> Result<i64> {
         self.handlers.add(vhnd.ok()?)
@@ -42,8 +40,7 @@ impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockObservableMap_Impl<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     fn First(&self) -> Result<IIterator<IKeyValuePair<K, V>>> {
         let snapshot: Vec<(K::Default, V::Default)> = self
@@ -65,8 +62,7 @@ impl<K, V> IMap_Impl<K, V> for StockObservableMap_Impl<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     fn Lookup(&self, key: Ref<K>) -> Result<V> {
         let map = self.map.read().unwrap();
@@ -135,8 +131,7 @@ impl<K, V> StockObservableMap_Impl<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     fn fire_changed(&self, change: CollectionChange, key: Option<K::Default>) {
         let observable: IObservableMap<K, V> = self.to_object().into_interface();
@@ -150,7 +145,6 @@ where
 struct StockMapChangedEventArgs<K>
 where
     K: RuntimeType + 'static,
-    K::Default: Clone,
 {
     change: CollectionChange,
     key: Option<K::Default>,
@@ -160,13 +154,12 @@ implement_decl! {
     impl<K> StockMapChangedEventArgs as StockMapChangedEventArgs_Impl: [
         IMapChangedEventArgs<K>,
     ]
-    where K: RuntimeType + 'static, K::Default: Clone
+    where K: RuntimeType + 'static
 }
 
 impl<K> IMapChangedEventArgs_Impl<K> for StockMapChangedEventArgs_Impl<K>
 where
     K: RuntimeType,
-    K::Default: Clone,
 {
     fn CollectionChange(&self) -> Result<CollectionChange> {
         Ok(self.change)
@@ -184,8 +177,7 @@ struct StockObservableMapIterator<K, V>
 where
     K: RuntimeType + 'static,
     V: RuntimeType + 'static,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     snapshot: Vec<(K::Default, V::Default)>,
     current: std::sync::atomic::AtomicUsize,
@@ -195,15 +187,14 @@ implement_decl! {
     impl<K, V> StockObservableMapIterator as StockObservableMapIterator_Impl: [
         IIterator<IKeyValuePair<K, V>>,
     ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
+    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Ord
 }
 
 impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockObservableMapIterator_Impl<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     fn Current(&self) -> Result<IKeyValuePair<K, V>> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
@@ -266,8 +257,7 @@ impl<K, V> From<std::collections::BTreeMap<K::Default, V::Default>> for IObserva
 where
     K: RuntimeType,
     V: RuntimeType,
-    K::Default: Clone + Ord,
-    V::Default: Clone,
+    K::Default: Ord,
 {
     /// Creates an `IObservableMap<K, V>` from the given key/value pairs.
     fn from(map: std::collections::BTreeMap<K::Default, V::Default>) -> Self {
