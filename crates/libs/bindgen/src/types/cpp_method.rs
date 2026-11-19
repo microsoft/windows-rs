@@ -230,9 +230,7 @@ impl CppMethod {
                 let map = ty
                     .projection_type(config.reader)
                     .write_result_map(config.reader);
-                let init = ty
-                    .projection_type(config.reader)
-                    .write_result_init(config.reader);
+                let init = ty.projection_type(config.reader).write_result_init(config);
                 let return_type = ty.write_name(config);
 
                 quote! {
@@ -583,13 +581,12 @@ impl CppMethod {
                             .is_interface_with_reader(config.reader)
                     {
                         quote! { core::ptr::from_mut::<*mut core::ffi::c_void>(&mut result__).cast(), }
-                    } else if self.return_hint == ReturnHint::ResultValue
-                        && param
+                    } else if self.return_hint == ReturnHint::ResultValue {
+                        let arg = param
                             .projection_pointee(config.reader)
                             .projection_type(config.reader)
-                            .needs_result_storage(config.reader)
-                    {
-                        quote! { result__.as_mut_ptr(), }
+                            .write_result_arg(config.reader);
+                        quote! { #arg, }
                     } else {
                         quote! { &mut result__, }
                     }

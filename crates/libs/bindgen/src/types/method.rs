@@ -418,10 +418,8 @@ impl Method {
             ty => {
                 if ty.is_winrt_array() {
                     quote! { &mut result_size__, &mut result__ }
-                } else if ty.needs_result_storage(config.reader) {
-                    quote! { result__.as_mut_ptr() }
                 } else {
-                    quote! { &mut result__ }
+                    ty.write_result_arg(config.reader)
                 }
             }
         };
@@ -690,10 +688,15 @@ impl Method {
                     }
                 }
                 _ => {
-                    let init = self.signature.return_type.write_result_init(config.reader);
+                    let init = self.signature.return_type.write_result_init(config);
                     let value = self.signature.return_type.write_result_value(config.reader);
                     if noexcept {
-                        if self.signature.return_type.is_copyable(config.reader) {
+                        if self.signature.return_type.is_copyable(config.reader)
+                            || self
+                                .signature
+                                .return_type
+                                .uses_projected_result_storage(config.reader)
+                        {
                             quote! {
                                 #init
                                 let hresult__ = #vcall;

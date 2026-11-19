@@ -55,12 +55,12 @@ mod TestNative {
         fn GetNestedArray(&self, #[out] #[retval] value: *mut [[Test::OwnedValue; 2]; 2]) -> HRESULT;
     }
 
-    #[library("test.dll")]
-    extern fn GetOwned(#[out] #[retval] value: *mut Test::OwnedValue) -> HRESULT;
-    #[library("test.dll")]
-    extern fn GetOwnedArray(#[out] #[retval] value: *mut [Test::OwnedValue; 2]) -> HRESULT;
-    #[library("test.dll")]
-    extern fn GetOwnedNestedArray(#[out] #[retval] value: *mut [[Test::OwnedValue; 2]; 2]) -> HRESULT;
+    #[library("bindgen_abi.dll")]
+    extern fn GetOwned(#[in] status: HRESULT, #[out] #[retval] value: *mut Test::OwnedValue) -> HRESULT;
+    #[library("bindgen_abi.dll")]
+    extern fn GetOwnedArray(#[in] status: HRESULT, #[out] #[retval] value: *mut [Test::OwnedValue; 2]) -> HRESULT;
+    #[library("bindgen_abi.dll")]
+    extern fn GetOwnedNestedArray(#[in] status: HRESULT, #[out] #[retval] value: *mut [[Test::OwnedValue; 2]; 2]) -> HRESULT;
 }
 
 mod Windows {

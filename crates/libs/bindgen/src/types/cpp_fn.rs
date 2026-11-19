@@ -256,9 +256,7 @@ impl CppFn {
                 let map = ty
                     .projection_type(config.reader)
                     .write_result_map(config.reader);
-                let init = ty
-                    .projection_type(config.reader)
-                    .write_result_init(config.reader);
+                let init = ty.projection_type(config.reader).write_result_init(config);
                 let return_type = ty.write_name(config);
 
                 quote! {

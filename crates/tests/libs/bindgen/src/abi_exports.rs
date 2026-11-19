@@ -65,3 +65,51 @@ pub unsafe extern "C" fn invoke_cdecl(
 ) -> u64 {
     callback.map_or(0, |callback| unsafe { callback(context, values, count) })
 }
+
+// Raw ABI fields for Test.OwnedValue in ownership.rdl.
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OwnedValue {
+    text: *mut c_void,
+    enabled: bool,
+    number: f64,
+    object: *mut c_void,
+}
+
+fn owned_value() -> OwnedValue {
+    OwnedValue {
+        text: core::ptr::null_mut(),
+        enabled: true,
+        number: 42.25,
+        object: core::ptr::null_mut(),
+    }
+}
+
+unsafe fn write_result<T>(status: i32, output: *mut T, value: T) -> i32 {
+    unsafe {
+        if status < 0 {
+            output.cast::<u8>().write_bytes(0xff, size_of::<T>());
+        } else {
+            output.write(value);
+        }
+    }
+    status
+}
+
+#[unsafe(export_name = "GetOwned")]
+pub unsafe extern "system" fn get_owned(status: i32, output: *mut OwnedValue) -> i32 {
+    unsafe { write_result(status, output, owned_value()) }
+}
+
+#[unsafe(export_name = "GetOwnedArray")]
+pub unsafe extern "system" fn get_owned_array(status: i32, output: *mut [OwnedValue; 2]) -> i32 {
+    unsafe { write_result(status, output, [owned_value(); 2]) }
+}
+
+#[unsafe(export_name = "GetOwnedNestedArray")]
+pub unsafe extern "system" fn get_owned_nested_array(
+    status: i32,
+    output: *mut [[OwnedValue; 2]; 2],
+) -> i32 {
+    unsafe { write_result(status, output, [[owned_value(); 2]; 2]) }
+}

@@ -1,26 +1,29 @@
 #[inline]
-pub unsafe fn GetOwned() -> windows_core::Result<OwnedValue> {
-    windows_core::link!("test.dll" "system" fn GetOwned(value : *mut core::mem::ManuallyDrop < OwnedValue >) -> windows_core::HRESULT);
+pub unsafe fn GetOwned(status: windows_core::HRESULT) -> windows_core::Result<OwnedValue> {
+    windows_core::link!("bindgen_abi.dll" "system" fn GetOwned(status : windows_core::HRESULT, value : *mut core::mem::ManuallyDrop < OwnedValue >) -> windows_core::HRESULT);
     unsafe {
-        let mut result__ = core::mem::MaybeUninit::zeroed();
-        GetOwned(result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
+        let mut result__ = core::mem::MaybeUninit::<OwnedValue>::zeroed();
+        GetOwned(status, result__.as_mut_ptr().cast()).map(|| result__.assume_init())
     }
 }
 #[inline]
-pub unsafe fn GetOwnedArray() -> windows_core::Result<[OwnedValue; 2]> {
-    windows_core::link!("test.dll" "system" fn GetOwnedArray(value : *mut [core::mem::ManuallyDrop < OwnedValue >; 2]) -> windows_core::HRESULT);
+pub unsafe fn GetOwnedArray(
+    status: windows_core::HRESULT,
+) -> windows_core::Result<[OwnedValue; 2]> {
+    windows_core::link!("bindgen_abi.dll" "system" fn GetOwnedArray(status : windows_core::HRESULT, value : *mut [core::mem::ManuallyDrop < OwnedValue >; 2]) -> windows_core::HRESULT);
     unsafe {
-        let mut result__ = core::mem::MaybeUninit::zeroed();
-        GetOwnedArray(result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
+        let mut result__ = core::mem::MaybeUninit::<[OwnedValue; 2]>::zeroed();
+        GetOwnedArray(status, result__.as_mut_ptr().cast()).map(|| result__.assume_init())
     }
 }
 #[inline]
-pub unsafe fn GetOwnedNestedArray() -> windows_core::Result<[[OwnedValue; 2]; 2]> {
-    windows_core::link!("test.dll" "system" fn GetOwnedNestedArray(value : *mut [[core::mem::ManuallyDrop < OwnedValue >; 2]; 2]) -> windows_core::HRESULT);
+pub unsafe fn GetOwnedNestedArray(
+    status: windows_core::HRESULT,
+) -> windows_core::Result<[[OwnedValue; 2]; 2]> {
+    windows_core::link!("bindgen_abi.dll" "system" fn GetOwnedNestedArray(status : windows_core::HRESULT, value : *mut [[core::mem::ManuallyDrop < OwnedValue >; 2]; 2]) -> windows_core::HRESULT);
     unsafe {
-        let mut result__ = core::mem::MaybeUninit::zeroed();
-        GetOwnedNestedArray(result__.as_mut_ptr())
-            .map(|| core::mem::transmute(result__.assume_init()))
+        let mut result__ = core::mem::MaybeUninit::<[[OwnedValue; 2]; 2]>::zeroed();
+        GetOwnedNestedArray(status, result__.as_mut_ptr().cast()).map(|| result__.assume_init())
     }
 }
 windows_core::imp::define_interface!(
@@ -655,32 +658,32 @@ windows_core::imp::interface_hierarchy!(NativeResult, windows_core::IUnknown);
 impl NativeResult {
     pub unsafe fn Get(&self) -> windows_core::Result<OwnedValue> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ = core::mem::MaybeUninit::<OwnedValue>::zeroed();
             (windows_core::Interface::vtable(self).Get)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .map(|| core::mem::transmute(result__.assume_init()))
+            .map(|| result__.assume_init())
         }
     }
     pub unsafe fn GetArray(&self) -> windows_core::Result<[OwnedValue; 2]> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ = core::mem::MaybeUninit::<[OwnedValue; 2]>::zeroed();
             (windows_core::Interface::vtable(self).GetArray)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .map(|| core::mem::transmute(result__.assume_init()))
+            .map(|| result__.assume_init())
         }
     }
     pub unsafe fn GetNestedArray(&self) -> windows_core::Result<[[OwnedValue; 2]; 2]> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ = core::mem::MaybeUninit::<[[OwnedValue; 2]; 2]>::zeroed();
             (windows_core::Interface::vtable(self).GetNestedArray)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .map(|| core::mem::transmute(result__.assume_init()))
+            .map(|| result__.assume_init())
         }
     }
 }
@@ -793,25 +796,23 @@ windows_core::imp::interface_hierarchy!(
 impl OwnedResult {
     pub fn Get(&self) -> windows_core::Result<OwnedValue> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ = core::mem::MaybeUninit::<OwnedValue>::zeroed();
             (windows_core::Interface::vtable(self).Get)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .map(|| core::mem::transmute(result__.assume_init()))
+            .map(|| result__.assume_init())
         }
     }
     pub fn Infallible(&self) -> OwnedValue {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ = core::mem::MaybeUninit::<OwnedValue>::zeroed();
             let hresult__ = (windows_core::Interface::vtable(self).Infallible)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             );
             debug_assert!(hresult__.0 == 0);
-            core::mem::transmute::<core::mem::ManuallyDrop<OwnedValue>, OwnedValue>(
-                result__.assume_init(),
-            )
+            result__.assume_init()
         }
     }
 }
@@ -908,14 +909,14 @@ impl OwnedRoundtrip {
             *output = unsafe { core::mem::zeroed() };
         }
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ = core::mem::MaybeUninit::<OwnedValue>::zeroed();
             (windows_core::Interface::vtable(self).Invoke)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute_copy(input),
                 output as *mut _ as _,
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .map(|| core::mem::transmute(result__.assume_init()))
+            .map(|| result__.assume_init())
         }
     }
 }

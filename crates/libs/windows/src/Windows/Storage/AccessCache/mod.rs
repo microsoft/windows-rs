@@ -76,8 +76,8 @@ impl AccessListEntryView {
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<AccessListEntry> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
+            let mut result__ = core::mem::MaybeUninit::<AccessListEntry>::zeroed();
+            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, result__.as_mut_ptr().cast()).map(|| result__.assume_init())
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -573,8 +573,8 @@ windows_core::imp::interface_hierarchy!(ItemRemovedEventArgs, windows_core::IUnk
 impl ItemRemovedEventArgs {
     pub fn RemovedEntry(&self) -> windows_core::Result<AccessListEntry> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).RemovedEntry)(windows_core::Interface::as_raw(self), result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
+            let mut result__ = core::mem::MaybeUninit::<AccessListEntry>::zeroed();
+            (windows_core::Interface::vtable(self).RemovedEntry)(windows_core::Interface::as_raw(self), result__.as_mut_ptr().cast()).map(|| result__.assume_init())
         }
     }
 }
