@@ -363,6 +363,35 @@ fn direct_out_ref_replacement() {
     assert_eq!(new_drops.load(Ordering::Relaxed), 1);
 }
 
+#[test]
+fn out_ref_writes_uninitialized_storage() {
+    let drops = Arc::new(AtomicUsize::new(0));
+    let mut storage = core::mem::MaybeUninit::<OwnedValue>::uninit();
+    let output: OutRef<'_, OwnedValue> = unsafe { core::mem::transmute(storage.as_mut_ptr()) };
+    output
+        .write(OwnedValue {
+            object: Some(tracked(&drops)),
+            ..owned_result()
+        })
+        .unwrap();
+    let value = unsafe { storage.assume_init() };
+    assert!(value.enabled);
+    assert_eq!(value.number, 42.25);
+    value.object.as_ref().unwrap().Invoke().unwrap();
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    drop(value);
+    assert_eq!(drops.load(Ordering::Relaxed), 1);
+    assert!(
+        OutRef::<OwnedValue>::default()
+            .write(OwnedValue {
+                object: Some(tracked(&drops)),
+                ..owned_result()
+            })
+            .is_err()
+    );
+    assert_eq!(drops.load(Ordering::Relaxed), 2);
+}
+
 #[windows_core::implement(GenericResult<T>)]
 struct GenericProducer<T: RuntimeType + 'static>(T);
 

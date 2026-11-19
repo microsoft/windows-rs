@@ -375,23 +375,25 @@ windows_core::imp::define_winrt_interface!(GenericResult < T >, GenericResult_Vt
 impl<T: windows_core::RuntimeType + 'static> GenericResult<T> {
     pub fn Get(&self) -> windows_core::Result<T> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Get)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn Infallible(&self) -> T {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
             let hresult__ = (windows_core::Interface::vtable(self).Infallible)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             );
             debug_assert!(hresult__.0 == 0);
-            windows_core::imp::Type::from_abi(result__.assume_init()).unwrap()
+            windows_core::imp::Type::from_default_owned(result__.assume_init()).unwrap()
         }
     }
 }
@@ -524,14 +526,15 @@ impl<T: windows_core::RuntimeType + 'static> GenericRoundtrip<T> {
             *output = unsafe { core::mem::zeroed() };
         }
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Invoke)(
                 windows_core::Interface::as_raw(self),
                 input.param().abi(),
                 output as *mut _ as _,
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
 }

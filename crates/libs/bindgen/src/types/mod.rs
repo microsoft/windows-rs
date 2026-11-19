@@ -1352,30 +1352,18 @@ impl Type {
         }
     }
 
-    pub fn uses_projected_result_storage(&self, reader: &Reader) -> bool {
-        match self {
-            Self::Struct(_) => !self.is_copyable(reader),
-            Self::ArrayFixed(ty, _) => ty.uses_projected_result_storage(reader),
-            _ => false,
-        }
-    }
-
     pub fn write_result_init(&self, config: &Config) -> TokenStream {
-        if self.uses_projected_result_storage(config.reader) {
-            let ty = self.write_name(config);
+        if self.needs_result_storage(config.reader) {
+            let ty = self.write_default(config);
             quote! { let mut result__ = core::mem::MaybeUninit::<#ty>::zeroed(); }
-        } else if self.needs_result_storage(config.reader) {
-            quote! { let mut result__ = core::mem::MaybeUninit::zeroed(); }
         } else {
             quote! { let mut result__ = core::mem::zeroed(); }
         }
     }
 
     pub fn write_result_arg(&self, reader: &Reader) -> TokenStream {
-        if self.uses_projected_result_storage(reader) {
+        if self.needs_result_storage(reader) {
             quote! { result__.as_mut_ptr().cast() }
-        } else if self.needs_result_storage(reader) {
-            quote! { result__.as_mut_ptr() }
         } else {
             quote! { &mut result__ }
         }
@@ -1391,7 +1379,9 @@ impl Type {
 
     pub fn write_result_map(&self, reader: &Reader) -> TokenStream {
         let result = self.write_result_value(reader);
-        if self.is_copyable(reader) || self.uses_projected_result_storage(reader) {
+        if matches!(self, Self::Generic(_)) {
+            quote! { and_then(||windows_core::imp::Type::from_default_owned(#result)) }
+        } else if self.is_copyable(reader) || self.needs_result_storage(reader) {
             quote! { map(|| #result) }
         } else if self.is_convertible() {
             quote! { and_then(||windows_core::imp::Type::from_abi(#result)) }
