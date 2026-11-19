@@ -6,10 +6,7 @@ use core::mem::{take, transmute_copy};
 /// Implementations are provided for supported Windows types.
 /// Interface output storage is `&mut Option<T>`. Optional storage accepts `Some(&mut value)`
 /// or `None`, with the same cleanup as a non-optional output.
-pub trait OutParam<T: TypeKind, C = <T as TypeKind>::TypeKind>: Sized
-where
-    T: Type,
-{
+pub trait OutParam<T: Type, C = <T as TypeKind>::TypeKind>: Sized {
     #[doc(hidden)]
     unsafe fn borrow_mut(&self) -> OutRef<'_, T>;
 }
