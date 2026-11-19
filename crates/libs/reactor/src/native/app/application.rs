@@ -33,6 +33,7 @@ struct IconSlot {
     native: NativeIcon,
     declaration: NotifyIcon,
     generation: u64,
+    tooltip_pending: bool,
 }
 
 struct IconEvent {
@@ -196,10 +197,17 @@ impl<A: Application> ApplicationState<A> {
                 if icon.declaration.path != declaration.path {
                     icon.native.set_icon(&declaration.path).unwrap();
                 }
-                if icon.declaration.tooltip != declaration.tooltip {
-                    icon.native
+                if icon.tooltip_pending || icon.declaration.tooltip != declaration.tooltip {
+                    icon.tooltip_pending = !icon
+                        .native
                         .set_tooltip(declaration.tooltip.as_deref())
                         .unwrap();
+                    if icon.tooltip_pending {
+                        eprintln!(
+                            "failed to update notification-area tooltip for {key:?}; \
+                             will retry on the next application render"
+                        );
+                    }
                 }
                 icon.declaration = declaration;
             } else {
@@ -232,6 +240,7 @@ impl<A: Application> ApplicationState<A> {
                         native,
                         declaration,
                         generation,
+                        tooltip_pending: false,
                     },
                 );
             }

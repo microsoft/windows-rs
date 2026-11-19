@@ -48,6 +48,7 @@ pub struct Automation {
     window: Cell<Option<usize>>,
     cancelled: Arc<AtomicBool>,
     pressed: Arc<Mutex<bool>>,
+    stderr: std::path::PathBuf,
 }
 
 impl Automation {
@@ -56,6 +57,7 @@ impl Automation {
         fixture: &str,
         cancelled: Arc<AtomicBool>,
         pressed: Arc<Mutex<bool>>,
+        stderr: std::path::PathBuf,
     ) -> Result<Self> {
         unsafe {
             let mut raw = std::ptr::null_mut();
@@ -92,6 +94,7 @@ impl Automation {
                 window: Cell::new(None),
                 cancelled,
                 pressed,
+                stderr,
             })
         }
     }
@@ -464,6 +467,52 @@ impl Automation {
 
     pub fn activate_tray_icon(&self) -> Result<()> {
         self.tray_event(NIN_SELECT as u32)
+    }
+
+    pub fn remove_tray_registration(&self) -> Result<()> {
+        let window = self
+            .tray_window()?
+            .ok_or("fixture icon window is missing")?;
+        let mut data = NOTIFYICONDATAW {
+            cbSize: size_of::<NOTIFYICONDATAW>() as u32,
+            hWnd: window,
+            uID: 1,
+            ..Default::default()
+        };
+        assert!(
+            unsafe { Shell_NotifyIconW(NIM_DELETE as u32, &mut data) }.as_bool(),
+            "failed to remove fixture's Shell registration"
+        );
+        Ok(())
+    }
+
+    pub fn recover_tray_registration(&self) -> Result<()> {
+        let window = self
+            .tray_window()?
+            .ok_or("fixture icon window is missing")?;
+        unsafe {
+            let message = RegisterWindowMessageW(windows_core::w!("TaskbarCreated"));
+            assert_ne!(message, 0);
+            let mut result = 0;
+            assert_ne!(
+                SendMessageTimeoutW(
+                    window,
+                    message,
+                    0,
+                    0,
+                    SMTO_ABORTIFHUNG as u32,
+                    5000,
+                    &mut result,
+                ),
+                0,
+                "fixture did not queue Shell recovery"
+            );
+        }
+        Ok(())
+    }
+
+    pub fn stderr(&self) -> Result<String> {
+        Ok(std::fs::read_to_string(&self.stderr)?)
     }
 
     fn tray_event(&self, event: u32) -> Result<()> {

@@ -208,9 +208,10 @@ fn drive(
     let driver_cancelled = cancelled.clone();
     let pointer = PointerInput::default();
     let pressed = pointer.pressed.clone();
+    let stderr = host.directory.join("stderr.txt");
     let driver = std::thread::spawn(move || {
         let _com = Com::new()?;
-        let ui = Automation::new(process, fixture, driver_cancelled, pressed)?;
+        let ui = Automation::new(process, fixture, driver_cancelled, pressed, stderr)?;
         test(&ui)?;
         ui.window_handle()
     });

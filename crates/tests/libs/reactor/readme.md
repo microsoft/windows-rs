@@ -75,6 +75,15 @@ cargo test -p test-reactor --test ui -- `
     pointer_delivery_modes_preserve_routing_and_queued_order
 ```
 
+## Notification icon updates
+
+The `tray` tooltip-refusal case removes only the fixture's Shell registration, leaving its callback
+window alive, to force a real `NIM_MODIFY` failure. It checks refusal diagnostics, retry on an
+unchanged declaration, current callbacks, and removal with pending work. It sends `TaskbarCreated`
+only to that callback window to restore the registration; it does not restart Explorer or reproduce
+the cause of a post-resume Shell failure. Headless tests check the tooltip payload retained on
+failure and applied on a successful retry.
+
 ## Opt-in drag/drop coverage
 
 Five drag/drop cases are ignored by default. They require a non-elevated terminal and an idle

@@ -153,6 +153,10 @@ impl NotifyIcon {
         }
     }
 
+    /// Sets the standard tooltip. Invalid text panics when the declaration is applied.
+    ///
+    /// Updates rejected by the Shell are logged and retried on the next application render.
+    /// A rejected update does not schedule a render.
     pub fn tooltip(mut self, tooltip: impl Into<String>) -> Self {
         self.tooltip = Some(tooltip.into());
         self
