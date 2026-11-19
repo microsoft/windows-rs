@@ -167,7 +167,7 @@ impl ICredentialProvider {
     pub unsafe fn GetCredentialAt(&self, dwindex: super::DWORD) -> windows_core::Result<ICredentialProviderCredential> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCredentialAt)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCredentialAt)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1171,7 +1171,7 @@ impl ICredentialProviderUserArray {
     pub unsafe fn GetAt(&self, userindex: super::DWORD) -> windows_core::Result<ICredentialProviderUser> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), userindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), userindex, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

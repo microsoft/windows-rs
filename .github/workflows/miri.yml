@@ -68,7 +68,7 @@ jobs:
           RUSTFLAGS: "-D warnings --cfg windows_slim_errors"
         run: >-
           cargo +nightly miri test --target ${{ matrix.target }} -p test_bindgen --lib
-          failed_owning_return_is_not_read
+          -- failed_owning_return_is_not_read com_results_tests
       - name: Check declarative COM objects
         # Error construction calls native APIs on Windows; those cases remain in test.yml.
         run: >-

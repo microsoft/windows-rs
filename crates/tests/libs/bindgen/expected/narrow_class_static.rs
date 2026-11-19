@@ -82,7 +82,7 @@ impl IWidgetFactory {
                 value,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -127,7 +127,7 @@ impl Widget {
                 value,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IWidgetFactory<R, F: FnOnce(&IWidgetFactory) -> windows_core::Result<R>>(

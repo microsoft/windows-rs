@@ -4,13 +4,13 @@ use windows::{Win32::*, core::*};
 unsafe fn create_xml_reader<T: Interface>() -> Result<T> {
     let mut result__ = core::ptr::null_mut();
     unsafe { CreateXmlReader(&T::IID, &mut result__, None).ok()? };
-    unsafe { imp::Type::from_abi(result__) }
+    unsafe { imp::from_abi(result__) }
 }
 
 unsafe fn create_xml_writer<T: Interface>() -> Result<T> {
     let mut result__ = core::ptr::null_mut();
     unsafe { CreateXmlWriter(&T::IID, &mut result__, None).ok()? };
-    unsafe { imp::Type::from_abi(result__) }
+    unsafe { imp::from_abi(result__) }
 }
 
 #[test]

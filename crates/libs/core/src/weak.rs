@@ -23,7 +23,7 @@ impl<I: Interface> Weak<I> {
             let mut value = core::ptr::null_mut();
             // Resolve returns the interface selected by the IID, not necessarily IInspectable.
             (inner.vtable().Resolve)(inner.as_raw(), &I::IID, &mut value)
-                .and_then(|| Type::from_abi(value))
+                .and_then(|| imp::from_abi(value))
                 .ok()
         })
     }

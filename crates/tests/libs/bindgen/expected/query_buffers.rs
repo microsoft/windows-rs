@@ -17,7 +17,7 @@ impl Factory {
                 &T::IID,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn BufferAfterId<T>(
@@ -37,7 +37,7 @@ impl Factory {
                 filters,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn BufferOnly(

@@ -140,7 +140,7 @@ fn main() -> windows::core::Result<()> {
                     &mut desktop,
                 )
                 .ok()?;
-                let desktop: IDCompositionDesktopDevice = imp::Type::from_abi(desktop)?;
+                let desktop: IDCompositionDesktopDevice = imp::from_abi(desktop)?;
 
                 self.target = None;
                 let target = desktop.CreateTargetForHwnd(self.handle, true)?;
@@ -627,7 +627,7 @@ fn main() -> windows::core::Result<()> {
             surface
                 .BeginDraw(None, &ID2D1DeviceContext::IID, &mut dc, &mut offset)
                 .ok()?;
-            let dc: ID2D1DeviceContext = imp::Type::from_abi(dc)?;
+            let dc: ID2D1DeviceContext = imp::from_abi(dc)?;
             dc.SetDpi(dpi.0, dpi.1);
 
             dc.SetTransform(&Matrix3x2::translation(
@@ -673,7 +673,7 @@ fn main() -> windows::core::Result<()> {
             surface
                 .BeginDraw(None, &ID2D1DeviceContext::IID, &mut dc, &mut dc_offset)
                 .ok()?;
-            let dc: ID2D1DeviceContext = imp::Type::from_abi(dc)?;
+            let dc: ID2D1DeviceContext = imp::from_abi(dc)?;
             dc.SetDpi(dpi.0, dpi.1);
 
             dc.SetTransform(&Matrix3x2::translation(

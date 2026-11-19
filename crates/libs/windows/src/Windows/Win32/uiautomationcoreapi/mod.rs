@@ -453,7 +453,7 @@ where
     windows_core::link!("uiautomationcore.dll" "system" fn UiaProviderFromIAccessible(paccessible : *mut core::ffi::c_void, idchild : i32, dwflags : super::DWORD, ppprovider : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        UiaProviderFromIAccessible(paccessible.param().abi(), idchild, dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        UiaProviderFromIAccessible(paccessible.param().abi(), idchild, dwflags, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(feature = "uiautomationcore")]

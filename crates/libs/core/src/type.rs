@@ -30,7 +30,6 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
         Self: 'a;
 
     fn as_ref(default: &Self::Default) -> Option<&Self>;
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
     fn from_default(default: &Self::Default) -> Result<Self> {
         Self::as_ref(default).cloned().ok_or(Error::empty())
     }
@@ -57,16 +56,6 @@ where
         default.as_ref()
     }
 
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        unsafe {
-            if !abi.is_null() {
-                Ok(core::mem::transmute_copy(&abi))
-            } else {
-                Err(Error::empty())
-            }
-        }
-    }
-
     fn from_default_owned(default: Self::Default) -> Result<Self> {
         default.ok_or(Error::empty())
     }
@@ -87,10 +76,6 @@ where
         Some(default)
     }
 
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(core::mem::ManuallyDrop::into_inner(abi))
-    }
-
     fn from_default_owned(default: Self::Default) -> Result<Self> {
         Ok(default)
     }
@@ -109,10 +94,6 @@ where
 
     fn as_ref(default: &Self::Default) -> Option<&Self> {
         Some(default)
-    }
-
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(abi)
     }
 
     fn from_default_owned(default: Self) -> Result<Self> {

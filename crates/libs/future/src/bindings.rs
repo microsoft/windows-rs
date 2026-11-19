@@ -782,7 +782,7 @@ impl IAsyncAction {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetResults(&self) -> windows_core::Result<()> {
@@ -944,7 +944,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TP
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetCompleted<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -968,7 +968,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TP
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetResults(&self) -> windows_core::Result<()> {
@@ -1386,7 +1386,7 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetResults(&self) -> windows_core::Result<TResult> {
@@ -1593,7 +1593,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetCompleted<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1617,7 +1617,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetResults(&self) -> windows_core::Result<TResult> {

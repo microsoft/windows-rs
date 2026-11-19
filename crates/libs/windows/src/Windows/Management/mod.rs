@@ -178,7 +178,7 @@ impl MdmSession {
     pub fn Alerts(&self) -> windows_core::Result<windows_collections::IVectorView<MdmAlert>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Alerts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Alerts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
@@ -202,7 +202,7 @@ impl MdmSession {
     pub fn AttachAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AttachAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AttachAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Delete(&self) -> windows_core::Result<()> {
@@ -211,7 +211,7 @@ impl MdmSession {
     pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StartWithAlertsAsync<P0>(&self, alerts: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -220,7 +220,7 @@ impl MdmSession {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartWithAlertsAsync)(windows_core::Interface::as_raw(self), alerts.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartWithAlertsAsync)(windows_core::Interface::as_raw(self), alerts.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -240,13 +240,13 @@ impl MdmSessionManager {
     pub fn SessionIds() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SessionIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SessionIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn TryCreateSession() -> windows_core::Result<MdmSession> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn DeleteSessionById(sessionid: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -255,7 +255,7 @@ impl MdmSessionManager {
     pub fn GetSessionById(sessionid: &windows_core::HSTRING) -> windows_core::Result<MdmSession> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSessionById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sessionid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSessionById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sessionid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IMdmSessionManagerStatics<R, F: FnOnce(&IMdmSessionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

@@ -18,7 +18,7 @@ impl AppTaskContent {
     pub fn CreateSequenceOfSteps(completedsteps: &[windows_core::HSTRING], executingstep: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAppTaskContentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSequenceOfSteps)(windows_core::Interface::as_raw(this), completedsteps.len().try_into().unwrap(), completedsteps.as_ptr().cast(), core::mem::transmute_copy(executingstep), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSequenceOfSteps)(windows_core::Interface::as_raw(this), completedsteps.len().try_into().unwrap(), completedsteps.as_ptr().cast(), core::mem::transmute_copy(executingstep), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn CreatePreviewThumbnail<P0>(imageuri: P0, executingstep: &windows_core::HSTRING) -> windows_core::Result<Self>
@@ -27,19 +27,19 @@ impl AppTaskContent {
     {
         Self::IAppTaskContentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePreviewThumbnail)(windows_core::Interface::as_raw(this), imageuri.param().abi(), core::mem::transmute_copy(executingstep), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePreviewThumbnail)(windows_core::Interface::as_raw(this), imageuri.param().abi(), core::mem::transmute_copy(executingstep), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn CreateTextSummaryResult(text: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAppTaskContentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTextSummaryResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateTextSummaryResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn CreateGeneratedAssetsResult(assets: &[Option<AppTaskResultAsset>]) -> windows_core::Result<Self> {
         Self::IAppTaskContentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateGeneratedAssetsResult)(windows_core::Interface::as_raw(this), assets.len().try_into().unwrap(), assets.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateGeneratedAssetsResult)(windows_core::Interface::as_raw(this), assets.len().try_into().unwrap(), assets.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn MaxButtons() -> windows_core::Result<u32> {
@@ -114,13 +114,13 @@ impl AppTaskInfo {
     pub fn DeepLink(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeepLink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeepLink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IconUri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IconUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IconUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn State(&self) -> windows_core::Result<AppTaskState> {
@@ -138,7 +138,7 @@ impl AppTaskInfo {
     pub fn EndTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -183,7 +183,7 @@ impl AppTaskInfo {
     {
         Self::IAppTaskInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), core::mem::transmute_copy(subtitle), deeplink.param().abi(), iconuri.param().abi(), content.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), core::mem::transmute_copy(subtitle), deeplink.param().abi(), iconuri.param().abi(), content.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IAppTaskInfoStatics<R, F: FnOnce(&IAppTaskInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -216,7 +216,7 @@ impl AppTaskResultAsset {
     {
         Self::IAppTaskResultAssetFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(context), iconuri.param().abi(), asseturi.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(context), iconuri.param().abi(), asseturi.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IAppTaskResultAssetFactory<R, F: FnOnce(&IAppTaskResultAssetFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

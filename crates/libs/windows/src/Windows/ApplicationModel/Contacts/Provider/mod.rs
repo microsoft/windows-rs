@@ -39,7 +39,7 @@ impl ContactPickerUI {
     pub fn DesiredFields(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DesiredFields)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DesiredFields)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SelectionMode(&self) -> windows_core::Result<super::ContactSelectionMode> {
@@ -76,7 +76,7 @@ impl ContactPickerUI {
         let this = &windows_core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesiredFieldsWithContactFieldType)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DesiredFieldsWithContactFieldType)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -141,7 +141,7 @@ impl IContactProvider {
     pub fn GetContactFromRemoteIdAsync(&self, contactremoteid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::Contact>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetContactFromRemoteIdAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(contactremoteid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetContactFromRemoteIdAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(contactremoteid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ContactListId(&self) -> windows_core::Result<windows_core::HSTRING> {

@@ -112,7 +112,7 @@ pub unsafe fn CreateDataAdviseHolder() -> windows_core::Result<super::LPDATAADVI
     windows_core::link!("ole32.dll" "system" fn CreateDataAdviseHolder(ppdaholder : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateDataAdviseHolder(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        CreateDataAdviseHolder(&mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[inline]
