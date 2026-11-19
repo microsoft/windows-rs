@@ -29,7 +29,7 @@ where
 
 impl<T> OutParam<T, CopyType> for &mut T
 where
-    T: TypeKind<TypeKind = CopyType> + Clone + Default,
+    T: TypeKind<TypeKind = CopyType> + Clone,
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {
         unsafe { transmute_copy(self) }

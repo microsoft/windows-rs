@@ -29,10 +29,11 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     where
         Self: 'a;
 
-    fn is_null(abi: &Self::Abi) -> bool;
-    unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self;
+    fn as_ref(default: &Self::Default) -> Option<&Self>;
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
-    fn from_default(default: &Self::Default) -> Result<Self>;
+    fn from_default(default: &Self::Default) -> Result<Self> {
+        Self::as_ref(default).cloned().ok_or(Error::empty())
+    }
 
     /// Like [`from_default`](Self::from_default) but consumes the value, transferring ownership
     /// instead of cloning. For interface types this moves the existing reference out rather than
@@ -52,12 +53,8 @@ where
     where
         Self: 'a;
 
-    fn is_null(abi: &Self::Abi) -> bool {
-        abi.is_null()
-    }
-
-    unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self {
-        unsafe { core::mem::transmute::<&*mut core::ffi::c_void, &T>(abi) }
+    fn as_ref(default: &Self::Default) -> Option<&Self> {
+        default.as_ref()
     }
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
@@ -68,10 +65,6 @@ where
                 Err(Error::empty())
             }
         }
-    }
-
-    fn from_default(default: &Self::Default) -> Result<Self> {
-        default.as_ref().cloned().ok_or(Error::empty())
     }
 
     fn from_default_owned(default: Self::Default) -> Result<Self> {
@@ -90,20 +83,12 @@ where
     where
         Self: 'a;
 
-    fn is_null(_: &Self::Abi) -> bool {
-        false
-    }
-
-    unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self {
-        abi
+    fn as_ref(default: &Self::Default) -> Option<&Self> {
+        Some(default)
     }
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(core::mem::ManuallyDrop::into_inner(abi))
-    }
-
-    fn from_default(default: &Self::Default) -> Result<Self> {
-        Ok(default.clone())
     }
 
     fn from_default_owned(default: Self::Default) -> Result<Self> {
@@ -122,20 +107,12 @@ where
     where
         Self: 'a;
 
-    fn is_null(_: &Self::Abi) -> bool {
-        false
-    }
-
-    unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self {
-        abi
+    fn as_ref(default: &Self::Default) -> Option<&Self> {
+        Some(default)
     }
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(abi)
-    }
-
-    fn from_default(default: &Self) -> Result<Self> {
-        Ok(default.clone())
     }
 
     fn from_default_owned(default: Self) -> Result<Self> {
