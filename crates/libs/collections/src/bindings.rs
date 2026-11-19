@@ -107,12 +107,13 @@ windows_core::imp::define_winrt_interface!(IIterator < T >, IIterator_Vtbl < T, 
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> windows_core::Result<T> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Current)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn HasCurrent(&self) -> windows_core::Result<bool> {
@@ -328,22 +329,24 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 {
     pub fn Key(&self) -> windows_core::Result<K> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<K as windows_core::imp::Type<K>>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Key)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn Value(&self) -> windows_core::Result<V> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<V as windows_core::imp::Type<V>>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Value)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
 }
@@ -456,13 +459,14 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         P0: windows_core::Param<K>,
     {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<V as windows_core::imp::Type<V>>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Lookup)(
                 windows_core::Interface::as_raw(self),
                 key.param().abi(),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -815,12 +819,13 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
     }
     pub fn Key(&self) -> windows_core::Result<K> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<K as windows_core::imp::Type<K>>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Key)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
 }
@@ -925,13 +930,14 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         P0: windows_core::Param<K>,
     {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<V as windows_core::imp::Type<V>>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Lookup)(
                 windows_core::Interface::as_raw(self),
                 key.param().abi(),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -1225,13 +1231,14 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     {
         let this = &windows_core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<V as windows_core::imp::Type<V>>::Default>::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(
                 windows_core::Interface::as_raw(this),
                 key.param().abi(),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -1470,13 +1477,14 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(
                 windows_core::Interface::as_raw(this),
                 index,
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -1727,13 +1735,14 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterabl
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
             (windows_core::Interface::vtable(self).GetAt)(
                 windows_core::Interface::as_raw(self),
                 index,
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -2348,13 +2357,14 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterabl
 impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ =
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
             (windows_core::Interface::vtable(self).GetAt)(
                 windows_core::Interface::as_raw(self),
                 index,
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {

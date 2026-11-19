@@ -15,8 +15,7 @@ impl<T: Type<T>> OutRef<'_, T> {
         if self.0.is_null() {
             Err(Error::from_hresult(imp::E_POINTER))
         } else {
-            unsafe { *self.0 = core::mem::transmute_copy(&value) }
-            core::mem::forget(value);
+            unsafe { self.0.cast::<T::Default>().write(value) }
             Ok(())
         }
     }

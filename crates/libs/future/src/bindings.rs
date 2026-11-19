@@ -1391,12 +1391,14 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
     }
     pub fn GetResults(&self) -> windows_core::Result<TResult> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ = core::mem::MaybeUninit::<
+                <TResult as windows_core::imp::Type<TResult>>::Default,
+            >::zeroed();
             (windows_core::Interface::vtable(self).GetResults)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {
@@ -1620,12 +1622,14 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
     pub fn GetResults(&self) -> windows_core::Result<TResult> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let mut result__ = core::mem::MaybeUninit::<
+                <TResult as windows_core::imp::Type<TResult>>::Default,
+            >::zeroed();
             (windows_core::Interface::vtable(self).GetResults)(
                 windows_core::Interface::as_raw(self),
-                result__.as_mut_ptr(),
+                result__.as_mut_ptr().cast(),
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+            .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {

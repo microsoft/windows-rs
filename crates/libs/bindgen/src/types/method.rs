@@ -695,11 +695,18 @@ impl Method {
                     let init = self.signature.return_type.write_result_init(config);
                     let value = self.signature.return_type.write_result_value(config.reader);
                     if noexcept {
-                        if self.signature.return_type.is_copyable(config.reader)
+                        if matches!(self.signature.return_type, Type::Generic(_)) {
+                            quote! {
+                                #init
+                                let hresult__ = #vcall;
+                                #assert_success
+                                windows_core::imp::Type::from_default_owned(#value).unwrap()
+                            }
+                        } else if self.signature.return_type.is_copyable(config.reader)
                             || self
                                 .signature
                                 .return_type
-                                .uses_projected_result_storage(config.reader)
+                                .needs_result_storage(config.reader)
                         {
                             quote! {
                                 #init
