@@ -269,7 +269,11 @@ impl Method {
     pub fn write_abi(&self, config: &Config, named_params: bool) -> TokenStream {
         let args = self.signature.params.iter().map(|param| {
             let name = param.write_ident();
-            let abi = param.write_abi(config);
+            let abi = if param.is_input_only() && !param.is_winrt_array() && !param.is_const_ref() {
+                param.write_abi(config)
+            } else {
+                param.write_abi_pointee(config)
+            };
             let abi_size_name: TokenStream = format!("{name}_array_size").parse().unwrap();
 
             if param.is_input_only() {
@@ -312,7 +316,7 @@ impl Method {
         let return_arg = match &self.signature.return_type {
             Type::Void => quote! {},
             Type::Array(ty) => {
-                let ty = ty.write_abi(config);
+                let ty = ty.write_abi_pointee(config);
                 if named_params {
                     quote! { result_size__: *mut u32, result__: *mut *mut #ty }
                 } else {
@@ -320,7 +324,7 @@ impl Method {
                 }
             }
             ty => {
-                let ty = ty.write_abi(config);
+                let ty = ty.write_abi_pointee(config);
                 if named_params {
                     quote! { result__: *mut #ty }
                 } else {

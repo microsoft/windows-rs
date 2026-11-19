@@ -337,7 +337,9 @@ impl CppMethod {
                 let last_param = &self.signature.params[self.signature.params.len() - 1];
                 let result = last_param.write_ident();
                 let result = if matches!(last_param.projection_type(reader), Type::PtrConst(..)) {
-                    let target = last_param.projection_pointee(reader).write_abi(config);
+                    let target = last_param
+                        .projection_pointee(reader)
+                        .write_abi_pointee(config);
                     quote! { (#result as *mut #target) }
                 } else {
                     result

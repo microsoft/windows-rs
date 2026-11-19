@@ -21105,7 +21105,7 @@ impl IXamlMetadataProvider_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             result_size__: *mut u32,
-            result__: *mut *mut core::mem::ManuallyDrop<XmlnsDefinition>,
+            result__: *mut *mut XmlnsDefinition,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -21152,7 +21152,7 @@ pub struct IXamlMetadataProvider_Vtbl {
     pub GetXmlnsDefinitions: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut u32,
-        *mut *mut core::mem::ManuallyDrop<XmlnsDefinition>,
+        *mut *mut XmlnsDefinition,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(

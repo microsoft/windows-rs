@@ -383,7 +383,7 @@ pub struct IStoreQueueItemStatus_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PackageInstallState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StoreQueueItemState) -> windows_core::HRESULT,
     pub PackageInstallExtendedState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StoreQueueItemExtendedState) -> windows_core::HRESULT,
-    pub UpdateStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::ManuallyDrop<StorePackageUpdateStatus>) -> windows_core::HRESULT,
+    pub UpdateStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorePackageUpdateStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(IStoreRateAndReviewResult, IStoreRateAndReviewResult_Vtbl, 0x9d209d56_a6b5_4121_9b61_ee6d0fbdbdbb, b"Windows.Services.Store.IStoreRateAndReviewResult");

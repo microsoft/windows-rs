@@ -38,6 +38,9 @@ mod Test {
         fn Get(&self) -> OwnedValue;
         #[Windows::Foundation::Metadata::NoException]
         fn Infallible(&self) -> OwnedValue;
+        fn GetMany(&self) -> [OwnedValue];
+        #[Windows::Foundation::Metadata::NoException]
+        fn InfallibleMany(&self) -> [OwnedValue];
     }
 
     #[guid(auto)]
@@ -61,6 +64,8 @@ mod TestNative {
     extern fn GetOwnedArray(#[in] status: HRESULT, #[out] #[retval] value: *mut [Test::OwnedValue; 2]) -> HRESULT;
     #[library("bindgen_abi.dll")]
     extern fn GetOwnedNestedArray(#[in] status: HRESULT, #[out] #[retval] value: *mut [[Test::OwnedValue; 2]; 2]) -> HRESULT;
+    #[library("bindgen_abi.dll")]
+    extern fn BorrowOwned(#[in] value: *const Test::OwnedValue) -> *const Test::OwnedValue;
 }
 
 mod Windows {

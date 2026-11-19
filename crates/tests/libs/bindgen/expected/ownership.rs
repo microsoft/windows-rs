@@ -1,6 +1,11 @@
 #[inline]
+pub unsafe fn BorrowOwned(value: *const OwnedValue) -> *const OwnedValue {
+    windows_core::link!("bindgen_abi.dll" "system" fn BorrowOwned(value : *const OwnedValue) -> *const OwnedValue);
+    unsafe { BorrowOwned(value) }
+}
+#[inline]
 pub unsafe fn GetOwned(status: windows_core::HRESULT) -> windows_core::Result<OwnedValue> {
-    windows_core::link!("bindgen_abi.dll" "system" fn GetOwned(status : windows_core::HRESULT, value : *mut core::mem::ManuallyDrop < OwnedValue >) -> windows_core::HRESULT);
+    windows_core::link!("bindgen_abi.dll" "system" fn GetOwned(status : windows_core::HRESULT, value : *mut OwnedValue) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::MaybeUninit::<OwnedValue>::zeroed();
         GetOwned(status, result__.as_mut_ptr().cast()).map(|| result__.assume_init())
@@ -10,7 +15,7 @@ pub unsafe fn GetOwned(status: windows_core::HRESULT) -> windows_core::Result<Ow
 pub unsafe fn GetOwnedArray(
     status: windows_core::HRESULT,
 ) -> windows_core::Result<[OwnedValue; 2]> {
-    windows_core::link!("bindgen_abi.dll" "system" fn GetOwnedArray(status : windows_core::HRESULT, value : *mut [core::mem::ManuallyDrop < OwnedValue >; 2]) -> windows_core::HRESULT);
+    windows_core::link!("bindgen_abi.dll" "system" fn GetOwnedArray(status : windows_core::HRESULT, value : *mut [OwnedValue; 2]) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::MaybeUninit::<[OwnedValue; 2]>::zeroed();
         GetOwnedArray(status, result__.as_mut_ptr().cast()).map(|| result__.assume_init())
@@ -20,7 +25,7 @@ pub unsafe fn GetOwnedArray(
 pub unsafe fn GetOwnedNestedArray(
     status: windows_core::HRESULT,
 ) -> windows_core::Result<[[OwnedValue; 2]; 2]> {
-    windows_core::link!("bindgen_abi.dll" "system" fn GetOwnedNestedArray(status : windows_core::HRESULT, value : *mut [[core::mem::ManuallyDrop < OwnedValue >; 2]; 2]) -> windows_core::HRESULT);
+    windows_core::link!("bindgen_abi.dll" "system" fn GetOwnedNestedArray(status : windows_core::HRESULT, value : *mut [[OwnedValue; 2]; 2]) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::MaybeUninit::<[[OwnedValue; 2]; 2]>::zeroed();
         GetOwnedNestedArray(status, result__.as_mut_ptr().cast()).map(|| result__.assume_init())
@@ -690,17 +695,15 @@ impl NativeResult {
 #[repr(C)]
 pub struct NativeResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Get: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::mem::ManuallyDrop<OwnedValue>,
-    ) -> windows_core::HRESULT,
+    pub Get:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut OwnedValue) -> windows_core::HRESULT,
     pub GetArray: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut [core::mem::ManuallyDrop<OwnedValue>; 2],
+        *mut [OwnedValue; 2],
     ) -> windows_core::HRESULT,
     pub GetNestedArray: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut [[core::mem::ManuallyDrop<OwnedValue>; 2]; 2],
+        *mut [[OwnedValue; 2]; 2],
     ) -> windows_core::HRESULT,
 }
 pub trait NativeResult_Impl: windows_core::IUnknownImpl {
@@ -712,7 +715,7 @@ impl NativeResult_Vtbl {
     pub const fn new<Identity: NativeResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Get<Identity: NativeResult_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            value: *mut core::mem::ManuallyDrop<OwnedValue>,
+            value: *mut OwnedValue,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -731,7 +734,7 @@ impl NativeResult_Vtbl {
         }
         unsafe extern "system" fn GetArray<Identity: NativeResult_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            value: *mut [core::mem::ManuallyDrop<OwnedValue>; 2],
+            value: *mut [OwnedValue; 2],
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -753,7 +756,7 @@ impl NativeResult_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: *mut [[core::mem::ManuallyDrop<OwnedValue>; 2]; 2],
+            value: *mut [[OwnedValue; 2]; 2],
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -785,7 +788,7 @@ impl windows_core::RuntimeName for NativeResult {}
 windows_core::imp::define_winrt_interface!(
     OwnedResult,
     OwnedResult_Vtbl,
-    0xb006f953_e201_549a_b3d2_c4627a99f8fb,
+    0x3bf50ee9_dfbf_55af_9ba7_a3b94c787d3b,
     b"Test.OwnedResult"
 );
 windows_core::imp::interface_hierarchy!(
@@ -815,6 +818,33 @@ impl OwnedResult {
             result__.assume_init()
         }
     }
+    pub fn GetMany(&self) -> windows_core::Result<windows_core::Array<OwnedValue>> {
+        unsafe {
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            (windows_core::Interface::vtable(self).GetMany)(
+                windows_core::Interface::as_raw(self),
+                &mut result_size__,
+                &mut result__,
+            )
+            .map(|| {
+                windows_core::Array::<OwnedValue>::from_raw_parts(result__.cast(), result_size__)
+            })
+        }
+    }
+    pub fn InfallibleMany(&self) -> windows_core::Array<OwnedValue> {
+        unsafe {
+            let mut result__ = core::ptr::null_mut();
+            let mut result_size__ = 0;
+            let hresult__ = (windows_core::Interface::vtable(self).InfallibleMany)(
+                windows_core::Interface::as_raw(self),
+                &mut result_size__,
+                &mut result__,
+            );
+            debug_assert!(hresult__.0 == 0);
+            windows_core::Array::<OwnedValue>::from_raw_parts(result__.cast(), result_size__)
+        }
+    }
 }
 impl windows_core::RuntimeName for OwnedResult {
     const NAME: &'static str = "Test.OwnedResult";
@@ -822,12 +852,14 @@ impl windows_core::RuntimeName for OwnedResult {
 pub trait OwnedResult_Impl: windows_core::IUnknownImpl {
     fn Get(&self) -> windows_core::Result<OwnedValue>;
     fn Infallible(&self) -> OwnedValue;
+    fn GetMany(&self) -> windows_core::Result<windows_core::Array<OwnedValue>>;
+    fn InfallibleMany(&self) -> windows_core::Array<OwnedValue>;
 }
 impl OwnedResult_Vtbl {
     pub const fn new<Identity: OwnedResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Get<Identity: OwnedResult_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            result__: *mut core::mem::ManuallyDrop<OwnedValue>,
+            result__: *mut OwnedValue,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -846,7 +878,7 @@ impl OwnedResult_Vtbl {
         }
         unsafe extern "system" fn Infallible<Identity: OwnedResult_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            result__: *mut core::mem::ManuallyDrop<OwnedValue>,
+            result__: *mut OwnedValue,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -856,10 +888,53 @@ impl OwnedResult_Vtbl {
                 windows_core::HRESULT(0)
             }
         }
+        unsafe extern "system" fn GetMany<Identity: OwnedResult_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result_size__: *mut u32,
+            result__: *mut *mut OwnedValue,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match OwnedResult_Impl::GetMany(this) {
+                    Ok(ok__) => {
+                        let (ok_data__, ok_data_len__) = ok__.into_abi();
+                        result__.write(ok_data__.cast());
+                        result_size__.write(ok_data_len__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => {
+                        result__.write_bytes(0, 1);
+                        result_size__.write(0);
+                        err.into()
+                    }
+                }
+            }
+        }
+        unsafe extern "system" fn InfallibleMany<
+            Identity: OwnedResult_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            result_size__: *mut u32,
+            result__: *mut *mut OwnedValue,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let ok__ = OwnedResult_Impl::InfallibleMany(this);
+                let (ok_data__, ok_data_len__) = ok__.into_abi();
+                result__.write(ok_data__.cast());
+                result_size__.write(ok_data_len__);
+                windows_core::HRESULT(0)
+            }
+        }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Get: Get::<Identity, OFFSET>,
             Infallible: Infallible::<Identity, OFFSET>,
+            GetMany: GetMany::<Identity, OFFSET>,
+            InfallibleMany: InfallibleMany::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -869,13 +944,19 @@ impl OwnedResult_Vtbl {
 #[repr(C)]
 pub struct OwnedResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Get: unsafe extern "system" fn(
+    pub Get:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut OwnedValue) -> windows_core::HRESULT,
+    pub Infallible:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut OwnedValue) -> windows_core::HRESULT,
+    pub GetMany: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut core::mem::ManuallyDrop<OwnedValue>,
+        *mut u32,
+        *mut *mut OwnedValue,
     ) -> windows_core::HRESULT,
-    pub Infallible: unsafe extern "system" fn(
+    pub InfallibleMany: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut core::mem::ManuallyDrop<OwnedValue>,
+        *mut u32,
+        *mut *mut OwnedValue,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -926,8 +1007,8 @@ pub struct OwnedRoundtrip_Vtbl {
     Invoke: unsafe extern "system" fn(
         this: *mut core::ffi::c_void,
         input: core::mem::ManuallyDrop<OwnedValue>,
-        output: *mut core::mem::ManuallyDrop<OwnedValue>,
-        result__: *mut core::mem::ManuallyDrop<OwnedValue>,
+        output: *mut OwnedValue,
+        result__: *mut OwnedValue,
     ) -> windows_core::HRESULT,
 }
 struct OwnedRoundtripBox<
@@ -948,8 +1029,8 @@ impl<
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         input: core::mem::ManuallyDrop<OwnedValue>,
-        output: *mut core::mem::ManuallyDrop<OwnedValue>,
-        result__: *mut core::mem::ManuallyDrop<OwnedValue>,
+        output: *mut OwnedValue,
+        result__: *mut OwnedValue,
     ) -> windows_core::HRESULT {
         unsafe {
             let this = &*(this as *mut *mut core::ffi::c_void
