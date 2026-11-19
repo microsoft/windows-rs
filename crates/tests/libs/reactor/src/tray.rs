@@ -1,6 +1,8 @@
 use super::*;
 
 const ICON: &str = concat!(env!("CARGO_MANIFEST_DIR"), "\\icon.ico");
+// A distinct path to the same asset forces a new native icon load without another image file.
+const RELOADED_ICON: &str = concat!(env!("CARGO_MANIFEST_DIR"), "\\src\\..\\icon.ico");
 
 #[derive(Clone, PartialEq)]
 pub(super) struct TrayFixture {
@@ -11,6 +13,7 @@ pub(super) struct TrayFixture {
     attached: bool,
     activation: Activation,
     activated: u32,
+    image: bool,
     tooltip: Option<&'static str>,
     refreshes: u32,
 }
@@ -19,6 +22,7 @@ pub(super) struct TrayFixture {
 pub(super) enum Message {
     Activate(u32),
     SetActivation(Activation),
+    Image,
     Tooltip,
     Refresh,
     Selected(u32),
@@ -46,6 +50,7 @@ impl Application for TrayFixture {
             attached: true,
             activation: Activation::ReplaceCallback,
             activated: 0,
+            image: false,
             tooltip: None,
             refreshes: 0,
         }
@@ -65,6 +70,10 @@ impl Application for TrayFixture {
                 }
             }
             Message::SetActivation(activation) => self.activation = activation,
+            Message::Image => {
+                self.image = !self.image;
+                self.generation += 1;
+            }
             Message::Tooltip => {
                 self.tooltip = self.tooltip.is_none().then_some("Updated");
                 self.generation += 1;
@@ -91,7 +100,7 @@ impl Application for TrayFixture {
             return view;
         }
         let generation = self.generation;
-        let mut icon = NotifyIcon::new(ICON)
+        let mut icon = NotifyIcon::new(if self.image { RELOADED_ICON } else { ICON })
             .on_activate(context.callback(move |_| Message::Activate(generation)))
             .menu(Menu::new(
                 [
@@ -165,6 +174,10 @@ impl Component for TrayWindow {
                     .orientation(Orientation::Horizontal)
                     .spacing(12.0)
                     .children((
+                        Button::new()
+                            .automation_id("image")
+                            .content("Reload image")
+                            .on_click(action(Message::Image)),
                         Button::new()
                             .automation_id("tooltip")
                             .content("Toggle tooltip")

@@ -314,6 +314,69 @@ fn command_content_replacement_retires_open_items() -> Result<()> {
 }
 
 #[test]
+fn refused_tray_image_retries_latest_path_with_pending_tooltip() -> Result<()> {
+    fn rejected(ui: &Automation, property: &str) -> Result<usize> {
+        Ok(ui
+            .stderr()?
+            .matches(&format!("failed to update notification-area {property}"))
+            .count())
+    }
+
+    process::run("tray", |ui| {
+        ui.focus("image")?;
+        ui.remove_tray_registration()?;
+        ui.invoke("image")?;
+        ui.name("state", "Generation 1; attached true")?;
+        assert_eq!(rejected(ui, "image")?, 1);
+
+        ui.invoke("tooltip")?;
+        ui.name("state", "Generation 2; attached true")?;
+        assert_eq!(rejected(ui, "image")?, 2);
+        assert_eq!(rejected(ui, "tooltip")?, 1);
+        ui.invoke("refresh")?;
+        ui.name("updates", "Activated 0; refreshes 1")?;
+        assert_eq!(rejected(ui, "image")?, 3);
+        assert_eq!(rejected(ui, "tooltip")?, 2);
+
+        ui.invoke("image")?;
+        ui.name("state", "Generation 3; attached true")?;
+        ui.activate_tray_icon()?;
+        ui.name("updates", "Activated 3; refreshes 1")?;
+        ui.name("state", "Generation 4; attached true")?;
+        assert_eq!(rejected(ui, "image")?, 5);
+        assert_eq!(rejected(ui, "tooltip")?, 4);
+
+        ui.recover_tray_registration()?;
+        ui.invoke("refresh")?;
+        ui.name("updates", "Activated 3; refreshes 2")?;
+        assert_eq!(rejected(ui, "image")?, 5);
+        assert_eq!(rejected(ui, "tooltip")?, 4);
+
+        ui.remove_tray_registration()?;
+        ui.invoke("refresh")?;
+        ui.name("updates", "Activated 3; refreshes 3")?;
+        assert_eq!(rejected(ui, "image")?, 5);
+        assert_eq!(rejected(ui, "tooltip")?, 4);
+        ui.invoke("image")?;
+        ui.name("state", "Generation 5; attached true")?;
+        assert_eq!(rejected(ui, "image")?, 6);
+
+        ui.invoke("remove")?;
+        ui.name("activation", "Remove icon")?;
+        ui.activate_tray_icon()?;
+        ui.name("state", "Generation 5; attached false")?;
+        ui.name("updates", "Activated 5; refreshes 3")?;
+        ui.tray_gone()?;
+        let failures = rejected(ui, "image")?;
+        ui.invoke("refresh")?;
+        ui.name("updates", "Activated 5; refreshes 4")?;
+        ui.tray_gone()?;
+        assert_eq!(rejected(ui, "image")?, failures);
+        Ok(())
+    })
+}
+
+#[test]
 fn refused_tray_tooltip_retries_without_retaining_old_callbacks() -> Result<()> {
     fn rejected(ui: &Automation) -> Result<usize> {
         Ok(ui

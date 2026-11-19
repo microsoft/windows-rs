@@ -33,6 +33,7 @@ struct IconSlot {
     native: NativeIcon,
     declaration: NotifyIcon,
     generation: u64,
+    image_pending: bool,
     tooltip_pending: bool,
 }
 
@@ -194,8 +195,14 @@ impl<A: Application> ApplicationState<A> {
                 }
             }
             if let Some(icon) = self.icons.get_mut(&key) {
-                if icon.declaration.path != declaration.path {
-                    icon.native.set_icon(&declaration.path).unwrap();
+                if icon.image_pending || icon.declaration.path != declaration.path {
+                    icon.image_pending = !icon.native.set_icon(&declaration.path).unwrap();
+                    if icon.image_pending {
+                        eprintln!(
+                            "failed to update notification-area image for {key:?}; \
+                             will retry on the next application render"
+                        );
+                    }
                 }
                 if icon.tooltip_pending || icon.declaration.tooltip != declaration.tooltip {
                     icon.tooltip_pending = !icon
@@ -240,6 +247,7 @@ impl<A: Application> ApplicationState<A> {
                         native,
                         declaration,
                         generation,
+                        image_pending: false,
                         tooltip_pending: false,
                     },
                 );
