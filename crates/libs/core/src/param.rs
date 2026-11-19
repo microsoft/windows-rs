@@ -5,10 +5,7 @@ use core::mem::zeroed;
 /// Converts values to Windows API input parameters.
 ///
 /// Implementations are provided for supported Windows types.
-pub trait Param<T: TypeKind, C = <T as TypeKind>::TypeKind>: Sized
-where
-    T: Type,
-{
+pub trait Param<T: Type, C = <T as TypeKind>::TypeKind>: Sized {
     #[doc(hidden)]
     unsafe fn param(self) -> ParamValue<T>;
 }
@@ -38,7 +35,6 @@ where
 
 impl<T, U> Param<T, InterfaceType> for &U
 where
-    T: TypeKind<TypeKind = InterfaceType> + Clone,
     T: Interface,
     U: Interface,
     U: imp::CanInto<T>,
