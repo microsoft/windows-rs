@@ -537,7 +537,7 @@ mod tests {
         let mut payloads = Vec::new();
         let mut notify = |message, data: &NOTIFYICONDATAW| {
             assert_ne!(data.uFlags & NIF_ICON as u32, 0);
-            assert_eq!(data.szTip, tooltip);
+            assert_eq!({ data.szTip }, tooltip);
             payloads.push((message, data.hIcon as usize));
             results.next().unwrap()
         };
