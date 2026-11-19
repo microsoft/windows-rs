@@ -314,6 +314,65 @@ fn command_content_replacement_retires_open_items() -> Result<()> {
 }
 
 #[test]
+fn refused_tray_tooltip_retries_without_retaining_old_callbacks() -> Result<()> {
+    fn rejected(ui: &Automation) -> Result<usize> {
+        Ok(ui
+            .stderr()?
+            .matches("failed to update notification-area tooltip")
+            .count())
+    }
+
+    process::run("tray", |ui| {
+        ui.focus("tooltip")?;
+        // The callback window remains alive, but the real Shell must reject NIM_MODIFY.
+        ui.remove_tray_registration()?;
+        ui.invoke("tooltip")?;
+        ui.name("state", "Generation 1; attached true")?;
+        assert_eq!(rejected(ui)?, 1);
+
+        ui.invoke("refresh")?;
+        ui.name("updates", "Activated 0; refreshes 1")?;
+        assert_eq!(rejected(ui)?, 2);
+
+        ui.activate_tray_icon()?;
+        ui.name("updates", "Activated 1; refreshes 1")?;
+        ui.name("state", "Generation 2; attached true")?;
+        ui.open_tray_menu()?;
+        invoke(&ui.menu_item("Command")?)?;
+        ui.name("selection", "Selected 2; calls 1")?;
+        closed(ui, "Command")?;
+        assert_eq!(rejected(ui)?, 4);
+
+        ui.recover_tray_registration()?;
+        ui.invoke("refresh")?;
+        ui.name("updates", "Activated 1; refreshes 2")?;
+        assert_eq!(rejected(ui)?, 4);
+
+        // A successful retry clears pending work; an unchanged declaration makes no Shell call.
+        ui.remove_tray_registration()?;
+        ui.invoke("refresh")?;
+        ui.name("updates", "Activated 1; refreshes 3")?;
+        assert_eq!(rejected(ui)?, 4);
+
+        ui.invoke("tooltip")?;
+        ui.name("state", "Generation 3; attached true")?;
+        assert_eq!(rejected(ui)?, 5);
+        ui.invoke("remove")?;
+        ui.name("activation", "Remove icon")?;
+        ui.activate_tray_icon()?;
+        ui.name("state", "Generation 3; attached false")?;
+        ui.name("updates", "Activated 3; refreshes 3")?;
+        ui.tray_gone()?;
+        let failures = rejected(ui)?;
+        ui.invoke("refresh")?;
+        ui.name("updates", "Activated 3; refreshes 4")?;
+        ui.tray_gone()?;
+        assert_eq!(rejected(ui)?, failures);
+        Ok(())
+    })
+}
+
+#[test]
 fn tray_callback_replacement_and_icon_removal() -> Result<()> {
     process::run("tray", |ui| {
         ui.focus("replace")?;

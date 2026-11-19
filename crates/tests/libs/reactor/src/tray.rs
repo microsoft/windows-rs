@@ -10,12 +10,17 @@ pub(super) struct TrayFixture {
     owner: u32,
     attached: bool,
     activation: Activation,
+    activated: u32,
+    tooltip: Option<&'static str>,
+    refreshes: u32,
 }
 
 #[derive(Clone, Copy)]
 pub(super) enum Message {
-    Activate,
+    Activate(u32),
     SetActivation(Activation),
+    Tooltip,
+    Refresh,
     Selected(u32),
     Exit,
 }
@@ -40,20 +45,31 @@ impl Application for TrayFixture {
             owner: 0,
             attached: true,
             activation: Activation::ReplaceCallback,
+            activated: 0,
+            tooltip: None,
+            refreshes: 0,
         }
     }
 
     fn update(&mut self, message: Message, context: &ApplicationContext<Self>) {
         match message {
-            Message::Activate => match self.activation {
-                Activation::ReplaceCallback => self.generation += 1,
-                Activation::Remove => self.attached = false,
-                Activation::ReplaceOwner => {
-                    self.owner += 1;
-                    self.generation += 1;
+            Message::Activate(generation) => {
+                self.activated = generation;
+                match self.activation {
+                    Activation::ReplaceCallback => self.generation += 1,
+                    Activation::Remove => self.attached = false,
+                    Activation::ReplaceOwner => {
+                        self.owner += 1;
+                        self.generation += 1;
+                    }
                 }
-            },
+            }
             Message::SetActivation(activation) => self.activation = activation,
+            Message::Tooltip => {
+                self.tooltip = self.tooltip.is_none().then_some("Updated");
+                self.generation += 1;
+            }
+            Message::Refresh => self.refreshes += 1,
             Message::Selected(generation) => {
                 self.selected = generation;
                 self.calls += 1;
@@ -75,21 +91,22 @@ impl Application for TrayFixture {
             return view;
         }
         let generation = self.generation;
-        view.notify_icon(
-            self.owner,
-            NotifyIcon::new(ICON)
-                .on_activate(context.callback(|_| Message::Activate))
-                .menu(Menu::new(
-                    [
-                        MenuItem::item("command", "Command"),
-                        MenuItem::submenu("more", "More", [MenuItem::item("nested", "Nested")]),
-                    ],
-                    context.callback(move |key: Key| {
-                        assert_eq!(key.as_str(), Some("command"));
-                        Message::Selected(generation)
-                    }),
-                )),
-        )
+        let mut icon = NotifyIcon::new(ICON)
+            .on_activate(context.callback(move |_| Message::Activate(generation)))
+            .menu(Menu::new(
+                [
+                    MenuItem::item("command", "Command"),
+                    MenuItem::submenu("more", "More", [MenuItem::item("nested", "Nested")]),
+                ],
+                context.callback(move |key: Key| {
+                    assert_eq!(key.as_str(), Some("command"));
+                    Message::Selected(generation)
+                }),
+            ));
+        if let Some(tooltip) = self.tooltip {
+            icon = icon.tooltip(tooltip);
+        }
+        view.notify_icon(self.owner, icon)
     }
 }
 
@@ -123,27 +140,44 @@ impl Component for TrayWindow {
     fn update(&mut self, _: (), _: &ComponentContext<Self>) {}
 
     fn view(&self, input: &WindowInput, context: &mut ViewContext<Self>) -> View {
-        let action = |activation| {
+        let action = |message| {
             let send = input.send.clone();
-            move || send.call(Message::SetActivation(activation))
+            move || send.call(message)
         };
         let state = &input.state;
-        context.window_visuals(WindowVisuals::new().client_size(500.0, 350.0));
+        context.window_visuals(WindowVisuals::new().client_size(500.0, 500.0));
         context.window_frame(
             "Reactor UI fixture: tray",
             StackPanel::new().margin(20.0).spacing(12.0).children((
                 Button::new()
                     .automation_id("replace")
                     .content("Replace callback on activation")
-                    .on_click(action(Activation::ReplaceCallback)),
+                    .on_click(action(Message::SetActivation(Activation::ReplaceCallback))),
                 Button::new()
                     .automation_id("remove")
                     .content("Remove icon on activation")
-                    .on_click(action(Activation::Remove)),
+                    .on_click(action(Message::SetActivation(Activation::Remove))),
                 Button::new()
                     .automation_id("replace-owner")
                     .content("Replace icon on activation")
-                    .on_click(action(Activation::ReplaceOwner)),
+                    .on_click(action(Message::SetActivation(Activation::ReplaceOwner))),
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .spacing(12.0)
+                    .children((
+                        Button::new()
+                            .automation_id("tooltip")
+                            .content("Toggle tooltip")
+                            .on_click(action(Message::Tooltip)),
+                        Button::new()
+                            .automation_id("refresh")
+                            .content("Refresh")
+                            .on_click(action(Message::Refresh)),
+                    )),
+                TextBlock::new().automation_id("updates").text(format!(
+                    "Activated {}; refreshes {}",
+                    state.activated, state.refreshes
+                )),
                 TextBlock::new()
                     .automation_id("activation")
                     .text(match state.activation {
