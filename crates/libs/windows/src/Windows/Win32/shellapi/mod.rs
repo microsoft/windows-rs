@@ -6,7 +6,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : super::ULONG, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { AssocCreateForClasses(rgclasses, cclasses, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { AssocCreateForClasses(rgclasses, cclasses, &T::IID, &mut result__).and_then(|| windows_core::imp::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CommandLineToArgvW<P0>(lpcmdline: P0, pnumargs: *mut i32) -> *mut windows_core::PWSTR

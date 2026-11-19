@@ -45,7 +45,7 @@ impl GuidanceAudioNotificationRequestedEventArgs {
     pub fn AudioFilePaths(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AudioFilePaths)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AudioFilePaths)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn AudioText(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -216,7 +216,7 @@ impl GuidanceManeuver {
     pub fn StartLocation(&self) -> windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn DistanceFromRouteStart(&self) -> windows_core::Result<i32> {
@@ -276,7 +276,7 @@ impl GuidanceManeuver {
     pub fn RoadSignpost(&self) -> windows_core::Result<GuidanceRoadSignpost> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoadSignpost)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoadSignpost)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn InstructionText(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -368,7 +368,7 @@ impl GuidanceMapMatchedCoordinate {
     pub fn Location(&self) -> windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Location)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Location)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CurrentHeading(&self) -> windows_core::Result<f64> {
@@ -392,7 +392,7 @@ impl GuidanceMapMatchedCoordinate {
     pub fn Road(&self) -> windows_core::Result<GuidanceRoadSegment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Road)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Road)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -619,7 +619,7 @@ impl GuidanceNavigator {
     pub fn GetCurrent() -> windows_core::Result<Self> {
         Self::IGuidanceNavigatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCurrent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn UseAppProvidedVoice() -> windows_core::Result<bool> {
@@ -658,7 +658,7 @@ impl GuidanceReroutedEventArgs {
     pub fn Route(&self) -> windows_core::Result<GuidanceRoute> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Route)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Route)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -708,7 +708,7 @@ impl GuidanceRoadSegment {
     pub fn Path(&self) -> windows_core::Result<super::super::super::Devices::Geolocation::Geopath> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -790,7 +790,7 @@ impl GuidanceRoadSignpost {
     pub fn ExitDirections(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExitDirections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ExitDirections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -827,33 +827,33 @@ impl GuidanceRoute {
     pub fn Maneuvers(&self) -> windows_core::Result<windows_collections::IVectorView<GuidanceManeuver>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Maneuvers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Maneuvers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
     pub fn BoundingBox(&self) -> windows_core::Result<super::super::super::Devices::Geolocation::GeoboundingBox> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BoundingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BoundingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Path(&self) -> windows_core::Result<super::super::super::Devices::Geolocation::Geopath> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RoadSegments(&self) -> windows_core::Result<windows_collections::IVectorView<GuidanceRoadSegment>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoadSegments)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoadSegments)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ConvertToMapRoute(&self) -> windows_core::Result<super::MapRoute> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConvertToMapRoute)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ConvertToMapRoute)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CanCreateFromMapRoute<P0>(maproute: P0) -> windows_core::Result<bool>
@@ -871,7 +871,7 @@ impl GuidanceRoute {
     {
         Self::IGuidanceRouteStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IGuidanceRouteStatics<R, F: FnOnce(&IGuidanceRouteStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -930,7 +930,7 @@ impl GuidanceTelemetryCollector {
     pub fn GetCurrent() -> windows_core::Result<Self> {
         Self::IGuidanceTelemetryCollectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCurrent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IGuidanceTelemetryCollectorStatics<R, F: FnOnce(&IGuidanceTelemetryCollectorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -965,7 +965,7 @@ impl GuidanceUpdatedEventArgs {
     pub fn NextManeuver(&self) -> windows_core::Result<GuidanceManeuver> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NextManeuver)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).NextManeuver)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn NextManeuverDistance(&self) -> windows_core::Result<i32> {
@@ -977,7 +977,7 @@ impl GuidanceUpdatedEventArgs {
     pub fn AfterNextManeuver(&self) -> windows_core::Result<GuidanceManeuver> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AfterNextManeuver)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AfterNextManeuver)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn AfterNextManeuverDistance(&self) -> windows_core::Result<i32> {
@@ -1019,13 +1019,13 @@ impl GuidanceUpdatedEventArgs {
     pub fn Route(&self) -> windows_core::Result<GuidanceRoute> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Route)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Route)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CurrentLocation(&self) -> windows_core::Result<GuidanceMapMatchedCoordinate> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CurrentLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CurrentLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsNewManeuver(&self) -> windows_core::Result<bool> {
@@ -1037,7 +1037,7 @@ impl GuidanceUpdatedEventArgs {
     pub fn LaneInfo(&self) -> windows_core::Result<windows_collections::IVectorView<GuidanceLaneInfo>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LaneInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LaneInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

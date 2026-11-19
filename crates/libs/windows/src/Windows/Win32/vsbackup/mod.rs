@@ -1116,7 +1116,7 @@ impl IVssBackupComponentsEx3 {
     pub unsafe fn RecoverSet(&self, dwflags: super::DWORD) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecoverSet)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RecoverSet)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "vss")]

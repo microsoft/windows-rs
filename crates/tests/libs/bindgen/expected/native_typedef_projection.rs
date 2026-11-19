@@ -5,9 +5,7 @@ where
 {
     windows_core::link!("test.dll" "system" fn Create(riid : REFIID, object : PPVOID) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe {
-        Create(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { Create(&T::IID, &mut result__).and_then(|| windows_core::imp::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn GetTime(result: LPSYSTEMTIME) {

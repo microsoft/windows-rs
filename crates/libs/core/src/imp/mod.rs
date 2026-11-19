@@ -36,6 +36,19 @@ pub use ref_count::*;
 pub use sha1::*;
 pub use weak_ref_count::*;
 
+/// Takes ownership of a nullable interface pointer.
+///
+/// # Safety
+///
+/// A non-null `raw` must satisfy [`crate::Interface::from_raw`]'s safety requirements for `T`.
+pub unsafe fn from_abi<T: crate::Interface>(raw: *mut core::ffi::c_void) -> crate::Result<T> {
+    if raw.is_null() {
+        Err(crate::Error::empty())
+    } else {
+        Ok(unsafe { T::from_raw(raw) })
+    }
+}
+
 /// Returns an opaque, process-specific encoding of a pointer suitable for use
 /// as a delegate token. On Windows this calls `EncodePointer` so tokens cannot
 /// be forged from raw pointer values; on non-Windows targets the raw pointer

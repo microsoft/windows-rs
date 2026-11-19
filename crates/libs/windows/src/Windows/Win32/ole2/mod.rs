@@ -295,7 +295,7 @@ pub unsafe fn OleGetClipboard() -> windows_core::Result<super::LPDATAOBJECT> {
     windows_core::link!("ole32.dll" "system" fn OleGetClipboard(ppdataobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        OleGetClipboard(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        OleGetClipboard(&mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -407,7 +407,7 @@ pub unsafe fn OleRegEnumFormatEtc(clsid: *const super::IID, dwdirection: super::
     windows_core::link!("ole32.dll" "system" fn OleRegEnumFormatEtc(clsid : *const super::IID, dwdirection : super::DWORD, ppenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        OleRegEnumFormatEtc(clsid, dwdirection, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        OleRegEnumFormatEtc(clsid, dwdirection, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(all(feature = "guiddef", feature = "oleidl"))]
@@ -416,7 +416,7 @@ pub unsafe fn OleRegEnumVerbs(clsid: *const super::IID) -> windows_core::Result<
     windows_core::link!("ole32.dll" "system" fn OleRegEnumVerbs(clsid : *const super::IID, ppenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        OleRegEnumVerbs(clsid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        OleRegEnumVerbs(clsid, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]

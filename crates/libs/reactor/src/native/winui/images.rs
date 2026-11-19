@@ -409,7 +409,7 @@ fn encoded_stream(value: &EncodedImage) -> Result<native::IRandomAccessStream, W
             &mut result,
         )
         .ok()?;
-        Ok(windows_core::imp::Type::from_abi(result)?)
+        Ok(windows_core::imp::from_abi(result)?)
     }
 }
 

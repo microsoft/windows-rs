@@ -1367,7 +1367,7 @@ impl IMultiLanguage {
     pub unsafe fn EnumCodePages(&self, grfflags: super::DWORD) -> windows_core::Result<IEnumCodePage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1404,7 +1404,7 @@ impl IMultiLanguage {
     pub unsafe fn EnumRfc1766(&self) -> windows_core::Result<IEnumRfc1766> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1415,7 +1415,7 @@ impl IMultiLanguage {
     pub unsafe fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::Result<IMLangConvertCharset> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1660,7 +1660,7 @@ impl IMultiLanguage2 {
     pub unsafe fn EnumCodePages(&self, grfflags: super::DWORD, langid: super::LANGID) -> windows_core::Result<IEnumCodePage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, langid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, langid, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1698,7 +1698,7 @@ impl IMultiLanguage2 {
     pub unsafe fn EnumRfc1766(&self, langid: super::LANGID) -> windows_core::Result<IEnumRfc1766> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), langid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumRfc1766)(windows_core::Interface::as_raw(self), langid, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1709,7 +1709,7 @@ impl IMultiLanguage2 {
     pub unsafe fn CreateConvertCharset(&self, uisrccodepage: super::UINT, uidstcodepage: super::UINT, dwproperty: super::DWORD) -> windows_core::Result<IMLangConvertCharset> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateConvertCharset)(windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "objidlbase", feature = "shared", feature = "winnt"))]
@@ -1762,7 +1762,7 @@ impl IMultiLanguage2 {
     pub unsafe fn EnumScripts(&self, dwflags: super::DWORD, langid: super::LANGID) -> windows_core::Result<IEnumScript> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumScripts)(windows_core::Interface::as_raw(self), dwflags, langid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumScripts)(windows_core::Interface::as_raw(self), dwflags, langid, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]

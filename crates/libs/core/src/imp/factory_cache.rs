@@ -141,7 +141,7 @@ unsafe fn get_activation_factory(
             delay_load::<DllGetActivationFactory>(library, crate::s!("DllGetActivationFactory"))
                 .ok_or_else(crate::Error::from_thread)?;
         let mut abi = null_mut();
-        function(transmute_copy(name), &mut abi).and_then(|| Type::from_abi(abi))
+        function(transmute_copy(name), &mut abi).and_then(|| from_abi(abi))
     }
 }
 

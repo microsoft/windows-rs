@@ -105,7 +105,7 @@ impl ISurfaceImageSourceNativeWithD2D {
                 &mut result__,
                 offset as _,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn EndDraw(&self) -> windows_core::HRESULT {
@@ -200,7 +200,7 @@ impl SurfaceImageSource {
                 &mut None::<windows_core::IInspectable> as *mut _ as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn ISurfaceImageSourceFactory<

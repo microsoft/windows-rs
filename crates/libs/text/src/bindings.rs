@@ -372,7 +372,7 @@ impl IDWriteFactory {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn RegisterFontFileLoader<P0>(
@@ -415,7 +415,7 @@ impl IDWriteFactory {
                 localename,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateTypography(&self) -> windows_core::Result<IDWriteTypography> {
@@ -425,7 +425,7 @@ impl IDWriteFactory {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateTextLayout<P2>(
@@ -450,7 +450,7 @@ impl IDWriteFactory {
                 maxheight,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateEllipsisTrimmingSign<P0>(
@@ -467,7 +467,7 @@ impl IDWriteFactory {
                 textformat.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -570,7 +570,7 @@ impl IDWriteFactory2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateFontFallbackBuilder(
@@ -582,7 +582,7 @@ impl IDWriteFactory2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn TranslateColorGlyphRun(
@@ -608,7 +608,7 @@ impl IDWriteFactory2 {
                 colorpaletteindex,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -681,7 +681,7 @@ impl IDWriteFactory3 {
                 baselineoriginy,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateFontCollectionFromFontSet<P0>(
@@ -698,7 +698,7 @@ impl IDWriteFactory3 {
                 fontset.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn GetSystemFontCollection(
@@ -806,7 +806,7 @@ impl IDWriteFactory5 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateInMemoryFontFileLoader(
@@ -818,7 +818,7 @@ impl IDWriteFactory5 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -851,7 +851,7 @@ impl IDWriteFont {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -898,7 +898,7 @@ impl IDWriteFontCollection {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn FindFamilyName(
@@ -1135,7 +1135,7 @@ impl IDWriteFontFace3 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn GetRecommendedRenderingMode<P7>(
@@ -1268,7 +1268,7 @@ impl IDWriteFontFallbackBuilder {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1315,7 +1315,7 @@ impl IDWriteFontFamily {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub(crate) unsafe fn GetFirstMatchingFont(
@@ -1333,7 +1333,7 @@ impl IDWriteFontFamily {
                 style,
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1424,7 +1424,7 @@ impl IDWriteFontSetBuilder {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1569,7 +1569,7 @@ impl IDWriteInMemoryFontFileLoader {
                 ownerobject.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

@@ -14,6 +14,6 @@ pub fn create_instance<T: Interface>(class: &GUID) -> Result<T> {
             &T::IID,
             &mut value,
         )
-        .and_then(|| imp::Type::from_abi(value))
+        .and_then(|| imp::from_abi(value))
     }
 }

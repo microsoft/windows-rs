@@ -6,7 +6,7 @@ impl AcquireEnvironmentInfoResult {
     pub fn Result(&self) -> windows_core::Result<UpdateTaskResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn EnvironmentInfo(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -21,7 +21,7 @@ impl AcquireEnvironmentInfoResult {
     {
         Self::IAcquireEnvironmentInfoResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), core::mem::transmute_copy(environmentinfo), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), core::mem::transmute_copy(environmentinfo), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IAcquireEnvironmentInfoResultFactory<R, F: FnOnce(&IAcquireEnvironmentInfoResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -50,7 +50,7 @@ impl AreRebootsPendingResult {
     pub fn Result(&self) -> windows_core::Result<UpdateOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsRebootPending(&self) -> windows_core::Result<bool> {
@@ -65,7 +65,7 @@ impl AreRebootsPendingResult {
     {
         Self::IAreRebootsPendingResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), isrebootpending, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), isrebootpending, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IAreRebootsPendingResultFactory<R, F: FnOnce(&IAreRebootsPendingResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -178,7 +178,7 @@ impl ClusterUpdateServices {
     pub fn GetPluginCredential(&self, credentialid: &windows_core::HSTRING) -> windows_core::Result<UpdateCredential> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPluginCredential)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(credentialid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPluginCredential)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(credentialid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsOperationMarkedAsCanceled(&self) -> windows_core::Result<bool> {
@@ -255,7 +255,7 @@ impl IClusterNativeEnvironmentOperations {
     pub fn AcquireNodeEnvironmentInfo(&self) -> windows_core::Result<AcquireEnvironmentInfoResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AcquireNodeEnvironmentInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AcquireNodeEnvironmentInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ValidateClusterEnvironment<P0>(&self, nodeenvironmentinfo: P0) -> windows_core::Result<ValidateClusterEnvironmentResult>
@@ -264,31 +264,31 @@ impl IClusterNativeEnvironmentOperations {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ValidateClusterEnvironment)(windows_core::Interface::as_raw(self), nodeenvironmentinfo.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ValidateClusterEnvironment)(windows_core::Interface::as_raw(self), nodeenvironmentinfo.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StartPreUpdateRunOperation(&self) -> windows_core::Result<UpdateOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartPreUpdateRunOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartPreUpdateRunOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsPreUpdateRunOperationComplete(&self) -> windows_core::Result<UpdatePendingOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsPreUpdateRunOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsPreUpdateRunOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StartPostUpdateRunOperation(&self) -> windows_core::Result<UpdateOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartPostUpdateRunOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartPostUpdateRunOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsPostUpdateRunOperationComplete(&self) -> windows_core::Result<UpdatePendingOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsPostUpdateRunOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsPostUpdateRunOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -444,13 +444,13 @@ impl IClusterNativeEnvironmentOperationsPlugin {
     pub fn Version(&self) -> windows_core::Result<UpdatePluginVersionInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn DefaultOptions(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DefaultOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateEnvironmentOperations<P2, P3>(&self, clustername: &windows_core::HSTRING, runid: &windows_core::HSTRING, options: P2, updateservices: P3) -> windows_core::Result<IClusterNativeEnvironmentOperations>
@@ -460,7 +460,7 @@ impl IClusterNativeEnvironmentOperationsPlugin {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEnvironmentOperations)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clustername), core::mem::transmute_copy(runid), options.param().abi(), updateservices.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEnvironmentOperations)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clustername), core::mem::transmute_copy(runid), options.param().abi(), updateservices.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -598,79 +598,79 @@ impl IClusterNativeNodeOperations {
     pub fn AreAdditionalRebootsPending(&self) -> windows_core::Result<AreRebootsPendingResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AreAdditionalRebootsPending)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AreAdditionalRebootsPending)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StartPreRebootOperation(&self) -> windows_core::Result<UpdateOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartPreRebootOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartPreRebootOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsPreRebootOperationComplete(&self) -> windows_core::Result<UpdatePendingOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsPreRebootOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsPreRebootOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StartPostRebootOperation(&self) -> windows_core::Result<UpdateOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartPostRebootOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartPostRebootOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsPostRebootOperationComplete(&self) -> windows_core::Result<UpdatePendingOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsPostRebootOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsPostRebootOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StartPreDrainOperation(&self) -> windows_core::Result<UpdateOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartPreDrainOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartPreDrainOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsPreDrainOperationComplete(&self) -> windows_core::Result<UpdatePendingOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsPreDrainOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsPreDrainOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StartPostResumeOperation(&self) -> windows_core::Result<UpdateOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartPostResumeOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartPostResumeOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsPostResumeOperationComplete(&self) -> windows_core::Result<UpdatePendingOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsPostResumeOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsPostResumeOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StartPreUpdateRunOperation(&self) -> windows_core::Result<UpdateOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartPreUpdateRunOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartPreUpdateRunOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsPreUpdateRunOperationComplete(&self) -> windows_core::Result<UpdatePendingOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsPreUpdateRunOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsPreUpdateRunOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StartPostUpdateRunOperation(&self) -> windows_core::Result<UpdateOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartPostUpdateRunOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartPostUpdateRunOperation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsPostUpdateRunOperationComplete(&self) -> windows_core::Result<UpdatePendingOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsPostUpdateRunOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsPostUpdateRunOperationComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -952,13 +952,13 @@ impl IClusterNativeNodeOperationsPlugin {
     pub fn Version(&self) -> windows_core::Result<UpdatePluginVersionInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn DefaultOptions(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DefaultOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateNodeOperations<P2, P3>(&self, clustername: &windows_core::HSTRING, runid: &windows_core::HSTRING, options: P2, updateservices: P3) -> windows_core::Result<IClusterNativeNodeOperations>
@@ -968,7 +968,7 @@ impl IClusterNativeNodeOperationsPlugin {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateNodeOperations)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clustername), core::mem::transmute_copy(runid), options.param().abi(), updateservices.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateNodeOperations)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clustername), core::mem::transmute_copy(runid), options.param().abi(), updateservices.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1214,7 +1214,7 @@ impl IUpdateInstaller {
     pub fn Scan(&self) -> windows_core::Result<ScanUpdateTaskResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Scan)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Scan)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Stage<P0>(&self, updatestostage: P0) -> windows_core::Result<StageUpdateTaskResult>
@@ -1223,7 +1223,7 @@ impl IUpdateInstaller {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Stage)(windows_core::Interface::as_raw(self), updatestostage.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Stage)(windows_core::Interface::as_raw(self), updatestostage.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Install<P0>(&self, updatestoinstall: P0) -> windows_core::Result<InstallUpdateTaskResult>
@@ -1232,7 +1232,7 @@ impl IUpdateInstaller {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Install)(windows_core::Interface::as_raw(self), updatestoinstall.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Install)(windows_core::Interface::as_raw(self), updatestoinstall.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Rollback<P0>(&self, updatestorollback: P0) -> windows_core::Result<RollbackUpdateTaskResult>
@@ -1241,19 +1241,19 @@ impl IUpdateInstaller {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Rollback)(windows_core::Interface::as_raw(self), updatestorollback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Rollback)(windows_core::Interface::as_raw(self), updatestorollback.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ShouldUsePluginSpecificReboot(&self, usepluginreboot: &mut bool) -> windows_core::Result<UpdateTaskResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ShouldUsePluginSpecificReboot)(windows_core::Interface::as_raw(self), usepluginreboot, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ShouldUsePluginSpecificReboot)(windows_core::Interface::as_raw(self), usepluginreboot, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RebootNode(&self) -> windows_core::Result<UpdateTaskResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RebootNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RebootNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn AcquireUpdateListValidationInfo(&self, recipevalidationinfo: &mut windows_core::HSTRING) -> windows_core::Result<UpdateTaskResult> {
@@ -1262,7 +1262,7 @@ impl IUpdateInstaller {
         }
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AcquireUpdateListValidationInfo)(windows_core::Interface::as_raw(self), recipevalidationinfo as *mut _ as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AcquireUpdateListValidationInfo)(windows_core::Interface::as_raw(self), recipevalidationinfo as *mut _ as _, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ValidateAllNodesUpdateRecipe<P0>(&self, allnodesrecipevalidationinfo: P0) -> windows_core::Result<ValidateAllNodesUpdateRecipeResult>
@@ -1271,7 +1271,7 @@ impl IUpdateInstaller {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ValidateAllNodesUpdateRecipe)(windows_core::Interface::as_raw(self), allnodesrecipevalidationinfo.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ValidateAllNodesUpdateRecipe)(windows_core::Interface::as_raw(self), allnodesrecipevalidationinfo.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1463,7 +1463,7 @@ impl IUpdateInstallerPlugin {
     pub fn Version(&self) -> windows_core::Result<UpdatePluginVersionInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsUpdateRollbackSupported(&self) -> windows_core::Result<bool> {
@@ -1475,7 +1475,7 @@ impl IUpdateInstallerPlugin {
     pub fn DefaultOptions(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DefaultOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateUpdateInstaller<P2, P3>(&self, clustername: &windows_core::HSTRING, runid: &windows_core::HSTRING, options: P2, updateservices: P3) -> windows_core::Result<IUpdateInstaller>
@@ -1485,7 +1485,7 @@ impl IUpdateInstallerPlugin {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateUpdateInstaller)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clustername), core::mem::transmute_copy(runid), options.param().abi(), updateservices.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateUpdateInstaller)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clustername), core::mem::transmute_copy(runid), options.param().abi(), updateservices.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1807,13 +1807,13 @@ impl InstallUpdateTaskResult {
     pub fn Result(&self) -> windows_core::Result<UpdateTaskResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn InstallRecords(&self) -> windows_core::Result<windows_collections::IVectorView<UpdateInstallRecord>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InstallRecords)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InstallRecords)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ShouldRollback(&self) -> windows_core::Result<bool> {
@@ -1829,7 +1829,7 @@ impl InstallUpdateTaskResult {
     {
         Self::IInstallUpdateTaskResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), installrecords.param().abi(), shouldrollback, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), installrecords.param().abi(), shouldrollback, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IInstallUpdateTaskResultFactory<R, F: FnOnce(&IInstallUpdateTaskResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1858,13 +1858,13 @@ impl RollbackUpdateTaskResult {
     pub fn Result(&self) -> windows_core::Result<UpdateTaskResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn InstallRecords(&self) -> windows_core::Result<windows_collections::IVectorView<UpdateInstallRecord>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InstallRecords)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InstallRecords)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateInstance<P0, P1>(result: P0, installrecords: P1) -> windows_core::Result<Self>
@@ -1874,7 +1874,7 @@ impl RollbackUpdateTaskResult {
     {
         Self::IRollbackUpdateTaskResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), installrecords.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), installrecords.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IRollbackUpdateTaskResultFactory<R, F: FnOnce(&IRollbackUpdateTaskResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1903,13 +1903,13 @@ impl ScanUpdateTaskResult {
     pub fn Result(&self) -> windows_core::Result<UpdateTaskResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ScanRecords(&self) -> windows_core::Result<windows_collections::IVectorView<UpdateScanRecord>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ScanRecords)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ScanRecords)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateInstance<P0, P1>(result: P0, scanrecords: P1) -> windows_core::Result<Self>
@@ -1919,7 +1919,7 @@ impl ScanUpdateTaskResult {
     {
         Self::IScanUpdateTaskResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), scanrecords.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), scanrecords.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IScanUpdateTaskResultFactory<R, F: FnOnce(&IScanUpdateTaskResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1948,13 +1948,13 @@ impl StageUpdateTaskResult {
     pub fn Result(&self) -> windows_core::Result<UpdateTaskResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StageRecords(&self) -> windows_core::Result<windows_collections::IVectorView<UpdateStageRecord>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StageRecords)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StageRecords)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateInstance<P0, P1>(result: P0, stagerecords: P1) -> windows_core::Result<Self>
@@ -1964,7 +1964,7 @@ impl StageUpdateTaskResult {
     {
         Self::IStageUpdateTaskResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), stagerecords.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), stagerecords.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IStageUpdateTaskResultFactory<R, F: FnOnce(&IStageUpdateTaskResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2011,7 +2011,7 @@ impl UpdateCredential {
     pub fn CreateInstance(status: ClusterNativeUpdateCredentialStatus, username: &windows_core::HSTRING, password: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUpdateCredentialFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), status, core::mem::transmute_copy(username), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), status, core::mem::transmute_copy(username), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IUpdateCredentialFactory<R, F: FnOnce(&IUpdateCredentialFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2064,7 +2064,7 @@ impl UpdateInstallRecord {
     pub fn CreateInstance(updateid: &windows_core::HSTRING, isrebootrequired: bool, status: ClusterNativeUpdateCompletionStatus, failuremessage: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUpdateInstallRecordFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid), isrebootrequired, status, core::mem::transmute_copy(failuremessage), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid), isrebootrequired, status, core::mem::transmute_copy(failuremessage), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IUpdateInstallRecordFactory<R, F: FnOnce(&IUpdateInstallRecordFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2111,13 +2111,13 @@ impl UpdateOperationResult {
     pub fn CreateInstance(status: ClusterNativeUpdateOperationStatus, reason: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUpdateOperationResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), status, core::mem::transmute_copy(reason), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), status, core::mem::transmute_copy(reason), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn CreateInstance2(status: ClusterNativeUpdateOperationStatus, reason: &windows_core::HSTRING, errorcode: i32) -> windows_core::Result<Self> {
         Self::IUpdateOperationResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), status, core::mem::transmute_copy(reason), errorcode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), status, core::mem::transmute_copy(reason), errorcode, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IUpdateOperationResultFactory<R, F: FnOnce(&IUpdateOperationResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2146,7 +2146,7 @@ impl UpdatePendingOperationResult {
     pub fn Result(&self) -> windows_core::Result<UpdateOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SuggestedRecheckInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -2161,7 +2161,7 @@ impl UpdatePendingOperationResult {
     {
         Self::IUpdatePendingOperationResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), suggestedrecheckinterval, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), suggestedrecheckinterval, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IUpdatePendingOperationResultFactory<R, F: FnOnce(&IUpdatePendingOperationResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2208,7 +2208,7 @@ impl UpdatePluginVersionInfo {
     pub fn CreateInstance(majorversion: u32, minorversion: u32, patchlevel: u32) -> windows_core::Result<Self> {
         Self::IUpdatePluginVersionInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), majorversion, minorversion, patchlevel, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), majorversion, minorversion, patchlevel, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IUpdatePluginVersionInfoFactory<R, F: FnOnce(&IUpdatePluginVersionInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2249,7 +2249,7 @@ impl UpdateRecipeNodeValidationInfoRecord {
     pub fn ScanResults(&self) -> windows_core::Result<windows_collections::IVectorView<UpdateScanRecord>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ScanResults)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ScanResults)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateInstance<P2>(nodename: &windows_core::HSTRING, recipevalidationinfo: &windows_core::HSTRING, scanresults: P2) -> windows_core::Result<Self>
@@ -2258,7 +2258,7 @@ impl UpdateRecipeNodeValidationInfoRecord {
     {
         Self::IUpdateRecipeNodeValidationInfoRecordFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(nodename), core::mem::transmute_copy(recipevalidationinfo), scanresults.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(nodename), core::mem::transmute_copy(recipevalidationinfo), scanresults.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IUpdateRecipeNodeValidationInfoRecordFactory<R, F: FnOnce(&IUpdateRecipeNodeValidationInfoRecordFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2317,7 +2317,7 @@ impl UpdateScanRecord {
     pub fn CreateInstance(updateid: &windows_core::HSTRING, updatetitle: &windows_core::HSTRING, updatedescription: &windows_core::HSTRING, isrebootrequired: bool, pluginspecificdata: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUpdateScanRecordFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid), core::mem::transmute_copy(updatetitle), core::mem::transmute_copy(updatedescription), isrebootrequired, core::mem::transmute_copy(pluginspecificdata), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid), core::mem::transmute_copy(updatetitle), core::mem::transmute_copy(updatedescription), isrebootrequired, core::mem::transmute_copy(pluginspecificdata), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IUpdateScanRecordFactory<R, F: FnOnce(&IUpdateScanRecordFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2370,13 +2370,13 @@ impl UpdateStageRecord {
     pub fn CreateInstance(updateid: &windows_core::HSTRING, status: ClusterNativeUpdateCompletionStatus, failuremessage: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUpdateStageRecordFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid), status, core::mem::transmute_copy(failuremessage), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid), status, core::mem::transmute_copy(failuremessage), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn CreateInstance2(updateid: &windows_core::HSTRING, status: ClusterNativeUpdateCompletionStatus, failuremessage: &windows_core::HSTRING, updatedpluginspecificdata: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUpdateStageRecordFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid), status, core::mem::transmute_copy(failuremessage), core::mem::transmute_copy(updatedpluginspecificdata), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid), status, core::mem::transmute_copy(failuremessage), core::mem::transmute_copy(updatedpluginspecificdata), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IUpdateStageRecordFactory<R, F: FnOnce(&IUpdateStageRecordFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2423,13 +2423,13 @@ impl UpdateTaskResult {
     pub fn CreateInstance(succeeded: bool, reason: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUpdateTaskResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), succeeded, core::mem::transmute_copy(reason), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), succeeded, core::mem::transmute_copy(reason), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn CreateInstance2(succeeded: bool, reason: &windows_core::HSTRING, errorcode: i32) -> windows_core::Result<Self> {
         Self::IUpdateTaskResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), succeeded, core::mem::transmute_copy(reason), errorcode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), succeeded, core::mem::transmute_copy(reason), errorcode, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IUpdateTaskResultFactory<R, F: FnOnce(&IUpdateTaskResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2470,7 +2470,7 @@ impl UpdateValidationLogMessage {
     pub fn CreateInstance(severity: ClusterNativeUpdateLogLevel, message: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUpdateValidationLogMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), severity, core::mem::transmute_copy(message), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), severity, core::mem::transmute_copy(message), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IUpdateValidationLogMessageFactory<R, F: FnOnce(&IUpdateValidationLogMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2499,7 +2499,7 @@ impl ValidateAllNodesUpdateRecipeResult {
     pub fn Result(&self) -> windows_core::Result<UpdateTaskResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn AreUpdatesApproved(&self) -> windows_core::Result<bool> {
@@ -2511,7 +2511,7 @@ impl ValidateAllNodesUpdateRecipeResult {
     pub fn ValidationMessages(&self) -> windows_core::Result<windows_collections::IVectorView<UpdateValidationLogMessage>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ValidationMessages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ValidationMessages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateInstance<P0, P2>(result: P0, areupdatesapproved: bool, validationmessages: P2) -> windows_core::Result<Self>
@@ -2521,7 +2521,7 @@ impl ValidateAllNodesUpdateRecipeResult {
     {
         Self::IValidateAllNodesUpdateRecipeResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), areupdatesapproved, validationmessages.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), areupdatesapproved, validationmessages.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IValidateAllNodesUpdateRecipeResultFactory<R, F: FnOnce(&IValidateAllNodesUpdateRecipeResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2550,7 +2550,7 @@ impl ValidateClusterEnvironmentResult {
     pub fn Result(&self) -> windows_core::Result<UpdateTaskResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ApprovalStatus(&self) -> windows_core::Result<ClusterNativeUpdateEnvironmentValidationStatus> {
@@ -2562,7 +2562,7 @@ impl ValidateClusterEnvironmentResult {
     pub fn ValidationMessages(&self) -> windows_core::Result<windows_collections::IVectorView<UpdateValidationLogMessage>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ValidationMessages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ValidationMessages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateInstance<P0, P2>(result: P0, approvalstatus: ClusterNativeUpdateEnvironmentValidationStatus, validationmessages: P2) -> windows_core::Result<Self>
@@ -2572,7 +2572,7 @@ impl ValidateClusterEnvironmentResult {
     {
         Self::IValidateClusterEnvironmentResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), approvalstatus, validationmessages.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), result.param().abi(), approvalstatus, validationmessages.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IValidateClusterEnvironmentResultFactory<R, F: FnOnce(&IValidateClusterEnvironmentResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

@@ -62,7 +62,7 @@ impl AcceptedVoipPhoneCallOptions {
     pub fn AssociatedDeviceIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<Self>
@@ -71,7 +71,7 @@ impl AcceptedVoipPhoneCallOptions {
     {
         Self::IAcceptedVoipPhoneCallOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IAcceptedVoipPhoneCallOptionsFactory<R, F: FnOnce(&IAcceptedVoipPhoneCallOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -152,7 +152,7 @@ impl AppInitiatedVoipPhoneCallOptions {
     pub fn AssociatedDeviceIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<Self>
@@ -161,7 +161,7 @@ impl AppInitiatedVoipPhoneCallOptions {
     {
         Self::IAppInitiatedVoipPhoneCallOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IAppInitiatedVoipPhoneCallOptionsFactory<R, F: FnOnce(&IAppInitiatedVoipPhoneCallOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1072,7 +1072,7 @@ impl IncomingVoipPhoneCallOptions {
     pub fn ContactImage(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContactImage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ContactImage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetContactImage<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1093,7 +1093,7 @@ impl IncomingVoipPhoneCallOptions {
     pub fn BrandingImage(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BrandingImage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BrandingImage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetBrandingImage<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1114,7 +1114,7 @@ impl IncomingVoipPhoneCallOptions {
     pub fn Ringtone(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Ringtone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Ringtone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetRingtone<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1153,7 +1153,7 @@ impl IncomingVoipPhoneCallOptions {
     pub fn AssociatedDeviceIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<Self>
@@ -1162,7 +1162,7 @@ impl IncomingVoipPhoneCallOptions {
     {
         Self::IIncomingVoipPhoneCallOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IIncomingVoipPhoneCallOptionsFactory<R, F: FnOnce(&IIncomingVoipPhoneCallOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1213,7 +1213,7 @@ impl LockScreenCallEndRequestedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<LockScreenCallEndCallDeferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Deadline(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -1371,7 +1371,7 @@ impl OutgoingVoipPhoneCallOptions {
     pub fn AssociatedDeviceIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<Self>
@@ -1380,7 +1380,7 @@ impl OutgoingVoipPhoneCallOptions {
     {
         Self::IOutgoingVoipPhoneCallOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IOutgoingVoipPhoneCallOptionsFactory<R, F: FnOnce(&IOutgoingVoipPhoneCallOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1490,13 +1490,13 @@ impl PhoneCall {
     pub fn GetPhoneCallInfo(&self) -> windows_core::Result<PhoneCallInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPhoneCallInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPhoneCallInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetPhoneCallInfoAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallInfo>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPhoneCallInfoAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPhoneCallInfoAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn End(&self) -> windows_core::Result<PhoneCallOperationStatus> {
@@ -1508,7 +1508,7 @@ impl PhoneCall {
     pub fn EndAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallOperationStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EndAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SendDtmfKey(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> windows_core::Result<PhoneCallOperationStatus> {
@@ -1520,7 +1520,7 @@ impl PhoneCall {
     pub fn SendDtmfKeyAsync(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallOperationStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SendDtmfKeyAsync)(windows_core::Interface::as_raw(self), key, dtmftoneaudioplayback, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SendDtmfKeyAsync)(windows_core::Interface::as_raw(self), key, dtmftoneaudioplayback, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn AcceptIncoming(&self) -> windows_core::Result<PhoneCallOperationStatus> {
@@ -1532,7 +1532,7 @@ impl PhoneCall {
     pub fn AcceptIncomingAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallOperationStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AcceptIncomingAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AcceptIncomingAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Hold(&self) -> windows_core::Result<PhoneCallOperationStatus> {
@@ -1544,7 +1544,7 @@ impl PhoneCall {
     pub fn HoldAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallOperationStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HoldAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).HoldAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ResumeFromHold(&self) -> windows_core::Result<PhoneCallOperationStatus> {
@@ -1556,7 +1556,7 @@ impl PhoneCall {
     pub fn ResumeFromHoldAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallOperationStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResumeFromHoldAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ResumeFromHoldAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Mute(&self) -> windows_core::Result<PhoneCallOperationStatus> {
@@ -1568,7 +1568,7 @@ impl PhoneCall {
     pub fn MuteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallOperationStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MuteAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MuteAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Unmute(&self) -> windows_core::Result<PhoneCallOperationStatus> {
@@ -1580,7 +1580,7 @@ impl PhoneCall {
     pub fn UnmuteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallOperationStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UnmuteAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UnmuteAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RejectIncoming(&self) -> windows_core::Result<PhoneCallOperationStatus> {
@@ -1592,7 +1592,7 @@ impl PhoneCall {
     pub fn RejectIncomingAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallOperationStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RejectIncomingAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RejectIncomingAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ChangeAudioDevice(&self, endpoint: PhoneCallAudioDevice) -> windows_core::Result<PhoneCallOperationStatus> {
@@ -1604,13 +1604,13 @@ impl PhoneCall {
     pub fn ChangeAudioDeviceAsync(&self, endpoint: PhoneCallAudioDevice) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallOperationStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ChangeAudioDeviceAsync)(windows_core::Interface::as_raw(self), endpoint, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ChangeAudioDeviceAsync)(windows_core::Interface::as_raw(self), endpoint, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetFromId(callid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPhoneCallStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(callid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(callid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IPhoneCallStatics<R, F: FnOnce(&IPhoneCallStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1672,7 +1672,7 @@ impl PhoneCallBlocking {
     {
         Self::IPhoneCallBlockingStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetCallBlockingListAsync)(windows_core::Interface::as_raw(this), phonenumberlist.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetCallBlockingListAsync)(windows_core::Interface::as_raw(this), phonenumberlist.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IPhoneCallBlockingStatics<R, F: FnOnce(&IPhoneCallBlockingStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1719,7 +1719,7 @@ impl PhoneCallHistoryEntry {
     pub fn Address(&self) -> windows_core::Result<PhoneCallHistoryEntryAddress> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Address)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Address)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetAddress<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1731,7 +1731,7 @@ impl PhoneCallHistoryEntry {
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
     pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
@@ -1935,7 +1935,7 @@ impl PhoneCallHistoryEntryAddress {
     pub fn Create(rawaddress: &windows_core::HSTRING, rawaddresskind: PhoneCallHistoryEntryRawAddressKind) -> windows_core::Result<Self> {
         Self::IPhoneCallHistoryEntryAddressFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(rawaddress), rawaddresskind, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(rawaddress), rawaddresskind, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IPhoneCallHistoryEntryAddressFactory<R, F: FnOnce(&IPhoneCallHistoryEntryAddressFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2057,7 +2057,7 @@ impl PhoneCallHistoryEntryQueryOptions {
     pub fn SourceIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SourceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2096,7 +2096,7 @@ impl PhoneCallHistoryEntryReader {
     pub fn ReadBatchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PhoneCallHistoryEntry>>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReadBatchAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ReadBatchAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2118,7 +2118,7 @@ impl PhoneCallHistoryManager {
     pub fn RequestStoreAsync(accesstype: PhoneCallHistoryStoreAccessType) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallHistoryStore>> {
         Self::IPhoneCallHistoryManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), accesstype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), accesstype, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -2128,7 +2128,7 @@ impl PhoneCallHistoryManager {
     {
         Self::IPhoneCallHistoryManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IPhoneCallHistoryManagerStatics<R, F: FnOnce(&IPhoneCallHistoryManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2151,14 +2151,14 @@ impl PhoneCallHistoryManagerForUser {
     pub fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallHistoryStore>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestStoreAsync)(windows_core::Interface::as_raw(self), accesstype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestStoreAsync)(windows_core::Interface::as_raw(self), accesstype, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).User)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).User)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2197,13 +2197,13 @@ impl PhoneCallHistoryStore {
     pub fn GetEntryAsync(&self, callhistoryentryid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallHistoryEntry>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEntryAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(callhistoryentryid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEntryAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(callhistoryentryid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetEntryReader(&self) -> windows_core::Result<PhoneCallHistoryEntryReader> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEntryReader)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEntryReader)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetEntryReaderWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<PhoneCallHistoryEntryReader>
@@ -2212,7 +2212,7 @@ impl PhoneCallHistoryStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEntryReaderWithOptions)(windows_core::Interface::as_raw(self), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEntryReaderWithOptions)(windows_core::Interface::as_raw(self), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SaveEntryAsync<P0>(&self, callhistoryentry: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -2221,7 +2221,7 @@ impl PhoneCallHistoryStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveEntryAsync)(windows_core::Interface::as_raw(self), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SaveEntryAsync)(windows_core::Interface::as_raw(self), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn DeleteEntryAsync<P0>(&self, callhistoryentry: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -2230,7 +2230,7 @@ impl PhoneCallHistoryStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeleteEntryAsync)(windows_core::Interface::as_raw(self), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeleteEntryAsync)(windows_core::Interface::as_raw(self), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn DeleteEntriesAsync<P0>(&self, callhistoryentries: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -2239,7 +2239,7 @@ impl PhoneCallHistoryStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeleteEntriesAsync)(windows_core::Interface::as_raw(self), callhistoryentries.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeleteEntriesAsync)(windows_core::Interface::as_raw(self), callhistoryentries.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn MarkEntryAsSeenAsync<P0>(&self, callhistoryentry: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -2248,7 +2248,7 @@ impl PhoneCallHistoryStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MarkEntryAsSeenAsync)(windows_core::Interface::as_raw(self), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MarkEntryAsSeenAsync)(windows_core::Interface::as_raw(self), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn MarkEntriesAsSeenAsync<P0>(&self, callhistoryentries: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -2257,19 +2257,19 @@ impl PhoneCallHistoryStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MarkEntriesAsSeenAsync)(windows_core::Interface::as_raw(self), callhistoryentries.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MarkEntriesAsSeenAsync)(windows_core::Interface::as_raw(self), callhistoryentries.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetUnseenCountAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUnseenCountAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetUnseenCountAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn MarkAllAsSeenAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MarkAllAsSeenAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MarkAllAsSeenAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetSourcesUnseenCountAsync<P0>(&self, sourceids: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
@@ -2278,7 +2278,7 @@ impl PhoneCallHistoryStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSourcesUnseenCountAsync)(windows_core::Interface::as_raw(self), sourceids.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSourcesUnseenCountAsync)(windows_core::Interface::as_raw(self), sourceids.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn MarkSourcesAsSeenAsync<P0>(&self, sourceids: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -2287,7 +2287,7 @@ impl PhoneCallHistoryStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MarkSourcesAsSeenAsync)(windows_core::Interface::as_raw(self), sourceids.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MarkSourcesAsSeenAsync)(windows_core::Interface::as_raw(self), sourceids.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2411,7 +2411,7 @@ impl PhoneCallManager {
     pub fn RequestStoreAsync() -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallStore>> {
         Self::IPhoneCallManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IPhoneCallManagerStatics<R, F: FnOnce(&IPhoneCallManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2484,19 +2484,19 @@ impl PhoneCallStore {
     pub fn IsEmergencyPhoneNumberAsync(&self, number: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsEmergencyPhoneNumberAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsEmergencyPhoneNumberAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetDefaultLineAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::GUID>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultLineAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDefaultLineAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RequestLineWatcher(&self) -> windows_core::Result<PhoneLineWatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestLineWatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestLineWatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2543,7 +2543,7 @@ impl PhoneCallVideoCapabilitiesManager {
     pub fn GetCapabilitiesAsync(phonenumber: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallVideoCapabilities>> {
         Self::IPhoneCallVideoCapabilitiesManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCapabilitiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phonenumber), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCapabilitiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phonenumber), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IPhoneCallVideoCapabilitiesManagerStatics<R, F: FnOnce(&IPhoneCallVideoCapabilitiesManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2568,7 +2568,7 @@ impl PhoneCallsResult {
     pub fn AllActivePhoneCalls(&self) -> windows_core::Result<windows_collections::IVectorView<PhoneCall>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AllActivePhoneCalls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AllActivePhoneCalls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2619,7 +2619,7 @@ impl PhoneDialOptions {
     pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Contact)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Contact)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -2633,7 +2633,7 @@ impl PhoneDialOptions {
     pub fn ContactPhone(&self) -> windows_core::Result<super::Contacts::ContactPhone> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContactPhone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ContactPhone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -2722,7 +2722,7 @@ impl PhoneLine {
     pub fn Voicemail(&self) -> windows_core::Result<PhoneVoicemail> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Voicemail)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Voicemail)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn NetworkName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2734,7 +2734,7 @@ impl PhoneLine {
     pub fn CellularDetails(&self) -> windows_core::Result<PhoneLineCellularDetails> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CellularDetails)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CellularDetails)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Transport(&self) -> windows_core::Result<PhoneLineTransport> {
@@ -2758,19 +2758,19 @@ impl PhoneLine {
     pub fn VideoCallingCapabilities(&self) -> windows_core::Result<PhoneCallVideoCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VideoCallingCapabilities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).VideoCallingCapabilities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn LineConfiguration(&self) -> windows_core::Result<PhoneLineConfiguration> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LineConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LineConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsImmediateDialNumberAsync(&self, number: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsImmediateDialNumberAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsImmediateDialNumberAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Dial(&self, number: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2797,34 +2797,34 @@ impl PhoneLine {
         let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DialWithResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DialWithResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn DialWithResultAsync(&self, number: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PhoneLineDialResult>> {
         let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DialWithResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DialWithResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetAllActivePhoneCalls(&self) -> windows_core::Result<PhoneCallsResult> {
         let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAllActivePhoneCalls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetAllActivePhoneCalls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetAllActivePhoneCallsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PhoneCallsResult>> {
         let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAllActivePhoneCallsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetAllActivePhoneCallsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn FromIdAsync(lineid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IPhoneLineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), lineid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), lineid, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IPhoneLineStatics<R, F: FnOnce(&IPhoneLineStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2908,7 +2908,7 @@ impl PhoneLineConfiguration {
     pub fn ExtendedProperties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2939,7 +2939,7 @@ impl PhoneLineDialResult {
     pub fn DialedCall(&self) -> windows_core::Result<PhoneCall> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DialedCall)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DialedCall)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -3025,7 +3025,7 @@ impl PhoneLineTransportDevice {
     pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Devices::Enumeration::DeviceAccessStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestAccessAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestAccessAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RegisterApp(&self) -> windows_core::Result<()> {
@@ -3063,7 +3063,7 @@ impl PhoneLineTransportDevice {
     pub fn ConnectAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConnectAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ConnectAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn AudioRoutingStatus(&self) -> windows_core::Result<TransportDeviceAudioRoutingStatus> {
@@ -3113,7 +3113,7 @@ impl PhoneLineTransportDevice {
     pub fn FromId(id: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -3354,7 +3354,7 @@ impl PhoneVoicemail {
     pub fn DialVoicemailAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DialVoicemailAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DialVoicemailAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -3423,7 +3423,7 @@ impl VoipCallCoordinator {
     pub fn ReserveCallResourcesAsync(&self, taskentrypoint: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReserveCallResourcesAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(taskentrypoint), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ReserveCallResourcesAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(taskentrypoint), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn MuteStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -3448,13 +3448,13 @@ impl VoipCallCoordinator {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestNewIncomingCall)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), media, ringtimeout, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestNewIncomingCall)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), media, ringtimeout, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RequestNewOutgoingCall(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, servicename: &windows_core::HSTRING, media: VoipPhoneCallMedia) -> windows_core::Result<VoipPhoneCall> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestNewOutgoingCall)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestNewOutgoingCall)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn NotifyMuted(&self) -> windows_core::Result<()> {
@@ -3466,7 +3466,7 @@ impl VoipCallCoordinator {
     pub fn RequestOutgoingUpgradeToVideoCall(&self, callupgradeguid: windows_core::GUID, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, servicename: &windows_core::HSTRING) -> windows_core::Result<VoipPhoneCall> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestOutgoingUpgradeToVideoCall)(windows_core::Interface::as_raw(self), callupgradeguid, core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(servicename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestOutgoingUpgradeToVideoCall)(windows_core::Interface::as_raw(self), callupgradeguid, core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(servicename), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RequestIncomingUpgradeToVideoCall<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, ringtimeout: windows_time::TimeSpan) -> windows_core::Result<VoipPhoneCall>
@@ -3477,7 +3477,7 @@ impl VoipCallCoordinator {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestIncomingUpgradeToVideoCall)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), ringtimeout, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestIncomingUpgradeToVideoCall)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), ringtimeout, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn TerminateCellularCall(&self, callupgradeguid: windows_core::GUID) -> windows_core::Result<()> {
@@ -3490,14 +3490,14 @@ impl VoipCallCoordinator {
         let this = &windows_core::Interface::cast::<IVoipCallCoordinator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetupNewAcceptedCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetupNewAcceptedCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RequestNewAppInitiatedCall(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, servicename: &windows_core::HSTRING, media: VoipPhoneCallMedia) -> windows_core::Result<VoipPhoneCall> {
         let this = &windows_core::Interface::cast::<IVoipCallCoordinator3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewAppInitiatedCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestNewAppInitiatedCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RequestNewIncomingCallWithContactRemoteId<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, media: VoipPhoneCallMedia, ringtimeout: windows_time::TimeSpan, contactremoteid: &windows_core::HSTRING) -> windows_core::Result<VoipPhoneCall>
@@ -3509,14 +3509,14 @@ impl VoipCallCoordinator {
         let this = &windows_core::Interface::cast::<IVoipCallCoordinator3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewIncomingCallWithContactRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), media, ringtimeout, core::mem::transmute_copy(contactremoteid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestNewIncomingCallWithContactRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), media, ringtimeout, core::mem::transmute_copy(contactremoteid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ReserveOneProcessCallResourcesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
         let this = &windows_core::Interface::cast::<IVoipCallCoordinator4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReserveOneProcessCallResourcesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReserveOneProcessCallResourcesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RequestNewIncomingCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
@@ -3526,7 +3526,7 @@ impl VoipCallCoordinator {
         let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewIncomingCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestNewIncomingCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RequestNewOutgoingCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
@@ -3536,7 +3536,7 @@ impl VoipCallCoordinator {
         let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewOutgoingCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestNewOutgoingCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetupNewAcceptedCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
@@ -3546,7 +3546,7 @@ impl VoipCallCoordinator {
         let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetupNewAcceptedCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetupNewAcceptedCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RequestNewAppInitiatedCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
@@ -3556,13 +3556,13 @@ impl VoipCallCoordinator {
         let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewAppInitiatedCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestNewAppInitiatedCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IVoipCallCoordinatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn IsCallControlDeviceKindSupportedForAssociation(kind: VoipCallControlDeviceKind) -> windows_core::Result<bool> {
@@ -3754,7 +3754,7 @@ impl VoipPhoneCall {
         let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAssociatedCallControlDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetAssociatedCallControlDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

@@ -516,7 +516,7 @@ impl IAccessible {
     pub unsafe fn accParent(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).accParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).accParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn accChildCount(&self) -> windows_core::Result<i32> {
@@ -529,7 +529,7 @@ impl IAccessible {
     pub unsafe fn accChild(&self, varchild: &super::VARIANT) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).accChild)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).accChild)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -1063,7 +1063,7 @@ impl IAccessibleHandler {
     pub unsafe fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> windows_core::Result<LPACCESSIBLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AccessibleObjectFromID)(windows_core::Interface::as_raw(self), hwnd, lobjectid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AccessibleObjectFromID)(windows_core::Interface::as_raw(self), hwnd, lobjectid, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1132,7 +1132,7 @@ impl IAccessibleWindowlessSite {
     pub unsafe fn GetParentAccessible(&self) -> windows_core::Result<IAccessible> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParentAccessible)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetParentAccessible)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

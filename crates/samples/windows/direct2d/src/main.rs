@@ -412,7 +412,7 @@ fn main() -> windows::core::Result<()> {
                 Some(&options),
                 &mut result__,
             )
-            .and_then(|| imp::Type::from_abi(result__))
+            .and_then(|| imp::from_abi(result__))
         }
     }
 

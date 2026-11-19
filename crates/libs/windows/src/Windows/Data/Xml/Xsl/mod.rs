@@ -51,7 +51,7 @@ impl XsltProcessor {
         let this = &windows_core::Interface::cast::<IXsltProcessor2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransformToDocument)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TransformToDocument)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
@@ -61,7 +61,7 @@ impl XsltProcessor {
     {
         Self::IXsltProcessorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), document.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), document.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IXsltProcessorFactory<R, F: FnOnce(&IXsltProcessorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

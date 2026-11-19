@@ -176,7 +176,7 @@ fn shell_item(folder: &DialogFolder) -> Result<Option<IShellItem>> {
         return Ok(None);
     }
     hr.ok()?;
-    unsafe { imp::Type::from_abi(result).map(Some) }
+    unsafe { imp::from_abi(result).map(Some) }
 }
 
 // The Shell parses only absolute, non-verbatim paths, so resolve relative paths and remove the

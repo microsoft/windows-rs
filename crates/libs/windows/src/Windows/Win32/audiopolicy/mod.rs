@@ -453,14 +453,14 @@ impl IAudioSessionManager {
     pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: Option<super::LPCGUID>, streamflags: super::DWORD) -> windows_core::Result<IAudioSessionControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAudioSessionControl)(windows_core::Interface::as_raw(self), audiosessionguid.unwrap_or(core::mem::zeroed()) as _, streamflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAudioSessionControl)(windows_core::Interface::as_raw(self), audiosessionguid.unwrap_or(core::mem::zeroed()) as _, streamflags, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
     pub unsafe fn GetSimpleAudioVolume(&self, audiosessionguid: Option<super::LPCGUID>, streamflags: super::DWORD) -> windows_core::Result<super::ISimpleAudioVolume> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSimpleAudioVolume)(windows_core::Interface::as_raw(self), audiosessionguid.unwrap_or(core::mem::zeroed()) as _, streamflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSimpleAudioVolume)(windows_core::Interface::as_raw(self), audiosessionguid.unwrap_or(core::mem::zeroed()) as _, streamflags, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -539,7 +539,7 @@ impl IAudioSessionManager2 {
     pub unsafe fn GetSessionEnumerator(&self) -> windows_core::Result<IAudioSessionEnumerator> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSessionEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSessionEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn RegisterSessionNotification<P0>(&self, sessionnotification: P0) -> windows_core::HRESULT

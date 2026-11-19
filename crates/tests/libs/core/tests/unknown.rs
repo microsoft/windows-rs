@@ -80,3 +80,21 @@ fn test_pointer_conversion_functions() {
         assert_eq!(dropped, 1);
     }
 }
+
+#[test]
+fn interface_adoption_transfers_ownership_and_rejects_null() {
+    let mut dropped = 0;
+    let test: ITest = Test { drop: &mut dropped }.into();
+    let raw = test.into_raw();
+    let adopted: ITest = unsafe { imp::from_abi(raw) }.unwrap();
+    assert_eq!(adopted.as_raw(), raw);
+    assert_eq!(unsafe { adopted.Test() }, 0);
+    drop(adopted);
+    assert_eq!(dropped, 1);
+    assert_eq!(
+        unsafe { imp::from_abi::<ITest>(core::ptr::null_mut()) }
+            .unwrap_err()
+            .code(),
+        HRESULT(0)
+    );
+}

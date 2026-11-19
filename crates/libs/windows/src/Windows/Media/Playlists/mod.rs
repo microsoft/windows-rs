@@ -43,13 +43,13 @@ impl Playlist {
     pub fn Files(&self) -> windows_core::Result<windows_collections::IVector<super::super::Storage::StorageFile>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Files)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Files)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SaveAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -59,7 +59,7 @@ impl Playlist {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveAsAsync)(windows_core::Interface::as_raw(self), savelocation.param().abi(), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SaveAsAsync)(windows_core::Interface::as_raw(self), savelocation.param().abi(), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -69,7 +69,7 @@ impl Playlist {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveAsWithFormatAsync)(windows_core::Interface::as_raw(self), savelocation.param().abi(), core::mem::transmute_copy(desiredname), option, playlistformat, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SaveAsWithFormatAsync)(windows_core::Interface::as_raw(self), savelocation.param().abi(), core::mem::transmute_copy(desiredname), option, playlistformat, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -79,7 +79,7 @@ impl Playlist {
     {
         Self::IPlaylistStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IPlaylistStatics<R, F: FnOnce(&IPlaylistStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

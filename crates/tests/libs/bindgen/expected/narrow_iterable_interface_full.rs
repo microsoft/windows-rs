@@ -13,7 +13,7 @@ impl<T: windows_core::RuntimeType + 'static> IItems<T> {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

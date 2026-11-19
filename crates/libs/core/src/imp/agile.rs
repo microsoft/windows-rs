@@ -33,7 +33,7 @@ impl AgileSlot {
                 Interface::as_raw(object) as _,
                 &mut result__,
             )
-            .and_then(|| Type::from_abi(result__))
+            .and_then(|| from_abi(result__))
             .map(Self)
         }
         #[cfg(not(windows))]

@@ -1064,7 +1064,7 @@ impl IHlinkFrame {
     pub unsafe fn GetBrowseContext(&self) -> windows_core::Result<IHlinkBrowseContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBrowseContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBrowseContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "objidl", feature = "shared", feature = "urlmon"))]
@@ -1190,7 +1190,7 @@ impl IHlinkSite {
     pub unsafe fn GetMoniker(&self, dwsitedata: super::DWORD, dwassign: super::DWORD, dwwhich: super::DWORD) -> windows_core::Result<super::IMoniker> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), dwsitedata, dwassign, dwwhich, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), dwsitedata, dwassign, dwwhich, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
@@ -1295,7 +1295,7 @@ impl IHlinkTarget {
     pub unsafe fn GetBrowseContext(&self) -> windows_core::Result<IHlinkBrowseContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBrowseContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBrowseContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
@@ -1312,7 +1312,7 @@ impl IHlinkTarget {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), pwzlocation.param().abi(), dwassign, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetMoniker)(windows_core::Interface::as_raw(self), pwzlocation.param().abi(), dwassign, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn GetFriendlyName<P0>(&self, pwzlocation: P0, ppwzfriendlyname: *mut windows_core::PWSTR) -> windows_core::HRESULT

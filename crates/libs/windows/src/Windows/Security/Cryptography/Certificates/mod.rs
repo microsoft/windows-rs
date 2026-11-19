@@ -9,7 +9,7 @@ impl Certificate {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BuildChainAsync)(windows_core::Interface::as_raw(self), certificates.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BuildChainAsync)(windows_core::Interface::as_raw(self), certificates.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn BuildChainWithParametersAsync<P0, P1>(&self, certificates: P0, parameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<CertificateChain>>
@@ -19,7 +19,7 @@ impl Certificate {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BuildChainWithParametersAsync)(windows_core::Interface::as_raw(self), certificates.param().abi(), parameters.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BuildChainWithParametersAsync)(windows_core::Interface::as_raw(self), certificates.param().abi(), parameters.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SerialNumber(&self) -> windows_core::Result<windows_core::Array<u8>> {
@@ -47,7 +47,7 @@ impl Certificate {
     pub fn GetCertificateBlob(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCertificateBlob)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCertificateBlob)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Subject(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -89,7 +89,7 @@ impl Certificate {
     pub fn EnhancedKeyUsages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnhancedKeyUsages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnhancedKeyUsages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetFriendlyName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -112,7 +112,7 @@ impl Certificate {
         let this = &windows_core::Interface::cast::<ICertificate2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyUsages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).KeyUsages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn KeyAlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -140,7 +140,7 @@ impl Certificate {
         let this = &windows_core::Interface::cast::<ICertificate2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SubjectAlternativeName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SubjectAlternativeName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsPerUser(&self) -> windows_core::Result<bool> {
@@ -171,7 +171,7 @@ impl Certificate {
     {
         Self::ICertificateFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCertificate)(windows_core::Interface::as_raw(this), certblob.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCertificate)(windows_core::Interface::as_raw(this), certblob.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn ICertificateFactory<R, F: FnOnce(&ICertificateFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -215,7 +215,7 @@ impl CertificateChain {
     pub fn GetCertificates(&self, includeroot: bool) -> windows_core::Result<windows_collections::IVectorView<Certificate>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCertificates)(windows_core::Interface::as_raw(self), includeroot, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCertificates)(windows_core::Interface::as_raw(self), includeroot, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -256,31 +256,31 @@ impl CertificateEnrollmentManager {
     {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn InstallCertificateAsync(certificate: &windows_core::HSTRING, installoption: InstallOptions) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InstallCertificateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(certificate), installoption, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InstallCertificateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(certificate), installoption, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn ImportPfxDataAsync(pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportPfxDataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, core::mem::transmute_copy(friendlyname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportPfxDataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, core::mem::transmute_copy(friendlyname), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn UserCertificateEnrollmentManager() -> windows_core::Result<UserCertificateEnrollmentManager> {
         Self::ICertificateEnrollmentManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserCertificateEnrollmentManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UserCertificateEnrollmentManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn ImportPfxDataToKspAsync(pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &windows_core::HSTRING, keystorageprovider: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportPfxDataToKspAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, core::mem::transmute_copy(friendlyname), core::mem::transmute_copy(keystorageprovider), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportPfxDataToKspAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, core::mem::transmute_copy(friendlyname), core::mem::transmute_copy(keystorageprovider), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn ImportPfxDataToKspWithParametersAsync<P2>(pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, pfximportparameters: P2) -> windows_core::Result<windows_future::IAsyncAction>
@@ -289,7 +289,7 @@ impl CertificateEnrollmentManager {
     {
         Self::ICertificateEnrollmentManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), pfximportparameters.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), pfximportparameters.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn ICertificateEnrollmentManagerStatics<R, F: FnOnce(&ICertificateEnrollmentManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -478,7 +478,7 @@ impl CertificateQuery {
     pub fn EnhancedKeyUsages(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnhancedKeyUsages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnhancedKeyUsages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IssuerName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -673,7 +673,7 @@ impl CertificateRequestProperties {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SigningCertificate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SigningCertificate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetSigningCertificate<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -687,7 +687,7 @@ impl CertificateRequestProperties {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AttestationCredentialCertificate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AttestationCredentialCertificate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetAttestationCredentialCertificate<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -757,21 +757,21 @@ impl CertificateRequestProperties {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SuppressedDefaults)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SuppressedDefaults)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SubjectAlternativeName(&self) -> windows_core::Result<SubjectAlternativeNameInfo> {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SubjectAlternativeName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SubjectAlternativeName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Extensions(&self) -> windows_core::Result<windows_collections::IVector<CertificateExtension>> {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Extensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Extensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -831,7 +831,7 @@ impl CertificateStores {
     pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Certificate>>> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn FindAllWithQueryAsync<P0>(query: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Certificate>>>
@@ -840,31 +840,31 @@ impl CertificateStores {
     {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindAllWithQueryAsync)(windows_core::Interface::as_raw(this), query.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindAllWithQueryAsync)(windows_core::Interface::as_raw(this), query.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn TrustedRootCertificationAuthorities() -> windows_core::Result<CertificateStore> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrustedRootCertificationAuthorities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TrustedRootCertificationAuthorities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn IntermediateCertificationAuthorities() -> windows_core::Result<CertificateStore> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IntermediateCertificationAuthorities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).IntermediateCertificationAuthorities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn GetStoreByName(storename: &windows_core::HSTRING) -> windows_core::Result<CertificateStore> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStoreByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(storename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStoreByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(storename), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn GetUserStoreByName(storename: &windows_core::HSTRING) -> windows_core::Result<UserCertificateStore> {
         Self::ICertificateStoresStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUserStoreByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(storename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetUserStoreByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(storename), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn ICertificateStoresStatics<R, F: FnOnce(&ICertificateStoresStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -894,7 +894,7 @@ impl ChainBuildingParameters {
     pub fn EnhancedKeyUsages(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnhancedKeyUsages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnhancedKeyUsages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ValidationTimestamp(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -945,7 +945,7 @@ impl ChainBuildingParameters {
     pub fn ExclusiveTrustRoots(&self) -> windows_core::Result<windows_collections::IVector<Certificate>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExclusiveTrustRoots)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ExclusiveTrustRoots)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -987,7 +987,7 @@ impl ChainValidationParameters {
     pub fn ServerDnsName(&self) -> windows_core::Result<super::super::super::Networking::HostName> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ServerDnsName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ServerDnsName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Networking")]
@@ -1045,7 +1045,7 @@ impl CmsAttachedSignature {
     pub fn Certificates(&self) -> windows_core::Result<windows_collections::IVectorView<Certificate>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Certificates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Certificates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Content(&self) -> windows_core::Result<windows_core::Array<u8>> {
@@ -1058,7 +1058,7 @@ impl CmsAttachedSignature {
     pub fn Signers(&self) -> windows_core::Result<windows_collections::IVectorView<CmsSignerInfo>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Signers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Signers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn VerifySignature(&self) -> windows_core::Result<SignatureValidationResult> {
@@ -1074,7 +1074,7 @@ impl CmsAttachedSignature {
     {
         Self::ICmsAttachedSignatureFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCmsAttachedSignature)(windows_core::Interface::as_raw(this), inputblob.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCmsAttachedSignature)(windows_core::Interface::as_raw(this), inputblob.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1086,7 +1086,7 @@ impl CmsAttachedSignature {
     {
         Self::ICmsAttachedSignatureStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GenerateSignatureAsync)(windows_core::Interface::as_raw(this), data.param().abi(), signers.param().abi(), certificates.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GenerateSignatureAsync)(windows_core::Interface::as_raw(this), data.param().abi(), signers.param().abi(), certificates.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn ICmsAttachedSignatureFactory<R, F: FnOnce(&ICmsAttachedSignatureFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1119,13 +1119,13 @@ impl CmsDetachedSignature {
     pub fn Certificates(&self) -> windows_core::Result<windows_collections::IVectorView<Certificate>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Certificates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Certificates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Signers(&self) -> windows_core::Result<windows_collections::IVectorView<CmsSignerInfo>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Signers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Signers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1135,7 +1135,7 @@ impl CmsDetachedSignature {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VerifySignatureAsync)(windows_core::Interface::as_raw(self), data.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).VerifySignatureAsync)(windows_core::Interface::as_raw(self), data.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1145,7 +1145,7 @@ impl CmsDetachedSignature {
     {
         Self::ICmsDetachedSignatureFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCmsDetachedSignature)(windows_core::Interface::as_raw(this), inputblob.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCmsDetachedSignature)(windows_core::Interface::as_raw(this), inputblob.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1157,7 +1157,7 @@ impl CmsDetachedSignature {
     {
         Self::ICmsDetachedSignatureStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GenerateSignatureAsync)(windows_core::Interface::as_raw(this), data.param().abi(), signers.param().abi(), certificates.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GenerateSignatureAsync)(windows_core::Interface::as_raw(this), data.param().abi(), signers.param().abi(), certificates.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn ICmsDetachedSignatureFactory<R, F: FnOnce(&ICmsDetachedSignatureFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1197,7 +1197,7 @@ impl CmsSignerInfo {
     pub fn Certificate(&self) -> windows_core::Result<Certificate> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Certificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Certificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetCertificate<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1218,7 +1218,7 @@ impl CmsSignerInfo {
     pub fn TimestampInfo(&self) -> windows_core::Result<CmsTimestampInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimestampInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TimestampInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1243,13 +1243,13 @@ impl CmsTimestampInfo {
     pub fn SigningCertificate(&self) -> windows_core::Result<Certificate> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SigningCertificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SigningCertificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Certificates(&self) -> windows_core::Result<windows_collections::IVectorView<Certificate>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Certificates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Certificates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Timestamp(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -1955,7 +1955,7 @@ impl KeyAttestationHelper {
     pub fn DecryptTpmAttestationCredentialAsync(credential: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IKeyAttestationHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DecryptTpmAttestationCredentialAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(credential), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DecryptTpmAttestationCredentialAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(credential), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn GetTpmAttestationCredentialId(credential: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
@@ -1967,7 +1967,7 @@ impl KeyAttestationHelper {
     pub fn DecryptTpmAttestationCredentialWithContainerNameAsync(credential: &windows_core::HSTRING, containername: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         Self::IKeyAttestationHelperStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DecryptTpmAttestationCredentialWithContainerNameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(credential), core::mem::transmute_copy(containername), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DecryptTpmAttestationCredentialWithContainerNameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(credential), core::mem::transmute_copy(containername), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IKeyAttestationHelperStatics<R, F: FnOnce(&IKeyAttestationHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2200,86 +2200,86 @@ impl SubjectAlternativeNameInfo {
     pub fn EmailName(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EmailName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EmailName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IPAddress(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IPAddress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IPAddress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Url(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Url)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Url)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn DnsName(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DnsName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DnsName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn DistinguishedName(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DistinguishedName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DistinguishedName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn PrincipalName(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrincipalName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PrincipalName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn EmailNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EmailNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).EmailNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IPAddresses(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IPAddresses)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).IPAddresses)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Urls(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Urls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Urls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn DnsNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DnsNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DnsNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn DistinguishedNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DistinguishedNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DistinguishedNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn PrincipalNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrincipalNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrincipalNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Extension(&self) -> windows_core::Result<CertificateExtension> {
         let this = &windows_core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Extension)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Extension)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2307,25 +2307,25 @@ impl UserCertificateEnrollmentManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRequestAsync)(windows_core::Interface::as_raw(self), request.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRequestAsync)(windows_core::Interface::as_raw(self), request.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn InstallCertificateAsync(&self, certificate: &windows_core::HSTRING, installoption: InstallOptions) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InstallCertificateAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(certificate), installoption, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InstallCertificateAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(certificate), installoption, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ImportPfxDataAsync(&self, pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ImportPfxDataAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, core::mem::transmute_copy(friendlyname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ImportPfxDataAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, core::mem::transmute_copy(friendlyname), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ImportPfxDataToKspAsync(&self, pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &windows_core::HSTRING, keystorageprovider: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ImportPfxDataToKspAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, core::mem::transmute_copy(friendlyname), core::mem::transmute_copy(keystorageprovider), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ImportPfxDataToKspAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, core::mem::transmute_copy(friendlyname), core::mem::transmute_copy(keystorageprovider), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ImportPfxDataToKspWithParametersAsync<P2>(&self, pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, pfximportparameters: P2) -> windows_core::Result<windows_future::IAsyncAction>
@@ -2335,7 +2335,7 @@ impl UserCertificateEnrollmentManager {
         let this = &windows_core::Interface::cast::<IUserCertificateEnrollmentManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), pfximportparameters.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), pfximportparameters.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2363,7 +2363,7 @@ impl UserCertificateStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestAddAsync)(windows_core::Interface::as_raw(self), certificate.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestAddAsync)(windows_core::Interface::as_raw(self), certificate.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RequestDeleteAsync<P0>(&self, certificate: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -2372,7 +2372,7 @@ impl UserCertificateStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestDeleteAsync)(windows_core::Interface::as_raw(self), certificate.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestDeleteAsync)(windows_core::Interface::as_raw(self), certificate.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {

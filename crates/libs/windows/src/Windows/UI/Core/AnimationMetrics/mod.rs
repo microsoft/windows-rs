@@ -6,7 +6,7 @@ impl AnimationDescription {
     pub fn Animations(&self) -> windows_core::Result<windows_collections::IVectorView<IPropertyAnimation>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Animations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Animations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StaggerDelay(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -36,7 +36,7 @@ impl AnimationDescription {
     pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> windows_core::Result<Self> {
         Self::IAnimationDescriptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effect, target, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effect, target, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IAnimationDescriptionFactory<R, F: FnOnce(&IAnimationDescriptionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -327,7 +327,7 @@ impl OpacityAnimation {
     pub fn InitialOpacity(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitialOpacity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<f32>| r__.Value())
+            (windows_core::Interface::vtable(self).InitialOpacity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f32>| r__.Value())
         }
     }
     pub fn FinalOpacity(&self) -> windows_core::Result<f32> {
@@ -493,13 +493,13 @@ impl ScaleAnimation {
     pub fn InitialScaleX(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitialScaleX)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<f32>| r__.Value())
+            (windows_core::Interface::vtable(self).InitialScaleX)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f32>| r__.Value())
         }
     }
     pub fn InitialScaleY(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitialScaleY)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<f32>| r__.Value())
+            (windows_core::Interface::vtable(self).InitialScaleY)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f32>| r__.Value())
         }
     }
     pub fn FinalScaleX(&self) -> windows_core::Result<f32> {

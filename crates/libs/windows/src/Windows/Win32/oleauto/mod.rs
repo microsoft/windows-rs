@@ -22,7 +22,7 @@ pub unsafe fn CreateErrorInfo() -> windows_core::Result<super::ICreateErrorInfo>
     windows_core::link!("oleaut32.dll" "system" fn CreateErrorInfo(pperrinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateErrorInfo(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        CreateErrorInfo(&mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(feature = "oaidl")]
@@ -101,7 +101,7 @@ pub unsafe fn GetErrorInfo(dwreserved: super::ULONG) -> windows_core::Result<sup
     windows_core::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : super::ULONG, pperrinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetErrorInfo(dwreserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        GetErrorInfo(dwreserved, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared"))]
@@ -324,7 +324,7 @@ pub unsafe fn SafeArrayGetRecordInfo(psa: *const super::SAFEARRAY) -> windows_co
     windows_core::link!("oleaut32.dll" "system" fn SafeArrayGetRecordInfo(psa : *const super::SAFEARRAY, prinfo : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SafeArrayGetRecordInfo(psa, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        SafeArrayGetRecordInfo(psa, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]

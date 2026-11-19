@@ -1384,7 +1384,7 @@ impl Type {
         } else if self.is_copyable(reader) || self.needs_result_storage(reader) {
             quote! { map(|| #result) }
         } else if self.is_convertible() {
-            quote! { and_then(||windows_core::imp::Type::from_abi(#result)) }
+            quote! { and_then(||windows_core::imp::from_abi(#result)) }
         } else {
             quote! { map(|| core::mem::transmute(#result)) }
         }

@@ -296,7 +296,7 @@ impl ClosedCaptionTheme {
     pub fn GetSelectedTheme() -> windows_core::Result<Self> {
         Self::IClosedCaptionThemeStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSelectedTheme)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSelectedTheme)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn TrySetSelectedTheme<P0>(value: P0) -> windows_core::Result<bool>

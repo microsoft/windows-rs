@@ -341,3 +341,37 @@ fn null_interface_results_use_empty_errors() {
     assert_eq!(unsafe { result.Object() }.unwrap_err().code(), HRESULT(0));
     assert_eq!(unsafe { result.Required() }.unwrap_err().code(), HRESULT(0));
 }
+
+#[test]
+fn failed_interface_results_are_not_adopted() {
+    unsafe extern "system" fn fail(
+        _: *mut core::ffi::c_void,
+        value: *mut *mut core::ffi::c_void,
+    ) -> HRESULT {
+        unsafe { value.write(core::ptr::without_provenance_mut(1)) };
+        E_FAIL
+    }
+
+    unsafe extern "system" fn fail_query(
+        this: *mut core::ffi::c_void,
+        _: *const GUID,
+        value: *mut *mut core::ffi::c_void,
+    ) -> HRESULT {
+        unsafe { fail(this, value) }
+    }
+
+    let mut vtable = Results_Vtbl::new::<Provider_Impl, 0>();
+    vtable.Object = fail;
+    vtable.Required = fail;
+    vtable.Query = fail_query;
+    let object = &vtable as *const _;
+    let result = std::mem::ManuallyDrop::new(unsafe {
+        Results::from_raw((&object as *const *const Results_Vtbl).cast_mut().cast())
+    });
+    assert_eq!(unsafe { result.Object() }.unwrap_err().code(), E_FAIL);
+    assert_eq!(unsafe { result.Required() }.unwrap_err().code(), E_FAIL);
+    assert_eq!(
+        unsafe { result.Query::<Tracked>() }.unwrap_err().code(),
+        E_FAIL
+    );
+}

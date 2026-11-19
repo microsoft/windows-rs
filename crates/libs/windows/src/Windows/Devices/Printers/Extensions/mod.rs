@@ -98,7 +98,7 @@ impl Print3DWorkflow {
     pub fn GetPrintModelPackage(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPrintModelPackage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPrintModelPackage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn IsPrintReady(&self) -> windows_core::Result<bool> {
@@ -256,7 +256,7 @@ impl PrintExtensionContext {
     pub fn FromDeviceId(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
         Self::IPrintExtensionContextStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IPrintExtensionContextStatic<R, F: FnOnce(&IPrintExtensionContextStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -309,7 +309,7 @@ impl PrintTaskConfiguration {
     pub fn PrinterExtensionContext(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrinterExtensionContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PrinterExtensionContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SaveRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -355,7 +355,7 @@ impl PrintTaskConfigurationSaveRequest {
     pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskConfigurationSaveRequestedDeferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Deadline(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -404,7 +404,7 @@ impl PrintTaskConfigurationSaveRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<PrintTaskConfigurationSaveRequest> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

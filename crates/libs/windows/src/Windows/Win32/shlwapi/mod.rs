@@ -258,7 +258,7 @@ where
 {
     windows_core::link!("shlwapi.dll" "system" fn IUnknown_QueryService(punk : *mut core::ffi::c_void, guidservice : *const windows_core::GUID, riid : *const super::IID, ppvout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { IUnknown_QueryService(punk.param().abi(), guidservice, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { IUnknown_QueryService(punk.param().abi(), guidservice, &T::IID, &mut result__).and_then(|| windows_core::imp::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn IUnknown_Set<P1>(ppunk: *mut Option<windows_core::IUnknown>, punk: P1)
@@ -1177,7 +1177,7 @@ where
 {
     windows_core::link!("shlwapi.dll" "system" fn QISearch(that : *mut core::ffi::c_void, pqit : LPCQITAB, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { QISearch(that as _, pqit, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { QISearch(that as _, pqit, &T::IID, &mut result__).and_then(|| windows_core::imp::from_abi(result__)) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -1246,7 +1246,7 @@ where
     windows_core::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileA(pszfile : windows_core::PCSTR, grfmode : super::DWORD, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateStreamOnFileA(pszfile.param().abi(), grfmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        SHCreateStreamOnFileA(pszfile.param().abi(), grfmode, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -1259,7 +1259,7 @@ where
     windows_core::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileEx(pszfile : windows_core::PCWSTR, grfmode : super::DWORD, dwattributes : super::DWORD, fcreate : windows_core::BOOL, pstmtemplate : *mut core::ffi::c_void, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateStreamOnFileEx(pszfile.param().abi(), grfmode, dwattributes, fcreate.into(), pstmtemplate.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        SHCreateStreamOnFileEx(pszfile.param().abi(), grfmode, dwattributes, fcreate.into(), pstmtemplate.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
@@ -1271,7 +1271,7 @@ where
     windows_core::link!("shlwapi.dll" "system" fn SHCreateStreamOnFileW(pszfile : windows_core::PCWSTR, grfmode : super::DWORD, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateStreamOnFileW(pszfile.param().abi(), grfmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        SHCreateStreamOnFileW(pszfile.param().abi(), grfmode, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
@@ -1286,7 +1286,7 @@ pub unsafe fn SHCreateThreadRef(pcref: *mut super::LONG) -> windows_core::Result
     windows_core::link!("shlwapi.dll" "system" fn SHCreateThreadRef(pcref : *mut super::LONG, ppunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateThreadRef(pcref as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        SHCreateThreadRef(pcref as _, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -1392,7 +1392,7 @@ pub unsafe fn SHGetThreadRef() -> windows_core::Result<windows_core::IUnknown> {
     windows_core::link!("shlwapi.dll" "system" fn SHGetThreadRef(ppunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHGetThreadRef(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        SHGetThreadRef(&mut result__).and_then(|| windows_core::imp::from_abi(result__))
     }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]

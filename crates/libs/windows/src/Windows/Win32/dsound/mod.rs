@@ -725,7 +725,7 @@ impl IDirectSound {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DuplicateSoundBuffer)(windows_core::Interface::as_raw(self), pdsbufferoriginal.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DuplicateSoundBuffer)(windows_core::Interface::as_raw(self), pdsbufferoriginal.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shared", feature = "windef"))]
@@ -2863,7 +2863,7 @@ impl IDirectSoundFullDuplex {
     pub unsafe fn Initialize(&self, pcaptureguid: super::LPCGUID, prenderguid: super::LPCGUID, lpdscbufferdesc: LPCDSCBUFFERDESC, lpdsbufferdesc: LPCDSBUFFERDESC, hwnd: super::HWND, dwlevel: super::DWORD, lplpdirectsoundcapturebuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8) -> windows_core::Result<IDirectSoundBuffer8> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pcaptureguid, prenderguid, lpdscbufferdesc, lpdsbufferdesc, hwnd as _, dwlevel, lplpdirectsoundcapturebuffer8, core::ptr::from_mut::<*mut core::ffi::c_void>(&mut result__).cast()).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pcaptureguid, prenderguid, lpdscbufferdesc, lpdsbufferdesc, hwnd as _, dwlevel, lplpdirectsoundcapturebuffer8, core::ptr::from_mut::<*mut core::ffi::c_void>(&mut result__).cast()).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

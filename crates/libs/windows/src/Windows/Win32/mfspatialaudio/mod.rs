@@ -31,7 +31,7 @@ impl IMFSpatialAudioObjectBuffer {
     pub unsafe fn GetMetadataItems(&self) -> windows_core::Result<super::ISpatialAudioMetadataItems> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMetadataItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetMetadataItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -153,7 +153,7 @@ impl IMFSpatialAudioSample {
     pub unsafe fn GetSpatialAudioObjectByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFSpatialAudioObjectBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSpatialAudioObjectByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSpatialAudioObjectByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

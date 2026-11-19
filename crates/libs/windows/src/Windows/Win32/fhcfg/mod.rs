@@ -51,7 +51,7 @@ impl IFhConfigMgr {
     pub unsafe fn GetIncludeExcludeRules(&self, include: bool, category: FH_PROTECTED_ITEM_CATEGORY) -> windows_core::Result<IFhScopeIterator> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIncludeExcludeRules)(windows_core::Interface::as_raw(self), include.into(), category, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetIncludeExcludeRules)(windows_core::Interface::as_raw(self), include.into(), category, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
@@ -71,7 +71,7 @@ impl IFhConfigMgr {
     pub unsafe fn GetDefaultTarget(&self) -> windows_core::Result<IFhTarget> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDefaultTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn ValidateTarget(&self, targeturl: &windows_core::BSTR, validationresult: PFH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {

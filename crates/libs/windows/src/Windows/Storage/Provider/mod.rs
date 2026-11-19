@@ -136,14 +136,14 @@ impl CachedFileUpdaterUI {
         let this = &windows_core::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<FileUpdateRequestDeferral> {
         let this = &windows_core::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -173,7 +173,7 @@ impl FileUpdateRequest {
     pub fn File(&self) -> windows_core::Result<super::StorageFile> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).File)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).File)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Status(&self) -> windows_core::Result<FileUpdateStatus> {
@@ -188,7 +188,7 @@ impl FileUpdateRequest {
     pub fn GetDeferral(&self) -> windows_core::Result<FileUpdateRequestDeferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -249,7 +249,7 @@ impl FileUpdateRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<FileUpdateRequest> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -426,7 +426,7 @@ impl IStorageProviderItemPropertySource {
     pub fn GetItemProperties(&self, itempath: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<StorageProviderItemProperty>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItemProperties)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(itempath), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetItemProperties)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(itempath), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -492,7 +492,7 @@ impl IStorageProviderKnownFolderSyncInfoSource {
     pub fn GetKnownFolderSyncInfo(&self) -> windows_core::Result<StorageProviderKnownFolderSyncInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetKnownFolderSyncInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetKnownFolderSyncInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn KnownFolderSyncInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -581,7 +581,7 @@ impl IStorageProviderKnownFolderSyncInfoSourceFactory {
     pub fn GetKnownFolderSyncInfoSource(&self) -> windows_core::Result<IStorageProviderKnownFolderSyncInfoSource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetKnownFolderSyncInfoSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetKnownFolderSyncInfoSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -732,7 +732,7 @@ impl IStorageProviderQueryResult {
     pub fn RequestedProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::PropertySet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -935,7 +935,7 @@ impl IStorageProviderSearchHandler {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Find)(windows_core::Interface::as_raw(self), options.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Find)(windows_core::Interface::as_raw(self), options.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ReportUsage(&self, resultusagekind: StorageProviderResultUsageKind, remotefileid: &windows_core::HSTRING, resultid: &windows_core::HSTRING, latency: windows_time::TimeSpan) -> windows_core::Result<()> {
@@ -991,7 +991,7 @@ impl IStorageProviderSearchHandlerFactory {
     pub fn CreateSearchHandler(&self, cloudproviderid: &windows_core::HSTRING) -> windows_core::Result<IStorageProviderSearchHandler> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSearchHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(cloudproviderid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSearchHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(cloudproviderid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1068,7 +1068,7 @@ impl IStorageProviderShareLinkSource {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateLinkAsync)(windows_core::Interface::as_raw(self), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateLinkAsync)(windows_core::Interface::as_raw(self), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetDefaultAccessControlStringAsync<P0>(&self, storageitemlist: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
@@ -1077,7 +1077,7 @@ impl IStorageProviderShareLinkSource {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultAccessControlStringAsync)(windows_core::Interface::as_raw(self), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDefaultAccessControlStringAsync)(windows_core::Interface::as_raw(self), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetState<P0>(&self, storageitemlist: P0) -> windows_core::Result<windows_future::IAsyncOperation<StorageProviderShareLinkState>>
@@ -1086,7 +1086,7 @@ impl IStorageProviderShareLinkSource {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1192,7 +1192,7 @@ impl IStorageProviderStatusUISource {
     pub fn GetStatusUI(&self) -> windows_core::Result<StorageProviderStatusUI> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStatusUI)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStatusUI)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn StatusUIChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -1281,7 +1281,7 @@ impl IStorageProviderStatusUISourceFactory {
     pub fn GetStatusUISource(&self, syncrootid: &windows_core::HSTRING) -> windows_core::Result<IStorageProviderStatusUISource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStatusUISource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(syncrootid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStatusUISource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(syncrootid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1329,7 +1329,7 @@ impl IStorageProviderSuggestionsHandler {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSuggestions)(windows_core::Interface::as_raw(self), options.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSuggestions)(windows_core::Interface::as_raw(self), options.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Add(&self, kind: StorageProviderResultKind, remotefileid: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1341,7 +1341,7 @@ impl IStorageProviderSuggestionsHandler {
     pub fn GetDetails(&self, remotefileid: &windows_core::HSTRING, propertiestofetch: &[windows_core::HSTRING], queryid: &windows_core::HSTRING) -> windows_core::Result<StorageProviderSuggestionResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDetails)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(remotefileid), propertiestofetch.len().try_into().unwrap(), propertiestofetch.as_ptr().cast(), core::mem::transmute_copy(queryid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDetails)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(remotefileid), propertiestofetch.len().try_into().unwrap(), propertiestofetch.as_ptr().cast(), core::mem::transmute_copy(queryid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ReportUsage(&self, resultusagekind: StorageProviderResultUsageKind, remotefileid: &windows_core::HSTRING, resultid: &windows_core::HSTRING, latency: windows_time::TimeSpan) -> windows_core::Result<()> {
@@ -1437,7 +1437,7 @@ impl IStorageProviderSuggestionsHandlerFactory {
     pub fn CreateSuggestionsHandler(&self, cloudproviderid: &windows_core::HSTRING) -> windows_core::Result<IStorageProviderSuggestionsHandler> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSuggestionsHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(cloudproviderid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSuggestionsHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(cloudproviderid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1581,7 +1581,7 @@ impl IStorageProviderUICommand {
     pub fn Icon(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Icon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Icon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn State(&self) -> windows_core::Result<StorageProviderUICommandState> {
@@ -1783,7 +1783,7 @@ impl StorageProviderFileTypeInfo {
     pub fn CreateInstance(fileextension: &windows_core::HSTRING, iconresource: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IStorageProviderFileTypeInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(fileextension), core::mem::transmute_copy(iconresource), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(fileextension), core::mem::transmute_copy(iconresource), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IStorageProviderFileTypeInfoFactory<R, F: FnOnce(&IStorageProviderFileTypeInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2080,7 +2080,7 @@ impl StorageProviderItemProperties {
     {
         Self::IStorageProviderItemPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAsync)(windows_core::Interface::as_raw(this), item.param().abi(), itemproperties.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetAsync)(windows_core::Interface::as_raw(this), item.param().abi(), itemproperties.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IStorageProviderItemPropertiesStatics<R, F: FnOnce(&IStorageProviderItemPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2256,13 +2256,13 @@ impl StorageProviderKnownFolderSyncInfo {
     pub fn KnownFolderEntries(&self) -> windows_core::Result<windows_collections::IVector<StorageProviderKnownFolderEntry>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).KnownFolderEntries)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).KnownFolderEntries)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SyncRequested(&self) -> windows_core::Result<StorageProviderKnownFolderSyncRequestedHandler> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SyncRequested)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SyncRequested)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetSyncRequested<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2293,14 +2293,14 @@ impl StorageProviderKnownFolderSyncRequestArgs {
     pub fn KnownFolders(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::GUID>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).KnownFolders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).KnownFolders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Search")]
     pub fn Source(&self) -> windows_core::Result<super::StorageFolder> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2395,7 +2395,7 @@ impl StorageProviderMoreInfoUI {
     pub fn Command(&self) -> windows_core::Result<IStorageProviderUICommand> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Command)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Command)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetCommand<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2479,7 +2479,7 @@ impl StorageProviderQueryResultSet {
     pub fn CreateInstance(results: &[Option<IStorageProviderQueryResult>]) -> windows_core::Result<Self> {
         Self::IStorageProviderQueryResultSetFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), results.len().try_into().unwrap(), results.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), results.len().try_into().unwrap(), results.as_ptr().cast(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IStorageProviderQueryResultSetFactory<R, F: FnOnce(&IStorageProviderQueryResultSetFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2543,7 +2543,7 @@ impl StorageProviderQuotaUI {
     pub fn QuotaUsedColor(&self) -> windows_core::Result<super::super::UI::Color> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QuotaUsedColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::UI::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).QuotaUsedColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::UI::Color>| r__.Value())
         }
     }
     #[cfg(feature = "UI")]
@@ -2634,7 +2634,7 @@ impl StorageProviderSearchQueryOptions {
     pub fn SortOrder(&self) -> windows_core::Result<windows_collections::IVectorView<super::Search::SortEntry>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SortOrder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SortOrder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ProgrammaticQuery(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2664,7 +2664,7 @@ impl StorageProviderSearchQueryOptions {
     pub fn PropertiesToFetch(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PropertiesToFetch)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PropertiesToFetch)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2763,7 +2763,7 @@ impl StorageProviderSearchResult {
         let this = &windows_core::Interface::cast::<IStorageProviderQueryResult>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestedProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestedProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn MatchScore(&self) -> windows_core::Result<f64> {
@@ -2872,7 +2872,7 @@ impl StorageProviderStatusUI {
     pub fn ProviderStateIcon(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProviderStateIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ProviderStateIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetProviderStateIcon<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2884,7 +2884,7 @@ impl StorageProviderStatusUI {
     pub fn SyncStatusCommand(&self) -> windows_core::Result<IStorageProviderUICommand> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SyncStatusCommand)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SyncStatusCommand)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetSyncStatusCommand<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2896,7 +2896,7 @@ impl StorageProviderStatusUI {
     pub fn QuotaUI(&self) -> windows_core::Result<StorageProviderQuotaUI> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QuotaUI)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).QuotaUI)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetQuotaUI<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2908,7 +2908,7 @@ impl StorageProviderStatusUI {
     pub fn MoreInfoUI(&self) -> windows_core::Result<StorageProviderMoreInfoUI> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MoreInfoUI)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MoreInfoUI)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetMoreInfoUI<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2920,7 +2920,7 @@ impl StorageProviderStatusUI {
     pub fn ProviderPrimaryCommand(&self) -> windows_core::Result<IStorageProviderUICommand> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProviderPrimaryCommand)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ProviderPrimaryCommand)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetProviderPrimaryCommand<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2932,7 +2932,7 @@ impl StorageProviderStatusUI {
     pub fn ProviderSecondaryCommands(&self) -> windows_core::Result<windows_collections::IVector<IStorageProviderUICommand>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProviderSecondaryCommands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ProviderSecondaryCommands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetProviderSecondaryCommands<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -3007,7 +3007,7 @@ impl StorageProviderSuggestionResult {
     pub fn RequestedProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::PropertySet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -3056,7 +3056,7 @@ impl StorageProviderSuggestionsQueryOptions {
     pub fn PropertiesToFetch(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PropertiesToFetch)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PropertiesToFetch)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -3098,7 +3098,7 @@ impl StorageProviderSyncRootInfo {
     pub fn Context(&self) -> windows_core::Result<super::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Context)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Context)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -3111,7 +3111,7 @@ impl StorageProviderSyncRootInfo {
     pub fn Path(&self) -> windows_core::Result<super::IStorageFolder> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetPath<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -3222,13 +3222,13 @@ impl StorageProviderSyncRootInfo {
     pub fn StorageProviderItemPropertyDefinitions(&self) -> windows_core::Result<windows_collections::IVector<StorageProviderItemPropertyDefinition>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StorageProviderItemPropertyDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StorageProviderItemPropertyDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn RecycleBinUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecycleBinUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RecycleBinUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetRecycleBinUri<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -3252,7 +3252,7 @@ impl StorageProviderSyncRootInfo {
         let this = &windows_core::Interface::cast::<IStorageProviderSyncRootInfo3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FallbackFileTypeInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FallbackFileTypeInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -3286,19 +3286,19 @@ impl StorageProviderSyncRootManager {
     {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSyncRootInformationForFolder)(windows_core::Interface::as_raw(this), folder.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSyncRootInformationForFolder)(windows_core::Interface::as_raw(this), folder.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn GetSyncRootInformationForId(id: &windows_core::HSTRING) -> windows_core::Result<StorageProviderSyncRootInfo> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSyncRootInformationForId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSyncRootInformationForId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn GetCurrentSyncRoots() -> windows_core::Result<windows_collections::IVectorView<StorageProviderSyncRootInfo>> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentSyncRoots)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCurrentSyncRoots)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {

@@ -39,7 +39,7 @@ impl IEnumWbemClassObject {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "shared")]
@@ -231,7 +231,7 @@ impl IUnsecuredApartment {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateObjectStub)(windows_core::Interface::as_raw(self), pobject.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateObjectStub)(windows_core::Interface::as_raw(self), pobject.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -370,7 +370,7 @@ impl IWbemCallResult {
     pub unsafe fn GetResultObject(&self, ltimeout: i32) -> windows_core::Result<IWbemClassObject> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetResultObject)(windows_core::Interface::as_raw(self), ltimeout, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetResultObject)(windows_core::Interface::as_raw(self), ltimeout, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn GetResultString(&self, ltimeout: i32, pstrresultstring: *mut windows_core::BSTR) -> windows_core::HRESULT {
@@ -379,7 +379,7 @@ impl IWbemCallResult {
     pub unsafe fn GetResultServices(&self, ltimeout: i32) -> windows_core::Result<IWbemServices> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetResultServices)(windows_core::Interface::as_raw(self), ltimeout, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetResultServices)(windows_core::Interface::as_raw(self), ltimeout, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn GetCallStatus(&self, ltimeout: i32, plstatus: *mut i32) -> windows_core::HRESULT {
@@ -1773,7 +1773,7 @@ impl IWbemServices {
     pub unsafe fn QueryObjectSink(&self, lflags: i32) -> windows_core::Result<IWbemObjectSink> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryObjectSink)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).QueryObjectSink)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn GetObject<P2>(&self, strobjectpath: &windows_core::BSTR, lflags: i32, pctx: P2, ppobject: Option<*mut Option<IWbemClassObject>>, ppcallresult: Option<*mut Option<IWbemCallResult>>) -> windows_core::HRESULT
@@ -1823,7 +1823,7 @@ impl IWbemServices {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClassEnum)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strsuperclass), lflags, pctx.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClassEnum)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strsuperclass), lflags, pctx.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn CreateClassEnumAsync<P2, P3>(&self, strsuperclass: &windows_core::BSTR, lflags: i32, pctx: P2, presponsehandler: P3) -> windows_core::HRESULT
@@ -1867,7 +1867,7 @@ impl IWbemServices {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateInstanceEnum)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilter), lflags, pctx.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateInstanceEnum)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilter), lflags, pctx.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn CreateInstanceEnumAsync<P2, P3>(&self, strfilter: &windows_core::BSTR, lflags: i32, pctx: P2, presponsehandler: P3) -> windows_core::HRESULT
@@ -1883,7 +1883,7 @@ impl IWbemServices {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExecQuery)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strquerylanguage), core::mem::transmute_copy(strquery), lflags, pctx.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ExecQuery)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strquerylanguage), core::mem::transmute_copy(strquery), lflags, pctx.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn ExecQueryAsync<P3, P4>(&self, strquerylanguage: &windows_core::BSTR, strquery: &windows_core::BSTR, lflags: i32, pctx: P3, presponsehandler: P4) -> windows_core::HRESULT
@@ -1899,7 +1899,7 @@ impl IWbemServices {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExecNotificationQuery)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strquerylanguage), core::mem::transmute_copy(strquery), lflags, pctx.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ExecNotificationQuery)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strquerylanguage), core::mem::transmute_copy(strquery), lflags, pctx.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub unsafe fn ExecNotificationQueryAsync<P3, P4>(&self, strquerylanguage: &windows_core::BSTR, strquery: &windows_core::BSTR, lflags: i32, pctx: P3, presponsehandler: P4) -> windows_core::HRESULT
@@ -2310,7 +2310,7 @@ impl IWbemUnsecuredApartment {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSinkStub)(windows_core::Interface::as_raw(self), psink.param().abi(), dwflags, wszreserved.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSinkStub)(windows_core::Interface::as_raw(self), psink.param().abi(), dwflags, wszreserved.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
