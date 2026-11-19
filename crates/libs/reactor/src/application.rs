@@ -144,6 +144,10 @@ pub struct NotifyIcon {
 
 impl NotifyIcon {
     /// Uses an `.ico` file. A file that fails to load panics, like other contract violations.
+    ///
+    /// If the Shell rejects an image update to an existing icon, the previous image is retained
+    /// and the failure is logged. The latest path is retried on the next application render;
+    /// rejection does not schedule a render.
     pub fn new(path: impl Into<std::path::PathBuf>) -> Self {
         Self {
             path: path.into(),

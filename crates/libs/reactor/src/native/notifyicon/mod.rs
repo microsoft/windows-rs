@@ -111,18 +111,6 @@ impl Registration {
         Ok(())
     }
 
-    fn update_with<F>(&self, hwnd: *mut core::ffi::c_void, notify: &mut F) -> Result<()>
-    where
-        F: FnMut(u32, &NOTIFYICONDATAW) -> bool,
-    {
-        let data = self.data(hwnd);
-        if notify(NIM_MODIFY as u32, &data) {
-            Ok(())
-        } else {
-            Err(shell_error("failed to update notification-area icon"))
-        }
-    }
-
     fn recover(&self, hwnd: *mut core::ffi::c_void) -> Result<()> {
         let mut notify = shell_notify;
         self.recover_with(hwnd, &mut notify)
@@ -158,16 +146,17 @@ impl Registration {
         icon: OwnedIcon,
         hwnd: *mut core::ffi::c_void,
         notify: &mut F,
-    ) -> Result<()>
+    ) -> bool
     where
         F: FnMut(u32, &NOTIFYICONDATAW) -> bool,
     {
-        let previous = std::mem::replace(&mut self.icon, icon);
-        if let Err(error) = self.update_with(hwnd, notify) {
-            self.icon = previous;
-            return Err(error);
+        let mut data = self.data(hwnd);
+        data.hIcon = icon.handle.cast();
+        if !notify(NIM_MODIFY as u32, &data) {
+            return false;
         }
-        Ok(())
+        self.icon = icon;
+        true
     }
 
     fn set_tooltip_with<F>(
@@ -221,10 +210,15 @@ impl NotifyIcon {
     }
 
     /// Replaces the icon using an `.ico` file.
-    pub fn set_icon(&mut self, path: impl AsRef<Path>) -> Result<()> {
+    ///
+    /// Returns `false` if the Shell rejects the update, retaining the last applied image.
+    pub fn set_icon(&mut self, path: impl AsRef<Path>) -> Result<bool> {
         let icon = OwnedIcon::load(path.as_ref())?;
-        self.registration
-            .replace_icon_with(icon, self.callback_window.hwnd(), &mut shell_notify)
+        Ok(self.registration.replace_icon_with(
+            icon,
+            self.callback_window.hwnd(),
+            &mut shell_notify,
+        ))
     }
 
     /// Sets or clears the standard tooltip.
@@ -535,21 +529,46 @@ mod tests {
     }
 
     #[test]
-    fn failed_icon_replacement_restores_the_previous_icon() {
+    fn refused_image_updates_preserve_applied_payload_until_retry_succeeds() {
         let mut registration = registration(1);
+        let tooltip = tooltip_text("retained").unwrap();
+        registration.tooltip = Some(tooltip);
+        let mut results = [false, false, true].into_iter();
         let mut payloads = Vec::new();
         let mut notify = |message, data: &NOTIFYICONDATAW| {
+            assert_ne!(data.uFlags & NIF_ICON as u32, 0);
+            assert_eq!(data.szTip, tooltip);
             payloads.push((message, data.hIcon as usize));
-            false
+            results.next().unwrap()
         };
 
-        assert!(
-            registration
-                .replace_icon_with(OwnedIcon::borrowed(2), core::ptr::null_mut(), &mut notify)
-                .is_err()
-        );
+        assert!(!registration.replace_icon_with(
+            OwnedIcon::borrowed(2),
+            core::ptr::null_mut(),
+            &mut notify,
+        ));
         assert_eq!(registration.icon.handle as usize, 1);
-        assert_eq!(payloads, [(NIM_MODIFY as u32, 2)]);
+        assert!(!registration.replace_icon_with(
+            OwnedIcon::borrowed(3),
+            core::ptr::null_mut(),
+            &mut notify,
+        ));
+        assert_eq!(registration.icon.handle as usize, 1);
+        assert!(registration.replace_icon_with(
+            OwnedIcon::borrowed(3),
+            core::ptr::null_mut(),
+            &mut notify,
+        ));
+        assert_eq!(registration.icon.handle as usize, 3);
+        assert_eq!(registration.tooltip, Some(tooltip));
+        assert_eq!(
+            payloads,
+            [
+                (NIM_MODIFY as u32, 2),
+                (NIM_MODIFY as u32, 3),
+                (NIM_MODIFY as u32, 3)
+            ]
+        );
     }
 
     #[test]
@@ -571,23 +590,6 @@ mod tests {
             calls,
             [NIM_ADD as u32, NIM_SETVERSION as u32, NIM_DELETE as u32]
         );
-    }
-
-    #[test]
-    fn failed_modify_does_not_attempt_registration() {
-        let registration = registration(1);
-        let mut calls = Vec::new();
-        let mut notify = |message, _: &NOTIFYICONDATAW| {
-            calls.push(message);
-            false
-        };
-
-        assert!(
-            registration
-                .update_with(core::ptr::null_mut(), &mut notify)
-                .is_err()
-        );
-        assert_eq!(calls, [NIM_MODIFY as u32]);
     }
 
     #[test]
