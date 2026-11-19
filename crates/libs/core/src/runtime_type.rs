@@ -1,7 +1,7 @@
 use super::*;
 
 #[doc(hidden)]
-pub trait RuntimeType: Type<Self> {
+pub trait RuntimeType: Type {
     const SIGNATURE: imp::ConstBuffer;
     const NAME: imp::ConstBuffer = imp::ConstBuffer::new();
 }

@@ -72,7 +72,7 @@ where
     fn MoveNext(&self) -> windows_core::Result<bool>;
     fn GetMany(
         &self,
-        items: &mut [<T as windows_core::imp::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {

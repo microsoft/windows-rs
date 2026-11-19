@@ -108,7 +108,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Current)(
                 windows_core::Interface::as_raw(self),
                 result__.as_mut_ptr().cast(),
@@ -138,9 +138,9 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     }
     pub fn GetMany(
         &self,
-        items: &mut [<T as windows_core::imp::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<u32> {
-        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type>::Default>() {
             items.fill_with(|| unsafe { core::mem::zeroed() });
         }
         unsafe {
@@ -169,7 +169,7 @@ where
     fn MoveNext(&self) -> windows_core::Result<bool>;
     fn GetMany(
         &self,
-        items: &mut [<T as windows_core::imp::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
@@ -330,7 +330,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     pub fn Key(&self) -> windows_core::Result<K> {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<K as windows_core::imp::Type<K>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<K as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Key)(
                 windows_core::Interface::as_raw(self),
                 result__.as_mut_ptr().cast(),
@@ -341,7 +341,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     pub fn Value(&self) -> windows_core::Result<V> {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<V as windows_core::imp::Type<V>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<V as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Value)(
                 windows_core::Interface::as_raw(self),
                 result__.as_mut_ptr().cast(),
@@ -460,7 +460,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<V as windows_core::imp::Type<V>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<V as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Lookup)(
                 windows_core::Interface::as_raw(self),
                 key.param().abi(),
@@ -820,7 +820,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
     pub fn Key(&self) -> windows_core::Result<K> {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<K as windows_core::imp::Type<K>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<K as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Key)(
                 windows_core::Interface::as_raw(self),
                 result__.as_mut_ptr().cast(),
@@ -931,7 +931,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<V as windows_core::imp::Type<V>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<V as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Lookup)(
                 windows_core::Interface::as_raw(self),
                 key.param().abi(),
@@ -1232,7 +1232,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         let this = &windows_core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<V as windows_core::imp::Type<V>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<V as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(
                 windows_core::Interface::as_raw(this),
                 key.param().abi(),
@@ -1478,7 +1478,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(
                 windows_core::Interface::as_raw(this),
                 index,
@@ -1595,10 +1595,10 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
     pub fn GetMany(
         &self,
         startindex: u32,
-        items: &mut [<T as windows_core::imp::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
-        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type>::Default>() {
             items.fill_with(|| unsafe { core::mem::zeroed() });
         }
         unsafe {
@@ -1615,7 +1615,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
     }
     pub fn ReplaceAll(
         &self,
-        items: &[<T as windows_core::imp::Type<T>>::Default],
+        items: &[<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -1736,7 +1736,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).GetAt)(
                 windows_core::Interface::as_raw(self),
                 index,
@@ -1844,9 +1844,9 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetMany(
         &self,
         startindex: u32,
-        items: &mut [<T as windows_core::imp::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<u32> {
-        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type>::Default>() {
             items.fill_with(|| unsafe { core::mem::zeroed() });
         }
         unsafe {
@@ -1863,7 +1863,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     }
     pub fn ReplaceAll(
         &self,
-        items: &[<T as windows_core::imp::Type<T>>::Default],
+        items: &[<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).ReplaceAll)(
@@ -1922,11 +1922,11 @@ where
     fn GetMany(
         &self,
         startIndex: u32,
-        items: &mut [<T as windows_core::imp::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<u32>;
     fn ReplaceAll(
         &self,
-        items: &[<T as windows_core::imp::Type<T>>::Default],
+        items: &[<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<()>;
 }
 impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
@@ -2358,7 +2358,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).GetAt)(
                 windows_core::Interface::as_raw(self),
                 index,
@@ -2395,9 +2395,9 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn GetMany(
         &self,
         startindex: u32,
-        items: &mut [<T as windows_core::imp::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<u32> {
-        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type>::Default>() {
             items.fill_with(|| unsafe { core::mem::zeroed() });
         }
         unsafe {
@@ -2453,7 +2453,7 @@ where
     fn GetMany(
         &self,
         startIndex: u32,
-        items: &mut [<T as windows_core::imp::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {

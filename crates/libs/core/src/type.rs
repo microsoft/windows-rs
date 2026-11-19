@@ -15,7 +15,7 @@ pub struct CloneType;
 pub struct CopyType;
 
 #[doc(hidden)]
-pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + Clone {
+pub trait Type<C = <Self as TypeKind>::TypeKind>: TypeKind + Sized + Clone {
     type Abi;
     type Default: Clone;
 
@@ -41,7 +41,7 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     fn from_default_owned(default: Self::Default) -> Result<Self>;
 }
 
-impl<T> Type<T, InterfaceType> for T
+impl<T> Type<InterfaceType> for T
 where
     T: TypeKind<TypeKind = InterfaceType> + Clone,
 {
@@ -61,7 +61,7 @@ where
     }
 }
 
-impl<T> Type<T, CloneType> for T
+impl<T> Type<CloneType> for T
 where
     T: TypeKind<TypeKind = CloneType> + Clone,
 {
@@ -81,7 +81,7 @@ where
     }
 }
 
-impl<T> Type<T, CopyType> for T
+impl<T> Type<CopyType> for T
 where
     T: TypeKind<TypeKind = CopyType> + Clone,
 {
@@ -124,12 +124,12 @@ primitives!(
 );
 
 #[doc(hidden)]
-pub type AbiType<T> = <T as Type<T>>::Abi;
+pub type AbiType<T> = <T as Type>::Abi;
 
 /// The parameter type for a generic type `T` used in `_Impl` trait method signatures.
 ///
 /// Copy types resolve to `T`; strings and interfaces use a borrowed ABI-compatible wrapper.
-pub type Ref<'a, T> = <T as Type<T>>::Ref<'a>;
+pub type Ref<'a, T> = <T as Type>::Ref<'a>;
 
 /// Converts a [`Ref<T>`](Ref) reference into a reference to the corresponding
 /// [`Default`](Type::Default) representation.
@@ -140,6 +140,6 @@ pub type Ref<'a, T> = <T as Type<T>>::Ref<'a>;
 /// - For `CloneType` (HSTRING, etc.) and `InterfaceType` (COM interfaces):
 ///   `Ref<'_> = InRef<'_, T>`, which is `#[repr(transparent)]` over `T::Abi`, and
 ///   `T::Abi` has the same layout as `T::Default`.
-pub fn ref_as_default<'a, 'b, T: Type<T>>(param: &'a <T as Type<T>>::Ref<'b>) -> &'a T::Default {
-    unsafe { &*(param as *const <T as Type<T>>::Ref<'b> as *const T::Default) }
+pub fn ref_as_default<'a, 'b, T: Type>(param: &'a <T as Type>::Ref<'b>) -> &'a T::Default {
+    unsafe { &*(param as *const <T as Type>::Ref<'b> as *const T::Default) }
 }
