@@ -46,6 +46,8 @@ mod Test {
     #[guid(auto)]
     interface GenericResult<T> {
         fn Get(&self) -> T;
+        #[Windows::Foundation::Metadata::NoException]
+        fn Infallible(&self) -> T;
     }
 }
 

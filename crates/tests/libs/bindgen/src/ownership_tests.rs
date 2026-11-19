@@ -3,7 +3,7 @@ use std::sync::{
     Arc,
     atomic::{AtomicUsize, Ordering},
 };
-use windows_core::{Array, InRef, Interface, OutParam, OutRef, Param, ParamValue};
+use windows_core::{Array, InRef, Interface, OutParam, OutRef, Param, ParamValue, RuntimeType};
 
 #[windows_core::implement(OwnedResult, GenericResult<OwnedValue>, NativeResult)]
 struct ResultProducer(OwnedValue);
@@ -37,6 +37,10 @@ impl OwnedResult_Impl for ResultProducer_Impl {
 impl GenericResult_Impl<OwnedValue> for ResultProducer_Impl {
     fn Get(&self) -> windows_core::Result<OwnedValue> {
         Ok(self.0.clone())
+    }
+
+    fn Infallible(&self) -> OwnedValue {
+        self.0.clone()
     }
 }
 
@@ -76,6 +80,7 @@ fn owning_return_abi() {
         concrete.Get().unwrap(),
         concrete.Infallible(),
         generic.Get().unwrap(),
+        generic.Infallible(),
         unsafe { native.Get().unwrap() },
         unsafe { raw.assume_init() },
     ];
@@ -356,6 +361,65 @@ fn direct_out_ref_replacement() {
     OutRef::<Tracked>::from(&mut output).write(None).unwrap();
     assert!(output.is_none());
     assert_eq!(new_drops.load(Ordering::Relaxed), 1);
+}
+
+#[windows_core::implement(GenericResult<T>)]
+struct GenericProducer<T: RuntimeType + 'static>(T);
+
+impl<T: RuntimeType + 'static> GenericResult_Impl<T> for GenericProducer_Impl<T> {
+    fn Get(&self) -> windows_core::Result<T> {
+        Ok(self.0.clone())
+    }
+
+    fn Infallible(&self) -> T {
+        self.0.clone()
+    }
+}
+
+#[test]
+fn generic_return_representations() {
+    let number: GenericResult<u32> = GenericProducer(42).into();
+    assert_eq!(number.Get().unwrap(), 42);
+    assert_eq!(number.Infallible(), 42);
+    let text: GenericResult<windows_core::HSTRING> =
+        GenericProducer(windows_core::HSTRING::new()).into();
+    assert!(text.Get().unwrap().is_empty());
+    assert!(text.Infallible().is_empty());
+
+    let drops = Arc::new(AtomicUsize::new(0));
+    let producer: GenericResult<Tracked> = GenericProducer(tracked(&drops)).into();
+    let result = producer.Get().unwrap();
+    let infallible = producer.Infallible();
+    drop(producer);
+    result.Invoke().unwrap();
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    drop(result);
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    infallible.Invoke().unwrap();
+    drop(infallible);
+    assert_eq!(drops.load(Ordering::Relaxed), 1);
+}
+
+#[cfg(any(not(miri), windows_slim_errors))]
+#[test]
+fn generic_return_rejects_null_interface() {
+    unsafe extern "system" fn null(
+        _: *mut core::ffi::c_void,
+        result: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe { result.write(core::ptr::null_mut()) };
+        windows_core::HRESULT(0)
+    }
+    let mut vtable = GenericResult_Vtbl::<Tracked>::new::<GenericProducer_Impl<Tracked>, 0>();
+    vtable.Get = null;
+    vtable.Infallible = null;
+    let vtable = &vtable;
+    let raw = &vtable as *const _ as *mut core::ffi::c_void;
+    let borrowed = unsafe { GenericResult::<Tracked>::from_raw_borrowed(&raw).unwrap() };
+    assert!(borrowed.Get().is_err());
+    // Miri cannot format Windows errors while constructing the panic payload.
+    #[cfg(not(miri))]
+    assert!(std::panic::catch_unwind(|| borrowed.Infallible()).is_err());
 }
 
 #[test]

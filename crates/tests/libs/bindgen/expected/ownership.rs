@@ -371,7 +371,7 @@ impl<
         }
     }
 }
-windows_core::imp::define_winrt_interface!(GenericResult < T >, GenericResult_Vtbl < T, >, 0x24cf7e0a_922a_51a3_b2e7_7c35bc1a3068, b"Test.GenericResult`1");
+windows_core::imp::define_winrt_interface!(GenericResult < T >, GenericResult_Vtbl < T, >, 0xf83d59d6_7deb_5e2e_8219_79ce2ee23f8b, b"Test.GenericResult`1");
 impl<T: windows_core::RuntimeType + 'static> GenericResult<T> {
     pub fn Get(&self) -> windows_core::Result<T> {
         unsafe {
@@ -381,6 +381,17 @@ impl<T: windows_core::RuntimeType + 'static> GenericResult<T> {
                 result__.as_mut_ptr(),
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__.assume_init()))
+        }
+    }
+    pub fn Infallible(&self) -> T {
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            let hresult__ = (windows_core::Interface::vtable(self).Infallible)(
+                windows_core::Interface::as_raw(self),
+                result__.as_mut_ptr(),
+            );
+            debug_assert!(hresult__.0 == 0);
+            windows_core::imp::Type::from_abi(result__.assume_init()).unwrap()
         }
     }
 }
@@ -394,6 +405,7 @@ where
     T: windows_core::RuntimeType + 'static,
 {
     fn Get(&self) -> windows_core::Result<T>;
+    fn Infallible(&self) -> T;
 }
 impl<T: windows_core::RuntimeType + 'static> GenericResult_Vtbl<T> {
     pub const fn new<Identity: GenericResult_Impl<T>, const OFFSET: isize>() -> Self {
@@ -420,9 +432,26 @@ impl<T: windows_core::RuntimeType + 'static> GenericResult_Vtbl<T> {
                 }
             }
         }
+        unsafe extern "system" fn Infallible<
+            T: windows_core::RuntimeType + 'static,
+            Identity: GenericResult_Impl<T>,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            result__: *mut windows_core::imp::AbiType<T>,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let ok__ = GenericResult_Impl::Infallible(this);
+                core::ptr::write(result__.cast(), ok__);
+                windows_core::HRESULT(0)
+            }
+        }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             Get: Get::<T, Identity, OFFSET>,
+            Infallible: Infallible::<T, Identity, OFFSET>,
             T: core::marker::PhantomData::<T>,
         }
     }
@@ -437,6 +466,10 @@ where
 {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Get: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::imp::AbiType<T>,
+    ) -> windows_core::HRESULT,
+    pub Infallible: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
