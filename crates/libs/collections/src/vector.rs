@@ -4,7 +4,7 @@ use windows_core::*;
 struct StockVector<T>
 where
     T: RuntimeType + 'static,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     values: std::sync::RwLock<Vec<T::Default>>,
 }
@@ -14,13 +14,13 @@ implement_decl! {
         IVector<T>,
         IIterable<T>,
     ]
-    where T: RuntimeType + 'static, T::Default: Clone + PartialEq
+    where T: RuntimeType + 'static, T::Default: PartialEq
 }
 
 impl<T> IIterable_Impl<T> for StockVector_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn First(&self) -> Result<IIterator<T>> {
         Ok(ComObject::new(StockVectorIterator {
@@ -34,7 +34,7 @@ where
 impl<T> IVector_Impl<T> for StockVector_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn GetAt(&self, index: u32) -> Result<T> {
         let values = self.values.read().unwrap();
@@ -142,7 +142,7 @@ where
 struct StockVectorIterator<T>
 where
     T: RuntimeType + 'static,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     owner: ComObject<StockVector<T>>,
     current: std::sync::atomic::AtomicUsize,
@@ -152,13 +152,13 @@ implement_decl! {
     impl<T> StockVectorIterator as StockVectorIterator_Impl: [
         IIterator<T>,
     ]
-    where T: RuntimeType + 'static, T::Default: Clone + PartialEq
+    where T: RuntimeType + 'static, T::Default: PartialEq
 }
 
 impl<T> IIterator_Impl<T> for StockVectorIterator_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     fn Current(&self) -> Result<T> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
@@ -213,7 +213,7 @@ where
 impl<T> From<Vec<T::Default>> for IVector<T>
 where
     T: RuntimeType,
-    T::Default: Clone + PartialEq,
+    T::Default: PartialEq,
 {
     /// Creates a mutable `IVector<T>` containing the given values.
     fn from(values: Vec<T::Default>) -> Self {

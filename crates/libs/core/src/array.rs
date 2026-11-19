@@ -45,10 +45,7 @@ impl<T: Type<T>> Array<T> {
     }
 
     /// Creates an array by copying the elements from the slice.
-    pub fn from_slice(values: &[T::Default]) -> Self
-    where
-        T::Default: Clone,
-    {
+    pub fn from_slice(values: &[T::Default]) -> Self {
         let mut array = Self::with_len(values.len());
         array.clone_from_slice(values);
         array

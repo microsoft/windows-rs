@@ -6,6 +6,17 @@ const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as _);
 // Local stand-in avoids a dependency on Win32 error constants.
 const E_FAIL: HRESULT = HRESULT(0x80004005_u32 as _);
 
+#[test]
+fn generic_construction() -> Result<()> {
+    fn from_values<T: RuntimeType>(values: Vec<T::Default>) -> IIterable<T> {
+        values.into()
+    }
+
+    let able = from_values::<i32>(vec![42]);
+    assert_eq!(able.First()?.Current()?, 42);
+    Ok(())
+}
+
 // `Calendar` requires WinRT activation factory linker symbols.
 #[cfg(windows)]
 #[test]

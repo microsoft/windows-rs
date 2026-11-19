@@ -4,7 +4,6 @@ use windows_core::*;
 struct StockIterable<T>
 where
     T: RuntimeType + 'static,
-    T::Default: Clone,
 {
     values: Vec<T::Default>,
 }
@@ -13,13 +12,12 @@ implement_decl! {
     impl<T> StockIterable as StockIterable_Impl: [
         IIterable<T>,
     ]
-    where T: RuntimeType + 'static, T::Default: Clone
+    where T: RuntimeType + 'static
 }
 
 impl<T> IIterable_Impl<T> for StockIterable_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone,
 {
     fn First(&self) -> Result<IIterator<T>> {
         Ok(ComObject::new(StockIterator {
@@ -33,7 +31,6 @@ where
 struct StockIterator<T>
 where
     T: RuntimeType + 'static,
-    T::Default: Clone,
 {
     owner: ComObject<StockIterable<T>>,
     current: std::sync::atomic::AtomicUsize,
@@ -43,13 +40,12 @@ implement_decl! {
     impl<T> StockIterator as StockIterator_Impl: [
         IIterator<T>,
     ]
-    where T: RuntimeType + 'static, T::Default: Clone
+    where T: RuntimeType + 'static
 }
 
 impl<T> IIterator_Impl<T> for StockIterator_Impl<T>
 where
     T: RuntimeType,
-    T::Default: Clone,
 {
     fn Current(&self) -> Result<T> {
         let owner: &StockIterable<T> = &self.owner;
@@ -103,7 +99,6 @@ where
 impl<T> From<Vec<T::Default>> for IIterable<T>
 where
     T: RuntimeType,
-    T::Default: Clone,
 {
     /// Creates an `IIterable<T>` that yields the given values.
     fn from(values: Vec<T::Default>) -> Self {

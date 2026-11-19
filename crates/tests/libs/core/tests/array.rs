@@ -19,6 +19,16 @@ fn with_len() {
 }
 
 #[test]
+fn generic_from_slice() {
+    fn from_slice<T: windows_core::imp::Type<T>>(values: &[T::Default]) -> Array<T> {
+        Array::from_slice(values)
+    }
+
+    let array = from_slice::<i32>(&[1, 2, 3]);
+    assert_eq!(array.as_slice(), &[1, 2, 3]);
+}
+
+#[test]
 fn debug() {
     let array = Array::<i32>::from_slice(&[1, 2, 3]);
     assert_eq!(format!("{array:?}"), "[1, 2, 3]");

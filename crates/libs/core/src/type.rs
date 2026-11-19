@@ -17,7 +17,7 @@ pub struct CopyType;
 #[doc(hidden)]
 pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + Clone {
     type Abi;
-    type Default;
+    type Default: Clone;
 
     /// The parameter type used in `_Impl` trait method signatures.
     ///
