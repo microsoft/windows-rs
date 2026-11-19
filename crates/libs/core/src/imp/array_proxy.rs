@@ -1,12 +1,12 @@
 use crate::{Array, Type};
 
-pub struct ArrayProxy<T: Type<T>> {
+pub struct ArrayProxy<T: Type> {
     data: *mut *mut T::Default,
     len: *mut u32,
     temp: core::mem::ManuallyDrop<Array<T>>,
 }
 
-pub unsafe fn array_proxy<T: Type<T>>(data: *mut *mut T::Default, len: *mut u32) -> ArrayProxy<T> {
+pub unsafe fn array_proxy<T: Type>(data: *mut *mut T::Default, len: *mut u32) -> ArrayProxy<T> {
     ArrayProxy {
         data,
         len,
@@ -14,7 +14,7 @@ pub unsafe fn array_proxy<T: Type<T>>(data: *mut *mut T::Default, len: *mut u32)
     }
 }
 
-impl<T: Type<T>> Drop for ArrayProxy<T> {
+impl<T: Type> Drop for ArrayProxy<T> {
     fn drop(&mut self) {
         unsafe {
             *self.data = self.temp.data;
@@ -23,7 +23,7 @@ impl<T: Type<T>> Drop for ArrayProxy<T> {
     }
 }
 
-impl<T: Type<T>> core::ops::Deref for ArrayProxy<T> {
+impl<T: Type> core::ops::Deref for ArrayProxy<T> {
     type Target = Array<T>;
 
     fn deref(&self) -> &Array<T> {
@@ -31,7 +31,7 @@ impl<T: Type<T>> core::ops::Deref for ArrayProxy<T> {
     }
 }
 
-impl<T: Type<T>> core::ops::DerefMut for ArrayProxy<T> {
+impl<T: Type> core::ops::DerefMut for ArrayProxy<T> {
     fn deref_mut(&mut self) -> &mut Array<T> {
         &mut self.temp
     }

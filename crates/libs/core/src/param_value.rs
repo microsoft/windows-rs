@@ -2,12 +2,12 @@ use super::*;
 use core::mem::transmute_copy;
 
 #[doc(hidden)]
-pub enum ParamValue<T: Type<T>> {
+pub enum ParamValue<T: Type> {
     Owned(T),
     Borrowed(T::Abi),
 }
 
-impl<T: Type<T>> ParamValue<T> {
+impl<T: Type> ParamValue<T> {
     pub fn abi(&self) -> T::Abi {
         unsafe {
             match self {

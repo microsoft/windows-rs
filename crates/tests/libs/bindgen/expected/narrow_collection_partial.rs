@@ -3,7 +3,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Current)(
                 windows_core::Interface::as_raw(self),
                 result__.as_mut_ptr().cast(),

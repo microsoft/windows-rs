@@ -7,7 +7,7 @@ use core::mem::zeroed;
 /// Implementations are provided for supported Windows types.
 pub trait Param<T: TypeKind, C = <T as TypeKind>::TypeKind>: Sized
 where
-    T: Type<T>,
+    T: Type,
 {
     #[doc(hidden)]
     unsafe fn param(self) -> ParamValue<T>;
@@ -15,7 +15,7 @@ where
 
 impl<T> Param<T> for Option<&T>
 where
-    T: Type<T>,
+    T: Type,
 {
     unsafe fn param(self) -> ParamValue<T> {
         unsafe {
@@ -29,7 +29,7 @@ where
 
 impl<T> Param<T> for InterfaceRef<'_, T>
 where
-    T: Type<T>,
+    T: Type,
 {
     unsafe fn param(self) -> ParamValue<T> {
         unsafe { ParamValue::Borrowed(transmute_copy(&self)) }

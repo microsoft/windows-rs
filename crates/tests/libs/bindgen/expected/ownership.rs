@@ -268,8 +268,8 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Gener
 impl<T: windows_core::RuntimeType + 'static> GenericOutputs<T> {
     pub fn new<
         F: Fn(
-                &mut [<T as windows_core::imp::Type<T>>::Default],
-                &mut <T as windows_core::imp::Type<T>>::Default,
+                &mut [<T as windows_core::imp::Type>::Default],
+                &mut <T as windows_core::imp::Type>::Default,
             ) -> windows_core::Result<()>
             + Send
             + Sync
@@ -285,13 +285,13 @@ impl<T: windows_core::RuntimeType + 'static> GenericOutputs<T> {
     }
     pub fn Invoke(
         &self,
-        fill: &mut [<T as windows_core::imp::Type<T>>::Default],
-        value: &mut <T as windows_core::imp::Type<T>>::Default,
+        fill: &mut [<T as windows_core::imp::Type>::Default],
+        value: &mut <T as windows_core::imp::Type>::Default,
     ) -> windows_core::Result<()> {
-        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type>::Default>() {
             fill.fill_with(|| unsafe { core::mem::zeroed() });
         }
-        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type>::Default>() {
             *value = unsafe { core::mem::zeroed() };
         }
         unsafe {
@@ -322,8 +322,8 @@ where
 struct GenericOutputsBox<
     T,
     F: Fn(
-            &mut [<T as windows_core::imp::Type<T>>::Default],
-            &mut <T as windows_core::imp::Type<T>>::Default,
+            &mut [<T as windows_core::imp::Type>::Default],
+            &mut <T as windows_core::imp::Type>::Default,
         ) -> windows_core::Result<()>
         + Send
         + Sync
@@ -334,8 +334,8 @@ where
 impl<
     T: windows_core::RuntimeType + 'static,
     F: Fn(
-            &mut [<T as windows_core::imp::Type<T>>::Default],
-            &mut <T as windows_core::imp::Type<T>>::Default,
+            &mut [<T as windows_core::imp::Type>::Default],
+            &mut <T as windows_core::imp::Type>::Default,
         ) -> windows_core::Result<()>
         + Send
         + Sync
@@ -376,7 +376,7 @@ impl<T: windows_core::RuntimeType + 'static> GenericResult<T> {
     pub fn Get(&self) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Get)(
                 windows_core::Interface::as_raw(self),
                 result__.as_mut_ptr().cast(),
@@ -387,7 +387,7 @@ impl<T: windows_core::RuntimeType + 'static> GenericResult<T> {
     pub fn Infallible(&self) -> T {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
             let hresult__ = (windows_core::Interface::vtable(self).Infallible)(
                 windows_core::Interface::as_raw(self),
                 result__.as_mut_ptr().cast(),
@@ -500,7 +500,7 @@ impl<T: windows_core::RuntimeType + 'static> GenericRoundtrip<T> {
     pub fn new<
         F: Fn(
                 windows_core::Ref<T>,
-                &mut <T as windows_core::imp::Type<T>>::Default,
+                &mut <T as windows_core::imp::Type>::Default,
             ) -> windows_core::Result<T>
             + Send
             + Sync
@@ -517,17 +517,17 @@ impl<T: windows_core::RuntimeType + 'static> GenericRoundtrip<T> {
     pub fn Invoke<P0>(
         &self,
         input: P0,
-        output: &mut <T as windows_core::imp::Type<T>>::Default,
+        output: &mut <T as windows_core::imp::Type>::Default,
     ) -> windows_core::Result<T>
     where
         P0: windows_core::Param<T>,
     {
-        if core::mem::needs_drop::<<T as windows_core::imp::Type<T>>::Default>() {
+        if core::mem::needs_drop::<<T as windows_core::imp::Type>::Default>() {
             *output = unsafe { core::mem::zeroed() };
         }
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).Invoke)(
                 windows_core::Interface::as_raw(self),
                 input.param().abi(),
@@ -556,7 +556,7 @@ struct GenericRoundtripBox<
     T,
     F: Fn(
             windows_core::Ref<T>,
-            &mut <T as windows_core::imp::Type<T>>::Default,
+            &mut <T as windows_core::imp::Type>::Default,
         ) -> windows_core::Result<T>
         + Send
         + Sync
@@ -568,7 +568,7 @@ impl<
     T: windows_core::RuntimeType + 'static,
     F: Fn(
             windows_core::Ref<T>,
-            &mut <T as windows_core::imp::Type<T>>::Default,
+            &mut <T as windows_core::imp::Type>::Default,
         ) -> windows_core::Result<T>
         + Send
         + Sync

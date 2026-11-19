@@ -66,7 +66,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
-                core::mem::MaybeUninit::<<T as windows_core::imp::Type<T>>::Default>::zeroed();
+                core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
             (windows_core::Interface::vtable(self).GetAt)(
                 windows_core::Interface::as_raw(self),
                 index,

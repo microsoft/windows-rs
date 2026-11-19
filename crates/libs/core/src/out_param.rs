@@ -8,7 +8,7 @@ use core::mem::{take, transmute_copy};
 /// or `None`, with the same cleanup as a non-optional output.
 pub trait OutParam<T: TypeKind, C = <T as TypeKind>::TypeKind>: Sized
 where
-    T: Type<T>,
+    T: Type,
 {
     #[doc(hidden)]
     unsafe fn borrow_mut(&self) -> OutRef<'_, T>;
@@ -51,7 +51,7 @@ where
 
 impl<'a, T> OutParam<T> for Option<&'a mut T::Default>
 where
-    T: Type<T>,
+    T: Type,
     &'a mut T::Default: OutParam<T>,
 {
     unsafe fn borrow_mut(&self) -> OutRef<'_, T> {

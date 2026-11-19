@@ -20,7 +20,7 @@ fn with_len() {
 
 #[test]
 fn generic_from_slice() {
-    fn from_slice<T: windows_core::imp::Type<T>>(values: &[T::Default]) -> Array<T> {
+    fn from_slice<T: windows_core::imp::Type>(values: &[T::Default]) -> Array<T> {
         Array::from_slice(values)
     }
 

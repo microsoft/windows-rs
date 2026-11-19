@@ -759,7 +759,7 @@ impl Type {
             let tokens = self.write_name(config);
 
             if matches!(self, Self::Generic(_)) {
-                quote! { <#tokens as windows_core::imp::Type<#tokens>>::Default }
+                quote! { <#tokens as windows_core::imp::Type>::Default }
             } else if self.is_interface_with_reader(config.reader) {
                 quote! { Option<#tokens> }
             } else {

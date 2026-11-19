@@ -145,7 +145,7 @@ fn borrowed_null_is_not_an_empty_value() {
     assert!(borrowed.as_ref().is_none());
     assert_eq!(borrowed.ok().unwrap_err().code(), E_POINTER);
     assert_eq!(
-        <ITest as imp::Type<ITest>>::from_default(&None)
+        <ITest as imp::Type>::from_default(&None)
             .unwrap_err()
             .code(),
         HRESULT(0)
@@ -168,7 +168,7 @@ fn borrowed_view_clones_only_when_retained() {
         let borrowed = InRef::from(&value);
         let view = borrowed.as_ref().unwrap();
         assert_eq!(Arc::strong_count(&view.0), 1);
-        <Value as imp::Type<Value>>::from_default(&borrowed).unwrap()
+        <Value as imp::Type>::from_default(&borrowed).unwrap()
     };
     assert_eq!(Arc::strong_count(&value.0), 2);
     drop(value);
