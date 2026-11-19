@@ -8,7 +8,7 @@ pub struct InRef<'a, T: Type<T>>(T::Abi, core::marker::PhantomData<&'a T>);
 impl<T: Type<T>> InRef<'_, T> {
     /// Returns `true` if the argument is null.
     pub fn is_null(&self) -> bool {
-        T::is_null(&self.0)
+        self.as_ref().is_none()
     }
 
     /// Returns the referenced value or `E_POINTER` if null.
@@ -19,11 +19,7 @@ impl<T: Type<T>> InRef<'_, T> {
 
     /// Returns the referenced value if non-null.
     pub fn as_ref(&self) -> Option<&T> {
-        if self.is_null() {
-            None
-        } else {
-            unsafe { Some(self.assume_init_ref()) }
-        }
+        T::as_ref(self)
     }
 
     /// Returns the referenced value.
@@ -40,10 +36,6 @@ impl<T: Type<T>> InRef<'_, T> {
     /// Converts the argument to an [`Option<T>`] by cloning the reference.
     pub fn cloned(&self) -> Option<T> {
         self.as_ref().cloned()
-    }
-
-    unsafe fn assume_init_ref(&self) -> &T {
-        unsafe { T::assume_init_ref(&self.0) }
     }
 }
 

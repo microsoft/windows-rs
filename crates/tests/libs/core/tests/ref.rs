@@ -128,3 +128,49 @@ fn bstr_borrowed_abi_and_output() {
         E_POINTER
     );
 }
+
+#[test]
+fn borrowed_null_is_not_an_empty_value() {
+    let empty = HSTRING::new();
+    let borrowed = InRef::from(&empty);
+    assert!(!borrowed.is_null());
+    assert_eq!(borrowed.as_ref(), Some(&empty));
+
+    let borrowed = InRef::from(&false);
+    assert!(!borrowed.is_null());
+    assert_eq!(borrowed.as_ref(), Some(&false));
+
+    let borrowed = InRef::<ITest>::default();
+    assert!(borrowed.is_null());
+    assert!(borrowed.as_ref().is_none());
+    assert_eq!(borrowed.ok().unwrap_err().code(), E_POINTER);
+    assert_eq!(
+        <ITest as imp::Type<ITest>>::from_default(&None)
+            .unwrap_err()
+            .code(),
+        HRESULT(0)
+    );
+}
+
+#[test]
+fn borrowed_view_clones_only_when_retained() {
+    use std::sync::Arc;
+
+    #[derive(Clone)]
+    struct Value(Arc<()>);
+
+    impl imp::TypeKind for Value {
+        type TypeKind = imp::CloneType;
+    }
+
+    let value = Value(Arc::new(()));
+    let retained = {
+        let borrowed = InRef::from(&value);
+        let view = borrowed.as_ref().unwrap();
+        assert_eq!(Arc::strong_count(&view.0), 1);
+        <Value as imp::Type<Value>>::from_default(&borrowed).unwrap()
+    };
+    assert_eq!(Arc::strong_count(&value.0), 2);
+    drop(value);
+    assert_eq!(Arc::strong_count(&retained.0), 1);
+}
