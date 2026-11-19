@@ -82,7 +82,11 @@ fn emit_object_structs(output: &mut String, objects: &[&Object]) {
                     .is_some_and(PropertyAdapter::has_managed_state)
             }) {
                 let field = snake_case(&property.name);
-                if property.adapter == Some(PropertyAdapter::DropPolicy) {
+                if property.adapter == Some(PropertyAdapter::ImplicitScale) {
+                    output.push_str(&format!(
+                        "{field}: RefCell<Option<windows_core::EventRevoker>>,\n"
+                    ));
+                } else if property.adapter == Some(PropertyAdapter::DropPolicy) {
                     output.push_str(&format!(
                         "{field}: Rc<RefCell<Option<Rc<DragDropPolicy>>>>,\n"
                     ));
@@ -192,7 +196,9 @@ fn emit_create(
                     .is_some_and(PropertyAdapter::has_managed_state)
             }) {
                 let field = snake_case(&property.name);
-                if property.adapter == Some(PropertyAdapter::DropPolicy) {
+                if property.adapter == Some(PropertyAdapter::ImplicitScale) {
+                    output.push_str(&format!("let {field} = RefCell::new(None);\n"));
+                } else if property.adapter == Some(PropertyAdapter::DropPolicy) {
                     output.push_str(&format!("let {field} = Rc::new(RefCell::new(None));\n"));
                 } else {
                     output.push_str(&format!("let {field} = Rc::new(Cell::new(false));\n"));
@@ -1561,10 +1567,10 @@ fn emit_native_property_arms(
         )),
         PropertyAdapter::ImplicitScale => output.push_str(&format!(
             "{pattern}None) => Some({target}.cast::<native::UIElement>().map_err(Into::into)\
-             .and_then(|object| set_implicit_scale(&object, 1.0))),\n\
-             {pattern}Some(PropertyValue::F64(value))) => \
+             .and_then(|element| set_implicit_scale(&element, &object.scale, [1.0, 1.0]))),\n\
+             {pattern}Some(PropertyValue::Vector2(value))) => \
              Some({target}.cast::<native::UIElement>().map_err(Into::into)\
-             .and_then(|object| set_implicit_scale(&object, *value))),\n"
+             .and_then(|element| set_implicit_scale(&element, &object.scale, *value))),\n"
         )),
         PropertyAdapter::ImplicitOpacityTransition
         | PropertyAdapter::ImplicitScaleTransition

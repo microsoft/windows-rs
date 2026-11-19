@@ -1,6 +1,25 @@
 use super::*;
 
 #[test]
+fn scale_requires_non_negative_finite_native_factors() {
+    for value in [
+        -1.0,
+        -f64::MIN_POSITIVE,
+        f64::NAN,
+        f64::INFINITY,
+        f64::NEG_INFINITY,
+        f64::MAX,
+    ] {
+        assert!(std::panic::catch_unwind(|| Border::new().scale(value, 1.0)).is_err());
+        assert!(std::panic::catch_unwind(|| Border::new().scale(1.0, value)).is_err());
+    }
+    Border::new().scale(0.0, 1.0);
+    Border::new().scale(1.0, 0.0);
+    Border::new().scale(0.25, 2.0);
+    Border::new().scale(f64::from(f32::MAX), 1.0);
+}
+
+#[test]
 fn font_icon_font_size_requires_finite_positive_values() {
     for value in [0.0, -1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
         assert!(std::panic::catch_unwind(|| FontIcon::new().font_size(value)).is_err());
@@ -125,7 +144,7 @@ fn shared_value_builders_cover_the_public_family() {
                     .background(ThemeBrush::CardBackground)
                     .border_brush(ThemeBrush::CardStroke)
                     .opacity_transition(Duration::from_millis(100))
-                    .scale(0.95)
+                    .scale(0.95, 0.95)
                     .scale_transition(Duration::from_millis(120)),
             ),
             keyed(

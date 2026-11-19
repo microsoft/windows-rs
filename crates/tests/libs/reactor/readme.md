@@ -20,6 +20,12 @@ Active-scroll removal coverage requires Windows animation effects to be enabled.
 view after observing an intermediate offset, checks one `Unavailable` completion per request, and
 compares delegate counts across repeated removals when COM diagnostics are enabled.
 CI enables animation effects on its disposable runners; the tests do not change desktop settings.
+Scale transition coverage also requires animations. It observes centered intermediate rendering,
+including interrupted transitions, clearing scale, resizing, and removal.
+WinUI hides an element immediately when its scale changes to zero; the tests check growth from zero
+and shrinkage to a nonzero factor, not animated collapse to zero. To reproduce the native limitation,
+run the `scale` fixture and invoke `full`, `transition`, then `zero`. The same sequence with a plain
+WinUI Border and a three-second `Vector3Transition` shows the same immediate disappearance.
 Cases are serialized and run in separate fixture processes with bounded timeouts. Failures report
 the child process's stdout/stderr log directory; successful cases remove their logs.
 

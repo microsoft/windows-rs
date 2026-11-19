@@ -219,8 +219,7 @@ impl PropertyAdapter {
             Self::ImplicitOpacityTransition
             | Self::ImplicitScaleTransition
             | Self::ImplicitTranslationTransition => Value::Duration,
-            Self::ImplicitScale => Value::F64,
-            Self::ImplicitTranslation => Value::Vector2,
+            Self::ImplicitScale | Self::ImplicitTranslation => Value::Vector2,
             Self::EditText
             | Self::FontFamily
             | Self::InspectableString
@@ -257,7 +256,11 @@ impl PropertyAdapter {
     fn has_managed_state(self) -> bool {
         matches!(
             self,
-            Self::PointerCapture | Self::PointerFocus | Self::DropPolicy | Self::ImageUri
+            Self::PointerCapture
+                | Self::PointerFocus
+                | Self::DropPolicy
+                | Self::ImageUri
+                | Self::ImplicitScale
         )
     }
 
@@ -1717,6 +1720,17 @@ fn generate_declarations(
                 }
                 _ => property.value.argument(&name),
             };
+            if property.adapter == Some(PropertyAdapter::ImplicitScale) {
+                output.push_str(
+                    "/// Scales rendering independently on each axis around the element's center.\n\
+                     /// The center follows layout changes; scaling does not change layout size.\n\
+                     /// Factors must be non-negative and finite when converted to `f32`.\n\
+                     /// Use [`Self::scale_transition`] to animate changes.\n\
+                     ///\n\
+                     /// WinUI can hide the element immediately when a factor becomes zero,\n\
+                     /// even during a transition.\n",
+                );
+            }
             output.push_str(&format!("pub fn {name}(mut self, {argument}) -> Self {{\n"));
             if property.value == Value::Vector2 {
                 output.push_str(&format!("let {name} = [x, y];\n"));
@@ -1981,6 +1995,9 @@ fn validation_expression(name: &str, value: &Value, validation: Validation) -> S
         }
         Validation::Finite => format!("{name}.is_finite()"),
         Validation::FinitePositive => format!("{name}.is_finite() && {name} > 0.0"),
+        Validation::FiniteNonNegative if *value == Value::Vector2 => {
+            format!("{name}.iter().all(|value| (*value as f32).is_finite() && *value >= 0.0)")
+        }
         Validation::FiniteNonNegative if *value == Value::F64 => {
             format!("{name}.is_finite() && {name} >= 0.0")
         }

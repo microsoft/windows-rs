@@ -453,17 +453,42 @@ fn set_opacity_transition(
     Ok(())
 }
 
-fn set_implicit_scale(element: &native::UIElement, value: f64) -> Result<(), WinUiError> {
-    let framework = element.cast::<native::IFrameworkElement>()?;
+fn set_scale_center(element: &native::UIElement, size: native::Size) -> windows_core::Result<()> {
     element.SetCenterPoint(native::Vector3 {
-        x: framework.ActualWidth()? as f32 / 2.0,
-        y: framework.ActualHeight()? as f32 / 2.0,
+        x: size.width / 2.0,
+        y: size.height / 2.0,
         z: 0.0,
-    })?;
-    let value = value as f32;
+    })
+}
+
+fn set_implicit_scale(
+    element: &native::UIElement,
+    subscription: &RefCell<Option<windows_core::EventRevoker>>,
+    value: [f64; 2],
+) -> Result<(), WinUiError> {
+    let framework = element.cast::<native::IFrameworkElement>()?;
+    let mut subscription = subscription.borrow_mut();
+    if subscription.is_none() {
+        // Keep centering through a transition back to the default scale, until the owner is removed.
+        *subscription = Some(framework.SizeChanged(local::handler::<
+            IInspectable,
+            native::SizeChangedEventArgs,
+            _,
+        >(|sender, args| {
+            let element = sender.unwrap().cast::<native::UIElement>().unwrap();
+            set_scale_center(&element, args.unwrap().NewSize().unwrap()).unwrap();
+        }))?);
+    }
+    set_scale_center(
+        element,
+        native::Size {
+            width: framework.ActualWidth()? as f32,
+            height: framework.ActualHeight()? as f32,
+        },
+    )?;
     element.SetScale(native::Vector3 {
-        x: value,
-        y: value,
+        x: value[0] as f32,
+        y: value[1] as f32,
         z: 1.0,
     })?;
     Ok(())
