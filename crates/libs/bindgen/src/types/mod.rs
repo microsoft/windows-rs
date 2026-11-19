@@ -818,16 +818,28 @@ impl Type {
                 }
             }
             Self::PtrMut(ty, pointers) => {
-                let ty = ty.write_abi(config);
+                let ty = ty.write_abi_pointee(config);
                 let pointers = write_ptr_mut(*pointers);
                 quote! { #pointers #ty }
             }
             Self::PtrConst(ty, pointers) => {
-                let ty = ty.write_abi(config);
+                let ty = ty.write_abi_pointee(config);
                 let pointers = write_ptr_const(*pointers);
                 quote! { #pointers #ty }
             }
             ty => ty.write_name(config),
+        }
+    }
+
+    pub fn write_abi_pointee(&self, config: &Config) -> TokenStream {
+        match self {
+            Self::Struct(_) => self.write_name(config),
+            Self::ArrayFixed(ty, len) => {
+                let name = ty.write_abi_pointee(config);
+                let len = Literal::usize_unsuffixed(*len);
+                quote! { [#name; #len] }
+            }
+            _ => self.write_abi(config),
         }
     }
 

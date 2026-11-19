@@ -113,3 +113,8 @@ pub unsafe extern "system" fn get_owned_nested_array(
 ) -> i32 {
     unsafe { write_result(status, output, [[owned_value(); 2]; 2]) }
 }
+
+#[unsafe(export_name = "BorrowOwned")]
+pub extern "system" fn borrow_owned(value: *const OwnedValue) -> *const OwnedValue {
+    value
+}

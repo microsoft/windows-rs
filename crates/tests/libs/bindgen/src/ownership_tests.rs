@@ -24,6 +24,14 @@ impl OwnedResult_Impl for ResultProducer_Impl {
     fn Infallible(&self) -> OwnedValue {
         self.0.clone()
     }
+
+    fn GetMany(&self) -> windows_core::Result<Array<OwnedValue>> {
+        Ok(self.InfallibleMany())
+    }
+
+    fn InfallibleMany(&self) -> Array<OwnedValue> {
+        Array::from_slice(&[self.0.clone(), self.0.clone()])
+    }
 }
 
 impl GenericResult_Impl<OwnedValue> for ResultProducer_Impl {
@@ -58,11 +66,18 @@ fn owning_return_abi() {
     let concrete: OwnedResult = ResultProducer(value.clone()).into();
     let generic: GenericResult<OwnedValue> = ResultProducer(value.clone()).into();
     let native: NativeResult = ResultProducer(value).into();
+    let mut raw = core::mem::MaybeUninit::<OwnedValue>::uninit();
+    unsafe {
+        (concrete.vtable().Get)(concrete.as_raw(), raw.as_mut_ptr())
+            .ok()
+            .unwrap();
+    }
     let results = [
         concrete.Get().unwrap(),
         concrete.Infallible(),
         generic.Get().unwrap(),
         unsafe { native.Get().unwrap() },
+        unsafe { raw.assume_init() },
     ];
     drop(concrete);
     drop(generic);
@@ -80,15 +95,50 @@ fn owning_return_abi() {
 #[test]
 fn owning_array_return_lifetimes() {
     let drops = Arc::new(AtomicUsize::new(0));
-    let native: NativeResult = ResultProducer(OwnedValue {
+    let value = OwnedValue {
         object: Some(tracked(&drops)),
         ..owned_result()
-    })
-    .into();
+    };
+    let concrete: OwnedResult = ResultProducer(value.clone()).into();
+    let native: NativeResult = ResultProducer(value).into();
     let array = unsafe { native.GetArray().unwrap() };
     let nested = unsafe { native.GetNestedArray().unwrap() };
+    let mut raw_array = core::mem::MaybeUninit::<[OwnedValue; 2]>::uninit();
+    let mut raw_nested = core::mem::MaybeUninit::<[[OwnedValue; 2]; 2]>::uninit();
+    unsafe {
+        (native.vtable().GetArray)(native.as_raw(), raw_array.as_mut_ptr())
+            .ok()
+            .unwrap();
+        (native.vtable().GetNestedArray)(native.as_raw(), raw_nested.as_mut_ptr())
+            .ok()
+            .unwrap();
+    }
+    let raw_array = unsafe { raw_array.assume_init() };
+    let raw_nested = unsafe { raw_nested.assume_init() };
+    let many = concrete.GetMany().unwrap();
+    let infallible_many = concrete.InfallibleMany();
+    let mut raw_many = core::ptr::null_mut::<OwnedValue>();
+    let mut len = 0;
+    unsafe {
+        (concrete.vtable().GetMany)(concrete.as_raw(), &mut len, &mut raw_many)
+            .ok()
+            .unwrap();
+    }
+    let raw_many = unsafe { Array::<OwnedValue>::from_raw_parts(raw_many, len) };
+    assert_eq!(many.len(), 2);
+    assert_eq!(infallible_many.len(), 2);
+    assert_eq!(raw_many.len(), 2);
+    drop(concrete);
     drop(native);
-    for value in array.iter().chain(nested.iter().flatten()) {
+    for value in array
+        .iter()
+        .chain(nested.iter().flatten())
+        .chain(raw_array.iter())
+        .chain(raw_nested.iter().flatten())
+        .chain(many.iter())
+        .chain(infallible_many.iter())
+        .chain(raw_many.iter())
+    {
         assert!(value.enabled);
         assert_eq!(value.number, 42.25);
         value.object.as_ref().unwrap().Invoke().unwrap();
@@ -97,6 +147,12 @@ fn owning_array_return_lifetimes() {
     drop(array);
     assert_eq!(drops.load(Ordering::Relaxed), 0);
     drop(nested);
+    drop(raw_array);
+    drop(raw_nested);
+    drop(many);
+    drop(infallible_many);
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    drop(raw_many);
     assert_eq!(drops.load(Ordering::Relaxed), 1);
 }
 
@@ -104,6 +160,7 @@ fn owning_array_return_lifetimes() {
 fn owning_free_function_results() {
     for status in [windows_core::HRESULT(0), windows_core::HRESULT(1)] {
         let value = unsafe { GetOwned(status).unwrap() };
+        assert_eq!(unsafe { BorrowOwned(&value) }, &raw const value);
         let array = unsafe { GetOwnedArray(status).unwrap() };
         let nested = unsafe { GetOwnedNestedArray(status).unwrap() };
         for value in core::iter::once(&value)
@@ -160,21 +217,23 @@ fn failed_owning_return_is_not_read() {
             assert!(borrowed.Get().is_err());
         }
 
-        let mut generic = GenericResult_Vtbl::<OwnedValue>::new::<ResultProducer_Impl, 0>();
-        generic.Get = callback;
-        let vtable = &generic;
-        let raw = &vtable as *const _ as *mut core::ffi::c_void;
-        unsafe {
-            let borrowed = GenericResult::<OwnedValue>::from_raw_borrowed(&raw).unwrap();
-            assert!(borrowed.Get().is_err());
-        }
-
         let mut native = NativeResult_Vtbl::new::<ResultProducer_Impl, 0>();
         native.Get = callback;
         let vtable = &native;
         let raw = &vtable as *const _ as *mut core::ffi::c_void;
         unsafe {
             let borrowed = NativeResult::from_raw_borrowed(&raw).unwrap();
+            assert!(borrowed.Get().is_err());
+        }
+    }
+
+    for callback in [fail, uninitialized] {
+        let mut generic = GenericResult_Vtbl::<OwnedValue>::new::<ResultProducer_Impl, 0>();
+        generic.Get = callback;
+        let vtable = &generic;
+        let raw = &vtable as *const _ as *mut core::ffi::c_void;
+        unsafe {
+            let borrowed = GenericResult::<OwnedValue>::from_raw_borrowed(&raw).unwrap();
             assert!(borrowed.Get().is_err());
         }
     }

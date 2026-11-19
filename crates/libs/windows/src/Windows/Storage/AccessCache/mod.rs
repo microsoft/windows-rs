@@ -132,7 +132,7 @@ windows_core::imp::define_winrt_interface!(IItemRemovedEventArgs, IItemRemovedEv
 #[doc(hidden)]
 pub struct IItemRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RemovedEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::ManuallyDrop<AccessListEntry>) -> windows_core::HRESULT,
+    pub RemovedEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AccessListEntry) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(IStorageApplicationPermissionsStatics, IStorageApplicationPermissionsStatics_Vtbl, 0x4391dfaa_d033_48f9_8060_3ec847d2e3f1, b"Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics");
 #[repr(C)]
