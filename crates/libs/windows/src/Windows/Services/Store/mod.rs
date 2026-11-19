@@ -2166,8 +2166,8 @@ impl StoreQueueItemStatus {
     }
     pub fn UpdateStatus(&self) -> windows_core::Result<StorePackageUpdateStatus> {
         unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(self).UpdateStatus)(windows_core::Interface::as_raw(self), result__.as_mut_ptr()).map(|| core::mem::transmute(result__.assume_init()))
+            let mut result__ = core::mem::MaybeUninit::<StorePackageUpdateStatus>::zeroed();
+            (windows_core::Interface::vtable(self).UpdateStatus)(windows_core::Interface::as_raw(self), result__.as_mut_ptr().cast()).map(|| result__.assume_init())
         }
     }
     pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {

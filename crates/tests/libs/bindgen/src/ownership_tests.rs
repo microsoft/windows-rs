@@ -50,20 +50,31 @@ impl NativeResult_Impl for ResultProducer_Impl {
 
 #[test]
 fn owning_return_abi() {
-    let concrete: OwnedResult = ResultProducer(owned_result()).into();
-    let generic: GenericResult<OwnedValue> = ResultProducer(owned_result()).into();
-    let native: NativeResult = ResultProducer(owned_result()).into();
-    for value in [
+    let drops = Arc::new(AtomicUsize::new(0));
+    let value = OwnedValue {
+        object: Some(tracked(&drops)),
+        ..owned_result()
+    };
+    let concrete: OwnedResult = ResultProducer(value.clone()).into();
+    let generic: GenericResult<OwnedValue> = ResultProducer(value.clone()).into();
+    let native: NativeResult = ResultProducer(value).into();
+    let results = [
         concrete.Get().unwrap(),
         concrete.Infallible(),
         generic.Get().unwrap(),
         unsafe { native.Get().unwrap() },
-    ] {
+    ];
+    drop(concrete);
+    drop(generic);
+    drop(native);
+    assert_eq!(drops.load(Ordering::Relaxed), 0);
+    for value in results {
         assert!(value.text.is_empty());
         assert!(value.enabled);
         assert_eq!(value.number, 42.25);
-        assert!(value.object.is_none());
+        value.object.as_ref().unwrap().Invoke().unwrap();
     }
+    assert_eq!(drops.load(Ordering::Relaxed), 1);
 }
 
 #[test]
@@ -89,9 +100,34 @@ fn owning_array_return_lifetimes() {
     assert_eq!(drops.load(Ordering::Relaxed), 1);
 }
 
+#[test]
+fn owning_free_function_results() {
+    for status in [windows_core::HRESULT(0), windows_core::HRESULT(1)] {
+        let value = unsafe { GetOwned(status).unwrap() };
+        let array = unsafe { GetOwnedArray(status).unwrap() };
+        let nested = unsafe { GetOwnedNestedArray(status).unwrap() };
+        for value in core::iter::once(&value)
+            .chain(array.iter())
+            .chain(nested.iter().flatten())
+        {
+            assert!(value.text.is_empty());
+            assert!(value.enabled);
+            assert_eq!(value.number, 42.25);
+            assert!(value.object.is_none());
+        }
+    }
+}
+
 #[cfg(any(not(miri), windows_slim_errors))]
 #[test]
 fn failed_owning_return_is_not_read() {
+    let status = windows_core::HRESULT(0x80004005_u32 as i32);
+    unsafe {
+        assert_eq!(GetOwned(status).unwrap_err().code(), status);
+        assert_eq!(GetOwnedArray(status).unwrap_err().code(), status);
+        assert_eq!(GetOwnedNestedArray(status).unwrap_err().code(), status);
+    }
+
     unsafe extern "system" fn fail<T>(
         _: *mut core::ffi::c_void,
         result: *mut T,
