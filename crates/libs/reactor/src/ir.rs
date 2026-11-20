@@ -154,8 +154,7 @@ pub fn relation_accepts(contract: &RelationContract, kind: ObjectType) -> bool {
 
 #[cfg(test)]
 pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
-    static CONTRACTS: std::sync::OnceLock<Vec<&'static [PropertyContract]>> =
-        std::sync::OnceLock::new();
+    static CONTRACTS: OnceLock<Vec<&'static [PropertyContract]>> = OnceLock::new();
     let contracts = CONTRACTS.get_or_init(|| {
         let mut unique = Vec::<&'static [PropertyContract]>::new();
         ALL_OBJECT_TYPES

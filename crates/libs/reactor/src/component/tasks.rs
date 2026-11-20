@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum ComponentTaskStatus {
+pub(crate) enum ComponentTaskStatus {
     Running,
     Queued,
     Delivered,

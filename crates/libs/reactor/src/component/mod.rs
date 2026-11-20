@@ -21,7 +21,7 @@ use expand::*;
 use scope::*;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-pub struct ComponentId {
+pub(crate) struct ComponentId {
     index: u32,
     generation: u32,
 }
@@ -167,14 +167,14 @@ impl From<ComponentNode> for View {
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
-pub struct ComponentDrain {
+pub(crate) struct ComponentDrain {
     pub dispatched: usize,
     pub dropped: usize,
     pub mutations: usize,
 }
 
 /// Coordinates component scopes with retained runtime updates.
-pub struct ComponentHost {
+pub(crate) struct ComponentHost {
     contexts: HashMap<ContextId, ContextValue>,
     keys: HashMap<Key, ComponentId>,
     order: Vec<ComponentId>,

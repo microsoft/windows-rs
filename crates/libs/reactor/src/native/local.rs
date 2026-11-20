@@ -1,14 +1,8 @@
-use super::bindings::{DispatcherQueue, DispatcherQueueHandler, DispatcherQueuePriority};
+use super::bindings::*;
 use std::{
-    any::Any,
-    cell::RefCell,
-    collections::HashMap,
-    marker::PhantomData,
-    rc::Rc,
-    sync::atomic::{AtomicU64, Ordering},
-    thread::{ThreadId, current},
+    any::*, cell::*, collections::*, marker::PhantomData, rc::*, sync::atomic::*, thread::*,
 };
-use windows_core::{InRef, RuntimeType};
+use windows_core::*;
 
 thread_local! {
     static VALUES: RefCell<HashMap<u64, Rc<dyn Any>>> = RefCell::new(HashMap::new());
@@ -98,7 +92,7 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::sync::{Arc, Mutex};
+    use std::sync::*;
 
     struct Capture(Arc<Mutex<Vec<ThreadId>>>);
 
@@ -113,7 +107,7 @@ mod tests {
         let owner = current().id();
         let drops = Arc::new(Mutex::new(Vec::new()));
         let id = register(Capture(drops.clone()));
-        std::thread::spawn(move || {
+        spawn(move || {
             assert!(std::panic::catch_unwind(|| with_value::<Capture>(id, owner, |_| {})).is_err());
         })
         .join()

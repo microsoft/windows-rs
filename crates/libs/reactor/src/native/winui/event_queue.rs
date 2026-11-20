@@ -38,7 +38,7 @@ pub(super) struct NativeEventQueue {
     pub(super) drain: RefCell<Option<UiCallback>>,
     realizer: RefCell<Option<Rc<dyn Fn()>>>,
     pub(super) wake_pending: Cell<bool>,
-    wake: std::cell::OnceCell<UiCallback>,
+    wake: OnceCell<UiCallback>,
     pub(super) content_dialogs: RefCell<NativeContentDialogScheduler>,
 }
 

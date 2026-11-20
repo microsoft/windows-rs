@@ -1,7 +1,7 @@
 use super::*;
 
 fn validate_uri(value: &str) -> windows_core::Result<()> {
-    native::validate_native_uri(value)
+    validate_native_uri(value)
 }
 
 #[derive(Clone)]
@@ -1093,7 +1093,7 @@ impl From<usize> for Key {
 }
 
 #[derive(Clone, Debug)]
-pub enum PropertyValue {
+pub(crate) enum PropertyValue {
     String(Rc<str>),
     Bool(bool),
     Brush(Brush),
@@ -1173,7 +1173,7 @@ impl PartialEq for PropertyValue {
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub struct Property {
+pub(crate) struct Property {
     pub id: PropertyId,
     pub value: PropertyValue,
 }
@@ -1504,7 +1504,7 @@ impl From<RoutedCallback<PointerEventInfo>> for PointerCallback {
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub enum EventValue {
+pub(crate) enum EventValue {
     Bool(Callback<bool>),
     Color(Callback<Color>),
     ContentDialogResult(Callback<ContentDialogResult>),
@@ -1531,7 +1531,7 @@ pub enum EventValue {
 /// A callback paired with the value it receives. `Item` and `Items` carry native children, which
 /// resolve to their keys before dispatch.
 #[derive(Clone, Debug, PartialEq)]
-pub enum EventCall {
+pub(crate) enum EventCall {
     Bool(Callback<bool>, bool),
     Color(Callback<Color>, Color),
     ContentDialogResult(Callback<ContentDialogResult>, ContentDialogResult),
@@ -1608,13 +1608,13 @@ event_args! {
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub struct SelectionChange {
+pub(crate) struct SelectionChange {
     pub item: Option<ObjectId>,
     pub value: Option<Rc<str>>,
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub struct Event {
+pub(crate) struct Event {
     pub id: EventId,
     pub value: EventValue,
 }

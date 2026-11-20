@@ -136,7 +136,7 @@ impl ApplicationView {
 /// A notification-area icon owned by an application declaration.
 #[derive(Clone, Debug, PartialEq)]
 pub struct NotifyIcon {
-    pub(crate) path: std::path::PathBuf,
+    pub(crate) path: PathBuf,
     pub(crate) tooltip: Option<String>,
     pub(crate) on_activate: Option<Callback<ScreenPoint>>,
     pub(crate) menu: Option<Menu>,
@@ -148,7 +148,7 @@ impl NotifyIcon {
     /// If the Shell rejects an image update to an existing icon, the previous image is retained
     /// and the failure is logged. The latest path is retried on the next application render;
     /// rejection does not schedule a render.
-    pub fn new(path: impl Into<std::path::PathBuf>) -> Self {
+    pub fn new(path: impl Into<PathBuf>) -> Self {
         Self {
             path: path.into(),
             tooltip: None,
@@ -181,7 +181,6 @@ impl NotifyIcon {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::component::ApplicationMessages;
 
     struct TestApp;
 
