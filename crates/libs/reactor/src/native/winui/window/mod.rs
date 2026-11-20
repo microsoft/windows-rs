@@ -444,10 +444,6 @@ impl NativeWindow {
             if let Some(state) = state.upgrade() {
                 state.closed.set(true);
                 if let Some(queue) = state.event_queue.upgrade() {
-                    // Stop queued component updates before they can reopen a dialog.
-                    if let Some(drain) = queue.drain.borrow_mut().take() {
-                        drain.cancel();
-                    }
                     // Cancel pending popup opens while Closed still has a live XamlRoot.
                     let hide = queue.content_dialogs.borrow_mut().reset();
                     for dialog in hide {

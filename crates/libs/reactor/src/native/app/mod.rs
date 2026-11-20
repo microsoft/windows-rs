@@ -763,7 +763,9 @@ fn open_component_window(
         ui_services,
         [root],
     );
+    let lifecycle = Rc::new(Cell::new(ComponentWindowLifecycle::Open));
     let drain_state = Rc::clone(&state);
+    let drain_lifecycle = Rc::clone(&lifecycle);
     let changed_application = Rc::downgrade(application);
     let drain = services.dispatch.callback(&dispatcher, move || {
         let mut drain = drain_state
@@ -772,8 +774,11 @@ fn open_component_window(
             .unwrap()
             .host
             .begin_drain(COMPONENT_DRAIN_BUDGET);
+        // Closure can run inside a component update; plan nothing against its destroyed XamlRoot.
         drive_host(&drain_state, window_host, |host| {
-            host.drain_step(&mut drain)
+            (drain_lifecycle.get() != ComponentWindowLifecycle::Closed)
+                .then(|| host.drain_step(&mut drain))
+                .flatten()
         });
         if let Some(state) = drain_state.borrow_mut().as_mut() {
             state.host.end_drain(drain);
@@ -829,7 +834,6 @@ fn open_component_window(
         }
     };
     let close_services = Rc::clone(services);
-    let lifecycle = Rc::new(Cell::new(ComponentWindowLifecycle::Open));
     let closed_lifecycle = Rc::clone(&lifecycle);
     if let Err(error) = window.set_closed(move || {
         let mut lifecycle = closed_lifecycle.get();
