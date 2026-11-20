@@ -814,7 +814,7 @@ impl QueuedImperative {
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub enum ImperativeRequest {
+pub(crate) enum ImperativeRequest {
     Focus {
         object: ObjectId,
         completion: Callback<Result<bool, FocusError>>,

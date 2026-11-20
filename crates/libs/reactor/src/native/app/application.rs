@@ -1,6 +1,5 @@
 use super::*;
 use crate::Application;
-use crate::component::ApplicationMessages;
 use crate::native::notifyicon::{NotifyIcon as NativeIcon, NotifyIconEvent};
 
 struct ApplicationHost<A: Application> {

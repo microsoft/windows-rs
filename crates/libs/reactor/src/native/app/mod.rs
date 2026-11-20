@@ -308,7 +308,7 @@ impl WindowDispatch {
         work: impl Fn() + 'static,
     ) -> UiCallback {
         let dispatch = Rc::clone(self);
-        let registration = Rc::new(std::cell::OnceCell::<UiCallback>::new());
+        let registration = Rc::new(OnceCell::<UiCallback>::new());
         let wake = Rc::clone(&registration);
         let callback = UiCallback::new(dispatcher, move || {
             let wake = wake.get().unwrap();

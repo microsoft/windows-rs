@@ -1,11 +1,10 @@
 #[allow(non_snake_case, non_camel_case_types, clippy::upper_case_acronyms)]
 mod bindings;
+use super::*;
 use bindings::*;
-use std::mem::size_of;
-use std::os::windows::ffi::OsStrExt;
-use std::path::{Path, PathBuf};
-use windows_core::{Error, PCWSTR, Result};
-use windows_window::{Window, WindowBuilder};
+use std::os::windows::ffi::*;
+use windows_core::*;
+use windows_window::*;
 
 const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
 const ICON_ID: u32 = 1;
@@ -461,7 +460,6 @@ mod tests {
     #[test]
     fn preserves_windows_paths_that_are_not_utf8() {
         use std::ffi::OsString;
-        use std::os::windows::ffi::OsStringExt;
 
         let path = PathBuf::from(OsString::from_wide(&[b'a' as u16, 0xd800]));
         assert_eq!(wide_path(&path).unwrap(), [b'a' as u16, 0xd800, 0]);

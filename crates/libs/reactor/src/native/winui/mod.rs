@@ -22,7 +22,7 @@ use content_dialog::*;
 use dependency::*;
 use event_queue::*;
 use images::*;
-use objects::set_properties;
+use objects::*;
 use relations::*;
 use style::*;
 use virtualization::*;
