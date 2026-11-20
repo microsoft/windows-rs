@@ -68,6 +68,14 @@ A leading icon overlay checks pointer pass-through, interception, and default hi
 clearing the property. This does not test state-specific resource styling or resource-dictionary
 updates.
 
+## Window maximization
+
+`window-maximizable` and `window-maximizable-frame` check the setting at mount, live changes,
+and omission restoring the default for standard and WinUI title bars. Tests inspect native window
+styles and synchronously send caption double-click messages to observe maximize/restore behavior,
+including the disabled no-op. They preserve native content identity and resize/minimize flags.
+This tests caption handling, not physical pointer routing or programmatic maximize requests.
+
 ## Submitted-frame input
 
 `canvas-submitted-input` stages a two-row layout separately from drawing it. Its `submitted`

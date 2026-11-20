@@ -108,6 +108,7 @@ pub struct WindowVisuals {
     pub(crate) initial_placement: Option<WindowPlacement>,
     pub(crate) always_on_top: bool,
     pub(crate) minimizable: Option<bool>,
+    pub(crate) maximizable: Option<bool>,
 }
 
 impl WindowVisuals {
@@ -129,6 +130,14 @@ impl WindowVisuals {
     /// Enables or disables window minimization. Enabled by default.
     pub fn minimizable(mut self, value: bool) -> Self {
         self.minimizable = Some(value);
+        self
+    }
+
+    /// Enables or disables native title-bar maximization. Enabled by default.
+    ///
+    /// Omitting this setting restores the default. This does not change window resizability.
+    pub fn maximizable(mut self, value: bool) -> Self {
+        self.maximizable = Some(value);
         self
     }
 

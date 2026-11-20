@@ -105,6 +105,52 @@ pub(super) struct WindowFixture {
     restricted: bool,
 }
 
+pub(super) struct MaximizableFixture(Option<bool>);
+
+impl Component for MaximizableFixture {
+    type Input = bool;
+    type Message = Option<bool>;
+
+    fn create(_: &bool, _: &ComponentContext<Self>) -> Self {
+        Self(Some(false))
+    }
+
+    fn update(&mut self, value: Option<bool>, _: &ComponentContext<Self>) {
+        self.0 = value;
+    }
+
+    fn view(&self, custom: &bool, context: &mut ViewContext<Self>) -> View {
+        let mut visuals = WindowVisuals::new().client_size(480.0, 320.0);
+        if let Some(value) = self.0 {
+            visuals = visuals.maximizable(value);
+        }
+        context.window_visuals(visuals);
+        let content = StackPanel::new().margin(20.0).spacing(12.0).children((
+            Button::new()
+                .automation_id("enable-maximize")
+                .content("Enable maximization")
+                .on_click(context.message(Some(true))),
+            Button::new()
+                .automation_id("disable-maximize")
+                .content("Disable maximization")
+                .on_click(context.message(Some(false))),
+            Button::new()
+                .automation_id("clear-maximize")
+                .content("Restore native default")
+                .on_click(context.message(None)),
+            TextBlock::new()
+                .automation_id("maximizable")
+                .text(format!("Maximizable {:?}", self.0)),
+        ));
+        if *custom {
+            context.window_frame("Reactor UI fixture: window-maximizable-frame", content)
+        } else {
+            context.window_title("Reactor UI fixture: window-maximizable");
+            content.into()
+        }
+    }
+}
+
 #[derive(Clone, Copy, PartialEq)]
 pub(super) enum WindowMode {
     Native,

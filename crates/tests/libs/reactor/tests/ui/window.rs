@@ -119,6 +119,75 @@ fn window_presentation_updates_native_styles() -> Result<()> {
 }
 
 #[test]
+fn window_maximizable_updates_and_restores_native_default() -> Result<()> {
+    for fixture in ["window-maximizable", "window-maximizable-frame"] {
+        process::run(fixture, |ui| {
+            let window = ui.window_handle()? as HWND;
+            let original = ui.element("enable-maximize")?;
+            for (action, declaration, enabled) in [
+                (None, "Some(false)", false),
+                (Some("enable-maximize"), "Some(true)", true),
+                (Some("disable-maximize"), "Some(false)", false),
+                (Some("clear-maximize"), "None", true),
+            ] {
+                if let Some(action) = action {
+                    ui.invoke(action)?;
+                }
+                ui.name("maximizable", &format!("Maximizable {declaration}"))?;
+                ui.wait(
+                    "native maximize style matches the declaration without disabling resize or minimize",
+                    || unsafe { Ok(GetWindowLongW(window, GWL_STYLE)) },
+                    |style| {
+                        (style & WS_MAXIMIZEBOX != 0) == enabled
+                            && style & WS_THICKFRAME != 0
+                            && style & WS_MINIMIZEBOX != 0
+                    },
+                )?;
+                let double_click = || unsafe {
+                    // Wait for native caption handling, including the disabled no-op case.
+                    let mut result = 0;
+                    assert_ne!(
+                        SendMessageTimeoutW(
+                            window,
+                            WM_NCLBUTTONDBLCLK as u32,
+                            HTCAPTION as usize,
+                            0,
+                            SMTO_ABORTIFHUNG as u32 | SMTO_BLOCK as u32,
+                            5000,
+                            &mut result,
+                        ),
+                        0,
+                        "native caption double-click timed out"
+                    );
+                };
+                assert!(!unsafe { IsZoomed(window) }.as_bool());
+                double_click();
+                assert_eq!(
+                    unsafe { IsZoomed(window) }.as_bool(),
+                    enabled,
+                    "caption double-click ignored the maximizable setting"
+                );
+                if enabled {
+                    double_click();
+                    assert!(!unsafe { IsZoomed(window) }.as_bool());
+                }
+                assert_eq!(ui.window_handle()? as HWND, window);
+                assert!(
+                    unsafe {
+                        ui.client
+                            .CompareElements(&original, &ui.element("enable-maximize")?)?
+                    }
+                    .as_bool(),
+                    "changing maximizable replaced the native content"
+                );
+            }
+            Ok(())
+        })?;
+    }
+    Ok(())
+}
+
+#[test]
 fn window_icon_set_and_clear() -> Result<()> {
     process::run("window", |ui| {
         ui.window_icon(false)?;
