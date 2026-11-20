@@ -30,66 +30,20 @@ impl Pixels {
 }
 
 fn pixels(element: &IUIAutomationElement) -> windows_core::Result<Pixels> {
-    let bounds = unsafe { element.CurrentBoundingRectangle()? };
-    let width = bounds.right - bounds.left;
-    let height = bounds.bottom - bounds.top;
-    assert!(width > 0 && height > 0);
-    unsafe {
-        let dc = GetDC(std::ptr::null_mut());
-        assert!(!dc.is_null(), "GetDC failed");
-        let memory = CreateCompatibleDC(dc);
-        assert!(!memory.is_null(), "CreateCompatibleDC failed");
-        let bitmap = CreateCompatibleBitmap(dc, width, height);
-        assert!(!bitmap.is_null(), "CreateCompatibleBitmap failed");
-        let previous = SelectObject(memory, bitmap.cast());
-        assert!(!previous.is_null());
-        let copied = BitBlt(
-            memory,
-            0,
-            0,
-            width,
-            height,
-            dc,
-            bounds.left,
-            bounds.top,
-            SRCCOPY,
-        );
-        assert!(!SelectObject(memory, previous).is_null());
-        let mut info = BITMAPINFO::default();
-        info.bmiHeader.biSize = size_of_val(&info.bmiHeader) as u32;
-        info.bmiHeader.biWidth = width;
-        info.bmiHeader.biHeight = -height;
-        info.bmiHeader.biPlanes = 1;
-        info.bmiHeader.biBitCount = 32;
-        let mut buffer = vec![0u32; (width * height) as usize];
-        let lines = GetDIBits(
-            dc,
-            bitmap,
-            0,
-            height as u32,
-            buffer.as_mut_ptr().cast(),
-            &mut info,
-            DIB_RGB_COLORS as u32,
-        );
-        assert!(DeleteObject(bitmap.cast()).as_bool());
-        assert!(DeleteDC(memory).as_bool());
-        assert_ne!(ReleaseDC(std::ptr::null_mut(), dc), 0);
-        assert!(copied.as_bool(), "BitBlt failed");
-        assert_eq!(lines, height, "GetDIBits failed");
-        let red = |x, y| {
-            let pixel = buffer[(y * width + x) as usize];
-            (pixel >> 16) & 0xff > 200 && (pixel >> 8) & 0xff < 60 && pixel & 0xff < 60
-        };
-        let range = |values: Vec<i32>| values.first().copied().zip(values.last().copied());
-        let horizontal = range((0..width).filter(|x| red(*x, height / 2)).collect());
-        let vertical = range((0..height).filter(|y| red(width / 2, *y)).collect());
-        Ok(Pixels {
-            width,
-            height,
-            horizontal,
-            vertical,
-        })
-    }
+    let (width, height, buffer) = snapshot(element)?;
+    let red = |x, y| {
+        let pixel = buffer[(y * width + x) as usize];
+        (pixel >> 16) & 0xff > 200 && (pixel >> 8) & 0xff < 60 && pixel & 0xff < 60
+    };
+    let range = |values: Vec<i32>| values.first().copied().zip(values.last().copied());
+    let horizontal = range((0..width).filter(|x| red(*x, height / 2)).collect());
+    let vertical = range((0..height).filter(|y| red(width / 2, *y)).collect());
+    Ok(Pixels {
+        width,
+        height,
+        horizontal,
+        vertical,
+    })
 }
 
 fn scaled(ui: &Automation, x: f64, y: f64, resized: bool) -> Result<()> {

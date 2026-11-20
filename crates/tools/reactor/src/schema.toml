@@ -255,6 +255,10 @@ enabled = true
 focus = true
 
 [[objects.properties]]
+name = "Padding"
+validation = "finite_non_negative"
+
+[[objects.properties]]
 name = "Background"
 adapter = "theme_brush"
 

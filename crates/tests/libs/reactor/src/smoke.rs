@@ -1,5 +1,103 @@
 use super::*;
 
+pub(super) struct ButtonPaddingFixture {
+    padding: u8,
+    clicks: u32,
+}
+
+#[derive(Clone, Copy)]
+pub(super) enum ButtonPaddingMessage {
+    Padding(u8),
+    Click,
+}
+
+impl Component for ButtonPaddingFixture {
+    type Input = ();
+    type Message = ButtonPaddingMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            padding: 0,
+            clicks: 0,
+        }
+    }
+
+    fn update(&mut self, message: Self::Message, _: &ComponentContext<Self>) {
+        match message {
+            ButtonPaddingMessage::Padding(value) => self.padding = value,
+            ButtonPaddingMessage::Click => self.clicks += 1,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Reactor UI fixture: button-padding");
+        context.window_visuals(
+            WindowVisuals::new()
+                .client_size(600.0, 300.0)
+                .theme(WindowTheme::Light),
+        );
+        let icon_button = |id: &str, size| {
+            Button::new()
+                .automation_id(id)
+                .automation_name(id)
+                .style(ButtonStyle::Subtle)
+                .width(size)
+                .height(size)
+                .horizontal_content_alignment(HorizontalAlignment::Center)
+                .vertical_content_alignment(VerticalAlignment::Center)
+                .content(
+                    FontIcon::new()
+                        .glyph("\u{e713}")
+                        .font_size(24.0)
+                        .foreground(Color::rgb(255, 0, 0)),
+                )
+        };
+        let button =
+            icon_button("padded", 40.0).on_click(context.message(ButtonPaddingMessage::Click));
+        let button = match self.padding {
+            1 => button.padding(6.0),
+            2 => button.padding(Thickness::new(12.0, 10.0, 0.0, 0.0)),
+            3 => button.padding(0.0),
+            _ => button,
+        };
+        let action = |id: &str, value| {
+            Button::new()
+                .automation_id(id)
+                .content(id)
+                .on_click(context.message(ButtonPaddingMessage::Padding(value)))
+        };
+        StackPanel::new()
+            .margin(20.0)
+            .spacing(16.0)
+            .children((
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .spacing(40.0)
+                    .children((
+                        button,
+                        icon_button("initial", 40.0).padding(6.0),
+                        icon_button("reference", 80.0),
+                    )),
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .spacing(8.0)
+                    .children((
+                        action("apply", 1),
+                        action("asymmetric", 2),
+                        action("zero", 3),
+                        action("reset", 0),
+                    )),
+                TextBlock::new()
+                    .automation_id("padding")
+                    .text(self.padding.to_string()),
+                TextBlock::new()
+                    .automation_id("clicks")
+                    .text(self.clicks.to_string()),
+            ))
+            .into()
+    }
+}
+
 // Red stays distinguishable from either theme's background and text in pixel checks.
 const RED_SVG: &[u8] = b"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='#ff0000'/></svg>";
 

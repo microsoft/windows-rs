@@ -16,6 +16,57 @@ const PROCESS_ID: i32 = 30002;
 pub(super) const LIST_ITEM: i32 = 50007;
 const MENU_ITEM: i32 = 50011;
 
+pub fn snapshot(element: &IUIAutomationElement) -> windows_core::Result<(i32, i32, Vec<u32>)> {
+    let bounds = unsafe { element.CurrentBoundingRectangle()? };
+    let width = bounds.right - bounds.left;
+    let height = bounds.bottom - bounds.top;
+    assert!(width > 0 && height > 0);
+    unsafe {
+        let dc = GetDC(std::ptr::null_mut());
+        assert!(!dc.is_null(), "GetDC failed");
+        let memory = CreateCompatibleDC(dc);
+        assert!(!memory.is_null(), "CreateCompatibleDC failed");
+        let bitmap = CreateCompatibleBitmap(dc, width, height);
+        assert!(!bitmap.is_null(), "CreateCompatibleBitmap failed");
+        let previous = SelectObject(memory, bitmap.cast());
+        assert!(!previous.is_null());
+        let copied = BitBlt(
+            memory,
+            0,
+            0,
+            width,
+            height,
+            dc,
+            bounds.left,
+            bounds.top,
+            SRCCOPY,
+        );
+        assert!(!SelectObject(memory, previous).is_null());
+        let mut info = BITMAPINFO::default();
+        info.bmiHeader.biSize = size_of_val(&info.bmiHeader) as u32;
+        info.bmiHeader.biWidth = width;
+        info.bmiHeader.biHeight = -height;
+        info.bmiHeader.biPlanes = 1;
+        info.bmiHeader.biBitCount = 32;
+        let mut buffer = vec![0u32; (width * height) as usize];
+        let lines = GetDIBits(
+            dc,
+            bitmap,
+            0,
+            height as u32,
+            buffer.as_mut_ptr().cast(),
+            &mut info,
+            DIB_RGB_COLORS as u32,
+        );
+        assert!(DeleteObject(bitmap.cast()).as_bool());
+        assert!(DeleteDC(memory).as_bool());
+        assert_ne!(ReleaseDC(std::ptr::null_mut(), dc), 0);
+        assert!(copied.as_bool(), "BitBlt failed");
+        assert_eq!(lines, height, "GetDIBits failed");
+        Ok((width, height, buffer))
+    }
+}
+
 pub fn retired(ui: &Automation, item: &IUIAutomationInvokePattern, selection: &str) -> Result<()> {
     let result = unsafe { item.Invoke() };
     assert!(
