@@ -81,6 +81,10 @@ that window while another survives. A Low-priority dispatcher callback observes 
 the surviving window, then the test checks that neither dialog remains visible. This checks
 shutdown and COM cleanup, not whether a native continuation ran or each cancellation safeguard.
 
+The `dialog` fixture also queues an open update immediately before synchronous native closure.
+Its component drain is ahead of host disposal in the dispatcher queue. Closure must cancel that
+drain; otherwise it attempts to reopen the dialog against the destroyed XamlRoot.
+
 ## Submitted-frame input
 
 `canvas-submitted-input` stages a two-row layout separately from drawing it. Its `submitted`

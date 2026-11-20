@@ -241,6 +241,9 @@ pub(super) struct DialogFixture {
 pub(super) enum Message {
     Open,
     Closed(ContentDialogResult),
+    CloseWithPendingOpen,
+    Armed,
+    OpenAfterClose,
 }
 
 impl Component for DialogFixture {
@@ -255,13 +258,47 @@ impl Component for DialogFixture {
         }
     }
 
-    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+    fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
         match message {
             Message::Open => self.open = true,
             Message::Closed(result) => {
                 self.result = result;
                 self.open = false;
                 self.closed += 1;
+            }
+            Message::CloseWithPendingOpen => {
+                let completion = context.completion();
+                assert!(context.run_window(move |window| {
+                    let window = window.as_raw() as usize;
+                    let dispatcher = bindings::DispatcherQueue::GetForCurrentThread().unwrap();
+                    assert!(
+                        dispatcher
+                            .TryEnqueueWithPriority(
+                                bindings::DispatcherQueuePriority::Normal,
+                                &bindings::DispatcherQueueHandler::new(move || {
+                                    // Queue outside Reactor's window-work drain so this update
+                                    // precedes the host disposal queued by synchronous closure.
+                                    assert!(completion.clone().complete(Message::OpenAfterClose));
+                                    unsafe {
+                                        bindings::SendMessageW(
+                                            window as _,
+                                            bindings::WM_CLOSE as u32,
+                                            0,
+                                            0,
+                                        );
+                                    }
+                                    eprintln!("native close returned");
+                                }),
+                            )
+                            .unwrap()
+                    );
+                    Message::Armed
+                }));
+            }
+            Message::Armed => {}
+            Message::OpenAfterClose => {
+                eprintln!("queued dialog open delivered");
+                self.open = true;
             }
         }
     }
@@ -293,6 +330,10 @@ impl Component for DialogFixture {
                 TextBlock::new()
                     .automation_id("closed")
                     .text(format!("Closed {}; result {:?}", self.closed, self.result)),
+                Button::new()
+                    .automation_id("close-with-pending-open")
+                    .content("Close with a queued dialog open")
+                    .on_click(context.message(Message::CloseWithPendingOpen)),
             ))
             .into()
     }

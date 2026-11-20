@@ -1,6 +1,17 @@
 use super::*;
 
 #[test]
+fn window_close_discards_pending_dialog_update() -> Result<()> {
+    process::run_closing("dialog", |ui| {
+        ui.element("dialog-content")?;
+        ui.invoke("CloseButton")?;
+        ui.name("closed", "Closed 1; result None")?;
+        ui.gone("dialog-content")?;
+        ui.invoke("close-with-pending-open")
+    })
+}
+
+#[test]
 fn application_exit_closes_visible_title_bar_dialog() -> Result<()> {
     process::run_closing("dialog-application", |ui| {
         ui.invoke("open-window")?;

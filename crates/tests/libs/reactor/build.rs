@@ -216,6 +216,8 @@ fn main() {
             "Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal",
             "Microsoft.UI.Dispatching.DispatcherQueuePriority.Low",
             "Microsoft.UI.Dispatching.IDispatcherQueue.TryEnqueueWithPriority",
+            "SendMessageW",
+            "WM_CLOSE",
         ])
         .flat()
         .minimal()
