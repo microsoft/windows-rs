@@ -139,6 +139,10 @@ name = "Opacity"
 owner = "Microsoft.UI.Xaml.UIElement"
 
 [[visual_properties]]
+name = "IsHitTestVisible"
+owner = "Microsoft.UI.Xaml.UIElement"
+
+[[visual_properties]]
 name = "Transitions"
 owner = "Microsoft.UI.Xaml.UIElement"
 adapter = "theme_transitions"
@@ -228,6 +232,14 @@ adapter = "theme_brush"
 
 [[objects.properties]]
 name = "BorderThickness"
+validation = "finite_non_negative"
+
+[[objects.properties]]
+name = "Padding"
+validation = "finite_non_negative"
+
+[[objects.properties]]
+name = "CornerRadius"
 validation = "finite_non_negative"
 
 [[objects.relations]]

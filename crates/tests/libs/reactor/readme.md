@@ -53,6 +53,15 @@ animated scrolling. `scroll-orientation` uses a stretched square image to observ
 constraints and the restored native default; content orientation does not cap explicitly sized
 children.
 
+## TextBox appearance
+
+`text-appearance` observes padding through native layout and corner radius through rendered pixels,
+including updates and clearing back to native defaults without replacing the TextBox. A keyboard
+shortcut changes these properties during editing; focus, text, and continued typing are checked.
+A leading icon overlay checks pointer pass-through, interception, and default hit testing after
+clearing the property. This does not test state-specific resource styling or resource-dictionary
+updates.
+
 ## Submitted-frame input
 
 `canvas-submitted-input` stages a two-row layout separately from drawing it. Its `submitted`

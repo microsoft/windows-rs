@@ -2860,6 +2860,10 @@ impl GeneratedHandle {
                 Conversion::Value,
             ),
             (_, PropertyId::Opacity) => (native::UIElement::OpacityProperty, Conversion::Value),
+            (_, PropertyId::IsHitTestVisible) => (
+                native::UIElement::IsHitTestVisibleProperty,
+                Conversion::Value,
+            ),
             (_, PropertyId::Transitions) => {
                 (native::UIElement::TransitionsProperty, Conversion::Value)
             }
@@ -2928,6 +2932,12 @@ impl GeneratedHandle {
             }
             (ObjectType::TextBox, PropertyId::BorderThickness) => {
                 (native::Control::BorderThicknessProperty, Conversion::Value)
+            }
+            (ObjectType::TextBox, PropertyId::Padding) => {
+                (native::Control::PaddingProperty, Conversion::Value)
+            }
+            (ObjectType::TextBox, PropertyId::CornerRadius) => {
+                (native::Control::CornerRadiusProperty, Conversion::Value)
             }
             (ObjectType::Button, PropertyId::Background) => {
                 (native::Control::BackgroundProperty, Conversion::Value)

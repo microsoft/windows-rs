@@ -1,6 +1,20 @@
 use super::*;
 
 #[test]
+fn text_box_padding_and_corners_require_finite_non_negative_values() {
+    for value in [-1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+        assert!(std::panic::catch_unwind(|| TextBox::new().padding(value)).is_err());
+        assert!(
+            std::panic::catch_unwind(|| TextBox::new().corner_radius(CornerRadius::uniform(value)))
+                .is_err()
+        );
+    }
+    TextBox::new()
+        .padding(0.0)
+        .corner_radius(CornerRadius::uniform(0.0));
+}
+
+#[test]
 fn scale_requires_non_negative_finite_native_factors() {
     for value in [
         -1.0,

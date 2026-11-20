@@ -1994,6 +1994,13 @@ macro_rules! attached_methods {
                 .property(PropertyId::Opacity, PropertyValue::F64(opacity));
             self
         }
+        pub fn is_hit_test_visible(mut self, is_hit_test_visible: bool) -> Self {
+            self.0 = self.0.property(
+                PropertyId::IsHitTestVisible,
+                PropertyValue::Bool(is_hit_test_visible),
+            );
+            self
+        }
         pub fn transitions<T>(self, transitions: T) -> Self
         where
             T: IntoIterator<Item = ThemeTransition>,
@@ -2202,6 +2209,29 @@ impl TextBox {
         self.0 = self.0.property(
             PropertyId::BorderThickness,
             PropertyValue::Thickness(border_thickness),
+        );
+        self
+    }
+    pub fn padding(mut self, padding: impl Into<Thickness>) -> Self {
+        let padding = padding.into();
+        assert!(
+            padding.is_finite_non_negative(),
+            "TextBox.Padding requires finite_non_negative"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::Padding, PropertyValue::Thickness(padding));
+        self
+    }
+    pub fn corner_radius(mut self, corner_radius: impl Into<CornerRadius>) -> Self {
+        let corner_radius = corner_radius.into();
+        assert!(
+            corner_radius.is_finite_non_negative(),
+            "TextBox.CornerRadius requires finite_non_negative"
+        );
+        self.0 = self.0.property(
+            PropertyId::CornerRadius,
+            PropertyValue::CornerRadius(corner_radius),
         );
         self
     }
