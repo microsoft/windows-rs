@@ -19,7 +19,7 @@ Microsoft::UI::Windowing::IAppWindow::{add_Changed, get_Presenter, get_Size, get
 Microsoft::UI::Windowing::IAppWindow2::get_ClientSize
 Microsoft::UI::Windowing::IAppWindowTitleBar2::put_PreferredHeightOption
 Microsoft::UI::Windowing::IAppWindowTitleBar3::put_PreferredTheme
-Microsoft::UI::Windowing::IOverlappedPresenter::{put_IsAlwaysOnTop, put_IsMinimizable}
+Microsoft::UI::Windowing::IOverlappedPresenter::{put_IsAlwaysOnTop, put_IsMinimizable, put_IsMaximizable}
 Microsoft::UI::Windowing::IOverlappedPresenter3::{put_PreferredMaximumHeight, put_PreferredMaximumWidth, put_PreferredMinimumHeight, put_PreferredMinimumWidth}
 Microsoft::UI::Windowing::TitleBarHeightOption::{Collapsed, Standard, Tall}
 Microsoft::UI::Windowing::TitleBarTheme::{Dark, Light, UseDefaultAppMode}

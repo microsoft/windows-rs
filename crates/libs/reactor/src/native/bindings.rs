@@ -13365,6 +13365,15 @@ impl IOverlappedPresenter {
             .ok()
         }
     }
+    pub(crate) fn SetIsMaximizable(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsMaximizable)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetIsMinimizable(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsMinimizable)(
@@ -13384,7 +13393,8 @@ pub struct IOverlappedPresenter_Vtbl {
     pub SetIsAlwaysOnTop:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     IsMaximizable: usize,
-    SetIsMaximizable: usize,
+    pub SetIsMaximizable:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     IsMinimizable: usize,
     pub SetIsMinimizable:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,

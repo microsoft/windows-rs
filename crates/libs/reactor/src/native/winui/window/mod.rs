@@ -310,7 +310,7 @@ impl NativeWindow {
             }
         }
 
-        if changes.always_on_top || changes.minimizable {
+        if changes.always_on_top || changes.minimizable || changes.maximizable {
             let presenter = app_window
                 .Presenter()?
                 .cast::<native::IOverlappedPresenter>()?;
@@ -319,6 +319,9 @@ impl NativeWindow {
             }
             if changes.minimizable {
                 presenter.SetIsMinimizable(visuals.minimizable.unwrap_or(true))?;
+            }
+            if changes.maximizable {
+                presenter.SetIsMaximizable(visuals.maximizable.unwrap_or(true))?;
             }
         }
 
@@ -472,6 +475,7 @@ pub(super) struct WindowVisualChanges {
     pub(super) theme: bool,
     pub(super) always_on_top: bool,
     pub(super) minimizable: bool,
+    pub(super) maximizable: bool,
 }
 
 impl WindowVisualChanges {
@@ -483,6 +487,7 @@ impl WindowVisualChanges {
             || self.theme
             || self.always_on_top
             || self.minimizable
+            || self.maximizable
     }
 }
 
@@ -498,6 +503,7 @@ pub(super) fn window_visual_changes(
         theme: previous.theme != next.theme,
         always_on_top: previous.always_on_top != next.always_on_top,
         minimizable: previous.minimizable.unwrap_or(true) != next.minimizable.unwrap_or(true),
+        maximizable: previous.maximizable.unwrap_or(true) != next.maximizable.unwrap_or(true),
     }
 }
 

@@ -847,7 +847,10 @@ fn window_visual_changes_only_apply_changed_contracts() {
 
 #[test]
 fn window_presentation_changes_reset_to_defaults() {
-    let restricted = WindowVisuals::new().always_on_top(true).minimizable(false);
+    let restricted = WindowVisuals::new()
+        .always_on_top(true)
+        .minimizable(false)
+        .maximizable(false);
     for (previous, next) in [
         (WindowVisuals::new(), restricted.clone()),
         (restricted, WindowVisuals::new()),
@@ -855,13 +858,14 @@ fn window_presentation_changes_reset_to_defaults() {
         let changes = window_visual_changes(&previous, &next);
         assert!(changes.always_on_top);
         assert!(changes.minimizable);
+        assert!(changes.maximizable);
         assert!(changes.any());
         assert!(!changes.client_size);
     }
     assert!(
         !window_visual_changes(
             &WindowVisuals::new(),
-            &WindowVisuals::new().minimizable(true)
+            &WindowVisuals::new().minimizable(true).maximizable(true)
         )
         .any()
     );

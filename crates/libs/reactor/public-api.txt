@@ -4629,6 +4629,7 @@ pub fn windows_reactor::WindowVisuals::constraints(self, windows_reactor::Window
 pub fn windows_reactor::WindowVisuals::icon(self, impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self
 pub fn windows_reactor::WindowVisuals::initial_placement(self, windows_reactor::WindowPlacement) -> Self
 pub fn windows_reactor::WindowVisuals::initial_position(self, windows_reactor::ScreenPoint) -> Self
+pub fn windows_reactor::WindowVisuals::maximizable(self, bool) -> Self
 pub fn windows_reactor::WindowVisuals::minimizable(self, bool) -> Self
 pub fn windows_reactor::WindowVisuals::new() -> Self
 pub fn windows_reactor::WindowVisuals::theme(self, windows_reactor::WindowTheme) -> Self
