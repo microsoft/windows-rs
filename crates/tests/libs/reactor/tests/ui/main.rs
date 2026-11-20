@@ -37,6 +37,7 @@ mod reference;
 mod repeater;
 mod resources;
 mod retirement;
+mod scale;
 mod scroll;
 mod selection;
 mod smoke;

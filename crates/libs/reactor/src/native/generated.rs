@@ -219,6 +219,7 @@ struct GeneratedCheckBox {
 }
 struct GeneratedBorder {
     value: native::Border,
+    scale: RefCell<Option<windows_core::EventRevoker>>,
     capture_pointer_on_press: Rc<Cell<bool>>,
     focus_on_pointer_release: Rc<Cell<bool>>,
     drop_policy: Rc<RefCell<Option<Rc<DragDropPolicy>>>>,
@@ -734,6 +735,7 @@ impl GeneratedHandle {
             }
             ObjectType::Border => {
                 let value = native::Border::new()?;
+                let scale = RefCell::new(None);
                 let capture_pointer_on_press = Rc::new(Cell::new(false));
                 let focus_on_pointer_release = Rc::new(Cell::new(false));
                 let drop_policy = Rc::new(RefCell::new(None));
@@ -775,6 +777,7 @@ impl GeneratedHandle {
                 let _drop = None;
                 Self::Border(Box::new(GeneratedBorder {
                     value,
+                    scale,
                     capture_pointer_on_press,
                     focus_on_pointer_release,
                     drop_policy,
@@ -4371,14 +4374,14 @@ impl GeneratedHandle {
                     .value
                     .cast::<native::UIElement>()
                     .map_err(Into::into)
-                    .and_then(|object| set_implicit_scale(&object, 1.0)),
+                    .and_then(|element| set_implicit_scale(&element, &object.scale, [1.0, 1.0])),
             ),
-            (Self::Border(object), PropertyId::Scale, Some(PropertyValue::F64(value))) => Some(
+            (Self::Border(object), PropertyId::Scale, Some(PropertyValue::Vector2(value))) => Some(
                 object
                     .value
                     .cast::<native::UIElement>()
                     .map_err(Into::into)
-                    .and_then(|object| set_implicit_scale(&object, *value)),
+                    .and_then(|element| set_implicit_scale(&element, &object.scale, *value)),
             ),
             (Self::Border(object), PropertyId::ScaleTransition, None) => Some(
                 object

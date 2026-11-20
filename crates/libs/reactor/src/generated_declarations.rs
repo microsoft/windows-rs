@@ -2477,14 +2477,24 @@ impl Border {
         );
         self
     }
-    pub fn scale(mut self, scale: f64) -> Self {
+    /// Scales rendering independently on each axis around the element's center.
+    /// The center follows layout changes; scaling does not change layout size.
+    /// Factors must be non-negative and finite when converted to `f32`.
+    /// Use [`Self::scale_transition`] to animate changes.
+    ///
+    /// WinUI can hide the element immediately when a factor becomes zero,
+    /// even during a transition.
+    pub fn scale(mut self, x: f64, y: f64) -> Self {
+        let scale = [x, y];
         assert!(
-            scale.is_finite() && scale >= 0.0,
+            scale
+                .iter()
+                .all(|value| (*value as f32).is_finite() && *value >= 0.0),
             "Border.Scale requires finite_non_negative"
         );
         self.0 = self
             .0
-            .property(PropertyId::Scale, PropertyValue::F64(scale));
+            .property(PropertyId::Scale, PropertyValue::Vector2(scale));
         self
     }
     pub fn scale_transition(mut self, scale_transition: Duration) -> Self {

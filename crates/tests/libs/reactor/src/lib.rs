@@ -23,6 +23,7 @@ mod reference;
 mod repeater;
 mod resources;
 mod retirement;
+mod scale;
 mod scroll;
 mod selection;
 mod smoke;
@@ -328,6 +329,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "flyout" => App::run_component::<flyout::FlyoutFixture>(false)?,
         "flyout-dropdown" => App::run_component::<flyout::FlyoutFixture>(true)?,
         "smoke" => App::run_component::<smoke::SmokeFixture>(())?,
+        "scale" => App::run_component::<scale::ScaleFixture>(())?,
         "surface" => App::run_component::<surface::SurfaceFixture>(())?,
         "pane" => App::run_component::<pane::PaneFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,

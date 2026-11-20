@@ -490,6 +490,7 @@ Keep native reproductions separate from Reactor-only observations; do not add ti
 | Area | Observation | Reproduction |
 | --- | --- | --- |
 | `ToggleSwitch.IsOn` | Repeated updates become progressively slower | Plain C# WinUI |
+| `UIElement.ScaleTransition` | Setting a scale axis to zero hides the element immediately, without visible intermediate shrinkage | Plain C# WinUI 2.6.4; `test-reactor` scale fixture: full, transition, zero |
 | `NavigationView.IsPaneOpen` | Reopening before layout leaves compact width while the property reads true | Plain C# WinUI |
 | `TeachingTip.IsOpen` | Changes during open/close animation can be ignored without an event | Reactor only |
 | `ListView.ScrollIntoView` (#5146) | Access violation after seven removals, insert, append, and scroll on the next tick | Rust and C# WinUI; C# hangs after the same access violation |

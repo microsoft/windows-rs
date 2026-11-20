@@ -1353,7 +1353,7 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
         }),
         (ObjectType::Border, PropertyId::Scale) => Some(PropertyContract {
             id,
-            value: ValueType::F64,
+            value: ValueType::Vector2,
         }),
         (ObjectType::Border, PropertyId::ScaleTransition) => Some(PropertyContract {
             id,

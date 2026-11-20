@@ -36,6 +36,7 @@ impl Component for Transitions {
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Transitions");
         let toggled = self.toggled;
+        let scale = if toggled { 1.3 } else { 1.0 };
 
         // ThemeTransition::Reposition animates the same native elements to new layout slots.
         let cards = [Color::rgb(210, 70, 70), Color::rgb(70, 170, 110)]
@@ -66,7 +67,7 @@ impl Component for Transitions {
                 .opacity_transition(Duration::from_secs(1))
                 .into(),
             swatch("Scale")
-                .scale(if toggled { 1.3 } else { 1.0 })
+                .scale(scale, scale)
                 .scale_transition(Duration::from_secs(1))
                 .into(),
             swatch("Translation (click again to reverse)")
