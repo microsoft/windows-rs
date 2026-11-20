@@ -1,6 +1,21 @@
 use super::*;
 
 #[test]
+fn button_padding_requires_finite_non_negative_values() {
+    for value in [-1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+        for padding in [
+            Thickness::new(value, 0.0, 0.0, 0.0),
+            Thickness::new(0.0, value, 0.0, 0.0),
+            Thickness::new(0.0, 0.0, value, 0.0),
+            Thickness::new(0.0, 0.0, 0.0, value),
+        ] {
+            assert!(std::panic::catch_unwind(|| Button::new().padding(padding)).is_err());
+        }
+    }
+    Button::new().padding(0.0);
+}
+
+#[test]
 fn text_box_padding_and_corners_require_finite_non_negative_values() {
     for value in [-1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
         assert!(std::panic::catch_unwind(|| TextBox::new().padding(value)).is_err());

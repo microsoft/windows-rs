@@ -53,6 +53,12 @@ animated scrolling. `scroll-orientation` uses a stretched square image to observ
 constraints and the restored native default; content orientation does not cap explicitly sized
 children.
 
+## Button padding
+
+`button-padding` compares a 24-DIP FontIcon in a 40-DIP Subtle button against an unclipped reference.
+It checks padding at mount, uniform and asymmetric updates, zero padding, and restoration of the
+native default when omitted. Rendered icon bounds, button identity, and click delivery are observed.
+
 ## TextBox appearance
 
 `text-appearance` observes padding through native layout and corner radius through rendered pixels,

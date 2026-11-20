@@ -886,6 +886,7 @@ pub fn windows_reactor::Button::min_width(self, f64) -> Self
 pub fn windows_reactor::Button::new() -> Self
 pub fn windows_reactor::Button::on_click(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::Button::opacity(self, f64) -> Self
+pub fn windows_reactor::Button::padding(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Button::relative_align_bottom(self) -> Self
 pub fn windows_reactor::Button::relative_align_horizontal_center(self) -> Self
 pub fn windows_reactor::Button::relative_align_left(self) -> Self
