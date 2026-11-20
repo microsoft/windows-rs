@@ -565,6 +565,7 @@ pub fn windows_reactor::AppBarButton::height(self, f64) -> Self
 pub fn windows_reactor::AppBarButton::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::AppBarButton::icon(self, impl core::convert::Into<windows_reactor::Icon>) -> Self
 pub fn windows_reactor::AppBarButton::is_enabled(self, bool) -> Self
+pub fn windows_reactor::AppBarButton::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::AppBarButton::label(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AppBarButton::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::AppBarButton::max_height(self, f64) -> Self
@@ -604,6 +605,7 @@ pub fn windows_reactor::AppBarSeparator::grid_row(self, i32) -> Self
 pub fn windows_reactor::AppBarSeparator::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::AppBarSeparator::height(self, f64) -> Self
 pub fn windows_reactor::AppBarSeparator::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::AppBarSeparator::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::AppBarSeparator::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::AppBarSeparator::max_height(self, f64) -> Self
 pub fn windows_reactor::AppBarSeparator::max_width(self, f64) -> Self
@@ -662,6 +664,7 @@ pub fn windows_reactor::AutoSuggestBox::header(self, impl core::convert::Into<wi
 pub fn windows_reactor::AutoSuggestBox::height(self, f64) -> Self
 pub fn windows_reactor::AutoSuggestBox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::AutoSuggestBox::is_enabled(self, bool) -> Self
+pub fn windows_reactor::AutoSuggestBox::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::AutoSuggestBox::items_source(self, impl core::iter::traits::collect::IntoIterator<Item = impl core::convert::Into<alloc::rcs::rc::Rc<str>>>) -> Self
 pub fn windows_reactor::AutoSuggestBox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::AutoSuggestBox::max_height(self, f64) -> Self
@@ -712,6 +715,7 @@ pub fn windows_reactor::BitmapIcon::grid_row(self, i32) -> Self
 pub fn windows_reactor::BitmapIcon::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::BitmapIcon::height(self, f64) -> Self
 pub fn windows_reactor::BitmapIcon::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::BitmapIcon::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::BitmapIcon::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::BitmapIcon::max_height(self, f64) -> Self
 pub fn windows_reactor::BitmapIcon::max_width(self, f64) -> Self
@@ -763,6 +767,7 @@ pub fn windows_reactor::Border::grid_row(self, i32) -> Self
 pub fn windows_reactor::Border::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::Border::height(self, f64) -> Self
 pub fn windows_reactor::Border::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::Border::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Border::is_tab_stop(self, bool) -> Self
 pub fn windows_reactor::Border::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Border::max_height(self, f64) -> Self
@@ -826,6 +831,7 @@ pub fn windows_reactor::BreadcrumbBar::grid_row(self, i32) -> Self
 pub fn windows_reactor::BreadcrumbBar::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::BreadcrumbBar::height(self, f64) -> Self
 pub fn windows_reactor::BreadcrumbBar::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::BreadcrumbBar::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::BreadcrumbBar::items_source(self, impl core::iter::traits::collect::IntoIterator<Item = impl core::convert::Into<alloc::rcs::rc::Rc<str>>>) -> Self
 pub fn windows_reactor::BreadcrumbBar::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::BreadcrumbBar::max_height(self, f64) -> Self
@@ -870,6 +876,7 @@ pub fn windows_reactor::Button::height(self, f64) -> Self
 pub fn windows_reactor::Button::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::Button::horizontal_content_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::Button::is_enabled(self, bool) -> Self
+pub fn windows_reactor::Button::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Button::key_accelerators(self, windows_reactor::KeyAccelerators) -> Self
 pub fn windows_reactor::Button::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Button::max_height(self, f64) -> Self
@@ -917,6 +924,7 @@ pub fn windows_reactor::CalendarDatePicker::height(self, f64) -> Self
 pub fn windows_reactor::CalendarDatePicker::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::CalendarDatePicker::is_calendar_open(self, bool) -> Self
 pub fn windows_reactor::CalendarDatePicker::is_enabled(self, bool) -> Self
+pub fn windows_reactor::CalendarDatePicker::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::CalendarDatePicker::is_today_highlighted(self, bool) -> Self
 pub fn windows_reactor::CalendarDatePicker::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::CalendarDatePicker::max_date(self, windows_time::bindings::DateTime) -> Self
@@ -961,6 +969,7 @@ pub fn windows_reactor::CalendarView::height(self, f64) -> Self
 pub fn windows_reactor::CalendarView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::CalendarView::is_enabled(self, bool) -> Self
 pub fn windows_reactor::CalendarView::is_group_label_visible(self, bool) -> Self
+pub fn windows_reactor::CalendarView::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::CalendarView::is_today_highlighted(self, bool) -> Self
 pub fn windows_reactor::CalendarView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::CalendarView::max_height(self, f64) -> Self
@@ -1019,6 +1028,7 @@ pub fn windows_reactor::Canvas::grid_row(self, i32) -> Self
 pub fn windows_reactor::Canvas::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::Canvas::height(self, f64) -> Self
 pub fn windows_reactor::Canvas::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::Canvas::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Canvas::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Canvas::max_height(self, f64) -> Self
 pub fn windows_reactor::Canvas::max_width(self, f64) -> Self
@@ -1064,6 +1074,7 @@ pub fn windows_reactor::CheckBox::height(self, f64) -> Self
 pub fn windows_reactor::CheckBox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::CheckBox::is_checked(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::CheckBox::is_enabled(self, bool) -> Self
+pub fn windows_reactor::CheckBox::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::CheckBox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::CheckBox::max_height(self, f64) -> Self
 pub fn windows_reactor::CheckBox::max_width(self, f64) -> Self
@@ -1123,6 +1134,7 @@ pub fn windows_reactor::ColorPicker::is_color_channel_text_input_visible(self, b
 pub fn windows_reactor::ColorPicker::is_color_slider_visible(self, bool) -> Self
 pub fn windows_reactor::ColorPicker::is_enabled(self, bool) -> Self
 pub fn windows_reactor::ColorPicker::is_hex_input_visible(self, bool) -> Self
+pub fn windows_reactor::ColorPicker::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ColorPicker::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ColorPicker::max_height(self, f64) -> Self
 pub fn windows_reactor::ColorPicker::max_width(self, f64) -> Self
@@ -1165,6 +1177,7 @@ pub fn windows_reactor::ComboBox::height(self, f64) -> Self
 pub fn windows_reactor::ComboBox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ComboBox::is_editable(self, bool) -> Self
 pub fn windows_reactor::ComboBox::is_enabled(self, bool) -> Self
+pub fn windows_reactor::ComboBox::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ComboBox::items_source(self, impl core::iter::traits::collect::IntoIterator<Item = impl core::convert::Into<alloc::rcs::rc::Rc<str>>>) -> Self
 pub fn windows_reactor::ComboBox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ComboBox::max_height(self, f64) -> Self
@@ -1207,6 +1220,7 @@ pub fn windows_reactor::CommandBar::grid_row(self, i32) -> Self
 pub fn windows_reactor::CommandBar::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::CommandBar::height(self, f64) -> Self
 pub fn windows_reactor::CommandBar::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::CommandBar::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::CommandBar::keyed_primary_commands(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::CommandBar::keyed_secondary_commands(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::CommandBar::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -1343,6 +1357,7 @@ pub fn windows_reactor::DatePicker::header(self, impl core::convert::Into<window
 pub fn windows_reactor::DatePicker::height(self, f64) -> Self
 pub fn windows_reactor::DatePicker::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::DatePicker::is_enabled(self, bool) -> Self
+pub fn windows_reactor::DatePicker::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::DatePicker::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::DatePicker::max_height(self, f64) -> Self
 pub fn windows_reactor::DatePicker::max_width(self, f64) -> Self
@@ -1398,6 +1413,7 @@ pub fn windows_reactor::DropDownButton::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::DropDownButton::height(self, f64) -> Self
 pub fn windows_reactor::DropDownButton::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::DropDownButton::is_enabled(self, bool) -> Self
+pub fn windows_reactor::DropDownButton::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::DropDownButton::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::DropDownButton::max_height(self, f64) -> Self
 pub fn windows_reactor::DropDownButton::max_width(self, f64) -> Self
@@ -1483,6 +1499,7 @@ pub fn windows_reactor::Ellipse::grid_row(self, i32) -> Self
 pub fn windows_reactor::Ellipse::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::Ellipse::height(self, f64) -> Self
 pub fn windows_reactor::Ellipse::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::Ellipse::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Ellipse::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Ellipse::max_height(self, f64) -> Self
 pub fn windows_reactor::Ellipse::max_width(self, f64) -> Self
@@ -1535,6 +1552,7 @@ pub fn windows_reactor::Expander::height(self, f64) -> Self
 pub fn windows_reactor::Expander::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::Expander::horizontal_content_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::Expander::is_expanded(self, bool) -> Self
+pub fn windows_reactor::Expander::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Expander::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Expander::max_height(self, f64) -> Self
 pub fn windows_reactor::Expander::max_width(self, f64) -> Self
@@ -1574,6 +1592,7 @@ pub fn windows_reactor::FlipView::grid_row(self, i32) -> Self
 pub fn windows_reactor::FlipView::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::FlipView::height(self, f64) -> Self
 pub fn windows_reactor::FlipView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::FlipView::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::FlipView::items(self, impl windows_reactor::IntoViews) -> Self
 pub fn windows_reactor::FlipView::keyed_items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::FlipView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -1626,6 +1645,7 @@ pub fn windows_reactor::FontIcon::grid_row(self, i32) -> Self
 pub fn windows_reactor::FontIcon::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::FontIcon::height(self, f64) -> Self
 pub fn windows_reactor::FontIcon::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::FontIcon::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::FontIcon::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::FontIcon::max_height(self, f64) -> Self
 pub fn windows_reactor::FontIcon::max_width(self, f64) -> Self
@@ -1684,6 +1704,7 @@ pub fn windows_reactor::Grid::grid_row(self, i32) -> Self
 pub fn windows_reactor::Grid::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::Grid::height(self, f64) -> Self
 pub fn windows_reactor::Grid::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::Grid::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Grid::key_accelerators(self, windows_reactor::KeyAccelerators) -> Self
 pub fn windows_reactor::Grid::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::Grid::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -1738,6 +1759,7 @@ pub fn windows_reactor::GridView::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::GridView::height(self, f64) -> Self
 pub fn windows_reactor::GridView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::GridView::is_enabled(self, bool) -> Self
+pub fn windows_reactor::GridView::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::GridView::items(self, impl windows_reactor::IntoViews) -> Self
 pub fn windows_reactor::GridView::keyed_items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::GridView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -1782,6 +1804,7 @@ pub fn windows_reactor::GridViewItem::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::GridViewItem::height(self, f64) -> Self
 pub fn windows_reactor::GridViewItem::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::GridViewItem::is_enabled(self, bool) -> Self
+pub fn windows_reactor::GridViewItem::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::GridViewItem::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::GridViewItem::max_height(self, f64) -> Self
 pub fn windows_reactor::GridViewItem::max_width(self, f64) -> Self
@@ -1823,6 +1846,7 @@ pub fn windows_reactor::HyperlinkButton::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::HyperlinkButton::height(self, f64) -> Self
 pub fn windows_reactor::HyperlinkButton::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::HyperlinkButton::is_enabled(self, bool) -> Self
+pub fn windows_reactor::HyperlinkButton::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::HyperlinkButton::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::HyperlinkButton::max_height(self, f64) -> Self
 pub fn windows_reactor::HyperlinkButton::max_width(self, f64) -> Self
@@ -1878,6 +1902,7 @@ pub fn windows_reactor::Image::grid_row(self, i32) -> Self
 pub fn windows_reactor::Image::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::Image::height(self, f64) -> Self
 pub fn windows_reactor::Image::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::Image::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Image::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Image::max_height(self, f64) -> Self
 pub fn windows_reactor::Image::max_width(self, f64) -> Self
@@ -1924,6 +1949,7 @@ pub fn windows_reactor::ImageIcon::grid_row(self, i32) -> Self
 pub fn windows_reactor::ImageIcon::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ImageIcon::height(self, f64) -> Self
 pub fn windows_reactor::ImageIcon::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::ImageIcon::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ImageIcon::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ImageIcon::max_height(self, f64) -> Self
 pub fn windows_reactor::ImageIcon::max_width(self, f64) -> Self
@@ -1972,6 +1998,7 @@ pub fn windows_reactor::InfoBadge::grid_row(self, i32) -> Self
 pub fn windows_reactor::InfoBadge::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::InfoBadge::height(self, f64) -> Self
 pub fn windows_reactor::InfoBadge::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::InfoBadge::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::InfoBadge::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::InfoBadge::max_height(self, f64) -> Self
 pub fn windows_reactor::InfoBadge::max_width(self, f64) -> Self
@@ -2011,6 +2038,7 @@ pub fn windows_reactor::InfoBar::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::InfoBar::height(self, f64) -> Self
 pub fn windows_reactor::InfoBar::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::InfoBar::is_closable(self, bool) -> Self
+pub fn windows_reactor::InfoBar::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::InfoBar::is_open(self, bool) -> Self
 pub fn windows_reactor::InfoBar::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::InfoBar::max_height(self, f64) -> Self
@@ -2063,6 +2091,7 @@ pub fn windows_reactor::ItemsRepeater::grid_row(self, i32) -> Self
 pub fn windows_reactor::ItemsRepeater::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ItemsRepeater::height(self, f64) -> Self
 pub fn windows_reactor::ItemsRepeater::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::ItemsRepeater::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ItemsRepeater::item(self, impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::ItemsRepeater::items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::ItemsRepeater::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -2130,6 +2159,7 @@ pub fn windows_reactor::Line::grid_row(self, i32) -> Self
 pub fn windows_reactor::Line::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::Line::height(self, f64) -> Self
 pub fn windows_reactor::Line::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::Line::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Line::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Line::max_height(self, f64) -> Self
 pub fn windows_reactor::Line::max_width(self, f64) -> Self
@@ -2174,6 +2204,7 @@ pub fn windows_reactor::ListBox::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ListBox::height(self, f64) -> Self
 pub fn windows_reactor::ListBox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ListBox::is_enabled(self, bool) -> Self
+pub fn windows_reactor::ListBox::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ListBox::items(self, impl windows_reactor::IntoViews) -> Self
 pub fn windows_reactor::ListBox::keyed_items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::ListBox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -2215,6 +2246,7 @@ pub fn windows_reactor::ListBoxItem::grid_row(self, i32) -> Self
 pub fn windows_reactor::ListBoxItem::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ListBoxItem::height(self, f64) -> Self
 pub fn windows_reactor::ListBoxItem::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::ListBoxItem::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ListBoxItem::is_selected(self, bool) -> Self
 pub fn windows_reactor::ListBoxItem::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ListBoxItem::max_height(self, f64) -> Self
@@ -2258,6 +2290,7 @@ pub fn windows_reactor::ListView::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ListView::height(self, f64) -> Self
 pub fn windows_reactor::ListView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ListView::is_enabled(self, bool) -> Self
+pub fn windows_reactor::ListView::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ListView::items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::DataItem>) -> Self
 pub fn windows_reactor::ListView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ListView::max_height(self, f64) -> Self
@@ -2302,6 +2335,7 @@ pub fn windows_reactor::ListViewItem::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ListViewItem::height(self, f64) -> Self
 pub fn windows_reactor::ListViewItem::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ListViewItem::is_enabled(self, bool) -> Self
+pub fn windows_reactor::ListViewItem::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ListViewItem::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ListViewItem::max_height(self, f64) -> Self
 pub fn windows_reactor::ListViewItem::max_width(self, f64) -> Self
@@ -2351,6 +2385,7 @@ pub fn windows_reactor::MenuBar::grid_row(self, i32) -> Self
 pub fn windows_reactor::MenuBar::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::MenuBar::height(self, f64) -> Self
 pub fn windows_reactor::MenuBar::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::MenuBar::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::MenuBar::items(self, impl windows_reactor::IntoViews) -> Self
 pub fn windows_reactor::MenuBar::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::MenuBar::max_height(self, f64) -> Self
@@ -2389,6 +2424,7 @@ pub fn windows_reactor::MenuBarItem::grid_row(self, i32) -> Self
 pub fn windows_reactor::MenuBarItem::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::MenuBarItem::height(self, f64) -> Self
 pub fn windows_reactor::MenuBarItem::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::MenuBarItem::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::MenuBarItem::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::MenuBarItem::max_height(self, f64) -> Self
 pub fn windows_reactor::MenuBarItem::max_width(self, f64) -> Self
@@ -2434,6 +2470,7 @@ pub fn windows_reactor::NavigationView::horizontal_alignment(self, windows_react
 pub fn windows_reactor::NavigationView::is_back_button_visible(self, windows_reactor::NavigationViewBackButtonVisible) -> Self
 pub fn windows_reactor::NavigationView::is_back_enabled(self, bool) -> Self
 pub fn windows_reactor::NavigationView::is_enabled(self, bool) -> Self
+pub fn windows_reactor::NavigationView::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::NavigationView::is_pane_open(self, bool) -> Self
 pub fn windows_reactor::NavigationView::is_pane_toggle_button_visible(self, bool) -> Self
 pub fn windows_reactor::NavigationView::is_pane_visible(self, bool) -> Self
@@ -2490,6 +2527,7 @@ pub fn windows_reactor::NavigationViewItem::height(self, f64) -> Self
 pub fn windows_reactor::NavigationViewItem::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::NavigationViewItem::icon(self, impl core::convert::Into<windows_reactor::Icon>) -> Self
 pub fn windows_reactor::NavigationViewItem::is_expanded(self, bool) -> Self
+pub fn windows_reactor::NavigationViewItem::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::NavigationViewItem::is_selected(self, bool) -> Self
 pub fn windows_reactor::NavigationViewItem::keyed_menu_items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::NavigationViewItem::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -2541,6 +2579,7 @@ pub fn windows_reactor::NumberBox::header(self, impl core::convert::Into<windows
 pub fn windows_reactor::NumberBox::height(self, f64) -> Self
 pub fn windows_reactor::NumberBox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::NumberBox::is_enabled(self, bool) -> Self
+pub fn windows_reactor::NumberBox::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::NumberBox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::NumberBox::max_height(self, f64) -> Self
 pub fn windows_reactor::NumberBox::max_width(self, f64) -> Self
@@ -2588,6 +2627,7 @@ pub fn windows_reactor::PasswordBox::header(self, impl core::convert::Into<windo
 pub fn windows_reactor::PasswordBox::height(self, f64) -> Self
 pub fn windows_reactor::PasswordBox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::PasswordBox::is_enabled(self, bool) -> Self
+pub fn windows_reactor::PasswordBox::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::PasswordBox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::PasswordBox::max_height(self, f64) -> Self
 pub fn windows_reactor::PasswordBox::max_width(self, f64) -> Self
@@ -2631,6 +2671,7 @@ pub fn windows_reactor::PathIcon::grid_row(self, i32) -> Self
 pub fn windows_reactor::PathIcon::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::PathIcon::height(self, f64) -> Self
 pub fn windows_reactor::PathIcon::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::PathIcon::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::PathIcon::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::PathIcon::max_height(self, f64) -> Self
 pub fn windows_reactor::PathIcon::max_width(self, f64) -> Self
@@ -2670,6 +2711,7 @@ pub fn windows_reactor::PersonPicture::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::PersonPicture::height(self, f64) -> Self
 pub fn windows_reactor::PersonPicture::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::PersonPicture::initials(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::PersonPicture::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::PersonPicture::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::PersonPicture::max_height(self, f64) -> Self
 pub fn windows_reactor::PersonPicture::max_width(self, f64) -> Self
@@ -2714,6 +2756,7 @@ pub fn windows_reactor::Pivot::grid_row(self, i32) -> Self
 pub fn windows_reactor::Pivot::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::Pivot::height(self, f64) -> Self
 pub fn windows_reactor::Pivot::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::Pivot::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Pivot::items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::PivotItem>) -> Self
 pub fn windows_reactor::Pivot::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Pivot::max_height(self, f64) -> Self
@@ -2757,6 +2800,7 @@ pub fn windows_reactor::PivotItem::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::PivotItem::header(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PivotItem::height(self, f64) -> Self
 pub fn windows_reactor::PivotItem::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::PivotItem::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::PivotItem::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::PivotItem::max_height(self, f64) -> Self
 pub fn windows_reactor::PivotItem::max_width(self, f64) -> Self
@@ -2807,6 +2851,7 @@ pub fn windows_reactor::ProgressBar::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ProgressBar::height(self, f64) -> Self
 pub fn windows_reactor::ProgressBar::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ProgressBar::is_enabled(self, bool) -> Self
+pub fn windows_reactor::ProgressBar::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ProgressBar::is_indeterminate(self, bool) -> Self
 pub fn windows_reactor::ProgressBar::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ProgressBar::max_height(self, f64) -> Self
@@ -2852,6 +2897,7 @@ pub fn windows_reactor::ProgressRing::height(self, f64) -> Self
 pub fn windows_reactor::ProgressRing::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ProgressRing::is_active(self, bool) -> Self
 pub fn windows_reactor::ProgressRing::is_enabled(self, bool) -> Self
+pub fn windows_reactor::ProgressRing::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ProgressRing::is_indeterminate(self, bool) -> Self
 pub fn windows_reactor::ProgressRing::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ProgressRing::max_height(self, f64) -> Self
@@ -2898,6 +2944,7 @@ pub fn windows_reactor::RadioButton::height(self, f64) -> Self
 pub fn windows_reactor::RadioButton::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::RadioButton::is_checked(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::RadioButton::is_enabled(self, bool) -> Self
+pub fn windows_reactor::RadioButton::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::RadioButton::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::RadioButton::max_height(self, f64) -> Self
 pub fn windows_reactor::RadioButton::max_width(self, f64) -> Self
@@ -2939,6 +2986,7 @@ pub fn windows_reactor::RadioButtons::header(self, impl core::convert::Into<wind
 pub fn windows_reactor::RadioButtons::height(self, f64) -> Self
 pub fn windows_reactor::RadioButtons::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::RadioButtons::is_enabled(self, bool) -> Self
+pub fn windows_reactor::RadioButtons::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::RadioButtons::items_source(self, impl core::iter::traits::collect::IntoIterator<Item = impl core::convert::Into<alloc::rcs::rc::Rc<str>>>) -> Self
 pub fn windows_reactor::RadioButtons::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::RadioButtons::max_columns(self, i32) -> Self
@@ -2982,6 +3030,7 @@ pub fn windows_reactor::RatingControl::grid_row(self, i32) -> Self
 pub fn windows_reactor::RatingControl::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::RatingControl::height(self, f64) -> Self
 pub fn windows_reactor::RatingControl::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::RatingControl::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::RatingControl::is_read_only(self, bool) -> Self
 pub fn windows_reactor::RatingControl::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::RatingControl::max_height(self, f64) -> Self
@@ -3025,6 +3074,7 @@ pub fn windows_reactor::Rectangle::grid_row(self, i32) -> Self
 pub fn windows_reactor::Rectangle::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::Rectangle::height(self, f64) -> Self
 pub fn windows_reactor::Rectangle::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::Rectangle::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Rectangle::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Rectangle::max_height(self, f64) -> Self
 pub fn windows_reactor::Rectangle::max_width(self, f64) -> Self
@@ -3068,6 +3118,7 @@ pub fn windows_reactor::RelativePanel::grid_row(self, i32) -> Self
 pub fn windows_reactor::RelativePanel::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::RelativePanel::height(self, f64) -> Self
 pub fn windows_reactor::RelativePanel::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::RelativePanel::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::RelativePanel::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::RelativePanel::max_height(self, f64) -> Self
 pub fn windows_reactor::RelativePanel::max_width(self, f64) -> Self
@@ -3109,6 +3160,7 @@ pub fn windows_reactor::RepeatButton::height(self, f64) -> Self
 pub fn windows_reactor::RepeatButton::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::RepeatButton::interval(self, i32) -> Self
 pub fn windows_reactor::RepeatButton::is_enabled(self, bool) -> Self
+pub fn windows_reactor::RepeatButton::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::RepeatButton::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::RepeatButton::max_height(self, f64) -> Self
 pub fn windows_reactor::RepeatButton::max_width(self, f64) -> Self
@@ -3154,6 +3206,7 @@ pub fn windows_reactor::RichEditBox::header(self, impl core::convert::Into<windo
 pub fn windows_reactor::RichEditBox::height(self, f64) -> Self
 pub fn windows_reactor::RichEditBox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::RichEditBox::is_enabled(self, bool) -> Self
+pub fn windows_reactor::RichEditBox::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::RichEditBox::is_read_only(self, bool) -> Self
 pub fn windows_reactor::RichEditBox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::RichEditBox::max_height(self, f64) -> Self
@@ -3201,6 +3254,7 @@ pub fn windows_reactor::RichTextBlock::grid_row(self, i32) -> Self
 pub fn windows_reactor::RichTextBlock::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::RichTextBlock::height(self, f64) -> Self
 pub fn windows_reactor::RichTextBlock::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::RichTextBlock::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::RichTextBlock::is_text_selection_enabled(self, bool) -> Self
 pub fn windows_reactor::RichTextBlock::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::RichTextBlock::max_height(self, f64) -> Self
@@ -3275,6 +3329,7 @@ pub fn windows_reactor::ScrollView::height(self, f64) -> Self
 pub fn windows_reactor::ScrollView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ScrollView::horizontal_anchor_ratio(self, f64) -> Self
 pub fn windows_reactor::ScrollView::horizontal_scroll_bar_visibility(self, windows_reactor::ScrollingScrollBarVisibility) -> Self
+pub fn windows_reactor::ScrollView::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ScrollView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ScrollView::max_height(self, f64) -> Self
 pub fn windows_reactor::ScrollView::max_width(self, f64) -> Self
@@ -3324,6 +3379,7 @@ pub fn windows_reactor::ScrollViewer::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ScrollViewer::height(self, f64) -> Self
 pub fn windows_reactor::ScrollViewer::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ScrollViewer::horizontal_scroll_bar_visibility(self, windows_reactor::ScrollBarVisibility) -> Self
+pub fn windows_reactor::ScrollViewer::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ScrollViewer::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ScrollViewer::max_height(self, f64) -> Self
 pub fn windows_reactor::ScrollViewer::max_width(self, f64) -> Self
@@ -3362,6 +3418,7 @@ pub fn windows_reactor::SelectorBar::grid_row(self, i32) -> Self
 pub fn windows_reactor::SelectorBar::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::SelectorBar::height(self, f64) -> Self
 pub fn windows_reactor::SelectorBar::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::SelectorBar::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::SelectorBar::items(self, impl windows_reactor::IntoViews) -> Self
 pub fn windows_reactor::SelectorBar::keyed_items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::SelectorBar::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -3403,6 +3460,7 @@ pub fn windows_reactor::SelectorBarItem::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::SelectorBarItem::height(self, f64) -> Self
 pub fn windows_reactor::SelectorBarItem::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::SelectorBarItem::icon(self, impl core::convert::Into<windows_reactor::Icon>) -> Self
+pub fn windows_reactor::SelectorBarItem::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::SelectorBarItem::is_selected(self, bool) -> Self
 pub fn windows_reactor::SelectorBarItem::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::SelectorBarItem::max_height(self, f64) -> Self
@@ -3445,6 +3503,7 @@ pub fn windows_reactor::Slider::header(self, impl core::convert::Into<windows_re
 pub fn windows_reactor::Slider::height(self, f64) -> Self
 pub fn windows_reactor::Slider::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::Slider::is_enabled(self, bool) -> Self
+pub fn windows_reactor::Slider::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Slider::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Slider::max_height(self, f64) -> Self
 pub fn windows_reactor::Slider::max_width(self, f64) -> Self
@@ -3491,6 +3550,7 @@ pub fn windows_reactor::SplitButton::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::SplitButton::height(self, f64) -> Self
 pub fn windows_reactor::SplitButton::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::SplitButton::is_enabled(self, bool) -> Self
+pub fn windows_reactor::SplitButton::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::SplitButton::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::SplitButton::max_height(self, f64) -> Self
 pub fn windows_reactor::SplitButton::max_width(self, f64) -> Self
@@ -3532,6 +3592,7 @@ pub fn windows_reactor::SplitView::grid_row(self, i32) -> Self
 pub fn windows_reactor::SplitView::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::SplitView::height(self, f64) -> Self
 pub fn windows_reactor::SplitView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::SplitView::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::SplitView::is_pane_open(self, bool) -> Self
 pub fn windows_reactor::SplitView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::SplitView::max_height(self, f64) -> Self
@@ -3575,6 +3636,7 @@ pub fn windows_reactor::StackPanel::grid_row(self, i32) -> Self
 pub fn windows_reactor::StackPanel::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::StackPanel::height(self, f64) -> Self
 pub fn windows_reactor::StackPanel::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::StackPanel::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::StackPanel::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::StackPanel::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::StackPanel::max_height(self, f64) -> Self
@@ -3616,6 +3678,7 @@ pub fn windows_reactor::SwapChainPanel::grid_row(self, i32) -> Self
 pub fn windows_reactor::SwapChainPanel::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::SwapChainPanel::height(self, f64) -> Self
 pub fn windows_reactor::SwapChainPanel::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::SwapChainPanel::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::SwapChainPanel::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::SwapChainPanel::max_height(self, f64) -> Self
 pub fn windows_reactor::SwapChainPanel::max_width(self, f64) -> Self
@@ -3655,6 +3718,7 @@ pub fn windows_reactor::SymbolIcon::grid_row(self, i32) -> Self
 pub fn windows_reactor::SymbolIcon::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::SymbolIcon::height(self, f64) -> Self
 pub fn windows_reactor::SymbolIcon::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::SymbolIcon::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::SymbolIcon::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::SymbolIcon::max_height(self, f64) -> Self
 pub fn windows_reactor::SymbolIcon::max_width(self, f64) -> Self
@@ -3695,6 +3759,7 @@ pub fn windows_reactor::TabView::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::TabView::height(self, f64) -> Self
 pub fn windows_reactor::TabView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::TabView::is_add_tab_button_visible(self, bool) -> Self
+pub fn windows_reactor::TabView::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::TabView::keyed_tab_items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::TabView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TabView::max_height(self, f64) -> Self
@@ -3742,6 +3807,7 @@ pub fn windows_reactor::TabViewItem::header(self, impl core::convert::AsRef<str>
 pub fn windows_reactor::TabViewItem::height(self, f64) -> Self
 pub fn windows_reactor::TabViewItem::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::TabViewItem::is_closable(self, bool) -> Self
+pub fn windows_reactor::TabViewItem::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::TabViewItem::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TabViewItem::max_height(self, f64) -> Self
 pub fn windows_reactor::TabViewItem::max_width(self, f64) -> Self
@@ -3782,6 +3848,7 @@ pub fn windows_reactor::TeachingTip::grid_row(self, i32) -> Self
 pub fn windows_reactor::TeachingTip::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::TeachingTip::height(self, f64) -> Self
 pub fn windows_reactor::TeachingTip::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::TeachingTip::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::TeachingTip::is_light_dismiss_enabled(self, bool) -> Self
 pub fn windows_reactor::TeachingTip::is_open(self, bool) -> Self
 pub fn windows_reactor::TeachingTip::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -3831,6 +3898,7 @@ pub fn windows_reactor::TextBlock::grid_row(self, i32) -> Self
 pub fn windows_reactor::TextBlock::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::TextBlock::height(self, f64) -> Self
 pub fn windows_reactor::TextBlock::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::TextBlock::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::TextBlock::is_text_selection_enabled(self, bool) -> Self
 pub fn windows_reactor::TextBlock::line_height(self, f64) -> Self
 pub fn windows_reactor::TextBlock::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -3874,6 +3942,7 @@ pub fn windows_reactor::TextBox::border_brush(self, impl core::convert::Into<win
 pub fn windows_reactor::TextBox::border_thickness(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TextBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TextBox::canvas_top(self, f64) -> Self
+pub fn windows_reactor::TextBox::corner_radius(self, impl core::convert::Into<windows_reactor::CornerRadius>) -> Self
 pub fn windows_reactor::TextBox::element_ref<R>(self, &R) -> Self where R: windows_reactor::CompatibleElementRef<windows_reactor::TextBox>
 pub fn windows_reactor::TextBox::grid_column(self, i32) -> Self
 pub fn windows_reactor::TextBox::grid_column_span(self, i32) -> Self
@@ -3883,6 +3952,7 @@ pub fn windows_reactor::TextBox::header(self, impl core::convert::Into<windows_r
 pub fn windows_reactor::TextBox::height(self, f64) -> Self
 pub fn windows_reactor::TextBox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::TextBox::is_enabled(self, bool) -> Self
+pub fn windows_reactor::TextBox::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::TextBox::is_read_only(self, bool) -> Self
 pub fn windows_reactor::TextBox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TextBox::max_height(self, f64) -> Self
@@ -3892,6 +3962,7 @@ pub fn windows_reactor::TextBox::min_width(self, f64) -> Self
 pub fn windows_reactor::TextBox::new() -> Self
 pub fn windows_reactor::TextBox::on_text_changed(self, impl windows_reactor::IntoPayloadCallback<alloc::rcs::rc::Rc<str>>) -> Self
 pub fn windows_reactor::TextBox::opacity(self, f64) -> Self
+pub fn windows_reactor::TextBox::padding(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TextBox::placeholder_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TextBox::relative_align_bottom(self) -> Self
 pub fn windows_reactor::TextBox::relative_align_horizontal_center(self) -> Self
@@ -3945,6 +4016,7 @@ pub fn windows_reactor::TimePicker::header(self, impl core::convert::Into<window
 pub fn windows_reactor::TimePicker::height(self, f64) -> Self
 pub fn windows_reactor::TimePicker::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::TimePicker::is_enabled(self, bool) -> Self
+pub fn windows_reactor::TimePicker::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::TimePicker::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TimePicker::max_height(self, f64) -> Self
 pub fn windows_reactor::TimePicker::max_width(self, f64) -> Self
@@ -3988,6 +4060,7 @@ pub fn windows_reactor::TitleBar::horizontal_alignment(self, windows_reactor::Ho
 pub fn windows_reactor::TitleBar::icon(self, impl core::convert::Into<windows_reactor::Icon>) -> Self
 pub fn windows_reactor::TitleBar::is_back_button_enabled(self, bool) -> Self
 pub fn windows_reactor::TitleBar::is_back_button_visible(self, bool) -> Self
+pub fn windows_reactor::TitleBar::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::TitleBar::is_pane_toggle_button_visible(self, bool) -> Self
 pub fn windows_reactor::TitleBar::left_header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::TitleBar::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
@@ -4037,6 +4110,7 @@ pub fn windows_reactor::ToggleButton::height(self, f64) -> Self
 pub fn windows_reactor::ToggleButton::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ToggleButton::is_checked(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ToggleButton::is_enabled(self, bool) -> Self
+pub fn windows_reactor::ToggleButton::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ToggleButton::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ToggleButton::max_height(self, f64) -> Self
 pub fn windows_reactor::ToggleButton::max_width(self, f64) -> Self
@@ -4079,6 +4153,7 @@ pub fn windows_reactor::ToggleSwitch::header(self, impl core::convert::Into<wind
 pub fn windows_reactor::ToggleSwitch::height(self, f64) -> Self
 pub fn windows_reactor::ToggleSwitch::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::ToggleSwitch::is_enabled(self, bool) -> Self
+pub fn windows_reactor::ToggleSwitch::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::ToggleSwitch::is_on(self, bool) -> Self
 pub fn windows_reactor::ToggleSwitch::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ToggleSwitch::max_height(self, f64) -> Self
@@ -4133,6 +4208,7 @@ pub fn windows_reactor::TreeView::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::TreeView::height(self, f64) -> Self
 pub fn windows_reactor::TreeView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::TreeView::is_enabled(self, bool) -> Self
+pub fn windows_reactor::TreeView::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::TreeView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TreeView::max_height(self, f64) -> Self
 pub fn windows_reactor::TreeView::max_width(self, f64) -> Self
@@ -4175,6 +4251,7 @@ pub fn windows_reactor::VariableSizedWrapGrid::grid_row(self, i32) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::height(self, f64) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::VariableSizedWrapGrid::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::item_height(self, f64) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::item_width(self, f64) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
@@ -4399,6 +4476,7 @@ pub fn windows_reactor::Viewbox::grid_row(self, i32) -> Self
 pub fn windows_reactor::Viewbox::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::Viewbox::height(self, f64) -> Self
 pub fn windows_reactor::Viewbox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::Viewbox::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::Viewbox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Viewbox::max_height(self, f64) -> Self
 pub fn windows_reactor::Viewbox::max_width(self, f64) -> Self
@@ -4494,6 +4572,7 @@ pub fn windows_reactor::WebView2::grid_row(self, i32) -> Self
 pub fn windows_reactor::WebView2::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::WebView2::height(self, f64) -> Self
 pub fn windows_reactor::WebView2::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::WebView2::is_hit_test_visible(self, bool) -> Self
 pub fn windows_reactor::WebView2::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::WebView2::max_height(self, f64) -> Self
 pub fn windows_reactor::WebView2::max_width(self, f64) -> Self

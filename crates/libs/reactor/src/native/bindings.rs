@@ -2862,6 +2862,16 @@ impl Control {
             .and_then(|| windows_core::imp::from_abi(result__))
         })
     }
+    pub(crate) fn PaddingProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IControlStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PaddingProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::from_abi(result__))
+        })
+    }
     pub(crate) fn HorizontalContentAlignmentProperty() -> windows_core::Result<DependencyProperty> {
         Self::IControlStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2906,6 +2916,16 @@ impl Control {
         Self::IControlStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BorderBrushProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::from_abi(result__))
+        })
+    }
+    pub(crate) fn CornerRadiusProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IControlStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CornerRadiusProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
@@ -8669,7 +8689,10 @@ pub struct IControlStatics_Vtbl {
     ) -> windows_core::HRESULT,
     TabNavigationProperty: usize,
     TemplateProperty: usize,
-    PaddingProperty: usize,
+    pub PaddingProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub HorizontalContentAlignmentProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
@@ -8688,6 +8711,13 @@ pub struct IControlStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub BorderBrushProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    DefaultStyleKeyProperty: usize,
+    DefaultStyleResourceUriProperty: usize,
+    ElementSoundModeProperty: usize,
+    pub CornerRadiusProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -20373,7 +20403,10 @@ pub struct IUIElementStatics_Vtbl {
     ProjectionProperty: usize,
     Transform3DProperty: usize,
     RenderTransformOriginProperty: usize,
-    IsHitTestVisibleProperty: usize,
+    pub IsHitTestVisibleProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     VisibilityProperty: usize,
     UseLayoutRoundingProperty: usize,
     pub TransitionsProperty: unsafe extern "system" fn(
@@ -30212,6 +30245,16 @@ impl UIElement {
         Self::IUIElementStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpacityProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::from_abi(result__))
+        })
+    }
+    pub(crate) fn IsHitTestVisibleProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IUIElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsHitTestVisibleProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )

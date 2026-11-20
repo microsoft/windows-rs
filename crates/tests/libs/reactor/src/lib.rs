@@ -421,6 +421,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
             WindowPolicy::new().client_size(480.0, 320.0),
         )?,
         "text" => App::run_component::<TextFixture>(())?,
+        "text-appearance" => App::run_component::<text::AppearanceFixture>(())?,
         "text-multiline" => App::run_component::<text::MultilineFixture>(())?,
         "text-transform" => {
             App::run_component::<text::TransformFixture>(text::TextControl::Text)?;
