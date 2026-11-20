@@ -85,6 +85,14 @@ The `dialog` fixture also queues an open update immediately before synchronous n
 Its component drain is ahead of host disposal in the dispatcher queue. Closure must cancel that
 drain; otherwise it attempts to reopen the dialog against the destroyed XamlRoot.
 
+## Window maximization
+
+`window-maximizable` and `window-maximizable-frame` check the setting at mount, live changes,
+and omission restoring the default for standard and WinUI title bars. Tests inspect native window
+styles and synchronously send caption double-click messages to observe maximize/restore behavior,
+including the disabled no-op. They preserve native content identity and resize/minimize flags.
+This tests caption handling, not physical pointer routing or programmatic maximize requests.
+
 ## Submitted-frame input
 
 `canvas-submitted-input` stages a two-row layout separately from drawing it. Its `submitted`

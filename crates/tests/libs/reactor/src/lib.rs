@@ -414,6 +414,8 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "command-bar" => App::run_component::<MenuFixture>(MenuSurface::CommandBar)?,
         "tray" => App::run_application::<tray::TrayFixture>(())?,
         "window" => App::run_component::<window::WindowFixture>(window::WindowMode::Native)?,
+        "window-maximizable" => App::run_component::<window::MaximizableFixture>(false)?,
+        "window-maximizable-frame" => App::run_component::<window::MaximizableFixture>(true)?,
         "window-placement" => App::run_component::<window::PlacementFixture>(())?,
         "window-visuals" => App::run_component::<window::VisualsFixture>(())?,
         "window-titlebar-initial" => App::run_component::<window::TitleBarFixture>(true)?,
