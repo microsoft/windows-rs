@@ -69,6 +69,12 @@ from `on_closed`. Tests close the window directly and invoke each dialog button.
 successful process exit with the usual COM diagnostics, including when a dialog reopen is pending.
 Dialog cancellation must run before the window destroys its XamlRoot, not from adapter destruction.
 
+`dialog-application` exits through `ApplicationContext::exit` with a visible TitleBar dialog.
+It also queues a second dialog behind the visible one, observes the committed request, and closes
+that window while another survives. A Low-priority dispatcher callback observes later progress in
+the surviving window, then the test checks that neither dialog remains visible. This checks
+shutdown and COM cleanup, not whether a native continuation ran or each cancellation safeguard.
+
 ## Submitted-frame input
 
 `canvas-submitted-input` stages a two-row layout separately from drawing it. Its `submitted`

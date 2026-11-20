@@ -871,10 +871,10 @@ fn open_component_window(
             .is_none()
     );
     if let Err(error) = native.activate() {
+        native.close().unwrap();
         if let Some(window) = application.borrow_mut().windows.remove(&id) {
             window.dispose();
         }
-        native.close().unwrap();
         return Err(error.into());
     }
     Ok(id)

@@ -1,6 +1,30 @@
 use super::*;
 
 #[test]
+fn application_exit_closes_visible_title_bar_dialog() -> Result<()> {
+    process::run_closing("dialog-application", |ui| {
+        ui.invoke("open-window")?;
+        ui.element("queue-dialog")?;
+        ui.invoke("exit-application")
+    })
+}
+
+#[test]
+fn window_close_cancels_queued_dialog_with_another_window_alive() -> Result<()> {
+    process::run("dialog-application", |ui| {
+        ui.invoke("open-window")?;
+        ui.element("queue-dialog")?;
+        ui.invoke("queue-dialog")?;
+        ui.name("shutdown-state", "Queued true; closed false; drained false")?;
+        ui.gone("queued-dialog-content")?;
+        ui.invoke("close-dialog-window")?;
+        ui.name("shutdown-state", "Queued true; closed true; drained true")?;
+        ui.gone("queue-dialog")?;
+        ui.gone("queued-dialog-content")
+    })
+}
+
+#[test]
 fn title_bar_dialog_primary_button_closes_window() -> Result<()> {
     process::run_closing("dialog-shutdown", |ui| {
         ui.element("dialog-content")?;

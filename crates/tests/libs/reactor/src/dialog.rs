@@ -1,5 +1,199 @@
 use super::*;
 
+#[allow(dead_code, nonstandard_style, clippy::all)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "\\callback_bindings.rs"));
+}
+
+pub(super) struct ShutdownApplication {
+    queued: bool,
+    closed: bool,
+}
+
+#[derive(Clone, Copy)]
+pub(super) enum ShutdownMessage {
+    Open,
+    Queued,
+    Closed,
+    Exit,
+}
+
+impl Application for ShutdownApplication {
+    type Input = ();
+    type Message = ShutdownMessage;
+
+    fn create(_: &(), context: &ApplicationContext<Self>) -> Self {
+        context.show_window("main");
+        Self {
+            queued: false,
+            closed: false,
+        }
+    }
+
+    fn update(&mut self, message: ShutdownMessage, context: &ApplicationContext<Self>) {
+        match message {
+            ShutdownMessage::Open => context.show_window("dialog"),
+            ShutdownMessage::Queued => self.queued = true,
+            ShutdownMessage::Closed => self.closed = true,
+            ShutdownMessage::Exit => context.exit(),
+        }
+    }
+
+    fn view(&self, _: &(), context: &ApplicationViewContext<Self>) -> ApplicationView {
+        ApplicationView::new()
+            .window::<ShutdownController>("main", (self.queued, self.closed, context.forward()))
+            .window::<QueuedWindow>("dialog", context.forward())
+    }
+}
+
+struct ShutdownController(bool);
+
+impl Component for ShutdownController {
+    type Input = (bool, bool, Callback<ShutdownMessage>);
+    type Message = ();
+
+    fn create(_: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        Self(false)
+    }
+
+    fn update(&mut self, _: (), _: &ComponentContext<Self>) {
+        self.0 = true;
+    }
+
+    fn view(
+        &self,
+        (queued, closed, callback): &Self::Input,
+        context: &mut ViewContext<Self>,
+    ) -> View {
+        context.window_title("Reactor UI fixture: dialog-application");
+        let closed = *closed;
+        let completion = context.completion();
+        context.use_effect("closed", closed, move || {
+            if closed {
+                // Dialog completion queues Normal-priority work. Observe a later dispatcher turn
+                // while this window is still alive, rather than exiting with pending work.
+                let dispatcher = bindings::DispatcherQueue::GetForCurrentThread().unwrap();
+                assert!(
+                    dispatcher
+                        .TryEnqueueWithPriority(
+                            bindings::DispatcherQueuePriority::Low,
+                            &bindings::DispatcherQueueHandler::new(move || {
+                                assert!(completion.clone().complete(()));
+                            }),
+                        )
+                        .unwrap()
+                );
+            }
+            None
+        });
+        let open = callback.clone();
+        let exit = callback.clone();
+        StackPanel::new()
+            .margin(20.0)
+            .spacing(12.0)
+            .children((
+                Button::new()
+                    .automation_id("open-window")
+                    .content("Open dialog window")
+                    .on_click(move || open.call(ShutdownMessage::Open)),
+                Button::new()
+                    .automation_id("exit-application")
+                    .content("Exit application")
+                    .on_click(move || exit.call(ShutdownMessage::Exit)),
+                TextBlock::new()
+                    .automation_id("shutdown-state")
+                    .text(format!(
+                        "Queued {queued}; closed {closed}; drained {}",
+                        self.0
+                    )),
+            ))
+            .into()
+    }
+}
+
+struct QueuedWindow {
+    queued: bool,
+    callback: Callback<ShutdownMessage>,
+}
+
+#[derive(Clone, Copy)]
+enum QueuedMessage {
+    Queue,
+    Close,
+}
+
+impl Drop for QueuedWindow {
+    fn drop(&mut self) {
+        self.callback.call(ShutdownMessage::Closed);
+    }
+}
+
+impl Component for QueuedWindow {
+    type Input = Callback<ShutdownMessage>;
+    type Message = QueuedMessage;
+
+    fn create(callback: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        Self {
+            queued: false,
+            callback: callback.clone(),
+        }
+    }
+
+    fn update(&mut self, message: QueuedMessage, context: &ComponentContext<Self>) {
+        match message {
+            QueuedMessage::Queue => self.queued = true,
+            QueuedMessage::Close => assert!(context.close_window()),
+        }
+    }
+
+    fn view(&self, _: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let queued = self.queued;
+        let callback = self.callback.clone();
+        context.use_effect("queued", queued, move || {
+            if queued {
+                // Both owners are already loaded. Publish only after the second open request
+                // has been applied behind the visible first dialog.
+                callback.call(ShutdownMessage::Queued);
+            }
+            None
+        });
+        Grid::new()
+            .rows([GridLength::Auto, GridLength::STAR])
+            .children((
+                TitleBar::new()
+                    .title("Dialog shutdown")
+                    .content(Border::new()),
+                Border::new().grid_row(1).content_dialog(
+                    ContentDialog::new()
+                        .title("Queued dialog")
+                        .is_open(self.queued)
+                        .content(
+                            TextBlock::new()
+                                .automation_id("queued-dialog-content")
+                                .text("This dialog must not open during shutdown."),
+                        ),
+                ),
+            ))
+            .content_dialog(
+                ContentDialog::new()
+                    .title("Visible dialog")
+                    .is_open(true)
+                    .content(
+                        StackPanel::new().spacing(12.0).children((
+                            Button::new()
+                                .automation_id("queue-dialog")
+                                .content("Queue second dialog")
+                                .on_click(context.message(QueuedMessage::Queue)),
+                            Button::new()
+                                .automation_id("close-dialog-window")
+                                .content("Close window")
+                                .on_click(context.message(QueuedMessage::Close)),
+                        )),
+                    ),
+            )
+    }
+}
+
 pub(super) struct ShutdownFixture;
 
 impl Component for ShutdownFixture {

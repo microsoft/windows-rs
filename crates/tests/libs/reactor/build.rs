@@ -214,6 +214,7 @@ fn main() {
             "Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread",
             "Microsoft.UI.Dispatching.DispatcherQueueHandler",
             "Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal",
+            "Microsoft.UI.Dispatching.DispatcherQueuePriority.Low",
             "Microsoft.UI.Dispatching.IDispatcherQueue.TryEnqueueWithPriority",
         ])
         .flat()
