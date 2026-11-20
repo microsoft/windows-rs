@@ -650,10 +650,8 @@ impl Default for WinUiAdapter {
 
 impl Drop for WinUiAdapter {
     fn drop(&mut self) {
-        let hide = self.event_queue.content_dialogs.borrow_mut().reset();
-        for dialog in hide {
-            _ = dialog.Hide();
-        }
+        // The window has closed its popups. Hide would access their destroyed XamlRoot.
+        self.event_queue.content_dialogs.borrow_mut().reset();
         self.event_queue.events.borrow_mut().clear();
         self.observations.clear();
         for target in self.menus.keys().copied().collect::<Vec<_>>() {

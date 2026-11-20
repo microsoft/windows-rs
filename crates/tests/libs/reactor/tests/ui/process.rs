@@ -93,10 +93,22 @@ impl Drop for Host {
 }
 
 pub fn run(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> Result<()> {
+    run_with_shutdown(fixture, test, true)
+}
+
+pub fn run_closing(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> Result<()> {
+    run_with_shutdown(fixture, test, false)
+}
+
+fn run_with_shutdown(
+    fixture: &'static str,
+    test: fn(&Automation) -> Result<()>,
+    close_window: bool,
+) -> Result<()> {
     // Serialize this suite even when Cargo uses its default test-thread count.
     let _serial = SERIAL.lock().unwrap();
     let mut host = Host::spawn(fixture)?;
-    match drive(&mut host, fixture, test) {
+    match drive(&mut host, fixture, test, close_window) {
         Ok(()) => host.remove_logs(),
         Err(error) => {
             probe_windows(host.child.id());
@@ -202,6 +214,7 @@ fn drive(
     host: &mut Host,
     fixture: &'static str,
     test: fn(&Automation) -> Result<()>,
+    close_window: bool,
 ) -> Result<()> {
     let process = host.child.id();
     let cancelled = Arc::new(AtomicBool::new(false));
@@ -213,10 +226,21 @@ fn drive(
         let _com = Com::new()?;
         let ui = Automation::new(process, fixture, driver_cancelled, pressed, stderr)?;
         test(&ui)?;
-        ui.window_handle()
+        if close_window {
+            ui.window_handle()
+        } else {
+            Ok(0)
+        }
     });
     let deadline = Instant::now() + Duration::from_secs(30);
-    if let Err(error) = wait_driver(host, &driver, &cancelled, deadline, Duration::from_secs(5)) {
+    if let Err(error) = wait_driver(
+        host,
+        &driver,
+        &cancelled,
+        deadline,
+        Duration::from_secs(5),
+        !close_window,
+    ) {
         if driver.is_finished() {
             match driver.join() {
                 Ok(Ok(_)) => {}
@@ -237,14 +261,16 @@ fn drive(
     if *pointer.pressed.lock().unwrap() {
         return Err("UI test finished with an injected mouse button still pressed".into());
     }
-    unsafe {
-        let window = window as HWND;
-        let mut owner = 0;
-        GetWindowThreadProcessId(window, &mut owner);
-        if owner != process {
-            return Err("refusing to close another process's window".into());
+    if close_window {
+        unsafe {
+            let window = window as HWND;
+            let mut owner = 0;
+            GetWindowThreadProcessId(window, &mut owner);
+            if owner != process {
+                return Err("refusing to close another process's window".into());
+            }
+            PostMessageW(window, WM_CLOSE as u32, 0, 0).ok()?;
         }
-        PostMessageW(window, WM_CLOSE as u32, 0, 0).ok()?;
     }
     host.wait(deadline)?;
     Ok(())
@@ -278,7 +304,7 @@ fn drag_source_is_stopped_after_driver_failure() -> Result<()> {
 fn input_failure(fixture: &'static str, test: fn(&Automation) -> Result<()>) -> Result<()> {
     let serial = SERIAL.lock().unwrap();
     let mut host = Host::spawn(fixture)?;
-    let result = drive(&mut host, fixture, test);
+    let result = drive(&mut host, fixture, test, true);
     let deadline = Instant::now() + Duration::from_secs(5);
     while unsafe { GetAsyncKeyState(0x01) } & i16::MIN != 0 && Instant::now() < deadline {
         std::thread::sleep(Duration::from_millis(10));
@@ -301,10 +327,13 @@ fn wait_driver(
     cancelled: &AtomicBool,
     deadline: Instant,
     cleanup_timeout: Duration,
+    allow_exit: bool,
 ) -> Result<()> {
     let result: Result<()> = (|| {
         while !driver.is_finished() {
-            if let Some(status) = host.child.try_wait()? {
+            if let Some(status) = host.child.try_wait()?
+                && (!allow_exit || !status.success())
+            {
                 return Err(format!("fixture exited before the UI test finished: {status}").into());
             }
             if Instant::now() >= deadline {
@@ -373,7 +402,14 @@ fn driver_timeout(cooperative: bool) -> Result<()> {
     } else {
         Duration::from_millis(100)
     };
-    let result = wait_driver(&mut host, &driver, &cancelled, start + timeout, cleanup);
+    let result = wait_driver(
+        &mut host,
+        &driver,
+        &cancelled,
+        start + timeout,
+        cleanup,
+        false,
+    );
     let elapsed = start.elapsed();
     let finished = driver.is_finished();
     let status = host.child.try_wait();
@@ -450,7 +486,7 @@ fn hung_child_is_terminated() -> Result<()> {
 fn early_successful_exit_is_rejected() -> Result<()> {
     let serial = SERIAL.lock().unwrap();
     let mut host = Host::spawn("exit")?;
-    let result = drive(&mut host, "exit", |ui| ui.value("input", ""));
+    let result = drive(&mut host, "exit", |ui| ui.value("input", ""), true);
     host.stop()?;
     drop(serial);
     let error = result.unwrap_err();

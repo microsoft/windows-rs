@@ -20,6 +20,7 @@ pub struct NativeWindow {
 
 pub(super) struct NativeWindowState {
     window: native::Window,
+    event_queue: Weak<NativeEventQueue>,
     root: ObjectId,
     root_element: native::FrameworkElement,
     surface: native::Border,
@@ -439,6 +440,13 @@ impl NativeWindow {
         self.closed = Some(self.state.window.Closed(local::handler(move |_, _| {
             if let Some(state) = state.upgrade() {
                 state.closed.set(true);
+                if let Some(queue) = state.event_queue.upgrade() {
+                    // Cancel pending popup opens while Closed still has a live XamlRoot.
+                    let hide = queue.content_dialogs.borrow_mut().reset();
+                    for dialog in hide {
+                        dialog.Hide().unwrap();
+                    }
+                }
             }
             callback();
         }))?);
@@ -548,6 +556,7 @@ impl WinUiAdapter {
         window.SetContent(&surface)?;
         let state = Rc::new(NativeWindowState {
             window,
+            event_queue: Rc::downgrade(&self.event_queue),
             root: root_object,
             root_element: root.cast()?,
             surface,

@@ -333,6 +333,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "surface" => App::run_component::<surface::SurfaceFixture>(())?,
         "pane" => App::run_component::<pane::PaneFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
+        "dialog-shutdown" => App::run_component::<dialog::ShutdownFixture>(())?,
         "dialog-theme-light" => {
             App::run_component::<dialog_theme::DialogThemeFixture>((WindowTheme::Light, true))?;
         }

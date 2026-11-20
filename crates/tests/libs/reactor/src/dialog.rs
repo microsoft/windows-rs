@@ -1,5 +1,42 @@
 use super::*;
 
+pub(super) struct ShutdownFixture;
+
+impl Component for ShutdownFixture {
+    type Input = ();
+    type Message = ContentDialogResult;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn update(&mut self, _: ContentDialogResult, context: &ComponentContext<Self>) {
+        _ = context.close_window();
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Reactor UI fixture: dialog-shutdown");
+        Grid::new()
+            .rows([GridLength::Auto, GridLength::STAR])
+            .children((TitleBar::new()
+                .title("Reactor UI fixture: dialog-shutdown")
+                .content(Border::new()),))
+            .content_dialog(
+                ContentDialog::new()
+                    .title("Test")
+                    .content(
+                        TextBlock::new()
+                            .automation_id("dialog-content")
+                            .text("Closing the main window causes an access violation."),
+                    )
+                    .primary_button_text("OK")
+                    .close_button_text("Close")
+                    .on_closed(context.forward())
+                    .is_open(true),
+            )
+    }
+}
+
 pub(super) struct DialogFixture {
     open: bool,
     closed: u32,

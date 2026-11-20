@@ -62,6 +62,13 @@ A leading icon overlay checks pointer pass-through, interception, and default hi
 clearing the property. This does not test state-specific resource styling or resource-dictionary
 updates.
 
+## Dialog shutdown
+
+`dialog-shutdown` keeps a ContentDialog declared open beneath a TitleBar and closes its window
+from `on_closed`. Tests close the window directly and invoke each dialog button. They require
+successful process exit with the usual COM diagnostics, including when a dialog reopen is pending.
+Dialog cancellation must run before the window destroys its XamlRoot, not from adapter destruction.
+
 ## Submitted-frame input
 
 `canvas-submitted-input` stages a two-row layout separately from drawing it. Its `submitted`
