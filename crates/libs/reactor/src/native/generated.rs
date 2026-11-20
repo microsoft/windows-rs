@@ -2939,6 +2939,9 @@ impl GeneratedHandle {
             (ObjectType::TextBox, PropertyId::CornerRadius) => {
                 (native::Control::CornerRadiusProperty, Conversion::Value)
             }
+            (ObjectType::Button, PropertyId::Padding) => {
+                (native::Control::PaddingProperty, Conversion::Value)
+            }
             (ObjectType::Button, PropertyId::Background) => {
                 (native::Control::BackgroundProperty, Conversion::Value)
             }

@@ -329,6 +329,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "flyout" => App::run_component::<flyout::FlyoutFixture>(false)?,
         "flyout-dropdown" => App::run_component::<flyout::FlyoutFixture>(true)?,
         "smoke" => App::run_component::<smoke::SmokeFixture>(())?,
+        "button-padding" => App::run_component::<smoke::ButtonPaddingFixture>(())?,
         "scale" => App::run_component::<scale::ScaleFixture>(())?,
         "surface" => App::run_component::<surface::SurfaceFixture>(())?,
         "pane" => App::run_component::<pane::PaneFixture>(())?,

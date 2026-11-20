@@ -2278,6 +2278,17 @@ impl Button {
         let declaration = Declaration::new(ObjectType::Button);
         Self(declaration)
     }
+    pub fn padding(mut self, padding: impl Into<Thickness>) -> Self {
+        let padding = padding.into();
+        assert!(
+            padding.is_finite_non_negative(),
+            "Button.Padding requires finite_non_negative"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::Padding, PropertyValue::Thickness(padding));
+        self
+    }
     pub fn background(mut self, background: impl Into<Brush>) -> Self {
         self.0 = self.0.property(
             PropertyId::Background,
