@@ -1,6 +1,122 @@
 use super::*;
 
 #[test]
+fn nested_retirement_preserves_cleanup_drop_order_and_generation() -> Result<()> {
+    process::run("retirement-nested", |ui| {
+        ui.name("mounted", "Mounted 1")?;
+        let retained = ui.element("nested-5")?;
+        check_nested(ui, 1, "Created 6; cleaned 0; dropped 0")?;
+        ui.invoke("toggle")?;
+        ui.name("retired", "Retired 1")?;
+        check_nested(ui, 2, "Created 6; cleaned 5; dropped 5")?;
+        ui.invoke("toggle")?;
+        ui.name("mounted", "Mounted 2")?;
+        check_retired_senders(ui, &retained, 3, 11, 5)
+    })
+}
+
+#[test]
+fn virtual_key_removal_preserves_nested_cleanup_and_drop_order() -> Result<()> {
+    process::run("retirement-virtual", |ui| {
+        ui.name("nested-4", "Node 4")?;
+        let retained = ui.element("nested-5")?;
+        ui.invoke("check")?;
+        ui.name("checks", "Checks 1")?;
+        // WinUI can realize and recycle the first row during startup. Audit every lifetime.
+        let mounted = nested_count(ui, "mounted", "Mounted ")?;
+        let retired = nested_count(ui, "retired", "Retired ")?;
+        assert_eq!(mounted, retired + 1);
+        nested_snapshot(
+            ui,
+            1,
+            &format!(
+                "Created {}; cleaned {}; dropped {}",
+                mounted * 5 + 1,
+                retired * 5,
+                retired * 5
+            ),
+        )?;
+        let scroll = unsafe {
+            ui.element("rows")?
+                .GetCurrentPatternAs::<IUIAutomationScrollPattern>(10004)?
+        };
+        unsafe { scroll.SetScrollPercent(-1.0, 100.0).ok()? };
+        ui.name("row-199", "Row 199")?;
+        // Offscreen rows can remain realized. Removing the key requires retirement regardless.
+        ui.invoke("toggle")?;
+        ui.name("retired", &format!("Retired {}", retired + 1))?;
+        check_nested(
+            ui,
+            2,
+            &format!(
+                "Created {}; cleaned {}; dropped {}",
+                mounted * 5 + 1,
+                (retired + 1) * 5,
+                (retired + 1) * 5
+            ),
+        )?;
+        unsafe { scroll.SetScrollPercent(-1.0, 0.0).ok()? };
+        ui.name("row-1", "Row 1")?;
+        ui.invoke("toggle")?;
+        ui.name("nested-4", "Node 4")?;
+        ui.invoke("check")?;
+        ui.name("checks", "Checks 3")?;
+        let remounted = nested_count(ui, "mounted", "Mounted ")?;
+        let retired = nested_count(ui, "retired", "Retired ")?;
+        assert!(remounted > mounted);
+        assert_eq!(remounted, retired + 1);
+        nested_snapshot(
+            ui,
+            3,
+            &format!(
+                "Created {}; cleaned {}; dropped {}",
+                remounted * 5 + 1,
+                retired * 5,
+                retired * 5
+            ),
+        )?;
+        check_retired_senders(ui, &retained, 4, remounted * 5 + 1, retired * 5)
+    })
+}
+
+fn nested_count(ui: &Automation, id: &str, prefix: &str) -> Result<usize> {
+    let value = String::from_utf16(&unsafe { ui.element(id)?.CurrentName()? })?;
+    Ok(value.strip_prefix(prefix).unwrap().parse()?)
+}
+
+fn check_nested(ui: &Automation, check: usize, expected: &str) -> Result<()> {
+    ui.invoke("check")?;
+    nested_snapshot(ui, check, expected)
+}
+
+fn nested_snapshot(ui: &Automation, check: usize, expected: &str) -> Result<()> {
+    ui.name("checks", &format!("Checks {check}"))?;
+    assert_eq!(unsafe { ui.element("snapshot")?.CurrentName()? }, expected);
+    Ok(())
+}
+
+fn check_retired_senders(
+    ui: &Automation,
+    retained: &IUIAutomationElement,
+    check: usize,
+    created: usize,
+    retired: usize,
+) -> Result<()> {
+    ui.invoke("send-retired")?;
+    nested_snapshot(
+        ui,
+        check,
+        &format!("Created {created}; cleaned {retired}; dropped {retired}"),
+    )?;
+    assert!(unsafe {
+        ui.client
+            .CompareElements(retained, &ui.element("nested-5")?)?
+            .as_bool()
+    });
+    Ok(())
+}
+
+#[test]
 fn removal_transition_retires_callbacks_and_removes_native_child() -> Result<()> {
     process::run("retirement", |ui| {
         ui.name(

@@ -389,6 +389,8 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "events" => App::run_component::<events::EventsFixture>(())?,
         "resources" => App::run_component::<resources::ResourcesFixture>(())?,
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
+        "retirement-nested" => App::run_component::<retirement::NestedFixture>(false)?,
+        "retirement-virtual" => App::run_component::<retirement::NestedFixture>(true)?,
         "scroll" => App::run_component::<scroll::ScrollFixture>(())?,
         "scroll-layout" => App::run_component::<scroll::ScrollLayoutFixture>(false)?,
         "scroll-orientation" => App::run_component::<scroll::ScrollLayoutFixture>(true)?,

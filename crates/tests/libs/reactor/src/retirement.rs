@@ -1,5 +1,8 @@
 use super::*;
-use std::cell::Cell;
+use std::cell::{Cell, RefCell};
+use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::time::Duration;
 
 pub(super) struct RetirementFixture {
     target: ElementRef<Button>,
@@ -243,5 +246,377 @@ impl Drop for TrackedChild {
             "component dropped before effect cleanup"
         );
         self.scopes.dropped.set(self.scopes.dropped.get() + 1);
+    }
+}
+
+pub(super) struct NestedFixture {
+    state: Rc<NestedState>,
+    shown: bool,
+    mounted: usize,
+    retired: usize,
+    checks: usize,
+    snapshot: String,
+}
+
+#[derive(Clone, Copy)]
+pub(super) enum NestedMessage {
+    Toggle,
+    Mounted,
+    Retired,
+    Check,
+    SendRetired,
+}
+
+impl Component for NestedFixture {
+    type Input = bool;
+    type Message = NestedMessage;
+
+    fn create(_: &bool, _: &ComponentContext<Self>) -> Self {
+        Self {
+            state: Rc::default(),
+            shown: true,
+            mounted: 0,
+            retired: 0,
+            checks: 0,
+            snapshot: String::new(),
+        }
+    }
+
+    fn update(&mut self, message: NestedMessage, context: &ComponentContext<Self>) {
+        match message {
+            NestedMessage::Toggle => self.shown = !self.shown,
+            NestedMessage::Mounted => self.mounted += 1,
+            NestedMessage::Retired => self.retired += 1,
+            NestedMessage::Check => {
+                self.checks += 1;
+                self.snapshot = match self.state.check() {
+                    Ok((created, cleaned, dropped)) => {
+                        format!("Created {created}; cleaned {cleaned}; dropped {dropped}")
+                    }
+                    Err(error) => format!("{error}: {:?}", self.state.events.borrow()),
+                };
+            }
+            NestedMessage::SendRetired => {
+                for sender in self.state.retired_senders.borrow().iter() {
+                    assert!(sender.send(()));
+                }
+                // The check follows the stale messages in the same queue.
+                assert!(context.sender().send(NestedMessage::Check));
+            }
+        }
+    }
+
+    fn view(&self, virtual_rows: &bool, context: &mut ViewContext<Self>) -> View {
+        context.window_title(if *virtual_rows {
+            "Reactor UI fixture: retirement-virtual"
+        } else {
+            "Reactor UI fixture: retirement-nested"
+        });
+        context.window_visuals(WindowVisuals::new().client_size(600.0, 650.0));
+        let input = NestedInput {
+            node: 0,
+            parent: None,
+            state: self.state.clone(),
+            report: context.sender(),
+        };
+        let content = if *virtual_rows {
+            let first = usize::from(!self.shown);
+            ScrollViewer::new()
+                .automation_id("rows")
+                .height(220.0)
+                .content(ItemsRepeater::new().virtual_source(VirtualSource::new(
+                    first as u64,
+                    200 - first,
+                    move |index| index + first,
+                    move |index| {
+                        let index = index + first;
+                        if index == 0 {
+                            View::component::<NestedNode>(input.clone())
+                        } else {
+                            TextBlock::new()
+                                .automation_id(format!("row-{index}"))
+                                .text(format!("Row {index}"))
+                                .height(100.0)
+                                .into()
+                        }
+                    },
+                )))
+                .into()
+        } else if self.shown {
+            View::component::<NestedNode>(input)
+        } else {
+            TextBlock::new().text("Removed").into()
+        };
+        StackPanel::new()
+            .margin(20.0)
+            .spacing(8.0)
+            .children((
+                Button::new()
+                    .automation_id("toggle")
+                    .content("Toggle subtree")
+                    .on_click(context.message(NestedMessage::Toggle)),
+                Button::new()
+                    .automation_id("check")
+                    .content("Check lifetimes")
+                    .on_click(context.message(NestedMessage::Check)),
+                Button::new()
+                    .automation_id("send-retired")
+                    .content("Send to retired scopes")
+                    .on_click(context.message(NestedMessage::SendRetired)),
+                TextBlock::new()
+                    .automation_id("mounted")
+                    .text(format!("Mounted {}", self.mounted)),
+                TextBlock::new()
+                    .automation_id("retired")
+                    .text(format!("Retired {}", self.retired)),
+                TextBlock::new()
+                    .automation_id("checks")
+                    .text(format!("Checks {}", self.checks)),
+                TextBlock::new()
+                    .automation_id("snapshot")
+                    .text(self.snapshot.clone()),
+                component::<NestedNode>(
+                    "retained",
+                    NestedInput {
+                        node: 5,
+                        parent: None,
+                        state: self.state.clone(),
+                        report: context.sender(),
+                    },
+                ),
+                content,
+            ))
+            .into()
+    }
+}
+
+#[derive(Default)]
+struct NestedState {
+    parents: RefCell<Vec<Option<usize>>>,
+    events: RefCell<Vec<LifetimeEvent>>,
+    timers: RefCell<Vec<ComponentTimer>>,
+    retired_senders: RefCell<Vec<LocalSender<()>>>,
+}
+
+#[derive(Debug)]
+enum LifetimeEvent {
+    Setup(usize, u8),
+    Cleanup(usize, u8, bool),
+    Drop(usize),
+    Delivered(usize),
+}
+
+impl NestedState {
+    fn check(&self) -> Result<(usize, usize, usize), &'static str> {
+        #[derive(Default)]
+        struct Observed {
+            setup: Vec<u8>,
+            cleanup: Vec<(u8, usize)>,
+            dropped: Option<usize>,
+            delivered: bool,
+        }
+        let parents = self.parents.borrow();
+        let mut observed: Vec<Observed> = parents.iter().map(|_| Observed::default()).collect();
+        for (position, event) in self.events.borrow().iter().enumerate() {
+            match *event {
+                LifetimeEvent::Setup(id, effect) => observed[id].setup.push(effect),
+                LifetimeEvent::Cleanup(id, effect, cancelled) => {
+                    if !cancelled {
+                        return Err("timer payload survived until effect cleanup");
+                    }
+                    observed[id].cleanup.push((effect, position));
+                }
+                LifetimeEvent::Drop(id) => {
+                    if observed[id].dropped.replace(position).is_some() {
+                        return Err("component dropped twice");
+                    }
+                }
+                LifetimeEvent::Delivered(id) => {
+                    observed[id].delivered = true;
+                }
+            }
+        }
+        for (id, node) in observed.iter().enumerate() {
+            if node.delivered {
+                return Err("message reached a retired scope or its replacement");
+            }
+            if node.setup != [0, 1] {
+                return Err("effects were not set up exactly once");
+            }
+            if !node.cleanup.is_empty()
+                && node
+                    .cleanup
+                    .iter()
+                    .map(|(effect, _)| *effect)
+                    .collect::<Vec<_>>()
+                    != [1, 0]
+            {
+                return Err("effects were not cleaned exactly once in reverse order");
+            }
+            if let Some(dropped) = node.dropped
+                && node
+                    .cleanup
+                    .last()
+                    .is_none_or(|(_, cleanup)| *cleanup >= dropped)
+            {
+                return Err("component dropped before its cleanup");
+            }
+            if let Some(parent) = parents[id] {
+                let parent = &observed[parent];
+                if let Some((_, cleanup)) = node.cleanup.first()
+                    && parent
+                        .cleanup
+                        .last()
+                        .is_none_or(|(_, parent)| parent >= cleanup)
+                {
+                    return Err("child cleanup preceded parent cleanup");
+                }
+                if let Some(parent_drop) = parent.dropped
+                    && node
+                        .dropped
+                        .is_none_or(|child_drop| child_drop >= parent_drop)
+                {
+                    return Err("parent dropped before a child");
+                }
+            }
+        }
+        Ok((
+            observed.len(),
+            observed
+                .iter()
+                .filter(|node| !node.cleanup.is_empty())
+                .count(),
+            observed
+                .iter()
+                .filter(|node| node.dropped.is_some())
+                .count(),
+        ))
+    }
+}
+
+#[derive(Clone)]
+struct NestedInput {
+    node: u8,
+    parent: Option<usize>,
+    state: Rc<NestedState>,
+    report: LocalSender<NestedMessage>,
+}
+
+impl PartialEq for NestedInput {
+    fn eq(&self, other: &Self) -> bool {
+        self.node == other.node
+            && self.parent == other.parent
+            && Rc::ptr_eq(&self.state, &other.state)
+    }
+}
+
+struct PendingPayload(Arc<AtomicBool>);
+
+impl Drop for PendingPayload {
+    fn drop(&mut self) {
+        self.0.store(true, Ordering::SeqCst);
+    }
+}
+
+struct NestedNode {
+    input: NestedInput,
+    instance: usize,
+    cancelled: Arc<AtomicBool>,
+    sender: LocalSender<()>,
+}
+
+impl Component for NestedNode {
+    type Input = NestedInput;
+    type Message = ();
+
+    fn create(input: &NestedInput, context: &ComponentContext<Self>) -> Self {
+        let instance = input.state.parents.borrow().len();
+        input.state.parents.borrow_mut().push(input.parent);
+        let cancelled = Arc::new(AtomicBool::new(false));
+        let payload = PendingPayload(cancelled.clone());
+        let timer = context.set_local_timeout(Duration::from_secs(3_600), move || {
+            drop(payload);
+            panic!("pending retirement timer fired");
+        });
+        // The surviving fixture retains every timer across subtree retirement.
+        input.state.timers.borrow_mut().push(timer);
+        Self {
+            input: input.clone(),
+            instance,
+            cancelled,
+            sender: context.sender(),
+        }
+    }
+
+    fn update(&mut self, _: (), _: &ComponentContext<Self>) {
+        self.input
+            .state
+            .events
+            .borrow_mut()
+            .push(LifetimeEvent::Delivered(self.instance));
+    }
+
+    fn view(&self, _: &NestedInput, context: &mut ViewContext<Self>) -> View {
+        for effect in 0..2 {
+            let state = self.input.state.clone();
+            let instance = self.instance;
+            let cancelled = self.cancelled.clone();
+            let report = self.input.report.clone();
+            let node = self.input.node;
+            context.use_effect(effect as u32, (), move || {
+                state
+                    .events
+                    .borrow_mut()
+                    .push(LifetimeEvent::Setup(instance, effect));
+                if node == 0 && effect == 1 {
+                    assert!(report.send(NestedMessage::Mounted));
+                }
+                Some(Box::new(move || {
+                    state.events.borrow_mut().push(LifetimeEvent::Cleanup(
+                        instance,
+                        effect,
+                        cancelled.load(Ordering::SeqCst),
+                    ));
+                }))
+            });
+        }
+        let children: &[u8] = match self.input.node {
+            0 => &[1, 4],
+            1 => &[2, 3],
+            _ => &[],
+        };
+        let mut views = vec![
+            TextBlock::new()
+                .automation_id(format!("nested-{}", self.input.node))
+                .text(format!("Node {}", self.input.node))
+                .height(20.0)
+                .into(),
+        ];
+        views.extend(children.iter().map(|&node| {
+            View::component::<Self>(NestedInput {
+                node,
+                parent: Some(self.instance),
+                ..self.input.clone()
+            })
+        }));
+        StackPanel::new().children(views).into()
+    }
+}
+
+impl Drop for NestedNode {
+    fn drop(&mut self) {
+        self.input
+            .state
+            .events
+            .borrow_mut()
+            .push(LifetimeEvent::Drop(self.instance));
+        self.input
+            .state
+            .retired_senders
+            .borrow_mut()
+            .push(self.sender.clone());
+        if self.input.node == 0 {
+            _ = self.input.report.send(NestedMessage::Retired);
+        }
     }
 }
