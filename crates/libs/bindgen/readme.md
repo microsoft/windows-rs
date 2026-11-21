@@ -83,9 +83,9 @@ The bundled Win32 metadata uses `Windows.Win32`, not the umbrella crates' Cargo 
 | `.implement(name)` | Implementation traits for an interface |
 
 `sys` and `full` are mutually exclusive. Add any focused support crates referenced by the output.
-Implementation traits are omitted unless selected with `.implement(name)` or `.implement_all()`,
-except in `full` mode. Select the base or required interfaces too when implementing an interface
-hierarchy.
+Full mode adds implementation traits for interfaces not marked `ExclusiveTo`. Otherwise select them
+with `.implement(name)` or `.implement_all()`; an explicit selection also replaces the full-mode
+default. Select the base or required interfaces too when implementing an interface hierarchy.
 
 With no input, bindgen uses bundled Windows metadata. `.input("component.winmd")` replaces that
 default; add `.input_default()` when the component also references Windows definitions.

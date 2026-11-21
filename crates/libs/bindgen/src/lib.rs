@@ -412,7 +412,9 @@ impl Bindgen {
     /// Generate full-fidelity Rust bindings.
     ///
     /// Adds per-class wrapper methods, inherited interface forwarders, handle ergonomics,
-    /// free-function wrappers, and implementation traits for every interface.
+    /// free-function wrappers, and implementation traits for interfaces not marked `ExclusiveTo`.
+    /// Use [`Bindgen::implement`] or [`Bindgen::implement_all`] for `ExclusiveTo` interfaces; an
+    /// explicit selection replaces the full-mode default.
     ///
     /// Mutually exclusive with [`Bindgen::sys`].
     #[track_caller]
