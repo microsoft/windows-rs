@@ -564,11 +564,7 @@ impl ComponentHost {
         }
         for mut scope in scopes {
             scope.component.cancel_tasks();
-            for effect in scope.effects.iter_mut().rev() {
-                if let Some(cleanup) = effect.cleanup.take() {
-                    cleanup();
-                }
-            }
+            cleanup_effects(&mut scope.effects);
             drop(scope);
         }
     }

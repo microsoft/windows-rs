@@ -299,12 +299,15 @@ impl ComponentHost {
     }
 
     pub(super) fn retire_scope(&mut self, id: ComponentId) {
-        let children = self
-            .scope(id)
-            .map(|scope| scope.children.values().copied().collect::<Vec<_>>())
-            .unwrap_or_default();
-        for child in children {
-            self.retire_scope(child);
+        if let Some(scope) = self.scope_mut(id)
+            && !scope.children.is_empty()
+        {
+            let children = std::mem::take(&mut scope.children);
+            for &child in children.values() {
+                self.retire_scope(child);
+            }
+            // Drop child keys with the parent scope, before its component.
+            self.scope_mut(id).unwrap().children = children;
         }
         let slot = &mut self.scopes[id.index as usize];
         let Some(mut scope) = slot.scope.take() else {
