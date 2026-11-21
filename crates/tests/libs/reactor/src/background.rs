@@ -8,8 +8,9 @@ pub(super) struct BackgroundFixture {
     delivered: Vec<u32>,
     started: Vec<u32>,
     released: Vec<(u32, bool)>,
+    timers_released: Vec<u32>,
     release: Option<Sender<()>>,
-    retained: Option<ComponentTask>,
+    retained: Option<(ComponentTask, ComponentTimer)>,
     report: Rc<ComponentCompletion<Message>>,
     ui_thread: ThreadId,
 }
@@ -18,7 +19,8 @@ pub(super) enum Message {
     Delivered(u32),
     Started(u32),
     Released(u32, bool),
-    Armed(u32, Sender<()>, ComponentTask),
+    TimerReleased(u32),
+    Armed(u32, Sender<()>, ComponentTask, ComponentTimer),
     Replace,
     Release,
 }
@@ -33,6 +35,7 @@ impl Component for BackgroundFixture {
             delivered: Vec::new(),
             started: Vec::new(),
             released: Vec::new(),
+            timers_released: Vec::new(),
             release: None,
             retained: None,
             report: Rc::new(context.completion()),
@@ -46,10 +49,11 @@ impl Component for BackgroundFixture {
             Message::Delivered(generation) => self.delivered.push(generation),
             Message::Started(generation) => self.started.push(generation),
             Message::Released(generation, cancelled) => self.released.push((generation, cancelled)),
-            Message::Armed(generation, release, task) => {
+            Message::TimerReleased(generation) => self.timers_released.push(generation),
+            Message::Armed(generation, release, task, timer) => {
                 assert_eq!(generation, self.generation);
                 assert!(self.release.replace(release).is_none());
-                assert!(self.retained.replace(task).is_none());
+                assert!(self.retained.replace((task, timer)).is_none());
             }
             Message::Replace => {
                 assert!(self.retained.is_some());
@@ -78,9 +82,10 @@ impl Component for BackgroundFixture {
                 TextBlock::new()
                     .automation_id("started")
                     .text(format!("Started {:?}", self.started)),
-                TextBlock::new()
-                    .automation_id("released")
-                    .text(format!("Released {:?}", self.released)),
+                TextBlock::new().automation_id("released").text(format!(
+                    "Released {:?}; timers {:?}",
+                    self.released, self.timers_released
+                )),
                 StackPanel::new().keyed_children([keyed(
                     self.generation,
                     View::component::<Worker>(WorkerInput {
@@ -211,6 +216,23 @@ enum WorkerMessage {
     Completed,
     Start,
     Late(LateResult),
+    PendingTimer(TimerPayload),
+}
+
+struct TimerPayload {
+    generation: u32,
+    report: ComponentCompletion<Message>,
+}
+
+impl Drop for TimerPayload {
+    fn drop(&mut self) {
+        assert!(
+            self.report
+                .clone()
+                .complete(Message::TimerReleased(self.generation)),
+            "local timer payload release was rejected"
+        );
+    }
 }
 
 impl Component for Worker {
@@ -254,9 +276,18 @@ impl Component for Worker {
                         report: worker_report,
                     })
                 });
-                assert!(report.complete(Message::Armed(generation, release, task)));
+                let pending = TimerPayload {
+                    generation,
+                    report: report.clone(),
+                };
+                let timer = context.set_local_timeout(Duration::from_secs(3_600), move || {
+                    WorkerMessage::PendingTimer(pending)
+                });
+                // Keep both handles in the parent so their Drop cannot hide missing cancellation.
+                assert!(report.complete(Message::Armed(generation, release, task, timer)));
             }
             WorkerMessage::Late(_result) => panic!("retired worker result was delivered"),
+            WorkerMessage::PendingTimer(_payload) => panic!("pending local timer fired"),
         }
     }
 
