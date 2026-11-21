@@ -5,7 +5,7 @@ pub struct ComponentContext<'a, C: Component> {
     pub(super) reference: ElementRef,
     pub(super) local_sender: LocalSender<C::Message>,
     pub(super) services: Arc<ComponentServices>,
-    pub(super) tasks: Arc<Mutex<Vec<SyncWeak<TaskControl>>>>,
+    pub(super) tasks: Rc<RefCell<Vec<SyncWeak<TaskControl>>>>,
     pub(super) ui_services: Rc<WindowServices>,
 }
 
@@ -86,11 +86,7 @@ impl<C: Component> ComponentContext<'_, C> {
         delay: Duration,
         message: impl FnOnce() -> C::Message + Send + 'static,
     ) -> ComponentTimer {
-        let control = Arc::new(TaskControl::default());
-        let mut tasks = self.tasks.lock().unwrap();
-        tasks.retain(|task| task.strong_count() != 0);
-        tasks.push(Arc::downgrade(&control));
-        drop(tasks);
+        let control = self.register_task();
         let sender = self.local_sender.shared();
         let timer_control = Arc::clone(&control);
         let registration = self.services.set_timeout(
@@ -110,6 +106,14 @@ impl<C: Component> ComponentContext<'_, C> {
             task: ComponentTask { control },
         }
     }
+
+    fn register_task(&self) -> Arc<TaskControl> {
+        let control = Arc::new(TaskControl::default());
+        let mut tasks = self.tasks.borrow_mut();
+        tasks.retain(|task| task.strong_count() != 0);
+        tasks.push(Arc::downgrade(&control));
+        control
+    }
 }
 
 impl<C> ComponentContext<'_, C>
@@ -121,11 +125,7 @@ where
         &self,
         work: impl FnOnce(CancellationToken) -> C::Message + Send + 'static,
     ) -> ComponentTask {
-        let control = Arc::new(TaskControl::default());
-        let mut tasks = self.tasks.lock().unwrap();
-        tasks.retain(|task| task.strong_count() != 0);
-        tasks.push(Arc::downgrade(&control));
-        drop(tasks);
+        let control = self.register_task();
         let sender = self.local_sender.shared();
         let thread_control = Arc::clone(&control);
         self.services.spawn_background(Box::new(move || {
@@ -141,11 +141,7 @@ where
 
     #[must_use = "dropping the timer cancels message delivery"]
     pub fn set_timeout(&self, delay: Duration, message: C::Message) -> ComponentTimer {
-        let control = Arc::new(TaskControl::default());
-        let mut tasks = self.tasks.lock().unwrap();
-        tasks.retain(|task| task.strong_count() != 0);
-        tasks.push(Arc::downgrade(&control));
-        drop(tasks);
+        let control = self.register_task();
         let sender = self.local_sender.shared();
         let timer_control = Arc::clone(&control);
         let registration = self.services.set_timeout(
