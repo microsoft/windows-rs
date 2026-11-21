@@ -6,7 +6,7 @@ fn native_delegate_lifetime_and_shutdown() -> Result<()> {
 }
 
 #[test]
-fn background_completion_constructs_non_send_message_on_ui_thread() -> Result<()> {
+fn background_completion_preserves_message_order_and_ui_thread_construction() -> Result<()> {
     process::run("background", |ui| {
         ui.name("factory-result", "Waiting for factory")?;
         ui.invoke("factory-start")?;

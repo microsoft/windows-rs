@@ -4,7 +4,6 @@ pub struct ComponentContext<'a, C: Component> {
     pub(super) input: &'a C::Input,
     pub(super) reference: ElementRef,
     pub(super) local_sender: LocalSender<C::Message>,
-    pub(super) sender: ComponentSender<C::Message>,
     pub(super) services: Arc<ComponentServices>,
     pub(super) tasks: Arc<Mutex<Vec<SyncWeak<TaskControl>>>>,
     pub(super) ui_services: Rc<WindowServices>,
@@ -23,7 +22,7 @@ impl<C: Component> ComponentContext<'_, C> {
     }
 
     pub fn completion(&self) -> ComponentCompletion<C::Message> {
-        self.sender.completion()
+        self.local_sender.completion()
     }
 
     pub fn callback<T>(&self, map: impl Fn(T) -> C::Message + 'static) -> Callback<T> {
@@ -92,7 +91,7 @@ impl<C: Component> ComponentContext<'_, C> {
         tasks.retain(|task| task.strong_count() != 0);
         tasks.push(Arc::downgrade(&control));
         drop(tasks);
-        let sender = self.sender.clone();
+        let sender = self.local_sender.shared();
         let timer_control = Arc::clone(&control);
         let registration = self.services.set_timeout(
             delay,
@@ -127,7 +126,7 @@ where
         tasks.retain(|task| task.strong_count() != 0);
         tasks.push(Arc::downgrade(&control));
         drop(tasks);
-        let sender = self.sender.clone();
+        let sender = self.local_sender.shared();
         let thread_control = Arc::clone(&control);
         self.services.spawn_background(Box::new(move || {
             let message = work(CancellationToken {
@@ -147,7 +146,7 @@ where
         tasks.retain(|task| task.strong_count() != 0);
         tasks.push(Arc::downgrade(&control));
         drop(tasks);
-        let sender = self.sender.clone();
+        let sender = self.local_sender.shared();
         let timer_control = Arc::clone(&control);
         let registration = self.services.set_timeout(
             delay,
@@ -168,7 +167,6 @@ where
 pub struct ViewContext<C: Component> {
     pub(super) reference: ElementRef,
     pub(super) local_sender: LocalSender<C::Message>,
-    pub(super) sender: ComponentSender<C::Message>,
     pub(super) contexts: ContextEnvironment,
     pub(super) dependencies: HashSet<ContextId>,
     pub(super) effects: EffectDraft,
@@ -181,7 +179,7 @@ impl<C: Component> ViewContext<C> {
     }
 
     pub fn completion(&self) -> ComponentCompletion<C::Message> {
-        self.sender.completion()
+        self.local_sender.completion()
     }
 
     pub fn callback<T>(&self, map: impl Fn(T) -> C::Message + 'static) -> Callback<T> {

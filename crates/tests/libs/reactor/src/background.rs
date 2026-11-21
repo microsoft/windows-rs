@@ -105,10 +105,12 @@ impl Component for BackgroundFixture {
 struct LocalFactory {
     value: Rc<str>,
     owner: ThreadId,
+    order: Vec<u8>,
 }
 
 enum LocalFactoryMessage {
-    Start,
+    Start(ComponentCompletion<Self>),
+    Ordered(u8),
     Completed(Rc<str>),
 }
 
@@ -120,13 +122,18 @@ impl Component for LocalFactory {
         Self {
             value: Rc::from("Waiting for factory"),
             owner: thread::current().id(),
+            order: Vec::new(),
         }
     }
 
     fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
         assert_eq!(thread::current().id(), self.owner);
         match message {
-            LocalFactoryMessage::Start => {
+            LocalFactoryMessage::Start(view_completion) => {
+                self.order.clear();
+                assert!(context.sender().send(LocalFactoryMessage::Ordered(1)));
+                assert!(view_completion.complete_with(|| LocalFactoryMessage::Ordered(2)));
+                assert!(context.sender().send(LocalFactoryMessage::Ordered(3)));
                 let completion = context.completion();
                 let owner = self.owner;
                 assert!(
@@ -140,11 +147,16 @@ impl Component for LocalFactory {
                     .unwrap()
                 );
             }
-            LocalFactoryMessage::Completed(value) => self.value = value,
+            LocalFactoryMessage::Ordered(value) => self.order.push(value),
+            LocalFactoryMessage::Completed(value) => {
+                assert_eq!(self.order, [1, 2, 3]);
+                self.value = value;
+            }
         }
     }
 
     fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let completion = context.completion();
         StackPanel::new()
             .children((
                 TextBlock::new()
@@ -153,7 +165,9 @@ impl Component for LocalFactory {
                 Button::new()
                     .automation_id("factory-start")
                     .content("Submit message factory")
-                    .on_click(context.callback(|_| LocalFactoryMessage::Start)),
+                    .on_click(
+                        context.callback(move |_| LocalFactoryMessage::Start(completion.clone())),
+                    ),
             ))
             .into()
     }
