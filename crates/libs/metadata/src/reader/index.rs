@@ -42,6 +42,7 @@ impl Index {
     #[must_use]
     pub fn new_for_architecture(files: Vec<File>, architecture: i32) -> Self {
         // Build types first so `Apis` detection can inspect synthesized `TypeDef` values.
+        // Most names have one row, so per-name vectors start with capacity one.
         let mut types: HashMap<String, HashMap<String, Vec<(usize, usize)>>> = HashMap::new();
         let mut nested: HashMap<(usize, usize), Vec<usize>> = HashMap::new();
 
@@ -59,7 +60,7 @@ impl Index {
                     .entry(namespace.to_string())
                     .or_default()
                     .entry(trim_tick(name).to_string())
-                    .or_default()
+                    .or_insert_with(|| Vec::with_capacity(1))
                     .push((file_pos, def_pos));
             }
 
@@ -95,7 +96,7 @@ impl Index {
                         .entry(namespace.to_string())
                         .or_default()
                         .entry(method.name().to_string())
-                        .or_default()
+                        .or_insert_with(|| Vec::with_capacity(1))
                         .push(RawItem::Fn(ty.0.file, method.0.pos));
                 }
                 for field in ty
@@ -106,7 +107,7 @@ impl Index {
                         .entry(namespace.to_string())
                         .or_default()
                         .entry(field.name().to_string())
-                        .or_default()
+                        .or_insert_with(|| Vec::with_capacity(1))
                         .push(RawItem::Const(ty.0.file, field.0.pos));
                 }
             } else {
@@ -114,7 +115,7 @@ impl Index {
                     .entry(namespace.to_string())
                     .or_default()
                     .entry(name.to_string())
-                    .or_default()
+                    .or_insert_with(|| Vec::with_capacity(1))
                     .push(RawItem::Type(ty.0.file, ty.0.pos));
             }
         }

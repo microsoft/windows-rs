@@ -1,7 +1,11 @@
 use super::*;
 
 fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: Type) {
-    types.entry(name).or_default().push(ty);
+    // Most names have one definition, so avoid spare capacity in every entry.
+    types
+        .entry(name)
+        .or_insert_with(|| Vec::with_capacity(1))
+        .push(ty);
 }
 
 fn has_numerics(index: &windows_metadata::reader::Index) -> bool {
