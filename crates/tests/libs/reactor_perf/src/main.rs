@@ -1,5 +1,6 @@
 #![windows_subsystem = "windows"]
 
+mod contexts;
 mod tasks;
 
 use std::alloc::{GlobalAlloc, Layout, System};
@@ -18,6 +19,7 @@ const TOTAL_ITEMS: usize = COLUMNS * ROWS;
 
 static ALLOCATIONS: AtomicU64 = AtomicU64::new(0);
 static ALLOCATED_BYTES: AtomicU64 = AtomicU64::new(0);
+static LIVE_BYTES: AtomicU64 = AtomicU64::new(0);
 
 struct CountingAllocator;
 
@@ -27,11 +29,13 @@ unsafe impl GlobalAlloc for CountingAllocator {
         if !pointer.is_null() {
             ALLOCATIONS.fetch_add(1, Ordering::Relaxed);
             ALLOCATED_BYTES.fetch_add(layout.size() as u64, Ordering::Relaxed);
+            LIVE_BYTES.fetch_add(layout.size() as u64, Ordering::Relaxed);
         }
         pointer
     }
 
     unsafe fn dealloc(&self, pointer: *mut u8, layout: Layout) {
+        LIVE_BYTES.fetch_sub(layout.size() as u64, Ordering::Relaxed);
         unsafe { System.dealloc(pointer, layout) };
     }
 
@@ -41,6 +45,13 @@ unsafe impl GlobalAlloc for CountingAllocator {
             ALLOCATIONS.fetch_add(1, Ordering::Relaxed);
             ALLOCATED_BYTES.fetch_add((size - layout.size()) as u64, Ordering::Relaxed);
         }
+        if !pointer.is_null() {
+            if size >= layout.size() {
+                LIVE_BYTES.fetch_add((size - layout.size()) as u64, Ordering::Relaxed);
+            } else {
+                LIVE_BYTES.fetch_sub((layout.size() - size) as u64, Ordering::Relaxed);
+            }
+        }
         pointer
     }
 }
@@ -49,8 +60,17 @@ unsafe impl GlobalAlloc for CountingAllocator {
 static GLOBAL: CountingAllocator = CountingAllocator;
 
 #[derive(Clone, Copy, PartialEq)]
+enum Workload {
+    Grid,
+    Tasks,
+    Contexts,
+}
+
+#[derive(Clone, Copy, PartialEq)]
 struct Options {
-    tasks: bool,
+    workload: Workload,
+    context_count: usize,
+    provider_depth: usize,
     count: usize,
     cycles: usize,
     duration: Duration,
@@ -62,7 +82,9 @@ struct Options {
 impl Options {
     fn parse() -> Self {
         let mut options = Self {
-            tasks: false,
+            workload: Workload::Grid,
+            context_count: 16,
+            provider_depth: 0,
             count: 1_000,
             cycles: 20,
             duration: Duration::from_secs(10),
@@ -74,14 +96,19 @@ impl Options {
         while let Some(argument) = arguments.next() {
             match argument.as_str() {
                 "--workload" => {
-                    options.tasks = match arguments.next().unwrap().as_str() {
-                        "grid" => false,
-                        "tasks" => true,
+                    options.workload = match arguments.next().unwrap().as_str() {
+                        "grid" => Workload::Grid,
+                        "tasks" => Workload::Tasks,
+                        "contexts" => Workload::Contexts,
                         value => panic!("unknown workload: {value}"),
                     };
                 }
                 "--count" => options.count = arguments.next().unwrap().parse().unwrap(),
                 "--cycles" => options.cycles = arguments.next().unwrap().parse().unwrap(),
+                "--contexts" => options.context_count = arguments.next().unwrap().parse().unwrap(),
+                "--provider-depth" => {
+                    options.provider_depth = arguments.next().unwrap().parse().unwrap();
+                }
                 "--duration" => {
                     options.duration =
                         Duration::from_secs(arguments.next().unwrap().parse().unwrap());
@@ -99,6 +126,10 @@ impl Options {
         assert!(!options.duration.is_zero(), "duration must be positive");
         assert!(options.count >= 2, "count must be at least two");
         assert!(options.cycles > 0, "cycles must be positive");
+        assert!(
+            options.provider_depth <= options.context_count,
+            "provider depth exceeds context count"
+        );
         options
     }
 }
@@ -663,9 +694,10 @@ fn report_path(extension: &str) -> std::path::PathBuf {
 
 fn main() {
     let options = Options::parse();
-    if options.tasks {
-        tasks::run(options);
-        return;
+    match options.workload {
+        Workload::Tasks => return tasks::run(options),
+        Workload::Contexts => return contexts::run(options),
+        Workload::Grid => {}
     }
     App::run_component_with_policy::<StockGrid>(
         options,

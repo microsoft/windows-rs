@@ -4443,23 +4443,23 @@ impl core::convert::From<windows_reactor::Viewbox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Viewbox) -> Self
 impl core::convert::From<windows_reactor::WebView2> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::WebView2) -> Self
-pub struct windows_reactor::ViewContext<'a, C: windows_reactor::Component>
-impl<C: windows_reactor::Component> windows_reactor::ViewContext<'_, C>
-pub fn windows_reactor::ViewContext<'_, C>::callback<T>(&self, impl core::ops::function::Fn(T) -> <C as windows_reactor::Component>::Message + 'static) -> windows_reactor::Callback<T>
-pub fn windows_reactor::ViewContext<'_, C>::completion(&self) -> windows_reactor::ComponentCompletion<<C as windows_reactor::Component>::Message>
-pub fn windows_reactor::ViewContext<'_, C>::forward(&self) -> windows_reactor::Callback<<C as windows_reactor::Component>::Message>
-pub fn windows_reactor::ViewContext<'_, C>::message(&self, <C as windows_reactor::Component>::Message) -> windows_reactor::Callback<()> where <C as windows_reactor::Component>::Message: core::clone::Clone
-pub fn windows_reactor::ViewContext<'_, C>::on_color_scheme(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::ColorScheme>)
-pub fn windows_reactor::ViewContext<'_, C>::on_window_placement(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::WindowPlacement>)
-pub fn windows_reactor::ViewContext<'_, C>::on_window_size(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::WindowSize>)
-pub fn windows_reactor::ViewContext<'_, C>::root(&self) -> windows_reactor::ElementRef
-pub fn windows_reactor::ViewContext<'_, C>::sender(&self) -> windows_reactor::LocalSender<<C as windows_reactor::Component>::Message>
-pub fn windows_reactor::ViewContext<'_, C>::use_context<T: core::clone::Clone + 'static>(&mut self, &windows_reactor::Context<T>) -> T
-pub fn windows_reactor::ViewContext<'_, C>::use_effect<D>(&mut self, impl core::convert::Into<windows_reactor::EffectKey>, D, impl core::ops::function::FnOnce() -> core::option::Option<alloc::boxed::Box<dyn core::ops::function::FnOnce()>> + 'static) where D: core::cmp::PartialEq + 'static
-pub fn windows_reactor::ViewContext<'_, C>::use_effect_guard<D, G>(&mut self, impl core::convert::Into<windows_reactor::EffectKey>, D, impl core::ops::function::FnOnce() -> G + 'static) where D: core::cmp::PartialEq + 'static, G: 'static
-pub fn windows_reactor::ViewContext<'_, C>::window_frame(&mut self, impl core::convert::Into<alloc::string::String>, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::ViewContext<'_, C>::window_title(&mut self, impl core::convert::Into<alloc::string::String>)
-pub fn windows_reactor::ViewContext<'_, C>::window_visuals(&mut self, windows_reactor::WindowVisuals)
+pub struct windows_reactor::ViewContext<C: windows_reactor::Component>
+impl<C: windows_reactor::Component> windows_reactor::ViewContext<C>
+pub fn windows_reactor::ViewContext<C>::callback<T>(&self, impl core::ops::function::Fn(T) -> <C as windows_reactor::Component>::Message + 'static) -> windows_reactor::Callback<T>
+pub fn windows_reactor::ViewContext<C>::completion(&self) -> windows_reactor::ComponentCompletion<<C as windows_reactor::Component>::Message>
+pub fn windows_reactor::ViewContext<C>::forward(&self) -> windows_reactor::Callback<<C as windows_reactor::Component>::Message>
+pub fn windows_reactor::ViewContext<C>::message(&self, <C as windows_reactor::Component>::Message) -> windows_reactor::Callback<()> where <C as windows_reactor::Component>::Message: core::clone::Clone
+pub fn windows_reactor::ViewContext<C>::on_color_scheme(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::ColorScheme>)
+pub fn windows_reactor::ViewContext<C>::on_window_placement(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::WindowPlacement>)
+pub fn windows_reactor::ViewContext<C>::on_window_size(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::WindowSize>)
+pub fn windows_reactor::ViewContext<C>::root(&self) -> windows_reactor::ElementRef
+pub fn windows_reactor::ViewContext<C>::sender(&self) -> windows_reactor::LocalSender<<C as windows_reactor::Component>::Message>
+pub fn windows_reactor::ViewContext<C>::use_context<T: core::clone::Clone + 'static>(&mut self, &windows_reactor::Context<T>) -> T
+pub fn windows_reactor::ViewContext<C>::use_effect<D>(&mut self, impl core::convert::Into<windows_reactor::EffectKey>, D, impl core::ops::function::FnOnce() -> core::option::Option<alloc::boxed::Box<dyn core::ops::function::FnOnce()>> + 'static) where D: core::cmp::PartialEq + 'static
+pub fn windows_reactor::ViewContext<C>::use_effect_guard<D, G>(&mut self, impl core::convert::Into<windows_reactor::EffectKey>, D, impl core::ops::function::FnOnce() -> G + 'static) where D: core::cmp::PartialEq + 'static, G: 'static
+pub fn windows_reactor::ViewContext<C>::window_frame(&mut self, impl core::convert::Into<alloc::string::String>, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
+pub fn windows_reactor::ViewContext<C>::window_title(&mut self, impl core::convert::Into<alloc::string::String>)
+pub fn windows_reactor::ViewContext<C>::window_visuals(&mut self, windows_reactor::WindowVisuals)
 pub struct windows_reactor::Viewbox(_)
 impl windows_reactor::Viewbox
 pub fn windows_reactor::Viewbox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
@@ -4655,7 +4655,7 @@ pub type windows_reactor::Component::Message: 'static
 pub fn windows_reactor::Component::create(&Self::Input, &windows_reactor::ComponentContext<'_, Self>) -> Self
 pub fn windows_reactor::Component::input_changed(&mut self, &Self::Input, &windows_reactor::ComponentContext<'_, Self>)
 pub fn windows_reactor::Component::update(&mut self, Self::Message, &windows_reactor::ComponentContext<'_, Self>)
-pub fn windows_reactor::Component::view(&self, &Self::Input, &mut windows_reactor::ViewContext<'_, Self>) -> windows_reactor::View
+pub fn windows_reactor::Component::view(&self, &Self::Input, &mut windows_reactor::ViewContext<Self>) -> windows_reactor::View
 pub trait windows_reactor::ContentDialogExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
 pub fn windows_reactor::ContentDialogExt::content_dialog(self, windows_reactor::ContentDialog) -> windows_reactor::View
 impl<T> windows_reactor::ContentDialogExt for T where T: core::convert::Into<windows_reactor::View>
