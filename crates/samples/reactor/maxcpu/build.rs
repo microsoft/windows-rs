@@ -13,6 +13,5 @@ fn main() {
             "MEM_RELEASE",
             "PAGE_READWRITE",
         ])
-        .minimal()
         .write();
 }

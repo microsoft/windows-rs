@@ -188,8 +188,8 @@ After regenerating, verify: `cargo check -p <affected-crate> --quiet`.
 - `windows-core` is the foundation - almost everything depends on it.
 - `windows` is the umbrella crate that re-exports from `windows-core`, `windows-numerics`,
   `windows-time`, `windows-collections`, `windows-reference`, etc.
-- `windows-reactor` depends on `windows-core` (not `windows`) and uses minimal bindings generated
-  with `--minimal` mode.
+- `windows-reactor` depends on `windows-core` (not `windows`) and uses bindgen's default minimal
+  bindings.
 - `windows-canvas` similarly uses minimal bindings for D2D/DXGI/WIC.
 - `windows-text` wraps DirectWrite fonts and text layout with its own minimal bindings. Canvas
   depends on it, re-exports its text types and `Rect`, and casts with `to_interface` to its own

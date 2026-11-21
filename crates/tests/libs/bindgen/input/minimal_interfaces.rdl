@@ -1,4 +1,4 @@
-//! --filter Test --minimal --dead-code
+//! --filter Test --dead-code
 #[win32]
 mod Test {
     mod Native {

@@ -1,4 +1,4 @@
-//! --filter Test --minimal
+//! --filter Test
 #[winrt]
 mod Test {
     #[guid(auto)]

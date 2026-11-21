@@ -1,5 +1,5 @@
 //! --filter Test.Explicit::Close --filter Test.Producer::GetClose --filter Test.Stream::Read
-//! --filter Test.Unrelated::Value --filter Test.IWhole --filter Test.IGeneric --minimal
+//! --filter Test.Unrelated::Value --filter Test.IWhole --filter Test.IGeneric
 // A required interface used as a signature dependency must not add hierarchy edges to unrelated
 // selected types. Required interfaces that were not selected remain omitted in precise minimal
 // mode.

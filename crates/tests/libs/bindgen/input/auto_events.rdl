@@ -1,4 +1,4 @@
-//! --filter Test.IFoo --minimal
+//! --filter Test.IFoo
 #[winrt]
 mod Test {
     #[guid(auto)]

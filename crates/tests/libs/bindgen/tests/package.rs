@@ -9,7 +9,7 @@ fn associated_enum_method_features() {
         .write()
         .unwrap();
     let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\libs\\core");
-    for style in ["rich", "minimal"] {
+    for style in ["full", "minimal"] {
         let output = scratch.join(style);
         std::fs::create_dir_all(output.join("src")).unwrap();
         let manifest = output.join("Cargo.toml");
@@ -31,8 +31,10 @@ fn associated_enum_method_features() {
             .filter("Windows.Win32")
             .package()
             .output(&output);
-        if style == "minimal" {
-            builder.minimal().implement("Windows.Win32.Api.I");
+        if style == "full" {
+            builder.full();
+        } else {
+            builder.implement("Windows.Win32.Api.I");
         }
         builder.write();
         std::fs::write(
@@ -117,12 +119,12 @@ fn run(targets: &[Option<&str>]) {
         .write()
         .unwrap();
     let libraries = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\libs");
-    for style in ["rich", "minimal", "sys", "extern"] {
+    for style in ["full", "minimal", "sys", "extern"] {
         let output = scratch.join(style);
         std::fs::create_dir_all(output.join("src")).unwrap();
         let manifest = output.join("Cargo.toml");
         let dependencies = match style {
-            "rich" | "minimal" => format!(
+            "full" | "minimal" => format!(
                 "windows-core = {{ path = '{}' }}\n",
                 libraries.join("core").display()
             ),
@@ -150,8 +152,8 @@ fn run(targets: &[Option<&str>]) {
             .package()
             .output(&output);
         match style {
-            "minimal" => {
-                builder.minimal();
+            "full" => {
+                builder.full();
             }
             "sys" => {
                 builder.sys();

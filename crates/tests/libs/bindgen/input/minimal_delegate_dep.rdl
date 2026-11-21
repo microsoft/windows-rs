@@ -1,4 +1,4 @@
-//! --filter Test.Sink::Subscribe --minimal
+//! --filter Test.Sink::Subscribe
 // Drives the Delegate branch of minimal_type_map.rs combine_minimal: the
 // requested method's signature references a delegate, whose Invoke signature is
 // walked to pull in its own dependencies under the minimal closure.

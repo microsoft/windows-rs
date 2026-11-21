@@ -2,7 +2,6 @@ fn main() {
     windows_bindgen::builder()
         .input("../../../tools/reactor-metadata/winmd")
         .input_default()
-        .minimal()
         .filters([
             "Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread",
             "Microsoft.UI.Dispatching.DispatcherQueueHandler",

@@ -1,6 +1,6 @@
 //! --filter Test::IOuter --sys
 // Same referenced-type closure as `type_closure`, exercised in `--sys` style to
-// confirm the behaviour is style-independent (sys is not `--minimal`).
+// confirm the behaviour is style-independent (sys is not minimal).
 #[win32]
 mod Test {
     #[guid(auto)]

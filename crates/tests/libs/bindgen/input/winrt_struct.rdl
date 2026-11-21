@@ -1,4 +1,4 @@
-//! --filter Test
+//! --filter Test --full
 #[winrt]
 mod Test {
     struct Struct {

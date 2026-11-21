@@ -66,6 +66,5 @@ fn main() {
             "TokenUser",
             "VerQueryValueW",
         ])
-        .minimal()
         .write();
 }

@@ -1,4 +1,4 @@
-//! --filter Windows.Foundation.Collections.IIterable::{}
+//! --filter Windows.Foundation.Collections.IIterable::{} --full
 //! --filter Windows.Foundation.Collections.IIterator::{}
 #[winrt]
 mod Windows {
