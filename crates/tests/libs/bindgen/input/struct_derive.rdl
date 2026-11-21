@@ -1,4 +1,4 @@
-//! --filter Test --derive Test.Struct=Eq,Hash
+//! --filter Test --derive Test.Struct=Eq,Hash --full
 #[win32]
 mod Test {
     struct Struct {

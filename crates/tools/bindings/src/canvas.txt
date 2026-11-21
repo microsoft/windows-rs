@@ -1,5 +1,5 @@
 --out crates/libs/canvas/src/bindings.rs
---minimal --dead-code
+--dead-code
 
 --filter
     D2D1_ANTIALIAS_MODE_ALIASED

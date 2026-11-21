@@ -4,7 +4,6 @@ fn main() {
         .input("../../../tools/reactor-metadata/winmd")
         .input_default()
         .output(bindings)
-        .minimal()
         .filters([
             "Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread",
             "Microsoft.UI.Dispatching.DispatcherQueueHandler",

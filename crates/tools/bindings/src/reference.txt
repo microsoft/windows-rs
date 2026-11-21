@@ -1,5 +1,4 @@
 --out crates/libs/reference/src/bindings.rs
---minimal
 --implement
     Windows.Foundation.IPropertyValue
     Windows.Foundation.IReference

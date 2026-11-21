@@ -1,4 +1,4 @@
-//! --filter Test.Interface::Method --minimal
+//! --filter Test.Interface::Method
 #[winrt]
 mod Test {
     struct Struct {

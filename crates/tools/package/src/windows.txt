@@ -1,4 +1,5 @@
 --out crates/libs/windows
+--full
 --in target/package
 --package
 --rustfmt max_width=800,newline_style=Unix

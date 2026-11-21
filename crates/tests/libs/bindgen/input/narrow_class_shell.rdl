@@ -1,4 +1,4 @@
-//! --filter Test.ISource::GetWidget
+//! --filter Test.ISource::GetWidget --full
 #[winrt]
 mod Windows {
     mod Foundation {

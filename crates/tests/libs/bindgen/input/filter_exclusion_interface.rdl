@@ -1,4 +1,4 @@
-//! --filter Test.IKept::Read Test.IRemoved Test.IMember::Read Test.IShell::{}
+//! --filter Test.IKept::Read Test.IRemoved Test.IMember::Read Test.IShell::{} --full
 //! --filter !Test::{IRemoved,IMember,IShell}
 #[winrt]
 mod Test {

@@ -1,4 +1,4 @@
-//! --filter Test TestNative
+//! --filter Test TestNative --full
 #[winrt]
 mod Test {
     #[guid(auto)]

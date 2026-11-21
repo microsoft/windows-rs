@@ -48,6 +48,5 @@ fn main() {
             "WM_DPICHANGED",
             "WM_MOUSEWHEEL",
         ])
-        .minimal()
         .write();
 }

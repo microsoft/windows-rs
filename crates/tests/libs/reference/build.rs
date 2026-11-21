@@ -1,4 +1,4 @@
-// Generates `src/bindings.rs` with the regular (non-minimal) `IPropertyValue`
+// Generates `src/bindings.rs` with the full `IPropertyValue`
 // bindings so the ABI conformance test in `tests/stock_reference.rs` exercises
 // the stock `IReference<T>` implementation against bindgen-emitted safe wrappers
 // (`Type()`, `IsNumericScalar()`, and typed `Get*()` accessors) rather than a
@@ -12,6 +12,7 @@ fn main() {
         "default",
         "--out",
         "src/bindings.rs",
+        "--full",
         "--filter",
         "Windows.Foundation.DateTime",
         "Windows.Foundation.IPropertyValue",

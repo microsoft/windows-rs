@@ -517,7 +517,7 @@ mod tests {
                 &mut filter,
                 &References::default(),
                 None,
-                Style::Default,
+                Style::Full,
             );
 
             assert!(!types.contains_key(excluded), "{entries:?}");
@@ -545,7 +545,7 @@ mod tests {
                 &mut filter,
                 &References::default(),
                 None,
-                Style::Default,
+                Style::Full,
             );
 
             assert!(types.contains_key(&TypeName("Windows.Foundation", "DateTime")));

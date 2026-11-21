@@ -648,7 +648,7 @@ fn sdk_constant_groups() {
         index.expect("Fixture", "ADDRESS_FAMILY").underlying_type(),
         Some(windows_metadata::Type::U16)
     );
-    for style in ["default", "minimal", "sys"] {
+    for style in ["full", "minimal", "sys"] {
         let rust = winmd.with_extension(format!("{style}.rs"));
         let mut builder = windows_bindgen::builder();
         builder
@@ -656,8 +656,8 @@ fn sdk_constant_groups() {
             .filter("Fixture.Selected")
             .output(&rust);
         match style {
-            "minimal" => {
-                builder.minimal();
+            "full" => {
+                builder.full();
             }
             "sys" => {
                 builder.sys();

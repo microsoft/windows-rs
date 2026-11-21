@@ -8,9 +8,9 @@ fn main() -> Result<()> {
     init_mta()?;
 
     unsafe {
-        let mut backup = None;
+        let mut backup = core::ptr::null_mut();
         CreateVssBackupComponentsInternal(&mut backup).ok()?;
-        let backup = backup.unwrap();
+        let backup = IVssBackupComponents::from_raw(backup);
         backup.InitializeForBackup(&BSTR::new()).ok()?;
         backup.SetBackupState(true, true, VSS_BT_FULL, false).ok()?;
 

@@ -13,7 +13,6 @@ fn narrow_event_delegates_respect_dead_code() {
     windows_bindgen::builder()
         .input(&winmd)
         .filter("Test.ISource::Changed")
-        .minimal()
         .dead_code()
         .output(scratch.join("bindings.rs"))
         .write();
@@ -92,8 +91,8 @@ fn delegate_thread_safety() {
             .input(&winmd)
             .filter("Test")
             .output(scratch.join("bindings.rs"));
-        if minimal {
-            builder.minimal();
+        if !minimal {
+            builder.full();
         }
         builder.write();
         for event in [false, true] {
@@ -176,7 +175,6 @@ fn minimal_interface_implementation_selection() {
         builder
             .input(&winmd)
             .filter("Test")
-            .minimal()
             .dead_code()
             .output(&output);
         match selection {
@@ -269,8 +267,8 @@ pub fn runtime(
             .input(&winmd)
             .filter("Test")
             .output(scratch.join("bindings.rs"));
-        if minimal {
-            builder.minimal();
+        if !minimal {
+            builder.full();
         }
         if dead_code {
             builder.dead_code();
@@ -339,7 +337,6 @@ pub fn annotated() -> windows_core::ScopedInterface<'static, bindings::I> {
                 "Test.Runtime.RuntimeDerived::{}",
                 "Windows.Win32.Api.I::{}",
             ])
-            .minimal()
             .dead_code()
             .output(scratch.join("bindings.rs"));
         if all {
@@ -367,7 +364,7 @@ fn associated_enum_method_filtering() {
         .output(&winmd)
         .write()
         .unwrap();
-    for style in ["default", "minimal", "minimal_implement_all", "sys"] {
+    for style in ["full", "minimal", "minimal_implement_all", "sys"] {
         for root in [
             "Windows.Win32",
             "Windows.Win32.Api.I",
@@ -380,11 +377,11 @@ fn associated_enum_method_filtering() {
                 builder.filter("!Windows.Win32.Values.Options");
             }
             match style {
-                "minimal" => {
-                    builder.minimal();
+                "full" => {
+                    builder.full();
                 }
                 "minimal_implement_all" => {
-                    builder.minimal().implement_all();
+                    builder.implement_all();
                 }
                 "sys" => {
                     builder.sys();
@@ -429,7 +426,7 @@ fn associated_enum_dependencies() {
         .output(&winmd)
         .write()
         .unwrap();
-    for style in ["default", "minimal", "sys"] {
+    for style in ["full", "minimal", "sys"] {
         for (root, dependency) in [
             ("Duplicate", "Options"),
             ("Socket", "Family"),
@@ -445,8 +442,8 @@ fn associated_enum_dependencies() {
                 .filter(&format!("Test.{root}"))
                 .output(&output);
             match style {
-                "minimal" => {
-                    builder.minimal();
+                "full" => {
+                    builder.full();
                 }
                 "sys" => {
                     builder.sys();
@@ -477,7 +474,7 @@ fn minimal_abi_dependency_styles() {
         .output(&winmd)
         .write()
         .unwrap();
-    for style in ["default", "minimal", "sys"] {
+    for style in ["full", "minimal", "sys"] {
         for selection in [
             None,
             Some("ValueChain"),
@@ -495,8 +492,8 @@ fn minimal_abi_dependency_styles() {
                 builder.filter(&format!("Test.{selection}"));
             }
             match style {
-                "minimal" => {
-                    builder.minimal();
+                "full" => {
+                    builder.full();
                 }
                 "sys" => {
                     builder.sys();
@@ -569,7 +566,7 @@ fn nested_dependency_styles() {
         .output(&winmd)
         .write()
         .unwrap();
-    for style in ["default", "minimal", "sys"] {
+    for style in ["full", "minimal", "sys"] {
         for (flat, filter) in [
             (false, "Consumer.Value"),
             (true, "Consumer.Value"),
@@ -579,8 +576,8 @@ fn nested_dependency_styles() {
             let mut builder = windows_bindgen::builder();
             builder.input(&winmd).filter(filter).output(&output);
             match style {
-                "minimal" => {
-                    builder.minimal();
+                "full" => {
+                    builder.full();
                 }
                 "sys" => {
                     builder.sys();
@@ -625,7 +622,7 @@ fn fixed_pointer_styles() {
         .output(&winmd)
         .write()
         .unwrap();
-    for style in ["default", "minimal", "sys"] {
+    for style in ["full", "minimal", "sys"] {
         for package in [false, true] {
             for selection in ["fixture", "fixture.DeepOnly"] {
                 let output = scratch.join(format!("{style}-{package}-{selection}"));
@@ -645,8 +642,8 @@ fn fixed_pointer_styles() {
                     .input(&winmd)
                     .filter(&format!("Windows.Win32.{selection}"));
                 match style {
-                    "minimal" => {
-                        builder.minimal();
+                    "full" => {
+                        builder.full();
                     }
                     "sys" => {
                         builder.sys();
@@ -694,9 +691,7 @@ fn named_bitfield_styles() {
         let output = scratch.join(format!("{style}.rs"));
         let mut builder = windows_bindgen::builder();
         builder.input(&winmd).filter("Test").output(&output);
-        if style == "minimal" {
-            builder.minimal();
-        } else {
+        if style == "sys" {
             builder.sys();
         }
         builder.write();
@@ -737,7 +732,7 @@ fn enum_constant_shadow_styles() {
         .output(&winmd)
         .write()
         .unwrap();
-    for style in ["default", "minimal", "sys"] {
+    for style in ["full", "minimal", "sys"] {
         for filter in [
             "Test",
             "Test.Pool",
@@ -748,8 +743,8 @@ fn enum_constant_shadow_styles() {
             let mut builder = windows_bindgen::builder();
             builder.input(&winmd).filter(filter).output(&output);
             match style {
-                "minimal" => {
-                    builder.minimal();
+                "full" => {
+                    builder.full();
                 }
                 "sys" => {
                     builder.sys();

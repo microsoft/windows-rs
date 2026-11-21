@@ -690,7 +690,6 @@ fn main() {
             "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
         ])
         .compose("Microsoft.UI.Xaml.Application")
-        .minimal()
         .dead_code()
         .filter_file(workspace_path(BINDINGS_FILTER))
         .filters(dependency_filters(&dependency_properties(
@@ -701,7 +700,6 @@ fn main() {
         .input(workspace_path(WINMD))
         .input_default()
         .output(workspace_path(CANVAS_BINDINGS_OUTPUT))
-        .minimal()
         .dead_code()
         .filter_file(workspace_path(CANVAS_FILTER))
         .write();

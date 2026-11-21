@@ -76,15 +76,16 @@ The bundled Win32 metadata uses `Windows.Win32`, not the umbrella crates' Cargo 
 
 | Option | Result |
 | --- | --- |
-| Default | Typed bindings using `windows-core` |
+| Default | Minimal typed bindings using `windows-core` |
+| `.full()` | Adds class wrappers, inherited forwarders, handle and function wrappers |
 | `.sys()` | Raw bindings using `windows-link` |
-| `.minimal()` | Bindings for hand-written wrappers |
 | `.modules()` | One module per namespace instead of a single flat list |
 | `.implement(name)` | Implementation traits for an interface |
 
-`sys` and `minimal` are mutually exclusive. Add any focused support crates referenced by the output.
-Minimal bindings omit implementation traits unless selected with `.implement(name)` or
-`.implement_all()`. Select the base or required interfaces too when implementing an interface hierarchy.
+`sys` and `full` are mutually exclusive. Add any focused support crates referenced by the output.
+Full mode adds implementation traits for interfaces not marked `ExclusiveTo`. Otherwise select them
+with `.implement(name)` or `.implement_all()`; an explicit selection also replaces the full-mode
+default. Select the base or required interfaces too when implementing an interface hierarchy.
 
 With no input, bindgen uses bundled Windows metadata. `.input("component.winmd")` replaces that
 default; add `.input_default()` when the component also references Windows definitions.

@@ -37,12 +37,14 @@ fn main() {
         .filter("Windows.Foundation.TypedEventHandler")
         .filter("Windows.Foundation.Uri")
         .implement_all()
+        .full()
         .modules();
 
     // The Win32 APIs that the component and the Rust consumer use.
     windows_bindgen::builder()
         .input_default()
         .output(out.join("win32.rs"))
+        .full()
         .filter("IActivationFactory")
         .filter("IAgileObject")
         .filter("AddDllDirectory")

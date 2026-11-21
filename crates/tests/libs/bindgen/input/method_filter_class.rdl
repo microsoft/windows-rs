@@ -1,4 +1,4 @@
-//! --filter Test.Widget::Act
+//! --filter Test.Widget::Act --full
 // Drives the class member-routing branch of filter.rs register_member: a method
 // filter on a runtime class locates the required interface that carries the
 // method and registers it there.

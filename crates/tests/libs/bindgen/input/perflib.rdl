@@ -1,2 +1,2 @@
-//! --in default
+//! --in default --full
 //! --filter PerfQueryCounterInfo PerfOpenQueryHandle PerfCloseQueryHandle PERF_PROVIDER_CONTEXT
