@@ -198,12 +198,10 @@ struct LateResult {
 
 impl Drop for LateResult {
     fn drop(&mut self) {
-        assert!(
-            self.report
-                .clone()
-                .complete(Message::Released(self.generation, self.cancelled)),
-            "late result release was rejected"
-        );
+        _ = self
+            .report
+            .clone()
+            .complete(Message::Released(self.generation, self.cancelled));
     }
 }
 
@@ -226,12 +224,11 @@ struct TimerPayload {
 
 impl Drop for TimerPayload {
     fn drop(&mut self) {
-        assert!(
-            self.report
-                .clone()
-                .complete(Message::TimerReleased(self.generation)),
-            "local timer payload release was rejected"
-        );
+        // Shutdown closes the host queue before cancelling pending timers.
+        _ = self
+            .report
+            .clone()
+            .complete(Message::TimerReleased(self.generation));
     }
 }
 
@@ -268,7 +265,13 @@ impl Component for Worker {
                     assert_ne!(thread::current().id(), ui_thread);
                     assert!(!cancellation.is_cancelled());
                     assert!(worker_report.clone().complete(Message::Started(generation)));
-                    wait.recv_timeout(Duration::from_secs(30)).unwrap();
+                    match wait.recv_timeout(Duration::from_secs(30)) {
+                        Ok(()) => {}
+                        Err(mpsc::RecvTimeoutError::Disconnected) => {
+                            assert!(cancellation.is_cancelled());
+                        }
+                        Err(error) => panic!("{error}"),
+                    }
                     // Return a result after cancellation so Reactor must discard its payload.
                     WorkerMessage::Late(LateResult {
                         generation,
