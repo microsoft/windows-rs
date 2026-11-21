@@ -101,8 +101,7 @@ impl Cfg {
 
 impl Config<'_> {
     #[track_caller]
-    pub(crate) fn write_package(&self, tree: &TypeTree) {
-        let output = &self.bindgen.output;
+    pub(crate) fn write_package(&self, tree: &TypeTree, output: &Path) {
         for name in tree.nested.keys() {
             _ = std::fs::remove_dir_all(output.join("src").join(name));
         }

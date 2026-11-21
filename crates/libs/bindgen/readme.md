@@ -24,17 +24,21 @@ windows-bindgen = "0.101"
 In `build.rs`:
 
 ```rust,no_run
-use std::path::PathBuf;
+use windows_bindgen::*;
 
 fn main() {
-    let output = PathBuf::from(std::env::var_os("OUT_DIR").unwrap()).join("bindings.rs");
-    windows_bindgen::builder()
-        .output(output)
-        .filter("GetTickCount64")
-        .sys()
-        .write();
+    println!("cargo:rerun-if-changed=build.rs");
+    builder().filter("GetTickCount64").sys().write();
 }
 ```
+
+Without `.output(...)`, bindgen writes `bindings.rs` in Cargo's `OUT_DIR`. An explicit output is
+required outside Cargo when `OUT_DIR` is unset or empty, and always for `.package()`. Use distinct
+explicit paths when generating multiple files.
+
+Bindgen does not emit Cargo dependency-tracking directives. The example above watches only
+`build.rs`; declare any other inputs your script reads, including metadata and filter files, with
+`cargo:rerun-if-changed`.
 
 In `src/main.rs`:
 

@@ -34,7 +34,9 @@ use super::*;
 ///
 /// # `--out`
 ///
-/// Exactly one `--out` argument is required.
+/// Defaults to `bindings.rs` in the runtime `OUT_DIR` directory. An explicit path is required when
+/// `OUT_DIR` is unset or empty, and always with `--package`. Bindgen does not emit Cargo
+/// dependency-tracking directives.
 ///
 /// # `--filter`
 ///
@@ -95,18 +97,23 @@ where
     let mut builder = Bindgen::new();
     let mut kind = ArgKind::None;
     let mut has_output = false;
+    let mut output_required = false;
     let mut implement = None::<Vec<String>>;
     let mut compose = None::<Vec<String>>;
 
     for arg in args {
         if arg.starts_with('-') {
+            assert!(!output_required, "`--out` requires a path");
             kind = ArgKind::None;
         }
 
         match kind {
             ArgKind::None => match arg.as_str() {
                 "--in" => kind = ArgKind::Input,
-                "--out" => kind = ArgKind::Output,
+                "--out" => {
+                    kind = ArgKind::Output;
+                    output_required = true;
+                }
                 "--filter" => kind = ArgKind::Filter,
                 "--filter-file" => kind = ArgKind::FilterFile,
                 "--rustfmt" => kind = ArgKind::Rustfmt,
@@ -143,6 +150,7 @@ where
                 assert!(!has_output, "exactly one `--out` is required");
                 builder.output(arg);
                 has_output = true;
+                output_required = false;
             }
             ArgKind::Input => {
                 if arg == "default" {
@@ -171,6 +179,8 @@ where
             }
         }
     }
+
+    assert!(!output_required, "`--out` requires a path");
 
     if let Some(implement) = implement {
         if implement.is_empty() {

@@ -112,16 +112,16 @@ impl Config<'_> {
 
 impl Config<'_> {
     #[track_caller]
-    pub fn write(&self, tree: TypeTree) {
+    pub fn write(&self, tree: TypeTree, output: &Path) {
         if self.bindgen.layout.is_package() {
-            self.write_package(&tree);
+            self.write_package(&tree, output);
         } else {
-            self.write_file(tree);
+            self.write_file(tree, output);
         }
     }
 
     #[track_caller]
-    fn write_file(&self, tree: TypeTree) {
+    fn write_file(&self, tree: TypeTree, output: &Path) {
         let tokens = if self.bindgen.layout.is_flat() {
             self.write_flat(tree)
         } else {
@@ -131,7 +131,7 @@ impl Config<'_> {
 
         let formatted = self.format(&tokens);
 
-        write_to_file(&self.bindgen.output, formatted);
+        write_to_file(output, formatted);
     }
 
     fn write_flat(&self, tree: TypeTree) -> TokenStream {

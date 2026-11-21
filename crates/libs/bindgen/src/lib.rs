@@ -77,7 +77,7 @@ pub struct Bindgen {
     input: Vec<Input>,
     input_default: bool,
     filter: Vec<String>,
-    output: PathBuf,
+    output: Option<PathBuf>,
     derive: Vec<String>,
     implement: Option<Vec<String>>,
     compose: Vec<String>,
@@ -230,8 +230,11 @@ impl Bindgen {
     }
 
     /// Sets the generated Rust file.
+    ///
+    /// Defaults to `bindings.rs` in the runtime `OUT_DIR` directory. An explicit path is required
+    /// when `OUT_DIR` is unset or empty, and always when generating a package.
     pub fn output(&mut self, output: impl AsRef<Path>) -> &mut Self {
-        self.output = output.as_ref().to_path_buf();
+        self.output = Some(output.as_ref().to_path_buf());
         self
     }
 
@@ -448,11 +451,30 @@ impl Bindgen {
     }
 
     /// Generate the bindings.
+    ///
+    /// Without an explicit output, writes `OUT_DIR/bindings.rs`. Use distinct explicit paths for
+    /// multiple output files. Does not emit Cargo dependency-tracking directives.
     #[track_caller]
     pub fn write(&self) {
         // Validate before setting up reader and reference state.
+        let default_output;
+        let output = if let Some(output) = &self.output {
+            output.as_path()
+        } else {
+            assert!(
+                !self.layout.is_package(),
+                "package output is required (call `.output()` or pass `--out`)"
+            );
+            let directory = std::env::var_os("OUT_DIR")
+                .filter(|value| !value.is_empty())
+                .unwrap_or_else(|| {
+                    panic!("output is required (set `OUT_DIR`, call `.output()` or pass `--out`)")
+                });
+            default_output = PathBuf::from(directory).join("bindings.rs");
+            &default_output
+        };
         assert!(
-            !self.output.as_os_str().is_empty(),
+            !output.as_os_str().is_empty(),
             "output is required (call `.output()` or pass `--out`)"
         );
         assert!(
@@ -667,7 +689,7 @@ impl Bindgen {
         }
 
         let tree = TypeTree::new(&types, self.layout.is_flat());
-        config.write(tree);
+        config.write(tree, output);
     }
 }
 

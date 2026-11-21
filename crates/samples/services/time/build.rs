@@ -1,8 +1,5 @@
 fn main() {
-    let bindings = format!("{}/bindings.rs", std::env::var("OUT_DIR").unwrap());
-
     windows_bindgen::builder()
-        .output(bindings)
         .sys()
         .filters([
             "SERVICE_ACCEPT_TIMECHANGE",
