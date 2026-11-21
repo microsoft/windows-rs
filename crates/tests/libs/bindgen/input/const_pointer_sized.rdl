@@ -1,4 +1,4 @@
-//! --filter Test --flat
+//! --filter Test
 #[win32]
 mod Test {
     const PTR_SENTINEL: usize = 18446744073709551615;

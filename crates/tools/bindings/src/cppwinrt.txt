@@ -1,5 +1,5 @@
 --out crates/libs/cppwinrt/src/bindings.rs
---flat --sys
+--sys
 
 --filter
     CoCreateGuid

@@ -1,4 +1,4 @@
-//! --filter Test --sys --flat
+//! --filter Test --sys
 #[win32]
 mod Test {
     type DEVPROPGUID = GUID;

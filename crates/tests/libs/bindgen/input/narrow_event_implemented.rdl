@@ -1,4 +1,4 @@
-//! --filter Test.ISource::Changed --filter Test.ISink::{} --implement Test.ISink --flat --minimal
+//! --filter Test.ISource::Changed --filter Test.ISink::{} --implement Test.ISink --minimal
 #[winrt]
 mod Test {
     #[guid(auto)]

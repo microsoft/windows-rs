@@ -9,6 +9,5 @@ fn main() {
             "VSS_BT_FULL",
             "IVssBackupComponents",
         ])
-        .flat()
         .write();
 }

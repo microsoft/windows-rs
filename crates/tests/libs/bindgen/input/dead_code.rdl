@@ -1,4 +1,4 @@
-//! --filter Test --flat --dead-code
+//! --filter Test --dead-code
 #[winrt]
 mod Windows {
     mod Foundation {

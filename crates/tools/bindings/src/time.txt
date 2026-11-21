@@ -1,5 +1,5 @@
 --out crates/libs/time/src/bindings.rs
---flat --minimal
+--minimal
 
 --filter
     Windows::Foundation::{DateTime, TimeSpan}

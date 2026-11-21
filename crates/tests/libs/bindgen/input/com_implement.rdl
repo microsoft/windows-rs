@@ -1,4 +1,4 @@
-//! --filter Test --flat --implement
+//! --filter Test --implement
 #[win32]
 mod Test {
     struct Struct {

@@ -654,7 +654,6 @@ fn sdk_constant_groups() {
         builder
             .input(&winmd)
             .filter("Fixture.Selected")
-            .flat()
             .output(&rust);
         match style {
             "minimal" => {

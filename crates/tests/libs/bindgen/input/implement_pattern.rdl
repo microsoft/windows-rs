@@ -1,4 +1,4 @@
-//! --filter Test --flat --implement Test.Interface
+//! --filter Test --implement Test.Interface
 #[win32]
 mod Test {
     #[guid(auto)]

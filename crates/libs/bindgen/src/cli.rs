@@ -20,7 +20,7 @@ use super::*;
 /// - `--filter`: Included or excluded APIs.
 /// - `--rustfmt`: Comma-separated `rustfmt --config` options, such as `max_width=120`.
 /// - `--derive`: Extra derived traits.
-/// - `--flat`: Omits namespace modules.
+/// - `--modules`: Nests items in one module per namespace.
 /// - `--package`: Generates a package with one file per namespace.
 /// - `--sys`: Generates raw bindings that depend only on `windows-link`.
 /// - `--extern`: Uses extern declarations with `--sys`.
@@ -110,8 +110,8 @@ where
                 "--filter-file" => kind = ArgKind::FilterFile,
                 "--rustfmt" => kind = ArgKind::Rustfmt,
                 "--derive" => kind = ArgKind::Derive,
-                "--flat" => {
-                    builder.flat();
+                "--modules" => {
+                    builder.modules();
                 }
                 "--package" => {
                     builder.package();

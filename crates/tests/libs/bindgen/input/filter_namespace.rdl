@@ -1,4 +1,4 @@
-//! --filter Test.One Test.Two !Test.Two.Excluded
+//! --filter Test.One Test.Two !Test.Two.Excluded --modules
 #[win32]
 mod Test {
     mod One {

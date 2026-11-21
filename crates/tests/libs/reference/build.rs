@@ -21,6 +21,5 @@ fn main() {
         "Windows.Foundation.Size",
         "Windows.Foundation.TimeSpan",
         "Windows.Foundation.Numerics.Vector2",
-        "--flat",
     ]);
 }

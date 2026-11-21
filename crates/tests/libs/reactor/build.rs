@@ -12,7 +12,6 @@ fn main() {
             "ID2D1RenderTarget::PopAxisAlignedClip",
             "D2DERR_PUSH_POP_UNBALANCED",
         ])
-        .flat()
         .minimal()
         .write();
 
@@ -203,7 +202,6 @@ fn main() {
             "ICON_BIG",
             "ICON_SMALL",
         ])
-        .flat()
         .minimal()
         .write();
 
@@ -221,7 +219,6 @@ fn main() {
             "Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal",
             "Microsoft.UI.Dispatching.IDispatcherQueue.TryEnqueueWithPriority",
         ])
-        .flat()
         .minimal()
         .write();
 }

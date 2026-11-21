@@ -3,7 +3,6 @@ fn main() {
 
     windows_bindgen::builder()
         .output(bindings)
-        .flat()
         .sys()
         .filters([
             "SERVICE_ACCEPT_TIMECHANGE",

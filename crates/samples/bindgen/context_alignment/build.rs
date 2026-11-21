@@ -7,6 +7,5 @@ fn main() {
         .filter("CONTEXT")
         .filter("M128A")
         .sys()
-        .flat()
         .write();
 }

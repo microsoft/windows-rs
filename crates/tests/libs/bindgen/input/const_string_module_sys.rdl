@@ -1,4 +1,4 @@
-//! --filter Test --sys
+//! --filter Test --sys --modules
 #[win32]
 mod Test {
     const GREETING: String = "hello";

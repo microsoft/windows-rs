@@ -1,4 +1,4 @@
-//! --filter Kept Removed !Removed --sys --flat
+//! --filter Kept Removed !Removed --sys
 #[win32]
 mod Test {
     #[library("test.dll")]

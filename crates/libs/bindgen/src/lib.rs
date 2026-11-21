@@ -95,11 +95,11 @@ enum Input {
 /// Output layout for the generated bindings.
 #[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
 enum Layout {
-    /// One Rust module per metadata namespace (the default).
+    /// A single flat list of items (the default).
     #[default]
-    Modules,
-    /// A single flat list of items (no namespace modules).
     Flat,
+    /// One Rust module per metadata namespace.
+    Modules,
     /// One file per namespace + `Cargo.toml` features.
     Package,
 }
@@ -305,13 +305,15 @@ impl Bindgen {
         self
     }
 
-    /// Avoid the default namespace-to-module conversion.
+    /// Nest items in one Rust module per metadata namespace instead of a single flat list.
+    ///
+    /// Use this when the selected APIs define the same name in more than one namespace.
     #[track_caller]
-    pub fn flat(&mut self) -> &mut Self {
+    pub fn modules(&mut self) -> &mut Self {
         if matches!(self.layout, Layout::Package) {
-            panic!("cannot combine `--package` and `--flat`");
+            panic!("cannot combine `--package` and `--modules`");
         }
-        self.layout = Layout::Flat;
+        self.layout = Layout::Modules;
         self
     }
 
@@ -322,8 +324,8 @@ impl Bindgen {
     /// Generate bindings as a package with one file per namespace.
     #[track_caller]
     pub fn package(&mut self) -> &mut Self {
-        if matches!(self.layout, Layout::Flat) {
-            panic!("cannot combine `--package` and `--flat`");
+        if matches!(self.layout, Layout::Modules) {
+            panic!("cannot combine `--package` and `--modules`");
         }
         self.layout = Layout::Package;
         self

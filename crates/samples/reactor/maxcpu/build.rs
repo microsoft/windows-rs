@@ -15,6 +15,5 @@ fn main() {
             "PAGE_READWRITE",
         ])
         .minimal()
-        .flat()
         .write();
 }

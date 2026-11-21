@@ -43,7 +43,6 @@ fn slice() {
     cli.push("--filter".into());
     cli.extend(FILTER.iter().map(|name| (*name).to_string()));
     cli.push("--sys".into());
-    cli.push("--flat".into());
 
     windows_bindgen::bindgen(cli);
 

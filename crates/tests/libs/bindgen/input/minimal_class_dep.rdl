@@ -1,4 +1,4 @@
-//! --filter Test.Factory::Create --flat --minimal
+//! --filter Test.Factory::Create --minimal
 // Drives the Class branch of minimal_type_map.rs combine_minimal: the requested
 // method returns a runtime class, so the closure pulls in only its default
 // interface (IWidget) plus the base-class hierarchy walk, without dragging in

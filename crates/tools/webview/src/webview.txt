@@ -1,6 +1,6 @@
 --in target/webview default
 --out crates/libs/webview/src/bindings.rs
---flat --minimal --dead-code
+--minimal --dead-code
 --implement
     WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
     WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler

@@ -15,7 +15,6 @@ fn narrow_event_delegates_respect_dead_code() {
         .filter("Test.ISource::Changed")
         .minimal()
         .dead_code()
-        .flat()
         .output(scratch.join("bindings.rs"))
         .write();
     let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
@@ -92,7 +91,6 @@ fn delegate_thread_safety() {
         builder
             .input(&winmd)
             .filter("Test")
-            .flat()
             .output(scratch.join("bindings.rs"));
         if minimal {
             builder.minimal();
@@ -180,7 +178,6 @@ fn minimal_interface_implementation_selection() {
             .filter("Test")
             .minimal()
             .dead_code()
-            .flat()
             .output(&output);
         match selection {
             "selected" => {
@@ -271,7 +268,6 @@ pub fn runtime(
         builder
             .input(&winmd)
             .filter("Test")
-            .flat()
             .output(scratch.join("bindings.rs"));
         if minimal {
             builder.minimal();
@@ -345,7 +341,6 @@ pub fn annotated() -> windows_core::ScopedInterface<'static, bindings::I> {
             ])
             .minimal()
             .dead_code()
-            .flat()
             .output(scratch.join("bindings.rs"));
         if all {
             builder.implement_all();
@@ -380,7 +375,7 @@ fn associated_enum_method_filtering() {
         ] {
             let output = scratch.join(format!("{style}-{}.rs", root.replace("::", "-")));
             let mut builder = windows_bindgen::builder();
-            builder.input(&winmd).filter(root).flat().output(&output);
+            builder.input(&winmd).filter(root).output(&output);
             if root == "Windows.Win32" {
                 builder.filter("!Windows.Win32.Values.Options");
             }
@@ -448,7 +443,6 @@ fn associated_enum_dependencies() {
             builder
                 .input(&winmd)
                 .filter(&format!("Test.{root}"))
-                .flat()
                 .output(&output);
             match style {
                 "minimal" => {
@@ -496,7 +490,6 @@ fn minimal_abi_dependency_styles() {
             builder
                 .input(&winmd)
                 .filter("Test.CreateValue")
-                .flat()
                 .output(&output);
             if let Some(selection) = selection {
                 builder.filter(&format!("Test.{selection}"));
@@ -594,8 +587,8 @@ fn nested_dependency_styles() {
                 }
                 _ => {}
             }
-            if flat {
-                builder.flat();
+            if !flat {
+                builder.modules();
             }
             builder.write();
             let result = std::process::Command::new("rustc")
@@ -700,7 +693,7 @@ fn named_bitfield_styles() {
     for style in ["minimal", "sys"] {
         let output = scratch.join(format!("{style}.rs"));
         let mut builder = windows_bindgen::builder();
-        builder.input(&winmd).filter("Test").flat().output(&output);
+        builder.input(&winmd).filter("Test").output(&output);
         if style == "minimal" {
             builder.minimal();
         } else {
@@ -753,7 +746,7 @@ fn enum_constant_shadow_styles() {
         ] {
             let output = scratch.join("bindings.rs");
             let mut builder = windows_bindgen::builder();
-            builder.input(&winmd).filter(filter).flat().output(&output);
+            builder.input(&winmd).filter(filter).output(&output);
             match style {
                 "minimal" => {
                     builder.minimal();

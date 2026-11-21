@@ -1,4 +1,4 @@
-//! --filter Test --flat --derive Test.Struct=Eq,Hash --derive Test.Enum=Eq,Hash,Ord,PartialOrd
+//! --filter Test --derive Test.Struct=Eq,Hash --derive Test.Enum=Eq,Hash,Ord,PartialOrd
 #[win32]
 mod Test {
     #[repr(i32)]

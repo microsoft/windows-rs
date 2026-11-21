@@ -1,4 +1,4 @@
-//! --filter Test --flat
+//! --filter Test
 #[win32]
 mod Test {
     extern fn Callback(#[in] value: u32) -> u32;

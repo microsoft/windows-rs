@@ -1,4 +1,4 @@
-//! --filter Test --flat --minimal
+//! --filter Test --minimal
 #[winrt]
 mod Test {
     #[guid(0x11111111_2222_3333_4444_555555555555)]

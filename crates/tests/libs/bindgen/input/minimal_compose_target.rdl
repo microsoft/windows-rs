@@ -1,5 +1,5 @@
 //! --filter Test.Base::CreateInstance --filter Test.Derived::CreateInstance
-//! --implement Test.IOverrides --compose Test.Base --minimal --flat
+//! --implement Test.IOverrides --compose Test.Base --minimal
 #[winrt]
 mod Windows {
     mod Foundation {

@@ -1,4 +1,4 @@
-//! --filter Test.Widget::{Read,Create} --flat
+//! --filter Test.Widget::{Read,Create}
 #[winrt]
 mod Windows {
     mod Foundation {

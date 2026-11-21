@@ -47,7 +47,6 @@ fn main() {
             "D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT",
             "D2D1_TEXT_ANTIALIAS_MODE_GRAYSCALE",
         ])
-        .flat()
         .minimal()
         .write();
 }

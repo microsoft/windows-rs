@@ -1,4 +1,4 @@
-//! --filter !Projected Native --sys --flat
+//! --filter !Projected Native --sys
 #[winrt]
 mod Projected {
     #[guid(auto)]

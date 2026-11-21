@@ -1,4 +1,4 @@
-//! --filter Test.GetReached --sys --flat
+//! --filter Test.GetReached --sys
 #[win32]
 mod Test {
     type Shared = i32;

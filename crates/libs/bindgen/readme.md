@@ -31,7 +31,6 @@ fn main() {
     windows_bindgen::builder()
         .output(output)
         .filter("GetTickCount64")
-        .flat()
         .sys()
         .write();
 }
@@ -55,7 +54,8 @@ the generator in consumer builds. Install `rustfmt` to format generated source.
 ## Select APIs
 
 Filters select native names, including any `A` or `W` suffix. Signature dependencies are included
-automatically. Qualify names when more than one namespace defines them.
+automatically. Qualify names when more than one namespace defines them. Output is a flat list of
+items; selecting the same name from two namespaces fails unless you exclude one or use `.modules()`.
 
 | Filter | Selects |
 | --- | --- |
@@ -78,7 +78,7 @@ The bundled Win32 metadata uses `Windows.Win32`, not the umbrella crates' Cargo 
 | Default | Typed bindings using `windows-core` |
 | `.sys()` | Raw bindings using `windows-link` |
 | `.minimal()` | Bindings for hand-written wrappers |
-| `.flat()` | One flat module instead of namespace modules |
+| `.modules()` | One module per namespace instead of a single flat list |
 | `.implement(name)` | Implementation traits for an interface |
 
 `sys` and `minimal` are mutually exclusive. Add any focused support crates referenced by the output.
