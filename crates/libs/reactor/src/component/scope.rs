@@ -12,7 +12,7 @@ pub(super) trait ErasedComponent {
         &mut self,
         input: &dyn Any,
         reference: ElementRef,
-        contexts: &HashMap<ContextId, ContextValue>,
+        contexts: &ContextEnvironment,
     ) -> Option<ComponentRender>;
     fn component_type(&self) -> TypeId;
     fn cancel_tasks(&self);
@@ -20,12 +20,12 @@ pub(super) trait ErasedComponent {
         &mut self,
         message: Box<dyn Any>,
         reference: ElementRef,
-        contexts: &HashMap<ContextId, ContextValue>,
+        contexts: &ContextEnvironment,
     ) -> ComponentRender;
     fn render_view(
         &mut self,
         reference: ElementRef,
-        contexts: &HashMap<ContextId, ContextValue>,
+        contexts: &ContextEnvironment,
     ) -> ComponentRender;
     fn cached_view(&self) -> View;
 }
@@ -57,11 +57,13 @@ impl<C: Component> TypedScope<C> {
     fn render_view(
         &mut self,
         reference: ElementRef,
-        contexts: &HashMap<ContextId, ContextValue>,
+        contexts: &ContextEnvironment,
     ) -> ComponentRender {
-        let mut context: ViewContext<'_, C> = ViewContext {
-            context: self.context(&self.input, reference),
-            contexts,
+        let mut context: ViewContext<C> = ViewContext {
+            reference,
+            local_sender: self.local_sender.clone(),
+            sender: self.sender.clone(),
+            contexts: Rc::clone(contexts),
             dependencies: HashSet::new(),
             effects: EffectDraft::default(),
             window: WindowPublication::default(),
@@ -83,7 +85,7 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
         &mut self,
         input: &dyn Any,
         reference: ElementRef,
-        contexts: &HashMap<ContextId, ContextValue>,
+        contexts: &ContextEnvironment,
     ) -> Option<ComponentRender> {
         let input = input.downcast_ref::<C::Input>().unwrap();
         if self.input == *input {
@@ -115,7 +117,7 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
         &mut self,
         message: Box<dyn Any>,
         reference: ElementRef,
-        contexts: &HashMap<ContextId, ContextValue>,
+        contexts: &ContextEnvironment,
     ) -> ComponentRender {
         let context = self.context(&self.input, reference.clone());
         self.component
@@ -126,7 +128,7 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
     fn render_view(
         &mut self,
         reference: ElementRef,
-        contexts: &HashMap<ContextId, ContextValue>,
+        contexts: &ContextEnvironment,
     ) -> ComponentRender {
         self.render_view(reference, contexts)
     }
@@ -139,12 +141,11 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
 pub(super) struct Scope {
     pub(super) children: HashMap<Key, ComponentId>,
     pub(super) component: Box<dyn ErasedComponent>,
-    pub(super) contexts: HashMap<ContextId, ContextValue>,
+    pub(super) contexts: ContextEnvironment,
     pub(super) dependencies: HashSet<ContextId>,
     pub(super) effects: Vec<EffectSlot>,
     pub(super) key: Key,
     pub(super) parent: Option<ComponentId>,
-    pub(super) provided_contexts: HashSet<ContextId>,
     pub(super) reference: ElementRef,
     pub(super) root: Option<ObjectId>,
     // The child component whose root is also this component's root.
@@ -153,7 +154,7 @@ pub(super) struct Scope {
 }
 
 impl Scope {
-    pub(super) fn dependencies_changed(&self, contexts: &HashMap<ContextId, ContextValue>) -> bool {
+    pub(super) fn dependencies_changed(&self, contexts: &ContextEnvironment) -> bool {
         self.dependencies
             .iter()
             .any(|id| match (self.contexts.get(id), contexts.get(id)) {
@@ -174,7 +175,7 @@ pub(super) struct ScopeSlot {
 
 pub(super) struct PendingScopeRender {
     pub(super) dependencies: HashSet<ContextId>,
-    pub(super) environment: Box<OwnedContextEnvironment>,
+    pub(super) environment: ContextEnvironment,
     pub(super) effects: EffectDraft,
     pub(super) id: ComponentId,
     pub(super) window: Option<Box<WindowPublication>>,
@@ -197,8 +198,7 @@ impl ComponentHost {
         &mut self,
         parent: Option<ComponentId>,
         node: ComponentNode,
-        contexts: HashMap<ContextId, ContextValue>,
-        provided_contexts: HashSet<ContextId>,
+        contexts: ContextEnvironment,
     ) -> (ComponentId, ComponentRender) {
         let reused = self.free_scopes.pop();
         let id = if let Some(index) = reused {
@@ -236,7 +236,6 @@ impl ComponentHost {
             effects: Vec::new(),
             key,
             parent,
-            provided_contexts,
             reference,
             root: None,
             root_child: None,
@@ -253,43 +252,16 @@ impl ComponentHost {
         (id, render)
     }
 
-    pub(super) fn plan_render(&mut self, id: ComponentId, render: ComponentRender) -> NativeBatch {
-        let contexts = self.scope(id).unwrap().contexts.clone();
-        let provided_contexts = self.scope(id).unwrap().provided_contexts.clone();
-        self.plan_render_with_contexts(id, render, contexts, provided_contexts)
-    }
-
     /// Plans a component render and completes its structural host work. Effect setup waits for
     /// `complete_batch` so it runs after the native application.
-    pub(super) fn plan_render_with_contexts(
-        &mut self,
-        id: ComponentId,
-        render: ComponentRender,
-        contexts: HashMap<ContextId, ContextValue>,
-        provided_contexts: HashSet<ContextId>,
-    ) -> NativeBatch {
+    pub(super) fn plan_render(&mut self, id: ComponentId, render: ComponentRender) -> NativeBatch {
+        let contexts = Rc::clone(&self.scope(id).unwrap().contexts);
         self.begin_batch();
         self.mark_busy_ancestors(id);
         let root = self.scope(id).unwrap().root.unwrap();
         let mut expansion = ExpansionState::default();
-        let view = expansion.push_render(
-            id,
-            render,
-            OwnedContextEnvironment {
-                contexts: contexts.clone(),
-                provided: provided_contexts.clone(),
-            },
-        );
-        let view = self.expand_view(
-            id,
-            view,
-            &ContextEnvironment {
-                contexts: &contexts,
-                provided: &provided_contexts,
-            },
-            0,
-            &mut expansion,
-        );
+        let view = expansion.push_render(id, render, Rc::clone(&contexts));
+        let view = self.expand_view(id, view, &contexts, 0, &mut expansion);
         let retired = self.unseen_scopes(&expansion.seen);
         let publication = self.resolve_window_publication(&expansion.pending, &retired);
         let batch = self.runtime.plan_subtree_update(root, view.clone());
@@ -306,11 +278,9 @@ impl ComponentHost {
     /// effects, and commits the rest of each scope's render state.
     pub(super) fn prepare_pending(&mut self, pending: Vec<PendingScopeRender>) {
         for pending in pending {
-            let environment = *pending.environment;
             let scope = self.scope_mut(pending.id).unwrap();
             let effects = pending.effects.prepare(&mut scope.effects);
-            scope.contexts = environment.contexts;
-            scope.provided_contexts = environment.provided;
+            scope.contexts = pending.environment;
             scope.window = pending.window;
             scope.dependencies = pending.dependencies;
             self.prepared_effects.push((pending.id, effects));

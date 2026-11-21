@@ -74,3 +74,25 @@ collection-size effects from the realized viewport. The replay uses `--cycles`, 
 implementations do not yet have a matching task-viewer replay.
 
 [comparison]: https://github.com/microsoft/microsoft-ui-reactor/blob/main/.github/workflows/perf-compare.yml
+
+## Context workload
+
+```powershell
+cargo run -p test_reactor_perf --release -- --workload contexts --count 1000 --contexts 16 --provider-depth 8 --cycles 50
+```
+
+This workload retains `--count` leaf components, each reading every context. Root providers supply
+`--contexts` values; each leaf has `--provider-depth` nested overrides. The script alternates broad
+provider updates and isolated leaf messages, waiting for each target's post-commit effect. It
+asserts the expected leaf render count and excludes one warmup cycle. The forest is not virtualized,
+so all leaves are retained even when outside the viewport.
+
+`Contexts.Reactor.report.txt` records median/p95 dispatch-to-commit time and Rust allocation traffic.
+At the following timer tick it samples live requested Rust bytes, process private bytes, and working
+set. Live bytes exclude allocator overhead and native allocations; private bytes include native
+memory; working set depends on paging. First/last live-byte samples help detect growth during the
+run. Commit time does not measure presentation or input latency.
+
+Compare identical release builds and instrumentation on an idle desktop. Use zero, one, and multiple
+contexts, with and without nested providers. The counting allocator tracks live bytes for all
+workloads; the existing grid and task report formats are unchanged.

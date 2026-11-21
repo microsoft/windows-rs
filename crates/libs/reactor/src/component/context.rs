@@ -165,40 +165,42 @@ where
     }
 }
 
-pub struct ViewContext<'a, C: Component> {
-    pub(super) context: ComponentContext<'a, C>,
-    pub(super) contexts: &'a HashMap<ContextId, ContextValue>,
+pub struct ViewContext<C: Component> {
+    pub(super) reference: ElementRef,
+    pub(super) local_sender: LocalSender<C::Message>,
+    pub(super) sender: ComponentSender<C::Message>,
+    pub(super) contexts: ContextEnvironment,
     pub(super) dependencies: HashSet<ContextId>,
     pub(super) effects: EffectDraft,
     pub(super) window: WindowPublication,
 }
 
-impl<C: Component> ViewContext<'_, C> {
+impl<C: Component> ViewContext<C> {
     pub fn sender(&self) -> LocalSender<C::Message> {
-        self.context.sender()
+        self.local_sender.clone()
     }
 
     pub fn completion(&self) -> ComponentCompletion<C::Message> {
-        self.context.completion()
+        self.sender.completion()
     }
 
     pub fn callback<T>(&self, map: impl Fn(T) -> C::Message + 'static) -> Callback<T> {
-        self.context.callback(map)
+        self.local_sender.callback(map)
     }
 
     pub fn forward(&self) -> Callback<C::Message> {
-        self.context.forward()
+        self.local_sender.forward()
     }
 
     pub fn message(&self, message: C::Message) -> Callback<()>
     where
         C::Message: Clone,
     {
-        self.context.message(message)
+        self.local_sender.message(message)
     }
 
     pub fn root(&self) -> ElementRef {
-        self.context.root()
+        self.reference.clone()
     }
 
     pub fn use_context<T: Clone + 'static>(&mut self, context: &Context<T>) -> T {
@@ -238,7 +240,7 @@ impl<C: Component> ViewContext<'_, C> {
     /// Observes native size changes without replaying them when the callback is replaced.
     pub fn on_window_size(&mut self, callback: impl IntoPayloadCallback<WindowSize>) {
         let previous = self.window.on_size.replace(WindowObserverDeclaration {
-            owner: self.context.local_sender.component,
+            owner: self.local_sender.component,
             generation: 0,
             callback: callback.into_payload_callback(),
         });
@@ -257,7 +259,7 @@ impl<C: Component> ViewContext<'_, C> {
     /// a new subscription.
     pub fn on_window_placement(&mut self, callback: impl IntoPayloadCallback<WindowPlacement>) {
         let previous = self.window.on_placement.replace(WindowObserverDeclaration {
-            owner: self.context.local_sender.component,
+            owner: self.local_sender.component,
             generation: 0,
             callback: callback.into_payload_callback(),
         });
@@ -277,7 +279,7 @@ impl<C: Component> ViewContext<'_, C> {
             .window
             .on_color_scheme
             .replace(WindowObserverDeclaration {
-                owner: self.context.local_sender.component,
+                owner: self.local_sender.component,
                 generation: 0,
                 callback: callback.into_payload_callback(),
             });

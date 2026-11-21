@@ -74,12 +74,4 @@ where
     })))
 }
 
-pub(super) struct ContextEnvironment<'a> {
-    pub(super) contexts: &'a HashMap<ContextId, ContextValue>,
-    pub(super) provided: &'a HashSet<ContextId>,
-}
-
-pub(super) struct OwnedContextEnvironment {
-    pub(super) contexts: HashMap<ContextId, ContextValue>,
-    pub(super) provided: HashSet<ContextId>,
-}
+pub(super) type ContextEnvironment = Rc<HashMap<ContextId, ContextValue>>;

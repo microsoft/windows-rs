@@ -47,7 +47,7 @@ impl ExpansionState {
         &mut self,
         id: ComponentId,
         render: ComponentRender,
-        environment: OwnedContextEnvironment,
+        environment: ContextEnvironment,
     ) -> View {
         let ComponentRender {
             dependencies,
@@ -57,7 +57,7 @@ impl ExpansionState {
         } = render;
         self.pending.push(PendingScopeRender {
             dependencies,
-            environment: Box::new(environment),
+            environment,
             effects,
             id,
             window,
@@ -71,7 +71,7 @@ impl ComponentHost {
         &mut self,
         owner: ComponentId,
         view: View,
-        environment: &ContextEnvironment<'_>,
+        environment: &ContextEnvironment,
         depth: usize,
         expansion: &mut ExpansionState,
     ) -> View {
@@ -94,7 +94,7 @@ impl ComponentHost {
         &mut self,
         owner: ComponentId,
         node: DeclaredNode,
-        environment: &ContextEnvironment<'_>,
+        environment: &ContextEnvironment,
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
     ) -> Declaration {
@@ -112,20 +112,9 @@ impl ComponentHost {
                 .into_owned()
             }
             DeclaredNode::Provider(provider) => {
-                let mut contexts = environment.contexts.clone();
-                contexts.insert(provider.provision.id, provider.provision.value);
-                let mut provided = environment.provided.clone();
-                provided.insert(provider.provision.id);
-                self.expand_root(
-                    owner,
-                    provider.child,
-                    &ContextEnvironment {
-                        contexts: &contexts,
-                        provided: &provided,
-                    },
-                    location,
-                    expansion,
-                )
+                let mut contexts = Rc::clone(environment);
+                Rc::make_mut(&mut contexts).insert(provider.provision.id, provider.provision.value);
+                self.expand_root(owner, provider.child, &contexts, location, expansion)
             }
             DeclaredNode::Component {
                 node,
@@ -155,7 +144,7 @@ impl ComponentHost {
         &mut self,
         owner: ComponentId,
         mut declaration: Cow<'a, Declaration>,
-        environment: &ContextEnvironment<'_>,
+        environment: &ContextEnvironment,
         scope_root: bool,
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
@@ -268,7 +257,7 @@ impl ComponentHost {
         &mut self,
         owner: ComponentId,
         node: &'a DeclaredNode,
-        environment: &ContextEnvironment<'_>,
+        environment: &ContextEnvironment,
         depth: usize,
         expansion: &mut ExpansionState,
         path: &mut Vec<ComponentPathSegment>,
@@ -316,7 +305,7 @@ impl ComponentHost {
         &mut self,
         owner: ComponentId,
         component: ComponentExpansion,
-        environment: &ContextEnvironment<'_>,
+        environment: &ContextEnvironment,
         depth: usize,
         expansion: &mut ExpansionState,
         path: &mut Vec<ComponentPathSegment>,
@@ -349,7 +338,7 @@ impl ComponentHost {
         &mut self,
         owner: ComponentId,
         component: ComponentExpansion,
-        environment: &ContextEnvironment<'_>,
+        environment: &ContextEnvironment,
         expansion: &mut ExpansionState,
         path: &[ComponentPathSegment],
     ) -> Box<PreparedComponentExpansion> {
@@ -391,52 +380,31 @@ impl ComponentHost {
             );
             let scope = self.scope_mut(id).unwrap();
             let reference = scope.reference.clone();
-            let render = scope.component.apply_input(
-                node.factory.input(),
-                reference.clone(),
-                environment.contexts,
-            );
+            let render =
+                scope
+                    .component
+                    .apply_input(node.factory.input(), reference.clone(), environment);
             let render = match render {
                 Some(render) => Some(render),
-                None if scope.dependencies_changed(environment.contexts) => {
-                    Some(scope.component.render_view(reference, environment.contexts))
+                None if scope.dependencies_changed(environment) => {
+                    Some(scope.component.render_view(reference, environment))
                 }
                 None => None,
             };
             let view = if let Some(render) = render {
-                expansion.push_render(
-                    id,
-                    render,
-                    OwnedContextEnvironment {
-                        contexts: environment.contexts.clone(),
-                        provided: environment.provided.clone(),
-                    },
-                )
+                expansion.push_render(id, render, Rc::clone(environment))
             } else {
-                scope.contexts.clone_from(environment.contexts);
-                scope.provided_contexts.clone_from(environment.provided);
+                scope.contexts = Rc::clone(environment);
                 scope.component.cached_view()
             };
             (id, view)
         } else {
-            let created = self.create_scope(
-                Some(owner),
-                node,
-                environment.contexts.clone(),
-                environment.provided.clone(),
-            );
+            let created = self.create_scope(Some(owner), node, Rc::clone(environment));
             self.scope_mut(owner)
                 .unwrap()
                 .children
                 .insert(component_key, created.0);
-            let view = expansion.push_render(
-                created.0,
-                created.1,
-                OwnedContextEnvironment {
-                    contexts: environment.contexts.clone(),
-                    provided: environment.provided.clone(),
-                },
-            );
+            let view = expansion.push_render(created.0, created.1, Rc::clone(environment));
             (created.0, view)
         };
         Box::new(PreparedComponentExpansion {
@@ -452,21 +420,16 @@ impl ComponentHost {
         owner: ComponentId,
         provision: &ContextProvision,
         child: &DeclaredNode,
-        environment: &ContextEnvironment<'_>,
+        environment: &ContextEnvironment,
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
     ) -> Declaration {
-        let mut contexts = environment.contexts.clone();
-        contexts.insert(provision.id, provision.value.clone());
-        let mut provided = environment.provided.clone();
-        provided.insert(provision.id);
+        let mut contexts = Rc::clone(environment);
+        Rc::make_mut(&mut contexts).insert(provision.id, provision.value.clone());
         self.expand_node(
             owner,
             child,
-            &ContextEnvironment {
-                contexts: &contexts,
-                provided: &provided,
-            },
+            &contexts,
             location.depth,
             expansion,
             location.path,
@@ -478,7 +441,7 @@ impl ComponentHost {
         &mut self,
         owner: ComponentId,
         attachments: Option<Cow<'a, Box<DeclaredAttachments>>>,
-        environment: &ContextEnvironment<'_>,
+        environment: &ContextEnvironment,
         depth: usize,
         expansion: &mut ExpansionState,
         path: &mut Vec<ComponentPathSegment>,

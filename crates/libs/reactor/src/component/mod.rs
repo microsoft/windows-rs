@@ -77,7 +77,7 @@ trait ErasedFactory {
         reference: ElementRef,
         services: Arc<ComponentServices>,
         ui_services: Rc<WindowServices>,
-        contexts: &HashMap<ContextId, ContextValue>,
+        contexts: &ContextEnvironment,
     ) -> (Box<dyn ErasedComponent>, ComponentRender);
     fn input(&self) -> &dyn Any;
 }
@@ -98,7 +98,7 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
         reference: ElementRef,
         services: Arc<ComponentServices>,
         ui_services: Rc<WindowServices>,
-        contexts: &HashMap<ContextId, ContextValue>,
+        contexts: &ContextEnvironment,
     ) -> (Box<dyn ErasedComponent>, ComponentRender) {
         let sender = ComponentSender {
             component: id,
@@ -175,7 +175,6 @@ pub(crate) struct ComponentDrain {
 
 /// Coordinates component scopes with retained runtime updates.
 pub(crate) struct ComponentHost {
-    contexts: HashMap<ContextId, ContextValue>,
     keys: HashMap<Key, ComponentId>,
     order: Vec<ComponentId>,
     queue: SharedQueue,
@@ -288,7 +287,6 @@ impl ComponentHost {
         let queue = Arc::new(Mutex::new(MessageQueue::default()));
         let local_queue = Rc::new(RefCell::new(VecDeque::new()));
         let mut host = Self {
-            contexts: HashMap::new(),
             keys: HashMap::new(),
             order: Vec::new(),
             queue,
@@ -310,35 +308,18 @@ impl ComponentHost {
         let mut declarations = Vec::new();
         let mut keys = HashSet::new();
         let mut expansion = ExpansionState::default();
+        let contexts = ContextEnvironment::default();
         for node in components {
             let key = node
                 .key
                 .clone()
                 .expect("component roots require explicit keys");
             assert!(keys.insert(key.clone()), "duplicate key {key:?}");
-            let contexts = host.contexts.clone();
-            let (id, render) = host.create_scope(None, node, contexts.clone(), HashSet::new());
+            let (id, render) = host.create_scope(None, node, Rc::clone(&contexts));
             host.order.push(id);
             host.keys.insert(key, id);
-            let view = expansion.push_render(
-                id,
-                render,
-                OwnedContextEnvironment {
-                    contexts: contexts.clone(),
-                    provided: HashSet::new(),
-                },
-            );
-            let provided = HashSet::new();
-            let view = host.expand_view(
-                id,
-                view,
-                &ContextEnvironment {
-                    contexts: &contexts,
-                    provided: &provided,
-                },
-                0,
-                &mut expansion,
-            );
+            let view = expansion.push_render(id, render, Rc::clone(&contexts));
+            let view = host.expand_view(id, view, &contexts, 0, &mut expansion);
             declarations.push(keyed(host.scope(id).unwrap().key.clone(), view));
         }
         let root: View = Grid::new().keyed_children(declarations).into();
@@ -346,10 +327,8 @@ impl ComponentHost {
         host.runtime.update(root.clone());
         host.refresh_roots(&root);
         for pending in expansion.pending {
-            let environment = *pending.environment;
             host.scope_mut(pending.id).unwrap().window = pending.window;
-            host.scope_mut(pending.id).unwrap().contexts = environment.contexts;
-            host.scope_mut(pending.id).unwrap().provided_contexts = environment.provided;
+            host.scope_mut(pending.id).unwrap().contexts = pending.environment;
             host.scope_mut(pending.id).unwrap().dependencies = pending.dependencies;
             pending
                 .effects
@@ -445,7 +424,7 @@ impl ComponentHost {
                     state.report.dropped += 1;
                     continue;
                 }
-                let contexts = self.scope(component).unwrap().contexts.clone();
+                let contexts = Rc::clone(&self.scope(component).unwrap().contexts);
                 let scope = self.scope_mut(component).unwrap();
                 let reference = scope.reference.clone();
                 let render = match value {
@@ -558,7 +537,6 @@ impl ComponentHost {
         self.window_color_scheme = WindowObserverLifetime::default();
         self.window_size = WindowObserverLifetime::default();
         self.window_placement = WindowObserverLifetime::default();
-        self.contexts.clear();
         self.keys.clear();
         self.order.clear();
         self.virtual_rows.clear();

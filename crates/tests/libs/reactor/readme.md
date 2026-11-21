@@ -59,6 +59,13 @@ children.
 It checks padding at mount, uniform and asymmetric updates, zero padding, and restoration of the
 native default when omitted. Rendered icon bounds, button identity, and click delivery are observed.
 
+## Context snapshots
+
+`context` checks provider updates through cached intermediate components, equal-value suppression,
+shadowing, removal, and element identity. Its consumer wraps `ViewContext` with one borrow lifetime.
+`context-virtual` checks two contexts in retained and newly realized rows, a row-local override,
+provider removal and reapplication, and row-local messages reading the latest snapshot.
+
 ## TextBox appearance
 
 `text-appearance` observes padding through native layout and corner radius through rendered pixels,
