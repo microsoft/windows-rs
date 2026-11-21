@@ -110,6 +110,18 @@ impl<M> Clone for LocalSender<M> {
 }
 
 impl<M: 'static> LocalSender<M> {
+    pub(super) fn shared(&self) -> ComponentSender<M> {
+        ComponentSender {
+            component: self.component,
+            queue: Arc::clone(&self.wake),
+            marker: PhantomData,
+        }
+    }
+
+    pub(super) fn completion(&self) -> ComponentCompletion<M> {
+        ComponentCompletion(self.shared())
+    }
+
     /// Queues a message without a fixed capacity limit.
     ///
     /// Returns `false` if the host has closed. An accepted message is discarded if its component

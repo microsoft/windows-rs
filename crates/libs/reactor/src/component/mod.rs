@@ -100,15 +100,10 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
         ui_services: Rc<WindowServices>,
         contexts: &ContextEnvironment,
     ) -> (Box<dyn ErasedComponent>, ComponentRender) {
-        let sender = ComponentSender {
-            component: id,
-            queue: queues.shared,
-            marker: PhantomData,
-        };
         let local_sender = LocalSender {
             component: id,
             queue: queues.local,
-            wake: Arc::clone(&sender.queue),
+            wake: queues.shared,
             marker: PhantomData,
         };
         let tasks = Arc::new(Mutex::new(Vec::new()));
@@ -116,7 +111,6 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
             input: &self.input,
             reference: reference.clone(),
             local_sender: local_sender.clone(),
-            sender: sender.clone(),
             services: Arc::clone(&services),
             tasks: Arc::clone(&tasks),
             ui_services: Rc::clone(&ui_services),
@@ -127,7 +121,6 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
             input: self.input.clone(),
             view: None,
             local_sender,
-            sender,
             services,
             tasks,
             ui_services,

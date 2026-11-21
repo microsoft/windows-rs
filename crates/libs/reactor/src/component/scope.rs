@@ -35,7 +35,6 @@ pub(super) struct TypedScope<C: Component> {
     pub(super) input: C::Input,
     pub(super) view: Option<View>,
     pub(super) local_sender: LocalSender<C::Message>,
-    pub(super) sender: ComponentSender<C::Message>,
     pub(super) services: Arc<ComponentServices>,
     pub(super) tasks: Arc<Mutex<Vec<SyncWeak<TaskControl>>>>,
     pub(super) ui_services: Rc<WindowServices>,
@@ -47,7 +46,6 @@ impl<C: Component> TypedScope<C> {
             input,
             reference,
             local_sender: self.local_sender.clone(),
-            sender: self.sender.clone(),
             services: Arc::clone(&self.services),
             tasks: Arc::clone(&self.tasks),
             ui_services: Rc::clone(&self.ui_services),
@@ -62,7 +60,6 @@ impl<C: Component> TypedScope<C> {
         let mut context: ViewContext<C> = ViewContext {
             reference,
             local_sender: self.local_sender.clone(),
-            sender: self.sender.clone(),
             contexts: Rc::clone(contexts),
             dependencies: HashSet::new(),
             effects: EffectDraft::default(),
