@@ -6,6 +6,8 @@ pub(super) struct RetirementFixture {
     callback: Option<Callback<()>>,
     released: Rc<Cell<bool>>,
     publication: Option<(bool, bool)>,
+    scopes: Rc<ScopeLifetimes>,
+    scope_publication: (u32, u32),
     swapped: bool,
     paged: bool,
     selected: u32,
@@ -18,7 +20,7 @@ pub(super) enum Message {
     Swap,
     Page,
     Selected(u32),
-    Published(bool, bool),
+    Published(bool, bool, u32, u32),
 }
 
 struct ClickLifetime {
@@ -53,6 +55,8 @@ impl Component for RetirementFixture {
             callback: Some(Callback::new(move |()| click.invoke())),
             released,
             publication: None,
+            scopes: Rc::default(),
+            scope_publication: (0, 0),
             swapped: false,
             paged: false,
             selected: 0,
@@ -69,7 +73,10 @@ impl Component for RetirementFixture {
                 self.selected = generation;
                 self.calls += 1;
             }
-            Message::Published(released, queued) => self.publication = Some((released, queued)),
+            Message::Published(released, queued, cleaned, dropped) => {
+                self.publication = Some((released, queued));
+                self.scope_publication = (cleaned, dropped);
+            }
         }
     }
 
@@ -77,16 +84,25 @@ impl Component for RetirementFixture {
         let target = self.target.clone();
         let released = Rc::clone(&self.released);
         let sender = context.sender();
-        context.use_effect("retirement", self.callback.is_none(), move || {
-            // Snapshot logical retirement before returning to the native event loop.
-            assert!(sender.send(Message::Published(released.get(), target.request_focus())));
-            None
-        });
-        let first = keyed(2u32, TextBlock::new().automation_id("first").text("First"));
-        let second = keyed(
-            3u32,
-            TextBlock::new().automation_id("second").text("Second"),
+        let scopes = Rc::clone(&self.scopes);
+        context.use_effect(
+            "retirement",
+            (self.callback.is_none(), self.paged),
+            move || {
+                // Snapshot logical retirement before returning to the native event loop.
+                assert!(sender.send(Message::Published(
+                    released.get(),
+                    target.request_focus(),
+                    scopes.cleaned.get(),
+                    scopes.dropped.get(),
+                )));
+                None
+            },
         );
+        let first =
+            component::<TrackedChild>(2u32, ("first", "First", Rc::clone(&self.scopes))).keyed();
+        let second =
+            component::<TrackedChild>(3u32, ("second", "Second", Rc::clone(&self.scopes))).keyed();
         // Removal retires the child while WinUI animates it out and appends a replacement. Swap
         // then moves the remaining siblings.
         let children = if let Some(callback) = &self.callback {
@@ -152,6 +168,10 @@ impl Component for RetirementFixture {
                 Border::new()
                     .child_transitions([ThemeTransition::Content])
                     .content(page),
+                component::<TrackedChild>(
+                    "retained",
+                    ("retained-scope", "Retained scope", Rc::clone(&self.scopes)),
+                ),
                 Button::new()
                     .automation_id("remove")
                     .content("Remove child")
@@ -168,9 +188,60 @@ impl Component for RetirementFixture {
                     .automation_id("publication")
                     .text(publication),
                 TextBlock::new()
+                    .automation_id("scope-lifetimes")
+                    .text(format!(
+                        "Cleanups {}; drops {}",
+                        self.scope_publication.0, self.scope_publication.1
+                    )),
+                TextBlock::new()
                     .automation_id("selection")
                     .text(format!("Selected {}; calls {}", self.selected, self.calls)),
             ))
             .into()
+    }
+}
+
+#[derive(Default, PartialEq)]
+struct ScopeLifetimes {
+    cleaned: Cell<u32>,
+    dropped: Cell<u32>,
+}
+
+struct TrackedChild {
+    scopes: Rc<ScopeLifetimes>,
+    cleaned: Rc<Cell<bool>>,
+}
+
+impl Component for TrackedChild {
+    type Input = (&'static str, &'static str, Rc<ScopeLifetimes>);
+    type Message = ();
+
+    fn create(input: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        Self {
+            scopes: Rc::clone(&input.2),
+            cleaned: Rc::default(),
+        }
+    }
+
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let scopes = Rc::clone(&self.scopes);
+        let cleaned = Rc::clone(&self.cleaned);
+        context.use_effect("lifetime", (), move || {
+            Some(Box::new(move || {
+                assert!(!cleaned.replace(true));
+                scopes.cleaned.set(scopes.cleaned.get() + 1);
+            }))
+        });
+        TextBlock::new().automation_id(input.0).text(input.1).into()
+    }
+}
+
+impl Drop for TrackedChild {
+    fn drop(&mut self) {
+        assert!(
+            self.cleaned.get(),
+            "component dropped before effect cleanup"
+        );
+        self.scopes.dropped.set(self.scopes.dropped.get() + 1);
     }
 }
