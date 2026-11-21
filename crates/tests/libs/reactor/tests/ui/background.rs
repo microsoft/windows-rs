@@ -16,7 +16,7 @@ fn background_completion_preserves_message_order_and_ui_thread_construction() ->
 
 #[test]
 fn background_shutdown_with_pending_registrations() -> Result<()> {
-    process::run("background", |ui| {
+    process::run("background-shutdown", |ui| {
         ui.name("delivered", "Delivered [0]")?;
         ui.invoke("start")?;
         ui.name("state", "Generation 0; retained true")?;
