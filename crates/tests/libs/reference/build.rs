@@ -12,6 +12,7 @@ fn main() {
         "default",
         "--out",
         "src/bindings.rs",
+        "--public",
         "--filter",
         "Windows.Foundation.DateTime",
         "Windows.Foundation.IPropertyValue",

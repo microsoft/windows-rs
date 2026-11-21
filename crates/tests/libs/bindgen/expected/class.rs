@@ -3,7 +3,7 @@
 pub struct Class(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Class, windows_core::IUnknown, windows_core::IInspectable);
 impl Class {
-    pub fn new() -> windows_core::Result<Self> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
@@ -16,7 +16,7 @@ impl Class {
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Method(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Method)(
@@ -26,7 +26,7 @@ impl Class {
             .map(|| result__)
         }
     }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub(crate) fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(
@@ -36,7 +36,7 @@ impl Class {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub(crate) fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetName)(
                 windows_core::Interface::as_raw(self),

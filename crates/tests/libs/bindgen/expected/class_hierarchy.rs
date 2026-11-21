@@ -36,12 +36,12 @@ pub mod Test {
     }
     pub trait IBase_Impl: windows_core::IUnknownImpl {}
     impl IBase_Vtbl {
-        pub const fn new<Identity: IBase_Impl, const OFFSET: isize>() -> Self {
+        pub(crate) const fn new<Identity: IBase_Impl, const OFFSET: isize>() -> Self {
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             }
         }
-        pub fn matches(iid: &windows_core::GUID) -> bool {
+        pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
             iid == &<IBase as windows_core::Interface>::IID
         }
     }
@@ -65,12 +65,12 @@ pub mod Test {
     }
     pub trait ILeaf_Impl: windows_core::IUnknownImpl {}
     impl ILeaf_Vtbl {
-        pub const fn new<Identity: ILeaf_Impl, const OFFSET: isize>() -> Self {
+        pub(crate) const fn new<Identity: ILeaf_Impl, const OFFSET: isize>() -> Self {
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             }
         }
-        pub fn matches(iid: &windows_core::GUID) -> bool {
+        pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
             iid == &<ILeaf as windows_core::Interface>::IID
         }
     }
@@ -94,12 +94,12 @@ pub mod Test {
     }
     pub trait IMiddle_Impl: windows_core::IUnknownImpl {}
     impl IMiddle_Vtbl {
-        pub const fn new<Identity: IMiddle_Impl, const OFFSET: isize>() -> Self {
+        pub(crate) const fn new<Identity: IMiddle_Impl, const OFFSET: isize>() -> Self {
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             }
         }
-        pub fn matches(iid: &windows_core::GUID) -> bool {
+        pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
             iid == &<IMiddle as windows_core::Interface>::IID
         }
     }

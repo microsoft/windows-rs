@@ -21,7 +21,7 @@ pub struct IValue_Vtbl {
 }
 windows_core::imp::define_winrt_interface!(IVector < T >, IVector_Vtbl < T, >, 0x1b2776f1_623d_5a07_b5d8_9a225dfc1901);
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
+    pub(crate) fn GetAt(&self, index: u32) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
                 core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
@@ -33,7 +33,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub(crate) fn Size(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Size)(
@@ -43,7 +43,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             .map(|| result__)
         }
     }
-    pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub(crate) fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<T>,
     {

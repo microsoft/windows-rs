@@ -6,7 +6,7 @@ windows_core::imp::define_winrt_interface!(
 );
 windows_core::imp::interface_hierarchy!(Widget, windows_core::IUnknown, windows_core::IInspectable);
 impl Widget {
-    pub fn get_Value(&self) -> windows_core::Result<i32> {
+    pub(crate) fn get_Value(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Value)(
@@ -16,7 +16,7 @@ impl Widget {
             .map(|| result__)
         }
     }
-    pub fn put_Value(&self, value: i32) -> windows_core::Result<()> {
+    pub(crate) fn put_Value(&self, value: i32) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).put_Value)(
                 windows_core::Interface::as_raw(self),

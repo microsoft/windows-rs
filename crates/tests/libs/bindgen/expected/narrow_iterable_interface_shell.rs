@@ -24,7 +24,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl ISource {
-    pub fn GetItems(&self) -> windows_core::Result<IItems> {
+    pub(crate) fn GetItems(&self) -> windows_core::Result<IItems> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItems)(
@@ -42,7 +42,7 @@ pub trait ISource_Impl: windows_core::IUnknownImpl {
     fn GetItems(&self) -> windows_core::Result<IItems>;
 }
 impl ISource_Vtbl {
-    pub const fn new<Identity: ISource_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: ISource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetItems<Identity: ISource_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
@@ -67,7 +67,7 @@ impl ISource_Vtbl {
             GetItems: GetItems::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISource as windows_core::Interface>::IID
     }
 }

@@ -13,4 +13,5 @@ pub struct Record {
     pub value: i32,
 }
 pub type Shared = i32;
+#[allow(dead_code)]
 pub type Wide = isize;

@@ -41,7 +41,7 @@ impl windows_core::RuntimeType for ArrayRoundtrip {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ArrayRoundtrip {
-    pub fn new<
+    pub(crate) fn new<
         F: Fn(
                 &[Option<Tracked>],
                 &mut [Option<Tracked>],
@@ -57,7 +57,7 @@ impl ArrayRoundtrip {
             windows_core::imp::DelegateBox::<Self, F>::new(&ArrayRoundtripBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
-    pub fn Invoke(
+    pub(crate) fn Invoke(
         &self,
         input: &[Option<Tracked>],
         fill: &mut [Option<Tracked>],
@@ -179,7 +179,7 @@ impl windows_core::RuntimeType for EmptyArray {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl EmptyArray {
-    pub fn new<
+    pub(crate) fn new<
         F: Fn() -> windows_core::Result<windows_core::Array<u32>> + Send + Sync + 'static,
     >(
         invoke: F,
@@ -188,7 +188,7 @@ impl EmptyArray {
             windows_core::imp::DelegateBox::<Self, F>::new(&EmptyArrayBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
-    pub fn Invoke(&self) -> windows_core::Result<windows_core::Array<u32>> {
+    pub(crate) fn Invoke(&self) -> windows_core::Result<windows_core::Array<u32>> {
         unsafe {
             let mut result__ = core::ptr::null_mut();
             let mut result_size__ = 0;
@@ -266,7 +266,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Gener
         .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> GenericOutputs<T> {
-    pub fn new<
+    pub(crate) fn new<
         F: Fn(
                 &mut [<T as windows_core::imp::Type>::Default],
                 &mut <T as windows_core::imp::Type>::Default,
@@ -283,7 +283,7 @@ impl<T: windows_core::RuntimeType + 'static> GenericOutputs<T> {
         );
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
-    pub fn Invoke(
+    pub(crate) fn Invoke(
         &self,
         fill: &mut [<T as windows_core::imp::Type>::Default],
         value: &mut <T as windows_core::imp::Type>::Default,
@@ -373,7 +373,7 @@ impl<
 }
 windows_core::imp::define_winrt_interface!(GenericResult < T >, GenericResult_Vtbl < T, >, 0xf83d59d6_7deb_5e2e_8219_79ce2ee23f8b, b"Test.GenericResult`1");
 impl<T: windows_core::RuntimeType + 'static> GenericResult<T> {
-    pub fn Get(&self) -> windows_core::Result<T> {
+    pub(crate) fn Get(&self) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
                 core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
@@ -384,7 +384,7 @@ impl<T: windows_core::RuntimeType + 'static> GenericResult<T> {
             .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
-    pub fn Infallible(&self) -> T {
+    pub(crate) fn Infallible(&self) -> T {
         unsafe {
             let mut result__ =
                 core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
@@ -410,7 +410,7 @@ where
     fn Infallible(&self) -> T;
 }
 impl<T: windows_core::RuntimeType + 'static> GenericResult_Vtbl<T> {
-    pub const fn new<Identity: GenericResult_Impl<T>, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: GenericResult_Impl<T>, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Get<
             T: windows_core::RuntimeType + 'static,
             Identity: GenericResult_Impl<T>,
@@ -457,7 +457,7 @@ impl<T: windows_core::RuntimeType + 'static> GenericResult_Vtbl<T> {
             T: core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<GenericResult<T> as windows_core::Interface>::IID
     }
 }
@@ -497,7 +497,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Gener
         .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> GenericRoundtrip<T> {
-    pub fn new<
+    pub(crate) fn new<
         F: Fn(
                 windows_core::Ref<T>,
                 &mut <T as windows_core::imp::Type>::Default,
@@ -514,7 +514,7 @@ impl<T: windows_core::RuntimeType + 'static> GenericRoundtrip<T> {
         );
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
-    pub fn Invoke<P0>(
+    pub(crate) fn Invoke<P0>(
         &self,
         input: P0,
         output: &mut <T as windows_core::imp::Type>::Default,
@@ -620,7 +620,7 @@ impl windows_core::RuntimeType for InterfaceOutputs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl InterfaceOutputs {
-    pub fn new<
+    pub(crate) fn new<
         F: Fn(windows_core::OutRef<Tracked>) -> windows_core::Result<Tracked> + Send + Sync + 'static,
     >(
         invoke: F,
@@ -631,7 +631,7 @@ impl InterfaceOutputs {
         );
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
-    pub fn Invoke(&self, value: &mut Option<Tracked>) -> windows_core::Result<Tracked> {
+    pub(crate) fn Invoke(&self, value: &mut Option<Tracked>) -> windows_core::Result<Tracked> {
         if core::mem::needs_drop::<Option<Tracked>>() {
             *value = unsafe { core::mem::zeroed() };
         }
@@ -697,7 +697,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(NativeResult, windows_core::IUnknown);
 impl NativeResult {
-    pub unsafe fn Get(&self) -> windows_core::Result<OwnedValue> {
+    pub(crate) unsafe fn Get(&self) -> windows_core::Result<OwnedValue> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::<OwnedValue>::zeroed();
             (windows_core::Interface::vtable(self).Get)(
@@ -707,7 +707,7 @@ impl NativeResult {
             .map(|| result__.assume_init())
         }
     }
-    pub unsafe fn GetArray(&self) -> windows_core::Result<[OwnedValue; 2]> {
+    pub(crate) unsafe fn GetArray(&self) -> windows_core::Result<[OwnedValue; 2]> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::<[OwnedValue; 2]>::zeroed();
             (windows_core::Interface::vtable(self).GetArray)(
@@ -717,7 +717,7 @@ impl NativeResult {
             .map(|| result__.assume_init())
         }
     }
-    pub unsafe fn GetNestedArray(&self) -> windows_core::Result<[[OwnedValue; 2]; 2]> {
+    pub(crate) unsafe fn GetNestedArray(&self) -> windows_core::Result<[[OwnedValue; 2]; 2]> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::<[[OwnedValue; 2]; 2]>::zeroed();
             (windows_core::Interface::vtable(self).GetNestedArray)(
@@ -748,7 +748,7 @@ pub trait NativeResult_Impl: windows_core::IUnknownImpl {
     fn GetNestedArray(&self) -> windows_core::Result<[[OwnedValue; 2]; 2]>;
 }
 impl NativeResult_Vtbl {
-    pub const fn new<Identity: NativeResult_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: NativeResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Get<Identity: NativeResult_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             value: *mut OwnedValue,
@@ -816,7 +816,7 @@ impl NativeResult_Vtbl {
             GetNestedArray: GetNestedArray::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<NativeResult as windows_core::Interface>::IID
     }
 }
@@ -833,7 +833,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl OwnedResult {
-    pub fn Get(&self) -> windows_core::Result<OwnedValue> {
+    pub(crate) fn Get(&self) -> windows_core::Result<OwnedValue> {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::<OwnedValue>::zeroed();
             (windows_core::Interface::vtable(self).Get)(
@@ -843,7 +843,7 @@ impl OwnedResult {
             .map(|| result__.assume_init())
         }
     }
-    pub fn Infallible(&self) -> OwnedValue {
+    pub(crate) fn Infallible(&self) -> OwnedValue {
         unsafe {
             let mut result__ = core::mem::MaybeUninit::<OwnedValue>::zeroed();
             let hresult__ = (windows_core::Interface::vtable(self).Infallible)(
@@ -854,7 +854,7 @@ impl OwnedResult {
             result__.assume_init()
         }
     }
-    pub fn GetMany(&self) -> windows_core::Result<windows_core::Array<OwnedValue>> {
+    pub(crate) fn GetMany(&self) -> windows_core::Result<windows_core::Array<OwnedValue>> {
         unsafe {
             let mut result__ = core::ptr::null_mut();
             let mut result_size__ = 0;
@@ -868,7 +868,7 @@ impl OwnedResult {
             })
         }
     }
-    pub fn InfallibleMany(&self) -> windows_core::Array<OwnedValue> {
+    pub(crate) fn InfallibleMany(&self) -> windows_core::Array<OwnedValue> {
         unsafe {
             let mut result__ = core::ptr::null_mut();
             let mut result_size__ = 0;
@@ -892,7 +892,7 @@ pub trait OwnedResult_Impl: windows_core::IUnknownImpl {
     fn InfallibleMany(&self) -> windows_core::Array<OwnedValue>;
 }
 impl OwnedResult_Vtbl {
-    pub const fn new<Identity: OwnedResult_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: OwnedResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Get<Identity: OwnedResult_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut OwnedValue,
@@ -973,7 +973,7 @@ impl OwnedResult_Vtbl {
             InfallibleMany: InfallibleMany::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<OwnedResult as windows_core::Interface>::IID
     }
 }
@@ -1005,7 +1005,7 @@ impl windows_core::RuntimeType for OwnedRoundtrip {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl OwnedRoundtrip {
-    pub fn new<
+    pub(crate) fn new<
         F: Fn(&OwnedValue, &mut OwnedValue) -> windows_core::Result<OwnedValue>
             + Send
             + Sync
@@ -1017,7 +1017,7 @@ impl OwnedRoundtrip {
             windows_core::imp::DelegateBox::<Self, F>::new(&OwnedRoundtripBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
-    pub fn Invoke(
+    pub(crate) fn Invoke(
         &self,
         input: &OwnedValue,
         output: &mut OwnedValue,
@@ -1115,11 +1115,13 @@ impl windows_core::RuntimeType for Tracked {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Tracked {
-    pub fn new<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static>(invoke: F) -> Self {
+    pub(crate) fn new<F: Fn() -> windows_core::Result<()> + Send + Sync + 'static>(
+        invoke: F,
+    ) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&TrackedBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
-    pub fn Invoke(&self) -> windows_core::Result<()> {
+    pub(crate) fn Invoke(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self))
                 .ok()

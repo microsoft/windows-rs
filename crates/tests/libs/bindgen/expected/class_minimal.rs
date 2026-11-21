@@ -3,7 +3,7 @@
 pub struct Class(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Class, windows_core::IUnknown, windows_core::IInspectable);
 impl Class {
-    pub fn Create(value: i32) -> windows_core::Result<Self> {
+    pub(crate) fn Create(value: i32) -> windows_core::Result<Self> {
         Self::IClassStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(
@@ -14,7 +14,7 @@ impl Class {
             .and_then(|| windows_core::imp::from_abi(result__))
         })
     }
-    pub fn Value() -> i32 {
+    pub(crate) fn Value() -> i32 {
         Self::IClassStatics(|this| {
             Ok(unsafe {
                 let mut result__ = core::mem::zeroed();
@@ -28,7 +28,7 @@ impl Class {
         })
         .unwrap()
     }
-    pub fn SetValue(value: i32) {
+    pub(crate) fn SetValue(value: i32) {
         Self::IClassStatics(|this| unsafe {
             let hresult__ = (windows_core::Interface::vtable(this).SetValue)(
                 windows_core::Interface::as_raw(this),
@@ -39,7 +39,7 @@ impl Class {
         })
         .unwrap();
     }
-    pub fn Text() -> String {
+    pub(crate) fn Text() -> String {
         Self::IClassStatics(|this| {
             Ok(unsafe {
                 let mut result__ = core::mem::zeroed();
@@ -54,7 +54,7 @@ impl Class {
         })
         .unwrap()
     }
-    pub fn Next() -> Option<IClass> {
+    pub(crate) fn Next() -> Option<IClass> {
         Self::IClassStatics(|this| {
             Ok(unsafe {
                 let mut result__ = core::mem::zeroed();
@@ -68,7 +68,7 @@ impl Class {
         })
         .unwrap()
     }
-    pub fn Numbers() -> windows_core::Array<i32> {
+    pub(crate) fn Numbers() -> windows_core::Array<i32> {
         Self::IClassStatics(|this| {
             Ok(unsafe {
                 let mut result__ = core::ptr::null_mut();
@@ -116,7 +116,7 @@ windows_core::imp::define_winrt_interface!(
     0x327dfd65_5684_57ee_85ab_168eff31a838
 );
 impl IClass {
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Method(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Method)(
@@ -126,7 +126,7 @@ impl IClass {
             .map(|| result__)
         }
     }
-    pub fn Name(&self) -> windows_core::Result<String> {
+    pub(crate) fn Name(&self) -> windows_core::Result<String> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(
@@ -139,7 +139,7 @@ impl IClass {
             })
         }
     }
-    pub fn SetName(&self, value: &str) -> windows_core::Result<()> {
+    pub(crate) fn SetName(&self, value: &str) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetName)(
                 windows_core::Interface::as_raw(self),

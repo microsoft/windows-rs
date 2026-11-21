@@ -10,7 +10,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IWidget {
-    pub fn Read(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Read(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Read)(
@@ -39,7 +39,7 @@ windows_core::imp::interface_hierarchy!(
     IWidget
 );
 impl Widget {
-    pub fn Read(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Read(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Read)(

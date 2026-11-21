@@ -16,7 +16,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Handl
         .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> Handler<T> {
-    pub fn new<
+    pub(crate) fn new<
         F: Fn(windows_core::Ref<T>, i32) -> windows_core::Result<()> + Send + Sync + 'static,
     >(
         invoke: F,
@@ -25,7 +25,7 @@ impl<T: windows_core::RuntimeType + 'static> Handler<T> {
             windows_core::imp::DelegateBox::<Self, F>::new(&HandlerBox::<T, F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
-    pub fn Invoke<P0>(&self, sender: P0, args: i32) -> windows_core::Result<()>
+    pub(crate) fn Invoke<P0>(&self, sender: P0, args: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<T>,
     {

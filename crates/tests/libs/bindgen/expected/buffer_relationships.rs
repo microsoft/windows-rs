@@ -5,7 +5,7 @@ pub unsafe fn ValidFunction(count: u32, values: *const u32) {
 }
 windows_core::imp::define_interface!(Interface, Interface_Vtbl);
 impl Interface {
-    pub unsafe fn ValidElements(&self, count: u32, values: *const u32) {
+    pub(crate) unsafe fn ValidElements(&self, count: u32, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).ValidElements)(
                 windows_core::Interface::as_raw(self),
@@ -14,7 +14,7 @@ impl Interface {
             );
         }
     }
-    pub unsafe fn SharedCount(&self, count: u32, left: *const u32, right: *const u32) {
+    pub(crate) unsafe fn SharedCount(&self, count: u32, left: *const u32, right: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).SharedCount)(
                 windows_core::Interface::as_raw(self),
@@ -24,7 +24,7 @@ impl Interface {
             );
         }
     }
-    pub unsafe fn ValidBytes(&self, count: u32, values: *const u8) {
+    pub(crate) unsafe fn ValidBytes(&self, count: u32, values: *const u8) {
         unsafe {
             (windows_core::Interface::vtable(self).ValidBytes)(
                 windows_core::Interface::as_raw(self),
@@ -33,7 +33,7 @@ impl Interface {
             );
         }
     }
-    pub unsafe fn ValidConstant(&self, values: *const u32) {
+    pub(crate) unsafe fn ValidConstant(&self, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).ValidConstant)(
                 windows_core::Interface::as_raw(self),
@@ -41,7 +41,7 @@ impl Interface {
             );
         }
     }
-    pub unsafe fn OutOfRangeConstant(&self, values: *const u32) {
+    pub(crate) unsafe fn OutOfRangeConstant(&self, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).OutOfRangeConstant)(
                 windows_core::Interface::as_raw(self),
@@ -66,7 +66,7 @@ pub trait Interface_Impl {
     fn OutOfRangeConstant(&self, values: *const u32);
 }
 impl Interface_Vtbl {
-    pub const fn new<Identity: Interface_Impl>() -> Self {
+    pub(crate) const fn new<Identity: Interface_Impl>() -> Self {
         unsafe extern "system" fn ValidElements<Identity: Interface_Impl>(
             this: *mut core::ffi::c_void,
             count: u32,
@@ -148,7 +148,9 @@ impl<T: Interface_Impl> Interface_ImplVtbl<T> {
     const VTABLE: Interface_Vtbl = Interface_Vtbl::new::<T>();
 }
 impl Interface {
-    pub fn new<'a, T: Interface_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: Interface_Impl>(
+        this: &'a T,
+    ) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &Interface_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,

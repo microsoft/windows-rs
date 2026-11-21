@@ -23,12 +23,12 @@ windows_core::imp::define_interface!(Value, Value_Vtbl, 0x10000000_0000_0000_000
 windows_core::imp::interface_hierarchy!(Value, windows_core::IUnknown);
 impl Value {
     #[must_use]
-    pub unsafe fn Count(&self) -> u32 {
+    pub(crate) unsafe fn Count(&self) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self))
         }
     }
-    pub unsafe fn Get(&self) -> windows_core::Result<u32> {
+    pub(crate) unsafe fn Get(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Get)(
@@ -38,7 +38,7 @@ impl Value {
             .map(|| result__)
         }
     }
-    pub unsafe fn Flag(&self) -> windows_core::BOOL {
+    pub(crate) unsafe fn Flag(&self) -> windows_core::BOOL {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Flag)(
@@ -49,7 +49,7 @@ impl Value {
         }
     }
     #[must_use]
-    pub unsafe fn Size(&self) -> u32 {
+    pub(crate) unsafe fn Size(&self) -> u32 {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Size)(
@@ -75,7 +75,7 @@ pub trait Value_Impl: windows_core::IUnknownImpl {
     fn Size(&self, value: *mut u32);
 }
 impl Value_Vtbl {
-    pub const fn new<Identity: Value_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: Value_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: Value_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
         ) -> u32 {
@@ -132,7 +132,7 @@ impl Value_Vtbl {
             Size: Size::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<Value as windows_core::Interface>::IID
     }
 }

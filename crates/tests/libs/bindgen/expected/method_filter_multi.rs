@@ -10,7 +10,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IInterface {
-    pub fn First(&self, x: i32) -> windows_core::Result<i32> {
+    pub(crate) fn First(&self, x: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).First)(
@@ -21,7 +21,7 @@ impl IInterface {
             .map(|| result__)
         }
     }
-    pub fn Second(&self, y: i32) -> windows_core::Result<i32> {
+    pub(crate) fn Second(&self, y: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Second)(

@@ -10,7 +10,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Interface {
-    pub fn GetName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub(crate) fn GetName(&self) -> windows_core::Result<windows_core::HSTRING> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetName)(
@@ -20,7 +20,7 @@ impl Interface {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub(crate) fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetName)(
                 windows_core::Interface::as_raw(self),
@@ -38,7 +38,7 @@ pub trait Interface_Impl: windows_core::IUnknownImpl {
     fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
 impl Interface_Vtbl {
-    pub const fn new<Identity: Interface_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: Interface_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: Interface_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
@@ -74,7 +74,7 @@ impl Interface_Vtbl {
             SetName: SetName::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<Interface as windows_core::Interface>::IID
     }
 }

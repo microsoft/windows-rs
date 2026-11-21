@@ -1,4 +1,5 @@
 --out crates/libs/future/src/bindings.rs
+--public
 
 --filter
     Windows::Foundation::{AsyncActionCompletedHandler, AsyncActionProgressHandler, AsyncActionWithProgressCompletedHandler, AsyncOperationCompletedHandler, AsyncOperationProgressHandler, AsyncOperationWithProgressCompletedHandler, AsyncStatus}

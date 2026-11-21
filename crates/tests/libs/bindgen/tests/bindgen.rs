@@ -14,7 +14,6 @@ fn narrow_event_delegates_respect_dead_code() {
         .input(&winmd)
         .filter("Test.ISource::Changed")
         .minimal()
-        .dead_code()
         .output(scratch.join("bindings.rs"))
         .write();
     let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
@@ -177,7 +176,6 @@ fn minimal_interface_implementation_selection() {
             .input(&winmd)
             .filter("Test")
             .minimal()
-            .dead_code()
             .output(&output);
         match selection {
             "selected" => {
@@ -263,7 +261,7 @@ pub fn runtime(
             .output()
             .unwrap()
     };
-    for (minimal, dead_code) in [(false, false), (false, true), (true, true)] {
+    for (minimal, public) in [(false, true), (false, false), (true, false)] {
         let mut builder = windows_bindgen::builder();
         builder
             .input(&winmd)
@@ -272,18 +270,18 @@ pub fn runtime(
         if minimal {
             builder.minimal();
         }
-        if dead_code {
-            builder.dead_code();
+        if public {
+            builder.public();
         }
         builder.write();
         let result = compile();
         let stderr = String::from_utf8_lossy(&result.stderr);
         assert_eq!(
             result.status.success(),
-            minimal || !dead_code,
-            "minimal={minimal}, dead_code={dead_code}: {stderr}"
+            minimal || public,
+            "minimal={minimal}, public={public}: {stderr}"
         );
-        if !minimal && dead_code {
+        if !minimal && !public {
             assert!(
                 stderr.contains("associated functions `new` and `matches` are never used"),
                 "{stderr}"
@@ -340,7 +338,6 @@ pub fn annotated() -> windows_core::ScopedInterface<'static, bindings::I> {
                 "Windows.Win32.Api.I::{}",
             ])
             .minimal()
-            .dead_code()
             .output(scratch.join("bindings.rs"));
         if all {
             builder.implement_all();

@@ -10,12 +10,12 @@ impl windows_core::RuntimeName for IItems {
 }
 pub trait IItems_Impl: windows_core::IUnknownImpl {}
 impl IItems_Vtbl {
-    pub const fn new<Identity: IItems_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IItems_Impl, const OFFSET: isize>() -> Self {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IItems as windows_core::Interface>::IID
     }
 }
@@ -31,7 +31,7 @@ windows_core::imp::define_winrt_interface!(
 );
 windows_core::imp::interface_hierarchy!(Item, windows_core::IUnknown, windows_core::IInspectable);
 impl Item {
-    pub fn Read(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Read(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Read)(
@@ -49,7 +49,7 @@ pub trait Item_Impl: windows_core::IUnknownImpl {
     fn Read(&self) -> windows_core::Result<i32>;
 }
 impl Item_Vtbl {
-    pub const fn new<Identity: Item_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: Item_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Read<Identity: Item_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
@@ -74,7 +74,7 @@ impl Item_Vtbl {
             Read: Read::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<Item as windows_core::Interface>::IID
     }
 }
@@ -94,7 +94,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(Items, windows_collections::IIterable<Item>);
 impl Items {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<Item>> {
+    pub(crate) fn First(&self) -> windows_core::Result<windows_collections::IIterator<Item>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<Item>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

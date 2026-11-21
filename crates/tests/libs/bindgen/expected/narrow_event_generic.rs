@@ -16,7 +16,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Handl
         .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> Handler<T> {
-    pub fn new<
+    pub(crate) fn new<
         F: Fn(windows_core::Ref<T>, i32) -> windows_core::Result<()> + Send + Sync + 'static,
     >(
         invoke: F,
@@ -25,7 +25,7 @@ impl<T: windows_core::RuntimeType + 'static> Handler<T> {
             windows_core::imp::DelegateBox::<Self, F>::new(&HandlerBox::<T, F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
-    pub fn Invoke<P0>(&self, sender: P0, value: i32) -> windows_core::Result<()>
+    pub(crate) fn Invoke<P0>(&self, sender: P0, value: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<T>,
     {
@@ -96,7 +96,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl ISource {
-    pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, i32) + Send + Sync + 'static,
     {
@@ -128,7 +128,7 @@ pub trait ISource_Impl: windows_core::IUnknownImpl {
     fn RemoveChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ISource_Vtbl {
-    pub const fn new<Identity: ISource_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: ISource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Changed<Identity: ISource_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             handler: *mut core::ffi::c_void,
@@ -165,7 +165,7 @@ impl ISource_Vtbl {
             RemoveChanged: RemoveChanged::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ISource as windows_core::Interface>::IID
     }
 }

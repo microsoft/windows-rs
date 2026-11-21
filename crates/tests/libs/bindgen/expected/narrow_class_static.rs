@@ -10,7 +10,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IWidget {
-    pub fn Read(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Read(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Read)(
@@ -28,7 +28,7 @@ pub trait IWidget_Impl: windows_core::IUnknownImpl {
     fn Read(&self) -> windows_core::Result<i32>;
 }
 impl IWidget_Vtbl {
-    pub const fn new<Identity: IWidget_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IWidget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Read<Identity: IWidget_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
@@ -53,7 +53,7 @@ impl IWidget_Vtbl {
             Read: Read::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWidget as windows_core::Interface>::IID
     }
 }
@@ -74,7 +74,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IWidgetFactory {
-    pub fn Create(&self, value: i32) -> windows_core::Result<Widget> {
+    pub(crate) fn Create(&self, value: i32) -> windows_core::Result<Widget> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Create)(
@@ -109,7 +109,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(Widget, IWidgetFactory);
 impl Widget {
-    pub fn Read(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Read(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Read)(
@@ -119,7 +119,7 @@ impl Widget {
             .map(|| result__)
         }
     }
-    pub fn Create(value: i32) -> windows_core::Result<Self> {
+    pub(crate) fn Create(value: i32) -> windows_core::Result<Self> {
         Self::IWidgetFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(

@@ -33,7 +33,7 @@ windows_core::imp::define_winrt_interface!(
 );
 windows_core::imp::interface_hierarchy!(IClose, windows_core::IUnknown, windows_core::IInspectable);
 impl IClose {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub(crate) fn Close(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
                 .ok()
@@ -66,7 +66,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IGeneric
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IGeneric<T> {
-    pub fn Derived(&self) -> windows_core::Result<()> {
+    pub(crate) fn Derived(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Derived)(windows_core::Interface::as_raw(self))
                 .ok()
@@ -102,7 +102,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IProducer {
-    pub fn GetClose(&self) -> windows_core::Result<IClose> {
+    pub(crate) fn GetClose(&self) -> windows_core::Result<IClose> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClose)(
@@ -132,7 +132,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IStream {
-    pub fn Read(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Read(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Read)(
@@ -159,7 +159,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IUnrelated {
-    pub fn Value(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Value(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(
@@ -183,7 +183,7 @@ windows_core::imp::define_winrt_interface!(
 windows_core::imp::interface_hierarchy!(IWhole, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IWhole, IWholeBase, IWholeMiddle);
 impl IWhole {
-    pub fn Derived(&self) -> windows_core::Result<()> {
+    pub(crate) fn Derived(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Derived)(windows_core::Interface::as_raw(self))
                 .ok()

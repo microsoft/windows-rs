@@ -1,6 +1,6 @@
 windows_core::imp::define_interface!(Interface, Interface_Vtbl);
 impl Interface {
-    pub unsafe fn Method(&self, value: u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Method(&self, value: u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Method)(
                 windows_core::Interface::as_raw(self),
@@ -8,7 +8,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn GetValue(&self, result: *mut Struct) -> windows_core::HRESULT {
+    pub(crate) unsafe fn GetValue(&self, result: *mut Struct) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetValue)(
                 windows_core::Interface::as_raw(self),
@@ -28,7 +28,7 @@ pub trait Interface_Impl {
     fn GetValue(&self, result: *mut Struct) -> windows_core::HRESULT;
 }
 impl Interface_Vtbl {
-    pub const fn new<Identity: Interface_Impl>() -> Self {
+    pub(crate) const fn new<Identity: Interface_Impl>() -> Self {
         unsafe extern "system" fn Method<Identity: Interface_Impl>(
             this: *mut core::ffi::c_void,
             value: u32,
@@ -60,7 +60,9 @@ impl<T: Interface_Impl> Interface_ImplVtbl<T> {
     const VTABLE: Interface_Vtbl = Interface_Vtbl::new::<T>();
 }
 impl Interface {
-    pub fn new<'a, T: Interface_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: Interface_Impl>(
+        this: &'a T,
+    ) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &Interface_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,

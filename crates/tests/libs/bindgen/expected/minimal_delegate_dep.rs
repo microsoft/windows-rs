@@ -8,7 +8,7 @@ impl windows_core::RuntimeType for Handler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Handler {
-    pub fn new<F: Fn(i32) + Send + Sync + 'static>(invoke: F) -> Self {
+    pub(crate) fn new<F: Fn(i32) + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&HandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -46,7 +46,7 @@ impl<F: Fn(i32) + Send + Sync + 'static> HandlerBox<F> {
 windows_core::imp::define_winrt_interface!(Sink, Sink_Vtbl, 0xfbb9e298_5149_534a_843a_fce157f2a8f2);
 windows_core::imp::interface_hierarchy!(Sink, windows_core::IUnknown, windows_core::IInspectable);
 impl Sink {
-    pub fn Subscribe<P0>(&self, handler: P0) -> windows_core::Result<i32>
+    pub(crate) fn Subscribe<P0>(&self, handler: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<Handler>,
     {

@@ -3,7 +3,7 @@
 pub struct Class(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Class, windows_core::IUnknown, windows_core::IInspectable);
 impl Class {
-    pub fn new() -> windows_core::Result<Self> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
@@ -16,7 +16,7 @@ impl Class {
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Method(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Method)(
@@ -26,7 +26,7 @@ impl Class {
             .map(|| result__)
         }
     }
-    pub fn Create(value: i32) -> windows_core::Result<Self> {
+    pub(crate) fn Create(value: i32) -> windows_core::Result<Self> {
         Self::IClassStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(
@@ -37,7 +37,7 @@ impl Class {
             .and_then(|| windows_core::imp::from_abi(result__))
         })
     }
-    pub fn Value() -> i32 {
+    pub(crate) fn Value() -> i32 {
         Self::IClassStatics(|this| {
             Ok(unsafe {
                 let mut result__ = core::mem::zeroed();
@@ -51,7 +51,7 @@ impl Class {
         })
         .unwrap()
     }
-    pub fn SetValue(value: i32) {
+    pub(crate) fn SetValue(value: i32) {
         Self::IClassStatics(|this| unsafe {
             let hresult__ = (windows_core::Interface::vtable(this).SetValue)(
                 windows_core::Interface::as_raw(this),
@@ -62,7 +62,7 @@ impl Class {
         })
         .unwrap();
     }
-    pub fn Text() -> windows_core::HSTRING {
+    pub(crate) fn Text() -> windows_core::HSTRING {
         Self::IClassStatics(|this| {
             Ok(unsafe {
                 let mut result__ = core::mem::zeroed();
@@ -76,7 +76,7 @@ impl Class {
         })
         .unwrap()
     }
-    pub fn Next() -> Option<IClass> {
+    pub(crate) fn Next() -> Option<IClass> {
         Self::IClassStatics(|this| {
             Ok(unsafe {
                 let mut result__ = core::mem::zeroed();
@@ -90,7 +90,7 @@ impl Class {
         })
         .unwrap()
     }
-    pub fn Numbers() -> windows_core::Array<i32> {
+    pub(crate) fn Numbers() -> windows_core::Array<i32> {
         Self::IClassStatics(|this| {
             Ok(unsafe {
                 let mut result__ = core::ptr::null_mut();

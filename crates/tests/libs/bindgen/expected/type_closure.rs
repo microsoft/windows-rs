@@ -5,7 +5,7 @@ pub struct IInner_Vtbl {
 }
 windows_core::imp::define_interface!(IOuter, IOuter_Vtbl);
 impl IOuter {
-    pub unsafe fn GetInner(&self) -> Option<IInner> {
+    pub(crate) unsafe fn GetInner(&self) -> Option<IInner> {
         unsafe {
             (windows_core::Interface::vtable(self).GetInner)(windows_core::Interface::as_raw(self))
         }
@@ -19,7 +19,7 @@ pub trait IOuter_Impl {
     fn GetInner(&self) -> Option<IInner>;
 }
 impl IOuter_Vtbl {
-    pub const fn new<Identity: IOuter_Impl>() -> Self {
+    pub(crate) const fn new<Identity: IOuter_Impl>() -> Self {
         unsafe extern "system" fn GetInner<Identity: IOuter_Impl>(
             this: *mut core::ffi::c_void,
         ) -> Option<IInner> {
@@ -39,7 +39,7 @@ impl<T: IOuter_Impl> IOuter_ImplVtbl<T> {
     const VTABLE: IOuter_Vtbl = IOuter_Vtbl::new::<T>();
 }
 impl IOuter {
-    pub fn new<'a, T: IOuter_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: IOuter_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &IOuter_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,

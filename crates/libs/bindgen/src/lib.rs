@@ -84,7 +84,7 @@ pub struct Bindgen {
     rustfmt: Option<String>,
     layout: Layout,
     style: Style,
-    dead_code: bool,
+    public: bool,
 }
 
 enum Input {
@@ -317,6 +317,10 @@ impl Bindgen {
         self
     }
 
+    fn is_public(&self) -> bool {
+        self.public || self.layout.is_package()
+    }
+
     fn uses_inline_core_types(&self) -> bool {
         self.style.is_sys() && !self.layout.is_package()
     }
@@ -440,11 +444,12 @@ impl Bindgen {
         self
     }
 
-    /// Use `pub(crate)` where possible to surface unused bindings as dead-code warnings.
+    /// Emit `pub` methods and implementation traits instead of `pub(crate)`.
     ///
-    /// Interface and vtable types remain public for trait implementations.
-    pub fn dead_code(&mut self) -> &mut Self {
-        self.dead_code = true;
+    /// By default, unused generated methods are reported as dead code so filters can be narrowed.
+    /// Use this when the crate re-exports generated items. Package output is always public.
+    pub fn public(&mut self) -> &mut Self {
+        self.public = true;
         self
     }
 

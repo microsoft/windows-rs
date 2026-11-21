@@ -15,14 +15,14 @@ where
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     IPair_Vtbl<K, V>
 {
-    pub const fn new<Identity: IPair_Impl<K, V>, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IPair_Impl<K, V>, const OFFSET: isize>() -> Self {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             K: core::marker::PhantomData::<K>,
             V: core::marker::PhantomData::<V>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPair<K, V> as windows_core::Interface>::IID
     }
 }
@@ -48,12 +48,12 @@ impl windows_core::RuntimeName for IValue {
 }
 pub trait IValue_Impl: windows_core::IUnknownImpl {}
 impl IValue_Vtbl {
-    pub const fn new<Identity: IValue_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IValue_Impl, const OFFSET: isize>() -> Self {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IValue as windows_core::Interface>::IID
     }
 }
@@ -63,7 +63,7 @@ pub struct IValue_Vtbl {
 }
 windows_core::imp::define_winrt_interface!(IVector < T >, IVector_Vtbl < T, >, 0x1b2776f1_623d_5a07_b5d8_9a225dfc1901, b"Test.IVector`1");
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
+    pub(crate) fn GetAt(&self, index: u32) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
                 core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
@@ -75,7 +75,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub(crate) fn Size(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Size)(
@@ -85,7 +85,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             .map(|| result__)
         }
     }
-    pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub(crate) fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<T>,
     {
@@ -112,7 +112,7 @@ where
     fn Append(&self, value: windows_core::Ref<T>) -> windows_core::Result<()>;
 }
 impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
-    pub const fn new<Identity: IVector_Impl<T>, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IVector_Impl<T>, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAt<
             T: windows_core::RuntimeType + 'static,
             Identity: IVector_Impl<T>,
@@ -182,7 +182,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             T: core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVector<T> as windows_core::Interface>::IID
     }
 }

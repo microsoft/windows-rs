@@ -6,7 +6,7 @@ windows_core::imp::define_winrt_interface!(
 );
 windows_core::imp::interface_hierarchy!(IBase, windows_core::IUnknown, windows_core::IInspectable);
 impl IBase {
-    pub fn First(&self) -> windows_core::Result<i32> {
+    pub(crate) fn First(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).First)(
@@ -24,7 +24,7 @@ pub trait IBase_Impl: windows_core::IUnknownImpl {
     fn First(&self) -> windows_core::Result<i32>;
 }
 impl IBase_Vtbl {
-    pub const fn new<Identity: IBase_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IBase_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn First<Identity: IBase_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
@@ -49,7 +49,7 @@ impl IBase_Vtbl {
             First: First::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBase as windows_core::Interface>::IID
     }
 }
@@ -71,7 +71,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(IDerived, IBase);
 impl IDerived {
-    pub fn Second(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Second(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Second)(
@@ -81,7 +81,7 @@ impl IDerived {
             .map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<i32> {
+    pub(crate) fn First(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<IBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -100,7 +100,7 @@ pub trait IDerived_Impl: IBase_Impl {
     fn Second(&self) -> windows_core::Result<i32>;
 }
 impl IDerived_Vtbl {
-    pub const fn new<Identity: IDerived_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IDerived_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Second<Identity: IDerived_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
@@ -125,7 +125,7 @@ impl IDerived_Vtbl {
             Second: Second::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDerived as windows_core::Interface>::IID
     }
 }

@@ -1,6 +1,6 @@
 windows_core::imp::define_interface!(Buffers, Buffers_Vtbl);
 impl Buffers {
-    pub unsafe fn Input(&self, values: *const u32, count: u32) {
+    pub(crate) unsafe fn Input(&self, values: *const u32, count: u32) {
         unsafe {
             (windows_core::Interface::vtable(self).Input)(
                 windows_core::Interface::as_raw(self),
@@ -9,7 +9,7 @@ impl Buffers {
             );
         }
     }
-    pub unsafe fn Fixed(&self, values: *const u32) {
+    pub(crate) unsafe fn Fixed(&self, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).Fixed)(
                 windows_core::Interface::as_raw(self),
@@ -17,7 +17,7 @@ impl Buffers {
             );
         }
     }
-    pub unsafe fn InOut(&self, values: *mut u32, count: u32) {
+    pub(crate) unsafe fn InOut(&self, values: *mut u32, count: u32) {
         unsafe {
             (windows_core::Interface::vtable(self).InOut)(
                 windows_core::Interface::as_raw(self),
@@ -26,7 +26,7 @@ impl Buffers {
             );
         }
     }
-    pub unsafe fn Optional(&self, values: Option<*const u32>, count: u32) {
+    pub(crate) unsafe fn Optional(&self, values: Option<*const u32>, count: u32) {
         unsafe {
             (windows_core::Interface::vtable(self).Optional)(
                 windows_core::Interface::as_raw(self),
@@ -35,7 +35,7 @@ impl Buffers {
             );
         }
     }
-    pub unsafe fn Output(
+    pub(crate) unsafe fn Output(
         &self,
         values: *mut u32,
         count: u32,
@@ -50,7 +50,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Returned(&self, values: *mut *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Returned(&self, values: *mut *mut u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Returned)(
                 windows_core::Interface::as_raw(self),
@@ -58,7 +58,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Query<T>(&self) -> windows_core::Result<T>
+    pub(crate) unsafe fn Query<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -72,7 +72,7 @@ impl Buffers {
             .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn QueryArray(
+    pub(crate) unsafe fn QueryArray(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -85,7 +85,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn QueryWithBuffer(
+    pub(crate) unsafe fn QueryWithBuffer(
         &self,
         ids: *const windows_core::GUID,
         count: u32,
@@ -100,7 +100,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn BufferResult(&self, value: *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn BufferResult(&self, value: *mut u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).BufferResult)(
                 windows_core::Interface::as_raw(self),
@@ -168,7 +168,7 @@ pub trait Buffers_Impl {
     fn BufferResult(&self, value: *mut u32) -> windows_core::HRESULT;
 }
 impl Buffers_Vtbl {
-    pub const fn new<Identity: Buffers_Impl>() -> Self {
+    pub(crate) const fn new<Identity: Buffers_Impl>() -> Self {
         unsafe extern "system" fn Input<Identity: Buffers_Impl>(
             this: *mut core::ffi::c_void,
             values: *const u32,
@@ -328,7 +328,7 @@ impl<T: Buffers_Impl> Buffers_ImplVtbl<T> {
     const VTABLE: Buffers_Vtbl = Buffers_Vtbl::new::<T>();
 }
 impl Buffers {
-    pub fn new<'a, T: Buffers_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: Buffers_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &Buffers_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,

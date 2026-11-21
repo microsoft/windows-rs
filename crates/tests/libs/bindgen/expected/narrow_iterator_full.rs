@@ -1,6 +1,6 @@
 windows_core::imp::define_winrt_interface!(IIterator < T >, IIterator_Vtbl < T, >, 0x6a79e863_4300_459a_9966_cbb660963ee1, b"Windows.Foundation.Collections.IIterator`1");
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
-    pub fn Current(&self) -> windows_core::Result<T> {
+    pub(crate) fn Current(&self) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
                 core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
@@ -11,7 +11,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
             .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
-    pub fn HasCurrent(&self) -> windows_core::Result<bool> {
+    pub(crate) fn HasCurrent(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HasCurrent)(
@@ -21,7 +21,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
             .map(|| result__)
         }
     }
-    pub fn MoveNext(&self) -> windows_core::Result<bool> {
+    pub(crate) fn MoveNext(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(
@@ -31,7 +31,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
             .map(|| result__)
         }
     }
-    pub fn GetMany(
+    pub(crate) fn GetMany(
         &self,
         items: &mut [<T as windows_core::imp::Type>::Default],
     ) -> windows_core::Result<u32> {
@@ -68,7 +68,7 @@ where
     ) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
-    pub const fn new<Identity: IIterator_Impl<T>, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IIterator_Impl<T>, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Current<
             T: windows_core::RuntimeType + 'static,
             Identity: IIterator_Impl<T>,
@@ -178,7 +178,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             T: core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIterator<T> as windows_core::Interface>::IID
     }
 }

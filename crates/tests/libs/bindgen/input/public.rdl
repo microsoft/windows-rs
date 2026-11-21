@@ -1,0 +1,27 @@
+//! --filter Test --public
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Metadata {
+            attribute ActivatableAttribute {
+                fn(#[in] version: u32);
+            }
+            attribute ExclusiveToAttribute {
+                fn(#[in] r#type: Type);
+            }
+        }
+    }
+}
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    class Class {
+        IClass,
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Class)]
+    #[guid(auto)]
+    interface IClass {
+        fn Method(&self) -> i32;
+        Name: String;
+    }
+}

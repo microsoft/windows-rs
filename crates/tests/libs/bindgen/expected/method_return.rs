@@ -13,7 +13,7 @@ pub unsafe fn Unannotated(value: u32, result: *mut Struct) -> windows_core::HRES
 }
 windows_core::imp::define_interface!(Interface, Interface_Vtbl);
 impl Interface {
-    pub unsafe fn ResultVoid(&self, value: u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn ResultVoid(&self, value: u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).ResultVoid)(
                 windows_core::Interface::as_raw(self),
@@ -21,7 +21,11 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn ResultValue(&self, value: u32, result: *mut Struct) -> windows_core::HRESULT {
+    pub(crate) unsafe fn ResultValue(
+        &self,
+        value: u32,
+        result: *mut Struct,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).ResultValue)(
                 windows_core::Interface::as_raw(self),
@@ -30,7 +34,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn ReturnStruct(&self, value: u32, result: *mut Struct) {
+    pub(crate) unsafe fn ReturnStruct(&self, value: u32, result: *mut Struct) {
         unsafe {
             (windows_core::Interface::vtable(self).ReturnStruct)(
                 windows_core::Interface::as_raw(self),
@@ -39,7 +43,7 @@ impl Interface {
             );
         }
     }
-    pub unsafe fn ReturnValue(&self, value: u32) -> Struct {
+    pub(crate) unsafe fn ReturnValue(&self, value: u32) -> Struct {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReturnValue)(
@@ -50,7 +54,10 @@ impl Interface {
             result__
         }
     }
-    pub unsafe fn ExplicitAfterInputOutput(&self, state: *mut u32) -> windows_core::Result<Struct> {
+    pub(crate) unsafe fn ExplicitAfterInputOutput(
+        &self,
+        state: *mut u32,
+    ) -> windows_core::Result<Struct> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExplicitAfterInputOutput)(
@@ -61,7 +68,7 @@ impl Interface {
             .map(|| result__)
         }
     }
-    pub unsafe fn RetvalInputOutput(&self, result: *mut Struct) -> windows_core::HRESULT {
+    pub(crate) unsafe fn RetvalInputOutput(&self, result: *mut Struct) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).RetvalInputOutput)(
                 windows_core::Interface::as_raw(self),
@@ -69,7 +76,10 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn RetvalOptional(&self, result: Option<*mut Struct>) -> windows_core::HRESULT {
+    pub(crate) unsafe fn RetvalOptional(
+        &self,
+        result: Option<*mut Struct>,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).RetvalOptional)(
                 windows_core::Interface::as_raw(self),
@@ -77,7 +87,10 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn RetvalReserved(&self, result: Option<*mut Struct>) -> windows_core::HRESULT {
+    pub(crate) unsafe fn RetvalReserved(
+        &self,
+        result: Option<*mut Struct>,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).RetvalReserved)(
                 windows_core::Interface::as_raw(self),
@@ -85,7 +98,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn RetvalArray(&self, result: *mut Struct) -> windows_core::HRESULT {
+    pub(crate) unsafe fn RetvalArray(&self, result: *mut Struct) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).RetvalArray)(
                 windows_core::Interface::as_raw(self),
@@ -93,7 +106,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn ExplicitLarge(&self) -> windows_core::Result<Large> {
+    pub(crate) unsafe fn ExplicitLarge(&self) -> windows_core::Result<Large> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExplicitLarge)(
@@ -103,7 +116,9 @@ impl Interface {
             .map(|| result__)
         }
     }
-    pub unsafe fn ExplicitVoidPointer(&self) -> windows_core::Result<*mut core::ffi::c_void> {
+    pub(crate) unsafe fn ExplicitVoidPointer(
+        &self,
+    ) -> windows_core::Result<*mut core::ffi::c_void> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExplicitVoidPointer)(
@@ -158,7 +173,7 @@ pub trait Interface_Impl {
     fn ExplicitVoidPointer(&self) -> windows_core::Result<*mut core::ffi::c_void>;
 }
 impl Interface_Vtbl {
-    pub const fn new<Identity: Interface_Impl>() -> Self {
+    pub(crate) const fn new<Identity: Interface_Impl>() -> Self {
         unsafe extern "system" fn ResultVoid<Identity: Interface_Impl>(
             this: *mut core::ffi::c_void,
             value: u32,
@@ -335,7 +350,9 @@ impl<T: Interface_Impl> Interface_ImplVtbl<T> {
     const VTABLE: Interface_Vtbl = Interface_Vtbl::new::<T>();
 }
 impl Interface {
-    pub fn new<'a, T: Interface_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: Interface_Impl>(
+        this: &'a T,
+    ) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &Interface_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,

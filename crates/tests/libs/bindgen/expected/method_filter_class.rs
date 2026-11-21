@@ -14,7 +14,7 @@ pub struct IWidget_Vtbl {
 pub struct Widget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Widget, windows_core::IUnknown, windows_core::IInspectable);
 impl Widget {
-    pub fn new() -> windows_core::Result<Self> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
@@ -27,7 +27,7 @@ impl Widget {
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Act(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Act(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Act)(

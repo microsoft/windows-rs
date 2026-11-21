@@ -6,7 +6,7 @@ windows_core::imp::define_winrt_interface!(
 );
 windows_core::imp::interface_hierarchy!(IKept, windows_core::IUnknown, windows_core::IInspectable);
 impl IKept {
-    pub fn Read(&self) -> windows_core::Result<u32> {
+    pub(crate) fn Read(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Read)(
@@ -24,7 +24,7 @@ pub trait IKept_Impl: windows_core::IUnknownImpl {
     fn Read(&self) -> windows_core::Result<u32>;
 }
 impl IKept_Vtbl {
-    pub const fn new<Identity: IKept_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IKept_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Read<Identity: IKept_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut u32,
@@ -49,7 +49,7 @@ impl IKept_Vtbl {
             Read: Read::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IKept as windows_core::Interface>::IID
     }
 }

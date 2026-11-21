@@ -1,7 +1,7 @@
 pub type Pointer = *mut u32;
 windows_core::imp::define_interface!(Unknown, Unknown_Vtbl);
 impl Unknown {
-    pub unsafe fn Scalar(&self, value: u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Scalar(&self, value: u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Scalar)(
                 windows_core::Interface::as_raw(self),
@@ -9,7 +9,7 @@ impl Unknown {
             )
         }
     }
-    pub unsafe fn Raw(&self, value: *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Raw(&self, value: *mut u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Raw)(
                 windows_core::Interface::as_raw(self),
@@ -17,7 +17,7 @@ impl Unknown {
             )
         }
     }
-    pub unsafe fn Alias(&self, value: Pointer) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Alias(&self, value: Pointer) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Alias)(
                 windows_core::Interface::as_raw(self),
@@ -25,7 +25,7 @@ impl Unknown {
             )
         }
     }
-    pub unsafe fn Buffer(&self, count: u32, value: *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Buffer(&self, count: u32, value: *mut u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Buffer)(
                 windows_core::Interface::as_raw(self),
@@ -34,7 +34,7 @@ impl Unknown {
             )
         }
     }
-    pub unsafe fn Query(
+    pub(crate) unsafe fn Query(
         &self,
         riid: *const windows_core::GUID,
         value: *mut *mut core::ffi::c_void,
@@ -47,7 +47,7 @@ impl Unknown {
             )
         }
     }
-    pub unsafe fn Interface(&self, value: *mut Option<Self>) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Interface(&self, value: *mut Option<Self>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Interface)(
                 windows_core::Interface::as_raw(self),
@@ -55,7 +55,7 @@ impl Unknown {
             )
         }
     }
-    pub unsafe fn Input(&self, value: *const u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Input(&self, value: *const u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Input)(
                 windows_core::Interface::as_raw(self),
@@ -63,7 +63,7 @@ impl Unknown {
             )
         }
     }
-    pub unsafe fn Output(&self, value: *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Output(&self, value: *mut u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Output)(
                 windows_core::Interface::as_raw(self),
@@ -108,7 +108,7 @@ pub trait Unknown_Impl {
     fn Output(&self, value: *mut u32) -> windows_core::HRESULT;
 }
 impl Unknown_Vtbl {
-    pub const fn new<Identity: Unknown_Impl>() -> Self {
+    pub(crate) const fn new<Identity: Unknown_Impl>() -> Self {
         unsafe extern "system" fn Scalar<Identity: Unknown_Impl>(
             this: *mut core::ffi::c_void,
             value: u32,
@@ -216,7 +216,7 @@ impl<T: Unknown_Impl> Unknown_ImplVtbl<T> {
     const VTABLE: Unknown_Vtbl = Unknown_Vtbl::new::<T>();
 }
 impl Unknown {
-    pub fn new<'a, T: Unknown_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: Unknown_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &Unknown_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,

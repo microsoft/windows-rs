@@ -22,7 +22,7 @@ pub struct Callbacks {
 }
 windows_core::imp::define_interface!(References, References_Vtbl);
 impl References {
-    pub unsafe fn Read(&self, value: *const Alias, result: *mut u32) {
+    pub(crate) unsafe fn Read(&self, value: *const Alias, result: *mut u32) {
         unsafe {
             (windows_core::Interface::vtable(self).Read)(
                 windows_core::Interface::as_raw(self),
@@ -31,7 +31,7 @@ impl References {
             );
         }
     }
-    pub unsafe fn ReadOut(&self, value: *const Alias, result: *mut u32) {
+    pub(crate) unsafe fn ReadOut(&self, value: *const Alias, result: *mut u32) {
         unsafe {
             (windows_core::Interface::vtable(self).ReadOut)(
                 windows_core::Interface::as_raw(self),
@@ -51,7 +51,7 @@ pub trait References_Impl {
     fn ReadOut(&self, value: *const Alias, result: *mut u32);
 }
 impl References_Vtbl {
-    pub const fn new<Identity: References_Impl>() -> Self {
+    pub(crate) const fn new<Identity: References_Impl>() -> Self {
         unsafe extern "system" fn Read<Identity: References_Impl>(
             this: *mut core::ffi::c_void,
             value: *const Alias,
@@ -93,7 +93,9 @@ impl<T: References_Impl> References_ImplVtbl<T> {
     const VTABLE: References_Vtbl = References_Vtbl::new::<T>();
 }
 impl References {
-    pub fn new<'a, T: References_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: References_Impl>(
+        this: &'a T,
+    ) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &References_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,

@@ -1,6 +1,6 @@
 windows_core::imp::define_interface!(Interface, Interface_Vtbl);
 impl Interface {
-    pub unsafe fn OutFixed(&self, buffer: *mut u32) -> i32 {
+    pub(crate) unsafe fn OutFixed(&self, buffer: *mut u32) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).OutFixed)(
                 windows_core::Interface::as_raw(self),
@@ -8,7 +8,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn OutLen(&self, count: u32, buffer: *mut u32) -> i32 {
+    pub(crate) unsafe fn OutLen(&self, count: u32, buffer: *mut u32) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).OutLen)(
                 windows_core::Interface::as_raw(self),
@@ -17,7 +17,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn OutOpt(&self, count: u32, buffer: Option<*mut u32>) -> i32 {
+    pub(crate) unsafe fn OutOpt(&self, count: u32, buffer: Option<*mut u32>) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).OutOpt)(
                 windows_core::Interface::as_raw(self),
@@ -26,7 +26,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn OutBytes(&self, size: u32, buffer: *mut u8) -> i32 {
+    pub(crate) unsafe fn OutBytes(&self, size: u32, buffer: *mut u8) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).OutBytes)(
                 windows_core::Interface::as_raw(self),
@@ -35,7 +35,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn OutInterfaces(
+    pub(crate) unsafe fn OutInterfaces(
         &self,
         count: u32,
         values: *mut Option<windows_core::IInspectable>,
@@ -48,7 +48,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn InOutLen(&self, count: u32, buffer: *mut u32) -> i32 {
+    pub(crate) unsafe fn InOutLen(&self, count: u32, buffer: *mut u32) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).InOutLen)(
                 windows_core::Interface::as_raw(self),
@@ -57,7 +57,12 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn SharedCount(&self, count: u32, input: *const u32, output: *mut u32) -> i32 {
+    pub(crate) unsafe fn SharedCount(
+        &self,
+        count: u32,
+        input: *const u32,
+        output: *mut u32,
+    ) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).SharedCount)(
                 windows_core::Interface::as_raw(self),
@@ -67,7 +72,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn InLen(&self, count: u32, buffer: *const u32) -> i32 {
+    pub(crate) unsafe fn InLen(&self, count: u32, buffer: *const u32) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).InLen)(
                 windows_core::Interface::as_raw(self),
@@ -76,7 +81,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn InSignedLen(&self, count: i32, buffer: *const u32) -> i32 {
+    pub(crate) unsafe fn InSignedLen(&self, count: i32, buffer: *const u32) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).InSignedLen)(
                 windows_core::Interface::as_raw(self),
@@ -85,7 +90,7 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn InOptionalSignedLen(&self, count: i32, buffer: Option<*const u32>) -> i32 {
+    pub(crate) unsafe fn InOptionalSignedLen(&self, count: i32, buffer: Option<*const u32>) -> i32 {
         unsafe {
             (windows_core::Interface::vtable(self).InOptionalSignedLen)(
                 windows_core::Interface::as_raw(self),

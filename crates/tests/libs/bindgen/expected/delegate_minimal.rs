@@ -8,7 +8,7 @@ impl windows_core::RuntimeType for Delegate {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Delegate {
-    pub fn new<F: Fn(i32, i32) + Send + Sync + 'static>(invoke: F) -> Self {
+    pub(crate) fn new<F: Fn(i32, i32) + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&DelegateBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }

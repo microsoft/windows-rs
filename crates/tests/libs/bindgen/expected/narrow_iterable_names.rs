@@ -5,7 +5,7 @@ impl<T: windows_core::RuntimeType + 'static>
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IItems<T> {
-    pub fn First(&self) -> windows_core::Result<u32> {
+    pub(crate) fn First(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).First)(
@@ -15,7 +15,7 @@ impl<T: windows_core::RuntimeType + 'static> IItems<T> {
             .map(|| result__)
         }
     }
-    pub fn First2(&self) -> windows_core::Result<windows_collections::IIterator<T>> {
+    pub(crate) fn First2(&self) -> windows_core::Result<windows_collections::IIterator<T>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<T>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -53,7 +53,7 @@ where
     fn First(&self) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IItems_Vtbl<T> {
-    pub const fn new<Identity: IItems_Impl<T>, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IItems_Impl<T>, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn First<
             T: windows_core::RuntimeType + 'static,
             Identity: IItems_Impl<T>,
@@ -83,7 +83,7 @@ impl<T: windows_core::RuntimeType + 'static> IItems_Vtbl<T> {
             T: core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IItems<T> as windows_core::Interface>::IID
     }
 }
@@ -107,7 +107,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(Items, windows_collections::IIterable<i32>);
 impl Items {
-    pub fn First(&self) -> windows_core::Result<u32> {
+    pub(crate) fn First(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).First)(
@@ -117,7 +117,7 @@ impl Items {
             .map(|| result__)
         }
     }
-    pub fn First2(&self) -> windows_core::Result<windows_collections::IIterator<i32>> {
+    pub(crate) fn First2(&self) -> windows_core::Result<windows_collections::IIterator<i32>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<i32>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

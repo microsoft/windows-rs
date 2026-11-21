@@ -5,7 +5,7 @@ pub unsafe fn Output(count: u32, values: *mut u32) -> windows_core::HRESULT {
 }
 windows_core::imp::define_interface!(Buffers, Buffers_Vtbl);
 impl Buffers {
-    pub unsafe fn Input(&self, count: u32, values: *const u32) {
+    pub(crate) unsafe fn Input(&self, count: u32, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).Input)(
                 windows_core::Interface::as_raw(self),
@@ -14,7 +14,7 @@ impl Buffers {
             );
         }
     }
-    pub unsafe fn Output(&self, count: u32, values: *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Output(&self, count: u32, values: *mut u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Output)(
                 windows_core::Interface::as_raw(self),
@@ -23,7 +23,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Explicit(&self, values: *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Explicit(&self, values: *mut u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Explicit)(
                 windows_core::Interface::as_raw(self),
@@ -31,7 +31,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Arithmetic(&self, count: u32, values: *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Arithmetic(&self, count: u32, values: *mut u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Arithmetic)(
                 windows_core::Interface::as_raw(self),
@@ -40,7 +40,11 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Returned(&self, count: u32, values: *mut *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Returned(
+        &self,
+        count: u32,
+        values: *mut *mut u32,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Returned)(
                 windows_core::Interface::as_raw(self),
@@ -49,7 +53,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn OptionalCount(
+    pub(crate) unsafe fn OptionalCount(
         &self,
         count: Option<*const u32>,
         values: *mut u32,
@@ -62,7 +66,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn UnknownDirection(&self, count: u32, values: *const u32) {
+    pub(crate) unsafe fn UnknownDirection(&self, count: u32, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).UnknownDirection)(
                 windows_core::Interface::as_raw(self),
@@ -71,7 +75,7 @@ impl Buffers {
             );
         }
     }
-    pub unsafe fn Residual(&self, count: u32, values: *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Residual(&self, count: u32, values: *mut u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Residual)(
                 windows_core::Interface::as_raw(self),
@@ -80,7 +84,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn ResidualInput(&self, count: u32, values: *const u32) {
+    pub(crate) unsafe fn ResidualInput(&self, count: u32, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).ResidualInput)(
                 windows_core::Interface::as_raw(self),
@@ -89,7 +93,7 @@ impl Buffers {
             );
         }
     }
-    pub unsafe fn ResidualCount(&self, count: u32, values: *const u32) {
+    pub(crate) unsafe fn ResidualCount(&self, count: u32, values: *const u32) {
         unsafe {
             (windows_core::Interface::vtable(self).ResidualCount)(
                 windows_core::Interface::as_raw(self),
@@ -98,7 +102,7 @@ impl Buffers {
             );
         }
     }
-    pub unsafe fn Scalar(&self, value: *mut u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Scalar(&self, value: *mut u32) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Scalar)(
                 windows_core::Interface::as_raw(self),
@@ -106,7 +110,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Query<T>(&self) -> windows_core::Result<T>
+    pub(crate) unsafe fn Query<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -120,7 +124,7 @@ impl Buffers {
             .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn GuidBuffer(
+    pub(crate) unsafe fn GuidBuffer(
         &self,
         count: u32,
         filters: *const windows_core::GUID,
@@ -135,7 +139,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn OutputBuffer(
+    pub(crate) unsafe fn OutputBuffer(
         &self,
         riid: *const windows_core::GUID,
         count: u32,
@@ -150,7 +154,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn ResidualQuery(
+    pub(crate) unsafe fn ResidualQuery(
         &self,
         filters: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -163,7 +167,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn ResidualOutput(
+    pub(crate) unsafe fn ResidualOutput(
         &self,
         riid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -176,7 +180,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn UnknownSlot(
+    pub(crate) unsafe fn UnknownSlot(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -189,7 +193,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn UnknownEntry(
+    pub(crate) unsafe fn UnknownEntry(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -202,7 +206,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn UnknownWritable(
+    pub(crate) unsafe fn UnknownWritable(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -215,7 +219,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn UnknownWithoutReturnedContract(
+    pub(crate) unsafe fn UnknownWithoutReturnedContract(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -228,7 +232,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn UnknownResidual(
+    pub(crate) unsafe fn UnknownResidual(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -241,7 +245,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn UnknownMixed(
+    pub(crate) unsafe fn UnknownMixed(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -254,7 +258,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn KnownPointeeCount(
+    pub(crate) unsafe fn KnownPointeeCount(
         &self,
         iid: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -267,7 +271,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn ConstSlot(
+    pub(crate) unsafe fn ConstSlot(
         &self,
         iid: *const windows_core::GUID,
         result: *const RawObject,
@@ -280,7 +284,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn ConstPointee(
+    pub(crate) unsafe fn ConstPointee(
         &self,
         iid: *const windows_core::GUID,
         result: *mut ConstObject,
@@ -479,7 +483,7 @@ pub trait Buffers_Impl {
     ) -> windows_core::HRESULT;
 }
 impl Buffers_Vtbl {
-    pub const fn new<Identity: Buffers_Impl>() -> Self {
+    pub(crate) const fn new<Identity: Buffers_Impl>() -> Self {
         unsafe extern "system" fn Input<Identity: Buffers_Impl>(
             this: *mut core::ffi::c_void,
             count: u32,
@@ -884,7 +888,7 @@ impl<T: Buffers_Impl> Buffers_ImplVtbl<T> {
     const VTABLE: Buffers_Vtbl = Buffers_Vtbl::new::<T>();
 }
 impl Buffers {
-    pub fn new<'a, T: Buffers_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: Buffers_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &Buffers_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,
@@ -900,7 +904,7 @@ impl Buffers {
 pub type ConstObject = *const core::ffi::c_void;
 windows_core::imp::define_interface!(ObjectContracts, ObjectContracts_Vtbl);
 impl ObjectContracts {
-    pub unsafe fn Required<P0>(&self, value: P0)
+    pub(crate) unsafe fn Required<P0>(&self, value: P0)
     where
         P0: windows_core::Param<Tracked>,
     {
@@ -911,7 +915,7 @@ impl ObjectContracts {
             );
         }
     }
-    pub unsafe fn Optional<P0>(&self, value: P0)
+    pub(crate) unsafe fn Optional<P0>(&self, value: P0)
     where
         P0: windows_core::Param<Tracked>,
     {
@@ -922,7 +926,7 @@ impl ObjectContracts {
             );
         }
     }
-    pub unsafe fn Unspecified<P0>(&self, value: P0)
+    pub(crate) unsafe fn Unspecified<P0>(&self, value: P0)
     where
         P0: windows_core::Param<Tracked>,
     {
@@ -946,7 +950,7 @@ pub trait ObjectContracts_Impl {
     fn Unspecified(&self, value: windows_core::Ref<Tracked>);
 }
 impl ObjectContracts_Vtbl {
-    pub const fn new<Identity: ObjectContracts_Impl>() -> Self {
+    pub(crate) const fn new<Identity: ObjectContracts_Impl>() -> Self {
         unsafe extern "system" fn Required<Identity: ObjectContracts_Impl>(
             this: *mut core::ffi::c_void,
             value: *mut core::ffi::c_void,
@@ -989,7 +993,7 @@ impl<T: ObjectContracts_Impl> ObjectContracts_ImplVtbl<T> {
     const VTABLE: ObjectContracts_Vtbl = ObjectContracts_Vtbl::new::<T>();
 }
 impl ObjectContracts {
-    pub fn new<'a, T: ObjectContracts_Impl>(
+    pub(crate) fn new<'a, T: ObjectContracts_Impl>(
         this: &'a T,
     ) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
@@ -1017,12 +1021,12 @@ pub struct Tracked_Vtbl {
 }
 pub trait Tracked_Impl: windows_core::IUnknownImpl {}
 impl Tracked_Vtbl {
-    pub const fn new<Identity: Tracked_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: Tracked_Impl, const OFFSET: isize>() -> Self {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<Tracked as windows_core::Interface>::IID
     }
 }

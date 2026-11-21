@@ -1,6 +1,6 @@
 windows_core::imp::define_interface!(Factory, Factory_Vtbl);
 impl Factory {
-    pub unsafe fn Reference<T>(
+    pub(crate) unsafe fn Reference<T>(
         &self,
         count: u32,
         filters: *const windows_core::GUID,
@@ -20,7 +20,7 @@ impl Factory {
             .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn BufferAfterId<T>(
+    pub(crate) unsafe fn BufferAfterId<T>(
         &self,
         count: u32,
         filters: *const windows_core::GUID,
@@ -40,7 +40,7 @@ impl Factory {
             .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn BufferOnly(
+    pub(crate) unsafe fn BufferOnly(
         &self,
         count: u32,
         filters: *const windows_core::GUID,
@@ -55,7 +55,7 @@ impl Factory {
             )
         }
     }
-    pub unsafe fn ByteBuffer(
+    pub(crate) unsafe fn ByteBuffer(
         &self,
         count: u32,
         filters: *const windows_core::GUID,
@@ -70,7 +70,7 @@ impl Factory {
             )
         }
     }
-    pub unsafe fn FixedBuffer(
+    pub(crate) unsafe fn FixedBuffer(
         &self,
         filters: *const windows_core::GUID,
         result: *mut *mut core::ffi::c_void,
@@ -83,7 +83,7 @@ impl Factory {
             )
         }
     }
-    pub unsafe fn OutputBuffer(
+    pub(crate) unsafe fn OutputBuffer(
         &self,
         riid: *const windows_core::GUID,
         count: u32,
@@ -179,7 +179,7 @@ pub trait Factory_Impl {
     ) -> windows_core::HRESULT;
 }
 impl Factory_Vtbl {
-    pub const fn new<Identity: Factory_Impl>() -> Self {
+    pub(crate) const fn new<Identity: Factory_Impl>() -> Self {
         unsafe extern "system" fn Reference<Identity: Factory_Impl>(
             this: *mut core::ffi::c_void,
             count: u32,
@@ -301,7 +301,7 @@ impl<T: Factory_Impl> Factory_ImplVtbl<T> {
     const VTABLE: Factory_Vtbl = Factory_Vtbl::new::<T>();
 }
 impl Factory {
-    pub fn new<'a, T: Factory_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: Factory_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &Factory_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,

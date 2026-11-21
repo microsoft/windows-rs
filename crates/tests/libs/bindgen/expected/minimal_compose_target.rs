@@ -8,7 +8,7 @@ windows_core::imp::interface_hierarchy!(
     IOverrides
 );
 impl Base {
-    pub fn compose<T>(compose: T) -> windows_core::Result<Self>
+    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Self>
     where
         T: windows_core::Compose,
     {
@@ -63,7 +63,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(Derived, Base);
 impl Derived {
-    pub fn new() -> windows_core::Result<Self> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IDerivedFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -112,7 +112,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IBaseFactory {
-    pub fn CreateInstance<P0>(
+    pub(crate) fn CreateInstance<P0>(
         &self,
         outer: P0,
         inner: &mut Option<windows_core::IInspectable>,
@@ -170,7 +170,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IDerivedFactory {
-    pub fn CreateInstance<P0>(
+    pub(crate) fn CreateInstance<P0>(
         &self,
         outer: P0,
         inner: &mut Option<windows_core::IInspectable>,
@@ -221,7 +221,7 @@ pub trait IOverrides_Impl: windows_core::IUnknownImpl {
     fn OnSomething(&self) -> windows_core::Result<()>;
 }
 impl IOverrides_Vtbl {
-    pub const fn new<Identity: IOverrides_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IOverrides_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSomething<Identity: IOverrides_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
@@ -236,7 +236,7 @@ impl IOverrides_Vtbl {
             OnSomething: OnSomething::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IOverrides as windows_core::Interface>::IID
     }
 }

@@ -48,7 +48,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl ISource {
-    pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(i32) + Send + Sync + 'static,
     {

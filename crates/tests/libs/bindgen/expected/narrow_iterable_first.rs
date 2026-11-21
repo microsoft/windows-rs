@@ -1,6 +1,6 @@
 windows_core::imp::define_winrt_interface!(IIterable < T >, IIterable_Vtbl < T, >, 0xfaa585ea_6214_4217_afda_7f46de5869b3, b"Windows.Foundation.Collections.IIterable`1");
 impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<T>> {
+    pub(crate) fn First(&self) -> windows_core::Result<windows_collections::IIterator<T>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).First)(
@@ -23,7 +23,7 @@ where
     fn First(&self) -> windows_core::Result<windows_collections::IIterator<T>>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
-    pub const fn new<Identity: IIterable_Impl<T>, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IIterable_Impl<T>, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn First<
             T: windows_core::RuntimeType + 'static,
             Identity: IIterable_Impl<T>,
@@ -53,7 +53,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
             T: core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIterable<T> as windows_core::Interface>::IID
     }
 }

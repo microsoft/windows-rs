@@ -10,7 +10,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl References {
-    pub fn Read(&self, value: Value, result: &mut Value) -> windows_core::Result<()> {
+    pub(crate) fn Read(&self, value: Value, result: &mut Value) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Read)(
                 windows_core::Interface::as_raw(self),
@@ -28,7 +28,7 @@ pub trait References_Impl: windows_core::IUnknownImpl {
     fn Read(&self, value: &Value, result: &mut Value) -> windows_core::Result<()>;
 }
 impl References_Vtbl {
-    pub const fn new<Identity: References_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: References_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Read<Identity: References_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             value: &Value,
@@ -50,7 +50,7 @@ impl References_Vtbl {
             Read: Read::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<References as windows_core::Interface>::IID
     }
 }

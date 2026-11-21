@@ -370,7 +370,7 @@ impl Method {
             (method_names.add(self.def), TokenStream::new())
         };
 
-        // `--dead-code` uses pub(crate) so unused generated methods are linted.
+        // Methods are pub(crate) unless `--public` is set so unused methods are linted.
         let vis = config.item_vis();
 
         let typed_args: Vec<TokenStream> = params.iter().map(|param|{

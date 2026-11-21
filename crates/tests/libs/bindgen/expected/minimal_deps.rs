@@ -25,7 +25,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Interface {
-    pub fn Method(&self, value: Struct) -> windows_core::Result<Enum> {
+    pub(crate) fn Method(&self, value: Struct) -> windows_core::Result<Enum> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Method)(

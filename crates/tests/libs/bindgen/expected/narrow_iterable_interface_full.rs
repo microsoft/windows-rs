@@ -5,7 +5,7 @@ impl<T: windows_core::RuntimeType + 'static>
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IItems<T> {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<T>> {
+    pub(crate) fn First(&self) -> windows_core::Result<windows_collections::IIterator<T>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<T>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -42,13 +42,13 @@ where
 {
 }
 impl<T: windows_core::RuntimeType + 'static> IItems_Vtbl<T> {
-    pub const fn new<Identity: IItems_Impl<T>, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IItems_Impl<T>, const OFFSET: isize>() -> Self {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
             T: core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IItems<T> as windows_core::Interface>::IID
     }
 }

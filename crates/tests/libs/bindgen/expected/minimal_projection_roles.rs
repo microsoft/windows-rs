@@ -9,7 +9,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Callable {
-    pub fn Invoke(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Invoke(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Invoke)(
@@ -36,7 +36,7 @@ windows_core::imp::interface_hierarchy!(
     IConstructed
 );
 impl Constructed {
-    pub fn new() -> windows_core::Result<Self> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IConstructedFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -99,7 +99,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IConstructedFactory {
-    pub fn CreateInstance<P0>(
+    pub(crate) fn CreateInstance<P0>(
         &self,
         outer: P0,
         inner: &mut Option<windows_core::IInspectable>,
@@ -143,7 +143,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IMemberOnly {
-    pub fn Value(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Value(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(
@@ -153,7 +153,7 @@ impl IMemberOnly {
             .map(|| result__)
         }
     }
-    pub fn SetValue(&self, value: i32) -> windows_core::Result<()> {
+    pub(crate) fn SetValue(&self, value: i32) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetValue)(
                 windows_core::Interface::as_raw(self),
@@ -187,7 +187,7 @@ pub trait Implemented_Impl: windows_core::IUnknownImpl {
     fn Invoke(&self) -> windows_core::Result<i32>;
 }
 impl Implemented_Vtbl {
-    pub const fn new<Identity: Implemented_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: Implemented_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Invoke<Identity: Implemented_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
@@ -212,7 +212,7 @@ impl Implemented_Vtbl {
             Invoke: Invoke::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<Implemented as windows_core::Interface>::IID
     }
 }

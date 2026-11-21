@@ -34,7 +34,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(Results, windows_core::IUnknown);
 impl Results {
-    pub unsafe fn Status(&self, status: windows_core::HRESULT) -> StatusCode {
+    pub(crate) unsafe fn Status(&self, status: windows_core::HRESULT) -> StatusCode {
         unsafe {
             (windows_core::Interface::vtable(self).Status)(
                 windows_core::Interface::as_raw(self),
@@ -42,7 +42,7 @@ impl Results {
             )
         }
     }
-    pub unsafe fn Read(
+    pub(crate) unsafe fn Read(
         &self,
         status: windows_core::HRESULT,
         value: *mut u32,
@@ -55,7 +55,7 @@ impl Results {
             )
         }
     }
-    pub unsafe fn ExplicitObject(
+    pub(crate) unsafe fn ExplicitObject(
         &self,
         status: windows_core::HRESULT,
         value: *mut Option<Tracked>,
@@ -68,7 +68,7 @@ impl Results {
             )
         }
     }
-    pub unsafe fn Object(&self) -> windows_core::Result<ObjectAlias> {
+    pub(crate) unsafe fn Object(&self) -> windows_core::Result<ObjectAlias> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Object)(
@@ -78,7 +78,7 @@ impl Results {
             .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn Reserved(&self, reserved: Option<usize>) -> windows_core::Result<Tracked> {
+    pub(crate) unsafe fn Reserved(&self, reserved: Option<usize>) -> windows_core::Result<Tracked> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Reserved)(
@@ -89,7 +89,7 @@ impl Results {
             .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn Required(&self) -> windows_core::Result<Tracked> {
+    pub(crate) unsafe fn Required(&self) -> windows_core::Result<Tracked> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Required)(
@@ -99,7 +99,7 @@ impl Results {
             .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn Number(&self) -> windows_core::Result<u32> {
+    pub(crate) unsafe fn Number(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Number)(
@@ -109,7 +109,7 @@ impl Results {
             .map(|| result__)
         }
     }
-    pub unsafe fn ObjectVoid(&self) -> windows_core::Result<Tracked> {
+    pub(crate) unsafe fn ObjectVoid(&self) -> windows_core::Result<Tracked> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ObjectVoid)(
@@ -119,7 +119,7 @@ impl Results {
             windows_core::imp::from_abi(result__)
         }
     }
-    pub unsafe fn Query<T>(&self) -> windows_core::Result<T>
+    pub(crate) unsafe fn Query<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -133,7 +133,10 @@ impl Results {
             .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn OptionalStorage<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub(crate) unsafe fn OptionalStorage<T>(
+        &self,
+        result__: *mut Option<T>,
+    ) -> windows_core::Result<()>
     where
         T: windows_core::Interface,
     {
@@ -146,7 +149,7 @@ impl Results {
             .ok()
         }
     }
-    pub unsafe fn InOutQuery(
+    pub(crate) unsafe fn InOutQuery(
         &self,
         iid: *const windows_core::GUID,
         value: *mut *mut core::ffi::c_void,
@@ -159,7 +162,7 @@ impl Results {
             )
         }
     }
-    pub unsafe fn Data(&self) -> windows_core::Result<*mut u8> {
+    pub(crate) unsafe fn Data(&self) -> windows_core::Result<*mut u8> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Data)(
@@ -169,7 +172,7 @@ impl Results {
             .map(|| result__)
         }
     }
-    pub unsafe fn ReadThenFail(
+    pub(crate) unsafe fn ReadThenFail(
         &self,
         input: *const *mut core::ffi::c_void,
     ) -> windows_core::Result<Tracked> {
@@ -183,7 +186,7 @@ impl Results {
             .and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn TypedefSlot(&self) -> windows_core::Result<Tracked> {
+    pub(crate) unsafe fn TypedefSlot(&self) -> windows_core::Result<Tracked> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TypedefSlot)(
@@ -279,7 +282,7 @@ pub trait Results_Impl: windows_core::IUnknownImpl {
     fn TypedefSlot(&self) -> windows_core::Result<Tracked>;
 }
 impl Results_Vtbl {
-    pub const fn new<Identity: Results_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: Results_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Status<Identity: Results_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             status: windows_core::HRESULT,
@@ -530,7 +533,7 @@ impl Results_Vtbl {
             TypedefSlot: TypedefSlot::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<Results as windows_core::Interface>::IID
     }
 }
@@ -548,12 +551,12 @@ pub struct Tracked_Vtbl {
 }
 pub trait Tracked_Impl: windows_core::IUnknownImpl {}
 impl Tracked_Vtbl {
-    pub const fn new<Identity: Tracked_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: Tracked_Impl, const OFFSET: isize>() -> Self {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<Tracked as windows_core::Interface>::IID
     }
 }

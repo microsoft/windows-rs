@@ -20,7 +20,7 @@ pub unsafe fn OptionalFixed(values: Option<*mut u32>) -> u32 {
 }
 windows_core::imp::define_interface!(Buffers, Buffers_Vtbl);
 impl Buffers {
-    pub unsafe fn ElementsAfter(&self, values: Option<*mut u32>, count: u32) -> u32 {
+    pub(crate) unsafe fn ElementsAfter(&self, values: Option<*mut u32>, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).ElementsAfter)(
                 windows_core::Interface::as_raw(self),
@@ -29,7 +29,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn ElementsBefore(&self, count: u32, values: Option<*mut u32>) -> u32 {
+    pub(crate) unsafe fn ElementsBefore(&self, count: u32, values: Option<*mut u32>) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).ElementsBefore)(
                 windows_core::Interface::as_raw(self),
@@ -38,7 +38,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Bytes(&self, values: Option<PSCHAR>, count: u32) -> u32 {
+    pub(crate) unsafe fn Bytes(&self, values: Option<PSCHAR>, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Bytes)(
                 windows_core::Interface::as_raw(self),
@@ -47,7 +47,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Fixed(&self, values: Option<*mut u32>) -> u32 {
+    pub(crate) unsafe fn Fixed(&self, values: Option<*mut u32>) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Fixed)(
                 windows_core::Interface::as_raw(self),
@@ -55,7 +55,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Modern(&self, values: Option<*mut u32>, count: u32) -> u32 {
+    pub(crate) unsafe fn Modern(&self, values: Option<*mut u32>, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Modern)(
                 windows_core::Interface::as_raw(self),
@@ -64,7 +64,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Input(&self, values: Option<*const u32>, count: u32) -> u32 {
+    pub(crate) unsafe fn Input(&self, values: Option<*const u32>, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Input)(
                 windows_core::Interface::as_raw(self),
@@ -73,7 +73,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Output(&self, values: Option<*mut u32>, count: u32) -> u32 {
+    pub(crate) unsafe fn Output(&self, values: Option<*mut u32>, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Output)(
                 windows_core::Interface::as_raw(self),
@@ -82,7 +82,7 @@ impl Buffers {
             )
         }
     }
-    pub unsafe fn Required(&self, values: *mut u32, count: u32) -> u32 {
+    pub(crate) unsafe fn Required(&self, values: *mut u32, count: u32) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Required)(
                 windows_core::Interface::as_raw(self),
@@ -114,7 +114,7 @@ pub trait Buffers_Impl {
     fn Required(&self, values: *mut u32, count: u32) -> u32;
 }
 impl Buffers_Vtbl {
-    pub const fn new<Identity: Buffers_Impl>() -> Self {
+    pub(crate) const fn new<Identity: Buffers_Impl>() -> Self {
         unsafe extern "system" fn ElementsAfter<Identity: Buffers_Impl>(
             this: *mut core::ffi::c_void,
             values: *mut u32,
@@ -247,7 +247,7 @@ impl<T: Buffers_Impl> Buffers_ImplVtbl<T> {
     const VTABLE: Buffers_Vtbl = Buffers_Vtbl::new::<T>();
 }
 impl Buffers {
-    pub fn new<'a, T: Buffers_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: Buffers_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &Buffers_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,
@@ -264,7 +264,7 @@ pub type PSCHAR = *mut SCHAR;
 pub type SCHAR = i8;
 windows_core::imp::define_interface!(Scoped, Scoped_Vtbl);
 impl Scoped {
-    pub unsafe fn Value(&self) -> u32 {
+    pub(crate) unsafe fn Value(&self) -> u32 {
         unsafe {
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self))
         }
@@ -278,7 +278,7 @@ pub trait Scoped_Impl {
     fn Value(&self) -> u32;
 }
 impl Scoped_Vtbl {
-    pub const fn new<Identity: Scoped_Impl>() -> Self {
+    pub(crate) const fn new<Identity: Scoped_Impl>() -> Self {
         unsafe extern "system" fn Value<Identity: Scoped_Impl>(
             this: *mut core::ffi::c_void,
         ) -> u32 {
@@ -298,7 +298,7 @@ impl<T: Scoped_Impl> Scoped_ImplVtbl<T> {
     const VTABLE: Scoped_Vtbl = Scoped_Vtbl::new::<T>();
 }
 impl Scoped {
-    pub fn new<'a, T: Scoped_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: Scoped_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &Scoped_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,

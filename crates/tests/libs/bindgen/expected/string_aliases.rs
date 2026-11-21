@@ -1,6 +1,6 @@
 windows_core::imp::define_interface!(IStringAliases, IStringAliases_Vtbl);
 impl IStringAliases {
-    pub unsafe fn get_Language(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub(crate) unsafe fn get_Language(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Language)(
@@ -10,7 +10,7 @@ impl IStringAliases {
             .map(|| result__)
         }
     }
-    pub unsafe fn put_Language<P0>(&self, value: P0) -> windows_core::HRESULT
+    pub(crate) unsafe fn put_Language<P0>(&self, value: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -21,7 +21,7 @@ impl IStringAliases {
             )
         }
     }
-    pub unsafe fn get_Ansi(&self) -> windows_core::Result<windows_core::PSTR> {
+    pub(crate) unsafe fn get_Ansi(&self) -> windows_core::Result<windows_core::PSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Ansi)(
@@ -31,7 +31,7 @@ impl IStringAliases {
             .map(|| result__)
         }
     }
-    pub unsafe fn put_Ansi<P0>(&self, value: P0) -> windows_core::HRESULT
+    pub(crate) unsafe fn put_Ansi<P0>(&self, value: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
@@ -42,7 +42,7 @@ impl IStringAliases {
             )
         }
     }
-    pub unsafe fn Buffer(&self, value: *const u16) -> windows_core::HRESULT {
+    pub(crate) unsafe fn Buffer(&self, value: *const u16) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Buffer)(
                 windows_core::Interface::as_raw(self),

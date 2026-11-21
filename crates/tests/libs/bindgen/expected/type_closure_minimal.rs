@@ -5,7 +5,7 @@ pub struct IInner_Vtbl {
 }
 windows_core::imp::define_interface!(IOuter, IOuter_Vtbl);
 impl IOuter {
-    pub unsafe fn GetInner(&self) -> Option<IInner> {
+    pub(crate) unsafe fn GetInner(&self) -> Option<IInner> {
         unsafe {
             (windows_core::Interface::vtable(self).GetInner)(windows_core::Interface::as_raw(self))
         }

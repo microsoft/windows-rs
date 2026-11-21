@@ -8,7 +8,7 @@ impl windows_core::RuntimeType for Delegate {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Delegate {
-    pub fn new<F: Fn(i32) + Send + Sync + 'static>(invoke: F) -> Self {
+    pub(crate) fn new<F: Fn(i32) + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&DelegateBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
@@ -54,7 +54,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Interface {
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Method(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Method)(
@@ -64,7 +64,7 @@ impl Interface {
             .map(|| result__)
         }
     }
-    pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(i32) + Send + Sync + 'static,
     {

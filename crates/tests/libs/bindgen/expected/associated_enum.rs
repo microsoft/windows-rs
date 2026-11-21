@@ -24,7 +24,7 @@ pub type Family = u16;
 pub const HighBit: Options = 2147483648;
 windows_core::imp::define_interface!(IOptions, IOptions_Vtbl);
 impl IOptions {
-    pub unsafe fn Apply(&self, options: u32) {
+    pub(crate) unsafe fn Apply(&self, options: u32) {
         unsafe {
             (windows_core::Interface::vtable(self).Apply)(
                 windows_core::Interface::as_raw(self),
@@ -41,7 +41,7 @@ pub trait IOptions_Impl {
     fn Apply(&self, options: u32);
 }
 impl IOptions_Vtbl {
-    pub const fn new<Identity: IOptions_Impl>() -> Self {
+    pub(crate) const fn new<Identity: IOptions_Impl>() -> Self {
         unsafe extern "system" fn Apply<Identity: IOptions_Impl>(
             this: *mut core::ffi::c_void,
             options: u32,
@@ -62,7 +62,9 @@ impl<T: IOptions_Impl> IOptions_ImplVtbl<T> {
     const VTABLE: IOptions_Vtbl = IOptions_Vtbl::new::<T>();
 }
 impl IOptions {
-    pub fn new<'a, T: IOptions_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+    pub(crate) fn new<'a, T: IOptions_Impl>(
+        this: &'a T,
+    ) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap {
             vtable: &IOptions_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,

@@ -7,7 +7,7 @@ fn main() {
         .filters([
             "CreateVssBackupComponentsInternal",
             "VSS_BT_FULL",
-            "IVssBackupComponents",
+            "IVssBackupComponents::{InitializeForBackup, SaveAsXML, SetBackupState}",
         ])
         .write();
 }

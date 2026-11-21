@@ -691,7 +691,6 @@ fn main() {
         ])
         .compose("Microsoft.UI.Xaml.Application")
         .minimal()
-        .dead_code()
         .filter_file(workspace_path(BINDINGS_FILTER))
         .filters(dependency_filters(&dependency_properties(
             &schema, &metadata,
@@ -702,7 +701,6 @@ fn main() {
         .input_default()
         .output(workspace_path(CANVAS_BINDINGS_OUTPUT))
         .minimal()
-        .dead_code()
         .filter_file(workspace_path(CANVAS_FILTER))
         .write();
 }

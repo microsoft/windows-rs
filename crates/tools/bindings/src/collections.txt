@@ -1,4 +1,5 @@
 --out crates/libs/collections/src/bindings.rs
+--public
 
 --filter
     Windows::Foundation::Collections::{CollectionChange, MapChangedEventHandler, VectorChangedEventHandler}

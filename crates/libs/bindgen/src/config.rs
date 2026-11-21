@@ -44,14 +44,14 @@ impl Config<'_> {
         clone
     }
 
-    /// Writes the metadata architecture gate for `def`. Under `--dead-code`, a definition that
-    /// selected items reach on only some of its architectures allows `dead_code` rather than
-    /// narrowing the gate the metadata declares.
+    /// Writes the metadata architecture gate for `def`. Unless `--public` is set, a definition
+    /// that selected items reach on only some of its architectures allows `dead_code` rather
+    /// than narrowing the gate the metadata declares.
     pub fn write_reached_arches(&self, ty: &Type, def: TypeDef) -> TokenStream {
         let own = def.arches();
         let available = arch_mask(own);
         let arches = write_arch_bits(own);
-        if self.bindgen.dead_code && available & self.types.reached_arches(ty) != available {
+        if !self.bindgen.is_public() && available & self.types.reached_arches(ty) != available {
             quote! { #arches #[allow(dead_code)] }
         } else {
             arches
@@ -89,12 +89,12 @@ impl Config<'_> {
         }
     }
 
-    /// Emits `pub(crate)` under `--dead-code` so unused generated items are linted.
+    /// Emits `pub(crate)` unless `--public` is set so unused generated items are linted.
     pub fn item_vis(&self) -> TokenStream {
-        if self.bindgen.dead_code {
-            quote! { pub(crate) }
-        } else {
+        if self.bindgen.is_public() {
             quote! { pub }
+        } else {
+            quote! { pub(crate) }
         }
     }
 

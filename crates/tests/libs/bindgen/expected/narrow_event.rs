@@ -8,13 +8,13 @@ impl windows_core::RuntimeType for Handler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Handler {
-    pub fn new<F: Fn(&Value) -> windows_core::Result<()> + Send + Sync + 'static>(
+    pub(crate) fn new<F: Fn(&Value) -> windows_core::Result<()> + Send + Sync + 'static>(
         invoke: F,
     ) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(&HandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
-    pub fn Invoke(&self, value: Value) -> windows_core::Result<()> {
+    pub(crate) fn Invoke(&self, value: Value) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Invoke)(
                 windows_core::Interface::as_raw(self),
@@ -67,7 +67,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl ISource {
-    pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(&Value) + Send + Sync + 'static,
     {

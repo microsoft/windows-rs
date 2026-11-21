@@ -8,7 +8,7 @@ impl windows_core::RuntimeType for CompletedCallback {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl CompletedCallback {
-    pub fn new<F: Fn(i32) + Send + Sync + 'static>(invoke: F) -> Self {
+    pub(crate) fn new<F: Fn(i32) + Send + Sync + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &CompletedCallbackBox::<F>::VTABLE,
             invoke,
@@ -94,7 +94,7 @@ impl<F: Fn(windows_core::Ref<IFoo>, i32) + Send + Sync + 'static> HandlerBox<F> 
 windows_core::imp::define_winrt_interface!(IFoo, IFoo_Vtbl, 0x822a1799_57f1_55f1_83d3_8c32e23dea74);
 windows_core::imp::interface_hierarchy!(IFoo, windows_core::IUnknown, windows_core::IInspectable);
 impl IFoo {
-    pub fn Bar(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Bar(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Bar)(
@@ -104,7 +104,7 @@ impl IFoo {
             .map(|| result__)
         }
     }
-    pub fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, i32) + Send + Sync + 'static,
     {
@@ -130,7 +130,7 @@ impl IFoo {
             ))
         }
     }
-    pub fn SetCompleted<P0>(&self, callback: P0) -> windows_core::Result<()>
+    pub(crate) fn SetCompleted<P0>(&self, callback: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<CompletedCallback>,
     {

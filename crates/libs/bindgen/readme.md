@@ -79,11 +79,15 @@ The bundled Win32 metadata uses `Windows.Win32`, not the umbrella crates' Cargo 
 | `.sys()` | Raw bindings using `windows-link` |
 | `.minimal()` | Bindings for hand-written wrappers |
 | `.modules()` | One module per namespace instead of a single flat list |
+| `.public()` | `pub` methods and implementation traits instead of `pub(crate)` |
 | `.implement(name)` | Implementation traits for an interface |
 
 `sys` and `minimal` are mutually exclusive. Add any focused support crates referenced by the output.
 Minimal bindings omit implementation traits unless selected with `.implement(name)` or
 `.implement_all()`. Select the base or required interfaces too when implementing an interface hierarchy.
+
+Methods are `pub(crate)` so the compiler reports the ones you never call; narrow the interface
+filter to the methods you use. Add `.public()` when re-exporting generated items from a library.
 
 With no input, bindgen uses bundled Windows metadata. `.input("component.winmd")` replaces that
 default; add `.input_default()` when the component also references Windows definitions.

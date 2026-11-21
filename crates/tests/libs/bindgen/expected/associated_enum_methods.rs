@@ -3,14 +3,14 @@ pub mod Windows {
         pub mod Api {
             windows_core::imp::define_interface!(I, I_Vtbl);
             impl I {
-                pub unsafe fn Plain(&self) {
+                pub(crate) unsafe fn Plain(&self) {
                     unsafe {
                         (windows_core::Interface::vtable(self).Plain)(
                             windows_core::Interface::as_raw(self),
                         );
                     }
                 }
-                pub unsafe fn Annotated(&self, value: u32) {
+                pub(crate) unsafe fn Annotated(&self, value: u32) {
                     unsafe {
                         (windows_core::Interface::vtable(self).Annotated)(
                             windows_core::Interface::as_raw(self),
@@ -29,7 +29,7 @@ pub mod Windows {
                 fn Annotated(&self, value: u32);
             }
             impl I_Vtbl {
-                pub const fn new<Identity: I_Impl>() -> Self {
+                pub(crate) const fn new<Identity: I_Impl>() -> Self {
                     unsafe extern "system" fn Plain<Identity: I_Impl>(
                         this: *mut core::ffi::c_void,
                     ) {
@@ -62,7 +62,9 @@ pub mod Windows {
                 const VTABLE: I_Vtbl = I_Vtbl::new::<T>();
             }
             impl I {
-                pub fn new<'a, T: I_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+                pub(crate) fn new<'a, T: I_Impl>(
+                    this: &'a T,
+                ) -> windows_core::ScopedInterface<'a, Self> {
                     let this = windows_core::ScopedHeap {
                         vtable: &I_ImplVtbl::<T>::VTABLE as *const _ as *const _,
                         this: this as *const _ as *const _,

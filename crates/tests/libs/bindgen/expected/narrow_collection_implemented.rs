@@ -11,7 +11,7 @@ where
     fn First(&self) -> windows_core::Result<IIterator<T>>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
-    pub const fn new<Identity: IIterable_Impl<T>, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IIterable_Impl<T>, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn First<
             T: windows_core::RuntimeType + 'static,
             Identity: IIterable_Impl<T>,
@@ -41,7 +41,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
             T: core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIterable<T> as windows_core::Interface>::IID
     }
 }
@@ -76,7 +76,7 @@ where
     ) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
-    pub const fn new<Identity: IIterator_Impl<T>, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: IIterator_Impl<T>, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Current<
             T: windows_core::RuntimeType + 'static,
             Identity: IIterator_Impl<T>,
@@ -186,7 +186,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             T: core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIterator<T> as windows_core::Interface>::IID
     }
 }

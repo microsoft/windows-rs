@@ -10,13 +10,13 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Interface {
-    pub fn Execute(&self) -> windows_core::Result<()> {
+    pub(crate) fn Execute(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Method(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Method)(
@@ -26,7 +26,7 @@ impl Interface {
             .map(|| result__)
         }
     }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub(crate) fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Text)(
@@ -36,7 +36,7 @@ impl Interface {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Values(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub(crate) fn Values(&self) -> windows_core::Result<windows_core::Array<u8>> {
         unsafe {
             let mut result__ = core::ptr::null_mut();
             let mut result_size__ = 0;
@@ -48,7 +48,7 @@ impl Interface {
             .map(|| windows_core::Array::<u8>::from_raw_parts(result__.cast(), result_size__))
         }
     }
-    pub fn Partial(&self, value: &mut u32) -> windows_core::Result<u32> {
+    pub(crate) fn Partial(&self, value: &mut u32) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Partial)(
@@ -71,7 +71,7 @@ pub trait Interface_Impl: windows_core::IUnknownImpl {
     fn Partial(&self, value: &mut u32) -> windows_core::Result<u32>;
 }
 impl Interface_Vtbl {
-    pub const fn new<Identity: Interface_Impl, const OFFSET: isize>() -> Self {
+    pub(crate) const fn new<Identity: Interface_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Execute<Identity: Interface_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
@@ -171,7 +171,7 @@ impl Interface_Vtbl {
             Partial: Partial::<Identity, OFFSET>,
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
+    pub(crate) fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<Interface as windows_core::Interface>::IID
     }
 }

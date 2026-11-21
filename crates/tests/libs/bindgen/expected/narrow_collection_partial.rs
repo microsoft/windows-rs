@@ -1,6 +1,6 @@
 windows_core::imp::define_winrt_interface!(IIterator < T >, IIterator_Vtbl < T, >, 0x6a79e863_4300_459a_9966_cbb660963ee1, b"Windows.Foundation.Collections.IIterator`1");
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
-    pub fn Current(&self) -> windows_core::Result<T> {
+    pub(crate) fn Current(&self) -> windows_core::Result<T> {
         unsafe {
             let mut result__ =
                 core::mem::MaybeUninit::<<T as windows_core::imp::Type>::Default>::zeroed();
@@ -11,7 +11,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
             .and_then(|| windows_core::imp::Type::from_default_owned(result__.assume_init()))
         }
     }
-    pub fn HasCurrent(&self) -> windows_core::Result<bool> {
+    pub(crate) fn HasCurrent(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HasCurrent)(

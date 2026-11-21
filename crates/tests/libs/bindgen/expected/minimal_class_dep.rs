@@ -9,7 +9,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Factory {
-    pub fn Create(&self) -> windows_core::Result<Widget> {
+    pub(crate) fn Create(&self) -> windows_core::Result<Widget> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Create)(

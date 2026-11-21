@@ -1,5 +1,5 @@
 --out crates/libs/window/src/bindings.rs
---minimal --dead-code
+--minimal
 
 --filter
     RECT
