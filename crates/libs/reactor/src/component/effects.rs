@@ -93,11 +93,7 @@ impl EffectDraft {
                 prepared.push(PreparedEffect::Setup(registration));
             }
         }
-        for slot in previous.iter_mut().rev() {
-            if let Some(cleanup) = slot.cleanup.take() {
-                cleanup();
-            }
-        }
+        cleanup_effects(&mut previous);
         PreparedEffects(prepared)
     }
 
