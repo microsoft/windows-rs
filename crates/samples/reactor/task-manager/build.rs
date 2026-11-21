@@ -3,7 +3,6 @@ fn main() {
     windows_reactor_setup::as_self_contained();
 
     windows_bindgen::builder()
-        .output(std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("bindings.rs"))
         .filters([
             "ABOVE_NORMAL_PRIORITY_CLASS",
             "ALL_PROCESSOR_GROUPS",

@@ -373,12 +373,6 @@ fn invalid_option_panics() {
 }
 
 #[test]
-#[should_panic(expected = "output is required")]
-fn missing_output_panics() {
-    windows_bindgen::bindgen(["--filter", "GetTickCount"]);
-}
-
-#[test]
 #[should_panic(expected = "cannot combine `--sys` and `--minimal`")]
 fn conflicting_styles_panic() {
     windows_bindgen::bindgen([
