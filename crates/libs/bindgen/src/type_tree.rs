@@ -11,15 +11,12 @@ pub struct TypeTree {
 impl TypeTree {
     pub fn new(dependencies: &TypeMap, flat: bool) -> Self {
         validate_nested_names(dependencies, flat);
-        if flat {
-            validate_flat_names(dependencies);
-        }
         let mut tree = Self::with_namespace("");
 
         for (tn, types) in dependencies.iter() {
             let tree = tree.insert_namespace(tn.namespace());
             // Insert in a deterministic total order so that when two distinct
-            // types share a `sort_key` (same-name definitions within a namespace),
+            // types share a `sort_key` (same-name collisions in `--flat` layouts),
             // the `BTreeSet` keeps a stable winner (first insert wins on ties).
             let mut sorted: Vec<&Type> = types.iter().collect();
             sorted.sort_by(|a, b| a.dedup_cmp(b));
@@ -76,35 +73,6 @@ impl TypeTree {
                     );
                 }
                 entries.push((identity, emitted_arches, nested));
-            }
-        }
-
-        fn validate_flat_names(dependencies: &TypeMap) {
-            // Functions and constants are values; everything else is a type.
-            let mut names: HashMap<(bool, &str), Vec<(&str, i32)>> = HashMap::new();
-            for ty in dependencies.values().flatten() {
-                let name = ty.type_name();
-                if name.name().is_empty() || ty.is_core() {
-                    continue;
-                }
-                let value = matches!(ty, Type::CppFn(_) | Type::CppConst(_));
-                let arches = arch_mask(ty.arches());
-                let entries = names.entry((value, name.name())).or_default();
-                for (namespace, other_arches) in entries.iter() {
-                    if *namespace != name.namespace() && arches & other_arches != 0 {
-                        let (first, second) = if *namespace < name.namespace() {
-                            (*namespace, name.namespace())
-                        } else {
-                            (name.namespace(), *namespace)
-                        };
-                        panic!(
-                            "name collision for `{}` between `{first}` and `{second}`; use \
-                             `--modules` or exclude one of them",
-                            name.name(),
-                        );
-                    }
-                }
-                entries.push((name.namespace(), arches));
             }
         }
 

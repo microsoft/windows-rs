@@ -55,7 +55,8 @@ the generator in consumer builds. Install `rustfmt` to format generated source.
 
 Filters select native names, including any `A` or `W` suffix. Signature dependencies are included
 automatically. Qualify names when more than one namespace defines them. Output is a flat list of
-items; selecting the same name from two namespaces fails unless you exclude one or use `.modules()`.
+items; selecting the same name from two namespaces fails to compile unless you exclude one or use
+`.modules()`.
 
 | Filter | Selects |
 | --- | --- |
