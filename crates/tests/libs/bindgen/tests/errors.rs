@@ -458,8 +458,8 @@ fn author_variadic(name: &str) -> (String, String) {
     expected = "windows-bindgen: selected variadic function `Test.VariadicFunc` cannot be projected \
                 by full or minimal bindings; use `--sys` for its raw declaration"
 )]
-fn exact_rich_variadic_selection_panics() {
-    let (winmd, output) = author_variadic("exact_rich_variadic");
+fn exact_full_variadic_selection_panics() {
+    let (winmd, output) = author_variadic("exact_full_variadic");
     windows_bindgen::bindgen([
         "--in",
         &winmd,
@@ -467,6 +467,7 @@ fn exact_rich_variadic_selection_panics() {
         &output,
         "--filter",
         "Test.VariadicFunc",
+        "--full",
     ]);
 }
 
