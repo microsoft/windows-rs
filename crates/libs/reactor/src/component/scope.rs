@@ -36,7 +36,7 @@ pub(super) struct TypedScope<C: Component> {
     pub(super) view: Option<View>,
     pub(super) local_sender: LocalSender<C::Message>,
     pub(super) services: Arc<ComponentServices>,
-    pub(super) tasks: Arc<Mutex<Vec<SyncWeak<TaskControl>>>>,
+    pub(super) tasks: Rc<RefCell<Vec<SyncWeak<TaskControl>>>>,
     pub(super) ui_services: Rc<WindowServices>,
 }
 
@@ -47,7 +47,7 @@ impl<C: Component> TypedScope<C> {
             reference,
             local_sender: self.local_sender.clone(),
             services: Arc::clone(&self.services),
-            tasks: Arc::clone(&self.tasks),
+            tasks: Rc::clone(&self.tasks),
             ui_services: Rc::clone(&self.ui_services),
         }
     }
@@ -99,15 +99,11 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
     }
 
     fn cancel_tasks(&self) {
-        let mut tasks = self.tasks.lock().unwrap();
-        tasks.retain(|task| {
+        for task in self.tasks.borrow_mut().drain(..) {
             if let Some(task) = task.upgrade() {
                 task.cancel();
-                false
-            } else {
-                false
             }
-        });
+        }
     }
 
     fn dispatch(

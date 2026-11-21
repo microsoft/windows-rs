@@ -66,6 +66,15 @@ shadowing, removal, and element identity. Its consumer wraps `ViewContext` with 
 `context-virtual` checks two contexts in retained and newly realized rows, a row-local override,
 provider removal and reapplication, and row-local messages reading the latest snapshot.
 
+## Background cancellation
+
+`background` retains a worker and local timer across child replacement, observing timer-payload
+release before releasing the worker and checking its cancellation snapshot. `background-shutdown`
+keeps both handles and the worker gate outside the host. It records timer-payload release during
+the owner's effect cleanup, before final application timer cleanup, then releases the worker after
+the app exits and waits for its pre-enqueue cancellation acknowledgement. Process exit alone is not
+evidence of cancellation.
+
 ## TextBox appearance
 
 `text-appearance` observes padding through native layout and corner radius through rendered pixels,

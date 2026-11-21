@@ -1,15 +1,63 @@
 use super::*;
+use std::cell::{Cell, RefCell};
+use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::mpsc::{self, Sender};
 use std::thread::{self, ThreadId};
 use std::time::Duration;
 
-pub(super) struct BackgroundFixture {
+pub(super) fn run(shutdown: bool) -> windows_core::Result<()> {
+    if !shutdown {
+        return App::run_component::<BackgroundFixture>(Input(None));
+    }
+
+    let (acknowledge, acknowledged) = mpsc::channel();
+    let shutdown = Rc::new(Shutdown {
+        pending: RefCell::new(None),
+        timer_released: Arc::new(AtomicBool::new(false)),
+        timer_released_at_cleanup: Cell::new(None),
+        acknowledge,
+    });
+    App::run_component::<BackgroundFixture>(Input(Some(shutdown.clone())))?;
+
+    let pending = shutdown.pending.borrow_mut().take().unwrap();
+    pending.0.send(()).unwrap();
+    let cancelled = acknowledged.recv_timeout(Duration::from_secs(5)).unwrap();
+    // Keep both handles alive until the worker has reported its pre-enqueue cancellation state.
+    drop(pending);
+    assert_eq!(
+        (shutdown.timer_released_at_cleanup.get(), cancelled),
+        (Some(true), true),
+        "host shutdown must release the timer before owner cleanup and cancel the blocked worker"
+    );
+    Ok(())
+}
+
+struct Shutdown {
+    pending: RefCell<Option<(Sender<()>, ComponentTask, ComponentTimer)>>,
+    timer_released: Arc<AtomicBool>,
+    timer_released_at_cleanup: Cell<Option<bool>>,
+    acknowledge: Sender<bool>,
+}
+
+#[derive(Clone)]
+struct Input(Option<Rc<Shutdown>>);
+
+impl PartialEq for Input {
+    fn eq(&self, other: &Self) -> bool {
+        self.0.as_ref().map(Rc::as_ptr) == other.0.as_ref().map(Rc::as_ptr)
+    }
+}
+
+struct BackgroundFixture {
+    shutdown: Input,
     generation: u32,
     delivered: Vec<u32>,
     started: Vec<u32>,
     released: Vec<(u32, bool)>,
+    timers_released: Vec<u32>,
     release: Option<Sender<()>>,
-    retained: Option<ComponentTask>,
+    retained: Option<(ComponentTask, ComponentTimer)>,
     report: Rc<ComponentCompletion<Message>>,
     ui_thread: ThreadId,
 }
@@ -18,21 +66,24 @@ pub(super) enum Message {
     Delivered(u32),
     Started(u32),
     Released(u32, bool),
-    Armed(u32, Sender<()>, ComponentTask),
+    TimerReleased(u32),
+    Armed(u32, Sender<()>, ComponentTask, ComponentTimer),
     Replace,
     Release,
 }
 
 impl Component for BackgroundFixture {
-    type Input = ();
+    type Input = Input;
     type Message = Message;
 
-    fn create(_: &(), context: &ComponentContext<Self>) -> Self {
+    fn create(input: &Input, context: &ComponentContext<Self>) -> Self {
         Self {
+            shutdown: input.clone(),
             generation: 0,
             delivered: Vec::new(),
             started: Vec::new(),
             released: Vec::new(),
+            timers_released: Vec::new(),
             release: None,
             retained: None,
             report: Rc::new(context.completion()),
@@ -46,10 +97,20 @@ impl Component for BackgroundFixture {
             Message::Delivered(generation) => self.delivered.push(generation),
             Message::Started(generation) => self.started.push(generation),
             Message::Released(generation, cancelled) => self.released.push((generation, cancelled)),
-            Message::Armed(generation, release, task) => {
+            Message::TimerReleased(generation) => self.timers_released.push(generation),
+            Message::Armed(generation, release, task, timer) => {
                 assert_eq!(generation, self.generation);
-                assert!(self.release.replace(release).is_none());
-                assert!(self.retained.replace(task).is_none());
+                if let Some(shutdown) = &self.shutdown.0 {
+                    assert!(
+                        shutdown
+                            .pending
+                            .replace(Some((release, task, timer)))
+                            .is_none()
+                    );
+                } else {
+                    assert!(self.release.replace(release).is_none());
+                    assert!(self.retained.replace((task, timer)).is_none());
+                }
             }
             Message::Replace => {
                 assert!(self.retained.is_some());
@@ -60,8 +121,12 @@ impl Component for BackgroundFixture {
         }
     }
 
-    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
-        context.window_title("Reactor UI fixture: background");
+    fn view(&self, _: &Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title(if self.shutdown.0.is_some() {
+            "Reactor UI fixture: background-shutdown"
+        } else {
+            "Reactor UI fixture: background"
+        });
         context.window_visuals(WindowVisuals::new().client_size(500.0, 450.0));
         StackPanel::new()
             .margin(20.0)
@@ -71,6 +136,11 @@ impl Component for BackgroundFixture {
                     "Generation {}; retained {}",
                     self.generation,
                     self.retained.is_some()
+                        || self
+                            .shutdown
+                            .0
+                            .as_ref()
+                            .is_some_and(|shutdown| shutdown.pending.borrow().is_some())
                 )),
                 TextBlock::new()
                     .automation_id("delivered")
@@ -78,14 +148,16 @@ impl Component for BackgroundFixture {
                 TextBlock::new()
                     .automation_id("started")
                     .text(format!("Started {:?}", self.started)),
-                TextBlock::new()
-                    .automation_id("released")
-                    .text(format!("Released {:?}", self.released)),
+                TextBlock::new().automation_id("released").text(format!(
+                    "Released {:?}; timers {:?}",
+                    self.released, self.timers_released
+                )),
                 StackPanel::new().keyed_children([keyed(
                     self.generation,
                     View::component::<Worker>(WorkerInput {
                         generation: self.generation,
                         report: Rc::clone(&self.report),
+                        shutdown: self.shutdown.clone(),
                     }),
                 )]),
                 Button::new()
@@ -177,11 +249,14 @@ impl Component for LocalFactory {
 struct WorkerInput {
     generation: u32,
     report: Rc<ComponentCompletion<Message>>,
+    shutdown: Input,
 }
 
 impl PartialEq for WorkerInput {
     fn eq(&self, other: &Self) -> bool {
-        self.generation == other.generation && Rc::ptr_eq(&self.report, &other.report)
+        self.generation == other.generation
+            && Rc::ptr_eq(&self.report, &other.report)
+            && self.shutdown == other.shutdown
     }
 }
 
@@ -189,16 +264,18 @@ struct LateResult {
     generation: u32,
     cancelled: bool,
     report: ComponentCompletion<Message>,
+    acknowledge: Option<Sender<bool>>,
 }
 
 impl Drop for LateResult {
     fn drop(&mut self) {
-        assert!(
-            self.report
-                .clone()
-                .complete(Message::Released(self.generation, self.cancelled)),
-            "late result release was rejected"
-        );
+        _ = self
+            .report
+            .clone()
+            .complete(Message::Released(self.generation, self.cancelled));
+        if let Some(acknowledge) = self.acknowledge.take() {
+            acknowledge.send(self.cancelled).unwrap();
+        }
     }
 }
 
@@ -211,6 +288,26 @@ enum WorkerMessage {
     Completed,
     Start,
     Late(LateResult),
+    PendingTimer(TimerPayload),
+}
+
+struct TimerPayload {
+    generation: u32,
+    report: ComponentCompletion<Message>,
+    released: Option<Arc<AtomicBool>>,
+}
+
+impl Drop for TimerPayload {
+    fn drop(&mut self) {
+        if let Some(released) = &self.released {
+            released.store(true, Ordering::SeqCst);
+        }
+        // Shutdown closes the host queue before cancelling pending timers.
+        _ = self
+            .report
+            .clone()
+            .complete(Message::TimerReleased(self.generation));
+    }
 }
 
 impl Component for Worker {
@@ -242,25 +339,66 @@ impl Component for Worker {
                 let (release, wait) = mpsc::channel();
                 let worker_report = report.clone();
                 let ui_thread = self.ui_thread;
+                let acknowledge = self
+                    .input
+                    .shutdown
+                    .0
+                    .as_ref()
+                    .map(|shutdown| shutdown.acknowledge.clone());
                 let task = context.spawn_background(move |cancellation| {
                     assert_ne!(thread::current().id(), ui_thread);
                     assert!(!cancellation.is_cancelled());
                     assert!(worker_report.clone().complete(Message::Started(generation)));
-                    wait.recv_timeout(Duration::from_secs(30)).unwrap();
+                    match wait.recv_timeout(Duration::from_secs(30)) {
+                        Ok(()) => {}
+                        Err(mpsc::RecvTimeoutError::Disconnected) => {
+                            assert!(cancellation.is_cancelled());
+                        }
+                        Err(error) => panic!("{error}"),
+                    }
                     // Return a result after cancellation so Reactor must discard its payload.
                     WorkerMessage::Late(LateResult {
                         generation,
                         cancelled: cancellation.is_cancelled(),
                         report: worker_report,
+                        acknowledge,
                     })
                 });
-                assert!(report.complete(Message::Armed(generation, release, task)));
+                let pending = TimerPayload {
+                    generation,
+                    report: report.clone(),
+                    released: self
+                        .input
+                        .shutdown
+                        .0
+                        .as_ref()
+                        .map(|shutdown| shutdown.timer_released.clone()),
+                };
+                let timer = context.set_local_timeout(Duration::from_secs(3_600), move || {
+                    WorkerMessage::PendingTimer(pending)
+                });
+                // The parent retains these across replacement, or forwards them outside the host.
+                assert!(report.complete(Message::Armed(generation, release, task, timer)));
             }
             WorkerMessage::Late(_result) => panic!("retired worker result was delivered"),
+            WorkerMessage::PendingTimer(_payload) => panic!("pending local timer fired"),
         }
     }
 
     fn view(&self, _: &WorkerInput, context: &mut ViewContext<Self>) -> View {
+        if let Some(shutdown) = self.input.shutdown.0.clone() {
+            context.use_effect("shutdown", (), move || {
+                Some(Box::new(move || {
+                    // Capture before scope destruction and final application timer cleanup.
+                    assert!(
+                        shutdown
+                            .timer_released_at_cleanup
+                            .replace(Some(shutdown.timer_released.load(Ordering::SeqCst)))
+                            .is_none()
+                    );
+                }))
+            });
+        }
         Button::new()
             .automation_id("start")
             .content("Start pending work")

@@ -106,13 +106,13 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
             wake: queues.shared,
             marker: PhantomData,
         };
-        let tasks = Arc::new(Mutex::new(Vec::new()));
+        let tasks = Rc::new(RefCell::new(Vec::new()));
         let context: ComponentContext<C> = ComponentContext {
             input: &self.input,
             reference: reference.clone(),
             local_sender: local_sender.clone(),
             services: Arc::clone(&services),
-            tasks: Arc::clone(&tasks),
+            tasks: Rc::clone(&tasks),
             ui_services: Rc::clone(&ui_services),
         };
         let component = C::create(&self.input, &context);

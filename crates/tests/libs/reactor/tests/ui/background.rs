@@ -15,15 +15,27 @@ fn background_completion_preserves_message_order_and_ui_thread_construction() ->
 }
 
 #[test]
+fn background_shutdown_with_pending_registrations() -> Result<()> {
+    process::run("background-shutdown", |ui| {
+        ui.name("delivered", "Delivered [0]")?;
+        ui.invoke("start")?;
+        ui.name("state", "Generation 0; retained true")?;
+        ui.name("started", "Started [0]")?;
+        ui.name("released", "Released []; timers []")
+    })
+}
+
+#[test]
 fn background_delivery_and_cancellation_on_component_replacement() -> Result<()> {
     process::run("background", |ui| {
         ui.name("delivered", "Delivered [0]")?;
-        ui.name("released", "Released []")?;
+        ui.name("released", "Released []; timers []")?;
         let original = ui.element("start")?;
 
         ui.invoke("start")?;
         ui.name("state", "Generation 0; retained true")?;
         ui.name("started", "Started [0]")?;
+        ui.name("released", "Released []; timers []")?;
         ui.invoke("replace")?;
         ui.name("state", "Generation 1; retained true")?;
         ui.name("delivered", "Delivered [0, 1]")?;
@@ -36,8 +48,9 @@ fn background_delivery_and_cancellation_on_component_replacement() -> Result<()>
             );
         }
 
+        ui.name("released", "Released []; timers [0]")?;
         ui.invoke("release")?;
-        ui.name("released", "Released [(0, true)]")?;
+        ui.name("released", "Released [(0, true)]; timers [0]")?;
         ui.name_stays("delivered", "Delivered [0, 1]", Duration::from_millis(250))
     })
 }
