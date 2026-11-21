@@ -1,4 +1,4 @@
-//! --filter Test
+//! --filter Test --full
 // Exercises the implicit sibling-crate reference path: a type from the
 // `Windows.Foundation.Numerics` namespace is detected in the input metadata, so
 // bindgen registers a `windows_numerics` reference and emits the referenced type

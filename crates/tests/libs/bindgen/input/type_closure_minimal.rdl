@@ -1,8 +1,8 @@
-//! --filter Test::IOuter --minimal
-// The same filter under `--minimal`. `IOuter::GetInner` is callable and `IInner`
+//! --filter Test::IOuter
+// The same filter in the default minimal style. `IOuter::GetInner` is callable and `IInner`
 // is pulled in, but `IInner`'s own `Value` collapses to a name-only slot because
 // minimal demotes methods on types that are only pulled in as dependencies.
-// Contrast with `type_closure` (default style), where `IInner::Value` is emitted.
+// Contrast with `type_closure` (`--full`), where `IInner::Value` is emitted.
 #[win32]
 mod Test {
     #[guid(auto)]

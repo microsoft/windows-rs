@@ -1,7 +1,7 @@
 //! --filter Windows.Foundation.Collections.IIterable::{}
 //! --filter Windows.Foundation.Collections.IIterator::{}
 //! --implement Windows.Foundation.Collections.IIterable
-//! --implement Windows.Foundation.Collections.IIterator --minimal
+//! --implement Windows.Foundation.Collections.IIterator
 #[winrt]
 mod Windows {
     mod Foundation {

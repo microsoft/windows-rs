@@ -116,17 +116,17 @@ impl Layout {
 /// Code-style mode for the generated bindings.
 #[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
 enum Style {
-    /// Full-fidelity bindings (the default).
+    /// Minimal bindings (no class wrappers, inherited forwarders, or handle ergonomics;
+    /// auto-revoke events).
     #[default]
-    Default,
+    Minimal,
+    /// Full-fidelity bindings.
+    Full,
     /// Raw / sys-style bindings.
     Sys {
         /// When `true`, emit `extern { fn ... }` instead of `link!` macros.
         extern_fns: bool,
     },
-    /// Minimal-mode bindings (drop class wrappers, inherited forwarders,
-    /// handle ergonomics; auto-revoke events).
-    Minimal,
 }
 
 impl Style {
@@ -370,7 +370,7 @@ impl Bindgen {
         self
     }
 
-    /// Selects a composable WinRT class as a minimal-mode composition target.
+    /// Selects a composable WinRT class as a composition target.
     ///
     /// The class and its composable factory methods must also be selected by a filter.
     #[track_caller]
@@ -384,7 +384,7 @@ impl Bindgen {
         self
     }
 
-    /// Selects multiple composable WinRT classes as minimal-mode composition targets.
+    /// Selects multiple composable WinRT classes as composition targets.
     pub fn composes<I, S>(&mut self, names: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -396,34 +396,31 @@ impl Bindgen {
         self
     }
 
-    /// Generate raw or sys-style Rust bindings.
+    /// Generate raw or sys-style Rust bindings using `windows-link`.
     ///
-    /// Mutually exclusive with [`Bindgen::minimal`]; panics if `minimal` was
-    /// already selected.
+    /// Mutually exclusive with [`Bindgen::full`].
     #[track_caller]
     pub fn sys(&mut self) -> &mut Self {
         let extern_fns = matches!(self.style, Style::Sys { extern_fns: true });
-        if matches!(self.style, Style::Minimal) {
-            panic!("cannot combine `--sys` and `--minimal`");
+        if matches!(self.style, Style::Full) {
+            panic!("cannot combine `--sys` and `--full`");
         }
         self.style = Style::Sys { extern_fns };
         self
     }
 
-    /// Generate minimal-mode Rust bindings.
+    /// Generate full-fidelity Rust bindings.
     ///
-    /// Implementation traits require [`Bindgen::implement`] or [`Bindgen::implement_all`].
+    /// Adds per-class wrapper methods, inherited interface forwarders, handle ergonomics,
+    /// free-function wrappers, and implementation traits for every interface.
     ///
-    /// Drops per-class wrapper methods, inherited interface forwarders, handle
-    /// ergonomics, and free-function wrappers.
-    ///
-    /// Mutually exclusive with `--sys`.
+    /// Mutually exclusive with [`Bindgen::sys`].
     #[track_caller]
-    pub fn minimal(&mut self) -> &mut Self {
+    pub fn full(&mut self) -> &mut Self {
         if matches!(self.style, Style::Sys { .. }) {
-            panic!("cannot combine `--sys` and `--minimal`");
+            panic!("cannot combine `--sys` and `--full`");
         }
-        self.style = Style::Minimal;
+        self.style = Style::Full;
         self
     }
 
@@ -458,7 +455,7 @@ impl Bindgen {
         );
         assert!(
             self.compose.is_empty() || self.style.is_minimal(),
-            "`compose` requires `minimal`"
+            "`compose` cannot be combined with `--full` or `--sys`"
         );
 
         let mut include: Vec<&str> = vec![];

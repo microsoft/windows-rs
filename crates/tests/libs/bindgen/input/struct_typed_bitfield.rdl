@@ -1,4 +1,4 @@
-//! --filter Test.Bits
+//! --filter Test.Bits --full
 #[win32]
 mod Test {
     struct Bits {

@@ -1,6 +1,6 @@
 //! --filter Test.MemberOnly::Value --filter Test.Constructed::CreateInstance
 //! --filter Test.Callable --filter Test.Implemented::{} --implement Test.Implemented
-//! --minimal
+//!
 #[winrt]
 mod Windows {
     mod Foundation {

@@ -1,4 +1,4 @@
-//! --filter Consumer.Value --modules
+//! --filter Consumer.Value --modules --full
 #[win32]
 mod Producer {
     struct Dependency {

@@ -1,5 +1,5 @@
 --out crates/libs/text/src/bindings.rs
---minimal --dead-code
+--dead-code
 --implement
     Windows.Win32.IDWritePixelSnapping
     Windows.Win32.IDWriteTextRenderer

@@ -1,4 +1,4 @@
-//! --filter Windows.Win32 --modules
+//! --filter Windows.Win32 --modules --full
 #[win32]
 mod Windows {
     mod Win32 {

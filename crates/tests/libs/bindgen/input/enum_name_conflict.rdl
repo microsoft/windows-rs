@@ -1,4 +1,4 @@
-//! --filter Test --modules
+//! --filter Test --modules --full
 #[win32]
 mod Test {
     #[repr(i32)]

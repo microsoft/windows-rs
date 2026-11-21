@@ -1,4 +1,4 @@
-//! --filter Test
+//! --filter Test --full
 #[win32]
 mod Test {
     #[guid(0x10000000_0000_0000_0000_000000000001)]

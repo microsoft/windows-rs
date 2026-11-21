@@ -1,4 +1,4 @@
-//! --filter Windows.Win32 Other --minimal
+//! --filter Windows.Win32 Other
 #[win32]
 mod Windows {
     mod Win32 {

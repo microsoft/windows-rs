@@ -172,7 +172,7 @@ impl CppFn {
         if variadic && !config.bindgen.style.is_sys() {
             return self.reject_variadic(
                 config,
-                "cannot be projected by rich or minimal bindings; use `--sys` for its raw \
+                "cannot be projected by full or minimal bindings; use `--sys` for its raw \
                  declaration",
             );
         }

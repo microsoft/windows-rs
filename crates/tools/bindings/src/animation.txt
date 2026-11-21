@@ -1,5 +1,5 @@
 --out crates/libs/animation/src/bindings.rs
---minimal --dead-code
+--dead-code
 
 
 --filter

@@ -1,4 +1,4 @@
-//! --filter Test --filter !Windows.UI.Composition
+//! --filter Test --filter !Windows.UI.Composition --full
 #[winrt]
 mod Test {
     #[guid(auto)]

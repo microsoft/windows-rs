@@ -24,9 +24,9 @@ use super::*;
 /// - `--package`: Generates a package with one file per namespace.
 /// - `--sys`: Generates raw bindings that depend only on `windows-link`.
 /// - `--extern`: Uses extern declarations with `--sys`.
-/// - `--minimal`: Omits class wrappers, inherited forwarders, and handle wrappers.
+/// - `--full`: Adds class wrappers, inherited forwarders, handle wrappers, and implementation traits.
 /// - `--implement`: Emits implementation traits for selected native and WinRT interfaces.
-/// - `--compose`: Selects minimal-mode WinRT class composition targets.
+/// - `--compose`: Selects WinRT class composition targets.
 /// - `--dead-code`: Emits `pub(crate)` items for dead-code analysis.
 /// - `--etc`: Reads arguments from command files.
 /// - `--filter-file`: Reads filters from text files.
@@ -119,8 +119,8 @@ where
                 "--sys" => {
                     builder.sys();
                 }
-                "--minimal" => {
-                    builder.minimal();
+                "--full" => {
+                    builder.full();
                 }
                 "--dead-code" => {
                     builder.dead_code();

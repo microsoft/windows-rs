@@ -1,4 +1,4 @@
-//! --filter Test.Widget
+//! --filter Test.Widget --full
 #[winrt]
 mod Windows {
     mod Foundation {

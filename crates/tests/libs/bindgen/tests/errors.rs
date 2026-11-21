@@ -323,11 +323,11 @@ fn union_bitfields_require_unsafe() {
         .output(&winmd)
         .write()
         .unwrap();
-    for style in ["default", "minimal"] {
+    for style in ["full", "minimal"] {
         let mut builder = windows_bindgen::builder();
         builder.input(&winmd).filter("Test.Partial").output(&output);
-        if style == "minimal" {
-            builder.minimal();
+        if style == "full" {
+            builder.full();
         }
         builder.write();
         for (method, body) in [
@@ -379,7 +379,7 @@ fn missing_output_panics() {
 }
 
 #[test]
-#[should_panic(expected = "cannot combine `--sys` and `--minimal`")]
+#[should_panic(expected = "cannot combine `--sys` and `--full`")]
 fn conflicting_styles_panic() {
     windows_bindgen::bindgen([
         "--out",
@@ -387,16 +387,17 @@ fn conflicting_styles_panic() {
         "--filter",
         "GetTickCount",
         "--sys",
-        "--minimal",
+        "--full",
     ]);
 }
 
 #[test]
-#[should_panic(expected = "`compose` requires `minimal`")]
-fn compose_without_minimal_panics() {
+#[should_panic(expected = "`compose` cannot be combined with `--full` or `--sys`")]
+fn compose_with_full_panics() {
     windows_bindgen::builder()
         .output("unused.rs")
         .filter("GetTickCount")
+        .full()
         .compose("Test.Class")
         .write();
 }
@@ -410,7 +411,7 @@ fn unqualified_compose_target_panics() {
 #[test]
 #[should_panic(expected = "`--compose` requires a class name")]
 fn missing_compose_target_panics() {
-    windows_bindgen::bindgen(["--compose", "--minimal"]);
+    windows_bindgen::bindgen(["--compose", "--full"]);
 }
 
 #[test]
@@ -434,7 +435,6 @@ fn implemented_factory_does_not_select_composition_factory() {
         .filter("Test.Base")
         .implement("Test.IBaseFactory")
         .compose("Test.Base")
-        .minimal()
         .write();
 }
 
@@ -456,7 +456,7 @@ fn author_variadic(name: &str) -> (String, String) {
 #[test]
 #[should_panic(
     expected = "windows-bindgen: selected variadic function `Test.VariadicFunc` cannot be projected \
-                by rich or minimal bindings; use `--sys` for its raw declaration"
+                by full or minimal bindings; use `--sys` for its raw declaration"
 )]
 fn exact_rich_variadic_selection_panics() {
     let (winmd, output) = author_variadic("exact_rich_variadic");
@@ -473,7 +473,7 @@ fn exact_rich_variadic_selection_panics() {
 #[test]
 #[should_panic(
     expected = "windows-bindgen: selected variadic function `Test.VariadicFunc` cannot be projected \
-                by rich or minimal bindings; use `--sys` for its raw declaration"
+                by full or minimal bindings; use `--sys` for its raw declaration"
 )]
 fn exact_minimal_variadic_selection_panics() {
     let (winmd, output) = author_variadic("exact_minimal_variadic");
@@ -482,7 +482,6 @@ fn exact_minimal_variadic_selection_panics() {
         &winmd,
         "--out",
         &output,
-        "--minimal",
         "--filter",
         "Test.VariadicFunc",
     ]);
@@ -508,7 +507,7 @@ fn exact_fastcall_variadic_selection_panics() {
 
 #[test]
 #[should_panic(expected = "windows-bindgen: selected variadic function \
-                `Windows.Win32.AuthzReportSecurityEvent` cannot be projected by rich or minimal \
+                `Windows.Win32.AuthzReportSecurityEvent` cannot be projected by full or minimal \
                 bindings; use `--sys` for its raw declaration")]
 fn exact_real_variadic_selection_panics() {
     let output = std::path::Path::new(env!("OUT_DIR")).join("real_variadic.rs");
