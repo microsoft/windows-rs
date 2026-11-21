@@ -1,5 +1,5 @@
 //! --filter Test.IKept::Read Test.IRemoved Test.IMember::Read Test.IShell::{}
-//! --filter !Test::{IRemoved,IMember,IShell} --flat
+//! --filter !Test::{IRemoved,IMember,IShell}
 #[winrt]
 mod Test {
     #[guid(auto)]

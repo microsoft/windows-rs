@@ -1,4 +1,4 @@
-//! --filter Test.Widget::Read --flat
+//! --filter Test.Widget::Read
 #[winrt]
 mod Windows {
     mod Foundation {

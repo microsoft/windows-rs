@@ -98,7 +98,6 @@ fn main() {
         .input(&winmd)
         .filter("Clang")
         .sys()
-        .flat()
         .output("crates\\libs\\clang-sys\\src\\bindings.rs")
         .write();
 }

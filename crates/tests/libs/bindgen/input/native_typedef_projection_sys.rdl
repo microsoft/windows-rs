@@ -1,4 +1,4 @@
-//! --sys --filter Test --flat
+//! --sys --filter Test
 #[win32]
 mod Test {
     type DWORD = u32;

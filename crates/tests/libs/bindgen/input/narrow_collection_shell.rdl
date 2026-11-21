@@ -1,5 +1,5 @@
 //! --filter Windows.Foundation.Collections.IIterable::{}
-//! --filter Windows.Foundation.Collections.IIterator::{} --flat
+//! --filter Windows.Foundation.Collections.IIterator::{}
 #[winrt]
 mod Windows {
     mod Foundation {

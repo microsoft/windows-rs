@@ -23,7 +23,6 @@ mod Test {
         .input_byte_sets([bytes])
         .output(&output)
         .filter_files([filters])
-        .flat()
         .write();
 
     assert!(
@@ -59,7 +58,7 @@ mod Test {
     std::fs::write(
         &commands,
         format!(
-            "// commands\n--in {}\n--out {}\n--flat\n--filter-file {}\n",
+            "// commands\n--in {}\n--out {}\n--filter-file {}\n",
             winmd.display(),
             output.display(),
             filters.display()
@@ -103,7 +102,7 @@ mod Test {
     std::fs::write(&input_commands, format!("--in {}\n", winmd.display())).unwrap();
     std::fs::write(
         &nested_commands,
-        format!("--out {}\n--flat\n--filter Test\n", output.display()),
+        format!("--out {}\n--filter Test\n", output.display()),
     )
     .unwrap();
     std::fs::write(

@@ -288,7 +288,7 @@ impl Type {
         }
     }
 
-    /// Stable tie-breaker for same-name `--flat` collisions.
+    /// Stable tie-breaker for same-name definitions within a namespace.
     fn row_key(&self) -> (usize, usize) {
         let row = match self {
             Self::CppFn(ty) => Some(ty.method.to_row()),
@@ -1515,8 +1515,8 @@ fn write_full_cfg(ty: &impl Dependencies, config: &Config) -> (Cfg, TokenStream)
 }
 
 /// Emit a `#[cfg(target_arch = ...)]` attribute when a metadata row carries
-/// a `[SupportedArchitectureAttribute]`. Independent of `--package` /
-/// `--flat` layout - the generated arch gate is always meaningful.
+/// a `[SupportedArchitectureAttribute]`. Independent of the output
+/// layout - the generated arch gate is always meaningful.
 pub fn write_arches<R: HasAttributes<'static>>(row: R) -> TokenStream {
     write_arch_bits(row.arches())
 }

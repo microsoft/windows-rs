@@ -1,4 +1,4 @@
-//! --filter Test.CreateValue --minimal --flat
+//! --filter Test.CreateValue --minimal
 #[win32]
 mod Test {
     #[guid(auto)]

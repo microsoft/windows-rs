@@ -1,4 +1,4 @@
-//! --flat --filter Test.Interface::{get_Value,put_Value}
+//! --filter Test.Interface::{get_Value,put_Value}
 #[winrt]
 mod Test {
     #[guid(auto)]

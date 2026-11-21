@@ -1,5 +1,5 @@
 --out crates/libs/pickers/src/bindings.rs
---flat --minimal --dead-code
+--minimal --dead-code
 
 --filter
     COMDLG_FILTERSPEC

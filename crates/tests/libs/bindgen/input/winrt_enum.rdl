@@ -1,4 +1,4 @@
-//! --filter Test --flat
+//! --filter Test
 #[winrt]
 mod Test {
     #[repr(i32)]

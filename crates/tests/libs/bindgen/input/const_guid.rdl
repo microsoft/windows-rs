@@ -1,4 +1,4 @@
-//! --filter Test --flat
+//! --filter Test
 #[win32]
 mod Test {
     const IID_INTERFACE: GUID = 0x00000000_0000_0000_c000_000000000046;

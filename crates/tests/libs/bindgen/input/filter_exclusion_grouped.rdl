@@ -1,4 +1,4 @@
-//! --filter Test::{Kept,Removed,AlsoRemoved} !Test::{Removed,AlsoRemoved} --minimal --flat
+//! --filter Test::{Kept,Removed,AlsoRemoved} !Test::{Removed,AlsoRemoved} --minimal
 #[win32]
 mod Test {
     #[library("test.dll")]

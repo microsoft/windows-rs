@@ -1,4 +1,4 @@
-//! --filter Windows.Foundation.Collections.IIterator::{Current,HasCurrent} --flat
+//! --filter Windows.Foundation.Collections.IIterator::{Current,HasCurrent}
 #[winrt]
 mod Windows {
     mod Foundation {

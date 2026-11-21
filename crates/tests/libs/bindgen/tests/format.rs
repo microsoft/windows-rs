@@ -23,13 +23,12 @@ fn formatting() {
                 output.to_str().unwrap(),
                 "--filter",
                 "Test",
-                "--flat",
                 "--rustfmt",
                 config,
             ]);
         } else {
             let mut builder = windows_bindgen::builder();
-            builder.input(winmd).output(output).filter("Test").flat();
+            builder.input(winmd).output(output).filter("Test");
             if !matches!(case.as_str(), "missing" | "default") {
                 builder.rustfmt(config);
             }

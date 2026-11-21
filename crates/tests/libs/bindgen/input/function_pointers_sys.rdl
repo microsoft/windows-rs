@@ -1,4 +1,4 @@
-//! --filter Test.Callbacks Test.Register Test.RegisterOptional Test.CALLBACK --sys --flat
+//! --filter Test.Callbacks Test.Register Test.RegisterOptional Test.CALLBACK --sys
 #[win32]
 mod Test {
     struct Callbacks {

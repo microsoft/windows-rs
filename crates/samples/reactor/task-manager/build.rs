@@ -68,6 +68,5 @@ fn main() {
             "VerQueryValueW",
         ])
         .minimal()
-        .flat()
         .write();
 }

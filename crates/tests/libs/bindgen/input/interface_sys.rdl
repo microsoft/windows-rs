@@ -1,4 +1,4 @@
-//! --filter Test --sys --flat
+//! --filter Test --sys
 #[winrt]
 mod Test {
     #[guid(auto)]

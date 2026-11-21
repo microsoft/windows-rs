@@ -1,4 +1,4 @@
-//! --filter Test.Leaf
+//! --filter Test.Leaf --modules
 #[winrt]
 mod Test {
     #[unsealed]

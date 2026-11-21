@@ -1,4 +1,4 @@
-//! --filter Test !Test.Removed --sys --flat
+//! --filter Test !Test.Removed --sys
 #[win32]
 mod Test {
     #[library("test.dll")]

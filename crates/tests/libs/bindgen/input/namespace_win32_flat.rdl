@@ -1,4 +1,4 @@
-//! --filter Repro --flat
+//! --filter Repro
 #[win32]
 mod Windows {
     mod Win32 {

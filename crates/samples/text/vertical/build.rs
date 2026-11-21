@@ -14,7 +14,6 @@ fn main() {
             "WM_LBUTTONDOWN",
             "WM_CHAR",
         ])
-        .flat()
         .minimal()
         .write();
 }

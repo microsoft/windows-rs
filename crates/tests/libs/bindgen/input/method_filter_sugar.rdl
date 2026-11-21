@@ -1,4 +1,4 @@
-//! --flat --filter Test.Widget::Value
+//! --filter Test.Widget::Value
 // Drives the bare-name property sugar branch of filter.rs expand_method_part: a
 // bare member name with no `get_`/`put_` prefix expands to both the getter and
 // setter accessors when they exist.

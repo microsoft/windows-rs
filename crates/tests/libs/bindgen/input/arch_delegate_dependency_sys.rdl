@@ -1,4 +1,4 @@
-//! --filter Test::UsesCallback --sys --flat
+//! --filter Test::UsesCallback --sys
 #[win32]
 mod Test {
     struct UsesCallback {

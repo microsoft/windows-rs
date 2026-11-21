@@ -1,4 +1,4 @@
-//! --filter Windows.Win32.fixture --flat
+//! --filter Windows.Win32.fixture
 #[win32]
 mod Windows {
     mod Win32 {

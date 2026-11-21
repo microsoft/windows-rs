@@ -1,5 +1,5 @@
 --out crates/libs/reactor/src/native/notifyicon/bindings.rs
---flat --minimal --dead-code
+--minimal --dead-code
 
 --filter
     ChangeWindowMessageFilterEx

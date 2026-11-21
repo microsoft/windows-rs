@@ -76,7 +76,6 @@ fn nested_type_name_collisions() {
         windows_bindgen::builder()
             .input(&winmd)
             .filter("Test.Safe")
-            .flat()
             .output(scratch.join("safe.rs"))
             .write();
         for flat in [false, true] {
@@ -86,8 +85,8 @@ fn nested_type_name_collisions() {
                     .input(&winmd)
                     .filter("Test")
                     .output(scratch.join("output.rs"));
-                if flat {
-                    builder.flat();
+                if !flat {
+                    builder.modules();
                 }
                 builder.write();
             })
@@ -123,7 +122,6 @@ fn duplicate_anonymous_positions() {
     windows_bindgen::builder()
         .input(&winmd)
         .filter("Test.Outer")
-        .flat()
         .output(scratch.join("output.rs"))
         .write();
 }
@@ -167,7 +165,6 @@ fn fixed_pointer_callable_rejection() {
             windows_bindgen::builder()
                 .input(&winmd)
                 .filter("Test.Bad")
-                .flat()
                 .output(scratch.join("output.rs"))
                 .write();
         })
@@ -203,7 +200,6 @@ fn invalid_bitfield_members() {
             windows_bindgen::builder()
                 .input(&winmd)
                 .filter("Test.Bits")
-                .flat()
                 .output(&output)
                 .write();
         })
@@ -235,7 +231,6 @@ fn invalid_named_bitfield_storage() {
             windows_bindgen::builder()
                 .input(&winmd)
                 .filter("Test.Wrapped")
-                .flat()
                 .output(&output)
                 .write();
         })
@@ -283,7 +278,6 @@ fn invalid_target_bitfield_width() {
         windows_bindgen::builder()
             .input(&winmd)
             .filter(filter)
-            .flat()
             .output(&output)
             .write();
         let result = std::process::Command::new("rustc")
@@ -331,11 +325,7 @@ fn union_bitfields_require_unsafe() {
         .unwrap();
     for style in ["default", "minimal"] {
         let mut builder = windows_bindgen::builder();
-        builder
-            .input(&winmd)
-            .filter("Test.Partial")
-            .flat()
-            .output(&output);
+        builder.input(&winmd).filter("Test.Partial").output(&output);
         if style == "minimal" {
             builder.minimal();
         }
@@ -445,7 +435,6 @@ fn implemented_factory_does_not_select_composition_factory() {
         .implement("Test.IBaseFactory")
         .compose("Test.Base")
         .minimal()
-        .flat()
         .write();
 }
 
@@ -476,7 +465,6 @@ fn exact_rich_variadic_selection_panics() {
         &winmd,
         "--out",
         &output,
-        "--flat",
         "--filter",
         "Test.VariadicFunc",
     ]);
@@ -495,7 +483,6 @@ fn exact_minimal_variadic_selection_panics() {
         "--out",
         &output,
         "--minimal",
-        "--flat",
         "--filter",
         "Test.VariadicFunc",
     ]);
@@ -514,7 +501,6 @@ fn exact_fastcall_variadic_selection_panics() {
         "--out",
         &output,
         "--sys",
-        "--flat",
         "--filter",
         "Test.VariadicFastcall",
     ]);
@@ -531,7 +517,6 @@ fn exact_real_variadic_selection_panics() {
         "default",
         "--out",
         output.to_str().unwrap(),
-        "--flat",
         "--filter",
         "Windows.Win32.AuthzReportSecurityEvent",
     ]);

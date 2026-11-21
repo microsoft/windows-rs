@@ -299,7 +299,6 @@ fn invalid_override_metadata() {
                     .input(&path)
                     .filter("Fixture")
                     .sys()
-                    .flat()
                     .output(path.with_extension("rs"))
                     .write();
             })

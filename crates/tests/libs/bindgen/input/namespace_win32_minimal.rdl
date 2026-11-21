@@ -1,4 +1,4 @@
-//! --filter Repro --minimal
+//! --filter Repro --minimal --modules
 #[win32]
 mod Windows {
     mod Win32 {

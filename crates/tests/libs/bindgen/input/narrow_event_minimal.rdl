@@ -1,4 +1,4 @@
-//! --filter Test.ISource::Changed --flat --minimal
+//! --filter Test.ISource::Changed --minimal
 #[winrt]
 mod Test {
     #[guid(auto)]

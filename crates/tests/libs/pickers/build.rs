@@ -24,6 +24,5 @@ fn main() {
             "WS_VISIBLE",
         ])
         .sys()
-        .flat()
         .write();
 }

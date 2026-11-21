@@ -1,4 +1,4 @@
-//! --filter Test --flat --derive Test.Enum=Eq,Hash
+//! --filter Test --derive Test.Enum=Eq,Hash
 #[win32]
 mod Test {
     #[repr(i32)]

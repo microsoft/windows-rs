@@ -1,4 +1,4 @@
-//! --filter Test.Enum --flat
+//! --filter Test.Enum
 // A bare unscoped (C-style) enum projects all its variant constants, not just
 // the `pub type` alias — the closure pulls the standalone `Enum_Member` consts.
 #[win32]

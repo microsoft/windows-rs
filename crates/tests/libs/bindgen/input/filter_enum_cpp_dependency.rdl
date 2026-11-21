@@ -1,4 +1,4 @@
-//! --filter Test.GetMode --flat
+//! --filter Test.GetMode
 // An unscoped enum reached only as a dependency (here `GetMode`'s return type)
 // stays a bare `pub type` alias — its variant constants are not projected.
 #[win32]

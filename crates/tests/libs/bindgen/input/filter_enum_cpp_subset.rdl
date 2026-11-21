@@ -1,4 +1,4 @@
-//! --filter Test.Enum::{First,Third} --flat
+//! --filter Test.Enum::{First,Third}
 // A per-variant filter on an unscoped enum pulls only the requested variant
 // constants into the closure.
 #[win32]

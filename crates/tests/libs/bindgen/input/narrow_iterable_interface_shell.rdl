@@ -1,4 +1,4 @@
-//! --filter Test.ISource::GetItems --flat
+//! --filter Test.ISource::GetItems
 #[winrt]
 mod Windows {
     mod Foundation {

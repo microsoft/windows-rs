@@ -1,4 +1,4 @@
-//! --filter !Test.Removed Test.Kept Test.Removed --flat
+//! --filter !Test.Removed Test.Kept Test.Removed
 #[win32]
 mod Test {
     #[library("test.dll")]

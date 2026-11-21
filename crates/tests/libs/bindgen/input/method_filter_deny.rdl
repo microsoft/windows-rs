@@ -1,4 +1,4 @@
-//! --flat --filter Test --filter !Test.Interface::Second
+//! --filter Test --filter !Test.Interface::Second
 #[winrt]
 mod Test {
     #[guid(auto)]
