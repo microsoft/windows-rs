@@ -288,16 +288,14 @@ impl ComponentHost {
         let mut retired = Vec::new();
         for (parent, keys) in seen {
             let scope = self.scope_mut(*parent).unwrap();
-            let removed = scope
-                .children
-                .iter()
-                .filter(|(key, _)| !keys.contains(*key))
-                .map(|(key, id)| (key.clone(), *id))
-                .collect::<Vec<_>>();
-            for (key, id) in removed {
-                scope.children.remove(&key);
-                retired.push(id);
-            }
+            scope.children.retain(|key, id| {
+                if keys.contains(key) {
+                    true
+                } else {
+                    retired.push(*id);
+                    false
+                }
+            });
         }
         for id in retired {
             self.retire_scope(id);

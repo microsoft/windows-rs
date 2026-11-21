@@ -10,6 +10,8 @@ fn removal_transition_retires_callbacks_and_removes_native_child() -> Result<()>
         let original = ui.element("old")?;
         let first = ui.element("first")?;
         let second = ui.element("second")?;
+        let retained = ui.element("retained-scope")?;
+        ui.name("scope-lifetimes", "Cleanups 0; drops 0")?;
         let invoke =
             unsafe { original.GetCurrentPatternAs::<IUIAutomationInvokePattern>(INVOKE_PATTERN)? };
         ui.invoke("old")?;
@@ -46,6 +48,7 @@ fn removal_transition_retires_callbacks_and_removes_native_child() -> Result<()>
         stacked(ui, &[&second, &first, &replacement])?;
         ui.invoke("replacement")?;
         ui.name("selection", "Selected 1; calls 2")?;
+        ui.name("scope-lifetimes", "Cleanups 0; drops 0")?;
 
         // Replacing the Border's content retires the old page's callbacks and native subtree.
         let page = unsafe {
@@ -53,6 +56,7 @@ fn removal_transition_retires_callbacks_and_removes_native_child() -> Result<()>
         };
         ui.invoke("page")?;
         ui.name("page-text", "Page B")?;
+        ui.name("scope-lifetimes", "Cleanups 2; drops 2")?;
         retired(ui, &page, "Selected 1; calls 2")?;
         ui.removed_from_tree("replacement")?;
         ui.invoke("page-action")?;
@@ -60,7 +64,14 @@ fn removal_transition_retires_callbacks_and_removes_native_child() -> Result<()>
 
         ui.invoke("page")?;
         let restored = ui.element("replacement")?;
+        ui.name("scope-lifetimes", "Cleanups 2; drops 2")?;
         unsafe {
+            assert!(
+                ui.client
+                    .CompareElements(&retained, &ui.element("retained-scope")?)?
+                    .as_bool(),
+                "page swap replaced the retained component's native child"
+            );
             assert!(
                 !ui.client
                     .CompareElements(&replacement, &restored)?
