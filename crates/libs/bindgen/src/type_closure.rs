@@ -87,9 +87,14 @@ impl TypeClosure {
             }
         }
 
-        if let Some(implements) = implements {
-            let mut visited = HashSet::new();
-            loop {
+        let mut visited = HashSet::new();
+        loop {
+            // Mixed selection emits broad class/interface scaffolding, including factories and
+            // generic required interfaces. Implementation signatures can introduce more classes.
+            if filter.has_broad_filter {
+                types.combine(&types.hierarchy_dependencies(reader, references));
+            }
+            if let Some(implements) = implements {
                 let pending: Vec<_> = types
                     .values()
                     .flatten()
@@ -123,6 +128,8 @@ impl TypeClosure {
                         }
                     }
                 }
+            } else {
+                break;
             }
         }
 

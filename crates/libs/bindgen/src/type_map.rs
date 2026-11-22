@@ -176,6 +176,22 @@ impl TypeMap {
         }
     }
 
+    pub fn hierarchy_dependencies(&self, reader: &Reader, references: &References) -> Self {
+        let mut dependencies = Self(
+            HashMap::new(),
+            Arc::new(references.type_names(reader)),
+            HashMap::new(),
+        );
+        for ty in self.values().flatten() {
+            if matches!(ty, Type::Class(_) | Type::Interface(_)) {
+                ty.combine(&mut dependencies, reader);
+            }
+        }
+        let mut result = Self::new();
+        result.combine_references(&dependencies, references);
+        result
+    }
+
     pub fn included(&self, config: &Config) -> bool {
         if self.0.iter().any(|(tn, types)| {
             Self::is_reference(*tn, config.references)

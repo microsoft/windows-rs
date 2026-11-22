@@ -190,6 +190,62 @@ fn filter_bundled_metadata_contracts() {
 }
 
 #[test]
+fn filter_mixed_class_dependencies_compile() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("filter-mixed-class");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let libs = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap()
+        .join("libs");
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"filter-mixed-class\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n[lib]\npath = \"lib.rs\"\n\
+             [dependencies]\n\
+             windows-core = {{ path = '{}' }}\n\
+             windows-collections = {{ path = '{}' }}\n\
+             windows-numerics = {{ path = '{}' }}\n",
+            libs.join("core").display(),
+            libs.join("collections").display(),
+            libs.join("numerics").display(),
+        ),
+    )
+    .unwrap();
+    std::fs::write(
+        scratch.join("lib.rs"),
+        "#![allow(dead_code, nonstandard_style)]\nmod bindings;\n",
+    )
+    .unwrap();
+    for full in [true, false] {
+        let mut builder = windows_bindgen::builder();
+        builder
+            .filters(["Uri", "Windows.Foundation.Numerics"])
+            .implement_all()
+            .modules()
+            .output(scratch.join("bindings.rs"));
+        if full {
+            builder.full();
+        }
+        builder.write();
+        let result = std::process::Command::new("cargo")
+            .args(["check", "--quiet", "--offline", "--manifest-path"])
+            .arg(&manifest)
+            .arg("--target-dir")
+            .arg(scratch.join("target"))
+            .output()
+            .unwrap();
+        assert!(
+            result.status.success(),
+            "full={full}: {}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+    }
+}
+
+#[test]
 fn narrow_event_delegates_respect_dead_code() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("narrow-event-dead-code");
     std::fs::create_dir_all(&scratch).unwrap();
