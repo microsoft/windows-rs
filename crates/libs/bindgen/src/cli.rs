@@ -66,8 +66,8 @@ use super::*;
 /// --filter-file path/to/filter.txt
 /// ```
 ///
-/// Filter and command files separate arguments with whitespace, except inside `{...}` groups.
-/// Groups may span lines and have trailing commas:
+/// Filter and command files separate arguments with whitespace. Filter expressions keep `{...}`
+/// groups together across lines and allow trailing commas:
 ///
 /// ```text
 /// ID2D1RenderTarget::{
@@ -78,7 +78,8 @@ use super::*;
 /// ```
 ///
 /// `//` starts a comment at the beginning of a line or after whitespace. Comments end at the
-/// end of the line.
+/// end of the line. In command files, grouping applies only to `--filter` arguments;
+/// braces in paths are literal.
 ///
 /// The in-repo crates use this convention; see the filter `.txt` files in
 /// `crates/tools/bindings/src`.
@@ -232,7 +233,7 @@ where
     S: AsRef<str>,
 {
     #[track_caller]
-    fn expand<I, S>(result: &mut Vec<String>, args: I)
+    fn expand<I, S>(result: &mut Vec<String>, filter_args: &mut bool, args: I)
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
@@ -245,22 +246,26 @@ where
             }
 
             if command_files {
-                expand(result, read_tokens(arg));
+                let tokens = read_tokens(arg, *filter_args);
+                expand(result, filter_args, tokens);
             } else if arg == "--etc" {
                 command_files = true;
             } else {
+                if arg.starts_with('-') {
+                    *filter_args = arg == "--filter";
+                }
                 result.push(arg);
             }
         }
     }
 
     let mut result = Vec::new();
-    expand(&mut result, args);
+    expand(&mut result, &mut false, args);
     result
 }
 
 #[track_caller]
-pub(super) fn read_tokens(input: impl AsRef<Path>) -> Vec<String> {
+pub(super) fn read_tokens(input: impl AsRef<Path>, mut filter_args: bool) -> Vec<String> {
     let input = input.as_ref();
     let mut result = Vec::new();
     let mut current = String::new();
@@ -278,13 +283,13 @@ pub(super) fn read_tokens(input: impl AsRef<Path>) -> Vec<String> {
             {
                 break;
             }
-            if ch == '{' {
+            if filter_args && ch == '{' {
                 if brace_depth == 0 {
                     group_line = line_number;
                 }
                 brace_depth += 1;
                 current.push(ch);
-            } else if ch == '}' {
+            } else if filter_args && ch == '}' {
                 assert!(
                     brace_depth > 0,
                     "{}:{line_number}: unbalanced `}}`",
@@ -294,6 +299,9 @@ pub(super) fn read_tokens(input: impl AsRef<Path>) -> Vec<String> {
                 current.push(ch);
             } else if ch.is_whitespace() && brace_depth == 0 {
                 if !current.is_empty() {
+                    if current.starts_with('-') {
+                        filter_args = current == "--filter";
+                    }
                     result.push(std::mem::take(&mut current));
                 }
             } else {
@@ -303,6 +311,9 @@ pub(super) fn read_tokens(input: impl AsRef<Path>) -> Vec<String> {
         if brace_depth > 0 {
             current.push('\n');
         } else if !current.is_empty() {
+            if current.starts_with('-') {
+                filter_args = current == "--filter";
+            }
             result.push(std::mem::take(&mut current));
         }
     }
@@ -329,11 +340,11 @@ mod tests {
             &path,
             r"--in C:\metadata\input.winmd relative//input.winmd \\server\share\input.winmd
 --out generated/{bindings}.rs // output }
---filter Type::{Method} // filter {
+--filter Type::{Method} --in metadata/input{.winmd // literal brace
 ",
         )
         .unwrap();
-        let tokens = read_tokens(&path);
+        let tokens = read_tokens(&path, false);
         std::fs::remove_file(&path).unwrap();
         assert_eq!(
             tokens,
@@ -346,7 +357,51 @@ mod tests {
                 "generated/{bindings}.rs",
                 "--filter",
                 "Type::{Method}",
+                "--in",
+                "metadata/input{.winmd",
             ]
         );
+    }
+
+    #[test]
+    fn command_files_inherit_argument_kind() {
+        let directory = std::env::temp_dir().join(format!(
+            "windows-bindgen-command-context-{}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(&directory).unwrap();
+        let selector = directory.join("selector.txt");
+        let arguments = directory.join("arguments.txt");
+        let outer = directory.join("outer.txt");
+        std::fs::write(
+            &outer,
+            format!("--etc {} {}", selector.display(), arguments.display()),
+        )
+        .unwrap();
+
+        for (option, value) in [
+            ("--filter", "Test::{\n    CONSTANT,\n}"),
+            ("--out", "generated/bindings}.rs"),
+            ("--in", "metadata/input{.winmd"),
+        ] {
+            std::fs::write(&selector, option).unwrap();
+            std::fs::write(&arguments, value).unwrap();
+            for args in [
+                vec![option, "--etc", arguments.to_str().unwrap()],
+                vec![
+                    "--etc",
+                    selector.to_str().unwrap(),
+                    arguments.to_str().unwrap(),
+                ],
+                vec!["--etc", outer.to_str().unwrap()],
+            ] {
+                assert_eq!(expand_args(args), [option, value]);
+            }
+        }
+
+        for path in [selector, arguments, outer] {
+            std::fs::remove_file(path).unwrap();
+        }
+        std::fs::remove_dir(directory).unwrap();
     }
 }

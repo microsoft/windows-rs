@@ -314,6 +314,46 @@ mod Test {
 }
 
 #[test]
+fn command_file_paths_with_literal_braces() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("command_path_braces");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let expected = std::fs::read_to_string("expected/const.rs").unwrap();
+
+    for brace in ['}', '{'] {
+        let winmd = scratch.join(format!("input{brace}.winmd"));
+        let output = scratch.join(format!("output{brace}.rs"));
+        let filters = scratch.join(format!("filters{brace}.txt"));
+        let nested = scratch.join(format!("nested{brace}.txt"));
+        let commands = scratch.join("commands.txt");
+        windows_rdl::reader()
+            .input("input/const.rdl")
+            .output(&winmd)
+            .write()
+            .unwrap();
+        std::fs::write(&filters, "Test\n").unwrap();
+        std::fs::write(&nested, "--full\n").unwrap();
+        for separator in ["\n", " "] {
+            std::fs::write(
+                &commands,
+                format!(
+                    "--out {}{separator}--in {}{separator}--filter-file {}{separator}--etc {}",
+                    output.display(),
+                    winmd.display(),
+                    filters.display(),
+                    nested.display()
+                ),
+            )
+            .unwrap();
+            if output.exists() {
+                std::fs::remove_file(&output).unwrap();
+            }
+            windows_bindgen::bindgen(["--etc", commands.to_str().unwrap()]);
+            assert_eq!(std::fs::read_to_string(&output).unwrap(), expected);
+        }
+    }
+}
+
+#[test]
 fn command_files_can_be_nested_and_combined() {
     let temp = std::env::temp_dir();
     let winmd = temp.join("windows_bindgen_nested_commands.winmd");
