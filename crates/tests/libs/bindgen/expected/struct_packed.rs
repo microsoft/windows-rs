@@ -78,7 +78,6 @@ pub struct Padded {
     pub tag: u8,
     pub value: u32,
 }
-#[doc = r" Unaligned native field storage. No references to the stored value are exposed."]
 #[doc(hidden)]
 #[repr(C)]
 pub struct __windows_bindgen_Unaligned<T, const N: usize> {
@@ -94,17 +93,10 @@ impl<T, const N: usize> __windows_bindgen_Unaligned<T, N> {
         result.write(value);
         result
     }
-    #[doc = r" Copies the stored value without creating an aligned reference."]
-    #[doc = r""]
-    #[doc = r" # Safety"]
-    #[doc = r""]
-    #[doc = r" Storage must contain a valid, initialized `T`. For non-`Copy` values,"]
-    #[doc = r" the caller must prevent duplicated ownership and subsequent reads."]
     pub unsafe fn read(&self) -> T {
         assert_eq!(N, ::core::mem::size_of::<T>());
         unsafe { self.bytes.as_ptr().cast::<T>().read_unaligned() }
     }
-    #[doc = r" Writes a value without dropping the previous contents."]
     pub fn write(&mut self, value: T) {
         assert_eq!(N, ::core::mem::size_of::<T>());
         unsafe {
@@ -118,3 +110,4 @@ impl<T: Copy, const N: usize> Clone for __windows_bindgen_Unaligned<T, N> {
         *self
     }
 }
+pub const size_of: u32 = 99;

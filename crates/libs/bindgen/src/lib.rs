@@ -661,6 +661,7 @@ impl Bindgen {
             filter.validate_implements(implements);
         }
 
+        let shadowed_prelude = Config::shadowed_prelude(&types);
         let config = Config {
             bindgen: self,
             reader,
@@ -671,6 +672,7 @@ impl Bindgen {
             implement: implements.as_ref(),
             link,
             namespace: "",
+            shadowed_prelude: &shadowed_prelude,
             event_only_delegates: &HashSet::new(),
             self_ty: None,
             self_generics: Vec::new(),

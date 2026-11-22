@@ -333,6 +333,8 @@ impl CppStruct {
         let field_config = &config.with_self_ty(self.type_name(), &[]);
 
         let fields = {
+            let size_of = aligned_members.then(|| config.write_mem_function("size_of"));
+            let align_of = aligned_members.then(|| config.write_mem_function("align_of"));
             let mut names: BTreeSet<String> = if aligned_members {
                 fields.iter().map(|(name, _, _)| (*name).into()).collect()
             } else {
@@ -373,7 +375,7 @@ impl CppStruct {
                         pub #padding: [core::mem::MaybeUninit<u8>; {
                             let offset = 0usize;
                             #layout
-                            let natural = ::core::mem::align_of::<#ty>();
+                            let natural = #align_of::<#ty>();
                             let required = if natural < #alignment { #alignment } else { natural };
                             ((offset + required - 1) & !(required - 1))
                                 - ((offset + natural - 1) & !(natural - 1))
@@ -388,10 +390,10 @@ impl CppStruct {
                         quote! { let alignment = if alignment < #alignment { #alignment } else { alignment }; }
                     });
                     layout.extend(quote! {
-                        let alignment = ::core::mem::align_of::<#ty>();
+                        let alignment = #align_of::<#ty>();
                         #requested
                         let offset = ((offset + alignment - 1) & !(alignment - 1))
-                            + ::core::mem::size_of::<#ty>();
+                            + #size_of::<#ty>();
                     });
                 }
                 quote! { #padding pub #name: #ty, }
@@ -616,7 +618,8 @@ impl CppStruct {
                     || !offset.is_multiple_of(layout.alignment)
                 {
                     let helper = Type::UnalignedHelper.type_name().write(config, &[]);
-                    storage = quote! { #helper<#storage, { ::core::mem::size_of::<#storage>() }> };
+                    let size_of = config.write_mem_function("size_of");
+                    storage = quote! { #helper<#storage, { #size_of::<#storage>() }> };
                 }
                 if !config.bindgen.style.is_sys() && !ty.is_copyable(config.reader) {
                     storage = quote! { core::mem::ManuallyDrop<#storage> };

@@ -101,3 +101,5 @@ impl Default for PointerOnly_Child {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const align_of: u32 = 99;
+pub const size_of: u32 = 99;

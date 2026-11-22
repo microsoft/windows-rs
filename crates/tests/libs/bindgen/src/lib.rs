@@ -200,6 +200,7 @@ const _: unsafe fn() -> i32 = package_arches::Windows::Win32::split_legacy::SetW
 
 #[test]
 fn nested_member_alignment() {
+    use core::mem::{align_of, size_of};
     use struct_nested_member_alignment::*;
 
     const {

@@ -1,6 +1,12 @@
-//! --filter Test --full
+//! --filter Test !Test.size --full
 #[win32]
 mod Test {
+    const size_of: u32 = 99;
+
+    struct size {
+        struct of {}
+    }
+
     #[packed(1)]
     struct Packed {
         tag: u8,

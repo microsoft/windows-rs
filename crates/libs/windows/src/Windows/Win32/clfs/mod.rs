@@ -282,11 +282,11 @@ pub struct CLS_SCAN_CONTEXT {
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment = ::core::mem::align_of::<CLFS_NODE_ID>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<CLFS_NODE_ID>();
-        let alignment = ::core::mem::align_of::<super::HANDLE>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::HANDLE>();
-        let natural = ::core::mem::align_of::<super::ULONG>();
+        let alignment = align_of::<CLFS_NODE_ID>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_NODE_ID>();
+        let alignment = align_of::<super::HANDLE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::HANDLE>();
+        let natural = align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -294,14 +294,14 @@ pub struct CLS_SCAN_CONTEXT {
     #[doc(hidden)]
     pub __padding_3: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment = ::core::mem::align_of::<CLFS_NODE_ID>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<CLFS_NODE_ID>();
-        let alignment = ::core::mem::align_of::<super::HANDLE>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::HANDLE>();
-        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let alignment = align_of::<CLFS_NODE_ID>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_NODE_ID>();
+        let alignment = align_of::<super::HANDLE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::HANDLE>();
+        let alignment = align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
-        let natural = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
+        let natural = align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -309,17 +309,17 @@ pub struct CLS_SCAN_CONTEXT {
     #[doc(hidden)]
     pub __padding_4: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment = ::core::mem::align_of::<CLFS_NODE_ID>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<CLFS_NODE_ID>();
-        let alignment = ::core::mem::align_of::<super::HANDLE>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::HANDLE>();
-        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let alignment = align_of::<CLFS_NODE_ID>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_NODE_ID>();
+        let alignment = align_of::<super::HANDLE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::HANDLE>();
+        let alignment = align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
-        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
+        let alignment = align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
-        let natural = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
+        let natural = align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -327,20 +327,20 @@ pub struct CLS_SCAN_CONTEXT {
     #[doc(hidden)]
     pub __padding_5: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment = ::core::mem::align_of::<CLFS_NODE_ID>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<CLFS_NODE_ID>();
-        let alignment = ::core::mem::align_of::<super::HANDLE>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::HANDLE>();
-        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let alignment = align_of::<CLFS_NODE_ID>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_NODE_ID>();
+        let alignment = align_of::<super::HANDLE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::HANDLE>();
+        let alignment = align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
-        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
+        let alignment = align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
-        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
+        let alignment = align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
-        let natural = ::core::mem::align_of::<CLFS_SCAN_MODE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
+        let natural = align_of::<CLFS_SCAN_MODE>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -348,23 +348,23 @@ pub struct CLS_SCAN_CONTEXT {
     #[doc(hidden)]
     pub __padding_6: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment = ::core::mem::align_of::<CLFS_NODE_ID>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<CLFS_NODE_ID>();
-        let alignment = ::core::mem::align_of::<super::HANDLE>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::HANDLE>();
-        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let alignment = align_of::<CLFS_NODE_ID>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_NODE_ID>();
+        let alignment = align_of::<super::HANDLE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::HANDLE>();
+        let alignment = align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
-        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
+        let alignment = align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
-        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
+        let alignment = align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
-        let alignment = ::core::mem::align_of::<CLFS_SCAN_MODE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
+        let alignment = align_of::<CLFS_SCAN_MODE>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<CLFS_SCAN_MODE>();
-        let natural = ::core::mem::align_of::<PCLS_CONTAINER_INFORMATION>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_SCAN_MODE>();
+        let natural = align_of::<PCLS_CONTAINER_INFORMATION>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],

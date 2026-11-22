@@ -23,7 +23,6 @@ pub struct DeepOnly {
 pub struct Point {
     pub value: i32,
 }
-#[doc = r" A fixed 64-bit address, not a native Rust pointer."]
 #[doc(hidden)]
 #[repr(C)]
 pub struct __windows_bindgen_Pointer64<P> {

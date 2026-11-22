@@ -802,6 +802,82 @@ fn run(name: &str) {
 }
 
 #[test]
+fn layout_prelude_names() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("layout_prelude_names");
+    std::fs::create_dir_all(&scratch).unwrap();
+    for fixture in ["struct_packed", "struct_nested_member_alignment"] {
+        let winmd = scratch.join(format!("{fixture}.winmd"));
+        windows_rdl::reader()
+            .input(format!("input/{fixture}.rdl"))
+            .output(&winmd)
+            .write()
+            .unwrap();
+        for style in ["full", "minimal", "sys"] {
+            for (modules, collision) in [
+                (false, "none"),
+                (false, "constant"),
+                (false, "nested"),
+                (true, "none"),
+                (true, "constant"),
+                (true, "nested"),
+            ] {
+                let output = scratch.join(format!("{fixture}-{style}-{modules}-{collision}.rs"));
+                let mut builder = windows_bindgen::builder();
+                builder.input(&winmd).filter("Test").output(&output);
+                if collision != "constant" {
+                    builder.filter("!Test.size_of");
+                    if fixture == "struct_nested_member_alignment" {
+                        builder.filter("!Test.align_of");
+                    }
+                }
+                if collision != "nested" {
+                    builder.filter("!Test.size");
+                    if fixture == "struct_nested_member_alignment" {
+                        builder.filter("!Test.align");
+                    }
+                }
+                match style {
+                    "full" => {
+                        builder.full();
+                    }
+                    "sys" => {
+                        builder.sys();
+                    }
+                    _ => {}
+                }
+                if modules {
+                    builder.modules();
+                }
+                builder.write();
+                let source = std::fs::read_to_string(&output).unwrap();
+                let result = std::process::Command::new("rustc")
+                    .args([
+                        "--crate-name=layout_imports",
+                        "--crate-type=lib",
+                        "--edition=2024",
+                        "--emit=metadata",
+                        "-Dwarnings",
+                        "-Wunused-qualifications",
+                        "-Anonstandard_style",
+                    ])
+                    .arg(&output)
+                    .arg("-o")
+                    .arg(scratch.join("output.rmeta"))
+                    .output()
+                    .unwrap();
+                assert!(
+                    result.status.success(),
+                    "{fixture} {style} {modules} {collision}: {}",
+                    String::from_utf8_lossy(&result.stderr)
+                );
+                assert!(!source.contains("use core::mem"));
+                assert_eq!(source.contains("::core::mem::size_of"), collision != "none");
+            }
+        }
+    }
+}
+
+#[test]
 fn nested_dependency_styles() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("nested_dependency_styles");
     std::fs::create_dir_all(&scratch).unwrap();
