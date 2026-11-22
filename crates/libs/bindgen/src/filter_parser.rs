@@ -276,7 +276,41 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         return results;
     }
 
-    panic!("could not resolve filter entry `{}`", segments.join("::"));
+    let prefix = if entry.exclude { "!" } else { "" };
+    let mut message = format!(
+        "could not resolve filter entry `{prefix}{}`",
+        segments.join("::")
+    );
+    let (name, path) = segments.split_last().unwrap();
+
+    // A known type earlier in the path may make the final name a member, not a type.
+    if !reader
+        .values()
+        .any(|types| path.iter().any(|part| types.contains_key(part.as_str())))
+    {
+        let mut namespaces: Vec<_> = reader
+            .iter()
+            .filter_map(|(namespace, types)| {
+                types.contains_key(name.as_str()).then_some(*namespace)
+            })
+            .collect();
+        namespaces.sort_unstable();
+        if namespaces.len() == 1 {
+            write!(message, "; try `{prefix}{name}`").unwrap();
+        } else if !namespaces.is_empty() {
+            message.push_str("; matching filters: ");
+            for (index, namespace) in namespaces.iter().take(5).enumerate() {
+                if index > 0 {
+                    message.push_str(", ");
+                }
+                write!(message, "`{prefix}{namespace}.{name}`").unwrap();
+            }
+            if namespaces.len() > 5 {
+                write!(message, " ({} more matches)", namespaces.len() - 5).unwrap();
+            }
+        }
+    }
+    panic!("{message}");
 }
 
 /// Collect member segments, dropping the lone empty segment produced by an
@@ -378,6 +412,152 @@ mod tests {
 #[cfg(test)]
 mod resolution_tests {
     use super::*;
+
+    fn reader_with_types(names: &[(&str, &str)]) -> Reader {
+        use windows_metadata::writer;
+
+        let mut file = writer::File::new("filter_hints");
+        let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
+        for (namespace, name) in names {
+            file.TypeDef(
+                namespace,
+                name,
+                base,
+                TypeAttributes::Public | TypeAttributes::SequentialLayout,
+            );
+        }
+        Reader::new(vec![File::new(file.into_stream()).unwrap()])
+    }
+
+    fn resolution_error(reader: &Reader, input: &str) -> String {
+        let error =
+            std::panic::catch_unwind(|| resolve_entries(reader, &parse_filter_entry(input)))
+                .unwrap_err();
+        *error.downcast::<String>().unwrap()
+    }
+
+    #[test]
+    fn unresolved_filters_suggest_unique_bare_names() {
+        let reader = reader_with_types(&[("Current", "Widget"), ("Current", "Widget")]);
+        for input in ["Old.Widget", "Old::Widget", "Old::{Widget}"] {
+            assert_eq!(
+                resolution_error(&reader, input),
+                "could not resolve filter entry `Old::Widget`; try `Widget`"
+            );
+        }
+        assert_eq!(
+            resolution_error(&reader, "!Old.Widget"),
+            "could not resolve filter entry `!Old::Widget`; try `!Widget`"
+        );
+        let resolved = resolve_entries(&reader, &parse_filter_entry("!Widget"));
+        assert_eq!(resolved.len(), 1);
+        assert!(resolved[0].exclude);
+        assert!(matches!(
+            &resolved[0].kind,
+            ResolvedKind::Type { namespace, name } if namespace == "Current" && name == "Widget"
+        ));
+    }
+
+    #[test]
+    fn unresolved_filters_list_bounded_qualified_matches() {
+        let names = [
+            ("G", "Widget"),
+            ("F", "Widget"),
+            ("E", "Widget"),
+            ("D", "Widget"),
+            ("C", "Widget"),
+            ("B", "Widget"),
+            ("A", "Widget"),
+        ];
+        for (count, expected) in [
+            (2, "`!A.Widget`, `!B.Widget`"),
+            (
+                5,
+                "`!A.Widget`, `!B.Widget`, `!C.Widget`, `!D.Widget`, `!E.Widget`",
+            ),
+            (
+                7,
+                "`!A.Widget`, `!B.Widget`, `!C.Widget`, `!D.Widget`, `!E.Widget` (2 more matches)",
+            ),
+        ] {
+            let names = &names[names.len() - count..];
+            let reader = reader_with_types(names);
+            assert_eq!(
+                resolution_error(&reader, "!Old.Widget"),
+                format!(
+                    "could not resolve filter entry `!Old::Widget`; matching filters: {expected}"
+                )
+            );
+            assert_eq!(
+                resolve_entries(&reader, &parse_filter_entry("Widget")).len(),
+                count
+            );
+            for (namespace, name) in names {
+                let resolved = resolve_entries(
+                    &reader,
+                    &parse_filter_entry(&format!("!{namespace}.{name}")),
+                );
+                assert_eq!(resolved.len(), 1);
+                assert!(resolved[0].exclude);
+                assert!(matches!(
+                    &resolved[0].kind,
+                    ResolvedKind::Type { namespace: ns, name: ty } if ns == namespace && ty == name
+                ));
+            }
+        }
+    }
+
+    #[test]
+    fn unresolved_filters_use_loaded_win32_and_winrt_names() {
+        let reader = test_reader();
+        for (input, namespace, name) in [
+            ("Windows.Win32.Foundation.HWND", "Windows.Win32", "HWND"),
+            (
+                "Windows.Win32.System.Threading.GetTickCount",
+                "Windows.Win32",
+                "GetTickCount",
+            ),
+            (
+                "Windows.Win32.UI.WindowsAndMessaging.WM_CLOSE",
+                "Windows.Win32",
+                "WM_CLOSE",
+            ),
+            (
+                "Windows.Foundation.Collections.Uri",
+                "Windows.Foundation",
+                "Uri",
+            ),
+        ] {
+            assert_eq!(
+                resolution_error(reader, input),
+                format!(
+                    "could not resolve filter entry `{}`; try `{name}`",
+                    input.replace('.', "::")
+                )
+            );
+            let resolved = resolve_entries(reader, &parse_filter_entry(name));
+            assert_eq!(resolved.len(), 1);
+            assert!(matches!(
+                &resolved[0].kind,
+                ResolvedKind::Type { namespace: ns, name: ty } if ns == namespace && ty == name
+            ));
+        }
+    }
+
+    #[test]
+    fn unresolved_filters_do_not_guess_missing_names_or_members() {
+        let reader = reader_with_types(&[("Current", "Widget"), ("Other", "Read")]);
+        for input in [
+            "Old::Missing",
+            "Old::Widget::Read",
+            "Windows::Win32::Foundation::HWND",
+        ] {
+            assert_eq!(
+                resolution_error(&reader, input),
+                format!("could not resolve filter entry `{input}`")
+            );
+        }
+    }
 
     fn test_reader() -> &'static Reader {
         use std::sync::OnceLock;
