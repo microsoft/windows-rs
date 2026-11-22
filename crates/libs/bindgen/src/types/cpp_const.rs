@@ -59,6 +59,18 @@ impl CppConst {
             .field
             .field_type(enclosing, config.reader)
             .to_const_type();
+        if self.is_enum_member
+            && (config.filter.excludes_type_name(self.type_name())
+                || config
+                    .filter
+                    .enum_variant_filter(
+                        field_ty.type_name().namespace(),
+                        field_ty.type_name().name(),
+                    )
+                    .is_some_and(|variants| !variants.includes(self.field.name())))
+        {
+            return quote! {};
+        }
         let tn = field_ty.type_name().name();
         let name = if enclosing.is_none() && !tn.is_empty() && self.field.name() == tn {
             to_ident(&format!("{tn}_"))

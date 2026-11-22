@@ -1,14 +1,5 @@
 use super::*;
 
-/// Returns `true` if the given method should be considered "included" by the
-/// method set for type-closure purposes.
-fn method_included_by_set(method: MethodDef, method_set: &MethodSet) -> bool {
-    if let Some(overload) = method_overload_name(method) {
-        return method_set.includes(&overload);
-    }
-    method_set.includes(method.name())
-}
-
 /// Bottom-up dependency closure for precise filters; dependencies become name-only shells.
 pub struct TypeClosure;
 
@@ -25,7 +16,7 @@ impl TypeClosure {
         let mut types = TypeMap::new();
 
         // Interface method seeds pull in only the requested signatures.
-        for ((namespace, name), method_set) in &filter.requested_interfaces {
+        for (namespace, name) in filter.requested_interfaces.keys() {
             for ty in reader.with_full_name(namespace, name) {
                 if filter.excludes_type_name(ty.type_name()) {
                     continue;
@@ -40,7 +31,7 @@ impl TypeClosure {
                         }
                     }
                     for method in iface.def.methods() {
-                        if method_included_by_set(method, method_set) {
+                        if filter.includes_method(ty.type_name(), method) {
                             let sig = method.method_signature(&iface.generics, reader);
                             for dep_ty in sig.types() {
                                 dep_ty.combine_root(&mut types, reader, references, style);
@@ -52,7 +43,7 @@ impl TypeClosure {
                         base.combine_root(&mut types, reader, references, style);
                     }
                     for method in iface.def.methods() {
-                        if method_included_by_set(method, method_set) {
+                        if filter.includes_method(ty.type_name(), method) {
                             for dependency in method.associated_enums(reader) {
                                 dependency.combine_root(&mut types, reader, references, style);
                             }
@@ -96,9 +87,14 @@ impl TypeClosure {
             }
         }
 
-        if let Some(implements) = implements {
-            let mut visited = HashSet::new();
-            loop {
+        let mut visited = HashSet::new();
+        loop {
+            // Mixed selection emits broad class/interface scaffolding, including factories and
+            // generic required interfaces. Implementation signatures can introduce more classes.
+            if filter.has_broad_filter {
+                types.combine(&types.hierarchy_dependencies(reader, references));
+            }
+            if let Some(implements) = implements {
                 let pending: Vec<_> = types
                     .values()
                     .flatten()
@@ -132,6 +128,8 @@ impl TypeClosure {
                         }
                     }
                 }
+            } else {
+                break;
             }
         }
 

@@ -1,5 +1,250 @@
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
+fn filter_contract_output(case: &str, style: &str, filters: &[&str]) -> String {
+    let scratch = std::path::Path::new(env!("OUT_DIR"))
+        .join("filter-contracts")
+        .join(case)
+        .join(style);
+    std::fs::create_dir_all(&scratch).unwrap();
+    let metadata = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/filter_contracts.rdl")
+        .output(&metadata)
+        .write()
+        .unwrap();
+    let output = scratch.join("bindings.rs");
+    let mut builder = windows_bindgen::builder();
+    builder.input(metadata).filters(filters).output(&output);
+    match style {
+        "minimal" => {}
+        "full" => {
+            builder.full();
+        }
+        "sys" => {
+            builder.sys();
+        }
+        _ => unreachable!(),
+    }
+    builder.write();
+    std::fs::read_to_string(output).unwrap()
+}
+
+#[test]
+fn filter_mixed_namespaces_preserve_precise_methods() {
+    for style in ["minimal", "full", "sys"] {
+        let filters = [
+            "Test.ISource::GetResult",
+            "Native.INativeSource::GetNativeResult",
+        ];
+        let precise = filter_contract_output("mixed", style, &filters);
+        let mixed = filter_contract_output("mixed", style, &[&filters[..], &["Other"]].concat());
+        for output in [&precise, &mixed] {
+            assert!(output.contains("pub GetResult:"), "{style}\n{output}");
+            assert!(output.contains("pub GetNativeResult:"), "{style}\n{output}");
+            assert!(!output.contains("pub Read:"), "{style}\n{output}");
+            assert!(!output.contains("pub NativeRead:"), "{style}\n{output}");
+        }
+        assert!(mixed.contains("pub struct Token"));
+        let excluded = filter_contract_output(
+            "mixed",
+            style,
+            &[&filters[..], &["Other", "!Test.ISource"]].concat(),
+        );
+        assert!(!excluded.contains("pub GetResult:"), "{style}\n{excluded}");
+    }
+}
+
+#[test]
+fn filter_enum_exclusions() {
+    for style in ["minimal", "full", "sys"] {
+        for (name, red, green, blue) in [
+            ("Test.Color", "Red", "Green", "Blue"),
+            (
+                "Native.NativeColor",
+                "NativeRed",
+                "NativeGreen",
+                "NativeBlue",
+            ),
+        ] {
+            for selection in [
+                name.to_string(),
+                name.rsplit_once('.').unwrap().0.to_string(),
+            ] {
+                let exclusion = format!("!{name}::{red}");
+                let output = filter_contract_output("enums", style, &[&selection, &exclusion]);
+                assert!(
+                    !output.contains(&format!("pub const {red}:")),
+                    "{style}\n{output}"
+                );
+                for variant in [green, blue] {
+                    assert!(
+                        output.contains(&format!("pub const {variant}:")),
+                        "{style}\n{output}"
+                    );
+                }
+            }
+            let selected = format!("{name}::{{{red},{green}}}");
+            let exclusion = format!("!{name}::{red}");
+            let output = filter_contract_output("enums", style, &[&selected, &exclusion]);
+            assert!(
+                !output.contains(&format!("pub const {red}:")),
+                "{style}\n{output}"
+            );
+            assert!(
+                output.contains(&format!("pub const {green}:")),
+                "{style}\n{output}"
+            );
+            assert!(
+                !output.contains(&format!("pub const {blue}:")),
+                "{style}\n{output}"
+            );
+        }
+    }
+}
+
+#[test]
+fn filter_enum_dependencies_respect_exclusions() {
+    for style in ["minimal", "full", "sys"] {
+        for exclusion in ["!Native.NativeColor::NativeRed", "!Native.NativeRed"] {
+            for broad in [false, true] {
+                let mut filters = vec![
+                    "Native.ApplyColor",
+                    "Native.INativeOptions::ApplyColor",
+                    "Native.NativeColor",
+                    exclusion,
+                ];
+                if broad {
+                    filters.push("Other");
+                }
+                let output = filter_contract_output("enum-dependencies", style, &filters);
+                assert!(
+                    !output.contains("pub const NativeRed:"),
+                    "{style}\n{output}"
+                );
+                assert!(
+                    output.contains("pub const NativeGreen:"),
+                    "{style}\n{output}"
+                );
+                assert!(output.contains("\"fixture.dll\""), "{style}\n{output}");
+                assert!(output.contains("pub ApplyColor:"), "{style}\n{output}");
+            }
+        }
+    }
+}
+
+#[test]
+fn filter_class_property_exclusions() {
+    for style in ["minimal", "full", "sys"] {
+        for (owner, exclusion) in [
+            ("Test.Widget", "!Test.Widget::Value"),
+            ("Test.IWidget", "!Test.IWidget::Value"),
+        ] {
+            let output = filter_contract_output("properties", style, &[owner, exclusion]);
+            assert!(!output.contains("pub get_Value:"), "{style}\n{output}");
+            assert!(!output.contains("pub put_Value:"), "{style}\n{output}");
+            assert!(output.contains("pub Other:"), "{style}\n{output}");
+        }
+    }
+}
+
+#[test]
+fn filter_selection_order() {
+    for style in ["minimal", "full", "sys"] {
+        for (name, member, omitted) in [
+            ("Test.ISource", "GetResult", "IUnused"),
+            ("Test.Color", "Red", "pub const Green:"),
+            ("Native.NativeColor", "NativeRed", "pub const NativeGreen:"),
+        ] {
+            let selected = format!("{name}::{member}");
+            let whole_first = filter_contract_output("order", style, &[name, &selected]);
+            let member_first = filter_contract_output("order", style, &[&selected, name]);
+            assert_eq!(whole_first, member_first, "{style}: {name}");
+            assert!(!whole_first.contains(omitted), "{style}\n{whole_first}");
+        }
+    }
+}
+
+#[test]
+fn filter_bundled_metadata_contracts() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("filter-bundled");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let output = scratch.join("bindings.rs");
+    windows_bindgen::builder()
+        .filters([
+            "IDXGIDevice::GetAdapter",
+            "IDataReader::ReadBuffer",
+            "Windows.System.Power",
+            "BitmapPixelFormat",
+            "!BitmapPixelFormat::Rgba8",
+            "Uri",
+            "!Uri::AbsoluteUri",
+        ])
+        .output(&output)
+        .write();
+    let output = std::fs::read_to_string(output).unwrap();
+    assert!(output.contains("pub GetAdapter:"));
+    assert!(output.contains("pub ReadBuffer:"));
+    assert!(!output.contains("pub const Rgba8:"));
+    assert!(output.contains("pub const Bgra8:"));
+    assert!(!output.contains(" fn AbsoluteUri("));
+}
+
+#[test]
+fn filter_mixed_class_dependencies_compile() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("filter-mixed-class");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let libs = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap()
+        .join("libs");
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"filter-mixed-class\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n[lib]\npath = \"lib.rs\"\n\
+             [dependencies]\n\
+             windows-core = {{ path = '{}' }}\n\
+             windows-collections = {{ path = '{}' }}\n\
+             windows-numerics = {{ path = '{}' }}\n",
+            libs.join("core").display(),
+            libs.join("collections").display(),
+            libs.join("numerics").display(),
+        ),
+    )
+    .unwrap();
+    std::fs::write(
+        scratch.join("lib.rs"),
+        "#![allow(dead_code, nonstandard_style)]\nmod bindings;\n",
+    )
+    .unwrap();
+    for full in [true, false] {
+        let mut builder = windows_bindgen::builder();
+        builder
+            .filters(["Uri", "Windows.Foundation.Numerics"])
+            .implement_all()
+            .modules()
+            .output(scratch.join("bindings.rs"));
+        if full {
+            builder.full();
+        }
+        builder.write();
+        let result = std::process::Command::new("cargo")
+            .args(["check", "--quiet", "--offline", "--manifest-path"])
+            .arg(&manifest)
+            .arg("--target-dir")
+            .arg(scratch.join("target"))
+            .output()
+            .unwrap();
+        assert!(
+            result.status.success(),
+            "full={full}: {}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+    }
+}
+
 #[test]
 fn narrow_event_delegates_respect_dead_code() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("narrow-event-dead-code");

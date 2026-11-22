@@ -17,9 +17,8 @@ fn has_numerics(index: &windows_metadata::reader::Index) -> bool {
         ("Vector4", 4),
     ];
     let mut found = [false; TYPES.len()];
-    for (namespace, name, item) in index.iter_items() {
-        if namespace == "Windows.Foundation.Numerics"
-            && let windows_metadata::reader::Item::Type(def) = item
+    for (name, item) in index.namespace_items("Windows.Foundation.Numerics") {
+        if let windows_metadata::reader::Item::Type(def) = item
             && def.category() == windows_metadata::reader::TypeCategory::Struct
             && let Some(index) = TYPES.iter().position(|candidate| candidate.0 == name)
             && def.fields().len() == TYPES[index].1

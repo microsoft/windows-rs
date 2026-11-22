@@ -163,10 +163,33 @@ impl TypeMap {
     pub fn combine(&mut self, other: &Self) {
         for (name, types) in &other.0 {
             let set = self.0.entry(*name).or_default();
-            types.iter().for_each(|ty| {
+            for ty in types {
+                if let Some(arches) = self.2.get_mut(ty) {
+                    *arches |= other.reached_arches(ty);
+                } else if let Some(arches) = other.2.get(ty)
+                    && !set.contains(ty)
+                {
+                    self.2.insert(ty.clone(), *arches);
+                }
                 set.insert(ty.clone());
-            });
+            }
         }
+    }
+
+    pub fn hierarchy_dependencies(&self, reader: &Reader, references: &References) -> Self {
+        let mut dependencies = Self(
+            HashMap::new(),
+            Arc::new(references.type_names(reader)),
+            HashMap::new(),
+        );
+        for ty in self.values().flatten() {
+            if matches!(ty, Type::Class(_) | Type::Interface(_)) {
+                ty.combine(&mut dependencies, reader);
+            }
+        }
+        let mut result = Self::new();
+        result.combine_references(&dependencies, references);
+        result
     }
 
     pub fn included(&self, config: &Config) -> bool {
@@ -242,5 +265,31 @@ impl TypeMap {
         self.0
             .iter()
             .any(|(tn, _)| filter.excludes_type_name(*tn) && references.contains(*tn).is_none())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn combined_dependencies_preserve_reached_architectures() {
+        let mut precise = TypeMap::new();
+        precise.insert_reached(Type::GUID, 1);
+        let mut combined = TypeMap::new();
+        combined.combine(&precise);
+        assert_eq!(combined.reached_arches(&Type::GUID), 1);
+
+        let mut other = TypeMap::new();
+        other.insert_reached(Type::GUID, 2);
+        combined.combine(&other);
+        assert_eq!(combined.reached_arches(&Type::GUID), 3);
+
+        let mut broad = TypeMap::new();
+        broad.insert(Type::GUID);
+        combined.combine(&broad);
+        assert_eq!(combined.reached_arches(&Type::GUID), ALL_ARCHES);
+        broad.combine(&precise);
+        assert_eq!(broad.reached_arches(&Type::GUID), ALL_ARCHES);
     }
 }
