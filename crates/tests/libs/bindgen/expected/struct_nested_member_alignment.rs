@@ -35,9 +35,9 @@ pub struct Named_Child {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<u8>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<u8>();
-        let natural =::core::mem::align_of::<u32>();
+        let alignment = ::core::mem::align_of::<u8>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<u8>();
+        let natural = ::core::mem::align_of::<u32>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -66,9 +66,9 @@ pub struct Outer_0 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<u8>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<u8>();
-        let natural =::core::mem::align_of::<u32>();
+        let alignment = ::core::mem::align_of::<u8>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<u8>();
+        let natural = ::core::mem::align_of::<u32>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -90,7 +90,7 @@ pub struct PointerOnly_Child {
     #[doc(hidden)]
     pub __padding_0: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let natural =::core::mem::align_of::<u32>();
+        let natural = ::core::mem::align_of::<u32>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],

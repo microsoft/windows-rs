@@ -21,6 +21,14 @@ mod record_tests;
 mod ownership_tests;
 
 #[test]
+fn formatting_preserves_string_constants() {
+    assert_eq!(
+        unsafe { format_tokens::TEXT.to_string().unwrap() },
+        "macro ! (call ) , ; :: * mut \"quoted\" \\ end"
+    );
+}
+
+#[test]
 fn associated_enum_storage_and_sign_extension() {
     use associated_enum::*;
     let flags: u32 = CloseSource | SameAccess | HighBit;
