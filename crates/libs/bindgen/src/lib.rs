@@ -249,9 +249,11 @@ impl Bindgen {
     }
 
     /// Adds filter rules from a text file.
+    ///
+    /// Supports multiline groups and `//` comments. See [`bindgen`] for the file syntax.
     #[track_caller]
     pub fn filter_file(&mut self, input: impl AsRef<Path>) -> &mut Self {
-        self.filters(cli::read_tokens(input))
+        self.filters(cli::read_tokens(input, true))
     }
 
     /// Adds filter rules from text files.

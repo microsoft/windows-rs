@@ -109,6 +109,133 @@ fn output_paths() {
 }
 
 #[test]
+fn filter_files_multiline_groups() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("multiline_filters");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    let output = scratch.join("output.rs");
+    let filters = scratch.join("filters.txt");
+    let commands = scratch.join("commands.txt");
+    windows_rdl::reader()
+        .input("input/filter_contracts.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+
+    let single_line = [
+        "Test::{ISource::{GetResult}, Color::{Red, Green}, IUnused::{}}",
+        "!Test::Color::{Red}",
+        "Native::{INativeSource::{GetNativeResult}, NativeColor::{NativeRed, NativeBlue}}",
+        "!Native::NativeColor::{NativeRed}",
+    ];
+    let multiline = "\
+Test::{
+    ISource::{
+        GetResult, // Returned interface remains a shell. }
+    },
+
+    // Enum and explicit shell:
+    Color::{Red, Green, },
+    IUnused::{
+    },
+}
+!Test::Color::{
+    Red,
+}
+Native::{
+    INativeSource::{
+        GetNativeResult,
+    },
+    NativeColor::{NativeRed, NativeBlue, },
+}
+!Native::NativeColor::{
+    NativeRed,
+} // No final newline";
+
+    for mode in ["minimal", "full", "sys"] {
+        let flag = match mode {
+            "full" => Some("--full"),
+            "sys" => Some("--sys"),
+            _ => None,
+        };
+        let builder = || {
+            let mut builder = windows_bindgen::builder();
+            builder.input(&winmd).output(&output);
+            if mode == "full" {
+                builder.full();
+            } else if mode == "sys" {
+                builder.sys();
+            }
+            builder
+        };
+        builder().filters(single_line).write();
+        let expected = std::fs::read_to_string(&output).unwrap();
+
+        for newline in ["\n", "\r\n"] {
+            let multiline = multiline.replace('\n', newline);
+            std::fs::write(&filters, &multiline).unwrap();
+            std::fs::write(&commands, format!("--filter {multiline}")).unwrap();
+            for form in [
+                "filter-file",
+                "filter-files",
+                "cli-filter-file",
+                "command-file",
+            ] {
+                std::fs::remove_file(&output).unwrap();
+                match form {
+                    "filter-file" => builder().filter_file(&filters).write(),
+                    "filter-files" => builder().filter_files([&filters]).write(),
+                    _ => {
+                        let mut args = vec![
+                            "--in",
+                            winmd.to_str().unwrap(),
+                            "--out",
+                            output.to_str().unwrap(),
+                        ];
+                        args.extend(flag);
+                        if form == "cli-filter-file" {
+                            args.extend(["--filter-file", filters.to_str().unwrap()]);
+                        } else {
+                            args.extend(["--etc", commands.to_str().unwrap()]);
+                        }
+                        windows_bindgen::bindgen(args);
+                    }
+                }
+                assert_eq!(
+                    std::fs::read_to_string(&output).unwrap(),
+                    expected,
+                    "{mode}, {form}, {newline:?}"
+                );
+            }
+        }
+    }
+}
+
+#[test]
+fn filter_files_trailing_comments() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("filter_comments");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let filters = scratch.join("filters.txt");
+    let output = scratch.join("output.rs");
+    windows_bindgen::builder()
+        .filter("GetTickCount")
+        .output(&output)
+        .write();
+    let expected = std::fs::read_to_string(&output).unwrap();
+    std::fs::write(
+        &filters,
+        "// ignored {\nGetTickCount \t// ignored } and MissingType\n// final comment",
+    )
+    .unwrap();
+    std::fs::remove_file(&output).unwrap();
+    windows_bindgen::builder()
+        .filter_file(&filters)
+        .output(&output)
+        .write();
+    assert_eq!(std::fs::read_to_string(output).unwrap(), expected);
+}
+
+#[test]
 fn bindgen_accepts_metadata_bytes() {
     let temp = std::env::temp_dir();
     let winmd = temp.join("windows_bindgen_bytes.winmd");
@@ -184,6 +311,46 @@ mod Test {
             .unwrap()
             .contains("fn Function")
     );
+}
+
+#[test]
+fn command_file_paths_with_literal_braces() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("command_path_braces");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let expected = std::fs::read_to_string("expected/const.rs").unwrap();
+
+    for brace in ['}', '{'] {
+        let winmd = scratch.join(format!("input{brace}.winmd"));
+        let output = scratch.join(format!("output{brace}.rs"));
+        let filters = scratch.join(format!("filters{brace}.txt"));
+        let nested = scratch.join(format!("nested{brace}.txt"));
+        let commands = scratch.join("commands.txt");
+        windows_rdl::reader()
+            .input("input/const.rdl")
+            .output(&winmd)
+            .write()
+            .unwrap();
+        std::fs::write(&filters, "Test\n").unwrap();
+        std::fs::write(&nested, "--full\n").unwrap();
+        for separator in ["\n", " "] {
+            std::fs::write(
+                &commands,
+                format!(
+                    "--out {}{separator}--in {}{separator}--filter-file {}{separator}--etc {}",
+                    output.display(),
+                    winmd.display(),
+                    filters.display(),
+                    nested.display()
+                ),
+            )
+            .unwrap();
+            if output.exists() {
+                std::fs::remove_file(&output).unwrap();
+            }
+            windows_bindgen::bindgen(["--etc", commands.to_str().unwrap()]);
+            assert_eq!(std::fs::read_to_string(&output).unwrap(), expected);
+        }
+    }
 }
 
 #[test]

@@ -127,7 +127,9 @@ fn split_group(input: &str) -> Vec<&str> {
         }
     }
     assert!(depth == 0, "unbalanced `{{` in filter group: `{input}`");
-    parts.push(&input[start..]);
+    if parts.is_empty() || !input[start..].trim().is_empty() {
+        parts.push(&input[start..]);
+    }
     parts
 }
 
@@ -399,6 +401,16 @@ mod tests {
         assert_eq!(entries[0].segments, vec!["A", "B", "C"]);
         assert_eq!(entries[1].segments, vec!["A", "B", "D"]);
         assert_eq!(entries[2].segments, vec!["A", "E"]);
+    }
+
+    #[test]
+    fn trailing_group_commas() {
+        let entries = parse_filter_entry("!A::{B::{C, D, }, E::{ }, }");
+        assert_eq!(entries.len(), 3);
+        assert!(entries.iter().all(|entry| entry.exclude));
+        assert_eq!(entries[0].segments, ["A", "B", "C"]);
+        assert_eq!(entries[1].segments, ["A", "B", "D"]);
+        assert_eq!(entries[2].segments, ["A", "E", ""]);
     }
 
     #[test]

@@ -67,7 +67,14 @@
     SPI_GETFONTSMOOTHING
     SPI_GETFONTSMOOTHINGTYPE
     SystemParametersInfoW
-    IDWriteFactory::{CreateEllipsisTrimmingSign, CreateRenderingParams, CreateTextFormat, CreateTextLayout, CreateTypography, RegisterFontFileLoader}
+    IDWriteFactory::{
+        CreateEllipsisTrimmingSign,
+        CreateRenderingParams,
+        CreateTextFormat,
+        CreateTextLayout,
+        CreateTypography,
+        RegisterFontFileLoader,
+    }
     IDWriteFactory2::{CreateFontFallbackBuilder, GetSystemFontFallback, TranslateColorGlyphRun}
     IDWriteFactory3::{CreateFontCollectionFromFontSet, CreateGlyphRunAnalysis, GetSystemFontCollection}
     IDWriteFactory5::{CreateFontSetBuilder, CreateInMemoryFontFileLoader}
@@ -88,11 +95,31 @@
     IDWriteRenderingParams::{GetClearTypeLevel, GetEnhancedContrast, GetGamma, GetPixelGeometry}
     IDWriteRenderingParams1::GetGrayscaleEnhancedContrast
     IDWriteInlineObject::Draw
-    IDWriteTextFormat::{SetIncrementalTabStop, SetReadingDirection, SetFlowDirection, GetReadingDirection, GetFlowDirection, SetTextAlignment, SetParagraphAlignment, SetTrimming, SetWordWrapping}
+    IDWriteTextFormat::{
+        SetIncrementalTabStop,
+        SetReadingDirection,
+        SetFlowDirection,
+        GetReadingDirection,
+        GetFlowDirection,
+        SetTextAlignment,
+        SetParagraphAlignment,
+        SetTrimming,
+        SetWordWrapping,
+    }
     IDWriteTextFormat1::{SetFontFallback, SetVerticalGlyphOrientation}
     IDWriteTextFormat2::SetLineSpacing
     IDWriteTextLayout::{HitTestPoint, HitTestTextPosition, HitTestTextRange, SetMaxWidth, SetMaxHeight}
     IDWriteTextLayout2::GetMetrics
     IDWriteTextLayout::{Draw, GetClusterMetrics, GetLineMetrics}
-    IDWriteTextLayout::{SetFontCollection, SetFontFamilyName, SetFontSize, SetFontStyle, SetFontWeight, SetLocaleName, SetStrikethrough, SetTypography, SetUnderline}
+    IDWriteTextLayout::{
+        SetFontCollection,
+        SetFontFamilyName,
+        SetFontSize,
+        SetFontStyle,
+        SetFontWeight,
+        SetLocaleName,
+        SetStrikethrough,
+        SetTypography,
+        SetUnderline,
+    }
     IDWriteTypography::AddFontFeature

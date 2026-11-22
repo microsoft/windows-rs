@@ -50,14 +50,47 @@
     ID2D1Bitmap::{GetSize, CopyFromBitmap}
     ID2D1Bitmap1::{Map, Unmap}
     ID2D1Device::CreateDeviceContext
-    ID2D1DeviceContext::{CreateBitmap, CreateBitmapFromDxgiSurface, CreateBitmapFromWicBitmap, CreateEffect, SetTarget, GetTarget, DrawBitmap, DrawImage}
+    ID2D1DeviceContext::{
+        CreateBitmap,
+        CreateBitmapFromDxgiSurface,
+        CreateBitmapFromWicBitmap,
+        CreateEffect,
+        SetTarget,
+        GetTarget,
+        DrawBitmap,
+        DrawImage,
+    }
     ID2D1Effect::{SetInput, GetOutput}
     ID2D1Factory1::{CreateDevice, CreateStrokeStyle}
     ID2D1Factory1::CreatePathGeometry
     ID2D1Geometry::{GetBounds, FillContainsPoint, StrokeContainsPoint}
     ID2D1GeometrySink::{AddLine, AddBezier}
     ID2D1PathGeometry::Open
-    ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawTextLayout, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, GetTransform, SetTransform, SetDpi, GetDpi, GetPixelSize}
+    ID2D1RenderTarget::{
+        BeginDraw,
+        EndDraw,
+        Clear,
+        DrawEllipse,
+        FillEllipse,
+        DrawLine,
+        DrawRectangle,
+        FillRectangle,
+        DrawRoundedRectangle,
+        FillRoundedRectangle,
+        DrawText,
+        DrawTextLayout,
+        DrawGeometry,
+        FillGeometry,
+        CreateSolidColorBrush,
+        CreateGradientStopCollection,
+        CreateLinearGradientBrush,
+        CreateRadialGradientBrush,
+        GetTransform,
+        SetTransform,
+        SetDpi,
+        GetDpi,
+        GetPixelSize,
+    }
     ID2D1SolidColorBrush::SetColor
     D3D_DRIVER_TYPE_HARDWARE
     D3D_DRIVER_TYPE_WARP
