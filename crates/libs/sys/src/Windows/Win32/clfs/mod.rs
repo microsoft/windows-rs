@@ -217,7 +217,6 @@ pub struct CLS_SCAN_CONTEXT {
     pub hLog: super::HANDLE,
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<CLFS_NODE_ID>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_NODE_ID>();
@@ -230,7 +229,6 @@ pub struct CLS_SCAN_CONTEXT {
     pub cIndex: super::ULONG,
     #[doc(hidden)]
     pub __padding_3: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<CLFS_NODE_ID>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_NODE_ID>();
@@ -246,7 +244,6 @@ pub struct CLS_SCAN_CONTEXT {
     pub cContainers: super::ULONG,
     #[doc(hidden)]
     pub __padding_4: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<CLFS_NODE_ID>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_NODE_ID>();
@@ -265,7 +262,6 @@ pub struct CLS_SCAN_CONTEXT {
     pub cContainersReturned: super::ULONG,
     #[doc(hidden)]
     pub __padding_5: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<CLFS_NODE_ID>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_NODE_ID>();
@@ -287,7 +283,6 @@ pub struct CLS_SCAN_CONTEXT {
     pub eScanMode: CLFS_SCAN_MODE,
     #[doc(hidden)]
     pub __padding_6: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<CLFS_NODE_ID>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<CLFS_NODE_ID>();

@@ -11,6 +11,7 @@ pub struct Config<'a> {
     pub derive: &'a Derive,
     pub link: &'a str,
     pub namespace: &'static str,
+    pub shadowed_prelude: &'a HashSet<&'static str>,
     /// Event-only delegates whose constructor and `Invoke` can be suppressed in minimal mode.
     pub event_only_delegates: &'a HashSet<TypeName>,
     /// Current `impl` target, used by `TypeName::write` to emit `Self` when possible.
@@ -22,6 +23,40 @@ pub struct Config<'a> {
 }
 
 impl Config<'_> {
+    pub fn shadowed_prelude(types: &TypeMap) -> HashSet<&'static str> {
+        fn collect(record: &CppStruct, names: &mut HashSet<&'static str>) {
+            if matches!(record.name, "size_of" | "align_of") {
+                names.insert(record.name);
+            }
+            for nested in record.nested.values() {
+                collect(nested, names);
+            }
+        }
+
+        let mut names = HashSet::new();
+        for ty in types.values().flatten() {
+            if let Type::CppStruct(record) = ty {
+                collect(record, &mut names);
+            } else {
+                let name = ty.type_name().name();
+                if matches!(name, "size_of" | "align_of") {
+                    names.insert(name);
+                }
+            }
+        }
+        names
+    }
+
+    /// Uses the prelude unless a selected declaration may shadow the name.
+    pub fn write_mem_function(&self, name: &str) -> TokenStream {
+        let ident = to_ident(name);
+        if self.shadowed_prelude.contains(name) {
+            quote! { ::core::mem::#ident }
+        } else {
+            quote! { #ident }
+        }
+    }
+
     pub fn with_namespace(&self, namespace: &'static str) -> Self {
         let mut clone = self.clone();
         clone.namespace = namespace;

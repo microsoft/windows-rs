@@ -2358,12 +2358,10 @@ impl<T, const N: usize> __windows_bindgen_Unaligned<T, N> {
         result
     }
     pub unsafe fn read(&self) -> T {
-        use core::mem::size_of;
         assert_eq!(N, size_of::<T>());
         unsafe { self.bytes.as_ptr().cast::<T>().read_unaligned() }
     }
     pub fn write(&mut self, value: T) {
-        use core::mem::size_of;
         assert_eq!(N, size_of::<T>());
         unsafe {
             self.bytes.as_mut_ptr().cast::<T>().write_unaligned(value);

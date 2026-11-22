@@ -7670,7 +7670,6 @@ pub struct IO_STACK_LOCATION_0_0 {
     pub Options: super::ULONG,
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<PIO_SECURITY_CONTEXT>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<PIO_SECURITY_CONTEXT>();
@@ -7684,7 +7683,6 @@ pub struct IO_STACK_LOCATION_0_0 {
     pub ShareAccess: super::USHORT,
     #[doc(hidden)]
     pub __padding_4: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<PIO_SECURITY_CONTEXT>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<PIO_SECURITY_CONTEXT>();
@@ -7717,7 +7715,6 @@ pub struct IO_STACK_LOCATION_0_1 {
     pub Options: super::ULONG,
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<PIO_SECURITY_CONTEXT>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<PIO_SECURITY_CONTEXT>();
@@ -7748,7 +7745,6 @@ pub struct IO_STACK_LOCATION_0_10 {
     pub EaListLength: super::ULONG,
     #[doc(hidden)]
     pub __padding_3: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -7784,7 +7780,6 @@ pub struct IO_STACK_LOCATION_0_12 {
     pub Length: super::ULONG,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -7809,7 +7804,6 @@ pub struct IO_STACK_LOCATION_0_13 {
     pub Length: super::ULONG,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -7834,7 +7828,6 @@ pub struct IO_STACK_LOCATION_0_14 {
     pub OutputBufferLength: super::ULONG,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -7845,7 +7838,6 @@ pub struct IO_STACK_LOCATION_0_14 {
     pub InputBufferLength: super::ULONG,
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -7874,7 +7866,6 @@ pub struct IO_STACK_LOCATION_0_15 {
     pub Length: super::PLARGE_INTEGER,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::PLARGE_INTEGER>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::PLARGE_INTEGER>();
@@ -7900,7 +7891,6 @@ pub struct IO_STACK_LOCATION_0_16 {
     pub OutputBufferLength: super::ULONG,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -7911,7 +7901,6 @@ pub struct IO_STACK_LOCATION_0_16 {
     pub InputBufferLength: super::ULONG,
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -7940,7 +7929,6 @@ pub struct IO_STACK_LOCATION_0_17 {
     pub SecurityInformation: super::SECURITY_INFORMATION,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::SECURITY_INFORMATION>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::SECURITY_INFORMATION>();
@@ -7983,7 +7971,6 @@ pub struct IO_STACK_LOCATION_0_2 {
     pub Options: super::ULONG,
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<PIO_SECURITY_CONTEXT>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<PIO_SECURITY_CONTEXT>();
@@ -8078,7 +8065,6 @@ pub struct IO_STACK_LOCATION_0_28 {
     pub Offset: super::ULONG,
     #[doc(hidden)]
     pub __padding_3: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -8114,7 +8100,6 @@ pub struct IO_STACK_LOCATION_0_3 {
     pub Length: super::ULONG,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -8148,7 +8133,6 @@ pub struct IO_STACK_LOCATION_0_31 {
     pub DeviceTextType: DEVICE_TEXT_TYPE,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<DEVICE_TEXT_TYPE>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<DEVICE_TEXT_TYPE>();
@@ -8174,7 +8158,6 @@ pub struct IO_STACK_LOCATION_0_32 {
     pub Reserved: [super::BOOLEAN; 3],
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::BOOLEAN>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::BOOLEAN>();
@@ -8215,7 +8198,6 @@ pub struct IO_STACK_LOCATION_0_35 {
     pub Anonymous: IO_STACK_LOCATION_0_35_0,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<IO_STACK_LOCATION_0_35_0>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<IO_STACK_LOCATION_0_35_0>();
@@ -8226,7 +8208,6 @@ pub struct IO_STACK_LOCATION_0_35 {
     pub Type: POWER_STATE_TYPE,
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<IO_STACK_LOCATION_0_35_0>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<IO_STACK_LOCATION_0_35_0>();
@@ -8240,7 +8221,6 @@ pub struct IO_STACK_LOCATION_0_35 {
     pub State: POWER_STATE,
     #[doc(hidden)]
     pub __padding_3: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<IO_STACK_LOCATION_0_35_0>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<IO_STACK_LOCATION_0_35_0>();
@@ -8314,7 +8294,6 @@ pub struct IO_STACK_LOCATION_0_4 {
     pub Length: super::ULONG,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -8343,7 +8322,6 @@ pub struct IO_STACK_LOCATION_0_5 {
     pub FileInformationClass: FILE_INFORMATION_CLASS,
     #[doc(hidden)]
     pub __padding_3: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -8372,7 +8350,6 @@ pub struct IO_STACK_LOCATION_0_6 {
     pub Length: super::ULONG,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -8397,7 +8374,6 @@ pub struct IO_STACK_LOCATION_0_7 {
     pub Length: super::ULONG,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -8408,7 +8384,6 @@ pub struct IO_STACK_LOCATION_0_7 {
     pub CompletionFilter: super::ULONG,
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -8436,7 +8411,6 @@ pub struct IO_STACK_LOCATION_0_8 {
     pub Length: super::ULONG,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();
@@ -8461,7 +8435,6 @@ pub struct IO_STACK_LOCATION_0_9 {
     pub Length: super::ULONG,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<super::ULONG>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<super::ULONG>();

@@ -1197,7 +1197,9 @@ impl Type {
         match self {
             // `read` requires valid, initialized storage. For non-Copy values, callers must
             // prevent duplicated ownership and further reads. `write` does not drop old contents.
-            Self::UnalignedHelper => quote! {
+            Self::UnalignedHelper => {
+                let size_of = config.write_mem_function("size_of");
+                quote! {
                 #[doc(hidden)]
                 #[repr(C)]
                 pub struct __windows_bindgen_Unaligned<T, const N: usize> {
@@ -1214,13 +1216,11 @@ impl Type {
                         result
                     }
                     pub unsafe fn read(&self) -> T {
-                        use core::mem::size_of;
-                        assert_eq!(N, size_of::<T>());
+                        assert_eq!(N, #size_of::<T>());
                         unsafe { self.bytes.as_ptr().cast::<T>().read_unaligned() }
                     }
                     pub fn write(&mut self, value: T) {
-                        use core::mem::size_of;
-                        assert_eq!(N, size_of::<T>());
+                        assert_eq!(N, #size_of::<T>());
                         unsafe { self.bytes.as_mut_ptr().cast::<T>().write_unaligned(value); }
                     }
                 }
@@ -1228,7 +1228,8 @@ impl Type {
                 impl<T: Copy, const N: usize> Clone for __windows_bindgen_Unaligned<T, N> {
                     fn clone(&self) -> Self { *self }
                 }
-            },
+                }
+            }
             // A fixed-width address, not a native Rust pointer.
             Self::Pointer64Helper => quote! {
                 #[doc(hidden)]

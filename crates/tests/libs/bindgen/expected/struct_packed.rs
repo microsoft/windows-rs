@@ -2,27 +2,9 @@
 #[derive(Clone, Copy)]
 pub struct Mixed {
     pub tag: u8,
-    pub bits: __windows_bindgen_Unaligned<
-        i32,
-        {
-            use core::mem::size_of;
-            size_of::<i32>()
-        },
-    >,
-    pub pointer: __windows_bindgen_Unaligned<
-        *mut u32,
-        {
-            use core::mem::size_of;
-            size_of::<*mut u32>()
-        },
-    >,
-    pub nested: __windows_bindgen_Unaligned<
-        Padded,
-        {
-            use core::mem::size_of;
-            size_of::<Padded>()
-        },
-    >,
+    pub bits: __windows_bindgen_Unaligned<i32, { ::core::mem::size_of::<i32>() }>,
+    pub pointer: __windows_bindgen_Unaligned<*mut u32, { ::core::mem::size_of::<*mut u32>() }>,
+    pub nested: __windows_bindgen_Unaligned<Padded, { ::core::mem::size_of::<Padded>() }>,
 }
 impl Default for Mixed {
     fn default() -> Self {
@@ -51,20 +33,8 @@ impl Mixed {
 #[repr(C, align(2))]
 #[derive(Clone, Copy)]
 pub union MixedUnion {
-    pub bits: __windows_bindgen_Unaligned<
-        i32,
-        {
-            use core::mem::size_of;
-            size_of::<i32>()
-        },
-    >,
-    pub pointer: __windows_bindgen_Unaligned<
-        *mut u32,
-        {
-            use core::mem::size_of;
-            size_of::<*mut u32>()
-        },
-    >,
+    pub bits: __windows_bindgen_Unaligned<i32, { ::core::mem::size_of::<i32>() }>,
+    pub pointer: __windows_bindgen_Unaligned<*mut u32, { ::core::mem::size_of::<*mut u32>() }>,
 }
 impl Default for MixedUnion {
     fn default() -> Self {
@@ -124,13 +94,11 @@ impl<T, const N: usize> __windows_bindgen_Unaligned<T, N> {
         result
     }
     pub unsafe fn read(&self) -> T {
-        use core::mem::size_of;
-        assert_eq!(N, size_of::<T>());
+        assert_eq!(N, ::core::mem::size_of::<T>());
         unsafe { self.bytes.as_ptr().cast::<T>().read_unaligned() }
     }
     pub fn write(&mut self, value: T) {
-        use core::mem::size_of;
-        assert_eq!(N, size_of::<T>());
+        assert_eq!(N, ::core::mem::size_of::<T>());
         unsafe {
             self.bytes.as_mut_ptr().cast::<T>().write_unaligned(value);
         }

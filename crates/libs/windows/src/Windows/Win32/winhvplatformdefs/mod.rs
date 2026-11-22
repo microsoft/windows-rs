@@ -7052,7 +7052,6 @@ pub struct WHV_X64_SVM_NESTED_STATE {
     pub Reserved: [super::UINT8; 3832],
     #[doc(hidden)]
     pub __padding_9: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<WHV_NESTED_STATE_TYPE>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<WHV_NESTED_STATE_TYPE>();
@@ -7169,7 +7168,6 @@ pub struct WHV_X64_VMX_NESTED_STATE {
     pub Reserved: [super::UINT8; 3944],
     #[doc(hidden)]
     pub __padding_9: [core::mem::MaybeUninit<u8>; {
-        use core::mem::{align_of, size_of};
         let offset = 0usize;
         let alignment = align_of::<WHV_NESTED_STATE_TYPE>();
         let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<WHV_NESTED_STATE_TYPE>();

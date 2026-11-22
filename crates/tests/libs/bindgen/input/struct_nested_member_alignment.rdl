@@ -1,8 +1,15 @@
-//! --filter Test --full
+//! --filter Test !Test.size !Test.align --full
 #[win32]
 mod Test {
     const size_of: u32 = 99;
     const align_of: u32 = 99;
+
+    struct size {
+        struct of {}
+    }
+    struct align {
+        struct of {}
+    }
 
     struct Outer {
         tag: u8,
