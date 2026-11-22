@@ -1,0 +1,7 @@
+//! --filter Test
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern "C" fn Evaluate(données: *mut u8);
+    const TEXT: String = "macro ! (call ) , ; :: * mut \"quoted\" \\ end";
+}

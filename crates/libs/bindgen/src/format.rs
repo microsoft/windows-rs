@@ -1,14 +1,11 @@
 use super::*;
+use std::fmt::Write as _;
 use std::io::Write;
 
 impl Config<'_> {
-    pub fn format(&self, tokens: &str) -> String {
-        let Some(formatted) = self.rustfmt(tokens) else {
-            return tokens.to_string();
-        };
-
-        // `rustfmt` does not normalize token spacing inside macro invocation bodies.
-        tighten_macro_whitespace(&formatted)
+    pub fn format(&self, tokens: TokenStream) -> String {
+        let tokens = format_tokens(tokens);
+        self.rustfmt(&tokens).unwrap_or(tokens)
     }
 
     fn rustfmt(&self, tokens: &str) -> Option<String> {
@@ -42,221 +39,71 @@ fn rustfmt_args(config: Option<&str>) -> Vec<&str> {
     args
 }
 
-/// Tighten whitespace inside macro invocations that `rustfmt` leaves untouched.
-fn tighten_macro_whitespace(src: &str) -> String {
-    // Pass 1: globally tighten `::` joiners outside strings. These never
-    // appear in `rustfmt`-formatted Rust code.
-    let pass1 = replace_outside_strings(
-        src,
-        &[(" :: ", "::"), (":: ", "::"), (" ::", "::"), (") (", ")(")],
-    );
-
-    // Pass 2: inside macro invocation regions, tighten the remaining patterns.
-    apply_inside_macros(&pass1)
+// Rustfmt leaves some macro bodies unchanged. Supply readable token spacing before formatting
+// rather than rewriting the formatted source, where literal contents must remain untouched.
+fn format_tokens(tokens: TokenStream) -> String {
+    let mut output = String::new();
+    write_tokens(tokens, &mut output, false);
+    output
 }
 
-fn replace_outside_strings(src: &str, patterns: &[(&str, &str)]) -> String {
-    let bytes = src.as_bytes();
-    let mut out = String::with_capacity(src.len());
-    let mut i = 0;
-    while i < bytes.len() {
-        if bytes[i] == b'"' {
-            let start = i;
-            i += 1;
-            while i < bytes.len() {
-                if bytes[i] == b'\\' && i + 1 < bytes.len() {
-                    i += 2;
-                    continue;
-                }
-                if bytes[i] == b'"' {
-                    i += 1;
-                    break;
-                }
-                i += 1;
+fn write_tokens(tokens: TokenStream, output: &mut String, in_macro: bool) {
+    use proc_macro2::{Delimiter, Spacing, TokenTree};
+
+    let mut tokens = tokens.into_iter().peekable();
+    let mut previous = None;
+    let mut joint = false;
+
+    while let Some(token) = tokens.next() {
+        let path = matches!(&token, TokenTree::Punct(p) if p.as_char() == ':' && p.spacing() == Spacing::Joint)
+            && matches!(tokens.peek(), Some(TokenTree::Punct(p)) if p.as_char() == ':');
+        let macro_group = matches!((&previous, &token),
+            (Some(TokenTree::Punct(p)), TokenTree::Group(_)) if p.as_char() == '!');
+        let compact = match (&previous, &token) {
+            (_, TokenTree::Punct(p)) if matches!(p.as_char(), ',' | ';') => in_macro,
+            (Some(TokenTree::Ident(_)), TokenTree::Punct(p)) => p.as_char() == '!',
+            (_, TokenTree::Group(_)) if macro_group => true,
+            (Some(TokenTree::Ident(_)), TokenTree::Group(g)) => {
+                in_macro && g.delimiter() == Delimiter::Parenthesis
             }
-            out.push_str(&src[start..i]);
+            (Some(TokenTree::Group(p)), TokenTree::Group(g)) => {
+                in_macro
+                    && p.delimiter() == Delimiter::Parenthesis
+                    && g.delimiter() == Delimiter::Parenthesis
+            }
+            (Some(TokenTree::Punct(p)), TokenTree::Ident(i)) => {
+                in_macro && p.as_char() == '*' && (i == "mut" || i == "const")
+            }
+            _ => false,
+        };
+
+        if previous.is_some() && !joint && !path && !compact {
+            output.push(' ');
+        }
+
+        if path {
+            output.push_str("::");
+            tokens.next();
+            joint = true;
         } else {
-            let start = i;
-            while i < bytes.len() && bytes[i] != b'"' {
-                i += 1;
-            }
-            let mut chunk = src[start..i].to_string();
-            for (from, to) in patterns {
-                chunk = chunk.replace(from, to);
-            }
-            out.push_str(&chunk);
-        }
-    }
-    out
-}
-
-fn apply_inside_macros(src: &str) -> String {
-    let bytes = src.as_bytes();
-    let mut out = String::with_capacity(src.len());
-    let mut i = 0;
-    while i < bytes.len() {
-        if let Some(open) = find_macro_invocation(bytes, i) {
-            let header_start = macro_path_start(bytes, open.bang);
-            out.push_str(&src[i..header_start]);
-            let close = find_matching_delim(bytes, open.open_idx, open.open, open.close);
-            out.push_str(&tighten_macro_segment(&src[header_start..=close]));
-            i = close + 1;
-        } else {
-            out.push_str(&src[i..]);
-            break;
-        }
-    }
-    out
-}
-
-struct MacroOpen {
-    bang: usize,
-    open_idx: usize,
-    open: u8,
-    close: u8,
-}
-
-fn find_macro_invocation(bytes: &[u8], start: usize) -> Option<MacroOpen> {
-    let mut i = start;
-    while i + 4 < bytes.len() {
-        if bytes[i] == b' ' && bytes[i + 1] == b'!' && bytes[i + 2] == b' ' && i > 0 {
-            let (open, close) = match bytes[i + 3] {
-                b'(' => (b'(', b')'),
-                b'[' => (b'[', b']'),
-                _ => {
-                    i += 1;
-                    continue;
+            match &token {
+                TokenTree::Group(group) => {
+                    let (open, close) = match group.delimiter() {
+                        Delimiter::Parenthesis => ("(", ")"),
+                        Delimiter::Bracket => ("[", "]"),
+                        Delimiter::Brace => ("{ ", " }"),
+                        Delimiter::None => ("", ""),
+                    };
+                    output.push_str(open);
+                    write_tokens(group.stream(), output, in_macro || macro_group);
+                    output.push_str(close);
                 }
-            };
-            // Require the character before the space to be an identifier
-            // character; otherwise `-> !` followed by something would be
-            // matched.
-            let prev = bytes[i - 1];
-            if !(prev.is_ascii_alphanumeric() || prev == b'_') {
-                i += 1;
-                continue;
+                _ => write!(output, "{token}").unwrap(),
             }
-            return Some(MacroOpen {
-                bang: i + 1,
-                open_idx: i + 3,
-                open,
-                close,
-            });
+            joint = matches!(&token, TokenTree::Punct(p) if p.spacing() == Spacing::Joint);
         }
-        i += 1;
+        previous = Some(token);
     }
-    None
-}
-
-fn macro_path_start(bytes: &[u8], bang: usize) -> usize {
-    let mut i = bang;
-    if i > 0 && bytes[i - 1] == b' ' {
-        i -= 1;
-    }
-    while i > 0 {
-        let c = bytes[i - 1];
-        if c.is_ascii_alphanumeric() || c == b'_' || c == b':' {
-            i -= 1;
-        } else {
-            break;
-        }
-    }
-    i
-}
-
-fn find_matching_delim(bytes: &[u8], open_idx: usize, open: u8, close: u8) -> usize {
-    let mut depth: usize = 0;
-    let mut i = open_idx;
-    let mut in_str = false;
-    while i < bytes.len() {
-        let c = bytes[i];
-        if in_str {
-            if c == b'\\' && i + 1 < bytes.len() {
-                i += 2;
-                continue;
-            }
-            if c == b'"' {
-                in_str = false;
-            }
-        } else if c == b'"' {
-            in_str = true;
-        } else if c == open {
-            depth += 1;
-        } else if c == close && depth > 0 {
-            depth -= 1;
-            if depth == 0 {
-                return i;
-            }
-        }
-        i += 1;
-    }
-    bytes.len().saturating_sub(1)
-}
-
-fn tighten_macro_segment(segment: &str) -> String {
-    let bytes = segment.as_bytes();
-    let mut out = String::with_capacity(segment.len());
-    let mut i = 0;
-    while i < bytes.len() {
-        if bytes[i] == b'"' {
-            let start = i;
-            i += 1;
-            while i < bytes.len() {
-                if bytes[i] == b'\\' && i + 1 < bytes.len() {
-                    i += 2;
-                    continue;
-                }
-                if bytes[i] == b'"' {
-                    i += 1;
-                    break;
-                }
-                i += 1;
-            }
-            out.push_str(&segment[start..i]);
-        } else {
-            let start = i;
-            while i < bytes.len() && bytes[i] != b'"' {
-                i += 1;
-            }
-            let chunk = &segment[start..i];
-            out.push_str(&tighten_non_literal(chunk));
-        }
-    }
-    out
-}
-
-fn tighten_non_literal(chunk: &str) -> String {
-    let chunk = chunk
-        .replace(" ! (", "!(")
-        .replace(" ! [", "![")
-        .replace(" ! {", "!{")
-        .replace(" )", ")")
-        .replace(" ]", "]")
-        .replace(" ,", ",")
-        .replace(" ;", ";")
-        .replace("* mut ", "*mut ")
-        .replace("* const ", "*const ");
-    collapse_space_before_paren(chunk)
-}
-
-/// Collapse `name (` -> `name(` after an identifier character.
-fn collapse_space_before_paren(s: String) -> String {
-    let bytes = s.as_bytes();
-    let mut out = String::with_capacity(s.len());
-    let mut i = 0;
-    while i < bytes.len() {
-        if bytes[i] == b' ' && i + 1 < bytes.len() && bytes[i + 1] == b'(' && i > 0 {
-            let prev = bytes[i - 1];
-            if prev.is_ascii_alphanumeric() || prev == b'_' {
-                // Drop the space: `name (` -> `name(`.
-                i += 1;
-                continue;
-            }
-        }
-        out.push(bytes[i] as char);
-        i += 1;
-    }
-    out
 }
 
 #[cfg(test)]
@@ -284,21 +131,49 @@ mod tests {
 
     #[test]
     fn macro_header_collapsed() {
-        let input = "    windows_core :: link ! (\"user32.dll\" \"system\" fn EnableMouseInPointer (fenable : windows_core :: BOOL) -> windows_core :: BOOL);";
-        let expected = "    windows_core::link!(\"user32.dll\" \"system\" fn EnableMouseInPointer(fenable : windows_core::BOOL) -> windows_core::BOOL);";
-        assert_eq!(tighten_macro_whitespace(input), expected);
-    }
-
-    #[test]
-    fn outside_macro_unchanged() {
-        let input = "let y: *const () = std::ptr::null();";
-        assert_eq!(tighten_macro_whitespace(input), input);
+        let input = "windows_core :: link ! (\"user32.dll\" \"system\" fn EnableMouseInPointer (fenable : windows_core :: BOOL) -> windows_core :: BOOL);";
+        let expected = "windows_core::link!(\"user32.dll\" \"system\" fn EnableMouseInPointer(fenable : windows_core::BOOL) -> windows_core::BOOL) ;";
+        assert_eq!(format_tokens(input.parse().unwrap()), expected);
     }
 
     #[test]
     fn star_mut_inside_macro() {
         let input = "link ! (fn foo(x : * mut u8) -> ());";
-        let expected = "link!(fn foo(x : *mut u8) -> ());";
-        assert_eq!(tighten_macro_whitespace(input), expected);
+        let expected = "link!(fn foo(x : *mut u8) -> ()) ;";
+        assert_eq!(format_tokens(input.parse().unwrap()), expected);
+    }
+
+    #[test]
+    fn macro_text_in_literals_is_unchanged() {
+        for input in [
+            r#"const TEXT: &str = "macro ! (call ) , ; :: * mut";"#,
+            r##"const TEXT: &str = r#"macro ! (call ) " :: * const"#;"##,
+        ] {
+            let tokens: TokenStream = input.parse().unwrap();
+            let expected = tokens.to_string();
+            let formatted: TokenStream = format_tokens(tokens).parse().unwrap();
+            assert_eq!(formatted.to_string(), expected);
+        }
+    }
+
+    #[test]
+    fn macro_identifiers_preserve_unicode() {
+        let input = "link ! (fn Évaluer(données : * mut u8));";
+        let expected = "link!(fn Évaluer(données : *mut u8)) ;";
+        assert_eq!(format_tokens(input.parse().unwrap()), expected);
+    }
+
+    #[test]
+    fn token_boundaries_are_preserved() {
+        for input in [
+            "fn f<'a>(value: &'a str) -> *const u8;",
+            "m!(r#type, 'é', b'\\'', b\"quoted\\\"\", c\"text\");",
+            "m!(1 . 0, a > = b, a : : b, b \"text\");",
+        ] {
+            let tokens: TokenStream = input.parse().unwrap();
+            let expected = tokens.to_string();
+            let formatted: TokenStream = format_tokens(tokens).parse().unwrap();
+            assert_eq!(formatted.to_string(), expected);
+        }
     }
 }

@@ -87,7 +87,7 @@ pub struct MINIDUMP_CALLBACK_INPUT {
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_INPUT {
     pub ProcessId: super::ULONG,
-    pub ProcessHandle: super::__windows_bindgen_Unaligned<super::HANDLE, {::core::mem::size_of::<super::HANDLE>() }>,
+    pub ProcessHandle: super::__windows_bindgen_Unaligned<super::HANDLE, { ::core::mem::size_of::<super::HANDLE>() }>,
     pub CallbackType: super::ULONG,
     pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
 }
@@ -1043,8 +1043,8 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadHandle: super::HANDLE,
     pub Context: super::CONTEXT,
     pub SizeOfContext: super::ULONG,
-    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1053,13 +1053,13 @@ pub struct MINIDUMP_THREAD_CALLBACK {
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: super::ULONG,
-    pub ThreadHandle: super::__windows_bindgen_Unaligned<super::HANDLE, {::core::mem::size_of::<super::HANDLE>() }>,
+    pub ThreadHandle: super::__windows_bindgen_Unaligned<super::HANDLE, { ::core::mem::size_of::<super::HANDLE>() }>,
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; 4],
     pub Context: super::CONTEXT,
     pub SizeOfContext: super::ULONG,
-    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1074,12 +1074,12 @@ impl Default for MINIDUMP_THREAD_CALLBACK {
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: super::ULONG,
-    pub ThreadHandle: super::__windows_bindgen_Unaligned<super::HANDLE, {::core::mem::size_of::<super::HANDLE>() }>,
+    pub ThreadHandle: super::__windows_bindgen_Unaligned<super::HANDLE, { ::core::mem::size_of::<super::HANDLE>() }>,
     pub Pad: super::ULONG,
     pub Context: super::CONTEXT,
     pub SizeOfContext: super::ULONG,
-    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
 }
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1111,10 +1111,10 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadHandle: super::HANDLE,
     pub Context: super::CONTEXT,
     pub SizeOfContext: super::ULONG,
-    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub BackingStoreBase: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub BackingStoreEnd: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub BackingStoreBase: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub BackingStoreEnd: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1123,15 +1123,15 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: super::ULONG,
-    pub ThreadHandle: super::__windows_bindgen_Unaligned<super::HANDLE, {::core::mem::size_of::<super::HANDLE>() }>,
+    pub ThreadHandle: super::__windows_bindgen_Unaligned<super::HANDLE, { ::core::mem::size_of::<super::HANDLE>() }>,
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; 4],
     pub Context: super::CONTEXT,
     pub SizeOfContext: super::ULONG,
-    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub BackingStoreBase: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub BackingStoreEnd: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub BackingStoreBase: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub BackingStoreEnd: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1146,14 +1146,14 @@ impl Default for MINIDUMP_THREAD_EX_CALLBACK {
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: super::ULONG,
-    pub ThreadHandle: super::__windows_bindgen_Unaligned<super::HANDLE, {::core::mem::size_of::<super::HANDLE>() }>,
+    pub ThreadHandle: super::__windows_bindgen_Unaligned<super::HANDLE, { ::core::mem::size_of::<super::HANDLE>() }>,
     pub Pad: super::ULONG,
     pub Context: super::CONTEXT,
     pub SizeOfContext: super::ULONG,
-    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub BackingStoreBase: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
-    pub BackingStoreEnd: super::__windows_bindgen_Unaligned<super::ULONG64, {::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackBase: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub StackEnd: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub BackingStoreBase: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
+    pub BackingStoreEnd: super::__windows_bindgen_Unaligned<super::ULONG64, { ::core::mem::size_of::<super::ULONG64>() }>,
 }
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "shared", feature = "winnt"))]

@@ -7671,11 +7671,11 @@ pub struct IO_STACK_LOCATION_0_0 {
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<PIO_SECURITY_CONTEXT>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<PIO_SECURITY_CONTEXT>();
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::USHORT>();
+        let alignment = ::core::mem::align_of::<PIO_SECURITY_CONTEXT>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<PIO_SECURITY_CONTEXT>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::USHORT>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7684,16 +7684,16 @@ pub struct IO_STACK_LOCATION_0_0 {
     #[doc(hidden)]
     pub __padding_4: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<PIO_SECURITY_CONTEXT>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<PIO_SECURITY_CONTEXT>();
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let alignment =::core::mem::align_of::<super::USHORT>();
+        let alignment = ::core::mem::align_of::<PIO_SECURITY_CONTEXT>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<PIO_SECURITY_CONTEXT>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::USHORT>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::USHORT>();
-        let alignment =::core::mem::align_of::<super::USHORT>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::USHORT>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::USHORT>();
+        let alignment = ::core::mem::align_of::<super::USHORT>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::USHORT>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7716,11 +7716,11 @@ pub struct IO_STACK_LOCATION_0_1 {
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<PIO_SECURITY_CONTEXT>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<PIO_SECURITY_CONTEXT>();
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::USHORT>();
+        let alignment = ::core::mem::align_of::<PIO_SECURITY_CONTEXT>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<PIO_SECURITY_CONTEXT>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::USHORT>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7746,13 +7746,13 @@ pub struct IO_STACK_LOCATION_0_10 {
     #[doc(hidden)]
     pub __padding_3: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let alignment =::core::mem::align_of::<super::PVOID>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::PVOID>();
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::PVOID>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::PVOID>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7781,9 +7781,9 @@ pub struct IO_STACK_LOCATION_0_12 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<FS_INFORMATION_CLASS>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<FS_INFORMATION_CLASS>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7805,9 +7805,9 @@ pub struct IO_STACK_LOCATION_0_13 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<FS_INFORMATION_CLASS>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<FS_INFORMATION_CLASS>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7829,9 +7829,9 @@ pub struct IO_STACK_LOCATION_0_14 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7839,12 +7839,12 @@ pub struct IO_STACK_LOCATION_0_14 {
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let alignment =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7867,9 +7867,9 @@ pub struct IO_STACK_LOCATION_0_15 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::PLARGE_INTEGER>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::PLARGE_INTEGER>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::PLARGE_INTEGER>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::PLARGE_INTEGER>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7892,9 +7892,9 @@ pub struct IO_STACK_LOCATION_0_16 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7902,12 +7902,12 @@ pub struct IO_STACK_LOCATION_0_16 {
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let alignment =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7930,9 +7930,9 @@ pub struct IO_STACK_LOCATION_0_17 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::SECURITY_INFORMATION>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::SECURITY_INFORMATION>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::SECURITY_INFORMATION>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::SECURITY_INFORMATION>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -7972,11 +7972,11 @@ pub struct IO_STACK_LOCATION_0_2 {
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<PIO_SECURITY_CONTEXT>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<PIO_SECURITY_CONTEXT>();
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::USHORT>();
+        let alignment = ::core::mem::align_of::<PIO_SECURITY_CONTEXT>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<PIO_SECURITY_CONTEXT>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::USHORT>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8066,13 +8066,13 @@ pub struct IO_STACK_LOCATION_0_28 {
     #[doc(hidden)]
     pub __padding_3: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let alignment =::core::mem::align_of::<super::PVOID>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::PVOID>();
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::PVOID>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::PVOID>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8101,9 +8101,9 @@ pub struct IO_STACK_LOCATION_0_3 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8134,9 +8134,9 @@ pub struct IO_STACK_LOCATION_0_31 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<DEVICE_TEXT_TYPE>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<DEVICE_TEXT_TYPE>();
-        let natural =::core::mem::align_of::<super::LCID>();
+        let alignment = ::core::mem::align_of::<DEVICE_TEXT_TYPE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<DEVICE_TEXT_TYPE>();
+        let natural = ::core::mem::align_of::<super::LCID>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8159,11 +8159,11 @@ pub struct IO_STACK_LOCATION_0_32 {
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::BOOLEAN>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::BOOLEAN>();
-        let alignment =::core::mem::align_of::<[super::BOOLEAN; 3]>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<[super::BOOLEAN; 3]>();
-        let natural =::core::mem::align_of::<DEVICE_USAGE_NOTIFICATION_TYPE>();
+        let alignment = ::core::mem::align_of::<super::BOOLEAN>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::BOOLEAN>();
+        let alignment = ::core::mem::align_of::<[super::BOOLEAN; 3]>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<[super::BOOLEAN; 3]>();
+        let natural = ::core::mem::align_of::<DEVICE_USAGE_NOTIFICATION_TYPE>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8199,9 +8199,9 @@ pub struct IO_STACK_LOCATION_0_35 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<IO_STACK_LOCATION_0_35_0>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<IO_STACK_LOCATION_0_35_0>();
-        let natural =::core::mem::align_of::<POWER_STATE_TYPE>();
+        let alignment = ::core::mem::align_of::<IO_STACK_LOCATION_0_35_0>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<IO_STACK_LOCATION_0_35_0>();
+        let natural = ::core::mem::align_of::<POWER_STATE_TYPE>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8209,12 +8209,12 @@ pub struct IO_STACK_LOCATION_0_35 {
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<IO_STACK_LOCATION_0_35_0>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<IO_STACK_LOCATION_0_35_0>();
-        let alignment =::core::mem::align_of::<POWER_STATE_TYPE>();
+        let alignment = ::core::mem::align_of::<IO_STACK_LOCATION_0_35_0>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<IO_STACK_LOCATION_0_35_0>();
+        let alignment = ::core::mem::align_of::<POWER_STATE_TYPE>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<POWER_STATE_TYPE>();
-        let natural =::core::mem::align_of::<POWER_STATE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<POWER_STATE_TYPE>();
+        let natural = ::core::mem::align_of::<POWER_STATE>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8222,15 +8222,15 @@ pub struct IO_STACK_LOCATION_0_35 {
     #[doc(hidden)]
     pub __padding_3: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<IO_STACK_LOCATION_0_35_0>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<IO_STACK_LOCATION_0_35_0>();
-        let alignment =::core::mem::align_of::<POWER_STATE_TYPE>();
+        let alignment = ::core::mem::align_of::<IO_STACK_LOCATION_0_35_0>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<IO_STACK_LOCATION_0_35_0>();
+        let alignment = ::core::mem::align_of::<POWER_STATE_TYPE>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<POWER_STATE_TYPE>();
-        let alignment =::core::mem::align_of::<POWER_STATE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<POWER_STATE_TYPE>();
+        let alignment = ::core::mem::align_of::<POWER_STATE>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<POWER_STATE>();
-        let natural =::core::mem::align_of::<super::POWER_ACTION>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<POWER_STATE>();
+        let natural = ::core::mem::align_of::<super::POWER_ACTION>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8295,9 +8295,9 @@ pub struct IO_STACK_LOCATION_0_4 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8323,13 +8323,13 @@ pub struct IO_STACK_LOCATION_0_5 {
     #[doc(hidden)]
     pub __padding_3: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let alignment =::core::mem::align_of::<super::PUNICODE_STRING>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::PUNICODE_STRING>();
-        let alignment =::core::mem::align_of::<FILE_INFORMATION_CLASS>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<FILE_INFORMATION_CLASS>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::PUNICODE_STRING>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::PUNICODE_STRING>();
+        let alignment = ::core::mem::align_of::<FILE_INFORMATION_CLASS>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<FILE_INFORMATION_CLASS>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8351,9 +8351,9 @@ pub struct IO_STACK_LOCATION_0_6 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8375,9 +8375,9 @@ pub struct IO_STACK_LOCATION_0_7 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<super::ULONG>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8385,12 +8385,12 @@ pub struct IO_STACK_LOCATION_0_7 {
     #[doc(hidden)]
     pub __padding_2: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let alignment =::core::mem::align_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
         let alignment = if alignment < 8 { 8 } else { alignment };
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<DIRECTORY_NOTIFY_INFORMATION_CLASS>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<DIRECTORY_NOTIFY_INFORMATION_CLASS>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8412,9 +8412,9 @@ pub struct IO_STACK_LOCATION_0_8 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<FILE_INFORMATION_CLASS>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<FILE_INFORMATION_CLASS>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -8436,9 +8436,9 @@ pub struct IO_STACK_LOCATION_0_9 {
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
         let offset = 0usize;
-        let alignment =::core::mem::align_of::<super::ULONG>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::ULONG>();
-        let natural =::core::mem::align_of::<FILE_INFORMATION_CLASS>();
+        let alignment = ::core::mem::align_of::<super::ULONG>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<super::ULONG>();
+        let natural = ::core::mem::align_of::<FILE_INFORMATION_CLASS>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],

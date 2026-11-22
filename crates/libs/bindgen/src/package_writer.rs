@@ -205,7 +205,7 @@ impl Config<'_> {
             }
 
             let path = directory.join("mod.rs");
-            write_to_file(&path, self.format(&tokens.into_string()));
+            write_to_file(&path, self.format(tokens));
         });
 
         let toml_path = output.join("Cargo.toml");

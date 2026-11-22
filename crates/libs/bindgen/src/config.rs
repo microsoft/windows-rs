@@ -127,9 +127,7 @@ impl Config<'_> {
         } else {
             self.write_modules(&tree)
         };
-        let tokens = tokens.into_string();
-
-        let formatted = self.format(&tokens);
+        let formatted = self.format(tokens);
 
         write_to_file(output, formatted);
     }

@@ -2,9 +2,9 @@
 #[derive(Clone, Copy)]
 pub struct Mixed {
     pub tag: u8,
-    pub bits: __windows_bindgen_Unaligned<i32, {::core::mem::size_of::<i32>() }>,
-    pub pointer: __windows_bindgen_Unaligned<*mut u32, {::core::mem::size_of::<*mut u32>() }>,
-    pub nested: __windows_bindgen_Unaligned<Padded, {::core::mem::size_of::<Padded>() }>,
+    pub bits: __windows_bindgen_Unaligned<i32, { ::core::mem::size_of::<i32>() }>,
+    pub pointer: __windows_bindgen_Unaligned<*mut u32, { ::core::mem::size_of::<*mut u32>() }>,
+    pub nested: __windows_bindgen_Unaligned<Padded, { ::core::mem::size_of::<Padded>() }>,
 }
 impl Default for Mixed {
     fn default() -> Self {
@@ -33,8 +33,8 @@ impl Mixed {
 #[repr(C, align(2))]
 #[derive(Clone, Copy)]
 pub union MixedUnion {
-    pub bits: __windows_bindgen_Unaligned<i32, {::core::mem::size_of::<i32>() }>,
-    pub pointer: __windows_bindgen_Unaligned<*mut u32, {::core::mem::size_of::<*mut u32>() }>,
+    pub bits: __windows_bindgen_Unaligned<i32, { ::core::mem::size_of::<i32>() }>,
+    pub pointer: __windows_bindgen_Unaligned<*mut u32, { ::core::mem::size_of::<*mut u32>() }>,
 }
 impl Default for MixedUnion {
     fn default() -> Self {
@@ -101,12 +101,12 @@ impl<T, const N: usize> __windows_bindgen_Unaligned<T, N> {
     #[doc = r" Storage must contain a valid, initialized `T`. For non-`Copy` values,"]
     #[doc = r" the caller must prevent duplicated ownership and subsequent reads."]
     pub unsafe fn read(&self) -> T {
-        assert_eq!(N,::core::mem::size_of::<T>());
+        assert_eq!(N, ::core::mem::size_of::<T>());
         unsafe { self.bytes.as_ptr().cast::<T>().read_unaligned() }
     }
     #[doc = r" Writes a value without dropping the previous contents."]
     pub fn write(&mut self, value: T) {
-        assert_eq!(N,::core::mem::size_of::<T>());
+        assert_eq!(N, ::core::mem::size_of::<T>());
         unsafe {
             self.bytes.as_mut_ptr().cast::<T>().write_unaligned(value);
         }

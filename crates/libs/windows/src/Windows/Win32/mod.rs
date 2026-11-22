@@ -2486,12 +2486,12 @@ impl<T, const N: usize> __windows_bindgen_Unaligned<T, N> {
     #[doc = r" Storage must contain a valid, initialized `T`. For non-`Copy` values,"]
     #[doc = r" the caller must prevent duplicated ownership and subsequent reads."]
     pub unsafe fn read(&self) -> T {
-        assert_eq!(N,::core::mem::size_of::<T>());
+        assert_eq!(N, ::core::mem::size_of::<T>());
         unsafe { self.bytes.as_ptr().cast::<T>().read_unaligned() }
     }
     #[doc = r" Writes a value without dropping the previous contents."]
     pub fn write(&mut self, value: T) {
-        assert_eq!(N,::core::mem::size_of::<T>());
+        assert_eq!(N, ::core::mem::size_of::<T>());
         unsafe {
             self.bytes.as_mut_ptr().cast::<T>().write_unaligned(value);
         }
