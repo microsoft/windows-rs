@@ -77,9 +77,10 @@ use super::*;
 /// }
 /// ```
 ///
-/// `//` starts a comment at the beginning of a line or after whitespace. Comments end at the
-/// end of the line. In command files, grouping applies only to `--filter` arguments;
-/// braces in paths are literal.
+/// Lines beginning with `//` after optional whitespace are comments. Inline comments start with
+/// a separate `//` token, followed by whitespace or the end of the line. This leaves UNC paths
+/// such as `--in //server/share/input.winmd` intact. In command files, grouping applies only to
+/// `--filter` arguments; braces in paths are literal.
 ///
 /// The in-repo crates use this convention; see the filter `.txt` files in
 /// `crates/tools/bindings/src`.
@@ -273,6 +274,9 @@ pub(super) fn read_tokens(input: impl AsRef<Path>, mut filter_args: bool) -> Vec
     let mut group_line = 0;
 
     for (index, line) in read_file_lines(input).iter().enumerate() {
+        if line.trim_start().starts_with("//") {
+            continue;
+        }
         let line_number = index + 1;
         let mut chars = line.chars().peekable();
 
@@ -280,6 +284,7 @@ pub(super) fn read_tokens(input: impl AsRef<Path>, mut filter_args: bool) -> Vec
             if ch == '/'
                 && chars.peek() == Some(&'/')
                 && (current.is_empty() || current.ends_with(char::is_whitespace))
+                && chars.clone().nth(1).is_none_or(char::is_whitespace)
             {
                 break;
             }
@@ -359,6 +364,41 @@ mod tests {
                 "Type::{Method}",
                 "--in",
                 "metadata/input{.winmd",
+            ]
+        );
+    }
+
+    #[test]
+    fn command_file_unc_paths_are_not_comments() {
+        let path = std::env::temp_dir().join(format!(
+            "windows-bindgen-command-unc-{}.txt",
+            std::process::id()
+        ));
+        std::fs::write(
+            &path,
+            "//Whole-line comment\n\
+             --in //server/share/input.winmd // metadata\n\
+             --out //server/share/output.rs // generated output\n\
+             --filter-file //server/share/filters.txt //\n\
+             --etc //server/share/commands.txt // nested commands\n\
+             --filter Type::{} //\tfilter\n",
+        )
+        .unwrap();
+        let tokens = read_tokens(&path, false);
+        std::fs::remove_file(&path).unwrap();
+        assert_eq!(
+            tokens,
+            [
+                "--in",
+                "//server/share/input.winmd",
+                "--out",
+                "//server/share/output.rs",
+                "--filter-file",
+                "//server/share/filters.txt",
+                "--etc",
+                "//server/share/commands.txt",
+                "--filter",
+                "Type::{}",
             ]
         );
     }
