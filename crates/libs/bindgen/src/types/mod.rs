@@ -1195,8 +1195,9 @@ impl Type {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         match self {
+            // `read` requires valid, initialized storage. For non-Copy values, callers must
+            // prevent duplicated ownership and further reads. `write` does not drop old contents.
             Self::UnalignedHelper => quote! {
-                /// Unaligned native field storage. No references to the stored value are exposed.
                 #[doc(hidden)]
                 #[repr(C)]
                 pub struct __windows_bindgen_Unaligned<T, const N: usize> {
@@ -1212,19 +1213,14 @@ impl Type {
                         result.write(value);
                         result
                     }
-                    /// Copies the stored value without creating an aligned reference.
-                    ///
-                    /// # Safety
-                    ///
-                    /// Storage must contain a valid, initialized `T`. For non-`Copy` values,
-                    /// the caller must prevent duplicated ownership and subsequent reads.
                     pub unsafe fn read(&self) -> T {
-                        assert_eq!(N, ::core::mem::size_of::<T>());
+                        use core::mem::size_of;
+                        assert_eq!(N, size_of::<T>());
                         unsafe { self.bytes.as_ptr().cast::<T>().read_unaligned() }
                     }
-                    /// Writes a value without dropping the previous contents.
                     pub fn write(&mut self, value: T) {
-                        assert_eq!(N, ::core::mem::size_of::<T>());
+                        use core::mem::size_of;
+                        assert_eq!(N, size_of::<T>());
                         unsafe { self.bytes.as_mut_ptr().cast::<T>().write_unaligned(value); }
                     }
                 }
@@ -1233,8 +1229,8 @@ impl Type {
                     fn clone(&self) -> Self { *self }
                 }
             },
+            // A fixed-width address, not a native Rust pointer.
             Self::Pointer64Helper => quote! {
-                /// A fixed 64-bit address, not a native Rust pointer.
                 #[doc(hidden)]
                 #[repr(C)]
                 pub struct __windows_bindgen_Pointer64<P> {

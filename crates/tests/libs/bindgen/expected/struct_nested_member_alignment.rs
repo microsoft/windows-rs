@@ -34,10 +34,11 @@ pub struct Named_Child {
     pub first: u8,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
+        use core::mem::{align_of, size_of};
         let offset = 0usize;
-        let alignment = ::core::mem::align_of::<u8>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<u8>();
-        let natural = ::core::mem::align_of::<u32>();
+        let alignment = align_of::<u8>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<u8>();
+        let natural = align_of::<u32>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -65,10 +66,11 @@ pub struct Outer_0 {
     pub first: u8,
     #[doc(hidden)]
     pub __padding_1: [core::mem::MaybeUninit<u8>; {
+        use core::mem::{align_of, size_of};
         let offset = 0usize;
-        let alignment = ::core::mem::align_of::<u8>();
-        let offset = ((offset + alignment - 1) & !(alignment - 1)) + ::core::mem::size_of::<u8>();
-        let natural = ::core::mem::align_of::<u32>();
+        let alignment = align_of::<u8>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) + size_of::<u8>();
+        let natural = align_of::<u32>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -89,8 +91,9 @@ pub struct PointerOnly {
 pub struct PointerOnly_Child {
     #[doc(hidden)]
     pub __padding_0: [core::mem::MaybeUninit<u8>; {
+        use core::mem::align_of;
         let offset = 0usize;
-        let natural = ::core::mem::align_of::<u32>();
+        let natural = align_of::<u32>();
         let required = if natural < 8 { 8 } else { natural };
         ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
     }],
@@ -101,3 +104,5 @@ impl Default for PointerOnly_Child {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const align_of: u32 = 99;
+pub const size_of: u32 = 99;

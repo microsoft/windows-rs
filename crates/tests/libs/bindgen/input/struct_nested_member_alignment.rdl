@@ -1,6 +1,9 @@
 //! --filter Test --full
 #[win32]
 mod Test {
+    const size_of: u32 = 99;
+    const align_of: u32 = 99;
+
     struct Outer {
         tag: u8,
         value: struct {
