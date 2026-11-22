@@ -3,6 +3,69 @@
 // reached when a command file cannot be opened.
 
 #[test]
+fn relocated_filter_hints_are_independent_of_input_form() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("filter_hints");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let output = scratch.join("output.rs");
+    let filters = scratch.join("filters.txt");
+    let commands = scratch.join("commands.txt");
+    let filter = "Windows.Win32.Foundation.HWND";
+    std::fs::write(&filters, filter).unwrap();
+    std::fs::write(&commands, format!("--filter {filter}")).unwrap();
+
+    for form in [
+        "builder",
+        "builder-filters",
+        "cli",
+        "filter-file",
+        "filter-files",
+        "cli-filter-file",
+        "command-file",
+    ] {
+        let error = std::panic::catch_unwind(|| match form {
+            "builder" => windows_bindgen::builder()
+                .output(&output)
+                .filter(filter)
+                .write(),
+            "builder-filters" => windows_bindgen::builder()
+                .output(&output)
+                .filters([filter])
+                .write(),
+            "filter-file" => windows_bindgen::builder()
+                .output(&output)
+                .filter_file(&filters)
+                .write(),
+            "filter-files" => windows_bindgen::builder()
+                .output(&output)
+                .filter_files([&filters])
+                .write(),
+            "cli" => {
+                windows_bindgen::bindgen(["--out", output.to_str().unwrap(), "--filter", filter]);
+            }
+            "cli-filter-file" => windows_bindgen::bindgen([
+                "--out",
+                output.to_str().unwrap(),
+                "--filter-file",
+                filters.to_str().unwrap(),
+            ]),
+            "command-file" => windows_bindgen::bindgen([
+                "--out",
+                output.to_str().unwrap(),
+                "--etc",
+                commands.to_str().unwrap(),
+            ]),
+            _ => unreachable!(),
+        })
+        .unwrap_err();
+        assert_eq!(
+            *error.downcast::<String>().unwrap(),
+            "could not resolve filter entry `Windows::Win32::Foundation::HWND`; try `HWND`",
+            "{form}"
+        );
+    }
+}
+
+#[test]
 fn malformed_metadata_ordinals() {
     use windows_metadata::*;
 
