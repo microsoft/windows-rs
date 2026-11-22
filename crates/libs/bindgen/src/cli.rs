@@ -76,6 +76,8 @@ use super::*;
 ///
 /// A bare type projects the full type. `Type::{}` emits a name-only shell, while
 /// `Type::Member` and `Type::{a, b}` select members.
+/// Explicit member or enum-variant selections narrow a whole-type selection regardless of rule
+/// order. Excluded members and variants win over included ones.
 ///
 /// ```text
 /// --filter Windows.Storage.Streams.IDataReader::ReadByte

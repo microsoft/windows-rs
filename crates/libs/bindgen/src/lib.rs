@@ -631,7 +631,24 @@ impl Bindgen {
                     self.style,
                 )
             } else {
-                TypeMap::filter(reader, &filter, &references, self.style.is_sys())
+                let mut types = TypeMap::filter(reader, &filter, &references, self.style.is_sys());
+                if !self.layout.is_package() {
+                    let precise = TypeClosure::build(
+                        reader,
+                        &mut filter,
+                        &references,
+                        implements.as_ref(),
+                        self.style,
+                    );
+                    filter.dependency_types.extend(
+                        precise
+                            .keys()
+                            .filter(|name| !types.contains_key(name))
+                            .copied(),
+                    );
+                    types.combine(&precise);
+                }
+                types
             };
 
             (filter, types)

@@ -2,9 +2,10 @@ use super::*;
 use std::collections::{BTreeSet, HashMap, HashSet};
 
 /// Which methods are requested on an interface.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Default)]
 pub enum MethodSet {
     /// All methods on the interface.
+    #[default]
     All,
     /// Specific methods by their raw MethodDef name.
     Names(BTreeSet<String>),
@@ -35,7 +36,7 @@ pub struct Filter {
     pub rules: Vec<(String, bool)>,
     methods: HashMap<(String, String), MethodFilter>,
     /// Enums with specific variants requested.
-    enum_variants: HashMap<(String, String), MethodSet>,
+    enum_variants: HashMap<(String, String), VariantFilter>,
     /// Classes that explicitly requested `CreateInstance`.
     activatable: HashSet<(String, String)>,
     /// Interfaces with specific methods requested (for type closure).
@@ -47,11 +48,12 @@ pub struct Filter {
     hierarchy_types: HashSet<(String, String)>,
     /// Individual class-to-interface hierarchy edges selected through class members.
     hierarchy_interfaces: HashSet<(String, String, String, String)>,
-    /// `true` if the filter includes broad entries (a whole namespace)
-    /// that are not compatible with bottom-up type closure.
+    /// Namespace selections need a top-down scan in addition to precise dependency closure.
     pub has_broad_filter: bool,
-    /// `true` when bottom-up closure is used; non-seed types become shells.
+    /// `true` when only bottom-up closure is used; non-seed types become shells.
     pub uses_closure: bool,
+    /// Types reached by precise filters but not by the top-down scan.
+    pub dependency_types: HashSet<TypeName>,
 }
 
 /// Per-type method filter. Both raw metadata names and overload names are recorded;
@@ -62,6 +64,36 @@ pub struct MethodFilter {
     keep: BTreeSet<String>,
     /// Methods explicitly deny-listed. Wins over `keep` on overlap.
     drop: BTreeSet<String>,
+}
+
+#[derive(Debug, Default)]
+pub struct VariantFilter {
+    keep: MethodSet,
+    drop: BTreeSet<String>,
+}
+
+impl VariantFilter {
+    fn select(&mut self) -> &mut BTreeSet<String> {
+        if matches!(self.keep, MethodSet::All) {
+            self.keep = MethodSet::Names(BTreeSet::new());
+        }
+        let MethodSet::Names(names) = &mut self.keep else {
+            unreachable!()
+        };
+        names
+    }
+
+    fn insert(&mut self, name: &str, include: bool) {
+        if include {
+            self.select().insert(name.to_string());
+        } else {
+            self.drop.insert(name.to_string());
+        }
+    }
+
+    pub fn includes(&self, name: &str) -> bool {
+        self.keep.includes(name) && !self.drop.contains(name)
+    }
 }
 
 impl Filter {
@@ -148,7 +180,7 @@ impl Filter {
             return TypeRole::Named(set.clone());
         }
 
-        if self.uses_closure {
+        if self.uses_closure || self.dependency_types.contains(&type_name) {
             TypeRole::Shell
         } else {
             TypeRole::Named(MethodSet::All)
@@ -193,9 +225,8 @@ impl Filter {
         filter.keep.is_empty()
     }
 
-    /// Returns the variant filter for a given enum, if one was specified.
-    /// Returns `None` if the enum was included as a plain type (all variants kept).
-    pub fn enum_variant_filter(&self, namespace: &str, name: &str) -> Option<&MethodSet> {
+    /// Returns the explicit variant selection, including exclusions and name-only shells.
+    pub fn enum_variant_filter(&self, namespace: &str, name: &str) -> Option<&VariantFilter> {
         self.enum_variants
             .get(&(namespace.to_string(), name.to_string()))
     }
@@ -214,7 +245,7 @@ impl Filter {
 
         let mut rules: Vec<(String, bool)> = Vec::new();
         let mut methods: HashMap<(String, String), MethodFilter> = HashMap::new();
-        let mut enum_variants: HashMap<(String, String), MethodSet> = HashMap::new();
+        let mut enum_variants: HashMap<(String, String), VariantFilter> = HashMap::new();
         let mut activatable: HashSet<(String, String)> = HashSet::new();
         let mut requested_interfaces: HashMap<(String, String), MethodSet> = HashMap::new();
         let mut direct_types: Vec<(String, String)> = Vec::new();
@@ -251,7 +282,7 @@ impl Filter {
                             // Unscoped enum variants are standalone constants; include them
                             // explicitly.
                             if Self::is_unscoped_enum(reader, namespace, name) {
-                                enum_variants.entry(key.clone()).or_insert(MethodSet::All);
+                                enum_variants.entry(key.clone()).or_default();
                             }
                             if !direct_types.contains(&key) {
                                 direct_types.push(key);
@@ -278,9 +309,7 @@ impl Filter {
                             // An empty variant set makes an enum shell project no
                             // variants, rather than falling through to "all".
                             if Self::is_enum(reader, namespace, name) {
-                                enum_variants
-                                    .entry(key.clone())
-                                    .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                                enum_variants.entry(key.clone()).or_default().select();
                             }
                             if !direct_types.contains(&key) {
                                 direct_types.push(key);
@@ -307,6 +336,23 @@ impl Filter {
             }
         }
 
+        // Unscoped enum constants are independent entries in the reader.
+        for ((namespace, name), variants) in &enum_variants {
+            for ty in reader.with_full_name(namespace, name) {
+                if let Type::CppEnum(e) = ty
+                    && !e.def.has_attribute("ScopedEnumAttribute")
+                {
+                    for field in e.def.fields() {
+                        if field.flags().contains(FieldAttributes::Literal)
+                            && variants.includes(field.name())
+                        {
+                            rules.push((format!("{namespace}.{}", field.name()), true));
+                        }
+                    }
+                }
+            }
+        }
+
         rules.sort_unstable_by(|left, right| {
             let left = (left.0.len(), !left.1);
             let right = (right.0.len(), !right.1);
@@ -324,6 +370,7 @@ impl Filter {
             hierarchy_interfaces,
             has_broad_filter,
             uses_closure: false,
+            dependency_types: HashSet::new(),
         }
     }
 
@@ -392,7 +439,7 @@ impl Filter {
         requested_interfaces: &mut HashMap<(String, String), MethodSet>,
         direct_types: &mut Vec<(String, String)>,
         activatable: &mut HashSet<(String, String)>,
-        enum_variants: &mut HashMap<(String, String), MethodSet>,
+        enum_variants: &mut HashMap<(String, String), VariantFilter>,
         hierarchy_interfaces: &mut HashSet<(String, String, String, String)>,
         namespace: &str,
         name: &str,
@@ -410,12 +457,10 @@ impl Filter {
                         }),
                         "variant `{member}` not found on enum `{namespace}.{name}`"
                     );
-                    let set = enum_variants
+                    enum_variants
                         .entry(key.clone())
-                        .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
-                    if let MethodSet::Names(names) = set {
-                        names.insert(member.to_string());
-                    }
+                        .or_default()
+                        .insert(member, include);
                     if !direct_types.contains(&key) {
                         direct_types.push(key);
                     }
@@ -427,12 +472,10 @@ impl Filter {
                         }),
                         "variant `{member}` not found on enum `{namespace}.{name}`"
                     );
-                    let set = enum_variants
+                    enum_variants
                         .entry(key.clone())
-                        .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
-                    if let MethodSet::Names(names) = set {
-                        names.insert(member.to_string());
-                    }
+                        .or_default()
+                        .insert(member, include);
                     if !direct_types.contains(&key) {
                         direct_types.push(key);
                     }
@@ -517,7 +560,7 @@ impl Filter {
                                     filter_entry.keep.insert(n.clone());
                                 }
                             } else {
-                                filter_entry.drop.insert(member.to_string());
+                                filter_entry.drop.extend(expanded);
                             }
                             if !direct_types.contains(&key) {
                                 direct_types.push(key.clone());

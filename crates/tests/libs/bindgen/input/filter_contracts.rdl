@@ -1,0 +1,73 @@
+//! --filter Test.ISource::GetResult Native.INativeSource::GetNativeResult Other
+//! --filter Test.Color !Test.Color::Red Native.NativeColor !Native.NativeColor::NativeRed
+//! --filter Test.Widget !Test.Widget::Value
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute AssociatedEnumAttribute {
+                fn(#[in] enumType: Type);
+            }
+        }
+    }
+}
+#[winrt]
+mod Test {
+    #[guid(auto)]
+    interface ISource {
+        fn GetResult(&self) -> IResult;
+        fn Unused(&self) -> IUnused;
+    }
+    #[guid(auto)]
+    interface IResult {
+        fn Read(&self) -> i32;
+    }
+    #[guid(auto)]
+    interface IUnused {
+        fn Extra(&self);
+    }
+    #[repr(i32)]
+    enum Color {
+        Red = 0,
+        Green = 1,
+        Blue = 2,
+    }
+    class Widget {
+        IWidget,
+    }
+    #[guid(auto)]
+    interface IWidget {
+        fn get_Value(&self) -> i32;
+        fn put_Value(&self, #[in] value: i32);
+        fn Other(&self);
+    }
+}
+#[win32]
+mod Native {
+    #[guid(auto)]
+    interface INativeSource {
+        fn GetNativeResult(&self, #[out] result: *mut *mut INativeResult);
+    }
+    #[guid(auto)]
+    interface INativeResult {
+        fn NativeRead(&self) -> i32;
+    }
+    #[repr(i32)]
+    enum NativeColor {
+        NativeRed = 0,
+        NativeGreen = 1,
+        NativeBlue = 2,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn ApplyColor(#[associated_enum(NativeColor)] color: i32);
+    #[guid(auto)]
+    interface INativeOptions {
+        fn ApplyColor(&self, #[associated_enum(NativeColor)] color: i32);
+    }
+}
+#[winrt]
+mod Other {
+    struct Token {
+        value: i32,
+    }
+}
