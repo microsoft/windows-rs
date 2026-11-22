@@ -1,0 +1,51 @@
+name: bindgen
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+jobs:
+  linux:
+    runs-on: ubuntu-24.04
+
+    env:
+      RUSTFLAGS: -D warnings
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+      - name: Install rustfmt and clippy
+        run: rustup component add rustfmt clippy
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+      - name: Test bindgen
+        # test_bindgen compiles Windows-only runtime projections in test.yml.
+        run: cargo test -p windows-bindgen
+      - name: Lint bindgen
+        run: cargo clippy -p windows-bindgen --all-targets -- -D warnings
+      - name: Generate library bindings
+        run: cargo run -p tool-bindings --release
+      - name: Generate package bindings
+        run: cargo run -p tool-package --release
+      - name: Check generated output
+        run: |
+          git add -N .
+          git diff --exit-code || (echo '::error::Linux generation changed committed bindings.'; exit 1)
