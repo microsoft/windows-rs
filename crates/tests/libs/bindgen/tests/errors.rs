@@ -3,6 +3,36 @@
 // reached when a command file cannot be opened.
 
 #[test]
+fn filter_file_unbalanced_groups() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("filter_file_unbalanced_groups");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let filters = scratch.join("filters.txt");
+    let commands = scratch.join("commands.txt");
+    for (input, expected) in [
+        ("// comment\nType::{\nMethod", ":2: unbalanced `{`"),
+        ("// comment\nType::{\nMethod}\n}", ":4: unbalanced `}`"),
+    ] {
+        std::fs::write(&filters, input).unwrap();
+        std::fs::write(&commands, format!("--filter {input}")).unwrap();
+        for path in [&filters, &commands] {
+            let error = std::panic::catch_unwind(|| {
+                if path == &filters {
+                    windows_bindgen::builder().filter_file(path);
+                } else {
+                    windows_bindgen::bindgen(["--etc", path.to_str().unwrap()]);
+                }
+            })
+            .unwrap_err();
+            let message = error.downcast::<String>().unwrap();
+            assert!(
+                message.contains(&format!("{}{expected}", path.display())),
+                "{message}"
+            );
+        }
+    }
+}
+
+#[test]
 fn relocated_filter_hints_are_independent_of_input_form() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("filter_hints");
     std::fs::create_dir_all(&scratch).unwrap();

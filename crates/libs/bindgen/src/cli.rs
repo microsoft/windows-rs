@@ -66,6 +66,20 @@ use super::*;
 /// --filter-file path/to/filter.txt
 /// ```
 ///
+/// Filter and command files separate arguments with whitespace, except inside `{...}` groups.
+/// Groups may span lines and have trailing commas:
+///
+/// ```text
+/// ID2D1RenderTarget::{
+///     BeginDraw,
+///     EndDraw,
+///     Clear, // Reset the surface
+/// }
+/// ```
+///
+/// `//` starts a comment at the beginning of a line or after whitespace. Comments end at the
+/// end of the line.
+///
 /// The in-repo crates use this convention; see the filter `.txt` files in
 /// `crates/tools/bindings/src`.
 ///
@@ -247,24 +261,36 @@ where
 
 #[track_caller]
 pub(super) fn read_tokens(input: impl AsRef<Path>) -> Vec<String> {
+    let input = input.as_ref();
     let mut result = Vec::new();
+    let mut current = String::new();
+    let mut brace_depth = 0u32;
+    let mut group_line = 0;
 
-    for line in read_file_lines(input) {
-        if line.trim_start().starts_with("//") {
-            continue;
-        }
+    for (index, line) in read_file_lines(input).iter().enumerate() {
+        let line_number = index + 1;
+        let mut chars = line.chars().peekable();
 
-        // Split on whitespace but keep `{...}` groups together so that
-        // `Type::{a, b}` is not split across multiple filters.
-        let mut current = String::new();
-        let mut brace_depth = 0u32;
-
-        for ch in line.chars() {
+        while let Some(ch) = chars.next() {
+            if ch == '/'
+                && chars.peek() == Some(&'/')
+                && (current.is_empty() || current.ends_with(char::is_whitespace))
+            {
+                break;
+            }
             if ch == '{' {
+                if brace_depth == 0 {
+                    group_line = line_number;
+                }
                 brace_depth += 1;
                 current.push(ch);
             } else if ch == '}' {
-                brace_depth = brace_depth.saturating_sub(1);
+                assert!(
+                    brace_depth > 0,
+                    "{}:{line_number}: unbalanced `}}`",
+                    input.display()
+                );
+                brace_depth -= 1;
                 current.push(ch);
             } else if ch.is_whitespace() && brace_depth == 0 {
                 if !current.is_empty() {
@@ -274,10 +300,53 @@ pub(super) fn read_tokens(input: impl AsRef<Path>) -> Vec<String> {
                 current.push(ch);
             }
         }
-        if !current.is_empty() {
-            result.push(current);
+        if brace_depth > 0 {
+            current.push('\n');
+        } else if !current.is_empty() {
+            result.push(std::mem::take(&mut current));
         }
     }
 
+    assert!(
+        brace_depth == 0,
+        "{}:{group_line}: unbalanced `{{`",
+        input.display()
+    );
     result
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn command_file_paths_and_comments() {
+        let path = std::env::temp_dir().join(format!(
+            "windows-bindgen-command-tokens-{}.txt",
+            std::process::id()
+        ));
+        std::fs::write(
+            &path,
+            r"--in C:\metadata\input.winmd relative//input.winmd \\server\share\input.winmd
+--out generated/{bindings}.rs // output }
+--filter Type::{Method} // filter {
+",
+        )
+        .unwrap();
+        let tokens = read_tokens(&path);
+        std::fs::remove_file(&path).unwrap();
+        assert_eq!(
+            tokens,
+            [
+                "--in",
+                r"C:\metadata\input.winmd",
+                "relative//input.winmd",
+                r"\\server\share\input.winmd",
+                "--out",
+                "generated/{bindings}.rs",
+                "--filter",
+                "Type::{Method}",
+            ]
+        );
+    }
 }
