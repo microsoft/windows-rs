@@ -40,20 +40,10 @@ impl Class {
             for interface in &required_interfaces {
                 let mut virtual_names = MethodNames::new();
 
-                for method in
-                    interface
-                        .get_methods(config)
-                        .iter()
-                        .filter_map(|method| match &method {
-                            MethodOrName::Method(method)
-                                if config
-                                    .filter
-                                    .includes_method(interface.type_name(), method.def) =>
-                            {
-                                Some(method)
-                            }
-                            _ => None,
-                        })
+                for method in interface
+                    .get_methods(config)
+                    .iter()
+                    .filter_map(|method| method.caller(interface.type_name(), config))
                 {
                     let cfg = method.write_cfg(config, &class_cfg, false);
                     let def = method.def;
@@ -96,20 +86,10 @@ impl Class {
             {
                 let mut virtual_names = MethodNames::new();
 
-                for method in
-                    interface
-                        .get_methods(config)
-                        .iter()
-                        .filter_map(|method| match &method {
-                            MethodOrName::Method(method)
-                                if config
-                                    .filter
-                                    .includes_method(interface.type_name(), method.def) =>
-                            {
-                                Some(method)
-                            }
-                            _ => None,
-                        })
+                for method in interface
+                    .get_methods(config)
+                    .iter()
+                    .filter_map(|method| method.caller(interface.type_name(), config))
                 {
                     let cfg = method.write_cfg(config, &class_cfg, false);
 
@@ -159,8 +139,7 @@ impl Class {
                 let has_methods = interface
                         .get_methods(config)
                         .iter()
-                        .any(|m| matches!(m, MethodOrName::Method(method)
-                            if config.filter.includes_method(interface.type_name(), method.def)));
+                        .any(|method| method.caller(interface.type_name(), config).is_some());
                 if !has_methods {
                     None
                 } else {

@@ -4,7 +4,6 @@ use super::*;
 pub struct CppMethod {
     pub def: MethodDef,
     pub signature: Signature,
-    pub dependencies: TypeMap,
     pub return_hint: ReturnHint,
     pub param_hints: Vec<ParamHint>,
 }
@@ -33,10 +32,6 @@ pub enum ParamHint {
 impl CppMethod {
     pub fn new(def: MethodDef, reader: &Reader) -> Self {
         let signature = def.method_signature(&[], reader);
-        let mut dependencies = signature.dependencies(reader);
-        for ty in def.associated_enums(reader) {
-            ty.combine(&mut dependencies, reader);
-        }
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
         for (position, hint) in param_hints.iter_mut().enumerate() {
@@ -102,14 +97,9 @@ impl CppMethod {
         Self {
             def,
             signature,
-            dependencies,
             param_hints,
             return_hint,
         }
-    }
-
-    pub fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
-        write_method_cfg(&self.dependencies, config, parent, not)
     }
 
     /// Projects `MustUseAttribute` unless the wrapper already returns `()` or a `#[must_use]` type.

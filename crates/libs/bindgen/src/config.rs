@@ -137,8 +137,8 @@ impl Config<'_> {
         }
     }
 
-    /// Returns `true` if the given method should be emitted (not demoted).
-    pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
+    /// Returns whether a method's ABI is needed by a caller or implementation.
+    pub fn includes_method_abi(&self, type_name: TypeName, method: MethodDef) -> bool {
         // If `--implement` requests this interface, keep all methods.
         if let Some(implements) = self.implement
             && implements.matches(type_name)

@@ -267,14 +267,10 @@ impl CppInterface {
                 // interface are emitted as `Self` (clippy::use_self).
                 let self_config = config.with_self_ty(self.type_name(), &[]);
 
-                for method in methods.iter().filter_map(|method| match &method {
-                    MethodOrName::Method(method)
-                        if config.filter.includes_method(self.type_name(), method.def) =>
-                    {
-                        Some(method)
-                    }
-                    _ => None,
-                }) {
+                for method in methods
+                    .iter()
+                    .filter_map(|method| method.caller(self.type_name(), config))
+                {
                     let cfg = method.write_cfg(config, &class_cfg, false);
                     let method = method.write(&self_config, method_names, virtual_names);
 
@@ -318,7 +314,7 @@ impl CppInterface {
                     for interface in std::iter::once(self).chain(bases) {
                         for method in interface.get_methods(config) {
                             if let MethodOrName::Method(method) = method {
-                                dependencies.combine(&method.dependencies);
+                                dependencies.combine(&method.dependencies(config.reader));
                             }
                         }
                     }

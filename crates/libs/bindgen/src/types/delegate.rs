@@ -201,7 +201,7 @@ impl Delegate {
 
 impl Dependencies for Delegate {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        dependencies.combine(&self.method(reader).dependencies);
+        dependencies.combine(&self.method(reader).dependencies(reader));
 
         for ty in &self.generics {
             ty.combine(dependencies, reader);

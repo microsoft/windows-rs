@@ -25,14 +25,12 @@ pub fn method_is_skipped(
     signature: &Signature,
     config: &Config,
 ) -> bool {
-    let mut direct = TypeMap::new();
-    for ty in signature.types() {
-        direct.insert(ty.clone());
-    }
-    for ty in def.associated_enums(config.reader) {
-        direct.insert(ty);
-    }
-    !direct.included(config) || !config.includes_method(type_name, def)
+    !config.includes_method_abi(type_name, def)
+        || !signature.types().all(|ty| ty.is_available(config))
+        || !def
+            .associated_enums(config.reader)
+            .iter()
+            .all(|ty| ty.is_available(config))
 }
 
 // The two pieces a vtable/`_Impl` writer needs from a projected method, regardless of
@@ -40,15 +38,38 @@ pub fn method_is_skipped(
 // below iterate `MethodOrName<M>` without caring which generator produced it.
 pub trait MethodItem {
     fn def(&self) -> MethodDef;
-    fn dependencies(&self) -> &TypeMap;
+    fn dependencies(&self, reader: &Reader) -> TypeMap;
+
+    fn cfg(&self, config: &Config, parent: &Cfg) -> Cfg {
+        if config.bindgen.layout.is_package() {
+            parent.difference(&self.dependencies(config.reader), config)
+        } else {
+            Cfg::default()
+        }
+    }
+
+    fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
+        self.cfg(config, parent).write(config, not)
+    }
+}
+
+impl<M: MethodItem> MethodOrName<M> {
+    pub fn caller(&self, owner: TypeName, config: &Config) -> Option<&M> {
+        match self {
+            Self::Method(method) if config.filter.includes_method(owner, method.def()) => {
+                Some(method)
+            }
+            _ => None,
+        }
+    }
 }
 
 impl MethodItem for Method {
     fn def(&self) -> MethodDef {
         self.def
     }
-    fn dependencies(&self) -> &TypeMap {
-        &self.dependencies
+    fn dependencies(&self, reader: &Reader) -> TypeMap {
+        self.signature.dependencies(reader)
     }
 }
 
@@ -56,8 +77,12 @@ impl MethodItem for CppMethod {
     fn def(&self) -> MethodDef {
         self.def
     }
-    fn dependencies(&self) -> &TypeMap {
-        &self.dependencies
+    fn dependencies(&self, reader: &Reader) -> TypeMap {
+        let mut dependencies = self.signature.dependencies(reader);
+        for ty in self.def.associated_enums(reader) {
+            ty.combine(&mut dependencies, reader);
+        }
+        dependencies
     }
 }
 
@@ -73,7 +98,7 @@ pub fn write_vtbl_methods<M: MethodItem>(
         .iter()
         .map(|method| match method {
             MethodOrName::Method(method) => {
-                let method_cfg = class_cfg.difference(method.dependencies(), config);
+                let method_cfg = method.cfg(config, class_cfg);
                 let yes = method_cfg.write(config, false);
                 let name = names.add(method.def());
                 let sig = signature(method);
@@ -337,14 +362,10 @@ impl Interface {
                 // References to this interface can be emitted as `Self` inside this impl.
                 let self_config = config.with_self_ty(self.type_name(), &self.generics);
 
-                for method in methods.iter().filter_map(|method| match &method {
-                    MethodOrName::Method(method)
-                        if config.filter.includes_method(type_name, method.def) =>
-                    {
-                        Some(method)
-                    }
-                    _ => None,
-                }) {
+                for method in methods
+                    .iter()
+                    .filter_map(|method| method.caller(type_name, config))
+                {
                     let cfg = method.write_cfg(config, &class_cfg, false);
 
                     let method = method.write(
@@ -368,14 +389,10 @@ impl Interface {
                     }
                     let virtual_names = &mut MethodNames::new();
 
-                    for method in
-                        interface
-                            .get_methods(config)
-                            .iter()
-                            .filter_map(|method| match &method {
-                                MethodOrName::Method(method) => Some(method),
-                                _ => None,
-                            })
+                    for method in interface
+                        .get_methods(config)
+                        .iter()
+                        .filter_map(|method| method.caller(interface.type_name(), config))
                     {
                         let cfg = method.write_cfg(config, &class_cfg, false);
                         let def = method.def;
@@ -473,7 +490,7 @@ impl Interface {
                     for interface in std::iter::once(self).chain(&required_interfaces) {
                         for method in interface.get_methods(config) {
                             if let MethodOrName::Method(method) = method {
-                                dependencies.combine(&method.dependencies);
+                                dependencies.combine(&method.dependencies(config.reader));
                             }
                         }
                     }
@@ -581,10 +598,11 @@ impl Interface {
 
     fn write_extensions(&self, methods: &[MethodOrName<Method>], config: &Config) -> TokenStream {
         let has_method = |name: &str| {
-            methods.iter().any(
-                |method| matches!(method, MethodOrName::Method(method)
-                    if method.def.name() == name && config.filter.includes_method(self.type_name(), method.def)),
-            )
+            methods.iter().any(|method| {
+                method
+                    .caller(self.type_name(), config)
+                    .is_some_and(|method| method.def.name() == name)
+            })
         };
         match self.type_name() {
             TypeName::IIterator

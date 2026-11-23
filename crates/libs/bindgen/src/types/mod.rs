@@ -872,6 +872,32 @@ impl Type {
         }
     }
 
+    /// Checks names used by a signature without walking the definitions behind those names.
+    pub fn is_available(&self, config: &Config) -> bool {
+        let ty = self.dependency_type();
+        match ty {
+            Self::Ptr64(inner, _) => return inner.is_available(config),
+            Self::FnPtr(signature) => {
+                return signature.types().all(|ty| ty.is_available(config));
+            }
+            Self::CppConst(constant) if constant.is_enum_member => return true,
+            _ => {}
+        }
+        if ty.is_intrinsic() {
+            return true;
+        }
+        let arguments = match ty {
+            Self::Interface(interface) => &interface.generics[..],
+            Self::Delegate(delegate) => &delegate.generics[..],
+            _ => &[],
+        };
+        if !arguments.iter().all(|ty| ty.is_available(config)) {
+            return false;
+        }
+        let name = ty.enclosing().unwrap_or_else(|| ty.type_name());
+        name.namespace().is_empty() || config.includes_type(name)
+    }
+
     pub fn split_generic(&self, reader: &Reader) -> (Self, Vec<Self>) {
         match self {
             Self::Interface(ty) if !ty.generics.is_empty() => {

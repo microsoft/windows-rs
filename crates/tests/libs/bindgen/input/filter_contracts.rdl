@@ -71,3 +71,51 @@ mod Other {
         value: i32,
     }
 }
+#[winrt]
+mod Publication {
+    #[guid(auto)]
+    interface IGeneric<T> {
+        fn Get(&self) -> T;
+    }
+    struct Hidden {
+        value: i32,
+    }
+    struct Holder {
+        hidden: Hidden,
+    }
+    struct Wrapper {
+        holder: Holder,
+    }
+    #[guid(auto)]
+    interface ISource {
+        fn GetHolder(&self) -> Holder;
+        fn GetWrapper(&self) -> Wrapper;
+        fn GetGeneric(&self) -> IGeneric<Holder>;
+        fn GetVisibleGeneric(&self) -> IGeneric<i32>;
+        fn Ping(&self);
+    }
+}
+#[win32]
+mod NativePublication {
+    struct Hidden {
+        value: i32,
+    }
+    struct Holder {
+        hidden: Hidden,
+    }
+    struct Wrapper {
+        holder: Holder,
+    }
+    #[arch(Arm64)]
+    #[library("fixture.dll")]
+    extern "C" fn Variant(#[in] value: Hidden);
+    #[arch(X64)]
+    #[library("fixture.dll")]
+    extern "C" fn Variant(#[in] value: i32);
+    #[guid(auto)]
+    interface ISource {
+        fn GetHolder(&self, #[out] value: *mut Holder);
+        fn GetWrapper(&self, #[out] value: *mut Wrapper);
+        fn Ping(&self);
+    }
+}

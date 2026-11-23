@@ -7,6 +7,7 @@ pub struct TypeClosure<'a> {
     references: &'a References,
     implements: Option<&'a Implements>,
     style: Style,
+    publication: Option<TypeMap>,
     types: TypeMap,
     pending: Vec<(Type, i32)>,
 }
@@ -25,37 +26,15 @@ impl<'a> TypeClosure<'a> {
             references,
             implements,
             style,
+            publication: filter
+                .rules
+                .has_exclusions()
+                .then(|| TypeMap::with_references(reader, references)),
             types: TypeMap::new(),
             pending: Vec::new(),
         };
-        let publication = filter
-            .rules
-            .has_exclusions()
-            .then(|| TypeMap::with_references(reader, references));
         for name in filter.selected_types() {
-            let broad = filter
-                .includes_type_name(name)
-                .is_some_and(|rule| rule.len() <= name.namespace().len());
             for ty in reader.types(name).iter() {
-                // Namespace publication retains its existing unavailable-API policy.
-                // A contradictory direct request is not repaired by removing its caller.
-                if broad && filter.rules.has_exclusions() {
-                    let mut dependencies = if references.contains(name).is_some() {
-                        TypeMap::new()
-                    } else {
-                        publication.as_ref().unwrap().clone()
-                    };
-                    if style.is_sys()
-                        && let Type::CppFn(function) = ty
-                    {
-                        function.combine_sys(&mut dependencies, reader);
-                    } else {
-                        ty.combine(&mut dependencies, reader);
-                    }
-                    if dependencies.excluded(filter, references) {
-                        continue;
-                    }
-                }
                 result.reach(ty, ALL_ARCHES);
             }
         }
@@ -110,6 +89,40 @@ impl<'a> TypeClosure<'a> {
             vec![definition]
         };
         for definition in variants {
+            // Namespace eligibility applies to dependencies as well as roots.
+            // Contradictory direct requests remain visible rather than being repaired.
+            if let Some(publication) = &self.publication
+                && self
+                    .filter
+                    .includes_type_name(name)
+                    .is_some_and(|rule| rule.len() <= name.namespace().len())
+            {
+                let mut dependencies = if self.references.contains(name).is_some() {
+                    TypeMap::new()
+                } else {
+                    publication.clone()
+                };
+                // Sys value/function signatures erase interface pointers, but interface
+                // definitions still need their base vtables.
+                match &definition {
+                    Type::CppFn(function) => {
+                        if self.style.is_sys() {
+                            function.combine_sys(&mut dependencies, self.reader);
+                        } else {
+                            function.combine(&mut dependencies, self.reader);
+                        }
+                    }
+                    Type::CppStruct(_) | Type::CppDelegate(_) | Type::Struct(_)
+                        if self.style.is_sys() =>
+                    {
+                        definition.combine_sys(&mut dependencies, self.reader);
+                    }
+                    _ => definition.combine(&mut dependencies, self.reader),
+                }
+                if dependencies.excluded(self.filter, self.references) {
+                    continue;
+                }
+            }
             let reached = arches & arch_mask(definition.arches());
             if reached != 0 && self.types.insert_reached(definition.clone(), reached) {
                 self.pending.push((definition, reached));

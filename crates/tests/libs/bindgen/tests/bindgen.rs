@@ -278,6 +278,89 @@ fn selection_implementation_does_not_add_callers() {
 }
 
 #[test]
+fn selection_namespace_rejections_survive_dependencies() {
+    for style in ["minimal", "full", "sys"] {
+        for namespace in ["Publication", "NativePublication"] {
+            let exclusion = format!("!{namespace}.Hidden");
+            let output =
+                filter_contract_output("namespace-rejections", style, &[namespace, &exclusion]);
+            assert!(!output.contains("pub struct Hidden"), "{style}\n{output}");
+            assert!(!output.contains("pub struct Holder"), "{style}\n{output}");
+            assert!(!output.contains("pub struct Wrapper"), "{style}\n{output}");
+            assert!(!output.contains("pub GetHolder:"), "{style}\n{output}");
+            assert!(!output.contains("pub GetWrapper:"), "{style}\n{output}");
+            assert!(output.contains("pub Ping:"), "{style}\n{output}");
+            if namespace == "Publication" {
+                assert!(!output.contains("pub GetGeneric:"), "{style}\n{output}");
+                assert!(
+                    output.contains("pub GetVisibleGeneric:"),
+                    "{style}\n{output}"
+                );
+            }
+
+            let explicit = format!("{namespace}.Holder");
+            let output = filter_contract_output(
+                "namespace-explicit",
+                style,
+                &[namespace, &exclusion, &explicit],
+            );
+            assert!(output.contains("pub struct Holder"), "{style}\n{output}");
+            assert!(!output.contains("pub struct Hidden"), "{style}\n{output}");
+        }
+    }
+}
+
+#[test]
+fn selection_namespace_function_variants() {
+    for style in ["minimal", "full", "sys"] {
+        let output = filter_contract_output(
+            "namespace-function-variants",
+            style,
+            &["NativePublication", "!NativePublication.Hidden"],
+        );
+        assert!(output.contains("fn Variant("), "{style}\n{output}");
+        assert!(
+            output.contains("target_arch = \"x86_64\""),
+            "{style}\n{output}"
+        );
+        assert!(
+            !output.contains("target_arch = \"aarch64\""),
+            "{style}\n{output}"
+        );
+    }
+}
+
+#[test]
+fn selection_required_forwarders_do_not_follow_implementation() {
+    for style in ["minimal", "full"] {
+        for filters in [
+            &["IRandomAccessStream::{}"][..],
+            &["IRandomAccessStream::{}", "!IInputStream::ReadAsync"][..],
+        ] {
+            let output = selection_output(
+                "required-implementation",
+                style,
+                filters,
+                Some("IInputStream"),
+            );
+            assert!(output.contains("pub ReadAsync:"), "{style}");
+            assert!(!output.contains("pub fn ReadAsync"), "{style}\n{output}");
+        }
+        let output = selection_output(
+            "required-caller",
+            style,
+            &["IRandomAccessStream::{}", "IInputStream::ReadAsync"],
+            Some("IInputStream"),
+        );
+        assert_eq!(
+            output.matches("pub fn ReadAsync").count(),
+            if style == "full" { 2 } else { 1 },
+            "{style}\n{output}"
+        );
+    }
+}
+
+#[test]
 fn selection_generated_contracts_compile() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("selection-compile");
     std::fs::create_dir_all(&scratch).unwrap();
@@ -292,9 +375,11 @@ fn selection_generated_contracts_compile() {
         format!(
             "[package]\nname = \"selection-compile\"\nversion = \"0.0.0\"\nedition = \"2024\"\n\
          [workspace]\n[lib]\npath = \"lib.rs\"\n[dependencies]\n\
-         windows-core = {{ path = '{}' }}\nwindows-link = {{ path = '{}' }}\n",
+         windows-core = {{ path = '{}' }}\nwindows-link = {{ path = '{}' }}\n\
+         windows-future = {{ path = '{}' }}\n",
             libraries.join("core").display(),
             libraries.join("link").display(),
+            libraries.join("future").display(),
         ),
     )
     .unwrap();
@@ -309,9 +394,21 @@ fn selection_generated_contracts_compile() {
             let output = selection_output(&format!("compile-{name}"), style, filters, None);
             std::fs::write(scratch.join(format!("{name}.rs")), output).unwrap();
         }
+        for (name, namespace) in [
+            ("publication", "Publication"),
+            ("native_publication", "NativePublication"),
+        ] {
+            let output = filter_contract_output(
+                &format!("compile-{name}"),
+                style,
+                &[namespace, &format!("!{namespace}.Hidden")],
+            );
+            std::fs::write(scratch.join(format!("{name}.rs")), output).unwrap();
+        }
         let mut source = String::from(
             "#![deny(warnings)]\n#![allow(dead_code, nonstandard_style)]\n\
              mod native;\nmod excluded;\n\
+             mod publication;\nmod native_publication;\n\
              pub fn native_slot(value: &native::IDirect3D9_Vtbl) { let _ = value.GetAdapterCount; }\n\
              pub fn retained_slot(value: &excluded::IDirect3D9_Vtbl) { let _ = value.GetAdapterIdentifier; }\n",
         );
@@ -323,6 +420,16 @@ fn selection_generated_contracts_compile() {
                     &["ISequentialStream::Read"][..],
                     Some("ISequentialStream"),
                 ),
+                (
+                    "required",
+                    &["IRandomAccessStream::{}", "!IInputStream::ReadAsync"][..],
+                    Some("IInputStream"),
+                ),
+                (
+                    "required_selected",
+                    &["IRandomAccessStream::{}", "IInputStream::ReadAsync"][..],
+                    Some("IInputStream"),
+                ),
             ] {
                 let output =
                     selection_output(&format!("compile-{name}"), style, filters, implement);
@@ -332,6 +439,11 @@ fn selection_generated_contracts_compile() {
                 r#"
 mod reference;
 mod stream;
+mod required;
+mod required_selected;
+pub fn required_slot(value: &required::IInputStream_Vtbl) {
+    let _ = value.ReadAsync;
+}
 pub fn identity(value: &reference::IReference<u32>) {
     fn accept(_: impl windows_core::Param<reference::IPropertyValue>) {}
     accept(value);
@@ -348,6 +460,18 @@ pub fn implementation<T: stream::ISequentialStream_Impl>(value: &T) {
 }
 "#,
             );
+            if style == "full" {
+                source.push_str(
+                    r#"
+pub fn selected_forwarder(
+    value: &required_selected::IRandomAccessStream,
+    buffer: &required_selected::IBuffer,
+) {
+    let _ = value.ReadAsync(buffer, 0, required_selected::InputStreamOptions(0));
+}
+"#,
+                );
+            }
         }
         let check = |source: &str| {
             std::fs::write(scratch.join("lib.rs"), source).unwrap();
@@ -366,23 +490,35 @@ pub fn implementation<T: stream::ISequentialStream_Impl>(value: &T) {
             String::from_utf8_lossy(&result.stderr)
         );
         if style != "sys" {
-            source.push_str(
-                r#"
+            for (method, caller) in [
+                (
+                    "Write",
+                    r#"
 pub unsafe fn unselected(value: &stream::ISequentialStream) {
     let _ = unsafe { value.Write(core::ptr::null(), 0, None) };
 }
 "#,
-            );
-            let result = check(&source);
-            let stderr = String::from_utf8_lossy(&result.stderr);
-            assert!(
-                !result.status.success(),
-                "{style}: unselected caller must be absent"
-            );
-            assert!(
-                stderr.contains("error[E0599]") && stderr.contains("Write"),
-                "{style}: {stderr}"
-            );
+                ),
+                (
+                    "ReadAsync",
+                    r#"
+pub fn unselected_forwarder(value: &required::IRandomAccessStream, buffer: &required::IBuffer) {
+    let _ = value.ReadAsync(buffer, 0, required::InputStreamOptions(0));
+}
+"#,
+                ),
+            ] {
+                let result = check(&format!("{source}\n{caller}"));
+                let stderr = String::from_utf8_lossy(&result.stderr);
+                assert!(
+                    !result.status.success(),
+                    "{style}: unselected {method} caller must be absent"
+                );
+                assert!(
+                    stderr.contains("error[E0599]") && stderr.contains(method),
+                    "{style}: {stderr}"
+                );
+            }
         }
     }
 }
