@@ -92,6 +92,7 @@ use super::*;
 ///
 /// A bare type projects the full type. `Type::{}` emits a name-only shell, while
 /// `Type::Member` and `Type::{a, b}` select members.
+/// Chained members such as `Type::a::b` and trailing separators such as `Type::` are rejected.
 /// Explicit member or enum-variant selections narrow a whole-type selection regardless of rule
 /// order. Excluded members and variants win over included ones.
 ///
