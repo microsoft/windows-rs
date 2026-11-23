@@ -66,6 +66,29 @@ fn filter_negative_members_do_not_add_roots() {
 }
 
 #[test]
+fn filter_exclusions_do_not_expand_shells() {
+    for style in ["minimal", "full", "sys"] {
+        for (owner, member) in [
+            ("Test.ISource", "GetResult"),
+            ("Test.Widget", "Value"),
+            ("ClassDependency.Widget", "Write"),
+            ("Native.INativeSource", "GetNativeResult"),
+        ] {
+            let shell = format!("{owner}::{{}}");
+            let exclusion = format!("!{owner}::{member}");
+            let baseline = filter_contract_output("shell-baseline", style, &[&shell]);
+            for filters in [
+                [shell.as_str(), exclusion.as_str()],
+                [exclusion.as_str(), shell.as_str()],
+            ] {
+                let output = filter_contract_output("shell-exclusion", style, &filters);
+                assert_eq!(baseline, output, "{style}: {owner}");
+            }
+        }
+    }
+}
+
+#[test]
 fn filter_class_exclusions_preserve_other_signatures() {
     for style in ["minimal", "full", "sys"] {
         for root in ["ClassDependency", "ClassDependency.Widget"] {

@@ -311,8 +311,18 @@ impl Filter {
                 } => {
                     let full = format!("{namespace}.{name}");
                     let seed = include
-                        || rules.iter().any(|(rule, include)| {
-                            *include && match_type_name(rule, namespace, name)
+                        || entries.iter().any(|entry| {
+                            !entry.exclude
+                                && match &entry.kind {
+                                    ResolvedKind::Namespace(root) => {
+                                        namespace_starts_with(namespace, root)
+                                    }
+                                    ResolvedKind::Type {
+                                        namespace: root_namespace,
+                                        name: root_name,
+                                    } => namespace == root_namespace && name == root_name,
+                                    ResolvedKind::Members { .. } => false,
+                                }
                         });
                     if include && !rules.iter().any(|(r, _)| r == &full) {
                         rules.push((full, true));
