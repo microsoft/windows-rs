@@ -27,6 +27,9 @@ pub fn method_is_skipped(
 ) -> bool {
     let mut direct = TypeMap::new();
     for ty in signature.types() {
+        if config.bindgen.style.is_sys() && ty.dependency_type().is_interface() {
+            continue;
+        }
         direct.insert(ty.clone());
     }
     for ty in def.associated_enums(config.reader) {
@@ -59,6 +62,20 @@ impl MethodItem for CppMethod {
     fn dependencies(&self) -> &TypeMap {
         &self.dependencies
     }
+}
+
+pub fn named_methods<M: MethodItem>(
+    methods: &[MethodOrName<M>],
+) -> impl Iterator<Item = (&M, TokenStream)> {
+    // Caller filtering must not change the names assigned to vtable slots.
+    let mut names = MethodNames::new();
+    methods.iter().filter_map(move |method| match method {
+        MethodOrName::Method(method) => Some((method, names.add(method.def()))),
+        MethodOrName::Name(def) => {
+            names.add(*def);
+            None
+        }
+    })
 }
 
 // Shared `_Vtbl` method-field emitter; callers provide the ABI signature tail.
@@ -356,16 +373,12 @@ impl Interface {
             let emit_methods = !suppress_methods && (!is_exclusive || minimal);
             if emit_methods {
                 let method_names = &mut MethodNames::new();
-                let virtual_names = &mut MethodNames::new();
                 let mut method_tokens = TokenStream::new();
                 let mut iterable = None;
                 // References to this interface can be emitted as `Self` inside this impl.
                 let self_config = config.with_self_ty(self.type_name(), &self.generics);
 
-                for method in methods.iter().filter_map(|method| match &method {
-                    MethodOrName::Method(method) => Some(method),
-                    _ => None,
-                }) {
+                for (method, vname) in named_methods(&methods) {
                     let cfg = method.write_cfg(config, &class_cfg, false);
 
                     let method = method.write(
@@ -373,7 +386,7 @@ impl Interface {
                         Some(self),
                         InterfaceKind::Default,
                         method_names,
-                        virtual_names,
+                        &vname,
                         true,
                     );
 
@@ -387,17 +400,7 @@ impl Interface {
                     if !config.bindgen.style.emit_inherited_forwarders() {
                         continue;
                     }
-                    let virtual_names = &mut MethodNames::new();
-
-                    for method in
-                        interface
-                            .get_methods(config)
-                            .iter()
-                            .filter_map(|method| match &method {
-                                MethodOrName::Method(method) => Some(method),
-                                _ => None,
-                            })
-                    {
+                    for (method, vname) in named_methods(&interface.get_methods(config)) {
                         let cfg = method.write_cfg(config, &class_cfg, false);
                         let def = method.def;
 
@@ -406,7 +409,7 @@ impl Interface {
                             Some(interface),
                             interface.kind,
                             method_names,
-                            virtual_names,
+                            &vname,
                             true,
                         );
 

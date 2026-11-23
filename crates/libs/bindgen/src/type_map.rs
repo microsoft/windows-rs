@@ -6,6 +6,7 @@ pub struct TypeMap(
     HashMap<TypeName, HashSet<Type>>,
     Arc<HashSet<TypeName>>,
     HashMap<Type, i32>,
+    i32,
 );
 
 pub trait Dependencies {
@@ -97,30 +98,36 @@ impl TypeMap {
 
                         // A referenced type that is also generated needs its own dependencies.
                         let types = reader.types(type_name);
-                        let mut item_dependencies =
-                            if referenced.contains(&TypeName(namespace, name)) {
-                                Self::new()
-                            } else {
-                                Self(HashMap::new(), referenced.clone(), HashMap::new())
-                            };
-
                         for ty in types.iter() {
-                            if sys && let Type::CppFn(function) = ty {
-                                function.combine_sys(&mut item_dependencies, reader);
-                            } else {
-                                ty.combine(&mut item_dependencies, reader);
+                            let mut item_dependencies =
+                                if referenced.contains(&TypeName(namespace, name)) {
+                                    Self::new()
+                                } else {
+                                    Self(HashMap::new(), referenced.clone(), HashMap::new(), 0)
+                                };
+                            item_dependencies.with_arches(ty.arches(), |dependencies| {
+                                if sys
+                                    && matches!(
+                                        ty,
+                                        Type::CppFn(_)
+                                            | Type::CppStruct(_)
+                                            | Type::CppDelegate(_)
+                                            | Type::Struct(_)
+                                    )
+                                {
+                                    ty.combine_sys(dependencies, reader);
+                                } else {
+                                    ty.combine(dependencies, reader);
+                                }
+                            });
+
+                            if item_dependencies.excluded(filter, references) {
+                                continue;
                             }
-                        }
 
-                        if item_dependencies.excluded(filter, references) {
-                            continue;
-                        }
-
-                        for ty in types.iter() {
                             dependencies.insert(ty.clone());
+                            dependencies.combine_references(&item_dependencies, references);
                         }
-
-                        dependencies.combine_references(&item_dependencies, references);
                     }
                 }
             }
@@ -133,6 +140,18 @@ impl TypeMap {
     pub fn insert(&mut self, ty: Type) -> bool {
         let name = ty.type_name();
         self.0.entry(name).or_default().insert(ty) && !self.1.contains(&name)
+    }
+
+    pub fn includes_arches(&self, arches: i32) -> bool {
+        arch_mask(self.3) & arch_mask(arches) != 0
+    }
+
+    pub fn with_arches(&mut self, arches: i32, visit: impl FnOnce(&mut Self)) {
+        // A definition keeps its own metadata gates even when reached from a narrower caller.
+        let previous = self.3;
+        self.3 = arches;
+        visit(self);
+        self.3 = previous;
     }
 
     /// Adds `ty` as reached from items on `arches` and returns whether any architecture is new.
@@ -183,6 +202,7 @@ impl TypeMap {
             HashMap::new(),
             Arc::new(references.type_names(reader)),
             HashMap::new(),
+            0,
         );
         for ty in self.values().flatten() {
             if matches!(ty, Type::Class(_) | Type::Interface(_)) {
@@ -208,15 +228,21 @@ impl TypeMap {
         // Reference-owned interface dependencies need not be locally available.
         let covered = self.reference_provided_closure(config);
 
-        self.0.iter().all(|(tn, _)| {
+        self.0.iter().all(|(tn, types)| {
             // An empty namespace covers core types like `HRESULT`. This preserves methods
             // that depend on core types that aren't explicitly included in the filter.
             if tn.namespace().is_empty() {
                 return true;
             }
 
-            if config.types.contains_key(tn) {
-                return true;
+            if let Some(available) = config.types.get(tn) {
+                return types.iter().all(|ty| match ty.dependency_type() {
+                    Type::CppStruct(_) | Type::CppEnum(_) | Type::CppDelegate(_) => config
+                        .reader
+                        .with_full_name(tn.namespace(), tn.name())
+                        .all(|variant| available.contains(&variant)),
+                    _ => true,
+                });
             }
 
             if config.references.contains(*tn).is_some() {

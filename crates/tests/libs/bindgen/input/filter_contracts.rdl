@@ -71,3 +71,173 @@ mod Other {
         value: i32,
     }
 }
+#[winrt]
+mod ClassDependency {
+    class Widget {
+        IWidget,
+    }
+    #[guid(auto)]
+    interface IWidget {
+        fn Read(&self) -> Other::Token;
+        fn Write(&self);
+    }
+}
+#[winrt]
+mod Publication {
+    #[guid(auto)]
+    interface IGeneric<T> {
+        fn Get(&self) -> T;
+    }
+    struct Hidden {
+        value: i32,
+    }
+    struct Holder {
+        hidden: Hidden,
+    }
+    struct Wrapper {
+        holder: Holder,
+    }
+    #[guid(auto)]
+    interface ISource {
+        fn GetHolder(&self) -> Holder;
+        fn GetWrapper(&self) -> Wrapper;
+        fn GetGeneric(&self) -> IGeneric<Holder>;
+        fn GetVisibleGeneric(&self) -> IGeneric<i32>;
+        fn Ping(&self);
+    }
+}
+#[win32]
+mod NativePublication {
+    struct Hidden {
+        value: i32,
+    }
+    struct Holder {
+        hidden: Hidden,
+    }
+    struct Wrapper {
+        holder: Holder,
+    }
+    #[arch(Arm64)]
+    #[library("fixture.dll")]
+    extern "C" fn Variant(#[in] value: Hidden);
+    #[arch(X64)]
+    #[library("fixture.dll")]
+    extern "C" fn Variant(#[in] value: i32);
+    #[guid(auto)]
+    interface ISource {
+        fn GetHolder(&self, #[out] value: *mut Holder);
+        fn GetWrapper(&self, #[out] value: *mut Wrapper);
+        fn Ping(&self);
+    }
+}
+#[winrt]
+mod PublicationSource {
+    #[guid(auto)]
+    interface ISource {
+        fn GetHolder(&self) -> Publication::Holder;
+        fn GetWrapper(&self) -> Publication::Wrapper;
+        fn Ping(&self);
+    }
+}
+#[win32]
+mod NativePublicationSource {
+    #[guid(auto)]
+    interface ISource {
+        fn GetHolder(&self, #[out] value: *mut NativePublication::Holder);
+        fn GetWrapper(&self, #[out] value: *mut NativePublication::Wrapper);
+        fn Ping(&self);
+    }
+}
+#[win32]
+mod NativeArchitecture {
+    #[arch(X64)]
+    struct Record {
+        value: i32,
+    }
+    #[arch(Arm64)]
+    struct Record {
+        hidden: Publication::Hidden,
+    }
+    #[arch(X64)]
+    struct Holder {
+        value: Record,
+    }
+    #[arch(Arm64)]
+    struct Holder {
+        value: Record,
+    }
+    #[arch(X64)]
+    extern "C" fn Callback(#[in] value: Record);
+    #[arch(Arm64)]
+    extern "C" fn Callback(#[in] value: Record);
+    #[arch(X64)]
+    #[library("fixture.dll")]
+    extern "C" fn UseRecord(#[in] value: Record);
+    #[arch(Arm64)]
+    #[library("fixture.dll")]
+    extern "C" fn UseRecord(#[in] value: Record);
+    #[guid(auto)]
+    interface ISource {
+        fn GetRecord(&self, #[out] value: *mut Record);
+        fn Ping(&self);
+    }
+    struct AllTargets {
+        value: Record,
+    }
+    #[arch(X64)]
+    #[library("fixture.dll")]
+    extern "C" fn UseAllTargets(#[in] value: AllTargets);
+}
+#[winrt]
+mod Slots {
+    #[guid(auto)]
+    interface IProbe {
+        #[special]
+        fn get_Value(&self) -> i32;
+        fn Value(&self) -> i32;
+    }
+    #[guid(auto)]
+    interface IRequired: IProbe {}
+    #[guid(auto)]
+    interface IGeneric<T> {
+        fn Get(&self) -> T;
+    }
+    #[guid(auto)]
+    delegate fn Handler(#[in] widget: Widget);
+    class Widget {
+        IProbe,
+    }
+}
+#[win32]
+mod Slots {
+    interface NativeProbe {
+        #[special]
+        fn get_Value(&self) -> i32;
+        fn Value(&self) -> i32;
+    }
+}
+#[win32]
+mod Raw {
+    struct Holder {
+        widgets: [Slots::Widget; 2],
+        interface: *mut Slots::IProbe,
+        generic: Slots::IGeneric<Other::Token>,
+        handler: Slots::Handler,
+    }
+    extern "C" fn Callback(#[in] widget: Slots::Widget) -> Slots::Widget;
+    struct Functions {
+        callback: extern "C" fn(Slots::Widget) -> Slots::Widget,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Take(#[in] widget: Slots::Widget);
+    #[library("fixture.dll")]
+    extern "C" fn Return() -> Slots::Widget;
+    #[guid(auto)]
+    interface IBase {
+        fn Get(&self, #[out] widget: *mut Slots::Widget);
+    }
+    #[guid(auto)]
+    interface IDerived: IBase {
+        fn Set(&self, #[in] widget: Slots::Widget);
+    }
+}

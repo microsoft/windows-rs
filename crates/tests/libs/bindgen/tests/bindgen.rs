@@ -29,6 +29,361 @@ fn filter_contract_output(case: &str, style: &str, filters: &[&str]) -> String {
     std::fs::read_to_string(output).unwrap()
 }
 
+fn bundled_filter_output(case: &str, style: &str, filters: &[&str]) -> String {
+    let output = std::path::Path::new(env!("OUT_DIR")).join(format!("{case}-{style}.rs"));
+    let mut builder = windows_bindgen::builder();
+    builder.filters(filters).output(&output);
+    match style {
+        "minimal" => {}
+        "full" => {
+            builder.full();
+        }
+        "sys" => {
+            builder.sys();
+        }
+        _ => unreachable!(),
+    }
+    builder.write();
+    std::fs::read_to_string(output).unwrap()
+}
+
+#[test]
+fn filter_negative_members_do_not_add_roots() {
+    for style in ["minimal", "full", "sys"] {
+        let baseline = filter_contract_output("negative-baseline", style, &["Other.Token"]);
+        for exclusion in [
+            "!Test.ISource::GetResult",
+            "!Test.Widget::Value",
+            "!Test.Color::Red",
+            "!Native.NativeColor::NativeRed",
+        ] {
+            for filters in [["Other.Token", exclusion], [exclusion, "Other.Token"]] {
+                let output = filter_contract_output("negative-roots", style, &filters);
+                assert_eq!(baseline, output, "{style}: {exclusion}");
+            }
+        }
+    }
+}
+
+#[test]
+fn filter_class_exclusions_preserve_other_signatures() {
+    for style in ["minimal", "full", "sys"] {
+        for root in ["ClassDependency", "ClassDependency.Widget"] {
+            for filters in [
+                [root, "!ClassDependency.Widget::Write"],
+                ["!ClassDependency.Widget::Write", root],
+            ] {
+                let output = filter_contract_output("class-excluded-signatures", style, &filters);
+                assert!(output.contains("pub struct Token"), "{style}: {root}");
+                assert!(output.contains("pub Read:"), "{style}: {root}");
+                assert!(!output.contains("pub Write:"), "{style}: {root}");
+            }
+        }
+    }
+}
+
+#[test]
+fn filter_constructor_exclusions() {
+    for style in ["minimal", "full"] {
+        for filters in [
+            &["PropertySet::{}", "!PropertySet::CreateInstance"][..],
+            &[
+                "PropertySet::CreateInstance",
+                "!PropertySet::CreateInstance",
+            ][..],
+            &[
+                "!PropertySet::CreateInstance",
+                "PropertySet::CreateInstance",
+            ][..],
+        ] {
+            let output = bundled_filter_output("constructor-exclusion", style, filters);
+            assert!(!output.contains("pub fn new("), "{style}: {filters:?}");
+        }
+    }
+}
+
+#[test]
+fn filter_factories_are_not_instance_interfaces() {
+    for style in ["minimal", "full"] {
+        let output = bundled_filter_output("factory-hierarchy", style, &["Windows.Devices.I2c"]);
+        assert!(output.contains("pub fn FromIdAsync"), "{style}");
+        for hierarchy in output.split("required_hierarchy!").skip(1) {
+            assert!(
+                !hierarchy
+                    .split_once(");")
+                    .unwrap()
+                    .0
+                    .contains("II2cDeviceStatics"),
+                "{style}: {}",
+                hierarchy.split_once(");").unwrap().0
+            );
+        }
+    }
+}
+
+#[test]
+fn filter_preserves_vtable_slot_names() {
+    for style in ["minimal", "full"] {
+        let output = filter_contract_output(
+            "filtered-slots",
+            style,
+            &[
+                "Slots.IProbe::Value",
+                "!Slots.IProbe::get_Value",
+                "Slots.NativeProbe::Value",
+                "!Slots.NativeProbe::get_Value",
+                "Slots.Widget::Value",
+                "!Slots.Widget::get_Value",
+            ],
+        );
+        assert!(output.contains("pub Value2:"), "{style}");
+        assert!(!output.contains("vtable(self).Value)"), "{style}");
+        assert!(!output.contains("vtable(this).Value)"), "{style}");
+    }
+}
+
+#[test]
+fn filter_native_override_selection() {
+    for style in ["minimal", "full", "sys"] {
+        let output = bundled_filter_output(
+            "override-selection",
+            style,
+            &["IDirect3D9Ex::GetAdapterCount"],
+        );
+        assert!(output.contains("pub GetAdapterCount:"), "{style}");
+        let output = bundled_filter_output(
+            "override-exclusion",
+            style,
+            &[
+                "IDirect3D9",
+                "IDirect3D9Ex::{}",
+                "!IDirect3D9Ex::GetAdapterCount",
+            ],
+        );
+        assert!(!output.contains("pub GetAdapterCount:"), "{style}");
+        assert!(output.contains("pub GetAdapterIdentifier:"), "{style}");
+    }
+}
+
+#[test]
+fn filter_namespace_dependency_exclusions() {
+    for style in ["minimal", "full", "sys"] {
+        for (namespace, dependency) in [
+            ("Publication", "Publication"),
+            ("NativePublication", "NativePublication"),
+            ("PublicationSource", "Publication"),
+            ("NativePublicationSource", "NativePublication"),
+        ] {
+            let output = filter_contract_output(
+                "dependency-exclusions",
+                style,
+                &[namespace, &format!("!{dependency}.Hidden")],
+            );
+            for excluded in ["pub struct Hidden", "pub struct Holder", "pub GetHolder:"] {
+                assert!(
+                    !output.contains(excluded),
+                    "{style}: {namespace}: {excluded}"
+                );
+            }
+            assert!(output.contains("pub Ping:"), "{style}: {namespace}");
+        }
+    }
+}
+
+#[test]
+fn filter_architecture_dependency_exclusions() {
+    for style in ["minimal", "full", "sys"] {
+        let output = filter_contract_output(
+            "architecture-exclusions",
+            style,
+            &["NativeArchitecture", "!Publication.Hidden"],
+        );
+        for present in [
+            "pub struct Record",
+            "pub struct Holder",
+            "pub type Callback",
+            "fn UseRecord(",
+        ] {
+            assert!(output.contains(present), "{style}: {present}");
+        }
+        assert!(!output.contains("target_arch = \"aarch64\""), "{style}");
+        assert!(!output.contains("pub GetRecord:"), "{style}");
+        assert!(output.contains("pub Ping:"), "{style}");
+        assert!(!output.contains("pub struct AllTargets"), "{style}");
+        assert!(!output.contains("fn UseAllTargets("), "{style}");
+    }
+}
+
+#[test]
+fn filter_function_dependency_exclusions() {
+    for style in ["minimal", "full", "sys"] {
+        let output = filter_contract_output(
+            "function-exclusions",
+            style,
+            &["NativePublication", "!NativePublication.Hidden"],
+        );
+        assert!(output.contains("fn Variant("), "{style}");
+        assert!(!output.contains("target_arch = \"aarch64\""), "{style}");
+    }
+}
+
+#[test]
+fn filter_sys_erased_dependencies() {
+    for selection in [
+        "Raw",
+        "Raw.Holder",
+        "Raw.Callback",
+        "Raw.Functions",
+        "Raw.Take",
+        "Raw.Return",
+    ] {
+        let output = filter_contract_output("sys-erasure", "sys", &[selection]);
+        assert!(!output.contains("windows_core"), "{selection}\n{output}");
+        assert!(!output.contains("pub struct Widget"), "{selection}");
+    }
+    let output = bundled_filter_output("sys-erased-alias", "sys", &["PDISPATCHERQUEUE"]);
+    assert!(output.contains("pub type PDISPATCHERQUEUE = *mut core::ffi::c_void;"));
+    assert!(!output.contains("windows_core"));
+}
+
+#[test]
+fn filter_regressions_compile() {
+    compile_filter_regressions(&[None]);
+}
+
+#[test]
+#[ignore = "requires x86, x64, and ARM64 MSVC Rust targets"]
+fn filter_regressions_cross_targets() {
+    compile_filter_regressions(&[
+        Some("i686-pc-windows-msvc"),
+        Some("x86_64-pc-windows-msvc"),
+        Some("aarch64-pc-windows-msvc"),
+    ]);
+}
+
+fn compile_filter_regressions(targets: &[Option<&str>]) {
+    let scratch = std::path::Path::new(env!("OUT_DIR"))
+        .join("filter-regressions")
+        .join(targets[0].unwrap_or("host"));
+    std::fs::create_dir_all(&scratch).unwrap();
+    let libs = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap()
+        .join("libs");
+    let manifest = scratch.join("Cargo.toml");
+    for style in ["minimal", "full", "sys"] {
+        let core = if style == "sys" {
+            String::new()
+        } else {
+            format!(
+                "windows-core = {{ path = '{}' }}\n",
+                libs.join("core").display()
+            )
+        };
+        std::fs::write(
+            &manifest,
+            format!(
+                "[package]\nname = \"filter-regressions\"\nversion = \"0.0.0\"\nedition = \"2024\"\n\
+                 [workspace]\n[lib]\npath = \"lib.rs\"\n[dependencies]\n\
+                 windows-link = {{ path = '{}' }}\n{core}",
+                libs.join("link").display(),
+            ),
+        ).unwrap();
+        let mut source =
+            String::from("#![deny(warnings)]\n#![allow(dead_code, nonstandard_style)]\n");
+        for (name, filters) in [
+            (
+                "architecture",
+                &["NativeArchitecture", "!Publication.Hidden"][..],
+            ),
+            (
+                "functions",
+                &["NativePublication", "!NativePublication.Hidden"][..],
+            ),
+        ] {
+            let output = filter_contract_output(&format!("compile-{name}"), style, filters);
+            std::fs::write(scratch.join(format!("{name}.rs")), output).unwrap();
+            source.push_str(&format!("mod {name};\n"));
+        }
+        let output = bundled_filter_output(
+            "compile-override",
+            style,
+            &["IDirect3D9Ex::GetAdapterCount"],
+        );
+        std::fs::write(scratch.join("inherited.rs"), output).unwrap();
+        source.push_str(
+            "mod inherited;\npub fn inherited_slot(value: &inherited::IDirect3D9_Vtbl) { let _ = value.GetAdapterCount; }\n",
+        );
+        if style == "sys" {
+            let output = filter_contract_output("compile-raw", style, &["Raw"]);
+            std::fs::write(scratch.join("raw.rs"), output).unwrap();
+            source.push_str(
+                "mod raw;\npub fn raw_slot(value: &raw::IDerived_Vtbl) { let _ = value.base__.Get; let _ = value.Set; }\n",
+            );
+            source.push_str(r#"
+pub fn raw_signatures(holder: raw::Holder, callback: raw::Callback, functions: raw::Functions) {
+    let _: [*mut core::ffi::c_void; 2] = holder.widgets;
+    let _: *mut *mut core::ffi::c_void = holder.interface;
+    let _: *mut core::ffi::c_void = holder.generic;
+    let _: *mut core::ffi::c_void = holder.handler;
+    let _: Option<unsafe extern "C" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void> = callback;
+    let _: Option<unsafe extern "C" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void> = functions.callback;
+    let _: unsafe extern "C" fn() -> *mut core::ffi::c_void = raw::Return;
+}
+"#);
+        } else {
+            let output = filter_contract_output(
+                "compile-slots",
+                style,
+                &[
+                    "Slots.IProbe::Value",
+                    "!Slots.IProbe::get_Value",
+                    "Slots.NativeProbe::Value",
+                    "!Slots.NativeProbe::get_Value",
+                    "Slots.Widget::Value",
+                    "!Slots.Widget::get_Value",
+                    "Slots.IRequired::{}",
+                ],
+            );
+            std::fs::write(scratch.join("slots.rs"), output).unwrap();
+            source.push_str(
+                r#"
+mod slots;
+pub unsafe fn callers(value: &slots::IProbe, native: &slots::NativeProbe, class: &slots::Widget) {
+    let _ = value.Value();
+    let _ = unsafe { native.Value() };
+    let _ = class.Value();
+}
+"#,
+            );
+            if style == "full" {
+                source.push_str(
+                    "pub fn forwarder(value: &slots::IRequired) { let _ = value.Value(); }\n",
+                );
+            }
+        }
+        std::fs::write(scratch.join("lib.rs"), source).unwrap();
+        for target in targets {
+            let mut command = std::process::Command::new("cargo");
+            command
+                .args(["check", "--quiet", "--offline", "--manifest-path"])
+                .arg(&manifest)
+                .arg("--target-dir")
+                .arg(scratch.join("target"));
+            if let Some(target) = target {
+                command.args(["--target", target]);
+            }
+            let result = command.output().unwrap();
+            assert!(
+                result.status.success(),
+                "{style} {target:?}: {}",
+                String::from_utf8_lossy(&result.stderr)
+            );
+        }
+    }
+}
+
 #[test]
 fn filter_mixed_namespaces_preserve_precise_methods() {
     for style in ["minimal", "full", "sys"] {

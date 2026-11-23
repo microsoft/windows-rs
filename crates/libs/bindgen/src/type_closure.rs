@@ -34,7 +34,9 @@ impl TypeClosure {
                         if filter.includes_method(ty.type_name(), method) {
                             let sig = method.method_signature(&iface.generics, reader);
                             for dep_ty in sig.types() {
-                                dep_ty.combine_root(&mut types, reader, references, style);
+                                dep_ty.combine_signature_closure(
+                                    &mut types, reader, references, style, ALL_ARCHES,
+                                );
                             }
                         }
                     }
@@ -49,7 +51,9 @@ impl TypeClosure {
                             }
                             let sig = method.method_signature(&[], reader);
                             for dep_ty in sig.types() {
-                                dep_ty.combine_root(&mut types, reader, references, style);
+                                dep_ty.combine_signature_closure(
+                                    &mut types, reader, references, style, ALL_ARCHES,
+                                );
                             }
                         }
                     }
@@ -124,7 +128,9 @@ impl TypeClosure {
                         }
                         let sig = method.method_signature(generics, reader);
                         for dep_ty in sig.types() {
-                            dep_ty.combine_root(&mut types, reader, references, style);
+                            dep_ty.combine_signature_closure(
+                                &mut types, reader, references, style, ALL_ARCHES,
+                            );
                         }
                     }
                 }
@@ -185,6 +191,15 @@ trait CombineClosure {
         arches: i32,
     );
 
+    fn combine_signature_closure(
+        &self,
+        types: &mut TypeMap,
+        reader: &Reader,
+        references: &References,
+        style: Style,
+        arches: i32,
+    );
+
     fn combine_definition_closure(
         &self,
         types: &mut TypeMap,
@@ -196,6 +211,19 @@ trait CombineClosure {
 }
 
 impl CombineClosure for Type {
+    fn combine_signature_closure(
+        &self,
+        types: &mut TypeMap,
+        reader: &Reader,
+        references: &References,
+        style: Style,
+        arches: i32,
+    ) {
+        if !style.is_sys() || !self.dependency_type().is_interface() {
+            self.combine_closure(types, reader, references, style, arches);
+        }
+    }
+
     fn combine_abi_closure(
         &self,
         types: &mut TypeMap,
@@ -235,7 +263,7 @@ impl CombineClosure for Type {
         }
         if let Self::FnPtr(signature) = ty {
             for ty in signature.types() {
-                ty.combine_closure(types, reader, references, style, arches);
+                ty.combine_signature_closure(types, reader, references, style, arches);
             }
             return;
         }
@@ -324,12 +352,12 @@ impl CombineClosure for Type {
             Self::Struct(s) => {
                 for field in s.def.fields() {
                     let field_ty = field.field_type(None, reader);
-                    field_ty.combine_closure(types, reader, references, style, arches);
+                    field_ty.combine_signature_closure(types, reader, references, style, arches);
                 }
             }
             Self::CppStruct(s) => {
                 for ty in s.definition_types(reader) {
-                    ty.combine_closure(types, reader, references, style, arches);
+                    ty.combine_signature_closure(types, reader, references, style, arches);
                 }
             }
             Self::Enum(_) | Self::CppEnum(_) => {}
@@ -338,7 +366,9 @@ impl CombineClosure for Type {
                     if method.name() == "Invoke" {
                         let sig = method.method_signature(&d.generics, reader);
                         for dep_ty in sig.types() {
-                            dep_ty.combine_closure(types, reader, references, style, arches);
+                            dep_ty.combine_signature_closure(
+                                types, reader, references, style, arches,
+                            );
                         }
                     }
                 }
@@ -351,7 +381,9 @@ impl CombineClosure for Type {
                         }
                         let sig = method.method_signature(&[], reader);
                         for dep_ty in sig.types() {
-                            dep_ty.combine_closure(types, reader, references, style, arches);
+                            dep_ty.combine_signature_closure(
+                                types, reader, references, style, arches,
+                            );
                         }
                     }
                 }
@@ -372,7 +404,7 @@ impl CombineClosure for Type {
                 }
                 let sig = f.method.method_signature(&[], reader);
                 sig.return_type
-                    .combine_closure(types, reader, references, style, arches);
+                    .combine_signature_closure(types, reader, references, style, arches);
                 for param in &sig.params {
                     if style.is_minimal() {
                         param
@@ -381,7 +413,7 @@ impl CombineClosure for Type {
                     } else {
                         param
                             .ty
-                            .combine_closure(types, reader, references, style, arches);
+                            .combine_signature_closure(types, reader, references, style, arches);
                     }
                 }
                 if let Some(dependency) = f.window_long_dependency(reader) {

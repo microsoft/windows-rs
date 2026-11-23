@@ -221,8 +221,11 @@ impl Filter {
         if in_set(&filter.keep) {
             return true;
         }
-        // Empty allow set means deny-only mode; otherwise unlisted methods are opt out.
         filter.keep.is_empty()
+            && match self.type_role(type_name) {
+                TypeRole::Named(set) => set.includes(raw),
+                TypeRole::Shell => false,
+            }
     }
 
     /// Returns the explicit variant selection, including exclusions and name-only shells.
@@ -236,6 +239,13 @@ impl Filter {
     pub fn is_activatable(&self, namespace: &str, name: &str) -> bool {
         self.activatable
             .contains(&(namespace.to_string(), name.to_string()))
+            && !self.excludes_constructor(namespace, name)
+    }
+
+    pub fn excludes_constructor(&self, namespace: &str, name: &str) -> bool {
+        self.methods
+            .get(&(namespace.to_string(), name.to_string()))
+            .is_some_and(|methods| methods.drop.contains("CreateInstance"))
     }
 
     /// Builds the inclusion rules and closure seeds from resolved filter entries.
@@ -253,7 +263,11 @@ impl Filter {
         let mut hierarchy_interfaces = HashSet::new();
         let mut has_broad_filter = false;
 
-        for entry in entries {
+        for entry in entries
+            .iter()
+            .filter(|entry| !entry.exclude)
+            .chain(entries.iter().filter(|entry| entry.exclude))
+        {
             let include = !entry.exclude;
 
             match &entry.kind {
@@ -296,9 +310,11 @@ impl Filter {
                     members,
                 } => {
                     let full = format!("{namespace}.{name}");
-                    // Member-level entries always include the type - exclusion
-                    // applies to the method/variant, not the type itself.
-                    if !rules.iter().any(|(r, _)| r == &full) {
+                    let seed = include
+                        || rules.iter().any(|(rule, include)| {
+                            *include && match_type_name(rule, namespace, name)
+                        });
+                    if include && !rules.iter().any(|(r, _)| r == &full) {
                         rules.push((full, true));
                     }
 
@@ -329,6 +345,7 @@ impl Filter {
                                 name,
                                 member,
                                 include,
+                                seed,
                             );
                         }
                     }
@@ -338,6 +355,9 @@ impl Filter {
 
         // Unscoped enum constants are independent entries in the reader.
         for ((namespace, name), variants) in &enum_variants {
+            if !direct_types.contains(&(namespace.clone(), name.clone())) {
+                continue;
+            }
             for ty in reader.with_full_name(namespace, name) {
                 if let Type::CppEnum(e) = ty
                     && !e.def.has_attribute("ScopedEnumAttribute")
@@ -445,6 +465,7 @@ impl Filter {
         name: &str,
         member: &str,
         include: bool,
+        seed: bool,
     ) {
         let key = (namespace.to_string(), name.to_string());
 
@@ -461,7 +482,7 @@ impl Filter {
                         .entry(key.clone())
                         .or_default()
                         .insert(member, include);
-                    if !direct_types.contains(&key) {
+                    if seed && !direct_types.contains(&key) {
                         direct_types.push(key);
                     }
                 }
@@ -476,7 +497,7 @@ impl Filter {
                         .entry(key.clone())
                         .or_default()
                         .insert(member, include);
-                    if !direct_types.contains(&key) {
+                    if seed && !direct_types.contains(&key) {
                         direct_types.push(key);
                     }
                 }
@@ -484,10 +505,18 @@ impl Filter {
                     let required = class.required_interfaces(reader);
                     // Route to the class's required interfaces
                     if member == "CreateInstance" {
-                        if !direct_types.contains(&key) {
-                            direct_types.push(key.clone());
+                        if include {
+                            if !direct_types.contains(&key) {
+                                direct_types.push(key.clone());
+                            }
+                            activatable.insert(key.clone());
+                        } else {
+                            methods
+                                .entry(key.clone())
+                                .or_default()
+                                .drop
+                                .insert(member.to_string());
                         }
-                        activatable.insert(key.clone());
 
                         // A composable class uses its parameterless factory method as `new()`.
                         // Select that constructor only; other overloads are independent APIs.
@@ -504,13 +533,21 @@ impl Filter {
                                 iface.def.namespace().to_string(),
                                 iface.def.name().to_string(),
                             );
-                            let set = requested_interfaces
-                                .entry(iface_key.clone())
-                                .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
-                            if let MethodSet::Names(names) = set {
-                                names.extend(expanded.iter().cloned());
+                            if include {
+                                let set = requested_interfaces
+                                    .entry(iface_key.clone())
+                                    .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                                if let MethodSet::Names(names) = set {
+                                    names.extend(expanded.iter().cloned());
+                                }
                             }
-                            methods.entry(iface_key).or_default().keep.extend(expanded);
+                            register_method_filter(
+                                methods,
+                                &iface_key.0,
+                                &iface_key.1,
+                                expanded,
+                                include,
+                            );
                         }
                     } else {
                         // Find which interface carries this method
@@ -546,12 +583,20 @@ impl Filter {
                                 ));
                             }
                             // Register expanded names in requested_interfaces
-                            let set = requested_interfaces
-                                .entry(iface_key.clone())
-                                .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
-                            if let MethodSet::Names(names) = set {
-                                for n in &expanded {
-                                    names.insert(n.clone());
+                            if seed {
+                                let set = requested_interfaces
+                                    .entry(iface_key.clone())
+                                    .or_insert_with(|| {
+                                        if include {
+                                            MethodSet::Names(BTreeSet::new())
+                                        } else {
+                                            MethodSet::All
+                                        }
+                                    });
+                                if let MethodSet::Names(names) = set {
+                                    for n in &expanded {
+                                        names.insert(n.clone());
+                                    }
                                 }
                             }
                             let filter_entry = methods.entry(iface_key).or_default();
@@ -562,7 +607,7 @@ impl Filter {
                             } else {
                                 filter_entry.drop.extend(expanded);
                             }
-                            if !direct_types.contains(&key) {
+                            if seed && !direct_types.contains(&key) {
                                 direct_types.push(key.clone());
                             }
                             found = true;
@@ -600,6 +645,37 @@ impl Filter {
                         !expanded.is_empty(),
                         "method `{member}` not found on `{namespace}.{name}`"
                     );
+                    if matches!(ty, Type::CppInterface(_)) {
+                        for def in &defs {
+                            if !expanded.iter().any(|name| {
+                                name == def.name()
+                                    || method_overload_name(*def).as_deref() == Some(name)
+                            }) {
+                                continue;
+                            }
+                            let owner = CppInterface::method_owner(*def, reader);
+                            if owner == *def {
+                                continue;
+                            }
+                            let MemberRefParent::TypeDef(parent) = owner.parent() else {
+                                unreachable!()
+                            };
+                            Self::register_member(
+                                reader,
+                                methods,
+                                requested_interfaces,
+                                direct_types,
+                                activatable,
+                                enum_variants,
+                                hierarchy_interfaces,
+                                parent.namespace(),
+                                parent.name(),
+                                owner.name(),
+                                include,
+                                include,
+                            );
+                        }
+                    }
                     // Auto-include remove_X when add_X is requested
                     if include {
                         let remove_extras: Vec<String> = expanded
@@ -613,12 +689,18 @@ impl Filter {
                         expanded.extend(remove_extras);
                     }
                     // The closure walk only follows these requested method signatures.
-                    let set = requested_interfaces
-                        .entry(key.clone())
-                        .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
-                    if let MethodSet::Names(names) = set {
-                        for name in &expanded {
-                            names.insert(name.clone());
+                    if seed {
+                        let set = requested_interfaces.entry(key.clone()).or_insert_with(|| {
+                            if include {
+                                MethodSet::Names(BTreeSet::new())
+                            } else {
+                                MethodSet::All
+                            }
+                        });
+                        if let MethodSet::Names(names) = set {
+                            for name in &expanded {
+                                names.insert(name.clone());
+                            }
                         }
                     }
                     register_method_filter(methods, namespace, name, expanded, include);

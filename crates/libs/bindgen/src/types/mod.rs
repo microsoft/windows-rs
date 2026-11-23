@@ -212,47 +212,43 @@ impl Type {
             ty.combine_sys(dependencies, reader);
         }
 
-        if !dependencies.insert(ty.clone()) {
-            return;
-        }
-
-        if let Some(multi) = match &ty {
+        let multi = match &ty {
             Self::CppStruct(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
+            Self::CppEnum(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
             Self::CppFn(ty) => Some(reader.with_full_name(ty.namespace, ty.method.name())),
             Self::CppDelegate(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
             _ => None,
-        } {
-            multi.for_each(|multi| {
-                if ty != multi {
-                    multi.combine_sys(dependencies, reader);
-                }
-            });
-        }
+        };
 
-        match &ty {
-            Self::Struct(ty) => {
-                for field in ty.def.fields() {
-                    field
-                        .field_type(None, reader)
-                        .combine_sys(dependencies, reader);
-                }
+        for ty in std::iter::once(ty).chain(multi.into_iter().flatten()) {
+            if !dependencies.includes_arches(ty.arches()) || !dependencies.insert(ty.clone()) {
+                continue;
             }
-            Self::CppDelegate(ty) => {
-                let signature = ty.method().method_signature(&[], reader);
-                for ty in signature.types() {
-                    ty.combine_sys(dependencies, reader);
+            dependencies.with_arches(ty.arches(), |dependencies| match &ty {
+                Self::Struct(ty) => {
+                    for field in ty.def.fields() {
+                        field
+                            .field_type(None, reader)
+                            .combine_sys(dependencies, reader);
+                    }
                 }
-                for ty in ty.method().associated_enums(reader) {
-                    ty.combine_sys(dependencies, reader);
+                Self::CppDelegate(ty) => {
+                    let signature = ty.method().method_signature(&[], reader);
+                    for ty in signature.types() {
+                        ty.combine_sys(dependencies, reader);
+                    }
+                    for ty in ty.method().associated_enums(reader) {
+                        ty.combine_sys(dependencies, reader);
+                    }
                 }
-            }
-            Self::CppFn(ty) => ty.combine_sys(dependencies, reader),
-            Self::CppStruct(ty) => {
-                for ty in ty.definition_types(reader) {
-                    ty.combine_sys(dependencies, reader);
+                Self::CppFn(ty) => ty.combine_sys(dependencies, reader),
+                Self::CppStruct(ty) => {
+                    for ty in ty.definition_types(reader) {
+                        ty.combine_sys(dependencies, reader);
+                    }
                 }
-            }
-            _ => {}
+                _ => {}
+            });
         }
     }
 
@@ -1420,47 +1416,43 @@ impl Dependencies for Type {
             ty.combine(dependencies, reader);
         }
 
-        if !dependencies.insert(ty.clone()) {
-            return;
-        }
-
-        if let Some(multi) = match &ty {
+        let multi = match &ty {
             Self::CppStruct(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
+            Self::CppEnum(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
             Self::CppFn(ty) => Some(reader.with_full_name(ty.namespace, ty.method.name())),
             Self::CppDelegate(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
             Self::CppConst(ty) => Some(reader.with_full_name(ty.namespace, ty.field.name())),
             _ => None,
-        } {
-            multi.for_each(|multi| {
-                if ty != multi {
-                    multi.combine(dependencies, reader);
+        };
+
+        for ty in std::iter::once(ty).chain(multi.into_iter().flatten()) {
+            if !dependencies.includes_arches(ty.arches()) || !dependencies.insert(ty.clone()) {
+                continue;
+            }
+            dependencies.with_arches(ty.arches(), |dependencies| match &ty {
+                Self::Class(ty) => ty.combine(dependencies, reader),
+                Self::Delegate(ty) => ty.combine(dependencies, reader),
+                Self::Enum(..) => {}
+                Self::Interface(ty) => ty.combine(dependencies, reader),
+                Self::Struct(ty) => ty.combine(dependencies, reader),
+                Self::CppConst(ty) => ty.combine(dependencies, reader),
+                Self::CppDelegate(ty) => ty.combine(dependencies, reader),
+                Self::CppFn(ty) => ty.combine(dependencies, reader),
+                Self::CppInterface(ty) => ty.combine(dependencies, reader),
+                Self::CppStruct(ty) => ty.combine(dependencies, reader),
+                Self::CppEnum(..) => {}
+
+                Self::IUnknown => {
+                    Self::GUID.combine(dependencies, reader);
+                    Self::HRESULT.combine(dependencies, reader);
                 }
+
+                Self::Object => {
+                    Self::IUnknown.combine(dependencies, reader);
+                }
+
+                _ => {}
             });
-        }
-
-        match &ty {
-            Self::Class(ty) => ty.combine(dependencies, reader),
-            Self::Delegate(ty) => ty.combine(dependencies, reader),
-            Self::Enum(..) => {}
-            Self::Interface(ty) => ty.combine(dependencies, reader),
-            Self::Struct(ty) => ty.combine(dependencies, reader),
-            Self::CppConst(ty) => ty.combine(dependencies, reader),
-            Self::CppDelegate(ty) => ty.combine(dependencies, reader),
-            Self::CppFn(ty) => ty.combine(dependencies, reader),
-            Self::CppInterface(ty) => ty.combine(dependencies, reader),
-            Self::CppStruct(ty) => ty.combine(dependencies, reader),
-            Self::CppEnum(..) => {}
-
-            Self::IUnknown => {
-                Self::GUID.combine(dependencies, reader);
-                Self::HRESULT.combine(dependencies, reader);
-            }
-
-            Self::Object => {
-                Self::IUnknown.combine(dependencies, reader);
-            }
-
-            _ => {}
         }
     }
 }

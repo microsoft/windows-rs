@@ -122,7 +122,7 @@ unsafe impl Sync for I2cController {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct I2cDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cDevice, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(I2cDevice, super::super::Foundation::IClosable, II2cDeviceStatics);
+windows_core::imp::required_hierarchy!(I2cDevice, super::super::Foundation::IClosable);
 impl I2cDevice {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;

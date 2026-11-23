@@ -376,7 +376,6 @@ unsafe impl Sync for BackgroundTransferCompletionGroupTriggerDetails {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundTransferContentPart(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTransferContentPart, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BackgroundTransferContentPart, IBackgroundTransferContentPartFactory);
 impl BackgroundTransferContentPart {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
