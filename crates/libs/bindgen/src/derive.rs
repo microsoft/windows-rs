@@ -33,15 +33,13 @@ impl Derive {
 
 fn get_type_name(reader: &Reader, path: &str) -> TypeName {
     if let Some((namespace, name)) = path.rsplit_once('.') {
-        if let Some((namespace, types)) = reader.get_key_value(namespace)
-            && let Some((name, _)) = types.get_key_value(name)
-        {
-            return TypeName(namespace, name);
+        if let Some(name) = reader.find_name(namespace, name) {
+            return name;
         }
     } else {
-        for (namespace, types) in reader.iter() {
-            if let Some((name, _)) = types.get_key_value(path) {
-                return TypeName(namespace, name);
+        for namespace in reader.namespaces() {
+            if let Some(name) = reader.find_name(namespace, path) {
+                return name;
             }
         }
     }

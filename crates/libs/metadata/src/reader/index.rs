@@ -255,8 +255,11 @@ impl Index {
     }
 
     fn supports_architecture<'a, R: HasAttributes<'a>>(&self, row: R) -> bool {
+        if self.architecture == 0 {
+            return true;
+        }
         let arches = row.arches();
-        self.architecture == 0 || arches == 0 || arches & self.architecture != 0
+        arches == 0 || arches & self.architecture != 0
     }
 
     /// Iterates every namespace that contains at least one item.

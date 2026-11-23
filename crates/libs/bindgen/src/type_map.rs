@@ -79,9 +79,10 @@ impl TypeMap {
         // stops at them.
         let referenced = Arc::new(references.type_names(reader));
 
-        for namespace in reader.keys() {
+        for namespace in reader.namespaces() {
             if filter.includes_namespace(namespace) {
-                for (name, types) in &reader[namespace] {
+                for type_name in reader.type_names(namespace) {
+                    let name = type_name.name();
                     if let Some(filter_rule) = filter.includes_type_name(TypeName(namespace, name))
                     {
                         // A longer rule string means a more specific (fully-qualified) path.
@@ -95,6 +96,7 @@ impl TypeMap {
                         }
 
                         // A referenced type that is also generated needs its own dependencies.
+                        let types = reader.types(type_name);
                         let mut item_dependencies =
                             if referenced.contains(&TypeName(namespace, name)) {
                                 Self::new()
@@ -102,7 +104,7 @@ impl TypeMap {
                                 Self(HashMap::new(), referenced.clone(), HashMap::new())
                             };
 
-                        for ty in types {
+                        for ty in types.iter() {
                             if sys && let Type::CppFn(function) = ty {
                                 function.combine_sys(&mut item_dependencies, reader);
                             } else {
@@ -114,7 +116,7 @@ impl TypeMap {
                             continue;
                         }
 
-                        for ty in types {
+                        for ty in types.iter() {
                             dependencies.insert(ty.clone());
                         }
 
