@@ -280,8 +280,13 @@ fn selection_implementation_does_not_add_callers() {
 #[test]
 fn selection_namespace_rejections_survive_dependencies() {
     for style in ["minimal", "full", "sys"] {
-        for namespace in ["Publication", "NativePublication"] {
-            let exclusion = format!("!{namespace}.Hidden");
+        for (namespace, dependency) in [
+            ("Publication", "Publication"),
+            ("NativePublication", "NativePublication"),
+            ("PublicationSource", "Publication"),
+            ("NativePublicationSource", "NativePublication"),
+        ] {
+            let exclusion = format!("!{dependency}.Hidden");
             let output =
                 filter_contract_output("namespace-rejections", style, &[namespace, &exclusion]);
             assert!(!output.contains("pub struct Hidden"), "{style}\n{output}");
@@ -298,7 +303,7 @@ fn selection_namespace_rejections_survive_dependencies() {
                 );
             }
 
-            let explicit = format!("{namespace}.Holder");
+            let explicit = format!("{dependency}.Holder");
             let output = filter_contract_output(
                 "namespace-explicit",
                 style,
@@ -394,14 +399,24 @@ fn selection_generated_contracts_compile() {
             let output = selection_output(&format!("compile-{name}"), style, filters, None);
             std::fs::write(scratch.join(format!("{name}.rs")), output).unwrap();
         }
-        for (name, namespace) in [
-            ("publication", "Publication"),
-            ("native_publication", "NativePublication"),
+        for (name, namespace, dependency) in [
+            ("publication", "Publication", "Publication"),
+            (
+                "native_publication",
+                "NativePublication",
+                "NativePublication",
+            ),
+            ("publication_source", "PublicationSource", "Publication"),
+            (
+                "native_publication_source",
+                "NativePublicationSource",
+                "NativePublication",
+            ),
         ] {
             let output = filter_contract_output(
                 &format!("compile-{name}"),
                 style,
-                &[namespace, &format!("!{namespace}.Hidden")],
+                &[namespace, &format!("!{dependency}.Hidden")],
             );
             std::fs::write(scratch.join(format!("{name}.rs")), output).unwrap();
         }
@@ -409,6 +424,7 @@ fn selection_generated_contracts_compile() {
             "#![deny(warnings)]\n#![allow(dead_code, nonstandard_style)]\n\
              mod native;\nmod excluded;\n\
              mod publication;\nmod native_publication;\n\
+             mod publication_source;\nmod native_publication_source;\n\
              pub fn native_slot(value: &native::IDirect3D9_Vtbl) { let _ = value.GetAdapterCount; }\n\
              pub fn retained_slot(value: &excluded::IDirect3D9_Vtbl) { let _ = value.GetAdapterIdentifier; }\n",
         );

@@ -89,13 +89,9 @@ impl<'a> TypeClosure<'a> {
             vec![definition]
         };
         for definition in variants {
-            // Namespace eligibility applies to dependencies as well as roots.
-            // Contradictory direct requests remain visible rather than being repaired.
+            // Only direct requests may retain definitions with excluded dependencies.
             if let Some(publication) = &self.publication
-                && self
-                    .filter
-                    .includes_type_name(name)
-                    .is_some_and(|rule| rule.len() <= name.namespace().len())
+                && !self.filter.is_explicit(name)
             {
                 let mut dependencies = if self.references.contains(name).is_some() {
                     TypeMap::new()

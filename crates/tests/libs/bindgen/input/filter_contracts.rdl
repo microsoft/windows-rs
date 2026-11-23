@@ -119,3 +119,21 @@ mod NativePublication {
         fn Ping(&self);
     }
 }
+#[winrt]
+mod PublicationSource {
+    #[guid(auto)]
+    interface ISource {
+        fn GetHolder(&self) -> Publication::Holder;
+        fn GetWrapper(&self) -> Publication::Wrapper;
+        fn Ping(&self);
+    }
+}
+#[win32]
+mod NativePublicationSource {
+    #[guid(auto)]
+    interface ISource {
+        fn GetHolder(&self, #[out] value: *mut NativePublication::Holder);
+        fn GetWrapper(&self, #[out] value: *mut NativePublication::Wrapper);
+        fn Ping(&self);
+    }
+}
