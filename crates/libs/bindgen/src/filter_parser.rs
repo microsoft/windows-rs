@@ -185,8 +185,8 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
 
         let mut found = false;
         let mut results = Vec::new();
-        for (namespace, types) in reader.iter() {
-            if types.get(name.as_str()).is_some() {
+        for namespace in reader.namespaces() {
+            if reader.contains_name(namespace, name) {
                 results.push(base(ResolvedKind::Type {
                     namespace: namespace.to_string(),
                     name: name.clone(),
@@ -196,9 +196,9 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         }
         if !found {
             // Fall back to namespace or namespace-prefix matching.
-            if reader.contains_key(name.as_str())
+            if reader.contains_namespace(name)
                 || reader
-                    .keys()
+                    .namespaces()
                     .any(|ns| namespace_starts_with(ns, name.as_str()))
             {
                 results.push(base(ResolvedKind::Namespace(name.clone())));
@@ -214,7 +214,7 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         let ns_candidate = segments[..split].join(".");
         let rest = &segments[split..];
 
-        if !reader.contains_key(ns_candidate.as_str()) {
+        if !reader.contains_namespace(&ns_candidate) {
             continue;
         }
 
@@ -227,8 +227,7 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
             segments.join("::")
         );
 
-        let ns_map = reader.get(ns_candidate.as_str());
-        if ns_map.is_none() || ns_map.unwrap().get(type_seg.as_str()).is_none() {
+        if !reader.contains_name(&ns_candidate, type_seg) {
             continue;
         }
 
@@ -250,12 +249,12 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
 
     // Then try the whole path as a namespace.
     let full_path = segments.join(".");
-    if reader.contains_key(full_path.as_str()) {
+    if reader.contains_namespace(&full_path) {
         return vec![base(ResolvedKind::Namespace(full_path))];
     }
 
     if reader
-        .keys()
+        .namespaces()
         .any(|ns| namespace_starts_with(ns, &full_path))
     {
         return vec![base(ResolvedKind::Namespace(full_path))];
@@ -265,8 +264,8 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
     let type_name = &segments[0];
     let members = collect_members(&segments[1..], segments);
     let mut results = Vec::new();
-    for (namespace, types) in reader.iter() {
-        if types.get(type_name.as_str()).is_some() {
+    for namespace in reader.namespaces() {
+        if reader.contains_name(namespace, type_name) {
             results.push(base(ResolvedKind::Members {
                 namespace: namespace.to_string(),
                 name: type_name.clone(),
@@ -286,15 +285,13 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
     let (name, path) = segments.split_last().unwrap();
 
     // A known type earlier in the path may make the final name a member, not a type.
-    if !reader
-        .values()
-        .any(|types| path.iter().any(|part| types.contains_key(part.as_str())))
-    {
+    if !reader.namespaces().any(|namespace| {
+        path.iter()
+            .any(|part| reader.contains_name(namespace, part))
+    }) {
         let mut namespaces: Vec<_> = reader
-            .iter()
-            .filter_map(|(namespace, types)| {
-                types.contains_key(name.as_str()).then_some(*namespace)
-            })
+            .namespaces()
+            .filter(|namespace| reader.contains_name(namespace, name))
             .collect();
         namespaces.sort_unstable();
         if namespaces.len() == 1 {

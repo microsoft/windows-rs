@@ -456,6 +456,9 @@ impl Bindgen {
     ///
     /// Without an explicit output, writes `OUT_DIR/bindings.rs`. Use distinct explicit paths for
     /// multiple output files. Does not emit Cargo dependency-tracking directives.
+    ///
+    /// Resolves declarations on demand, including dependencies of selected APIs. Errors in unused
+    /// declarations may not be reported.
     #[track_caller]
     pub fn write(&self) {
         // Validate before setting up reader and reference state.
@@ -578,15 +581,13 @@ impl Bindgen {
                     ][..],
                 ),
             ] {
-                if reader.contains_key(probe_namespace) {
+                if reader.contains_namespace(probe_namespace) {
                     let filtered: Vec<&str> = paths
                         .iter()
                         .copied()
                         .filter(|path| {
-                            if let Some((namespace, name)) = path.rsplit_once('.')
-                                && let Some(ns_map) = reader.get(namespace)
-                            {
-                                return ns_map.contains_key(name);
+                            if let Some((namespace, name)) = path.rsplit_once('.') {
+                                return reader.contains_name(namespace, name);
                             }
                             false
                         })
