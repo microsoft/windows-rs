@@ -180,80 +180,50 @@ impl Type {
         }
     }
 
-    /// Collects sys ABI dependencies without projected interfaces, which sys signatures erase to
-    /// raw pointers.
-    pub fn combine_sys(&self, dependencies: &mut TypeMap, reader: &Reader) {
+    /// Visits the names used by a type expression, without entering their definitions.
+    pub fn visit_names(
+        &self,
+        reader: &Reader,
+        style: Style,
+        visit: &mut dyn FnMut(&Self) -> bool,
+    ) -> bool {
         let ty = self.dependency_type();
-
         if let Self::Ptr64(inner, _) = ty {
-            dependencies.insert(Self::Pointer64Helper);
-            inner.combine_sys(dependencies, reader);
-            return;
+            return visit(&Self::Pointer64Helper) && inner.visit_names(reader, style, visit);
         }
         if let Self::FnPtr(signature) = ty {
-            for ty in signature.types() {
-                ty.combine_sys(dependencies, reader);
-            }
-            return;
+            return signature
+                .types()
+                .all(|ty| ty.visit_names(reader, style, visit));
         }
-        if ty.is_intrinsic() || ty.is_interface() {
-            return;
+        if ty.is_intrinsic() || (style.is_sys() && ty.is_interface()) {
+            return true;
         }
-
         if let Some(owner) = ty.enclosing() {
-            for owner in reader.with_full_name(owner.namespace(), owner.name()) {
-                owner.combine_sys(dependencies, reader);
-            }
-            return;
+            return reader
+                .with_full_name(owner.namespace(), owner.name())
+                .all(|owner| owner.visit_names(reader, style, visit));
         }
-        let (ty, generics) = ty.split_generic(reader);
+        let (definition, generics) = match ty {
+            Self::Interface(ty) if !ty.generics.is_empty() => (ty.def, &ty.generics),
+            Self::Delegate(ty) if !ty.generics.is_empty() => (ty.def, &ty.generics),
+            _ => return visit(ty),
+        };
+        generics
+            .iter()
+            .all(|ty| ty.visit_names(reader, style, visit))
+            && visit(&reader.unwrap_type_name(definition.namespace(), definition.name()))
+    }
 
-        for ty in generics {
-            ty.combine_sys(dependencies, reader);
-        }
-
-        if !dependencies.insert(ty.clone()) {
-            return;
-        }
-
-        if let Some(multi) = match &ty {
+    pub fn visit_variants(&self, reader: &Reader, visit: &mut dyn FnMut(&Self) -> bool) -> bool {
+        let variants = match self {
             Self::CppStruct(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
             Self::CppFn(ty) => Some(reader.with_full_name(ty.namespace, ty.method.name())),
             Self::CppDelegate(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
+            Self::CppConst(ty) => Some(reader.with_full_name(ty.namespace, ty.field.name())),
             _ => None,
-        } {
-            multi.for_each(|multi| {
-                if ty != multi {
-                    multi.combine_sys(dependencies, reader);
-                }
-            });
-        }
-
-        match &ty {
-            Self::Struct(ty) => {
-                for field in ty.def.fields() {
-                    field
-                        .field_type(None, reader)
-                        .combine_sys(dependencies, reader);
-                }
-            }
-            Self::CppDelegate(ty) => {
-                let signature = ty.method().method_signature(&[], reader);
-                for ty in signature.types() {
-                    ty.combine_sys(dependencies, reader);
-                }
-                for ty in ty.method().associated_enums(reader) {
-                    ty.combine_sys(dependencies, reader);
-                }
-            }
-            Self::CppFn(ty) => ty.combine_sys(dependencies, reader),
-            Self::CppStruct(ty) => {
-                for ty in ty.definition_types(reader) {
-                    ty.combine_sys(dependencies, reader);
-                }
-            }
-            _ => {}
-        }
+        };
+        variants.is_none_or(|mut variants| variants.all(|ty| ty == *self || visit(&ty)))
     }
 
     fn sort_key(&self) -> (bool, TypeName, i32, i32) {
@@ -874,42 +844,13 @@ impl Type {
 
     /// Checks names used by a signature without walking the definitions behind those names.
     pub fn is_available(&self, config: &Config) -> bool {
-        let ty = self.dependency_type();
-        match ty {
-            Self::Ptr64(inner, _) => return inner.is_available(config),
-            Self::FnPtr(signature) => {
-                return signature.types().all(|ty| ty.is_available(config));
+        self.visit_names(config.reader, config.bindgen.style, &mut |ty| {
+            if matches!(ty, Self::CppConst(constant) if constant.is_enum_member) {
+                return true;
             }
-            Self::CppConst(constant) if constant.is_enum_member => return true,
-            _ => {}
-        }
-        if ty.is_intrinsic() || (config.bindgen.style.is_sys() && ty.is_interface()) {
-            return true;
-        }
-        let arguments = match ty {
-            Self::Interface(interface) => &interface.generics[..],
-            Self::Delegate(delegate) => &delegate.generics[..],
-            _ => &[],
-        };
-        if !arguments.iter().all(|ty| ty.is_available(config)) {
-            return false;
-        }
-        let name = ty.enclosing().unwrap_or_else(|| ty.type_name());
-        name.namespace().is_empty() || config.includes_type(name)
-    }
-
-    pub fn split_generic(&self, reader: &Reader) -> (Self, Vec<Self>) {
-        match self {
-            Self::Interface(ty) if !ty.generics.is_empty() => {
-                let base = reader.unwrap_type_name(ty.def.namespace(), ty.def.name());
-                (base, ty.generics.clone())
-            }
-            Self::Delegate(ty) if !ty.generics.is_empty() => {
-                let base = reader.unwrap_type_name(ty.def.namespace(), ty.def.name());
-                (base, ty.generics.clone())
-            }
-            _ => (self.clone(), vec![]),
-        }
+            let name = ty.type_name();
+            name.namespace().is_empty() || config.includes_type(name)
+        })
     }
 
     pub fn dependency_type(&self) -> &Self {
@@ -1416,77 +1357,35 @@ impl Type {
 
 impl Dependencies for Type {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let ty = self.dependency_type();
-
-        if let Self::Ptr64(inner, _) = ty {
-            dependencies.insert(Self::Pointer64Helper);
-            inner.combine(dependencies, reader);
-            return;
-        }
-        if let Self::FnPtr(signature) = ty {
-            for ty in signature.types() {
-                ty.combine(dependencies, reader);
+        self.visit_names(reader, Style::Full, &mut |ty| {
+            if dependencies.insert(ty.clone()) {
+                ty.visit_variants(reader, &mut |ty| {
+                    ty.combine(dependencies, reader);
+                    true
+                });
+                ty.visit_dependencies(reader, &mut |ty| {
+                    ty.combine(dependencies, reader);
+                    true
+                });
             }
-            return;
-        }
-        if ty.is_intrinsic() {
-            return;
-        }
+            true
+        });
+    }
 
-        if let Some(owner) = ty.enclosing() {
-            for owner in reader.with_full_name(owner.namespace(), owner.name()) {
-                owner.combine(dependencies, reader);
-            }
-            return;
-        }
-
-        let (ty, generics) = ty.split_generic(reader);
-
-        for ty in generics {
-            ty.combine(dependencies, reader);
-        }
-
-        if !dependencies.insert(ty.clone()) {
-            return;
-        }
-
-        if let Some(multi) = match &ty {
-            Self::CppStruct(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
-            Self::CppFn(ty) => Some(reader.with_full_name(ty.namespace, ty.method.name())),
-            Self::CppDelegate(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
-            Self::CppConst(ty) => Some(reader.with_full_name(ty.namespace, ty.field.name())),
-            _ => None,
-        } {
-            multi.for_each(|multi| {
-                if ty != multi {
-                    multi.combine(dependencies, reader);
-                }
-            });
-        }
-
-        match &ty {
-            Self::Class(ty) => ty.combine(dependencies, reader),
-            Self::Delegate(ty) => ty.combine(dependencies, reader),
-            Self::Enum(..) => {}
-            Self::Interface(ty) => ty.combine(dependencies, reader),
-            Self::Struct(ty) => ty.combine(dependencies, reader),
-            Self::CppConst(ty) => ty.combine(dependencies, reader),
-            Self::CppDelegate(ty) => ty.combine(dependencies, reader),
-            Self::CppFn(ty) => ty.combine(dependencies, reader),
-            Self::CppInterface(ty) => ty.combine(dependencies, reader),
-            Self::CppStruct(ty) => ty.combine(dependencies, reader),
-            Self::CppEnum(..) => {}
-
-            Self::IUnknown => {
-                Self::GUID.combine(dependencies, reader);
-                Self::HRESULT.combine(dependencies, reader);
-            }
-
-            Self::Object => {
-                Self::IUnknown.combine(dependencies, reader);
-            }
-
-            _ => {}
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
+        match self {
+            Self::Class(ty) => ty.visit_dependencies(reader, visit),
+            Self::Delegate(ty) => ty.visit_dependencies(reader, visit),
+            Self::Interface(ty) => ty.visit_dependencies(reader, visit),
+            Self::Struct(ty) => ty.visit_dependencies(reader, visit),
+            Self::CppConst(ty) => ty.visit_dependencies(reader, visit),
+            Self::CppDelegate(ty) => ty.visit_dependencies(reader, visit),
+            Self::CppFn(ty) => ty.visit_dependencies(reader, visit),
+            Self::CppInterface(ty) => ty.visit_dependencies(reader, visit),
+            Self::CppStruct(ty) => ty.visit_dependencies(reader, visit),
+            Self::IUnknown => visit(&Self::GUID) && visit(&Self::HRESULT),
+            Self::Object => visit(&Self::IUnknown),
+            _ => true,
         }
     }
 }

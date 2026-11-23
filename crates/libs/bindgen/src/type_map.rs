@@ -1,15 +1,18 @@
 use super::*;
-use std::sync::Arc;
 
 #[derive(Default, Clone, Debug, PartialEq, Eq)]
-pub struct TypeMap(
-    HashMap<TypeName, HashSet<Type>>,
-    Arc<HashSet<TypeName>>,
-    HashMap<Type, i32>,
-);
+pub struct TypeMap(HashMap<TypeName, HashSet<Type>>, HashMap<Type, i32>);
 
 pub trait Dependencies {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader);
+    /// Visits immediate dependencies, stopping when the visitor returns false.
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool;
+
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        self.visit_dependencies(reader, &mut |ty| {
+            ty.combine(dependencies, reader);
+            true
+        });
+    }
 
     fn dependencies(&self, reader: &Reader) -> TypeMap {
         let mut dependencies = TypeMap::new();
@@ -71,23 +74,15 @@ impl TypeMap {
         Self::default()
     }
 
-    pub fn with_references(reader: &Reader, references: &References) -> Self {
-        Self(
-            HashMap::new(),
-            Arc::new(references.type_names(reader)),
-            HashMap::new(),
-        )
-    }
-
     /// Adds `ty` and returns whether its dependencies still need to be walked.
     pub fn insert(&mut self, ty: Type) -> bool {
         let name = ty.type_name();
-        self.0.entry(name).or_default().insert(ty) && !self.1.contains(&name)
+        self.0.entry(name).or_default().insert(ty)
     }
 
     /// Adds `ty` as reached from items on `arches` and returns whether any architecture is new.
     pub fn insert_reached(&mut self, ty: Type, arches: i32) -> bool {
-        let reached = self.2.entry(ty.clone()).or_default();
+        let reached = self.1.entry(ty.clone()).or_default();
         if *reached & arches == arches {
             return false;
         }
@@ -98,33 +93,23 @@ impl TypeMap {
 
     /// Returns the architectures whose selected items reach `ty`; unrecorded types are unrestricted.
     pub fn reached_arches(&self, ty: &Type) -> i32 {
-        self.2.get(ty).copied().unwrap_or(ALL_ARCHES)
+        self.1.get(ty).copied().unwrap_or(ALL_ARCHES)
     }
 
     pub fn combine(&mut self, other: &Self) {
         for (name, types) in &other.0 {
             let set = self.0.entry(*name).or_default();
             for ty in types {
-                if let Some(arches) = self.2.get_mut(ty) {
+                if let Some(arches) = self.1.get_mut(ty) {
                     *arches |= other.reached_arches(ty);
-                } else if let Some(arches) = other.2.get(ty)
+                } else if let Some(arches) = other.1.get(ty)
                     && !set.contains(ty)
                 {
-                    self.2.insert(ty.clone(), *arches);
+                    self.1.insert(ty.clone(), *arches);
                 }
                 set.insert(ty.clone());
             }
         }
-    }
-
-    pub fn excluded(&self, filter: &Filter, references: &References) -> bool {
-        self.0.iter().any(|(tn, types)| {
-            !types
-                .iter()
-                .all(|ty| matches!(ty, Type::CppConst(c) if c.is_enum_member))
-                && filter.excludes_type_name(*tn)
-                && references.contains(*tn).is_none()
-        })
     }
 }
 

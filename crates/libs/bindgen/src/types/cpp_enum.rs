@@ -73,5 +73,7 @@ impl CppEnum {
 }
 
 impl Dependencies for CppEnum {
-    fn combine(&self, _dependencies: &mut TypeMap, _reader: &Reader) {}
+    fn visit_dependencies(&self, _reader: &Reader, _visit: &mut dyn FnMut(&Type) -> bool) -> bool {
+        true
+    }
 }

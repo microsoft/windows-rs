@@ -320,6 +320,53 @@ fn selection_namespace_rejections_survive_dependencies() {
 }
 
 #[test]
+fn selection_dependency_cycles_preserve_exclusions() {
+    for style in ["minimal", "full", "sys"] {
+        let output = filter_contract_output(
+            "dependency-cycles",
+            style,
+            &["Eligibility", "!Publication.Hidden"],
+        );
+        assert!(output.contains("pub struct Clean"), "{style}\n{output}");
+        assert!(output.contains("fn Keep("), "{style}\n{output}");
+        for excluded in ["pub struct First", "pub struct Second", "fn Reject("] {
+            assert!(!output.contains(excluded), "{style}\n{output}");
+        }
+    }
+}
+
+#[test]
+fn selection_reference_definitions_are_opaque() {
+    for style in ["minimal", "full"] {
+        let output = filter_contract_output(
+            "reference-opaque",
+            style,
+            &["ReferenceSource", "!Publication.Hidden"],
+        );
+        assert!(output.contains("pub struct Holder"), "{style}\n{output}");
+        assert!(
+            output.contains("windows_numerics::Matrix3x2"),
+            "{style}\n{output}"
+        );
+        assert!(
+            !output.contains("pub struct Matrix3x2"),
+            "{style}\n{output}"
+        );
+
+        let output = filter_contract_output(
+            "reference-local",
+            style,
+            &[
+                "Windows.Foundation.Numerics.Matrix3x2",
+                "!Publication.Hidden",
+            ],
+        );
+        assert!(output.contains("pub struct Matrix3x2"), "{style}\n{output}");
+        assert!(!output.contains("pub struct Hidden"), "{style}\n{output}");
+    }
+}
+
+#[test]
 fn selection_namespace_function_variants() {
     for style in ["minimal", "full", "sys"] {
         let output = filter_contract_output(

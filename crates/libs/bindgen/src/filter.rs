@@ -50,18 +50,6 @@ impl NameRules {
     pub fn excludes_type_name(&self, name: TypeName) -> bool {
         self.matching(name).is_some_and(|(_, include)| !include)
     }
-
-    pub fn includes_namespace(&self, namespace: &str) -> bool {
-        for (path, include) in &self.0 {
-            if namespace_starts_with(namespace, path) {
-                return *include;
-            }
-            if *include && namespace_starts_with(path, namespace) {
-                return true;
-            }
-        }
-        false
-    }
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]

@@ -761,26 +761,26 @@ impl Interface {
 }
 
 impl Dependencies for Interface {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        Type::Object.combine(dependencies, reader);
-
-        for interface in self.required_interfaces(reader) {
-            Type::Interface(interface).combine(dependencies, reader);
-        }
-
-        // Different specializations of Interface may have different generics.
-        for ty in &self.generics {
-            ty.combine(dependencies, reader);
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
+        if !visit(&Type::Object)
+            || !self
+                .required_interfaces(reader)
+                .into_iter()
+                .all(|interface| visit(&Type::Interface(interface)))
+            || !self.generics.iter().all(&mut *visit)
+        {
+            return false;
         }
 
         let is_iterable = self.type_name() == TypeName::IIterable;
 
         for method in self.def.methods() {
             for ty in method.method_signature(&self.generics, reader).types() {
-                if is_iterable || ty.is_core() {
-                    ty.combine(dependencies, reader);
+                if (is_iterable || ty.is_core()) && !visit(ty) {
+                    return false;
                 }
             }
         }
+        true
     }
 }

@@ -149,9 +149,9 @@ impl Struct {
 }
 
 impl Dependencies for Struct {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        for field in self.def.fields() {
-            field.field_type(None, reader).combine(dependencies, reader);
-        }
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
+        self.def
+            .fields()
+            .all(|field| visit(&field.field_type(None, reader)))
     }
 }

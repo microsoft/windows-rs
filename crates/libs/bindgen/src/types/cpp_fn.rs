@@ -143,23 +143,6 @@ impl CppFn {
         write_simple_cfg(self, config)
     }
 
-    pub fn combine_sys(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let signature = self.method.method_signature(&[], reader);
-
-        for ty in signature.types() {
-            ty.combine_sys(dependencies, reader);
-        }
-        for ty in self.method.associated_enums(reader) {
-            ty.combine_sys(dependencies, reader);
-        }
-
-        if let Some(dependency) = self.window_long_dependency(reader) {
-            reader
-                .unwrap_full_name(self.namespace, dependency)
-                .combine_sys(dependencies, reader);
-        }
-    }
-
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self.method.method_signature(&[], config.reader);
@@ -375,21 +358,15 @@ impl CppFn {
 }
 
 impl Dependencies for CppFn {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        for ty in self.method.associated_enums(reader) {
-            ty.combine(dependencies, reader);
-        }
-        self.method
-            .method_signature(&[], reader)
-            .combine(dependencies, reader);
-
-        let dependency = self.window_long_dependency(reader);
-
-        if let Some(dependency) = dependency {
-            reader
-                .unwrap_full_name(self.namespace, dependency)
-                .combine(dependencies, reader);
-        }
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
+        self.method.associated_enums(reader).iter().all(&mut *visit)
+            && self
+                .method
+                .method_signature(&[], reader)
+                .visit_dependencies(reader, visit)
+            && self
+                .window_long_dependency(reader)
+                .is_none_or(|name| visit(&reader.unwrap_full_name(self.namespace, name)))
     }
 }
 

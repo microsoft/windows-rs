@@ -458,12 +458,13 @@ impl Class {
 }
 
 impl Dependencies for Class {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        for interface in self.required_interfaces(reader) {
-            Type::Interface(interface).combine(dependencies, reader);
-        }
-        for base in self.bases(reader) {
-            Type::Class(base).combine(dependencies, reader);
-        }
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
+        self.required_interfaces(reader)
+            .into_iter()
+            .all(|interface| visit(&Type::Interface(interface)))
+            && self
+                .bases(reader)
+                .into_iter()
+                .all(|base| visit(&Type::Class(base)))
     }
 }

@@ -137,3 +137,36 @@ mod NativePublicationSource {
         fn Ping(&self);
     }
 }
+#[win32]
+mod Eligibility {
+    struct Clean {
+        next: *mut Clean,
+    }
+    struct First {
+        next: *mut Second,
+    }
+    struct Second {
+        next: *mut First,
+        hidden: Publication::Hidden,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Keep(#[in] value: *const Clean);
+    #[library("fixture.dll")]
+    extern "C" fn Reject(#[in] value: *const First);
+}
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Numerics {
+            struct Matrix3x2 {
+                hidden: Publication::Hidden,
+            }
+        }
+    }
+}
+#[winrt]
+mod ReferenceSource {
+    struct Holder {
+        value: Windows::Foundation::Numerics::Matrix3x2,
+    }
+}

@@ -76,13 +76,15 @@ impl CppDelegate {
 }
 
 impl Dependencies for CppDelegate {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        for ty in self.method().associated_enums(reader) {
-            ty.combine(dependencies, reader);
-        }
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
         self.method()
-            .method_signature(&[], reader)
-            .combine(dependencies, reader);
+            .associated_enums(reader)
+            .iter()
+            .all(&mut *visit)
+            && self
+                .method()
+                .method_signature(&[], reader)
+                .visit_dependencies(reader, visit)
     }
 }
 

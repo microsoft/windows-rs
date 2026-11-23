@@ -537,19 +537,18 @@ fn same_override_type(a: &Type, b: &Type, reader: &Reader) -> bool {
 }
 
 impl Dependencies for CppInterface {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let base_interfaces = self.base_interfaces(reader);
-
-        for interface in &base_interfaces {
-            interface.combine(dependencies, reader);
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
+        if !self.base_interfaces(reader).iter().all(&mut *visit) {
+            return false;
         }
 
         for method in self.def.methods() {
             for ty in method.method_signature(&[], reader).types() {
-                if ty.is_core() {
-                    ty.combine(dependencies, reader);
+                if ty.is_core() && !visit(ty) {
+                    return false;
                 }
             }
         }
+        true
     }
 }

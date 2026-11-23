@@ -22,7 +22,7 @@ impl Signature {
 }
 
 impl Dependencies for Signature {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        self.types().for_each(|ty| ty.combine(dependencies, reader));
+    fn visit_dependencies(&self, _reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
+        self.types().all(visit)
     }
 }

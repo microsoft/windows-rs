@@ -1260,9 +1260,7 @@ impl BitfieldBacking {
 }
 
 impl Dependencies for CppStruct {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        for ty in self.definition_types(reader) {
-            ty.combine(dependencies, reader);
-        }
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
+        self.definition_types(reader).iter().all(visit)
     }
 }

@@ -404,15 +404,15 @@ fn wide_int_cast(value: &Value) -> TokenStream {
 }
 
 impl Dependencies for CppConst {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
         if let windows_metadata::Type::ClassName(type_name)
         | windows_metadata::Type::ValueName(type_name) = self.field.ty()
             && type_name.namespace.is_empty()
         {
-            return;
+            return true;
         }
 
-        self.dependency_type(reader).combine(dependencies, reader);
+        visit(&self.dependency_type(reader))
     }
 }
 

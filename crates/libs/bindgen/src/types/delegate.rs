@@ -200,11 +200,10 @@ impl Delegate {
 }
 
 impl Dependencies for Delegate {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        dependencies.combine(&self.method(reader).dependencies(reader));
-
-        for ty in &self.generics {
-            ty.combine(dependencies, reader);
-        }
+    fn visit_dependencies(&self, reader: &Reader, visit: &mut dyn FnMut(&Type) -> bool) -> bool {
+        self.method(reader)
+            .signature
+            .visit_dependencies(reader, visit)
+            && self.generics.iter().all(visit)
     }
 }

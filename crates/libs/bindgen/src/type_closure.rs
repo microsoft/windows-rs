@@ -7,7 +7,6 @@ pub struct TypeClosure<'a> {
     references: &'a References,
     implements: Option<&'a Implements>,
     style: Style,
-    publication: Option<TypeMap>,
     types: TypeMap,
     pending: Vec<(Type, i32)>,
 }
@@ -26,10 +25,6 @@ impl<'a> TypeClosure<'a> {
             references,
             implements,
             style,
-            publication: filter
-                .rules
-                .has_exclusions()
-                .then(|| TypeMap::with_references(reader, references)),
             types: TypeMap::new(),
             pending: Vec::new(),
         };
@@ -45,37 +40,19 @@ impl<'a> TypeClosure<'a> {
     }
 
     fn reach(&mut self, ty: &Type, arches: i32) {
-        let ty = ty.dependency_type();
-        if let Type::Ptr64(inner, _) = ty {
-            self.types.insert(Type::Pointer64Helper);
-            self.dependency(inner, arches);
-            return;
-        }
-        if let Type::FnPtr(signature) = ty {
-            for ty in signature.types() {
-                self.dependency(ty, arches);
-            }
-            return;
-        }
-        if ty.is_intrinsic() {
-            return;
-        }
-        if let Some(owner) = ty.enclosing() {
-            for ty in self.reader.with_full_name(owner.namespace(), owner.name()) {
-                self.reach(&ty, arches);
-            }
-            return;
-        }
+        ty.visit_names(self.reader, Style::Full, &mut |ty| {
+            self.reach_definition(ty, arches);
+            true
+        });
+    }
+
+    fn reach_definition(&mut self, ty: &Type, arches: i32) {
         let name = ty.type_name();
-        let (definition, arguments) = ty.split_generic(self.reader);
-        for argument in &arguments {
-            self.reach(argument, arches);
-        }
         if self.references.owns(name, &self.filter.rules) || self.filter.excludes_type_name(name) {
             return;
         }
         let variants = if matches!(
-            definition,
+            ty,
             Type::CppStruct(_)
                 | Type::CppDelegate(_)
                 | Type::CppEnum(_)
@@ -86,38 +63,21 @@ impl<'a> TypeClosure<'a> {
                 .with_full_name(name.namespace(), name.name())
                 .collect()
         } else {
-            vec![definition]
+            vec![ty.clone()]
         };
         for definition in variants {
             // Only direct requests may retain definitions with excluded dependencies.
-            if let Some(publication) = &self.publication
+            if self.filter.rules.has_exclusions()
                 && !self.filter.is_explicit(name)
+                && !Eligibility::check(
+                    &definition,
+                    self.reader,
+                    self.filter,
+                    self.references,
+                    self.style,
+                )
             {
-                let mut dependencies = if self.references.contains(name).is_some() {
-                    TypeMap::new()
-                } else {
-                    publication.clone()
-                };
-                // Sys value/function signatures erase interface pointers, but interface
-                // definitions still need their base vtables.
-                match &definition {
-                    Type::CppFn(function) => {
-                        if self.style.is_sys() {
-                            function.combine_sys(&mut dependencies, self.reader);
-                        } else {
-                            function.combine(&mut dependencies, self.reader);
-                        }
-                    }
-                    Type::CppStruct(_) | Type::CppDelegate(_) | Type::Struct(_)
-                        if self.style.is_sys() =>
-                    {
-                        definition.combine_sys(&mut dependencies, self.reader);
-                    }
-                    _ => definition.combine(&mut dependencies, self.reader),
-                }
-                if dependencies.excluded(self.filter, self.references) {
-                    continue;
-                }
+                continue;
             }
             let reached = arches & arch_mask(definition.arches());
             if reached != 0 && self.types.insert_reached(definition.clone(), reached) {
@@ -128,9 +88,10 @@ impl<'a> TypeClosure<'a> {
 
     fn dependency(&mut self, ty: &Type, arches: i32) {
         // Sys signatures erase interface values, not explicitly requested definitions or bases.
-        if !self.style.is_sys() || !ty.dependency_type().is_interface() {
-            self.reach(ty, arches);
-        }
+        ty.visit_names(self.reader, self.style, &mut |ty| {
+            self.reach_definition(ty, arches);
+            true
+        });
     }
 
     fn abi(&mut self, ty: &Type, arches: i32) {
@@ -174,15 +135,11 @@ impl<'a> TypeClosure<'a> {
 
     fn definition(&mut self, ty: &Type, arches: i32) {
         match ty {
-            Type::Struct(s) => {
-                for field in s.def.fields() {
-                    self.dependency(&field.field_type(None, self.reader), arches);
-                }
-            }
-            Type::CppStruct(s) => {
-                for ty in s.definition_types(self.reader) {
-                    self.dependency(&ty, arches);
-                }
+            Type::Struct(_) | Type::CppStruct(_) | Type::CppDelegate(_) => {
+                ty.visit_dependencies(self.reader, &mut |ty| {
+                    self.dependency(ty, arches);
+                    true
+                });
             }
             Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute") => {
                 if self.filter.is_selected(e.def.type_name()) {
@@ -209,11 +166,6 @@ impl<'a> TypeClosure<'a> {
                     self.method(method, &d.generics, arches);
                 }
             }
-            Type::CppDelegate(d) => {
-                for method in d.def.methods().filter(|method| method.name() == "Invoke") {
-                    self.method(method, &[], arches);
-                }
-            }
             Type::Interface(interface) => {
                 self.reach(&Type::Object, arches);
                 for required in interface.required_interfaces(self.reader) {
@@ -228,17 +180,20 @@ impl<'a> TypeClosure<'a> {
                 self.interface(interface.def, &[], arches);
             }
             Type::CppFn(function) => {
+                if !self.style.is_minimal() {
+                    function.visit_dependencies(self.reader, &mut |ty| {
+                        self.dependency(ty, arches);
+                        true
+                    });
+                    return;
+                }
                 for ty in function.method.associated_enums(self.reader) {
                     self.reach(&ty, arches);
                 }
                 let signature = function.method.method_signature(&[], self.reader);
                 self.dependency(&signature.return_type, arches);
                 for param in &signature.params {
-                    if self.style.is_minimal() {
-                        self.abi(&param.ty, arches);
-                    } else {
-                        self.dependency(&param.ty, arches);
-                    }
+                    self.abi(&param.ty, arches);
                 }
                 if let Some(name) = function.window_long_dependency(self.reader) {
                     self.reach(
@@ -270,6 +225,70 @@ impl<'a> TypeClosure<'a> {
             Type::Object => self.reach(&Type::IUnknown, arches),
             _ => {}
         }
+    }
+}
+
+struct Eligibility<'a> {
+    reader: &'a Reader,
+    filter: &'a Filter,
+    references: &'a References,
+    style: Style,
+    opaque_references: bool,
+    seen: HashSet<Type>,
+}
+
+impl Eligibility<'_> {
+    fn check(
+        ty: &Type,
+        reader: &Reader,
+        filter: &Filter,
+        references: &References,
+        style: Style,
+    ) -> bool {
+        // Interface definitions require their bases even when their signatures erase interfaces.
+        let style = if matches!(
+            ty,
+            Type::CppFn(_) | Type::CppStruct(_) | Type::CppDelegate(_) | Type::Struct(_)
+        ) {
+            style
+        } else {
+            Style::Full
+        };
+        let mut check = Eligibility {
+            reader,
+            filter,
+            references,
+            style,
+            // Locally generated reference types must validate their definitions, not stop at them.
+            opaque_references: references.contains(ty.type_name()).is_none(),
+            seen: HashSet::new(),
+        };
+        if matches!(ty, Type::CppFn(_)) {
+            // Check this function variant, not its architecture siblings.
+            ty.visit_dependencies(reader, &mut |ty| check.signature(ty))
+        } else {
+            check.signature(ty)
+        }
+    }
+
+    fn signature(&mut self, ty: &Type) -> bool {
+        ty.visit_names(self.reader, self.style, &mut |ty| self.definition(ty))
+    }
+
+    fn definition(&mut self, ty: &Type) -> bool {
+        let name = ty.type_name();
+        let referenced = self.references.contains(name).is_some();
+        if !referenced
+            && self.filter.excludes_type_name(name)
+            && !matches!(ty, Type::CppConst(constant) if constant.is_enum_member)
+        {
+            return false;
+        }
+        if (self.opaque_references && referenced) || !self.seen.insert(ty.clone()) {
+            return true;
+        }
+        ty.visit_variants(self.reader, &mut |ty| self.definition(ty))
+            && ty.visit_dependencies(self.reader, &mut |ty| self.signature(ty))
     }
 }
 
