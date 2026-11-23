@@ -883,7 +883,7 @@ impl Type {
             Self::CppConst(constant) if constant.is_enum_member => return true,
             _ => {}
         }
-        if ty.is_intrinsic() {
+        if ty.is_intrinsic() || (config.bindgen.style.is_sys() && ty.is_interface()) {
             return true;
         }
         let arguments = match ty {

@@ -1,0 +1,45 @@
+//! --filter Native --sys
+#[winrt]
+mod Projected {
+    class Widget {
+        IWidget,
+    }
+    #[guid(auto)]
+    interface IWidget {
+        fn Value(&self) -> i32;
+    }
+    #[guid(auto)]
+    interface IGeneric<T> {
+        fn Value(&self) -> T;
+    }
+    #[guid(auto)]
+    delegate fn Handler(#[in] widget: Widget);
+    struct Argument {
+        value: i32,
+    }
+}
+#[win32]
+mod Native {
+    #[library("fixture.dll")]
+    extern "C" fn Take(#[in] widget: Projected::Widget);
+    #[library("fixture.dll")]
+    extern "C" fn Return() -> Projected::Widget;
+    struct Holder {
+        widgets: [Projected::Widget; 2],
+        interface: *mut Projected::IWidget,
+        generic: Projected::IGeneric<Projected::Argument>,
+        handler: Projected::Handler,
+    }
+    extern "C" fn Callback(#[in] widget: Projected::Widget) -> Projected::Widget;
+    struct Functions {
+        callback: extern "C" fn(Projected::Widget) -> Projected::Widget,
+    }
+    #[guid(auto)]
+    interface IBase {
+        fn Get(&self, #[out] widget: *mut Projected::Widget);
+    }
+    #[guid(auto)]
+    interface IDerived: IBase {
+        fn Set(&self, #[in] widget: Projected::Widget);
+    }
+}

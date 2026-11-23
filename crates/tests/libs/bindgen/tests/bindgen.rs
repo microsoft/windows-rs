@@ -151,7 +151,7 @@ fn filter_class_property_exclusions() {
 fn filter_selection_order() {
     for style in ["minimal", "full", "sys"] {
         for (name, member, omitted) in [
-            ("Test.ISource", "GetResult", "IUnused"),
+            ("Test.ISource", "GetResult", "pub Unused:"),
             ("Test.Color", "Red", "pub const Green:"),
             ("Native.NativeColor", "NativeRed", "pub const NativeGreen:"),
         ] {
@@ -296,7 +296,11 @@ fn selection_namespace_rejections_survive_dependencies() {
             assert!(!output.contains("pub GetWrapper:"), "{style}\n{output}");
             assert!(output.contains("pub Ping:"), "{style}\n{output}");
             if namespace == "Publication" {
-                assert!(!output.contains("pub GetGeneric:"), "{style}\n{output}");
+                assert_eq!(
+                    output.contains("pub GetGeneric:"),
+                    style == "sys",
+                    "{style}\n{output}"
+                );
                 assert!(
                     output.contains("pub GetVisibleGeneric:"),
                     "{style}\n{output}"
@@ -362,6 +366,117 @@ fn selection_required_forwarders_do_not_follow_implementation() {
             if style == "full" { 2 } else { 1 },
             "{style}\n{output}"
         );
+    }
+}
+
+#[test]
+fn selection_sys_abi_dependencies_compile() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("sys-abi-dependencies");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let metadata = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/sys_abi_dependencies.rdl")
+        .output(&metadata)
+        .write()
+        .unwrap();
+    let link = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap()
+        .join("libs")
+        .join("link");
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"sys-abi-dependencies\"\nversion = \"0.0.0\"\nedition = \"2024\"\n\
+             [workspace]\n[lib]\npath = \"lib.rs\"\n[dependencies]\n\
+             windows-link = {{ path = '{}' }}\n",
+            link.display(),
+        ),
+    )
+    .unwrap();
+    let mut source = String::from("#![deny(warnings)]\n#![allow(nonstandard_style)]\n");
+    for (name, selection) in [
+        ("namespace", "Native"),
+        ("excluded", "Native"),
+        ("parameter", "Native.Take"),
+        ("result", "Native.Return"),
+        ("record", "Native.Holder"),
+        ("callback", "Native.Callback"),
+        ("structural", "Native.Functions"),
+        ("interface", "Native.IDerived"),
+    ] {
+        let output = scratch.join(format!("{name}.rs"));
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&metadata)
+            .filter(selection)
+            .sys()
+            .output(&output);
+        if name == "excluded" {
+            builder.filter("!Projected");
+        }
+        builder.write();
+        source.push_str(&format!("pub mod {name};\n"));
+    }
+    source.push_str(
+        r#"
+pub fn slots(value: &interface::IDerived_Vtbl) {
+    let _: &interface::IBase_Vtbl = &value.base__;
+    let _: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) =
+        value.base__.Get;
+    let _: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) =
+        value.Set;
+}
+pub fn signatures(
+    holder: record::Holder,
+    callback: callback::Callback,
+    functions: structural::Functions,
+) {
+    let _: [*mut core::ffi::c_void; 2] = holder.widgets;
+    let _: *mut *mut core::ffi::c_void = holder.interface;
+    let _: *mut core::ffi::c_void = holder.generic;
+    let _: *mut core::ffi::c_void = holder.handler;
+    let _: Option<unsafe extern "C" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void> =
+        callback;
+    let _: Option<unsafe extern "C" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void> =
+        functions.callback;
+    let _: unsafe extern "C" fn(*mut core::ffi::c_void) = parameter::Take;
+    let _: unsafe extern "C" fn() -> *mut core::ffi::c_void = result::Return;
+}
+"#,
+    );
+    std::fs::write(scratch.join("lib.rs"), source).unwrap();
+    let result = std::process::Command::new("cargo")
+        .args(["check", "--quiet", "--offline", "--manifest-path"])
+        .arg(&manifest)
+        .arg("--target-dir")
+        .arg(scratch.join("target"))
+        .output()
+        .unwrap();
+    assert!(
+        result.status.success(),
+        "{}",
+        String::from_utf8_lossy(&result.stderr)
+    );
+    assert_eq!(
+        std::fs::read_to_string(scratch.join("namespace.rs")).unwrap(),
+        std::fs::read_to_string(scratch.join("excluded.rs")).unwrap(),
+    );
+    for name in [
+        "namespace",
+        "parameter",
+        "result",
+        "record",
+        "callback",
+        "structural",
+        "interface",
+    ] {
+        let output = std::fs::read_to_string(scratch.join(format!("{name}.rs"))).unwrap();
+        for erased in ["Widget", "IGeneric", "Argument", "Handler", "windows_core"] {
+            assert!(!output.contains(erased), "{name}: {erased}\n{output}");
+        }
     }
 }
 

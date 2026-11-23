@@ -48,12 +48,12 @@ impl<'a> TypeClosure<'a> {
         let ty = ty.dependency_type();
         if let Type::Ptr64(inner, _) = ty {
             self.types.insert(Type::Pointer64Helper);
-            self.reach(inner, arches);
+            self.dependency(inner, arches);
             return;
         }
         if let Type::FnPtr(signature) = ty {
             for ty in signature.types() {
-                self.reach(ty, arches);
+                self.dependency(ty, arches);
             }
             return;
         }
@@ -126,6 +126,13 @@ impl<'a> TypeClosure<'a> {
         }
     }
 
+    fn dependency(&mut self, ty: &Type, arches: i32) {
+        // Sys signatures erase interface values, not explicitly requested definitions or bases.
+        if !self.style.is_sys() || !ty.dependency_type().is_interface() {
+            self.reach(ty, arches);
+        }
+    }
+
     fn abi(&mut self, ty: &Type, arches: i32) {
         if ty.is_interface_with_reader(self.reader) {
             self.reach(&ty.projection_type(self.reader), arches);
@@ -145,7 +152,7 @@ impl<'a> TypeClosure<'a> {
         }
         let signature = method.method_signature(generics, self.reader);
         for ty in signature.types() {
-            self.reach(ty, arches);
+            self.dependency(ty, arches);
         }
     }
 
@@ -169,12 +176,12 @@ impl<'a> TypeClosure<'a> {
         match ty {
             Type::Struct(s) => {
                 for field in s.def.fields() {
-                    self.reach(&field.field_type(None, self.reader), arches);
+                    self.dependency(&field.field_type(None, self.reader), arches);
                 }
             }
             Type::CppStruct(s) => {
                 for ty in s.definition_types(self.reader) {
-                    self.reach(&ty, arches);
+                    self.dependency(&ty, arches);
                 }
             }
             Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute") => {
@@ -225,12 +232,12 @@ impl<'a> TypeClosure<'a> {
                     self.reach(&ty, arches);
                 }
                 let signature = function.method.method_signature(&[], self.reader);
-                self.reach(&signature.return_type, arches);
+                self.dependency(&signature.return_type, arches);
                 for param in &signature.params {
                     if self.style.is_minimal() {
                         self.abi(&param.ty, arches);
                     } else {
-                        self.reach(&param.ty, arches);
+                        self.dependency(&param.ty, arches);
                     }
                 }
                 if let Some(name) = function.window_long_dependency(self.reader) {
@@ -240,7 +247,9 @@ impl<'a> TypeClosure<'a> {
                     );
                 }
             }
-            Type::CppConst(constant) => self.reach(&constant.dependency_type(self.reader), arches),
+            Type::CppConst(constant) => {
+                self.dependency(&constant.dependency_type(self.reader), arches);
+            }
             Type::Class(class) => {
                 for interface in class.required_interfaces(self.reader) {
                     if interface.kind == InterfaceKind::Default
