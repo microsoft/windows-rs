@@ -125,6 +125,8 @@ Full mode adds implementation traits for interfaces not marked `ExclusiveTo`. Ot
 with `.implement(name)` or `.implement_all()`; an explicit selection also replaces the full-mode
 default. Implementation selectors use dotted qualified names or namespace prefixes, not bare
 interface names. Select the base or required interfaces too when implementing an interface hierarchy.
+Named implementation selectors reject member filters on matching interfaces; select the whole
+interface or `::{}`. `.implement_all()` allows member filters but emits the complete implementation ABI.
 In minimal mode, combine a COM interface's `::{}` filter with `.implement(...)` to generate its
 implementation trait and vtable without caller wrappers.
 

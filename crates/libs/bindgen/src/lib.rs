@@ -279,8 +279,11 @@ impl Bindgen {
     /// Prefix a selection with `!` to exclude it. More specific type/namespace rules take precedence;
     /// exclusions win ties regardless of argument order. Member and enum-variant selections narrow
     /// whole-type selections, also regardless of order. Excluded members and variants win over
-    /// included ones. Implementation traits require the interface's complete method ABI, even when
-    /// member filters select fewer methods.
+    /// included ones, except that implementation traits require the interface's complete method ABI.
+    /// Named [`Bindgen::implement`] selectors reject method-level inclusions or exclusions on matching
+    /// interfaces. Select the whole interface or use `Interface::{}` instead.
+    /// [`Bindgen::implement_all`] allows member filters, but emits the complete method ABI for
+    /// implemented interfaces.
     ///
     /// Chained members (`Type::Read::Write`), trailing separators (`Type::`), and empty entries
     /// inside a group (`Type::{Read,,Write}`) are rejected. Use `Type::{Read, Write}` for several
@@ -383,6 +386,9 @@ impl Bindgen {
     }
 
     /// Includes implementation traits for every native and WinRT interface in scope.
+    ///
+    /// Unlike [`Bindgen::implement`], allows method-level filters. Implemented interfaces still
+    /// emit their complete method ABI.
     #[track_caller]
     pub fn implement_all(&mut self) -> &mut Self {
         match &self.implement {
@@ -398,6 +404,9 @@ impl Bindgen {
     /// Use a dotted qualified name (`Windows.Win32.ISequentialStream`) or a namespace prefix.
     /// Unlike filters, bare interface names are not resolved. The interface must be included in
     /// the generated bindings, directly or as a dependency; this does not select it.
+    ///
+    /// Method-level inclusions or exclusions on matching interfaces cause [`Bindgen::write`] to
+    /// panic. Select the whole interface or use `Interface::{}` instead.
     #[track_caller]
     pub fn implement(&mut self, name: &str) -> &mut Self {
         assert!(

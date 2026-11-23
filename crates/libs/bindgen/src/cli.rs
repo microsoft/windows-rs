@@ -28,6 +28,7 @@ use super::*;
 ///   for interfaces not marked `ExclusiveTo`.
 /// - `--implement`: Implementation traits for dotted interface names or namespace prefixes.
 ///   Without names, includes every native and WinRT interface in scope.
+///   See [`Bindgen::implement`] for restrictions on member filters with named selectors.
 /// - `--compose`: Selects WinRT class composition targets.
 /// - `--dead-code`: Emits `pub(crate)` items for dead-code analysis.
 /// - `--etc`: Reads arguments from command files.
