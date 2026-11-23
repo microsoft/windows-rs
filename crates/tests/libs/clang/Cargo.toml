@@ -7,7 +7,7 @@ publish = false
 [dependencies]
 windows-clang = { workspace = true, features = ["projection"] }
 windows-rdl = { workspace = true }
-windows-metadata = { workspace = true }
+windows-metadata = { workspace = true, features = ["writer"] }
 
 [dev-dependencies]
 helpers = { workspace = true }

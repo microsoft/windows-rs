@@ -14,6 +14,9 @@ Use this crate for inspectors and generators, not for calling Windows APIs.
 windows-metadata = "0.101"
 ```
 
+The default `writer` feature enables writing, merging, and remapping. Set `default-features = false`
+for reader-only tools.
+
 Given a `Windows.winmd` file:
 
 ```rust,no_run
