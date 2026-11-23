@@ -10,12 +10,12 @@ Win32 and WinRT; custom metadata can describe additional APIs.
 
 ## Generate bindings
 
-For an application, add the generator as a build dependency and the raw bindings' runtime
-dependency:
+For an application, add the generator as a build dependency and `windows-core` for the default
+typed bindings:
 
 ```toml
 [dependencies]
-windows-link = "0.100.1"
+windows-core = "0.101"
 
 [build-dependencies]
 windows-bindgen = "0.101"
@@ -28,7 +28,7 @@ use windows_bindgen::*;
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
-    builder().filter("GetTickCount64").sys().write();
+    builder().filter("GetTickCount64").write();
 }
 ```
 
@@ -64,16 +64,49 @@ items; selecting the same name from two namespaces fails to compile unless you e
 
 | Filter | Selects |
 | --- | --- |
-| `GetTickCount64` | A function |
-| `HWND` | A type |
+| `GetTickCount64`, `S_OK`, `HWND` | A function, constant, or type |
+| `ISequentialStream` | An interface and its methods |
+| `ISequentialStream::{}` | The interface without its callable methods |
 | `Windows.Win32.GetTickCount64` | A qualified Win32 function |
-| `Windows.Foundation` | A WinRT namespace |
-| `Windows.Storage.Streams.IDataReader::ReadByte` | One interface method |
-| `Windows.Storage.Streams.IDataReader::{ReadByte, ReadUInt32}` | Several methods |
-| `Windows.Foundation.Uri::CreateUri` | A runtime-class factory method |
+| `Windows.Foundation` | A namespace and its descendants |
+| `IDataReader::ReadByte` | One interface method |
+| `IDataReader::{ReadByte, ReadUInt32}` | Several methods |
+| `IDataReader::ByteOrder` | A property's getter and setter |
+| `IDataReader::get_ByteOrder` | Only the getter |
+| `IObservableVector::VectorChanged` | An event's add and remove methods |
+| `Uri::CreateUri` | A runtime-class factory method |
+| `PropertySet::CreateInstance` | A runtime class's default constructor |
+| `AsyncStatus::{Completed, Error}` | Selected enum variants |
+| `AsyncStatus::{}` | An enum without variants |
+| `Windows::Foundation::{Uri::{CreateUri}, AsyncStatus}` | Nested groups |
+| `!Windows.Foundation.Collections` | Exclude a namespace and its descendants |
+| `!ISequentialStream` | Exclude a type |
+| `!ISequentialStream::Write` | Exclude a member |
+| `!AsyncStatus::Error` | Exclude an enum variant |
 
-Use `.filters([...])` for several selections or `.filter_file("apis.txt")` for one filter per line.
-Filter files ignore blank lines and `//` comments. Select the interface methods you need explicitly.
+Dots and `::` both separate path segments. Groups abbreviate separate filters; `*` wildcards are
+not supported. Use native member or overload names, not renamed Rust methods.
+
+An interface reached only through a signature can be a name-only declaration. Select its name
+to include its methods, or select individual methods. An explicit `Interface::{}` is useful when
+you only pass, store, or cast the interface; it does not remove methods requested by other filters.
+
+Rule order does not matter: more specific type/namespace rules win, with exclusions winning ties.
+Member and variant selections narrow whole-type selections; excluded members and variants win.
+See [`Bindgen::filter`](https://docs.rs/windows-bindgen/latest/windows_bindgen/struct.Bindgen.html#method.filter)
+for details.
+
+Use `.filters([...])` for several selections or `.filter_file("apis.txt")` for a text file.
+Files separate filters with whitespace and support multiline groups, trailing commas, and `//`
+comments:
+
+```text
+ISequentialStream::{
+    Read,
+    Write, // Include both methods
+}
+```
+
 The bundled Win32 metadata uses `Windows.Win32`, not the umbrella crates' Cargo feature names.
 
 ## Choose output and inputs
@@ -84,12 +117,18 @@ The bundled Win32 metadata uses `Windows.Win32`, not the umbrella crates' Cargo 
 | `.full()` | Adds class wrappers, inherited forwarders, handle and function wrappers |
 | `.sys()` | Raw bindings using `windows-link` |
 | `.modules()` | One module per namespace instead of a single flat list |
-| `.implement(name)` | Implementation traits for an interface |
+| `.implement("Windows.Win32.ISequentialStream")` | Implementation traits for a selected interface |
 
-`sys` and `full` are mutually exclusive. Add any focused support crates referenced by the output.
+For raw bindings, add `.sys()` and use `windows-link = "0.100.1"` instead of `windows-core`.
+`sys` and `full` are mutually exclusive. Add any focused support crates referenced by typed output.
 Full mode adds implementation traits for interfaces not marked `ExclusiveTo`. Otherwise select them
 with `.implement(name)` or `.implement_all()`; an explicit selection also replaces the full-mode
-default. Select the base or required interfaces too when implementing an interface hierarchy.
+default. Implementation selectors use dotted qualified names or namespace prefixes, not bare
+interface names. Select the base or required interfaces too when implementing an interface hierarchy.
+Named implementation selectors reject member filters on matching interfaces; select the whole
+interface or `::{}`. `.implement_all()` allows member filters but emits the complete implementation ABI.
+In minimal mode, combine a COM interface's `::{}` filter with `.implement(...)` to generate its
+implementation trait and vtable without caller wrappers.
 
 With no input, bindgen uses bundled Windows metadata. `.input("component.winmd")` replaces that
 default; add `.input_default()` when the component also references Windows definitions.

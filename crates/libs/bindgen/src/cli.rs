@@ -19,14 +19,16 @@ use super::*;
 /// - `--out`: Generated Rust file.
 /// - `--filter`: Included or excluded APIs.
 /// - `--rustfmt`: Comma-separated `rustfmt --config` options, such as `max_width=120`.
-/// - `--derive`: Extra derived traits.
+/// - `--derive`: Extra derives as `Type=Trait,OtherTrait`, for example `SYSTEMTIME=Debug`.
 /// - `--modules`: Nests items in one module per namespace.
 /// - `--package`: Generates a package with one file per namespace.
 /// - `--sys`: Generates raw bindings that depend only on `windows-link`.
-/// - `--extern`: Uses extern declarations with `--sys`.
+/// - `--extern`: Uses extern declarations; must follow `--sys`.
 /// - `--full`: Adds class wrappers, inherited forwarders, handle wrappers, and implementation traits
 ///   for interfaces not marked `ExclusiveTo`.
-/// - `--implement`: Emits implementation traits for selected native and WinRT interfaces.
+/// - `--implement`: Implementation traits for dotted interface names or namespace prefixes.
+///   Without names, includes every native and WinRT interface in scope.
+///   See [`Bindgen::implement`] for restrictions on member filters with named selectors.
 /// - `--compose`: Selects WinRT class composition targets.
 /// - `--dead-code`: Emits `pub(crate)` items for dead-code analysis.
 /// - `--etc`: Reads arguments from command files.
@@ -40,11 +42,7 @@ use super::*;
 ///
 /// # `--filter`
 ///
-/// Filters select functions, constants, types, namespaces, or type members.
-/// Signature dependencies are included automatically.
-///
-/// The bundled Win32 metadata uses `Windows.Win32`, not the subsystem namespaces used by the
-/// `windows` and `windows-sys` package features. Bare names and qualified names both work:
+/// Uses the same syntax as [`Bindgen::filter`], including groups and exclusions:
 ///
 /// ```text
 /// --filter GetTickCount HWND
@@ -56,9 +54,9 @@ use super::*;
 /// --filter Windows.Foundation
 /// ```
 ///
-/// Dots and `::` both separate path segments. Namespace filters include child namespaces;
-/// prefix a type or namespace filter with `!` to exclude it. More specific rules take precedence;
-/// exclusions win ties regardless of argument order.
+/// See [`Bindgen::filter`] for name resolution, member selection, dependencies, and rule precedence.
+///
+/// # `--filter-file` and `--etc`
 ///
 /// Use a filter file for longer filter lists:
 ///
@@ -84,27 +82,6 @@ use super::*;
 ///
 /// The in-repo crates use this convention; see the filter `.txt` files in
 /// `crates/tools/bindings/src`.
-///
-/// ## Method-level filtering
-///
-/// Filters can target methods, properties, and events with `Namespace.Type::Member`.
-/// Use the member's metadata name. A property or event name selects its accessor pair.
-///
-/// A bare type projects the full type. `Type::{}` emits a name-only shell, while
-/// `Type::Member` and `Type::{a, b}` select members.
-/// Chained members such as `Type::a::b` and trailing separators such as `Type::` are rejected.
-/// Explicit member or enum-variant selections narrow a whole-type selection regardless of rule
-/// order. Excluded members and variants win over included ones.
-///
-/// ```text
-/// --filter Windows.Storage.Streams.IDataReader::ReadByte
-///
-/// --filter Windows.Storage.Streams.IDataReader::{ReadByte, ReadUInt32}
-///
-/// --filter Windows.Storage.Streams.IDataReader::ByteOrder
-///
-/// --filter Windows.Storage.Streams.IDataReader::{}
-/// ```
 ///
 #[track_caller]
 pub fn bindgen<I, S>(args: I)

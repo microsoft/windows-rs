@@ -188,18 +188,25 @@ impl Bindgen {
     }
 
     /// Adds a `.winmd` file or directory.
+    ///
+    /// Explicit inputs replace the bundled metadata. Call [`Bindgen::input_default`] to include
+    /// the bundled metadata alongside them.
     pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
         self.input.push(Input::Path(input.as_ref().to_path_buf()));
         self
     }
 
     /// Adds the default Windows metadata.
+    ///
+    /// Included automatically when no explicit inputs are supplied.
     pub fn input_default(&mut self) -> &mut Self {
         self.input_default = true;
         self
     }
 
     /// Adds a `.winmd` file from memory.
+    ///
+    /// Uses the same default metadata behavior as [`Bindgen::input`].
     pub fn input_bytes(&mut self, input: &[u8]) -> &mut Self {
         self.input.push(Input::Bytes(input.to_vec()));
         self
@@ -238,19 +245,58 @@ impl Bindgen {
         self
     }
 
-    /// Add a filter rule to include or exclude APIs.
+    /// Adds a filter rule to include or exclude APIs.
     ///
-    /// Use a function, constant, type, or namespace name, or select members with
-    /// `Namespace.Type::Member`. Property and event names select their accessor pairs.
-    /// Prefix a qualified name with `!` to exclude it from a namespace selection.
-    /// Signature dependencies are included automatically. See [`bindgen`] for filter examples.
+    /// See the [crate documentation](crate) for an example table. The same syntax applies to
+    /// [`Bindgen::filters`], [`Bindgen::filter_file`], and [`bindgen`]'s `--filter` arguments.
+    ///
+    /// # Names and groups
+    ///
+    /// Select a function, constant, type, or namespace. Bare names match across namespaces;
+    /// qualify a name to restrict it to one namespace. Dots and `::` both separate path segments.
+    /// Namespace selections include descendant namespaces. The bundled Win32 metadata uses
+    /// `Windows.Win32`, not the subsystem namespaces used by the umbrella crates' Cargo features.
+    ///
+    /// Groups abbreviate separate selections and may nest: `Windows::Foundation::{Uri, AsyncStatus}`.
+    /// Trailing commas are allowed. `*` wildcards are not supported.
+    ///
+    /// # Members and dependencies
+    ///
+    /// A bare type selects all its members. Use `Type::Member` or `Type::{Member, OtherMember}`
+    /// for a subset. Members may be methods, properties, events, or enum variants.
+    /// Use native member or overload names, not renamed Rust methods. Property and event names
+    /// select their accessor pairs; requesting an event's `add_` method also selects its `remove_`
+    /// method. `Class::CreateInstance` selects a WinRT class's default constructor.
+    ///
+    /// Signature dependencies are included automatically, but interfaces reached only through
+    /// signatures can be name-only declarations. Select their methods explicitly to call them.
+    /// `Type::{}` requests the type without requesting its methods or enum variants; it does not
+    /// remove methods selected elsewhere. In minimal mode, a COM interface selected this way can
+    /// use [`Bindgen::implement`] to emit its implementation trait and vtable without caller wrappers.
+    ///
+    /// # Combining rules
+    ///
+    /// Prefix a selection with `!` to exclude it. More specific type/namespace rules take precedence;
+    /// exclusions win ties regardless of argument order. Member and enum-variant selections narrow
+    /// whole-type selections, also regardless of order. Excluded members and variants win over
+    /// included ones, except that implementation traits require the interface's complete method ABI.
+    /// Named [`Bindgen::implement`] selectors reject method-level inclusions or exclusions on matching
+    /// interfaces. Select the whole interface or use `Interface::{}` instead.
+    /// [`Bindgen::implement_all`] allows member filters, but emits the complete method ABI for
+    /// implemented interfaces.
+    ///
+    /// Chained members (`Type::Read::Write`), trailing separators (`Type::`), and empty entries
+    /// inside a group (`Type::{Read,,Write}`) are rejected. Use `Type::{Read, Write}` for several
+    /// members or `Type::{}` for a name-only selection.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
         self.filters(std::iter::once(filter))
     }
 
     /// Adds filter rules from a text file.
     ///
-    /// Supports multiline groups and `//` comments. See [`bindgen`] for the file syntax.
+    /// Uses [`Bindgen::filter`] syntax, with whitespace separating filters outside groups.
+    /// Groups may span lines. Lines beginning with `//` after optional whitespace are comments;
+    /// inline comments require a separate `//` token followed by whitespace or the end of the line.
     #[track_caller]
     pub fn filter_file(&mut self, input: impl AsRef<Path>) -> &mut Self {
         self.filters(cli::read_tokens(input, true))
@@ -283,12 +329,15 @@ impl Bindgen {
         self
     }
 
-    /// Add an extra trait for types to derive.
+    /// Specifies extra derives as `Type=Trait,OtherTrait`, for example `SYSTEMTIME=Debug`.
+    ///
+    /// The type may be a bare or dotted qualified name and must be included in the generated
+    /// bindings. Later entries for the same type replace earlier lists.
     pub fn derive(&mut self, derive: &str) -> &mut Self {
         self.derives(std::iter::once(derive))
     }
 
-    /// Add multiple extra traits for types to derive.
+    /// Specifies extra derives for multiple types, using the syntax of [`Bindgen::derive`].
     pub fn derives<I, S>(&mut self, derives: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -337,6 +386,9 @@ impl Bindgen {
     }
 
     /// Includes implementation traits for every native and WinRT interface in scope.
+    ///
+    /// Unlike [`Bindgen::implement`], allows method-level filters. Implemented interfaces still
+    /// emit their complete method ABI.
     #[track_caller]
     pub fn implement_all(&mut self) -> &mut Self {
         match &self.implement {
@@ -349,8 +401,12 @@ impl Bindgen {
 
     /// Includes implementation traits for a native or WinRT interface or namespace prefix.
     ///
-    /// The name may be a fully-qualified type name (`Namespace.Name`) or a namespace prefix that
-    /// matches every type defined under it.
+    /// Use a dotted qualified name (`Windows.Win32.ISequentialStream`) or a namespace prefix.
+    /// Unlike filters, bare interface names are not resolved. The interface must be included in
+    /// the generated bindings, directly or as a dependency; this does not select it.
+    ///
+    /// Method-level inclusions or exclusions on matching interfaces cause [`Bindgen::write`] to
+    /// panic. Select the whole interface or use `Interface::{}` instead.
     #[track_caller]
     pub fn implement(&mut self, name: &str) -> &mut Self {
         assert!(
@@ -433,7 +489,7 @@ impl Bindgen {
 
     /// Generate `extern` declarations rather than `link!` macros for sys-style Rust bindings.
     ///
-    /// Only valid in combination with [`Bindgen::sys`]; panics otherwise.
+    /// Call after [`Bindgen::sys`]; panics otherwise.
     /// DLL and entry-point selection are left to the caller's import libraries, including ordinals.
     #[track_caller]
     pub fn extern_fns(&mut self) -> &mut Self {
@@ -459,6 +515,8 @@ impl Bindgen {
     ///
     /// Resolves declarations on demand, including dependencies of selected APIs. Errors in unused
     /// declarations may not be reported.
+    ///
+    /// Panics if input processing, code generation, or writing the output fails.
     #[track_caller]
     pub fn write(&self) {
         // Validate before setting up reader and reference state.
