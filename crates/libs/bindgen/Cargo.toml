@@ -17,6 +17,7 @@ quote = { workspace = true }
 
 [dev-dependencies]
 windows-link = { workspace = true }
+windows-metadata = { workspace = true, features = ["writer"] }
 
 [lints]
 workspace = true

@@ -12,7 +12,7 @@ test = false
 
 [dev-dependencies]
 windows-rdl = { workspace = true }
-windows-metadata = { workspace = true }
+windows-metadata = { workspace = true, features = ["writer"] }
 
 [lints]
 workspace = true

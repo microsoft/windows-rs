@@ -36,6 +36,8 @@ jobs:
       - name: Install rustfmt and clippy
         run: rustup component add rustfmt clippy
       - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+      - name: Check reader-only dependencies
+        run: cargo check -p windows-bindgen --lib
       - name: Test bindgen
         # test_bindgen compiles Windows-only runtime projections in test.yml.
         run: cargo test -p windows-bindgen

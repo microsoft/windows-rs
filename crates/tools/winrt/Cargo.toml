@@ -7,7 +7,7 @@ publish = false
 
 [dependencies]
 helpers = { workspace = true }
-windows-metadata = { workspace = true }
+windows-metadata = { workspace = true, features = ["writer"] }
 windows-rdl = { workspace = true }
 
 [lints]

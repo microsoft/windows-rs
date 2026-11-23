@@ -10,11 +10,13 @@ mod buffer_info;
 pub use buffer_info::*;
 pub mod reader;
 mod value;
+#[cfg(feature = "writer")]
 pub mod writer;
 
 pub use attributes::*;
 pub use value::*;
 #[expect(clippy::upper_case_acronyms)]
+#[cfg_attr(not(feature = "writer"), allow(dead_code))]
 mod bindings;
 use bindings::*;
 
@@ -33,15 +35,18 @@ pub use signature::*;
 pub use reader::{AsRow, HasAttributes};
 
 /// Metadata merge and namespace remapping support.
+#[cfg(feature = "writer")]
 pub mod merge;
 
 /// Creates a builder for combining winmd files.
+#[cfg(feature = "writer")]
 pub fn merge() -> merge::Merger {
     merge::Merger::new()
 }
 
 /// Creates a [`merge::Remapper`] that rewrites a flat winmd into a header-based namespace
 /// partition for `--package` generation.
+#[cfg(feature = "writer")]
 pub fn remap() -> merge::Remapper {
     merge::Remapper::new()
 }

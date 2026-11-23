@@ -9,5 +9,9 @@ repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
 
+[features]
+default = ["writer"]
+writer = []
+
 [lints]
 workspace = true
