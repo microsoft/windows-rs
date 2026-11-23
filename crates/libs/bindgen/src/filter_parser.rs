@@ -25,7 +25,7 @@ pub fn parse_filter_entry(input: &str) -> Vec<FilterEntry> {
     };
 
     // Parse and flatten grouped paths.
-    let paths = parse_tree(rest);
+    let paths = parse_tree(rest, input);
 
     paths
         .into_iter()
@@ -34,7 +34,7 @@ pub fn parse_filter_entry(input: &str) -> Vec<FilterEntry> {
 }
 
 /// Parse a `::` separated tree, returning all flattened paths.
-fn parse_tree(input: &str) -> Vec<Vec<String>> {
+fn parse_tree(input: &str, filter: &str) -> Vec<Vec<String>> {
     let parts = split_path(input);
     let mut result = vec![Vec::new()];
 
@@ -43,10 +43,16 @@ fn parse_tree(input: &str) -> Vec<Vec<String>> {
         if part.starts_with('{') && part.ends_with('}') {
             // Expand grouped branches.
             let inner = &part[1..part.len() - 1];
+            if inner.trim().is_empty() {
+                for path in &mut result {
+                    path.push(String::new());
+                }
+                continue;
+            }
             let branches = split_group(inner);
             let mut expanded = Vec::new();
             for branch in branches {
-                let sub_paths = parse_tree(branch.trim());
+                let sub_paths = parse_tree(branch.trim(), filter);
                 for prefix in &result {
                     for sub in &sub_paths {
                         let mut combined = prefix.clone();
@@ -58,15 +64,13 @@ fn parse_tree(input: &str) -> Vec<Vec<String>> {
             result = expanded;
         } else {
             // Keep legacy dotted paths compatible with the `::` grammar.
-            if part.contains('.') {
-                for dot_part in part.split('.') {
-                    for path in &mut result {
-                        path.push(dot_part.to_string());
-                    }
-                }
-            } else {
+            for segment in part.split('.') {
+                assert!(
+                    !segment.trim().is_empty(),
+                    "empty path segment in filter `{filter}`; use `Type::{{}}` for a name-only shell"
+                );
                 for path in &mut result {
-                    path.push(part.to_string());
+                    path.push(segment.to_string());
                 }
             }
         }
@@ -239,7 +243,7 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         }
 
         // `::{}` leaves a lone empty member segment, meaning a name-only shell.
-        let members = collect_members(&rest[1..], segments);
+        let members = collect_members(&rest[1..], entry);
         return vec![base(ResolvedKind::Members {
             namespace,
             name,
@@ -262,14 +266,13 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
 
     // Bare member filters support flat-style `Type::Method` entries.
     let type_name = &segments[0];
-    let members = collect_members(&segments[1..], segments);
     let mut results = Vec::new();
     for namespace in reader.namespaces() {
         if reader.contains_name(namespace, type_name) {
             results.push(base(ResolvedKind::Members {
                 namespace: namespace.to_string(),
                 name: type_name.clone(),
-                members: members.clone(),
+                members: collect_members(&segments[1..], entry),
             }));
         }
     }
@@ -315,7 +318,16 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
 /// Collect member segments, dropping the lone empty segment produced by an
 /// empty group (`::{}`) so it resolves to a name-only shell (empty list).
 #[track_caller]
-fn collect_members(member_segments: &[String], segments: &[String]) -> Vec<String> {
+fn collect_members(member_segments: &[String], entry: &FilterEntry) -> Vec<String> {
+    let segments = &entry.segments;
+    let prefix = if entry.exclude { "!" } else { "" };
+    assert!(
+        member_segments.len() == 1,
+        "chained members in filter `{prefix}{}`; try `{prefix}{}::{{{}}}`",
+        segments.join("::"),
+        segments[..segments.len() - member_segments.len()].join("::"),
+        member_segments.join(", ")
+    );
     assert!(
         !member_segments.iter().any(|m| m.contains('*')),
         "`*` globs are no longer supported; use a bare type for the full \
@@ -416,6 +428,23 @@ mod tests {
         assert_eq!(entries.len(), 1);
         assert_eq!(entries[0].segments, vec!["CloseHandle"]);
     }
+
+    #[test]
+    fn empty_path_segments_are_rejected() {
+        for input in [
+            "IStream::",
+            "::IStream",
+            "IStream::::Read",
+            "Windows..Win32.IStream",
+            "IStream::{Read,,Write}",
+            "IStream::{,Read}",
+        ] {
+            assert!(
+                std::panic::catch_unwind(|| parse_filter_entry(input)).is_err(),
+                "accepted malformed filter `{input}`"
+            );
+        }
+    }
 }
 
 #[cfg(test)]
@@ -443,6 +472,31 @@ mod resolution_tests {
             std::panic::catch_unwind(|| resolve_entries(reader, &parse_filter_entry(input)))
                 .unwrap_err();
         *error.downcast::<String>().unwrap()
+    }
+
+    #[test]
+    fn chained_members_are_rejected() {
+        for (input, expected) in [
+            ("IStream::Read::Write", "IStream::{Read, Write}"),
+            ("!IStream::Read::Write", "!IStream::{Read, Write}"),
+            (
+                "Windows.Storage.Streams.IDataReader::ReadByte::ReadUInt32",
+                "Windows::Storage::Streams::IDataReader::{ReadByte, ReadUInt32}",
+            ),
+        ] {
+            assert_eq!(
+                resolution_error(test_reader(), input),
+                format!(
+                    "chained members in filter `{}`; try `{expected}`",
+                    input.replace('.', "::")
+                ),
+            );
+            let resolved = resolve_entries(test_reader(), &parse_filter_entry(expected));
+            assert_eq!(resolved.len(), 2);
+            assert!(resolved.iter().all(|entry| matches!(
+                &entry.kind, ResolvedKind::Members { members, .. } if members.len() == 1
+            )));
+        }
     }
 
     #[test]
