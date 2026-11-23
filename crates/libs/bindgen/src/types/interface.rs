@@ -299,17 +299,7 @@ impl Interface {
                 if self.generics.is_empty() {
                     let interfaces: Vec<_> = required_interfaces
                         .iter()
-                        .filter(|ty| {
-                            !config.filter.uses_closure || {
-                                let name = Type::Interface((*ty).clone()).type_name();
-                                config.types.contains_key(&name)
-                                    && config.filter.includes_hierarchy(
-                                        type_name.namespace(),
-                                        type_name.name(),
-                                        ty,
-                                    )
-                            }
-                        })
+                        .filter(|ty| config.includes_type(ty.type_name()))
                         .map(|ty| ty.write_name(config))
                         .collect();
 
@@ -322,18 +312,7 @@ impl Interface {
                 } else {
                     let interfaces = required_interfaces
                         .iter()
-                        .filter(|ty| {
-                            !config.filter.uses_closure
-                                || {
-                                    let name = Type::Interface((*ty).clone()).type_name();
-                                    config.types.contains_key(&name)
-                                        && config.filter.includes_hierarchy(
-                                            type_name.namespace(),
-                                            type_name.name(),
-                                            ty,
-                                        )
-                                }
-                        })
+                        .filter(|ty| config.includes_type(ty.type_name()))
                         .map(|ty| {
                     let ty = ty.write_name(config);
                     quote!{
@@ -347,12 +326,8 @@ impl Interface {
                 }
             }
 
-            // Implementation-only interfaces need ABI slots and `_Impl`, not callable wrappers.
             let minimal = config.bindgen.style.is_minimal();
-            let implementation_only = config.should_implement(type_name, false)
-                && matches!(config.filter.type_role(type_name), TypeRole::Shell);
-            let suppress_methods = minimal
-                && ((is_exclusive && self.is_factory(config.reader)) || implementation_only);
+            let suppress_methods = minimal && is_exclusive && self.is_factory(config.reader);
             let emit_methods = !suppress_methods && (!is_exclusive || minimal);
             if emit_methods {
                 let method_names = &mut MethodNames::new();
@@ -363,7 +338,11 @@ impl Interface {
                 let self_config = config.with_self_ty(self.type_name(), &self.generics);
 
                 for method in methods.iter().filter_map(|method| match &method {
-                    MethodOrName::Method(method) => Some(method),
+                    MethodOrName::Method(method)
+                        if config.filter.includes_method(type_name, method.def) =>
+                    {
+                        Some(method)
+                    }
                     _ => None,
                 }) {
                     let cfg = method.write_cfg(config, &class_cfg, false);
@@ -594,16 +573,17 @@ impl Interface {
 
             result.combine(vtbl);
             if emit_methods {
-                result.combine(self.write_extensions(&methods));
+                result.combine(self.write_extensions(&methods, config));
             }
             result
         }
     }
 
-    fn write_extensions(&self, methods: &[MethodOrName<Method>]) -> TokenStream {
+    fn write_extensions(&self, methods: &[MethodOrName<Method>], config: &Config) -> TokenStream {
         let has_method = |name: &str| {
             methods.iter().any(
-                |method| matches!(method, MethodOrName::Method(method) if method.def.name() == name),
+                |method| matches!(method, MethodOrName::Method(method)
+                    if method.def.name() == name && config.filter.includes_method(self.type_name(), method.def)),
             )
         };
         match self.type_name() {

@@ -84,15 +84,19 @@ items; selecting the same name from two namespaces fails to compile unless you e
 | `!ISequentialStream::Write` | Exclude a member |
 | `!AsyncStatus::Error` | Exclude an enum variant |
 
-Dots and `::` both separate path segments. Groups abbreviate separate filters; `*` wildcards are
-not supported. Use native member or overload names, not renamed Rust methods.
+Dots and `::` both separate path segments. Groups abbreviate separate filters and must end a path;
+`*` wildcards are not supported. Use native member or overload names, not renamed Rust methods.
 
 An interface reached only through a signature can be a name-only declaration. Select its name
-to include its methods, or select individual methods. An explicit `Interface::{}` is useful when
-you only pass, store, or cast the interface; it does not remove methods requested by other filters.
+to include its own and inherited methods, or select individual methods. An explicit `Interface::{}`
+is useful when you only pass, store, or cast the interface. Member selections already include the
+owner's identity and hierarchy; `Interface::Read` does not also need `Interface::{}`.
+Hierarchy dependencies do not select callable methods.
 
+Positive selections add together. A namespace or whole-type selection is not narrowed by another
+member selection; use exclusions to remove members. Exclusions never select additional APIs.
 Rule order does not matter: more specific type/namespace rules win, with exclusions winning ties.
-Member and variant selections narrow whole-type selections; excluded members and variants win.
+Excluding a dependency of an explicitly selected API can leave bindings that do not compile.
 See [`Bindgen::filter`](https://docs.rs/windows-bindgen/latest/windows_bindgen/struct.Bindgen.html#method.filter)
 for details.
 
@@ -117,16 +121,15 @@ The bundled Win32 metadata uses `Windows.Win32`, not the umbrella crates' Cargo 
 | `.full()` | Adds class wrappers, inherited forwarders, handle and function wrappers |
 | `.sys()` | Raw bindings using `windows-link` |
 | `.modules()` | One module per namespace instead of a single flat list |
-| `.implement("Windows.Win32.ISequentialStream")` | Implementation traits for a selected interface |
+| `.implement("ISequentialStream")` | Implementation traits for a selected interface |
 
 For raw bindings, add `.sys()` and use `windows-link = "0.100.1"` instead of `windows-core`.
 `sys` and `full` are mutually exclusive. Add any focused support crates referenced by typed output.
 Full mode adds implementation traits for interfaces not marked `ExclusiveTo`. Otherwise select them
 with `.implement(name)` or `.implement_all()`; an explicit selection also replaces the full-mode
-default. Implementation selectors use dotted qualified names or namespace prefixes, not bare
-interface names. Select the base or required interfaces too when implementing an interface hierarchy.
-Named implementation selectors reject member filters on matching interfaces; select the whole
-interface or `::{}`. `.implement_all()` allows member filters but emits the complete implementation ABI.
+default. Implementation selectors resolve bare names, qualified names, and namespaces like filters.
+Include base and required interfaces in these selectors when implementing a hierarchy.
+Member filters control callable wrappers; implementations retain the complete method ABI.
 In minimal mode, combine a COM interface's `::{}` filter with `.implement(...)` to generate its
 implementation trait and vtable without caller wrappers.
 

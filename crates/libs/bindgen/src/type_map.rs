@@ -71,62 +71,12 @@ impl TypeMap {
         Self::default()
     }
 
-    #[track_caller]
-    pub fn filter(reader: &Reader, filter: &Filter, references: &References, sys: bool) -> Self {
-        let mut dependencies = Self::new();
-
-        // The references provide these types along with their dependencies, so the walk below
-        // stops at them.
-        let referenced = Arc::new(references.type_names(reader));
-
-        for namespace in reader.namespaces() {
-            if filter.includes_namespace(namespace) {
-                for type_name in reader.type_names(namespace) {
-                    let name = type_name.name();
-                    if let Some(filter_rule) = filter.includes_type_name(TypeName(namespace, name))
-                    {
-                        // A longer rule string means a more specific (fully-qualified) path.
-                        // Skip types already owned by a reference whose rule is more specific
-                        // (longer) than the filter rule that matched this type.
-                        if references
-                            .matching_rule(TypeName(namespace, name))
-                            .is_some_and(|reference_rule| reference_rule.len() > filter_rule.len())
-                        {
-                            continue;
-                        }
-
-                        // A referenced type that is also generated needs its own dependencies.
-                        let types = reader.types(type_name);
-                        let mut item_dependencies =
-                            if referenced.contains(&TypeName(namespace, name)) {
-                                Self::new()
-                            } else {
-                                Self(HashMap::new(), referenced.clone(), HashMap::new())
-                            };
-
-                        for ty in types.iter() {
-                            if sys && let Type::CppFn(function) = ty {
-                                function.combine_sys(&mut item_dependencies, reader);
-                            } else {
-                                ty.combine(&mut item_dependencies, reader);
-                            }
-                        }
-
-                        if item_dependencies.excluded(filter, references) {
-                            continue;
-                        }
-
-                        for ty in types.iter() {
-                            dependencies.insert(ty.clone());
-                        }
-
-                        dependencies.combine_references(&item_dependencies, references);
-                    }
-                }
-            }
-        }
-
-        dependencies
+    pub fn with_references(reader: &Reader, references: &References) -> Self {
+        Self(
+            HashMap::new(),
+            Arc::new(references.type_names(reader)),
+            HashMap::new(),
+        )
     }
 
     /// Adds `ty` and returns whether its dependencies still need to be walked.
@@ -151,17 +101,6 @@ impl TypeMap {
         self.2.get(ty).copied().unwrap_or(ALL_ARCHES)
     }
 
-    pub fn combine_references(&mut self, other: &Self, references: &References) {
-        for (tn, types) in &other.0 {
-            if references.contains(*tn).is_none() {
-                let set = self.0.entry(*tn).or_default();
-                types.iter().for_each(|ty| {
-                    set.insert(ty.clone());
-                });
-            }
-        }
-    }
-
     pub fn combine(&mut self, other: &Self) {
         for (name, types) in &other.0 {
             let set = self.0.entry(*name).or_default();
@@ -178,22 +117,6 @@ impl TypeMap {
         }
     }
 
-    pub fn hierarchy_dependencies(&self, reader: &Reader, references: &References) -> Self {
-        let mut dependencies = Self(
-            HashMap::new(),
-            Arc::new(references.type_names(reader)),
-            HashMap::new(),
-        );
-        for ty in self.values().flatten() {
-            if matches!(ty, Type::Class(_) | Type::Interface(_)) {
-                ty.combine(&mut dependencies, reader);
-            }
-        }
-        let mut result = Self::new();
-        result.combine_references(&dependencies, references);
-        result
-    }
-
     pub fn included(&self, config: &Config) -> bool {
         if self.0.iter().any(|(tn, types)| {
             Self::is_reference(*tn, config.references)
@@ -208,7 +131,13 @@ impl TypeMap {
         // Reference-owned interface dependencies need not be locally available.
         let covered = self.reference_provided_closure(config);
 
-        self.0.iter().all(|(tn, _)| {
+        self.0.iter().all(|(tn, types)| {
+            if types
+                .iter()
+                .all(|ty| matches!(ty, Type::CppConst(c) if c.is_enum_member))
+            {
+                return true;
+            }
             // An empty namespace covers core types like `HRESULT`. This preserves methods
             // that depend on core types that aren't explicitly included in the filter.
             if tn.namespace().is_empty() {
@@ -263,10 +192,14 @@ impl TypeMap {
             })
     }
 
-    fn excluded(&self, filter: &Filter, references: &References) -> bool {
-        self.0
-            .iter()
-            .any(|(tn, _)| filter.excludes_type_name(*tn) && references.contains(*tn).is_none())
+    pub fn excluded(&self, filter: &Filter, references: &References) -> bool {
+        self.0.iter().any(|(tn, types)| {
+            !types
+                .iter()
+                .all(|ty| matches!(ty, Type::CppConst(c) if c.is_enum_member))
+                && filter.excludes_type_name(*tn)
+                && references.contains(*tn).is_none()
+        })
     }
 }
 

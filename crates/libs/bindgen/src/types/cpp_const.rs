@@ -27,6 +27,19 @@ impl PartialOrd for CppConst {
 }
 
 impl CppConst {
+    pub fn dependency_type(&self, reader: &Reader) -> Type {
+        let ty = self.field.field_type(None, reader).to_const_type();
+        if ty == Type::String {
+            if is_ansi_encoding(self.field) {
+                Type::PCSTR
+            } else {
+                Type::PCWSTR
+            }
+        } else {
+            ty
+        }
+    }
+
     pub fn type_name(&self) -> TypeName {
         TypeName(self.namespace, self.field.name())
     }
@@ -60,14 +73,11 @@ impl CppConst {
             .field_type(enclosing, config.reader)
             .to_const_type();
         if self.is_enum_member
-            && (config.filter.excludes_type_name(self.type_name())
-                || config
+            && (!config.includes_type(field_ty.type_name())
+                || config.filter.excludes_type_name(self.type_name())
+                || !config
                     .filter
-                    .enum_variant_filter(
-                        field_ty.type_name().namespace(),
-                        field_ty.type_name().name(),
-                    )
-                    .is_some_and(|variants| !variants.includes(self.field.name())))
+                    .includes_variant(field_ty.type_name(), self.field.name()))
         {
             return quote! {};
         }
@@ -402,19 +412,7 @@ impl Dependencies for CppConst {
             return;
         }
 
-        let ty = self.field.field_type(None, reader).to_const_type();
-
-        // String constants emit PCWSTR/PCSTR in the generated code, so we
-        // need those types in the dependency closure (not Type::String).
-        if ty == Type::String {
-            if is_ansi_encoding(self.field) {
-                Type::PCSTR.combine(dependencies, reader);
-            } else {
-                Type::PCWSTR.combine(dependencies, reader);
-            }
-        } else {
-            ty.combine(dependencies, reader);
-        }
+        self.dependency_type(reader).combine(dependencies, reader);
     }
 }
 

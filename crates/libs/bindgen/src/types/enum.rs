@@ -5,14 +5,7 @@ pub fn write_enum_constants(def: TypeDef, config: &Config) -> Vec<TokenStream> {
     let tn = def.type_name();
     def.fields()
         .filter(|field| field.flags().contains(FieldAttributes::Literal))
-        .filter(|field| {
-            // When the filter lists specific variants for this enum, emit only those.
-            if let Some(variant_set) = config.filter.enum_variant_filter(tn.namespace(), tn.name())
-            {
-                return variant_set.includes(field.name());
-            }
-            true
-        })
+        .filter(|field| config.filter.includes_variant(tn, field.name()))
         .map(|field| {
             let name = to_ident(field.name());
             let value = field.constant().unwrap().value().write();

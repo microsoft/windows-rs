@@ -81,11 +81,7 @@ impl CppFn {
     }
 
     fn directly_selected(&self, config: &Config<'_>) -> bool {
-        config
-            .filter
-            .direct_types
-            .iter()
-            .any(|(namespace, name)| namespace == self.namespace && name == self.method.name())
+        config.filter.is_explicit(self.type_name())
     }
 
     fn reject_variadic(&self, config: &Config<'_>, reason: &str) -> TokenStream {

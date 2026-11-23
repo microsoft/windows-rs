@@ -36,32 +36,31 @@ pub fn parse_filter_entry(input: &str) -> Vec<FilterEntry> {
 /// Parse a `::` separated tree, returning all flattened paths.
 fn parse_tree(input: &str, filter: &str) -> Vec<Vec<String>> {
     let parts = split_path(input);
-    let mut result = vec![Vec::new()];
+    let mut prefix = Vec::new();
 
-    for part in parts {
+    for (index, part) in parts.iter().enumerate() {
         let part = part.trim();
         if part.starts_with('{') && part.ends_with('}') {
-            // Expand grouped branches.
+            assert!(
+                index + 1 == parts.len(),
+                "groups must end a path in filter `{filter}`"
+            );
             let inner = &part[1..part.len() - 1];
             if inner.trim().is_empty() {
-                for path in &mut result {
-                    path.push(String::new());
-                }
-                continue;
+                prefix.push(String::new());
+                return vec![prefix];
             }
             let branches = split_group(inner);
             let mut expanded = Vec::new();
             for branch in branches {
                 let sub_paths = parse_tree(branch.trim(), filter);
-                for prefix in &result {
-                    for sub in &sub_paths {
-                        let mut combined = prefix.clone();
-                        combined.extend(sub.iter().cloned());
-                        expanded.push(combined);
-                    }
+                for sub in sub_paths {
+                    let mut combined = prefix.clone();
+                    combined.extend(sub);
+                    expanded.push(combined);
                 }
             }
-            result = expanded;
+            return expanded;
         } else {
             // Keep legacy dotted paths compatible with the `::` grammar.
             for segment in part.split('.') {
@@ -69,14 +68,12 @@ fn parse_tree(input: &str, filter: &str) -> Vec<Vec<String>> {
                     !segment.trim().is_empty(),
                     "empty path segment in filter `{filter}`; use `Type::{{}}` for a name-only shell"
                 );
-                for path in &mut result {
-                    path.push(segment.to_string());
-                }
+                prefix.push(segment.to_string());
             }
         }
     }
 
-    result
+    vec![prefix]
 }
 
 /// Split on `::` but respect `{}` nesting.
@@ -344,6 +341,12 @@ fn collect_members(member_segments: &[String], entry: &FilterEntry) -> Vec<Strin
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    #[should_panic(expected = "groups must end a path")]
+    fn group_suffix_is_rejected() {
+        parse_filter_entry("IStream::{Read, Write}::Other");
+    }
 
     #[test]
     fn simple_path() {

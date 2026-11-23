@@ -90,6 +90,20 @@ pub struct ISource_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+windows_core::imp::define_winrt_interface!(
+    Item,
+    Item_Vtbl,
+    0x2d93fccb_fadf_52bd_a462_4bb301d551af,
+    b"Test.Item"
+);
+windows_core::imp::interface_hierarchy!(Item, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeName for Item {
+    const NAME: &'static str = "Test.Item";
+}
+#[repr(C)]
+pub struct Item_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Items(windows_core::IUnknown);
@@ -99,6 +113,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     IItems
 );
+windows_core::imp::required_hierarchy!(Items, windows_collections::IIterable<Item>);
 impl windows_core::RuntimeType for Items {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IItems>();

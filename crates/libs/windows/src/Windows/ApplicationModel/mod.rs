@@ -1964,7 +1964,6 @@ unsafe impl Sync for Package {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PackageCatalog(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalog, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PackageCatalog, IPackageCatalogStatics2);
 impl PackageCatalog {
     pub fn PackageStaging<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where

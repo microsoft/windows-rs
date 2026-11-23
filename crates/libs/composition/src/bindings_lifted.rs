@@ -43,6 +43,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CompositionAnimation,
+    IAnimationObject,
+    IClosable,
     ICompositionAnimationBase,
     CompositionObject
 );
@@ -76,7 +78,10 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CompositionAnimationGroup,
+    IAnimationObject,
+    IClosable,
     ICompositionAnimationBase,
+    windows_collections::IIterable<CompositionAnimation>,
     CompositionObject
 );
 impl windows_core::RuntimeType for CompositionAnimationGroup {
@@ -107,7 +112,12 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(CompositionBatchCompletedEventArgs, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionBatchCompletedEventArgs,
+    IAnimationObject,
+    IClosable,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionBatchCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionBatchCompletedEventArgs>();
@@ -210,7 +220,12 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(CompositionBrush, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionBrush,
+    IAnimationObject,
+    IClosable,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionBrush>();
@@ -239,7 +254,13 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(CompositionColorBrush, CompositionBrush, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionColorBrush,
+    IAnimationObject,
+    IClosable,
+    CompositionBrush,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionColorBrush {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionColorBrush>();
@@ -270,6 +291,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CompositionContainerShape,
+    IAnimationObject,
+    IClosable,
     CompositionShape,
     CompositionObject
 );
@@ -303,6 +326,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CompositionDrawingSurface,
+    IAnimationObject,
+    IClosable,
     ICompositionSurface,
     CompositionObject
 );
@@ -334,7 +359,12 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(CompositionEasingFunction, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionEasingFunction,
+    IAnimationObject,
+    IClosable,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEasingFunction>();
@@ -365,6 +395,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CompositionEllipseGeometry,
+    IAnimationObject,
+    IClosable,
     CompositionGeometry,
     CompositionObject
 );
@@ -396,7 +428,12 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(CompositionGeometry, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionGeometry,
+    IAnimationObject,
+    IClosable,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionGeometry {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionGeometry>();
@@ -425,7 +462,12 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(CompositionGraphicsDevice, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionGraphicsDevice,
+    IAnimationObject,
+    IClosable,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionGraphicsDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionGraphicsDevice>();
@@ -456,6 +498,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CompositionNineGridBrush,
+    IAnimationObject,
+    IClosable,
     CompositionBrush,
     CompositionObject
 );
@@ -487,6 +531,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+windows_core::imp::required_hierarchy!(CompositionObject, IAnimationObject, IClosable);
 impl windows_core::RuntimeType for CompositionObject {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionObject>();
@@ -517,6 +562,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CompositionRoundedRectangleGeometry,
+    IAnimationObject,
+    IClosable,
     CompositionGeometry,
     CompositionObject
 );
@@ -549,7 +596,12 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(CompositionScopedBatch, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionScopedBatch,
+    IAnimationObject,
+    IClosable,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionScopedBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionScopedBatch>();
@@ -578,7 +630,12 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(CompositionShape, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionShape,
+    IAnimationObject,
+    IClosable,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionShape {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionShape>();
@@ -608,7 +665,13 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<CompositionShape>
 );
-windows_core::imp::required_hierarchy!(CompositionShapeCollection, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionShapeCollection,
+    IAnimationObject,
+    IClosable,
+    windows_collections::IIterable<CompositionShape>,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionShapeCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -641,7 +704,13 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(CompositionSpriteShape, CompositionShape, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionSpriteShape,
+    IAnimationObject,
+    IClosable,
+    CompositionShape,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionSpriteShape {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionSpriteShape>();
@@ -691,6 +760,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CompositionSurfaceBrush,
+    IAnimationObject,
+    IClosable,
     CompositionBrush,
     CompositionObject
 );
@@ -722,6 +793,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+windows_core::imp::required_hierarchy!(Compositor, IClosable);
 impl windows_core::RuntimeType for Compositor {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositor>();
@@ -750,7 +822,13 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(ContainerVisual, Visual, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    ContainerVisual,
+    IAnimationObject,
+    IClosable,
+    Visual,
+    CompositionObject
+);
 impl windows_core::RuntimeType for ContainerVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IContainerVisual>();
@@ -781,6 +859,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CubicBezierEasingFunction,
+    IAnimationObject,
+    IClosable,
     CompositionEasingFunction,
     CompositionObject
 );
@@ -960,6 +1040,34 @@ impl windows_core::RuntimeType for DirectXPixelFormat {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"Microsoft.Graphics.DirectX.DirectXPixelFormat",
     );
+}
+windows_core::imp::define_winrt_interface!(
+    IAnimationObject,
+    IAnimationObject_Vtbl,
+    0x8f56119d_b96d_58d0_9916_d1c5e390f890
+);
+windows_core::imp::interface_hierarchy!(
+    IAnimationObject,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IAnimationObject_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
+    IClosable,
+    IClosable_Vtbl,
+    0x30d5a829_7fa4_4026_83bb_d75bae4ea99e
+);
+windows_core::imp::interface_hierarchy!(
+    IClosable,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IClosable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
     ICompositionAnimation,
@@ -2718,7 +2826,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(ImplicitAnimationCollection, CompositionObject);
+windows_core::imp::required_hierarchy!(ImplicitAnimationCollection, IAnimationObject, IClosable, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, ICompositionAnimationBase > >, windows_collections::IMap < windows_core::HSTRING, ICompositionAnimationBase >, CompositionObject);
 impl windows_core::RuntimeType for ImplicitAnimationCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IImplicitAnimationCollection>();
@@ -2749,6 +2857,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     KeyFrameAnimation,
+    IAnimationObject,
+    IClosable,
     ICompositionAnimationBase,
     CompositionAnimation,
     CompositionObject
@@ -2784,6 +2894,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     LinearEasingFunction,
+    IAnimationObject,
+    IClosable,
     CompositionEasingFunction,
     CompositionObject
 );
@@ -2837,6 +2949,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ScalarKeyFrameAnimation,
+    IAnimationObject,
+    IClosable,
     ICompositionAnimationBase,
     KeyFrameAnimation,
     CompositionAnimation,
@@ -2870,7 +2984,14 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(ShapeVisual, ContainerVisual, Visual, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    ShapeVisual,
+    IAnimationObject,
+    IClosable,
+    ContainerVisual,
+    Visual,
+    CompositionObject
+);
 impl windows_core::RuntimeType for ShapeVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IShapeVisual>();
@@ -2914,7 +3035,14 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(SpriteVisual, ContainerVisual, Visual, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    SpriteVisual,
+    IAnimationObject,
+    IClosable,
+    ContainerVisual,
+    Visual,
+    CompositionObject
+);
 impl windows_core::RuntimeType for SpriteVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ISpriteVisual>();
@@ -3021,6 +3149,8 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     Vector3KeyFrameAnimation,
+    IAnimationObject,
+    IClosable,
     ICompositionAnimationBase,
     KeyFrameAnimation,
     CompositionAnimation,
@@ -3050,7 +3180,7 @@ unsafe impl Sync for Vector3KeyFrameAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Visual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Visual, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Visual, CompositionObject);
+windows_core::imp::required_hierarchy!(Visual, IAnimationObject, IClosable, CompositionObject);
 impl windows_core::RuntimeType for Visual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IVisual>();
@@ -3079,7 +3209,13 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(VisualCollection, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    VisualCollection,
+    IAnimationObject,
+    IClosable,
+    windows_collections::IIterable<Visual>,
+    CompositionObject
+);
 impl windows_core::RuntimeType for VisualCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IVisualCollection>();

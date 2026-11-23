@@ -246,10 +246,6 @@ impl GraphicsCaptureItem {
             (windows_core::Interface::vtable(this).TryCreateFromDisplayId)(windows_core::Interface::as_raw(this), displayid, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
-    fn IGraphicsCaptureItemStatics<R, F: FnOnce(&IGraphicsCaptureItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureItem, IGraphicsCaptureItemStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
     fn IGraphicsCaptureItemStatics2<R, F: FnOnce(&IGraphicsCaptureItemStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureItem, IGraphicsCaptureItemStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)

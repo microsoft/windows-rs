@@ -16,8 +16,8 @@ impl ReferenceStage {
 
 #[derive(Debug)]
 pub struct Reference {
-    pub name: String,   // crate name like "windows_future"
-    pub filter: Filter, // what this reference provides
+    pub name: String,      // crate name like "windows_future"
+    pub filter: NameRules, // what this reference provides
 }
 
 #[derive(Debug, Default)]
@@ -31,7 +31,7 @@ impl References {
                 .map(|stage| {
                     let entries = filter_parser::parse_filter_entry(&stage.path);
                     let resolved = filter_parser::resolve_entries(reader, &entries);
-                    let filter = Filter::from_resolved(reader, &resolved);
+                    let filter = NameRules::new(&resolved);
 
                     Reference {
                         name: stage.name,
@@ -46,6 +46,14 @@ impl References {
         self.0
             .iter()
             .find(|reference| reference.filter.includes_type_name(name).is_some())
+    }
+
+    pub fn owns(&self, name: TypeName, rules: &NameRules) -> bool {
+        self.matching_rule(name).is_some_and(|reference| {
+            rules
+                .includes_type_name(name)
+                .is_none_or(|selected| reference.len() > selected.len())
+        })
     }
 
     /// Returns the names of the types that the references provide.

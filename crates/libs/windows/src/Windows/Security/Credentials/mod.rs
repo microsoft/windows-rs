@@ -582,7 +582,6 @@ impl windows_core::RuntimeType for KeyCredentialAttestationStatus {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct KeyCredentialCacheConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyCredentialCacheConfiguration, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(KeyCredentialCacheConfiguration, IKeyCredentialCacheConfigurationFactory);
 impl KeyCredentialCacheConfiguration {
     pub fn CacheOption(&self) -> windows_core::Result<KeyCredentialCacheOption> {
         unsafe {

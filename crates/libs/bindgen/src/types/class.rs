@@ -45,7 +45,13 @@ impl Class {
                         .get_methods(config)
                         .iter()
                         .filter_map(|method| match &method {
-                            MethodOrName::Method(method) => Some(method),
+                            MethodOrName::Method(method)
+                                if config
+                                    .filter
+                                    .includes_method(interface.type_name(), method.def) =>
+                            {
+                                Some(method)
+                            }
                             _ => None,
                         })
                 {
@@ -95,7 +101,13 @@ impl Class {
                         .get_methods(config)
                         .iter()
                         .filter_map(|method| match &method {
-                            MethodOrName::Method(method) => Some(method),
+                            MethodOrName::Method(method)
+                                if config
+                                    .filter
+                                    .includes_method(interface.type_name(), method.def) =>
+                            {
+                                Some(method)
+                            }
                             _ => None,
                         })
                 {
@@ -123,10 +135,9 @@ impl Class {
         let vis = config.item_vis();
 
         let has_default_ctor = self.has_default_constructor(config.reader)
-            && (!config.bindgen.style.is_minimal()
-                || config
-                    .filter
-                    .is_activatable(type_name.namespace(), type_name.name()));
+            && config
+                .filter
+                .is_activatable(type_name.namespace(), type_name.name());
 
         let new = has_default_ctor.then(||
             quote! {
@@ -145,14 +156,11 @@ impl Class {
 
         let factories: Vec<_> = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
-                let has_methods = if config.bindgen.style.is_minimal() || config.filter.uses_closure {
-                    interface
+                let has_methods = interface
                         .get_methods(config)
                         .iter()
-                        .any(|m| matches!(m, MethodOrName::Method(_)))
-                } else {
-                    interface.def.methods().next().is_some()
-                };
+                        .any(|m| matches!(m, MethodOrName::Method(method)
+                            if config.filter.includes_method(interface.type_name(), method.def)));
                 if !has_methods {
                     None
                 } else {
@@ -202,32 +210,18 @@ impl Class {
             let required_hierarchy = {
                 let mut interfaces: Vec<_> = required_interfaces
                     .iter()
-                    .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
                     .filter(|ty| {
-                        !config.filter.uses_closure || {
-                            let name = Type::Interface((*ty).clone()).type_name();
-                            config.types.contains_key(&name)
-                                && config.filter.includes_hierarchy(
-                                    self.def.namespace(),
-                                    self.def.name(),
-                                    ty,
-                                )
-                        }
+                        !ty.is_exclusive()
+                            && matches!(ty.kind, InterfaceKind::None | InterfaceKind::Base)
                     })
+                    .filter(|ty| config.includes_type(ty.type_name()))
                     .map(|ty| ty.write_name(config))
                     .collect();
 
                 interfaces.extend(
                     self.bases(config.reader)
                         .iter()
-                        .filter(|ty| {
-                            if config.filter.uses_closure {
-                                let tn = Type::Class((*ty).clone()).type_name();
-                                config.types.contains_key(&tn)
-                            } else {
-                                true
-                            }
-                        })
+                        .filter(|ty| config.includes_type(ty.type_name()))
                         .map(|ty| ty.write_name(config)),
                 );
 
@@ -374,7 +368,7 @@ impl Class {
         )
     }
 
-    fn bases(&self, reader: &Reader) -> Vec<Self> {
+    pub fn bases(&self, reader: &Reader) -> Vec<Self> {
         let mut bases = Vec::new();
         let mut def = self.def;
 

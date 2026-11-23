@@ -257,12 +257,14 @@ impl Bindgen {
     /// Namespace selections include descendant namespaces. The bundled Win32 metadata uses
     /// `Windows.Win32`, not the subsystem namespaces used by the umbrella crates' Cargo features.
     ///
-    /// Groups abbreviate separate selections and may nest: `Windows::Foundation::{Uri, AsyncStatus}`.
+    /// Groups abbreviate separate selections, may nest, and must end a path:
+    /// `Windows::Foundation::{Uri, AsyncStatus}`.
     /// Trailing commas are allowed. `*` wildcards are not supported.
     ///
     /// # Members and dependencies
     ///
-    /// A bare type selects all its members. Use `Type::Member` or `Type::{Member, OtherMember}`
+    /// A bare type selects all its members, including inherited interface methods.
+    /// Use `Type::Member` or `Type::{Member, OtherMember}`
     /// for a subset. Members may be methods, properties, events, or enum variants.
     /// Use native member or overload names, not renamed Rust methods. Property and event names
     /// select their accessor pairs; requesting an event's `add_` method also selects its `remove_`
@@ -273,17 +275,17 @@ impl Bindgen {
     /// `Type::{}` requests the type without requesting its methods or enum variants; it does not
     /// remove methods selected elsewhere. In minimal mode, a COM interface selected this way can
     /// use [`Bindgen::implement`] to emit its implementation trait and vtable without caller wrappers.
+    /// Member selections include the owner's identity and hierarchy without a separate `::{}`.
+    /// Hierarchy dependencies do not select callable methods.
     ///
     /// # Combining rules
     ///
     /// Prefix a selection with `!` to exclude it. More specific type/namespace rules take precedence;
-    /// exclusions win ties regardless of argument order. Member and enum-variant selections narrow
-    /// whole-type selections, also regardless of order. Excluded members and variants win over
-    /// included ones, except that implementation traits require the interface's complete method ABI.
-    /// Named [`Bindgen::implement`] selectors reject method-level inclusions or exclusions on matching
-    /// interfaces. Select the whole interface or use `Interface::{}` instead.
-    /// [`Bindgen::implement_all`] allows member filters, but emits the complete method ABI for
-    /// implemented interfaces.
+    /// exclusions win ties regardless of argument order. Positive selections add together:
+    /// member selections do not narrow namespace or whole-type selections. Excluded members and
+    /// variants win over included ones; exclusions never introduce APIs.
+    /// Implementation traits require the complete method ABI independently of callable selections.
+    /// Excluding a dependency of an explicitly selected API can leave bindings that do not compile.
     ///
     /// Chained members (`Type::Read::Write`), trailing separators (`Type::`), and empty entries
     /// inside a group (`Type::{Read,,Write}`) are rejected. Use `Type::{Read, Write}` for several
@@ -387,8 +389,7 @@ impl Bindgen {
 
     /// Includes implementation traits for every native and WinRT interface in scope.
     ///
-    /// Unlike [`Bindgen::implement`], allows method-level filters. Implemented interfaces still
-    /// emit their complete method ABI.
+    /// Member filters control callable wrappers; implemented interfaces emit their complete method ABI.
     #[track_caller]
     pub fn implement_all(&mut self) -> &mut Self {
         match &self.implement {
@@ -401,12 +402,12 @@ impl Bindgen {
 
     /// Includes implementation traits for a native or WinRT interface or namespace prefix.
     ///
-    /// Use a dotted qualified name (`Windows.Win32.ISequentialStream`) or a namespace prefix.
-    /// Unlike filters, bare interface names are not resolved. The interface must be included in
+    /// Use a bare interface name, qualified name, or namespace, as with filters.
+    /// The interface must be included in
     /// the generated bindings, directly or as a dependency; this does not select it.
     ///
-    /// Method-level inclusions or exclusions on matching interfaces cause [`Bindgen::write`] to
-    /// panic. Select the whole interface or use `Interface::{}` instead.
+    /// Member filters control callable wrappers, not the implementation ABI. Include base and
+    /// required interfaces in implementation selectors when implementing a hierarchy.
     #[track_caller]
     pub fn implement(&mut self, name: &str) -> &mut Self {
         assert!(
@@ -660,7 +661,7 @@ impl Bindgen {
         let derive_str: Vec<&str> = self.derive.iter().map(|s| s.as_str()).collect();
         let implements = self.implement.as_ref().map(|names| {
             let names_str: Vec<&str> = names.iter().map(|s| s.as_str()).collect();
-            Implements::new(&names_str)
+            Implements::new(reader, &names_str)
         });
 
         let references = References::new(reader, references);
@@ -679,46 +680,19 @@ impl Bindgen {
             }
             let resolved = filter_parser::resolve_entries(reader, &all_parsed);
 
-            let mut filter = Filter::from_resolved(reader, &resolved);
-
-            // Precise filters use bottom-up closure; broad filters and packages scan top-down.
-            let types = if !filter.has_broad_filter && !self.layout.is_package() {
-                filter.uses_closure = true;
-                TypeClosure::build(
-                    reader,
-                    &mut filter,
-                    &references,
-                    implements.as_ref(),
-                    self.style,
-                )
-            } else {
-                let mut types = TypeMap::filter(reader, &filter, &references, self.style.is_sys());
-                if !self.layout.is_package() {
-                    let precise = TypeClosure::build(
-                        reader,
-                        &mut filter,
-                        &references,
-                        implements.as_ref(),
-                        self.style,
-                    );
-                    filter.dependency_types.extend(
-                        precise
-                            .keys()
-                            .filter(|name| !types.contains_key(name))
-                            .copied(),
-                    );
-                    types.combine(&precise);
-                }
-                types
-            };
+            let filter = Filter::from_resolved(reader, &resolved);
+            let types = TypeClosure::build(
+                reader,
+                &filter,
+                &references,
+                implements.as_ref(),
+                self.style,
+            );
 
             (filter, types)
         };
 
         let derive = Derive::new(reader, &types, &derive_str);
-        if let Some(implements) = &implements {
-            filter.validate_implements(implements);
-        }
 
         let shadowed_prelude = Config::shadowed_prelude(&types);
         let config = Config {

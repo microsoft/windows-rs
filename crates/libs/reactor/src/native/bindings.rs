@@ -80,6 +80,9 @@ pub struct AppBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBar, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(
     AppBar,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -116,6 +119,10 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     AppBarButton,
+    IAnimationObject,
+    ICommandBarElement,
+    IVisualElement,
+    IVisualElement2,
     Button,
     ButtonBase,
     ContentControl,
@@ -192,6 +199,10 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     AppBarSeparator,
+    IAnimationObject,
+    ICommandBarElement,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -540,6 +551,10 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     AutoSuggestBox,
+    IAnimationObject,
+    IItemContainerMapping,
+    IVisualElement,
+    IVisualElement2,
     ItemsControl,
     Control,
     FrameworkElement,
@@ -930,6 +945,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     BitmapIcon,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     IconElement,
     FrameworkElement,
     UIElement,
@@ -1165,6 +1183,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<Block>
 );
+windows_core::imp::required_hierarchy!(BlockCollection, windows_collections::IIterable<Block>);
 impl windows_core::RuntimeType for BlockCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVector<Block>>();
@@ -1190,7 +1209,15 @@ unsafe impl Sync for BlockCollection {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Border(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Border, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Border, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    Border,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl Border {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1303,6 +1330,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     BreadcrumbBar,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -1399,7 +1429,7 @@ unsafe impl Sync for BreadcrumbBarItemClickedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Brush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Brush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Brush, DependencyObject);
+windows_core::imp::required_hierarchy!(Brush, IAnimationObject, DependencyObject);
 impl windows_core::RuntimeType for Brush {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IBrush>();
@@ -1426,6 +1456,9 @@ pub struct Button(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Button, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(
     Button,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ButtonBase,
     ContentControl,
     Control,
@@ -1484,6 +1517,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ButtonBase,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -1523,6 +1559,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CalendarDatePicker,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -1686,6 +1725,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CalendarView,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -1797,6 +1839,9 @@ pub struct Canvas(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Canvas, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(
     Canvas,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Panel,
     FrameworkElement,
     UIElement,
@@ -1910,6 +1955,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CheckBox,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ToggleButton,
     ButtonBase,
     ContentControl,
@@ -2014,6 +2062,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ColorPicker,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -2173,6 +2224,10 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<ColumnDefinition>
 );
+windows_core::imp::required_hierarchy!(
+    ColumnDefinitionCollection,
+    windows_collections::IIterable<ColumnDefinition>
+);
 impl windows_core::RuntimeType for ColumnDefinitionCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -2207,6 +2262,10 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ComboBox,
+    IAnimationObject,
+    IItemContainerMapping,
+    IVisualElement,
+    IVisualElement2,
     Selector,
     ItemsControl,
     Control,
@@ -2292,6 +2351,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     CommandBar,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     AppBar,
     ContentControl,
     Control,
@@ -2401,6 +2463,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+windows_core::imp::required_hierarchy!(CompositionObject, IAnimationObject, IClosable);
 impl windows_core::RuntimeType for CompositionObject {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionObject>();
@@ -2503,6 +2566,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+windows_core::imp::required_hierarchy!(Compositor, IClosable);
 impl windows_core::RuntimeType for Compositor {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositor>();
@@ -2533,6 +2597,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ContentControl,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -2589,6 +2656,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ContentDialog,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -2850,7 +2920,15 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(Control, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    Control,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl Control {
     pub(crate) fn IsEnabledProperty() -> windows_core::Result<DependencyProperty> {
         Self::IControlStatics(|this| unsafe {
@@ -3153,7 +3231,12 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(DataTemplate, FrameworkTemplate, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    DataTemplate,
+    IElementFactory,
+    FrameworkTemplate,
+    DependencyObject
+);
 impl windows_core::RuntimeType for DataTemplate {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IDataTemplate>();
@@ -3184,6 +3267,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     DatePicker,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -3494,7 +3580,13 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(DesktopChildSiteBridge, DesktopSiteBridge);
+windows_core::imp::required_hierarchy!(
+    DesktopChildSiteBridge,
+    IClosable,
+    IClosableNotifier,
+    IContentSiteBridge,
+    DesktopSiteBridge
+);
 impl windows_core::RuntimeType for DesktopChildSiteBridge {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IDesktopChildSiteBridge>();
@@ -3522,6 +3614,12 @@ windows_core::imp::interface_hierarchy!(
     DesktopSiteBridge,
     windows_core::IUnknown,
     windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    DesktopSiteBridge,
+    IClosable,
+    IClosableNotifier,
+    IContentSiteBridge
 );
 impl windows_core::RuntimeType for DesktopSiteBridge {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -3551,6 +3649,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+windows_core::imp::required_hierarchy!(DesktopWindowXamlSource, IClosable);
 impl DesktopWindowXamlSource {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IDesktopWindowXamlSourceFactory(|this| unsafe {
@@ -4022,6 +4121,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     DropDownButton,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Button,
     ButtonBase,
     ContentControl,
@@ -4229,6 +4331,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     Ellipse,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Shape,
     FrameworkElement,
     UIElement,
@@ -4499,6 +4604,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     Expander,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -4573,6 +4681,10 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     FlipView,
+    IAnimationObject,
+    IItemContainerMapping,
+    IVisualElement,
+    IVisualElement2,
     Selector,
     ItemsControl,
     Control,
@@ -4873,6 +4985,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     FontIcon,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     IconElement,
     FrameworkElement,
     UIElement,
@@ -5033,7 +5148,14 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    FrameworkElement,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    UIElement,
+    DependencyObject
+);
 impl FrameworkElement {
     pub(crate) fn TagProperty() -> windows_core::Result<DependencyProperty> {
         Self::IFrameworkElementStatics(|this| unsafe {
@@ -5301,7 +5423,16 @@ unsafe impl Sync for Geometry {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Grid(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Grid, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Grid, Panel, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    Grid,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    Panel,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl Grid {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IGridFactory(|this| unsafe {
@@ -5453,6 +5584,11 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     GridView,
+    IAnimationObject,
+    IItemContainerMapping,
+    ISemanticZoomInformation,
+    IVisualElement,
+    IVisualElement2,
     ListViewBase,
     Selector,
     ItemsControl,
@@ -5512,6 +5648,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     GridViewItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     SelectorItem,
     ContentControl,
     Control,
@@ -5662,6 +5801,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     HyperlinkButton,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ButtonBase,
     ContentControl,
     Control,
@@ -5740,6 +5882,20 @@ windows_core::imp::define_winrt_interface!(
 );
 #[repr(C)]
 pub struct IAddDeleteThemeTransition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
+    IAnimationObject,
+    IAnimationObject_Vtbl,
+    0x8f56119d_b96d_58d0_9916_d1c5e390f890
+);
+windows_core::imp::interface_hierarchy!(
+    IAnimationObject,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IAnimationObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
@@ -7875,6 +8031,34 @@ pub struct ICheckBoxFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
+    IClosable,
+    IClosable_Vtbl,
+    0x30d5a829_7fa4_4026_83bb_d75bae4ea99e
+);
+windows_core::imp::interface_hierarchy!(
+    IClosable,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IClosable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
+    IClosableNotifier,
+    IClosableNotifier_Vtbl,
+    0x2989e93b_ed0f_5e79_90f2_eac592fc6e6a
+);
+windows_core::imp::interface_hierarchy!(
+    IClosableNotifier,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IClosableNotifier_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
     IColorChangedEventArgs,
     IColorChangedEventArgs_Vtbl,
     0x148d57a2_b1cb_5f5d_b6b5_512805d71761
@@ -8609,6 +8793,21 @@ pub struct IContentDialogStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
+    IContentSiteBridge,
+    IContentSiteBridge_Vtbl,
+    0xfaaab99e_a42b_549c_92df_3b6d6e1e368b
+);
+windows_core::imp::interface_hierarchy!(
+    IContentSiteBridge,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(IContentSiteBridge, IClosable);
+#[repr(C)]
+pub struct IContentSiteBridge_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
     IContentThemeTransition,
@@ -11506,6 +11705,21 @@ pub struct IInputCursor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
+    IInputStream,
+    IInputStream_Vtbl,
+    0x905a0fe2_bc53_11df_8c49_001e4fc686da
+);
+windows_core::imp::interface_hierarchy!(
+    IInputStream,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(IInputStream, IClosable);
+#[repr(C)]
+pub struct IInputStream_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
     IInputSystemCursor,
     IInputSystemCursor_Vtbl,
     0x59f538e7_c500_59ab_8b54_0bc6100fd49e
@@ -11527,6 +11741,20 @@ pub struct IInputSystemCursorStatics_Vtbl {
         InputSystemCursorShape,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
+    IInsertionPanel,
+    IInsertionPanel_Vtbl,
+    0x84e13e27_2d24_59c4_a00e_16c7255901e2
+);
+windows_core::imp::interface_hierarchy!(
+    IInsertionPanel,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IInsertionPanel_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
     IItemContainer,
@@ -11552,6 +11780,20 @@ pub struct IItemContainer_Vtbl {
     SetChild: usize,
     pub IsSelected:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
+    IItemContainerMapping,
+    IItemContainerMapping_Vtbl,
+    0xb3e03a32_ea83_5626_bfda_d327a1c7550c
+);
+windows_core::imp::interface_hierarchy!(
+    IItemContainerMapping,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IItemContainerMapping_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
     IItemContainerStatics,
@@ -13351,6 +13593,21 @@ pub struct INumberBoxValueChangedEventArgs_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
+    IOutputStream,
+    IOutputStream_Vtbl,
+    0x905a0fe6_bc53_11df_8c49_001e4fc686da
+);
+windows_core::imp::interface_hierarchy!(
+    IOutputStream,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(IOutputStream, IClosable);
+#[repr(C)]
+pub struct IOutputStream_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
     IOverlappedPresenter,
     IOverlappedPresenter_Vtbl,
     0x21693970_4f4c_5172_9e9d_682a2d174884
@@ -14447,6 +14704,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+windows_core::imp::required_hierarchy!(IRandomAccessStream, IClosable, IInputStream, IOutputStream);
 #[repr(C)]
 pub struct IRandomAccessStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15273,6 +15531,34 @@ pub struct IScalarTransitionFactory_Vtbl {
         *mut *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
+    IScrollAnchorProvider,
+    IScrollAnchorProvider_Vtbl,
+    0x885df41f_f240_5b7b_a703_bfaf39c6a2cd
+);
+windows_core::imp::interface_hierarchy!(
+    IScrollAnchorProvider,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IScrollAnchorProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
+    IScrollSnapPointsInfo,
+    IScrollSnapPointsInfo_Vtbl,
+    0xd3ea6e09_ecf7_51a8_bd54_fc84b9653766
+);
+windows_core::imp::interface_hierarchy!(
+    IScrollSnapPointsInfo,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IScrollSnapPointsInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
     IScrollView,
@@ -16106,6 +16392,20 @@ pub struct ISelectorStatics_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+windows_core::imp::define_winrt_interface!(
+    ISemanticZoomInformation,
+    ISemanticZoomInformation_Vtbl,
+    0x12d62b04_bb13_50f2_9d8b_e57c02b4bde4
+);
+windows_core::imp::interface_hierarchy!(
+    ISemanticZoomInformation,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct ISemanticZoomInformation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
 windows_core::imp::define_interface!(
     ISequentialStream,
     ISequentialStream_Vtbl,
@@ -16681,6 +16981,20 @@ pub struct IStream_Vtbl {
     UnlockRegion: usize,
     Stat: usize,
     Clone: usize,
+}
+windows_core::imp::define_winrt_interface!(
+    IStringable,
+    IStringable_Vtbl,
+    0x96369f54_8eb6_48f0_abce_c1b211e627c3
+);
+windows_core::imp::interface_hierarchy!(
+    IStringable,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IStringable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
     IStyle,
@@ -18215,6 +18529,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+windows_core::imp::required_hierarchy!(ITextSelection, ITextRange);
 #[repr(C)]
 pub struct ITextSelection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20611,6 +20926,34 @@ pub struct IVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
+    IVisualElement,
+    IVisualElement_Vtbl,
+    0x2180f1f5_b5d8_4bf6_920a_12006e63efef
+);
+windows_core::imp::interface_hierarchy!(
+    IVisualElement,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IVisualElement_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
+    IVisualElement2,
+    IVisualElement2_Vtbl,
+    0xbc950c8d_1db0_53aa_9dee_34271cd18ce6
+);
+windows_core::imp::interface_hierarchy!(
+    IVisualElement2,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IVisualElement2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
     IVisualTreeHelper,
     IVisualTreeHelper_Vtbl,
     0x5f69ac1e_6504_5e3f_a11c_87684c1db814
@@ -21317,7 +21660,15 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(IconElement, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    IconElement,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl IconElement {
     pub(crate) fn ForegroundProperty() -> windows_core::Result<DependencyProperty> {
         Self::IIconElementStatics(|this| unsafe {
@@ -21390,7 +21741,15 @@ unsafe impl Sync for IconSource {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Image(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Image, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Image, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    Image,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl Image {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -21463,6 +21822,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ImageIcon,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     IconElement,
     FrameworkElement,
     UIElement,
@@ -21618,6 +21980,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     InfoBadge,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -21691,6 +22056,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     InfoBar,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -21892,6 +22260,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<Inline>
 );
+windows_core::imp::required_hierarchy!(InlineCollection, windows_collections::IIterable<Inline>);
 impl windows_core::RuntimeType for InlineCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVector<Inline>>();
@@ -21921,6 +22290,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+windows_core::imp::required_hierarchy!(InputCursor, IClosable);
 impl windows_core::RuntimeType for InputCursor {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IInputCursor>();
@@ -21949,7 +22319,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(InputSystemCursor, InputCursor);
+windows_core::imp::required_hierarchy!(InputSystemCursor, IClosable, InputCursor);
 impl InputSystemCursor {
     pub(crate) fn Create(r#type: InputSystemCursorShape) -> windows_core::Result<Self> {
         Self::IInputSystemCursorStatics(|this| unsafe {
@@ -22035,6 +22405,11 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IObservableVector<windows_core::IInspectable>
 );
+windows_core::imp::required_hierarchy!(
+    ItemCollection,
+    windows_collections::IIterable<windows_core::IInspectable>,
+    windows_collections::IVector<windows_core::IInspectable>
+);
 impl windows_core::RuntimeType for ItemCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -22069,6 +22444,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ItemContainer,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -22123,6 +22501,10 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ItemsControl,
+    IAnimationObject,
+    IItemContainerMapping,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -22177,6 +22559,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ItemsRepeater,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     FrameworkElement,
     UIElement,
     DependencyObject
@@ -22504,7 +22889,16 @@ unsafe impl Sync for LayoutInformation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Line(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Line, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Line, Shape, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    Line,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    Shape,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl Line {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -22643,6 +23037,10 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ListBox,
+    IAnimationObject,
+    IItemContainerMapping,
+    IVisualElement,
+    IVisualElement2,
     Selector,
     ItemsControl,
     Control,
@@ -22701,6 +23099,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ListBoxItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     SelectorItem,
     ContentControl,
     Control,
@@ -22759,6 +23160,11 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ListView,
+    IAnimationObject,
+    IItemContainerMapping,
+    ISemanticZoomInformation,
+    IVisualElement,
+    IVisualElement2,
     ListViewBase,
     Selector,
     ItemsControl,
@@ -22818,6 +23224,11 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ListViewBase,
+    IAnimationObject,
+    IItemContainerMapping,
+    ISemanticZoomInformation,
+    IVisualElement,
+    IVisualElement2,
     Selector,
     ItemsControl,
     Control,
@@ -22894,6 +23305,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ListViewItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     SelectorItem,
     ContentControl,
     Control,
@@ -22983,6 +23397,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     MenuBar,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -23039,6 +23456,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     MenuBarItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -23162,6 +23582,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     MenuFlyoutItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     MenuFlyoutItemBase,
     Control,
     FrameworkElement,
@@ -23219,6 +23642,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     MenuFlyoutItemBase,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -23254,6 +23680,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     MenuFlyoutSeparator,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     MenuFlyoutItemBase,
     Control,
     FrameworkElement,
@@ -23316,6 +23745,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     MenuFlyoutSubItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     MenuFlyoutItemBase,
     Control,
     FrameworkElement,
@@ -23437,6 +23869,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     NavigationView,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -23681,6 +24116,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     NavigationViewItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     NavigationViewItemBase,
     ContentControl,
     Control,
@@ -23776,6 +24214,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     NavigationViewItemBase,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -23888,6 +24329,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     NumberBox,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -24114,7 +24558,15 @@ pub const PackageDependencyProcessorArchitectures_X86: PackageDependencyProcesso
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Panel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Panel, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Panel, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    Panel,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl Panel {
     pub(crate) fn BackgroundProperty() -> windows_core::Result<DependencyProperty> {
         Self::IPanelStatics(|this| unsafe {
@@ -24220,6 +24672,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     PasswordBox,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -24328,6 +24783,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     PathIcon,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     IconElement,
     FrameworkElement,
     UIElement,
@@ -24468,6 +24926,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     PersonPicture,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -24547,6 +25008,10 @@ pub struct Pivot(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Pivot, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(
     Pivot,
+    IAnimationObject,
+    IItemContainerMapping,
+    IVisualElement,
+    IVisualElement2,
     ItemsControl,
     Control,
     FrameworkElement,
@@ -24631,6 +25096,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     PivotItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -24910,6 +25378,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ProgressBar,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     RangeBase,
     Control,
     FrameworkElement,
@@ -25004,6 +25475,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ProgressRing,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -25127,6 +25601,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     RadioButton,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ToggleButton,
     ButtonBase,
     ContentControl,
@@ -25203,6 +25680,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     RadioButtons,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -25296,6 +25776,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     RangeBase,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -25466,6 +25949,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     RatingControl,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -25569,6 +26055,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     Rectangle,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Shape,
     FrameworkElement,
     UIElement,
@@ -25648,6 +26137,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     RelativePanel,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Panel,
     FrameworkElement,
     UIElement,
@@ -25773,6 +26265,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     RepeatButton,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ButtonBase,
     ContentControl,
     Control,
@@ -25898,7 +26393,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(ResourceDictionary, DependencyObject);
+windows_core::imp::required_hierarchy!(ResourceDictionary, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::IInspectable, windows_core::IInspectable > >, windows_collections::IMap < windows_core::IInspectable, windows_core::IInspectable >, DependencyObject);
 impl windows_core::RuntimeType for ResourceDictionary {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IResourceDictionary>();
@@ -25929,6 +26424,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     RichEditBox,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -26040,6 +26538,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     RichTextBlock,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     FrameworkElement,
     UIElement,
     DependencyObject
@@ -26256,6 +26757,10 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<RowDefinition>
 );
+windows_core::imp::required_hierarchy!(
+    RowDefinitionCollection,
+    windows_collections::IIterable<RowDefinition>
+);
 impl windows_core::RuntimeType for RowDefinitionCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -26411,6 +26916,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ScrollView,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -26526,6 +27034,10 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ScrollViewer,
+    IAnimationObject,
+    IScrollAnchorProvider,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -26840,6 +27352,10 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     Selector,
+    IAnimationObject,
+    IItemContainerMapping,
+    IVisualElement,
+    IVisualElement2,
     ItemsControl,
     Control,
     FrameworkElement,
@@ -26895,6 +27411,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     SelectorBar,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -26951,6 +27470,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     SelectorBarItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ItemContainer,
     Control,
     FrameworkElement,
@@ -27060,6 +27582,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     SelectorItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -27109,7 +27634,15 @@ unsafe impl Sync for SelectorItem {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Shape(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Shape, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Shape, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    Shape,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl Shape {
     pub(crate) fn FillProperty() -> windows_core::Result<DependencyProperty> {
         Self::IShapeStatics(|this| unsafe {
@@ -27290,6 +27823,9 @@ pub struct Slider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Slider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(
     Slider,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     RangeBase,
     Control,
     FrameworkElement,
@@ -27372,7 +27908,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(SolidColorBrush, Brush, DependencyObject);
+windows_core::imp::required_hierarchy!(SolidColorBrush, IAnimationObject, Brush, DependencyObject);
 impl SolidColorBrush {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -27445,6 +27981,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     SplitButton,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -27530,6 +28069,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     SplitView,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -27653,6 +28195,11 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     StackPanel,
+    IAnimationObject,
+    IInsertionPanel,
+    IScrollSnapPointsInfo,
+    IVisualElement,
+    IVisualElement2,
     Panel,
     FrameworkElement,
     UIElement,
@@ -27901,6 +28448,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     SwapChainPanel,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Grid,
     Panel,
     FrameworkElement,
@@ -28169,6 +28719,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     SymbolIcon,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     IconElement,
     FrameworkElement,
     UIElement,
@@ -28320,6 +28873,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     TabView,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -28413,6 +28969,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     TabViewItem,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ListViewItem,
     SelectorItem,
     ContentControl,
@@ -28528,6 +29087,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     TeachingTip,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -28756,7 +29318,15 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(TextBlock, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    TextBlock,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl TextBlock {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -28941,6 +29511,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     TextBox,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -29331,6 +29904,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     TimePicker,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -29445,6 +30021,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     TitleBar,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -29623,6 +30202,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ToggleButton,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ButtonBase,
     ContentControl,
     Control,
@@ -29698,6 +30280,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ToggleSwitch,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -29767,6 +30352,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ToolTip,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     ContentControl,
     Control,
     FrameworkElement,
@@ -29916,6 +30504,10 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<Transition>
 );
+windows_core::imp::required_hierarchy!(
+    TransitionCollection,
+    windows_collections::IIterable<Transition>
+);
 impl TransitionCollection {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -29966,6 +30558,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     TreeView,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Control,
     FrameworkElement,
     UIElement,
@@ -30239,7 +30834,13 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    UIElement,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    DependencyObject
+);
 impl UIElement {
     pub(crate) fn AllowDropProperty() -> windows_core::Result<DependencyProperty> {
         Self::IUIElementStatics(|this| unsafe {
@@ -30338,6 +30939,10 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<UIElement>
 );
+windows_core::imp::required_hierarchy!(
+    UIElementCollection,
+    windows_collections::IIterable<UIElement>
+);
 impl windows_core::RuntimeType for UIElementCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVector<UIElement>>(
@@ -30368,6 +30973,7 @@ pub type USHORT = u16;
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Uri(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Uri, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(Uri, IStringable);
 impl Uri {
     pub(crate) fn CreateUri(uri: &str) -> windows_core::Result<Self> {
         Self::IUriRuntimeClassFactory(|this| unsafe {
@@ -30421,6 +31027,9 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     VariableSizedWrapGrid,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
     Panel,
     FrameworkElement,
     UIElement,
@@ -30602,7 +31211,15 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(Viewbox, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    Viewbox,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl Viewbox {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -30899,7 +31516,7 @@ impl core::ops::Not for VirtualKeyModifiers {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Visual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Visual, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Visual, CompositionObject);
+windows_core::imp::required_hierarchy!(Visual, IAnimationObject, IClosable, CompositionObject);
 impl windows_core::RuntimeType for Visual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IVisual>();
@@ -31018,7 +31635,15 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(WebView2, FrameworkElement, UIElement, DependencyObject);
+windows_core::imp::required_hierarchy!(
+    WebView2,
+    IAnimationObject,
+    IVisualElement,
+    IVisualElement2,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
 impl WebView2 {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IWebView2Factory(|this| unsafe {
@@ -31215,7 +31840,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(XamlControlsResources, ResourceDictionary, DependencyObject);
+windows_core::imp::required_hierarchy!(XamlControlsResources, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::IInspectable, windows_core::IInspectable > >, windows_collections::IMap < windows_core::IInspectable, windows_core::IInspectable >, ResourceDictionary, DependencyObject);
 impl XamlControlsResources {
     pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

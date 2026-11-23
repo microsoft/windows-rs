@@ -83,12 +83,20 @@ where
     T: core::marker::PhantomData<T>,
 }
 windows_core::imp::define_winrt_interface!(IGenericBase < T >, IGenericBase_Vtbl < T, >, 0x66c93412_67e7_5d09_9595_53ed77c36338);
+impl<T: windows_core::RuntimeType + 'static> IGenericBase<T> {
+    pub fn Base(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Base)(windows_core::Interface::as_raw(self)).ok()
+        }
+    }
+}
 #[repr(C)]
 pub struct IGenericBase_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
 {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Base: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }
 windows_core::imp::define_winrt_interface!(
@@ -131,6 +139,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+windows_core::imp::required_hierarchy!(IStream, IClose);
 impl IStream {
     pub fn Read(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -205,9 +214,17 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+impl IWholeBase {
+    pub fn Base(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Base)(windows_core::Interface::as_raw(self)).ok()
+        }
+    }
+}
 #[repr(C)]
 pub struct IWholeBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Base: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(
     IWholeMiddle,
@@ -219,9 +236,19 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+windows_core::imp::required_hierarchy!(IWholeMiddle, IWholeBase);
+impl IWholeMiddle {
+    pub fn Middle(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Middle)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
+}
 #[repr(C)]
 pub struct IWholeMiddle_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Middle: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -259,6 +286,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     IStream
 );
+windows_core::imp::required_hierarchy!(Stream, IClose);
 impl windows_core::RuntimeType for Stream {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IStream>();
@@ -286,6 +314,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     IUnrelated
 );
+windows_core::imp::required_hierarchy!(Unrelated, IClose);
 impl windows_core::RuntimeType for Unrelated {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IUnrelated>();

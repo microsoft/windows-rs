@@ -51,7 +51,22 @@ impl CppInterface {
             .collect()
     }
 
-    fn vtable_methods(def: TypeDef, reader: &Reader) -> Vec<MethodDef> {
+    pub fn method_owner(method: MethodDef, reader: &Reader) -> MethodDef {
+        if let Some(attribute) = method.find_attribute("NativeOverrideSlotAttribute") {
+            let values = attribute.value();
+            let [(_, Value::U32(slot))] = values.as_slice() else {
+                panic!("invalid native override slot on `{}`", method.name());
+            };
+            let MemberRefParent::TypeDef(owner) = method.parent() else {
+                unreachable!()
+            };
+            Self::vtable_methods(owner, reader)[*slot as usize].1
+        } else {
+            method
+        }
+    }
+
+    fn vtable_methods(def: TypeDef, reader: &Reader) -> Vec<(MethodDef, MethodDef)> {
         assert!(
             def.interface_impls().count() <= 1,
             "native slot overrides require a single base on `{}`",
@@ -91,7 +106,7 @@ impl CppInterface {
                     def.name(),
                     method.name()
                 );
-                let base = methods[slot];
+                let base = methods[slot].0;
                 let signature = method.method_signature(&[], reader);
                 let base_signature = base.method_signature(&[], reader);
                 assert!(
@@ -112,9 +127,9 @@ impl CppInterface {
                     def.name(),
                     method.name()
                 );
-                methods[slot] = method;
+                methods[slot].0 = method;
             } else {
-                methods.push(method);
+                methods.push((method, method));
             }
         }
         methods
@@ -242,14 +257,9 @@ impl CppInterface {
                 });
             }
 
-            // Implementation-only interfaces need ABI slots and `_Impl`, not caller wrappers.
-            let suppress_methods = config.bindgen.style.is_minimal()
-                && config.should_implement(self.def.type_name(), false)
-                && matches!(config.filter.type_role(self.type_name()), TypeRole::Shell);
-
             let mut methods_tokens = quote! {};
 
-            if !suppress_methods {
+            {
                 let method_names = &mut MethodNames::new();
                 let virtual_names = &mut MethodNames::new();
 
@@ -258,7 +268,11 @@ impl CppInterface {
                 let self_config = config.with_self_ty(self.type_name(), &[]);
 
                 for method in methods.iter().filter_map(|method| match &method {
-                    MethodOrName::Method(method) => Some(method),
+                    MethodOrName::Method(method)
+                        if config.filter.includes_method(self.type_name(), method.def) =>
+                    {
+                        Some(method)
+                    }
                     _ => None,
                 }) {
                     let cfg = method.write_cfg(config, &class_cfg, false);

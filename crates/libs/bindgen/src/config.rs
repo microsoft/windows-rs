@@ -23,6 +23,10 @@ pub struct Config<'a> {
 }
 
 impl Config<'_> {
+    pub fn includes_type(&self, name: TypeName) -> bool {
+        self.types.contains_key(&name) || self.references.contains(name).is_some()
+    }
+
     pub fn shadowed_prelude(types: &TypeMap) -> HashSet<&'static str> {
         fn collect(record: &CppStruct, names: &mut HashSet<&'static str>) {
             if matches!(record.name, "size_of" | "align_of") {

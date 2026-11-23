@@ -61,7 +61,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     IDerived
 );
-windows_core::imp::required_hierarchy!(Derived, Base);
+windows_core::imp::required_hierarchy!(Derived, IOverrides, Base);
 impl Derived {
     pub fn new() -> windows_core::Result<Self> {
         Self::IDerivedFactory(|this| unsafe {

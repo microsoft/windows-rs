@@ -355,7 +355,7 @@ unsafe impl Sync for SpiController {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpiDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpiDevice, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SpiDevice, super::super::Foundation::IClosable, ISpiDeviceStatics);
+windows_core::imp::required_hierarchy!(SpiDevice, super::super::Foundation::IClosable);
 impl SpiDevice {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;

@@ -44,7 +44,7 @@ impl Delegate {
         // Minimal event wrappers construct their delegates without calling `new`.
         let type_name = self.type_name();
         let is_event_only = config.bindgen.style.is_minimal()
-            && !config.filter.has_broad_filter
+            && !config.filter.is_selected(type_name)
             && config.event_only_delegates.contains(&type_name);
         let invoke_method = if config.bindgen.style.is_minimal() {
             // Minimal delegates are framework-invoked, so hide public `Invoke`.

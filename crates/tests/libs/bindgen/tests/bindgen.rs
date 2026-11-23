@@ -159,8 +159,314 @@ fn filter_selection_order() {
             let whole_first = filter_contract_output("order", style, &[name, &selected]);
             let member_first = filter_contract_output("order", style, &[&selected, name]);
             assert_eq!(whole_first, member_first, "{style}: {name}");
-            assert!(!whole_first.contains(omitted), "{style}\n{whole_first}");
+            assert!(whole_first.contains(omitted), "{style}\n{whole_first}");
         }
+    }
+}
+
+fn default_selection_output(case: &str, filters: &[&str], implement: Option<&str>) -> String {
+    selection_output(case, "minimal", filters, implement)
+}
+
+fn selection_output(case: &str, style: &str, filters: &[&str], implement: Option<&str>) -> String {
+    let output = std::path::Path::new(env!("OUT_DIR")).join(format!("{case}-{style}.rs"));
+    let mut builder = windows_bindgen::builder();
+    builder.filters(filters).output(&output);
+    match style {
+        "minimal" => {}
+        "full" => {
+            builder.full();
+        }
+        "sys" => {
+            builder.sys();
+        }
+        _ => unreachable!(),
+    }
+    if let Some(name) = implement {
+        builder.implement(name);
+    }
+    builder.write();
+    std::fs::read_to_string(output).unwrap()
+}
+
+#[test]
+fn selection_member_includes_identity() {
+    for style in ["minimal", "full"] {
+        let member = selection_output("identity-member", style, &["IReference::Value"], None);
+        let shell = selection_output(
+            "identity-shell",
+            style,
+            &["IReference::{}", "IReference::Value"],
+            None,
+        );
+        assert_eq!(member, shell, "{style}");
+        assert!(
+            member.contains("CanInto<IPropertyValue>"),
+            "{style}\n{member}"
+        );
+    }
+}
+
+#[test]
+fn selection_native_override_uses_inherited_owner() {
+    for style in ["minimal", "full", "sys"] {
+        let inherited = selection_output(
+            "override-inherited",
+            style,
+            &["IDirect3D9Ex::GetAdapterCount"],
+            None,
+        );
+        let explicit = selection_output(
+            "override-explicit",
+            style,
+            &["IDirect3D9Ex::{}", "IDirect3D9::GetAdapterCount"],
+            None,
+        );
+        assert_eq!(inherited, explicit, "{style}");
+        assert!(inherited.contains("pub GetAdapterCount:"), "{style}");
+        if style != "sys" {
+            assert!(inherited.contains("fn GetAdapterCount("), "{style}");
+        }
+
+        let inherited = selection_output(
+            "override-excluded-inherited",
+            style,
+            &["IDirect3D9Ex", "!IDirect3D9Ex::GetAdapterCount"],
+            None,
+        );
+        let explicit = selection_output(
+            "override-excluded-explicit",
+            style,
+            &["IDirect3D9Ex", "!IDirect3D9::GetAdapterCount"],
+            None,
+        );
+        assert_eq!(inherited, explicit, "{style}");
+        assert!(!inherited.contains("pub GetAdapterCount:"), "{style}");
+        assert!(!inherited.contains("fn GetAdapterCount("), "{style}");
+        assert!(inherited.contains("pub GetAdapterIdentifier:"), "{style}");
+    }
+}
+
+#[test]
+fn selection_implementation_does_not_add_callers() {
+    for style in ["minimal", "full"] {
+        let mut previous = None;
+        for selector in [
+            "ISequentialStream",
+            "Windows.Win32.ISequentialStream",
+            "Windows.Win32",
+        ] {
+            let output = selection_output(
+                "implementation-callers",
+                style,
+                &["ISequentialStream::Read"],
+                Some(selector),
+            );
+            assert!(
+                output.contains("pub trait ISequentialStream_Impl"),
+                "{style}"
+            );
+            assert!(output.contains("pub Write:"), "{style}");
+            assert!(output.contains("pub unsafe fn Read("), "{style}");
+            assert!(!output.contains("pub unsafe fn Write("), "{style}");
+            if let Some(previous) = &previous {
+                assert_eq!(previous, &output, "{style}: {selector}");
+            }
+            previous = Some(output);
+        }
+    }
+}
+
+#[test]
+fn selection_generated_contracts_compile() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("selection-compile");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let libraries = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("..")
+        .join("..")
+        .join("..")
+        .join("libs");
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"selection-compile\"\nversion = \"0.0.0\"\nedition = \"2024\"\n\
+         [workspace]\n[lib]\npath = \"lib.rs\"\n[dependencies]\n\
+         windows-core = {{ path = '{}' }}\nwindows-link = {{ path = '{}' }}\n",
+            libraries.join("core").display(),
+            libraries.join("link").display(),
+        ),
+    )
+    .unwrap();
+    for style in ["minimal", "full", "sys"] {
+        for (name, filters) in [
+            ("native", &["IDirect3D9Ex::GetAdapterCount"][..]),
+            (
+                "excluded",
+                &["IDirect3D9Ex", "!IDirect3D9Ex::GetAdapterCount"][..],
+            ),
+        ] {
+            let output = selection_output(&format!("compile-{name}"), style, filters, None);
+            std::fs::write(scratch.join(format!("{name}.rs")), output).unwrap();
+        }
+        let mut source = String::from(
+            "#![deny(warnings)]\n#![allow(dead_code, nonstandard_style)]\n\
+             mod native;\nmod excluded;\n\
+             pub fn native_slot(value: &native::IDirect3D9_Vtbl) { let _ = value.GetAdapterCount; }\n\
+             pub fn retained_slot(value: &excluded::IDirect3D9_Vtbl) { let _ = value.GetAdapterIdentifier; }\n",
+        );
+        if style != "sys" {
+            for (name, filters, implement) in [
+                ("reference", &["IReference::Value"][..], None),
+                (
+                    "stream",
+                    &["ISequentialStream::Read"][..],
+                    Some("ISequentialStream"),
+                ),
+            ] {
+                let output =
+                    selection_output(&format!("compile-{name}"), style, filters, implement);
+                std::fs::write(scratch.join(format!("{name}.rs")), output).unwrap();
+            }
+            source.push_str(
+                r#"
+mod reference;
+mod stream;
+pub fn identity(value: &reference::IReference<u32>) {
+    fn accept(_: impl windows_core::Param<reference::IPropertyValue>) {}
+    accept(value);
+}
+pub unsafe fn inherited(value: &native::IDirect3D9Ex) {
+    let _ = unsafe { value.GetAdapterCount() };
+}
+pub unsafe fn selected(value: &stream::ISequentialStream) {
+    let _ = unsafe { value.Read(core::ptr::null_mut(), 0, None) };
+}
+pub fn implementation<T: stream::ISequentialStream_Impl>(value: &T) {
+    let _ = value.Read(core::ptr::null_mut(), 0, core::ptr::null_mut());
+    let _ = value.Write(core::ptr::null(), 0, core::ptr::null_mut());
+}
+"#,
+            );
+        }
+        let check = |source: &str| {
+            std::fs::write(scratch.join("lib.rs"), source).unwrap();
+            std::process::Command::new("cargo")
+                .args(["check", "--quiet", "--offline", "--manifest-path"])
+                .arg(&manifest)
+                .arg("--target-dir")
+                .arg(scratch.join("target"))
+                .output()
+                .unwrap()
+        };
+        let result = check(&source);
+        assert!(
+            result.status.success(),
+            "{style}: {}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+        if style != "sys" {
+            source.push_str(
+                r#"
+pub unsafe fn unselected(value: &stream::ISequentialStream) {
+    let _ = unsafe { value.Write(core::ptr::null(), 0, None) };
+}
+"#,
+            );
+            let result = check(&source);
+            let stderr = String::from_utf8_lossy(&result.stderr);
+            assert!(
+                !result.status.success(),
+                "{style}: unselected caller must be absent"
+            );
+            assert!(
+                stderr.contains("error[E0599]") && stderr.contains("Write"),
+                "{style}: {stderr}"
+            );
+        }
+    }
+}
+
+#[test]
+fn selection_negative_members_do_not_add_roots() {
+    for style in ["minimal", "full", "sys"] {
+        let output = filter_contract_output(
+            "negative-roots",
+            style,
+            &["Other.Token", "!Test.ISource::GetResult"],
+        );
+        assert!(output.contains("pub struct Token"));
+        assert!(!output.contains("ISource"));
+        assert!(!output.contains("IResult"));
+    }
+}
+
+#[test]
+fn selection_constant_and_enum_members_are_additive() {
+    for style in ["minimal", "full", "sys"] {
+        let output = filter_contract_output(
+            "constant-members",
+            style,
+            &["Native.NativeColor::NativeRed", "Native.NativeGreen"],
+        );
+        assert!(output.contains("pub const NativeRed:"));
+        assert!(output.contains("pub const NativeGreen:"));
+        assert!(!output.contains("pub const NativeBlue:"));
+    }
+}
+
+#[test]
+fn selection_explicit_exclusion_is_not_repaired() {
+    let output = default_selection_output(
+        "excluded-base",
+        &["IStream::{}", "!ISequentialStream"],
+        None,
+    );
+    assert!(output.contains("pub struct IStream_Vtbl"));
+    assert!(output.contains("pub base__: ISequentialStream_Vtbl"));
+    assert!(!output.contains("pub struct ISequentialStream_Vtbl"));
+}
+
+#[test]
+fn selection_hierarchy_is_independent_of_unrelated_roots() {
+    for (case, filters) in [
+        ("hierarchy-alone", vec!["Compositor::{}"]),
+        (
+            "hierarchy-unrelated",
+            vec!["Compositor::{}", "IRandomAccessStream::{}"],
+        ),
+    ] {
+        let output = default_selection_output(case, &filters, None);
+        assert!(output.contains("required_hierarchy!(Compositor, IClosable)"));
+        assert!(!output.contains(" fn Close("));
+    }
+}
+
+#[test]
+fn selection_factories_are_not_instance_interfaces() {
+    let output = default_selection_output("factory-identity", &["I2cDevice"], None);
+    assert!(output.contains("II2cDeviceStatics_Vtbl"));
+    assert!(output.contains("pub fn FromIdAsync"), "{output}");
+    assert!(output.contains("required_hierarchy!(I2cDevice, IClosable)"));
+}
+
+#[test]
+fn selection_namespace_matches_explicit_types() {
+    for style in ["minimal", "full", "sys"] {
+        let namespace = filter_contract_output("namespace-roots", style, &["Test"]);
+        let explicit = filter_contract_output(
+            "explicit-roots",
+            style,
+            &[
+                "Test.ISource",
+                "Test.IResult",
+                "Test.IUnused",
+                "Test.Color",
+                "Test.Widget",
+                "Test.IWidget",
+            ],
+        );
+        assert_eq!(namespace, explicit, "{style}");
     }
 }
 

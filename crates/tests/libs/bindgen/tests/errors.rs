@@ -538,7 +538,7 @@ fn implemented_factory_does_not_select_composition_factory() {
     windows_bindgen::builder()
         .input(winmd)
         .output(scratch.join("out.rs"))
-        .filter("Test.Base")
+        .filters(["Test.Base::{}", "Test.IBaseFactory::{}"])
         .implement("Test.IBaseFactory")
         .compose("Test.Base")
         .write();
