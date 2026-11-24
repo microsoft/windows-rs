@@ -11,7 +11,7 @@ enum Surface {
 
 struct ThemeSample {
     theme: WindowTheme,
-    backdrop: WindowBackdrop,
+    backdrop: SystemBackdrop,
     surface: Surface,
     scheme: Option<ColorScheme>,
 }
@@ -19,7 +19,7 @@ struct ThemeSample {
 #[derive(Clone)]
 enum Message {
     Theme(WindowTheme),
-    Backdrop(WindowBackdrop),
+    Backdrop(SystemBackdrop),
     Surface(Surface),
     Scheme(ColorScheme),
 }
@@ -31,7 +31,7 @@ impl Component for ThemeSample {
     fn create(_: &(), _: &ComponentContext<Self>) -> Self {
         Self {
             theme: WindowTheme::System,
-            backdrop: WindowBackdrop::None,
+            backdrop: SystemBackdrop::None,
             surface: Surface::Transparent,
             scheme: None,
         }
@@ -79,10 +79,10 @@ impl Component for ThemeSample {
                 .spacing(8.0)
                 .children(
                     [
-                        WindowBackdrop::None,
-                        WindowBackdrop::Mica,
-                        WindowBackdrop::MicaAlt,
-                        WindowBackdrop::Acrylic,
+                        SystemBackdrop::None,
+                        SystemBackdrop::Mica,
+                        SystemBackdrop::MicaAlt,
+                        SystemBackdrop::Acrylic,
                     ]
                     .into_iter()
                     .map(|backdrop| {

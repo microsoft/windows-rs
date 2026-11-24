@@ -83,6 +83,7 @@ pub enum ObjectType {
     RichTextBlock,
     WebView2,
     SwapChainPanel,
+    SystemBackdropElement,
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum PropertyId {
@@ -252,6 +253,7 @@ pub enum PropertyId {
     Style,
     Subtitle,
     Symbol,
+    SystemBackdrop,
     Tag,
     Text,
     TextAlignment,
@@ -432,6 +434,7 @@ pub fn object_category(kind: ObjectType) -> ObjectCategory {
         ObjectType::RichTextBlock => ObjectCategory::Visual,
         ObjectType::WebView2 => ObjectCategory::Visual,
         ObjectType::SwapChainPanel => ObjectCategory::Visual,
+        ObjectType::SystemBackdropElement => ObjectCategory::Visual,
     }
 }
 pub fn selection_contract(kind: ObjectType) -> Option<SelectionContract> {
@@ -923,6 +926,7 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
         ObjectType::RichTextBlock => &[],
         ObjectType::WebView2 => &[],
         ObjectType::SwapChainPanel => &[],
+        ObjectType::SystemBackdropElement => &[],
     }
 }
 pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyContract> {
@@ -2534,6 +2538,14 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::F64,
         }),
+        (ObjectType::SystemBackdropElement, PropertyId::SystemBackdrop) => Some(PropertyContract {
+            id,
+            value: ValueType::SystemBackdrop,
+        }),
+        (ObjectType::SystemBackdropElement, PropertyId::CornerRadius) => Some(PropertyContract {
+            id,
+            value: ValueType::CornerRadius,
+        }),
         _ => None,
     }
 }
@@ -2858,6 +2870,8 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::RichTextBlock, PropertyId::IsTextSelectionEnabled) => 31,
         (ObjectType::RichTextBlock, PropertyId::TextWrapping) => 32,
         (ObjectType::RichTextBlock, PropertyId::FontSize) => 33,
+        (ObjectType::SystemBackdropElement, PropertyId::SystemBackdrop) => 30,
+        (ObjectType::SystemBackdropElement, PropertyId::CornerRadius) => 31,
         _ => usize::MAX,
     }
 }
@@ -2944,6 +2958,7 @@ pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[
     ObjectType::RichTextBlock,
     ObjectType::WebView2,
     ObjectType::SwapChainPanel,
+    ObjectType::SystemBackdropElement,
 ];
 #[cfg(test)]
 pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
@@ -3113,6 +3128,7 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::Style,
     PropertyId::Subtitle,
     PropertyId::Symbol,
+    PropertyId::SystemBackdrop,
     PropertyId::Tag,
     PropertyId::Text,
     PropertyId::TextAlignment,
@@ -3219,6 +3235,7 @@ pub(crate) fn object_index(kind: ObjectType) -> usize {
         ObjectType::RichTextBlock => 78,
         ObjectType::WebView2 => 79,
         ObjectType::SwapChainPanel => 80,
+        ObjectType::SystemBackdropElement => 81,
     }
 }
 pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
@@ -3818,5 +3835,6 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
         ObjectType::RichTextBlock => &[],
         ObjectType::WebView2 => &[],
         ObjectType::SwapChainPanel => &[],
+        ObjectType::SystemBackdropElement => &[],
     }
 }

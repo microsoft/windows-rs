@@ -124,6 +124,18 @@ styles and synchronously send caption double-click messages to observe maximize/
 including the disabled no-op. They preserve native content identity and resize/minimize flags.
 This tests caption handling, not physical pointer routing or programmatic maximize requests.
 
+## Element backdrops
+
+`backdrop` observes a bounded native system backdrop over a red panel, with a clickable foreground
+button. It checks initial Acrylic, replacement with Mica and Mica Alt, explicit `None` and omitted
+backdrops, rounded and square corners, omitted corner radius, resizing, and repeated removal and
+remounting. Pixels outside the effect bounds stay red. Foreground identity and pointer clicks are
+preserved, and process-exit COM diagnostics check cleanup.
+
+The test observes the presence and clipping of each material, not exact colors or blur strength.
+Those depend on Windows settings and native fallback behavior. It does not promise that arbitrary
+composition effects, shadows, or transforms apply to WinUI's backdrop surface.
+
 ## Submitted-frame input
 
 `canvas-submitted-input` stages a two-row layout separately from drawing it. Its `submitted`

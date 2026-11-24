@@ -52,7 +52,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Canvas Image Source");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
 
         let image = self.image.clone();
         let on_scale = context.callback(Message::Scale);

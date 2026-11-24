@@ -32,7 +32,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Canvas Chart");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         let seed = self.seed;
         StackPanel::new()
             .spacing(12.0)

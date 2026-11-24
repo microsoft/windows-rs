@@ -1949,3 +1949,14 @@ reference = true
 [[objects]]
 name = "SwapChainPanel"
 reference = true
+
+[[objects]]
+name = "SystemBackdropElement"
+
+[[objects.properties]]
+name = "SystemBackdrop"
+adapter = "system_backdrop"
+
+[[objects.properties]]
+name = "CornerRadius"
+validation = "finite_non_negative"

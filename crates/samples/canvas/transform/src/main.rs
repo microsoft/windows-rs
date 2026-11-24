@@ -47,7 +47,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Transform");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         let start = self.start;
         animated_canvas(move |ctx| draw(ctx, start.elapsed().as_secs_f32() * 0.6))
     }

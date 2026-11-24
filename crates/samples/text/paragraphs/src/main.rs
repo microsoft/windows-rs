@@ -3,7 +3,7 @@
 use std::rc::Rc;
 use windows_canvas::*;
 use windows_reactor::{
-    App, Border, Component, ComponentContext, View, ViewContext, WindowBackdrop, WindowVisuals,
+    App, Border, Component, ComponentContext, SystemBackdrop, View, ViewContext, WindowVisuals,
 };
 use windows_text::{
     LineSpacing, TextAlignment, TextFormat, TextLayout, Trimming, WordWrapping, WritingMode,
@@ -151,7 +151,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Text paragraphs");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         let panels = self.panels.clone();
         Border::new()
             .content(canvas(move |ctx| draw(ctx, &panels)))

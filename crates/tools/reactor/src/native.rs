@@ -1338,6 +1338,7 @@ fn dependency_conversion(adapter: Option<PropertyAdapter>) -> Option<&'static st
             | PropertyAdapter::InspectableStringList
             | PropertyAdapter::OptionalDateTime
             | PropertyAdapter::SelectionIndex
+            | PropertyAdapter::SystemBackdrop
             | PropertyAdapter::ThemeBrush
             | PropertyAdapter::ThemeTransitions,
         ) => "Value",

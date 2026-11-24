@@ -2,8 +2,8 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub fn materials_page(
-    backdrop: WindowBackdrop,
-    on_backdrop_changed: Callback<WindowBackdrop>,
+    backdrop: SystemBackdrop,
+    on_backdrop_changed: Callback<SystemBackdrop>,
 ) -> View {
     let choice = |label: &'static str, value| {
         let callback = on_backdrop_changed.clone();
@@ -17,10 +17,10 @@ pub fn materials_page(
             .content(label)
     };
     let description = match backdrop {
-        WindowBackdrop::Mica => "Mica samples the desktop wallpaper with a subtle tint.",
-        WindowBackdrop::MicaAlt => "Mica Alt uses a stronger tint for tabbed interfaces.",
-        WindowBackdrop::Acrylic => "Acrylic provides a translucent blurred material.",
-        WindowBackdrop::None => "No system backdrop; the window uses a solid background.",
+        SystemBackdrop::Mica => "Mica samples the desktop wallpaper with a subtle tint.",
+        SystemBackdrop::MicaAlt => "Mica Alt uses a stronger tint for tabbed interfaces.",
+        SystemBackdrop::Acrylic => "Acrylic provides a translucent blurred material.",
+        SystemBackdrop::None => "No system backdrop; the window uses a solid background.",
     };
     page_content(
         "Materials",
@@ -35,10 +35,10 @@ pub fn materials_page(
                             .orientation(Orientation::Horizontal)
                             .spacing(8.0)
                             .children((
-                                choice("Mica", WindowBackdrop::Mica),
-                                choice("Mica Alt", WindowBackdrop::MicaAlt),
-                                choice("Acrylic", WindowBackdrop::Acrylic),
-                                choice("None", WindowBackdrop::None),
+                                choice("Mica", SystemBackdrop::Mica),
+                                choice("Mica Alt", SystemBackdrop::MicaAlt),
+                                choice("Acrylic", SystemBackdrop::Acrylic),
+                                choice("None", SystemBackdrop::None),
                             )),
                         TextBlock::new().text(description).opacity(0.7),
                     )),

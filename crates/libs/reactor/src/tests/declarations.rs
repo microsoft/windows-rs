@@ -1,6 +1,15 @@
 use super::*;
 
 #[test]
+fn backdrop_corners_require_finite_non_negative_values() {
+    for value in [-1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+        assert!(
+            std::panic::catch_unwind(|| SystemBackdropElement::new().corner_radius(value)).is_err()
+        );
+    }
+}
+
+#[test]
 fn button_padding_requires_finite_non_negative_values() {
     for value in [-1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
         for padding in [

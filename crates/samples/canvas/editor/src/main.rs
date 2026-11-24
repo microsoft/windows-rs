@@ -153,7 +153,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Canvas editor");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         let model = Rc::clone(&self.model);
         let surface = Border::new()
             .on_pointer_pressed(context.callback(Message::Pressed))

@@ -4,7 +4,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 use windows_canvas::*;
 use windows_reactor::{
-    App, Border, Component, ComponentContext, PointerEventInfo, View, ViewContext, WindowBackdrop,
+    App, Border, Component, ComponentContext, PointerEventInfo, SystemBackdrop, View, ViewContext,
     WindowVisuals,
 };
 use windows_text::{TextAlignment, TextFormat};
@@ -44,7 +44,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Canvas hit-testing");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         let pointer = Rc::clone(&self.pointer);
         let star = Rc::clone(&self.star);
         Border::new()

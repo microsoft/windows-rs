@@ -769,9 +769,9 @@ impl Component for Stacker {
         context.window_visuals(
             WindowVisuals::new()
                 .backdrop(if inactive {
-                    WindowBackdrop::None
+                    SystemBackdrop::None
                 } else {
-                    WindowBackdrop::Acrylic
+                    SystemBackdrop::Acrylic
                 })
                 .client_size(520.0, 760.0)
                 .constraints(WindowConstraints {
