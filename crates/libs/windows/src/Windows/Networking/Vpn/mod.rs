@@ -1643,7 +1643,6 @@ impl windows_core::RuntimeType for VpnAuthenticationMethod {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VpnChannel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnChannel, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnChannel, IVpnChannelStatics);
 impl VpnChannel {
     pub fn AssociateTransport<P0, P1>(&self, mainoutertunneltransport: P0, optionaloutertunneltransport: P1) -> windows_core::Result<()>
     where
@@ -3004,7 +3003,6 @@ unsafe impl Sync for VpnDomainNameAssignment {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VpnDomainNameInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnDomainNameInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnDomainNameInfo, IVpnDomainNameInfoFactory);
 impl VpnDomainNameInfo {
     pub fn SetDomainName<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -3215,7 +3213,6 @@ impl windows_core::RuntimeType for VpnIPProtocol {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VpnInterfaceId(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnInterfaceId, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnInterfaceId, IVpnInterfaceIdFactory);
 impl VpnInterfaceId {
     pub fn GetAddressInfo(&self, id: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
         id.clear();
@@ -3477,7 +3474,6 @@ unsafe impl Sync for VpnNamespaceAssignment {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VpnNamespaceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnNamespaceInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnNamespaceInfo, IVpnNamespaceInfoFactory);
 impl VpnNamespaceInfo {
     pub fn SetNamespace(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetNamespace)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
@@ -3716,7 +3712,6 @@ impl windows_core::RuntimeType for VpnNativeProtocolType {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VpnPacketBuffer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnPacketBuffer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnPacketBuffer, IVpnPacketBufferFactory);
 impl VpnPacketBuffer {
     #[cfg(feature = "Storage_Streams")]
     pub fn Buffer(&self) -> windows_core::Result<super::super::Storage::Streams::Buffer> {
@@ -4061,7 +4056,6 @@ unsafe impl Sync for VpnPlugInProfile {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VpnRoute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnRoute, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnRoute, IVpnRouteFactory);
 impl VpnRoute {
     pub fn SetAddress<P0>(&self, value: P0) -> windows_core::Result<()>
     where

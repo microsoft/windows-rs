@@ -107,7 +107,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     IWidget
 );
-windows_core::imp::required_hierarchy!(Widget, IWidgetFactory);
 impl Widget {
     pub fn Read(&self) -> windows_core::Result<i32> {
         unsafe {
