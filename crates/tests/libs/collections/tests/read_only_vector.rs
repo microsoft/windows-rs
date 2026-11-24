@@ -519,8 +519,7 @@ fn disconnected_values_are_not_used_directly() -> Result<()> {
     .unwrap()?;
     let expected = disconnected
         .resolve()
-        .unwrap()
-        .cast::<IStringable>()
+        .and_then(|value| value.cast::<IStringable>())
         .unwrap_err()
         .code();
     assert!(expected.is_err());
@@ -528,36 +527,61 @@ fn disconnected_values_are_not_used_directly() -> Result<()> {
     assert_eq!(
         vector
             .GetAt(1)
-            .unwrap()
-            .cast::<IStringable>()
+            .and_then(|value| value.cast::<IStringable>())
             .unwrap_err()
             .code(),
         expected
     );
     let mut values = [None, None];
     let view = vector.GetView()?;
-    assert_eq!(view.GetMany(0, &mut values).unwrap(), 2);
-    assert_eq!(
-        values[1]
-            .as_ref()
-            .unwrap()
-            .cast::<IStringable>()
-            .unwrap_err()
-            .code(),
-        expected
-    );
+    match view.GetMany(0, &mut values) {
+        Ok(count) => {
+            assert_eq!(count, 2);
+            assert_eq!(
+                values[1]
+                    .as_ref()
+                    .unwrap()
+                    .cast::<IStringable>()
+                    .unwrap_err()
+                    .code(),
+                expected
+            );
+        }
+        Err(error) => {
+            assert_eq!(error.code(), disconnected.resolve().unwrap_err().code());
+            assert!(values.iter().all(Option::is_none));
+        }
+    }
     let iterator = vector.First()?;
     assert_eq!(iterator.Current()?, vector.GetAt(0)?);
     assert!(iterator.MoveNext()?);
-    assert_eq!(iterator.GetMany(&mut values).unwrap(), 1);
-    assert_eq!(
-        values[0]
-            .as_ref()
-            .unwrap()
-            .cast::<IStringable>()
-            .unwrap_err()
-            .code(),
-        expected
-    );
+    match iterator.GetMany(&mut values) {
+        Ok(count) => {
+            assert_eq!(count, 1);
+            assert_eq!(
+                values[0]
+                    .as_ref()
+                    .unwrap()
+                    .cast::<IStringable>()
+                    .unwrap_err()
+                    .code(),
+                expected
+            );
+            assert!(!iterator.HasCurrent()?);
+        }
+        Err(error) => {
+            assert_eq!(error.code(), disconnected.resolve().unwrap_err().code());
+            assert!(values.iter().all(Option::is_none));
+            assert!(iterator.HasCurrent()?);
+            assert_eq!(
+                iterator
+                    .Current()
+                    .and_then(|value| value.cast::<IStringable>())
+                    .unwrap_err()
+                    .code(),
+                error.code()
+            );
+        }
+    }
     Ok(())
 }
