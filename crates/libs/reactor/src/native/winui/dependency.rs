@@ -60,7 +60,7 @@ fn box_property_value(
     value: &PropertyValue,
     conversion: Conversion,
 ) -> Option<Result<Option<IInspectable>, WinUiError>> {
-    fn boxed<T: windows_core::RuntimeType + Clone + 'static>(
+    fn boxed<T: windows_core::RuntimeType + Clone + Send + Sync + 'static>(
         value: T,
     ) -> Result<Option<IInspectable>, WinUiError> {
         Ok(Some(windows_reference::IReference::from(value).into()))

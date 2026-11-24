@@ -4,7 +4,7 @@ use windows_core::*;
 /// Boxes a value as an `IReference<T>`.
 impl<T> From<T> for IReference<T>
 where
-    T: RuntimeType + Clone + 'static,
+    T: RuntimeType + Clone + Send + Sync + 'static,
 {
     fn from(value: T) -> Self {
         ComObject::new(StockReference { value }).into_interface()
@@ -35,7 +35,7 @@ impl From<&HSTRING> for IReference<HSTRING> {
 // Internal stock implementation used to back `IReference::from`.
 struct StockReference<T>
 where
-    T: RuntimeType + Clone + 'static,
+    T: RuntimeType + Clone + Send + Sync + 'static,
 {
     value: T,
 }
@@ -45,12 +45,12 @@ implement_decl! {
         IReference<T>,
         bindings::IPropertyValue,
     ]
-    where T: RuntimeType + Clone + 'static
+    where T: RuntimeType + Clone + Send + Sync + 'static
 }
 
 impl<T> bindings::IReference_Impl<T> for StockReference_Impl<T>
 where
-    T: RuntimeType + Clone,
+    T: RuntimeType + Clone + Send + Sync,
 {
     fn Value(&self) -> Result<T> {
         Ok(self.value.clone())
@@ -59,7 +59,7 @@ where
 
 impl<T> bindings::IPropertyValue_Impl for StockReference_Impl<T>
 where
-    T: RuntimeType + Clone,
+    T: RuntimeType + Clone + Send + Sync,
 {
     fn Type(&self) -> Result<bindings::PropertyType> {
         use bindings::PropertyType;

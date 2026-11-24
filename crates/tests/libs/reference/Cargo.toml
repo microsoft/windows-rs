@@ -6,7 +6,7 @@ publish = false
 
 [lib]
 doc = false
-doctest = false
+doctest = true
 
 [build-dependencies]
 windows-bindgen = { workspace = true }
