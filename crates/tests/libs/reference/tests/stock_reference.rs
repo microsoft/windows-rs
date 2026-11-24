@@ -4,6 +4,16 @@ use windows_core::*;
 use windows_reference::*;
 
 #[test]
+fn unconstrained_consumer() -> Result<()> {
+    fn value<T: RuntimeType>(reference: &IReference<T>) -> Result<T> {
+        reference.Value()
+    }
+
+    assert_eq!(value(&IReference::<i32>::from(42))?, 42);
+    Ok(())
+}
+
+#[test]
 fn value_u8() -> Result<()> {
     let r = IReference::<u8>::from(255);
     assert_eq!(r.Value()?, 255);
