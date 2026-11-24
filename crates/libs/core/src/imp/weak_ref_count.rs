@@ -31,10 +31,11 @@ impl WeakRefCount {
         Self(AtomicPtr::new(encode(1)))
     }
 
+    #[allow(deprecated)]
     pub fn add_ref(&self) -> u32 {
         match self
             .0
-            .try_update(Ordering::Relaxed, Ordering::Acquire, |value| {
+            .fetch_update(Ordering::Relaxed, Ordering::Acquire, |value| {
                 count(value).map(|count| {
                     if count >= RefCount::MAX as usize {
                         RefCount::ref_count_overflow();
@@ -52,10 +53,11 @@ impl WeakRefCount {
         self.0.load(Ordering::Acquire) == encode(1)
     }
 
+    #[allow(deprecated)]
     pub fn release(&self) -> u32 {
         match self
             .0
-            .try_update(Ordering::Release, Ordering::Acquire, |value| {
+            .fetch_update(Ordering::Release, Ordering::Acquire, |value| {
                 count(value).map(|count| {
                     assert!(count != 0, "Object has been over-released.");
                     encode(count - 1)

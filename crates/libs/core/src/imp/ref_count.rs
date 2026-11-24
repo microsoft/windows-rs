@@ -22,9 +22,10 @@ impl RefCount {
         (previous + 1) as u32
     }
 
+    #[allow(deprecated)]
     pub(crate) fn try_add_ref(&self) -> bool {
         self.0
-            .try_update(Ordering::Acquire, Ordering::Relaxed, |count| {
+            .fetch_update(Ordering::Acquire, Ordering::Relaxed, |count| {
                 if count == 0 {
                     return None;
                 }

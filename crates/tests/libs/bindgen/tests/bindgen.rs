@@ -987,6 +987,141 @@ fn minimal_abi_dependency_styles() {
     }
 }
 
+#[test]
+#[cfg(windows)]
+fn generated_bindings_support_runtime_msrv() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("runtime-msrv");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let libraries = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../../libs");
+    let mut dependencies = String::new();
+    for name in [
+        "core",
+        "link",
+        "future",
+        "collections",
+        "reference",
+        "time",
+        "numerics",
+    ] {
+        dependencies.push_str(&format!(
+            "windows-{name} = {{ path = '{}' }}\n",
+            libraries.join(name).display()
+        ));
+    }
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"runtime-msrv\"\nversion = \"0.0.0\"\nedition = \"2024\"\n\
+             [workspace]\n[lib]\npath = \"lib.rs\"\n[dependencies]\n{dependencies}\
+             [lints.rust]\nwarnings = \"deny\"\nnonstandard_style = \"allow\"\n"
+        ),
+    )
+    .unwrap();
+    for style in ["minimal", "full", "sys"] {
+        let mut builder = windows_bindgen::builder();
+        builder
+            .filter("Windows.Win32::{SECURITY_ATTRIBUTES,HANDLE,WNDCLASSA}")
+            .output(scratch.join(format!("{style}.rs")));
+        if style != "sys" {
+            builder
+                .filter("Windows.System.Threading.ThreadPool::RunAsync")
+                .filter("Windows.Storage.Pickers.FileOpenPicker::FileTypeFilter")
+                .filter("Windows.Devices.Geolocation.Geocoordinate::Speed")
+                .filter("Windows.Foundation.IPropertyValue::{GetDateTime,GetTimeSpan}")
+                .filter("Windows.UI.Composition.IVisual::Offset");
+        }
+        match style {
+            "full" => {
+                builder.full();
+            }
+            "sys" => {
+                builder.sys();
+            }
+            _ => {}
+        }
+        builder.write();
+        if style != "sys" {
+            let generated = std::fs::read_to_string(scratch.join(format!("{style}.rs"))).unwrap();
+            for name in [
+                "core",
+                "future",
+                "collections",
+                "reference",
+                "time",
+                "numerics",
+            ] {
+                assert!(
+                    generated.contains(&format!("windows_{name}::")),
+                    "{style}: {name}"
+                );
+            }
+        }
+    }
+    std::fs::write(
+        scratch.join("lib.rs"),
+        r#"
+pub mod minimal;
+pub mod full;
+pub mod sys;
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use windows_core::Interface;
+
+    #[test]
+    fn pointer_defaults() {
+        assert!(minimal::SECURITY_ATTRIBUTES::default().lpSecurityDescriptor.is_null());
+        assert!(full::SECURITY_ATTRIBUTES::default().lpSecurityDescriptor.is_null());
+        assert!(sys::SECURITY_ATTRIBUTES::default().lpSecurityDescriptor.is_null());
+        assert!(sys::WNDCLASSA::default().lpszClassName.is_null());
+    }
+
+    #[windows_core::interface("bc192da2-54c5-4923-8ef8-f5be2e1cd8a3")]
+    unsafe trait IProbe: windows_core::IUnknown {
+        unsafe fn Value(&self) -> windows_core::Result<()>;
+    }
+
+    #[windows_core::implement(IProbe)]
+    struct Probe;
+
+    impl IProbe_Impl for Probe_Impl {
+        unsafe fn Value(&self) -> windows_core::Result<()> {
+            Ok(())
+        }
+    }
+
+    #[test]
+    fn interface_macros_and_weak_references() {
+        let probe: IProbe = Probe.into();
+        unsafe { probe.Value().unwrap() };
+        let weak = probe.downgrade().unwrap();
+        assert!(weak.upgrade().is_some());
+        drop(probe);
+        assert!(weak.upgrade().is_none());
+    }
+}
+"#,
+    )
+    .unwrap();
+    let mut command = std::process::Command::new("cargo");
+    command
+        .args(["test", "--quiet", "--offline", "--manifest-path"])
+        .arg(&manifest)
+        .arg("--target-dir")
+        .arg(scratch.join("target"));
+    if let Some(toolchain) = std::env::var_os("WINDOWS_BINDGEN_TEST_TOOLCHAIN") {
+        command.env("RUSTUP_TOOLCHAIN", toolchain);
+    }
+    let result = command.output().unwrap();
+    assert!(
+        result.status.success(),
+        "{}",
+        String::from_utf8_lossy(&result.stderr)
+    );
+}
+
 fn run(name: &str) {
     let input_path = format!("input/{name}.rdl");
     let expected_path = format!("expected/{name}.rs");
