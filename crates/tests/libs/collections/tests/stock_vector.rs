@@ -4,6 +4,59 @@ use windows_core::*;
 const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as _);
 
 #[test]
+fn get_many_does_not_release_output_storage() -> Result<()> {
+    let item: IInspectable = IVector::<i32>::from(vec![1]).into();
+    let sentinel: IInspectable = IVector::<i32>::from(vec![2]).into();
+    let vector = IVector::<IInspectable>::from(vec![Some(item.clone())]);
+    let view = vector.GetView()?;
+    let iterator = vector.First()?;
+    for kind in 0..3 {
+        // A spare reference keeps an incorrect Release observable without freeing the sentinel.
+        let mut spare = std::mem::ManuallyDrop::new(sentinel.clone());
+        let before = reference_count(&sentinel);
+        let mut values = [sentinel.as_raw(); 2];
+        let mut count = 0;
+        unsafe {
+            match kind {
+                0 => (vector.vtable().GetMany)(
+                    vector.as_raw(),
+                    0,
+                    2,
+                    values.as_mut_ptr(),
+                    &mut count,
+                ),
+                1 => (view.vtable().GetMany)(view.as_raw(), 0, 2, values.as_mut_ptr(), &mut count),
+                2 => (iterator.vtable().GetMany)(
+                    iterator.as_raw(),
+                    2,
+                    values.as_mut_ptr(),
+                    &mut count,
+                ),
+                _ => unreachable!(),
+            }
+            .ok()?;
+        }
+        let after = reference_count(&sentinel);
+        if after == before {
+            unsafe { std::mem::ManuallyDrop::drop(&mut spare) };
+        }
+        let returned = unsafe { IInspectable::from_raw(values[0]) };
+        assert_eq!(after, before, "GetMany released caller-owned storage");
+        assert_eq!(count, 1);
+        assert_eq!(returned, item);
+        assert!(values[1].is_null());
+    }
+    Ok(())
+}
+
+fn reference_count(value: &IInspectable) -> u32 {
+    unsafe {
+        (value.vtable().base.AddRef)(value.as_raw());
+        (value.vtable().base.Release)(value.as_raw())
+    }
+}
+
+#[test]
 fn primitive() -> Result<()> {
     let v = IVector::<i32>::from(vec![]);
     assert_eq!(v.GetAt(0).unwrap_err().code(), E_BOUNDS);
