@@ -518,19 +518,25 @@ fn disconnected_values_are_not_used_directly() -> Result<()> {
     .join()
     .unwrap()?;
     let expected = disconnected
-        .resolve()?
+        .resolve()
+        .unwrap()
         .cast::<IStringable>()
         .unwrap_err()
         .code();
     assert!(expected.is_err());
-    let vector = vector.resolve()?;
+    let vector = vector.resolve().unwrap();
     assert_eq!(
-        vector.GetAt(1)?.cast::<IStringable>().unwrap_err().code(),
+        vector
+            .GetAt(1)
+            .unwrap()
+            .cast::<IStringable>()
+            .unwrap_err()
+            .code(),
         expected
     );
     let mut values = [None, None];
     let view = vector.GetView()?;
-    assert_eq!(view.GetMany(0, &mut values)?, 2);
+    assert_eq!(view.GetMany(0, &mut values).unwrap(), 2);
     assert_eq!(
         values[1]
             .as_ref()
@@ -543,7 +549,7 @@ fn disconnected_values_are_not_used_directly() -> Result<()> {
     let iterator = vector.First()?;
     assert_eq!(iterator.Current()?, vector.GetAt(0)?);
     assert!(iterator.MoveNext()?);
-    assert_eq!(iterator.GetMany(&mut values)?, 1);
+    assert_eq!(iterator.GetMany(&mut values).unwrap(), 1);
     assert_eq!(
         values[0]
             .as_ref()
