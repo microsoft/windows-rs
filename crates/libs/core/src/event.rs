@@ -1,5 +1,6 @@
 use super::*;
 use core::iter::once;
+use imp::AgileDelegate;
 use std::sync::{Arc, RwLock};
 
 /// A type that you can use to declare and implement an event of a specified delegate type.
@@ -7,11 +8,8 @@ use std::sync::{Arc, RwLock};
 /// The implementation is thread-safe and designed to avoid contention between events being
 /// raised and delegates being added or removed.
 pub struct Event<T: Interface> {
-    delegates: RwLock<Option<Arc<[Delegate<T>]>>>,
+    delegates: RwLock<Option<Arc<[AgileDelegate<T>]>>>,
 }
-
-unsafe impl<T: Interface> Send for Event<T> {}
-unsafe impl<T: Interface> Sync for Event<T> {}
 
 impl<T: Interface> Default for Event<T> {
     fn default() -> Self {
@@ -29,7 +27,7 @@ impl<T: Interface> Event<T> {
 
     /// Registers a delegate with the event object.
     pub fn add(&self, delegate: &T) -> Result<i64> {
-        let new_delegate = Delegate::new(delegate)?;
+        let new_delegate = AgileDelegate::new(delegate)?;
         let token = new_delegate.to_token();
         let new_iter = once(new_delegate);
         let mut guard = self.delegates.write().unwrap();
@@ -101,41 +99,6 @@ impl<T: Interface> Event<T> {
                     self.remove(delegate.to_token());
                 }
             }
-        }
-    }
-}
-
-/// Holds either a direct or indirect reference to a delegate. A direct reference is typically
-/// agile while an indirect reference is an agile wrapper.
-#[derive(Clone)]
-enum Delegate<T> {
-    Direct(T),
-    Indirect(AgileReference<T>),
-}
-
-impl<T: Interface> Delegate<T> {
-    /// Creates a new `Delegate<T>`, containing a suitable reference to the specified delegate.
-    fn new(delegate: &T) -> Result<Self> {
-        if delegate.cast::<imp::IAgileObject>().is_ok() {
-            Ok(Self::Direct(delegate.clone()))
-        } else {
-            Ok(Self::Indirect(AgileReference::new(delegate)?))
-        }
-    }
-
-    /// Returns an encoded token to identify the delegate.
-    fn to_token(&self) -> i64 {
-        match self {
-            Self::Direct(delegate) => imp::encode_pointer(delegate.as_raw()),
-            Self::Indirect(delegate) => imp::encode_pointer(delegate.as_raw()),
-        }
-    }
-
-    /// Invokes the delegates with the provided callback.
-    fn call<F: FnMut(&T) -> Result<()>>(&self, mut callback: F) -> Result<()> {
-        match self {
-            Self::Direct(delegate) => callback(delegate),
-            Self::Indirect(delegate) => callback(&delegate.resolve()?),
         }
     }
 }

@@ -1,3 +1,4 @@
+#include <windows.h>
 #include <winrt/Windows.Foundation.h>
 #include <winrt/AsyncMethods.h>
 #include "check.h"
@@ -5,6 +6,8 @@
 using namespace winrt;
 using namespace Windows::Foundation;
 using namespace AsyncMethods;
+
+#include "handlers.h"
 
 IAsyncAction action(bool fail = false)
 {
@@ -62,6 +65,7 @@ void check_bounds(T const& async)
 void test()
 {
     Widget widget;
+    test_handlers(widget);
 
     widget.Action(1).get();
     auto with_progress = widget.ActionWithProgress(1);
