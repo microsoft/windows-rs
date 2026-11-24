@@ -74,7 +74,48 @@ impl TypeMap {
     #[track_caller]
     pub fn filter(reader: &Reader, filter: &Filter, references: &References, sys: bool) -> Self {
         let mut dependencies = Self::new();
+        Self::for_each_selected(
+            reader,
+            filter,
+            references,
+            sys,
+            |types, item_dependencies, _| {
+                for ty in types {
+                    dependencies.insert(ty.clone());
+                }
+                dependencies.combine_references(item_dependencies, references);
+            },
+        );
+        dependencies
+    }
 
+    /// Names of the types selected by namespace rules rather than by name.
+    #[track_caller]
+    pub fn namespace_selection(
+        reader: &Reader,
+        filter: &Filter,
+        references: &References,
+        sys: bool,
+    ) -> Vec<TypeName> {
+        let mut names = Vec::new();
+        Self::for_each_selected(reader, filter, references, sys, |types, _, rule| {
+            let name = types[0].type_name();
+            if rule.len() <= name.namespace().len() {
+                names.push(name);
+            }
+        });
+        names
+    }
+
+    /// Visits each included type whose dependencies are not excluded, with its matching rule.
+    #[track_caller]
+    fn for_each_selected(
+        reader: &Reader,
+        filter: &Filter,
+        references: &References,
+        sys: bool,
+        mut f: impl FnMut(&[Type], &Self, &str),
+    ) {
         // The references provide these types along with their dependencies, so the walk below
         // stops at them.
         let referenced = Arc::new(references.type_names(reader));
@@ -116,17 +157,11 @@ impl TypeMap {
                             continue;
                         }
 
-                        for ty in types.iter() {
-                            dependencies.insert(ty.clone());
-                        }
-
-                        dependencies.combine_references(&item_dependencies, references);
+                        f(&types, &item_dependencies, filter_rule);
                     }
                 }
             }
         }
-
-        dependencies
     }
 
     /// Adds `ty` and returns whether its dependencies still need to be walked.
@@ -176,22 +211,6 @@ impl TypeMap {
                 set.insert(ty.clone());
             }
         }
-    }
-
-    pub fn hierarchy_dependencies(&self, reader: &Reader, references: &References) -> Self {
-        let mut dependencies = Self(
-            HashMap::new(),
-            Arc::new(references.type_names(reader)),
-            HashMap::new(),
-        );
-        for ty in self.values().flatten() {
-            if matches!(ty, Type::Class(_) | Type::Interface(_)) {
-                ty.combine(&mut dependencies, reader);
-            }
-        }
-        let mut result = Self::new();
-        result.combine_references(&dependencies, references);
-        result
     }
 
     pub fn included(&self, config: &Config) -> bool {

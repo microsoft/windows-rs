@@ -681,8 +681,11 @@ impl Bindgen {
 
             let mut filter = Filter::from_resolved(reader, &resolved);
 
-            // Precise filters use bottom-up closure; broad filters and packages scan top-down.
-            let types = if !filter.has_broad_filter && !self.layout.is_package() {
+            // Namespace rules select their types in full; packages still scan top-down.
+            let types = if !self.layout.is_package() {
+                let names =
+                    TypeMap::namespace_selection(reader, &filter, &references, self.style.is_sys());
+                filter.seed_types(reader, &names);
                 filter.uses_closure = true;
                 TypeClosure::build(
                     reader,
@@ -692,24 +695,7 @@ impl Bindgen {
                     self.style,
                 )
             } else {
-                let mut types = TypeMap::filter(reader, &filter, &references, self.style.is_sys());
-                if !self.layout.is_package() {
-                    let precise = TypeClosure::build(
-                        reader,
-                        &mut filter,
-                        &references,
-                        implements.as_ref(),
-                        self.style,
-                    );
-                    filter.dependency_types.extend(
-                        precise
-                            .keys()
-                            .filter(|name| !types.contains_key(name))
-                            .copied(),
-                    );
-                    types.combine(&precise);
-                }
-                types
+                TypeMap::filter(reader, &filter, &references, self.style.is_sys())
             };
 
             (filter, types)

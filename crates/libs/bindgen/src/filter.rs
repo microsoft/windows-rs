@@ -44,16 +44,14 @@ pub struct Filter {
     pub requested_interfaces: HashMap<(String, String), MethodSet>,
     /// Types directly included without `::` (for type closure).
     pub direct_types: Vec<(String, String)>,
+    /// Direct types selected only through a namespace rule.
+    namespace_types: HashSet<(String, String)>,
     /// Types whose full metadata hierarchy was explicitly requested.
     hierarchy_types: HashSet<(String, String)>,
     /// Individual class-to-interface hierarchy edges selected through class members.
     hierarchy_interfaces: HashSet<(String, String, String, String)>,
-    /// Namespace selections need a top-down scan in addition to precise dependency closure.
-    pub has_broad_filter: bool,
-    /// `true` when only bottom-up closure is used; non-seed types become shells.
+    /// `true` when the bottom-up closure is used; non-seed types become shells.
     pub uses_closure: bool,
-    /// Types reached by precise filters but not by the top-down scan.
-    pub dependency_types: HashSet<TypeName>,
 }
 
 /// Per-type method filter. Both raw metadata names and overload names are recorded;
@@ -97,6 +95,36 @@ impl VariantFilter {
 }
 
 impl Filter {
+    /// Selects each named type in full, as if it had been named directly.
+    pub fn seed_types(&mut self, reader: &Reader, names: &[TypeName]) {
+        for name in names {
+            let (namespace, name) = (name.namespace(), name.name());
+            Self::register_hierarchy_type(reader, namespace, name, &mut self.hierarchy_types);
+            let key = (namespace.to_string(), name.to_string());
+            if Self::is_interface(reader, namespace, name) {
+                self.requested_interfaces
+                    .entry(key)
+                    .or_insert(MethodSet::All);
+            } else if !self.direct_types.contains(&key) {
+                self.namespace_types.insert(key.clone());
+                self.direct_types.push(key);
+            }
+        }
+    }
+
+    /// Whether the type was selected rather than reached as a dependency.
+    pub fn selects_type(&self, name: TypeName) -> bool {
+        self.direct_types
+            .iter()
+            .any(|(namespace, n)| namespace == name.namespace() && n == name.name())
+    }
+
+    /// Whether the type was named by a filter rule rather than selected through its namespace.
+    pub fn names_type(&self, namespace: &str, name: &str) -> bool {
+        let key = (namespace.to_string(), name.to_string());
+        self.direct_types.contains(&key) && !self.namespace_types.contains(&key)
+    }
+
     pub fn includes_full_hierarchy(&self, namespace: &str, name: &str) -> bool {
         self.hierarchy_types
             .contains(&(namespace.to_string(), name.to_string()))
@@ -180,7 +208,7 @@ impl Filter {
             return TypeRole::Named(set.clone());
         }
 
-        if self.uses_closure || self.dependency_types.contains(&type_name) {
+        if self.uses_closure {
             TypeRole::Shell
         } else {
             TypeRole::Named(MethodSet::All)
@@ -251,7 +279,6 @@ impl Filter {
         let mut direct_types: Vec<(String, String)> = Vec::new();
         let mut hierarchy_types = HashSet::new();
         let mut hierarchy_interfaces = HashSet::new();
-        let mut has_broad_filter = false;
 
         for entry in entries {
             let include = !entry.exclude;
@@ -259,9 +286,6 @@ impl Filter {
             match &entry.kind {
                 ResolvedKind::Namespace(ns) => {
                     rules.push((ns.clone(), include));
-                    if include {
-                        has_broad_filter = true;
-                    }
                 }
                 ResolvedKind::Type { namespace, name } => {
                     let full = format!("{namespace}.{name}");
@@ -366,11 +390,10 @@ impl Filter {
             activatable,
             requested_interfaces,
             direct_types,
+            namespace_types: HashSet::new(),
             hierarchy_types,
             hierarchy_interfaces,
-            has_broad_filter,
             uses_closure: false,
-            dependency_types: HashSet::new(),
         }
     }
 

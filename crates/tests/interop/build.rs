@@ -33,9 +33,9 @@ fn main() {
         .filter("Windows.Foundation.IReferenceArray")
         .filter("Windows.Foundation.IStringable")
         .filter("Windows.Foundation.Numerics")
-        .filter("Windows.Foundation.PropertyValue")
+        .filter("Windows.Foundation.PropertyValue::{CreateBooleanArray,CreateInt32Array,CreateStringArray}")
         .filter("Windows.Foundation.TypedEventHandler")
-        .filter("Windows.Foundation.Uri")
+        .filter("Windows.Foundation.Uri::CreateUri")
         .implement_all()
         .full()
         .modules();

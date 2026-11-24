@@ -98,14 +98,10 @@ impl TypeClosure {
             }
         }
 
-        let mut visited = HashSet::new();
-        loop {
-            // Mixed selection emits broad class/interface scaffolding, including factories and
-            // generic required interfaces. Implementation signatures can introduce more classes.
-            if filter.has_broad_filter {
-                types.combine(&types.hierarchy_dependencies(reader, references));
-            }
-            if let Some(implements) = implements {
+        // Implementation signatures can introduce more interfaces to implement.
+        if let Some(implements) = implements {
+            let mut visited = HashSet::new();
+            loop {
                 let pending: Vec<_> = types
                     .values()
                     .flatten()
@@ -139,8 +135,6 @@ impl TypeClosure {
                         }
                     }
                 }
-            } else {
-                break;
             }
         }
 
@@ -277,11 +271,15 @@ impl CombineClosure for Type {
             }
             // Core types have empty namespaces but are needed for standalone `--sys` output.
             let insert_tn = insert_ty.type_name();
-            // Excluded dependencies are left for rustc to report rather than generated. Excluded
-            // enum members are variant filters applied when the constant is written.
-            if !matches!(&insert_ty, Self::CppConst(c) if c.is_enum_member)
-                && cx.filter.excludes_type_name(insert_tn)
-            {
+            // Excluded dependencies are left for rustc to report rather than generated. Enum
+            // members follow their enum; their own exclusions filter variants when written.
+            let excluded = match &insert_ty {
+                Self::CppConst(c) if c.is_enum_member => c
+                    .value_type(cx.reader)
+                    .is_some_and(|ty| cx.filter.excludes_type_name(ty.type_name())),
+                _ => cx.filter.excludes_type_name(insert_tn),
+            };
+            if excluded {
                 continue;
             }
             if (!insert_tn.namespace().is_empty() || insert_ty.is_core())
@@ -338,7 +336,6 @@ impl CombineClosure for Type {
                 for base in iface.base_interfaces(cx.reader) {
                     base.combine_closure(types, cx, arches);
                 }
-                Self::IUnknown.combine_closure(types, cx, arches);
             }
             Self::CppFn(f) => {
                 for dependency in f.method.associated_enums(cx.reader) {
@@ -479,7 +476,6 @@ mod tests {
                 .collect();
             let resolved = filter_parser::resolve_entries(reader, &parsed);
             let mut filter = Filter::from_resolved(reader, &resolved);
-            assert!(!filter.has_broad_filter);
             filter.uses_closure = true;
             let types = TypeClosure::build(
                 reader,
@@ -507,7 +503,6 @@ mod tests {
                 .collect();
             let resolved = filter_parser::resolve_entries(reader, &parsed);
             let mut filter = Filter::from_resolved(reader, &resolved);
-            assert!(!filter.has_broad_filter);
             filter.uses_closure = true;
             let types = TypeClosure::build(
                 reader,

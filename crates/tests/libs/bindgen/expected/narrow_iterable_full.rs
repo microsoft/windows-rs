@@ -92,20 +92,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     IItems
 );
-windows_core::imp::required_hierarchy!(Items, windows_collections::IIterable<Item>);
-impl Items {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<Item>> {
-        let this = &windows_core::Interface::cast::<windows_collections::IIterable<Item>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(
-                windows_core::Interface::as_raw(this),
-                &mut result__,
-            )
-            .and_then(|| windows_core::imp::from_abi(result__))
-        }
-    }
-}
 impl windows_core::RuntimeType for Items {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IItems>();
@@ -117,18 +103,4 @@ unsafe impl windows_core::Interface for Items {
 }
 impl windows_core::RuntimeName for Items {
     const NAME: &'static str = "Test.Items";
-}
-impl IntoIterator for Items {
-    type Item = Item;
-    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        IntoIterator::into_iter(&self)
-    }
-}
-impl IntoIterator for &Items {
-    type Item = Item;
-    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        windows_collections::BufferedIterator::new(self.First().unwrap())
-    }
 }

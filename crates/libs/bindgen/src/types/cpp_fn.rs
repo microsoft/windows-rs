@@ -80,17 +80,9 @@ impl CppFn {
         }
     }
 
-    fn directly_selected(&self, config: &Config<'_>) -> bool {
-        config
-            .filter
-            .direct_types
-            .iter()
-            .any(|(namespace, name)| namespace == self.namespace && name == self.method.name())
-    }
-
     fn reject_variadic(&self, config: &Config<'_>, reason: &str) -> TokenStream {
         assert!(
-            !self.directly_selected(config),
+            !config.filter.names_type(self.namespace, self.method.name()),
             "windows-bindgen: selected variadic function `{}.{}` {reason}",
             self.namespace,
             self.method.name()

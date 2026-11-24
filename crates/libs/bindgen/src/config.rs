@@ -135,9 +135,10 @@ impl Config<'_> {
 
     /// Returns `true` if the given method should be emitted (not demoted).
     pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
-        // If `--implement` requests this interface, keep all methods.
+        // If `--implement` requests a generated interface, keep all methods.
         if let Some(implements) = self.implement
             && implements.matches(type_name)
+            && self.types.contains_key(&type_name)
         {
             return true;
         }
