@@ -37,7 +37,7 @@ impl Delegate {
             None,
             InterfaceKind::Default,
             &mut MethodNames::new(),
-            &mut MethodNames::new(),
+            &MethodNames::new().add(method.def),
             true,
         );
 

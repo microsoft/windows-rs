@@ -251,18 +251,14 @@ impl CppInterface {
 
             if !suppress_methods {
                 let method_names = &mut MethodNames::new();
-                let virtual_names = &mut MethodNames::new();
 
                 // These methods live in `impl #name`, so references to this
                 // interface are emitted as `Self` (clippy::use_self).
                 let self_config = config.with_self_ty(self.type_name(), &[]);
 
-                for method in methods.iter().filter_map(|method| match &method {
-                    MethodOrName::Method(method) => Some(method),
-                    _ => None,
-                }) {
+                for (method, vname) in named_methods(&methods) {
                     let cfg = method.write_cfg(config, &class_cfg, false);
-                    let method = method.write(&self_config, method_names, virtual_names);
+                    let method = method.write(&self_config, method_names, &vname);
 
                     methods_tokens.combine(quote! {
                         #cfg

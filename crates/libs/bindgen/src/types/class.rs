@@ -38,17 +38,7 @@ impl Class {
             let mut method_names = MethodNames::new();
 
             for interface in &required_interfaces {
-                let mut virtual_names = MethodNames::new();
-
-                for method in
-                    interface
-                        .get_methods(config)
-                        .iter()
-                        .filter_map(|method| match &method {
-                            MethodOrName::Method(method) => Some(method),
-                            _ => None,
-                        })
-                {
+                for (method, vname) in named_methods(&interface.get_methods(config)) {
                     let cfg = method.write_cfg(config, &class_cfg, false);
                     let def = method.def;
 
@@ -57,7 +47,7 @@ impl Class {
                         Some(interface),
                         interface.kind,
                         &mut method_names,
-                        &mut virtual_names,
+                        &vname,
                         true,
                     );
 
@@ -88,17 +78,7 @@ impl Class {
                 .iter()
                 .filter(|i| matches!(i.kind, InterfaceKind::Static | InterfaceKind::Composable))
             {
-                let mut virtual_names = MethodNames::new();
-
-                for method in
-                    interface
-                        .get_methods(config)
-                        .iter()
-                        .filter_map(|method| match &method {
-                            MethodOrName::Method(method) => Some(method),
-                            _ => None,
-                        })
-                {
+                for (method, vname) in named_methods(&interface.get_methods(config)) {
                     let cfg = method.write_cfg(config, &class_cfg, false);
 
                     let method = method.write(
@@ -106,7 +86,7 @@ impl Class {
                         Some(interface),
                         interface.kind,
                         &mut method_names,
-                        &mut virtual_names,
+                        &vname,
                         needs_compose,
                     );
 

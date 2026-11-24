@@ -184,10 +184,9 @@ impl CppMethod {
         &self,
         config: &Config,
         method_names: &mut MethodNames,
-        virtual_names: &mut MethodNames,
+        vname: &TokenStream,
     ) -> TokenStream {
         let name = method_names.add(self.def);
-        let vname = virtual_names.add(self.def);
 
         let args = self.write_args(config);
         let params = self.write_params(config);

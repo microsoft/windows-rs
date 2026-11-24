@@ -30,6 +30,113 @@ fn filter_contract_output(case: &str, style: &str, filters: &[&str]) -> String {
 }
 
 #[test]
+fn filter_preserves_slot_identity() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("filtered-slots");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap()
+        .join("libs")
+        .join("core");
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"filtered-slots\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n\
+             [[bin]]\nname = \"filtered-slots\"\npath = \"main.rs\"\n\
+             [dependencies]\nwindows-core = {{ path = '{}', features = ['proc-macros'] }}\n",
+            core.display()
+        ),
+    )
+    .unwrap();
+    std::fs::write(
+        scratch.join("complete.rs"),
+        filter_contract_output("complete-slots", "full", &["Slots"]),
+    )
+    .unwrap();
+    let mut failures = Vec::new();
+    for style in ["minimal", "full"] {
+        std::fs::write(
+            scratch.join("selected.rs"),
+            filter_contract_output(
+                "selected-slots",
+                style,
+                &[
+                    "Slots.IProbe::Value",
+                    "!Slots.IProbe::get_Value",
+                    "Slots.NativeProbe::Value",
+                    "!Slots.NativeProbe::get_Value",
+                    "Slots.Widget::Value",
+                    "!Slots.Widget::get_Value",
+                    "Slots.IRequired::{}",
+                    "Slots.FactoryWidget::{Create,Value}",
+                    "!Slots.FactoryWidget::{get_Create,get_Value}",
+                ],
+            ),
+        )
+        .unwrap();
+        let mut source = String::from(
+            r#"#![allow(dead_code, nonstandard_style)]
+use windows_core::{Interface, Result, implement};
+mod complete;
+mod selected;
+
+#[implement(complete::IProbe, complete::IRequired)]
+struct Probe;
+impl complete::IProbe_Impl for Probe_Impl {
+    fn Value(&self) -> Result<i32> { Ok(1) }
+    fn Value2(&self) -> Result<i32> { Ok(2) }
+}
+impl complete::IRequired_Impl for Probe_Impl {}
+
+struct Native;
+impl complete::NativeProbe_Impl for Native {
+    fn Value(&self) -> i32 { 1 }
+    fn Value2(&self) -> i32 { 2 }
+}
+
+fn main() {
+    let complete: complete::IProbe = Probe.into();
+    assert_eq!(complete.Value().unwrap(), 1);
+    assert_eq!(complete.Value2().unwrap(), 2);
+    let probe: selected::IProbe = complete.cast().unwrap();
+    let widget: selected::Widget = complete.cast().unwrap();
+    let native = complete::NativeProbe::new(&Native);
+    let raw = native.as_raw();
+    // Both projections describe the same vtable; the scoped owner outlives the borrow.
+    let native = unsafe { selected::NativeProbe::from_raw_borrowed(&raw).unwrap() };
+    let values = [probe.Value().unwrap(), widget.Value().unwrap(), unsafe { native.Value() }];
+    assert_eq!(values, [2; 3]);
+"#,
+        );
+        if style == "full" {
+            source.push_str(
+                "let required: selected::IRequired = complete.cast().unwrap();\n\
+                 assert_eq!(required.Value().unwrap(), 2);\n",
+            );
+        }
+        source.push_str("}\n");
+        std::fs::write(scratch.join("main.rs"), source).unwrap();
+        let output = std::process::Command::new("cargo")
+            .args(["run", "--quiet", "--offline", "--manifest-path"])
+            .arg(&manifest)
+            .arg("--target-dir")
+            .arg(scratch.join("target"))
+            .output()
+            .unwrap();
+        if !output.status.success() {
+            failures.push(format!(
+                "{style}: {}",
+                String::from_utf8_lossy(&output.stderr)
+            ));
+        }
+    }
+    assert!(failures.is_empty(), "{}", failures.join("\n"));
+}
+
+#[test]
 fn filter_mixed_namespaces_preserve_precise_methods() {
     for style in ["minimal", "full", "sys"] {
         let filters = [

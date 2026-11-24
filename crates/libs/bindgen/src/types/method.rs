@@ -350,7 +350,7 @@ impl Method {
         interface: Option<&Interface>,
         kind: InterfaceKind,
         method_names: &mut MethodNames,
-        virtual_names: &mut MethodNames,
+        vname: &TokenStream,
         emit_compose: bool,
     ) -> TokenStream {
         let params = if kind == InterfaceKind::Composable {
@@ -647,8 +647,6 @@ impl Method {
             let result = config.write_core();
             quote! { -> #result Result<#return_type> }
         };
-
-        let vname = virtual_names.add(self.def);
 
         let receiver: TokenStream = if kind == InterfaceKind::Default {
             quote! { self }

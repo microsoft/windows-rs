@@ -71,3 +71,57 @@ mod Other {
         value: i32,
     }
 }
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Metadata {
+            attribute ActivatableAttribute {
+                fn(#[in] r#type: Type, #[in] version: u32);
+            }
+            attribute StaticAttribute {
+                fn(#[in] r#type: Type, #[in] version: u32);
+            }
+        }
+    }
+}
+#[winrt]
+mod Slots {
+    #[guid(auto)]
+    interface IProbe {
+        #[special]
+        fn get_Value(&self) -> i32;
+        fn Value(&self) -> i32;
+    }
+    #[guid(auto)]
+    interface IRequired: IProbe {}
+    class Widget {
+        IProbe,
+    }
+    #[Windows::Foundation::Metadata::Activatable(IFactory, 1)]
+    #[Windows::Foundation::Metadata::Static(IStatics, 1)]
+    class FactoryWidget {
+        IEmpty,
+    }
+    #[guid(auto)]
+    interface IEmpty {}
+    #[guid(auto)]
+    interface IFactory {
+        #[special]
+        fn get_Create(&self) -> FactoryWidget;
+        fn Create(&self) -> FactoryWidget;
+    }
+    #[guid(auto)]
+    interface IStatics {
+        #[special]
+        fn get_Value(&self) -> i32;
+        fn Value(&self) -> i32;
+    }
+}
+#[win32]
+mod Slots {
+    interface NativeProbe {
+        #[special]
+        fn get_Value(&self) -> i32;
+        fn Value(&self) -> i32;
+    }
+}
