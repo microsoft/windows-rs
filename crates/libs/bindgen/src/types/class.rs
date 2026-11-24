@@ -182,7 +182,10 @@ impl Class {
             let required_hierarchy = {
                 let mut interfaces: Vec<_> = required_interfaces
                     .iter()
-                    .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
+                    .filter(|ty| {
+                        !ty.is_exclusive()
+                            && matches!(ty.kind, InterfaceKind::None | InterfaceKind::Base)
+                    })
                     .filter(|ty| {
                         !config.filter.uses_closure || {
                             let name = Type::Interface((*ty).clone()).type_name();

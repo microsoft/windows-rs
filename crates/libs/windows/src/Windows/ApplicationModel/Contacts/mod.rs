@@ -1401,7 +1401,6 @@ impl windows_core::RuntimeType for ContactEmailKind {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactField(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactField, windows_core::IUnknown, windows_core::IInspectable, IContactField);
-windows_core::imp::required_hierarchy!(ContactField, IContactFieldFactory);
 impl ContactField {
     pub fn Type(&self) -> windows_core::Result<ContactFieldType> {
         unsafe {
@@ -1681,7 +1680,7 @@ impl windows_core::RuntimeName for ContactInformation {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactInstantMessageField(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactInstantMessageField, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ContactInstantMessageField, IContactField, IContactInstantMessageFieldFactory);
+windows_core::imp::required_hierarchy!(ContactInstantMessageField, IContactField);
 impl ContactInstantMessageField {
     pub fn Type(&self) -> windows_core::Result<ContactFieldType> {
         let this = &windows_core::Interface::cast::<IContactField>(self)?;
@@ -2567,7 +2566,7 @@ impl windows_core::RuntimeType for ContactListSyncStatus {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactLocationField(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactLocationField, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ContactLocationField, IContactField, IContactLocationFieldFactory);
+windows_core::imp::required_hierarchy!(ContactLocationField, IContactField);
 impl ContactLocationField {
     pub fn Type(&self) -> windows_core::Result<ContactFieldType> {
         let this = &windows_core::Interface::cast::<IContactField>(self)?;

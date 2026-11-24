@@ -1800,7 +1800,6 @@ impl windows_core::RuntimeType for InkPersistenceFormat {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkPoint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkPoint, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InkPoint, IInkPointFactory);
 impl InkPoint {
     pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
         unsafe {
@@ -2170,7 +2169,7 @@ unsafe impl Sync for InkPresenterProtractor {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkPresenterRuler(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkPresenterRuler, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InkPresenterRuler, IInkPresenterRulerFactory, IInkPresenterStencil);
+windows_core::imp::required_hierarchy!(InkPresenterRuler, IInkPresenterStencil);
 impl InkPresenterRuler {
     pub fn Length(&self) -> windows_core::Result<f64> {
         unsafe {

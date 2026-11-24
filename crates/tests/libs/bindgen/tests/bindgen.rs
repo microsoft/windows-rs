@@ -137,6 +137,123 @@ fn main() {
 }
 
 #[test]
+fn class_instance_conversions() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("instance-conversions");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/narrow_class_static.rdl")
+        .input("input/minimal_compose_target.rdl")
+        .input("input/minimal_required_hierarchy.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap()
+        .join("libs")
+        .join("core");
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"instance-conversions\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n[lib]\npath = \"lib.rs\"\n\
+             [dependencies]\nwindows-core = {{ path = '{}' }}\n",
+            core.display()
+        ),
+    )
+    .unwrap();
+    let check = || {
+        std::process::Command::new("cargo")
+            .args(["check", "--quiet", "--offline", "--manifest-path"])
+            .arg(&manifest)
+            .arg("--target-dir")
+            .arg(scratch.join("target"))
+            .output()
+            .unwrap()
+    };
+    let valid = r#"#![allow(dead_code, nonstandard_style)]
+mod bindings;
+use bindings::*;
+use windows_core::{Interface, Param, Result};
+
+fn parameter<I: Interface, P: Param<I>>(_: P) {}
+
+pub fn instances(widget: &Widget, derived: &Derived, explicit: &Explicit) {
+    parameter::<IWidget, _>(widget);
+    parameter::<IDerived, _>(derived);
+    parameter::<IOverrides, _>(derived);
+    parameter::<Base, _>(derived);
+    parameter::<IClose, _>(explicit);
+}
+
+pub fn factories(factory: &IWidgetFactory, statics: &IWidgetStatics, composed: &IDerivedFactory) {
+    parameter::<IWidgetFactory, _>(factory);
+    parameter::<IWidgetStatics, _>(statics);
+    parameter::<IDerivedFactory, _>(composed);
+}
+
+pub fn entry_points() {
+    let _: fn(i32) -> Result<Widget> = Widget::Create;
+    let _: fn() -> Result<Widget> = Widget::GetDefault;
+    let _: fn() -> Result<Derived> = Derived::new;
+}
+
+pub fn explicit_query(widget: &Widget) -> Result<IWidgetFactory> {
+    widget.cast()
+}
+"#;
+    let mut failures = Vec::new();
+    for full in [false, true] {
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&winmd)
+            .filter("Test")
+            .output(scratch.join("bindings.rs"));
+        if full {
+            builder.full();
+        }
+        builder.write();
+        std::fs::write(scratch.join("lib.rs"), valid).unwrap();
+        let output = check();
+        assert!(
+            output.status.success(),
+            "full={full}: {}",
+            String::from_utf8_lossy(&output.stderr)
+        );
+        for (class, interface) in [
+            ("Widget", "IWidgetFactory"),
+            ("Widget", "IWidgetStatics"),
+            ("Base", "IBaseFactory"),
+            ("Derived", "IDerivedFactory"),
+        ] {
+            std::fs::write(
+                scratch.join("lib.rs"),
+                format!(
+                    "{valid}\npub fn invalid(value: &{class}) {{ parameter::<{interface}, _>(value); }}\n"
+                ),
+            )
+            .unwrap();
+            let output = check();
+            let error = String::from_utf8_lossy(&output.stderr);
+            if output.status.success() {
+                failures.push(format!("full={full}: {class} accepted as {interface}"));
+            } else {
+                assert!(
+                    error.contains("E0277")
+                        && error.contains("CanInto")
+                        && error.contains(interface),
+                    "full={full}: {error}"
+                );
+            }
+        }
+    }
+    assert!(failures.is_empty(), "{}", failures.join("\n"));
+}
+
+#[test]
 fn filter_mixed_namespaces_preserve_precise_methods() {
     for style in ["minimal", "full", "sys"] {
         let filters = [
