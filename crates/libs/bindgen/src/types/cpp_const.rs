@@ -393,26 +393,32 @@ fn wide_int_cast(value: &Value) -> TokenStream {
     }
 }
 
-impl Dependencies for CppConst {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+impl CppConst {
+    /// The type spelled by the generated constant, if it names one.
+    pub fn value_type(&self, reader: &Reader) -> Option<Type> {
         if let windows_metadata::Type::ClassName(type_name)
         | windows_metadata::Type::ValueName(type_name) = self.field.ty()
             && type_name.namespace.is_empty()
         {
-            return;
+            return None;
         }
 
         let ty = self.field.field_type(None, reader).to_const_type();
 
-        // String constants emit PCWSTR/PCSTR in the generated code, so we
-        // need those types in the dependency closure (not Type::String).
-        if ty == Type::String {
-            if is_ansi_encoding(self.field) {
-                Type::PCSTR.combine(dependencies, reader);
-            } else {
-                Type::PCWSTR.combine(dependencies, reader);
-            }
+        // String constants emit PCWSTR/PCSTR, not Type::String.
+        Some(if ty != Type::String {
+            ty
+        } else if is_ansi_encoding(self.field) {
+            Type::PCSTR
         } else {
+            Type::PCWSTR
+        })
+    }
+}
+
+impl Dependencies for CppConst {
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        if let Some(ty) = self.value_type(reader) {
             ty.combine(dependencies, reader);
         }
     }

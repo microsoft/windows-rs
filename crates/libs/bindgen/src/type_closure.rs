@@ -3,6 +3,14 @@ use super::*;
 /// Bottom-up dependency closure for precise filters; dependencies become name-only shells.
 pub struct TypeClosure;
 
+/// Inputs shared by every step of the dependency walk.
+struct Walk<'a> {
+    reader: &'a Reader,
+    references: &'a References,
+    filter: &'a Filter,
+    style: Style,
+}
+
 impl TypeClosure {
     /// Build the closure and add include rules for discovered types.
     #[track_caller]
@@ -14,6 +22,12 @@ impl TypeClosure {
         style: Style,
     ) -> TypeMap {
         let mut types = TypeMap::new();
+        let cx = Walk {
+            reader,
+            references,
+            filter,
+            style,
+        };
 
         // Interface method seeds pull in only the requested signatures.
         for (namespace, name) in filter.requested_interfaces.keys() {
@@ -22,34 +36,31 @@ impl TypeClosure {
                     continue;
                 }
                 types.insert(ty.clone());
+                ty.combine_definition_closure(&mut types, &cx, ALL_ARCHES);
 
                 if let Type::Interface(iface) = &ty {
                     if filter.includes_full_hierarchy(namespace, name) {
                         for required in iface.required_interfaces(reader) {
-                            Type::Interface(required)
-                                .combine_root(&mut types, reader, references, style);
+                            Type::Interface(required).combine_root(&mut types, &cx);
                         }
                     }
                     for method in iface.def.methods() {
                         if filter.includes_method(ty.type_name(), method) {
                             let sig = method.method_signature(&iface.generics, reader);
                             for dep_ty in sig.types() {
-                                dep_ty.combine_root(&mut types, reader, references, style);
+                                dep_ty.combine_root(&mut types, &cx);
                             }
                         }
                     }
                 } else if let Type::CppInterface(iface) = &ty {
-                    for base in iface.base_interfaces(reader) {
-                        base.combine_root(&mut types, reader, references, style);
-                    }
                     for method in iface.def.methods() {
                         if filter.includes_method(ty.type_name(), method) {
                             for dependency in method.associated_enums(reader) {
-                                dependency.combine_root(&mut types, reader, references, style);
+                                dependency.combine_root(&mut types, &cx);
                             }
                             let sig = method.method_signature(&[], reader);
                             for dep_ty in sig.types() {
-                                dep_ty.combine_root(&mut types, reader, references, style);
+                                dep_ty.combine_root(&mut types, &cx);
                             }
                         }
                     }
@@ -62,7 +73,7 @@ impl TypeClosure {
                 if filter.excludes_type_name(ty.type_name()) {
                     continue;
                 }
-                ty.combine_root(&mut types, reader, references, style);
+                ty.combine_root(&mut types, &cx);
                 types.insert(ty.clone());
 
                 // Unscoped enum variants are standalone constants; include the requested set
@@ -78,7 +89,7 @@ impl TypeClosure {
                         {
                             for constant in reader.with_full_name(e.def.namespace(), field.name()) {
                                 if matches!(constant, Type::CppConst(_)) {
-                                    constant.combine_root(&mut types, reader, references, style);
+                                    constant.combine_root(&mut types, &cx);
                                 }
                             }
                         }
@@ -119,12 +130,12 @@ impl TypeClosure {
                     for method in def.methods() {
                         if matches!(ty, Type::CppInterface(_)) {
                             for dependency in method.associated_enums(reader) {
-                                dependency.combine_root(&mut types, reader, references, style);
+                                dependency.combine_root(&mut types, &cx);
                             }
                         }
                         let sig = method.method_signature(generics, reader);
                         for dep_ty in sig.types() {
-                            dep_ty.combine_root(&mut types, reader, references, style);
+                            dep_ty.combine_root(&mut types, &cx);
                         }
                     }
                 }
@@ -157,85 +168,44 @@ impl TypeClosure {
 /// Bottom-up dependency walk that avoids pulling full interface surfaces.
 trait CombineClosure {
     /// Walks dependencies reached from a selected item on every architecture.
-    fn combine_root(
-        &self,
-        types: &mut TypeMap,
-        reader: &Reader,
-        references: &References,
-        style: Style,
-    ) {
-        self.combine_closure(types, reader, references, style, ALL_ARCHES);
+    fn combine_root(&self, types: &mut TypeMap, cx: &Walk) {
+        self.combine_closure(types, cx, ALL_ARCHES);
     }
 
-    fn combine_closure(
-        &self,
-        types: &mut TypeMap,
-        reader: &Reader,
-        references: &References,
-        style: Style,
-        arches: i32,
-    );
+    fn combine_closure(&self, types: &mut TypeMap, cx: &Walk, arches: i32);
 
-    fn combine_abi_closure(
-        &self,
-        types: &mut TypeMap,
-        reader: &Reader,
-        references: &References,
-        style: Style,
-        arches: i32,
-    );
+    fn combine_abi_closure(&self, types: &mut TypeMap, cx: &Walk, arches: i32);
 
-    fn combine_definition_closure(
-        &self,
-        types: &mut TypeMap,
-        reader: &Reader,
-        references: &References,
-        style: Style,
-        arches: i32,
-    );
+    fn combine_definition_closure(&self, types: &mut TypeMap, cx: &Walk, arches: i32);
 }
 
 impl CombineClosure for Type {
-    fn combine_abi_closure(
-        &self,
-        types: &mut TypeMap,
-        reader: &Reader,
-        references: &References,
-        style: Style,
-        arches: i32,
-    ) {
-        if self.is_interface_with_reader(reader) {
+    fn combine_abi_closure(&self, types: &mut TypeMap, cx: &Walk, arches: i32) {
+        if self.is_interface_with_reader(cx.reader) {
             // Keep interface identities for callers constructing ABI outputs, but not erased aliases.
-            self.projection_type(reader)
-                .combine_closure(types, reader, references, style, arches);
+            self.projection_type(cx.reader)
+                .combine_closure(types, cx, arches);
             return;
         }
         match self {
             Self::PtrMut(inner, _) | Self::PtrConst(inner, _) | Self::ArrayFixed(inner, _) => {
-                inner.combine_abi_closure(types, reader, references, style, arches);
+                inner.combine_abi_closure(types, cx, arches);
             }
-            _ => self.combine_closure(types, reader, references, style, arches),
+            _ => self.combine_closure(types, cx, arches),
         }
     }
 
-    fn combine_closure(
-        &self,
-        types: &mut TypeMap,
-        reader: &Reader,
-        references: &References,
-        style: Style,
-        arches: i32,
-    ) {
+    fn combine_closure(&self, types: &mut TypeMap, cx: &Walk, arches: i32) {
         let ty = self.dependency_type();
 
         if let Self::Ptr64(inner, _) = ty {
             types.insert(Self::Pointer64Helper);
-            inner.combine_closure(types, reader, references, style, arches);
+            inner.combine_closure(types, cx, arches);
             return;
         }
         if let Self::FnPtr(signature) = ty {
             for ty in signature.types() {
-                ty.combine_closure(types, reader, references, style, arches);
+                ty.combine_closure(types, cx, arches);
             }
             return;
         }
@@ -244,25 +214,25 @@ impl CombineClosure for Type {
         }
 
         if let Some(owner) = ty.enclosing() {
-            for owner in reader.with_full_name(owner.namespace(), owner.name()) {
-                owner.combine_closure(types, reader, references, style, arches);
+            for owner in cx.reader.with_full_name(owner.namespace(), owner.name()) {
+                owner.combine_closure(types, cx, arches);
             }
             return;
         }
 
         // Referenced crates own the outer type, but generic arguments may be local.
         let tn = ty.type_name();
-        if !tn.namespace().is_empty() && references.contains(tn).is_some() {
-            let (_ty_inner, generics) = ty.split_generic(reader);
+        if !tn.namespace().is_empty() && cx.references.contains(tn).is_some() {
+            let (_ty_inner, generics) = ty.split_generic(cx.reader);
             for g in &generics {
-                g.combine_closure(types, reader, references, style, arches);
+                g.combine_closure(types, cx, arches);
             }
             return;
         }
 
-        let (ty_inner, generics) = ty.split_generic(reader);
+        let (ty_inner, generics) = ty.split_generic(cx.reader);
         for g in &generics {
-            g.combine_closure(types, reader, references, style, arches);
+            g.combine_closure(types, cx, arches);
         }
 
         // Insert generic definitions, not concrete specializations.
@@ -275,16 +245,20 @@ impl CombineClosure for Type {
         // Pull arch-split siblings reached from `arches` so each target has a definition behind
         // its cfg gate.
         let siblings: Vec<Self> = match &ty_inner {
-            Self::CppStruct(s) => reader
+            Self::CppStruct(s) => cx
+                .reader
                 .with_full_name(s.def.namespace(), s.def.name())
                 .collect(),
-            Self::CppDelegate(d) => reader
+            Self::CppDelegate(d) => cx
+                .reader
                 .with_full_name(d.def.namespace(), d.def.name())
                 .collect(),
-            Self::CppEnum(e) => reader
+            Self::CppEnum(e) => cx
+                .reader
                 .with_full_name(e.def.namespace(), e.def.name())
                 .collect(),
-            Self::CppFn(f) => reader
+            Self::CppFn(f) => cx
+                .reader
                 .with_full_name(f.namespace, f.method.name())
                 .collect(),
             _ => Vec::new(),
@@ -303,42 +277,42 @@ impl CombineClosure for Type {
             }
             // Core types have empty namespaces but are needed for standalone `--sys` output.
             let insert_tn = insert_ty.type_name();
+            // Excluded dependencies are left for rustc to report rather than generated. Excluded
+            // enum members are variant filters applied when the constant is written.
+            if !matches!(&insert_ty, Self::CppConst(c) if c.is_enum_member)
+                && cx.filter.excludes_type_name(insert_tn)
+            {
+                continue;
+            }
             if (!insert_tn.namespace().is_empty() || insert_ty.is_core())
                 && !types.insert_reached(insert_ty, reached)
             {
                 continue;
             }
-            definition.combine_definition_closure(types, reader, references, style, reached);
+            definition.combine_definition_closure(types, cx, reached);
         }
     }
 
-    fn combine_definition_closure(
-        &self,
-        types: &mut TypeMap,
-        reader: &Reader,
-        references: &References,
-        style: Style,
-        arches: i32,
-    ) {
+    fn combine_definition_closure(&self, types: &mut TypeMap, cx: &Walk, arches: i32) {
         match self {
             Self::Struct(s) => {
                 for field in s.def.fields() {
-                    let field_ty = field.field_type(None, reader);
-                    field_ty.combine_closure(types, reader, references, style, arches);
+                    let field_ty = field.field_type(None, cx.reader);
+                    field_ty.combine_closure(types, cx, arches);
                 }
             }
             Self::CppStruct(s) => {
-                for ty in s.definition_types(reader) {
-                    ty.combine_closure(types, reader, references, style, arches);
+                for ty in s.definition_types(cx.reader) {
+                    ty.combine_closure(types, cx, arches);
                 }
             }
             Self::Enum(_) | Self::CppEnum(_) => {}
             Self::Delegate(d) => {
                 for method in d.def.methods() {
                     if method.name() == "Invoke" {
-                        let sig = method.method_signature(&d.generics, reader);
+                        let sig = method.method_signature(&d.generics, cx.reader);
                         for dep_ty in sig.types() {
-                            dep_ty.combine_closure(types, reader, references, style, arches);
+                            dep_ty.combine_closure(types, cx, arches);
                         }
                     }
                 }
@@ -346,59 +320,54 @@ impl CombineClosure for Type {
             Self::CppDelegate(d) => {
                 for method in d.def.methods() {
                     if method.name() == "Invoke" {
-                        for dependency in method.associated_enums(reader) {
-                            dependency.combine_closure(types, reader, references, style, arches);
+                        for dependency in method.associated_enums(cx.reader) {
+                            dependency.combine_closure(types, cx, arches);
                         }
-                        let sig = method.method_signature(&[], reader);
+                        let sig = method.method_signature(&[], cx.reader);
                         for dep_ty in sig.types() {
-                            dep_ty.combine_closure(types, reader, references, style, arches);
+                            dep_ty.combine_closure(types, cx, arches);
                         }
                     }
                 }
             }
             Self::Interface(_iface) => {
                 // Dependency interfaces need identity and hierarchy, not full method surfaces.
-                Self::Object.combine_closure(types, reader, references, style, arches);
+                Self::Object.combine_closure(types, cx, arches);
             }
             Self::CppInterface(iface) => {
-                for base in iface.base_interfaces(reader) {
-                    base.combine_closure(types, reader, references, style, arches);
+                for base in iface.base_interfaces(cx.reader) {
+                    base.combine_closure(types, cx, arches);
                 }
-                Self::IUnknown.combine_closure(types, reader, references, style, arches);
+                Self::IUnknown.combine_closure(types, cx, arches);
             }
             Self::CppFn(f) => {
-                for dependency in f.method.associated_enums(reader) {
-                    dependency.combine_closure(types, reader, references, style, arches);
+                for dependency in f.method.associated_enums(cx.reader) {
+                    dependency.combine_closure(types, cx, arches);
                 }
-                let sig = f.method.method_signature(&[], reader);
-                sig.return_type
-                    .combine_closure(types, reader, references, style, arches);
+                let sig = f.method.method_signature(&[], cx.reader);
+                sig.return_type.combine_closure(types, cx, arches);
                 for param in &sig.params {
-                    if style.is_minimal() {
-                        param
-                            .ty
-                            .combine_abi_closure(types, reader, references, style, arches);
+                    if cx.style.is_minimal() {
+                        param.ty.combine_abi_closure(types, cx, arches);
                     } else {
-                        param
-                            .ty
-                            .combine_closure(types, reader, references, style, arches);
+                        param.ty.combine_closure(types, cx, arches);
                     }
                 }
-                if let Some(dependency) = f.window_long_dependency(reader) {
-                    reader
+                if let Some(dependency) = f.window_long_dependency(cx.reader) {
+                    cx.reader
                         .unwrap_full_name(f.namespace, dependency)
-                        .combine_closure(types, reader, references, style, arches);
+                        .combine_closure(types, cx, arches);
                 }
             }
             Self::CppConst(c) => {
-                // Standalone unscoped enum constants still need their owning enum alias.
-                let field_ty = c.field.field_type(None, reader);
-                field_ty.combine_closure(types, reader, references, style, arches);
+                if let Some(ty) = c.value_type(cx.reader) {
+                    ty.combine_closure(types, cx, arches);
+                }
             }
             Self::Class(c) => {
                 // Classes pull in only the default interface unless other interfaces are
                 // explicit seeds.
-                for iface in c.required_interfaces(reader) {
+                for iface in c.required_interfaces(cx.reader) {
                     if matches!(
                         iface.kind,
                         InterfaceKind::Static | InterfaceKind::Composable
@@ -410,13 +379,13 @@ impl CombineClosure for Type {
                     }
                     let iface_ty = Self::Interface(iface.clone());
                     let iface_tn = iface_ty.type_name();
-                    if references.contains(iface_tn).is_some() {
+                    if cx.references.contains(iface_tn).is_some() {
                         for g in &iface.generics {
-                            g.combine_closure(types, reader, references, style, arches);
+                            g.combine_closure(types, cx, arches);
                         }
                         continue;
                     }
-                    iface_ty.combine_closure(types, reader, references, style, arches);
+                    iface_ty.combine_closure(types, cx, arches);
                 }
 
                 let mut def = c.def;
@@ -425,8 +394,10 @@ impl CombineClosure for Type {
                     if extends == (TypeName::Object.0, TypeName::Object.1) {
                         break;
                     }
-                    let base = reader.unwrap_type_name(extends.namespace(), extends.name());
-                    base.combine_closure(types, reader, references, style, arches);
+                    let base = cx
+                        .reader
+                        .unwrap_type_name(extends.namespace(), extends.name());
+                    base.combine_closure(types, cx, arches);
                     if let Self::Class(base_class) = &base {
                         def = base_class.def;
                     } else {
@@ -435,11 +406,11 @@ impl CombineClosure for Type {
                 }
             }
             Self::IUnknown => {
-                Self::GUID.combine_closure(types, reader, references, style, arches);
-                Self::HRESULT.combine_closure(types, reader, references, style, arches);
+                Self::GUID.combine_closure(types, cx, arches);
+                Self::HRESULT.combine_closure(types, cx, arches);
             }
             Self::Object => {
-                Self::IUnknown.combine_closure(types, reader, references, style, arches);
+                Self::IUnknown.combine_closure(types, cx, arches);
             }
             _ => {}
         }
