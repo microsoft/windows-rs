@@ -3,6 +3,7 @@ use windows_reactor::*;
 
 mod accessibility;
 mod application;
+mod backdrop;
 mod background;
 mod callback_lifetime;
 mod canvas;
@@ -310,6 +311,7 @@ impl Component for ReorderFixture {
 pub fn run(fixture: &str) -> windows_core::Result<()> {
     match fixture {
         "accessibility" => App::run_component::<accessibility::AccessibilityFixture>(())?,
+        "backdrop" => App::run_component::<backdrop::BackdropFixture>(())?,
         "application" => App::run_application::<application::ApplicationFixture>(())?,
         "background" => background::run(false)?,
         "background-shutdown" => background::run(true)?,

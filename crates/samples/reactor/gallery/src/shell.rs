@@ -12,7 +12,7 @@ use crate::router;
 use windows_reactor::*;
 
 pub struct Gallery {
-    backdrop: WindowBackdrop,
+    backdrop: SystemBackdrop,
     history: Vec<String>,
     pane_open: bool,
     search: String,
@@ -23,7 +23,7 @@ pub struct Gallery {
 #[derive(Clone)]
 pub enum Message {
     Back,
-    BackdropChanged(WindowBackdrop),
+    BackdropChanged(SystemBackdrop),
     CycleTheme,
     Navigate(String),
     PaneOpenChanged(bool),
@@ -121,7 +121,7 @@ impl Component for Gallery {
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
-            backdrop: WindowBackdrop::Mica,
+            backdrop: SystemBackdrop::Mica,
             history: Vec::new(),
             pane_open: true,
             search: String::new(),

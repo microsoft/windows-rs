@@ -213,6 +213,7 @@ Microsoft::UI::Xaml::Controls::Slider::CreateInstance
 Microsoft::UI::Xaml::Controls::SplitButton::CreateInstance
 Microsoft::UI::Xaml::Controls::SplitView::CreateInstance
 Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
+Microsoft::UI::Xaml::Controls::SystemBackdropElement::CreateInstance
 Microsoft::UI::Xaml::Controls::SwapChainPanel::CreateInstance
 Microsoft::UI::Xaml::Controls::SymbolIcon::CreateInstance
 Microsoft::UI::Xaml::Controls::SymbolIconSource::CreateInstance

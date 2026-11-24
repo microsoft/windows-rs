@@ -106,7 +106,7 @@ impl Component for Browser {
         context.window_title("WebView2 - Reactor host");
         context.window_visuals(
             WindowVisuals::new()
-                .backdrop(WindowBackdrop::Mica)
+                .backdrop(SystemBackdrop::Mica)
                 .client_size(900.0, 700.0),
         );
 

@@ -113,7 +113,7 @@ impl Component for BrowserControls {
         context.window_title("Reactor controls for a windows-window WebView");
         context.window_visuals(
             WindowVisuals::new()
-                .backdrop(WindowBackdrop::Mica)
+                .backdrop(SystemBackdrop::Mica)
                 .client_size(720.0, 210.0),
         );
 

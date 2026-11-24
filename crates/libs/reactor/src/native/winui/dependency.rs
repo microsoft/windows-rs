@@ -120,11 +120,32 @@ fn box_property_value(
             object(Ok(values))
         }
         (PropertyValue::ThemeTransitions(values), _) => theme_transitions(values),
+        (PropertyValue::SystemBackdrop(value), _) => {
+            system_backdrop(*value).map(|value| value.map(Into::into))
+        }
         (PropertyValue::Enum { kind, variant }, _) => {
             Ok(Some(GeneratedHandle::box_enum(kind, variant)))
         }
         _ => return None,
     })
+}
+
+pub(super) fn system_backdrop(
+    value: SystemBackdrop,
+) -> Result<Option<native::SystemBackdrop>, WinUiError> {
+    Ok(Some(match value {
+        SystemBackdrop::None => return Ok(None),
+        SystemBackdrop::Mica | SystemBackdrop::MicaAlt => {
+            let mica = native::MicaBackdrop::new()?;
+            mica.SetKind(match value {
+                SystemBackdrop::Mica => native::MicaKind::Base,
+                SystemBackdrop::MicaAlt => native::MicaKind::BaseAlt,
+                _ => unreachable!(),
+            })?;
+            mica.cast()?
+        }
+        SystemBackdrop::Acrylic => native::DesktopAcrylicBackdrop::new()?.cast()?,
+    }))
 }
 
 fn theme_transitions(values: &[ThemeTransition]) -> Result<Option<IInspectable>, WinUiError> {

@@ -138,7 +138,7 @@ impl Component for Calculator {
         context.window_title("Calculator");
         context.window_visuals(
             WindowVisuals::new()
-                .backdrop(WindowBackdrop::Mica)
+                .backdrop(SystemBackdrop::Mica)
                 .client_size(350.0, 500.0),
         );
         let button = |label, message, row, column, accent| {

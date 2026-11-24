@@ -2,7 +2,7 @@
 
 use windows_canvas::*;
 use windows_reactor::{
-    App, Border, Component, ComponentContext, View, ViewContext, WindowBackdrop, WindowVisuals,
+    App, Border, Component, ComponentContext, SystemBackdrop, View, ViewContext, WindowVisuals,
 };
 use windows_text::{GlyphImage, PixelGeometry, RenderingParams, TextFormat, TextLayout};
 
@@ -252,7 +252,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Glyph runs");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         Border::new().content(canvas(draw)).into()
     }
 }

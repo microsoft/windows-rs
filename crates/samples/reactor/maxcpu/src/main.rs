@@ -77,7 +77,7 @@ impl Component for MaxCpu {
         context.window_visuals(
             WindowVisuals::new()
                 .client_size(440.0, 340.0)
-                .backdrop(WindowBackdrop::Acrylic)
+                .backdrop(SystemBackdrop::Acrylic)
                 .always_on_top(self.always_on_top)
                 .minimizable(false)
                 .constraints(WindowConstraints {

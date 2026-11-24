@@ -203,6 +203,7 @@ enum PropertyAdapter {
     RichEditText,
     RichTextBlocks,
     SelectionIndex,
+    SystemBackdrop,
     ThemeBrush,
     ThemeTransitions,
     Uri,
@@ -237,6 +238,7 @@ impl PropertyAdapter {
             Self::ResourceStyle => Value::ButtonStyle,
             Self::RichTextBlocks => Value::RichText,
             Self::SelectionIndex => Value::SelectionIndex,
+            Self::SystemBackdrop => Value::SystemBackdrop,
             Self::ThemeBrush => Value::Brush,
             Self::ThemeTransitions => Value::ThemeTransitions,
         }
@@ -409,6 +411,7 @@ values!(
     SelectionIndex,
     String,
     StringList,
+    SystemBackdrop,
     ThemeTransitions,
     Thickness,
     Unit,
@@ -488,6 +491,7 @@ impl Value {
                 Self::OptionalF64 | Self::OptionalBool | Self::SelectionIndex => "None",
                 Self::ResourceOverrides => "ResourceOverrides::default()",
                 Self::StringList => "std::iter::empty::<&str>()",
+                Self::SystemBackdrop => "SystemBackdrop::None",
                 Self::Thickness => "Thickness::uniform(0.0)",
                 _ => return None,
             }

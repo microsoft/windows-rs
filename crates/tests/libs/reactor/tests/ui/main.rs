@@ -17,6 +17,7 @@ mod bindings {
 mod accessibility;
 mod application;
 mod automation;
+mod backdrop;
 mod background;
 mod canvas;
 mod context;

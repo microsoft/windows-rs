@@ -463,7 +463,7 @@ impl Component for TaskManager {
         context.on_color_scheme(context.callback(Message::ColorScheme));
         context.window_visuals(
             WindowVisuals::new()
-                .backdrop(WindowBackdrop::Mica)
+                .backdrop(SystemBackdrop::Mica)
                 .constraints(WindowConstraints {
                     min_width: Some(900.0),
                     min_height: Some(400.0),

@@ -3,7 +3,7 @@
 use std::ops::Range;
 use windows_canvas::*;
 use windows_reactor::{
-    App, Border, Component, ComponentContext, View, ViewContext, WindowBackdrop, WindowVisuals,
+    App, Border, Component, ComponentContext, SystemBackdrop, View, ViewContext, WindowVisuals,
 };
 use windows_text::{FontFeature, FontStyle, FontWeight, TextFormat, TextLayout};
 
@@ -84,7 +84,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Text styles");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         Border::new().content(canvas(draw)).into()
     }
 }

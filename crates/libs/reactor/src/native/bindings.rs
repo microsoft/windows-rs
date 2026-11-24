@@ -17062,6 +17062,47 @@ pub struct ISystemBackdrop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_winrt_interface!(
+    ISystemBackdropElement,
+    ISystemBackdropElement_Vtbl,
+    0x6e741848_7dc4_5fe1_9bfb_942249e62ae1
+);
+#[repr(C)]
+pub struct ISystemBackdropElement_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_winrt_interface!(
+    ISystemBackdropElementFactory,
+    ISystemBackdropElementFactory_Vtbl,
+    0x7937bec0_7c3c_5ba9_9f3c_33cbc7d72fe0
+);
+#[repr(C)]
+pub struct ISystemBackdropElementFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
+    ISystemBackdropElementStatics,
+    ISystemBackdropElementStatics_Vtbl,
+    0x8e5c7dd0_16e8_5c48_bddd_50cd74337cbe
+);
+#[repr(C)]
+pub struct ISystemBackdropElementStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SystemBackdropProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub CornerRadiusProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_winrt_interface!(
     ITabView,
     ITabView_Vtbl,
     0x07b509e1_1d38_551b_95f4_4732b049f6a6
@@ -28310,6 +28351,98 @@ impl windows_core::RuntimeName for SystemBackdrop {
 }
 unsafe impl Send for SystemBackdrop {}
 unsafe impl Sync for SystemBackdrop {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemBackdropElement(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    SystemBackdropElement,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    SystemBackdropElement,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl SystemBackdropElement {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::ISystemBackdropElementFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                &mut None::<windows_core::IInspectable> as *mut _ as _,
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::from_abi(result__))
+        })
+    }
+    pub(crate) fn SystemBackdropProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ISystemBackdropElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SystemBackdropProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::from_abi(result__))
+        })
+    }
+    pub(crate) fn CornerRadiusProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ISystemBackdropElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CornerRadiusProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::from_abi(result__))
+        })
+    }
+    fn ISystemBackdropElementFactory<
+        R,
+        F: FnOnce(&ISystemBackdropElementFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            SystemBackdropElement,
+            ISystemBackdropElementFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn ISystemBackdropElementStatics<
+        R,
+        F: FnOnce(&ISystemBackdropElementStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            SystemBackdropElement,
+            ISystemBackdropElementStatics,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SystemBackdropElement {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ISystemBackdropElement>();
+}
+unsafe impl windows_core::Interface for SystemBackdropElement {
+    type Vtable = <ISystemBackdropElement as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemBackdropElement as windows_core::Interface>::IID;
+    const INSPECTABLE: bool = true;
+}
+impl core::ops::Deref for SystemBackdropElement {
+    type Target = ISystemBackdropElement;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for SystemBackdropElement {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.SystemBackdropElement";
+}
+unsafe impl Send for SystemBackdropElement {}
+unsafe impl Sync for SystemBackdropElement {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TabView(windows_core::IUnknown);

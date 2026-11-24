@@ -7111,3 +7111,41 @@ impl From<SwapChainPanel> for View {
         Self(DeclaredNode::Object(value.0))
     }
 }
+#[derive(Clone, Debug, PartialEq)]
+pub struct SystemBackdropElement(Declaration);
+impl SystemBackdropElement {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::SystemBackdropElement);
+        Self(declaration)
+    }
+    pub fn system_backdrop(mut self, system_backdrop: SystemBackdrop) -> Self {
+        self.0 = self.0.property(
+            PropertyId::SystemBackdrop,
+            PropertyValue::SystemBackdrop(system_backdrop),
+        );
+        self
+    }
+    pub fn corner_radius(mut self, corner_radius: impl Into<CornerRadius>) -> Self {
+        let corner_radius = corner_radius.into();
+        assert!(
+            corner_radius.is_finite_non_negative(),
+            "SystemBackdropElement.CornerRadius requires finite_non_negative"
+        );
+        self.0 = self.0.property(
+            PropertyId::CornerRadius,
+            PropertyValue::CornerRadius(corner_radius),
+        );
+        self
+    }
+    visual_methods!();
+}
+impl Default for SystemBackdropElement {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<SystemBackdropElement> for View {
+    fn from(value: SystemBackdropElement) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}

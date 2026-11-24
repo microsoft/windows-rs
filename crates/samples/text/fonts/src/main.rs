@@ -2,7 +2,7 @@
 
 use windows_canvas::*;
 use windows_reactor::{
-    App, Border, Component, ComponentContext, View, ViewContext, WindowBackdrop, WindowVisuals,
+    App, Border, Component, ComponentContext, SystemBackdrop, View, ViewContext, WindowVisuals,
 };
 use windows_text::{FontCollection, FontStyle, FontWeight, TextFormat, TextLayout, WordWrapping};
 
@@ -31,7 +31,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Fonts");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         let loaded = self.loaded.clone();
         Border::new()
             .content(canvas(move |ctx| draw(ctx, &loaded)))
