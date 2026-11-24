@@ -49,14 +49,14 @@ implement_decl! {
 
 struct ReadyOperation<T>(ReadyState<IAsyncOperation<T>>)
 where
-    T: RuntimeType + 'static;
+    T: RuntimeType + Send + Sync + 'static;
 
 implement_decl! {
     impl<T> ReadyOperation as ReadyOperation_Impl: [
         IAsyncOperation<T>,
         IAsyncInfo,
     ]
-    where T: RuntimeType + 'static
+    where T: RuntimeType + Send + Sync + 'static
 }
 
 struct ReadyActionWithProgress<P>(ReadyState<IAsyncActionWithProgress<P>>)
@@ -73,7 +73,7 @@ implement_decl! {
 
 struct ReadyOperationWithProgress<T, P>(ReadyState<IAsyncOperationWithProgress<T, P>>)
 where
-    T: RuntimeType + 'static,
+    T: RuntimeType + Send + Sync + 'static,
     P: RuntimeType + 'static;
 
 implement_decl! {
@@ -81,7 +81,7 @@ implement_decl! {
         IAsyncOperationWithProgress<T, P>,
         IAsyncInfo,
     ]
-    where T: RuntimeType + 'static, P: RuntimeType + 'static
+    where T: RuntimeType + Send + Sync + 'static, P: RuntimeType + 'static
 }
 
 impl IAsyncInfo_Impl for ReadyAction_Impl {
@@ -102,7 +102,7 @@ impl IAsyncInfo_Impl for ReadyAction_Impl {
     }
 }
 
-impl<T: RuntimeType> IAsyncInfo_Impl for ReadyOperation_Impl<T> {
+impl<T: RuntimeType + Send + Sync> IAsyncInfo_Impl for ReadyOperation_Impl<T> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -138,7 +138,9 @@ impl<P: RuntimeType> IAsyncInfo_Impl for ReadyActionWithProgress_Impl<P> {
     }
 }
 
-impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for ReadyOperationWithProgress_Impl<T, P> {
+impl<T: RuntimeType + Send + Sync, P: RuntimeType> IAsyncInfo_Impl
+    for ReadyOperationWithProgress_Impl<T, P>
+{
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -168,7 +170,7 @@ impl IAsyncAction_Impl for ReadyAction_Impl {
     }
 }
 
-impl<T: RuntimeType> IAsyncOperation_Impl<T> for ReadyOperation_Impl<T> {
+impl<T: RuntimeType + Send + Sync> IAsyncOperation_Impl<T> for ReadyOperation_Impl<T> {
     fn SetCompleted(&self, handler: Ref<AsyncOperationCompletedHandler<T>>) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
@@ -198,7 +200,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ReadyActionWithProgres
     }
 }
 
-impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
+impl<T: RuntimeType + Send + Sync, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
     for ReadyOperationWithProgress_Impl<T, P>
 {
     fn SetCompleted(
@@ -228,8 +230,10 @@ impl IAsyncAction {
     }
 }
 
-impl<T: RuntimeType> IAsyncOperation<T> {
+impl<T: RuntimeType + Send + Sync> IAsyncOperation<T> {
     /// Creates an `IAsyncOperation<T>` that is immediately ready with a value.
+    ///
+    /// The stored result must support concurrent access and release from other threads.
     pub fn ready(result: Result<T>) -> Self {
         ReadyOperation(ReadyState::new(result)).into()
     }
@@ -242,7 +246,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress<P> {
     }
 }
 
-impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
+impl<T: RuntimeType + Send + Sync, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
     /// Creates an `IAsyncOperationWithProgress<T, P>` that is immediately ready with a value.
     pub fn ready(result: Result<T>) -> Self {
         ReadyOperationWithProgress(ReadyState::new(result)).into()

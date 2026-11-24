@@ -57,8 +57,9 @@ impl<A: Async> AsyncFuture<A> {
     }
 }
 
-unsafe impl<A: Async> Send for AsyncFuture<A> {}
-unsafe impl<A: Async> Sync for AsyncFuture<A> {}
+// The cached IAsyncInfo is another interface on the same async object as inner.
+unsafe impl<A: Async + Send> Send for AsyncFuture<A> {}
+unsafe impl<A: Async + Sync> Sync for AsyncFuture<A> {}
 impl<A: Async> Unpin for AsyncFuture<A> {}
 
 impl<A: Async> Future for AsyncFuture<A> {

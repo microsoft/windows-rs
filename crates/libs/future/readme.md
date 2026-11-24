@@ -41,4 +41,8 @@ once. Do not block a UI thread with `join`.
 objects safe to use there. Cancelling an operation created with `spawn` does not interrupt the
 closure. The progress variants of `spawn` do not report intermediate progress.
 
+`spawn` does not initialize COM. To deliver apartment-bound native completion callbacks from its
+workers, establish an MTA (for example, with `windows_core::init_mta()`) and keep the handler's
+apartment initialized and dispatching calls. Callback failures do not change the operation's result.
+
 The default `std` feature supplies `.await`, `ready`, and `spawn`.

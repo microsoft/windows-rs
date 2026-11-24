@@ -3,7 +3,7 @@ use std::sync::Mutex;
 
 struct State<T: Async> {
     result: Option<Result<T::Output>>,
-    completed: Option<T::CompletedHandler>,
+    completed: Option<imp::AgileDelegate<T::CompletedHandler>>,
     completed_assigned: bool,
 }
 
@@ -33,7 +33,10 @@ impl<T: Async> State<T> {
 
 struct SyncState<T: Async>(Mutex<State<T>>);
 
-impl<T: Async> SyncState<T> {
+impl<T: Async> SyncState<T>
+where
+    T::Output: Send,
+{
     fn new() -> Self {
         Self(Mutex::new(State {
             result: None,
@@ -55,25 +58,36 @@ impl<T: Async> SyncState<T> {
     }
 
     fn set_completed(&self, sender: &T, handler: Ref<T::CompletedHandler>) -> Result<()> {
-        let mut guard = self.0.lock().unwrap();
-
-        if guard.completed_assigned {
-            Err(Error::from_hresult(HRESULT(0x80000018u32 as i32))) // E_ILLEGAL_DELEGATE_ASSIGNMENT
-        } else {
+        {
+            let mut guard = self.0.lock().unwrap();
+            if guard.completed_assigned {
+                return Err(Error::from_hresult(HRESULT(0x80000018u32 as i32)));
+            }
             let status = guard.status();
             let handler = handler.ok()?;
-
-            guard.completed_assigned = true;
-
-            if status == AsyncStatus::Started {
-                guard.completed = Some(handler.clone());
-            } else {
+            if status != AsyncStatus::Started {
+                guard.completed_assigned = true;
                 drop(guard);
                 sender.invoke_completed(handler, status);
+                return Ok(());
             }
-
-            Ok(())
         }
+
+        let handler = handler.ok()?;
+        let reference = imp::AgileDelegate::new(handler)?;
+        let mut guard = self.0.lock().unwrap();
+        if guard.completed_assigned {
+            return Err(Error::from_hresult(HRESULT(0x80000018u32 as i32)));
+        }
+        guard.completed_assigned = true;
+        let status = guard.status();
+        if status == AsyncStatus::Started {
+            guard.completed = Some(reference);
+        } else {
+            drop(guard);
+            sender.invoke_completed(handler, status);
+        }
+        Ok(())
     }
 
     fn spawn<F>(&self, sender: &T, f: F)
@@ -90,12 +104,13 @@ impl<T: Async> SyncState<T> {
         drop(guard);
 
         if let Some(completed) = completed {
-            sender.invoke_completed(&completed, status);
+            _ = completed.call(|handler| {
+                sender.invoke_completed(handler, status);
+                Ok(())
+            });
         }
     }
 }
-
-unsafe impl<T: Async> Send for SyncState<T> {}
 
 struct Action(SyncState<IAsyncAction>);
 
@@ -105,14 +120,14 @@ implement_decl! {
 
 struct Operation<T>(SyncState<IAsyncOperation<T>>)
 where
-    T: RuntimeType + 'static;
+    T: RuntimeType + Send + 'static;
 
 implement_decl! {
     impl<T> Operation as Operation_Impl: [
         IAsyncOperation<T>,
         IAsyncInfo,
     ]
-    where T: RuntimeType + 'static
+    where T: RuntimeType + Send + 'static
 }
 
 struct ActionWithProgress<P>(SyncState<IAsyncActionWithProgress<P>>)
@@ -129,7 +144,7 @@ implement_decl! {
 
 struct OperationWithProgress<T, P>(SyncState<IAsyncOperationWithProgress<T, P>>)
 where
-    T: RuntimeType + 'static,
+    T: RuntimeType + Send + 'static,
     P: RuntimeType + 'static;
 
 implement_decl! {
@@ -137,7 +152,7 @@ implement_decl! {
         IAsyncOperationWithProgress<T, P>,
         IAsyncInfo,
     ]
-    where T: RuntimeType + 'static, P: RuntimeType + 'static
+    where T: RuntimeType + Send + 'static, P: RuntimeType + 'static
 }
 
 impl IAsyncInfo_Impl for Action_Impl {
@@ -158,7 +173,7 @@ impl IAsyncInfo_Impl for Action_Impl {
     }
 }
 
-impl<T: RuntimeType> IAsyncInfo_Impl for Operation_Impl<T> {
+impl<T: RuntimeType + Send> IAsyncInfo_Impl for Operation_Impl<T> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -194,7 +209,7 @@ impl<P: RuntimeType> IAsyncInfo_Impl for ActionWithProgress_Impl<P> {
     }
 }
 
-impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for OperationWithProgress_Impl<T, P> {
+impl<T: RuntimeType + Send, P: RuntimeType> IAsyncInfo_Impl for OperationWithProgress_Impl<T, P> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -224,7 +239,7 @@ impl IAsyncAction_Impl for Action_Impl {
     }
 }
 
-impl<T: RuntimeType> IAsyncOperation_Impl<T> for Operation_Impl<T> {
+impl<T: RuntimeType + Send> IAsyncOperation_Impl<T> for Operation_Impl<T> {
     fn SetCompleted(&self, handler: Ref<AsyncOperationCompletedHandler<T>>) -> Result<()> {
         self.0.set_completed(&self.as_interface(), handler)
     }
@@ -254,7 +269,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ActionWithProgress_Imp
     }
 }
 
-impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
+impl<T: RuntimeType + Send, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
     for OperationWithProgress_Impl<T, P>
 {
     fn SetCompleted(
@@ -294,8 +309,10 @@ impl IAsyncAction {
     }
 }
 
-impl<T: RuntimeType> IAsyncOperation<T> {
+impl<T: RuntimeType + Send> IAsyncOperation<T> {
     /// Creates an `IAsyncOperation<T>` that runs the closure on the Windows thread pool.
+    ///
+    /// The result must be transferable from the worker to callers of `GetResults`.
     pub fn spawn<F>(f: F) -> Self
     where
         F: FnOnce() -> Result<T> + Send + 'static,
@@ -328,7 +345,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress<P> {
     }
 }
 
-impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
+impl<T: RuntimeType + Send, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
     /// Runs the value-producing closure on the Windows thread pool with progress reporting.
     pub fn spawn<F>(f: F) -> Self
     where
