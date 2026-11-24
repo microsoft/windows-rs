@@ -7,6 +7,7 @@ mod background;
 mod callback_lifetime;
 mod canvas;
 mod canvas_image;
+mod collections;
 mod context;
 mod controlled;
 mod dialog;
@@ -321,6 +322,10 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "canvas-submitted-input" => App::run_component::<canvas::SubmittedInputFixture>(())?,
         "canvas-root" => App::run_application::<canvas::CanvasRootFixture>(())?,
         "canvas-image" => App::run_component::<canvas_image::CanvasImageFixture>(())?,
+        "collection-contracts" => collections::run()?,
+        "collection-live-mutable" => collections::run_live(collections::Source::Mutable)?,
+        "collection-live-read-only" => collections::run_live(collections::Source::ReadOnly)?,
+        "collection-live-shared" => collections::run_live(collections::Source::Shared)?,
         "context" => App::run_component::<context::ContextFixture>(false)?,
         "context-virtual" => App::run_component::<context::ContextFixture>(true)?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,

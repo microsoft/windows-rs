@@ -9,6 +9,7 @@ mod Collections {
     #[guid(auto)]
     interface IWidget {
         fn Numbers(&self) -> Windows::Foundation::Collections::IVector<i32>;
+        fn ReadOnly(&self, #[in] values: [Object]) -> Windows::Foundation::Collections::IVector<Object>;
         fn Lookup(&self, #[in] map: Windows::Foundation::Collections::IMapView<String, i32>, #[in] key: String) -> i32;
         fn Values(&self) -> Windows::Foundation::Collections::IIterable<String>;
 

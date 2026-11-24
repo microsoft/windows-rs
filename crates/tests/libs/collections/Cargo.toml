@@ -13,6 +13,9 @@ workspace = true
 features = [
     "Foundation_Collections",
     "Globalization",
+    "combaseapi",
+    "objbase",
+    "synchapi",
 ]
 
 [dependencies.windows-core]

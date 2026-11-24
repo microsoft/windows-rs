@@ -29,6 +29,8 @@ mod observable_map;
 #[cfg(feature = "std")]
 mod observable_vector;
 #[cfg(feature = "std")]
+mod read_only_vector;
+#[cfg(feature = "std")]
 mod vector;
 #[cfg(feature = "std")]
 mod vector_view;

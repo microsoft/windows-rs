@@ -55,6 +55,68 @@ use pointer::*;
 type Result<T = ()> = std::result::Result<T, Box<dyn std::error::Error + Send + Sync>>;
 
 #[test]
+fn winui_collection_source_contracts() -> Result<()> {
+    process::run_to_exit("collection-contracts")
+}
+
+#[test]
+fn winui_read_only_vector_live_consumers() -> Result<()> {
+    const BUTTON: i32 = 50000;
+    const SELECTION_ITEM_PATTERN: i32 = 10010;
+    for fixture in [
+        "collection-live-mutable",
+        "collection-live-read-only",
+        "collection-live-shared",
+    ] {
+        process::run(fixture, |ui| {
+            ui.name("state", "Mounted")?;
+            for revision in 0..2 {
+                if revision > 0 {
+                    ui.invoke("replace")?;
+                    ui.name("state", "Replaced")?;
+                }
+                ui.invoke("select")?;
+                ui.selected_name("native-radio", &format!("Radio {revision} 1"))?;
+                unsafe {
+                    let combo = ui
+                        .element("native-combo")?
+                        .GetCurrentPatternAs::<IUIAutomationExpandCollapsePattern>(
+                            EXPAND_COLLAPSE_PATTERN,
+                        )?;
+                    combo.Expand().ok()?;
+                    selection::select_item(ui, "native-combo", &format!("Combo {revision} 2"))?;
+                    ui.selected_name("native-combo", &format!("Combo {revision} 2"))?;
+                    combo.Collapse().ok()?;
+                }
+                selection::select_item(ui, "native-radio", &format!("Radio {revision} 2"))?;
+                ui.selected_name("native-radio", &format!("Radio {revision} 2"))?;
+                unsafe {
+                    ui.named(BUTTON, &format!("Crumb {revision} 0"))?
+                        .GetCurrentPatternAs::<IUIAutomationInvokePattern>(INVOKE_PATTERN)?
+                        .Invoke()
+                        .ok()?;
+                }
+                ui.invoke("suggest")?;
+                ui.name("state", "Suggestions")?;
+                unsafe {
+                    ui.named(LIST_ITEM, &format!("Suggest {revision} 1"))?
+                        .GetCurrentPatternAs::<IUIAutomationSelectionItemPattern>(
+                            SELECTION_ITEM_PATTERN,
+                        )?
+                        .Select()
+                        .ok()?;
+                }
+            }
+            ui.invoke("clear")?;
+            ui.name("state", "Cleared")?;
+            ui.invoke("verify")?;
+            ui.name("state", "Verified")
+        })?;
+    }
+    Ok(())
+}
+
+#[test]
 fn text_box_native_edit_and_controlled_reset() -> Result<()> {
     process::run("text", |ui| {
         ui.value("input", "")?;

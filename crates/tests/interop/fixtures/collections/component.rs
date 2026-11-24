@@ -14,6 +14,10 @@ impl Collections::IWidget_Impl for Widget_Impl {
         Ok(IVector::from(vec![1, 2, 3]))
     }
 
+    fn ReadOnly(&self, values: &[Option<IInspectable>]) -> Result<IVector<IInspectable>> {
+        IVector::from_read_only(values.iter().cloned())
+    }
+
     fn Lookup(&self, map: Ref<IMapView<HSTRING, i32>>, key: &HSTRING) -> Result<i32> {
         map.ok()?.Lookup(key)
     }

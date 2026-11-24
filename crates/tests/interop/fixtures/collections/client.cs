@@ -24,5 +24,8 @@ public static class Client
         IDictionary<string, int> index = widget.Index(new List<string> { "one", "two" });
         Check(index.Count == 2);
         Check(index["two"] == 1);
+
+        IList<object> readOnly = widget.ReadOnly(["item", null, 42]);
+        Check(readOnly.SequenceEqual(new object?[] { "item", null, 42 }));
     }
 }
