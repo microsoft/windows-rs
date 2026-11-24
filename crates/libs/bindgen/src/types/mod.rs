@@ -1287,6 +1287,14 @@ impl Type {
         }
     }
 
+    pub fn generics(&self) -> &[Self] {
+        match self {
+            Self::Interface(ty) => &ty.generics,
+            Self::Delegate(ty) => &ty.generics,
+            _ => &[],
+        }
+    }
+
     pub fn type_name(&self) -> TypeName {
         match self {
             Self::Class(ty) => ty.type_name(),

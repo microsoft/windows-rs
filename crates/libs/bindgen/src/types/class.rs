@@ -125,14 +125,10 @@ impl Class {
 
         let factories: Vec<_> = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
-                let has_methods = if config.bindgen.style.is_minimal() || config.filter.uses_closure {
-                    interface
-                        .get_methods(config)
-                        .iter()
-                        .any(|m| matches!(m, MethodOrName::Method(_)))
-                } else {
-                    interface.def.methods().next().is_some()
-                };
+                let has_methods = interface
+                    .get_methods(config)
+                    .iter()
+                    .any(|m| matches!(m, MethodOrName::Method(_)));
                 if !has_methods {
                     None
                 } else {
@@ -187,15 +183,12 @@ impl Class {
                             && matches!(ty.kind, InterfaceKind::None | InterfaceKind::Base)
                     })
                     .filter(|ty| {
-                        !config.filter.uses_closure || {
-                            let name = Type::Interface((*ty).clone()).type_name();
-                            config.types.contains_key(&name)
-                                && config.filter.includes_hierarchy(
-                                    self.def.namespace(),
-                                    self.def.name(),
-                                    ty,
-                                )
-                        }
+                        config.provides(&Type::Interface((*ty).clone()))
+                            && config.filter.includes_hierarchy(
+                                self.def.namespace(),
+                                self.def.name(),
+                                ty,
+                            )
                     })
                     .map(|ty| ty.write_name(config))
                     .collect();
@@ -203,14 +196,7 @@ impl Class {
                 interfaces.extend(
                     self.bases(config.reader)
                         .iter()
-                        .filter(|ty| {
-                            if config.filter.uses_closure {
-                                let tn = Type::Class((*ty).clone()).type_name();
-                                config.types.contains_key(&tn)
-                            } else {
-                                true
-                            }
-                        })
+                        .filter(|ty| config.provides(&Type::Class((*ty).clone())))
                         .map(|ty| ty.write_name(config)),
                 );
 

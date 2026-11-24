@@ -71,25 +71,7 @@ impl TypeMap {
         Self::default()
     }
 
-    #[track_caller]
-    pub fn filter(reader: &Reader, filter: &Filter, references: &References, sys: bool) -> Self {
-        let mut dependencies = Self::new();
-        Self::for_each_selected(
-            reader,
-            filter,
-            references,
-            sys,
-            |types, item_dependencies, _| {
-                for ty in types {
-                    dependencies.insert(ty.clone());
-                }
-                dependencies.combine_references(item_dependencies, references);
-            },
-        );
-        dependencies
-    }
-
-    /// Names of the types selected by namespace rules rather than by name.
+    /// Names of the types selected by namespace rules whose dependencies are not excluded.
     #[track_caller]
     pub fn namespace_selection(
         reader: &Reader,
@@ -98,24 +80,6 @@ impl TypeMap {
         sys: bool,
     ) -> Vec<TypeName> {
         let mut names = Vec::new();
-        Self::for_each_selected(reader, filter, references, sys, |types, _, rule| {
-            let name = types[0].type_name();
-            if rule.len() <= name.namespace().len() {
-                names.push(name);
-            }
-        });
-        names
-    }
-
-    /// Visits each included type whose dependencies are not excluded, with its matching rule.
-    #[track_caller]
-    fn for_each_selected(
-        reader: &Reader,
-        filter: &Filter,
-        references: &References,
-        sys: bool,
-        mut f: impl FnMut(&[Type], &Self, &str),
-    ) {
         // The references provide these types along with their dependencies, so the walk below
         // stops at them.
         let referenced = Arc::new(references.type_names(reader));
@@ -124,7 +88,9 @@ impl TypeMap {
             if filter.includes_namespace(namespace) {
                 for type_name in reader.type_names(namespace) {
                     let name = type_name.name();
+                    // Explicitly named types are seeded by the filter itself.
                     if let Some(filter_rule) = filter.includes_type_name(TypeName(namespace, name))
+                        && filter_rule.len() <= namespace.len()
                     {
                         // A longer rule string means a more specific (fully-qualified) path.
                         // Skip types already owned by a reference whose rule is more specific
@@ -157,11 +123,12 @@ impl TypeMap {
                             continue;
                         }
 
-                        f(&types, &item_dependencies, filter_rule);
+                        names.push(TypeName(namespace, name));
                     }
                 }
             }
         }
+        names
     }
 
     /// Adds `ty` and returns whether its dependencies still need to be walked.
@@ -184,17 +151,6 @@ impl TypeMap {
     /// Returns the architectures whose selected items reach `ty`; unrecorded types are unrestricted.
     pub fn reached_arches(&self, ty: &Type) -> i32 {
         self.2.get(ty).copied().unwrap_or(ALL_ARCHES)
-    }
-
-    pub fn combine_references(&mut self, other: &Self, references: &References) {
-        for (tn, types) in &other.0 {
-            if references.contains(*tn).is_none() {
-                let set = self.0.entry(*tn).or_default();
-                types.iter().for_each(|ty| {
-                    set.insert(ty.clone());
-                });
-            }
-        }
     }
 
     pub fn combine(&mut self, other: &Self) {
@@ -224,9 +180,6 @@ impl TypeMap {
             return false;
         }
 
-        // Reference-owned interface dependencies need not be locally available.
-        let covered = self.reference_provided_closure(config);
-
         self.0.iter().all(|(tn, _)| {
             // An empty namespace covers core types like `HRESULT`. This preserves methods
             // that depend on core types that aren't explicitly included in the filter.
@@ -252,25 +205,8 @@ impl TypeMap {
                 }
             }
 
-            covered.contains(tn)
+            false
         })
-    }
-
-    /// Collects types encapsulated by reference-provided interfaces.
-    fn reference_provided_closure(&self, config: &Config) -> HashSet<TypeName> {
-        let mut covered = HashSet::new();
-
-        for (tn, types) in &self.0 {
-            if Self::is_reference(*tn, config.references) {
-                for ty in types {
-                    for dep_tn in ty.dependencies(config.reader).0.keys() {
-                        covered.insert(*dep_tn);
-                    }
-                }
-            }
-        }
-
-        covered
     }
 
     fn is_reference(tn: TypeName, references: &References) -> bool {

@@ -133,8 +133,21 @@ impl Config<'_> {
         }
     }
 
+    /// Whether `ty` and its generic arguments are generated here or provided by a reference.
+    pub fn provides(&self, ty: &Type) -> bool {
+        let name = ty.type_name();
+        (name.namespace().is_empty()
+            || self.types.contains_key(&name)
+            || self.references.contains(name).is_some())
+            && ty.generics().iter().all(|ty| self.provides(ty))
+    }
+
     /// Returns `true` if the given method should be emitted (not demoted).
     pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
+        // References generate their interfaces in full.
+        if !self.types.contains_key(&type_name) && self.references.contains(type_name).is_some() {
+            return true;
+        }
         // If `--implement` requests a generated interface, keep all methods.
         if let Some(implements) = self.implement
             && implements.matches(type_name)

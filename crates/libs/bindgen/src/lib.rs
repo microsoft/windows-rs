@@ -681,22 +681,17 @@ impl Bindgen {
 
             let mut filter = Filter::from_resolved(reader, &resolved);
 
-            // Namespace rules select their types in full; packages still scan top-down.
-            let types = if !self.layout.is_package() {
-                let names =
-                    TypeMap::namespace_selection(reader, &filter, &references, self.style.is_sys());
-                filter.seed_types(reader, &names);
-                filter.uses_closure = true;
-                TypeClosure::build(
-                    reader,
-                    &mut filter,
-                    &references,
-                    implements.as_ref(),
-                    self.style,
-                )
-            } else {
-                TypeMap::filter(reader, &filter, &references, self.style.is_sys())
-            };
+            // Namespace rules seed their types in full; the closure adds their dependencies.
+            let names =
+                TypeMap::namespace_selection(reader, &filter, &references, self.style.is_sys());
+            filter.seed_types(reader, &names);
+            let types = TypeClosure::build(
+                reader,
+                &filter,
+                &references,
+                implements.as_ref(),
+                self.style,
+            );
 
             (filter, types)
         };

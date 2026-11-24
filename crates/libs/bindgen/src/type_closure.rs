@@ -16,7 +16,7 @@ impl TypeClosure {
     #[track_caller]
     pub fn build(
         reader: &Reader,
-        filter: &mut Filter,
+        filter: &Filter,
         references: &References,
         implements: Option<&Implements>,
         style: Style,
@@ -137,23 +137,6 @@ impl TypeClosure {
                 }
             }
         }
-
-        // Add type-level rules for every discovered type.
-        for type_name in types.keys() {
-            if type_name.namespace().is_empty() {
-                continue;
-            }
-            let rule = format!("{}.{}", type_name.namespace(), type_name.name());
-            if !filter.rules.iter().any(|(r, _)| r == &rule) {
-                filter.rules.push((rule, true));
-            }
-        }
-
-        filter.rules.sort_unstable_by(|left, right| {
-            let left = (left.0.len(), !left.1);
-            let right = (right.0.len(), !right.1);
-            left.cmp(&right).reverse()
-        });
 
         types
     }
@@ -475,15 +458,9 @@ mod tests {
                 .flat_map(filter_parser::parse_filter_entry)
                 .collect();
             let resolved = filter_parser::resolve_entries(reader, &parsed);
-            let mut filter = Filter::from_resolved(reader, &resolved);
-            filter.uses_closure = true;
-            let types = TypeClosure::build(
-                reader,
-                &mut filter,
-                &References::default(),
-                None,
-                Style::Full,
-            );
+            let filter = Filter::from_resolved(reader, &resolved);
+            let types =
+                TypeClosure::build(reader, &filter, &References::default(), None, Style::Full);
 
             assert!(!types.contains_key(excluded), "{entries:?}");
             assert!(types.contains_key(&TypeName("Windows.Win32", "GetTickCount")));
@@ -502,15 +479,9 @@ mod tests {
                 .flat_map(filter_parser::parse_filter_entry)
                 .collect();
             let resolved = filter_parser::resolve_entries(reader, &parsed);
-            let mut filter = Filter::from_resolved(reader, &resolved);
-            filter.uses_closure = true;
-            let types = TypeClosure::build(
-                reader,
-                &mut filter,
-                &References::default(),
-                None,
-                Style::Full,
-            );
+            let filter = Filter::from_resolved(reader, &resolved);
+            let types =
+                TypeClosure::build(reader, &filter, &References::default(), None, Style::Full);
 
             assert!(types.contains_key(&TypeName("Windows.Foundation", "DateTime")));
         }

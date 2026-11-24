@@ -43,15 +43,13 @@ pub struct Filter {
     /// Key: (namespace, type_name), Value: requested method names (or All).
     pub requested_interfaces: HashMap<(String, String), MethodSet>,
     /// Types directly included without `::` (for type closure).
-    pub direct_types: Vec<(String, String)>,
+    pub direct_types: BTreeSet<(String, String)>,
     /// Direct types selected only through a namespace rule.
     namespace_types: HashSet<(String, String)>,
     /// Types whose full metadata hierarchy was explicitly requested.
     hierarchy_types: HashSet<(String, String)>,
     /// Individual class-to-interface hierarchy edges selected through class members.
     hierarchy_interfaces: HashSet<(String, String, String, String)>,
-    /// `true` when the bottom-up closure is used; non-seed types become shells.
-    pub uses_closure: bool,
 }
 
 /// Per-type method filter. Both raw metadata names and overload names are recorded;
@@ -105,9 +103,8 @@ impl Filter {
                 self.requested_interfaces
                     .entry(key)
                     .or_insert(MethodSet::All);
-            } else if !self.direct_types.contains(&key) {
-                self.namespace_types.insert(key.clone());
-                self.direct_types.push(key);
+            } else if self.direct_types.insert(key.clone()) {
+                self.namespace_types.insert(key);
             }
         }
     }
@@ -115,8 +112,7 @@ impl Filter {
     /// Whether the type was selected rather than reached as a dependency.
     pub fn selects_type(&self, name: TypeName) -> bool {
         self.direct_types
-            .iter()
-            .any(|(namespace, n)| namespace == name.namespace() && n == name.name())
+            .contains(&(name.namespace().to_string(), name.name().to_string()))
     }
 
     /// Whether the type was named by a filter rule rather than selected through its namespace.
@@ -208,11 +204,7 @@ impl Filter {
             return TypeRole::Named(set.clone());
         }
 
-        if self.uses_closure {
-            TypeRole::Shell
-        } else {
-            TypeRole::Named(MethodSet::All)
-        }
+        TypeRole::Shell
     }
 
     /// Decides whether a method is emitted or demoted to an opaque vtable slot.
@@ -276,7 +268,7 @@ impl Filter {
         let mut enum_variants: HashMap<(String, String), VariantFilter> = HashMap::new();
         let mut activatable: HashSet<(String, String)> = HashSet::new();
         let mut requested_interfaces: HashMap<(String, String), MethodSet> = HashMap::new();
-        let mut direct_types: Vec<(String, String)> = Vec::new();
+        let mut direct_types: BTreeSet<(String, String)> = BTreeSet::new();
         let mut hierarchy_types = HashSet::new();
         let mut hierarchy_interfaces = HashSet::new();
 
@@ -308,9 +300,7 @@ impl Filter {
                             if Self::is_unscoped_enum(reader, namespace, name) {
                                 enum_variants.entry(key.clone()).or_default();
                             }
-                            if !direct_types.contains(&key) {
-                                direct_types.push(key);
-                            }
+                            direct_types.insert(key);
                         }
                     }
                 }
@@ -335,9 +325,7 @@ impl Filter {
                             if Self::is_enum(reader, namespace, name) {
                                 enum_variants.entry(key.clone()).or_default().select();
                             }
-                            if !direct_types.contains(&key) {
-                                direct_types.push(key);
-                            }
+                            direct_types.insert(key);
                         }
                     } else {
                         for member in members {
@@ -393,7 +381,6 @@ impl Filter {
             namespace_types: HashSet::new(),
             hierarchy_types,
             hierarchy_interfaces,
-            uses_closure: false,
         }
     }
 
@@ -460,7 +447,7 @@ impl Filter {
         reader: &Reader,
         methods: &mut HashMap<(String, String), MethodFilter>,
         requested_interfaces: &mut HashMap<(String, String), MethodSet>,
-        direct_types: &mut Vec<(String, String)>,
+        direct_types: &mut BTreeSet<(String, String)>,
         activatable: &mut HashSet<(String, String)>,
         enum_variants: &mut HashMap<(String, String), VariantFilter>,
         hierarchy_interfaces: &mut HashSet<(String, String, String, String)>,
@@ -484,9 +471,7 @@ impl Filter {
                         .entry(key.clone())
                         .or_default()
                         .insert(member, include);
-                    if !direct_types.contains(&key) {
-                        direct_types.push(key);
-                    }
+                    direct_types.insert(key);
                 }
                 Type::CppEnum(e) => {
                     assert!(
@@ -499,17 +484,13 @@ impl Filter {
                         .entry(key.clone())
                         .or_default()
                         .insert(member, include);
-                    if !direct_types.contains(&key) {
-                        direct_types.push(key);
-                    }
+                    direct_types.insert(key);
                 }
                 Type::Class(class) => {
                     let required = class.required_interfaces(reader);
                     // Route to the class's required interfaces
                     if member == "CreateInstance" {
-                        if !direct_types.contains(&key) {
-                            direct_types.push(key.clone());
-                        }
+                        direct_types.insert(key.clone());
                         activatable.insert(key.clone());
 
                         // A composable class uses its parameterless factory method as `new()`.
@@ -585,9 +566,7 @@ impl Filter {
                             } else {
                                 filter_entry.drop.extend(expanded);
                             }
-                            if !direct_types.contains(&key) {
-                                direct_types.push(key.clone());
-                            }
+                            direct_types.insert(key.clone());
                             found = true;
                             break;
                         }

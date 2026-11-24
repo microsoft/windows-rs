@@ -26,8 +26,10 @@ pub fn method_is_skipped(
     config: &Config,
 ) -> bool {
     let mut direct = TypeMap::new();
-    for ty in signature.types() {
+    let mut pending: Vec<&Type> = signature.types().collect();
+    while let Some(ty) = pending.pop() {
         direct.insert(ty.clone());
+        pending.extend(ty.generics());
     }
     for ty in def.associated_enums(config.reader) {
         direct.insert(ty);
@@ -195,11 +197,12 @@ impl Interface {
 
     pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName<Method>> {
         let type_name = self.def.type_name();
+        let provided = config.provides(&Type::Interface(self.clone()));
         self.def
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if method_is_skipped(def, type_name, &method.signature, config) {
+                if !provided || method_is_skipped(def, type_name, &method.signature, config) {
                     MethodOrName::Name(method.def)
                 } else {
                     MethodOrName::Method(method)
@@ -314,15 +317,12 @@ impl Interface {
                     let interfaces: Vec<_> = required_interfaces
                         .iter()
                         .filter(|ty| {
-                            !config.filter.uses_closure || {
-                                let name = Type::Interface((*ty).clone()).type_name();
-                                config.types.contains_key(&name)
-                                    && config.filter.includes_hierarchy(
-                                        type_name.namespace(),
-                                        type_name.name(),
-                                        ty,
-                                    )
-                            }
+                            config.provides(&Type::Interface((*ty).clone()))
+                                && config.filter.includes_hierarchy(
+                                    type_name.namespace(),
+                                    type_name.name(),
+                                    ty,
+                                )
                         })
                         .map(|ty| ty.write_name(config))
                         .collect();
@@ -337,16 +337,12 @@ impl Interface {
                     let interfaces = required_interfaces
                         .iter()
                         .filter(|ty| {
-                            !config.filter.uses_closure
-                                || {
-                                    let name = Type::Interface((*ty).clone()).type_name();
-                                    config.types.contains_key(&name)
-                                        && config.filter.includes_hierarchy(
-                                            type_name.namespace(),
-                                            type_name.name(),
-                                            ty,
-                                        )
-                                }
+                            config.provides(&Type::Interface((*ty).clone()))
+                                && config.filter.includes_hierarchy(
+                                    type_name.namespace(),
+                                    type_name.name(),
+                                    ty,
+                                )
                         })
                         .map(|ty| {
                     let ty = ty.write_name(config);

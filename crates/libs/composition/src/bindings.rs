@@ -78,6 +78,7 @@ windows_core::imp::interface_hierarchy!(
 windows_core::imp::required_hierarchy!(
     CompositionAnimationGroup,
     ICompositionAnimationBase,
+    windows_collections::IIterable<CompositionAnimation>,
     CompositionObject
 );
 impl windows_core::RuntimeType for CompositionAnimationGroup {
@@ -607,7 +608,11 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<CompositionShape>
 );
-windows_core::imp::required_hierarchy!(CompositionShapeCollection, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionShapeCollection,
+    windows_collections::IIterable<CompositionShape>,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionShapeCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -2931,7 +2936,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(ImplicitAnimationCollection, CompositionObject);
+windows_core::imp::required_hierarchy!(ImplicitAnimationCollection, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, ICompositionAnimationBase > >, windows_collections::IMap < windows_core::HSTRING, ICompositionAnimationBase >, CompositionObject);
 impl windows_core::RuntimeType for ImplicitAnimationCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IImplicitAnimationCollection>();
@@ -3292,7 +3297,11 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(VisualCollection, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    VisualCollection,
+    windows_collections::IIterable<Visual>,
+    CompositionObject
+);
 impl windows_core::RuntimeType for VisualCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IVisualCollection>();
