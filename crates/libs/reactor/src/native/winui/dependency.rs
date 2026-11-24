@@ -112,12 +112,10 @@ fn box_property_value(
         }
         (PropertyValue::SelectionIndex(value), _) => native_selection_index(*value).and_then(boxed),
         (PropertyValue::StringList(values), _) => {
-            let values: Vec<Option<IInspectable>> = values
+            let values = values
                 .iter()
-                .map(|value| Some(windows_reference::IReference::from(value.as_ref()).into()))
-                .collect();
-            let values: IVector<IInspectable> = values.into();
-            object(Ok(values))
+                .map(|value| Some(windows_reference::IReference::from(value.as_ref()).into()));
+            object(IVector::from_read_only(values))
         }
         (PropertyValue::ThemeTransitions(values), _) => theme_transitions(values),
         (PropertyValue::SystemBackdrop(value), _) => {

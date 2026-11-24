@@ -764,6 +764,7 @@ fn replace_generic_outputs() {
     assert_eq!(new_drops.load(Ordering::Relaxed), 2);
 
     let producer = GenericOutputs::<u32>::new(|fill, value| {
+        assert_eq!(fill, [0, 0]);
         fill[0] = 10;
         *value = 20;
         Ok(())
@@ -771,8 +772,17 @@ fn replace_generic_outputs() {
     let mut fill = [1, 2];
     let mut value = 3;
     producer.Invoke(&mut fill, &mut value).unwrap();
-    assert_eq!(fill, [10, 2]);
+    assert_eq!(fill, [10, 0]);
     assert_eq!(value, 20);
+}
+
+#[test]
+fn uninitialized_fill_output_storage() {
+    let mut storage = core::mem::MaybeUninit::<[u32; 2]>::uninit();
+    let fill = unsafe { windows_core::imp::array_slice_mut::<u32>(storage.as_mut_ptr().cast(), 2) };
+    assert_eq!(fill, [0, 0]);
+    fill[0] = 10;
+    assert_eq!(unsafe { storage.assume_init() }, [10, 0]);
 }
 
 #[cfg(not(miri))]

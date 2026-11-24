@@ -6,6 +6,8 @@ using namespace winrt;
 using namespace Collections;
 using namespace Windows::Foundation::Collections;
 
+#include "read_only.h"
+
 void test()
 {
     Widget widget;
@@ -32,4 +34,11 @@ void test()
     IMap<hstring, int32_t> index = widget.Index(single_threaded_vector(std::move(values)).GetView());
     check(index.Size() == 2);
     check(index.Lookup(L"two") == 1);
+
+    read_only_contract(widget);
+    read_only_retains_values(widget);
+    read_only_marshaling_failure(widget);
+    read_only_resolution_failure(widget);
+    read_only_reentrant_iterator(widget);
+    read_only_concurrent_iterator(widget);
 }

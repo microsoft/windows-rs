@@ -44,6 +44,21 @@ $env:RUSTFLAGS = "--cfg windows_cast_diagnostics"
 cargo test -p test-reactor
 ```
 
+## Collection interop
+
+`collection-contracts` runs without opening a window or injecting input. It checks boxed-string
+agility, a WinUI Border's free-threaded marshaler and canonical identity after MTA resolution, and
+collection adaptation in ComboBox, AutoSuggestBox, and ItemsSourceView. Instrumented sources
+distinguish direct indexed access from eager enumeration. Read-only vectors reject mutations with
+`E_NOTIMPL`; ComboBox selection is checked by index and object.
+
+`collection-live-mutable`, `collection-live-read-only`, and `collection-live-shared` compare stock
+mutable vectors, instrumented read-only vectors, and the shared `from_read_only` implementation in
+ComboBox, AutoSuggestBox, BreadcrumbBar, and RadioButtons. UI Automation exercises selection and
+invocation across source replacement and clearing. Instrumented sources must receive indexed
+reads and no mutation attempts, including during teardown. These cases do not measure performance,
+verify pixels, or test final native destruction on another thread.
+
 ## Scroll layout
 
 `scroll-layout` checks far-edge anchoring on both axes during content growth and shrinkage,

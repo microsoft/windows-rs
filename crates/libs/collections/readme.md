@@ -39,6 +39,10 @@ for value in numbers {
 Conversions consume the Rust container and need the default `std` feature.
 Interface-valued elements may require `Option<T>` storage; use the type the receiving API expects.
 
+`IVector<IInspectable>::from_read_only` creates an immutable vector with agile-reference storage.
+It resolves values in the calling apartment and rejects mutation with `E_NOTIMPL`. Construction
+can fail if a value cannot be marshaled. The caller owns COM initialization and apartment dispatch.
+
 Collection methods return `Result`; missing keys and invalid indexes report `E_BOUNDS`.
 For collections created from Rust containers, `GetView` returns a snapshot, not a live view.
 For observable collections, retain the event token and unregister when the subscription ends.

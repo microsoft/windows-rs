@@ -199,7 +199,7 @@ fn selected_item(ui: &Automation, id: &str, expected: Option<&str>) -> Result<()
     Ok(())
 }
 
-fn select_item(ui: &Automation, id: &str, name: &str) -> Result<()> {
+pub(super) fn select_item(ui: &Automation, id: &str, name: &str) -> Result<()> {
     eprintln!("select {name:?} in {id:?}");
     let control = ui.element(id)?;
     let (_, pattern) = ui

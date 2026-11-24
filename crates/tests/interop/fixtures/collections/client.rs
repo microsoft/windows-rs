@@ -26,5 +26,13 @@ pub fn test() -> Result<()> {
     assert_eq!(index.Size()?, 2);
     assert_eq!(index.Lookup(h!("two"))?, 1);
 
+    let item: IInspectable = windows_reference::IReference::from("item").into();
+    let values = widget.ReadOnly(&[Some(item.clone()), None])?;
+    assert_eq!(values.GetAt(0)?, item);
+    assert_eq!(values.Clear().unwrap_err().code(), HRESULT(0x80004001_u32 as _));
+    let mut items = [None, None];
+    assert_eq!(values.GetView()?.GetMany(0, &mut items)?, 2);
+    assert_eq!(items, [Some(item), None]);
+
     Ok(())
 }

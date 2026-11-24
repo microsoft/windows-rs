@@ -2,6 +2,43 @@ fn main() {
     println!("cargo:rerun-if-changed=build.rs");
     windows_reactor_setup::as_self_contained();
 
+    let winmd = "..\\..\\..\\tools\\reactor-metadata\\winmd";
+    println!("cargo:rerun-if-changed={winmd}");
+    windows_bindgen::builder()
+        .input(winmd)
+        .input_default()
+        .output(
+            std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap())
+                .join("collection_bindings.rs"),
+        )
+        .filters([
+            "Microsoft.UI.Xaml.Controls.Border::CreateInstance",
+            "Microsoft.UI.Xaml.Controls.ComboBox::CreateInstance",
+            "Microsoft.UI.Xaml.Controls.AutoSuggestBox::CreateInstance",
+            "Microsoft.UI.Xaml.Controls.IItemsControl::{ItemsSource,Items}",
+            "Microsoft.UI.Xaml.Controls.Primitives.ISelector::{SelectedIndex,SelectedItem}",
+            "Microsoft.UI.Xaml.Controls.ItemsSourceView::CreateInstance",
+            "Microsoft.UI.Xaml.Controls.IItemsSourceView::{Count,GetAt}",
+            "Microsoft.UI.Xaml.Window::CreateInstance",
+            "Microsoft.UI.Xaml.IWindow::{Content,Title,Activate,Close}",
+            "Microsoft.UI.Xaml.IFrameworkElement::FindName",
+            "Microsoft.UI.Xaml.Markup.XamlReader::Load",
+            "Microsoft.UI.Xaml.Controls.RadioButtons::CreateInstance",
+            "Microsoft.UI.Xaml.Controls.IRadioButtons::{ItemsSource,SelectedIndex,SelectedItem}",
+            "Microsoft.UI.Xaml.Controls.BreadcrumbBar::CreateInstance",
+            "Microsoft.UI.Xaml.Controls.IBreadcrumbBar::ItemsSource",
+            "Microsoft.UI.Xaml.Controls.IAutoSuggestBox::{Text,IsSuggestionListOpen}",
+            "Microsoft.UI.Xaml.IUIElement::Focus",
+            "IMarshal::GetUnmarshalClass",
+            "MSHCTX_INPROC",
+            "MSHLFLAGS_NORMAL",
+            "CoCreateFreeThreadedMarshaler",
+            "CoInitializeEx",
+            "CoUninitialize",
+            "COINIT_MULTITHREADED",
+        ])
+        .write();
+
     windows_bindgen::builder()
         .output(
             std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap()).join("canvas_bindings.rs"),
