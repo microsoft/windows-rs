@@ -6,7 +6,7 @@ publish = false
 
 [lib]
 doc = false
-doctest = false
+doctest = true
 
 [dev-dependencies.windows]
 workspace = true
@@ -14,9 +14,12 @@ default-features = true
 features = [
     "Storage_Streams",
     "System_Threading",
+    "combaseapi",
+    "objbase",
+    "synchapi",
 ]
 
-[dependencies.windows-future]
+[dev-dependencies.windows-future]
 workspace = true
 features = ["std"]
 
