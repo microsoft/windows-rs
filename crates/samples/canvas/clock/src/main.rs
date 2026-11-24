@@ -7,7 +7,7 @@ use windows_animation::*;
 use windows_canvas::Brush;
 use windows_canvas::*;
 use windows_reactor::{
-    App, Component, ComponentContext, View, ViewContext, WindowBackdrop, WindowVisuals,
+    App, Component, ComponentContext, SystemBackdrop, View, ViewContext, WindowVisuals,
 };
 use windows_time::DateTime;
 
@@ -63,7 +63,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Clock");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         let resources = Rc::clone(&self.resources);
         let startup = Rc::clone(&self.startup);
         animated_canvas(move |ctx| {

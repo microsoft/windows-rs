@@ -27,7 +27,7 @@ impl Component for WindowSample {
         context.window_title("Sample");
         context.window_visuals(
             WindowVisuals::new()
-                .backdrop(WindowBackdrop::Mica)
+                .backdrop(SystemBackdrop::Mica)
                 .client_size(800.0, 600.0)
                 .constraints(WindowConstraints {
                     min_width: Some(400.0),

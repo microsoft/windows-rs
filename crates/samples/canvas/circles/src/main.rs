@@ -37,7 +37,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Canvas + Reactor");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         let count = self.count;
         let start = self.start;
         let surface = animated_canvas(move |ctx| {

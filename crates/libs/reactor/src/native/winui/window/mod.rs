@@ -254,31 +254,12 @@ impl NativeWindow {
         };
 
         if changes.backdrop {
-            match visuals.backdrop {
-                WindowBackdrop::None => {
-                    window_2.SetSystemBackdrop(None::<&native::SystemBackdrop>)?;
-                }
-                WindowBackdrop::Mica | WindowBackdrop::MicaAlt => {
-                    let mica = native::MicaBackdrop::new()?;
-                    mica.SetKind(match visuals.backdrop {
-                        WindowBackdrop::Mica => native::MicaKind::Base,
-                        WindowBackdrop::MicaAlt => native::MicaKind::BaseAlt,
-                        _ => unreachable!(),
-                    })?;
-                    let backdrop: native::SystemBackdrop = mica.cast()?;
-                    window_2.SetSystemBackdrop(&backdrop)?;
-                }
-                WindowBackdrop::Acrylic => {
-                    let backdrop: native::SystemBackdrop =
-                        native::DesktopAcrylicBackdrop::new()?.cast()?;
-                    window_2.SetSystemBackdrop(&backdrop)?;
-                }
-            }
+            window_2.SetSystemBackdrop(system_backdrop(visuals.backdrop)?.as_ref())?;
             self.state
                 .surface
                 .cast::<native::FrameworkElement>()?
                 .SetStyle(
-                    (visuals.backdrop == WindowBackdrop::None)
+                    (visuals.backdrop == SystemBackdrop::None)
                         .then_some(&self.state.background_style),
                 )?;
         }

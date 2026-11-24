@@ -828,11 +828,11 @@ fn policy_rejects_invalid_window_sizes() {
 fn window_visual_changes_only_apply_changed_contracts() {
     let previous = WindowVisuals::new()
         .theme(WindowTheme::System)
-        .backdrop(WindowBackdrop::Mica)
+        .backdrop(SystemBackdrop::Mica)
         .client_size(800.0, 600.0);
     let next = WindowVisuals::new()
         .theme(WindowTheme::Dark)
-        .backdrop(WindowBackdrop::Mica)
+        .backdrop(SystemBackdrop::Mica)
         .client_size(800.0, 600.0);
 
     let changes = window_visual_changes(&previous, &next);

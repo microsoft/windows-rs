@@ -465,6 +465,11 @@ pub windows_reactor::Symbol::ZoomIn
 pub windows_reactor::Symbol::ZoomOut
 impl core::convert::From<windows_reactor::Symbol> for windows_reactor::Icon
 pub fn windows_reactor::Icon::from(windows_reactor::Symbol) -> Self
+pub enum windows_reactor::SystemBackdrop
+pub windows_reactor::SystemBackdrop::Acrylic
+pub windows_reactor::SystemBackdrop::Mica
+pub windows_reactor::SystemBackdrop::MicaAlt
+pub windows_reactor::SystemBackdrop::None
 #[non_exhaustive] pub enum windows_reactor::TeachingTipPlacementMode
 pub windows_reactor::TeachingTipPlacementMode::Auto
 pub windows_reactor::TeachingTipPlacementMode::Bottom
@@ -528,11 +533,6 @@ pub windows_reactor::VerticalAlignment::Bottom
 pub windows_reactor::VerticalAlignment::Center
 pub windows_reactor::VerticalAlignment::Stretch
 pub windows_reactor::VerticalAlignment::Top
-pub enum windows_reactor::WindowBackdrop
-pub windows_reactor::WindowBackdrop::Acrylic
-pub windows_reactor::WindowBackdrop::Mica
-pub windows_reactor::WindowBackdrop::MicaAlt
-pub windows_reactor::WindowBackdrop::None
 pub enum windows_reactor::WindowTheme
 pub windows_reactor::WindowTheme::Dark
 pub windows_reactor::WindowTheme::Light
@@ -3742,6 +3742,46 @@ impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SymbolIcon) -> Self
 impl core::default::Default for windows_reactor::SymbolIcon
 pub fn windows_reactor::SymbolIcon::default() -> Self
+pub struct windows_reactor::SystemBackdropElement(_)
+impl windows_reactor::SystemBackdropElement
+pub fn windows_reactor::SystemBackdropElement::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::SystemBackdropElement::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::SystemBackdropElement::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::SystemBackdropElement::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::SystemBackdropElement::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
+pub fn windows_reactor::SystemBackdropElement::automation_name(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::SystemBackdropElement::canvas_left(self, f64) -> Self
+pub fn windows_reactor::SystemBackdropElement::canvas_top(self, f64) -> Self
+pub fn windows_reactor::SystemBackdropElement::corner_radius(self, impl core::convert::Into<windows_reactor::CornerRadius>) -> Self
+pub fn windows_reactor::SystemBackdropElement::grid_column(self, i32) -> Self
+pub fn windows_reactor::SystemBackdropElement::grid_column_span(self, i32) -> Self
+pub fn windows_reactor::SystemBackdropElement::grid_row(self, i32) -> Self
+pub fn windows_reactor::SystemBackdropElement::grid_row_span(self, i32) -> Self
+pub fn windows_reactor::SystemBackdropElement::height(self, f64) -> Self
+pub fn windows_reactor::SystemBackdropElement::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::SystemBackdropElement::is_hit_test_visible(self, bool) -> Self
+pub fn windows_reactor::SystemBackdropElement::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
+pub fn windows_reactor::SystemBackdropElement::max_height(self, f64) -> Self
+pub fn windows_reactor::SystemBackdropElement::max_width(self, f64) -> Self
+pub fn windows_reactor::SystemBackdropElement::min_height(self, f64) -> Self
+pub fn windows_reactor::SystemBackdropElement::min_width(self, f64) -> Self
+pub fn windows_reactor::SystemBackdropElement::new() -> Self
+pub fn windows_reactor::SystemBackdropElement::opacity(self, f64) -> Self
+pub fn windows_reactor::SystemBackdropElement::relative_align_bottom(self) -> Self
+pub fn windows_reactor::SystemBackdropElement::relative_align_horizontal_center(self) -> Self
+pub fn windows_reactor::SystemBackdropElement::relative_align_left(self) -> Self
+pub fn windows_reactor::SystemBackdropElement::relative_align_right(self) -> Self
+pub fn windows_reactor::SystemBackdropElement::relative_align_top(self) -> Self
+pub fn windows_reactor::SystemBackdropElement::relative_align_vertical_center(self) -> Self
+pub fn windows_reactor::SystemBackdropElement::system_backdrop(self, windows_reactor::SystemBackdrop) -> Self
+pub fn windows_reactor::SystemBackdropElement::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
+pub fn windows_reactor::SystemBackdropElement::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
+pub fn windows_reactor::SystemBackdropElement::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
+pub fn windows_reactor::SystemBackdropElement::width(self, f64) -> Self
+impl core::convert::From<windows_reactor::SystemBackdropElement> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::SystemBackdropElement) -> Self
+impl core::default::Default for windows_reactor::SystemBackdropElement
+pub fn windows_reactor::SystemBackdropElement::default() -> Self
 pub struct windows_reactor::TabView(_)
 impl windows_reactor::TabView
 pub fn windows_reactor::TabView::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
@@ -4417,6 +4457,8 @@ impl core::convert::From<windows_reactor::SwapChainPanel> for windows_reactor::V
 pub fn windows_reactor::View::from(windows_reactor::SwapChainPanel) -> Self
 impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SymbolIcon) -> Self
+impl core::convert::From<windows_reactor::SystemBackdropElement> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::SystemBackdropElement) -> Self
 impl core::convert::From<windows_reactor::TabView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TabView) -> Self
 impl core::convert::From<windows_reactor::TabViewItem> for windows_reactor::View
@@ -4623,7 +4665,7 @@ pub windows_reactor::WindowSize::width: f64
 pub struct windows_reactor::WindowVisuals
 impl windows_reactor::WindowVisuals
 pub fn windows_reactor::WindowVisuals::always_on_top(self, bool) -> Self
-pub fn windows_reactor::WindowVisuals::backdrop(self, windows_reactor::WindowBackdrop) -> Self
+pub fn windows_reactor::WindowVisuals::backdrop(self, windows_reactor::SystemBackdrop) -> Self
 pub fn windows_reactor::WindowVisuals::client_size(self, f64, f64) -> Self
 pub fn windows_reactor::WindowVisuals::constraints(self, windows_reactor::WindowConstraints) -> Self
 pub fn windows_reactor::WindowVisuals::icon(self, impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self

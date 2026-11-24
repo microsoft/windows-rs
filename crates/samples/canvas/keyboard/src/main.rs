@@ -134,7 +134,7 @@ impl Component for Sample {
                     .content("Clear text"),
             ));
 
-        cx.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Acrylic));
+        cx.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Acrylic));
         cx.on_color_scheme(cx.callback(Message::ColorScheme));
         cx.window_frame("Canvas keyboard", content)
     }

@@ -429,7 +429,7 @@ impl Component for PlacementFixture {
 pub(super) struct VisualsFixture {
     constrained: bool,
     dark: bool,
-    backdrop: WindowBackdrop,
+    backdrop: SystemBackdrop,
     moved: bool,
     observed: WindowSize,
 }
@@ -438,7 +438,7 @@ pub(super) struct VisualsFixture {
 pub(super) enum VisualsMessage {
     Constraints,
     Theme,
-    Backdrop(WindowBackdrop),
+    Backdrop(SystemBackdrop),
     Move,
     Size(WindowSize),
 }
@@ -451,7 +451,7 @@ impl Component for VisualsFixture {
         Self {
             constrained: true,
             dark: true,
-            backdrop: WindowBackdrop::None,
+            backdrop: SystemBackdrop::None,
             moved: false,
             observed: WindowSize::default(),
         }
@@ -544,10 +544,10 @@ impl Component for VisualsFixture {
                     .orientation(Orientation::Horizontal)
                     .spacing(8.0)
                     .children((
-                        backdrop("mica", "Mica", WindowBackdrop::Mica),
-                        backdrop("mica-alt", "Mica alt", WindowBackdrop::MicaAlt),
-                        backdrop("acrylic", "Acrylic", WindowBackdrop::Acrylic),
-                        backdrop("no-backdrop", "None", WindowBackdrop::None),
+                        backdrop("mica", "Mica", SystemBackdrop::Mica),
+                        backdrop("mica-alt", "Mica alt", SystemBackdrop::MicaAlt),
+                        backdrop("acrylic", "Acrylic", SystemBackdrop::Acrylic),
+                        backdrop("no-backdrop", "None", SystemBackdrop::None),
                     )),
                 // Leaves the window background visible for pixel checks.
                 Border::new()

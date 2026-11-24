@@ -584,6 +584,7 @@ enum GeneratedHandle {
     RichTextBlock(native::RichTextBlock),
     WebView2(native::WebView2),
     SwapChainPanel(native::SwapChainPanel),
+    SystemBackdropElement(native::SystemBackdropElement),
 }
 impl GeneratedHandle {
     fn create(
@@ -2300,6 +2301,9 @@ impl GeneratedHandle {
             ObjectType::RichTextBlock => Self::RichTextBlock(native::RichTextBlock::new()?),
             ObjectType::WebView2 => Self::WebView2(native::WebView2::new()?),
             ObjectType::SwapChainPanel => Self::SwapChainPanel(native::SwapChainPanel::new()?),
+            ObjectType::SystemBackdropElement => {
+                Self::SystemBackdropElement(native::SystemBackdropElement::new()?)
+            }
             _ => return Ok(None),
         }))
     }
@@ -2383,6 +2387,7 @@ impl GeneratedHandle {
             Self::RichTextBlock(_) => ObjectType::RichTextBlock,
             Self::WebView2(_) => ObjectType::WebView2,
             Self::SwapChainPanel(_) => ObjectType::SwapChainPanel,
+            Self::SystemBackdropElement(_) => ObjectType::SystemBackdropElement,
         }
     }
     fn ui_element(&self) -> Result<native::UIElement, WinUiError> {
@@ -2465,6 +2470,7 @@ impl GeneratedHandle {
             Self::RichTextBlock(value) => Ok(value.cast()?),
             Self::WebView2(value) => Ok(value.cast()?),
             Self::SwapChainPanel(value) => Ok(value.cast()?),
+            Self::SystemBackdropElement(value) => Ok(value.cast()?),
         }
     }
     fn owned_collection(
@@ -3612,6 +3618,14 @@ impl GeneratedHandle {
             (ObjectType::RichTextBlock, PropertyId::FontSize) => {
                 (native::RichTextBlock::FontSizeProperty, Conversion::Value)
             }
+            (ObjectType::SystemBackdropElement, PropertyId::SystemBackdrop) => (
+                native::SystemBackdropElement::SystemBackdropProperty,
+                Conversion::Value,
+            ),
+            (ObjectType::SystemBackdropElement, PropertyId::CornerRadius) => (
+                native::SystemBackdropElement::CornerRadiusProperty,
+                Conversion::Value,
+            ),
             _ => return None,
         })
     }

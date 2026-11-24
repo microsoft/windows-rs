@@ -1117,6 +1117,7 @@ pub(crate) enum PropertyValue {
     RichText(RichText),
     SelectionIndex(Option<usize>),
     StringList(Rc<[Rc<str>]>),
+    SystemBackdrop(SystemBackdrop),
     ThemeTransitions(Rc<[ThemeTransition]>),
     Thickness(Thickness),
     Vector2([f64; 2]),
@@ -1158,6 +1159,7 @@ impl PartialEq for PropertyValue {
             Self::RichText(a) => matches!(other, Self::RichText(b) if a == b),
             Self::SelectionIndex(a) => matches!(other, Self::SelectionIndex(b) if a == b),
             Self::StringList(a) => matches!(other, Self::StringList(b) if a == b),
+            Self::SystemBackdrop(a) => matches!(other, Self::SystemBackdrop(b) if a == b),
             Self::ThemeTransitions(a) => matches!(other, Self::ThemeTransitions(b) if a == b),
             Self::Thickness(a) => matches!(other, Self::Thickness(b) if a == b),
             Self::Vector2([ax, ay]) => {

@@ -5,7 +5,7 @@ use std::rc::Rc;
 use windows_canvas::Brush;
 use windows_canvas::*;
 use windows_reactor::{
-    App, Component, ComponentContext, View, ViewContext, WindowBackdrop, WindowVisuals,
+    App, Component, ComponentContext, SystemBackdrop, View, ViewContext, WindowVisuals,
 };
 use windows_text::{TextFormat, TextLayout, TextMetrics, WordWrapping};
 
@@ -40,7 +40,7 @@ impl Component for Sample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Text Layout");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        context.window_visuals(WindowVisuals::new().backdrop(SystemBackdrop::Mica));
         let resources = Rc::clone(&self.resources);
         canvas(move |ctx| {
             ctx.clear(ColorF::from_rgb8(16, 20, 28));
