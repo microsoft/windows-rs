@@ -221,8 +221,11 @@ impl Filter {
         if in_set(&filter.keep) {
             return true;
         }
-        // Empty allow set means deny-only mode; otherwise unlisted methods are opt out.
         filter.keep.is_empty()
+            && match self.type_role(type_name) {
+                TypeRole::Named(set) => set.includes(raw),
+                TypeRole::Shell => false,
+            }
     }
 
     /// Returns the explicit variant selection, including exclusions and name-only shells.
@@ -253,7 +256,32 @@ impl Filter {
         let mut hierarchy_interfaces = HashSet::new();
         let mut has_broad_filter = false;
 
-        for entry in entries {
+        // Member selections (including shells) do not authorize unlisted methods.
+        let mut whole_rules: Vec<_> = entries
+            .iter()
+            .filter_map(|entry| {
+                let rule = match &entry.kind {
+                    ResolvedKind::Namespace(namespace) => namespace.clone(),
+                    ResolvedKind::Type { namespace, name } => format!("{namespace}.{name}"),
+                    ResolvedKind::Members { .. } => return None,
+                };
+                Some((rule, !entry.exclude))
+            })
+            .collect();
+        whole_rules
+            .sort_unstable_by_key(|(rule, include)| (std::cmp::Reverse(rule.len()), *include));
+        let selects_whole = |namespace: &str, name: &str| {
+            whole_rules
+                .iter()
+                .find(|(rule, _)| match_type_name(rule, namespace, name))
+                .is_some_and(|(_, include)| *include)
+        };
+
+        for entry in entries
+            .iter()
+            .filter(|entry| !entry.exclude)
+            .chain(entries.iter().filter(|entry| entry.exclude))
+        {
             let include = !entry.exclude;
 
             match &entry.kind {
@@ -296,9 +324,36 @@ impl Filter {
                     members,
                 } => {
                     let full = format!("{namespace}.{name}");
-                    // Member-level entries always include the type - exclusion
-                    // applies to the method/variant, not the type itself.
-                    if !rules.iter().any(|(r, _)| r == &full) {
+                    let seed = include
+                        || selects_whole(namespace, name)
+                        || entries.iter().any(|entry| {
+                            !entry.exclude
+                                && match &entry.kind {
+                                    ResolvedKind::Type {
+                                        namespace: root_namespace,
+                                        name: root_name,
+                                    } => {
+                                        selects_whole(root_namespace, root_name)
+                                            && reader.with_full_name(root_namespace, root_name).any(
+                                                |ty| {
+                                                    if let Type::Class(class) = ty {
+                                                        class
+                                                            .required_interfaces(reader)
+                                                            .iter()
+                                                            .any(|iface| {
+                                                                iface.def.namespace() == namespace
+                                                                    && iface.def.name() == name
+                                                            })
+                                                    } else {
+                                                        false
+                                                    }
+                                                },
+                                            )
+                                    }
+                                    _ => false,
+                                }
+                        });
+                    if include && !rules.iter().any(|(r, _)| r == &full) {
                         rules.push((full, true));
                     }
 
@@ -329,6 +384,7 @@ impl Filter {
                                 name,
                                 member,
                                 include,
+                                seed,
                             );
                         }
                     }
@@ -337,7 +393,11 @@ impl Filter {
         }
 
         // Unscoped enum constants are independent entries in the reader.
-        for ((namespace, name), variants) in &enum_variants {
+        for (key, variants) in &enum_variants {
+            if !direct_types.contains(key) {
+                continue;
+            }
+            let (namespace, name) = key;
             for ty in reader.with_full_name(namespace, name) {
                 if let Type::CppEnum(e) = ty
                     && !e.def.has_attribute("ScopedEnumAttribute")
@@ -445,6 +505,7 @@ impl Filter {
         name: &str,
         member: &str,
         include: bool,
+        seed: bool,
     ) {
         let key = (namespace.to_string(), name.to_string());
 
@@ -461,7 +522,7 @@ impl Filter {
                         .entry(key.clone())
                         .or_default()
                         .insert(member, include);
-                    if !direct_types.contains(&key) {
+                    if seed && !direct_types.contains(&key) {
                         direct_types.push(key);
                     }
                 }
@@ -476,7 +537,7 @@ impl Filter {
                         .entry(key.clone())
                         .or_default()
                         .insert(member, include);
-                    if !direct_types.contains(&key) {
+                    if seed && !direct_types.contains(&key) {
                         direct_types.push(key);
                     }
                 }
@@ -545,13 +606,18 @@ impl Filter {
                                     iface_key.1.clone(),
                                 ));
                             }
-                            // Register expanded names in requested_interfaces
-                            let set = requested_interfaces
-                                .entry(iface_key.clone())
-                                .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
-                            if let MethodSet::Names(names) = set {
-                                for n in &expanded {
-                                    names.insert(n.clone());
+                            if seed {
+                                let set = requested_interfaces
+                                    .entry(iface_key.clone())
+                                    .or_insert_with(|| {
+                                        if include {
+                                            MethodSet::Names(BTreeSet::new())
+                                        } else {
+                                            MethodSet::All
+                                        }
+                                    });
+                                if include && let MethodSet::Names(names) = set {
+                                    names.extend(expanded.iter().cloned());
                                 }
                             }
                             let filter_entry = methods.entry(iface_key).or_default();
@@ -562,7 +628,7 @@ impl Filter {
                             } else {
                                 filter_entry.drop.extend(expanded);
                             }
-                            if !direct_types.contains(&key) {
+                            if seed && !direct_types.contains(&key) {
                                 direct_types.push(key.clone());
                             }
                             found = true;
@@ -613,12 +679,16 @@ impl Filter {
                         expanded.extend(remove_extras);
                     }
                     // The closure walk only follows these requested method signatures.
-                    let set = requested_interfaces
-                        .entry(key.clone())
-                        .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
-                    if let MethodSet::Names(names) = set {
-                        for name in &expanded {
-                            names.insert(name.clone());
+                    if seed {
+                        let set = requested_interfaces.entry(key.clone()).or_insert_with(|| {
+                            if include {
+                                MethodSet::Names(BTreeSet::new())
+                            } else {
+                                MethodSet::All
+                            }
+                        });
+                        if include && let MethodSet::Names(names) = set {
+                            names.extend(expanded.iter().cloned());
                         }
                     }
                     register_method_filter(methods, namespace, name, expanded, include);

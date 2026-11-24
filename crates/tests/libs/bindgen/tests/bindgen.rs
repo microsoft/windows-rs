@@ -254,6 +254,141 @@ pub fn explicit_query(widget: &Widget) -> Result<IWidgetFactory> {
 }
 
 #[test]
+fn filter_negative_members_do_not_add_roots() {
+    let mut failures = Vec::new();
+    for style in ["minimal", "full", "sys"] {
+        for root in ["Other.Token", "Other"] {
+            let selected = filter_contract_output("negative-selected", style, &[root]);
+            for exclusion in [
+                "!Test.ISource::GetResult",
+                "!Test.Widget::Value",
+                "!Test.Color::Red",
+                "!Native.NativeColor::NativeRed",
+                "!Native.INativeSource::GetNativeResult",
+                "!ClassDependency.Handler::Invoke",
+            ] {
+                for filters in [[root, exclusion], [exclusion, root]] {
+                    let output = filter_contract_output("negative-mixed", style, &filters);
+                    if output != selected {
+                        failures.push(format!("{style}: {filters:?} changed unrelated selection"));
+                    }
+                }
+            }
+            let output = filter_contract_output(
+                "negative-removed-class",
+                style,
+                &[
+                    root,
+                    "ClassDependency.Widget",
+                    "!ClassDependency.Widget",
+                    "!ClassDependency.IWidget::Write",
+                ],
+            );
+            if output != selected {
+                failures.push(format!(
+                    "{style}: excluded class introduced interface roots"
+                ));
+            }
+        }
+    }
+    assert!(failures.is_empty(), "{}", failures.join("\n"));
+}
+
+#[test]
+fn filter_exclusions_do_not_expand_shells() {
+    let mut failures = Vec::new();
+    for style in ["minimal", "full", "sys"] {
+        for (owner, member) in [
+            ("Test.ISource", "GetResult"),
+            ("Test.Widget", "Value"),
+            ("Test.Color", "Red"),
+            ("Native.NativeColor", "NativeRed"),
+            ("Slots.NativeProbe", "get_Value"),
+            ("ClassDependency.Widget", "Write"),
+            ("ClassDependency.Handler", "Invoke"),
+        ] {
+            let shell = format!("{owner}::{{}}");
+            let exclusion = format!("!{owner}::{member}");
+            let baseline = filter_contract_output("shell-baseline", style, &[&shell]);
+            for filters in [
+                [shell.as_str(), exclusion.as_str()],
+                [exclusion.as_str(), shell.as_str()],
+            ] {
+                let output = filter_contract_output("shell-exclusion", style, &filters);
+                if output != baseline {
+                    failures.push(format!("{style}: {filters:?} expanded the shell"));
+                }
+            }
+        }
+    }
+    assert!(failures.is_empty(), "{}", failures.join("\n"));
+}
+
+#[test]
+fn filter_class_exclusions_preserve_other_signatures() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("class-exclusion-signatures");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap()
+        .join("libs")
+        .join("core");
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"class-exclusion-signatures\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n[lib]\npath = \"lib.rs\"\n\
+             [dependencies]\nwindows-core = {{ path = '{}' }}\n",
+            core.display()
+        ),
+    )
+    .unwrap();
+    std::fs::write(
+        scratch.join("lib.rs"),
+        "#![allow(dead_code, nonstandard_style)]\nmod bindings;\n\
+         pub fn retained(value: &bindings::IWidget_Vtbl) {\n\
+             let _ = value.Read;\n\
+             let _ = core::mem::size_of::<bindings::Token>();\n\
+         }\n",
+    )
+    .unwrap();
+    for style in ["minimal", "full", "sys"] {
+        for root in ["ClassDependency", "ClassDependency.Widget"] {
+            for exclusion in [
+                "!ClassDependency.Widget::Write",
+                "!ClassDependency.IWidget::Write",
+            ] {
+                for filters in [[root, exclusion], [exclusion, root]] {
+                    let output = filter_contract_output("class-exclusion", style, &filters);
+                    assert!(output.contains("pub Read:"), "{style}: {filters:?}");
+                    assert!(!output.contains("pub Write:"), "{style}: {filters:?}");
+                    assert!(output.contains("pub struct Token"), "{style}: {filters:?}");
+                    // Sys runtime-class output does not compile; selection assertions still apply.
+                    if style == "sys" {
+                        continue;
+                    }
+                    std::fs::write(scratch.join("bindings.rs"), output).unwrap();
+                    let output = std::process::Command::new("cargo")
+                        .args(["check", "--quiet", "--offline", "--manifest-path"])
+                        .arg(&manifest)
+                        .arg("--target-dir")
+                        .arg(scratch.join("target"))
+                        .output()
+                        .unwrap();
+                    assert!(
+                        output.status.success(),
+                        "{style}: {filters:?}: {}",
+                        String::from_utf8_lossy(&output.stderr)
+                    );
+                }
+            }
+        }
+    }
+}
+
+#[test]
 fn filter_mixed_namespaces_preserve_precise_methods() {
     for style in ["minimal", "full", "sys"] {
         let filters = [

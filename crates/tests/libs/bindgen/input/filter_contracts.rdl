@@ -125,3 +125,16 @@ mod Slots {
         fn Value(&self) -> i32;
     }
 }
+#[winrt]
+mod ClassDependency {
+    class Widget {
+        IWidget,
+    }
+    #[guid(auto)]
+    interface IWidget {
+        fn Read(&self) -> Other::Token;
+        fn Write(&self, #[in] value: i32);
+    }
+    #[guid(auto)]
+    delegate fn Handler(#[in] value: Other::Token);
+}
