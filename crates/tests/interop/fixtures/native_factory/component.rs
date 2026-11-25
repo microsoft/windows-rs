@@ -7,18 +7,18 @@ pub fn factory(name: &str) -> Option<IActivationFactory> {
 #[implement(NativeFactory::Widget, NativeFactory::IWidgetInterop)]
 #[derive(Default)]
 struct Widget {
-    handle: *mut core::ffi::c_void,
+    handle: usize,
 }
 
 impl NativeFactory::IWidget_Impl for Widget_Impl {
     fn HandleValue(&self) -> Result<u64> {
-        Ok(self.handle as usize as u64)
+        Ok(self.handle as u64)
     }
 }
 
 impl NativeFactory::IWidgetInterop_Impl for Widget_Impl {
     fn Handle(&self) -> *mut core::ffi::c_void {
-        self.handle
+        self.handle as *mut core::ffi::c_void
     }
 }
 
@@ -27,5 +27,12 @@ extern "system" fn CreateWidgetFromHandle(
     handle: *mut core::ffi::c_void,
     widget: OutRef<NativeFactory::Widget>,
 ) -> HRESULT {
-    widget.write(Some(Widget { handle }.into())).into()
+    widget
+        .write(Some(
+            Widget {
+                handle: handle as usize,
+            }
+            .into(),
+        ))
+        .into()
 }

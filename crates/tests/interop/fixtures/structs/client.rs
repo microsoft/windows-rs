@@ -37,6 +37,10 @@ pub fn test() -> Result<()> {
         Width: Some(IReference::from(5)),
     };
     widget.SetLabel(&label)?;
+    assert_eq!(
+        widget.Label()?.Width.unwrap().cast::<IUnknown>()?,
+        label.Width.as_ref().unwrap().cast::<IUnknown>()?
+    );
     assert_eq!(widget.Describe(&widget.Label()?)?, "text (3, 4) 5");
     assert_eq!(widget.Describe(&Label::default())?, " (0, 0) none");
 

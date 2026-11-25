@@ -1,5 +1,8 @@
 use super::com_results::*;
-use std::{cell::Cell, rc::Rc};
+use std::sync::{
+    Arc, Mutex,
+    atomic::{AtomicU32, Ordering},
+};
 use windows_core::{GUID, HRESULT, Interface, OutRef, implement};
 
 const E_FAIL: HRESULT = HRESULT(0x80004005_u32 as i32);
@@ -12,25 +15,26 @@ enum Mode {
 }
 
 #[implement(Tracked)]
-struct Value(Rc<Cell<u32>>);
+struct Value(Arc<AtomicU32>);
 
 impl Tracked_Impl for Value_Impl {}
 
 impl Drop for Value {
     fn drop(&mut self) {
-        self.0.set(self.0.get() + 1);
+        self.0.fetch_add(1, Ordering::Relaxed);
     }
 }
 
 #[implement(Results)]
 struct Provider {
-    mode: Rc<Cell<Mode>>,
-    drops: Rc<Cell<u32>>,
+    mode: Arc<Mutex<Mode>>,
+    drops: Arc<AtomicU32>,
 }
 
 impl Provider {
     fn value(&self) -> windows_core::Result<Option<Tracked>> {
-        match self.mode.get() {
+        let mode = *self.mode.lock().unwrap();
+        match mode {
             Mode::Value => Ok(Some(Value(self.drops.clone()).into())),
             Mode::Null => Ok(None),
             Mode::Failure => Err(E_FAIL.into()),
@@ -112,7 +116,8 @@ impl Results_Impl for Provider_Impl {
     }
 
     fn Data(&self) -> windows_core::Result<*mut u8> {
-        match self.mode.get() {
+        let mode = *self.mode.lock().unwrap();
+        match mode {
             Mode::Failure => Err(E_FAIL.into()),
             _ => Ok(core::ptr::null_mut()),
         }
@@ -128,7 +133,7 @@ impl Results_Impl for Provider_Impl {
     }
 }
 
-fn provider(mode: &Rc<Cell<Mode>>, drops: &Rc<Cell<u32>>) -> Results {
+fn provider(mode: &Arc<Mutex<Mode>>, drops: &Arc<AtomicU32>) -> Results {
     Provider {
         mode: mode.clone(),
         drops: drops.clone(),
@@ -138,8 +143,8 @@ fn provider(mode: &Rc<Cell<Mode>>, drops: &Rc<Cell<u32>>) -> Results {
 
 #[test]
 fn native_results_preserve_status_and_explicit_outputs() {
-    let mode = Rc::new(Cell::new(Mode::Value));
-    let drops = Rc::new(Cell::new(0));
+    let mode = Arc::new(Mutex::new(Mode::Value));
+    let drops = Arc::new(AtomicU32::new(0));
     let object = provider(&mode, &drops);
     unsafe {
         for (index, status) in [
@@ -159,9 +164,9 @@ fn native_results_preserve_status_and_explicit_outputs() {
             assert_eq!(object.ExplicitObject(status, &mut value), status);
             assert!(value.is_some());
             drop(value);
-            assert_eq!(drops.get(), index as u32 + 1);
+            assert_eq!(drops.load(Ordering::Relaxed), index as u32 + 1);
         }
-        mode.set(Mode::Null);
+        *mode.lock().unwrap() = Mode::Null;
         let mut value = None;
         assert_eq!(object.ExplicitObject(HRESULT(1), &mut value), HRESULT(1));
         assert!(value.is_none());
@@ -170,33 +175,33 @@ fn native_results_preserve_status_and_explicit_outputs() {
 
 #[test]
 fn results_transfer_owned_references() {
-    let mode = Rc::new(Cell::new(Mode::Value));
-    let drops = Rc::new(Cell::new(0));
+    let mode = Arc::new(Mutex::new(Mode::Value));
+    let drops = Arc::new(AtomicU32::new(0));
     let result = provider(&mode, &drops);
     unsafe {
         drop(result.Object().unwrap());
-        assert_eq!(drops.get(), 1);
+        assert_eq!(drops.load(Ordering::Relaxed), 1);
         drop(result.Required().unwrap());
-        assert_eq!(drops.get(), 2);
+        assert_eq!(drops.load(Ordering::Relaxed), 2);
         drop(result.ObjectVoid().unwrap());
-        assert_eq!(drops.get(), 3);
+        assert_eq!(drops.load(Ordering::Relaxed), 3);
         drop(result.Query::<Tracked>().unwrap());
-        assert_eq!(drops.get(), 4);
+        assert_eq!(drops.load(Ordering::Relaxed), 4);
         let mut optional = None;
         result.OptionalStorage::<Tracked>(&mut optional).unwrap();
         drop(optional.unwrap());
-        assert_eq!(drops.get(), 5);
+        assert_eq!(drops.load(Ordering::Relaxed), 5);
         drop(result.Reserved(None).unwrap());
-        assert_eq!(drops.get(), 6);
+        assert_eq!(drops.load(Ordering::Relaxed), 6);
         drop(result.TypedefSlot().unwrap());
-        assert_eq!(drops.get(), 7);
+        assert_eq!(drops.load(Ordering::Relaxed), 7);
     }
 }
 
 #[test]
 fn results_handle_null_and_failed_references() {
-    let mode = Rc::new(Cell::new(Mode::Null));
-    let drops = Rc::new(Cell::new(0));
+    let mode = Arc::new(Mutex::new(Mode::Null));
+    let drops = Arc::new(AtomicU32::new(0));
     let result = provider(&mode, &drops);
     unsafe {
         assert_eq!(result.Object().unwrap_err().code(), HRESULT(0));
@@ -210,9 +215,9 @@ fn results_handle_null_and_failed_references() {
             .OptionalStorage::<Tracked>(core::ptr::null_mut())
             .unwrap();
         assert!(result.Data().unwrap().is_null());
-        assert_eq!(drops.get(), 0);
+        assert_eq!(drops.load(Ordering::Relaxed), 0);
 
-        mode.set(Mode::Failure);
+        *mode.lock().unwrap() = Mode::Failure;
         assert_eq!(result.Object().unwrap_err().code(), E_FAIL);
         assert_eq!(result.Query::<Tracked>().unwrap_err().code(), E_FAIL);
     }
@@ -220,7 +225,10 @@ fn results_handle_null_and_failed_references() {
 
 #[test]
 fn producer_failure_clears_result_slots_without_metadata() {
-    let result = provider(&Rc::new(Cell::new(Mode::Failure)), &Rc::new(Cell::new(0)));
+    let result = provider(
+        &Arc::new(Mutex::new(Mode::Failure)),
+        &Arc::new(AtomicU32::new(0)),
+    );
     let vtable = result.vtable();
     for method in [vtable.Object, vtable.Required] {
         let sentinel = core::ptr::without_provenance_mut(1);
@@ -308,8 +316,8 @@ fn winrt_failure_clears_results_but_preserves_partial_outputs() {
 
 #[test]
 fn inout_query_keeps_incoming_storage() {
-    let drops = Rc::new(Cell::new(0));
-    let result = provider(&Rc::new(Cell::new(Mode::Value)), &drops);
+    let drops = Arc::new(AtomicU32::new(0));
+    let result = provider(&Arc::new(Mutex::new(Mode::Value)), &drops);
     let value: Tracked = Value(drops.clone()).into();
     let mut raw = value.as_raw();
     assert_eq!(
@@ -318,7 +326,7 @@ fn inout_query_keeps_incoming_storage() {
     );
     assert_eq!(raw, value.as_raw());
     drop(value);
-    assert_eq!(drops.get(), 1);
+    assert_eq!(drops.load(Ordering::Relaxed), 1);
 }
 
 #[test]

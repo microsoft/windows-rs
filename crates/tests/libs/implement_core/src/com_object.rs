@@ -3,7 +3,7 @@
 use std::borrow::Borrow;
 use std::hash::{Hash, Hasher};
 use std::sync::Arc;
-use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
+use std::sync::atomic::{AtomicBool, AtomicU32, Ordering::SeqCst};
 use windows_core::{
     ComObject, IUnknown, IUnknownImpl, Interface, InterfaceRef, implement, interface,
 };
@@ -506,15 +506,14 @@ fn iunknown_identity() {
     );
 }
 
-// Compilation verifies that `ComObject` accepts a non-`Send` implementation.
 #[implement(IBar)]
-struct UnsendableThing {
-    cell: core::cell::Cell<u32>,
+struct MutableThing {
+    value: AtomicU32,
 }
 
-impl IBar_Impl for UnsendableThing_Impl {
+impl IBar_Impl for MutableThing_Impl {
     unsafe fn say_hello(&self) {
-        println!("{}", self.cell.get());
+        println!("{}", self.value.load(SeqCst));
     }
 
     unsafe fn common(&self) -> u64 {
@@ -522,8 +521,8 @@ impl IBar_Impl for UnsendableThing_Impl {
     }
 }
 
-static_assertions::assert_not_impl_all!(UnsendableThing: Send, Sync);
-static_assertions::assert_not_impl_all!(ComObject<UnsendableThing>: Send, Sync);
+static_assertions::assert_impl_all!(MutableThing: Send, Sync);
+static_assertions::assert_impl_all!(ComObject<MutableThing>: Send, Sync);
 
 #[implement(IBar)]
 struct SendableThing {

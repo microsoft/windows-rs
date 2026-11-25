@@ -1,6 +1,6 @@
 use super::*;
 use Noexcept::*;
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 
 pub fn test() -> Result<()> {
     assert_eq!(StaticValue::Number(), 0);
@@ -52,7 +52,7 @@ pub fn test() -> Result<()> {
 
 #[implement(IValue)]
 #[derive(Default)]
-struct Value(Mutex<(i32, HSTRING, Option<IValue>, i32)>);
+struct Value(Mutex<(i32, HSTRING, Option<Arc<AgileReference<IValue>>>, i32)>);
 
 impl IValue_Impl for Value_Impl {
     fn Number(&self) -> i32 {
@@ -72,11 +72,16 @@ impl IValue_Impl for Value_Impl {
     }
 
     fn Next(&self) -> Option<IValue> {
-        self.0.lock().unwrap().2.clone()
+        let value = self.0.lock().unwrap().2.clone();
+        value.map(|value| value.resolve().unwrap())
     }
 
     fn SetNext(&self, value: Ref<IValue>) {
-        self.0.lock().unwrap().2 = value.cloned();
+        let value = value
+            .as_ref()
+            .map(|value| Arc::new(AgileReference::new(value).unwrap()));
+        let retired = std::mem::replace(&mut self.0.lock().unwrap().2, value);
+        drop(retired);
     }
 
     fn Limit(&self) -> i32 {
@@ -93,6 +98,7 @@ impl IValue_Impl for Value_Impl {
     }
 
     fn Clear(&self) {
-        *self.0.lock().unwrap() = Default::default();
+        let retired = std::mem::take(&mut *self.0.lock().unwrap());
+        drop(retired);
     }
 }

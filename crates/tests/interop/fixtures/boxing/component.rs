@@ -1,6 +1,6 @@
 use super::*;
 use Boxing::*;
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 use windows_reference::IReference;
 
 pub fn factory(name: &str) -> Option<IActivationFactory> {
@@ -9,7 +9,7 @@ pub fn factory(name: &str) -> Option<IActivationFactory> {
 
 #[implement(Boxing::Widget)]
 #[derive(Default)]
-struct Widget(Mutex<Option<IReference<i32>>>);
+struct Widget(Mutex<Option<Arc<AgileReference<IReference<i32>>>>>);
 
 impl IWidget_Impl for Widget_Impl {
     fn Describe(&self, value: Ref<IInspectable>) -> Result<HSTRING> {
@@ -34,11 +34,18 @@ impl IWidget_Impl for Widget_Impl {
     }
 
     fn Optional(&self) -> Result<IReference<i32>> {
-        self.0.lock().unwrap().clone().ok_or_else(Error::empty)
+        let value = self.0.lock().unwrap().clone().ok_or_else(Error::empty)?;
+        value.resolve()
     }
 
     fn SetOptional(&self, value: Ref<IReference<i32>>) -> Result<()> {
-        *self.0.lock().unwrap() = value.cloned();
+        let value = value
+            .as_ref()
+            .map(AgileReference::new)
+            .transpose()?
+            .map(Arc::new);
+        let retired = std::mem::replace(&mut *self.0.lock().unwrap(), value);
+        drop(retired);
         Ok(())
     }
 }

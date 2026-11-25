@@ -5,8 +5,17 @@ use std::sync::{
 };
 use windows_core::{Array, InRef, Interface, OutParam, OutRef, Param, ParamValue, RuntimeType};
 
-#[windows_core::implement(OwnedResult, GenericResult<OwnedValue>, NativeResult)]
-struct ResultProducer(OwnedValue);
+#[windows_core::implement(OwnedResult, GenericResult<OwnedValue>, GenericResult<Tracked>, NativeResult)]
+struct ResultProducer(TrackedOwner);
+
+impl ResultProducer {
+    fn value(&self) -> OwnedValue {
+        OwnedValue {
+            object: Some(self.0.0.clone()),
+            ..owned_result()
+        }
+    }
+}
 
 fn owned_result() -> OwnedValue {
     OwnedValue {
@@ -18,11 +27,11 @@ fn owned_result() -> OwnedValue {
 
 impl OwnedResult_Impl for ResultProducer_Impl {
     fn Get(&self) -> windows_core::Result<OwnedValue> {
-        Ok(self.0.clone())
+        Ok(self.value())
     }
 
     fn Infallible(&self) -> OwnedValue {
-        self.0.clone()
+        self.value()
     }
 
     fn GetMany(&self) -> windows_core::Result<Array<OwnedValue>> {
@@ -30,32 +39,42 @@ impl OwnedResult_Impl for ResultProducer_Impl {
     }
 
     fn InfallibleMany(&self) -> Array<OwnedValue> {
-        Array::from_slice(&[self.0.clone(), self.0.clone()])
+        Array::from_slice(&[self.value(), self.value()])
     }
 }
 
 impl GenericResult_Impl<OwnedValue> for ResultProducer_Impl {
     fn Get(&self) -> windows_core::Result<OwnedValue> {
-        Ok(self.0.clone())
+        Ok(self.value())
     }
 
     fn Infallible(&self) -> OwnedValue {
-        self.0.clone()
+        self.value()
+    }
+}
+
+impl GenericResult_Impl<Tracked> for ResultProducer_Impl {
+    fn Get(&self) -> windows_core::Result<Tracked> {
+        Ok(self.0.0.clone())
+    }
+
+    fn Infallible(&self) -> Tracked {
+        self.0.0.clone()
     }
 }
 
 impl NativeResult_Impl for ResultProducer_Impl {
     fn Get(&self) -> windows_core::Result<OwnedValue> {
-        Ok(self.0.clone())
+        Ok(self.value())
     }
 
     fn GetArray(&self) -> windows_core::Result<[OwnedValue; 2]> {
-        Ok(core::array::from_fn(|_| self.0.clone()))
+        Ok(core::array::from_fn(|_| self.value()))
     }
 
     fn GetNestedArray(&self) -> windows_core::Result<[[OwnedValue; 2]; 2]> {
         Ok(core::array::from_fn(|_| {
-            core::array::from_fn(|_| self.0.clone())
+            core::array::from_fn(|_| self.value())
         }))
     }
 }
@@ -63,10 +82,7 @@ impl NativeResult_Impl for ResultProducer_Impl {
 #[test]
 fn owning_return_abi() {
     let drops = Arc::new(AtomicUsize::new(0));
-    let value = OwnedValue {
-        object: Some(tracked(&drops)),
-        ..owned_result()
-    };
+    let value = TrackedOwner::new(&drops);
     let concrete: OwnedResult = ResultProducer(value.clone()).into();
     let generic: GenericResult<OwnedValue> = ResultProducer(value.clone()).into();
     let native: NativeResult = ResultProducer(value).into();
@@ -100,10 +116,7 @@ fn owning_return_abi() {
 #[test]
 fn owning_array_return_lifetimes() {
     let drops = Arc::new(AtomicUsize::new(0));
-    let value = OwnedValue {
-        object: Some(tracked(&drops)),
-        ..owned_result()
-    };
+    let value = TrackedOwner::new(&drops);
     let concrete: OwnedResult = ResultProducer(value.clone()).into();
     let native: NativeResult = ResultProducer(value).into();
     let array = unsafe { native.GetArray().unwrap() };
@@ -268,6 +281,20 @@ fn failed_owning_return_is_not_read() {
 
 struct Lifetime(Arc<AtomicUsize>);
 
+#[derive(Clone)]
+struct TrackedOwner(Tracked);
+
+// SAFETY: the only constructor creates a Rust delegate with a Send + Sync capture. No foreign
+// delegate can enter this owner; cloning preserves the same thread-safe implementation.
+unsafe impl Send for TrackedOwner {}
+unsafe impl Sync for TrackedOwner {}
+
+impl TrackedOwner {
+    fn new(drops: &Arc<AtomicUsize>) -> Self {
+        Self(tracked(drops))
+    }
+}
+
 impl Drop for Lifetime {
     fn drop(&mut self) {
         self.0.fetch_add(1, Ordering::Relaxed);
@@ -393,9 +420,9 @@ fn out_ref_writes_uninitialized_storage() {
 }
 
 #[windows_core::implement(GenericResult<T>)]
-struct GenericProducer<T: RuntimeType + 'static>(T);
+struct GenericProducer<T: RuntimeType + Send + Sync + 'static>(T);
 
-impl<T: RuntimeType + 'static> GenericResult_Impl<T> for GenericProducer_Impl<T> {
+impl<T: RuntimeType + Send + Sync + 'static> GenericResult_Impl<T> for GenericProducer_Impl<T> {
     fn Get(&self) -> windows_core::Result<T> {
         Ok(self.0.clone())
     }
@@ -416,7 +443,7 @@ fn generic_return_representations() {
     assert!(text.Infallible().is_empty());
 
     let drops = Arc::new(AtomicUsize::new(0));
-    let producer: GenericResult<Tracked> = GenericProducer(tracked(&drops)).into();
+    let producer: GenericResult<Tracked> = ResultProducer(TrackedOwner::new(&drops)).into();
     let result = producer.Get().unwrap();
     let infallible = producer.Infallible();
     drop(producer);
@@ -439,7 +466,7 @@ fn generic_return_rejects_null_interface() {
         unsafe { result.write(core::ptr::null_mut()) };
         windows_core::HRESULT(0)
     }
-    let mut vtable = GenericResult_Vtbl::<Tracked>::new::<GenericProducer_Impl<Tracked>, 0>();
+    let mut vtable = GenericResult_Vtbl::<Tracked>::new::<ResultProducer_Impl, 0>();
     vtable.Get = null;
     vtable.Infallible = null;
     let vtable = &vtable;

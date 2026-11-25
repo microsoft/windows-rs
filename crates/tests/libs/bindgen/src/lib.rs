@@ -96,15 +96,21 @@ fn enum_constants_use_explicit_values() {
 #[test]
 fn residual_contracts_borrow_objects() {
     use buffer_contracts::*;
-    use std::{cell::Cell, rc::Rc};
+    use std::{
+        cell::Cell,
+        sync::{
+            Arc,
+            atomic::{AtomicBool, Ordering},
+        },
+    };
     use windows_core::{Interface, Ref, implement};
 
     #[implement(Tracked)]
-    struct Object(Rc<Cell<bool>>);
+    struct Object(Arc<AtomicBool>);
     impl Tracked_Impl for Object_Impl {}
     impl Drop for Object {
         fn drop(&mut self) {
-            self.0.set(true);
+            self.0.store(true, Ordering::Relaxed);
         }
     }
 
@@ -133,7 +139,7 @@ fn residual_contracts_borrow_objects() {
         }
     }
 
-    let dropped = Rc::new(Cell::new(false));
+    let dropped = Arc::new(AtomicBool::new(false));
     let object: Tracked = Object(dropped.clone()).into();
     let consumer = Consumer {
         calls: Cell::new(0),
@@ -148,9 +154,9 @@ fn residual_contracts_borrow_objects() {
         contracts.Unspecified(None::<&Tracked>);
     }
     assert_eq!(consumer.calls.get(), 5);
-    assert!(!dropped.get());
+    assert!(!dropped.load(Ordering::Relaxed));
     drop(object);
-    assert!(dropped.get());
+    assert!(dropped.load(Ordering::Relaxed));
 }
 
 #[test]
