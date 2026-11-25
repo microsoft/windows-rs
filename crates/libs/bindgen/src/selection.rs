@@ -289,7 +289,8 @@ impl Selection {
             .collect();
         for method in routed {
             let owner = method_owner(method);
-            if (references.contains(owner).is_some() && !selection.roots.contains(&owner))
+            if selection.excludes_type_name(owner)
+                || (references.contains(owner).is_some() && !selection.roots.contains(&owner))
                 || requests
                     .get(&owner)
                     .is_some_and(|request| request.drop.contains(&Member::Method(method)))

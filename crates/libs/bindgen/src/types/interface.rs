@@ -147,7 +147,7 @@ pub struct Interface {
 
 impl PartialEq for Interface {
     fn eq(&self, other: &Self) -> bool {
-        self.def == other.def
+        self.def == other.def && self.generics == other.generics
     }
 }
 
@@ -156,6 +156,7 @@ impl Eq for Interface {}
 impl std::hash::Hash for Interface {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.def.hash(state);
+        self.generics.hash(state);
     }
 }
 
