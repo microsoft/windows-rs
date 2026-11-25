@@ -205,7 +205,7 @@ mod tests {
             values: VectorStorage::new(Vec::new()),
         });
         check_release(
-            vector.to_interface(),
+            vector.clone(),
             move || vector.values.unlocked(),
             mutation,
             false,

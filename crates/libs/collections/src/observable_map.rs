@@ -11,6 +11,10 @@ where
     handlers: Event<MapChangedEventHandler<K, S::Value>>,
 }
 
+// SAFETY: keys and values follow the factory's threading contract; the map and events synchronize.
+unsafe impl<K: RuntimeType, S: Storage> Send for StockObservableMap<K, S> where K::Default: Ord {}
+unsafe impl<K: RuntimeType, S: Storage> Sync for StockObservableMap<K, S> where K::Default: Ord {}
+
 implement_decl! {
     impl<K, S> StockObservableMap as StockObservableMap_Impl: [
         IObservableMap<K, S::Value>,
@@ -148,6 +152,10 @@ struct StockMapChangedEventArgs<K: RuntimeType + 'static> {
     key: Option<K::Default>,
 }
 
+// SAFETY: immutable event keys inherit the creating collection's threading contract.
+unsafe impl<K: RuntimeType> Send for StockMapChangedEventArgs<K> {}
+unsafe impl<K: RuntimeType> Sync for StockMapChangedEventArgs<K> {}
+
 implement_decl! {
     impl<K> StockMapChangedEventArgs as StockMapChangedEventArgs_Impl: [IMapChangedEventArgs<K>]
     where K: RuntimeType + 'static
@@ -240,7 +248,7 @@ mod tests {
             handlers: Event::new(),
         });
         check_release(
-            map.to_interface(),
+            map.clone(),
             move || map.map.try_write().is_ok(),
             mutation,
             true,
@@ -253,7 +261,7 @@ mod tests {
             handlers: Event::new(),
         });
         check_key_release(
-            map.to_interface(),
+            map.clone(),
             move || map.map.try_write().is_ok(),
             mutation,
             true,

@@ -1,10 +1,8 @@
 use super::*;
-use std::cell::RefCell;
-use std::rc::Rc;
 use std::sync::{Arc, Mutex};
 use windows_core::*;
 
-struct ReleaseProbe(Box<dyn Fn()>);
+struct ReleaseProbe(Box<dyn Fn() + Send + Sync>);
 
 implement_decl! {
     impl ReleaseProbe as ReleaseProbe_Impl: [IKeyValuePair<u32, u32>]
@@ -34,14 +32,18 @@ pub(super) enum Mutation {
     ReplaceAll,
 }
 
-pub(super) fn check_release(
-    vector: IVector<IInspectable>,
-    unlocked: impl Fn() -> bool + 'static,
+pub(super) fn check_release<T>(
+    owner: ComObject<T>,
+    unlocked: impl Fn() -> bool + Send + Sync + 'static,
     mutation: Mutation,
     observable: bool,
-) {
-    let observations = Rc::new(RefCell::new(Vec::new()));
-    let unlocked = Rc::new(unlocked);
+) where
+    T: ComObjectInner + Send + Sync + 'static,
+    T::Outer: ComObjectInterface<IVector<IInspectable>>,
+{
+    let vector: IVector<IInspectable> = owner.to_interface();
+    let observations = Arc::new(Mutex::new(Vec::new()));
+    let unlocked = Arc::new(unlocked);
     let count = if matches!(mutation, Mutation::Clear | Mutation::ReplaceAll) {
         2
     } else {
@@ -49,13 +51,14 @@ pub(super) fn check_release(
     };
     for _ in 0..count {
         let vector = vector.clone();
-        let for_drop = vector.clone();
+        let for_drop = owner.clone();
         let observations = observations.clone();
         let unlocked = unlocked.clone();
         let value: IInspectable = ReleaseProbe(Box::new(move || {
             // Check the actual lock before COM reentry, without unwinding through Release.
             let result = unlocked().then(|| {
                 let result = (|| -> Result<_> {
+                    let for_drop: IVector<IInspectable> = for_drop.to_interface();
                     let size = for_drop.Size()?;
                     let mut index = 0;
                     let found = for_drop.IndexOf(None, &mut index)?;
@@ -64,7 +67,7 @@ pub(super) fn check_release(
                 })();
                 result.map_err(|error| error.code())
             });
-            observations.borrow_mut().push(result);
+            observations.lock().unwrap().push(result);
         }))
         .into();
         vector.Append(&value).unwrap();
@@ -133,7 +136,7 @@ pub(super) fn check_release(
             )
         }
     };
-    assert_eq!(*observations.borrow(), expected);
+    assert_eq!(*observations.lock().unwrap(), expected);
     let expected_len = match mutation {
         Mutation::Set | Mutation::Clear => 2,
         Mutation::Remove | Mutation::RemoveLast => 1,

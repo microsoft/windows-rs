@@ -10,6 +10,10 @@ where
     map: std::sync::RwLock<BTreeMap<K::Default, S::Stored>>,
 }
 
+// SAFETY: retained keys and values follow the factory's threading contract; access is locked.
+unsafe impl<K: RuntimeType, S: Storage> Send for StockMap<K, S> where K::Default: Ord {}
+unsafe impl<K: RuntimeType, S: Storage> Sync for StockMap<K, S> where K::Default: Ord {}
+
 implement_decl! {
     impl<K, S> StockMap as StockMap_Impl: [
         IMap<K, S::Value>,
@@ -206,7 +210,7 @@ mod tests {
             map: Default::default(),
         });
         check_release(
-            map.to_interface(),
+            map.clone(),
             move || map.map.try_write().is_ok(),
             mutation,
             false,
@@ -218,7 +222,7 @@ mod tests {
             map: Default::default(),
         });
         check_key_release(
-            map.to_interface(),
+            map.clone(),
             move || map.map.try_write().is_ok(),
             mutation,
             false,

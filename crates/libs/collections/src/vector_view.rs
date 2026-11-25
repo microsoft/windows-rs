@@ -7,6 +7,10 @@ pub(crate) struct StockVectorView<S: Compare> {
     pub(crate) values: Vec<S::Stored>,
 }
 
+// SAFETY: immutable values retain the factory's threading contract, including in snapshots.
+unsafe impl<S: Compare> Send for StockVectorView<S> {}
+unsafe impl<S: Compare> Sync for StockVectorView<S> {}
+
 implement_decl! {
     impl<S> StockVectorView as pub(crate) StockVectorView_Impl: [
         IVectorView<S::Value>,

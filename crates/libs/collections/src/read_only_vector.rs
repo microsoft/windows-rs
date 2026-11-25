@@ -41,6 +41,10 @@ struct ReadOnlyVector<S: Storage<Value = IInspectable>> {
     values: Vec<S::Stored>,
 }
 
+// SAFETY: immutable values follow the factory's threading contract described in storage.
+unsafe impl<S: Storage<Value = IInspectable>> Send for ReadOnlyVector<S> {}
+unsafe impl<S: Storage<Value = IInspectable>> Sync for ReadOnlyVector<S> {}
+
 implement_decl! {
     impl<S> ReadOnlyVector as ReadOnlyVector_Impl: [
         IVector<IInspectable>,
