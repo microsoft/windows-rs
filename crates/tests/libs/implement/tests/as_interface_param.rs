@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::core::*;
+use windows_core::*;
 use windows_future::*;
 
 #[implement(IAsyncAction)]

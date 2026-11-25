@@ -2,7 +2,7 @@
 
 use std::cell::Cell;
 use std::ffi::c_void;
-use windows::core::*;
+use windows_core::*;
 
 #[interface("ce1a8805-5f4f-41db-8257-a9420586a5c2")]
 unsafe trait IPacked: IUnknown {

@@ -1,7 +1,8 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::{Win32::*, core::*};
+use test_implement::*;
+use windows_core::*;
 
 #[derive(Default)]
 struct TestData {

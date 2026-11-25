@@ -1,39 +1,39 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-#[windows::core::interface("BD1AE5E0-A6AE-11CE-BD37-504200C10000")]
-unsafe trait ITestPersistMemory: windows::Win32::IPersist {
-    unsafe fn IsDirty(&self) -> windows::core::HRESULT;
+#[windows_core::interface("BD1AE5E0-A6AE-11CE-BD37-504200C10000")]
+unsafe trait ITestPersistMemory: test_interface::IPersist {
+    unsafe fn IsDirty(&self) -> windows_core::HRESULT;
 }
 
-#[windows::core::implement(ITestPersistMemory, windows::Win32::IPersist)]
+#[windows_core::implement(ITestPersistMemory, test_interface::IPersist)]
 struct Test;
 
-impl windows::Win32::IPersist_Impl for Test_Impl {
-    fn GetClassID(&self, class_id: *mut windows::core::GUID) -> windows::core::HRESULT {
+impl test_interface::IPersist_Impl for Test_Impl {
+    fn GetClassID(&self, class_id: *mut windows_core::GUID) -> windows_core::HRESULT {
         unsafe {
-            *class_id = windows::core::GUID::from_u128(0xCEE1D356_0860_4262_90D4_C77423F0E352);
+            *class_id = windows_core::GUID::from_u128(0xCEE1D356_0860_4262_90D4_C77423F0E352);
         };
-        windows::Win32::S_OK
+        test_interface::S_OK
     }
 }
 
 impl ITestPersistMemory_Impl for Test_Impl {
-    unsafe fn IsDirty(&self) -> windows::core::HRESULT {
-        windows::Win32::S_FALSE
+    unsafe fn IsDirty(&self) -> windows_core::HRESULT {
+        test_interface::S_FALSE
     }
 }
 
 #[test]
-fn test() -> windows::core::Result<()> {
+fn test() -> windows_core::Result<()> {
     unsafe {
-        let p: windows::Win32::IPersist = Test.into();
-        let mut class_id = windows::core::GUID::default();
+        let p: test_interface::IPersist = Test.into();
+        let mut class_id = windows_core::GUID::default();
         p.GetClassID(&mut class_id).ok()?;
         assert_eq!(class_id, "CEE1D356-0860-4262-90D4-C77423F0E352".try_into()?);
 
         let m: ITestPersistMemory = windows_core::Interface::cast(&p)?;
-        assert_eq!(m.IsDirty(), windows::Win32::S_FALSE);
+        assert_eq!(m.IsDirty(), test_interface::S_FALSE);
 
         Ok(())
     }

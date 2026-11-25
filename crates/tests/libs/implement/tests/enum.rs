@@ -3,7 +3,8 @@ use std::sync::{
     Arc,
     atomic::{AtomicUsize, Ordering},
 };
-use windows::{Foundation::*, core::*};
+use test_implement::*;
+use windows_core::*;
 
 #[implement(IStringable)]
 #[derive(Default)]

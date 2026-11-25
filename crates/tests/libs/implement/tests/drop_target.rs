@@ -1,5 +1,6 @@
 #![cfg(windows)]
-use windows::{Win32::*, core::*};
+use test_implement::*;
+use windows_core::*;
 
 #[implement(IDataObject)]
 struct DataObject();

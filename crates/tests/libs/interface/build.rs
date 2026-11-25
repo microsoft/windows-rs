@@ -1,0 +1,36 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_bindgen::builder()
+        .full()
+        .filters([
+            "COINIT_MULTITHREADED",
+            "CoInitializeEx",
+            "CreateUri",
+            "E_INVALIDARG",
+            "E_OUTOFMEMORY",
+            "E_POINTER",
+            "ID3D10EffectBlendVariable",
+            "ID3D10EffectVariable",
+            "ID3D12FunctionParameterReflection",
+            "IPersist",
+            "IPersistMemory::{GetSizeMax,IsDirty,Load,Save}",
+            "IUri::{GetPropertyBSTR,GetPropertyDWORD}",
+            "IXAudio2::CreateSourceVoice",
+            "IXAudio2VoiceCallback",
+            "NTDDI_VERSION",
+            "S_FALSE",
+            "S_OK",
+            "Uri_PROPERTY_DOMAIN",
+            "Uri_PROPERTY_PORT",
+            "XAUDIO2_DEFAULT_PROCESSOR",
+            "XAudio2CreateWithVersionInfo",
+        ])
+        .implements([
+            "Windows.Win32.ID3D10EffectBlendVariable",
+            "Windows.Win32.ID3D10EffectVariable",
+            "Windows.Win32.ID3D12FunctionParameterReflection",
+            "Windows.Win32.IPersist",
+            "Windows.Win32.IXAudio2VoiceCallback",
+        ])
+        .write();
+}

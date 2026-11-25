@@ -2,8 +2,8 @@
 // the binary so that the process-wide counts are not shared with concurrent tests.
 #![cfg(all(windows, windows_cast_diagnostics))]
 
-use windows::Foundation::*;
-use windows::core::*;
+use test_core::*;
+use windows_core::*;
 
 #[implement(IStringable)]
 struct Test;

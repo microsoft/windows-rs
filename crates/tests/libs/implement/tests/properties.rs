@@ -1,6 +1,7 @@
 #![cfg(windows)]
 use std::mem::ManuallyDrop;
-use windows::{Win32::*, core::*};
+use test_implement::*;
+use windows_core::*;
 
 #[implement(IInitializeWithStream, IPropertyStore, IPropertyStoreCapabilities)]
 struct Object(std::sync::RwLock<PROPVARIANT>);

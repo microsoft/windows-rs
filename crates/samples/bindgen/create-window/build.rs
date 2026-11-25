@@ -1,0 +1,26 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_bindgen::builder()
+        .sys()
+        .filters([
+            "GetModuleHandleA",
+            "WNDCLASSA",
+            "WM_PAINT",
+            "WM_DESTROY",
+            "ValidateRect",
+            "PostQuitMessage",
+            "DefWindowProcA",
+            "LoadCursorW",
+            "IDC_ARROW",
+            "CS_HREDRAW",
+            "CS_VREDRAW",
+            "RegisterClassA",
+            "CreateWindowExA",
+            "WS_OVERLAPPEDWINDOW",
+            "WS_VISIBLE",
+            "CW_USEDEFAULT",
+            "GetMessageA",
+            "DispatchMessageA",
+        ])
+        .write();
+}

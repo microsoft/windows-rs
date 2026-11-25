@@ -1,5 +1,10 @@
+#[expect(nonstandard_style, clippy::upper_case_acronyms)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
+
 fn main() {
-    use windows_sys::{Win32::GetModuleHandleA, Win32::*, core::*};
+    use bindings::*;
 
     extern "system" fn wndproc(
         window: HWND,
@@ -28,7 +33,7 @@ fn main() {
         let instance = GetModuleHandleA(std::ptr::null());
         debug_assert!(!instance.is_null());
 
-        let window_class = s!("window");
+        let window_class = c"window".as_ptr().cast();
 
         let wc = WNDCLASSA {
             hCursor: LoadCursorW(core::ptr::null_mut(), IDC_ARROW.cast()),
@@ -49,7 +54,7 @@ fn main() {
         CreateWindowExA(
             0,
             window_class,
-            s!("This is a sample window"),
+            c"This is a sample window".as_ptr().cast(),
             (WS_OVERLAPPEDWINDOW | WS_VISIBLE) as u32,
             CW_USEDEFAULT,
             CW_USEDEFAULT,

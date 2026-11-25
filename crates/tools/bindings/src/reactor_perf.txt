@@ -1,0 +1,6 @@
+--out crates/tests/libs/reactor_perf/src/bindings.rs
+--sys
+--filter
+    GetCurrentProcess
+    GetProcessMemoryInfo
+    PROCESS_MEMORY_COUNTERS_EX

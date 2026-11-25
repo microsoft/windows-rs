@@ -1,6 +1,6 @@
 #![cfg(windows)]
 use windows_services::*;
-use windows_sys::Win32::*;
+include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
 #[test]
 fn start_stop() {

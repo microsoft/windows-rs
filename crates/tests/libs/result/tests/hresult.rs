@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::Win32::{FACILITY_ITF, FACILITY_WIN32, SEVERITY_ERROR, SEVERITY_SUCCESS};
+use test_result::{FACILITY_ITF, FACILITY_WIN32, SEVERITY_ERROR, SEVERITY_SUCCESS};
 use windows_result::*;
 
 windows_link::link!("kernel32.dll" "system" fn SetLastError(code: WIN32_ERROR));

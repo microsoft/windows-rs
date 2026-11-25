@@ -1,9 +1,9 @@
 #![cfg(windows)]
 use std::sync::Arc;
 use std::sync::atomic::{AtomicU32, Ordering};
-use windows::Win32::IWeakReferenceSource;
-use windows::core::Interface;
-use windows::core::imp::WeakRefCount;
+use test_core::IWeakReferenceSource;
+use windows_core::Interface;
+use windows_core::imp::WeakRefCount;
 
 #[test]
 fn count() {

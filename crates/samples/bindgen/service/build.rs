@@ -1,0 +1,32 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_bindgen::builder()
+        .sys()
+        .filters([
+            "RegisterServiceCtrlHandlerW",
+            "SetServiceStatus",
+            "StartServiceCtrlDispatcherW",
+            "SERVICE_WIN32_OWN_PROCESS",
+            "SERVICE_STOPPED",
+            "SERVICE_ACCEPT_PAUSE_CONTINUE",
+            "SERVICE_ACCEPT_STOP",
+            "SERVICE_ACCEPT_SHUTDOWN",
+            "SERVICE_START_PENDING",
+            "SERVICE_RUNNING",
+            "SERVICE_CONTROL_CONTINUE",
+            "SERVICE_PAUSED",
+            "SERVICE_CONTINUE_PENDING",
+            "SERVICE_CONTROL_PAUSE",
+            "SERVICE_PAUSE_PENDING",
+            "SERVICE_CONTROL_SHUTDOWN",
+            "SERVICE_CONTROL_STOP",
+            "SERVICE_STOP_PENDING",
+            "CreateFileW",
+            "FILE_APPEND_DATA",
+            "OPEN_ALWAYS",
+            "FILE_ATTRIBUTE_NORMAL",
+            "WriteFile",
+            "CloseHandle",
+        ])
+        .write();
+}

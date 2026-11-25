@@ -1,7 +1,8 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::{Win32::*, core::*};
+use test_interface::*;
+use windows_core::*;
 
 // `-> Result<()>` projects as an HRESULT return.
 // This would be simpler if `HRESULT` could just implement `Try` but that is not yet stable.

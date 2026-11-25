@@ -1,6 +1,7 @@
 #![cfg(windows)]
 
-use windows::{Storage::Streams::*, System::Threading::*, core::*};
+use test_future::*;
+use windows_core::*;
 
 #[test]
 fn simple_sync() -> Result<()> {

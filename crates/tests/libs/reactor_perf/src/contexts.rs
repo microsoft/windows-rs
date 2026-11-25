@@ -1,5 +1,4 @@
 use super::*;
-use windows_sys::Win32::PROCESS_MEMORY_COUNTERS_EX;
 
 struct Pending {
     target: Option<usize>,

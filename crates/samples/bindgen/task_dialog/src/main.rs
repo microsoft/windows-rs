@@ -1,13 +1,13 @@
-fn main() {
-    use windows_sys::{Win32::*, core::*};
+#[expect(nonstandard_style, clippy::upper_case_acronyms)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
 
-    extern "system" fn callback(
-        _: HWND,
-        notification: u32,
-        _: WPARAM,
-        _: LPARAM,
-        _: isize,
-    ) -> HRESULT {
+fn main() {
+    use bindings::*;
+    use windows_strings::w;
+
+    extern "system" fn callback(_: HWND, notification: u32, _: WPARAM, _: LPARAM, _: isize) -> i32 {
         if notification == TDN_BUTTON_CLICKED as _ {
             println!("button clicked");
         }
@@ -23,12 +23,12 @@ fn main() {
 
         let buttons = [TASKDIALOG_BUTTON {
             nButtonID: 123,
-            pszButtonText: w!("Let's do it"),
+            pszButtonText: w!("Let's do it").as_ptr(),
         }];
 
-        config.pszWindowTitle = w!("Window title");
-        config.pszMainInstruction = w!("Main instruction");
-        config.pszContent = w!("Content");
+        config.pszWindowTitle = w!("Window title").as_ptr();
+        config.pszMainInstruction = w!("Main instruction").as_ptr();
+        config.pszContent = w!("Content").as_ptr();
         config.pButtons = buttons.as_ptr();
         config.cButtons = buttons.len() as _;
         config.pfCallback = Some(callback);

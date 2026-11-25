@@ -7,7 +7,7 @@ const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as _);
 #[cfg(windows)]
 #[test]
 fn native_property_set_contract() -> Result<()> {
-    use windows::Win32::*;
+    use test_collections::*;
     use windows_reference::IReference;
 
     struct Com;
@@ -20,8 +20,7 @@ fn native_property_set_contract() -> Result<()> {
     let _com = Com;
 
     let stock = IObservableMap::<HSTRING, IInspectable>::from_marshaled(BTreeMap::new())?;
-    let native = windows::Foundation::Collections::PropertySet::new()?
-        .cast::<IObservableMap<HSTRING, IInspectable>>()?;
+    let native = PropertySet::new()?.cast::<IObservableMap<HSTRING, IInspectable>>()?;
     for (is_native, map) in [(false, stock), (true, native)] {
         let events = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
         let nested = std::sync::Arc::new(std::sync::Mutex::new(None));

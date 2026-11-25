@@ -24,7 +24,7 @@ fn generic_construction() -> Result<()> {
 #[cfg(windows)]
 #[test]
 fn calendar() -> Result<()> {
-    use windows::Globalization::*;
+    use test_collections::*;
 
     let languages = IIterable::from(vec![HSTRING::from("he-IL"), HSTRING::from("ja-JP")]);
     let calendar = Calendar::CreateCalendar(
@@ -185,25 +185,25 @@ fn hstring() -> Result<()> {
 
 // `IStringable` is available only on Windows.
 #[cfg(windows)]
-#[implement(windows::Foundation::IStringable)]
+#[implement(test_collections::IStringable)]
 struct Stringable(HSTRING);
 
 #[cfg(windows)]
-impl windows::Foundation::IStringable_Impl for Stringable_Impl {
+impl test_collections::IStringable_Impl for Stringable_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         Ok(self.0.clone())
     }
 }
 
 #[cfg(windows)]
-fn stringable(value: &str) -> windows::Foundation::IStringable {
+fn stringable(value: &str) -> test_collections::IStringable {
     Stringable(value.into()).into()
 }
 
 #[cfg(windows)]
 #[test]
 fn defaulted() -> Result<()> {
-    use windows::Foundation::IStringable;
+    use test_collections::IStringable;
     let able = unsafe { IIterable::<IStringable>::from_unchecked(vec![]) };
     let iter = able.First()?;
 

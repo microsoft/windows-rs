@@ -1,0 +1,28 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_bindgen::builder()
+        .full()
+        .filters([
+            "ERROR_BAD_ARGUMENTS",
+            "ERROR_FILE_NOT_FOUND",
+            "ERROR_INVALID_DATA",
+            "ERROR_INVALID_PARAMETER",
+            "ERROR_SUCCESS",
+            "E_FAIL",
+            "E_INVALIDARG",
+            "E_NOTIMPL",
+            "FACILITY_ITF",
+            "FACILITY_WIN32",
+            "RPC_S_MAX_CALLS_TOO_SMALL",
+            "RPC_S_NOT_LISTENING",
+            "RPC_S_OK",
+            "RpcServerListen",
+            "SEVERITY_ERROR",
+            "SEVERITY_SUCCESS",
+            "STATUS_INVALID_ACL",
+            "STATUS_NOT_FOUND",
+            "STATUS_SUCCESS",
+            "S_OK",
+        ])
+        .write();
+}

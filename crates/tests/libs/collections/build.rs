@@ -1,0 +1,27 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_bindgen::builder()
+        .full()
+        .filters([
+            "Calendar::{CreateCalendar,get_Languages}",
+            "CalendarIdentifiers::get_Hebrew",
+            "ClockIdentifiers::get_TwentyFourHour",
+            "StringMap::{CreateInstance,Insert,HasKey}",
+            "PropertySet::CreateInstance",
+            "IStringable",
+            "IClosable",
+            "INoMarshal",
+            "IAgileObject::{}",
+            "IMarshal::{}",
+            "CoInitializeEx",
+            "CoUninitialize",
+            "CoDisconnectObject",
+            "COINIT_MULTITHREADED",
+            "COINIT_APARTMENTTHREADED",
+            "CreateEventW",
+            "SetEvent",
+            "CoWaitForMultipleHandles",
+            "COWAIT_DISPATCH_CALLS",
+        ])
+        .write();
+}

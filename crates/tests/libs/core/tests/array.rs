@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::core::Array;
+use windows_core::Array;
 
 #[test]
 fn empty() {

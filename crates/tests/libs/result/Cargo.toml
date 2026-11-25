@@ -8,21 +8,17 @@ publish = false
 doc = false
 doctest = false
 
-[dev-dependencies.windows]
+[dependencies.windows-core]
 workspace = true
-features = [
-    "Foundation",
-    "bcrypt",
-    "ntstatus",
-    "rpc",
-    "std",
-    "winerror",
-]
 
 [dependencies.windows-result]
 workspace = true
+features = ["std"]
 
 [dependencies.windows-link]
+workspace = true
+
+[build-dependencies.windows-bindgen]
 workspace = true
 
 [dev-dependencies]
