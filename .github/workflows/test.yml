@@ -49,6 +49,8 @@ jobs:
 
     env:
       RUSTFLAGS: -D warnings
+      # Preserve source-line backtraces without full type and variable debug information.
+      CARGO_PROFILE_DEV_DEBUG: line-tables-only
 
     steps:
       - name: Checkout
