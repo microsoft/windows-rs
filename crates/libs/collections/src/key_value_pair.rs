@@ -7,6 +7,10 @@ pub(super) struct StockKeyValuePair<K: RuntimeType + 'static, S: Storage> {
     pub(super) value: S::Stored,
 }
 
+// SAFETY: immutable pairs retain their source collection's threading contract.
+unsafe impl<K: RuntimeType, S: Storage> Send for StockKeyValuePair<K, S> {}
+unsafe impl<K: RuntimeType, S: Storage> Sync for StockKeyValuePair<K, S> {}
+
 implement_decl! {
     impl<K, S> StockKeyValuePair as pub(super) StockKeyValuePair_Impl: [
         IKeyValuePair<K, S::Value>,

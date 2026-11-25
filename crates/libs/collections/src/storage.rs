@@ -6,6 +6,10 @@ use std::sync::{
 pub(crate) use windows_core::imp::Type;
 use windows_core::*;
 
+// Collection factories establish a threading contract for retained values through static bounds,
+// marshaling, or the caller's unsafe lifetime guarantee. Direct storage keeps its original layout
+// and types, so owners assert that contract rather than requiring Stored: Send + Sync. Snapshots,
+// iterators, pairs, and event arguments inherit it; mutable owners also cover future writes.
 pub(crate) trait Storage: Sized + 'static {
     type Value: RuntimeType + 'static;
     type Stored: Clone;
@@ -350,6 +354,10 @@ pub(crate) fn iterator_many<T: Type>(
 pub(crate) struct VectorStorage<S: Storage> {
     values: RwLock<Vec<S::Stored>>,
 }
+
+// SAFETY: retained values follow the factory's threading contract; structural access is locked.
+unsafe impl<S: Storage> Send for VectorStorage<S> {}
+unsafe impl<S: Storage> Sync for VectorStorage<S> {}
 
 impl<S: Storage> VectorStorage<S> {
     #[cfg(test)]

@@ -5,7 +5,7 @@ use windows_core::*;
 
 type Value<O> = <<O as VectorOwner>::Storage as Storage>::Value;
 
-pub(crate) trait VectorOwner: ComObjectInner + 'static {
+pub(crate) trait VectorOwner: ComObjectInner + Send + Sync + 'static {
     type Storage: Storage;
 
     fn values(&self) -> &[<Self::Storage as Storage>::Stored];

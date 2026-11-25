@@ -7,6 +7,10 @@ struct StockIterable<S: Storage> {
     values: Vec<S::Stored>,
 }
 
+// SAFETY: immutable values follow the factory's threading contract described in storage.
+unsafe impl<S: Storage> Send for StockIterable<S> {}
+unsafe impl<S: Storage> Sync for StockIterable<S> {}
+
 implement_decl! {
     impl<S> StockIterable as StockIterable_Impl: [IIterable<S::Value>]
     where S: Storage

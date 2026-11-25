@@ -1,12 +1,10 @@
 use super::*;
-use std::cell::RefCell;
-use std::rc::Rc;
 use std::sync::{Arc, Mutex};
 use windows_core::*;
 
 struct ReleaseProbe {
     key: u32,
-    release: Box<dyn Fn()>,
+    release: Box<dyn Fn() + Send + Sync>,
 }
 
 implement_decl! {
@@ -45,7 +43,7 @@ impl RuntimeType for OrderedKey {
 }
 
 impl OrderedKey {
-    fn new(key: u32, release: impl Fn() + 'static) -> Self {
+    fn new(key: u32, release: impl Fn() + Send + Sync + 'static) -> Self {
         Self(
             ReleaseProbe {
                 key,
@@ -83,21 +81,25 @@ pub(super) enum Mutation {
     Clear,
 }
 
-pub(super) fn check_release(
-    map: IMap<u32, IInspectable>,
-    unlocked: impl Fn() -> bool + 'static,
+pub(super) fn check_release<T>(
+    owner: ComObject<T>,
+    unlocked: impl Fn() -> bool + Send + Sync + 'static,
     mutation: Mutation,
     observable: bool,
-) {
-    let observations = Rc::new(RefCell::new(Vec::new()));
-    let unlocked = Rc::new(unlocked);
+) where
+    T: ComObjectInner + Send + Sync + 'static,
+    T::Outer: ComObjectInterface<IMap<u32, IInspectable>>,
+{
+    let map: IMap<u32, IInspectable> = owner.to_interface();
+    let observations = Arc::new(Mutex::new(Vec::new()));
+    let unlocked = Arc::new(unlocked);
     let count = if matches!(mutation, Mutation::Clear) {
         2
     } else {
         1
     };
     for key in 7..7 + count {
-        let map_for_drop = map.clone();
+        let map_for_drop = owner.clone();
         let observations = observations.clone();
         let unlocked = unlocked.clone();
         let value: IInspectable = ReleaseProbe {
@@ -106,6 +108,7 @@ pub(super) fn check_release(
                 // Detect a held lock without hanging the test or unwinding through COM Release.
                 let result = unlocked().then(|| {
                     let result = (|| -> Result<_> {
+                        let map_for_drop: IMap<u32, IInspectable> = map_for_drop.to_interface();
                         let size = map_for_drop.Size()?;
                         let present = map_for_drop.HasKey(key)?;
                         let replaced = map_for_drop.Insert(99, None)?;
@@ -113,7 +116,7 @@ pub(super) fn check_release(
                     })();
                     result.map_err(|error| error.code())
                 });
-                observations.borrow_mut().push(result);
+                observations.lock().unwrap().push(result);
             }),
         }
         .into();
@@ -148,7 +151,7 @@ pub(super) fn check_release(
             vec![Some(Ok((0, false, false))), Some(Ok((1, false, true)))]
         }
     };
-    assert_eq!(*observations.borrow(), expected);
+    assert_eq!(*observations.lock().unwrap(), expected);
     assert!(map.HasKey(99).unwrap());
 
     if observable {
@@ -156,26 +159,31 @@ pub(super) fn check_release(
     }
 }
 
-pub(super) fn check_key_release(
-    map: IMap<OrderedKey, u32>,
-    unlocked: impl Fn() -> bool + 'static,
+pub(super) fn check_key_release<T>(
+    owner: ComObject<T>,
+    unlocked: impl Fn() -> bool + Send + Sync + 'static,
     mutation: Mutation,
     observable: bool,
-) {
-    let observations = Rc::new(RefCell::new(Vec::new()));
-    let unlocked = Rc::new(unlocked);
+) where
+    T: ComObjectInner + Send + Sync + 'static,
+    T::Outer: ComObjectInterface<IMap<OrderedKey, u32>>,
+{
+    let map: IMap<OrderedKey, u32> = owner.to_interface();
+    let observations = Arc::new(Mutex::new(Vec::new()));
+    let unlocked = Arc::new(unlocked);
     let count = if matches!(mutation, Mutation::Clear) {
         2
     } else {
         1
     };
     for id in 7..7 + count {
-        let map_for_drop = map.clone();
+        let map_for_drop = owner.clone();
         let observations = observations.clone();
         let unlocked = unlocked.clone();
         let key = OrderedKey::new(id, move || {
             let result = unlocked().then(|| {
                 let result = (|| -> Result<_> {
+                    let map_for_drop: IMap<OrderedKey, u32> = map_for_drop.to_interface();
                     let size = map_for_drop.Size()?;
                     let present = map_for_drop.HasKey(&OrderedKey::new(id, || {}))?;
                     let replaced = map_for_drop.Insert(&OrderedKey::new(99, || {}), 0)?;
@@ -183,7 +191,7 @@ pub(super) fn check_key_release(
                 })();
                 result.map_err(|error| error.code())
             });
-            observations.borrow_mut().push(result);
+            observations.lock().unwrap().push(result);
         });
         assert!(!map.Insert(&key, 0).unwrap());
     }
@@ -215,7 +223,7 @@ pub(super) fn check_key_release(
             vec![Some(Ok((0, false, false))), Some(Ok((1, false, true)))]
         }
     };
-    assert_eq!(*observations.borrow(), expected);
+    assert_eq!(*observations.lock().unwrap(), expected);
     assert!(map.HasKey(&OrderedKey::new(99, || {})).unwrap());
     if observable {
         assert_eq!(*events.lock().unwrap(), expected_events(mutation));

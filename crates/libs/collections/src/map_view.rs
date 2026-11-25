@@ -11,6 +11,10 @@ where
     map: BTreeMap<K::Default, S::Stored>,
 }
 
+// SAFETY: immutable keys and values retain the factory's threading contract, including in snapshots.
+unsafe impl<K: RuntimeType, S: Storage> Send for StockMapView<K, S> where K::Default: Ord {}
+unsafe impl<K: RuntimeType, S: Storage> Sync for StockMapView<K, S> where K::Default: Ord {}
+
 implement_decl! {
     impl<K, S> StockMapView as StockMapView_Impl: [
         IMapView<K, S::Value>,
@@ -78,6 +82,10 @@ struct StockMapIterator<K: RuntimeType + 'static, S: Storage> {
     snapshot: Vec<(K::Default, S::Stored)>,
     current: AtomicUsize,
 }
+
+// SAFETY: the immutable snapshot retains its source's threading contract; the cursor is atomic.
+unsafe impl<K: RuntimeType, S: Storage> Send for StockMapIterator<K, S> {}
+unsafe impl<K: RuntimeType, S: Storage> Sync for StockMapIterator<K, S> {}
 
 implement_decl! {
     impl<K, S> StockMapIterator as StockMapIterator_Impl: [

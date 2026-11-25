@@ -232,7 +232,7 @@ mod tests {
             handlers: Event::new(),
         });
         check_release(
-            vector.to_interface(),
+            vector.clone(),
             move || vector.values.unlocked(),
             mutation,
             true,
