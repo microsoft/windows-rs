@@ -1,0 +1,30 @@
+name: Cache native Clang
+description: Reuse the pinned native DLL pair, LLVM headers, and Clang resource headers
+inputs:
+  resource-headers:
+    description: Cache resource headers used by multi-target capture
+    default: 'true'
+runs:
+  using: composite
+  steps:
+    - name: Identify runner image
+      id: image
+      shell: pwsh
+      run: |
+        if (!$env:ImageVersion) { throw "Runner ImageVersion is missing" }
+        "version=$env:ImageVersion" >> $env:GITHUB_OUTPUT
+
+    - name: Cache native DLLs and LLVM headers
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: |
+          target\tool-clang\native\*\*\bin
+          target\tool-clang\native\*\*\llvm\include
+        key: clang-native-v2-${{ runner.os }}-${{ runner.arch }}-${{ steps.image.outputs.version }}-${{ hashFiles('crates/libs/clang-sys/native/**', 'crates/libs/clang-sys/src/lib.rs') }}
+
+    - name: Cache resource headers
+      if: inputs.resource-headers == 'true'
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: target\tool-clang\clang-resource\*\include
+        key: clang-headers-v1-${{ runner.os }}-${{ hashFiles('crates/libs/clang-sys/src/lib.rs', 'crates/tools/helpers/src/provision.rs') }}

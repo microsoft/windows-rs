@@ -68,10 +68,12 @@ jobs:
       - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           key: ${{ matrix.target }}
+      - uses: ./.github/actions/cache-clang
+        if: matrix.clang-exclude == ''
       - name: Provision libclang (Windows)
         # Build the pinned libclang/windows_clang pair used by the scrapers and native tests.
         # After rust-cache so the tool-clang build is cache-accelerated.
-        if: runner.os == 'Windows'
+        if: matrix.clang-exclude == ''
         run: |
           path=$(cargo run -q -p tool-clang -- path)
           echo "LIBCLANG_PATH=$path" >> "$GITHUB_ENV"
