@@ -24,7 +24,7 @@ concurrency:
 jobs:
   miri:
     name: ${{ matrix.target }} (${{ matrix.borrows }})
-    runs-on: windows-2025-vs2026
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -42,7 +42,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Update toolchain
-        run: rustup toolchain install nightly --component miri --profile minimal && rustup default nightly-x86_64-pc-windows-msvc
+        run: rustup toolchain install nightly --component miri --profile minimal && rustup default nightly
       - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           key: miri-${{ matrix.target }}
