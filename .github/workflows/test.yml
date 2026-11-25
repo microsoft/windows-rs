@@ -82,10 +82,17 @@ jobs:
         # The system Composition graph is excluded because Reactor consumers select the
         # incompatible lifted Composition stack. Cross-language tests run in interop.yml.
         run: >-
-          cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }}
+          cargo test --all --timings --target ${{ matrix.target }} ${{ matrix.clang-exclude }}
           --exclude windows-composition --exclude canvas-standalone --exclude text-vertical --exclude test_composition
           --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
           --exclude test_interop --exclude 'csharp-*'
+      - name: Upload build timings
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cargo-timings-${{ matrix.target }}
+          path: target\cargo-timings\*.html
+          retention-days: 7
       - name: Test system Composition stack
         run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p text-vertical -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
       - name: Test COM diagnostics
