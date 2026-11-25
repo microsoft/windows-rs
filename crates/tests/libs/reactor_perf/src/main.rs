@@ -3,6 +3,10 @@
 mod contexts;
 mod tasks;
 
+#[expect(nonstandard_style, clippy::upper_case_acronyms)]
+mod bindings;
+use bindings::*;
+
 use std::alloc::{GlobalAlloc, Layout, System};
 use std::cell::RefCell;
 use std::fmt::Write;
@@ -10,7 +14,6 @@ use std::rc::Rc;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::{Duration, Instant};
 use windows_reactor::*;
-use windows_sys::Win32::{GetCurrentProcess, GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS};
 
 const APP_NAME: &str = "StressPerf.Reactor";
 const COLUMNS: usize = 70;

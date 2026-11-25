@@ -1,8 +1,8 @@
 #![cfg(windows)]
-use windows::Win32::E_BOUNDS;
-use windows::core::imp::Type;
-use windows::core::*;
+use test_implement::E_BOUNDS;
 use windows_collections::*;
+use windows_core::imp::Type;
+use windows_core::*;
 
 #[implement(
     IIterator<T>,

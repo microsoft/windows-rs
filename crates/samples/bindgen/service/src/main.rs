@@ -1,5 +1,10 @@
+#[expect(nonstandard_style, clippy::upper_case_acronyms)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
+
 fn main() {
-    use windows_sys::{Win32::*, core::*};
+    use bindings::*;
 
     fn service_thread() {
         for i in 0..10 {
@@ -46,7 +51,7 @@ fn main() {
 
     static STATE: std::sync::RwLock<State> = std::sync::RwLock::new(State::new());
 
-    extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
+    extern "system" fn service_main(_len: u32, _args: *mut *mut u16) {
         unsafe {
             set_handle(RegisterServiceCtrlHandlerW(std::ptr::null(), Some(handler)));
         }

@@ -1,6 +1,6 @@
 #![cfg(windows)]
-use windows::Foundation::*;
-use windows::core::*;
+use test_implement::*;
+use windows_core::*;
 
 #[implement(IStringable)]
 struct BaseTrust;

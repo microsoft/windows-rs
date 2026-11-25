@@ -7,25 +7,11 @@ publish = false
 [lib]
 doc = false
 
-[dev-dependencies.windows]
+[dependencies.windows-core]
 workspace = true
-default-features = true
-features = [
-    "combaseapi",
-    "d3d10",
-    "d3d12",
-    "d3dcommon",
-    "mmeapi",
-    "objbase",
-    "objidl",
-    "ocidl",
-    "sdkddkver",
-    "urlmon",
-    "winerror",
-    "xaudio2",
-]
+features = ["std", "proc-macros"]
 
-[dev-dependencies.windows-core]
+[build-dependencies.windows-bindgen]
 workspace = true
 
 [dev-dependencies.windows-interface]

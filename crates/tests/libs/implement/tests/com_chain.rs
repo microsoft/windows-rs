@@ -1,6 +1,6 @@
 #![cfg(windows)]
-use windows::Win32::*;
-use windows::core::*;
+use test_implement::*;
+use windows_core::*;
 
 #[implement(IPersistStream)]
 struct Test();

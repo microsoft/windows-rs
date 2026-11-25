@@ -8,23 +8,16 @@ publish = false
 doc = false
 doctest = true
 
-[dev-dependencies.windows]
+[build-dependencies.windows-bindgen]
 workspace = true
-default-features = true
-features = [
-    "Storage_Streams",
-    "System_Threading",
-    "combaseapi",
-    "objbase",
-    "synchapi",
-]
 
-[dev-dependencies.windows-future]
+[dependencies.windows-future]
 workspace = true
 features = ["std"]
 
-[dev-dependencies.windows-core]
+[dependencies.windows-core]
 workspace = true
+features = ["std", "proc-macros"]
 
 [dev-dependencies.windows-result]
 workspace = true

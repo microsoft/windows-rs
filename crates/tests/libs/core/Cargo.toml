@@ -8,25 +8,17 @@ publish = false
 doc = false
 doctest = false
 
-[dev-dependencies.windows]
-workspace = true
-default-features = true
-features = [
-    "activation",
-    "audioclient",
-    "errhandlingapi",
-    "Foundation",
-    "oaidl",
-    "oleauto",
-    "ro",
-    "winerror",
-    "weakreference",
-]
-
 [dependencies.windows-core]
 workspace = true
+features = ["std", "proc-macros"]
 
 [dependencies.windows-link]
+workspace = true
+
+[dependencies.windows-time]
+workspace = true
+
+[build-dependencies.windows-bindgen]
 workspace = true
 
 [dev-dependencies]

@@ -1,6 +1,7 @@
 #![cfg(windows)]
 use std::sync::atomic::*;
-use windows::{Foundation::*, core::*};
+use test_implement::*;
+use windows_core::*;
 
 static COUNTER: AtomicIsize = AtomicIsize::new(0);
 
@@ -165,7 +166,7 @@ struct Empty;
 fn classic_identity_is_not_inspectable() -> Result<()> {
     for unknown in [IUnknown::from(Classic), IUnknown::from(ClassicDecl)] {
         let error = unknown.cast::<IInspectable>().unwrap_err();
-        assert_eq!(error.code(), windows::Win32::E_NOINTERFACE);
+        assert_eq!(error.code(), E_NOINTERFACE);
         assert_eq!(unknown.cast::<IClassic>()?.as_raw(), unknown.as_raw());
     }
 

@@ -1,5 +1,6 @@
 #![cfg(all(windows, not(windows_slim_errors)))]
-use windows::{Win32::*, core::*};
+use test_result::*;
+use windows_result::*;
 
 #[test]
 fn trim() {

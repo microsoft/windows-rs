@@ -10,7 +10,9 @@ doctest = false
 
 [dev-dependencies]
 windows-services = { workspace = true }
-windows-sys = { workspace = true, features = ["winsvc"] }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
 
 [lints]
 workspace = true

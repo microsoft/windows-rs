@@ -1,11 +1,11 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::core::*;
+use windows_core::*;
 
 // Two declarations of one interface stand in for separate bindings of the same COM interface.
 mod first {
-    use windows::core::*;
+    use windows_core::*;
 
     #[interface("6f1f3a6e-4b8c-4d0a-9a43-1c4c2e6f0b11")]
     pub unsafe trait IValue: IUnknown {
@@ -14,7 +14,7 @@ mod first {
 }
 
 mod second {
-    use windows::core::*;
+    use windows_core::*;
 
     #[interface("6f1f3a6e-4b8c-4d0a-9a43-1c4c2e6f0b11")]
     pub unsafe trait IValue: IUnknown {

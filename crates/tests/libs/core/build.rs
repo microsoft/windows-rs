@@ -1,0 +1,29 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_bindgen::builder()
+        .full()
+        .filters([
+            "AUDCLNT_E_UNSUPPORTED_FORMAT",
+            "CRYPT_E_NOT_FOUND",
+            "CreateErrorInfo",
+            "ERROR_NO_UNICODE_TRANSLATION",
+            "E_FAIL",
+            "E_INVALIDARG",
+            "E_NOTIMPL",
+            "E_POINTER",
+            "GetLastError",
+            "ICreateErrorInfo",
+            "IErrorInfo",
+            "IWeakReferenceSource",
+            "RO_ERROR_REPORTING_SUPPRESSSETERRORINFO",
+            "RO_ERROR_REPORTING_USESETERRORINFO",
+            "RoSetErrorReportingFlags",
+            "SetErrorInfo",
+            "SetLastError",
+            "Windows.Foundation.EventHandler",
+            "Windows.Foundation.IPropertyValue",
+            "Windows.Foundation.IStringable",
+            "Windows.Foundation.PropertyValue",
+        ])
+        .write();
+}

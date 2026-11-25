@@ -16,7 +16,7 @@ mod apartment {
         sync::{Arc, Mutex},
         thread::ThreadId,
     };
-    use windows::Win32::*;
+    use test_future::*;
 
     fn isolated(test: &str) -> bool {
         const CHILD: &str = "WINDOWS_FUTURE_APARTMENT_CASE";

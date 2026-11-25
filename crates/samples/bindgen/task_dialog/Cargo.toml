@@ -1,0 +1,15 @@
+[package]
+name = "bindgen-task-dialog"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-link = { workspace = true }
+windows-strings = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

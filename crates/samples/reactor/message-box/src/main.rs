@@ -1,7 +1,13 @@
 #![windows_subsystem = "windows"]
 
+use bindings::*;
 use windows_reactor::*;
-use windows_sys::{Win32::*, core::w};
+use windows_strings::w;
+
+#[expect(clippy::upper_case_acronyms)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
 
 #[derive(Clone, Copy)]
 enum Message {
@@ -31,8 +37,8 @@ impl Component for MessageBoxSample {
                     let answer = unsafe {
                         MessageBoxW(
                             window.as_raw().cast(),
-                            w!("Continue with this operation?"),
-                            w!("Confirm"),
+                            w!("Continue with this operation?").as_ptr(),
+                            w!("Confirm").as_ptr(),
                             (MB_YESNO | MB_ICONQUESTION) as u32,
                         )
                     };

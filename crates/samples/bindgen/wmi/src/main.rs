@@ -1,5 +1,15 @@
-fn main() -> windows::core::Result<()> {
-    use windows::{Win32::*, core::*};
+#[expect(
+    nonstandard_style,
+    clippy::upper_case_acronyms,
+    clippy::too_many_arguments
+)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
+
+fn main() -> windows_core::Result<()> {
+    use bindings::*;
+    use windows_core::*;
 
     unsafe fn variant_to_string(value: &VARIANT) -> String {
         let inner = unsafe { &value.Anonymous.Anonymous };

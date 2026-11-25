@@ -7,37 +7,11 @@ publish = false
 [lib]
 doc = false
 
-[dev-dependencies.windows]
+[dependencies.windows-core]
 workspace = true
-default-features = true
-features = [
-    "Foundation",
-    "Foundation_Collections",
-    "Storage_Streams",
-    "combaseapi",
-    "minwindef",
-    "objidl",
-    "oaidl",
-    "objidlbase",
-    "oleidl",
-    "propidlbase",
-    "propsys",
-    "ro",
-    "rpc",
-    "servprov",
-    "shobjidl_core",
-    "unknwnbase",
-    "weakreference",
-    "windef",
-    "windowsdevicesdisplaycoreinterop",
-    "winerror",
-    "winnt",
-    "winuser",
-    "wtypes",
-    "wtypesbase",
-]
+features = ["std", "proc-macros"]
 
-[dev-dependencies.windows-core]
+[build-dependencies.windows-bindgen]
 workspace = true
 
 [dev-dependencies.windows-collections]

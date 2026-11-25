@@ -1,0 +1,25 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_bindgen::builder()
+        .full()
+        .filters([
+            "ThreadPool::RunAsync",
+            "WorkItemHandler",
+            "InMemoryRandomAccessStream",
+            "DataWriter::{CreateDataWriter,WriteByte,StoreAsync}",
+            "DataReader::{CreateDataReader,LoadAsync,ReadBytes}",
+            "CoInitializeEx",
+            "CoUninitialize",
+            "CoGetContextToken",
+            "COINIT_MULTITHREADED",
+            "COINIT_APARTMENTTHREADED",
+            "CreateEventW",
+            "SetEvent",
+            "CoWaitForMultipleHandles",
+            "COWAIT_DISPATCH_CALLS",
+            "IMarshal::{}",
+            "INoMarshal",
+            "IAgileObject::{}",
+        ])
+        .write();
+}

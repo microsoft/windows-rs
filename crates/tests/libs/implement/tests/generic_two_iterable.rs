@@ -1,6 +1,6 @@
 #![cfg(windows)]
-use windows::core::*;
 use windows_collections::*;
+use windows_core::*;
 
 #[implement(
     IIterator<i32>,

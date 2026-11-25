@@ -1,9 +1,10 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::{Win32::*, core::*};
+use test_interface::*;
+use windows_core::*;
 
-// A local interface derives from an existing `windows` interface.
+// A local interface derives from a generated native interface.
 #[interface("BD1AE5E0-A6AE-11CE-BD37-504200C10000")]
 unsafe trait ITestPersistMemory: IPersist {
     unsafe fn IsDirty(&self) -> HRESULT;

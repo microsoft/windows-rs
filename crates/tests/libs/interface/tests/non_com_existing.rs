@@ -1,5 +1,6 @@
 #![cfg(windows)]
-use windows::{Win32::*, core::*};
+use test_interface::*;
+use windows_core::*;
 
 struct Reflection;
 

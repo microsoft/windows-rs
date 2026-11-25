@@ -2,7 +2,8 @@
 // `StringMap` is a runtime-activated WinRT class; it requires the WinRT
 // activation factory linker symbols and therefore only runs on Windows.
 
-use windows::{Foundation::Collections::*, core::*};
+use test_collections::*;
+use windows_core::*;
 
 #[test]
 fn test() -> Result<()> {

@@ -4,7 +4,7 @@
 // and #[implement] in a crate that uses #![no_std].
 #![no_std]
 
-use windows::core::{IUnknown, implement, interface};
+use windows_core::{IUnknown, implement, interface};
 
 #[interface("36bb4e8d-0385-477e-a090-e70675f37781")]
 pub unsafe trait IFoo: IUnknown {

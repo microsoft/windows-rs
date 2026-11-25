@@ -1,0 +1,26 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_bindgen::builder()
+        .full()
+        .filters([
+            "CoInitializeEx",
+            "COINIT_MULTITHREADED",
+            "CoInitializeSecurity",
+            "RPC_C_AUTHN_LEVEL_DEFAULT",
+            "RPC_C_IMP_LEVEL_IMPERSONATE",
+            "EOAC_NONE",
+            "CoCreateInstance",
+            "CLSCTX_INPROC_SERVER",
+            "WbemLocator",
+            "IWbemLocator::ConnectServer",
+            "IWbemServices::ExecQuery",
+            "WBEM_FLAG_FORWARD_ONLY",
+            "WBEM_FLAG_RETURN_IMMEDIATELY",
+            "IEnumWbemClassObject::Next",
+            "WBEM_INFINITE",
+            "IWbemClassObject::Get",
+            "VT_BSTR",
+            "VariantClear",
+        ])
+        .write();
+}

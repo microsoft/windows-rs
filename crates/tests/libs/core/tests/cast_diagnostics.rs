@@ -2,7 +2,8 @@
 #![cfg(all(windows, windows_cast_diagnostics))]
 #![expect(non_snake_case)]
 
-use windows::{Foundation::*, core::*};
+use test_core::*;
+use windows_core::*;
 
 #[interface("8a4b0e8e-0ec1-4f4f-9d1a-0f5c2f6f4a10")]
 unsafe trait IBase: IUnknown {

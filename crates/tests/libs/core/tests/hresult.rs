@@ -1,5 +1,6 @@
 #![cfg(windows)]
-use windows::{Win32::*, core::*};
+use test_core::*;
+use windows_core::*;
 
 #[test]
 fn ok() {

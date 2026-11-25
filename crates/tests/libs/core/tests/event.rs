@@ -1,7 +1,8 @@
 #![cfg(windows)]
 use std::sync::atomic::*;
 use std::sync::*;
-use windows::{Foundation::*, core::*};
+use test_core::*;
+use windows_core::*;
 
 #[test]
 fn add_remove() -> Result<()> {

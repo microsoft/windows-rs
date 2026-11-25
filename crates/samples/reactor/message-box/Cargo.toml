@@ -7,9 +7,14 @@ publish = false
 [dependencies]
 windows-reactor = { workspace = true }
 
-[dependencies.windows-sys]
+[dependencies.windows-link]
 workspace = true
-features = ["winuser"]
+
+[dependencies.windows-strings]
+workspace = true
+
+[build-dependencies.windows-bindgen]
+workspace = true
 
 [lints]
 workspace = true

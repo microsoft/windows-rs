@@ -1,5 +1,6 @@
 #![cfg(windows)]
-use windows::{Foundation::*, core::*};
+use test_implement::*;
+use windows_core::*;
 
 #[test]
 fn implement() -> Result<()> {

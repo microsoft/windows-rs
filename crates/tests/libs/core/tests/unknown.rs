@@ -1,7 +1,7 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::core::*;
+use windows_core::*;
 
 #[interface("f7ea748b-8121-41c1-aaee-406ba6f148a9")]
 unsafe trait ITest: IUnknown {
