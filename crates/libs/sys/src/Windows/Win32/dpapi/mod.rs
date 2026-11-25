@@ -21,12 +21,18 @@ pub const CRYPTPROTECT_LOCAL_MACHINE: i32 = 4;
 pub const CRYPTPROTECT_NO_RECOVERY: i32 = 32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTPROTECT_PROMPTSTRUCT {
     pub cbSize: super::DWORD,
     pub dwPromptFlags: super::DWORD,
     pub hwndApp: super::HWND,
     pub szPrompt: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for CRYPTPROTECT_PROMPTSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPTPROTECT_PROMPT_ON_PROTECT: i32 = 2;
 pub const CRYPTPROTECT_PROMPT_ON_UNPROTECT: i32 = 1;

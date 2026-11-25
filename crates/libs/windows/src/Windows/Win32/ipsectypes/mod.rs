@@ -1,11 +1,17 @@
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_ADDRESS_INFO0 {
     pub numV4Addresses: super::UINT32,
     pub v4Addresses: *mut super::UINT32,
     pub numV6Addresses: super::UINT32,
     pub v6Addresses: *mut super::FWP_BYTE_ARRAY16,
+}
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
+impl Default for IPSEC_ADDRESS_INFO0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -79,10 +85,15 @@ pub const IPSEC_AUTH_MD5: IPSEC_AUTH_TYPE = 0;
 pub const IPSEC_AUTH_SHA_1: IPSEC_AUTH_TYPE = 1;
 pub const IPSEC_AUTH_SHA_256: IPSEC_AUTH_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_AUTH_TRANSFORM0 {
     pub authTransformId: IPSEC_AUTH_TRANSFORM_ID0,
     pub cryptoModuleId: *mut IPSEC_CRYPTO_MODULE_ID,
+}
+impl Default for IPSEC_AUTH_TRANSFORM0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -102,10 +113,15 @@ pub const IPSEC_CIPHER_CONFIG_GCM_AES_192: i32 = 7;
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_256: i32 = 8;
 pub const IPSEC_CIPHER_CONFIG_MAX: i32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_CIPHER_TRANSFORM0 {
     pub cipherTransformId: IPSEC_CIPHER_TRANSFORM_ID0,
     pub cryptoModuleId: *mut IPSEC_CRYPTO_MODULE_ID,
+}
+impl Default for IPSEC_CIPHER_TRANSFORM0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -130,7 +146,7 @@ pub const IPSEC_DOSP_FLAG_FILTER_BLOCK: i32 = 16;
 pub const IPSEC_DOSP_FLAG_FILTER_EXEMPT: i32 = 32;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_DOSP_OPTIONS0 {
     pub stateIdleTimeoutSeconds: super::UINT32,
     pub perIPRateLimitQueueIdleTimeoutSeconds: super::UINT32,
@@ -154,6 +170,12 @@ pub struct IPSEC_DOSP_OPTIONS0 {
     pub internalIFLuids: *mut super::UINT64,
     pub publicV6AddrMask: super::FWP_V6_ADDR_AND_MASK,
     pub internalV6AddrMask: super::FWP_V6_ADDR_AND_MASK,
+}
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
+impl Default for IPSEC_DOSP_OPTIONS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE: i32 = 0;
 #[repr(C)]
@@ -273,7 +295,7 @@ impl Default for IPSEC_GETSPI1_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_ID0 {
     pub mmTargetName: *mut u16,
     pub emTargetName: *mut u16,
@@ -282,20 +304,38 @@ pub struct IPSEC_ID0 {
     pub explicitCredentials: super::UINT64,
     pub logonId: super::UINT64,
 }
+#[cfg(feature = "shared")]
+impl Default for IPSEC_ID0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_KEYING_POLICY0 {
     pub numKeyMods: super::UINT32,
     pub keyModKeys: *mut windows_core::GUID,
 }
+#[cfg(feature = "shared")]
+impl Default for IPSEC_KEYING_POLICY0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_KEYING_POLICY1 {
     pub numKeyMods: super::UINT32,
     pub keyModKeys: *mut windows_core::GUID,
     pub flags: super::UINT32,
+}
+#[cfg(feature = "shared")]
+impl Default for IPSEC_KEYING_POLICY1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: i32 = 1;
 #[repr(C)]
@@ -349,12 +389,18 @@ pub const IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ALREADY_SECURE_CONNECTION: i32 = 2048;
 pub const IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ICMPV6: i32 = 4096;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_PROPOSAL0 {
     pub lifetime: IPSEC_SA_LIFETIME0,
     pub numSaTransforms: super::UINT32,
     pub saTransforms: *mut IPSEC_SA_TRANSFORM0,
     pub pfsGroup: IPSEC_PFS_GROUP,
+}
+#[cfg(feature = "shared")]
+impl Default for IPSEC_PROPOSAL0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "shared"))]
@@ -512,19 +558,31 @@ pub struct IPSEC_SA_CIPHER_INFORMATION0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_SA_CONTEXT0 {
     pub saContextId: super::UINT64,
     pub inboundSa: *mut IPSEC_SA_DETAILS0,
     pub outboundSa: *mut IPSEC_SA_DETAILS0,
 }
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "shared", feature = "winnt"))]
+impl Default for IPSEC_SA_CONTEXT0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_SA_CONTEXT1 {
     pub saContextId: super::UINT64,
     pub inboundSa: *mut IPSEC_SA_DETAILS1,
     pub outboundSa: *mut IPSEC_SA_DETAILS1,
+}
+#[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "shared", feature = "winnt"))]
+impl Default for IPSEC_SA_CONTEXT1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -552,11 +610,17 @@ pub const IPSEC_SA_CONTEXT_EVENT_MAX: IPSEC_SA_CONTEXT_EVENT_TYPE0 = 3;
 pub type IPSEC_SA_CONTEXT_EVENT_TYPE0 = i32;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     pub enumTemplate: *mut IPSEC_SA_CONTEXT_ENUM_TEMPLATE0,
     pub flags: super::UINT32,
     pub sessionKey: windows_core::GUID,
+}
+#[cfg(all(feature = "fwptypes", feature = "shared", feature = "winnt"))]
+impl Default for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "shared", feature = "winnt"))]
@@ -868,13 +932,19 @@ impl Default for IPSEC_TRAFFIC_SELECTOR0_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     pub flags: super::UINT32,
     pub numLocalTrafficSelectors: super::UINT32,
     pub localTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0,
     pub numRemoteTrafficSelectors: super::UINT32,
     pub remoteTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0,
+}
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
+impl Default for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -912,7 +982,7 @@ pub type IPSEC_TRANSFORM_TYPE = i32;
 pub const IPSEC_TRANSFORM_TYPE_MAX: IPSEC_TRANSFORM_TYPE = 6;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_TRANSPORT_POLICY0 {
     pub numIpsecProposals: super::UINT32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -921,9 +991,15 @@ pub struct IPSEC_TRANSPORT_POLICY0 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut super::IKEEXT_EM_POLICY0,
 }
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "shared"))]
+impl Default for IPSEC_TRANSPORT_POLICY0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_TRANSPORT_POLICY1 {
     pub numIpsecProposals: super::UINT32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -932,9 +1008,15 @@ pub struct IPSEC_TRANSPORT_POLICY1 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut super::IKEEXT_EM_POLICY1,
 }
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "shared"))]
+impl Default for IPSEC_TRANSPORT_POLICY1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_TRANSPORT_POLICY2 {
     pub numIpsecProposals: super::UINT32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -942,6 +1024,12 @@ pub struct IPSEC_TRANSPORT_POLICY2 {
     pub ndAllowClearTimeoutSeconds: super::UINT32,
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut super::IKEEXT_EM_POLICY2,
+}
+#[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "shared"))]
+impl Default for IPSEC_TRANSPORT_POLICY2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "shared"))]

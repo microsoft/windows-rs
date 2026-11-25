@@ -1,7 +1,7 @@
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: i32 = 11;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BUSDATA {
     pub BusDataType: super::ULONG,
     pub BusNumber: super::ULONG,
@@ -9,6 +9,12 @@ pub struct BUSDATA {
     pub Buffer: super::PVOID,
     pub Offset: super::ULONG,
     pub Length: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for BUSDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CANNOT_ALLOCATE_MEMORY: i32 = 9;
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: i32 = 2048;
@@ -224,7 +230,7 @@ pub const EXT_API_VERSION_NUMBER32: i32 = 5;
 pub const EXT_API_VERSION_NUMBER64: i32 = 6;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXT_FIND_FILE {
     pub FileName: windows_core::PCWSTR,
     pub IndexedSize: super::ULONG64,
@@ -238,6 +244,12 @@ pub struct EXT_FIND_FILE {
     pub FileHandle: super::HANDLE,
     pub FoundFileName: windows_core::PWSTR,
     pub FoundFileNameChars: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for EXT_FIND_FILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EXT_FIND_FILE_ALLOW_GIVEN_PATH: i32 = 1;
 #[repr(C)]
@@ -386,11 +398,17 @@ pub struct FIELD_INFO__BitField {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_CONTEXT_EX {
     pub Status: super::ULONG,
     pub ContextSize: super::ULONG,
     pub pContext: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for GET_CONTEXT_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -933,7 +951,7 @@ pub type PKDDEBUGGER_DATA32 = *mut KDDEBUGGER_DATA32;
 pub type PKDDEBUGGER_DATA64 = *mut KDDEBUGGER_DATA64;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POINTER_SEARCH_PHYSICAL {
     pub Offset: super::ULONG64,
     pub Length: super::ULONG64,
@@ -943,6 +961,12 @@ pub struct POINTER_SEARCH_PHYSICAL {
     pub MatchOffsets: super::PULONG64,
     pub MatchOffsetsSize: super::ULONG,
     pub MatchOffsetsCount: super::ULONG,
+}
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+impl Default for POINTER_SEARCH_PHYSICAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type POOL_HEADER_FIELD_NAME = i32;
 #[repr(C)]
@@ -1132,13 +1156,19 @@ pub struct READ_WRITE_MSR {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEARCHMEMORY {
     pub SearchAddress: super::ULONG64,
     pub SearchLength: super::ULONG64,
     pub FoundAddress: super::ULONG64,
     pub PatternLength: super::ULONG,
     pub Pattern: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SEARCHMEMORY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SYMBOL_TYPE_INDEX_NOT_FOUND: i32 = 2;
 pub const SYMBOL_TYPE_INFO_NOT_FOUND: i32 = 3;
@@ -1237,10 +1267,16 @@ pub const WDBGEXTS_ADDRESS_SEG16: i32 = 1;
 pub const WDBGEXTS_ADDRESS_SEG32: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WDBGEXTS_CLR_DATA_INTERFACE {
     pub Iid: *const super::IID,
     pub Iface: super::PVOID,
+}
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
+impl Default for WDBGEXTS_CLR_DATA_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1279,10 +1315,16 @@ pub struct WDBGEXTS_MODULE_IN_RANGE {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WDBGEXTS_QUERY_INTERFACE {
     pub Iid: *const super::IID,
     pub Iface: super::PVOID,
+}
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
+impl Default for WDBGEXTS_QUERY_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

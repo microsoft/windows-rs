@@ -6,7 +6,7 @@ pub type LSA_LOOKUP_DOMAIN_INFO_CLASS = i32;
 pub type LSA_LOOKUP_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LSA_OBJECT_ATTRIBUTES {
     pub Length: super::ULONG,
     pub RootDirectory: super::HANDLE,
@@ -15,12 +15,24 @@ pub struct LSA_OBJECT_ATTRIBUTES {
     pub SecurityDescriptor: super::PVOID,
     pub SecurityQualityOfService: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for LSA_OBJECT_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LSA_REFERENCED_DOMAIN_LIST {
     pub Entries: super::ULONG,
     pub Domains: PLSA_TRUST_INFORMATION,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for LSA_REFERENCED_DOMAIN_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type LSA_STRING = super::STRING;
@@ -34,19 +46,31 @@ pub struct LSA_TRANSLATED_NAME {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LSA_TRANSLATED_SID2 {
     pub Use: super::SID_NAME_USE,
     pub Sid: super::PSID,
     pub DomainIndex: super::LONG,
     pub Flags: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for LSA_TRANSLATED_SID2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LSA_TRUST_INFORMATION {
     pub Name: LSA_UNICODE_STRING,
     pub Sid: super::PSID,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for LSA_TRUST_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "winternl"))]
 pub type LSA_UNICODE_STRING = super::UNICODE_STRING;
@@ -68,20 +92,32 @@ pub type PLSA_TRUST_INFORMATION = *mut LSA_TRUST_INFORMATION;
 pub type PLSA_UNICODE_STRING = *mut super::UNICODE_STRING;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct POLICY_ACCOUNT_DOMAIN_INFO {
     pub DomainName: LSA_UNICODE_STRING,
     pub DomainSid: super::PSID,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for POLICY_ACCOUNT_DOMAIN_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct POLICY_DNS_DOMAIN_INFO {
     pub Name: LSA_UNICODE_STRING,
     pub DnsDomainName: LSA_UNICODE_STRING,
     pub DnsForestName: LSA_UNICODE_STRING,
     pub DomainGuid: windows_sys::core::GUID,
     pub Sid: super::PSID,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for POLICY_DNS_DOMAIN_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PPOLICY_ACCOUNT_DOMAIN_INFO = *mut POLICY_ACCOUNT_DOMAIN_INFO;

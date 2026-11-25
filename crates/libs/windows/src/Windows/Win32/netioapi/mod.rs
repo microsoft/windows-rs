@@ -616,7 +616,7 @@ pub struct DNS_INTERFACE_SETTINGS {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS3 {
     pub Version: super::ULONG,
     pub Flags: super::ULONG64,
@@ -635,9 +635,15 @@ pub struct DNS_INTERFACE_SETTINGS3 {
     pub cProfileServerProperties: super::ULONG,
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_INTERFACE_SETTINGS3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS4 {
     pub Version: super::ULONG,
     pub Flags: super::ULONG64,
@@ -656,6 +662,12 @@ pub struct DNS_INTERFACE_SETTINGS4 {
     pub cProfileServerProperties: super::ULONG,
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
     pub EncryptedDnsAdapterFlags: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_INTERFACE_SETTINGS4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

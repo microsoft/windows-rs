@@ -5,10 +5,15 @@ windows_link::link!("netapi32.dll" "system" fn NetConfigGetAll(server : windows_
 #[cfg(feature = "shared")]
 windows_link::link!("netapi32.dll" "system" fn NetConfigSet(server : windows_sys::core::PCWSTR, reserved1 : windows_sys::core::PCWSTR, component : windows_sys::core::PCWSTR, level : super::DWORD, reserved2 : super::DWORD, buf : super::LPBYTE, reserved3 : super::DWORD) -> super::DWORD);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CONFIG_INFO_0 {
     pub cfgi0_key: windows_sys::core::PWSTR,
     pub cfgi0_data: windows_sys::core::PWSTR,
+}
+impl Default for CONFIG_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type LPCONFIG_INFO_0 = *mut CONFIG_INFO_0;
 pub type PCONFIG_INFO_0 = *mut CONFIG_INFO_0;

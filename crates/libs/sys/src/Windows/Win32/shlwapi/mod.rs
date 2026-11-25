@@ -786,7 +786,7 @@ pub const OS_XPORGREATER: i32 = 18;
 pub type PARSEDURL = PARSEDURLA;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PARSEDURLA {
     pub cbSize: super::DWORD,
     pub pszProtocol: windows_sys::core::PCSTR,
@@ -795,9 +795,15 @@ pub struct PARSEDURLA {
     pub cchSuffix: super::UINT,
     pub nScheme: super::UINT,
 }
+#[cfg(feature = "shared")]
+impl Default for PARSEDURLA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PARSEDURLW {
     pub cbSize: super::DWORD,
     pub pszProtocol: windows_sys::core::PCWSTR,
@@ -805,6 +811,12 @@ pub struct PARSEDURLW {
     pub pszSuffix: windows_sys::core::PCWSTR,
     pub cchSuffix: super::UINT,
     pub nScheme: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for PARSEDURLW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PHUSKEY = *mut *mut core::ffi::c_void;
 pub const PLATFORM_BROWSERONLY: i32 = 1;
@@ -822,10 +834,16 @@ pub type PPARSEDURLA = *mut PARSEDURLA;
 pub type PPARSEDURLW = *mut PARSEDURLW;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct QITAB {
     pub piid: *const super::IID,
     pub dwOffset: super::DWORD,
+}
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for QITAB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SFBS_FLAGS = i32;
 pub const SFBS_FLAGS_ROUND_TO_NEAREST_DISPLAYED_DIGIT: tagSFBS_FLAGS = 1;

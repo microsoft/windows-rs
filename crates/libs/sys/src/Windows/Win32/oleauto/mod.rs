@@ -852,10 +852,16 @@ pub const DISPATCH_PROPERTYPUTREF: i32 = 8;
 pub const ID_DEFAULTINST: i32 = -2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct INTERFACEDATA {
     pub pmethdata: *mut METHODDATA,
     pub cMembers: super::UINT,
+}
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for INTERFACEDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LOAD_TLB_AS_32BIT: i32 = 32;
 pub const LOAD_TLB_AS_64BIT: i32 = 64;
@@ -870,7 +876,7 @@ pub const MASK_TO_RESET_TLB_BITS: i32 = -97;
 pub const MEMBERID_NIL: i32 = -1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct METHODDATA {
     pub szName: *mut super::OLECHAR,
     pub ppdata: *mut PARAMDATA,
@@ -880,6 +886,12 @@ pub struct METHODDATA {
     pub cArgs: super::UINT,
     pub wFlags: super::WORD,
     pub vtReturn: super::VARTYPE,
+}
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for METHODDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
@@ -910,10 +922,16 @@ pub const NUMPRS_TRAILING_WHITE: i32 = 2;
 pub const NUMPRS_USE_ALL: i32 = 4096;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PARAMDATA {
     pub szName: *mut super::OLECHAR,
     pub vt: super::VARTYPE,
+}
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+impl Default for PARAMDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type REGKIND = i32;
 pub const REGKIND_DEFAULT: REGKIND = 0;

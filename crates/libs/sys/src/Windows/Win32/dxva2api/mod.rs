@@ -55,7 +55,7 @@ pub const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: i32 = 1828;
 pub const DXVA2_DeblockingControlBufferType: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_DecodeBufferDesc {
     pub CompressedBufferType: super::DWORD,
     pub BufferIndex: super::UINT,
@@ -69,23 +69,41 @@ pub struct DXVA2_DecodeBufferDesc {
     pub ReservedBits: super::UINT,
     pub pvPVPState: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DXVA2_DecodeBufferDesc {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_DecodeExecuteParams {
     pub NumCompBuffers: super::UINT,
     pub pCompressedBuffers: *mut DXVA2_DecodeBufferDesc,
     pub pExtensionData: *mut DXVA2_DecodeExtensionData,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DXVA2_DecodeExecuteParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_DecodeExtensionData {
     pub Function: super::UINT,
     pub pPrivateInputData: super::PVOID,
     pub PrivateInputDataSize: super::UINT,
     pub pPrivateOutputData: super::PVOID,
     pub PrivateOutputDataSize: super::UINT,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DXVA2_DecodeExtensionData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DXVA2_DeinterlaceTech_BOBLineReplicate: i32 = 1;
 pub const DXVA2_DeinterlaceTech_BOBVerticalStretch: i32 = 2;

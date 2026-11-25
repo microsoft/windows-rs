@@ -1,17 +1,29 @@
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BSTRBLOB {
     pub cbSize: super::ULONG,
     pub pData: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for BSTRBLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLIPDATA {
     pub cbSize: super::ULONG,
     pub ulClipFmt: super::LONG,
     pub pClipData: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for CLIPDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CLIPFORMAT = u16;
 #[repr(C)]
@@ -356,12 +368,18 @@ pub const __REQUIRED_RPCNDR_H_VERSION__: i32 = 501;
 pub const __REQUIRED_RPCSAL_H_VERSION__: i32 = 100;
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct remoteMETAFILEPICT {
     pub mm: super::LONG,
     pub xExt: super::LONG,
     pub yExt: super::LONG,
     pub hMF: *mut userHMETAFILE,
+}
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
+impl Default for remoteMETAFILEPICT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
@@ -396,10 +414,16 @@ impl Default for uCLSSPEC___MIDL___MIDL_itf_wtypes_0000_0001_0005 {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct uCLSSPEC___MIDL___MIDL_itf_wtypes_0000_0001_0005_0 {
     pub pPackageName: super::LPOLESTR,
     pub PolicyId: windows_core::GUID,
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
+impl Default for uCLSSPEC___MIDL___MIDL_itf_wtypes_0000_0001_0005_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]

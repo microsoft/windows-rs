@@ -434,7 +434,7 @@ impl Default for ACCESS_STATE_0 {
 pub const ACPIBus: INTERFACE_TYPE = 17;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ACPI_INTERFACE_STANDARD {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -449,9 +449,15 @@ pub struct ACPI_INTERFACE_STANDARD {
     pub RegisterForDeviceNotifications: PREGISTER_FOR_DEVICE_NOTIFICATIONS,
     pub UnregisterForDeviceNotifications: PUNREGISTER_FOR_DEVICE_NOTIFICATIONS,
 }
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for ACPI_INTERFACE_STANDARD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ACPI_INTERFACE_STANDARD2 {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -465,6 +471,12 @@ pub struct ACPI_INTERFACE_STANDARD2 {
     pub GpeClearStatus: PGPE_CLEAR_STATUS2,
     pub RegisterForDeviceNotifications: PREGISTER_FOR_DEVICE_NOTIFICATIONS2,
     pub UnregisterForDeviceNotifications: PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ACPI_INTERFACE_STANDARD2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ADAPTER_INFO_API_BYPASS: i32 = 2;
 pub const ADAPTER_INFO_HYBRID_PASSTHROUGH: i32 = 4;
@@ -624,7 +636,7 @@ pub type BOUND_CALLBACK_STATUS = i32;
 pub type BUS_QUERY_ID_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BUS_RESOURCE_UPDATE_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -632,6 +644,12 @@ pub struct BUS_RESOURCE_UPDATE_INTERFACE {
     pub InterfaceReference: PINTERFACE_REFERENCE,
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub GetUpdatedBusResource: PGET_UPDATED_BUS_RESOURCE,
+}
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+impl Default for BUS_RESOURCE_UPDATE_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -685,7 +703,7 @@ pub const CLFS_LOG_SIZE_MINIMUM: super::ULONGLONG = 0;
 pub type CLFS_MGMT_CLIENT = super::PVOID;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "clfs", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_CLIENT_REGISTRATION {
     pub Version: super::ULONG,
     pub AdvanceTailCallback: PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK,
@@ -694,6 +712,12 @@ pub struct CLFS_MGMT_CLIENT_REGISTRATION {
     pub LogGrowthCompleteCallbackData: super::PVOID,
     pub LogUnpinnedCallback: PCLFS_CLIENT_LOG_UNPINNED_CALLBACK,
     pub LogUnpinnedCallbackData: super::PVOID,
+}
+#[cfg(all(feature = "basetsd", feature = "clfs", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for CLFS_MGMT_CLIENT_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: i32 = 1;
 #[repr(C)]
@@ -1422,16 +1446,22 @@ impl Default for COUNTED_REASON_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct COUNTED_REASON_CONTEXT_0_0 {
     pub ResourceFileName: super::UNICODE_STRING,
     pub ResourceReasonId: super::USHORT,
     pub StringCount: super::ULONG,
     pub ReasonStrings: super::PUNICODE_STRING,
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for COUNTED_REASON_CONTEXT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRASHDUMP_FUNCTIONS_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -1439,6 +1469,12 @@ pub struct CRASHDUMP_FUNCTIONS_INTERFACE {
     pub InterfaceReference: PINTERFACE_REFERENCE,
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub PowerOn: PCRASHDUMP_POWER_ON,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CRASHDUMP_FUNCTIONS_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CREATE_FILE_TYPE = i32;
 pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = 0;
@@ -1491,7 +1527,7 @@ pub const CriticalWorkQueue: WORK_QUEUE_TYPE = 0;
 pub const CustomPriorityWorkQueue: WORK_QUEUE_TYPE = 32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -1502,6 +1538,12 @@ pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
     pub RequestAuxPower: PD3COLD_REQUEST_AUX_POWER,
     pub RequestPerstDelay: PD3COLD_REQUEST_PERST_DELAY,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type D3COLD_LAST_TRANSITION_STATUS = i32;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type D3COLD_REQUEST_AUX_POWER = Option<unsafe extern "system" fn(context: super::PVOID, auxpowerinmilliwatts: super::ULONG, retryinseconds: super::PULONG) -> windows_sys::core::NTSTATUS>;
@@ -1511,7 +1553,7 @@ pub type D3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "system" fn(conte
 pub type D3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "system" fn(context: super::PVOID, delayinmicroseconds: super::ULONG) -> windows_sys::core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3COLD_SUPPORT_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -1523,6 +1565,12 @@ pub struct D3COLD_SUPPORT_INTERFACE {
     pub GetD3ColdCapability: PGET_D3COLD_CAPABILITY,
     pub GetBusDriverD3ColdSupport: PGET_D3COLD_CAPABILITY,
     pub GetLastTransitionStatus: PGET_D3COLD_LAST_TRANSITION_STATUS,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for D3COLD_SUPPORT_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const D3COLD_SUPPORT_INTERFACE_VERSION: i32 = 1;
 pub const DBG_STATUS_BUGCHECK_FIRST: i32 = 3;
@@ -1635,10 +1683,16 @@ pub const DEVICE_DESCRIPTION_VERSION3: i32 = 3;
 pub type DEVICE_DIRECTORY_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_FAULT_CONFIGURATION {
     pub FaultHandler: PIOMMU_DEVICE_FAULT_HANDLER,
     pub FaultContext: super::PVOID,
+}
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for DEVICE_FAULT_CONFIGURATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1649,13 +1703,19 @@ pub struct DEVICE_FLAGS {
 pub type DEVICE_INSTALL_STATE = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
     pub Version: super::USHORT,
     pub Size: super::USHORT,
     pub Event: windows_sys::core::GUID,
     pub InterfaceClassGuid: windows_sys::core::GUID,
     pub SymbolicLinkName: super::PUNICODE_STRING,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for DEVICE_INTERFACE_CHANGE_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEVICE_INTERFACE_INCLUDE_NONACTIVE: i32 = 1;
 #[repr(C, align(8))]
@@ -1788,7 +1848,7 @@ pub type DEVICE_RESET_COMPLETION = Option<unsafe extern "system" fn(status: wind
 pub type DEVICE_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: super::PVOID, resettype: DEVICE_RESET_TYPE, flags: super::ULONG, resetparameters: super::PVOID) -> windows_sys::core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_RESET_INTERFACE_STANDARD {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -1801,6 +1861,12 @@ pub struct DEVICE_RESET_INTERFACE_STANDARD {
     pub QueryBusSpecificResetInfo: PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER,
     pub DeviceBusSpecificReset: PDEVICE_BUS_SPECIFIC_RESET_HANDLER,
     pub GetDeviceResetStatus: PGET_DEVICE_RESET_STATUS,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for DEVICE_RESET_INTERFACE_STANDARD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEVICE_RESET_INTERFACE_VERSION: i32 = 1;
 pub const DEVICE_RESET_INTERFACE_VERSION_1: i32 = 1;
@@ -1833,7 +1899,7 @@ pub type DEVICE_WAKE_DEPTH = i32;
 pub const DEVICE_WITH_IRP_EXTENSION: PDEVICE_OBJECT = -1 as _;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DEVOBJ_EXTENSION {
     pub Type: super::CSHORT,
     pub Size: super::USHORT,
@@ -1851,6 +1917,12 @@ pub struct DEVOBJ_EXTENSION {
     pub InterruptContext: super::PVOID,
     pub InterruptCount: super::LONG,
     pub VerifierContext: super::PVOID,
+}
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for DEVOBJ_EXTENSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DIRECTORY_ALL_ACCESS: i32 = 983055;
 pub const DIRECTORY_CREATE_OBJECT: i32 = 4;
@@ -2838,12 +2910,18 @@ pub type DRIVER_DISPATCH_PAGED = Option<unsafe extern "system" fn(deviceobject: 
 pub type DRIVER_DISPATCH_RAISED = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_sys::core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_EXTENSION {
     pub DriverObject: *mut DRIVER_OBJECT,
     pub AddDevice: PDRIVER_ADD_DEVICE,
     pub Count: super::ULONG,
     pub ServiceKeyName: super::UNICODE_STRING,
+}
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for DRIVER_EXTENSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type DRIVER_INITIALIZE = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT, registrypath: super::PUNICODE_STRING) -> windows_sys::core::NTSTATUS>;
@@ -3270,12 +3348,18 @@ pub struct EXTENDED_CREATE_DUAL_OPLOCK_KEYS {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct EXTENDED_CREATE_INFORMATION {
     pub ExtendedCreateFlags: super::LONGLONG,
     pub EaBuffer: super::PVOID,
     pub EaLength: super::ULONG,
     pub DualOplockKeys: PEXTENDED_CREATE_DUAL_OPLOCK_KEYS,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for EXTENDED_CREATE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "winnt")]
 pub type EXT_CALLBACK = Option<unsafe extern "system" fn(timer: PEX_TIMER, context: super::PVOID)>;
@@ -3283,12 +3367,18 @@ pub type EXT_CALLBACK = Option<unsafe extern "system" fn(timer: PEX_TIMER, conte
 pub type EXT_DELETE_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct EXT_DELETE_PARAMETERS {
     pub Version: super::ULONG,
     pub Reserved: super::ULONG,
     pub DeleteCallback: PEXT_DELETE_CALLBACK,
     pub DeleteContext: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for EXT_DELETE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3489,7 +3579,7 @@ impl Default for FAULT_INFORMATION_0 {
 pub type FAULT_INFORMATION_ARCH = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FAULT_INFORMATION_ARM64 {
     pub DomainHandle: super::PVOID,
     pub FaultAddress: super::PVOID,
@@ -3498,6 +3588,12 @@ pub struct FAULT_INFORMATION_ARM64 {
     pub Flags: FAULT_INFORMATION_ARM64_FLAGS,
     pub Type: FAULT_INFORMATION_ARM64_TYPE,
     pub IommuBaseAddress: super::ULONG64,
+}
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for FAULT_INFORMATION_ARM64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3508,7 +3604,7 @@ pub struct FAULT_INFORMATION_ARM64_FLAGS {
 pub type FAULT_INFORMATION_ARM64_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FAULT_INFORMATION_X64 {
     pub DomainHandle: super::PVOID,
     pub FaultAddress: super::PVOID,
@@ -3516,6 +3612,12 @@ pub struct FAULT_INFORMATION_X64 {
     pub Type: FAULT_INFORMATION_X64_TYPE,
     pub IommuBaseAddress: super::ULONG64,
     pub PciSegment: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for FAULT_INFORMATION_X64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3587,10 +3689,16 @@ impl Default for FILE_FULL_EA_INFORMATION {
 pub type FILE_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FILE_IOSTATUSBLOCK_RANGE_INFORMATION {
     pub IoStatusBlockRange: super::PUCHAR,
     pub Length: super::ULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for FILE_IOSTATUSBLOCK_RANGE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -3882,7 +3990,7 @@ pub type FPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "system" fn(context: s
 pub type FPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "system" fn(context: super::PVOID, uncorrectablemask: super::ULONG, correctablemask: super::ULONG, disableerrorreporting: super::BOOLEAN) -> windows_sys::core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FPGA_CONTROL_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -3895,17 +4003,29 @@ pub struct FPGA_CONTROL_INTERFACE {
     pub ControlErrorReporting: PFPGA_CONTROL_ERROR_REPORTING,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for FPGA_CONTROL_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type FPGA_CONTROL_LINK = Option<unsafe extern "system" fn(context: super::PVOID, enable: super::BOOLEAN) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type FREE_FUNCTION = Option<unsafe extern "system" fn(buffer: super::PVOID)>;
 pub type FS_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
     pub Size: super::ULONG,
     pub DeviceResetCompletion: PDEVICE_RESET_COMPLETION,
     pub CompletionContext: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "winnt")]
 pub type FWMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(wnode: super::PVOID, context: super::PVOID)>;
@@ -4135,13 +4255,19 @@ pub struct INTEL_CACHE_INFO_EBX_0 {
 pub type INTEL_CACHE_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
     pub Context: super::PVOID,
     pub InterfaceReference: PINTERFACE_REFERENCE,
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type INTERFACE_TYPE = i32;
 pub const IOCTL_CANCEL_DEVICE_WAKE: i32 = 2719752;
@@ -4252,11 +4378,17 @@ pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
     pub OwningToken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN,
     pub Offset: super::SIZE_T,
     pub Size: super::SIZE_T,
+}
+#[cfg(feature = "shared")]
+impl Default for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4293,12 +4425,18 @@ pub type IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = i32;
 pub type IOMMU_DMA_PASID_DEVICE = _IOMMU_DMA_PASID_DEVICE;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DMA_RESERVED_REGION {
     pub RegionNext: *mut Self,
     pub Base: IOMMU_DMA_LOGICAL_ADDRESS,
     pub NumberOfPages: super::SIZE_T,
     pub ShouldMap: super::BOOLEAN,
+}
+#[cfg(feature = "shared")]
+impl Default for IOMMU_DMA_RESERVED_REGION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type IOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "system" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: super::ULONG, mappingcount: super::ULONG) -> windows_sys::core::NTSTATUS>;
@@ -4391,9 +4529,15 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
     pub Mdl: super::PMDL,
+}
+#[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
+impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
@@ -4410,10 +4554,16 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
     pub PageFrame: PPFN_NUMBER,
     pub NumberOfPages: super::SIZE_T,
+}
+#[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
+impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = i32;
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
@@ -4490,18 +4640,24 @@ pub const IO_CHECK_SHARE_ACCESS_FORCE_USING_SCB: i32 = 64;
 pub const IO_CHECK_SHARE_ACCESS_UPDATE_SHARE_ACCESS: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_COMPLETION_CONTEXT {
     pub Port: super::PVOID,
     pub Key: super::PVOID,
     pub UsageCount: super::LONG_PTR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for IO_COMPLETION_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type IO_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(deviceobject: PDEVICE_OBJECT, irp: super::PIRP, context: super::PVOID) -> windows_sys::core::NTSTATUS>;
 pub type IO_COMPLETION_ROUTINE_RESULT = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     pub PhysicalDeviceObject: PDEVICE_OBJECT,
     pub InterruptObject: *mut super::PKINTERRUPT,
@@ -4517,9 +4673,15 @@ pub struct IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     pub ProcessorEnableMask: super::KAFFINITY,
     pub Group: super::USHORT,
 }
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
     pub PhysicalDeviceObject: PDEVICE_OBJECT,
     pub InterruptObject: *mut super::PKINTERRUPT,
@@ -4528,6 +4690,12 @@ pub struct IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
     pub SpinLock: super::PKSPIN_LOCK,
     pub SynchronizeIrql: super::KIRQL,
     pub FloatingSave: super::BOOLEAN,
+}
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -4593,7 +4761,7 @@ pub type IO_CONTAINER_INFORMATION_CLASS = i32;
 pub type IO_CONTAINER_NOTIFICATION_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_CSQ {
     pub Type: super::ULONG,
     pub CsqInsertIrp: PIO_CSQ_INSERT_IRP,
@@ -4605,6 +4773,12 @@ pub struct IO_CSQ {
     pub ReservePointer: super::PVOID,
 }
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
+impl Default for IO_CSQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
 pub type IO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "system" fn(csq: PIO_CSQ, irql: super::PKIRQL)>;
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
 pub type IO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "system" fn(csq: PIO_CSQ, irp: super::PIRP)>;
@@ -4614,11 +4788,17 @@ pub type IO_CSQ_INSERT_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ
 pub type IO_CSQ_INSERT_IRP_EX = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: super::PIRP, insertcontext: super::PVOID) -> windows_sys::core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_CSQ_IRP_CONTEXT {
     pub Type: super::ULONG,
     pub Irp: super::PIRP,
     pub Csq: PIO_CSQ,
+}
+#[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
+impl Default for IO_CSQ_IRP_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "usb", feature = "winnt"))]
 pub type IO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "system" fn(csq: PIO_CSQ, irp: super::PIRP, peekcontext: super::PVOID) -> super::PIRP>;
@@ -5061,12 +5241,18 @@ impl Default for IO_RESOURCE_REQUIREMENTS_LIST {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_SECURITY_CONTEXT {
     pub SecurityQos: super::PSECURITY_QUALITY_OF_SERVICE,
     pub AccessState: PACCESS_STATE,
     pub DesiredAccess: super::ACCESS_MASK,
     pub FullCreateOptions: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for IO_SECURITY_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -5096,13 +5282,19 @@ pub const IO_SESSION_STATE_LOGOFF_EVENT: i32 = 32;
 pub const IO_SESSION_STATE_LOGON_EVENT: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_SESSION_STATE_NOTIFICATION {
     pub Size: super::ULONG,
     pub Flags: super::ULONG,
     pub IoObject: super::PVOID,
     pub EventMask: super::ULONG,
     pub Context: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for IO_SESSION_STATE_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IO_SESSION_STATE_TERMINATION_EVENT: i32 = 2;
 pub const IO_SESSION_STATE_VALID_EVENT_MASK: i32 = 63;
@@ -5188,7 +5380,7 @@ impl Default for IO_STACK_LOCATION_0 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_0 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: super::ULONG,
@@ -5196,10 +5388,17 @@ pub struct IO_STACK_LOCATION_0_0 {
     pub ShareAccess: super::USHORT,
     pub EaLength: super::ULONG,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_1 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: super::ULONG,
@@ -5207,15 +5406,29 @@ pub struct IO_STACK_LOCATION_0_1 {
     pub ShareAccess: super::USHORT,
     pub Parameters: PNAMED_PIPE_CREATE_PARAMETERS,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_10 {
     pub Length: super::ULONG,
     pub EaList: super::PVOID,
     pub EaListLength: super::ULONG,
     pub EaIndex: super::ULONG,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -5243,12 +5456,19 @@ pub struct IO_STACK_LOCATION_0_13 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_14 {
     pub OutputBufferLength: super::ULONG,
     pub InputBufferLength: super::ULONG,
     pub FsControlCode: super::ULONG,
     pub Type3InputBuffer: super::PVOID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_14 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -5269,12 +5489,19 @@ impl Default for IO_STACK_LOCATION_0_15 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_16 {
     pub OutputBufferLength: super::ULONG,
     pub InputBufferLength: super::ULONG,
     pub IoControlCode: super::ULONG,
     pub Type3InputBuffer: super::PVOID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -5287,24 +5514,38 @@ pub struct IO_STACK_LOCATION_0_17 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_18 {
     pub SecurityInformation: super::SECURITY_INFORMATION,
     pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_18 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_19 {
     pub Vpb: PVPB,
     pub DeviceObject: PDEVICE_OBJECT,
     pub OutputBufferLength: super::ULONG,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_19 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_2 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: super::ULONG,
@@ -5312,30 +5553,58 @@ pub struct IO_STACK_LOCATION_0_2 {
     pub ShareAccess: super::USHORT,
     pub Parameters: PMAILSLOT_CREATE_PARAMETERS,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_20 {
     pub Vpb: PVPB,
     pub DeviceObject: PDEVICE_OBJECT,
 }
-#[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
-pub struct IO_STACK_LOCATION_0_21 {
-    pub Srb: *mut _SCSI_REQUEST_BLOCK,
+impl Default for IO_STACK_LOCATION_0_20 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
+pub struct IO_STACK_LOCATION_0_21 {
+    pub Srb: *mut _SCSI_REQUEST_BLOCK,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_21 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_22 {
     pub Length: super::ULONG,
     pub StartSid: super::PSID,
     pub SidList: super::PFILE_GET_QUOTA_INFORMATION,
     pub SidListLength: super::ULONG,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_22 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -5354,7 +5623,7 @@ pub struct IO_STACK_LOCATION_0_24 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_25 {
     pub InterfaceType: *const windows_sys::core::GUID,
     pub Size: super::USHORT,
@@ -5362,29 +5631,57 @@ pub struct IO_STACK_LOCATION_0_25 {
     pub Interface: PINTERFACE,
     pub InterfaceSpecificData: super::PVOID,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_25 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_26 {
     pub Capabilities: PDEVICE_CAPABILITIES,
 }
-#[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
-pub struct IO_STACK_LOCATION_0_27 {
-    pub IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
+impl Default for IO_STACK_LOCATION_0_26 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
+pub struct IO_STACK_LOCATION_0_27 {
+    pub IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_27 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_28 {
     pub WhichSpace: super::ULONG,
     pub Buffer: super::PVOID,
     pub Offset: super::ULONG,
     pub Length: super::ULONG,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_28 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -5450,9 +5747,16 @@ pub struct IO_STACK_LOCATION_0_33 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_34 {
     pub PowerSequence: PPOWER_SEQUENCE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_34 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -5489,30 +5793,51 @@ impl Default for IO_STACK_LOCATION_0_35_0 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_36 {
     pub AllocatedResources: PCM_RESOURCE_LIST,
     pub AllocatedResourcesTranslated: PCM_RESOURCE_LIST,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_36 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_37 {
     pub ProviderId: super::ULONG_PTR,
     pub DataPath: super::PVOID,
     pub BufferSize: super::ULONG,
     pub Buffer: super::PVOID,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_37 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_38 {
     pub Argument1: super::PVOID,
     pub Argument2: super::PVOID,
     pub Argument3: super::PVOID,
     pub Argument4: super::PVOID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_38 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -5533,12 +5858,19 @@ impl Default for IO_STACK_LOCATION_0_4 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_5 {
     pub Length: super::ULONG,
     pub FileName: super::PUNICODE_STRING,
     pub FileInformationClass: FILE_INFORMATION_CLASS,
     pub FileIndex: super::ULONG,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -5967,19 +6299,33 @@ impl Default for IO_STACK_LOCATION_0_17 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_18 {
     pub SecurityInformation: super::SECURITY_INFORMATION,
     pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_18 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_19 {
     pub Vpb: PVPB,
     pub DeviceObject: PDEVICE_OBJECT,
     pub OutputBufferLength: super::ULONG,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_19 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6013,27 +6359,48 @@ impl Default for IO_STACK_LOCATION_0_2 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_20 {
     pub Vpb: PVPB,
     pub DeviceObject: PDEVICE_OBJECT,
 }
-#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
-pub struct IO_STACK_LOCATION_0_21 {
-    pub Srb: *mut _SCSI_REQUEST_BLOCK,
+impl Default for IO_STACK_LOCATION_0_20 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
+pub struct IO_STACK_LOCATION_0_21 {
+    pub Srb: *mut _SCSI_REQUEST_BLOCK,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_21 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_22 {
     pub Length: super::ULONG,
     pub StartSid: super::PSID,
     pub SidList: super::PFILE_GET_QUOTA_INFORMATION,
     pub SidListLength: super::ULONG,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_22 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6052,7 +6419,7 @@ pub struct IO_STACK_LOCATION_0_24 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_25 {
     pub InterfaceType: *const windows_sys::core::GUID,
     pub Size: super::USHORT,
@@ -6060,19 +6427,40 @@ pub struct IO_STACK_LOCATION_0_25 {
     pub Interface: PINTERFACE,
     pub InterfaceSpecificData: super::PVOID,
 }
-#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
-pub struct IO_STACK_LOCATION_0_26 {
-    pub Capabilities: PDEVICE_CAPABILITIES,
+impl Default for IO_STACK_LOCATION_0_25 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
+pub struct IO_STACK_LOCATION_0_26 {
+    pub Capabilities: PDEVICE_CAPABILITIES,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_26 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_27 {
     pub IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_27 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6205,9 +6593,16 @@ pub struct IO_STACK_LOCATION_0_33 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_34 {
     pub PowerSequence: PPOWER_SEQUENCE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_34 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6280,30 +6675,51 @@ impl Default for IO_STACK_LOCATION_0_35_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_36 {
     pub AllocatedResources: PCM_RESOURCE_LIST,
     pub AllocatedResourcesTranslated: PCM_RESOURCE_LIST,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_36 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_37 {
     pub ProviderId: super::ULONG_PTR,
     pub DataPath: super::PVOID,
     pub BufferSize: super::ULONG,
     pub Buffer: super::PVOID,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_37 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_38 {
     pub Argument1: super::PVOID,
     pub Argument2: super::PVOID,
     pub Argument3: super::PVOID,
     pub Argument4: super::PVOID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_38 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -7183,17 +7599,29 @@ pub const Isa: INTERFACE_TYPE = 1;
 pub const KADDRESS_BASE: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KADDRESS_RANGE {
     pub Address: super::PVOID,
     pub Size: super::SIZE_T,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KADDRESS_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KADDRESS_RANGE_DESCRIPTOR {
     pub AddressRanges: *const KADDRESS_RANGE,
     pub AddressRangeCount: super::SIZE_T,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KADDRESS_RANGE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -7248,7 +7676,7 @@ pub const KAPC_OFFSET_TO_SYSTEMARGUMENT2: super::LONG = 0x28_u32 as _;
 pub const KAPC_OFFSET_TO_SYSTEMARGUMENT2: super::LONG = 0x48_u32 as _;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_ADD_PAGES {
     pub Context: super::PVOID,
     pub Flags: super::ULONG,
@@ -7256,11 +7684,17 @@ pub struct KBUGCHECK_ADD_PAGES {
     pub Address: super::ULONG_PTR,
     pub Count: super::ULONG_PTR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KBUGCHECK_ADD_PAGES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type KBUGCHECK_BUFFER_DUMP_STATE = i32;
 pub type KBUGCHECK_CALLBACK_REASON = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_CALLBACK_RECORD {
     pub Entry: super::LIST_ENTRY,
     pub CallbackRoutine: PKBUGCHECK_CALLBACK_ROUTINE,
@@ -7270,21 +7704,33 @@ pub struct KBUGCHECK_CALLBACK_RECORD {
     pub Checksum: super::ULONG_PTR,
     pub State: super::UCHAR,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for KBUGCHECK_CALLBACK_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type KBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(buffer: super::PVOID, length: super::ULONG)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_DUMP_IO {
     pub Offset: super::ULONG64,
     pub Buffer: super::PVOID,
     pub BufferLength: super::ULONG,
     pub Type: KBUGCHECK_DUMP_IO_TYPE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KBUGCHECK_DUMP_IO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type KBUGCHECK_DUMP_IO_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
     pub Entry: super::LIST_ENTRY,
     pub CallbackRoutine: PKBUGCHECK_REASON_CALLBACK_ROUTINE,
@@ -7294,10 +7740,16 @@ pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
     pub State: super::UCHAR,
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for KBUGCHECK_REASON_CALLBACK_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type KBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(reason: KBUGCHECK_CALLBACK_REASON, record: PKBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: super::PVOID, reasonspecificdatalength: super::ULONG)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_REMOVE_PAGES {
     pub Context: super::PVOID,
     pub Flags: super::ULONG,
@@ -7305,9 +7757,15 @@ pub struct KBUGCHECK_REMOVE_PAGES {
     pub Address: super::ULONG_PTR,
     pub Count: super::ULONG_PTR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KBUGCHECK_REMOVE_PAGES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_SECONDARY_DUMP_DATA {
     pub InBuffer: super::PVOID,
     pub InBufferLength: super::ULONG,
@@ -7316,9 +7774,15 @@ pub struct KBUGCHECK_SECONDARY_DUMP_DATA {
     pub OutBuffer: super::PVOID,
     pub OutBufferLength: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KBUGCHECK_SECONDARY_DUMP_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_SECONDARY_DUMP_DATA_EX {
     pub InBuffer: super::PVOID,
     pub InBufferLength: super::ULONG,
@@ -7335,9 +7799,15 @@ pub struct KBUGCHECK_SECONDARY_DUMP_DATA_EX {
     pub BugCheckParameter3: super::ULONG_PTR,
     pub BugCheckParameter4: super::ULONG_PTR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KBUGCHECK_SECONDARY_DUMP_DATA_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_TRIAGE_DUMP_DATA {
     pub DataArray: PKTRIAGE_DUMP_DATA_ARRAY,
     pub Flags: super::ULONG,
@@ -7347,6 +7817,12 @@ pub struct KBUGCHECK_TRIAGE_DUMP_DATA {
     pub BugCheckParameter2: super::ULONG_PTR,
     pub BugCheckParameter3: super::ULONG_PTR,
     pub BugCheckParameter4: super::ULONG_PTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for KBUGCHECK_TRIAGE_DUMP_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const KB_ADD_PAGES_FLAG_ADDITIONAL_RANGES_EXIST: u32 = 2147483648;
 pub const KB_ADD_PAGES_FLAG_PHYSICAL_ADDRESS: u32 = 2;
@@ -7755,10 +8231,16 @@ pub const KSEMAPHORE_ACTUAL_LENGTH: u64 = 28;
 pub type KSERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const _KINTERRUPT, servicecontext: super::PVOID) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSPIN_LOCK_QUEUE {
     pub Next: *mut Self,
     pub Lock: super::PKSPIN_LOCK,
+}
+#[cfg(feature = "winnt")]
+impl Default for KSPIN_LOCK_QUEUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
@@ -7918,9 +8400,15 @@ impl Default for KWAIT_BLOCK_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KWAIT_CHAIN {
     pub Head: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for KWAIT_CHAIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type KWAIT_REASON = i32;
 pub const KbCallbackAddPages: KBUGCHECK_CALLBACK_REASON = 4;
@@ -8175,7 +8663,7 @@ pub const MAXIMUM_VOLUME_LABEL_LENGTH: u64 = 64;
 pub const MAX_EVENT_COUNTERS: i32 = 31;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MDL {
     pub Next: *mut Self,
     pub Size: super::CSHORT,
@@ -8185,6 +8673,12 @@ pub struct MDL {
     pub StartVa: super::PVOID,
     pub ByteCount: super::ULONG,
     pub ByteOffset: super::ULONG,
+}
+#[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
+impl Default for MDL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MDL_ALLOCATED_FIXED_SIZE: i32 = 8;
 pub const MDL_ALLOCATED_MUST_SUCCEED: i32 = 16384;
@@ -8208,12 +8702,18 @@ pub type MEMORY_CACHING_TYPE = i32;
 pub type MEMORY_CACHING_TYPE_ORIG = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
     pub DedicatedMemoryTypeId: super::ULONG64,
     pub HandleAttributes: super::ULONG,
     pub DesiredAccess: super::ACCESS_MASK,
     pub DedicatedMemoryPartitionHandle: super::HANDLE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MM_ALLOCATE_AND_HOT_REMOVE: i32 = 256;
 pub const MM_ALLOCATE_FAST_LARGE_PAGES: i32 = 64;
@@ -8342,7 +8842,7 @@ pub struct NPEM_CAPABILITY_STANDARD_0 {
 pub type NPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn(context: super::PVOID, enablenpem: super::BOOLEAN) -> windows_sys::core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NPEM_CONTROL_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -8353,6 +8853,12 @@ pub struct NPEM_CONTROL_INTERFACE {
     pub QueryStandardCapabilities: PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES,
     pub SetStandardControl: PNPEM_CONTROL_SET_STANDARD_CONTROL,
     pub QueryNpemControl: PNPEM_CONTROL_QUERY_CONTROL,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for NPEM_CONTROL_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NPEM_CONTROL_INTERFACE_CURRENT_VERSION: i32 = 2;
 pub const NPEM_CONTROL_INTERFACE_VERSION1: i32 = 1;
@@ -8453,12 +8959,18 @@ pub struct OB_PRE_CREATE_HANDLE_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct OB_PRE_DUPLICATE_HANDLE_INFORMATION {
     pub DesiredAccess: super::ACCESS_MASK,
     pub OriginalDesiredAccess: super::ACCESS_MASK,
     pub SourceProcess: super::PVOID,
     pub TargetProcess: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for OB_PRE_DUPLICATE_HANDLE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -8575,7 +9087,7 @@ pub const PCI_ADDRESS_MEMORY_TYPE_MASK: i32 = 6;
 pub const PCI_ADDRESS_ROM_ADDRESS_MASK: u32 = 4294965248;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCI_ATS_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -8584,6 +9096,12 @@ pub struct PCI_ATS_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub SetAddressTranslationServices: PPCI_SET_ATS,
     pub InvalidateQueueDepth: super::UCHAR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PCI_ATS_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(target_arch = "x86")]
 pub const PCI_ATS_INTERFACE_SIZE: u32 = 24;
@@ -8794,7 +9312,7 @@ pub struct PCI_DEVICE_PRESENCE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCI_DEVICE_PRESENT_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -8804,12 +9322,18 @@ pub struct PCI_DEVICE_PRESENT_INTERFACE {
     pub IsDevicePresent: PPCI_IS_DEVICE_PRESENT,
     pub IsDevicePresentEx: PPCI_IS_DEVICE_PRESENT_EX,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PCI_DEVICE_PRESENT_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PCI_DEVICE_PRESENT_INTERFACE_VERSION: i32 = 1;
 pub const PCI_DEVICE_TYPE: i32 = 0;
 pub const PCI_DISABLE_LEVEL_INTERRUPT: i32 = 1024;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCI_DOE_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -8820,9 +9344,15 @@ pub struct PCI_DOE_INTERFACE {
     pub ResetDoeInstances: PRESET_DOE_INSTANCES,
     pub SendDoeRequest: PSEND_DOE_REQUEST,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PCI_DOE_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCI_DOE_INTERFACE2 {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -8834,6 +9364,12 @@ pub struct PCI_DOE_INTERFACE2 {
     pub SendDoeRequest: PSEND_DOE_REQUEST,
     pub SendDoeRequestAsync: PSEND_DOE_REQUEST_ASYNC,
     pub GetDoePreviousResponse: PGET_DOE_PREVIOUS_RESPONSE,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PCI_DOE_INTERFACE2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PCI_ENABLE_BUS_MASTER: i32 = 4;
 pub const PCI_ENABLE_FAST_BACK_TO_BACK: i32 = 512;
@@ -9161,7 +9697,7 @@ pub const PCI_EXPRESS_IDE_CAP_ID: i32 = 48;
 pub const PCI_EXPRESS_L1_PM_SS_CAP_ID: i32 = 30;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -9170,6 +9706,12 @@ pub struct PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub PciExpressEnterLinkQuiescentMode: PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE,
     pub PciExpressExitLinkQuiescentMode: PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PCI_EXPRESS_LINK_QUIESCENT_INTERFACE_VERSION: i32 = 1;
 pub const PCI_EXPRESS_LN_REQUESTER_CAP_ID: i32 = 28;
@@ -9411,7 +9953,7 @@ pub struct PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ROOT_PORT_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -9420,6 +9962,12 @@ pub struct PCI_EXPRESS_ROOT_PORT_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub ReadConfigSpace: PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE,
     pub WriteConfigSpace: PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PCI_EXPRESS_ROOT_PORT_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PCI_EXPRESS_ROOT_PORT_INTERFACE_VERSION: i32 = 1;
 pub const PCI_EXPRESS_SECONDARY_PCI_EXPRESS_CAP_ID: i32 = 25;
@@ -9718,7 +10266,7 @@ pub type PCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "system" fn(context: s
 pub type PCI_MSIX_SET_ENTRY = Option<unsafe extern "system" fn(context: super::PVOID, tableentry: super::ULONG, messagenumber: super::ULONG) -> windows_sys::core::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCI_MSIX_TABLE_CONFIG_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -9730,6 +10278,12 @@ pub struct PCI_MSIX_TABLE_CONFIG_INTERFACE {
     pub UnmaskTableEntry: PPCI_MSIX_MASKUNMASK_ENTRY,
     pub GetTableEntry: PPCI_MSIX_GET_ENTRY,
     pub GetTableSize: PPCI_MSIX_GET_TABLE_SIZE,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PCI_MSIX_TABLE_CONFIG_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PCI_MSIX_TABLE_CONFIG_INTERFACE_VERSION: i32 = 1;
 #[cfg(target_arch = "x86")]
@@ -9826,7 +10380,7 @@ pub const PCI_SECURITY_FULLY_SUPPORTED: i32 = 1;
 pub const PCI_SECURITY_GUEST_ASSIGNED: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCI_SECURITY_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -9835,9 +10389,15 @@ pub struct PCI_SECURITY_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub SetAccessControlServices: PPCI_SET_ACS,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PCI_SECURITY_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCI_SECURITY_INTERFACE2 {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -9848,6 +10408,12 @@ pub struct PCI_SECURITY_INTERFACE2 {
     pub SupportedScenarios: super::ULONG,
     pub SetAccessControlServices: PPCI_SET_ACS2,
     pub SetAccessControlServices3: PPCI_SET_ACS3,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PCI_SECURITY_INTERFACE2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PCI_SECURITY_INTERFACE_VERSION: i32 = 1;
 pub const PCI_SECURITY_INTERFACE_VERSION2: i32 = 2;
@@ -10038,7 +10604,7 @@ pub const PCI_USE_SUBSYSTEM_IDS: i32 = 1;
 pub const PCI_USE_VENDEV_IDS: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCI_VIRTUALIZATION_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -10051,6 +10617,12 @@ pub struct PCI_VIRTUALIZATION_INTERFACE {
     pub GetResources: PGET_VIRTUAL_DEVICE_RESOURCES,
     pub EnableVirtualization: PENABLE_VIRTUALIZATION,
     pub GetVirtualFunctionProbedBars: PGET_VIRTUAL_FUNCTION_PROBED_BARS,
+}
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PCI_VIRTUALIZATION_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PCI_VIRTUAL_RESOURCE_COUNT: i32 = 8;
 pub const PCI_WHICHSPACE_CONFIG: i32 = 0;
@@ -10209,22 +10781,34 @@ pub struct PCW_COUNTER_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCW_COUNTER_INFORMATION {
     pub CounterMask: super::ULONG64,
     pub InstanceMask: super::PCUNICODE_STRING,
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for PCW_COUNTER_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PCW_CURRENT_VERSION: i32 = 512;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCW_DATA {
     pub Data: *const core::ffi::c_void,
     pub Size: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for PCW_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCW_MASK_INFORMATION {
     pub CounterMask: super::ULONG64,
     pub InstanceMask: super::PCUNICODE_STRING,
@@ -10233,10 +10817,16 @@ pub struct PCW_MASK_INFORMATION {
     pub Buffer: PPCW_BUFFER,
     pub CancelEvent: PKEVENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for PCW_MASK_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PCW_REGISTRATION_FLAGS = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PCW_REGISTRATION_INFORMATION {
     pub Version: super::ULONG,
     pub Name: super::PCUNICODE_STRING,
@@ -10245,6 +10835,12 @@ pub struct PCW_REGISTRATION_INFORMATION {
     pub Callback: PPCW_CALLBACK,
     pub CallbackContext: super::PVOID,
     pub Flags: PCW_REGISTRATION_FLAGS,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for PCW_REGISTRATION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PCW_VERSION_1: i32 = 256;
 pub const PCW_VERSION_2: i32 = 512;
@@ -11045,7 +11641,7 @@ pub const PNP_DEVICE_RESOURCE_UPDATED: i32 = 128;
 pub type PNP_DEVICE_STATE = super::ULONG;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -11053,6 +11649,12 @@ pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
     pub InterfaceReference: PINTERFACE_REFERENCE,
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub QueryExtendedAddress: PQUERYEXTENDEDADDRESS,
+}
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+impl Default for PNP_EXTENDED_ADDRESS_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PNP_EXTENDED_ADDRESS_INTERFACE_VERSION: i32 = 1;
 #[repr(C)]
@@ -11115,7 +11717,7 @@ pub const PNP_REPLACE_MEMORY_SUPPORTED: i32 = 1;
 pub const PNP_REPLACE_NO_MAP: i64 = 9223372036854775807;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PNP_REPLACE_PARAMETERS {
     pub Size: super::ULONG,
     pub Version: super::ULONG,
@@ -11126,6 +11728,12 @@ pub struct PNP_REPLACE_PARAMETERS {
     pub TargetMemory: PPNP_REPLACE_MEMORY_LIST,
     pub SpareMemory: PPNP_REPLACE_MEMORY_LIST,
     pub MapMemory: PREPLACE_MAP_MEMORY,
+}
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+impl Default for PNP_REPLACE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PNP_REPLACE_PARAMETERS_VERSION: i32 = 2;
 #[repr(C)]
@@ -11214,11 +11822,17 @@ impl Default for POOL_CREATE_EXTENDED_PARAMETER_0 {
 pub type POOL_CREATE_EXTENDED_PARAMETER_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct POOL_CREATE_EXTENDED_PARAMS {
     pub Version: super::ULONG,
     pub ParameterCount: super::ULONG,
     pub Parameters: PPOOL_CREATE_EXTENDED_PARAMETER,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for POOL_CREATE_EXTENDED_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const POOL_CREATE_FLG_NONPAGED_POOL: i32 = 8;
 pub const POOL_CREATE_FLG_NUMA_AWARE: i32 = 16;
@@ -11269,12 +11883,18 @@ pub type POOL_EXTENDED_PARAMETER_TYPE = i32;
 pub const POOL_EXTENDED_PARAMETER_TYPE_BITS: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct POOL_EXTENDED_PARAMS_SECURE_POOL {
     pub SecurePoolHandle: super::HANDLE,
     pub Buffer: super::PVOID,
     pub Cookie: super::ULONG_PTR,
     pub SecurePoolFlags: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for POOL_EXTENDED_PARAMS_SECURE_POOL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type POOL_FLAGS = super::ULONG64;
@@ -11416,10 +12036,16 @@ impl Default for PO_FX_COMPONENT_PERF_SET_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_0 {
     pub Count: super::ULONG,
     pub States: PPO_FX_PERF_STATE,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for PO_FX_COMPONENT_PERF_SET_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -11432,16 +12058,22 @@ pub struct PO_FX_COMPONENT_PERF_SET_0_1 {
 pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "system" fn(context: super::PVOID, component: super::ULONG, succeeded: super::BOOLEAN, requestcontext: super::PVOID)>;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_V1 {
     pub Id: windows_sys::core::GUID,
     pub IdleStateCount: super::ULONG,
     pub DeepestWakeableIdleState: super::ULONG,
     pub IdleStates: PPO_FX_COMPONENT_IDLE_STATE,
 }
+#[cfg(feature = "shared")]
+impl Default for PO_FX_COMPONENT_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_V2 {
     pub Id: windows_sys::core::GUID,
     pub Flags: super::ULONGLONG,
@@ -11450,6 +12082,12 @@ pub struct PO_FX_COMPONENT_V2 {
     pub IdleStates: PPO_FX_COMPONENT_IDLE_STATE,
     pub ProviderCount: super::ULONG,
     pub Providers: super::PULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PO_FX_COMPONENT_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "basetsd", feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub type PO_FX_DEVICE = PO_FX_DEVICE_V1;
@@ -11550,10 +12188,16 @@ pub const PO_FX_FLAG_PERF_QUERY_ON_ALL_IDLE_STATES: i32 = 4;
 pub const PO_FX_FLAG_PERF_QUERY_ON_F0: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_PERF_STATE {
     pub Value: super::ULONGLONG,
     pub Context: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PO_FX_PERF_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -12077,7 +12721,7 @@ pub type PTARGET_DEVICE_REMOVAL_NOTIFICATION = *mut TARGET_DEVICE_REMOVAL_NOTIFI
 pub type PTIME_FIELDS = *mut TIME_FIELDS;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PTM_CONTROL_INTERFACE {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -12088,6 +12732,12 @@ pub struct PTM_CONTROL_INTERFACE {
     pub QueryTimeSource: PPTM_DEVICE_QUERY_TIME_SOURCE,
     pub Enable: PPTM_DEVICE_ENABLE,
     pub Disable: PPTM_DEVICE_DISABLE,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PTM_CONTROL_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "winnt")]
 pub type PTM_DEVICE_DISABLE = Option<unsafe extern "system" fn(context: super::PVOID) -> windows_sys::core::NTSTATUS>;
@@ -12212,7 +12862,7 @@ pub type QUERY_SUPPORTED_DOE_PROTOCOLS = Option<unsafe extern "system" fn(interf
 pub const QuerySecurityDescriptor: SECURITY_OPERATION_CODE = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REENUMERATE_SELF_INTERFACE_STANDARD {
     pub Size: super::USHORT,
     pub Version: super::USHORT,
@@ -12220,6 +12870,12 @@ pub struct REENUMERATE_SELF_INTERFACE_STANDARD {
     pub InterfaceReference: PINTERFACE_REFERENCE,
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub SurpriseRemoveAndReenumerateSelf: PREENUMERATE_SELF,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for REENUMERATE_SELF_INTERFACE_STANDARD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const REFTAG_AFDCONN: i32 = 1130653249;
 pub const REFTAG_AFDENDPOINT: i32 = 1164207681;
@@ -12249,11 +12905,17 @@ pub const REFTAG_WSKPROV: i32 = 1349219159;
 pub const REFTAG_WSKTDI: i32 = 1416328023;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
     pub Object: super::PVOID,
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type REG_CREATE_KEY_INFORMATION = _REG_CREATE_KEY_INFORMATION;
@@ -12263,7 +12925,7 @@ pub type REG_CREATE_KEY_INFORMATION_V1 = _REG_CREATE_KEY_INFORMATION_V1;
 pub type REG_DELETE_KEY_INFORMATION = _REG_DELETE_KEY_INFORMATION;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_DELETE_VALUE_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub ValueName: super::PUNICODE_STRING,
@@ -12271,9 +12933,15 @@ pub struct REG_DELETE_VALUE_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for REG_DELETE_VALUE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_ENUMERATE_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub Index: super::ULONG,
@@ -12285,9 +12953,15 @@ pub struct REG_ENUMERATE_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for REG_ENUMERATE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub Index: super::ULONG,
@@ -12299,20 +12973,32 @@ pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for REG_ENUMERATE_VALUE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "winnt")]
 pub type REG_FLUSH_KEY_INFORMATION = _REG_DELETE_KEY_INFORMATION;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_KEY_HANDLE_CLOSE_INFORMATION {
     pub Object: super::PVOID,
     pub CallContext: super::PVOID,
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(feature = "winnt")]
+impl Default for REG_KEY_HANDLE_CLOSE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_LOAD_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub KeyName: super::PUNICODE_STRING,
@@ -12326,9 +13012,15 @@ pub struct REG_LOAD_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for REG_LOAD_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_LOAD_KEY_INFORMATION_V2 {
     pub Object: super::PVOID,
     pub KeyName: super::PUNICODE_STRING,
@@ -12343,6 +13035,12 @@ pub struct REG_LOAD_KEY_INFORMATION_V2 {
     pub Version: super::ULONG_PTR,
     pub FileAccessToken: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for REG_LOAD_KEY_INFORMATION_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type REG_NOTIFY_CLASS = i32;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type REG_OPEN_KEY_INFORMATION = _REG_CREATE_KEY_INFORMATION;
@@ -12354,7 +13052,7 @@ pub type REG_POST_CREATE_KEY_INFORMATION = _REG_POST_CREATE_KEY_INFORMATION;
 pub type REG_POST_OPEN_KEY_INFORMATION = _REG_POST_CREATE_KEY_INFORMATION;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_POST_OPERATION_INFORMATION {
     pub Object: super::PVOID,
     pub Status: windows_sys::core::NTSTATUS,
@@ -12364,13 +13062,19 @@ pub struct REG_POST_OPERATION_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(feature = "winnt")]
+impl Default for REG_POST_OPERATION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "shared", feature = "winternl"))]
 pub type REG_PRE_CREATE_KEY_INFORMATION = _REG_PRE_CREATE_KEY_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winternl"))]
 pub type REG_PRE_OPEN_KEY_INFORMATION = _REG_PRE_CREATE_KEY_INFORMATION;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub KeyInformationClass: KEY_INFORMATION_CLASS,
@@ -12381,9 +13085,15 @@ pub struct REG_QUERY_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for REG_QUERY_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_KEY_NAME {
     pub Object: super::PVOID,
     pub ObjectNameInfo: POBJECT_NAME_INFORMATION,
@@ -12393,9 +13103,15 @@ pub struct REG_QUERY_KEY_NAME {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for REG_QUERY_KEY_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_KEY_SECURITY_INFORMATION {
     pub Object: super::PVOID,
     pub SecurityInformation: super::PSECURITY_INFORMATION,
@@ -12405,9 +13121,15 @@ pub struct REG_QUERY_KEY_SECURITY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+impl Default for REG_QUERY_KEY_SECURITY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub ValueEntries: super::PKEY_VALUE_ENTRY,
@@ -12419,9 +13141,15 @@ pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub ValueName: super::PUNICODE_STRING,
@@ -12433,9 +13161,15 @@ pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for REG_QUERY_VALUE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_RENAME_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub NewName: super::PUNICODE_STRING,
@@ -12443,9 +13177,15 @@ pub struct REG_RENAME_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for REG_RENAME_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_REPLACE_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub OldFileName: super::PUNICODE_STRING,
@@ -12454,9 +13194,15 @@ pub struct REG_REPLACE_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for REG_REPLACE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_RESTORE_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub FileHandle: super::HANDLE,
@@ -12465,9 +13211,15 @@ pub struct REG_RESTORE_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for REG_RESTORE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_SAVE_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub FileHandle: super::HANDLE,
@@ -12476,9 +13228,15 @@ pub struct REG_SAVE_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for REG_SAVE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_SAVE_MERGED_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub FileHandle: super::HANDLE,
@@ -12488,9 +13246,15 @@ pub struct REG_SAVE_MERGED_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(feature = "winnt")]
+impl Default for REG_SAVE_MERGED_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_SET_KEY_SECURITY_INFORMATION {
     pub Object: super::PVOID,
     pub SecurityInformation: super::PSECURITY_INFORMATION,
@@ -12499,9 +13263,15 @@ pub struct REG_SET_KEY_SECURITY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(feature = "winnt")]
+impl Default for REG_SET_KEY_SECURITY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_SET_VALUE_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub ValueName: super::PUNICODE_STRING,
@@ -12513,9 +13283,15 @@ pub struct REG_SET_VALUE_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for REG_SET_VALUE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REG_UNLOAD_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub UserEvent: super::PVOID,
@@ -12523,18 +13299,30 @@ pub struct REG_UNLOAD_KEY_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(feature = "winnt")]
+impl Default for REG_UNLOAD_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type REQUEST_POWER_COMPLETE = Option<unsafe extern "system" fn(deviceobject: PDEVICE_OBJECT, minorfunction: super::UCHAR, powerstate: POWER_STATE, context: super::PVOID, iostatus: super::PIO_STATUS_BLOCK)>;
 #[cfg(feature = "winnt")]
 pub type RESET_DOE_INSTANCES = Option<unsafe extern "system" fn(interfacecontext: super::PVOID)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct RESOURCE_HASH_ENTRY {
     pub ListEntry: super::LIST_ENTRY,
     pub Address: super::PVOID,
     pub ContentionCount: super::ULONG,
     pub Number: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for RESOURCE_HASH_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RESOURCE_HASH_TABLE_SIZE: i32 = 64;
 #[repr(C)]
@@ -12565,10 +13353,16 @@ pub const ROOT_CMD_ENABLE_NONFATAL_ERROR_REPORTING: i32 = 2;
 pub const ROOT_CMD_ERROR_REPORTING_ENABLE_MASK: i32 = 7;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct RTL_BITMAP {
     pub SizeOfBitMap: super::ULONG,
     pub Buffer: super::PULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for RTL_BITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -12589,7 +13383,7 @@ pub type RTL_QUERY_REGISTRY_ROUTINE = Option<unsafe extern "system" fn(valuename
 pub const RTL_QUERY_REGISTRY_SUBKEY: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct RTL_QUERY_REGISTRY_TABLE {
     pub QueryRoutine: PRTL_QUERY_REGISTRY_ROUTINE,
     pub Flags: super::ULONG,
@@ -12598,6 +13392,12 @@ pub struct RTL_QUERY_REGISTRY_TABLE {
     pub DefaultType: super::ULONG,
     pub DefaultData: super::PVOID,
     pub DefaultLength: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for RTL_QUERY_REGISTRY_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RTL_QUERY_REGISTRY_TOPKEY: i32 = 2;
 pub const RTL_QUERY_REGISTRY_TYPECHECK: i32 = 256;
@@ -12710,11 +13510,17 @@ pub const SDEV_IDENTIFIER_INTERFACE_VERSION: i32 = 1;
 pub type SECTION_INHERIT = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SECTION_OBJECT_POINTERS {
     pub DataSectionObject: super::PVOID,
     pub SharedCacheMap: super::PVOID,
     pub ImageSectionObject: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for SECTION_OBJECT_POINTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -12737,12 +13543,18 @@ pub const SECURE_SECTION_ALLOW_PARTIAL_MDL: i32 = 1;
 pub type SECURITY_OPERATION_CODE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_SUBJECT_CONTEXT {
     pub ClientToken: super::PACCESS_TOKEN,
     pub ImpersonationLevel: super::SECURITY_IMPERSONATION_LEVEL,
     pub PrimaryToken: super::PACCESS_TOKEN,
     pub ProcessAuditId: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for SECURITY_SUBJECT_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SEGMENT_ALL_ACCESS: i32 = 983071;
 pub const SEMAPHORE_QUERY_STATE: i32 = 1;
@@ -12935,12 +13747,18 @@ impl Default for TARGET_DEVICE_CUSTOM_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct TARGET_DEVICE_REMOVAL_NOTIFICATION {
     pub Version: super::USHORT,
     pub Size: super::USHORT,
     pub Event: windows_sys::core::GUID,
     pub FileObject: PFILE_OBJECT,
+}
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "shared", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for TARGET_DEVICE_REMOVAL_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const THREAD_ALERT: i32 = 4;
 pub const THREAD_WAIT_OBJECTS: i32 = 3;
@@ -13221,11 +14039,17 @@ pub type WMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(wnode: sup
 pub type WORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn(parameter: super::PVOID)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WORK_QUEUE_ITEM {
     pub List: super::LIST_ENTRY,
     pub WorkerRoutine: PWORKER_THREAD_ROUTINE,
     pub Parameter: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for WORK_QUEUE_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WORK_QUEUE_TYPE = i32;
 pub const WdfNotifyRoutinesClass: TRACE_INFORMATION_CLASS = 15;
@@ -13303,7 +14127,7 @@ impl Default for XSTATE_SAVE_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct XSTATE_SAVE_0_0 {
     pub Reserved1: super::LONG64,
     pub Reserved2: super::ULONG,
@@ -13313,26 +14137,47 @@ pub struct XSTATE_SAVE_0_0 {
     pub Reserved4: super::PVOID,
     pub Level: super::UCHAR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for XSTATE_SAVE_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct XSTATE_SAVE {
     pub Prev: *mut Self,
     pub Thread: *mut _KTHREAD,
     pub Level: super::UCHAR,
     pub XStateContext: super::XSTATE_CONTEXT,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for XSTATE_SAVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct XSTATE_SAVE {
     pub Prev: *mut Self,
     pub Thread: *mut _KTHREAD,
     pub Level: super::UCHAR,
     pub XStateContext: super::XSTATE_CONTEXT,
     pub Reserved: super::ULONG_PTR,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for XSTATE_SAVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -13487,7 +14332,7 @@ pub struct _PCW_INSTANCE(pub u8);
 pub struct _PCW_REGISTRATION(pub u8);
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _REG_CREATE_KEY_INFORMATION {
     pub CompleteName: super::PUNICODE_STRING,
     pub RootObject: super::PVOID,
@@ -13505,9 +14350,15 @@ pub struct _REG_CREATE_KEY_INFORMATION {
     pub Transaction: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for _REG_CREATE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _REG_CREATE_KEY_INFORMATION_V1 {
     pub CompleteName: super::PUNICODE_STRING,
     pub RootObject: super::PVOID,
@@ -13529,28 +14380,52 @@ pub struct _REG_CREATE_KEY_INFORMATION_V1 {
     pub Attributes: super::ULONG,
     pub CheckAccessMode: KPROCESSOR_MODE,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for _REG_CREATE_KEY_INFORMATION_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _REG_DELETE_KEY_INFORMATION {
     pub Object: super::PVOID,
     pub CallContext: super::PVOID,
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(feature = "winnt")]
+impl Default for _REG_DELETE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _REG_POST_CREATE_KEY_INFORMATION {
     pub CompleteName: super::PUNICODE_STRING,
     pub Object: super::PVOID,
     pub Status: windows_sys::core::NTSTATUS,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for _REG_POST_CREATE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _REG_PRE_CREATE_KEY_INFORMATION {
     pub CompleteName: super::PUNICODE_STRING,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for _REG_PRE_CREATE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

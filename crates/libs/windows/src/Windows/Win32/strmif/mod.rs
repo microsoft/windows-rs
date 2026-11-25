@@ -183,7 +183,7 @@ pub const AM_INTF_SEARCH_OUTPUT_PIN: _AM_INTF_SEARCH_FLAGS = 2;
 pub const AM_MEDIAEVENT_NONOTIFY: tagAM_MEDIAEVENT_FLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AM_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -194,6 +194,12 @@ pub struct AM_MEDIA_TYPE {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub cbFormat: super::ULONG,
     pub pbFormat: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for AM_MEDIA_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const AM_OVERLAY_NOTIFY_DEST_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = 4;
 pub const AM_OVERLAY_NOTIFY_SOURCE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = 2;
@@ -212,7 +218,7 @@ pub const AM_QUERY_DECODER_VMR_SUPPORT: i32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: super::DWORD,
     pub dwTypeSpecificFlags: super::DWORD,
@@ -224,6 +230,12 @@ pub struct AM_SAMPLE2_PROPERTIES {
     pub pMediaType: *mut AM_MEDIA_TYPE,
     pub pbBuffer: *mut super::BYTE,
     pub cbBuffer: super::LONG,
+}
+#[cfg(feature = "shared")]
+impl Default for AM_SAMPLE2_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const AM_SAMPLE_DATADISCONTINUITY: tagAM_SAMPLE_PROPERTY_FLAGS = 4;
 pub const AM_SAMPLE_ENDOFSTREAM: tagAM_SAMPLE_PROPERTY_FLAGS = 512;
@@ -15395,21 +15407,33 @@ impl Default for REGFILTER2_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTER2_0_0 {
     pub cPins: super::ULONG,
     pub rgPins: *const REGFILTERPINS,
 }
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+impl Default for REGFILTER2_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTER2_0_1 {
     pub cPins2: super::ULONG,
     pub rgPins2: *const REGFILTERPINS2,
 }
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+impl Default for REGFILTER2_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTERPINS {
     pub strName: windows_core::PWSTR,
     pub bRendered: windows_core::BOOL,
@@ -15421,9 +15445,15 @@ pub struct REGFILTERPINS {
     pub nMediaTypes: super::UINT,
     pub lpMediaType: *const REGPINTYPES,
 }
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+impl Default for REGFILTERPINS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTERPINS2 {
     pub dwFlags: super::DWORD,
     pub cInstances: super::UINT,
@@ -15432,6 +15462,12 @@ pub struct REGFILTERPINS2 {
     pub nMediums: super::UINT,
     pub lpMedium: *const REGPINMEDIUM,
     pub clsPinCategory: *const super::CLSID,
+}
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for REGFILTERPINS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
@@ -15443,10 +15479,16 @@ pub struct REGPINMEDIUM {
 }
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGPINTYPES {
     pub clsMajorType: *const super::CLSID,
     pub clsMinorType: *const super::CLSID,
+}
+#[cfg(feature = "guiddef")]
+impl Default for REGPINTYPES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const REG_PINFLAG_B_MANY: i32 = 4;
 pub const REG_PINFLAG_B_OUTPUT: i32 = 8;
@@ -15535,7 +15577,7 @@ pub struct VIDEO_STREAM_CONFIG_CAPS {
 }
 #[repr(C)]
 #[cfg(all(feature = "ksmedia", feature = "shared", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMRALLOCATIONINFO {
     pub dwFlags: super::DWORD,
     pub lpHdr: super::LPBITMAPINFOHEADER,
@@ -15546,9 +15588,15 @@ pub struct VMRALLOCATIONINFO {
     pub dwInterlaceFlags: super::DWORD,
     pub szNativeSize: super::SIZE,
 }
+#[cfg(all(feature = "ksmedia", feature = "shared", feature = "windef", feature = "wingdi"))]
+impl Default for VMRALLOCATIONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "ddraw", feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VMRALPHABITMAP {
     pub dwFlags: super::DWORD,
     pub hdc: super::HDC,
@@ -15557,6 +15605,12 @@ pub struct VMRALPHABITMAP {
     pub rDest: NORMALIZEDRECT,
     pub fAlpha: super::FLOAT,
     pub clrSrcKey: super::COLORREF,
+}
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for VMRALPHABITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VMRBITMAP_DISABLE: i32 = 1;
 pub const VMRBITMAP_ENTIREDDS: i32 = 4;
@@ -15583,10 +15637,15 @@ pub struct VMRFrequency {
     pub dwDenominator: super::DWORD,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMRGUID {
     pub pGUID: *mut windows_core::GUID,
     pub GUID: windows_core::GUID,
+}
+impl Default for VMRGUID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]

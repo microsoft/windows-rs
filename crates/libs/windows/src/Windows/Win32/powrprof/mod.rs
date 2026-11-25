@@ -489,10 +489,16 @@ pub const DEVICE_NOTIFY_CALLBACK: i32 = 2;
 pub type DEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: super::PVOID, r#type: super::ULONG, setting: super::PVOID) -> super::ULONG>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EnableMultiBatteryDisplay: i32 = 2;
 pub const EnablePasswordLogon: i32 = 4;

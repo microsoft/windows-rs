@@ -60,12 +60,18 @@ pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUE
 pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct COSERVERINFO {
     pub dwReserved1: super::DWORD,
     pub pwszName: windows_sys::core::PWSTR,
     pub pAuthInfo: *mut super::COAUTHINFO,
     pub dwReserved2: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for COSERVERINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CO_MARSHALING_CONTEXT_ATTRIBUTES = i32;
 pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483648;
@@ -146,11 +152,17 @@ pub type LPSTREAM = *mut core::ffi::c_void;
 pub type LPSURROGATE = *mut core::ffi::c_void;
 #[repr(C, packed(8))]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MULTI_QI {
     pub pIID: *const super::IID,
     pub pItf: *mut core::ffi::c_void,
     pub hr: windows_sys::core::HRESULT,
+}
+#[cfg(feature = "guiddef")]
+impl Default for MULTI_QI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MachineGlobalObjectTableRegistrationToken = *mut MachineGlobalObjectTableRegistrationToken__;
 #[repr(C, packed(8))]
@@ -189,7 +201,7 @@ pub type RPCOPT_PROPERTIES = i32;
 pub type RPCOPT_SERVER_LOCALITY_VALUES = i32;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SChannelHookCallInfo {
     pub iid: super::IID,
     pub cbSize: super::DWORD,
@@ -198,32 +210,56 @@ pub struct SChannelHookCallInfo {
     pub iMethod: super::DWORD,
     pub pObject: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for SChannelHookCallInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 1;
 pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 0;
 pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SOLE_AUTHENTICATION_INFO {
     pub dwAuthnSvc: super::DWORD,
     pub dwAuthzSvc: super::DWORD,
     pub pAuthInfo: *mut core::ffi::c_void,
 }
+#[cfg(feature = "shared")]
+impl Default for SOLE_AUTHENTICATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SOLE_AUTHENTICATION_LIST {
     pub cAuthInfo: super::DWORD,
     pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for SOLE_AUTHENTICATION_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SOLE_AUTHENTICATION_SERVICE {
     pub dwAuthnSvc: super::DWORD,
     pub dwAuthzSvc: super::DWORD,
     pub pPrincipalName: *mut super::OLECHAR,
     pub hr: windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for SOLE_AUTHENTICATION_SERVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypesbase"))]

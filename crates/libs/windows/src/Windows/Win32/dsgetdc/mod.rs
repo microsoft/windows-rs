@@ -267,7 +267,7 @@ pub const DS_DOMAIN_PRIMARY: i32 = 8;
 pub const DS_DOMAIN_TREE_ROOT: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSA {
     pub NetbiosDomainName: windows_core::PSTR,
     pub DnsDomainName: windows_core::PSTR,
@@ -278,9 +278,15 @@ pub struct DS_DOMAIN_TRUSTSA {
     pub DomainSid: super::PSID,
     pub DomainGuid: windows_core::GUID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DS_DOMAIN_TRUSTSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSW {
     pub NetbiosDomainName: windows_core::PWSTR,
     pub DnsDomainName: windows_core::PWSTR,
@@ -290,6 +296,12 @@ pub struct DS_DOMAIN_TRUSTSW {
     pub TrustAttributes: super::ULONG,
     pub DomainSid: super::PSID,
     pub DomainGuid: windows_core::GUID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DS_DOMAIN_TRUSTSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DS_DOMAIN_VALID_FLAGS: i32 = 63;
 pub const DS_DS_10_FLAG: i32 = 65536;

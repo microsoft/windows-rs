@@ -786,21 +786,33 @@ pub const WTS_LISTENER_NAME_LENGTH: i32 = 32;
 pub const WTS_LISTENER_UPDATE: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROCESS_INFOA {
     pub SessionId: super::DWORD,
     pub ProcessId: super::DWORD,
     pub pProcessName: windows_sys::core::PSTR,
     pub pUserSid: super::PSID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WTS_PROCESS_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROCESS_INFOW {
     pub SessionId: super::DWORD,
     pub ProcessId: super::DWORD,
     pub pProcessName: windows_sys::core::PWSTR,
     pub pUserSid: super::PSID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WTS_PROCESS_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -870,14 +882,24 @@ pub const WTS_SECURITY_VIRTUAL_CHANNELS: i32 = 8;
 #[cfg(feature = "shared")]
 pub type WTS_SERIALIZED_USER_CREDENTIAL = _WTS_SERIALIZED_USER_CREDENTIAL;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTS_SERVER_INFOA {
     pub pServerName: windows_sys::core::PSTR,
 }
+impl Default for WTS_SERVER_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTS_SERVER_INFOW {
     pub pServerName: windows_sys::core::PWSTR,
+}
+impl Default for WTS_SERVER_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WTS_SESSIONSTATE_LOCK: i32 = 0;
 pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295;
@@ -897,23 +919,35 @@ impl Default for WTS_SESSION_ADDRESS {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTS_SESSION_INFOA {
     pub SessionId: super::DWORD,
     pub pWinStationName: windows_sys::core::PSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
+#[cfg(feature = "shared")]
+impl Default for WTS_SESSION_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTS_SESSION_INFOW {
     pub SessionId: super::DWORD,
     pub pWinStationName: windows_sys::core::PWSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
+#[cfg(feature = "shared")]
+impl Default for WTS_SESSION_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTS_SESSION_INFO_1A {
     pub ExecEnvId: super::DWORD,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -924,9 +958,15 @@ pub struct WTS_SESSION_INFO_1A {
     pub pDomainName: windows_sys::core::PSTR,
     pub pFarmName: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for WTS_SESSION_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTS_SESSION_INFO_1W {
     pub ExecEnvId: super::DWORD,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -936,6 +976,12 @@ pub struct WTS_SESSION_INFO_1W {
     pub pUserName: windows_sys::core::PWSTR,
     pub pDomainName: windows_sys::core::PWSTR,
     pub pFarmName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for WTS_SESSION_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WTS_TYPE_CLASS = i32;
 #[repr(C)]
@@ -978,8 +1024,14 @@ pub const WTS_WSD_REBOOT: i32 = 4;
 pub const WTS_WSD_SHUTDOWN: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WTS_SERIALIZED_USER_CREDENTIAL {
     pub SerializationLength: super::ULONG,
     pub Serialization: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for _WTS_SERIALIZED_USER_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

@@ -132,7 +132,7 @@ pub struct AMSI_UAC_REQUEST_EXE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMSI_UAC_REQUEST_MSI_INFO {
     pub ulLength: super::ULONG,
     pub MsiAction: AMSI_UAC_MSI_ACTION,
@@ -145,6 +145,12 @@ pub struct AMSI_UAC_REQUEST_MSI_INFO {
     pub ulUpdates: super::ULONG,
     pub ppwszUpdates: *mut windows_core::PWSTR,
     pub ppwszUpdateSources: *mut windows_core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for AMSI_UAC_REQUEST_MSI_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

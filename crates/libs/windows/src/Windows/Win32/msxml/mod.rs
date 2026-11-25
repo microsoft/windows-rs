@@ -15553,10 +15553,16 @@ pub const XHR_AUTH_NONE: XHR_AUTH = 1;
 pub const XHR_AUTH_PROXY: XHR_AUTH = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XHR_CERT {
     pub cbCert: super::DWORD,
     pub pbCert: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for XHR_CERT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const XHR_CERT_ERROR_ALL_SERVER_ERRORS: XHR_CERT_ERROR_FLAG = 125829120;
 pub const XHR_CERT_ERROR_CERT_CN_INVALID: XHR_CERT_ERROR_FLAG = 33554432;
@@ -15572,7 +15578,7 @@ pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = 128;
 pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = 256;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XHR_COOKIE {
     pub pwszUrl: *mut super::WCHAR,
     pub pwszName: *mut super::WCHAR,
@@ -15580,6 +15586,12 @@ pub struct XHR_COOKIE {
     pub pwszP3PPolicy: *mut super::WCHAR,
     pub ftExpires: super::FILETIME,
     pub dwFlags: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for XHR_COOKIE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const XHR_COOKIE_APPLY_P3P: XHR_COOKIE_FLAG = 128;
 pub const XHR_COOKIE_EVALUATE_P3P: XHR_COOKIE_FLAG = 64;

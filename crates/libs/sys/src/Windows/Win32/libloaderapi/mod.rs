@@ -81,11 +81,17 @@ pub type ENUMRESTYPEPROCA = Option<unsafe extern "system" fn(hmodule: super::HMO
 pub type ENUMRESTYPEPROCW = Option<unsafe extern "system" fn(hmodule: super::HMODULE, lptype: windows_sys::core::PCWSTR, lparam: super::LONG_PTR) -> windows_sys::core::BOOL>;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ENUMUILANG {
     pub NumOfEnumUILang: super::ULONG,
     pub SizeOfEnumUIBuffer: super::ULONG,
     pub pEnumUIBuffer: *mut super::LANGID,
+}
+#[cfg(feature = "shared")]
+impl Default for ENUMUILANG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: i32 = 1024;
 pub const FIND_RESOURCE_DIRECTORY_NAMES: i32 = 512;
@@ -124,19 +130,31 @@ pub type PREDIRECTION_DESCRIPTOR = *mut REDIRECTION_DESCRIPTOR;
 pub type PREDIRECTION_FUNCTION_DESCRIPTOR = *mut REDIRECTION_FUNCTION_DESCRIPTOR;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REDIRECTION_DESCRIPTOR {
     pub Version: super::ULONG,
     pub FunctionCount: super::ULONG,
     pub Redirections: PCREDIRECTION_FUNCTION_DESCRIPTOR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for REDIRECTION_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
     pub DllName: windows_sys::core::PCSTR,
     pub FunctionName: windows_sys::core::PCSTR,
     pub RedirectionTarget: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for REDIRECTION_FUNCTION_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RESOURCE_ENUM_LN: i32 = 1;
 pub const RESOURCE_ENUM_MODULE_EXACT: i32 = 16;

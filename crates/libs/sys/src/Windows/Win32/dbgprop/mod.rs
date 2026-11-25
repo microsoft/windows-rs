@@ -38,7 +38,7 @@ pub const DBGPROP_INFO_TYPE: i32 = 2;
 pub const DBGPROP_INFO_VALUE: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: super::DWORD,
     pub m_bstrName: windows_sys::core::BSTR,
@@ -47,6 +47,12 @@ pub struct DebugPropertyInfo {
     pub m_bstrFullName: windows_sys::core::BSTR,
     pub m_dwAttrib: super::DWORD,
     pub m_pDebugProp: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for DebugPropertyInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EX_PROP_INFO_DEBUGEXTPROP: EX_PROP_INFO_FLAGS = 4096;
 pub type EX_PROP_INFO_FLAGS = i32;

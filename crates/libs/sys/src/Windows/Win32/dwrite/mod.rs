@@ -16,11 +16,17 @@ pub const DWRITE_BASELINE_MINIMUM: DWRITE_BASELINE = 7;
 pub const DWRITE_BASELINE_ROMAN: DWRITE_BASELINE = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWRITE_BITMAP_DATA_BGRA32 {
     pub width: super::UINT32,
     pub height: super::UINT32,
     pub pixels: *mut super::UINT32,
+}
+#[cfg(feature = "shared")]
+impl Default for DWRITE_BITMAP_DATA_BGRA32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DWRITE_BREAK_CONDITION = i32;
 pub const DWRITE_BREAK_CONDITION_CAN_BREAK: DWRITE_BREAK_CONDITION = 1;
@@ -76,7 +82,7 @@ pub const DWRITE_COLOR_COMPOSITE_XOR: DWRITE_COLOR_COMPOSITE_MODE = 11;
 pub type DWRITE_COLOR_F = super::D3DCOLORVALUE;
 #[repr(C)]
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWRITE_COLOR_GLYPH_RUN {
     pub glyphRun: DWRITE_GLYPH_RUN,
     pub glyphRunDescription: *mut DWRITE_GLYPH_RUN_DESCRIPTION,
@@ -84,6 +90,12 @@ pub struct DWRITE_COLOR_GLYPH_RUN {
     pub baselineOriginY: super::FLOAT,
     pub runColor: DWRITE_COLOR_F,
     pub paletteIndex: super::UINT16,
+}
+#[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for DWRITE_COLOR_GLYPH_RUN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -290,11 +302,17 @@ pub struct DWRITE_FONT_METRICS1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWRITE_FONT_PROPERTY {
     pub propertyId: DWRITE_FONT_PROPERTY_ID,
     pub propertyValue: *const super::WCHAR,
     pub localeName: *const super::WCHAR,
+}
+#[cfg(feature = "winnt")]
+impl Default for DWRITE_FONT_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DWRITE_FONT_PROPERTY_ID = i32;
 pub const DWRITE_FONT_PROPERTY_ID_DESIGN_SCRIPT_LANGUAGE_TAG: DWRITE_FONT_PROPERTY_ID = 7;
@@ -362,7 +380,7 @@ pub const DWRITE_FONT_WEIGHT_ULTRA_BOLD: DWRITE_FONT_WEIGHT = 800;
 pub const DWRITE_FONT_WEIGHT_ULTRA_LIGHT: DWRITE_FONT_WEIGHT = 200;
 #[repr(C)]
 #[cfg(all(feature = "dcommon", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub imageData: *const core::ffi::c_void,
     pub imageDataSize: super::UINT32,
@@ -373,6 +391,12 @@ pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub horizontalRightOrigin: super::D2D1_POINT_2L,
     pub verticalTopOrigin: super::D2D1_POINT_2L,
     pub verticalBottomOrigin: super::D2D1_POINT_2L,
+}
+#[cfg(all(feature = "dcommon", feature = "shared", feature = "windef"))]
+impl Default for DWRITE_GLYPH_IMAGE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -400,7 +424,7 @@ pub const DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES: DWRITE_GLYPH_ORIENTATION_A
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_90_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWRITE_GLYPH_RUN {
     pub fontFace: *mut core::ffi::c_void,
     pub fontEmSize: super::FLOAT,
@@ -411,15 +435,27 @@ pub struct DWRITE_GLYPH_RUN {
     pub isSideways: windows_sys::core::BOOL,
     pub bidiLevel: super::UINT32,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for DWRITE_GLYPH_RUN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
     pub localeName: *const super::WCHAR,
     pub string: *const super::WCHAR,
     pub stringLength: super::UINT32,
     pub clusterMap: *const super::UINT16,
     pub textPosition: super::UINT32,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DWRITE_GLYPH_RUN_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DWRITE_GRID_FIT_MODE = i32;
 pub const DWRITE_GRID_FIT_MODE_DEFAULT: DWRITE_GRID_FIT_MODE = 0;
@@ -1147,7 +1183,7 @@ pub struct DWRITE_SHAPING_TEXT_PROPERTIES {
 pub const DWRITE_STANDARD_FONT_AXIS_COUNT: i32 = 5;
 #[repr(C)]
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWRITE_STRIKETHROUGH {
     pub width: super::FLOAT,
     pub thickness: super::FLOAT,
@@ -1156,6 +1192,12 @@ pub struct DWRITE_STRIKETHROUGH {
     pub flowDirection: DWRITE_FLOW_DIRECTION,
     pub localeName: *const super::WCHAR,
     pub measuringMode: super::DWRITE_MEASURING_MODE,
+}
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "winnt"))]
+impl Default for DWRITE_STRIKETHROUGH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DWRITE_TEXTURE_ALIASED_1x1: DWRITE_TEXTURE_TYPE = 0;
 pub const DWRITE_TEXTURE_CLEARTYPE_3x1: DWRITE_TEXTURE_TYPE = 1;
@@ -1210,14 +1252,20 @@ pub const DWRITE_TRIMMING_GRANULARITY_NONE: DWRITE_TRIMMING_GRANULARITY = 0;
 pub const DWRITE_TRIMMING_GRANULARITY_WORD: DWRITE_TRIMMING_GRANULARITY = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWRITE_TYPOGRAPHIC_FEATURES {
     pub features: *mut DWRITE_FONT_FEATURE,
     pub featureCount: super::UINT32,
 }
+#[cfg(feature = "shared")]
+impl Default for DWRITE_TYPOGRAPHIC_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "dcommon", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWRITE_UNDERLINE {
     pub width: super::FLOAT,
     pub thickness: super::FLOAT,
@@ -1227,6 +1275,12 @@ pub struct DWRITE_UNDERLINE {
     pub flowDirection: DWRITE_FLOW_DIRECTION,
     pub localeName: *const super::WCHAR,
     pub measuringMode: super::DWRITE_MEASURING_MODE,
+}
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "winnt"))]
+impl Default for DWRITE_UNDERLINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

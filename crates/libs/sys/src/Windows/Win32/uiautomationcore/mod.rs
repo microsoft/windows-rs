@@ -215,14 +215,19 @@ pub const ToggleState_Off: ToggleState = 0;
 pub const ToggleState_On: ToggleState = 1;
 pub const UIA_ScrollPatternNoScroll: f64 = -1.0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UIAutomationEventInfo {
     pub guid: windows_sys::core::GUID,
     pub pProgrammaticName: windows_sys::core::PCWSTR,
 }
+impl Default for UIAutomationEventInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UIAutomationMethodInfo {
     pub pProgrammaticName: windows_sys::core::PCWSTR,
     pub doSetFocus: windows_sys::core::BOOL,
@@ -231,15 +236,26 @@ pub struct UIAutomationMethodInfo {
     pub pParameterTypes: *mut UIAutomationType,
     pub pParameterNames: *mut windows_sys::core::PCWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for UIAutomationMethodInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UIAutomationParameter {
     pub r#type: UIAutomationType,
     pub pData: *mut core::ffi::c_void,
 }
+impl Default for UIAutomationParameter {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UIAutomationPatternInfo {
     pub guid: windows_sys::core::GUID,
     pub pProgrammaticName: windows_sys::core::PCWSTR,
@@ -253,12 +269,23 @@ pub struct UIAutomationPatternInfo {
     pub pEvents: *mut UIAutomationEventInfo,
     pub pPatternHandler: *mut core::ffi::c_void,
 }
+#[cfg(feature = "shared")]
+impl Default for UIAutomationPatternInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UIAutomationPropertyInfo {
     pub guid: windows_sys::core::GUID,
     pub pProgrammaticName: windows_sys::core::PCWSTR,
     pub r#type: UIAutomationType,
+}
+impl Default for UIAutomationPropertyInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type UIAutomationType = i32;
 pub const UIAutomationType_Array: UIAutomationType = 65536;

@@ -389,13 +389,19 @@ pub const AuditPrivilegeObject: SE_AUDIT_OPERATION = 0;
 pub const AuditPrivilegeService: SE_AUDIT_OPERATION = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BASE_MCB {
     pub MaximumPairCount: super::ULONG,
     pub PairCount: super::ULONG,
     pub PoolType: super::USHORT,
     pub Flags: super::USHORT,
     pub Mapping: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for BASE_MCB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -444,13 +450,19 @@ pub const CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE: i32 = 1;
 pub const CC_AGGRESSIVE_UNMAP_BEHIND: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CC_ASYNC_READ_CONTEXT {
     pub CompletionRoutine: PASYNC_READ_COMPLETION_CALLBACK,
     pub Context: super::PVOID,
     pub Mdl: super::PMDL,
     pub RequestorMode: super::KPROCESSOR_MODE,
     pub NestingLevel: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
+impl Default for CC_ASYNC_READ_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -522,10 +534,16 @@ pub const COMPRESSION_FORMAT_MAX: i32 = 8;
 pub const COPY_FILE_CHUNK_DUPLICATE_EXTENTS: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct COPY_INFORMATION {
     pub SourceFileObject: super::PFILE_OBJECT,
     pub SourceFileOffset: super::LONGLONG,
+}
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+impl Default for COPY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -786,10 +804,16 @@ pub const FILE_CLEANUP_UNKNOWN: i32 = 0;
 pub const FILE_CLEANUP_WRONG_DEVICE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FILE_COMPLETION_INFORMATION {
     pub Port: super::HANDLE,
     pub Key: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_COMPLETION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1378,9 +1402,15 @@ impl Default for FILE_MAILSLOT_QUERY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FILE_MAILSLOT_SET_INFORMATION {
     pub ReadTimeout: super::PLARGE_INTEGER,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for FILE_MAILSLOT_SET_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1485,20 +1515,32 @@ pub const FILE_OPLOCK_BROKEN_TO_NONE: i32 = 8;
 pub const FILE_PIPE_ACCEPT_REMOTE_CLIENTS: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FILE_PIPE_ASSIGN_EVENT_BUFFER {
     pub EventHandle: super::HANDLE,
     pub KeyValue: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for FILE_PIPE_ASSIGN_EVENT_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FILE_PIPE_BYTE_STREAM_MODE: i32 = 0;
 pub const FILE_PIPE_BYTE_STREAM_TYPE: i32 = 0;
 pub const FILE_PIPE_CLIENT_END: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER {
     pub ClientSession: super::PVOID,
     pub ClientProcess: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1517,10 +1559,16 @@ impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
     pub ClientSession: super::ULONGLONG,
     pub ClientProcess: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FILE_PIPE_CLOSING_STATE: i32 = 4;
 pub const FILE_PIPE_COMPLETE_OPERATION: i32 = 1;
@@ -1617,9 +1665,15 @@ impl Default for FILE_PIPE_REMOTE_INFORMATION {
 pub const FILE_PIPE_SERVER_END: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FILE_PIPE_SILO_ARRIVAL_INPUT {
     pub JobHandle: super::HANDLE,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_PIPE_SILO_ARRIVAL_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FILE_PIPE_SYMLINK_FLAG_GLOBAL: i32 = 1;
 pub const FILE_PIPE_SYMLINK_FLAG_RELATIVE: i32 = 2;
@@ -2027,12 +2081,18 @@ pub const FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL: i32 = 2;
 pub const FSRTL_ASYNC_CACHED_READ_TOP_LEVEL_IRP: super::LONG_PTR = 7;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FSRTL_AUXILIARY_BUFFER {
     pub Buffer: super::PVOID,
     pub Length: super::ULONG,
     pub Flags: super::ULONG,
     pub Mdl: super::PMDL,
+}
+#[cfg(all(feature = "shared", feature = "usb", feature = "winnt"))]
+impl Default for FSRTL_AUXILIARY_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FSRTL_AUXILIARY_FLAG_DEALLOCATE: i32 = 1;
 #[cfg(feature = "shared")]
@@ -2120,29 +2180,47 @@ pub const FSRTL_NTFS_STREAM_LEGAL: i32 = 20;
 pub const FSRTL_OLE_LEGAL: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FSRTL_PER_FILEOBJECT_CONTEXT {
     pub Links: super::LIST_ENTRY,
     pub OwnerId: super::PVOID,
     pub InstanceId: super::PVOID,
 }
+#[cfg(feature = "winnt")]
+impl Default for FSRTL_PER_FILEOBJECT_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FSRTL_PER_FILE_CONTEXT {
     pub Links: super::LIST_ENTRY,
     pub OwnerId: super::PVOID,
     pub InstanceId: super::PVOID,
     pub FreeCallback: super::PFREE_FUNCTION,
 }
+#[cfg(all(feature = "wdm", feature = "winnt"))]
+impl Default for FSRTL_PER_FILE_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FSRTL_PER_STREAM_CONTEXT {
     pub Links: super::LIST_ENTRY,
     pub OwnerId: super::PVOID,
     pub InstanceId: super::PVOID,
     pub FreeCallback: super::PFREE_FUNCTION,
+}
+#[cfg(all(feature = "wdm", feature = "winnt"))]
+impl Default for FSRTL_PER_STREAM_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type FSRTL_UNC_HARDENING_CAPABILITIES = super::ULONG;
@@ -2292,20 +2370,32 @@ impl Default for FS_FILTER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FS_FILTER_PARAMETERS_0 {
     pub EndingOffset: super::PLARGE_INTEGER,
     pub ResourceToRelease: *mut super::PERESOURCE,
 }
-#[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
-pub struct FS_FILTER_PARAMETERS_1 {
-    pub ResourceToRelease: super::PERESOURCE,
+impl Default for FS_FILTER_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
+pub struct FS_FILTER_PARAMETERS_1 {
+    pub ResourceToRelease: super::PERESOURCE,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
+impl Default for FS_FILTER_PARAMETERS_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct FS_FILTER_PARAMETERS_2 {
     pub SyncType: FS_FILTER_SECTION_SYNC_TYPE,
     pub PageProtection: super::ULONG,
@@ -2313,9 +2403,15 @@ pub struct FS_FILTER_PARAMETERS_2 {
     pub Flags: super::ULONG,
     pub AllocationAttributes: super::ULONG,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
+impl Default for FS_FILTER_PARAMETERS_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FS_FILTER_PARAMETERS_3 {
     pub Irp: super::PIRP,
     pub FileInformation: super::PVOID,
@@ -2323,15 +2419,27 @@ pub struct FS_FILTER_PARAMETERS_3 {
     pub FileInformationClass: super::FILE_INFORMATION_CLASS,
     pub CompletionStatus: windows_sys::core::NTSTATUS,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
+impl Default for FS_FILTER_PARAMETERS_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FS_FILTER_PARAMETERS_4 {
     pub Argument1: super::PVOID,
     pub Argument2: super::PVOID,
     pub Argument3: super::PVOID,
     pub Argument4: super::PVOID,
     pub Argument5: super::PVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt"))]
+impl Default for FS_FILTER_PARAMETERS_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const FS_FILTER_QUERY_OPEN: super::UCHAR = 249;
@@ -2456,19 +2564,31 @@ pub const IO_CD_ROM_INCREMENT: i32 = 1;
 pub const IO_CREATE_STREAM_FILE_LITE: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_CREATE_STREAM_FILE_OPTIONS {
     pub Size: super::USHORT,
     pub Flags: super::USHORT,
     pub TargetDeviceObject: super::PDEVICE_OBJECT,
 }
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+impl Default for IO_CREATE_STREAM_FILE_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IO_CREATE_STREAM_FILE_RAISE_ON_ERROR: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_DEVICE_HINT_ECP_CONTEXT {
     pub TargetDevice: super::PDEVICE_OBJECT,
     pub RemainingName: super::UNICODE_STRING,
+}
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "shared", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+impl Default for IO_DEVICE_HINT_ECP_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IO_DISK_INCREMENT: i32 = 1;
 pub const IO_FILE_OBJECT_NON_PAGED_POOL_CHARGE: i32 = 64;
@@ -2695,10 +2815,16 @@ pub const KnownFolderPictures: FILE_KNOWN_FOLDER_TYPE = 5;
 pub const KnownFolderVideos: FILE_KNOWN_FOLDER_TYPE = 6;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LARGE_MCB {
     pub GuardedMutex: super::PKGUARDED_MUTEX,
     pub BaseMcb: BASE_MCB,
+}
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt"))]
+impl Default for LARGE_MCB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type LBN = super::ULONG;
@@ -2805,10 +2931,16 @@ pub const MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE: i32 = 1;
 pub type MEMORY_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MEMORY_RANGE_ENTRY {
     pub VirtualAddress: super::PVOID,
     pub NumberOfBytes: super::SIZE_T,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MEMORY_RANGE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MMFLUSH_TYPE = i32;
 pub const MM_FORCE_CLOSED_DATA: i32 = 1;
@@ -2845,12 +2977,18 @@ pub struct MSV1_0_ENUMUSERS_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MSV1_0_ENUMUSERS_RESPONSE {
     pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub NumberOfLoggedOnUsers: super::ULONG,
     pub LogonIds: super::PLUID,
     pub EnumHandles: super::PULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "shared", feature = "winnt"))]
+impl Default for MSV1_0_ENUMUSERS_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -2914,7 +3052,7 @@ pub struct MSV1_0_GETUSERINFO_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub UserSid: super::PSID,
@@ -2922,6 +3060,12 @@ pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub LogonDomainName: super::UNICODE_STRING,
     pub LogonServer: super::UNICODE_STRING,
     pub LogonType: super::SECURITY_LOGON_TYPE,
+}
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for MSV1_0_GETUSERINFO_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
@@ -2944,11 +3088,17 @@ impl Default for MSV1_0_LM20_CHALLENGE_RESPONSE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MUP_PROVIDER_INFORMATION {
     pub Level: super::ULONG,
     pub Buffer: super::PVOID,
     pub BufferSize: super::PULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for MUP_PROVIDER_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MemoryBasicInformation: MEMORY_INFORMATION_CLASS = 0;
 pub const MemoryType64KPage: RTL_MEMORY_TYPE = 2;
@@ -3052,10 +3202,16 @@ pub type NETWORK_OPEN_LOCATION_QUALIFIER = i32;
 pub type NETWORK_OPEN_OUT_FLAGS = super::ULONG;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NFS_OPEN_ECP_CONTEXT {
     pub ExportAlias: super::PUNICODE_STRING,
     pub ClientSocketAddress: PSOCKADDR_STORAGE_NFS,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for NFS_OPEN_ECP_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NO_8DOT3_NAME_PRESENT: i32 = 1;
 pub const NetworkOpenIntegrityAny: NETWORK_OPEN_INTEGRITY_QUALIFIER = 0;
@@ -3125,12 +3281,18 @@ pub const OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT: OPLOCK_NOTIFY_REASON = 0;
 pub const OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED: OPLOCK_NOTIFY_REASON = 1;
 #[repr(C)]
 #[cfg(all(feature = "usb", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct OPLOCK_NOTIFY_PARAMS {
     pub NotifyReason: OPLOCK_NOTIFY_REASON,
     pub NotifyContext: super::PVOID,
     pub Irp: super::PIRP,
     pub Status: windows_sys::core::NTSTATUS,
+}
+#[cfg(all(feature = "usb", feature = "winnt"))]
+impl Default for OPLOCK_NOTIFY_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type OPLOCK_NOTIFY_REASON = i32;
 pub const OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: i32 = 65536;
@@ -3595,27 +3757,45 @@ pub type PREAD_AHEAD_PARAMETERS = *mut READ_AHEAD_PARAMETERS;
 pub type PREAD_LIST = *mut READ_LIST;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PREFETCH_OPEN_ECP_CONTEXT {
     pub Context: super::PVOID,
 }
+#[cfg(feature = "winnt")]
+impl Default for PREFETCH_OPEN_ECP_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PREFIX_TABLE {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: PPREFIX_TABLE_ENTRY,
 }
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for PREFIX_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: *mut Self,
     pub Links: super::RTL_SPLAY_LINKS,
     pub Prefix: super::PSTRING,
+}
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for PREFIX_TABLE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PREFS_COMPRESSION_FORMATS = *mut REFS_COMPRESSION_FORMATS;
 pub type PREFS_DEALLOCATE_RANGES_ALLOCATOR = *mut REFS_DEALLOCATE_RANGES_ALLOCATOR;
@@ -3764,10 +3944,16 @@ pub struct QUERY_DIRECT_ACCESS_EXTENTS {
 pub const QUERY_DIRECT_ACCESS_IMAGE_EXTENTS: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wdm"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct QUERY_ON_CREATE_EA_INFORMATION {
     pub EaBufferSize: super::ULONG,
     pub EaBuffer: super::PFILE_FULL_EA_INFORMATION,
+}
+#[cfg(all(feature = "shared", feature = "wdm"))]
+impl Default for QUERY_ON_CREATE_EA_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wdm", feature = "winnt"))]
@@ -3856,11 +4042,17 @@ impl Default for QUERY_ON_CREATE_FILE_STAT_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct QUERY_ON_CREATE_SECURITY_INFORMATION {
     pub Reserved: super::ULONG,
     pub SecurityDescriptorSize: super::ULONG,
     pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for QUERY_ON_CREATE_SECURITY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -3885,7 +4077,7 @@ impl Default for QUERY_PATH_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct QUERY_PATH_REQUEST_EX {
     pub pSecurityContext: super::PIO_SECURITY_CONTEXT,
     pub EaLength: super::ULONG,
@@ -3895,6 +4087,12 @@ pub struct QUERY_PATH_REQUEST_EX {
     pub EcpList: PECP_LIST,
     pub Silo: super::PESILO,
     pub Reserved: super::ULONG_PTR,
+}
+#[cfg(all(feature = "ntddk", feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+impl Default for QUERY_PATH_REQUEST_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4495,7 +4693,7 @@ pub const RTL_SEGHEAP_MEM_SOURCE_ANY_NODE: super::ULONG = 4294967295;
 pub const RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: windows_sys::core::PCWSTR = windows_sys::core::w!("System Volume Information");
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_CLIENT_CONTEXT {
     pub SecurityQos: super::SECURITY_QUALITY_OF_SERVICE,
     pub ClientToken: super::PACCESS_TOKEN,
@@ -4503,6 +4701,12 @@ pub struct SECURITY_CLIENT_CONTEXT {
     pub DirectAccessEffectiveOnly: super::BOOLEAN,
     pub ServerIsRemote: super::BOOLEAN,
     pub ClientTokenControl: super::TOKEN_CONTROL,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SECURITY_CLIENT_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SECURITY_DESCRIPTOR_DO_NOT_FREE: i32 = 67108864;
 pub const SEGMENT_HEAP_FLG_NO_LFH: i32 = 2;
@@ -4518,7 +4722,7 @@ pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SE_AUDIT_INFO {
     pub Size: super::ULONG,
     pub AuditType: super::AUDIT_EVENT_TYPE,
@@ -4533,12 +4737,18 @@ pub struct SE_AUDIT_INFO {
     pub ObjectCreation: super::BOOLEAN,
     pub GenerateOnClose: super::BOOLEAN,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for SE_AUDIT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SE_AUDIT_OPERATION = i32;
 pub const SE_BACKUP_PRIVILEGES_CHECKED: i32 = 256;
 pub const SE_DACL_UNTRUSTED: i32 = 64;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SE_EXPORTS {
     pub SeCreateTokenPrivilege: super::LUID,
     pub SeAssignPrimaryTokenPrivilege: super::LUID,
@@ -4617,6 +4827,12 @@ pub struct SE_EXPORTS {
     pub SeAppSiloAccessToPublisherDirectoryCapabilitySid: super::PSID,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SE_EXPORTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(logonid: super::PLUID) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "ntddk", feature = "shared", feature = "winnt"))]
 pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: super::PLUID, pserversilo: super::PESILO, context: super::PVOID) -> windows_sys::core::NTSTATUS>;
@@ -4641,7 +4857,7 @@ pub const SPECIAL_ENCRYPTED_OPEN: i32 = 262144;
 pub type SRV_INSTANCE_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SRV_OPEN_ECP_CONTEXT {
     pub ShareName: super::PUNICODE_STRING,
     pub SocketAddress: PSOCKADDR_STORAGE_NFS,
@@ -4650,6 +4866,12 @@ pub struct SRV_OPEN_ECP_CONTEXT {
     pub OplockFinalState: super::BOOLEAN,
     pub Version: super::USHORT,
     pub InstanceType: SRV_INSTANCE_TYPE,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for SRV_OPEN_ECP_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SRV_OPEN_ECP_CONTEXT_VERSION_2: i32 = 2;
 pub const SUPPORTED_FS_FEATURES_BYPASS_IO: i32 = 8;
@@ -4720,16 +4942,22 @@ impl Default for TUNNEL {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UNICODE_PREFIX_TABLE {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: PUNICODE_PREFIX_TABLE_ENTRY,
     pub LastNextEntry: PUNICODE_PREFIX_TABLE_ENTRY,
 }
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winternl"))]
+impl Default for UNICODE_PREFIX_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
@@ -4737,6 +4965,12 @@ pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub CaseMatch: *mut Self,
     pub Links: super::RTL_SPLAY_LINKS,
     pub Prefix: super::PUNICODE_STRING,
+}
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winternl"))]
+impl Default for UNICODE_PREFIX_TABLE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const UNINITIALIZE_CACHE_MAPS: i32 = 1;
 pub const USE_PRIMARY_PASSWORD: i32 = 1;

@@ -393,7 +393,7 @@ pub const CONNDLG_USE_MRU: i32 = 4;
 pub type CONNECTDLGSTRUCT = CONNECTDLGSTRUCTA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -401,15 +401,27 @@ pub struct CONNECTDLGSTRUCTA {
     pub dwFlags: super::DWORD,
     pub dwDevNum: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for CONNECTDLGSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: super::DWORD,
     pub hwndOwner: super::HWND,
     pub lpConnRes: LPNETRESOURCEW,
     pub dwFlags: super::DWORD,
     pub dwDevNum: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for CONNECTDLGSTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CONNECT_CMD_SAVECRED: i32 = 4096;
 pub const CONNECT_COMMANDLINE: i32 = 2048;
@@ -434,7 +446,7 @@ pub const CONNECT_WRITE_THROUGH_SEMANTICS: i32 = 65536;
 pub type DISCDLGSTRUCT = DISCDLGSTRUCTA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -442,15 +454,27 @@ pub struct DISCDLGSTRUCTA {
     pub lpRemoteName: windows_core::PSTR,
     pub dwFlags: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for DISCDLGSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: super::DWORD,
     pub hwndOwner: super::HWND,
     pub lpLocalName: windows_core::PWSTR,
     pub lpRemoteName: windows_core::PWSTR,
     pub dwFlags: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for DISCDLGSTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DISC_NO_FORCE: i32 = 64;
 pub const DISC_UPDATE_PROFILE: i32 = 1;

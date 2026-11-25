@@ -2,7 +2,7 @@
 pub type BASEBROWSERDATA = BASEBROWSERDATALH;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "guiddef", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::HWND,
     pub _ptl: *mut core::ffi::c_void,
@@ -31,6 +31,12 @@ pub struct BASEBROWSERDATALH {
     pub _clsidViewPending: super::CLSID,
     pub _hwndFrame: super::HWND,
     pub _lPhishingFilterStatus: super::LONG,
+}
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "guiddef", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+impl Default for BASEBROWSERDATALH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type BNSTATE = i32;
 pub const BNS_BEGIN_NAVIGATE: BNSTATE = 1;
@@ -116,13 +122,19 @@ pub const TLOG_CURRENT: i32 = 0;
 pub const TLOG_FORE: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct TOOLBARITEM {
     pub ptbar: *mut core::ffi::c_void,
     pub rcBorderTool: super::BORDERWIDTHS,
     pub pwszItem: windows_sys::core::PWSTR,
     pub fShow: windows_sys::core::BOOL,
     pub hMon: super::HMONITOR,
+}
+#[cfg(all(feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "windef"))]
+impl Default for TOOLBARITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TrackShellMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8278f931_2a3e_11d2_838f_00c04fd918d0);
 pub const VIEW_PRIORITY_CACHEHIT: i32 = 80;

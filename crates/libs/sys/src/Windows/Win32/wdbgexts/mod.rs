@@ -1,7 +1,7 @@
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: i32 = 11;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BUSDATA {
     pub BusDataType: super::ULONG,
     pub BusNumber: super::ULONG,
@@ -9,6 +9,12 @@ pub struct BUSDATA {
     pub Buffer: super::PVOID,
     pub Offset: super::ULONG,
     pub Length: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for BUSDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CANNOT_ALLOCATE_MEMORY: i32 = 9;
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: i32 = 2048;
@@ -224,7 +230,7 @@ pub const EXT_API_VERSION_NUMBER32: i32 = 5;
 pub const EXT_API_VERSION_NUMBER64: i32 = 6;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct EXT_FIND_FILE {
     pub FileName: windows_sys::core::PCWSTR,
     pub IndexedSize: super::ULONG64,
@@ -239,14 +245,26 @@ pub struct EXT_FIND_FILE {
     pub FoundFileName: windows_sys::core::PWSTR,
     pub FoundFileNameChars: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for EXT_FIND_FILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EXT_FIND_FILE_ALLOW_GIVEN_PATH: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct EXT_MATCH_PATTERN_A {
     pub Str: windows_sys::core::PCSTR,
     pub Pattern: windows_sys::core::PCSTR,
     pub CaseSensitive: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for EXT_MATCH_PATTERN_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EXT_TDF_PHYSICAL_CACHED: i32 = 4;
 pub const EXT_TDF_PHYSICAL_DEFAULT: i32 = 2;
@@ -347,11 +365,17 @@ pub struct FIELD_INFO__BitField {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GET_CONTEXT_EX {
     pub Status: super::ULONG,
     pub ContextSize: super::ULONG,
     pub pContext: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for GET_CONTEXT_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -370,20 +394,32 @@ pub struct GET_CURRENT_THREAD_ADDRESS {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GET_EXPRESSION_EX {
     pub Expression: windows_sys::core::PCSTR,
     pub Remainder: windows_sys::core::PCSTR,
     pub Value: super::ULONG64,
 }
+#[cfg(feature = "shared")]
+impl Default for GET_EXPRESSION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GET_INPUT_LINE {
     pub Prompt: windows_sys::core::PCSTR,
     pub Buffer: windows_sys::core::PSTR,
     pub BufferSize: super::ULONG,
     pub InputSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for GET_INPUT_LINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -393,11 +429,16 @@ pub struct GET_PEB_ADDRESS {
     pub Address: super::ULONGLONG,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GET_SET_SYMPATH {
     pub Args: windows_sys::core::PCSTR,
     pub Result: windows_sys::core::PSTR,
     pub Length: i32,
+}
+impl Default for GET_SET_SYMPATH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -864,7 +905,7 @@ pub type PKDDEBUGGER_DATA32 = *mut KDDEBUGGER_DATA32;
 pub type PKDDEBUGGER_DATA64 = *mut KDDEBUGGER_DATA64;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct POINTER_SEARCH_PHYSICAL {
     pub Offset: super::ULONG64,
     pub Length: super::ULONG64,
@@ -874,6 +915,12 @@ pub struct POINTER_SEARCH_PHYSICAL {
     pub MatchOffsets: super::PULONG64,
     pub MatchOffsetsSize: super::ULONG,
     pub MatchOffsetsCount: super::ULONG,
+}
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+impl Default for POINTER_SEARCH_PHYSICAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type POOL_HEADER_FIELD_NAME = i32;
 #[repr(C)]
@@ -1063,13 +1110,19 @@ pub struct READ_WRITE_MSR {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SEARCHMEMORY {
     pub SearchAddress: super::ULONG64,
     pub SearchLength: super::ULONG64,
     pub FoundAddress: super::ULONG64,
     pub PatternLength: super::ULONG,
     pub Pattern: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SEARCHMEMORY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SYMBOL_TYPE_INDEX_NOT_FOUND: i32 = 2;
 pub const SYMBOL_TYPE_INFO_NOT_FOUND: i32 = 3;
@@ -1135,10 +1188,16 @@ pub const WDBGEXTS_ADDRESS_SEG16: i32 = 1;
 pub const WDBGEXTS_ADDRESS_SEG32: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WDBGEXTS_CLR_DATA_INTERFACE {
     pub Iid: *const super::IID,
     pub Iface: super::PVOID,
+}
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
+impl Default for WDBGEXTS_CLR_DATA_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1177,10 +1236,16 @@ pub struct WDBGEXTS_MODULE_IN_RANGE {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WDBGEXTS_QUERY_INTERFACE {
     pub Iid: *const super::IID,
     pub Iface: super::PVOID,
+}
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
+impl Default for WDBGEXTS_QUERY_INTERFACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

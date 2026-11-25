@@ -5,6 +5,18 @@ pub fn yml() {
         let mut first = true;
         let mut current_version = None;
         let mut manifests = helpers::crates("crates/libs");
+        let version = |name| {
+            manifests
+                .iter()
+                .find(|manifest| manifest.package.name == name)
+                .unwrap()
+                .package
+                .rust_version
+                .clone()
+                .unwrap()
+        };
+        let generator_version = version("windows-bindgen");
+        let runtime_version = version("windows-core");
         manifests.sort_by(|a, b| {
             rust_version_key(b.package.rust_version.as_deref().expect("rust-version"))
                 .cmp(&rust_version_key(
@@ -68,6 +80,14 @@ pub fn yml() {
             )
             .unwrap();
         }
+        writeln!(
+            yml,
+            r"      - name: Check generated bindings on runtime MSRV
+        env:
+          WINDOWS_BINDGEN_TEST_TOOLCHAIN: '{runtime_version}'
+        run: cargo +{generator_version} test -p test_bindgen --test bindgen generated_bindings_support_runtime_msrv --quiet"
+        )
+        .unwrap();
     });
 
     write_yml(".github/workflows/msrv-windows.yml", |yml| {

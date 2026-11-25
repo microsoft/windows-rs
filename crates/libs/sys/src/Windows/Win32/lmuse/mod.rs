@@ -121,14 +121,19 @@ pub const USE_DOMAINNAME_PARMNUM: i32 = 6;
 pub const USE_FLAGS_PARMNUM: i32 = 7;
 pub const USE_FLAG_GLOBAL_MAPPING: i32 = 65536;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_0 {
     pub ui0_local: windows_sys::core::PWSTR,
     pub ui0_remote: windows_sys::core::PWSTR,
 }
+impl Default for USE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_1 {
     pub ui1_local: windows_sys::core::PWSTR,
     pub ui1_remote: windows_sys::core::PWSTR,
@@ -138,9 +143,15 @@ pub struct USE_INFO_1 {
     pub ui1_refcount: super::DWORD,
     pub ui1_usecount: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for USE_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_2 {
     pub ui2_local: windows_sys::core::PWSTR,
     pub ui2_remote: windows_sys::core::PWSTR,
@@ -152,6 +163,12 @@ pub struct USE_INFO_2 {
     pub ui2_username: windows_sys::core::PWSTR,
     pub ui2_domainname: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for USE_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
@@ -161,15 +178,21 @@ pub struct USE_INFO_3 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_4 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: super::DWORD,
     pub ui4_auth_identity: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for USE_INFO_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_5 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: super::DWORD,
@@ -178,6 +201,12 @@ pub struct USE_INFO_5 {
     pub ui5_security_descriptor: super::PBYTE,
     pub ui5_use_options_length: super::DWORD,
     pub ui5_use_options: super::PBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for USE_INFO_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const USE_IPC: i32 = 3;
 pub const USE_LOCAL_PARMNUM: i32 = 1;
@@ -212,11 +241,17 @@ pub struct USE_OPTION_GENERIC {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USE_OPTION_PROPERTIES {
     pub Tag: super::ULONG,
     pub pInfo: super::PVOID,
     pub Length: super::size_t,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for USE_OPTION_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const USE_OPTION_SMB_COMPRESSION_PARAMS: i32 = 1349349187;
 #[repr(C)]

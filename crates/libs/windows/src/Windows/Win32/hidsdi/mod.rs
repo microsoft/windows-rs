@@ -139,11 +139,17 @@ pub struct HIDD_ATTRIBUTES {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HIDD_CONFIGURATION {
     pub cookie: super::PVOID,
     pub size: super::ULONG,
     pub RingBufferSize: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HIDD_CONFIGURATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type PHIDD_ATTRIBUTES = *mut HIDD_ATTRIBUTES;

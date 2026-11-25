@@ -44,7 +44,7 @@ pub struct CONNECTION_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CONNECTION_INFO_1 {
     pub coni1_id: super::DWORD,
     pub coni1_type: super::DWORD,
@@ -53,6 +53,12 @@ pub struct CONNECTION_INFO_1 {
     pub coni1_time: super::DWORD,
     pub coni1_username: windows_sys::core::PWSTR,
     pub coni1_netname: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CONNECTION_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CSC_CACHE_AUTO_REINT: i32 = 16;
 pub const CSC_CACHE_MANUAL_REINT: i32 = 0;
@@ -68,13 +74,19 @@ pub struct FILE_INFO_2 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FILE_INFO_3 {
     pub fi3_id: super::DWORD,
     pub fi3_permissions: super::DWORD,
     pub fi3_num_locks: super::DWORD,
     pub fi3_pathname: windows_sys::core::PWSTR,
     pub fi3_username: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for FILE_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type LPCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
@@ -157,23 +169,34 @@ pub type PSHARE_INFO_502 = *mut SHARE_INFO_502;
 pub type PSHARE_INFO_503 = *mut SHARE_INFO_503;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: windows_sys::core::PWSTR,
     pub srvai0_target: windows_sys::core::PWSTR,
     pub srvai0_default: super::BOOLEAN,
     pub srvai0_reserved: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for SERVER_ALIAS_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SESI1_NUM_ELEMENTS: i32 = 8;
 pub const SESI2_NUM_ELEMENTS: i32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SESSION_INFO_0 {
     pub sesi0_cname: windows_sys::core::PWSTR,
 }
+impl Default for SESSION_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SESSION_INFO_1 {
     pub sesi1_cname: windows_sys::core::PWSTR,
     pub sesi1_username: windows_sys::core::PWSTR,
@@ -182,18 +205,30 @@ pub struct SESSION_INFO_1 {
     pub sesi1_idle_time: super::DWORD,
     pub sesi1_user_flags: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for SESSION_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SESSION_INFO_10 {
     pub sesi10_cname: windows_sys::core::PWSTR,
     pub sesi10_username: windows_sys::core::PWSTR,
     pub sesi10_time: super::DWORD,
     pub sesi10_idle_time: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for SESSION_INFO_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SESSION_INFO_2 {
     pub sesi2_cname: windows_sys::core::PWSTR,
     pub sesi2_username: windows_sys::core::PWSTR,
@@ -203,9 +238,15 @@ pub struct SESSION_INFO_2 {
     pub sesi2_user_flags: super::DWORD,
     pub sesi2_cltype_name: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for SESSION_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SESSION_INFO_502 {
     pub sesi502_cname: windows_sys::core::PWSTR,
     pub sesi502_username: windows_sys::core::PWSTR,
@@ -216,28 +257,50 @@ pub struct SESSION_INFO_502 {
     pub sesi502_cltype_name: windows_sys::core::PWSTR,
     pub sesi502_transport: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for SESSION_INFO_502 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SESS_GUEST: i32 = 1;
 pub const SESS_NOENCRYPTION: i32 = 2;
 pub const SHARE_CURRENT_USES_PARMNUM: i32 = 7;
 pub const SHARE_FILE_SD_INFOLEVEL: i32 = 1501;
 pub const SHARE_FILE_SD_PARMNUM: i32 = 501;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_0 {
     pub shi0_netname: windows_sys::core::PWSTR,
 }
+impl Default for SHARE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_1 {
     pub shi1_netname: windows_sys::core::PWSTR,
     pub shi1_type: super::DWORD,
     pub shi1_remark: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for SHARE_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_1004 {
     pub shi1004_remark: windows_sys::core::PWSTR,
+}
+impl Default for SHARE_INFO_1004 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -253,10 +316,16 @@ pub struct SHARE_INFO_1006 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: super::DWORD,
     pub shi1501_security_descriptor: super::PSECURITY_DESCRIPTOR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SHARE_INFO_1501 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -265,7 +334,7 @@ pub struct SHARE_INFO_1503 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_2 {
     pub shi2_netname: windows_sys::core::PWSTR,
     pub shi2_type: super::DWORD,
@@ -276,18 +345,30 @@ pub struct SHARE_INFO_2 {
     pub shi2_path: windows_sys::core::PWSTR,
     pub shi2_passwd: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for SHARE_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_501 {
     pub shi501_netname: windows_sys::core::PWSTR,
     pub shi501_type: super::DWORD,
     pub shi501_remark: windows_sys::core::PWSTR,
     pub shi501_flags: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for SHARE_INFO_501 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: windows_sys::core::PWSTR,
     pub shi502_type: super::DWORD,
@@ -300,9 +381,15 @@ pub struct SHARE_INFO_502 {
     pub shi502_reserved: super::DWORD,
     pub shi502_security_descriptor: super::PSECURITY_DESCRIPTOR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SHARE_INFO_502 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: windows_sys::core::PWSTR,
     pub shi503_type: super::DWORD,
@@ -315,6 +402,12 @@ pub struct SHARE_INFO_503 {
     pub shi503_servername: windows_sys::core::PWSTR,
     pub shi503_reserved: super::DWORD,
     pub shi503_security_descriptor: super::PSECURITY_DESCRIPTOR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SHARE_INFO_503 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SHARE_MAX_USES_INFOLEVEL: i32 = 1006;
 pub const SHARE_MAX_USES_PARMNUM: i32 = 6;

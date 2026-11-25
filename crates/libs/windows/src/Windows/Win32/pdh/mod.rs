@@ -782,7 +782,7 @@ pub const MAX_TIME_VALUE: super::LONGLONG = 9223372036854775807;
 pub const MIN_TIME_VALUE: super::LONGLONG = 0;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -864,9 +864,15 @@ impl PDH_BROWSE_DLG_CONFIG_A {
         self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
     }
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for PDH_BROWSE_DLG_CONFIG_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -948,9 +954,15 @@ impl PDH_BROWSE_DLG_CONFIG_HA {
         self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
     }
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for PDH_BROWSE_DLG_CONFIG_HA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -1032,9 +1044,15 @@ impl PDH_BROWSE_DLG_CONFIG_HW {
         self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
     }
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for PDH_BROWSE_DLG_CONFIG_HW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -1114,6 +1132,12 @@ impl PDH_BROWSE_DLG_CONFIG_W {
     }
     pub fn set_bReserved(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
+    }
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for PDH_BROWSE_DLG_CONFIG_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]

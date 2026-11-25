@@ -2615,24 +2615,41 @@ pub type WS_XML_WRITER_STREAM_OUTPUT = _WS_XML_WRITER_STREAM_OUTPUT;
 pub type WS_XML_WRITER_TEXT_ENCODING = _WS_XML_WRITER_TEXT_ENCODING;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ANY_ATTRIBUTE {
     pub localName: WS_XML_STRING,
     pub ns: WS_XML_STRING,
     pub value: *mut WS_XML_TEXT,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_ANY_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ANY_ATTRIBUTES {
     pub attributes: *mut WS_ANY_ATTRIBUTE,
     pub attributeCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_ANY_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_ASYNC_CONTEXT {
     pub callback: WS_ASYNC_CALLBACK,
     pub callbackState: *mut core::ffi::c_void,
+}
+impl Default for _WS_ASYNC_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
@@ -2640,7 +2657,7 @@ pub struct _WS_ASYNC_OPERATION {
     pub function: WS_ASYNC_FUNCTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ASYNC_STATE {
     pub internal0: *mut core::ffi::c_void,
     pub internal1: *mut core::ffi::c_void,
@@ -2648,14 +2665,25 @@ pub struct _WS_ASYNC_STATE {
     pub internal3: *mut core::ffi::c_void,
     pub internal4: *mut core::ffi::c_void,
 }
+impl Default for _WS_ASYNC_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ATTRIBUTE_DESCRIPTION {
     pub attributeLocalName: *mut WS_XML_STRING,
     pub attributeNs: *mut WS_XML_STRING,
     pub r#type: WS_TYPE,
     pub typeDescription: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_ATTRIBUTE_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2664,17 +2692,29 @@ pub struct _WS_BOOL_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_BUFFERS {
     pub bufferCount: super::ULONG,
     pub buffers: *mut WS_BYTES,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_BUFFERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_BYTES {
     pub length: super::ULONG,
     pub bytes: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_BYTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -2692,11 +2732,17 @@ pub struct _WS_BYTE_ARRAY_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_CALL_PROPERTY {
     pub id: WS_CALL_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_CALL_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
@@ -2708,10 +2754,16 @@ pub struct _WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     pub callback: WS_CERTIFICATE_VALIDATION_CALLBACK,
     pub state: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for _WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2734,7 +2786,7 @@ pub struct _WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub authenticator: WS_SAML_AUTHENTICATOR,
     pub trustedIssuerCerts: *mut *const super::CERT_CONTEXT,
@@ -2743,12 +2795,18 @@ pub struct _WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub samlValidator: WS_VALIDATE_SAML_CALLBACK,
     pub samlValidatorCallbackState: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for _WS_CERT_SIGNED_SAML_AUTHENTICATOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_CHANNEL(pub u8);
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_CHANNEL_DECODER {
     pub createContext: *mut core::ffi::c_void,
     pub createDecoderCallback: WS_CREATE_DECODER_CALLBACK,
@@ -2758,9 +2816,15 @@ pub struct _WS_CHANNEL_DECODER {
     pub decoderEndCallback: WS_DECODER_END_CALLBACK,
     pub freeDecoderCallback: WS_FREE_DECODER_CALLBACK,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_CHANNEL_DECODER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_CHANNEL_ENCODER {
     pub createContext: *mut core::ffi::c_void,
     pub createEncoderCallback: WS_CREATE_ENCODER_CALLBACK,
@@ -2770,29 +2834,53 @@ pub struct _WS_CHANNEL_ENCODER {
     pub encoderEndCallback: WS_ENCODER_END_CALLBACK,
     pub freeEncoderCallback: WS_FREE_ENCODER_CALLBACK,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_CHANNEL_ENCODER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_CHANNEL_PROPERTIES {
     pub properties: *mut WS_CHANNEL_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_CHANNEL_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_CHANNEL_PROPERTY {
     pub id: WS_CHANNEL_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_CHANNEL_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_CHANNEL_PROPERTY_CONSTRAINT {
     pub id: WS_CHANNEL_PROPERTY_ID,
     pub allowedValues: *mut core::ffi::c_void,
     pub allowedValuesSize: super::ULONG,
     pub out: _WS_CHANNEL_PROPERTY_CONSTRAINT_0,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_CHANNEL_PROPERTY_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -2809,20 +2897,32 @@ pub struct _WS_CHAR_ARRAY_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_CONTRACT_DESCRIPTION {
     pub operationCount: super::ULONG,
     pub operations: *mut *mut WS_OPERATION_DESCRIPTION,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_CONTRACT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "schannel", feature = "shared", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_CUSTOM_CERT_CREDENTIAL {
     pub credential: WS_CERT_CREDENTIAL,
     pub getCertCallback: WS_GET_CERT_CALLBACK,
     pub getCertCallbackState: *mut core::ffi::c_void,
     pub certIssuerListNotificationCallback: WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK,
     pub certIssuerListNotificationCallbackState: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "minwindef", feature = "schannel", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+impl Default for _WS_CUSTOM_CERT_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2867,7 +2967,7 @@ pub struct _WS_CUSTOM_LISTENER_CALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_CUSTOM_TYPE_DESCRIPTION {
     pub size: super::ULONG,
     pub alignment: super::ULONG,
@@ -2875,6 +2975,12 @@ pub struct _WS_CUSTOM_TYPE_DESCRIPTION {
     pub writeCallback: WS_WRITE_TYPE_CALLBACK,
     pub descriptionData: *mut core::ffi::c_void,
     pub isDefaultValueCallback: WS_IS_DEFAULT_VALUE_CALLBACK,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_CUSTOM_TYPE_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2903,10 +3009,16 @@ impl Default for _WS_DECIMAL_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_DEFAULT_VALUE {
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_DEFAULT_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2915,10 +3027,16 @@ pub struct _WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     pub subStringCount: super::ULONG,
     pub subStrings: *mut *mut WS_STRING,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2957,21 +3075,33 @@ pub struct _WS_DURATION_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ELEMENT_DESCRIPTION {
     pub elementLocalName: *mut WS_XML_STRING,
     pub elementNs: *mut WS_XML_STRING,
     pub r#type: WS_TYPE,
     pub typeDescription: *mut core::ffi::c_void,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_ELEMENT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ENDPOINT_ADDRESS {
     pub url: WS_STRING,
     pub headers: *mut WS_XML_BUFFER,
     pub extensions: *mut WS_XML_BUFFER,
     pub identity: *mut WS_ENDPOINT_IDENTITY,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_ENDPOINT_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2985,49 +3115,79 @@ pub struct _WS_ENDPOINT_IDENTITY {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ENDPOINT_POLICY_EXTENSION {
     pub policyExtension: WS_POLICY_EXTENSION,
     pub assertionName: *mut WS_XML_STRING,
     pub assertionNs: *mut WS_XML_STRING,
     pub out: _WS_ENDPOINT_POLICY_EXTENSION_0,
 }
-#[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _WS_ENDPOINT_POLICY_EXTENSION_0 {
-    pub assertionValue: *mut WS_XML_BUFFER,
+impl Default for _WS_ENDPOINT_POLICY_EXTENSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _WS_ENDPOINT_POLICY_EXTENSION_0 {
+    pub assertionValue: *mut WS_XML_BUFFER,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_ENDPOINT_POLICY_EXTENSION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ENUM_DESCRIPTION {
     pub values: *mut WS_ENUM_VALUE,
     pub valueCount: super::ULONG,
     pub maxByteCount: super::ULONG,
     pub nameIndices: *mut super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_ENUM_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ENUM_VALUE {
     pub value: i32,
     pub name: *mut WS_XML_STRING,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_ENUM_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_ERROR(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ERROR_PROPERTY {
     pub id: WS_ERROR_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_ERROR_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_FAULT {
     pub code: *mut WS_FAULT_CODE,
     pub reasons: *mut WS_FAULT_REASON,
@@ -3036,12 +3196,24 @@ pub struct _WS_FAULT {
     pub node: WS_STRING,
     pub detail: *mut WS_XML_BUFFER,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_FAULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_FAULT_CODE {
     pub value: WS_XML_QNAME,
     pub subCode: *mut Self,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_FAULT_CODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3050,10 +3222,16 @@ pub struct _WS_FAULT_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_FAULT_DETAIL_DESCRIPTION {
     pub action: *mut WS_XML_STRING,
     pub detailElementDescription: *mut WS_ELEMENT_DESCRIPTION,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_FAULT_DETAIL_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -3064,7 +3242,7 @@ pub struct _WS_FAULT_REASON {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_FIELD_DESCRIPTION {
     pub mapping: WS_FIELD_MAPPING,
     pub localName: *mut WS_XML_STRING,
@@ -3078,6 +3256,12 @@ pub struct _WS_FIELD_DESCRIPTION {
     pub itemLocalName: *mut WS_XML_STRING,
     pub itemNs: *mut WS_XML_STRING,
     pub itemRange: *mut WS_ITEM_RANGE,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_FIELD_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -3095,25 +3279,43 @@ pub struct _WS_GUID_DESCRIPTION {
 pub struct _WS_HEAP(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_HEAP_PROPERTIES {
     pub properties: *mut WS_HEAP_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_HEAP_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_HEAP_PROPERTY {
     pub id: WS_HEAP_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_HEAP_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_HOST_NAMES {
     pub hostNames: *mut WS_STRING,
     pub hostNameCount: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_HOST_NAMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -3151,10 +3353,16 @@ pub struct _WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3170,10 +3378,16 @@ pub struct _WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3184,7 +3398,7 @@ pub struct _WS_HTTP_HEADER_MAPPING {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_HTTP_MESSAGE_MAPPING {
     pub requestMappingOptions: super::ULONG,
     pub responseMappingOptions: super::ULONG,
@@ -3192,6 +3406,12 @@ pub struct _WS_HTTP_MESSAGE_MAPPING {
     pub requestHeaderMappingCount: super::ULONG,
     pub responseHeaderMappings: *mut *mut WS_HTTP_HEADER_MAPPING,
     pub responseHeaderMappingCount: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_HTTP_MESSAGE_MAPPING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3201,10 +3421,16 @@ pub struct _WS_HTTP_POLICY_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     pub callback: WS_HTTP_REDIRECT_CALLBACK,
     pub state: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3354,7 +3580,7 @@ pub struct _WS_INT8_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
@@ -3364,12 +3590,24 @@ pub struct _WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     pub requestSecurityTokenPropertyConstraintCount: super::ULONG,
     pub out: _WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
     pub issuerAddress: *mut WS_ENDPOINT_ADDRESS,
     pub requestSecurityTokenTemplate: *mut WS_XML_BUFFER,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3380,11 +3618,17 @@ pub struct _WS_ITEM_RANGE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3402,60 +3646,96 @@ pub struct _WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_LISTENER(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_LISTENER_PROPERTIES {
     pub properties: *mut WS_LISTENER_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_LISTENER_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_LISTENER_PROPERTY {
     pub id: WS_LISTENER_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_LISTENER_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_MESSAGE(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_MESSAGE_DESCRIPTION {
     pub action: *mut WS_XML_STRING,
     pub bodyElementDescription: *mut WS_ELEMENT_DESCRIPTION,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_MESSAGE_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_MESSAGE_PROPERTIES {
     pub properties: *mut WS_MESSAGE_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_MESSAGE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_MESSAGE_PROPERTY {
     pub id: WS_MESSAGE_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_MESSAGE_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_METADATA(pub u8);
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_METADATA_ENDPOINT {
     pub endpointAddress: WS_ENDPOINT_ADDRESS,
     pub endpointPolicy: *mut WS_POLICY,
@@ -3467,27 +3747,51 @@ pub struct _WS_METADATA_ENDPOINT {
     pub portTypeName: *mut WS_XML_STRING,
     pub portTypeNs: *mut WS_XML_STRING,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_METADATA_ENDPOINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_METADATA_ENDPOINTS {
     pub endpoints: *mut WS_METADATA_ENDPOINT,
     pub endpointCount: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_METADATA_ENDPOINTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_METADATA_PROPERTY {
     pub id: WS_METADATA_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_METADATA_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "ncrypt")]
@@ -3521,17 +3825,22 @@ pub struct _WS_NETTCP_URL {
     pub fragment: WS_STRING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
     pub opaqueAuthIdentity: *mut core::ffi::c_void,
+}
+impl Default for _WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_OPERATION_CONTEXT(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_OPERATION_DESCRIPTION {
     pub versionInfo: super::ULONG,
     pub inputMessageDescription: *mut WS_MESSAGE_DESCRIPTION,
@@ -3542,6 +3851,12 @@ pub struct _WS_OPERATION_DESCRIPTION {
     pub parameterDescription: *mut WS_PARAMETER_DESCRIPTION,
     pub stubCallback: WS_SERVICE_STUB_CALLBACK,
     pub style: WS_OPERATION_STYLE,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_OPERATION_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3556,7 +3871,7 @@ pub struct _WS_PARAMETER_DESCRIPTION {
 pub struct _WS_POLICY(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_POLICY_CONSTRAINTS {
     pub channelBinding: WS_CHANNEL_BINDING,
     pub channelPropertyConstraints: *mut WS_CHANNEL_PROPERTY_CONSTRAINT,
@@ -3565,6 +3880,12 @@ pub struct _WS_POLICY_CONSTRAINTS {
     pub policyExtensions: *mut *mut WS_POLICY_EXTENSION,
     pub policyExtensionCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_POLICY_CONSTRAINTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_POLICY_EXTENSION {
@@ -3572,32 +3893,55 @@ pub struct _WS_POLICY_EXTENSION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_POLICY_PROPERTIES {
     pub properties: *mut WS_POLICY_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_POLICY_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_POLICY_PROPERTY {
     pub id: WS_POLICY_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_POLICY_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
     pub callback: WS_PROXY_MESSAGE_CALLBACK,
     pub state: *mut core::ffi::c_void,
 }
+impl Default for _WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_PROXY_PROPERTY {
     pub id: WS_PROXY_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_PROXY_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3608,20 +3952,32 @@ pub struct _WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_REQUEST_SECURITY_TOKEN_PROPERTY {
     pub id: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_REQUEST_SECURITY_TOKEN_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
     pub id: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID,
     pub allowedValues: *mut core::ffi::c_void,
     pub allowedValuesSize: super::ULONG,
     pub out: _WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3644,23 +4000,35 @@ pub struct _WS_SAML_AUTHENTICATOR {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SAML_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub authenticator: *mut WS_SAML_AUTHENTICATOR,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SAML_MESSAGE_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_ALGORITHM_PROPERTY {
     pub id: WS_SECURITY_ALGORITHM_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_ALGORITHM_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_ALGORITHM_SUITE {
     pub canonicalizationAlgorithm: WS_SECURITY_ALGORITHM_ID,
     pub digestAlgorithm: WS_SECURITY_ALGORITHM_ID,
@@ -3677,45 +4045,81 @@ pub struct _WS_SECURITY_ALGORITHM_SUITE {
     pub properties: *mut WS_SECURITY_ALGORITHM_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_ALGORITHM_SUITE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_BINDING {
     pub bindingType: WS_SECURITY_BINDING_TYPE,
     pub properties: *mut WS_SECURITY_BINDING_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_BINDING_CONSTRAINT {
     pub r#type: WS_SECURITY_BINDING_CONSTRAINT_TYPE,
     pub propertyConstraints: *mut WS_SECURITY_BINDING_PROPERTY_CONSTRAINT,
     pub propertyConstraintCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_BINDING_PROPERTIES {
     pub properties: *mut WS_SECURITY_BINDING_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_BINDING_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_BINDING_PROPERTY {
     pub id: WS_SECURITY_BINDING_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_BINDING_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
     pub id: WS_SECURITY_BINDING_PROPERTY_ID,
     pub allowedValues: *mut core::ffi::c_void,
     pub allowedValuesSize: super::ULONG,
     pub out: _WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3725,31 +4129,49 @@ pub struct _WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_CONSTRAINTS {
     pub securityPropertyConstraints: *mut WS_SECURITY_PROPERTY_CONSTRAINT,
     pub securityPropertyConstraintCount: super::ULONG,
     pub securityBindingConstraints: *mut *mut WS_SECURITY_BINDING_CONSTRAINT,
     pub securityBindingConstraintCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_CONSTRAINTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_SECURITY_CONTEXT(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub bootstrapSecurityDescription: *mut WS_SECURITY_DESCRIPTION,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub bootstrapSecurityConstraint: *mut WS_SECURITY_CONSTRAINTS,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3766,11 +4188,17 @@ pub struct _WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_CONTEXT_PROPERTY {
     pub id: WS_SECURITY_CONTEXT_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_CONTEXT_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3788,12 +4216,18 @@ pub struct _WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_DESCRIPTION {
     pub securityBindings: *mut *mut WS_SECURITY_BINDING,
     pub securityBindingCount: super::ULONG,
     pub properties: *mut WS_SECURITY_PROPERTY,
     pub propertyCount: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3802,27 +4236,45 @@ pub struct _WS_SECURITY_KEY_HANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_PROPERTIES {
     pub properties: *mut WS_SECURITY_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_PROPERTY {
     pub id: WS_SECURITY_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SECURITY_PROPERTY_CONSTRAINT {
     pub id: WS_SECURITY_PROPERTY_ID,
     pub allowedValues: *mut core::ffi::c_void,
     pub allowedValuesSize: super::ULONG,
     pub out: _WS_SECURITY_PROPERTY_CONSTRAINT_0,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_SECURITY_PROPERTY_CONSTRAINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3835,15 +4287,21 @@ pub struct _WS_SECURITY_PROPERTY_CONSTRAINT_0 {
 pub struct _WS_SECURITY_TOKEN(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_SERVICE_CONTRACT {
     pub contractDescription: *const WS_CONTRACT_DESCRIPTION,
     pub defaultMessageHandlerCallback: WS_SERVICE_MESSAGE_RECEIVE_CALLBACK,
     pub methodTable: *const core::ffi::c_void,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SERVICE_CONTRACT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_SERVICE_ENDPOINT {
     pub address: WS_ENDPOINT_ADDRESS,
     pub channelBinding: WS_CHANNEL_BINDING,
@@ -3855,48 +4313,84 @@ pub struct _WS_SERVICE_ENDPOINT {
     pub propertyCount: super::ULONG,
     pub channelProperties: WS_CHANNEL_PROPERTIES,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_SERVICE_ENDPOINT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SERVICE_ENDPOINT_METADATA {
     pub portName: *mut WS_XML_STRING,
     pub bindingName: *mut WS_XML_STRING,
     pub bindingNs: *mut WS_XML_STRING,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_SERVICE_ENDPOINT_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SERVICE_ENDPOINT_PROPERTY {
     pub id: WS_SERVICE_ENDPOINT_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_SERVICE_ENDPOINT_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_SERVICE_HOST(pub u8);
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SERVICE_METADATA {
     pub documentCount: super::ULONG,
     pub documents: *mut *mut WS_SERVICE_METADATA_DOCUMENT,
     pub serviceName: *mut WS_XML_STRING,
     pub serviceNs: *mut WS_XML_STRING,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_SERVICE_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SERVICE_METADATA_DOCUMENT {
     pub content: *mut WS_XML_STRING,
     pub name: *mut WS_STRING,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_SERVICE_METADATA_DOCUMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SERVICE_PROPERTY {
     pub id: WS_SERVICE_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_SERVICE_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
@@ -3913,10 +4407,16 @@ pub struct _WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
 pub struct _WS_SERVICE_PROXY(pub u8);
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SERVICE_SECURITY_IDENTITIES {
     pub serviceIdentities: *mut WS_STRING,
     pub serviceIdentityCount: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_SERVICE_SECURITY_IDENTITIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -3939,10 +4439,16 @@ pub struct _WS_SPN_ENDPOINT_IDENTITY {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SSL_TRANSPORT_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub localCertCredential: *mut WS_CERT_CREDENTIAL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_SSL_TRANSPORT_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3965,10 +4471,16 @@ pub struct _WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub localCertCredential: *mut WS_CERT_CREDENTIAL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3978,10 +4490,16 @@ pub struct _WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_STRING {
     pub length: super::ULONG,
     pub chars: *mut super::WCHAR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4009,7 +4527,7 @@ pub struct _WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_STRUCT_DESCRIPTION {
     pub size: super::ULONG,
     pub alignment: super::ULONG,
@@ -4021,6 +4539,12 @@ pub struct _WS_STRUCT_DESCRIPTION {
     pub subTypes: *mut *mut WS_STRUCT_DESCRIPTION,
     pub subTypeCount: super::ULONG,
     pub structOptions: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_STRUCT_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4099,10 +4623,16 @@ pub struct _WS_TCP_SSPI_POLICY_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4112,10 +4642,16 @@ pub struct _WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4204,7 +4740,7 @@ pub struct _WS_UINT8_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_UNION_DESCRIPTION {
     pub size: super::ULONG,
     pub alignment: super::ULONG,
@@ -4213,6 +4749,12 @@ pub struct _WS_UNION_DESCRIPTION {
     pub enumOffset: super::ULONG,
     pub noneEnumValue: i32,
     pub valueIndices: *mut super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_UNION_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4236,10 +4778,15 @@ pub struct _WS_UNIQUE_ID_DESCRIPTION {
     pub maxCharCount: super::ULONG,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_UNKNOWN_ENDPOINT_IDENTITY {
     pub identity: WS_ENDPOINT_IDENTITY,
     pub element: *mut WS_XML_BUFFER,
+}
+impl Default for _WS_UNKNOWN_ENDPOINT_IDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4260,13 +4807,19 @@ pub struct _WS_USERNAME_CREDENTIAL {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_USERNAME_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
     pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
     pub passwordValidatorCallbackState: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_USERNAME_MESSAGE_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4284,12 +4837,18 @@ pub struct _WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
     pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
     pub passwordValidatorCallbackState: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4318,7 +4877,7 @@ pub struct _WS_WSZ_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_ATTRIBUTE {
     pub singleQuote: super::BYTE,
     pub isXmlNs: super::BYTE,
@@ -4327,13 +4886,25 @@ pub struct _WS_XML_ATTRIBUTE {
     pub ns: *mut WS_XML_STRING,
     pub value: *mut WS_XML_TEXT,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_BASE64_TEXT {
     pub text: WS_XML_TEXT,
     pub bytes: *mut super::BYTE,
     pub length: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_BASE64_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4346,26 +4917,44 @@ pub struct _WS_XML_BOOL_TEXT {
 pub struct _WS_XML_BUFFER(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_BUFFER_PROPERTY {
     pub id: WS_XML_BUFFER_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_BUFFER_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
     pub prefixCount: super::ULONG,
     pub prefixes: *mut WS_XML_STRING,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_CANONICALIZATION_PROPERTY {
     pub id: WS_XML_CANONICALIZATION_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_CANONICALIZATION_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4395,12 +4984,18 @@ impl Default for _WS_XML_DECIMAL_TEXT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_DICTIONARY {
     pub guid: windows_core::GUID,
     pub strings: *mut WS_XML_STRING,
     pub stringCount: super::ULONG,
     pub isConst: windows_core::BOOL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_DICTIONARY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -4410,7 +5005,7 @@ pub struct _WS_XML_DOUBLE_TEXT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_ELEMENT_NODE {
     pub node: WS_XML_NODE,
     pub prefix: *mut WS_XML_STRING,
@@ -4419,6 +5014,12 @@ pub struct _WS_XML_ELEMENT_NODE {
     pub attributeCount: super::ULONG,
     pub attributes: *mut *mut WS_XML_ATTRIBUTE,
     pub isEmpty: windows_core::BOOL,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_ELEMENT_NODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -4446,11 +5047,17 @@ pub struct _WS_XML_INT64_TEXT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_LIST_TEXT {
     pub text: WS_XML_TEXT,
     pub itemCount: super::ULONG,
     pub items: *mut *mut WS_XML_TEXT,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_LIST_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4458,10 +5065,15 @@ pub struct _WS_XML_NODE {
     pub nodeType: WS_XML_NODE_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_NODE_POSITION {
     pub buffer: *mut WS_XML_BUFFER,
     pub node: *mut core::ffi::c_void,
+}
+impl Default for _WS_XML_NODE_POSITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4481,31 +5093,49 @@ pub struct _WS_XML_QNAME_DESCRIPTION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_QNAME_TEXT {
     pub text: WS_XML_TEXT,
     pub prefix: *mut WS_XML_STRING,
     pub localName: *mut WS_XML_STRING,
     pub ns: *mut WS_XML_STRING,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_QNAME_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_XML_READER(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_READER_BINARY_ENCODING {
     pub encoding: WS_XML_READER_ENCODING,
     pub staticDictionary: *mut WS_XML_DICTIONARY,
     pub dynamicDictionary: *mut WS_XML_DICTIONARY,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_READER_BINARY_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_READER_BUFFER_INPUT {
     pub input: WS_XML_READER_INPUT,
     pub encodedData: *mut core::ffi::c_void,
     pub encodedDataSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_READER_BUFFER_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4519,7 +5149,7 @@ pub struct _WS_XML_READER_INPUT {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_READER_MTOM_ENCODING {
     pub encoding: WS_XML_READER_ENCODING,
     pub textEncoding: *mut WS_XML_READER_ENCODING,
@@ -4528,20 +5158,38 @@ pub struct _WS_XML_READER_MTOM_ENCODING {
     pub boundary: WS_STRING,
     pub startUri: WS_STRING,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_XML_READER_MTOM_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_READER_PROPERTIES {
     pub properties: *mut WS_XML_READER_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_READER_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_READER_PROPERTY {
     pub id: WS_XML_READER_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_READER_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4550,11 +5198,17 @@ pub struct _WS_XML_READER_RAW_ENCODING {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_XML_READER_STREAM_INPUT {
     pub input: WS_XML_READER_INPUT,
     pub readCallback: WS_READ_CALLBACK,
     pub readCallbackState: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_READER_STREAM_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4564,20 +5218,32 @@ pub struct _WS_XML_READER_TEXT_ENCODING {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_SECURITY_TOKEN_PROPERTY {
     pub id: WS_XML_SECURITY_TOKEN_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_SECURITY_TOKEN_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_STRING {
     pub length: super::ULONG,
     pub bytes: *mut super::BYTE,
     pub dictionary: *mut WS_XML_DICTIONARY,
     pub id: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4592,10 +5258,15 @@ pub struct _WS_XML_TEXT {
     pub textType: WS_XML_TEXT_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_TEXT_NODE {
     pub node: WS_XML_NODE,
     pub text: *mut WS_XML_TEXT,
+}
+impl Default for _WS_XML_TEXT_NODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4605,11 +5276,17 @@ pub struct _WS_XML_TIMESPAN_TEXT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub xmlToken: *mut WS_SECURITY_TOKEN,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4625,11 +5302,17 @@ pub struct _WS_XML_UNIQUE_ID_TEXT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_UTF16_TEXT {
     pub text: WS_XML_TEXT,
     pub bytes: *mut super::BYTE,
     pub byteCount: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_UTF16_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4643,12 +5326,18 @@ pub struct _WS_XML_UTF8_TEXT {
 pub struct _WS_XML_WRITER(pub u8);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_XML_WRITER_BINARY_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
     pub staticDictionary: *mut WS_XML_DICTIONARY,
     pub dynamicStringCallback: WS_DYNAMIC_STRING_CALLBACK,
     pub dynamicStringCallbackState: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_WRITER_BINARY_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4662,7 +5351,7 @@ pub struct _WS_XML_WRITER_ENCODING {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_WRITER_MTOM_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
     pub textEncoding: *mut WS_XML_WRITER_ENCODING,
@@ -4672,6 +5361,12 @@ pub struct _WS_XML_WRITER_MTOM_ENCODING {
     pub startUri: WS_STRING,
     pub maxInlineByteCount: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WS_XML_WRITER_MTOM_ENCODING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _WS_XML_WRITER_OUTPUT {
@@ -4679,18 +5374,30 @@ pub struct _WS_XML_WRITER_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_WRITER_PROPERTIES {
     pub properties: *mut WS_XML_WRITER_PROPERTY,
     pub propertyCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_WRITER_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WS_XML_WRITER_PROPERTY {
     pub id: WS_XML_WRITER_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_WRITER_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4699,11 +5406,17 @@ pub struct _WS_XML_WRITER_RAW_ENCODING {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _WS_XML_WRITER_STREAM_OUTPUT {
     pub output: WS_XML_WRITER_OUTPUT,
     pub writeCallback: WS_WRITE_CALLBACK,
     pub writeCallbackState: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for _WS_XML_WRITER_STREAM_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

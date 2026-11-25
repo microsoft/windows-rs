@@ -124,11 +124,17 @@ pub const LIST_MODULES_DEFAULT: i32 = 0;
 pub type LPMODULEINFO = *mut MODULEINFO;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MODULEINFO {
     pub lpBaseOfDll: super::LPVOID,
     pub SizeOfImage: super::DWORD,
     pub EntryPoint: super::LPVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for MODULEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PENUM_PAGE_FILE_CALLBACKA = Option<unsafe extern "system" fn(pcontext: super::LPVOID, ppagefileinfo: PENUM_PAGE_FILE_INFORMATION, lpfilename: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
@@ -372,10 +378,16 @@ impl Default for PSAPI_WORKING_SET_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PSAPI_WS_WATCH_INFORMATION {
     pub FaultingPc: super::LPVOID,
     pub FaultingVa: super::LPVOID,
+}
+#[cfg(feature = "minwindef")]
+impl Default for PSAPI_WS_WATCH_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]

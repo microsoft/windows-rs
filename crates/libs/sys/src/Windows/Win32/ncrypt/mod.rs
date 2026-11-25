@@ -157,7 +157,7 @@ pub const NCRYPT_CIPHER_OPERATION: i32 = 1;
 pub const NCRYPT_CIPHER_OTHER_PADDING_FLAG: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbSize: super::ULONG,
     pub dwFlags: super::DWORD,
@@ -165,6 +165,12 @@ pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbIV: super::ULONG,
     pub pbOtherInfo: super::PUCHAR,
     pub cbOtherInfo: super::ULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for NCRYPT_CIPHER_PADDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NCRYPT_CLAIM_AUTHORITY_AND_SUBJECT: i32 = 3;
 pub const NCRYPT_CLAIM_AUTHORITY_ONLY: i32 = 1;
@@ -274,13 +280,19 @@ pub const NCRYPT_KEY_ACCESS_POLICY_VERSION: i32 = 1;
 pub const NCRYPT_KEY_ATTEST_MAGIC: i32 = 1146110283;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub magic: super::ULONG,
     pub pbKeyBlob: super::PUCHAR,
     pub cbKeyBlob: super::ULONG,
     pub pbKeyAuth: super::PUCHAR,
     pub cbKeyAuth: super::ULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for NCRYPT_KEY_ATTEST_PADDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -596,13 +608,19 @@ pub const NCRYPT_UI_FINGERPRINT_PROTECTION_FLAG: i32 = 4;
 pub const NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_UI_POLICY {
     pub dwVersion: super::DWORD,
     pub dwFlags: super::DWORD,
     pub pszCreationTitle: windows_sys::core::PCWSTR,
     pub pszFriendlyName: windows_sys::core::PCWSTR,
     pub pszDescription: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for NCRYPT_UI_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NCRYPT_UI_POLICY_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("UI Policy");
 pub const NCRYPT_UI_PROTECT_KEY_FLAG: i32 = 1;
@@ -646,13 +664,19 @@ pub const NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING_CURRENT_VERSION: i32 = 0;
 pub const NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING_V0: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS {
     pub ulKeyFlags: super::ULONG,
     pub pszSignatureHashAlg: windows_sys::core::PCWSTR,
     pub ulPaddingScheme: super::ULONG,
     pub pszPaddingHashAlg: windows_sys::core::PCWSTR,
     pub ulPaddingSalt: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for NCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -701,12 +725,18 @@ pub const NCRYPT_XMSS_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::
 pub const NCRYPT_XMSS_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("XMSS");
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NCryptAlgorithmName {
     pub pszName: windows_sys::core::PWSTR,
     pub dwClass: super::DWORD,
     pub dwAlgOperations: super::DWORD,
     pub dwFlags: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for NCryptAlgorithmName {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "bcrypt", feature = "shared", feature = "winnt"))]
 pub type NCryptBuffer = super::BCryptBuffer;
@@ -714,18 +744,29 @@ pub type NCryptBuffer = super::BCryptBuffer;
 pub type NCryptBufferDesc = super::BCryptBufferDesc;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NCryptKeyName {
     pub pszName: windows_sys::core::PWSTR,
     pub pszAlgid: windows_sys::core::PWSTR,
     pub dwLegacyKeySpec: super::DWORD,
     pub dwFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for NCryptKeyName {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NCryptProviderName {
     pub pszName: windows_sys::core::PWSTR,
     pub pszComment: windows_sys::core::PWSTR,
+}
+impl Default for NCryptProviderName {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PFN_NCRYPT_ALLOC = Option<unsafe extern "system" fn(cbsize: super::SIZE_T) -> super::LPVOID>;

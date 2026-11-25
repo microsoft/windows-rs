@@ -243,11 +243,17 @@ pub const PAYLOADFIELD_NE: PAYLOAD_OPERATOR = 1;
 pub const PAYLOADFIELD_NOTBETWEEN: PAYLOAD_OPERATOR = 7;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PAYLOAD_FILTER_PREDICATE {
     pub FieldName: windows_sys::core::PWSTR,
     pub CompareOp: super::USHORT,
     pub Value: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for PAYLOAD_FILTER_PREDICATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PAYLOAD_OPERATOR = i32;
 #[cfg(feature = "shared")]

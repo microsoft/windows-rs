@@ -1,7 +1,7 @@
 pub const CERTIFICATE_HASH_LENGTH: i32 = 20;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub eapMethodType: EAP_METHOD_TYPE,
     pub dwFlags: super::DWORD,
@@ -15,9 +15,15 @@ pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub dwError: super::DWORD,
     pub pEapError: *mut EAP_ERROR,
 }
+#[cfg(feature = "shared")]
+impl Default for EAPHOST_IDENTITY_UI_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwSizeofContextData: super::DWORD,
     pub pContextData: *mut super::BYTE,
@@ -25,6 +31,12 @@ pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub pInteractiveUIData: *mut super::BYTE,
     pub dwError: super::DWORD,
     pub pEapError: *mut EAP_ERROR,
+}
+#[cfg(feature = "shared")]
+impl Default for EAPHOST_INTERACTIVE_UI_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EAPHOST_METHOD_API_VERSION: i32 = 1;
 pub const EAPHOST_PEER_API_VERSION: i32 = 1;
@@ -36,11 +48,17 @@ pub type EAP_ATTRIBUTE_TYPE = _EAP_ATTRIBUTE_TYPE;
 pub const EAP_CERTIFICATE_CREDENTIAL: EapCredentialType = 3;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
     pub dwVersion: super::DWORD,
     pub dwNumberOfFields: super::DWORD,
     pub pFields: *mut EAP_CONFIG_INPUT_FIELD_DATA,
+}
+#[cfg(feature = "shared")]
+impl Default for EAP_CONFIG_INPUT_FIELD_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -130,7 +148,7 @@ pub type EAP_INTERACTIVE_UI_DATA_TYPE = i32;
 pub const EAP_INTERACTIVE_UI_DATA_VERSION: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
@@ -138,29 +156,53 @@ pub struct EAP_METHOD_INFO {
     pub eapProperties: super::DWORD,
     pub pInnerMethodInfo: *mut Self,
 }
+#[cfg(feature = "shared")]
+impl Default for EAP_METHOD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY {
     pub dwNumberOfMethods: super::DWORD,
     pub pEapMethods: *mut EAP_METHOD_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for EAP_METHOD_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
     pub dwNumberOfMethods: super::DWORD,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
 }
+#[cfg(feature = "shared")]
+impl Default for EAP_METHOD_INFO_ARRAY_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_EX {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
     pub pwszFriendlyName: windows_core::PWSTR,
     pub eapProperties: super::DWORD,
     pub pInnerMethodInfoArray: *mut EAP_METHOD_INFO_ARRAY_EX,
+}
+#[cfg(feature = "shared")]
+impl Default for EAP_METHOD_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -178,10 +220,16 @@ impl Default for EAP_METHOD_PROPERTY {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
     pub dwNumberOfProperties: super::DWORD,
     pub pMethodProperty: *mut EAP_METHOD_PROPERTY,
+}
+#[cfg(feature = "shared")]
+impl Default for EAP_METHOD_PROPERTY_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type EAP_METHOD_PROPERTY_TYPE = i32;
 #[repr(C)]
@@ -214,10 +262,16 @@ pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
     pub length: super::DWORD,
     pub value: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for EAP_METHOD_PROPERTY_VALUE_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type EAP_METHOD_PROPERTY_VALUE_TYPE = i32;
 #[repr(C)]
@@ -340,18 +394,30 @@ pub type PEAP_CONFIG_INPUT_FIELD_DATA = *mut EAP_CONFIG_INPUT_FIELD_DATA;
 pub type PEAP_CONFIG_INPUT_FIELD_TYPE = *mut EAP_CONFIG_INPUT_FIELD_TYPE;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _EAP_ATTRIBUTE {
     pub eaType: EAP_ATTRIBUTE_TYPE,
     pub dwLength: super::DWORD,
     pub pValue: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for _EAP_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _EAP_ATTRIBUTES {
     pub dwNumberOfAttributes: super::DWORD,
     pub pAttribs: *mut EAP_ATTRIBUTE,
+}
+#[cfg(feature = "shared")]
+impl Default for _EAP_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type _EAP_ATTRIBUTE_TYPE = i32;
 #[repr(C)]

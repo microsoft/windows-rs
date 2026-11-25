@@ -21,11 +21,17 @@ windows_link::link!("cryptui.dll" "system" fn CryptUIWizImport(dwflags : super::
 pub const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CERT_SELECTUI_INPUT {
     pub hStore: super::HCERTSTORE,
     pub prgpChain: *mut super::PCCERT_CHAIN_CONTEXT,
     pub cChain: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for CERT_SELECTUI_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPTUI_ACCEPT_DECLINE_STYLE: i32 = 64;
 pub const CRYPTUI_CACHE_ONLY_URL_RETRIEVAL: i32 = 262144;
@@ -33,13 +39,19 @@ pub const CRYPTUI_CERT_MGR_PUBLISHER_TAB: i32 = 4;
 pub const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: i32 = 32768;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_CERT_MGR_STRUCT {
     pub dwSize: super::DWORD,
     pub hwndParent: super::HWND,
     pub dwFlags: super::DWORD,
     pub pwszTitle: windows_sys::core::PCWSTR,
     pub pszInitUsageOID: windows_sys::core::PCSTR,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for CRYPTUI_CERT_MGR_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPTUI_CERT_MGR_TAB_MASK: i32 = 15;
 pub const CRYPTUI_DISABLE_ADDTOSTORE: i32 = 16;
@@ -59,10 +71,16 @@ pub const CRYPTUI_HIDE_HIERARCHYPAGE: i32 = 1;
 pub const CRYPTUI_IGNORE_UNTRUSTED_ROOT: i32 = 128;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_INITDIALOG_STRUCT {
     pub lParam: super::LPARAM,
     pub pCertContext: super::PCCERT_CONTEXT,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for CRYPTUI_INITDIALOG_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPTUI_ONLY_OPEN_ROOT_STORE: i32 = 512;
 pub const CRYPTUI_SELECT_EXPIRATION_COLUMN: i32 = 32;
@@ -161,13 +179,19 @@ pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: i32 = 1;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     pub dwSize: super::DWORD,
     pub pGuidSubject: *mut windows_sys::core::GUID,
     pub cbBlob: super::DWORD,
     pub pbBlob: *mut super::BYTE,
     pub pwszDisplayName: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: i32 = 1;
 #[repr(C, packed(8))]
@@ -201,16 +225,22 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
     pub dwSize: super::DWORD,
     pub cbBlob: super::DWORD,
     pub pbBlob: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub dwSize: super::DWORD,
     pub dwAttrFlags: super::DWORD,
@@ -221,6 +251,12 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub hAdditionalCertStore: super::HCERTSTORE,
     pub psAuthenticated: super::PCRYPT_ATTRIBUTES,
     pub psUnauthenticated: super::PCRYPT_ATTRIBUTES,
+}
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: i32 = 4;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: i32 = 2;
@@ -274,18 +310,24 @@ pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: i32 = 3;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     pub dwSize: super::DWORD,
     pub pwszPvkFileName: windows_sys::core::PWSTR,
     pub pwszProvName: windows_sys::core::PWSTR,
     pub dwProvType: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV: i32 = 2;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_STORE: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub dwSize: super::DWORD,
     pub cCertStore: super::DWORD,
@@ -293,11 +335,17 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub pFilterCallback: PFNCFILTERPROC,
     pub pvCallbackData: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: i32 = 2;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub dwSize: super::DWORD,
     pub dwExportFormat: super::DWORD,
@@ -305,6 +353,12 @@ pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub fExportPrivateKeys: windows_sys::core::BOOL,
     pub pwszPassword: windows_sys::core::PCWSTR,
     pub fStrongEncryption: windows_sys::core::BOOL,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: i32 = 1;
 pub const CRYPTUI_WIZ_EXPORT_CERT_STORE: i32 = 4;

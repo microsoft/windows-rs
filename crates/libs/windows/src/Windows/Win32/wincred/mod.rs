@@ -381,10 +381,16 @@ pub unsafe fn CredWriteW(credential: PCREDENTIALW, flags: super::DWORD) -> windo
 pub const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
     pub cbBlob: super::ULONG,
     pub pbBlob: super::LPBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for BINARY_BLOB_CREDENTIAL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3;
 pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5;
@@ -406,7 +412,7 @@ pub const CERT_HASH_LENGTH: i32 = 20;
 pub type CREDENTIAL = CREDENTIALA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIALA {
     pub Flags: super::DWORD,
     pub Type: super::DWORD,
@@ -421,9 +427,15 @@ pub struct CREDENTIALA {
     pub TargetAlias: windows_core::PSTR,
     pub UserName: windows_core::PSTR,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CREDENTIALA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIALW {
     pub Flags: super::DWORD,
     pub Type: super::DWORD,
@@ -438,31 +450,49 @@ pub struct CREDENTIALW {
     pub TargetAlias: windows_core::PWSTR,
     pub UserName: windows_core::PWSTR,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CREDENTIALW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "shared")]
 pub type CREDENTIAL_ATTRIBUTE = CREDENTIAL_ATTRIBUTEA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEA {
     pub Keyword: windows_core::PSTR,
     pub Flags: super::DWORD,
     pub ValueSize: super::DWORD,
     pub Value: super::LPBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for CREDENTIAL_ATTRIBUTEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEW {
     pub Keyword: windows_core::PWSTR,
     pub Flags: super::DWORD,
     pub ValueSize: super::DWORD,
     pub Value: super::LPBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for CREDENTIAL_ATTRIBUTEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type CREDENTIAL_TARGET_INFORMATION = CREDENTIAL_TARGET_INFORMATIONA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub TargetName: windows_core::PSTR,
     pub NetbiosServerName: windows_core::PSTR,
@@ -475,9 +505,15 @@ pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub CredTypeCount: super::DWORD,
     pub CredTypes: super::LPDWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CREDENTIAL_TARGET_INFORMATIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub TargetName: windows_core::PWSTR,
     pub NetbiosServerName: windows_core::PWSTR,
@@ -489,6 +525,12 @@ pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub Flags: super::ULONG,
     pub CredTypeCount: super::DWORD,
     pub CredTypes: super::LPDWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CREDENTIAL_TARGET_INFORMATIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CREDUIWIN_AUTHPACKAGE_ONLY: i32 = 16;
 pub const CREDUIWIN_CHECKBOX: i32 = 2;
@@ -526,7 +568,7 @@ pub const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: i32 = 212664322;
 pub type CREDUI_INFO = CREDUI_INFOA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDUI_INFOA {
     pub cbSize: super::DWORD,
     pub hwndParent: super::HWND,
@@ -534,15 +576,27 @@ pub struct CREDUI_INFOA {
     pub pszCaptionText: windows_core::PCSTR,
     pub hbmBanner: super::HBITMAP,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for CREDUI_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDUI_INFOW {
     pub cbSize: super::DWORD,
     pub hwndParent: super::HWND,
     pub pszMessageText: windows_core::PCWSTR,
     pub pszCaptionText: windows_core::PCWSTR,
     pub hbmBanner: super::HBITMAP,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for CREDUI_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CREDUI_MAX_CAPTION_LENGTH: i32 = 128;
 pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: i32 = 337;

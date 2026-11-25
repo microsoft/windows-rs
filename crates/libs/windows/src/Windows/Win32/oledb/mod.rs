@@ -70,18 +70,32 @@ pub const DBASYNCHPHASE_POPULATION: DBASYNCHPHASEENUM = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBBINDEXT {
     pub pExtension: *mut super::BYTE,
     pub ulExtension: DBCOUNTITEM,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for DBBINDEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBBINDEXT {
     pub pExtension: *mut super::BYTE,
     pub ulExtension: DBCOUNTITEM,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for DBBINDEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBBINDFLAG = u32;
 pub type DBBINDFLAGENUM = i32;
@@ -89,7 +103,6 @@ pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
-#[derive(Default)]
 pub struct DBBINDING {
     pub iOrdinal: DBORDINAL,
     pub obValue: DBBYTEOFFSET,
@@ -107,10 +120,16 @@ pub struct DBBINDING {
     pub bPrecision: super::BYTE,
     pub bScale: super::BYTE,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
+impl Default for DBBINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
-#[derive(Default)]
 pub struct DBBINDING {
     pub iOrdinal: DBORDINAL,
     pub obValue: DBBYTEOFFSET,
@@ -127,6 +146,13 @@ pub struct DBBINDING {
     pub wType: DBTYPE,
     pub bPrecision: super::BYTE,
     pub bScale: super::BYTE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
+impl Default for DBBINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBBINDSTATUS = u32;
 pub type DBBINDSTATUSENUM = i32;
@@ -400,7 +426,7 @@ pub const DBCOMPUTEMODE_NOTCOMPUTED: i32 = 3;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut DBID,
     pub ConstraintType: DBCONSTRAINTTYPE,
@@ -417,10 +443,17 @@ pub struct DBCONSTRAINTDESC {
     pub cReserved: DB_URESERVE,
     pub rgReserved: *mut DBPROPSET,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for DBCONSTRAINTDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut DBID,
     pub ConstraintType: DBCONSTRAINTTYPE,
@@ -436,6 +469,13 @@ pub struct DBCONSTRAINTDESC {
     pub Deferrability: DBDEFERRABILITY,
     pub cReserved: DB_URESERVE,
     pub rgReserved: *mut DBPROPSET,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for DBCONSTRAINTDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBCONSTRAINTTYPE = u32;
 pub type DBCONSTRAINTTYPEENUM = i32;
@@ -604,36 +644,62 @@ impl Default for DBID_1 {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "guiddef")]
-#[derive(Default)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub piid: *mut super::IID,
     pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "guiddef")]
+impl Default for DBIMPLICITSESSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "guiddef")]
-#[derive(Default)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub piid: *mut super::IID,
     pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "guiddef")]
+impl Default for DBIMPLICITSESSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut DBID,
     pub eIndexColOrder: DBINDEX_COL_ORDER,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for DBINDEXCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut DBID,
     pub eIndexColOrder: DBINDEX_COL_ORDER,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for DBINDEXCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBINDEX_COL_ORDER = u32;
 pub type DBINDEX_COL_ORDERENUM = i32;
@@ -656,7 +722,7 @@ pub type DBLITERALENUM21 = i32;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBLITERALINFO {
     pub pwszLiteralValue: super::LPOLESTR,
     pub pwszInvalidChars: super::LPOLESTR,
@@ -665,10 +731,17 @@ pub struct DBLITERALINFO {
     pub fSupported: windows_core::BOOL,
     pub cchMaxLen: super::ULONG,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for DBLITERALINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBLITERALINFO {
     pub pwszLiteralValue: super::LPOLESTR,
     pub pwszInvalidChars: super::LPOLESTR,
@@ -676,6 +749,13 @@ pub struct DBLITERALINFO {
     pub lt: DBLITERAL,
     pub fSupported: windows_core::BOOL,
     pub cchMaxLen: super::ULONG,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for DBLITERALINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = 1;
 pub const DBLITERAL_CATALOG_NAME: DBLITERALENUM = 2;
@@ -747,7 +827,7 @@ pub type DBORDINAL = usize;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBPARAMBINDINFO {
     pub pwszDataSourceType: super::LPOLESTR,
     pub pwszName: super::LPOLESTR,
@@ -756,10 +836,17 @@ pub struct DBPARAMBINDINFO {
     pub bPrecision: super::BYTE,
     pub bScale: super::BYTE,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for DBPARAMBINDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBPARAMBINDINFO {
     pub pwszDataSourceType: super::LPOLESTR,
     pub pwszName: super::LPOLESTR,
@@ -767,6 +854,13 @@ pub struct DBPARAMBINDINFO {
     pub dwFlags: DBPARAMFLAGS,
     pub bPrecision: super::BYTE,
     pub bScale: super::BYTE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for DBPARAMBINDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBPARAMFLAGS = u32;
 pub type DBPARAMFLAGSENUM = i32;
@@ -780,7 +874,6 @@ pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = 256;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
-#[derive(Default)]
 pub struct DBPARAMINFO {
     pub dwFlags: DBPARAMFLAGS,
     pub iOrdinal: DBORDINAL,
@@ -791,10 +884,16 @@ pub struct DBPARAMINFO {
     pub bPrecision: super::BYTE,
     pub bScale: super::BYTE,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
+impl Default for DBPARAMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
-#[derive(Default)]
 pub struct DBPARAMINFO {
     pub dwFlags: DBPARAMFLAGS,
     pub iOrdinal: DBORDINAL,
@@ -804,6 +903,13 @@ pub struct DBPARAMINFO {
     pub wType: DBTYPE,
     pub bPrecision: super::BYTE,
     pub bScale: super::BYTE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
+impl Default for DBPARAMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBPARAMIO = u32;
 pub type DBPARAMIOENUM = i32;
@@ -812,19 +918,31 @@ pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = 0;
 pub const DBPARAMIO_OUTPUT: DBPARAMIOENUM = 2;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBPARAMS {
     pub pData: *mut core::ffi::c_void,
     pub cParamSets: DB_UPARAMS,
     pub hAccessor: HACCESSOR,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBPARAMS {
     pub pData: *mut core::ffi::c_void,
     pub cParamSets: DB_UPARAMS,
     pub hAccessor: HACCESSOR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DBPARAMTYPE_INPUT: i32 = 1;
 pub const DBPARAMTYPE_INPUTOUTPUT: i32 = 2;
@@ -933,21 +1051,35 @@ pub type DBPROPID = u32;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut DBPROPID,
     pub cPropertyIDs: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for DBPROPIDSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut DBPROPID,
     pub cPropertyIDs: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for DBPROPIDSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -999,20 +1131,34 @@ impl Default for DBPROPINFO {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: PDBPROPINFO,
     pub cPropertyInfos: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for DBPROPINFOSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: PDBPROPINFO,
     pub cPropertyInfos: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for DBPROPINFOSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBPROPOPTIONS = u32;
 pub type DBPROPOPTIONSENUM = i32;
@@ -1022,20 +1168,34 @@ pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for DBPROPSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for DBPROPSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBPROPSTATUS = u32;
 pub type DBPROPSTATUSENUM = i32;
@@ -1707,17 +1867,29 @@ pub const DBUPDELRULE_SETDEFAULT: DBUPDELRULEENUM = 3;
 pub const DBUPDELRULE_SETNULL: DBUPDELRULEENUM = 2;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBVECTOR {
     pub size: DBLENGTH,
     pub ptr: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBVECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBVECTOR {
     pub size: DBLENGTH,
     pub ptr: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBVECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DBWATCHREGION_NULL: i32 = 0;
 pub const DB_ALL_EXCEPT_LIKE: i32 = 3;
@@ -6730,7 +6902,7 @@ impl windows_core::RuntimeName for IViewSort {}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MDAXISINFO {
     pub cbSize: DBLENGTH,
     pub iAxis: DBCOUNTITEM,
@@ -6739,10 +6911,17 @@ pub struct MDAXISINFO {
     pub rgcColumns: *mut DBORDINAL,
     pub rgpwszDimensionNames: *mut super::LPOLESTR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "wtypesbase")]
+impl Default for MDAXISINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MDAXISINFO {
     pub cbSize: DBLENGTH,
     pub iAxis: DBCOUNTITEM,
@@ -6750,6 +6929,13 @@ pub struct MDAXISINFO {
     pub cCoordinates: DBCOUNTITEM,
     pub rgcColumns: *mut DBORDINAL,
     pub rgpwszDimensionNames: *mut super::LPOLESTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "wtypesbase")]
+impl Default for MDAXISINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MDAXIS_CHAPTERS: i32 = 4;
 pub const MDAXIS_COLUMNS: i32 = 0;
@@ -6944,7 +7130,6 @@ pub const PERM_WRITEPERMISSIONS: ACCESS_MASKENUM = 262144;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Default)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::ISequentialStream>>,
     pub cbData: super::ULONG,
@@ -6961,10 +7146,16 @@ pub struct RMTPACK {
     pub cArray: super::ULONG,
     pub rgArray: *mut super::VARIANT,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for RMTPACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Default)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::ISequentialStream>>,
     pub cbData: super::ULONG,
@@ -6980,23 +7171,44 @@ pub struct RMTPACK {
     pub rgPROPVARIANT: *mut super::PROPVARIANT,
     pub cArray: super::ULONG,
     pub rgArray: *mut super::VARIANT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for RMTPACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SBYTE = i8;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SEC_OBJECT {
     pub cObjects: super::DWORD,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for SEC_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SEC_OBJECT {
     pub cObjects: super::DWORD,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for SEC_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]

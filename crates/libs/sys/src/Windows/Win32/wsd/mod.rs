@@ -179,20 +179,32 @@ pub type PWSD_SECURITY_SIGNATURE_VALIDATION = *mut WSD_SECURITY_SIGNATURE_VALIDA
 pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "C" fn(thisunknown: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REQUESTBODY_GetStatus {
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for REQUESTBODY_GetStatus {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REQUESTBODY_Renew {
     pub Expires: *mut WSD_EVENTING_EXPIRES,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for REQUESTBODY_Renew {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REQUESTBODY_Subscribe {
     pub EndTo: *mut WSD_ENDPOINT_REFERENCE,
     pub Delivery: *mut WSD_EVENTING_DELIVERY_MODE,
@@ -200,48 +212,90 @@ pub struct REQUESTBODY_Subscribe {
     pub Filter: *mut WSD_EVENTING_FILTER,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for REQUESTBODY_Subscribe {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REQUESTBODY_Unsubscribe {
     pub any: *mut WSDXML_ELEMENT,
 }
-#[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
-pub struct RESPONSEBODY_GetMetadata {
-    pub Metadata: *mut WSD_METADATA_SECTION_LIST,
+impl Default for REQUESTBODY_Unsubscribe {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
+pub struct RESPONSEBODY_GetMetadata {
+    pub Metadata: *mut WSD_METADATA_SECTION_LIST,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for RESPONSEBODY_GetMetadata {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct RESPONSEBODY_GetStatus {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for RESPONSEBODY_GetStatus {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct RESPONSEBODY_Renew {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for RESPONSEBODY_Renew {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct RESPONSEBODY_Subscribe {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for RESPONSEBODY_Subscribe {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct RESPONSEBODY_SubscriptionEnd {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
     pub Status: *const super::WCHAR,
     pub Reason: *mut WSD_LOCALIZED_STRING,
     pub Any: *mut WSDXML_ELEMENT,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for RESPONSEBODY_SubscriptionEnd {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const SOAP_Actor: super::DWORD = 458757;
@@ -534,10 +588,16 @@ pub const WSD_Actions: super::DWORD = 327682;
 pub type WSD_BYE = _WSD_BYE;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WSD_CONFIG_ADDRESSES {
     pub addresses: *mut *mut core::ffi::c_void,
     pub dwAddressCount: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for WSD_CONFIG_ADDRESSES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 10;
 pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 9;
@@ -545,11 +605,17 @@ pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 1;
 pub const WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WSD_CONFIG_PARAM {
     pub configParamType: WSD_CONFIG_PARAM_TYPE,
     pub pConfigData: super::PVOID,
     pub dwConfigDataSize: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WSD_CONFIG_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WSD_CONFIG_PARAM_TYPE = i32;
 #[repr(C)]
@@ -647,20 +713,32 @@ pub const WSD_ModelUrl: super::DWORD = 327689;
 pub type WSD_NAME_LIST = _WSD_NAME_LIST;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WSD_OPERATION {
     pub RequestType: *mut WSDXML_TYPE,
     pub ResponseType: *mut WSDXML_TYPE,
     pub RequestStubFunction: WSD_STUB_FUNCTION,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WSD_OPERATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WSD_PORT_TYPE {
     pub EncodedName: super::DWORD,
     pub OperationCount: super::DWORD,
     pub Operations: *mut WSD_OPERATION,
     pub ProtocolType: WSD_PROTOCOL_TYPE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WSD_PORT_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type WSD_PROBE = _WSD_PROBE;
@@ -696,7 +774,7 @@ pub const WSD_Relationship: super::DWORD = 327699;
 pub type WSD_SCOPES = _WSD_SCOPES;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WSD_SECURITY_CERT_VALIDATION {
     pub certMatchArray: *mut super::PCCERT_CONTEXT,
     pub dwCertMatchArrayCount: super::DWORD,
@@ -707,15 +785,27 @@ pub struct WSD_SECURITY_CERT_VALIDATION {
     pub pbCertHash: *mut super::BYTE,
     pub dwCertHashSize: super::DWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for WSD_SECURITY_CERT_VALIDATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub certMatchArray: *mut super::PCCERT_CONTEXT,
     pub dwCertMatchArrayCount: super::DWORD,
     pub hCertMatchStore: super::HCERTSTORE,
     pub hCertIssuerStore: super::HCERTSTORE,
     pub dwCertCheckOptions: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for WSD_SECURITY_CERT_VALIDATION_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = 7;
 pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = 8;
@@ -726,12 +816,18 @@ pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM
 pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 11;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub signingCertArray: *mut super::PCCERT_CONTEXT,
     pub dwSigningCertArrayCount: super::DWORD,
     pub hSigningCertStore: super::HCERTSTORE,
     pub dwFlags: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for WSD_SECURITY_SIGNATURE_VALIDATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 3;
 pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 5;
@@ -758,12 +854,18 @@ pub type WSD_SOAP_MESSAGE = _WSD_SOAP_MESSAGE;
 pub type WSD_STUB_FUNCTION = Option<unsafe extern "C" fn(server: *mut core::ffi::c_void, session: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: windows_sys::core::HRESULT,
     pub eventHandle: super::HANDLE,
     pub messageParameters: *mut core::ffi::c_void,
     pub results: *mut core::ffi::c_void,
+}
+#[cfg(feature = "winnt")]
+impl Default for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const WSD_SerialNumber: super::DWORD = 327694;
@@ -783,9 +885,15 @@ pub const WSD_Type: super::DWORD = 327700;
 pub const WSD_Types: super::DWORD = 327695;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WSD_UNKNOWN_LOOKUP {
     pub Any: *mut WSDXML_ELEMENT,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WSD_UNKNOWN_LOOKUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "winnt")]
 pub type WSD_URI_LIST = _WSD_URI_LIST;
@@ -905,16 +1013,22 @@ pub const XOP_Href: super::DWORD = 196609;
 pub const XOP_Include: super::DWORD = 196608;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSDXML_ATTRIBUTE {
     pub Element: *mut WSDXML_ELEMENT,
     pub Next: *mut WSDXML_ATTRIBUTE,
     pub Name: *mut WSDXML_NAME,
     pub Value: *mut super::WCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSDXML_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSDXML_ELEMENT {
     pub Node: WSDXML_NODE,
     pub Name: *mut WSDXML_NAME,
@@ -922,23 +1036,41 @@ pub struct _WSDXML_ELEMENT {
     pub FirstChild: *mut WSDXML_NODE,
     pub PrefixMappings: *mut WSDXML_PREFIX_MAPPING,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSDXML_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSDXML_ELEMENT_LIST {
     pub Next: *mut WSDXML_ELEMENT_LIST,
     pub Element: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSDXML_ELEMENT_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSDXML_NAME {
     pub Space: *mut WSDXML_NAMESPACE,
     pub LocalName: *mut super::WCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSDXML_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSDXML_NAMESPACE {
     pub Uri: *const super::WCHAR,
     pub PreferredPrefix: *const super::WCHAR,
@@ -946,9 +1078,15 @@ pub struct _WSDXML_NAMESPACE {
     pub NamesCount: super::WORD,
     pub Encoding: super::WORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSDXML_NAMESPACE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSDXML_NODE {
     pub Type: i32,
     pub Parent: *mut WSDXML_ELEMENT,
@@ -959,47 +1097,83 @@ impl _WSDXML_NODE {
     pub const ElementType: i32 = 0;
     pub const TextType: i32 = 1;
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSDXML_NODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSDXML_PREFIX_MAPPING {
     pub Refs: super::DWORD,
     pub Next: *mut WSDXML_PREFIX_MAPPING,
     pub Space: *mut WSDXML_NAMESPACE,
     pub Prefix: *mut super::WCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSDXML_PREFIX_MAPPING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSDXML_TEXT {
     pub Node: WSDXML_NODE,
     pub Text: *mut super::WCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSDXML_TEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSDXML_TYPE {
     pub Uri: *const super::WCHAR,
     pub Table: *const super::BYTE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSDXML_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_APP_SEQUENCE {
     pub InstanceId: super::ULONGLONG,
     pub SequenceId: *const super::WCHAR,
     pub MessageNumber: super::ULONGLONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_APP_SEQUENCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_BYE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_BYE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_ENDPOINT_REFERENCE {
     pub Address: *const super::WCHAR,
     pub ReferenceProperties: WSD_REFERENCE_PROPERTIES,
@@ -1008,16 +1182,28 @@ pub struct _WSD_ENDPOINT_REFERENCE {
     pub ServiceName: *mut WSDXML_NAME,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_ENDPOINT_REFERENCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_ENDPOINT_REFERENCE_LIST {
     pub Next: *mut WSD_ENDPOINT_REFERENCE_LIST,
     pub Element: *mut WSD_ENDPOINT_REFERENCE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_ENDPOINT_REFERENCE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_EVENT {
     pub Hr: windows_sys::core::HRESULT,
     pub EventType: super::DWORD,
@@ -1027,59 +1213,107 @@ pub struct _WSD_EVENT {
     pub Operation: *mut WSD_OPERATION,
     pub MessageParameters: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_EVENTING_DELIVERY_MODE {
     pub Mode: *const super::WCHAR,
     pub Push: *mut WSD_EVENTING_DELIVERY_MODE_PUSH,
     pub Data: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_EVENTING_DELIVERY_MODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_EVENTING_DELIVERY_MODE_PUSH {
     pub NotifyTo: *mut WSD_ENDPOINT_REFERENCE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_EVENTING_DELIVERY_MODE_PUSH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_EVENTING_EXPIRES {
     pub Duration: *mut WSD_DURATION,
     pub DateTime: *mut WSD_DATETIME,
 }
+#[cfg(feature = "shared")]
+impl Default for _WSD_EVENTING_EXPIRES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_EVENTING_FILTER {
     pub Dialect: *const super::WCHAR,
     pub FilterAction: *mut WSD_EVENTING_FILTER_ACTION,
     pub Data: *mut core::ffi::c_void,
 }
+#[cfg(feature = "winnt")]
+impl Default for _WSD_EVENTING_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_EVENTING_FILTER_ACTION {
     pub Actions: *mut WSD_URI_LIST,
 }
+#[cfg(feature = "winnt")]
+impl Default for _WSD_EVENTING_FILTER_ACTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_HANDLER_CONTEXT {
     pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut core::ffi::c_void,
     pub Unknown: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_HANDLER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_HEADER_RELATESTO {
     pub RelationshipType: *mut WSDXML_NAME,
     pub MessageID: *const super::WCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_HEADER_RELATESTO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_HELLO {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -1088,30 +1322,54 @@ pub struct _WSD_HELLO {
     pub MetadataVersion: super::ULONGLONG,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_HELLO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_HOST_METADATA {
     pub Host: *mut WSD_SERVICE_METADATA,
     pub Hosted: *mut WSD_SERVICE_METADATA_LIST,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_HOST_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_LOCALIZED_STRING {
     pub lang: *const super::WCHAR,
     pub String: *const super::WCHAR,
 }
+#[cfg(feature = "winnt")]
+impl Default for _WSD_LOCALIZED_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_LOCALIZED_STRING_LIST {
     pub Next: *mut WSD_LOCALIZED_STRING_LIST,
     pub Element: *mut WSD_LOCALIZED_STRING,
 }
+#[cfg(feature = "winnt")]
+impl Default for _WSD_LOCALIZED_STRING_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_METADATA_SECTION {
     pub Dialect: *const super::WCHAR,
     pub Identifier: *const super::WCHAR,
@@ -1120,31 +1378,55 @@ pub struct _WSD_METADATA_SECTION {
     pub Location: *const super::WCHAR,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_METADATA_SECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_METADATA_SECTION_LIST {
     pub Next: *mut WSD_METADATA_SECTION_LIST,
     pub Element: *mut WSD_METADATA_SECTION,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_METADATA_SECTION_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_NAME_LIST {
     pub Next: *mut WSD_NAME_LIST,
     pub Element: *mut WSDXML_NAME,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_NAME_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_PROBE {
     pub Types: *mut WSD_NAME_LIST,
     pub Scopes: *mut WSD_SCOPES,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_PROBE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_PROBE_MATCH {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -1153,50 +1435,92 @@ pub struct _WSD_PROBE_MATCH {
     pub MetadataVersion: super::ULONGLONG,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_PROBE_MATCH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_PROBE_MATCHES {
     pub ProbeMatch: *mut WSD_PROBE_MATCH_LIST,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_PROBE_MATCHES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_PROBE_MATCH_LIST {
     pub Next: *mut WSD_PROBE_MATCH_LIST,
     pub Element: *mut WSD_PROBE_MATCH,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_PROBE_MATCH_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_REFERENCE_PARAMETERS {
     pub Any: *mut WSDXML_ELEMENT,
 }
-#[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
-pub struct _WSD_REFERENCE_PROPERTIES {
-    pub Any: *mut WSDXML_ELEMENT,
+impl Default for _WSD_REFERENCE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
+pub struct _WSD_REFERENCE_PROPERTIES {
+    pub Any: *mut WSDXML_ELEMENT,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_REFERENCE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct _WSD_RELATIONSHIP_METADATA {
     pub Type: *const super::WCHAR,
     pub Data: *mut WSD_HOST_METADATA,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_RELATIONSHIP_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_RESOLVE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_RESOLVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_RESOLVE_MATCH {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -1205,39 +1529,69 @@ pub struct _WSD_RESOLVE_MATCH {
     pub MetadataVersion: super::ULONGLONG,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_RESOLVE_MATCH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_RESOLVE_MATCHES {
     pub ResolveMatch: *mut WSD_RESOLVE_MATCH,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_RESOLVE_MATCHES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_SCOPES {
     pub MatchBy: *const super::WCHAR,
     pub Scopes: *mut WSD_URI_LIST,
 }
+#[cfg(feature = "winnt")]
+impl Default for _WSD_SCOPES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_SERVICE_METADATA {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE_LIST,
     pub Types: *mut WSD_NAME_LIST,
     pub ServiceId: *const super::WCHAR,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_SERVICE_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_SERVICE_METADATA_LIST {
     pub Next: *mut WSD_SERVICE_METADATA_LIST,
     pub Element: *mut WSD_SERVICE_METADATA,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_SERVICE_METADATA_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_SOAP_FAULT {
     pub Code: *mut WSD_SOAP_FAULT_CODE,
     pub Reason: *mut WSD_SOAP_FAULT_REASON,
@@ -1245,29 +1599,53 @@ pub struct _WSD_SOAP_FAULT {
     pub Role: *const super::WCHAR,
     pub Detail: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_SOAP_FAULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_SOAP_FAULT_CODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_SOAP_FAULT_CODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_SOAP_FAULT_REASON {
     pub Text: *mut WSD_LOCALIZED_STRING_LIST,
 }
+#[cfg(feature = "winnt")]
+impl Default for _WSD_SOAP_FAULT_REASON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_SOAP_FAULT_SUBCODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_SOAP_FAULT_SUBCODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_SOAP_HEADER {
     pub To: *const super::WCHAR,
     pub Action: *const super::WCHAR,
@@ -1279,26 +1657,44 @@ pub struct _WSD_SOAP_HEADER {
     pub AppSequence: *mut WSD_APP_SEQUENCE,
     pub AnyHeaders: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_SOAP_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_SOAP_MESSAGE {
     pub Header: WSD_SOAP_HEADER,
     pub Body: *mut core::ffi::c_void,
     pub BodyType: *mut WSDXML_TYPE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_SOAP_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_THIS_DEVICE_METADATA {
     pub FriendlyName: *mut WSD_LOCALIZED_STRING_LIST,
     pub FirmwareVersion: *const super::WCHAR,
     pub SerialNumber: *const super::WCHAR,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_THIS_DEVICE_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_THIS_MODEL_METADATA {
     pub Manufacturer: *mut WSD_LOCALIZED_STRING_LIST,
     pub ManufacturerUrl: *const super::WCHAR,
@@ -1308,10 +1704,22 @@ pub struct _WSD_THIS_MODEL_METADATA {
     pub PresentationUrl: *const super::WCHAR,
     pub Any: *mut WSDXML_ELEMENT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _WSD_THIS_MODEL_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _WSD_URI_LIST {
     pub Next: *mut WSD_URI_LIST,
     pub Element: *const super::WCHAR,
+}
+#[cfg(feature = "winnt")]
+impl Default for _WSD_URI_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

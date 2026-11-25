@@ -34,12 +34,18 @@ pub mod Producer {
     }
     #[repr(C)]
     #[cfg(target_arch = "x86")]
-    #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+    #[derive(Clone, Copy, Debug, Eq, PartialEq)]
     pub struct Owner {
         pub tag: u32,
         pub named: Owner_Owner_0,
         pub anonymous: Owner_0,
         pub tail: *mut Owner_1,
+    }
+    #[cfg(target_arch = "x86")]
+    impl Default for Owner {
+        fn default() -> Self {
+            unsafe { core::mem::zeroed() }
+        }
     }
     #[repr(C)]
     #[cfg(target_arch = "x86")]
@@ -55,10 +61,16 @@ pub mod Producer {
     }
     #[repr(C)]
     #[cfg(target_arch = "x86")]
-    #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+    #[derive(Clone, Copy, Debug, Eq, PartialEq)]
     pub struct Owner_Inner {
         pub value: u32,
         pub owner: *mut Owner,
+    }
+    #[cfg(target_arch = "x86")]
+    impl Default for Owner_Inner {
+        fn default() -> Self {
+            unsafe { core::mem::zeroed() }
+        }
     }
     #[repr(C)]
     #[cfg(target_arch = "x86")]
@@ -72,12 +84,22 @@ pub mod Producer {
         target_arch = "arm64ec",
         target_arch = "x86_64"
     ))]
-    #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+    #[derive(Clone, Copy, Debug, Eq, PartialEq)]
     pub struct Owner {
         pub tag: u32,
         pub named: Owner_Owner_0,
         pub anonymous: Owner_0,
         pub tail: *mut Owner_1,
+    }
+    #[cfg(any(
+        target_arch = "aarch64",
+        target_arch = "arm64ec",
+        target_arch = "x86_64"
+    ))]
+    impl Default for Owner {
+        fn default() -> Self {
+            unsafe { core::mem::zeroed() }
+        }
     }
     #[repr(C)]
     #[cfg(any(
@@ -105,10 +127,20 @@ pub mod Producer {
         target_arch = "arm64ec",
         target_arch = "x86_64"
     ))]
-    #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+    #[derive(Clone, Copy, Debug, Eq, PartialEq)]
     pub struct Owner_Inner {
         pub value: u64,
         pub owner: *mut Owner,
+    }
+    #[cfg(any(
+        target_arch = "aarch64",
+        target_arch = "arm64ec",
+        target_arch = "x86_64"
+    ))]
+    impl Default for Owner_Inner {
+        fn default() -> Self {
+            unsafe { core::mem::zeroed() }
+        }
     }
     #[repr(C)]
     #[cfg(any(

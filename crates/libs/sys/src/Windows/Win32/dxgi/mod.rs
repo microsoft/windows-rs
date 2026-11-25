@@ -451,7 +451,7 @@ pub struct DXGI_INFO_QUEUE_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXGI_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: super::UINT,
     pub pCategoryList: *mut DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
@@ -460,9 +460,15 @@ pub struct DXGI_INFO_QUEUE_FILTER_DESC {
     pub NumIDs: super::UINT,
     pub pIDList: *mut DXGI_INFO_QUEUE_MESSAGE_ID,
 }
+#[cfg(feature = "shared")]
+impl Default for DXGI_INFO_QUEUE_FILTER_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub Producer: DXGI_DEBUG_ID,
     pub Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
@@ -470,6 +476,12 @@ pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub ID: DXGI_INFO_QUEUE_MESSAGE_ID,
     pub pDescription: *const i8,
     pub DescriptionByteLength: super::SIZE_T,
+}
+#[cfg(feature = "shared")]
+impl Default for DXGI_INFO_QUEUE_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DXGI_INFO_QUEUE_MESSAGE_CATEGORY = i32;
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_CLEANUP: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = 3;
@@ -531,10 +543,16 @@ impl Default for DXGI_JPEG_QUANTIZATION_TABLE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXGI_MAPPED_RECT {
     pub Pitch: super::INT,
     pub pBits: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for DXGI_MAPPED_RECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DXGI_MAP_DISCARD: u32 = 4;
 pub const DXGI_MAP_READ: u32 = 1;
@@ -714,12 +732,18 @@ pub const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2;
 pub const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXGI_PRESENT_PARAMETERS {
     pub DirtyRectsCount: super::UINT,
     pub pDirtyRects: *mut super::RECT,
     pub pScrollRect: *mut super::RECT,
     pub pScrollOffset: *mut super::POINT,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for DXGI_PRESENT_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DXGI_PRESENT_RESTART: u32 = 4;
 pub const DXGI_PRESENT_RESTRICT_TO_OUTPUT: u32 = 64;
@@ -777,9 +801,15 @@ pub const DXGI_SCALING_NONE: DXGI_SCALING = 1;
 pub const DXGI_SCALING_STRETCH: DXGI_SCALING = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXGI_SHARED_RESOURCE {
     pub Handle: super::HANDLE,
+}
+#[cfg(feature = "winnt")]
+impl Default for DXGI_SHARED_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648;
 pub const DXGI_SHARED_RESOURCE_WRITE: i32 = 1;
@@ -798,7 +828,7 @@ pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_OVERLAY_PRESENT: DXGI_SWAP_CH
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferDesc: DXGI_MODE_DESC,
     pub SampleDesc: DXGI_SAMPLE_DESC,
@@ -808,6 +838,12 @@ pub struct DXGI_SWAP_CHAIN_DESC {
     pub Windowed: windows_sys::core::BOOL,
     pub SwapEffect: DXGI_SWAP_EFFECT,
     pub Flags: super::UINT,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for DXGI_SWAP_CHAIN_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

@@ -231,17 +231,29 @@ impl Default for CF_CALLBACK_PARAMETERS_0_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CF_CALLBACK_PARAMETERS_0_10 {
     pub Flags: CF_CALLBACK_RENAME_FLAGS,
     pub TargetPath: windows_sys::core::PCWSTR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CF_CALLBACK_PARAMETERS_0_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CF_CALLBACK_PARAMETERS_0_11 {
     pub Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS,
     pub SourcePath: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CF_CALLBACK_PARAMETERS_0_11 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -259,10 +271,16 @@ impl Default for CF_CALLBACK_PARAMETERS_0_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CF_CALLBACK_PARAMETERS_0_3 {
     pub Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS,
     pub Pattern: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CF_CALLBACK_PARAMETERS_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -555,12 +573,18 @@ impl Default for CF_OPERATION_PARAMETERS_0_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
     pub FsMetadata: *const CF_FS_METADATA,
     pub FileIdentity: super::LPCVOID,
     pub FileIdentityLength: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winbase", feature = "winnt"))]
+impl Default for CF_OPERATION_PARAMETERS_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winbase", feature = "winnt"))]
@@ -581,12 +605,18 @@ impl Default for CF_OPERATION_PARAMETERS_0_4 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
     pub CompletionStatus: windows_sys::core::NTSTATUS,
     pub FileIdentity: super::LPCVOID,
     pub FileIdentityLength: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winbase", feature = "winnt"))]
+impl Default for CF_OPERATION_PARAMETERS_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winbase", feature = "winnt"))]
@@ -747,7 +777,7 @@ pub struct CF_POPULATION_POLICY_PRIMARY_USHORT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CF_PROCESS_INFO {
     pub StructSize: super::DWORD,
     pub ProcessId: super::DWORD,
@@ -756,6 +786,12 @@ pub struct CF_PROCESS_INFO {
     pub ApplicationId: windows_sys::core::PCWSTR,
     pub CommandLine: windows_sys::core::PCWSTR,
     pub SessionId: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CF_PROCESS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CF_PROVIDER_STATUS_CLEAR_FLAGS: CF_SYNC_PROVIDER_STATUS = -2147483648;
 pub const CF_PROVIDER_STATUS_CONNECTIVITY_LOST: CF_SYNC_PROVIDER_STATUS = 64;
@@ -799,7 +835,7 @@ pub struct CF_SYNC_POLICIES {
 pub type CF_SYNC_PROVIDER_STATUS = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CF_SYNC_REGISTRATION {
     pub StructSize: super::ULONG,
     pub ProviderName: windows_sys::core::PCWSTR,
@@ -809,6 +845,12 @@ pub struct CF_SYNC_REGISTRATION {
     pub FileIdentity: super::LPCVOID,
     pub FileIdentityLength: super::DWORD,
     pub ProviderId: windows_sys::core::GUID,
+}
+#[cfg(feature = "shared")]
+impl Default for CF_SYNC_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]

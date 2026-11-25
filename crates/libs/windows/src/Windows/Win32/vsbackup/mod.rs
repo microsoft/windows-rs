@@ -1702,7 +1702,7 @@ impl IVssWriterComponentsExt {
 pub type PVSSCOMPONENTINFO = *const VSS_COMPONENTINFO;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "vswriter"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VSS_COMPONENTINFO {
     pub r#type: super::VSS_COMPONENT_TYPE,
     pub bstrLogicalPath: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -1719,5 +1719,11 @@ pub struct VSS_COMPONENTINFO {
     pub cDatabases: super::UINT,
     pub cLogFiles: super::UINT,
     pub cDependencies: super::UINT,
+}
+#[cfg(all(feature = "shared", feature = "vswriter"))]
+impl Default for VSS_COMPONENTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VSS_SW_BOOTABLE_STATE: i32 = 1;

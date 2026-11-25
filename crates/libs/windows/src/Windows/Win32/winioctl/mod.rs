@@ -1589,11 +1589,17 @@ pub struct DISK_INT13_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISK_LOGGING {
     pub Function: super::BYTE,
     pub BufferAddress: super::PVOID,
     pub BufferSize: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DISK_LOGGING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DISK_LOGGING_DUMP: i32 = 2;
 pub const DISK_LOGGING_START: i32 = 0;
@@ -9627,11 +9633,17 @@ pub const TXFS_SAVEPOINT_CLEAR: i32 = 4;
 pub const TXFS_SAVEPOINT_CLEAR_ALL: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TXFS_SAVEPOINT_INFORMATION {
     pub KtmTransaction: super::HANDLE,
     pub ActionCode: super::DWORD,
     pub SavepointId: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for TXFS_SAVEPOINT_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TXFS_SAVEPOINT_ROLLBACK: i32 = 2;
 pub const TXFS_SAVEPOINT_SET: i32 = 1;

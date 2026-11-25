@@ -1489,10 +1489,16 @@ pub const BIDI_TEXT: BIDI_TYPE = 5;
 pub type BIDI_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BINARY_CONTAINER {
     pub cbBuf: super::DWORD,
     pub pData: super::LPBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for BINARY_CONTAINER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type CORE_PRINTER_DRIVER = CORE_PRINTER_DRIVERA;
@@ -1984,7 +1990,7 @@ pub struct JOB_INFO_1W {
 pub type JOB_INFO_2 = JOB_INFO_2A;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_2A {
     pub JobId: super::DWORD,
     pub pPrinterName: windows_core::PSTR,
@@ -2010,9 +2016,15 @@ pub struct JOB_INFO_2A {
     pub Time: super::DWORD,
     pub PagesPrinted: super::DWORD,
 }
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for JOB_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_2W {
     pub JobId: super::DWORD,
     pub pPrinterName: windows_core::PWSTR,
@@ -2038,6 +2050,12 @@ pub struct JOB_INFO_2W {
     pub Time: super::DWORD,
     pub PagesPrinted: super::DWORD,
 }
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for JOB_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2050,7 +2068,7 @@ pub struct JOB_INFO_3 {
 pub type JOB_INFO_4 = JOB_INFO_4A;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_4A {
     pub JobId: super::DWORD,
     pub pPrinterName: windows_core::PSTR,
@@ -2077,9 +2095,15 @@ pub struct JOB_INFO_4A {
     pub PagesPrinted: super::DWORD,
     pub SizeHigh: super::LONG,
 }
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for JOB_INFO_4A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_4W {
     pub JobId: super::DWORD,
     pub pPrinterName: windows_core::PWSTR,
@@ -2105,6 +2129,12 @@ pub struct JOB_INFO_4W {
     pub Time: super::DWORD,
     pub PagesPrinted: super::DWORD,
     pub SizeHigh: super::LONG,
+}
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for JOB_INFO_4W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const JOB_NOTIFY_FIELD_BYTES_PRINTED: i32 = 23;
 pub const JOB_NOTIFY_FIELD_DATATYPE: i32 = 5;
@@ -2774,19 +2804,31 @@ pub const PRINTER_CONTROL_SET_STATUS: i32 = 4;
 pub type PRINTER_DEFAULTS = PRINTER_DEFAULTSA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_DEFAULTSA {
     pub pDatatype: windows_core::PSTR,
     pub pDevMode: super::LPDEVMODEA,
     pub DesiredAccess: super::ACCESS_MASK,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+impl Default for PRINTER_DEFAULTSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_DEFAULTSW {
     pub pDatatype: windows_core::PWSTR,
     pub pDevMode: super::LPDEVMODEW,
     pub DesiredAccess: super::ACCESS_MASK,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for PRINTER_DEFAULTSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_DRIVER_CATEGORY_3D: i32 = 4096;
 pub const PRINTER_DRIVER_CATEGORY_CLOUD: i32 = 8192;
@@ -2828,7 +2870,7 @@ pub const PRINTER_ENUM_SHARED: i32 = 32;
 pub type PRINTER_ENUM_VALUES = PRINTER_ENUM_VALUESA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_ENUM_VALUESA {
     pub pValueName: windows_core::PSTR,
     pub cbValueName: super::DWORD,
@@ -2836,15 +2878,27 @@ pub struct PRINTER_ENUM_VALUESA {
     pub pData: super::LPBYTE,
     pub cbData: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for PRINTER_ENUM_VALUESA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_ENUM_VALUESW {
     pub pValueName: windows_core::PWSTR,
     pub cbValueName: super::DWORD,
     pub dwType: super::DWORD,
     pub pData: super::LPBYTE,
     pub cbData: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for PRINTER_ENUM_VALUESW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_ERROR_INFORMATION: u32 = 2147483648;
 pub const PRINTER_ERROR_JAM: i32 = 2;
@@ -2877,7 +2931,7 @@ pub struct PRINTER_INFO_1W {
 pub type PRINTER_INFO_2 = PRINTER_INFO_2A;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_2A {
     pub pServerName: windows_core::PSTR,
     pub pPrinterName: windows_core::PSTR,
@@ -2901,9 +2955,15 @@ pub struct PRINTER_INFO_2A {
     pub cJobs: super::DWORD,
     pub AveragePPM: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for PRINTER_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_2W {
     pub pServerName: windows_core::PWSTR,
     pub pPrinterName: windows_core::PWSTR,
@@ -2927,11 +2987,23 @@ pub struct PRINTER_INFO_2W {
     pub cJobs: super::DWORD,
     pub AveragePPM: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for PRINTER_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_3 {
     pub pSecurityDescriptor: super::PSECURITY_DESCRIPTOR,
+}
+#[cfg(feature = "winnt")]
+impl Default for PRINTER_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type PRINTER_INFO_4 = PRINTER_INFO_4A;
@@ -2999,29 +3071,53 @@ pub struct PRINTER_INFO_7W {
 pub type PRINTER_INFO_8 = PRINTER_INFO_8A;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_8A {
     pub pDevMode: super::LPDEVMODEA,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+impl Default for PRINTER_INFO_8A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_8W {
     pub pDevMode: super::LPDEVMODEW,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for PRINTER_INFO_8W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 pub type PRINTER_INFO_9 = PRINTER_INFO_9A;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_9A {
     pub pDevMode: super::LPDEVMODEA,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+impl Default for PRINTER_INFO_9A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_9W {
     pub pDevMode: super::LPDEVMODEW,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for PRINTER_INFO_9W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_NOTIFY_CATEGORY_3D: i32 = 8192;
 pub const PRINTER_NOTIFY_CATEGORY_ALL: i32 = 4096;
@@ -3100,25 +3196,37 @@ impl Default for PRINTER_NOTIFY_INFO_DATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
     pub cbBuf: super::DWORD,
     pub pBuf: super::LPVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PRINTER_NOTIFY_INFO_DATA_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PRINTER_NOTIFY_INFO_DISCARDED: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_OPTIONS {
     pub Version: super::DWORD,
     pub Flags: super::DWORD,
     pub Count: super::DWORD,
     pub pTypes: PPRINTER_NOTIFY_OPTIONS_TYPE,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PRINTER_NOTIFY_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PRINTER_NOTIFY_OPTIONS_REFRESH: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Type: super::WORD,
     pub Reserved0: super::WORD,
@@ -3126,6 +3234,12 @@ pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Reserved2: super::DWORD,
     pub Count: super::DWORD,
     pub pFields: super::PWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PRINTER_NOTIFY_OPTIONS_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_NOTIFY_TYPE: i32 = 0;
 #[cfg(feature = "shared")]
@@ -3266,10 +3380,16 @@ impl Default for PrintNamedProperty {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PrintPropertiesCollection {
     pub numberOfProperties: super::ULONG,
     pub propertiesCollection: *mut PrintNamedProperty,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PrintPropertiesCollection {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -3302,10 +3422,16 @@ impl Default for PrintPropertyValue_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: super::DWORD,
     pub pBuf: super::LPVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PrintPropertyValue_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const REVERSE_PRINT: i32 = 1;
 pub const SERVER_ACCESS_ADMINISTER: i32 = 1;

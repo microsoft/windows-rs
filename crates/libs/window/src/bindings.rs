@@ -84,7 +84,7 @@ pub type LPRECT = *mut RECT;
 pub type LPVOID = *mut core::ffi::c_void;
 pub type LRESULT = isize;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSG {
     pub hwnd: HWND,
     pub message: UINT,
@@ -92,6 +92,11 @@ pub struct MSG {
     pub lParam: LPARAM,
     pub time: DWORD,
     pub pt: POINT,
+}
+impl Default for MSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PM_REMOVE: i32 = 1;
 #[repr(C)]
@@ -117,7 +122,7 @@ pub const WM_NCDESTROY: i32 = 130;
 pub const WM_QUIT: i32 = 18;
 pub const WM_SIZE: i32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct WNDCLASSW {
     pub style: UINT,
     pub lpfnWndProc: WNDPROC,
@@ -129,6 +134,11 @@ pub struct WNDCLASSW {
     pub hbrBackground: HBRUSH,
     pub lpszMenuName: windows_core::PCWSTR,
     pub lpszClassName: windows_core::PCWSTR,
+}
+impl Default for WNDCLASSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WNDPROC = Option<
     unsafe extern "system" fn(

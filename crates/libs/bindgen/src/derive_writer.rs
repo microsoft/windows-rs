@@ -16,6 +16,10 @@ impl DeriveWriter {
     {
         self.0.extend(iter.into_iter().map(|s| s.to_string()));
     }
+
+    pub fn remove(&mut self, derive: &str) {
+        self.0.remove(derive);
+    }
 }
 
 impl ToTokens for DeriveWriter {

@@ -45,17 +45,29 @@ pub struct ACTRL_ACCESS_ENTRYW {
 pub type ACTRL_ACCESS_ENTRY_LIST = ACTRL_ACCESS_ENTRY_LISTA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_LISTA {
     pub cEntries: super::ULONG,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ACTRL_ACCESS_ENTRY_LISTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_LISTW {
     pub cEntries: super::ULONG,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ACTRL_ACCESS_ENTRY_LISTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type ACTRL_ACCESS_INFO = ACTRL_ACCESS_INFOA;
@@ -196,19 +208,31 @@ pub const ACTRL_PRINT_SLIST: i32 = 2;
 pub type ACTRL_PROPERTY_ENTRY = ACTRL_PROPERTY_ENTRYA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_PROPERTY_ENTRYA {
     pub lpProperty: windows_core::PSTR,
     pub pAccessEntryList: PACTRL_ACCESS_ENTRY_LISTA,
     pub fListFlags: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ACTRL_PROPERTY_ENTRYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_PROPERTY_ENTRYW {
     pub lpProperty: windows_core::PWSTR,
     pub pAccessEntryList: PACTRL_ACCESS_ENTRY_LISTW,
     pub fListFlags: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ACTRL_PROPERTY_ENTRYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ACTRL_READ_CONTROL: i32 = 268435456;
 pub const ACTRL_REG_CREATE_CHILD: i32 = 4;
@@ -310,12 +334,18 @@ pub struct OBJECTS_AND_NAME_W {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECTS_AND_SID {
     pub ObjectsPresent: super::DWORD,
     pub ObjectTypeGuid: windows_core::GUID,
     pub InheritedObjectTypeGuid: windows_core::GUID,
     pub pSid: *mut super::SID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for OBJECTS_AND_SID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PACCESS_RIGHTS = *mut u32;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -496,17 +526,29 @@ pub type TRUSTEE_TYPE = i32;
 pub type TRUSTEE_W = _TRUSTEE_W;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _ACTRL_ALISTA {
     pub cEntries: super::ULONG,
     pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYA,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _ACTRL_ALISTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _ACTRL_ALISTW {
     pub cEntries: super::ULONG,
     pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYW,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _ACTRL_ALISTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -528,7 +570,7 @@ pub struct _EXPLICIT_ACCESS_W {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _TRUSTEE_A {
     pub pMultipleTrustee: *mut Self,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
@@ -536,13 +578,25 @@ pub struct _TRUSTEE_A {
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: super::LPCH,
 }
+#[cfg(feature = "winnt")]
+impl Default for _TRUSTEE_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _TRUSTEE_W {
     pub pMultipleTrustee: *mut Self,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
     pub TrusteeForm: TRUSTEE_FORM,
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: super::LPWCH,
+}
+#[cfg(feature = "winnt")]
+impl Default for _TRUSTEE_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

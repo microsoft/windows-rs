@@ -290,17 +290,29 @@ pub const DNS_CONFIG_FLAG_ALLOC: i32 = 1;
 pub type DNS_CONFIG_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_IFINDEX_ENTRY {
     pub pwszConnectionName: windows_sys::core::PCWSTR,
     pub dwIfIndex: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_CONNECTION_IFINDEX_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_IFINDEX_LIST {
     pub pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
     pub nEntries: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_CONNECTION_IFINDEX_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -316,16 +328,22 @@ impl Default for DNS_CONNECTION_NAME {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_NAME_LIST {
     pub cNames: super::DWORD,
     pub pNames: *mut DNS_CONNECTION_NAME,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DNS_CONNECTION_NAME_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: i32 = 64;
 pub const DNS_CONNECTION_POLICY_ALLOW_DEFAULT_INTERFACE_SELECTION: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub pwszHost: windows_sys::core::PCWSTR,
     pub pwszAppId: windows_sys::core::PCWSTR,
@@ -335,12 +353,24 @@ pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub ppwszConnections: *mut windows_sys::core::PCWSTR,
     pub dwPolicyEntryFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_CONNECTION_POLICY_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
     pub nEntries: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_CONNECTION_POLICY_ENTRY_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: i32 = 1;
 pub type DNS_CONNECTION_POLICY_TAG = i32;
@@ -388,7 +418,7 @@ impl Default for DNS_CONNECTION_PROXY_INFO_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO_0__DNS_CONNECTION_PROXY_INFO_CONFIG {
     pub pwszServer: *mut super::WCHAR,
     pub pwszUsername: *mut super::WCHAR,
@@ -397,13 +427,25 @@ pub struct DNS_CONNECTION_PROXY_INFO_0__DNS_CONNECTION_PROXY_INFO_CONFIG {
     pub pwszExtraInfo: *mut super::WCHAR,
     pub Port: super::WORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DNS_CONNECTION_PROXY_INFO_0__DNS_CONNECTION_PROXY_INFO_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO_0__DNS_CONNECTION_PROXY_INFO_SCRIPT {
     pub pwszScript: *mut super::WCHAR,
     pub pwszUsername: *mut super::WCHAR,
     pub pwszPassword: *mut super::WCHAR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DNS_CONNECTION_PROXY_INFO_0__DNS_CONNECTION_PROXY_INFO_SCRIPT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
@@ -436,10 +478,16 @@ pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITC
 pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: i32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_LIST {
     pub cProxies: super::DWORD,
     pub pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DNS_CONNECTION_PROXY_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DNS_CONNECTION_PROXY_TYPE = i32;
 pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = 1;
@@ -607,41 +655,63 @@ impl Default for DNS_MESSAGE_BUFFER {
 }
 pub type DNS_MINFO_DATA = DNS_MINFO_DATAA;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_MINFO_DATAA {
     pub pNameMailbox: windows_sys::core::PSTR,
     pub pNameErrorsMailbox: windows_sys::core::PSTR,
 }
+impl Default for DNS_MINFO_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_MINFO_DATAW {
     pub pNameMailbox: windows_sys::core::PWSTR,
     pub pNameErrorsMailbox: windows_sys::core::PWSTR,
+}
+impl Default for DNS_MINFO_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type DNS_MX_DATA = DNS_MX_DATAA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_MX_DATAA {
     pub pNameExchange: windows_sys::core::PSTR,
     pub wPreference: super::WORD,
     pub Pad: super::WORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_MX_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_MX_DATAW {
     pub pNameExchange: windows_sys::core::PWSTR,
     pub wPreference: super::WORD,
     pub Pad: super::WORD,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_MX_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DNS_NAME_FORMAT = i32;
 #[cfg(feature = "shared")]
 pub type DNS_NAPTR_DATA = DNS_NAPTR_DATAA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_NAPTR_DATAA {
     pub wOrder: super::WORD,
     pub wPreference: super::WORD,
@@ -650,9 +720,15 @@ pub struct DNS_NAPTR_DATAA {
     pub pRegularExpression: windows_sys::core::PSTR,
     pub pReplacement: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_NAPTR_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_NAPTR_DATAW {
     pub wOrder: super::WORD,
     pub wPreference: super::WORD,
@@ -660,6 +736,12 @@ pub struct DNS_NAPTR_DATAW {
     pub pService: windows_sys::core::PWSTR,
     pub pRegularExpression: windows_sys::core::PWSTR,
     pub pReplacement: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_NAPTR_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -806,11 +888,17 @@ pub const DNS_PROTOCOL_UNSPECIFIED: i32 = 0;
 pub type DNS_PROXY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(completioncontext: *const core::ffi::c_void, status: DNS_STATUS)>;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_PROXY_INFORMATION {
     pub version: super::ULONG,
     pub proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
     pub proxyName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_PROXY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = 1;
 pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = 0;
@@ -819,14 +907,24 @@ pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = 2;
 pub type DNS_PROXY_INFORMATION_TYPE = i32;
 pub type DNS_PTR_DATA = DNS_PTR_DATAA;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_PTR_DATAA {
     pub pNameHost: windows_sys::core::PSTR,
 }
+impl Default for DNS_PTR_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_PTR_DATAW {
     pub pNameHost: windows_sys::core::PWSTR,
+}
+impl Default for DNS_PTR_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: i32 = 1;
 pub const DNS_QUERY_ADDRCONFIG: i32 = 8192;
@@ -953,7 +1051,7 @@ impl Default for DNS_QUERY_RAW_RESULT_0 {
 pub const DNS_QUERY_RAW_RESULTS_VERSION1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_REQUEST {
     pub Version: super::ULONG,
     pub QueryName: windows_sys::core::PCWSTR,
@@ -964,9 +1062,15 @@ pub struct DNS_QUERY_REQUEST {
     pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DNS_QUERY_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "winnt", feature = "ws2"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_REQUEST3 {
     pub Version: super::ULONG,
     pub QueryName: windows_sys::core::PCWSTR,
@@ -981,19 +1085,31 @@ pub struct DNS_QUERY_REQUEST3 {
     pub cCustomServers: super::DWORD,
     pub pCustomServers: *mut DNS_CUSTOM_SERVER,
 }
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "winnt", feature = "ws2"))]
+impl Default for DNS_QUERY_REQUEST3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DNS_QUERY_REQUEST_VERSION1: i32 = 1;
 pub const DNS_QUERY_REQUEST_VERSION2: i32 = 2;
 pub const DNS_QUERY_REQUEST_VERSION3: i32 = 3;
 pub const DNS_QUERY_RESERVED: u32 = 4026531840;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_RESULT {
     pub Version: super::ULONG,
     pub QueryStatus: DNS_STATUS,
     pub QueryOptions: super::ULONG64,
     pub pQueryRecords: PDNS_RECORD,
     pub Reserved: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DNS_QUERY_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_QUERY_RESULTS_VERSION1: i32 = 1;
 pub const DNS_QUERY_RETURN_MESSAGE: i32 = 512;
@@ -1400,10 +1516,16 @@ impl Default for DNS_RECORD_OPTW_1 {
 pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: i32 = 512;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_RRSET {
     pub pFirstRR: PDNS_RECORD,
     pub pLastRR: PDNS_RECORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DNS_RRSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type DNS_RRSIG_DATA = DNS_SIG_DATAA;
@@ -1508,13 +1630,19 @@ impl Default for DNS_SERVICE_BROWSE_REQUEST_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_CANCEL {
     pub reserved: super::PVOID,
 }
+#[cfg(feature = "winnt")]
+impl Default for DNS_SERVICE_CANCEL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_INSTANCE {
     pub pszInstanceName: windows_sys::core::PWSTR,
     pub pszHostName: windows_sys::core::PWSTR,
@@ -1528,11 +1656,17 @@ pub struct DNS_SERVICE_INSTANCE {
     pub values: *mut windows_sys::core::PWSTR,
     pub dwInterfaceIndex: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_SERVICE_INSTANCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type DNS_SERVICE_REGISTER_COMPLETE = Option<unsafe extern "system" fn(status: super::DWORD, pquerycontext: super::PVOID, pinstance: PDNS_SERVICE_INSTANCE)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: super::ULONG,
     pub InterfaceIndex: super::ULONG,
@@ -1543,16 +1677,28 @@ pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub unicastEnabled: windows_sys::core::BOOL,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DNS_SERVICE_REGISTER_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type DNS_SERVICE_RESOLVE_COMPLETE = Option<unsafe extern "system" fn(status: super::DWORD, pquerycontext: super::PVOID, pinstance: PDNS_SERVICE_INSTANCE)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub Version: super::ULONG,
     pub InterfaceIndex: super::ULONG,
     pub QueryName: windows_sys::core::PWSTR,
     pub pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
     pub pQueryContext: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DNS_SERVICE_RESOLVE_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type DNS_SIG_DATA = DNS_SIG_DATAA;
@@ -1602,7 +1748,7 @@ impl Default for DNS_SIG_DATAW {
 pub type DNS_SOA_DATA = DNS_SOA_DATAA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SOA_DATAA {
     pub pNamePrimaryServer: windows_sys::core::PSTR,
     pub pNameAdministrator: windows_sys::core::PSTR,
@@ -1612,9 +1758,15 @@ pub struct DNS_SOA_DATAA {
     pub dwExpire: super::DWORD,
     pub dwDefaultTtl: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_SOA_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SOA_DATAW {
     pub pNamePrimaryServer: windows_sys::core::PWSTR,
     pub pNameAdministrator: windows_sys::core::PWSTR,
@@ -1625,10 +1777,16 @@ pub struct DNS_SOA_DATAW {
     pub dwDefaultTtl: super::DWORD,
 }
 #[cfg(feature = "shared")]
+impl Default for DNS_SOA_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "shared")]
 pub type DNS_SRV_DATA = DNS_SRV_DATAA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SRV_DATAA {
     pub pNameTarget: windows_sys::core::PSTR,
     pub wPriority: super::WORD,
@@ -1636,9 +1794,15 @@ pub struct DNS_SRV_DATAA {
     pub wPort: super::WORD,
     pub Pad: super::WORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_SRV_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SRV_DATAW {
     pub pNameTarget: windows_sys::core::PWSTR,
     pub wPriority: super::WORD,
@@ -1646,15 +1810,27 @@ pub struct DNS_SRV_DATAW {
     pub wPort: super::WORD,
     pub Pad: super::WORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_SRV_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DNS_STATUS = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_DATA {
     pub wSvcPriority: super::WORD,
     pub pszTargetName: windows_sys::core::PSTR,
     pub cSvcParams: super::WORD,
     pub pSvcParams: *mut DNS_SVCB_PARAM,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DNS_SVCB_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1703,10 +1879,16 @@ impl Default for DNS_SVCB_PARAM_ALPN {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_ALPN_ID {
     pub cBytes: super::BYTE,
     pub pbId: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_SVCB_PARAM_ALPN_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1765,7 +1947,7 @@ impl Default for DNS_SVCB_PARAM_UNKNOWN {
 pub type DNS_TKEY_DATA = DNS_TKEY_DATAA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_TKEY_DATAA {
     pub pNameAlgorithm: windows_sys::core::PSTR,
     pub pAlgorithmPacket: super::PBYTE,
@@ -1780,9 +1962,15 @@ pub struct DNS_TKEY_DATAA {
     pub cAlgNameLength: super::UCHAR,
     pub bPacketPointers: windows_sys::core::BOOL,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_TKEY_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_TKEY_DATAW {
     pub pNameAlgorithm: windows_sys::core::PWSTR,
     pub pAlgorithmPacket: super::PBYTE,
@@ -1796,6 +1984,12 @@ pub struct DNS_TKEY_DATAW {
     pub wOtherLength: super::WORD,
     pub cAlgNameLength: super::UCHAR,
     pub bPacketPointers: windows_sys::core::BOOL,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_TKEY_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_TKEY_MODE_DIFFIE_HELLMAN: i32 = 2;
 pub const DNS_TKEY_MODE_GSS: i32 = 3;
@@ -1822,7 +2016,7 @@ impl Default for DNS_TLSA_DATA {
 pub type DNS_TSIG_DATA = DNS_TSIG_DATAA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_TSIG_DATAA {
     pub pNameAlgorithm: windows_sys::core::PSTR,
     pub pAlgorithmPacket: super::PBYTE,
@@ -1837,9 +2031,15 @@ pub struct DNS_TSIG_DATAA {
     pub cAlgNameLength: super::UCHAR,
     pub bPacketPointers: windows_sys::core::BOOL,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_TSIG_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_TSIG_DATAW {
     pub pNameAlgorithm: windows_sys::core::PWSTR,
     pub pAlgorithmPacket: super::PBYTE,
@@ -1853,6 +2053,12 @@ pub struct DNS_TSIG_DATAW {
     pub wOtherLength: super::WORD,
     pub cAlgNameLength: super::UCHAR,
     pub bPacketPointers: windows_sys::core::BOOL,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_TSIG_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type DNS_TXT_DATA = DNS_TXT_DATAA;
@@ -1986,21 +2192,33 @@ pub const DNS_VALSVR_ERROR_UNREACHABLE: i32 = 3;
 pub type DNS_WINSR_DATA = DNS_WINSR_DATAA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_WINSR_DATAA {
     pub dwMappingFlag: super::DWORD,
     pub dwLookupTimeout: super::DWORD,
     pub dwCacheTimeout: super::DWORD,
     pub pNameResultDomain: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_WINSR_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_WINSR_DATAW {
     pub dwMappingFlag: super::DWORD,
     pub dwLookupTimeout: super::DWORD,
     pub dwCacheTimeout: super::DWORD,
     pub pNameResultDomain: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_WINSR_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -2173,7 +2391,7 @@ impl Default for MDNS_QUERY_HANDLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MDNS_QUERY_REQUEST {
     pub Version: super::ULONG,
     pub ulRefCount: super::ULONG,
@@ -2185,6 +2403,12 @@ pub struct MDNS_QUERY_REQUEST {
     pub pQueryContext: super::PVOID,
     pub fAnswerReceived: windows_sys::core::BOOL,
     pub ulResendCount: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MDNS_QUERY_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type PDNS_AAAA_DATA = *mut DNS_AAAA_DATA;

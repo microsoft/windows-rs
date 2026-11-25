@@ -2,7 +2,7 @@
 name = "windows-result"
 version = "0.100.1"
 edition = "2024"
-rust-version = "1.95"
+rust-version = "1.85"
 license = "MIT OR Apache-2.0"
 description = "Windows error handling"
 repository = "https://github.com/microsoft/windows-rs"

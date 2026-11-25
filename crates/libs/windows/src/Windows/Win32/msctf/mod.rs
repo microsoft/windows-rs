@@ -8270,7 +8270,7 @@ pub const TF_IAS_QUERYONLY: i32 = 2;
 pub const TF_IE_CORRECTION: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: super::DWORD,
     pub langid: super::LANGID,
@@ -8281,6 +8281,12 @@ pub struct TF_INPUTPROCESSORPROFILE {
     pub dwCaps: super::DWORD,
     pub hkl: super::HKL,
     pub dwFlags: super::DWORD,
+}
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
+impl Default for TF_INPUTPROCESSORPROFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TF_INVALID_COOKIE: u32 = 4294967295;
 pub const TF_INVALID_EDIT_COOKIE: i32 = 0;

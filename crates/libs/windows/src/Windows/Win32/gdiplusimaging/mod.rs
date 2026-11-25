@@ -1,6 +1,6 @@
 #[repr(C, packed(8))]
 #[cfg(all(feature = "gdipluspixelformats", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BitmapData {
     pub Width: super::UINT,
     pub Height: super::UINT,
@@ -9,14 +9,26 @@ pub struct BitmapData {
     pub Scan0: *mut core::ffi::c_void,
     pub Reserved: super::UINT_PTR,
 }
+#[cfg(all(feature = "gdipluspixelformats", feature = "shared"))]
+impl Default for BitmapData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct EncoderParameter {
     pub Guid: windows_core::GUID,
     pub NumberOfValues: super::ULONG,
     pub Type: super::ULONG,
     pub Value: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for EncoderParameter {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
@@ -106,7 +118,7 @@ impl IImageBytes_Vtbl {
 impl windows_core::RuntimeName for IImageBytes {}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ImageCodecInfo {
     pub Clsid: super::CLSID,
     pub FormatID: windows_core::GUID,
@@ -122,9 +134,15 @@ pub struct ImageCodecInfo {
     pub SigPattern: *const super::BYTE,
     pub SigMask: *const super::BYTE,
 }
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+impl Default for ImageCodecInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ImageItemData {
     pub Size: super::UINT,
     pub Position: super::UINT,
@@ -134,14 +152,26 @@ pub struct ImageItemData {
     pub DataSize: super::UINT,
     pub Cookie: super::UINT,
 }
+#[cfg(feature = "shared")]
+impl Default for ImageItemData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PropertyItem {
     pub id: super::PROPID,
     pub length: super::ULONG,
     pub r#type: super::WORD,
     pub value: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+impl Default for PropertyItem {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PropertyTagArtist: i32 = 315;
 pub const PropertyTagBitsPerSample: i32 = 258;

@@ -1079,7 +1079,7 @@ pub struct DICONDITION {
 pub type DICONFIGUREDEVICESPARAMS = DICONFIGUREDEVICESPARAMSA;
 #[repr(C)]
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DICONFIGUREDEVICESPARAMSA {
     pub dwSize: super::DWORD,
     pub dwcUsers: super::DWORD,
@@ -1090,9 +1090,15 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for DICONFIGUREDEVICESPARAMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DICONFIGUREDEVICESPARAMSW {
     pub dwSize: super::DWORD,
     pub dwcUsers: super::DWORD,
@@ -1103,6 +1109,12 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for DICONFIGUREDEVICESPARAMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1111,12 +1123,18 @@ pub struct DICONSTANTFORCE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DICUSTOMFORCE {
     pub cChannels: super::DWORD,
     pub dwSamplePeriod: super::DWORD,
     pub cSamples: super::DWORD,
     pub rglForceData: super::LPLONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for DICUSTOMFORCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DIDAL_BOTTOMALIGNED: i32 = 8;
 pub const DIDAL_CENTERED: i32 = 0;
@@ -1126,7 +1144,7 @@ pub const DIDAL_RIGHTALIGNED: i32 = 2;
 pub const DIDAL_TOPALIGNED: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDATAFORMAT {
     pub dwSize: super::DWORD,
     pub dwObjSize: super::DWORD,
@@ -1134,6 +1152,12 @@ pub struct DIDATAFORMAT {
     pub dwDataSize: super::DWORD,
     pub dwNumObjs: super::DWORD,
     pub rgodf: LPDIOBJECTDATAFORMAT,
+}
+#[cfg(feature = "shared")]
+impl Default for DIDATAFORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DIDBAM_DEFAULT: i32 = 0;
 pub const DIDBAM_HWDEFAULTS: i32 = 4;
@@ -1207,7 +1231,7 @@ impl Default for DIDEVICEIMAGEINFOA {
 pub type DIDEVICEIMAGEINFOHEADER = DIDEVICEIMAGEINFOHEADERA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwSize: super::DWORD,
     pub dwSizeImageInfo: super::DWORD,
@@ -1219,9 +1243,15 @@ pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwBufferUsed: super::DWORD,
     pub lprgImageInfoArray: LPDIDEVICEIMAGEINFOA,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for DIDEVICEIMAGEINFOHEADERA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwSize: super::DWORD,
     pub dwSizeImageInfo: super::DWORD,
@@ -1232,6 +1262,12 @@ pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwBufferSize: super::DWORD,
     pub dwBufferUsed: super::DWORD,
     pub lprgImageInfoArray: LPDIDEVICEIMAGEINFOW,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for DIDEVICEIMAGEINFOHEADERW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
@@ -1495,7 +1531,7 @@ pub const DIEDFL_INCLUDEHIDDEN: i32 = 262144;
 pub const DIEDFL_INCLUDEPHANTOMS: i32 = 131072;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIEFFECT {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -1511,6 +1547,12 @@ pub struct DIEFFECT {
     pub cbTypeSpecificParams: super::DWORD,
     pub lpvTypeSpecificParams: super::LPVOID,
     pub dwStartDelay: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for DIEFFECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type DIEFFECTINFO = DIEFFECTINFOA;
@@ -1550,7 +1592,7 @@ impl Default for DIEFFECTINFOW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIEFFECT_DX5 {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -1567,10 +1609,16 @@ pub struct DIEFFECT_DX5 {
     pub lpvTypeSpecificParams: super::LPVOID,
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for DIEFFECT_DX5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type DIEFFECT_DX6 = DIEFFECT;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIEFFESCAPE {
     pub dwSize: super::DWORD,
     pub dwCommand: super::DWORD,
@@ -1578,6 +1626,12 @@ pub struct DIEFFESCAPE {
     pub cbInBuffer: super::DWORD,
     pub lpvOutBuffer: super::LPVOID,
     pub cbOutBuffer: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for DIEFFESCAPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DIEFF_CARTESIAN: i32 = 16;
 pub const DIEFF_OBJECTIDS: i32 = 1;
@@ -2231,12 +2285,18 @@ pub const DIMOUSE_YAXIS: u32 = 2181038852;
 pub const DIMOUSE_YAXISAB: u32 = 2181038596;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIOBJECTDATAFORMAT {
     pub pguid: *const windows_core::GUID,
     pub dwOfs: super::DWORD,
     pub dwType: super::DWORD,
     pub dwFlags: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for DIOBJECTDATAFORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

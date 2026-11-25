@@ -75,12 +75,18 @@ pub const SID_BDA_WMDRMSession: windows_sys::core::GUID = windows_sys::core::GUI
 pub const SID_BDA_WMDRMTuner: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86d979cf_a8a7_4f94_b5fb_14c0aca68fe6);
 #[repr(C)]
 #[cfg(all(feature = "bdatypes", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SmartCardApplication {
     pub ApplicationType: super::ApplicationTypeType,
     pub ApplicationVersion: super::USHORT,
     pub pbstrApplicationName: windows_sys::core::BSTR,
     pub pbstrApplicationURL: windows_sys::core::BSTR,
+}
+#[cfg(all(feature = "bdatypes", feature = "shared"))]
+impl Default for SmartCardApplication {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SmartCardAssociationType = i32;
 pub type SmartCardStatusType = i32;

@@ -338,7 +338,7 @@ pub const MCI_ANIM_OPEN_PARENT: i32 = 131072;
 pub type MCI_ANIM_OPEN_PARMS = MCI_ANIM_OPEN_PARMSA;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
@@ -348,9 +348,15 @@ pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwStyle: super::DWORD,
     pub hWndParent: super::HWND,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for MCI_ANIM_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
@@ -359,6 +365,12 @@ pub struct MCI_ANIM_OPEN_PARMSW {
     pub lpstrAlias: windows_core::PCWSTR,
     pub dwStyle: super::DWORD,
     pub hWndParent: super::HWND,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for MCI_ANIM_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MCI_ANIM_OPEN_WS: i32 = 65536;
 pub const MCI_ANIM_PLAY_FAST: i32 = 262144;
@@ -404,11 +416,17 @@ pub const MCI_ANIM_STEP_REVERSE: i32 = 65536;
 pub const MCI_ANIM_UPDATE_HDC: i32 = 131072;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_UPDATE_PARMS {
     pub dwCallback: super::DWORD_PTR,
     pub rc: super::RECT,
     pub hDC: super::HDC,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for MCI_ANIM_UPDATE_PARMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MCI_ANIM_WHERE_DESTINATION: i32 = 262144;
 pub const MCI_ANIM_WHERE_SOURCE: i32 = 131072;
@@ -420,21 +438,33 @@ pub const MCI_ANIM_WINDOW_HWND: i32 = 65536;
 pub type MCI_ANIM_WINDOW_PARMS = MCI_ANIM_WINDOW_PARMSA;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSA {
     pub dwCallback: super::DWORD_PTR,
     pub hWnd: super::HWND,
     pub nCmdShow: super::UINT,
     pub lpstrText: windows_core::PCSTR,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for MCI_ANIM_WINDOW_PARMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSW {
     pub dwCallback: super::DWORD_PTR,
     pub hWnd: super::HWND,
     pub nCmdShow: super::UINT,
     pub lpstrText: windows_core::PCWSTR,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for MCI_ANIM_WINDOW_PARMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MCI_ANIM_WINDOW_STATE: i32 = 262144;
 pub const MCI_ANIM_WINDOW_TEXT: i32 = 524288;
@@ -444,11 +474,17 @@ pub const MCI_BREAK_KEY: i32 = 256;
 pub const MCI_BREAK_OFF: i32 = 1024;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MCI_BREAK_PARMS {
     pub dwCallback: super::DWORD_PTR,
     pub nVirtKey: i32,
     pub hwndBreak: super::HWND,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for MCI_BREAK_PARMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MCI_CDA_STATUS_TYPE_TRACK: i32 = 16385;
 pub const MCI_CDA_TRACK_AUDIO: i32 = 1088;
@@ -624,7 +660,7 @@ pub const MCI_OVLY_OPEN_PARENT: i32 = 131072;
 pub type MCI_OVLY_OPEN_PARMS = MCI_OVLY_OPEN_PARMSA;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
@@ -634,9 +670,15 @@ pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwStyle: super::DWORD,
     pub hWndParent: super::HWND,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for MCI_OVLY_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
@@ -645,6 +687,12 @@ pub struct MCI_OVLY_OPEN_PARMSW {
     pub lpstrAlias: windows_core::PCWSTR,
     pub dwStyle: super::DWORD,
     pub hWndParent: super::HWND,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for MCI_OVLY_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MCI_OVLY_OPEN_WS: i32 = 65536;
 pub const MCI_OVLY_PUT_DESTINATION: i32 = 262144;
@@ -691,21 +739,33 @@ pub const MCI_OVLY_WINDOW_HWND: i32 = 65536;
 pub type MCI_OVLY_WINDOW_PARMS = MCI_OVLY_WINDOW_PARMSA;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSA {
     pub dwCallback: super::DWORD_PTR,
     pub hWnd: super::HWND,
     pub nCmdShow: super::UINT,
     pub lpstrText: windows_core::PCSTR,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for MCI_OVLY_WINDOW_PARMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSW {
     pub dwCallback: super::DWORD_PTR,
     pub hWnd: super::HWND,
     pub nCmdShow: super::UINT,
     pub lpstrText: windows_core::PCWSTR,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for MCI_OVLY_WINDOW_PARMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MCI_OVLY_WINDOW_STATE: i32 = 262144;
 pub const MCI_OVLY_WINDOW_TEXT: i32 = 524288;

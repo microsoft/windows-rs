@@ -216,10 +216,16 @@ pub type SN_CHAR = u16;
 pub const TCP6_STATS: i32 = 38;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCPIP_OWNER_MODULE_BASIC_INFO {
     pub pModuleName: super::PWCHAR,
     pub pModulePath: super::PWCHAR,
+}
+#[cfg(feature = "winnt")]
+impl Default for TCPIP_OWNER_MODULE_BASIC_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = 0;
 pub type TCPIP_OWNER_MODULE_INFO_CLASS = i32;

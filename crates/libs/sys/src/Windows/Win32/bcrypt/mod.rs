@@ -127,11 +127,17 @@ pub const BCRYPT_AES_GMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 273 as _;
 pub const BCRYPT_AES_WRAP_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("Rfc3565KeyWrapBlob");
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_ALGORITHM_IDENTIFIER {
     pub pszName: windows_sys::core::PWSTR,
     pub dwClass: super::ULONG,
     pub dwFlags: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for BCRYPT_ALGORITHM_IDENTIFIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BCRYPT_ALGORITHM_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("AlgorithmName");
 pub type BCRYPT_ALG_HANDLE = *mut core::ffi::c_void;
@@ -140,7 +146,7 @@ pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: i32 = 3;
 pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbSize: super::ULONG,
     pub dwInfoVersion: super::ULONG,
@@ -155,6 +161,12 @@ pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbAAD: super::ULONG,
     pub cbData: super::ULONGLONG,
     pub dwFlags: super::ULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: i32 = 1;
 pub const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: i32 = 1;
@@ -365,10 +377,16 @@ pub const BCRYPT_ECC_CURVE_EC192WAPI: windows_sys::core::PCWSTR = windows_sys::c
 pub const BCRYPT_ECC_CURVE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCCurveName");
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_ECC_CURVE_NAMES {
     pub dwEccCurveNames: super::ULONG,
     pub pEccCurveNames: *mut windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for BCRYPT_ECC_CURVE_NAMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BCRYPT_ECC_CURVE_NAME_LIST: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCCurveNameList");
 pub const BCRYPT_ECC_CURVE_NISTP192: windows_sys::core::PCWSTR = windows_sys::core::w!("nistP192");
@@ -568,12 +586,18 @@ pub const BCRYPT_MLKEM_PUBLIC_MAGIC: i32 = 1347112013;
 pub const BCRYPT_MULTI_FLAG: i32 = 64;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_MULTI_HASH_OPERATION {
     pub iHash: super::ULONG,
     pub hashOperation: BCRYPT_HASH_OPERATION_TYPE,
     pub pbBuffer: super::PUCHAR,
     pub cbBuffer: super::ULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for BCRYPT_MULTI_HASH_OPERATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BCRYPT_MULTI_OBJECT_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("MultiObjectLength");
 #[repr(C)]
@@ -588,27 +612,45 @@ pub const BCRYPT_NO_CURVE_GENERATION_ALG_ID: ECC_CURVE_ALG_ID_ENUM = 0;
 pub const BCRYPT_NO_KEY_VALIDATION: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_OAEP_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
     pub pbLabel: super::PUCHAR,
     pub cbLabel: super::ULONG,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for BCRYPT_OAEP_PADDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const BCRYPT_OBJECT_ALIGNMENT: i32 = 16;
 pub const BCRYPT_OBJECT_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("ObjectLength");
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_OID {
     pub cbOID: super::ULONG,
     pub pbOID: super::PUCHAR,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for BCRYPT_OID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_OID_LIST {
     pub dwOIDCount: super::ULONG,
     pub pOIDs: *mut BCRYPT_OID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for BCRYPT_OID_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BCRYPT_OPAQUE_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("OpaqueKeyBlob");
 pub const BCRYPT_OPERATION_TYPE_HASH: BCRYPT_MULTI_OPERATION_TYPE = 1;
@@ -624,10 +666,16 @@ pub type BCRYPT_PARAMETER_SET_KEY_BLOB = _BCRYPT_PARAMETER_SET_KEY_BLOB;
 pub const BCRYPT_PARAMETER_SET_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ParameterSetName");
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_PARAMETER_SET_NAMES {
     pub dwParameterSetNames: super::ULONG,
     pub ppszParameterSetNames: *mut windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for BCRYPT_PARAMETER_SET_NAMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BCRYPT_PARAMETER_SET_NAME_LIST: windows_sys::core::PCWSTR = windows_sys::core::w!("ParameterSetNameList");
 pub const BCRYPT_PBKDF2_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("PBKDF2");
@@ -646,19 +694,30 @@ pub struct BCRYPT_PKCS11_RSA_AES_WRAP_BLOB {
 pub const BCRYPT_PKCS11_RSA_AES_WRAP_BLOB_MAGIC: i32 = 1464877394;
 pub const BCRYPT_PKCS11_RSA_AES_WRAP_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("PKCS11RsaAesWrapBlob");
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_PKCS1_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
+}
+impl Default for BCRYPT_PKCS1_PADDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type BCRYPT_PQDSA_KEY_BLOB = _BCRYPT_PARAMETER_SET_KEY_BLOB;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_PQDSA_PADDING_INFO {
     pub pbCtx: super::PUCHAR,
     pub cbCtx: super::ULONG,
     pub pszPrehashAlgId: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for BCRYPT_PQDSA_PADDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BCRYPT_PQDSA_PRIVATE_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("PQDSAPRIVATEBLOB");
 pub const BCRYPT_PQDSA_PRIVATE_SEED_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("PQDSAPRIVATESEEDBLOB");
@@ -669,17 +728,28 @@ pub const BCRYPT_PRIVATE_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core
 pub const BCRYPT_PRIVATE_KEY_FLAG: i32 = 2;
 pub const BCRYPT_PROVIDER_HANDLE: windows_sys::core::PCWSTR = windows_sys::core::w!("ProviderHandle");
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_PROVIDER_NAME {
     pub pszProviderName: windows_sys::core::PWSTR,
+}
+impl Default for BCRYPT_PROVIDER_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BCRYPT_PROV_DISPATCH: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_PSS_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
     pub cbSalt: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for BCRYPT_PSS_PADDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BCRYPT_PUBLIC_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("PUBLICBLOB");
 pub const BCRYPT_PUBLIC_KEY_FLAG: i32 = 1;
@@ -778,29 +848,47 @@ pub const BCRYPT_XTS_AES_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::cor
 pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = 897 as _;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCryptBuffer {
     pub cbBuffer: super::ULONG,
     pub BufferType: super::ULONG,
     pub pvBuffer: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for BCryptBuffer {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BCryptBufferDesc {
     pub ulVersion: super::ULONG,
     pub cBuffers: super::ULONG,
     pub pBuffers: PBCryptBuffer,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for BCryptBufferDesc {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_ALL_FUNCTIONS: i32 = 1;
 pub const CRYPT_ALL_PROVIDERS: i32 = 2;
 pub const CRYPT_ANY: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CONTEXTS {
     pub cContexts: super::ULONG,
     pub rgpszContexts: *mut windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_CONTEXTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -811,10 +899,16 @@ pub struct CRYPT_CONTEXT_CONFIG {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CONTEXT_FUNCTIONS {
     pub cFunctions: super::ULONG,
     pub rgpszFunctions: *mut windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_CONTEXT_FUNCTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -825,37 +919,61 @@ pub struct CRYPT_CONTEXT_FUNCTION_CONFIG {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     pub cProviders: super::ULONG,
     pub rgpszProviders: *mut windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_DEFAULT_CONTEXT: windows_sys::core::PCWSTR = windows_sys::core::w!("Default");
 pub const CRYPT_DOMAIN: i32 = 2;
 pub const CRYPT_EXCLUSIVE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_IMAGE_REF {
     pub pszImage: windows_sys::core::PWSTR,
     pub dwFlags: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_IMAGE_REF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_IMAGE_REG {
     pub pszImage: windows_sys::core::PWSTR,
     pub cInterfaces: super::ULONG,
     pub rgpInterfaces: *mut PCRYPT_INTERFACE_REG,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_IMAGE_REG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_INTERFACE_REG {
     pub dwInterface: super::ULONG,
     pub dwFlags: super::ULONG,
     pub cFunctions: super::ULONG,
     pub rgpszFunctions: *mut windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_INTERFACE_REG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_KM: i32 = 2;
 pub const CRYPT_LOCAL: i32 = 1;
@@ -868,22 +986,34 @@ pub const CRYPT_PRIORITY_TOP: i32 = 0;
 pub const CRYPT_PROCESS_ISOLATE: i32 = 65536;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROPERTY_REF {
     pub pszProperty: windows_sys::core::PWSTR,
     pub cbValue: super::ULONG,
     pub pbValue: super::PUCHAR,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_PROPERTY_REF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDERS {
     pub cProviders: super::ULONG,
     pub rgpszProviders: *mut windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_PROVIDERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_REF {
     pub dwInterface: super::ULONG,
     pub pszFunction: windows_sys::core::PWSTR,
@@ -893,21 +1023,39 @@ pub struct CRYPT_PROVIDER_REF {
     pub pUM: PCRYPT_IMAGE_REF,
     pub pKM: PCRYPT_IMAGE_REF,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_PROVIDER_REF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_REFS {
     pub cProviders: super::ULONG,
     pub rgpProviders: *mut PCRYPT_PROVIDER_REF,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_PROVIDER_REFS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_REG {
     pub cAliases: super::ULONG,
     pub rgpszAliases: *mut windows_sys::core::PWSTR,
     pub pUM: PCRYPT_IMAGE_REG,
     pub pKM: PCRYPT_IMAGE_REG,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_PROVIDER_REG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_UM: i32 = 1;
 pub type DSAFIPSVERSION_ENUM = i32;

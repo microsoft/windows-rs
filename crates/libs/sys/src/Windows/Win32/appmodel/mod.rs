@@ -163,11 +163,17 @@ pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = 
 pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FindPackageDependencyCriteria {
     pub User: super::PSID,
     pub ScopeIsSystem: windows_sys::core::BOOL,
     pub PackageFamilyName: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for FindPackageDependencyCriteria {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PACKAGEDEPENDENCY_CONTEXT = *mut PACKAGEDEPENDENCY_CONTEXT__;
 #[repr(C)]
@@ -305,7 +311,12 @@ pub const PackagePathType_MachineExternal: PackagePathType = 3;
 pub const PackagePathType_Mutable: PackagePathType = 1;
 pub const PackagePathType_UserExternal: PackagePathType = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut core::ffi::c_void,
+}
+impl Default for _PACKAGE_INFO_REFERENCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

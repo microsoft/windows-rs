@@ -62,10 +62,16 @@ pub const USB_HUB_CYCLE_PORT: i32 = 273;
 pub type USB_IDLE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USB_IDLE_CALLBACK_INFO {
     pub IdleCallback: USB_IDLE_CALLBACK,
     pub IdleContext: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for USB_IDLE_CALLBACK_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const USB_IDLE_NOTIFICATION: i32 = 9;
 pub const USB_IDLE_NOTIFICATION_EX: i32 = 272;

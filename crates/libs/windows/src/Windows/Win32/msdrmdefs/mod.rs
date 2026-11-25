@@ -7,7 +7,7 @@ pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = 1;
 pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: super::DWORD = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRMBOUNDLICENSEPARAMS {
     pub uVersion: super::UINT,
     pub hEnablingPrincipal: DRMHANDLE,
@@ -19,6 +19,12 @@ pub struct DRMBOUNDLICENSEPARAMS {
     pub rghAuthenticators: *mut DRMHANDLE,
     pub wszDefaultEnablingPrincipalCredentials: windows_core::PWSTR,
     pub dwFlags: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for DRMBOUNDLICENSEPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const DRMBOUNDLICENSEPARAMSVERSION: super::UINT = 1;
@@ -133,7 +139,7 @@ pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: i32 = 512;
 pub const DRM_EL_SPECIFIED_GROUPIDENTITY: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_LICENSE_ACQ_DATA {
     pub uVersion: super::UINT,
     pub wszURL: windows_core::PWSTR,
@@ -141,6 +147,12 @@ pub struct DRM_LICENSE_ACQ_DATA {
     pub pbPostData: *mut super::BYTE,
     pub dwPostDataSize: super::DWORD,
     pub wszFriendlyName: windows_core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for DRM_LICENSE_ACQ_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRM_LOCKBOXTYPE_BLACKBOX: i32 = 2;
 pub const DRM_LOCKBOXTYPE_DEFAULT: i32 = 2;

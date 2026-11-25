@@ -5793,7 +5793,7 @@ pub struct UIAutomationEventInfo {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UIAutomationMethodInfo {
     pub pProgrammaticName: windows_core::PCWSTR,
     pub doSetFocus: windows_core::BOOL,
@@ -5802,15 +5802,26 @@ pub struct UIAutomationMethodInfo {
     pub pParameterTypes: *mut UIAutomationType,
     pub pParameterNames: *mut windows_core::PCWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for UIAutomationMethodInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UIAutomationParameter {
     pub r#type: UIAutomationType,
     pub pData: *mut core::ffi::c_void,
 }
+impl Default for UIAutomationParameter {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UIAutomationPatternInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
@@ -5823,6 +5834,12 @@ pub struct UIAutomationPatternInfo {
     pub cEvents: super::UINT,
     pub pEvents: *mut UIAutomationEventInfo,
     pub pPatternHandler: core::mem::ManuallyDrop<Option<IUIAutomationPatternHandler>>,
+}
+#[cfg(feature = "shared")]
+impl Default for UIAutomationPatternInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

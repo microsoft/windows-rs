@@ -7612,10 +7612,16 @@ pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
 pub type VDS_ISCSI_IPSEC_FLAG = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_IPSEC_KEY {
     pub pKey: *mut super::UCHAR,
     pub ulKeySize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_ISCSI_IPSEC_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_ISCSI_LOGIN_FLAG = i32;
 pub type VDS_ISCSI_LOGIN_TYPE = i32;
@@ -7637,10 +7643,16 @@ pub struct VDS_ISCSI_PORTAL_PROP {
 pub type VDS_ISCSI_PORTAL_STATUS = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_SHARED_SECRET {
     pub pSharedSecret: *mut super::UCHAR,
     pub ulSharedSecretSize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_ISCSI_SHARED_SECRET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8128,7 +8140,7 @@ pub const VDS_PKF_ONLINE_ERROR: VDS_PACK_FLAG = 16;
 pub const VDS_PKF_POLICY: VDS_PACK_FLAG = 4;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "vdslun"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_POOL_ATTRIBUTES {
     pub ullAttributeMask: super::ULONGLONG,
     pub raidType: VDS_RAID_TYPE,
@@ -8168,6 +8180,12 @@ pub struct VDS_POOL_ATTRIBUTES {
     pub ulReserved2: super::ULONG,
     pub ullReserved1: super::ULONGLONG,
     pub ullReserved2: super::ULONGLONG,
+}
+#[cfg(all(feature = "shared", feature = "vdslun"))]
+impl Default for VDS_POOL_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VDS_POOL_ATTRIB_ACCS_BDW_WT_HINT: i32 = 16777216;
 pub const VDS_POOL_ATTRIB_ACCS_DIR_HINT: i32 = 2097152;
@@ -8555,7 +8573,7 @@ pub struct VDS_VOLUME_PROP {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_VOLUME_PROP2 {
     pub id: VDS_OBJECT_ID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -8568,6 +8586,12 @@ pub struct VDS_VOLUME_PROP2 {
     pub cbUniqueId: super::ULONG,
     pub pwszName: windows_core::PWSTR,
     pub pUniqueId: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_VOLUME_PROP2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_VOLUME_STATUS = i32;
 pub type VDS_VOLUME_TYPE = i32;

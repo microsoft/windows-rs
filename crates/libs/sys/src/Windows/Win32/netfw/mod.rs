@@ -16,21 +16,33 @@ windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIso
 windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject : super::HANDLE) -> super::DWORD);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
     pub id: windows_sys::core::GUID,
     pub keyword: windows_sys::core::PCWSTR,
     pub flags: super::DWORD,
     pub addresses: windows_sys::core::PCWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     pub dynamicKeywordAddress: FW_DYNAMIC_KEYWORD_ADDRESS0,
     pub next: *mut Self,
     pub schemaVersion: super::WORD,
     pub originType: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
+}
+#[cfg(feature = "shared")]
+impl Default for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = i32;
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 3;
@@ -44,18 +56,30 @@ pub const FW_DYNAMIC_KEYWORD_ORIGIN_MDM: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 2;
 pub type FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct INET_FIREWALL_AC_BINARIES {
     pub count: super::DWORD,
     pub binaries: *mut windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for INET_FIREWALL_AC_BINARIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct INET_FIREWALL_AC_CAPABILITIES {
     pub count: super::DWORD,
     pub capabilities: *mut super::SID_AND_ATTRIBUTES,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for INET_FIREWALL_AC_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -98,7 +122,7 @@ pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = 0;
 pub const INET_FIREWALL_AC_PACKAGE_ID_ONLY: INET_FIREWALL_AC_CREATION_TYPE = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct INET_FIREWALL_APP_CONTAINER {
     pub appContainerSid: *mut super::SID,
     pub userSid: *mut super::SID,
@@ -109,6 +133,12 @@ pub struct INET_FIREWALL_APP_CONTAINER {
     pub binaries: INET_FIREWALL_AC_BINARIES,
     pub workingDirectory: windows_sys::core::PWSTR,
     pub packageFullName: windows_sys::core::PWSTR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for INET_FIREWALL_APP_CONTAINER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type NETISO_ERROR_TYPE = i32;
 pub const NETISO_ERROR_TYPE_INTERNET_CLIENT: NETISO_ERROR_TYPE = 2;

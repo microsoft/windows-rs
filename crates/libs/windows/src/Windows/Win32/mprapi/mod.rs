@@ -839,7 +839,7 @@ impl Default for IKEV2_PROJECTION_INFO2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: super::DWORD,
     pub dwNetworkBlackoutTime: super::DWORD,
@@ -852,9 +852,15 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwEncryptionType: super::DWORD,
     pub customPolicy: PROUTER_CUSTOM_IKEv2_POLICY0,
 }
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for IKEV2_TUNNEL_CONFIG_PARAMS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwIdleTimeout: super::DWORD,
     pub dwNetworkBlackoutTime: super::DWORD,
@@ -870,9 +876,15 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub certificateEKUs: PMPR_CERT_EKU,
     pub machineCertificateHash: super::CRYPT_HASH_BLOB,
 }
+#[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
+impl Default for IKEV2_TUNNEL_CONFIG_PARAMS3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwIdleTimeout: super::DWORD,
     pub dwNetworkBlackoutTime: super::DWORD,
@@ -888,6 +900,12 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub certificateEKUs: PMPR_CERT_EKU,
     pub machineCertificateHash: super::CRYPT_HASH_BLOB,
     pub dwMmSaLifeTime: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
+impl Default for IKEV2_TUNNEL_CONFIG_PARAMS4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IPADDRESSLEN: i32 = 15;
 pub const IPXADDRESSLEN: i32 = 22;
@@ -909,7 +927,7 @@ pub struct L2TP_CONFIG_PARAMS1 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwIdleTimeout: super::DWORD,
     pub dwEncryptionType: super::DWORD,
@@ -917,9 +935,15 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwSaDataSizeForRenegotiation: super::DWORD,
     pub customPolicy: PROUTER_CUSTOM_L2TP_POLICY0,
 }
+#[cfg(feature = "shared")]
+impl Default for L2TP_TUNNEL_CONFIG_PARAMS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: super::DWORD,
     pub dwEncryptionType: super::DWORD,
@@ -927,6 +951,12 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub dwSaDataSizeForRenegotiation: super::DWORD,
     pub customPolicy: PROUTER_CUSTOM_L2TP_POLICY0,
     pub dwMmSaLifeTime: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for L2TP_TUNNEL_CONFIG_PARAMS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MAXIPADRESSLEN: i32 = 64;
 pub const MAX_SSTP_HASH_SIZE: i32 = 32;
@@ -1060,25 +1090,43 @@ pub const MPRNP_Ipv6: i32 = 8;
 pub const MPRNP_Ipx: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_CERT_EKU {
     pub dwSize: super::DWORD,
     pub IsEKUOID: windows_core::BOOL,
     pub pwszEKU: *mut super::WCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MPR_CERT_EKU {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_CREDENTIALSEX_0 {
     pub dwSize: super::DWORD,
     pub lpbCredentialsInfo: super::LPBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for MPR_CREDENTIALSEX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_CREDENTIALSEX_1 {
     pub dwSize: super::DWORD,
     pub lpbCredentialsInfo: super::LPBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for MPR_CREDENTIALSEX_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -1430,12 +1478,18 @@ impl Default for MPR_VPN_TRAFFIC_SELECTOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub numTsi: super::DWORD,
     pub numTsr: super::DWORD,
     pub tsI: PMPR_VPN_TRAFFIC_SELECTOR,
     pub tsR: PMPR_VPN_TRAFFIC_SELECTOR,
+}
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
+impl Default for MPR_VPN_TRAFFIC_SELECTORS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = 7;
 pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = 8;
@@ -1959,7 +2013,7 @@ impl Default for RAS_CONNECTION_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_CONNECTION_1 {
     pub hConnection: super::HANDLE,
     pub hInterface: super::HANDLE,
@@ -1976,6 +2030,12 @@ pub struct RAS_CONNECTION_1 {
     pub dwBufferOverrunErr: super::DWORD,
     pub dwCompressionRatioIn: super::DWORD,
     pub dwCompressionRatioOut: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for RAS_CONNECTION_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2123,7 +2183,7 @@ impl Default for RAS_PORT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_PORT_1 {
     pub hPort: super::HANDLE,
     pub hConnection: super::HANDLE,
@@ -2141,6 +2201,12 @@ pub struct RAS_PORT_1 {
     pub dwBufferOverrunErr: super::DWORD,
     pub dwCompressionRatioIn: super::DWORD,
     pub dwCompressionRatioOut: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for RAS_PORT_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -2256,16 +2322,22 @@ pub const ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = 8;
 pub const ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = 6;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub dwSaLifeTime: super::DWORD,
     pub dwSaDataSize: super::DWORD,
     pub certificateName: super::CERT_NAME_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub dwSaLifeTime: super::DWORD,
     pub dwSaDataSize: super::DWORD,
@@ -2273,9 +2345,15 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub certificateHash: super::CRYPT_HASH_BLOB,
 }
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwSaLifeTime: super::DWORD,
     pub dwSaDataSize: super::DWORD,
@@ -2284,6 +2362,12 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub certificateHash: super::CRYPT_HASH_BLOB,
     pub dwMmSaLifeTime: super::DWORD,
     pub vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
+}
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared", feature = "wincrypt"))]
+impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ROUTER_INTERFACE_TYPE = i32;
 pub const RRAS_SERVICE_NAME: windows_core::PCSTR = windows_core::s!("RemoteAccess");

@@ -330,15 +330,27 @@ impl Default for VDS_ASYNC_OUTPUT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_ASYNC_OUTPUT_0__bvp {
     pub pVolumeUnk: *mut core::ffi::c_void,
 }
+#[cfg(feature = "shared")]
+impl Default for VDS_ASYNC_OUTPUT_0__bvp {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_ASYNC_OUTPUT_0__cl {
     pub pLunUnk: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_ASYNC_OUTPUT_0__cl {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -349,27 +361,51 @@ pub struct VDS_ASYNC_OUTPUT_0__cp {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_ASYNC_OUTPUT_0__cpg {
     pub pPortalGroupUnk: *mut core::ffi::c_void,
 }
+#[cfg(feature = "shared")]
+impl Default for VDS_ASYNC_OUTPUT_0__cpg {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_ASYNC_OUTPUT_0__ct {
     pub pTargetUnk: *mut core::ffi::c_void,
 }
-#[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
-pub struct VDS_ASYNC_OUTPUT_0__cv {
-    pub pVolumeUnk: *mut core::ffi::c_void,
+impl Default for VDS_ASYNC_OUTPUT_0__ct {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
+pub struct VDS_ASYNC_OUTPUT_0__cv {
+    pub pVolumeUnk: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_ASYNC_OUTPUT_0__cv {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct VDS_ASYNC_OUTPUT_0__cvd {
     pub pVDiskUnk: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_ASYNC_OUTPUT_0__cvd {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -388,7 +424,7 @@ pub struct VDS_CONTROLLER_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_CONTROLLER_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszFriendlyName: windows_sys::core::PWSTR,
@@ -397,10 +433,16 @@ pub struct VDS_CONTROLLER_PROP {
     pub health: VDS_HEALTH,
     pub sNumberOfPorts: super::SHORT,
 }
+#[cfg(feature = "shared")]
+impl Default for VDS_CONTROLLER_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type VDS_CONTROLLER_STATUS = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_CREATE_VDISK_PARAMETERS {
     pub UniqueId: windows_sys::core::GUID,
     pub MaximumSize: super::ULONGLONG,
@@ -408,6 +450,12 @@ pub struct VDS_CREATE_VDISK_PARAMETERS {
     pub SectorSizeInBytes: super::ULONG,
     pub pParentPath: windows_sys::core::PWSTR,
     pub pSourcePath: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_CREATE_VDISK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VDS_CS_FAILED: VDS_CONTROLLER_STATUS = 5;
 pub const VDS_CS_NOT_READY: VDS_CONTROLLER_STATUS = 2;
@@ -603,7 +651,7 @@ pub struct VDS_DRIVE_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_DRIVE_PROP {
     pub id: VDS_OBJECT_ID,
     pub ullSize: super::ULONGLONG,
@@ -615,9 +663,15 @@ pub struct VDS_DRIVE_PROP {
     pub sInternalBusNumber: super::SHORT,
     pub sSlotNumber: super::SHORT,
 }
+#[cfg(feature = "shared")]
+impl Default for VDS_DRIVE_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "vdslun"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_DRIVE_PROP2 {
     pub id: VDS_OBJECT_ID,
     pub ullSize: super::ULONGLONG,
@@ -631,6 +685,12 @@ pub struct VDS_DRIVE_PROP2 {
     pub ulEnclosureNumber: super::ULONG,
     pub busType: super::VDS_STORAGE_BUS_TYPE,
     pub ulSpindleSpeed: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "vdslun"))]
+impl Default for VDS_DRIVE_PROP2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_DRIVE_STATUS = i32;
 pub const VDS_DRS_FAILED: VDS_DRIVE_STATUS = 5;
@@ -674,7 +734,7 @@ pub struct VDS_FILE_SYSTEM_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_FILE_SYSTEM_PROP {
     pub r#type: VDS_FILE_SYSTEM_TYPE,
     pub volumeId: VDS_OBJECT_ID,
@@ -683,6 +743,12 @@ pub struct VDS_FILE_SYSTEM_PROP {
     pub ullAvailableAllocationUnits: super::ULONGLONG,
     pub ulAllocationUnitSize: super::ULONG,
     pub pwszLabel: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_FILE_SYSTEM_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_FILE_SYSTEM_PROP_FLAG = i32;
 pub type VDS_FILE_SYSTEM_TYPE = i32;
@@ -930,10 +996,15 @@ pub const VDS_IPT_IPV6: VDS_IPADDRESS_TYPE = 2;
 pub const VDS_IPT_TEXT: VDS_IPADDRESS_TYPE = 0;
 pub type VDS_ISCSI_AUTH_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszName: windows_sys::core::PWSTR,
+}
+impl Default for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -946,10 +1017,16 @@ pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
 pub type VDS_ISCSI_IPSEC_FLAG = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_ISCSI_IPSEC_KEY {
     pub pKey: *mut super::UCHAR,
     pub ulKeySize: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_ISCSI_IPSEC_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_ISCSI_LOGIN_FLAG = i32;
 pub type VDS_ISCSI_LOGIN_TYPE = i32;
@@ -971,18 +1048,29 @@ pub struct VDS_ISCSI_PORTAL_PROP {
 pub type VDS_ISCSI_PORTAL_STATUS = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_ISCSI_SHARED_SECRET {
     pub pSharedSecret: *mut super::UCHAR,
     pub ulSharedSecretSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for VDS_ISCSI_SHARED_SECRET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_ISCSI_TARGET_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszIscsiName: windows_sys::core::PWSTR,
     pub pwszFriendlyName: windows_sys::core::PWSTR,
     pub bChapEnabled: windows_sys::core::BOOL,
+}
+impl Default for VDS_ISCSI_TARGET_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VDS_ITF_FIBRE_CHANNEL: VDS_INTERCONNECT_FLAG = 2;
 pub const VDS_ITF_ISCSI: VDS_INTERCONNECT_FLAG = 4;
@@ -1099,7 +1187,7 @@ pub type VDS_LUN_PLEX_STATUS = i32;
 pub type VDS_LUN_PLEX_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_LUN_PROP {
     pub id: VDS_OBJECT_ID,
     pub ullSize: super::ULONGLONG,
@@ -1112,6 +1200,12 @@ pub struct VDS_LUN_PROP {
     pub health: VDS_HEALTH,
     pub TransitionState: VDS_TRANSITION_STATE,
     pub sRebuildPriority: super::SHORT,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_LUN_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_LUN_RESERVE_MODE = i32;
 pub type VDS_LUN_STATUS = i32;
@@ -1268,12 +1362,18 @@ pub struct VDS_PACK_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_PACK_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszName: windows_sys::core::PWSTR,
     pub status: VDS_PACK_STATUS,
     pub ulFlags: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_PACK_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_PACK_STATUS = i32;
 pub type VDS_PARTITION_FLAG = i32;
@@ -1462,7 +1562,7 @@ pub const VDS_PKF_ONLINE_ERROR: VDS_PACK_FLAG = 16;
 pub const VDS_PKF_POLICY: VDS_PACK_FLAG = 4;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "vdslun"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_POOL_ATTRIBUTES {
     pub ullAttributeMask: super::ULONGLONG,
     pub raidType: VDS_RAID_TYPE,
@@ -1503,6 +1603,12 @@ pub struct VDS_POOL_ATTRIBUTES {
     pub ullReserved1: super::ULONGLONG,
     pub ullReserved2: super::ULONGLONG,
 }
+#[cfg(all(feature = "shared", feature = "vdslun"))]
+impl Default for VDS_POOL_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const VDS_POOL_ATTRIB_ACCS_BDW_WT_HINT: i32 = 16777216;
 pub const VDS_POOL_ATTRIB_ACCS_DIR_HINT: i32 = 2097152;
 pub const VDS_POOL_ATTRIB_ACCS_LTNCY_HINT: i32 = 8388608;
@@ -1532,10 +1638,15 @@ pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MAX: i32 = 4096;
 pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MIN: i32 = 8192;
 pub const VDS_POOL_ATTRIB_THIN_PROVISION: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_POOL_CUSTOM_ATTRIBUTES {
     pub pwszName: windows_sys::core::PWSTR,
     pub pwszValue: windows_sys::core::PWSTR,
+}
+impl Default for VDS_POOL_CUSTOM_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1559,19 +1670,24 @@ pub struct VDS_PORT_NOTIFICATION {
     pub portId: VDS_OBJECT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_PORT_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszFriendlyName: windows_sys::core::PWSTR,
     pub pwszIdentification: windows_sys::core::PWSTR,
     pub status: VDS_PORT_STATUS,
 }
+impl Default for VDS_PORT_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type VDS_PORT_STATUS = i32;
 pub type VDS_PROVIDER_FLAG = i32;
 pub type VDS_PROVIDER_LBSUPPORT_FLAG = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_PROVIDER_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszName: windows_sys::core::PWSTR,
@@ -1581,6 +1697,12 @@ pub struct VDS_PROVIDER_PROP {
     pub ulFlags: super::ULONG,
     pub ulStripeSizeFlags: super::ULONG,
     pub sRebuildPriority: super::SHORT,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_PROVIDER_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_PROVIDER_TYPE = i32;
 pub const VDS_PRS_FAILED: VDS_PORT_STATUS = 5;
@@ -1613,10 +1735,15 @@ pub const VDS_REBUILD_PRIORITY_MAX: i32 = 16;
 pub const VDS_REBUILD_PRIORITY_MIN: i32 = 0;
 pub type VDS_RECOVER_ACTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_REPARSE_POINT_PROP {
     pub SourceVolumeId: VDS_OBJECT_ID,
     pub pwszPath: windows_sys::core::PWSTR,
+}
+impl Default for VDS_REPARSE_POINT_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VDS_RT_RAID0: VDS_RAID_TYPE = 10;
 pub const VDS_RT_RAID01: VDS_RAID_TYPE = 17;
@@ -1648,10 +1775,16 @@ pub struct VDS_SERVICE_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_SERVICE_PROP {
     pub pwszVersion: windows_sys::core::PWSTR,
     pub ulFlags: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_SERVICE_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const VDS_SF_CONSISTENCY_CHECK_CAPABLE: VDS_SUB_SYSTEM_FLAG = 16777216;
 pub const VDS_SF_DRIVE_EXTENT_CAPABLE: VDS_SUB_SYSTEM_FLAG = 8;
@@ -1722,7 +1855,7 @@ pub struct VDS_STORAGE_POOL_DRIVE_EXTENT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_STORAGE_POOL_PROP {
     pub id: VDS_OBJECT_ID,
     pub status: VDS_STORAGE_POOL_STATUS,
@@ -1733,6 +1866,12 @@ pub struct VDS_STORAGE_POOL_PROP {
     pub ullTotalConsumedSpace: super::ULONGLONG,
     pub ullTotalManagedSpace: super::ULONGLONG,
     pub ullRemainingFreeSpace: super::ULONGLONG,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_STORAGE_POOL_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_STORAGE_POOL_STATUS = i32;
 pub type VDS_STORAGE_POOL_TYPE = i32;
@@ -1746,7 +1885,7 @@ pub struct VDS_SUB_SYSTEM_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_SUB_SYSTEM_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszFriendlyName: windows_sys::core::PWSTR,
@@ -1760,9 +1899,15 @@ pub struct VDS_SUB_SYSTEM_PROP {
     pub sMaxNumberOfControllers: super::SHORT,
     pub sRebuildPriority: super::SHORT,
 }
+#[cfg(feature = "shared")]
+impl Default for VDS_SUB_SYSTEM_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_SUB_SYSTEM_PROP2 {
     pub id: VDS_OBJECT_ID,
     pub pwszFriendlyName: windows_sys::core::PWSTR,
@@ -1777,6 +1922,12 @@ pub struct VDS_SUB_SYSTEM_PROP2 {
     pub sMaxNumberOfControllers: super::SHORT,
     pub sRebuildPriority: super::SHORT,
     pub ulNumberOfEnclosures: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_SUB_SYSTEM_PROP2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_SUB_SYSTEM_STATUS = i32;
 pub type VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG = i32;
@@ -1807,7 +1958,7 @@ pub const VDS_TS_STABLE: VDS_TRANSITION_STATE = 1;
 pub const VDS_TS_UNKNOWN: VDS_TRANSITION_STATE = 0;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_VDISK_PROPERTIES {
     pub Id: VDS_OBJECT_ID,
     pub State: VDS_VDISK_STATE,
@@ -1819,6 +1970,12 @@ pub struct VDS_VDISK_PROPERTIES {
     pub DiskFlag: super::DEPENDENT_DISK_FLAG,
     pub bIsChild: windows_sys::core::BOOL,
     pub pParentPath: windows_sys::core::PWSTR,
+}
+#[cfg(all(feature = "shared", feature = "virtdisk", feature = "winioctl"))]
+impl Default for VDS_VDISK_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_VDISK_STATE = i32;
 pub type VDS_VERSION_SUPPORT_FLAG = i32;
@@ -1875,7 +2032,7 @@ pub type VDS_VOLUME_PLEX_STATUS = i32;
 pub type VDS_VOLUME_PLEX_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_VOLUME_PROP {
     pub id: VDS_OBJECT_ID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -1887,9 +2044,15 @@ pub struct VDS_VOLUME_PROP {
     pub RecommendedFileSystemType: VDS_FILE_SYSTEM_TYPE,
     pub pwszName: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for VDS_VOLUME_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VDS_VOLUME_PROP2 {
     pub id: VDS_OBJECT_ID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -1902,6 +2065,12 @@ pub struct VDS_VOLUME_PROP2 {
     pub cbUniqueId: super::ULONG,
     pub pwszName: windows_sys::core::PWSTR,
     pub pUniqueId: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_VOLUME_PROP2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_VOLUME_STATUS = i32;
 pub type VDS_VOLUME_TYPE = i32;

@@ -31,13 +31,19 @@ pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLI
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ENCLAVE_INFORMATION {
     pub EnclaveType: super::ULONG,
     pub Reserved: super::ULONG,
     pub BaseAddress: super::PVOID,
     pub Size: super::SIZE_T,
     pub Identity: ENCLAVE_IDENTITY,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ENCLAVE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]

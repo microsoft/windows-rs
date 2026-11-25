@@ -21,11 +21,17 @@ pub struct RIORESULT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RIO_BUF {
     pub BufferId: RIO_BUFFERID,
     pub Offset: super::ULONG,
     pub Length: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for RIO_BUF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RIO_BUFFERID = *mut RIO_BUFFERID_t;
 #[repr(C)]

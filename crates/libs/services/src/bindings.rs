@@ -50,9 +50,14 @@ pub struct SERVICE_STATUS_HANDLE__ {
 pub const SERVICE_STOPPED: i32 = 1;
 pub const SERVICE_STOP_PENDING: i32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: PWSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
+}
+impl Default for SERVICE_TABLE_ENTRYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SERVICE_WIN32_OWN_PROCESS: i32 = 16;

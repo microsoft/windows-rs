@@ -54,20 +54,31 @@ pub const CHANGEKIND_SETDOCUMENTATION: CHANGEKIND = 3;
 pub const CHANGEKIND_SETNAMES: CHANGEKIND = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Default)]
 pub struct CLEANLOCALSTORAGE {
     pub pInterface: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub pStorage: super::PVOID,
     pub flags: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CLEANLOCALSTORAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "shared", feature = "wtypes"))]
 pub type CURRENCY = super::CY;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CUSTDATA {
     pub cCustData: super::DWORD,
     pub prgCustData: LPCUSTDATAITEM,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for CUSTDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -104,12 +115,18 @@ pub const DISPID_UNKNOWN: i32 = -1;
 pub const DISPID_VALUE: i32 = 0;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut VARIANTARG,
     pub rgdispidNamedArgs: *mut super::DISPID,
     pub cArgs: super::UINT,
     pub cNamedArgs: super::UINT,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for DISPPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -139,7 +156,6 @@ impl Default for ELEMDESC_0 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
-#[derive(Default)]
 pub struct EXCEPINFO {
     pub wCode: super::WORD,
     pub wReserved: super::WORD,
@@ -150,6 +166,12 @@ pub struct EXCEPINFO {
     pub pvReserved: super::PVOID,
     pub pfnDeferredFillIn: Option<unsafe extern "system" fn(*mut Self) -> windows_core::HRESULT>,
     pub scode: super::SCODE,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
+impl Default for EXCEPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FADF_AUTO: i32 = 1;
 pub const FADF_BSTR: i32 = 256;
@@ -3338,10 +3360,16 @@ pub type LPVARIANT = *mut tagVARIANT;
 pub type LPVARIANTARG = *mut tagVARIANT;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PARAMDESC {
     pub pparamdescex: LPPARAMDESCEX,
     pub wParamFlags: super::USHORT,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for PARAMDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -3429,46 +3457,82 @@ impl Default for SAFEARRAYUNION___MIDL_IOleAutomationTypes_0001 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "rpc", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_BRECORD {
     pub Size: super::ULONG,
     pub aRecord: *mut wireBRECORD,
 }
+#[cfg(all(feature = "rpc", feature = "shared"))]
+impl Default for SAFEARR_BRECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_BSTR {
     pub Size: super::ULONG,
     pub aBstr: *mut super::wireBSTR,
 }
+#[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for SAFEARR_BSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_DISPATCH {
     pub Size: super::ULONG,
     pub apDispatch: *mut Option<IDispatch>,
 }
+#[cfg(feature = "shared")]
+impl Default for SAFEARR_DISPATCH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_HAVEIID {
     pub Size: super::ULONG,
     pub apUnknown: *mut Option<windows_core::IUnknown>,
     pub iid: super::IID,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for SAFEARR_HAVEIID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_UNKNOWN {
     pub Size: super::ULONG,
     pub apUnknown: *mut Option<windows_core::IUnknown>,
 }
+#[cfg(feature = "shared")]
+impl Default for SAFEARR_UNKNOWN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "rpc", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_VARIANT {
     pub Size: super::ULONG,
     pub aVariant: *mut wireVARIANT,
+}
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "rpc", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for SAFEARR_VARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SF_BSTR: SF_TYPE = 8;
 pub const SF_DISPATCH: SF_TYPE = 9;
@@ -3635,12 +3699,17 @@ pub const VAR_PERINSTANCE: VARKIND = 0;
 pub const VAR_STATIC: VARKIND = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "rpc", feature = "shared"))]
-#[derive(Default)]
 pub struct _wireBRECORD {
     pub fFlags: super::ULONG,
     pub clSize: super::ULONG,
     pub pRecInfo: core::mem::ManuallyDrop<Option<IRecordInfo>>,
     pub pRecord: *mut super::byte,
+}
+#[cfg(all(feature = "rpc", feature = "shared"))]
+impl Default for _wireBRECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "rpc", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
@@ -3862,10 +3931,15 @@ impl Default for tagVARIANT_0_0_0 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Default)]
 pub struct tagVARIANT_0_0_0_0 {
     pub pvRecord: super::PVOID,
     pub pRecInfo: core::mem::ManuallyDrop<Option<IRecordInfo>>,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for tagVARIANT_0_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "rpc", feature = "shared"))]
 pub type wireBRECORD = *mut _wireBRECORD;

@@ -32,7 +32,7 @@ windows_link::link!("kernel32.dll" "system" fn Thread32Next(hsnapshot : super::H
 windows_link::link!("kernel32.dll" "system" fn Toolhelp32ReadProcessMemory(th32processid : super::DWORD, lpbaseaddress : super::LPCVOID, lpbuffer : super::LPVOID, cbread : super::SIZE_T, lpnumberofbytesread : *mut super::SIZE_T) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HEAPENTRY32 {
     pub dwSize: super::SIZE_T,
     pub hHandle: super::HANDLE,
@@ -43,6 +43,12 @@ pub struct HEAPENTRY32 {
     pub dwResvd: super::DWORD,
     pub th32ProcessID: super::DWORD,
     pub th32HeapID: super::ULONG_PTR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HEAPENTRY32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

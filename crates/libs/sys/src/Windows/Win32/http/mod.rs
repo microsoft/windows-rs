@@ -138,10 +138,16 @@ pub struct HTTP_BANDWIDTH_LIMIT_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_BINDING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub RequestQueueHandle: super::HANDLE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_BINDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -187,21 +193,33 @@ impl Default for HTTP_CERT_CONFIG_ENTRY {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_CERT_CONFIG_PARAM {
     pub CertConfigCount: super::ULONG,
     pub CertConfigs: PHTTP_CERT_CONFIG_ENTRY,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_CERT_CONFIG_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_CHANNEL_BIND_CLIENT_SERVICE: i32 = 16;
 pub const HTTP_CHANNEL_BIND_DOTLESS_SERVICE: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_CHANNEL_BIND_INFO {
     pub Hardening: HTTP_AUTHENTICATION_HARDENING_LEVELS,
     pub Flags: super::ULONG,
     pub ServiceNames: *mut PHTTP_SERVICE_BINDING_BASE,
     pub NumberOfServiceNames: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for HTTP_CHANNEL_BIND_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: i32 = 2;
 pub const HTTP_CHANNEL_BIND_PROXY: i32 = 1;
@@ -221,7 +239,7 @@ pub struct HTTP_CONNECTION_LIMIT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_COOKED_URL {
     pub FullUrlLength: super::USHORT,
     pub HostLength: super::USHORT,
@@ -232,17 +250,29 @@ pub struct HTTP_COOKED_URL {
     pub pAbsPath: windows_sys::core::PCWSTR,
     pub pQueryString: windows_sys::core::PCWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for HTTP_COOKED_URL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER: i32 = 2;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: i32 = 8;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: i32 = 1;
 pub type HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     pub PropertyId: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID,
     pub PropertyInfoLength: super::ULONG,
     pub PropertyInfo: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -276,10 +306,16 @@ impl Default for HTTP_DATA_CHUNK_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_0 {
     pub pBuffer: super::PVOID,
     pub BufferLength: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_DATA_CHUNK_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -296,10 +332,16 @@ impl Default for HTTP_DATA_CHUNK_0_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_2 {
     pub FragmentNameLength: super::USHORT,
     pub pFragmentName: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_DATA_CHUNK_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -316,10 +358,16 @@ impl Default for HTTP_DATA_CHUNK_0_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_4 {
     pub TrailerCount: super::USHORT,
     pub pTrailers: PHTTP_UNKNOWN_HEADER,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_DATA_CHUNK_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -331,21 +379,33 @@ pub type HTTP_DATA_CHUNK_TYPE = i32;
 pub type HTTP_DELEGATE_REQUEST_PROPERTY_ID = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     pub PropertyId: HTTP_DELEGATE_REQUEST_PROPERTY_ID,
     pub PropertyInfoLength: super::ULONG,
     pub PropertyInfo: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HTTP_DEMAND_CBT: i32 = 4;
 pub type HTTP_ENABLED_STATE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_ERROR_HEADERS_PARAM {
     pub StatusCode: super::USHORT,
     pub HeaderCount: super::USHORT,
     pub Headers: PHTTP_UNKNOWN_HEADER,
+}
+#[cfg(feature = "shared")]
+impl Default for HTTP_ERROR_HEADERS_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -370,10 +430,16 @@ pub const HTTP_INITIALIZE_CONFIG: i32 = 2;
 pub const HTTP_INITIALIZE_SERVER: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_KNOWN_HEADER {
     pub RawValueLength: super::USHORT,
     pub pRawValue: windows_sys::core::PCSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for HTTP_KNOWN_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const HTTP_LIMIT_INFINITE: super::ULONG = 4294967295;
@@ -390,7 +456,7 @@ pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: i32 = 8;
 pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_LOGGING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub LoggingFlags: super::ULONG,
@@ -407,6 +473,12 @@ pub struct HTTP_LOGGING_INFO {
     pub RolloverSize: super::ULONG,
     pub pSecurityDescriptor: super::PSECURITY_DESCRIPTOR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_LOGGING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_LOGGING_ROLLOVER_TYPE = i32;
 pub type HTTP_LOGGING_TYPE = i32;
 #[repr(C)]
@@ -417,7 +489,7 @@ pub struct HTTP_LOG_DATA {
 pub type HTTP_LOG_DATA_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_LOG_FIELDS_DATA {
     pub Base: HTTP_LOG_DATA,
     pub UserNameLength: super::USHORT,
@@ -449,6 +521,12 @@ pub struct HTTP_LOG_FIELDS_DATA {
     pub Win32Status: super::ULONG,
     pub MethodNum: HTTP_VERB,
     pub SubStatus: super::USHORT,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_LOG_FIELDS_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_LOG_FIELD_BYTES_RECV: i32 = 8192;
 pub const HTTP_LOG_FIELD_BYTES_SENT: i32 = 4096;
@@ -491,22 +569,34 @@ pub const HTTP_MIN_ALLOWED_LOG_FILE_ROLLOVER_SIZE: super::ULONG = 1048576;
 pub const HTTP_MIN_SERVER_QUEUE_LENGTH: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_MULTIPLE_KNOWN_HEADERS {
     pub HeaderId: HTTP_HEADER_ID,
     pub Flags: super::ULONG,
     pub KnownHeaderCount: super::USHORT,
     pub KnownHeaders: PHTTP_KNOWN_HEADER,
 }
+#[cfg(feature = "shared")]
+impl Default for HTTP_MULTIPLE_KNOWN_HEADERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HTTP_NULL_ID: u64 = 0;
 pub type HTTP_OPAQUE_ID = u64;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_PERFORMANCE_PARAM {
     pub Type: HTTP_PERFORMANCE_PARAM_TYPE,
     pub BufferSize: super::ULONG,
     pub Buffer: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_PERFORMANCE_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HTTP_PERFORMANCE_PARAM_TYPE = i32;
 #[repr(C)]
@@ -525,10 +615,16 @@ pub struct HTTP_PROTECTION_LEVEL_INFO {
 pub type HTTP_PROTECTION_LEVEL_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_QOS_SETTING_INFO {
     pub QosType: HTTP_QOS_SETTING_TYPE,
     pub QosSetting: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for HTTP_QOS_SETTING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HTTP_QOS_SETTING_TYPE = i32;
 #[repr(C)]
@@ -617,7 +713,7 @@ pub type HTTP_REQUEST = HTTP_REQUEST_V2;
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_AUTH_INFO {
     pub AuthStatus: HTTP_AUTH_STATUS,
     pub SecStatus: super::SECURITY_STATUS,
@@ -633,15 +729,27 @@ pub struct HTTP_REQUEST_AUTH_INFO {
     pub PackageNameLength: super::USHORT,
     pub pPackageName: windows_sys::core::PWSTR,
 }
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
+impl Default for HTTP_REQUEST_AUTH_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type HTTP_REQUEST_AUTH_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
     pub ServiceName: PHTTP_SERVICE_BINDING_BASE,
     pub ChannelToken: super::PUCHAR,
     pub ChannelTokenSize: super::ULONG,
     pub Flags: super::ULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for HTTP_REQUEST_CHANNEL_BIND_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -674,11 +782,17 @@ impl Default for HTTP_REQUEST_HEADERS {
 pub type HTTP_REQUEST_ID = u64;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_INFO {
     pub InfoType: HTTP_REQUEST_INFO_TYPE,
     pub InfoLength: super::ULONG,
     pub pInfo: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_REQUEST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_REQUEST_INFO_FLAG_INITIAL_TTL: u64 = 1;
 #[repr(C)]
@@ -754,13 +868,19 @@ impl Default for HTTP_REQUEST_TIMING_INFO {
 pub type HTTP_REQUEST_TIMING_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub TokenBinding: super::PUCHAR,
     pub TokenBindingSize: super::ULONG,
     pub EKM: super::PUCHAR,
     pub EKMSize: super::ULONG,
     pub KeyType: super::UCHAR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for HTTP_REQUEST_TOKEN_BINDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -770,7 +890,7 @@ pub struct HTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_V1 {
     pub Flags: super::ULONG,
     pub ConnectionId: HTTP_CONNECTION_ID,
@@ -791,13 +911,25 @@ pub struct HTTP_REQUEST_V1 {
     pub RawConnectionId: HTTP_RAW_CONNECTION_ID,
     pub pSslInfo: PHTTP_SSL_INFO,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
+impl Default for HTTP_REQUEST_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_V2 {
     pub base: HTTP_REQUEST_V1,
     pub RequestInfoCount: super::USHORT,
     pub pRequestInfo: PHTTP_REQUEST_INFO,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
+impl Default for HTTP_REQUEST_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type HTTP_RESPONSE = HTTP_RESPONSE_V2;
@@ -821,17 +953,23 @@ impl Default for HTTP_RESPONSE_HEADERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_INFO {
     pub Type: HTTP_RESPONSE_INFO_TYPE,
     pub Length: super::ULONG,
     pub pInfo: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_RESPONSE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: i32 = 1;
 pub type HTTP_RESPONSE_INFO_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_V1 {
     pub Flags: super::ULONG,
     pub Version: HTTP_VERSION,
@@ -842,13 +980,25 @@ pub struct HTTP_RESPONSE_V1 {
     pub EntityChunkCount: super::USHORT,
     pub pEntityChunks: PHTTP_DATA_CHUNK,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_RESPONSE_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_V2 {
     pub base: HTTP_RESPONSE_V1,
     pub ResponseInfoCount: super::USHORT,
     pub pResponseInfo: PHTTP_RESPONSE_INFO,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_RESPONSE_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HTTP_SCHEME = i32;
 pub const HTTP_SEND_RESPONSE_FLAG_AUTOMATIC_CHUNKING: i32 = 512;
@@ -861,19 +1011,31 @@ pub const HTTP_SEND_RESPONSE_FLAG_OPAQUE: i32 = 64;
 pub const HTTP_SEND_RESPONSE_FLAG_PROCESS_RANGES: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     pub RealmLength: super::USHORT,
     pub Realm: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     pub DomainNameLength: super::USHORT,
     pub DomainName: windows_sys::core::PWSTR,
     pub RealmLength: super::USHORT,
     pub Realm: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -892,11 +1054,17 @@ pub type HTTP_SERVER_PROPERTY = i32;
 pub type HTTP_SERVER_SESSION_ID = u64;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_BINDING_A {
     pub Base: HTTP_SERVICE_BINDING_BASE,
     pub Buffer: super::PCHAR,
     pub BufferSize: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_SERVICE_BINDING_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -906,11 +1074,17 @@ pub struct HTTP_SERVICE_BINDING_BASE {
 pub type HTTP_SERVICE_BINDING_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_BINDING_W {
     pub Base: HTTP_SERVICE_BINDING_BASE,
     pub Buffer: super::PWCHAR,
     pub BufferSize: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_SERVICE_BINDING_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HTTP_SERVICE_CONFIG_CACHE_KEY = i32;
 pub type HTTP_SERVICE_CONFIG_CACHE_PARAM = u32;
@@ -923,10 +1097,16 @@ pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
 pub type HTTP_SERVICE_CONFIG_ID = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "ws2"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     pub AddrLength: super::USHORT,
     pub pAddress: super::PSOCKADDR,
+}
+#[cfg(all(feature = "shared", feature = "ws2"))]
+impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "ws2"))]
@@ -1010,9 +1190,15 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT: i32 = 8;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "ws2"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
     pub pIpPort: super::PSOCKADDR,
+}
+#[cfg(all(feature = "shared", feature = "ws2"))]
+impl Default for HTTP_SERVICE_CONFIG_SSL_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "ws2"))]
@@ -1022,7 +1208,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub SslHashLength: super::ULONG,
     pub pSslHash: super::PVOID,
@@ -1034,6 +1220,12 @@ pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub pDefaultSslCtlIdentifier: windows_sys::core::PWSTR,
     pub pDefaultSslCtlStoreName: windows_sys::core::PWSTR,
     pub DefaultFlags: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1106,10 +1298,16 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "ws2"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     pub IpPort: super::SOCKADDR_STORAGE,
     pub Host: windows_sys::core::PWSTR,
+}
+#[cfg(all(feature = "shared", feature = "ws2"))]
+impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "ws2"))]
@@ -1157,14 +1355,24 @@ pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     pub ParamDesc: HTTP_SERVICE_CONFIG_TIMEOUT_PARAM,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_KEY {
     pub pUrlPrefix: windows_sys::core::PWSTR,
 }
+impl Default for HTTP_SERVICE_CONFIG_URLACL_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_PARAM {
     pub pStringSecurityDescriptor: windows_sys::core::PWSTR,
+}
+impl Default for HTTP_SERVICE_CONFIG_URLACL_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1184,7 +1392,7 @@ pub const HTTP_SSL_CERT_SHA_HASH_LENGTH: i32 = 20;
 pub const HTTP_SSL_CERT_STORE_NAME_LENGTH: i32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub CertFlags: super::ULONG,
     pub CertEncodedSize: super::ULONG,
@@ -1192,9 +1400,15 @@ pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub Token: super::HANDLE,
     pub CertDeniedByMapper: super::BOOLEAN,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for HTTP_SSL_CLIENT_CERT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SSL_INFO {
     pub ServerCertKeySize: super::USHORT,
     pub ConnectionKeySize: super::USHORT,
@@ -1204,6 +1418,12 @@ pub struct HTTP_SSL_INFO {
     pub pServerCertSubject: windows_sys::core::PCSTR,
     pub pClientCertInfo: PHTTP_SSL_CLIENT_CERT_INFO,
     pub SslClientCertNegotiated: super::ULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for HTTP_SSL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1239,33 +1459,57 @@ pub struct HTTP_TIMEOUT_LIMIT_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_TLS_RESTRICTIONS_PARAM {
     pub RestrictionCount: super::ULONG,
     pub TlsRestrictions: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_TLS_RESTRICTIONS_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     pub SessionTicketKeyCount: super::ULONG,
     pub SessionTicketKeys: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "ws2"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_TRANSPORT_ADDRESS {
     pub pRemoteAddress: super::PSOCKADDR,
     pub pLocalAddress: super::PSOCKADDR,
 }
+#[cfg(all(feature = "shared", feature = "ws2"))]
+impl Default for HTTP_TRANSPORT_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_UNKNOWN_HEADER {
     pub NameLength: super::USHORT,
     pub RawValueLength: super::USHORT,
     pub pName: windows_sys::core::PCSTR,
     pub pRawValue: windows_sys::core::PCSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for HTTP_UNKNOWN_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HTTP_URL_CONTEXT = u64;
 pub const HTTP_URL_FLAG_REMOVE_ALL: i32 = 1;

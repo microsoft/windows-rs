@@ -554,11 +554,17 @@ pub const BTNS_SHOWTEXT: i32 = 64;
 pub const BTNS_WHOLEDROPDOWN: i32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BUTTON_IMAGELIST {
     pub himl: HIMAGELIST,
     pub margin: super::RECT,
     pub uAlign: super::UINT,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for BUTTON_IMAGELIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BUTTON_IMAGELIST_ALIGN_BOTTOM: i32 = 3;
 pub const BUTTON_IMAGELIST_ALIGN_CENTER: i32 = 4;
@@ -567,12 +573,18 @@ pub const BUTTON_IMAGELIST_ALIGN_RIGHT: i32 = 1;
 pub const BUTTON_IMAGELIST_ALIGN_TOP: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BUTTON_SPLITINFO {
     pub mask: super::UINT,
     pub himlGlyph: HIMAGELIST,
     pub uSplitStyle: super::UINT,
     pub size: super::SIZE,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for BUTTON_SPLITINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CBEIF_DI_SETITEM: i32 = 268435456;
 pub const CBEIF_IMAGE: i32 = 2;
@@ -739,7 +751,7 @@ pub struct COMBOBOXEXITEMW {
 pub const COMCTL32_VERSION: i32 = 6;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DATETIMEPICKERINFO {
     pub cbSize: super::DWORD,
     pub rcCheck: super::RECT,
@@ -749,6 +761,12 @@ pub struct DATETIMEPICKERINFO {
     pub hwndEdit: super::HWND,
     pub hwndUD: super::HWND,
     pub hwndDropDown: super::HWND,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for DATETIMEPICKERINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DATETIMEPICK_CLASS: windows_core::PCSTR = windows_core::s!("SysDateTimePick32");
 pub const DATETIMEPICK_CLASSA: windows_core::PCSTR = windows_core::s!("SysDateTimePick32");
@@ -763,11 +781,17 @@ pub const DL_MOVECURSOR: i32 = 3;
 pub const DL_STOPCURSOR: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRAGLISTINFO {
     pub uNotification: super::UINT,
     pub hWnd: super::HWND,
     pub ptCursor: super::POINT,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for DRAGLISTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRAGLISTMSGSTRING: windows_core::PCSTR = windows_core::s!("commctrl_DragListMsg");
 pub const DTM_CLOSEMONTHCAL: i32 = 4109;
@@ -906,7 +930,7 @@ pub struct HDHITTESTINFO {
 pub const HDIS_FOCUSED: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HDITEMA {
     pub mask: super::UINT,
     pub cxy: i32,
@@ -921,13 +945,19 @@ pub struct HDITEMA {
     pub pvFilter: *mut core::ffi::c_void,
     pub state: super::UINT,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for HDITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(target_arch = "x86")]
 pub const HDITEMA_V1_SIZE: u32 = 28;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const HDITEMA_V1_SIZE: u64 = 40;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HDITEMW {
     pub mask: super::UINT,
     pub cxy: i32,
@@ -941,6 +971,12 @@ pub struct HDITEMW {
     pub r#type: super::UINT,
     pub pvFilter: *mut core::ffi::c_void,
     pub state: super::UINT,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for HDITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(target_arch = "x86")]
 pub const HDITEMW_V1_SIZE: u32 = 28;
@@ -963,10 +999,16 @@ pub const HDI_TEXT: i32 = 2;
 pub const HDI_WIDTH: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HDLAYOUT {
     pub prc: *mut super::RECT,
     pub pwpos: *mut super::WINDOWPOS,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for HDLAYOUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HDM_CLEARFILTER: i32 = 4632;
 pub const HDM_CREATEDRAGIMAGE: i32 = 4624;
@@ -1185,7 +1227,7 @@ pub const ILS_SATURATE: i32 = 4;
 pub const ILS_SHADOW: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEINFO {
     pub hbmImage: super::HBITMAP,
     pub hbmMask: super::HBITMAP,
@@ -1193,9 +1235,15 @@ pub struct IMAGEINFO {
     pub Unused2: i32,
     pub rcImage: super::RECT,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for IMAGEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGELISTDRAWPARAMS {
     pub cbSize: super::DWORD,
     pub himl: HIMAGELIST,
@@ -1214,6 +1262,12 @@ pub struct IMAGELISTDRAWPARAMS {
     pub fState: super::DWORD,
     pub Frame: super::DWORD,
     pub crEffect: super::COLORREF,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for IMAGELISTDRAWPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(target_arch = "x86")]
 pub const IMAGELISTDRAWPARAMS_V3_SIZE: u32 = 56;
@@ -1588,7 +1642,7 @@ pub const LVBKIF_STYLE_TILE: i32 = 16;
 pub const LVBKIF_TYPE_WATERMARK: i32 = 268435456;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LVBKIMAGEA {
     pub ulFlags: super::ULONG,
     pub hbm: super::HBITMAP,
@@ -1597,9 +1651,15 @@ pub struct LVBKIMAGEA {
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for LVBKIMAGEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LVBKIMAGEW {
     pub ulFlags: super::ULONG,
     pub hbm: super::HBITMAP,
@@ -1607,6 +1667,12 @@ pub struct LVBKIMAGEW {
     pub cchImageMax: super::UINT,
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for LVBKIMAGEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LVCDI_GROUP: i32 = 1;
 pub const LVCDI_ITEM: i32 = 0;
@@ -1866,11 +1932,17 @@ pub const LVIF_TEXT: i32 = 1;
 pub const LVIM_AFTER: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct LVINSERTGROUPSORTED {
     pub pfnGroupCompare: PFNLVGROUPCOMPARE,
     pub pvData: *mut core::ffi::c_void,
     pub lvGroup: LVGROUP,
+}
+#[cfg(feature = "shared")]
+impl Default for LVINSERTGROUPSORTED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1895,7 +1967,7 @@ pub const LVIS_SELECTED: i32 = 2;
 pub const LVIS_STATEIMAGEMASK: i32 = 61440;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LVITEMA {
     pub mask: super::UINT,
     pub iItem: i32,
@@ -1913,6 +1985,12 @@ pub struct LVITEMA {
     pub piColFmt: *mut i32,
     pub iGroup: i32,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for LVITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(target_arch = "x86")]
 pub const LVITEMA_V1_SIZE: u32 = 36;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1929,7 +2007,7 @@ pub struct LVITEMINDEX {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LVITEMW {
     pub mask: super::UINT,
     pub iItem: i32,
@@ -1946,6 +2024,12 @@ pub struct LVITEMW {
     pub puColumns: super::PUINT,
     pub piColFmt: *mut i32,
     pub iGroup: i32,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for LVITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(target_arch = "x86")]
 pub const LVITEMW_V1_SIZE: u32 = 36;
@@ -2254,13 +2338,19 @@ pub const LVS_TYPEMASK: i32 = 3;
 pub const LVS_TYPESTYLEMASK: i32 = 64512;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LVTILEINFO {
     pub cbSize: super::UINT,
     pub iItem: i32,
     pub cColumns: super::UINT,
     pub puColumns: super::PUINT,
     pub piColFmt: *mut i32,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for LVTILEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(target_arch = "x86")]
 pub const LVTILEINFO_V5_SIZE: u32 = 16;
@@ -2543,7 +2633,7 @@ pub struct NMCOMBOBOXEXW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMCUSTOMDRAW {
     pub hdr: super::NMHDR,
     pub dwDrawStage: super::DWORD,
@@ -2552,6 +2642,12 @@ pub struct NMCUSTOMDRAW {
     pub dwItemSpec: super::DWORD_PTR,
     pub uItemState: super::UINT,
     pub lItemlParam: super::LPARAM,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMCUSTOMDRAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
@@ -2564,7 +2660,7 @@ pub struct NMCUSTOMSPLITRECTINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMCUSTOMTEXT {
     pub hdr: super::NMHDR,
     pub hDC: super::HDC,
@@ -2573,6 +2669,12 @@ pub struct NMCUSTOMTEXT {
     pub lpRect: super::LPRECT,
     pub uFormat: super::UINT,
     pub fLink: windows_core::BOOL,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMCUSTOMTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
@@ -2668,12 +2770,18 @@ pub struct NMDATETIMEWMKEYDOWNW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMDAYSTATE {
     pub nmhdr: super::NMHDR,
     pub stStart: super::SYSTEMTIME,
     pub cDayState: i32,
     pub prgDayState: LPMONTHDAYSTATE,
+}
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMDAYSTATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
@@ -2709,21 +2817,33 @@ pub struct NMHDFILTERBTNCLICK {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMHEADERA {
     pub hdr: super::NMHDR,
     pub iItem: i32,
     pub iButton: i32,
     pub pitem: *mut HDITEMA,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMHEADERA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMHEADERW {
     pub hdr: super::NMHDR,
     pub iItem: i32,
     pub iButton: i32,
     pub pitem: *mut HDITEMW,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMHEADERW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
@@ -2919,7 +3039,7 @@ pub struct NMMOUSE {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMOBJECTNOTIFY {
     pub hdr: super::NMHDR,
     pub iItem: i32,
@@ -2927,6 +3047,12 @@ pub struct NMOBJECTNOTIFY {
     pub pObject: *mut core::ffi::c_void,
     pub hResult: windows_core::HRESULT,
     pub dwFlags: super::DWORD,
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMOBJECTNOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
@@ -3039,7 +3165,7 @@ pub struct NMSELCHANGE {
 pub type NMSELECT = NMSELCHANGE;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTBCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub hbrMonoDither: super::HBRUSH,
@@ -3055,6 +3181,12 @@ pub struct NMTBCUSTOMDRAW {
     pub nStringBkMode: i32,
     pub nHLStringBkMode: i32,
     pub iListGap: i32,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMTBCUSTOMDRAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
@@ -3111,7 +3243,7 @@ pub struct NMTBHOTITEM {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTBRESTORE {
     pub hdr: super::NMHDR,
     pub pData: *mut super::DWORD,
@@ -3122,9 +3254,15 @@ pub struct NMTBRESTORE {
     pub cbBytesPerRecord: i32,
     pub tbButton: TBBUTTON,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMTBRESTORE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTBSAVE {
     pub hdr: super::NMHDR,
     pub pData: *mut super::DWORD,
@@ -3133,6 +3271,12 @@ pub struct NMTBSAVE {
     pub iItem: i32,
     pub cButtons: i32,
     pub tbButton: TBBUTTON,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMTBSAVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
@@ -3166,10 +3310,16 @@ pub struct NMTOOLBARW {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTOOLTIPSCREATED {
     pub hdr: super::NMHDR,
     pub hwndToolTips: super::HWND,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMTOOLTIPSCREATED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
@@ -3254,7 +3404,7 @@ pub const NMTTDISPINFO_V1_SIZE: u32 = 104;
 pub const NMTTDISPINFO_V1_SIZE: u64 = 124;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTVASYNCDRAW {
     pub hdr: super::NMHDR,
     pub pimldp: *mut IMAGELISTDRAWPARAMS,
@@ -3263,6 +3413,12 @@ pub struct NMTVASYNCDRAW {
     pub lParam: super::LPARAM,
     pub dwRetFlags: super::DWORD,
     pub iRetImageIndex: i32,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMTVASYNCDRAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
@@ -3307,7 +3463,7 @@ pub struct NMTVDISPINFOW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTVGETINFOTIPA {
     pub hdr: super::NMHDR,
     pub pszText: windows_core::PSTR,
@@ -3315,9 +3471,15 @@ pub struct NMTVGETINFOTIPA {
     pub hItem: HTREEITEM,
     pub lParam: super::LPARAM,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMTVGETINFOTIPA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTVGETINFOTIPW {
     pub hdr: super::NMHDR,
     pub pszText: windows_core::PWSTR,
@@ -3325,9 +3487,15 @@ pub struct NMTVGETINFOTIPW {
     pub hItem: HTREEITEM,
     pub lParam: super::LPARAM,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMTVGETINFOTIPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTVITEMCHANGE {
     pub hdr: super::NMHDR,
     pub uChanged: super::UINT,
@@ -3335,6 +3503,12 @@ pub struct NMTVITEMCHANGE {
     pub uStateNew: super::UINT,
     pub uStateOld: super::UINT,
     pub lParam: super::LPARAM,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMTVITEMCHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
@@ -3346,12 +3520,18 @@ pub struct NMTVKEYDOWN {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTVSTATEIMAGECHANGING {
     pub hdr: super::NMHDR,
     pub hti: HTREEITEM,
     pub iOldStateImageIndex: i32,
     pub iNewStateImageIndex: i32,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for NMTVSTATEIMAGECHANGING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
@@ -3656,7 +3836,7 @@ pub const RB_SHOWBAND: i32 = 1059;
 pub const RB_SIZETORECT: i32 = 1047;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REBARBANDINFOA {
     pub cbSize: super::UINT,
     pub fMask: super::UINT,
@@ -3681,6 +3861,12 @@ pub struct REBARBANDINFOA {
     pub rcChevronLocation: super::RECT,
     pub uChevronState: super::UINT,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for REBARBANDINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(target_arch = "x86")]
 pub const REBARBANDINFOA_V3_SIZE: u32 = 56;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3691,7 +3877,7 @@ pub const REBARBANDINFOA_V6_SIZE: u32 = 80;
 pub const REBARBANDINFOA_V6_SIZE: u64 = 108;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REBARBANDINFOW {
     pub cbSize: super::UINT,
     pub fMask: super::UINT,
@@ -3716,6 +3902,12 @@ pub struct REBARBANDINFOW {
     pub rcChevronLocation: super::RECT,
     pub uChevronState: super::UINT,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for REBARBANDINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(target_arch = "x86")]
 pub const REBARBANDINFOW_V3_SIZE: u32 = 56;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3737,11 +3929,17 @@ pub const REBARCLASSNAMEA: windows_core::PCSTR = windows_core::s!("ReBarWindow32
 pub const REBARCLASSNAMEW: windows_core::PCWSTR = windows_core::w!("ReBarWindow32");
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REBARINFO {
     pub cbSize: super::UINT,
     pub fMask: super::UINT,
     pub himl: HIMAGELIST,
+}
+#[cfg(feature = "shared")]
+impl Default for REBARINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SBARS_SIZEGRIP: i32 = 256;
 pub const SBARS_TOOLTIPS: i32 = 2048;
@@ -3877,10 +4075,16 @@ pub type TASKDIALOG_MESSAGES = i32;
 pub type TASKDIALOG_NOTIFICATIONS = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TBADDBITMAP {
     pub hInst: super::HINSTANCE,
     pub nID: super::UINT_PTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for TBADDBITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TBBF_LARGE: i32 = 1;
 #[repr(C)]
@@ -4076,7 +4280,7 @@ pub const TBN_WRAPACCELERATOR: u32 = 4294966570;
 pub const TBN_WRAPHOTITEM: u32 = 4294966572;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TBREPLACEBITMAP {
     pub hInstOld: super::HINSTANCE,
     pub nIDOld: super::UINT_PTR,
@@ -4084,21 +4288,39 @@ pub struct TBREPLACEBITMAP {
     pub nIDNew: super::UINT_PTR,
     pub nButtons: i32,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for TBREPLACEBITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TBSAVEPARAMSA {
     pub hkr: super::HKEY,
     pub pszSubKey: windows_core::PCSTR,
     pub pszValueName: windows_core::PCSTR,
 }
+#[cfg(feature = "minwindef")]
+impl Default for TBSAVEPARAMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TBSAVEPARAMSW {
     pub hkr: super::HKEY,
     pub pszSubKey: windows_core::PCWSTR,
     pub pszValueName: windows_core::PCWSTR,
+}
+#[cfg(feature = "minwindef")]
+impl Default for TBSAVEPARAMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TBSTATE_CHECKED: i32 = 1;
 pub const TBSTATE_ELLIPSES: i32 = 64;
@@ -4487,28 +4709,46 @@ pub const TTF_TRACK: i32 = 32;
 pub const TTF_TRANSPARENT: i32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTGETTITLE {
     pub dwSize: super::DWORD,
     pub uTitleBitmap: super::UINT,
     pub cch: super::UINT,
     pub pszTitle: *mut super::WCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for TTGETTITLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTHITTESTINFOA {
     pub hwnd: super::HWND,
     pub pt: super::POINT,
     pub ti: TTTOOLINFOA,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for TTHITTESTINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTHITTESTINFOW {
     pub hwnd: super::HWND,
     pub pt: super::POINT,
     pub ti: TTTOOLINFOW,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for TTHITTESTINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TTI_ERROR: i32 = 3;
 pub const TTI_ERROR_LARGE: i32 = 6;
@@ -4593,7 +4833,7 @@ pub const TTS_NOPREFIX: i32 = 2;
 pub const TTS_USEVISUALSTYLE: i32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTTOOLINFOA {
     pub cbSize: super::UINT,
     pub uFlags: super::UINT,
@@ -4604,6 +4844,12 @@ pub struct TTTOOLINFOA {
     pub lpszText: windows_core::PSTR,
     pub lParam: super::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for TTTOOLINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(target_arch = "x86")]
 pub const TTTOOLINFOA_V1_SIZE: u32 = 40;
@@ -4619,7 +4865,7 @@ pub const TTTOOLINFOA_V3_SIZE: u32 = 48;
 pub const TTTOOLINFOA_V3_SIZE: u64 = 72;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTTOOLINFOW {
     pub cbSize: super::UINT,
     pub uFlags: super::UINT,
@@ -4630,6 +4876,12 @@ pub struct TTTOOLINFOW {
     pub lpszText: windows_core::PWSTR,
     pub lParam: super::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for TTTOOLINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(target_arch = "x86")]
 pub const TTTOOLINFOW_V1_SIZE: u32 = 40;
@@ -4658,11 +4910,17 @@ pub const TVE_EXPANDPARTIAL: i32 = 16384;
 pub const TVE_TOGGLE: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TVGETITEMPARTRECTINFO {
     pub hti: HTREEITEM,
     pub prc: *mut super::RECT,
     pub partID: TVITEMPART,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for TVGETITEMPARTRECTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TVGIPR_BUTTON: TVITEMPART = 1;
 pub const TVGN_CARET: i32 = 9;
@@ -4679,11 +4937,17 @@ pub const TVGN_PREVIOUSVISIBLE: i32 = 7;
 pub const TVGN_ROOT: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TVHITTESTINFO {
     pub pt: super::POINT,
     pub flags: super::UINT,
     pub hItem: HTREEITEM,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for TVHITTESTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TVHT_ABOVE: i32 = 256;
 pub const TVHT_BELOW: i32 = 512;
@@ -4789,7 +5053,7 @@ pub const TVIS_STATEIMAGEMASK: i32 = 61440;
 pub const TVIS_USERMASK: i32 = 61440;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TVITEMA {
     pub mask: super::UINT,
     pub hItem: HTREEITEM,
@@ -4802,11 +5066,17 @@ pub struct TVITEMA {
     pub cChildren: i32,
     pub lParam: super::LPARAM,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for TVITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type TVITEMEX = TVITEMEXA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TVITEMEXA {
     pub mask: super::UINT,
     pub hItem: HTREEITEM,
@@ -4824,9 +5094,15 @@ pub struct TVITEMEXA {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for TVITEMEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TVITEMEXW {
     pub mask: super::UINT,
     pub hItem: HTREEITEM,
@@ -4844,10 +5120,16 @@ pub struct TVITEMEXW {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for TVITEMEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type TVITEMPART = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TVITEMW {
     pub mask: super::UINT,
     pub hItem: HTREEITEM,
@@ -4859,6 +5141,12 @@ pub struct TVITEMW {
     pub iSelectedImage: i32,
     pub cChildren: i32,
     pub lParam: super::LPARAM,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for TVITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TVI_FIRST: HTREEITEM = -65535 as _;
 pub const TVI_LAST: HTREEITEM = -65534 as _;
@@ -4982,11 +5270,17 @@ pub const TVSIL_STATE: i32 = 2;
 pub const TVSI_NOSINGLEEXPAND: i32 = 32768;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct TVSORTCB {
     pub hParent: HTREEITEM,
     pub lpfnCompare: PFNTVCOMPARE,
     pub lParam: super::LPARAM,
+}
+#[cfg(feature = "minwindef")]
+impl Default for TVSORTCB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TVS_CHECKBOXES: i32 = 256;
 pub const TVS_DISABLEDRAGDROP: i32 = 16;

@@ -1,0 +1,34 @@
+//! --filter Test --full
+#[win32]
+mod Test {
+    type Pointer = *mut u8;
+    type Alias = Pointer;
+
+    struct PointerDefault {
+        raw: *mut void,
+        alias: Alias,
+        constant: *const void,
+    }
+
+    struct MutableHandle {
+        Value: *mut void,
+    }
+
+    struct ConstHandle {
+        Value: *const void,
+    }
+
+    struct HandleDefault {
+        mutable: MutableHandle,
+        constant: ConstHandle,
+    }
+
+    struct InterfaceDefault {
+        object: IObject,
+    }
+
+    #[guid(auto)]
+    interface IObject {
+        fn Method(&self);
+    }
+}

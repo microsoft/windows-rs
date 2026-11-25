@@ -46,11 +46,17 @@ pub struct AUDIT_OBJECT_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_OBJECT_TYPES {
     pub Count: super::USHORT,
     pub Flags: super::USHORT,
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
+}
+#[cfg(feature = "shared")]
+impl Default for AUDIT_OBJECT_TYPES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -102,12 +108,18 @@ impl Default for AUDIT_PARAM_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_PARAMS {
     pub Length: super::ULONG,
     pub Flags: super::DWORD,
     pub Count: super::USHORT,
     pub Parameters: *mut AUDIT_PARAM,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for AUDIT_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type AUDIT_PARAM_TYPE = i32;
 pub const AUDIT_TYPE_LEGACY: i32 = 1;

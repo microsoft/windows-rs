@@ -9,9 +9,14 @@ pub type LPSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
 pub type LPVOID = *mut core::ffi::c_void;
 pub type PCWSTR = *const u16;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: DWORD,
     pub lpSecurityDescriptor: LPVOID,
     pub bInheritHandle: BOOL,
+}
+impl Default for SECURITY_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

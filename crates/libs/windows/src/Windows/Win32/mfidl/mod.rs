@@ -12624,7 +12624,7 @@ pub const MEDIASINK_REQUIRE_REFERENCE_MEDIATYPE: i32 = 32;
 pub type MFAudioConstriction = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub cbTotalFileSize: super::QWORD,
     pub cbPlayableDataSize: super::QWORD,
@@ -12634,6 +12634,12 @@ pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub qwExtraBufferingTimeDuringSeek: super::QWORD,
     pub qwPlayDuration: super::QWORD,
     pub dRate: f32,
+}
+#[cfg(feature = "shared")]
+impl Default for MFBYTESTREAM_BUFFERING_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MFCLOCK_CHARACTERISTICS_FLAGS = i32;
 pub const MFCLOCK_CHARACTERISTICS_FLAG_ALWAYS_RUNNING: MFCLOCK_CHARACTERISTICS_FLAGS = 4;
@@ -12790,11 +12796,17 @@ pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     pub Action: MFPOLICYMANAGER_ACTION,
     pub pbTicket: *mut super::BYTE,
     pub cbTicket: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -12826,11 +12838,17 @@ pub const MFMEDIASOURCE_HAS_SLOW_SEEK: MFMEDIASOURCE_CHARACTERISTICS = 8;
 pub const MFMEDIASOURCE_IS_LIVE: MFMEDIASOURCE_CHARACTERISTICS = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFMediaKeyStatus {
     pub pbKeyId: *mut super::BYTE,
     pub cbKeyId: super::UINT,
     pub eMediaKeyStatus: MF_MEDIAKEY_STATUS,
+}
+#[cfg(feature = "shared")]
+impl Default for MFMediaKeyStatus {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MFNETSOURCE_ACCELERATEDSTREAMINGDURATION: windows_core::GUID = windows_core::GUID::from_u128(0x3cb1f277_0505_4c5d_ae71_0a556344efa1);
 pub const MFNETSOURCE_AUTORECONNECTLIMIT: windows_core::GUID = windows_core::GUID::from_u128(0x3cb1f27a_0505_4c5d_ae71_0a556344efa1);
@@ -13043,11 +13061,17 @@ pub const MFRATE_FORWARD: MFRATE_DIRECTION = 0;
 pub const MFRATE_REVERSE: MFRATE_DIRECTION = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFRR_COMPONENTS {
     pub dwRRInfoVersion: super::DWORD,
     pub dwRRComponents: super::DWORD,
     pub pRRComponents: PMFRR_COMPONENT_HASH_INFO,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MFRR_COMPONENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -13147,7 +13171,7 @@ impl Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFT_REGISTRATION_INFO {
     pub clsid: super::CLSID,
     pub guidCategory: windows_core::GUID,
@@ -13157,6 +13181,12 @@ pub struct MFT_REGISTRATION_INFO {
     pub pInTypes: *mut super::MFT_REGISTER_TYPE_INFO,
     pub cOutTypes: super::DWORD,
     pub pOutTypes: *mut super::MFT_REGISTER_TYPE_INFO,
+}
+#[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "shared"))]
+impl Default for MFT_REGISTRATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MFTranscodeContainerType_3GP: windows_core::GUID = windows_core::GUID::from_u128(0x34c50167_4472_4f34_9ea0_c49fbacf037d);
 pub const MFTranscodeContainerType_AC3: windows_core::GUID = windows_core::GUID::from_u128(0x6d8d91c3_8c91_4ed1_8742_8c347d5b44d0);

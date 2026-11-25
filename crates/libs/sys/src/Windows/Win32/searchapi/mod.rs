@@ -1,11 +1,17 @@
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AUTHENTICATION_INFO {
     pub dwSize: super::DWORD,
     pub atAuthenticationType: AUTH_TYPE,
     pub pcwszUser: windows_sys::core::PCWSTR,
     pub pcwszPassword: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for AUTHENTICATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type AUTH_TYPE = i32;
 pub const CATALOG_PAUSED_REASON_DELAYED_RECOVERY: CatalogPausedReason = 7;
@@ -52,13 +58,19 @@ pub struct INCREMENTAL_ACCESS_INFO {
 pub type ITEMID = i32;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ITEM_INFO {
     pub dwSize: super::DWORD,
     pub pcwszFromEMail: windows_sys::core::PCWSTR,
     pub pcwszApplicationName: windows_sys::core::PCWSTR,
     pub pcwszCatalogName: windows_sys::core::PCWSTR,
     pub pcwszContentClass: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for ITEM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PRIORITIZE_FLAGS = i32;
 pub const PRIORITIZE_FLAG_IGNOREFAILURECOUNT: tagPRIORITIZE_FLAGS = 2;
@@ -74,7 +86,7 @@ pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = 0;
 pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PROXY_INFO {
     pub dwSize: super::DWORD,
     pub pcwszUserAgent: windows_sys::core::PCWSTR,
@@ -83,6 +95,12 @@ pub struct PROXY_INFO {
     pub dwPortNumber: super::DWORD,
     pub pcwszProxyName: windows_sys::core::PCWSTR,
     pub pcwszBypassList: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for PROXY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ROWSETEVENT_ITEMSTATE = i32;
 pub const ROWSETEVENT_ITEMSTATE_INROWSET: ROWSETEVENT_ITEMSTATE = 1;
@@ -120,13 +138,19 @@ pub const SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = 2;
 pub const SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SEARCH_ITEM_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
     pub Priority: SEARCH_NOTIFICATION_PRIORITY,
     pub pUserData: *mut super::BLOB,
     pub lpwszURL: windows_sys::core::PWSTR,
     pub lpwszOldURL: windows_sys::core::PWSTR,
+}
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for SEARCH_ITEM_CHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -136,12 +160,17 @@ pub struct SEARCH_ITEM_INDEXING_STATUS {
     pub hrIndexingStatus: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SEARCH_ITEM_PERSISTENT_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
     pub URL: windows_sys::core::PWSTR,
     pub OldURL: windows_sys::core::PWSTR,
     pub Priority: SEARCH_NOTIFICATION_PRIORITY,
+}
+impl Default for SEARCH_ITEM_PERSISTENT_CHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SEARCH_KIND_OF_CHANGE = i32;
 pub const SEARCH_NATURAL_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 2;

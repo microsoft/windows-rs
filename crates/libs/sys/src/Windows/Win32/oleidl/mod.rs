@@ -91,13 +91,19 @@ pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = 4;
 pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = 3;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct OLEINPLACEFRAMEINFO {
     pub cb: super::UINT,
     pub fMDIApp: windows_sys::core::BOOL,
     pub hwndFrame: super::HWND,
     pub haccel: super::HACCEL,
     pub cAccelEntries: super::UINT,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for OLEINPLACEFRAMEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type OLELINKBIND = i32;
 pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = 1;
@@ -146,12 +152,18 @@ pub const OLEUPDATE_ALWAYS: OLEUPDATE = 1;
 pub const OLEUPDATE_ONCALL: OLEUPDATE = 3;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct OLEVERB {
     pub lVerb: super::LONG,
     pub lpszVerbName: super::LPOLESTR,
     pub fuFlags: super::DWORD,
     pub grfAttribs: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for OLEVERB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type OLEVERBATTRIB = i32;
 pub const OLEVERBATTRIB_NEVERDIRTIES: OLEVERBATTRIB = 1;

@@ -336,7 +336,7 @@ pub struct MIB_IPMCAST_OIF_STATS_LH {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPMCAST_OIF_STATS_W2K {
     pub dwOutIfIndex: super::DWORD,
     pub dwNextHopAddr: super::DWORD,
@@ -346,14 +346,26 @@ pub struct MIB_IPMCAST_OIF_STATS_W2K {
     pub ulOutPackets: super::ULONG,
     pub ulOutDiscards: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MIB_IPMCAST_OIF_STATS_W2K {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPMCAST_OIF_W2K {
     pub dwOutIfIndex: super::DWORD,
     pub dwNextHopAddr: super::DWORD,
     pub pvReserved: super::PVOID,
     pub dwReserved: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MIB_IPMCAST_OIF_W2K {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

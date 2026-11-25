@@ -183,12 +183,18 @@ windows_link::link!("kernel32.dll" "system" fn TlsSetValue(dwtlsindex : super::D
 windows_link::link!("kernel32.dll" "system" fn UpdateProcThreadAttribute(lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST, dwflags : super::DWORD, attribute : super::DWORD_PTR, lpvalue : super::PVOID, cbsize : super::SIZE_T, lppreviousvalue : super::PVOID, lpreturnsize : super::PSIZE_T) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct APC_CALLBACK_DATA {
     pub Parameter: super::ULONG_PTR,
     pub ContextRecord: super::PCONTEXT,
     pub Reserved0: super::ULONG_PTR,
     pub Reserved1: super::ULONG_PTR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for APC_CALLBACK_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -242,12 +248,18 @@ pub type PPROC_THREAD_ATTRIBUTE_LIST = *mut _PROC_THREAD_ATTRIBUTE_LIST;
 pub const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_INFORMATION {
     pub hProcess: super::HANDLE,
     pub hThread: super::HANDLE,
     pub dwProcessId: super::DWORD,
     pub dwThreadId: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PROCESS_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PROCESS_INFORMATION_CLASS = i32;
 #[repr(C)]
@@ -317,7 +329,7 @@ pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = 1;
 pub type STARTUPINFO = STARTUPINFOA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct STARTUPINFOA {
     pub cb: super::DWORD,
     pub lpReserved: windows_sys::core::PSTR,
@@ -338,9 +350,15 @@ pub struct STARTUPINFOA {
     pub hStdOutput: super::HANDLE,
     pub hStdError: super::HANDLE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for STARTUPINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct STARTUPINFOW {
     pub cb: super::DWORD,
     pub lpReserved: windows_sys::core::PWSTR,
@@ -360,6 +378,12 @@ pub struct STARTUPINFOW {
     pub hStdInput: super::HANDLE,
     pub hStdOutput: super::HANDLE,
     pub hStdError: super::HANDLE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for STARTUPINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type THREAD_INFORMATION_CLASS = i32;
 pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: i32 = 1;

@@ -539,12 +539,18 @@ impl Default for IP_ADDRESS_STRING {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IP_ADDR_STRING {
     pub Next: *mut Self,
     pub IpAddress: IP_ADDRESS_STRING,
     pub IpMask: IP_MASK_STRING,
     pub Context: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for IP_ADDR_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "nldef")]
 pub type IP_DAD_STATE = super::NL_DAD_STATE;
@@ -566,12 +572,18 @@ pub type IP_MASK_STRING = IP_ADDRESS_STRING;
 pub type IP_PER_ADAPTER_INFO = IP_PER_ADAPTER_INFO_W2KSP1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IP_PER_ADAPTER_INFO_W2KSP1 {
     pub AutoconfigEnabled: super::UINT,
     pub AutoconfigActive: super::UINT,
     pub CurrentDnsServer: PIP_ADDR_STRING,
     pub DnsServerList: IP_ADDR_STRING,
+}
+#[cfg(feature = "shared")]
+impl Default for IP_PER_ADAPTER_INFO_W2KSP1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "nldef")]
 pub type IP_PREFIX_ORIGIN = super::NL_PREFIX_ORIGIN;

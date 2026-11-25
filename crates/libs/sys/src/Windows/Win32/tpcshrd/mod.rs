@@ -6,13 +6,19 @@ pub const MAX_PACKET_BUTTON_COUNT: i32 = 32;
 pub const MAX_PACKET_PROPERTY_COUNT: i32 = 32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PACKET_DESCRIPTION {
     pub cbPacketSize: super::ULONG,
     pub cPacketProperties: super::ULONG,
     pub pPacketProperties: *mut PACKET_PROPERTY,
     pub cButtons: super::ULONG,
     pub pguidButtons: *mut windows_sys::core::GUID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PACKET_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]

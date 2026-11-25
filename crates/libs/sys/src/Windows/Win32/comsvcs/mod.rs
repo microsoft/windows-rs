@@ -72,7 +72,7 @@ pub struct ApplicationProcessStatistics {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: windows_sys::core::GUID,
     pub ApplicationIdPrimaryApplication: windows_sys::core::GUID,
@@ -84,9 +84,15 @@ pub struct ApplicationProcessSummary {
     pub IsPaused: windows_sys::core::BOOL,
     pub IsRecycled: windows_sys::core::BOOL,
 }
+#[cfg(feature = "shared")]
+impl Default for ApplicationProcessSummary {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ApplicationSummary {
     pub ApplicationInstanceId: windows_sys::core::GUID,
     pub PartitionId: windows_sys::core::GUID,
@@ -95,6 +101,12 @@ pub struct ApplicationSummary {
     pub ApplicationName: windows_sys::core::PWSTR,
     pub NumTrackedComponents: super::ULONG,
     pub NumComponentInstances: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for ApplicationSummary {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ByotServerEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
@@ -112,7 +124,7 @@ pub struct CLSIDDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLSIDDATA2 {
     pub m_clsid: super::CLSID,
     pub m_appid: windows_sys::core::GUID,
@@ -128,11 +140,17 @@ pub struct CLSIDDATA2 {
     pub m_cCallsCompleted: super::DWORD,
     pub m_cCallsFailed: super::DWORD,
 }
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+impl Default for CLSIDDATA2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const COMEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 pub type COMPLUS_APPTYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: super::DWORD,
     pub dwPid: super::DWORD,
@@ -141,6 +159,12 @@ pub struct COMSVCSEVENTINFO {
     pub perfCount: super::LONGLONG,
     pub guidApp: windows_sys::core::GUID,
     pub sMachineName: super::LPOLESTR,
+}
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for COMSVCSEVENTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRMClerk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
 pub type CRMFLAGS = i32;
@@ -235,7 +259,7 @@ pub struct ComponentStatistics {
 }
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ComponentSummary {
     pub ApplicationInstanceId: windows_sys::core::GUID,
     pub PartitionId: windows_sys::core::GUID,
@@ -243,6 +267,12 @@ pub struct ComponentSummary {
     pub Clsid: super::CLSID,
     pub ClassName: windows_sys::core::PWSTR,
     pub ApplicationName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "guiddef")]
+impl Default for ComponentSummary {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]

@@ -46,10 +46,16 @@ impl DXCoreAdapterPreference {
 }
 #[repr(C)]
 #[cfg(feature = "stdint")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXCoreAdapterProcessSetQueryInput {
     pub arraySize: super::uint32_t,
     pub processIds: *mut super::uint32_t,
+}
+#[cfg(feature = "stdint")]
+impl Default for DXCoreAdapterProcessSetQueryInput {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "stdint")]
@@ -100,11 +106,17 @@ impl DXCoreAdapterState {
 }
 #[repr(C)]
 #[cfg(feature = "stdint")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXCoreEngineNamePropertyInput {
     pub adapterEngineIndex: DXCoreAdapterEngineIndex,
     pub engineNameLength: super::uint32_t,
     pub engineName: *mut u16,
+}
+#[cfg(feature = "stdint")]
+impl Default for DXCoreEngineNamePropertyInput {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "stdint")]

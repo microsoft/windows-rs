@@ -195,10 +195,16 @@ pub const DNS_DOH_POLICY_NOT_CONFIGURED: i32 = 4;
 pub const DNS_DOH_POLICY_REQUIRED: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_DOH_SERVER_SETTINGS {
     pub Template: windows_sys::core::PWSTR,
     pub Flags: super::ULONG64,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_DOH_SERVER_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE: i32 = 2;
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: i32 = 1;
@@ -209,11 +215,17 @@ pub const DNS_DOT_AUTO_UPGRADE_SERVER: i32 = 4;
 pub const DNS_DOT_POLICY_BLOCK: i32 = 256;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_DOT_SERVER_SETTINGS {
     pub Hostname: windows_sys::core::PWSTR,
     pub Flags: super::ULONG64,
     pub Port: super::USHORT,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_DOT_SERVER_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_DOT_SERVER_SETTINGS_ENABLE: i32 = 1;
 pub const DNS_DOT_SERVER_SETTINGS_ENABLE_AUTO: i32 = 8;
@@ -230,7 +242,7 @@ pub const DNS_ENCRYPTION_POLICY_NOT_CONFIGURED: i32 = 4;
 pub const DNS_ENCRYPTION_POLICY_REQUIRED: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_INTERFACE_SETTINGS {
     pub Version: super::ULONG,
     pub Flags: super::ULONG64,
@@ -243,9 +255,15 @@ pub struct DNS_INTERFACE_SETTINGS {
     pub QueryAdapterName: super::ULONG,
     pub ProfileNameServer: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_INTERFACE_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_INTERFACE_SETTINGS3 {
     pub Version: super::ULONG,
     pub Flags: super::ULONG64,
@@ -264,9 +282,15 @@ pub struct DNS_INTERFACE_SETTINGS3 {
     pub cProfileServerProperties: super::ULONG,
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_INTERFACE_SETTINGS3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_INTERFACE_SETTINGS4 {
     pub Version: super::ULONG,
     pub Flags: super::ULONG64,
@@ -286,13 +310,25 @@ pub struct DNS_INTERFACE_SETTINGS4 {
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
     pub EncryptedDnsAdapterFlags: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_INTERFACE_SETTINGS4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_INTERFACE_SETTINGS_EX {
     pub SettingsV1: DNS_INTERFACE_SETTINGS,
     pub DisableUnconstrainedQueries: super::ULONG,
     pub SupplementalSearchList: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_INTERFACE_SETTINGS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_INTERFACE_SETTINGS_VERSION1: i32 = 1;
 pub const DNS_INTERFACE_SETTINGS_VERSION2: i32 = 2;
@@ -330,7 +366,7 @@ impl Default for DNS_SERVER_PROPERTY_TYPES {
 pub const DNS_SERVER_PROPERTY_VERSION1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SETTINGS {
     pub Version: super::ULONG,
     pub Flags: super::ULONG64,
@@ -338,9 +374,15 @@ pub struct DNS_SETTINGS {
     pub Domain: windows_sys::core::PWSTR,
     pub SearchList: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DNS_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DNS_SETTINGS2 {
     pub Version: super::ULONG,
     pub Flags: super::ULONG64,
@@ -348,6 +390,12 @@ pub struct DNS_SETTINGS2 {
     pub Domain: windows_sys::core::PWSTR,
     pub SearchList: windows_sys::core::PWSTR,
     pub SettingFlags: super::ULONG64,
+}
+#[cfg(feature = "shared")]
+impl Default for DNS_SETTINGS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_SETTINGS_ENABLE_LLMNR: i32 = 128;
 pub const DNS_SETTINGS_QUERY_ADAPTER_NAME: i32 = 256;

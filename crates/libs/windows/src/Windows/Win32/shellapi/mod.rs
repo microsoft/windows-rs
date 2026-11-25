@@ -518,7 +518,7 @@ pub const ABS_AUTOHIDE: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct APPBARDATA {
     pub cbSize: super::DWORD,
     pub hWnd: super::HWND,
@@ -527,10 +527,17 @@ pub struct APPBARDATA {
     pub rc: super::RECT,
     pub lParam: super::LPARAM,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for APPBARDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPBARDATA {
     pub cbSize: super::DWORD,
     pub hWnd: super::HWND,
@@ -538,6 +545,13 @@ pub struct APPBARDATA {
     pub uEdge: super::UINT,
     pub rc: super::RECT,
     pub lParam: super::LPARAM,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for APPBARDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ASSOCCLASS = i32;
 pub const ASSOCCLASS_APP_KEY: ASSOCCLASS = 5;
@@ -555,27 +569,41 @@ pub const ASSOCCLASS_SYSTEM_STR: ASSOCCLASS = 7;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::HKEY,
     pub pszClass: windows_core::PCWSTR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "minwindef")]
+impl Default for ASSOCIATIONELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::HKEY,
     pub pszClass: windows_core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "minwindef")]
+impl Default for ASSOCIATIONELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type DRAGINFO = DRAGINFOA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRAGINFOA {
     pub uSize: super::UINT,
     pub pt: super::POINT,
@@ -583,21 +611,35 @@ pub struct DRAGINFOA {
     pub lpFileList: super::PZZSTR,
     pub grfKeyState: super::DWORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for DRAGINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRAGINFOA {
     pub uSize: super::UINT,
     pub pt: super::POINT,
     pub fNC: windows_core::BOOL,
     pub lpFileList: super::PZZSTR,
     pub grfKeyState: super::DWORD,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for DRAGINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRAGINFOW {
     pub uSize: super::UINT,
     pub pt: super::POINT,
@@ -605,16 +647,30 @@ pub struct DRAGINFOW {
     pub lpFileList: super::PZZWSTR,
     pub grfKeyState: super::DWORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for DRAGINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRAGINFOW {
     pub uSize: super::UINT,
     pub pt: super::POINT,
     pub fNC: windows_core::BOOL,
     pub lpFileList: super::PZZWSTR,
     pub grfKeyState: super::DWORD,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for DRAGINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FILEOP_FLAGS = u16;
 pub const FOF_ALLOWUNDO: i32 = 64;
@@ -680,11 +736,17 @@ pub const NCM_GETALLOWTYPE: i32 = 1027;
 pub const NCM_SETALLOWTYPE: i32 = 1026;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NC_ADDRESS {
     pub pAddrInfo: *mut NET_ADDRESS_INFO_,
     pub PortNumber: super::USHORT,
     pub PrefixLength: super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for NC_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -953,22 +1015,36 @@ pub const NOTIFYICONDATA_V3_SIZE: super::LONG = 0x208_u32 as _;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: super::DWORD,
     pub hWnd: super::HWND,
     pub uID: super::UINT,
     pub guidItem: windows_core::GUID,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for NOTIFYICONIDENTIFIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: super::DWORD,
     pub hWnd: super::HWND,
     pub uID: super::UINT,
     pub guidItem: windows_core::GUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for NOTIFYICONIDENTIFIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NOTIFYICON_VERSION: i32 = 3;
 pub const NOTIFYICON_VERSION_4: i32 = 4;
@@ -1101,7 +1177,7 @@ pub const SE_ERR_SHARE: i32 = 26;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: super::DWORD,
     pub fMask: super::ULONG,
@@ -1117,10 +1193,17 @@ pub struct SHCREATEPROCESSINFOW {
     pub lpStartupInfo: super::LPSTARTUPINFOW,
     pub lpProcessInformation: super::LPPROCESS_INFORMATION,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for SHCREATEPROCESSINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: super::DWORD,
     pub fMask: super::ULONG,
@@ -1135,6 +1218,13 @@ pub struct SHCREATEPROCESSINFOW {
     pub dwCreationFlags: super::DWORD,
     pub lpStartupInfo: super::LPSTARTUPINFOW,
     pub lpProcessInformation: super::LPPROCESS_INFORMATION,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for SHCREATEPROCESSINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type SHELLEXECUTEINFO = SHELLEXECUTEINFOA;
@@ -1392,7 +1482,7 @@ pub type SHFILEOPSTRUCT = SHFILEOPSTRUCTA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::HWND,
     pub wFunc: super::UINT,
@@ -1403,10 +1493,17 @@ pub struct SHFILEOPSTRUCTA {
     pub hNameMappings: super::LPVOID,
     pub lpszProgressTitle: windows_core::PCSTR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for SHFILEOPSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::HWND,
     pub wFunc: super::UINT,
@@ -1416,11 +1513,18 @@ pub struct SHFILEOPSTRUCTA {
     pub fAnyOperationsAborted: windows_core::BOOL,
     pub hNameMappings: super::LPVOID,
     pub lpszProgressTitle: windows_core::PCSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for SHFILEOPSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::HWND,
     pub wFunc: super::UINT,
@@ -1431,10 +1535,17 @@ pub struct SHFILEOPSTRUCTW {
     pub hNameMappings: super::LPVOID,
     pub lpszProgressTitle: windows_core::PCWSTR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for SHFILEOPSTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::HWND,
     pub wFunc: super::UINT,
@@ -1444,6 +1555,13 @@ pub struct SHFILEOPSTRUCTW {
     pub fAnyOperationsAborted: windows_core::BOOL,
     pub hNameMappings: super::LPVOID,
     pub lpszProgressTitle: windows_core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for SHFILEOPSTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SHGFI_ADDOVERLAYS: i32 = 32;
 pub const SHGFI_ATTRIBUTES: i32 = 2048;

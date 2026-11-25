@@ -878,7 +878,7 @@ pub const DEBUG_PROC_DESC_WITH_ARCHITECTURE: i32 = 128;
 pub const DEBUG_PROC_DESC_WITH_PACKAGEFAMILY: i32 = 64;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub StreamType: super::ULONG,
     pub Flags: super::ULONG,
@@ -886,6 +886,12 @@ pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub Buffer: super::PVOID,
     pub BufferSize: super::ULONG,
     pub BufferUsed: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DEBUG_READ_USER_MINIDUMP_STREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEBUG_REGISTERS_ALL: i32 = 7;
 pub const DEBUG_REGISTERS_DEFAULT: i32 = 0;

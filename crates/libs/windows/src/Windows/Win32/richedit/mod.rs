@@ -443,12 +443,18 @@ pub struct ENDCOMPOSITIONNOTIFY {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
     pub hDrop: super::HANDLE,
     pub cp: super::LONG,
     pub fProtected: windows_core::BOOL,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
+impl Default for ENDROPFILES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
@@ -462,10 +468,16 @@ pub struct ENLINK {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: *mut i8,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for ENLOWFIRTF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ENM_CHANGE: i32 = 1;
 pub const ENM_CLIPFORMAT: i32 = 128;
@@ -586,13 +598,19 @@ pub struct FINDTEXTW {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FORMATRANGE {
     pub hdc: super::HDC,
     pub hdcTarget: super::HDC,
     pub rc: super::RECT,
     pub rcPage: super::RECT,
     pub chrg: CHARRANGE,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for FORMATRANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GCMF_GRIPPER: i32 = 1;
 pub const GCMF_MOUSEMENU: i32 = 8192;
@@ -603,22 +621,34 @@ pub const GCM_RIGHTMOUSEDROP: i32 = 32768;
 pub const GCM_TOUCHMENU: i32 = 16384;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
     pub dwFlags: super::DWORD,
     pub pt: super::POINT,
     pub pvReserved: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for GETCONTEXTMENUEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GETTEXTEX {
     pub cb: super::DWORD,
     pub flags: super::DWORD,
     pub codepage: super::UINT,
     pub lpDefaultChar: windows_core::PCSTR,
     pub lpUsedDefChar: super::LPBOOL,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for GETTEXTEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
@@ -714,11 +744,17 @@ pub struct MSGFILTER {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: super::LONG,
     pub pcpPositions: *mut super::LONG,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for OBJECTPOSITIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OLEOP_DOVERB: i32 = 1;
 #[repr(C, packed(4))]

@@ -41,11 +41,17 @@ pub const DefaultStyleTrigger: BaseValueSource = 6;
 pub const E_UNKNOWNTYPE: windows_core::HRESULT = windows_core::HRESULT(0x802B0028_u32 as _);
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EnumType {
     pub Name: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub ValueInts: *mut super::SAFEARRAY,
     pub ValueStrings: *mut super::SAFEARRAY,
+}
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
+impl Default for EnumType {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ErrorInvalidResource: VisualElementState = 2;
 pub const ErrorResolved: VisualElementState = 0;

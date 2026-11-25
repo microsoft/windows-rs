@@ -8,7 +8,7 @@ windows_link::link!("netapi32.dll" "system" fn NetScheduleJobEnum(servername : w
 windows_link::link!("netapi32.dll" "system" fn NetScheduleJobGetInfo(servername : windows_sys::core::PCWSTR, jobid : super::DWORD, pointertobuffer : *mut super::LPBYTE) -> super::DWORD);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AT_ENUM {
     pub JobId: super::DWORD,
     pub JobTime: super::DWORD_PTR,
@@ -17,15 +17,27 @@ pub struct AT_ENUM {
     pub Flags: super::UCHAR,
     pub Command: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for AT_ENUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AT_INFO {
     pub JobTime: super::DWORD_PTR,
     pub DaysOfMonth: super::DWORD,
     pub DaysOfWeek: super::UCHAR,
     pub Flags: super::UCHAR,
     pub Command: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for AT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const JOB_ADD_CURRENT_DATE: i32 = 8;
 pub const JOB_EXEC_ERROR: i32 = 2;

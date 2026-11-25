@@ -19,7 +19,7 @@ pub const PERF_COUNTER_COUNTER: i32 = 272696320;
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: super::DWORD,
     pub CounterNameTitleIndex: super::DWORD,
@@ -31,6 +31,13 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterType: super::DWORD,
     pub CounterSize: super::DWORD,
     pub CounterOffset: super::DWORD,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for PERF_COUNTER_DEFINITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]

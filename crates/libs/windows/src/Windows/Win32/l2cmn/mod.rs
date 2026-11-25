@@ -3,13 +3,19 @@ pub const L2_NOTIFICATION_CODE_PUBLIC_BEGIN: i32 = 0;
 pub const L2_NOTIFICATION_CODE_V2_BEGIN: i32 = 4096;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct L2_NOTIFICATION_DATA {
     pub NotificationSource: super::DWORD,
     pub NotificationCode: super::DWORD,
     pub InterfaceGuid: windows_core::GUID,
     pub dwDataSize: super::DWORD,
     pub pData: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for L2_NOTIFICATION_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const L2_NOTIFICATION_SOURCE_ALL: i32 = 65535;
 pub const L2_NOTIFICATION_SOURCE_DOT3_AUTO_CONFIG: i32 = 1;

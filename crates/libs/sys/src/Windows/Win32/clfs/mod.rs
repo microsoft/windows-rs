@@ -314,10 +314,16 @@ impl Default for CLS_SCAN_CONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLS_WRITE_ENTRY {
     pub Buffer: super::PVOID,
     pub ByteLength: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CLS_WRITE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const ClfsClientRecord: super::UCHAR = 3;

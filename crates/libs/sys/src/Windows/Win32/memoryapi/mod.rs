@@ -219,10 +219,16 @@ impl Default for WIN32_MEMORY_PARTITION_INFORMATION {
 pub type WIN32_MEMORY_PARTITION_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WIN32_MEMORY_RANGE_ENTRY {
     pub VirtualAddress: super::PVOID,
     pub NumberOfBytes: super::SIZE_T,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WIN32_MEMORY_RANGE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]

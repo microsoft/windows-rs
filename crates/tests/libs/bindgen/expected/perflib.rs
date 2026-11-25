@@ -50,7 +50,7 @@ pub type PERF_MEM_ALLOC =
     Option<unsafe extern "system" fn(allocsize: SIZE_T, pcontext: LPVOID) -> LPVOID>;
 pub type PERF_MEM_FREE = Option<unsafe extern "system" fn(pbuffer: LPVOID, pcontext: LPVOID)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct PERF_PROVIDER_CONTEXT {
     pub ContextSize: DWORD,
     pub Reserved: DWORD,
@@ -58,6 +58,11 @@ pub struct PERF_PROVIDER_CONTEXT {
     pub MemAllocRoutine: PERF_MEM_ALLOC,
     pub MemFreeRoutine: PERF_MEM_FREE,
     pub pMemContext: LPVOID,
+}
+impl Default for PERF_PROVIDER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PPERF_COUNTER_IDENTIFIER = *mut PERF_COUNTER_IDENTIFIER;
 pub type PVOID = *mut core::ffi::c_void;

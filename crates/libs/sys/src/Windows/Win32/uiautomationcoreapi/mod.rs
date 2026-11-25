@@ -592,11 +592,16 @@ pub const UIA_IAFP_UNWRAP_BRIDGE: i32 = 1;
 pub const UIA_PFIA_DEFAULT: i32 = 0;
 pub const UIA_PFIA_UNWRAP_BRIDGE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UiaAndOrCondition {
     pub ConditionType: ConditionType,
     pub ppConditions: *mut *mut UiaCondition,
     pub cConditions: i32,
+}
+impl Default for UiaAndOrCondition {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const UiaAppendRuntimeId: i32 = 3;
 #[repr(C)]
@@ -609,7 +614,7 @@ pub struct UiaAsyncContentLoadedEventArgs {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "uiautomationclient", feature = "uiautomationcore"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UiaCacheRequest {
     pub pViewCondition: *mut UiaCondition,
     pub Scope: super::TreeScope,
@@ -619,14 +624,26 @@ pub struct UiaCacheRequest {
     pub cPatterns: i32,
     pub automationElementMode: super::AutomationElementMode,
 }
+#[cfg(all(feature = "shared", feature = "uiautomationclient", feature = "uiautomationcore"))]
+impl Default for UiaCacheRequest {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "uiautomationcore", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UiaChangesEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub EventIdCount: i32,
     pub pUiaChanges: *mut super::UiaChangeInfo,
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "uiautomationcore", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for UiaChangesEventArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -642,18 +659,28 @@ pub struct UiaEventArgs {
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::SAFEARRAY, ptreestructure: windows_sys::core::BSTR)>;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UiaFindParams {
     pub MaxDepth: i32,
     pub FindFirst: windows_sys::core::BOOL,
     pub ExcludeRoot: windows_sys::core::BOOL,
     pub pFindCondition: *mut UiaCondition,
 }
+impl Default for UiaFindParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UiaNotCondition {
     pub ConditionType: ConditionType,
     pub pCondition: *mut UiaCondition,
+}
+impl Default for UiaNotCondition {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -691,7 +718,7 @@ pub type UiaProviderCallback = Option<unsafe extern "system" fn(hwnd: super::HWN
 pub const UiaRootObjectId: i32 = -25;
 #[repr(C)]
 #[cfg(feature = "uiautomationcore")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UiaStructureChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
@@ -699,22 +726,39 @@ pub struct UiaStructureChangedEventArgs {
     pub pRuntimeId: *mut i32,
     pub cRuntimeIdLen: i32,
 }
+#[cfg(feature = "uiautomationcore")]
+impl Default for UiaStructureChangedEventArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "shared", feature = "uiautomationcore", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UiaTextEditTextChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub TextEditChangeType: super::TextEditChangeType,
     pub pTextChange: *mut super::SAFEARRAY,
 }
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "uiautomationcore", feature = "winnt"))]
+impl Default for UiaTextEditTextChangedEventArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UiaWindowClosedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub pRuntimeId: *mut i32,
     pub cRuntimeIdLen: i32,
+}
+impl Default for UiaWindowClosedEventArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const Value_IsReadOnly_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb090f30_e24c_4799_a705_0d247bc037f8);
 pub const Value_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17faad9e_c877_475b_b933_77332779b637);

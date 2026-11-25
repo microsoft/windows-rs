@@ -96,10 +96,16 @@ pub const MQCERT_REGISTER_ALWAYS: i32 = 1;
 pub const MQCERT_REGISTER_IF_NOT_EXIST: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MQCOLUMNSET {
     pub cCol: super::ULONG,
     pub aCol: *mut super::PROPID,
+}
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+impl Default for MQCOLUMNSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MQCONN_BIND_SOCKET_FAILURE: MQConnectionState = -2147483645;
 pub const MQCONN_CONNECT_SOCKET_FAILURE: MQConnectionState = -2147483644;
@@ -121,21 +127,33 @@ pub const MQCONN_UNKNOWN_FAILURE: MQConnectionState = -2147483648;
 pub type MQConnectionState = i32;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MQMGMTPROPS {
     pub cProp: super::DWORD,
     pub aPropID: *mut MGMTPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for MQMGMTPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MQMSGPROPS {
     pub cProp: super::DWORD,
     pub aPropID: *mut MSGPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for MQMSGPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: super::UCHAR = 5;
@@ -230,12 +248,18 @@ pub const MQMSG_SEND_ROUTE_TO_REPORT_QUEUE: i32 = 1;
 pub const MQMSG_TRACE_NONE: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MQPRIVATEPROPS {
     pub cProp: super::DWORD,
     pub aPropID: *mut QMPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for MQPRIVATEPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -255,28 +279,46 @@ impl Default for MQPROPERTYRESTRICTION {
 pub type MQPROPVARIANT = super::tagPROPVARIANT;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MQQMPROPS {
     pub cProp: super::DWORD,
     pub aPropID: *mut QMPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for MQQMPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MQQUEUEPROPS {
     pub cProp: super::DWORD,
     pub aPropID: *mut QUEUEPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for MQQUEUEPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MQRESTRICTION {
     pub cRes: super::ULONG,
     pub paPropRes: *mut MQPROPERTYRESTRICTION,
+}
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for MQRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: i32 = 262144;
 pub const MQSEC_DELETE_JOURNAL_MESSAGE: i32 = 8;
@@ -303,10 +345,16 @@ pub struct MQSORTKEY {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MQSORTSET {
     pub cCol: super::ULONG,
     pub aCol: *mut MQSORTKEY,
+}
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+impl Default for MQSORTSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648;
 pub const MQ_ACTION_PEEK_NEXT: u32 = 2147483649;

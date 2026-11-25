@@ -178,7 +178,7 @@ pub type ADDRESS_FAMILY = u16;
 pub type ADDRINFO = ADDRINFOA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -189,11 +189,17 @@ pub struct ADDRINFOA {
     pub ai_addr: *mut SOCKADDR,
     pub ai_next: *mut Self,
 }
+#[cfg(feature = "shared")]
+impl Default for ADDRINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type ADDRINFOEX = ADDRINFOEXA;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX2A {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -209,9 +215,15 @@ pub struct ADDRINFOEX2A {
     pub ai_version: i32,
     pub ai_fqdn: *mut i8,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for ADDRINFOEX2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX2W {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -227,9 +239,15 @@ pub struct ADDRINFOEX2W {
     pub ai_version: i32,
     pub ai_fqdn: windows_core::PWSTR,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for ADDRINFOEX2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX3 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -246,9 +264,15 @@ pub struct ADDRINFOEX3 {
     pub ai_fqdn: windows_core::PWSTR,
     pub ai_interfaceindex: i32,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for ADDRINFOEX3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX4 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -266,9 +290,15 @@ pub struct ADDRINFOEX4 {
     pub ai_interfaceindex: i32,
     pub ai_resolutionhandle: super::HANDLE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ADDRINFOEX4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX5 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -287,9 +317,15 @@ pub struct ADDRINFOEX5 {
     pub ai_resolutionhandle: super::HANDLE,
     pub ai_ttl: u32,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ADDRINFOEX5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX6 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -311,9 +347,15 @@ pub struct ADDRINFOEX6 {
     pub ai_servers: *mut ADDRINFO_DNS_SERVER,
     pub ai_responseflags: super::ULONG64,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ADDRINFOEX6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX7 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -336,9 +378,15 @@ pub struct ADDRINFOEX7 {
     pub ai_responseflags: super::ULONG64,
     pub ai_extraflags: super::ULONG64,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ADDRINFOEX7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEXA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -352,9 +400,15 @@ pub struct ADDRINFOEXA {
     pub ai_provider: super::LPGUID,
     pub ai_next: *mut Self,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for ADDRINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEXW {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -368,6 +422,12 @@ pub struct ADDRINFOEXW {
     pub ai_provider: super::LPGUID,
     pub ai_next: *mut Self,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for ADDRINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ADDRINFOEX_VERSION_2: i32 = 2;
 pub const ADDRINFOEX_VERSION_3: i32 = 3;
 pub const ADDRINFOEX_VERSION_4: i32 = 4;
@@ -378,7 +438,7 @@ pub const ADDRINFOEX_VERSION_7: i32 = 7;
 pub type ADDRINFOT = ADDRINFOA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOW {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -388,6 +448,12 @@ pub struct ADDRINFOW {
     pub ai_canonname: windows_core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_next: *mut Self,
+}
+#[cfg(feature = "shared")]
+impl Default for ADDRINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1487,10 +1553,16 @@ impl Default for SOCKADDR_IN6_LH_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKADDR_IN6_PAIR {
     pub SourceAddress: PSOCKADDR_IN6,
     pub DestinationAddress: PSOCKADDR_IN6,
+}
+#[cfg(all(feature = "in6addr", feature = "shared"))]
+impl Default for SOCKADDR_IN6_PAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "shared"))]
@@ -1556,10 +1628,16 @@ impl Default for SOCKADDR_STORAGE_XP {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKET_ADDRESS {
     pub lpSockaddr: LPSOCKADDR,
     pub iSockaddrLength: super::INT,
+}
+#[cfg(feature = "shared")]
+impl Default for SOCKET_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1641,10 +1719,16 @@ pub const UDP_RECV_MAX_COALESCED_SIZE: i32 = 3;
 pub const UDP_SEND_MSG_SIZE: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSABUF {
     pub len: super::ULONG,
     pub buf: *mut super::CHAR,
+}
+#[cfg(feature = "shared")]
+impl Default for WSABUF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1656,7 +1740,7 @@ pub struct WSACMSGHDR {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSAMSG {
     pub name: LPSOCKADDR,
     pub namelen: super::INT,
@@ -1664,6 +1748,12 @@ pub struct WSAMSG {
     pub dwBufferCount: super::ULONG,
     pub Control: WSABUF,
     pub dwFlags: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for WSAMSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WSK_SO_BASE: i32 = 16384;
 #[cfg(target_arch = "x86")]

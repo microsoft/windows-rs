@@ -411,7 +411,7 @@ pub struct DATE_TIME {
 pub const DEFAULTQUARSETTING: QuarantineStatus = 5;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCPDS_SERVER {
     pub Version: super::DWORD,
     pub ServerName: windows_sys::core::PWSTR,
@@ -421,17 +421,29 @@ pub struct DHCPDS_SERVER {
     pub DsLocation: windows_sys::core::PWSTR,
     pub DsLocType: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCPDS_SERVER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCPDS_SERVERS {
     pub Flags: super::DWORD,
     pub NumElements: super::DWORD,
     pub Servers: LPDHCPDS_SERVER,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCPDS_SERVERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -455,16 +467,28 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO {
     pub PolicyName: windows_sys::core::PWSTR,
     pub Flags: super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCPV4_FAILOVER_CLIENT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     pub NumElements: super::DWORD,
     pub Clients: *mut LPDHCPV4_FAILOVER_CLIENT_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -489,9 +513,15 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
     pub Flags: super::BYTE,
     pub AddressStateEx: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCPV4_FAILOVER_CLIENT_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6_BIND_ELEMENT {
     pub Flags: super::ULONG,
     pub fBoundToDHCPServer: windows_sys::core::BOOL,
@@ -502,19 +532,37 @@ pub struct DHCPV6_BIND_ELEMENT {
     pub IfIdSize: super::ULONG,
     pub IfId: super::LPBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCPV6_BIND_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6_BIND_ELEMENT_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCPV6_BIND_ELEMENT,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCPV6_BIND_ELEMENT_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6_IP_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_IPV6_ADDRESS,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCPV6_IP_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -534,10 +582,16 @@ pub struct DHCPV6_STATELESS_SCOPE_STATS {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6_STATELESS_STATS {
     pub NumScopes: super::DWORD,
     pub ScopeStats: LPDHCPV6_STATELESS_SCOPE_STATS,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCPV6_STATELESS_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -557,54 +611,90 @@ impl Default for DHCP_ADDR_PATTERN {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTIONS {
     pub Flags: super::DWORD,
     pub NonVendorOptions: LPDHCP_OPTION_ARRAY,
     pub NumVendorOptions: super::DWORD,
     pub VendorOptions: *mut DHCP_ALL_OPTIONS_0,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_ALL_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTIONS_0 {
     pub Option: DHCP_OPTION,
     pub VendorName: windows_sys::core::PWSTR,
     pub ClassName: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_ALL_OPTIONS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTION_VALUES {
     pub Flags: super::DWORD,
     pub NumElements: super::DWORD,
     pub Options: *mut DHCP_ALL_OPTION_VALUES_0,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_ALL_OPTION_VALUES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTION_VALUES_0 {
     pub ClassName: windows_sys::core::PWSTR,
     pub VendorName: windows_sys::core::PWSTR,
     pub IsVendor: windows_sys::core::BOOL,
     pub OptionsArray: LPDHCP_OPTION_VALUE_ARRAY,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_ALL_OPTION_VALUES_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTION_VALUES_PB {
     pub Flags: super::DWORD,
     pub NumElements: super::DWORD,
     pub Options: *mut DHCP_ALL_OPTION_VALUES_PB_0,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_ALL_OPTION_VALUES_PB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
     pub PolicyName: windows_sys::core::PWSTR,
     pub VendorName: windows_sys::core::PWSTR,
     pub IsVendor: windows_sys::core::BOOL,
     pub OptionsArray: LPDHCP_OPTION_VALUE_ARRAY,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_ALL_OPTION_VALUES_PB_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -635,10 +725,16 @@ impl Default for DHCP_ATTRIB_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ATTRIB_ARRAY {
     pub NumElements: super::ULONG,
     pub DhcpAttribs: LPDHCP_ATTRIB,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_ATTRIB_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCP_ATTRIB_BOOL_IS_ADMIN: i32 = 5;
 pub const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: i32 = 4;
@@ -651,14 +747,20 @@ pub const DHCP_ATTRIB_TYPE_ULONG: i32 = 2;
 pub const DHCP_ATTRIB_ULONG_RESTORE_STATUS: i32 = 6;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_BINARY_DATA {
     pub DataLength: super::DWORD,
     pub Data: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_BINARY_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_BIND_ELEMENT {
     pub Flags: super::ULONG,
     pub fBoundToDHCPServer: windows_sys::core::BOOL,
@@ -668,12 +770,24 @@ pub struct DHCP_BIND_ELEMENT {
     pub IfIdSize: super::ULONG,
     pub IfId: super::LPBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_BIND_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_BIND_ELEMENT_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_BIND_ELEMENT,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_BIND_ELEMENT_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -686,7 +800,7 @@ pub struct DHCP_BOOTP_IP_RANGE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO {
     pub ClassName: windows_sys::core::PWSTR,
     pub ClassComment: windows_sys::core::PWSTR,
@@ -695,23 +809,41 @@ pub struct DHCP_CLASS_INFO {
     pub Flags: super::DWORD,
     pub ClassData: super::LPBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLASS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO_ARRAY {
     pub NumElements: super::DWORD,
     pub Classes: LPDHCP_CLASS_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLASS_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO_ARRAY_V6 {
     pub NumElements: super::DWORD,
     pub Classes: LPDHCP_CLASS_INFO_V6,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLASS_INFO_ARRAY_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO_V6 {
     pub ClassName: windows_sys::core::PWSTR,
     pub ClassComment: windows_sys::core::PWSTR,
@@ -721,9 +853,15 @@ pub struct DHCP_CLASS_INFO_V6 {
     pub Flags: super::DWORD,
     pub ClassData: super::LPBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLASS_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -739,16 +877,28 @@ pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
     pub QuarantineCapable: windows_sys::core::BOOL,
     pub FilterStatus: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_FILTER_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     pub NumElements: super::DWORD,
     pub Clients: *mut LPDHCP_CLIENT_FILTER_STATUS_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -758,44 +908,80 @@ pub struct DHCP_CLIENT_INFO {
     pub ClientLeaseExpires: DATE_TIME,
     pub OwnerHost: DHCP_HOST_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY {
     pub NumElements: super::DWORD,
     pub Clients: *mut LPDHCP_CLIENT_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V4 {
     pub NumElements: super::DWORD,
     pub Clients: *mut LPDHCP_CLIENT_INFO_V4,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_ARRAY_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V5 {
     pub NumElements: super::DWORD,
     pub Clients: *mut LPDHCP_CLIENT_INFO_V5,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_ARRAY_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V6 {
     pub NumElements: super::DWORD,
     pub Clients: *mut LPDHCP_CLIENT_INFO_V6,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_ARRAY_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY_VQ {
     pub NumElements: super::DWORD,
     pub Clients: *mut LPDHCP_CLIENT_INFO_VQ,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_ARRAY_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_EX {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -813,16 +999,28 @@ pub struct DHCP_CLIENT_INFO_EX {
     pub PolicyName: windows_sys::core::PWSTR,
     pub Properties: LPDHCP_PROPERTY_ARRAY,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_EX_ARRAY {
     pub NumElements: super::DWORD,
     pub Clients: *mut LPDHCP_CLIENT_INFO_EX,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_EX_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_PB {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -839,16 +1037,28 @@ pub struct DHCP_CLIENT_INFO_PB {
     pub FilterStatus: super::DWORD,
     pub PolicyName: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_PB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_PB_ARRAY {
     pub NumElements: super::DWORD,
     pub Clients: *mut LPDHCP_CLIENT_INFO_PB,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_PB_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_V4 {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -859,9 +1069,15 @@ pub struct DHCP_CLIENT_INFO_V4 {
     pub OwnerHost: DHCP_HOST_INFO,
     pub bClientType: super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_V5 {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -873,9 +1089,15 @@ pub struct DHCP_CLIENT_INFO_V5 {
     pub bClientType: super::BYTE,
     pub AddressState: super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_V6 {
     pub ClientIpAddress: DHCP_IPV6_ADDRESS,
     pub ClientDUID: DHCP_CLIENT_UID,
@@ -887,9 +1109,15 @@ pub struct DHCP_CLIENT_INFO_V6 {
     pub ClientPrefLeaseExpires: DATE_TIME,
     pub OwnerHost: DHCP_HOST_INFO_V6,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_VQ {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -905,6 +1133,12 @@ pub struct DHCP_CLIENT_INFO_VQ {
     pub QuarantineCapable: windows_sys::core::BOOL,
 }
 #[cfg(feature = "shared")]
+impl Default for DHCP_CLIENT_INFO_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "shared")]
 pub type DHCP_CLIENT_UID = DHCP_BINARY_DATA;
 pub const DHCP_ENDPOINT_FLAG_CANT_MODIFY: i32 = 1;
 pub const DHCP_FAILOVER_DELETE_SCOPES: i32 = 1;
@@ -913,7 +1147,7 @@ pub const DHCP_FAILOVER_MAX_NUM_REL: i32 = 31;
 pub type DHCP_FAILOVER_MODE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FAILOVER_RELATIONSHIP {
     pub PrimaryServer: DHCP_IP_ADDRESS,
     pub SecondaryServer: DHCP_IP_ADDRESS,
@@ -930,12 +1164,24 @@ pub struct DHCP_FAILOVER_RELATIONSHIP {
     pub Percentage: super::BYTE,
     pub SharedSecret: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_FAILOVER_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     pub NumElements: super::DWORD,
     pub pRelationships: LPDHCP_FAILOVER_RELATIONSHIP,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DHCP_FAILOVER_SERVER = i32;
 #[repr(C)]
@@ -952,18 +1198,30 @@ pub struct DHCP_FAILOVER_STATISTICS {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FILTER_ADD_INFO {
     pub AddrPatt: DHCP_ADDR_PATTERN,
     pub Comment: windows_sys::core::PWSTR,
     pub ListType: DHCP_FILTER_LIST_TYPE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_FILTER_ADD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FILTER_ENUM_INFO {
     pub NumElements: super::DWORD,
     pub pEnumRecords: LPDHCP_FILTER_RECORD,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_FILTER_ENUM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -974,29 +1232,46 @@ pub struct DHCP_FILTER_GLOBAL_INFO {
 pub type DHCP_FILTER_LIST_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FILTER_RECORD {
     pub AddrPatt: DHCP_ADDR_PATTERN,
     pub Comment: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_FILTER_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCP_FLAGS_DONT_ACCESS_DS: i32 = 1;
 pub const DHCP_FLAGS_DONT_DO_RPC: i32 = 2;
 pub const DHCP_FLAGS_OPTION_IS_VENDOR: i32 = 3;
 pub type DHCP_FORCE_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_HOST_INFO {
     pub IpAddress: DHCP_IP_ADDRESS,
     pub NetBiosName: windows_sys::core::PWSTR,
     pub HostName: windows_sys::core::PWSTR,
 }
+impl Default for DHCP_HOST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_HOST_INFO_V6 {
     pub IpAddress: DHCP_IPV6_ADDRESS,
     pub NetBiosName: windows_sys::core::PWSTR,
     pub HostName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_HOST_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1008,10 +1283,16 @@ pub struct DHCP_IPV6_ADDRESS {
 pub type DHCP_IP_ADDRESS = u32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_IP_ADDRESS,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_IP_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1029,10 +1310,16 @@ pub struct DHCP_IP_RANGE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RANGE_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_IP_RANGE,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_IP_RANGE_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1043,14 +1330,20 @@ pub struct DHCP_IP_RANGE_V6 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RESERVATION {
     pub ReservedIpAddress: DHCP_IP_ADDRESS,
     pub ReservedForClient: *mut DHCP_CLIENT_UID,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_IP_RESERVATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RESERVATION_INFO {
     pub ReservedIpAddress: DHCP_IP_ADDRESS,
     pub ReservedForClient: DHCP_CLIENT_UID,
@@ -1059,26 +1352,44 @@ pub struct DHCP_IP_RESERVATION_INFO {
     pub bAllowedClientTypes: super::BYTE,
     pub fOptionsPresent: super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_IP_RESERVATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RESERVATION_V4 {
     pub ReservedIpAddress: DHCP_IP_ADDRESS,
     pub ReservedForClient: *mut DHCP_CLIENT_UID,
     pub bAllowedClientTypes: super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_IP_RESERVATION_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RESERVATION_V6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedForClient: *mut DHCP_CLIENT_UID,
     pub InterfaceId: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_IP_RESERVATION_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DHCP_MAX_DELAY: i32 = 1000;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_MIB_INFO {
     pub Discovers: super::DWORD,
     pub Offers: super::DWORD,
@@ -1091,9 +1402,15 @@ pub struct DHCP_MIB_INFO {
     pub Scopes: super::DWORD,
     pub ScopeInfo: LPSCOPE_MIB_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_MIB_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_MIB_INFO_V5 {
     pub Discovers: super::DWORD,
     pub Offers: super::DWORD,
@@ -1115,9 +1432,15 @@ pub struct DHCP_MIB_INFO_V5 {
     pub Scopes: super::DWORD,
     pub ScopeInfo: LPSCOPE_MIB_INFO_V5,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_MIB_INFO_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_MIB_INFO_V6 {
     pub Solicits: super::DWORD,
     pub Advertises: super::DWORD,
@@ -1133,9 +1456,15 @@ pub struct DHCP_MIB_INFO_V6 {
     pub Scopes: super::DWORD,
     pub ScopeInfo: LPSCOPE_MIB_INFO_V6,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_MIB_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_MIB_INFO_VQ {
     pub Discovers: super::DWORD,
     pub Offers: super::DWORD,
@@ -1155,10 +1484,16 @@ pub struct DHCP_MIB_INFO_VQ {
     pub Scopes: super::DWORD,
     pub ScopeInfo: LPSCOPE_MIB_INFO_VQ,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_MIB_INFO_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DHCP_MIN_DELAY: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION {
     pub OptionID: DHCP_OPTION_ID,
     pub OptionName: windows_sys::core::PWSTR,
@@ -1166,19 +1501,37 @@ pub struct DHCP_OPTION {
     pub DefaultValue: DHCP_OPTION_DATA,
     pub OptionType: DHCP_OPTION_TYPE,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_OPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_ARRAY {
     pub NumElements: super::DWORD,
     pub Options: LPDHCP_OPTION,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_OPTION_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_DATA {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_OPTION_DATA_ELEMENT,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_OPTION_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1217,10 +1570,16 @@ pub type DHCP_OPTION_DATA_TYPE = i32;
 pub type DHCP_OPTION_ID = u32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_LIST {
     pub NumOptions: super::DWORD,
     pub Options: *mut DHCP_OPTION_VALUE,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_OPTION_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -1290,10 +1649,16 @@ pub struct DHCP_OPTION_VALUE {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_VALUE_ARRAY {
     pub NumElements: super::DWORD,
     pub Values: LPDHCP_OPTION_VALUE,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_OPTION_VALUE_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DHCP_OPT_ENUM_IGNORE_VENDOR: i32 = 1;
 pub const DHCP_OPT_ENUM_USE_CLASSNAME: i32 = 2;
@@ -1323,7 +1688,7 @@ pub struct DHCP_PERF_STATS {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POLICY {
     pub PolicyName: windows_sys::core::PWSTR,
     pub IsGlobalPolicy: windows_sys::core::BOOL,
@@ -1335,16 +1700,28 @@ pub struct DHCP_POLICY {
     pub Description: windows_sys::core::PWSTR,
     pub Enabled: windows_sys::core::BOOL,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POLICY_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_POLICY,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_POLICY_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POLICY_EX {
     pub PolicyName: windows_sys::core::PWSTR,
     pub IsGlobalPolicy: windows_sys::core::BOOL,
@@ -1357,19 +1734,31 @@ pub struct DHCP_POLICY_EX {
     pub Enabled: windows_sys::core::BOOL,
     pub Properties: LPDHCP_PROPERTY_ARRAY,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_POLICY_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POLICY_EX_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_POLICY_EX,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_POLICY_EX_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DHCP_POLICY_FIELDS_TO_UPDATE = i32;
 pub type DHCP_POL_ATTR_TYPE = i32;
 pub type DHCP_POL_COMPARATOR = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POL_COND {
     pub ParentExpr: super::DWORD,
     pub Type: DHCP_POL_ATTR_TYPE,
@@ -1380,12 +1769,24 @@ pub struct DHCP_POL_COND {
     pub Value: super::LPBYTE,
     pub ValueLength: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_POL_COND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POL_COND_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_POL_COND,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_POL_COND_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1396,10 +1797,16 @@ pub struct DHCP_POL_EXPR {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POL_EXPR_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_POL_EXPR,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_POL_EXPR_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DHCP_POL_LOGIC_OPER = i32;
 #[repr(C)]
@@ -1434,19 +1841,31 @@ impl Default for DHCP_PROPERTY__DHCP_PROPERTY_VALUE_UNION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_PROPERTY_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_PROPERTY,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_PROPERTY_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DHCP_PROPERTY_ID = i32;
 pub type DHCP_PROPERTY_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_RESERVATION_INFO_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: *mut LPDHCP_IP_RESERVATION_INFO,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_RESERVATION_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1473,10 +1892,16 @@ pub struct DHCP_SCAN_ITEM {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SCAN_LIST {
     pub NumScanItems: super::DWORD,
     pub ScanItems: *mut DHCP_SCAN_ITEM,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_SCAN_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1536,7 +1961,7 @@ impl Default for DHCP_SEARCH_INFO_V6__DHCP_CLIENT_SEARCH_UNION_V6 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SERVER_CONFIG_INFO {
     pub APIProtocolSupport: super::DWORD,
     pub DatabaseName: windows_sys::core::PWSTR,
@@ -1548,9 +1973,15 @@ pub struct DHCP_SERVER_CONFIG_INFO {
     pub DatabaseCleanupInterval: super::DWORD,
     pub DebugFlag: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_SERVER_CONFIG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SERVER_CONFIG_INFO_V4 {
     pub APIProtocolSupport: super::DWORD,
     pub DatabaseName: windows_sys::core::PWSTR,
@@ -1565,6 +1996,12 @@ pub struct DHCP_SERVER_CONFIG_INFO_V4 {
     pub cbBootTableString: super::DWORD,
     pub wszBootTableString: *mut super::WCHAR,
     pub fAuditLog: windows_sys::core::BOOL,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DHCP_SERVER_CONFIG_INFO_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1582,7 +2019,7 @@ pub struct DHCP_SERVER_CONFIG_INFO_V6 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SERVER_CONFIG_INFO_VQ {
     pub APIProtocolSupport: super::DWORD,
     pub DatabaseName: windows_sys::core::PWSTR,
@@ -1601,15 +2038,26 @@ pub struct DHCP_SERVER_CONFIG_INFO_VQ {
     pub QuarDefFail: super::DWORD,
     pub QuarRuntimeStatus: windows_sys::core::BOOL,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DHCP_SERVER_CONFIG_INFO_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "shared")]
 pub type DHCP_SERVER_INFO = DHCPDS_SERVER;
 #[cfg(feature = "shared")]
 pub type DHCP_SERVER_INFO_ARRAY = DHCPDS_SERVERS;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SERVER_SPECIFIC_STRINGS {
     pub DefaultVendorClassName: windows_sys::core::PWSTR,
     pub DefaultUserClassName: windows_sys::core::PWSTR,
+}
+impl Default for DHCP_SERVER_SPECIFIC_STRINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1727,36 +2175,60 @@ impl Default for DHCP_SUBNET_ELEMENT_DATA_V6__DHCP_SUBNET_ELEMENT_UNION_V6 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_SUBNET_ELEMENT_DATA,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_SUBNET_ELEMENT_DATA_V4,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_SUBNET_ELEMENT_DATA_V5,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     pub NumElements: super::DWORD,
     pub Elements: LPDHCP_SUBNET_ELEMENT_DATA_V6,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DHCP_SUBNET_ELEMENT_TYPE = i32;
 pub type DHCP_SUBNET_ELEMENT_TYPE_V6 = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_INFO {
     pub SubnetAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -1765,9 +2237,14 @@ pub struct DHCP_SUBNET_INFO {
     pub PrimaryHost: DHCP_HOST_INFO,
     pub SubnetState: DHCP_SUBNET_STATE,
 }
+impl Default for DHCP_SUBNET_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_INFO_V6 {
     pub SubnetAddress: DHCP_IPV6_ADDRESS,
     pub Prefix: super::ULONG,
@@ -1777,9 +2254,15 @@ pub struct DHCP_SUBNET_INFO_V6 {
     pub State: super::DWORD,
     pub ScopeId: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_SUBNET_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_INFO_VQ {
     pub SubnetAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -1793,23 +2276,41 @@ pub struct DHCP_SUBNET_INFO_VQ {
     pub Reserved3: super::INT64,
     pub Reserved4: super::INT64,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_SUBNET_INFO_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: i32 = 1;
 pub type DHCP_SUBNET_STATE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUPER_SCOPE_TABLE {
     pub cEntries: super::DWORD,
     pub pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
 }
+#[cfg(feature = "shared")]
+impl Default for DHCP_SUPER_SCOPE_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
     pub SubnetAddress: DHCP_IP_ADDRESS,
     pub SuperScopeNumber: super::DWORD,
     pub NextInSuperScope: super::DWORD,
     pub SuperScopeName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for DHCP_SUPER_SCOPE_TABLE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DNS_FLAG_CLEANUP_EXPIRED: i32 = 4;
 pub const DNS_FLAG_DISABLE_PTR_UPDATE: i32 = 64;

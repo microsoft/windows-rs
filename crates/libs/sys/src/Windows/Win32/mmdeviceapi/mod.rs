@@ -7,12 +7,18 @@ pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: AUDIO_SYSTEMEFFECTS_PROPE
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::LPARAM,
     pub pEndpoint: *mut core::ffi::c_void,
     pub pPnpInterface: *mut core::ffi::c_void,
     pub pPnpDevnode: *mut core::ffi::c_void,
+}
+#[cfg(feature = "minwindef")]
+impl Default for AudioExtensionParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEVICE_STATEMASK_ALL: i32 = 15;
 pub const DEVICE_STATE_ACTIVE: i32 = 1;

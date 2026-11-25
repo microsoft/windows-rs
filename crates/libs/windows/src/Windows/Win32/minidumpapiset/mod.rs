@@ -74,10 +74,16 @@ pub const KernelMinidumpStatusCallback: MINIDUMP_CALLBACK_TYPE = 8;
 pub const LastReservedStream: MINIDUMP_STREAM_TYPE = 65535;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: super::PVOID,
+}
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "verrsrc", feature = "winnt"))]
+impl Default for MINIDUMP_CALLBACK_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "verrsrc", feature = "winnt"))]
 #[cfg(target_arch = "x86")]
@@ -230,13 +236,19 @@ pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
     pub MaxParallelism: super::ULONG,
     pub MaxTransferSize: super::ULONG,
     pub NumaNodeInfoArray: super::PNUMA_NODE_RELATIONSHIP,
     pub NumaNodeInfoArraySize: super::ULONG,
     pub Reserved: super::ULONG,
+}
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+impl Default for MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "basetsd")]
@@ -265,11 +277,17 @@ impl Default for MINIDUMP_EXCEPTION {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: super::DWORD,
     pub ExceptionPointers: super::PEXCEPTION_POINTERS,
     pub ClientPointers: windows_core::BOOL,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MINIDUMP_EXCEPTION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
@@ -410,12 +428,18 @@ pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_IO_CALLBACK {
     pub Handle: super::HANDLE,
     pub Offset: super::ULONG64,
     pub Buffer: super::PVOID,
     pub BufferBytes: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MINIDUMP_IO_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "basetsd")]
@@ -630,7 +654,7 @@ pub struct MINIDUMP_MODULE {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MODULE_CALLBACK {
     pub FullPath: super::PWCHAR,
     pub BaseOfImage: super::ULONG64,
@@ -642,6 +666,12 @@ pub struct MINIDUMP_MODULE_CALLBACK {
     pub SizeOfCvRecord: super::ULONG,
     pub MiscRecord: super::PVOID,
     pub SizeOfMiscRecord: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "verrsrc", feature = "winnt"))]
+impl Default for MINIDUMP_MODULE_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "verrsrc"))]
@@ -1290,23 +1320,35 @@ pub struct MINIDUMP_USER_RECORD {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: super::ULONG32,
     pub BufferSize: super::ULONG,
     pub Buffer: super::PVOID,
 }
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+impl Default for MINIDUMP_USER_STREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: super::ULONG,
     pub UserStreamArray: PMINIDUMP_USER_STREAM,
 }
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+impl Default for MINIDUMP_USER_STREAM_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MINIDUMP_VERSION: i32 = 42899;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Offset: super::ULONG64,
     pub Buffer: super::PVOID,
@@ -1314,13 +1356,25 @@ pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Completed: super::ULONG,
     pub Status: windows_core::HRESULT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MINIDUMP_VM_POST_READ_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
     pub Offset: super::ULONG64,
     pub Buffer: super::PVOID,
     pub Size: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MINIDUMP_VM_PRE_READ_CALLBACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]

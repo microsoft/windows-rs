@@ -48,7 +48,7 @@ pub const XAUDIO2_1024_QUANTUM: i32 = 32768;
 pub const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_BUFFER {
     pub Flags: super::UINT32,
     pub AudioBytes: super::UINT32,
@@ -60,12 +60,24 @@ pub struct XAUDIO2_BUFFER {
     pub LoopCount: super::UINT32,
     pub pContext: *mut core::ffi::c_void,
 }
+#[cfg(feature = "shared")]
+impl Default for XAUDIO2_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_BUFFER_WMA {
     pub pDecodedPacketCumulativeBytes: *const super::UINT32,
     pub PacketCount: super::UINT32,
+}
+#[cfg(feature = "shared")]
+impl Default for XAUDIO2_BUFFER_WMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const XAUDIO2_COMMIT_ALL: i32 = 0;
 pub const XAUDIO2_COMMIT_NOW: i32 = 0;
@@ -93,18 +105,30 @@ pub const XAUDIO2_DLL_A: windows_sys::core::PCSTR = windows_sys::core::s!("xaudi
 pub const XAUDIO2_DLL_W: windows_sys::core::PCWSTR = windows_sys::core::w!("xaudio2_9.dll");
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_EFFECT_CHAIN {
     pub EffectCount: super::UINT32,
     pub pEffectDescriptors: *mut XAUDIO2_EFFECT_DESCRIPTOR,
 }
+#[cfg(feature = "shared")]
+impl Default for XAUDIO2_EFFECT_CHAIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR {
     pub pEffect: *mut core::ffi::c_void,
     pub InitialState: windows_sys::core::BOOL,
     pub OutputChannels: super::UINT32,
+}
+#[cfg(feature = "shared")]
+impl Default for XAUDIO2_EFFECT_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const XAUDIO2_END_OF_STREAM: i32 = 64;
 pub const XAUDIO2_E_DEVICE_INVALIDATED: windows_sys::core::HRESULT = 0x88960004_u32 as _;
@@ -175,10 +199,16 @@ pub const XAUDIO2_QUANTUM_MS: f32 = 10.0;
 pub const XAUDIO2_QUANTUM_NUMERATOR: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_SEND_DESCRIPTOR {
     pub Flags: super::UINT32,
     pub pOutputVoice: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for XAUDIO2_SEND_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const XAUDIO2_SEND_USEFILTER: i32 = 128;
 pub const XAUDIO2_STOP_ENGINE_WHEN_IDLE: i32 = 8192;
@@ -197,17 +227,29 @@ pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: i32 = 256;
 pub const XAUDIO2_VOICE_NOSRC: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_VOICE_SENDS {
     pub SendCount: super::UINT32,
     pub pSends: *mut XAUDIO2_SEND_DESCRIPTOR,
 }
+#[cfg(feature = "shared")]
+impl Default for XAUDIO2_VOICE_SENDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_VOICE_STATE {
     pub pCurrentBufferContext: *mut core::ffi::c_void,
     pub BuffersQueued: super::UINT32,
     pub SamplesPlayed: super::UINT64,
+}
+#[cfg(feature = "shared")]
+impl Default for XAUDIO2_VOICE_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const XAUDIO2_VOICE_USEFILTER: i32 = 8;

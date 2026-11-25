@@ -103,11 +103,16 @@ pub struct TS_SELECTION_ACP {
     pub style: TS_SELECTIONSTYLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct TS_SELECTION_ANCHOR {
     pub paStart: *mut core::ffi::c_void,
     pub paEnd: *mut core::ffi::c_void,
     pub style: TS_SELECTIONSTYLE,
+}
+impl Default for TS_SELECTION_ANCHOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TS_SHIFT_COUNT_HIDDEN: i32 = 1;
 pub const TS_SHIFT_COUNT_ONLY: i32 = 8;

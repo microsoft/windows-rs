@@ -763,7 +763,7 @@ impl IWbemQuery_Vtbl {
 impl windows_core::RuntimeName for IWbemQuery {}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SWbemAnalysisMatrix {
     pub m_uVersion: super::ULONG,
     pub m_uMatrixType: super::ULONG,
@@ -773,14 +773,26 @@ pub struct SWbemAnalysisMatrix {
     pub m_pValues: *mut super::LPVOID,
     pub m_pbTruthTable: *mut windows_core::BOOL,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for SWbemAnalysisMatrix {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SWbemAnalysisMatrixList {
     pub m_uVersion: super::ULONG,
     pub m_uMatrixType: super::ULONG,
     pub m_uNumMatrices: super::ULONG,
     pub m_pMatrices: *mut SWbemAnalysisMatrix,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for SWbemAnalysisMatrixList {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -801,7 +813,7 @@ pub struct SWbemAssocQueryInf {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SWbemQueryQualifiedName {
     pub m_uVersion: super::ULONG,
     pub m_uTokenType: super::ULONG,
@@ -810,6 +822,12 @@ pub struct SWbemQueryQualifiedName {
     pub m_bArraysUsed: windows_core::BOOL,
     pub m_pbArrayElUsed: *mut windows_core::BOOL,
     pub m_puArrayIndex: *mut super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for SWbemQueryQualifiedName {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -831,7 +849,7 @@ impl Default for SWbemRpnConst {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SWbemRpnEncodedQuery {
     pub m_uVersion: super::ULONG,
     pub m_uTokenType: super::ULONG,
@@ -851,6 +869,12 @@ pub struct SWbemRpnEncodedQuery {
     pub m_uOrderByListSize: super::ULONG,
     pub m_ppszOrderByList: *mut windows_core::PCWSTR,
     pub m_uOrderDirectionEl: *mut super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for SWbemRpnEncodedQuery {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

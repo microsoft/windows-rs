@@ -470,7 +470,7 @@ pub const RSOPUnspecified: SETTINGSTATUS = 0;
 pub const RSOP_COMPUTER_ACCESS_DENIED: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wbemcli", feature = "winnt"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RSOP_TARGET {
     pub pwszAccountName: *mut super::WCHAR,
     pub pwszNewSOM: *mut super::WCHAR,
@@ -478,6 +478,12 @@ pub struct RSOP_TARGET {
     pub pRsopToken: PRSOPTOKEN,
     pub pGPOList: PGROUP_POLICY_OBJECT,
     pub pWbemServices: core::mem::ManuallyDrop<Option<super::IWbemServices>>,
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wbemcli", feature = "winnt"))]
+impl Default for RSOP_TARGET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RSOP_TEMPNAMESPACE_EXISTS: i32 = 4;
 pub const RSOP_USER_ACCESS_DENIED: i32 = 1;

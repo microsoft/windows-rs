@@ -377,11 +377,17 @@ pub const GUID_DEVINTERFACE_ZNSDISK: windows_sys::core::GUID = windows_sys::core
 pub type HCATADMIN = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HID_XFER_PACKET {
     pub reportBuffer: super::PUCHAR,
     pub reportBufferLen: ULONG,
     pub reportId: UCHAR,
+}
+#[cfg(feature = "minwindef")]
+impl Default for HID_XFER_PACKET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HINTERNET = *mut core::ffi::c_void;
 pub type HTHEME = *mut core::ffi::c_void;

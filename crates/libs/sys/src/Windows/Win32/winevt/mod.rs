@@ -89,13 +89,19 @@ pub type EVT_RENDER_CONTEXT_FLAGS = i32;
 pub type EVT_RENDER_FLAGS = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct EVT_RPC_LOGIN {
     pub Server: windows_sys::core::PWSTR,
     pub User: windows_sys::core::PWSTR,
     pub Domain: windows_sys::core::PWSTR,
     pub Password: windows_sys::core::PWSTR,
     pub Flags: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for EVT_RPC_LOGIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type EVT_RPC_LOGIN_FLAGS = i32;
 pub type EVT_SEEK_FLAGS = i32;

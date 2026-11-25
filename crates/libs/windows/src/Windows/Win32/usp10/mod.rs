@@ -698,12 +698,17 @@ impl SCRIPT_STATE {
 }
 pub type SCRIPT_STRING_ANALYSIS = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRIPT_TABDEF {
     pub cTabStops: i32,
     pub iScale: i32,
     pub pTabStops: *mut i32,
     pub iTabOrigin: i32,
+}
+impl Default for SCRIPT_TABDEF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SCRIPT_TAG_UNKNOWN: i32 = 0;
 pub const SCRIPT_UNDEFINED: i32 = 0;
@@ -779,10 +784,16 @@ pub const SSA_RTL: i32 = 256;
 pub const SSA_TAB: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TEXTRANGE_PROPERTIES {
     pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,
     pub cotfRecords: i32,
+}
+#[cfg(feature = "shared")]
+impl Default for TEXTRANGE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const UNISCRIBE_OPENTYPE: i32 = 256;
 pub const USP_E_SCRIPT_NOT_IN_FONT: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);

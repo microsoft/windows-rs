@@ -146,9 +146,15 @@ pub const OLEIVERB_SHOW: i32 = -1;
 pub const OLEIVERB_UIACTIVATE: i32 = -4;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct OLESTREAM {
     pub lpstbl: LPOLESTREAMVTBL,
+}
+#[cfg(feature = "shared")]
+impl Default for OLESTREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn(pclsid: super::LPCLSID, szclass: super::LPOLESTR, sztopicname: super::LPOLESTR, szitemname: super::LPOLESTR, szuncname: super::LPOLESTR, linkupdatingoption: super::ULONG, pvcontext: super::PVOID) -> windows_sys::core::HRESULT>;

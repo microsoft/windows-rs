@@ -460,9 +460,15 @@ windows_link::link!("wldap32.dll" "C" fn ldap_value_free_len(vals : *mut *mut be
 pub type BERVAL = berval;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BerElement {
     pub opaque: super::PCHAR,
+}
+#[cfg(feature = "winnt")]
+impl Default for BerElement {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type BerValue = berval;
@@ -568,22 +574,33 @@ impl Default for LDAP_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: *mut i8,
     pub ldapaif_version: i32,
 }
+impl Default for LDAPAPIFeatureInfoA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: super::PWCHAR,
     pub ldapaif_version: i32,
 }
+#[cfg(feature = "winnt")]
+impl Default for LDAPAPIFeatureInfoW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIInfoA {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -592,9 +609,14 @@ pub struct LDAPAPIInfoA {
     pub ldapai_vendor_name: *mut i8,
     pub ldapai_vendor_version: i32,
 }
+impl Default for LDAPAPIInfoA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIInfoW {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -603,46 +625,80 @@ pub struct LDAPAPIInfoW {
     pub ldapai_vendor_name: super::PWCHAR,
     pub ldapai_vendor_version: i32,
 }
+#[cfg(feature = "winnt")]
+impl Default for LDAPAPIInfoW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPControlA {
     pub ldctl_oid: super::PCHAR,
     pub ldctl_value: berval,
     pub ldctl_iscritical: super::BOOLEAN,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for LDAPControlA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPControlA {
     pub ldctl_oid: super::PCHAR,
     pub ldctl_value: berval,
     pub ldctl_iscritical: super::BOOLEAN,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for LDAPControlA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPControlW {
     pub ldctl_oid: super::PWCHAR,
     pub ldctl_value: berval,
     pub ldctl_iscritical: super::BOOLEAN,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for LDAPControlW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPControlW {
     pub ldctl_oid: super::PWCHAR,
     pub ldctl_value: berval,
     pub ldctl_iscritical: super::BOOLEAN,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for LDAPControlW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPMessage {
     pub lm_msgid: super::ULONG,
     pub lm_msgtype: super::ULONG,
@@ -658,10 +714,17 @@ pub struct LDAPMessage {
     pub lm_eom: super::BOOLEAN,
     pub ConnectionReferenced: super::BOOLEAN,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for LDAPMessage {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPMessage {
     pub lm_msgid: super::ULONG,
     pub lm_msgtype: super::ULONG,
@@ -676,6 +739,13 @@ pub struct LDAPMessage {
     pub lm_chased: super::BOOLEAN,
     pub lm_eom: super::BOOLEAN,
     pub ConnectionReferenced: super::BOOLEAN,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for LDAPMessage {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -804,23 +874,35 @@ impl Default for LDAPModW_0 {
 pub type LDAPSearch = ldapsearch;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPSortKeyA {
     pub sk_attrtype: super::PCHAR,
     pub sk_matchruleoid: super::PCHAR,
     pub sk_reverseorder: super::BOOLEAN,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for LDAPSortKeyA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPSortKeyW {
     pub sk_attrtype: super::PWCHAR,
     pub sk_matchruleoid: super::PWCHAR,
     pub sk_reverseorder: super::BOOLEAN,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for LDAPSortKeyW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LDAPVLVInfo {
     pub ldvlv_version: i32,
     pub ldvlv_before_count: super::ULONG,
@@ -830,6 +912,12 @@ pub struct LDAPVLVInfo {
     pub ldvlv_attrvalue: PBERVAL,
     pub ldvlv_context: PBERVAL,
     pub ldvlv_extradata: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for LDAPVLVInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LDAP_ABANDON_CMD: i32 = 80;
 pub const LDAP_ADD_CMD: i32 = 104;
@@ -1132,18 +1220,32 @@ pub type VERIFYSERVERCERT = Option<unsafe extern "C" fn(connection: PLDAP, pserv
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct berval {
     pub bv_len: super::ULONG,
     pub bv_val: super::PCHAR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for berval {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct berval {
     pub bv_len: super::ULONG,
     pub bv_val: super::PCHAR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for berval {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

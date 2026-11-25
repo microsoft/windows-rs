@@ -96,11 +96,17 @@ pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: Option<PENCRYPT
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EFS_CERTIFICATE_BLOB {
     pub dwCertEncodingType: super::DWORD,
     pub cbData: super::DWORD,
     pub pbData: super::PBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for EFS_CERTIFICATE_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -128,10 +134,16 @@ pub struct EFS_ENCRYPTION_STATUS_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EFS_HASH_BLOB {
     pub cbData: super::DWORD,
     pub pbData: super::PBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for EFS_HASH_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -150,18 +162,30 @@ pub const EFS_PFILE_SUBVER_APPX: i32 = 3;
 pub const EFS_PFILE_SUBVER_RMS: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EFS_PIN_BLOB {
     pub cbPadding: super::DWORD,
     pub cbData: super::DWORD,
     pub pbData: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for EFS_PIN_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EFS_RPC_BLOB {
     pub cbData: super::DWORD,
     pub pbData: super::PBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for EFS_RPC_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EFS_SUBVER_UNKNOWN: i32 = 0;
 #[repr(C)]
@@ -173,58 +197,100 @@ pub struct EFS_VERSION_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
     pub dwEfsAccessType: super::DWORD,
     pub pCertificatesAdded: PENCRYPTION_CERTIFICATE_HASH_LIST,
     pub pEncryptionCertificate: PENCRYPTION_CERTIFICATE,
     pub pEfsStreamSignature: PEFS_RPC_BLOB,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE {
     pub cbTotalLength: super::DWORD,
     pub pUserSid: *mut super::SID,
     pub pCertBlob: PEFS_CERTIFICATE_BLOB,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ENCRYPTION_CERTIFICATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_HASH {
     pub cbTotalLength: super::DWORD,
     pub pUserSid: *mut super::SID,
     pub pHash: PEFS_HASH_BLOB,
     pub lpDisplayInformation: windows_core::PWSTR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ENCRYPTION_CERTIFICATE_HASH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
     pub nCert_Hash: super::DWORD,
     pub pUsers: *mut PENCRYPTION_CERTIFICATE_HASH,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_LIST {
     pub nUsers: super::DWORD,
     pub pUsers: *mut PENCRYPTION_CERTIFICATE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ENCRYPTION_CERTIFICATE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_PROTECTOR {
     pub cbTotalLength: super::DWORD,
     pub pUserSid: *mut super::SID,
     pub lpProtectorDescriptor: windows_core::PWSTR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ENCRYPTION_PROTECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_PROTECTOR_LIST {
     pub nProtectors: super::DWORD,
     pub pProtectors: *mut PENCRYPTION_PROTECTOR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ENCRYPTION_PROTECTOR_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MAX_SID_SIZE: i32 = 256;
 #[cfg(feature = "shared")]

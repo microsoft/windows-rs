@@ -29,7 +29,7 @@ pub const RemoteApp: RdpSessionType = 1;
 pub const TS_VC_LISTENER_STATIC_CHANNEL: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTSWindowInfo {
     pub Hwnd: super::HWND,
     pub Height: i32,
@@ -39,5 +39,11 @@ pub struct WTSWindowInfo {
     pub ViewOffsetX: i32,
     pub ViewOffsetY: i32,
     pub Scale: f32,
+}
+#[cfg(feature = "windef")]
+impl Default for WTSWindowInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WTS_PROPERTY_DEFAULT_CONFIG: windows_sys::core::PCWSTR = windows_sys::core::w!("DefaultConfig");

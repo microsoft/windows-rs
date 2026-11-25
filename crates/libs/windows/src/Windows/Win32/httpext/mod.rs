@@ -53,15 +53,21 @@ pub const HSE_APP_FLAG_ISOLATED_OOP: i32 = 1;
 pub const HSE_APP_FLAG_POOLED_OOP: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: *mut super::CHAR,
     pub uHttpSubError: super::USHORT,
     pub fAsync: windows_core::BOOL,
 }
+#[cfg(feature = "shared")]
+impl Default for HSE_CUSTOM_ERROR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pszUrl: windows_core::PWSTR,
     pub pszMethod: windows_core::PSTR,
@@ -70,28 +76,46 @@ pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pEntity: LPHSE_EXEC_URL_ENTITY_INFO,
     pub dwExecUrlFlags: super::DWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for HSE_EXEC_UNICODE_URL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub hImpersonationToken: super::HANDLE,
     pub pszCustomUserName: windows_core::PWSTR,
     pub pszCustomAuthType: windows_core::PSTR,
 }
+#[cfg(feature = "winnt")]
+impl Default for HSE_EXEC_UNICODE_URL_USER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: i32 = 32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
     pub cbAvailable: super::DWORD,
     pub lpbData: super::LPVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for HSE_EXEC_URL_ENTITY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: i32 = 128;
 pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: i32 = 4;
 pub const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_INFO {
     pub pszUrl: windows_core::PSTR,
     pub pszMethod: windows_core::PSTR,
@@ -99,6 +123,12 @@ pub struct HSE_EXEC_URL_INFO {
     pub pUserInfo: LPHSE_EXEC_URL_USER_INFO,
     pub pEntity: LPHSE_EXEC_URL_ENTITY_INFO,
     pub dwExecUrlFlags: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for HSE_EXEC_URL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HSE_EXEC_URL_NO_HEADERS: i32 = 2;
 pub const HSE_EXEC_URL_SSI_CMD: i32 = 64;
@@ -112,11 +142,17 @@ pub struct HSE_EXEC_URL_STATUS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::HANDLE,
     pub pszCustomUserName: windows_core::PSTR,
     pub pszCustomAuthType: windows_core::PSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for HSE_EXEC_URL_USER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HSE_IO_ASYNC: i32 = 2;
 pub const HSE_IO_CACHE_RESPONSE: i32 = 32;
@@ -172,13 +208,19 @@ pub const HSE_REQ_TRANSMIT_FILE: i32 = 1006;
 pub const HSE_REQ_VECTOR_SEND: i32 = 1037;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_RESPONSE_VECTOR {
     pub dwFlags: super::DWORD,
     pub pszStatus: windows_core::PSTR,
     pub pszHeaders: windows_core::PSTR,
     pub nElementCount: super::DWORD,
     pub lpElementArray: LPHSE_VECTOR_ELEMENT,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HSE_RESPONSE_VECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -198,7 +240,7 @@ pub const HSE_TERM_ADVISORY_UNLOAD: i32 = 1;
 pub const HSE_TERM_MUST_UNLOAD: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: PFN_HSE_IO_COMPLETION,
     pub pContext: super::PVOID,
@@ -211,6 +253,12 @@ pub struct HSE_TF_INFO {
     pub pTail: super::PVOID,
     pub TailLength: super::DWORD,
     pub dwFlags: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for HSE_TF_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -272,12 +320,18 @@ impl Default for HSE_URL_MAPEX_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_VECTOR_ELEMENT {
     pub ElementType: super::DWORD,
     pub pvContext: super::PVOID,
     pub cbOffset: super::ULONGLONG,
     pub cbSize: super::ULONGLONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HSE_VECTOR_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: i32 = 1;
 pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: i32 = 0;

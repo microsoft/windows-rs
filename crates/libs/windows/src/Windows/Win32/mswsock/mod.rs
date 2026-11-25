@@ -249,18 +249,30 @@ impl Default for RIO_NOTIFICATION_COMPLETION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_0 {
     pub EventHandle: super::HANDLE,
     pub NotifyReset: windows_core::BOOL,
 }
+#[cfg(feature = "winnt")]
+impl Default for RIO_NOTIFICATION_COMPLETION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_1 {
     pub IocpHandle: super::HANDLE,
     pub CompletionKey: super::PVOID,
     pub Overlapped: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for RIO_NOTIFICATION_COMPLETION_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type RIO_NOTIFICATION_COMPLETION_TYPE = i32;
 pub const SIO_BASE_HANDLE: i32 = 1207959586;
@@ -305,12 +317,18 @@ pub const TP_USE_KERNEL_APC: i32 = 32;
 pub const TP_USE_SYSTEM_THREAD: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSMIT_FILE_BUFFERS {
     pub Head: super::LPVOID,
     pub HeadLength: super::DWORD,
     pub Tail: super::LPVOID,
     pub TailLength: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for TRANSMIT_FILE_BUFFERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -369,11 +387,17 @@ impl Default for WSAPOLLDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winsock2", feature = "ws2"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct WSASENDMSG {
     pub lpMsg: super::LPWSAMSG,
     pub dwFlags: super::DWORD,
     pub lpNumberOfBytesSent: super::LPDWORD,
     pub lpOverlapped: super::LPWSAOVERLAPPED,
     pub lpCompletionRoutine: super::LPWSAOVERLAPPED_COMPLETION_ROUTINE,
+}
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winsock2", feature = "ws2"))]
+impl Default for WSASENDMSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

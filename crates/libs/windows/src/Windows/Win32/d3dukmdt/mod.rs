@@ -1104,10 +1104,15 @@ pub struct D3DDDI_DESTROYPAGINGQUEUE {
     pub hPagingQueue: D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_DOORBELLMAPPING {
     pub CpuVa: *mut core::ffi::c_void,
     pub SecondaryCpuVa: *mut core::ffi::c_void,
+}
+impl Default for D3DDDI_DOORBELLMAPPING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type D3DDDI_DOORBELLSTATUS = i32;
 pub const D3DDDI_DOORBELLSTATUS_CONNECTED: D3DDDI_DOORBELLSTATUS = 0;
@@ -1360,11 +1365,17 @@ impl Default for D3DDDI_GAMMA_RAMP_RGB256x3x16 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
     pub hResource: D3DKMT_HANDLE,
     pub PrivateDriverDataSize: super::UINT,
     pub pPrivateDriverData: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1411,13 +1422,19 @@ pub const D3DDDI_ID_NOTAPPLICABLE: super::UINT = 0;
 pub const D3DDDI_ID_UNINITIALIZED: super::UINT = 4294967295;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_KERNELOVERLAYINFO {
     pub hAllocation: D3DKMT_HANDLE,
     pub DstRect: D3DDDIRECT,
     pub SrcRect: D3DDDIRECT,
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for D3DDDI_KERNELOVERLAYINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1636,11 +1653,17 @@ pub const D3DDDI_OFFER_PRIORITY_NONE: D3DDDI_OFFER_PRIORITY = 0;
 pub const D3DDDI_OFFER_PRIORITY_NORMAL: D3DDDI_OFFER_PRIORITY = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_OPENALLOCATIONINFO {
     pub hAllocation: D3DKMT_HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
     pub PrivateDriverDataSize: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for D3DDDI_OPENALLOCATIONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -2435,7 +2458,7 @@ impl D3DDDI_SEGMENTPREFERENCE2_0_0 {
 pub const D3DDDI_SEMAPHORE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SURFACEINFO {
     pub Width: super::UINT,
     pub Height: super::UINT,
@@ -2443,6 +2466,12 @@ pub struct D3DDDI_SURFACEINFO {
     pub pSysMem: *const core::ffi::c_void,
     pub SysMemPitch: super::UINT,
     pub SysMemSlicePitch: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for D3DDDI_SURFACEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -2550,13 +2579,19 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub Event: super::HANDLE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub InitialFenceValue: super::UINT64,
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
@@ -2564,9 +2599,15 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub EngineAffinity: super::UINT,
     pub Padding: super::UINT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub hAdapter: D3DKMT_HANDLE,
     pub VidPnTargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
@@ -2575,6 +2616,12 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub EngineAffinity: super::UINT,
     pub Padding: super::UINT,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]

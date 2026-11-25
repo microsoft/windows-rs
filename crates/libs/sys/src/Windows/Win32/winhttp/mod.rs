@@ -289,7 +289,7 @@ pub const TAG_WINHTTP_CONNECTION_POLICY_TAG_WWWPT: WINHTTP_CONNECTION_POLICY_TAG
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct URL_COMPONENTS {
     pub dwStructSize: super::DWORD,
     pub lpszScheme: windows_sys::core::PWSTR,
@@ -307,10 +307,17 @@ pub struct URL_COMPONENTS {
     pub lpszExtraInfo: windows_sys::core::PWSTR,
     pub dwExtraInfoLength: super::DWORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for URL_COMPONENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct URL_COMPONENTS {
     pub dwStructSize: super::DWORD,
     pub lpszScheme: windows_sys::core::PWSTR,
@@ -327,6 +334,13 @@ pub struct URL_COMPONENTS {
     pub dwUrlPathLength: super::DWORD,
     pub lpszExtraInfo: windows_sys::core::PWSTR,
     pub dwExtraInfoLength: super::DWORD,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for URL_COMPONENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type URL_COMPONENTSW = URL_COMPONENTS;
@@ -384,7 +398,7 @@ pub const WINHTTP_AUTOPROXY_NO_DIRECTACCESS: i32 = 262144;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_AUTOPROXY_OPTIONS {
     pub dwFlags: super::DWORD,
     pub dwAutoDetectFlags: super::DWORD,
@@ -393,10 +407,17 @@ pub struct WINHTTP_AUTOPROXY_OPTIONS {
     pub dwReserved: super::DWORD,
     pub fAutoLogonIfChallenged: windows_sys::core::BOOL,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for WINHTTP_AUTOPROXY_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_AUTOPROXY_OPTIONS {
     pub dwFlags: super::DWORD,
     pub dwAutoDetectFlags: super::DWORD,
@@ -404,6 +425,13 @@ pub struct WINHTTP_AUTOPROXY_OPTIONS {
     pub lpvReserved: super::LPVOID,
     pub dwReserved: super::DWORD,
     pub fAutoLogonIfChallenged: windows_sys::core::BOOL,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for WINHTTP_AUTOPROXY_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WINHTTP_AUTOPROXY_RUN_INPROCESS: i32 = 65536;
 pub const WINHTTP_AUTOPROXY_RUN_OUTPROCESS_ONLY: i32 = 131072;
@@ -470,7 +498,7 @@ pub const WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE: i32 = 1048576;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CERTIFICATE_INFO {
     pub ftExpiry: super::FILETIME,
     pub ftStart: super::FILETIME,
@@ -480,11 +508,18 @@ pub struct WINHTTP_CERTIFICATE_INFO {
     pub lpszSignatureAlgName: windows_sys::core::PWSTR,
     pub lpszEncryptionAlgName: windows_sys::core::PWSTR,
     pub dwKeySize: super::DWORD,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for WINHTTP_CERTIFICATE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CERTIFICATE_INFO {
     pub ftExpiry: super::FILETIME,
     pub ftStart: super::FILETIME,
@@ -495,6 +530,13 @@ pub struct WINHTTP_CERTIFICATE_INFO {
     pub lpszEncryptionAlgName: windows_sys::core::PWSTR,
     pub dwKeySize: super::DWORD,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for WINHTTP_CERTIFICATE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
@@ -514,34 +556,62 @@ pub struct WINHTTP_CONNECTION_GROUP {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_IFINDEX_ENTRY {
     pub pwszConnectionName: windows_sys::core::PCWSTR,
     pub dwIfIndex: super::DWORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CONNECTION_IFINDEX_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_IFINDEX_ENTRY {
     pub pwszConnectionName: windows_sys::core::PCWSTR,
     pub dwIfIndex: super::DWORD,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CONNECTION_IFINDEX_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_IFINDEX_LIST {
     pub pConnectionIfIndexEntries: *mut WINHTTP_CONNECTION_IFINDEX_ENTRY,
     pub nEntries: super::DWORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CONNECTION_IFINDEX_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_IFINDEX_LIST {
     pub pConnectionIfIndexEntries: *mut WINHTTP_CONNECTION_IFINDEX_ENTRY,
     pub nEntries: super::DWORD,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CONNECTION_IFINDEX_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -566,7 +636,7 @@ pub const WINHTTP_CONNECTION_POLICY_ALLOW_DEFAULT_INTERFACE_SELECTION: i32 = 2;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_POLICY_ENTRY {
     pub pwszHost: windows_sys::core::PCWSTR,
     pub pwszAppId: windows_sys::core::PCWSTR,
@@ -576,10 +646,17 @@ pub struct WINHTTP_CONNECTION_POLICY_ENTRY {
     pub ppwszConnections: *mut windows_sys::core::PCWSTR,
     pub dwPolicyEntryFlags: super::DWORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CONNECTION_POLICY_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_POLICY_ENTRY {
     pub pwszHost: windows_sys::core::PCWSTR,
     pub pwszAppId: windows_sys::core::PCWSTR,
@@ -588,22 +665,43 @@ pub struct WINHTTP_CONNECTION_POLICY_ENTRY {
     pub nConnections: super::DWORD,
     pub ppwszConnections: *mut windows_sys::core::PCWSTR,
     pub dwPolicyEntryFlags: super::DWORD,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CONNECTION_POLICY_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut WINHTTP_CONNECTION_POLICY_ENTRY,
     pub nEntries: super::DWORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CONNECTION_POLICY_ENTRY_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut WINHTTP_CONNECTION_POLICY_ENTRY,
     pub nEntries: super::DWORD,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CONNECTION_POLICY_ENTRY_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WINHTTP_CONNECTION_POLICY_TAG = i32;
 #[repr(C, packed(4))]
@@ -642,7 +740,7 @@ impl Default for WINHTTP_CONNECTION_PROXY_INFO_0 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_PROXY_INFO_0__WINHTTP_CONNECTION_PROXY_INFO_CONFIG {
     pub pwszServer: *mut super::WCHAR,
     pub pwszUsername: *mut super::WCHAR,
@@ -651,14 +749,28 @@ pub struct WINHTTP_CONNECTION_PROXY_INFO_0__WINHTTP_CONNECTION_PROXY_INFO_CONFIG
     pub pwszExtraInfo: *mut super::WCHAR,
     pub Port: super::WORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WINHTTP_CONNECTION_PROXY_INFO_0__WINHTTP_CONNECTION_PROXY_INFO_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_PROXY_INFO_0__WINHTTP_CONNECTION_PROXY_INFO_SCRIPT {
     pub pwszScript: *mut super::WCHAR,
     pub pwszUsername: *mut super::WCHAR,
     pub pwszPassword: *mut super::WCHAR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WINHTTP_CONNECTION_PROXY_INFO_0__WINHTTP_CONNECTION_PROXY_INFO_SCRIPT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -696,7 +808,7 @@ impl Default for WINHTTP_CONNECTION_PROXY_INFO_0 {
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_PROXY_INFO_0__WINHTTP_CONNECTION_PROXY_INFO_CONFIG {
     pub pwszServer: *mut super::WCHAR,
     pub pwszUsername: *mut super::WCHAR,
@@ -705,14 +817,28 @@ pub struct WINHTTP_CONNECTION_PROXY_INFO_0__WINHTTP_CONNECTION_PROXY_INFO_CONFIG
     pub pwszExtraInfo: *mut super::WCHAR,
     pub Port: super::WORD,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WINHTTP_CONNECTION_PROXY_INFO_0__WINHTTP_CONNECTION_PROXY_INFO_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_PROXY_INFO_0__WINHTTP_CONNECTION_PROXY_INFO_SCRIPT {
     pub pwszScript: *mut super::WCHAR,
     pub pwszUsername: *mut super::WCHAR,
     pub pwszPassword: *mut super::WCHAR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WINHTTP_CONNECTION_PROXY_INFO_0__WINHTTP_CONNECTION_PROXY_INFO_SCRIPT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WINHTTP_CONNECTION_PROXY_INFO_CURRENT_VERSION: i32 = 1;
 pub const WINHTTP_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: i32 = 1024;
@@ -739,7 +865,7 @@ pub const WINHTTP_CONNS_PER_SERVER_UNLIMITED: u32 = 4294967295;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CREDS {
     pub lpszUserName: windows_sys::core::PSTR,
     pub lpszPassword: windows_sys::core::PSTR,
@@ -747,11 +873,18 @@ pub struct WINHTTP_CREDS {
     pub dwAuthScheme: super::DWORD,
     pub lpszHostName: windows_sys::core::PSTR,
     pub dwPort: super::DWORD,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CREDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CREDS {
     pub lpszUserName: windows_sys::core::PSTR,
     pub lpszPassword: windows_sys::core::PSTR,
@@ -760,10 +893,17 @@ pub struct WINHTTP_CREDS {
     pub lpszHostName: windows_sys::core::PSTR,
     pub dwPort: super::DWORD,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CREDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CREDS_EX {
     pub lpszUserName: windows_sys::core::PSTR,
     pub lpszPassword: windows_sys::core::PSTR,
@@ -773,10 +913,17 @@ pub struct WINHTTP_CREDS_EX {
     pub dwPort: super::DWORD,
     pub lpszUrl: windows_sys::core::PSTR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CREDS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CREDS_EX {
     pub lpszUserName: windows_sys::core::PSTR,
     pub lpszPassword: windows_sys::core::PSTR,
@@ -786,23 +933,42 @@ pub struct WINHTTP_CREDS_EX {
     pub dwPort: super::DWORD,
     pub lpszUrl: windows_sys::core::PSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_CREDS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
     pub fAutoDetect: windows_sys::core::BOOL,
     pub lpszAutoConfigUrl: windows_sys::core::PWSTR,
     pub lpszProxy: windows_sys::core::PWSTR,
     pub lpszProxyBypass: windows_sys::core::PWSTR,
 }
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
     pub fAutoDetect: windows_sys::core::BOOL,
     pub lpszAutoConfigUrl: windows_sys::core::PWSTR,
     pub lpszProxy: windows_sys::core::PWSTR,
     pub lpszProxyBypass: windows_sys::core::PWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WINHTTP_DECOMPRESSION_FLAG_ALL: i32 = 3;
 pub const WINHTTP_DECOMPRESSION_FLAG_DEFLATE: i32 = 2;
@@ -1072,20 +1238,34 @@ pub const WINHTTP_HEADER_NAME_BY_INDEX: i32 = 0;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_HOST_CONNECTION_GROUP {
     pub pwszHost: windows_sys::core::PCWSTR,
     pub cConnectionGroups: super::ULONG,
     pub pConnectionGroups: PWINHTTP_CONNECTION_GROUP,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_HOST_CONNECTION_GROUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_HOST_CONNECTION_GROUP {
     pub pwszHost: windows_sys::core::PCWSTR,
     pub cConnectionGroups: super::ULONG,
     pub pConnectionGroups: PWINHTTP_CONNECTION_GROUP,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_HOST_CONNECTION_GROUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
@@ -1307,20 +1487,34 @@ pub const WINHTTP_PROXY_DISABLE_SCHEME_NTLM: i32 = 4;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_INFO {
     pub dwAccessType: super::DWORD,
     pub lpszProxy: windows_sys::core::PWSTR,
     pub lpszProxyBypass: windows_sys::core::PWSTR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_PROXY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_INFO {
     pub dwAccessType: super::DWORD,
     pub lpszProxy: windows_sys::core::PWSTR,
     pub lpszProxyBypass: windows_sys::core::PWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_PROXY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type WINHTTP_PROXY_INFOW = WINHTTP_PROXY_INFO;
@@ -1352,23 +1546,37 @@ pub const WINHTTP_PROXY_NOTIFY_CHANGE: i32 = 1;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_RESULT {
     pub cEntries: super::DWORD,
     pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_PROXY_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_RESULT {
     pub cEntries: super::DWORD,
     pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_PROXY_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_RESULT_ENTRY {
     pub fProxy: windows_sys::core::BOOL,
     pub fBypass: windows_sys::core::BOOL,
@@ -1376,10 +1584,17 @@ pub struct WINHTTP_PROXY_RESULT_ENTRY {
     pub pwszProxy: windows_sys::core::PWSTR,
     pub ProxyPort: super::INTERNET_PORT,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_PROXY_RESULT_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_RESULT_ENTRY {
     pub fProxy: windows_sys::core::BOOL,
     pub fBypass: windows_sys::core::BOOL,
@@ -1387,30 +1602,51 @@ pub struct WINHTTP_PROXY_RESULT_ENTRY {
     pub pwszProxy: windows_sys::core::PWSTR,
     pub ProxyPort: super::INTERNET_PORT,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_PROXY_RESULT_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_RESULT_EX {
     pub cEntries: super::DWORD,
     pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
     pub hProxyDetectionHandle: super::HANDLE,
     pub dwProxyInterfaceAffinity: super::DWORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WINHTTP_PROXY_RESULT_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_RESULT_EX {
     pub cEntries: super::DWORD,
     pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
     pub hProxyDetectionHandle: super::HANDLE,
     pub dwProxyInterfaceAffinity: super::DWORD,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WINHTTP_PROXY_RESULT_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS {
     pub dwStructSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -1429,10 +1665,17 @@ pub struct WINHTTP_PROXY_SETTINGS {
     pub cNetworkKeys: super::DWORD,
     pub pNetworkKeys: PWINHTTP_PROXY_NETWORKING_KEY,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for WINHTTP_PROXY_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS {
     pub dwStructSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -1451,10 +1694,17 @@ pub struct WINHTTP_PROXY_SETTINGS {
     pub cNetworkKeys: super::DWORD,
     pub pNetworkKeys: PWINHTTP_PROXY_NETWORKING_KEY,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for WINHTTP_PROXY_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub ullGenerationId: super::ULONGLONG,
     pub ullFlags: super::ULONGLONG,
@@ -1466,10 +1716,17 @@ pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub dwInterfaceIndex: super::DWORD,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_PROXY_SETTINGS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub ullGenerationId: super::ULONGLONG,
     pub ullFlags: super::ULONGLONG,
@@ -1481,23 +1738,44 @@ pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub dwInterfaceIndex: super::DWORD,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_PROXY_SETTINGS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS_PARAM {
     pub ullFlags: super::ULONGLONG,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
     pub pcwszProbeHost: windows_sys::core::PCWSTR,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_PROXY_SETTINGS_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS_PARAM {
     pub ullFlags: super::ULONGLONG,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
     pub pcwszProbeHost: windows_sys::core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_PROXY_SETTINGS_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WINHTTP_PROXY_SETTINGS_TYPE = i32;
 pub const WINHTTP_PROXY_TYPE_AUTO_DETECT: i32 = 8;
@@ -1519,18 +1797,32 @@ pub const WINHTTP_QUERY_CONNECTION_GROUP_FLAG_INSECURE: u64 = 1;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
     pub cHosts: super::ULONG,
     pub pHostConnectionGroups: PWINHTTP_HOST_CONNECTION_GROUP,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
     pub cHosts: super::ULONG,
     pub pHostConnectionGroups: PWINHTTP_HOST_CONNECTION_GROUP,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WINHTTP_QUERY_CONTENT_BASE: i32 = 50;
 pub const WINHTTP_QUERY_CONTENT_DESCRIPTION: i32 = 4;

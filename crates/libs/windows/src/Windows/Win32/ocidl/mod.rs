@@ -82,24 +82,42 @@ pub type ACTIVATEFLAGS = i32;
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CADWORD {
     pub cElems: super::ULONG,
     pub pElems: *mut super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for CADWORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CALPOLESTR {
     pub cElems: super::ULONG,
     pub pElems: *mut super::LPOLESTR,
 }
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for CALPOLESTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUUID {
     pub cElems: super::ULONG,
     pub pElems: *mut windows_core::GUID,
+}
+#[cfg(feature = "shared")]
+impl Default for CAUUID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -110,12 +128,18 @@ pub struct CONNECTDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTROLINFO {
     pub cb: super::ULONG,
     pub hAccel: super::HACCEL,
     pub cAccel: super::USHORT,
     pub dwFlags: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for CONTROLINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CTRLINFO = i32;
 pub const CTRLINFO_EATS_ESCAPE: CTRLINFO = 2;
@@ -4334,7 +4358,7 @@ pub struct POINTF {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROPBAG2 {
     pub dwType: super::DWORD,
     pub vt: super::VARTYPE,
@@ -4342,6 +4366,12 @@ pub struct PROPBAG2 {
     pub dwHint: super::DWORD,
     pub pstrName: super::LPOLESTR,
     pub clsid: super::CLSID,
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for PROPBAG2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PROPBAG2_TYPE = i32;
 pub const PROPBAG2_TYPE_DATA: PROPBAG2_TYPE = 1;
@@ -4353,7 +4383,7 @@ pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = 0;
 pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = 2;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROPPAGEINFO {
     pub cb: super::ULONG,
     pub pszTitle: super::LPOLESTR,
@@ -4362,13 +4392,19 @@ pub struct PROPPAGEINFO {
     pub pszHelpFile: super::LPOLESTR,
     pub dwHelpContext: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wtypesbase"))]
+impl Default for PROPPAGEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PROPPAGESTATUS = i32;
 pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = 4;
 pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = 1;
 pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = 2;
 #[repr(C)]
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "servprov", feature = "shared", feature = "urlmon", feature = "windef"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct QACONTAINER {
     pub cbSize: super::ULONG,
     pub pClientSite: core::mem::ManuallyDrop<Option<super::IOleClientSite>>,
@@ -4386,6 +4422,12 @@ pub struct QACONTAINER {
     pub pBindHost: core::mem::ManuallyDrop<Option<super::IBindHost>>,
     pub pOleControlSite: core::mem::ManuallyDrop<Option<IOleControlSite>>,
     pub pServiceProvider: core::mem::ManuallyDrop<Option<super::IServiceProvider>>,
+}
+#[cfg(all(feature = "objidl", feature = "oleidl", feature = "servprov", feature = "shared", feature = "urlmon", feature = "windef"))]
+impl Default for QACONTAINER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type QACONTAINERFLAGS = i32;
 pub const QACONTAINER_AUTOCLIP: QACONTAINERFLAGS = 32;
