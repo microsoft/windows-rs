@@ -20,8 +20,9 @@ impl TypeClosure {
         references: &References,
         implements: Option<&Implements>,
         style: Style,
-    ) -> TypeMap {
+    ) -> (TypeMap, HashSet<TypeName>) {
         let mut types = TypeMap::new();
+        let mut implemented = HashSet::new();
         let cx = Walk {
             reader,
             references,
@@ -81,7 +82,8 @@ impl TypeClosure {
                     .flatten()
                     .filter(|ty| {
                         matches!(ty, Type::Interface(_) | Type::CppInterface(_))
-                            && implements.matches(ty.type_name())
+                            && (implements.matches(ty.type_name())
+                                || implemented.contains(&ty.type_name()))
                             && visited.insert((*ty).clone())
                     })
                     .cloned()
@@ -90,13 +92,31 @@ impl TypeClosure {
                     break;
                 }
                 for ty in pending {
-                    let (def, generics) = match &ty {
-                        Type::Interface(interface) => {
-                            (interface.def, interface.generics.as_slice())
+                    implemented.insert(ty.type_name());
+                    let (def, generics, required) = match &ty {
+                        Type::Interface(interface) => (
+                            interface.def,
+                            interface.generics.as_slice(),
+                            interface
+                                .required_interfaces(reader)
+                                .into_iter()
+                                .map(Type::Interface)
+                                .collect(),
+                        ),
+                        Type::CppInterface(interface) => {
+                            (interface.def, &[][..], interface.base_interfaces(reader))
                         }
-                        Type::CppInterface(interface) => (interface.def, &[][..]),
                         _ => unreachable!(),
                     };
+                    for required in required {
+                        if !matches!(required, Type::Interface(_) | Type::CppInterface(_)) {
+                            continue;
+                        }
+                        required.combine_root(&mut types, &cx);
+                        if types.contains_key(&required.type_name()) {
+                            implemented.insert(required.type_name());
+                        }
+                    }
                     for method in def.methods() {
                         if matches!(ty, Type::CppInterface(_)) {
                             for dependency in method.associated_enums(reader) {
@@ -112,7 +132,7 @@ impl TypeClosure {
             }
         }
 
-        types
+        (types, implemented)
     }
 }
 
@@ -426,8 +446,8 @@ mod tests {
                 .flat_map(filter_parser::parse_filter_entry)
                 .collect();
             let resolved = filter_parser::resolve_entries(reader, &parsed);
-            let filter = Selection::resolve(reader, &resolved, &References::default(), None);
-            let types =
+            let filter = Selection::resolve(reader, &resolved, &References::default());
+            let (types, _) =
                 TypeClosure::build(reader, &filter, &References::default(), None, Style::Full);
 
             assert!(!types.contains_key(excluded), "{entries:?}");
@@ -447,8 +467,8 @@ mod tests {
                 .flat_map(filter_parser::parse_filter_entry)
                 .collect();
             let resolved = filter_parser::resolve_entries(reader, &parsed);
-            let filter = Selection::resolve(reader, &resolved, &References::default(), None);
-            let types =
+            let filter = Selection::resolve(reader, &resolved, &References::default());
+            let (types, _) =
                 TypeClosure::build(reader, &filter, &References::default(), None, Style::Full);
 
             assert!(types.contains_key(&TypeName("Windows.Foundation", "DateTime")));

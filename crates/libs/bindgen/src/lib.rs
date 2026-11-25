@@ -406,9 +406,11 @@ impl Bindgen {
     /// Use a dotted qualified name (`Windows.Win32.ISequentialStream`) or a namespace prefix.
     /// Unlike filters, bare interface names are not resolved. The interface must be included in
     /// the generated bindings, directly or as a dependency; this does not select it.
+    /// Required base interface implementations are included unless excluded or supplied by a
+    /// referenced crate.
     ///
-    /// Method-level inclusions or exclusions on matching interfaces cause [`Bindgen::write`] to
-    /// panic. Select the whole interface or use `Interface::{}` instead.
+    /// Method-level inclusions or exclusions on matching interfaces or their required bases cause
+    /// [`Bindgen::write`] to panic. Select the whole interface or use `Interface::{}` instead.
     #[track_caller]
     pub fn implement(&mut self, name: &str) -> &mut Self {
         assert!(

@@ -1078,29 +1078,64 @@ pub fn annotated() -> windows_core::ScopedInterface<'static, bindings::I> {
 "#,
     )
     .unwrap();
-    for all in [false, true] {
+    for (full, selection, excluded) in [
+        (false, "named", None),
+        (true, "named", None),
+        (false, "prefix", None),
+        (false, "all", None),
+        (true, "named", Some("Test.Native.NativeBase")),
+        (false, "named", Some("Test.Native.Payload")),
+        (false, "named", Some("Test.Runtime.RuntimeBase")),
+    ] {
         let mut builder = windows_bindgen::builder();
         builder
             .input(&winmd)
             .filters([
                 "Test.Native.NativeDerived::{}",
                 "Test.Native.Scoped::{}",
-                "Test.Runtime.RuntimeBase::{}",
                 "Test.Runtime.RuntimeDerived::{}",
                 "Windows.Win32.Api.I::{}",
             ])
-            .dead_code()
             .output(scratch.join("bindings.rs"));
-        if all {
-            builder.implement_all();
+        if full {
+            builder.full();
         } else {
-            builder.implement("Test").implement("Windows.Win32.Api.I");
+            builder.dead_code();
+        }
+        if let Some(excluded) = excluded {
+            builder.filter(&format!("!{excluded}"));
+        }
+        match selection {
+            "named" => {
+                builder.implements([
+                    "Test.Native.NativeDerived",
+                    "Test.Native.Scoped",
+                    "Test.Runtime.RuntimeDerived",
+                    "Windows.Win32.Api.I",
+                ]);
+            }
+            "prefix" => {
+                builder.implement("Test").implement("Windows.Win32.Api.I");
+            }
+            "all" => {
+                builder.implement_all();
+            }
+            _ => unreachable!(),
         }
         builder.write();
+        if let Some(excluded) = excluded {
+            let name = excluded.rsplit('.').next().unwrap();
+            let source = std::fs::read_to_string(scratch.join("bindings.rs")).unwrap();
+            assert!(
+                !source.contains(&format!("pub struct {name}")),
+                "{excluded}"
+            );
+        }
         let result = compile();
-        assert!(
+        assert_eq!(
             result.status.success(),
-            "implement_all={all}: {}",
+            excluded.is_none(),
+            "full={full}, implementation={selection}, excluded={excluded:?}: {}",
             String::from_utf8_lossy(&result.stderr)
         );
     }
