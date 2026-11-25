@@ -112,7 +112,7 @@ fn filter_preserves_slot_identity() {
                     "!Slots.NativeProbe::get_Value",
                     "Slots.Widget::Value",
                     "!Slots.Widget::get_Value",
-                    "Slots.IRequired::{}",
+                    "Slots.IRequired",
                     "Slots.FactoryWidget::{Create,Value}",
                     "!Slots.FactoryWidget::{get_Create,get_Value}",
                 ],
@@ -623,6 +623,43 @@ fn reference_class_selection() {
         assert_eq!(source.contains(" fn Lookup("), lookup, "{filter}");
         assert_eq!(source.contains(" fn Insert("), insert, "{filter}");
     }
+}
+
+#[test]
+fn interface_forwarders_respect_selected_hierarchy() {
+    let output = std::path::Path::new(env!("OUT_DIR")).join("interface-forwarders.rs");
+    for (filter, own_methods, inherited_methods) in [
+        ("Windows.Foundation.IAsyncAction::{}", false, false),
+        ("Windows.Foundation.IAsyncAction::GetResults", true, false),
+        ("Windows.Foundation.IAsyncAction", true, true),
+    ] {
+        windows_bindgen::builder()
+            .filter(filter)
+            .full()
+            .output(&output)
+            .write();
+        let source = std::fs::read_to_string(&output).unwrap();
+        assert_eq!(source.contains(" fn GetResults("), own_methods, "{filter}");
+        for method in ["Status", "Cancel"] {
+            assert_eq!(
+                source.contains(&format!(" fn {method}(")),
+                inherited_methods,
+                "{filter}: {method}"
+            );
+        }
+    }
+}
+
+#[test]
+fn interface_shell_does_not_forward_selected_base_methods() {
+    let source = filter_contract_output(
+        "interface-shell-forwarders",
+        "full",
+        &["Slots.IRequired::{}", "Slots.IProbe::Value"],
+    );
+    assert!(source.contains("impl IProbe {"));
+    assert!(source.contains(" fn Value("));
+    assert!(!source.contains("impl IRequired {"));
 }
 
 #[test]

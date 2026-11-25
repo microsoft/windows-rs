@@ -367,7 +367,13 @@ impl Interface {
                 }
 
                 for interface in &required_interfaces {
-                    if !config.bindgen.style.emit_inherited_forwarders() {
+                    if !config.bindgen.style.emit_inherited_forwarders()
+                        || !config.plan.selection.includes_hierarchy(
+                            type_name.namespace(),
+                            type_name.name(),
+                            interface,
+                        )
+                    {
                         continue;
                     }
                     for (method, vname) in named_methods(&interface.get_methods(config)) {
