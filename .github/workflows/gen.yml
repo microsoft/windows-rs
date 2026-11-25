@@ -53,6 +53,8 @@ jobs:
           key: ${{ matrix.tool }}
       - uses: ./.github/actions/cache-clang
         if: contains(fromJSON('["clang", "clang-sys", "webview", "win32"]'), matrix.tool)
+        with:
+          resource-headers: ${{ matrix.tool == 'win32' }}
       - name: Run
         run: cargo run -p tool-${{ matrix.tool }} --release -- ${{ matrix.args }}
       - name: Check
