@@ -291,6 +291,7 @@ fn gen_impl_compose(inputs: &ImplementInputs) -> syn::Item {
 
 /// Generates the `query_interface` method.
 fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
+    let iid = quote! { iid };
     let queries = inputs
         .interface_chains
         .iter()
@@ -300,9 +301,9 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
             let interface_ty = interface_chain.implement.to_ident();
             quote_spanned! {
                 interface_chain.implement.span =>
-                if #chain_ty::matches(iid)
+                if #chain_ty::matches(#iid)
                     || (<#interface_ty as ::windows_core::Interface>::INSPECTABLE
-                        && *iid == <::windows_core::IInspectable as ::windows_core::Interface>::IID)
+                        && *#iid == <::windows_core::IInspectable as ::windows_core::Interface>::IID)
                 {
                     return ::core::option::Option::Some(#index);
                 }
@@ -322,7 +323,7 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
         quote! { |_| ::core::option::Option::None }
     } else {
         quote! {
-            |iid| {
+            |#iid| {
                 #(#queries)*
                 ::core::option::Option::None
             }

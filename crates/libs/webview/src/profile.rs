@@ -80,7 +80,7 @@ impl Profile {
         handler: F,
     ) -> Result<()> {
         let source: ICoreWebView2Profile2 = self.0.cast()?;
-        let handler = handler::ClearBrowsingDataCompleted::create(handler);
+        let handler = handler::ClearBrowsingDataCompleted::create(handler)?;
         unsafe { source.ClearBrowsingDataAll(&handler) }.ok()
     }
 }

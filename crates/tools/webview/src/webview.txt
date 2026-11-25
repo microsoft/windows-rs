@@ -92,6 +92,10 @@
 
     CoTaskMemAlloc
     CoTaskMemFree
+    CoGetApartmentType
+    APTTYPE_STA
+    APTTYPE_MAINSTA
+    RPC_E_WRONG_THREAD
     E_ABORT
     E_INVALIDARG
     E_PENDING

@@ -4,6 +4,10 @@ use crate::harness::Harness;
 pub type FixtureFn = fn(&Harness);
 
 pub static FIXTURES: &[(&str, FixtureFn)] = &[
+    (
+        "Callback_NativeCaptureLifetime",
+        callback_lifetime::native_capture_lifetime,
+    ),
     ("Navigation_LifecycleOrder", navigation::lifecycle_order),
     ("Navigation_DocumentTitle", navigation::document_title),
     ("Navigation_DataUri", navigation::data_uri),

@@ -44,6 +44,12 @@ $env:RUSTFLAGS = "--cfg windows_cast_diagnostics"
 cargo test -p test-reactor
 ```
 
+## WebView callbacks
+
+`webview-callbacks` exercises the `windows-webview` Reactor bridge with page-to-host messages,
+script completion, and window teardown with a pending script. Non-`Send` callback captures must
+be invoked and destroyed on the UI thread. The fixture closes itself and does not inject input.
+
 ## Collection interop
 
 `collection-contracts` runs without opening a window or injecting input. It checks boxed-string

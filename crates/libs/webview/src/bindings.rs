@@ -1,8 +1,13 @@
+windows_core::link!("ole32.dll" "system" fn CoGetApartmentType(papttype : *mut APTTYPE, paptqualifier : *mut APTTYPEQUALIFIER) -> windows_core::HRESULT);
 windows_core::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : SIZE_T) -> LPVOID);
 windows_core::link!("ole32.dll" "system" fn CoTaskMemFree(pv : LPVOID));
 windows_core::link!("webview2loader.dll" "system" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("webview2loader.dll" "system" fn CreateCoreWebView2EnvironmentWithOptions(browserexecutablefolder : windows_core::PCWSTR, userdatafolder : windows_core::PCWSTR, environmentoptions : *mut core::ffi::c_void, environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const BYTE, cbinit : UINT) -> Option < IStream >);
+pub type APTTYPE = i32;
+pub type APTTYPEQUALIFIER = i32;
+pub const APTTYPE_MAINSTA: APTTYPE = 3;
+pub const APTTYPE_STA: APTTYPE = 0;
 pub type BYTE = u8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6982,6 +6987,7 @@ pub struct RECT {
     pub right: LONG,
     pub bottom: LONG,
 }
+pub const RPC_E_WRONG_THREAD: windows_core::HRESULT = windows_core::HRESULT(0x8001010E_u32 as _);
 pub type SIZE_T = usize;
 pub type UINT = u32;
 pub type UINT32 = u32;

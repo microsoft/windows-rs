@@ -36,6 +36,7 @@ mod timer;
 mod tray;
 mod tree;
 mod typography;
+mod webview;
 mod window;
 
 pub use controlled::{CHURN_ITEMS, date};
@@ -311,6 +312,7 @@ impl Component for ReorderFixture {
 
 pub fn run(fixture: &str) -> windows_core::Result<()> {
     match fixture {
+        "webview-callbacks" => webview::run()?,
         "accessibility" => App::run_component::<accessibility::AccessibilityFixture>(())?,
         "backdrop" => App::run_component::<backdrop::BackdropFixture>(())?,
         "application" => App::run_application::<application::ApplicationFixture>(())?,

@@ -15,6 +15,7 @@ windows-core = { workspace = true, features = ["proc-macros"] }
 windows-reactor = { workspace = true }
 windows-reference = { workspace = true }
 windows-time = { workspace = true }
+windows-webview = { workspace = true, default-features = false, features = ["reactor"] }
 
 [build-dependencies]
 windows-bindgen = { workspace = true }

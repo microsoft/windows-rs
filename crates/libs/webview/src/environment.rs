@@ -36,7 +36,7 @@ impl Environment {
         handler: F,
     ) -> Result<()> {
         validate_parent(parent)?;
-        let handler = handler::ControllerCompleted::create(handler);
+        let handler = handler::ControllerCompleted::create(handler)?;
         unsafe { self.0.CreateCoreWebView2Controller(parent.cast(), &handler) }.ok()
     }
 
@@ -56,7 +56,7 @@ impl Environment {
 }
 
 fn create_environment<F: FnOnce(Result<Environment>) + 'static>(handler: F) -> Result<()> {
-    let handler = handler::EnvironmentCompleted::create(handler);
+    let handler = handler::EnvironmentCompleted::create(handler)?;
     unsafe { CreateCoreWebView2Environment(Interface::as_raw(&handler)).ok() }
 }
 
