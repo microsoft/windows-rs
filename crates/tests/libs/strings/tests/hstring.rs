@@ -1,5 +1,5 @@
 #[cfg(windows)]
-use windows::core::Result;
+use windows_core::Result;
 use windows_strings::*;
 
 #[test]
@@ -230,7 +230,7 @@ fn hstring_osstring_equality_combinations() {
 #[cfg(windows)]
 fn hstring_compat() -> Result<()> {
     unsafe {
-        use windows::Win32::*;
+        use test_strings::*;
         let hey = HSTRING::from("Hey");
         let world = HSTRING::from("World");
         let mut order = 0;
@@ -342,7 +342,7 @@ fn clone_outlives_original() {
 #[test]
 #[cfg(windows)]
 fn native_clone_outlives_original() -> Result<()> {
-    use windows::Win32::*;
+    use test_strings::*;
 
     let wide = [65, 0, 0xd800, 66];
     let mut original = HSTRING::new();

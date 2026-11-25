@@ -1,12 +1,11 @@
+use bindings::*;
 use std::mem::{align_of, size_of, transmute};
 use windows_numerics::{Matrix3x2, Matrix4x4, Rect, Vector2, Vector3, Vector4};
-use windows_sys::Win32::{
-    d3d9::{D3DMATRIX, D3DMATRIX_0},
-    dcommon::{
-        D2D_MATRIX_3X2_F, D2D_MATRIX_3X2_F_0, D2D_MATRIX_4X4_F, D2D_MATRIX_4X4_F_0, D2D_POINT_2F,
-        D2D_RECT_F, D2D_VECTOR_2F, D2D_VECTOR_3F, D2D_VECTOR_4F,
-    },
-};
+
+#[expect(nonstandard_style, clippy::upper_case_acronyms)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
 
 fn assert_abi<T, U>() {
     assert_eq!(size_of::<T>(), size_of::<U>());

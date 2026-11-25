@@ -1,0 +1,19 @@
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    windows_bindgen::builder()
+        .full()
+        .filters([
+            "ERROR_NO_UNICODE_TRANSLATION",
+            "SysAllocStringLen",
+            "SysAddRefString",
+            "SysFreeString",
+            "WindowsCompareStringOrdinal",
+            "WindowsConcatString",
+            "WindowsCreateString",
+            "WindowsDuplicateString",
+            "WindowsGetStringLen",
+            "WindowsIsStringEmpty",
+            "WindowsGetStringRawBuffer",
+        ])
+        .write();
+}

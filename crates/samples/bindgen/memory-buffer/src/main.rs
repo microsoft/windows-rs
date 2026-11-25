@@ -1,5 +1,11 @@
-fn main() -> windows::core::Result<()> {
-    use windows::{Foundation::*, Win32::IMemoryBufferByteAccess, core::*};
+#[expect(nonstandard_style, clippy::upper_case_acronyms)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
+
+fn main() -> windows_core::Result<()> {
+    use bindings::*;
+    use windows_core::*;
 
     #[expect(clippy::mut_from_ref)]
     /// # Safety

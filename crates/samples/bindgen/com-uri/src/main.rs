@@ -1,6 +1,11 @@
-fn main() -> windows::core::Result<()> {
-    use windows::Win32::*;
-    use windows::core::*;
+#[expect(nonstandard_style, clippy::upper_case_acronyms)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
+
+fn main() -> windows_core::Result<()> {
+    use bindings::*;
+    use windows_core::*;
 
     unsafe {
         let uri = CreateUri(w!("https://github.com/microsoft/windows-rs"), 0, None)?;
