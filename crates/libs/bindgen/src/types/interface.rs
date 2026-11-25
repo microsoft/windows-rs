@@ -147,7 +147,7 @@ pub struct Interface {
 
 impl PartialEq for Interface {
     fn eq(&self, other: &Self) -> bool {
-        self.def == other.def && self.generics == other.generics
+        self.def == other.def
     }
 }
 
@@ -156,7 +156,6 @@ impl Eq for Interface {}
 impl std::hash::Hash for Interface {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.def.hash(state);
-        self.generics.hash(state);
     }
 }
 
@@ -758,5 +757,29 @@ impl Dependencies for Interface {
                 }
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn definition_identity_agrees_across_collections() {
+        let reader = default_reader(false);
+        let Type::Interface(mut left) = reader
+            .with_full_name("Windows.Foundation.Collections", "IIterable`1")
+            .next()
+            .unwrap()
+        else {
+            panic!();
+        };
+        left.generics = vec![Type::String];
+        let mut right = left.clone();
+        right.generics = vec![Type::U32];
+        assert_eq!(left.cmp(&right), Ordering::Equal);
+        assert_eq!(left, right);
+        assert_eq!(HashSet::from([left.clone(), right.clone()]).len(), 1);
+        assert_eq!(BTreeSet::from([left, right]).len(), 1);
     }
 }

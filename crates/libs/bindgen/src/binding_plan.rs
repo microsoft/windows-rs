@@ -6,7 +6,28 @@ pub struct BindingPlan {
     pub types: TypeMap,
     pub external: HashMap<TypeName, String>,
     pub implemented: HashSet<TypeName>,
-    methods: HashMap<MethodDef, HashSet<Vec<Type>>>,
+    methods: HashMap<MethodDef, HashSet<Vec<GenericType>>>,
+}
+
+// Interface equality identifies definitions. Method instances also depend on nested arguments.
+#[derive(PartialEq, Eq, Hash)]
+enum GenericType {
+    Interface(TypeDef, Vec<Self>),
+    Delegate(TypeDef, Vec<Self>),
+    Type(Type),
+}
+
+impl GenericType {
+    fn arguments(types: &[Type]) -> Vec<Self> {
+        types
+            .iter()
+            .map(|ty| match ty {
+                Type::Interface(ty) => Self::Interface(ty.def, Self::arguments(&ty.generics)),
+                Type::Delegate(ty) => Self::Delegate(ty.def, Self::arguments(&ty.generics)),
+                _ => Self::Type(ty.clone()),
+            })
+            .collect()
+    }
 }
 
 impl BindingPlan {
@@ -33,12 +54,17 @@ impl BindingPlan {
             methods: HashMap::new(),
         };
 
-        let mut interfaces = HashSet::new();
+        let mut interfaces = HashMap::new();
+        let mut include = |interface: Interface| {
+            interfaces
+                .entry((interface.def, GenericType::arguments(&interface.generics)))
+                .or_insert(interface);
+        };
         let mut native = HashSet::new();
         for ty in plan.types.values().flatten() {
             let required = match ty {
                 Type::Interface(interface) => {
-                    interfaces.insert(interface.clone());
+                    include(interface.clone());
                     interface.required_interfaces(reader)
                 }
                 Type::Class(class) => class.required_interfaces(reader),
@@ -48,9 +74,11 @@ impl BindingPlan {
                 }
                 _ => continue,
             };
-            interfaces.extend(required);
+            for interface in required {
+                include(interface);
+            }
         }
-        for interface in interfaces {
+        for interface in interfaces.into_values() {
             if plan.provides(&Type::Interface(interface.clone())) {
                 plan.select_methods(reader, interface.def, &interface.generics);
             }
@@ -80,7 +108,7 @@ impl BindingPlan {
                 self.methods
                     .entry(method)
                     .or_default()
-                    .insert(generics.to_vec());
+                    .insert(GenericType::arguments(generics));
             }
         }
     }
@@ -96,7 +124,7 @@ impl BindingPlan {
     pub fn includes_method(&self, method: MethodDef, generics: &[Type]) -> bool {
         self.methods
             .get(&method)
-            .is_some_and(|instances| instances.contains(generics))
+            .is_some_and(|instances| instances.contains(&GenericType::arguments(generics)))
     }
 }
 
