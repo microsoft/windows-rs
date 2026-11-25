@@ -4,6 +4,103 @@ use windows_core::*;
 
 const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as _);
 
+#[cfg(windows)]
+#[test]
+fn native_property_set_contract() -> Result<()> {
+    use windows::Win32::*;
+    use windows_reference::IReference;
+
+    struct Com;
+    impl Drop for Com {
+        fn drop(&mut self) {
+            unsafe { CoUninitialize() };
+        }
+    }
+    unsafe { CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()? };
+    let _com = Com;
+
+    let stock = IObservableMap::<HSTRING, IInspectable>::from_marshaled(BTreeMap::new())?;
+    let native = windows::Foundation::Collections::PropertySet::new()?
+        .cast::<IObservableMap<HSTRING, IInspectable>>()?;
+    for (is_native, map) in [(false, stock), (true, native)] {
+        let events = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+        let nested = std::sync::Arc::new(std::sync::Mutex::new(None));
+        let capture = events.clone();
+        let nested_capture = nested.clone();
+        let _subscription = map.MapChanged(
+            move |sender: Ref<IObservableMap<HSTRING, IInspectable>>,
+                  args: Ref<IMapChangedEventArgs<HSTRING>>| {
+                let args = args.unwrap();
+                let key = args.Key().map_err(|error| error.code());
+                let insert_nested = key.as_ref().is_ok_and(|key| key == "outer");
+                let event = (
+                    args.CollectionChange().unwrap(),
+                    key,
+                    sender.unwrap().Size().unwrap(),
+                );
+                capture.lock().unwrap().push(event);
+                if insert_nested {
+                    let value: IInspectable = IReference::from("nested").into();
+                    let result = sender
+                        .unwrap()
+                        .Insert(h!("inner"), &value)
+                        .map_err(|error| error.code());
+                    *nested_capture.lock().unwrap() = Some(result);
+                }
+            },
+        )?;
+        let first: IInspectable = IReference::from("first").into();
+        let second: IInspectable = IReference::from("second").into();
+        assert!(!map.Insert(h!("Text"), &first)?);
+        assert!(map.Insert(h!("Text"), &second)?);
+        assert!(!map.Insert(h!("Content"), None)?);
+        assert!(map.HasKey(h!("Content"))?);
+        assert_eq!(map.Lookup(h!("Content")).unwrap_err().code(), HRESULT(0));
+        let view = map.GetView()?;
+        let iterator = map.First()?;
+        assert!(map.Insert(h!("Text"), &first)?);
+        if is_native {
+            let changed_state = HRESULT(0x8000000C_u32 as _);
+            assert_eq!(view.Lookup(h!("Text")).unwrap_err().code(), changed_state);
+            assert_eq!(iterator.Current().unwrap_err().code(), changed_state);
+        } else {
+            assert_eq!(view.Lookup(h!("Text"))?, second);
+            assert_eq!(iterator.Current()?.Key()?, "Content");
+        }
+        assert_eq!(map.Remove(h!("missing")).unwrap_err().code(), E_BOUNDS);
+        map.Clear()?;
+        map.Clear()?;
+        assert!(!map.Insert(h!("outer"), &first)?);
+        assert_eq!(map.HasKey(h!("inner"))?, !is_native);
+        assert_eq!(
+            *nested.lock().unwrap(),
+            Some(if is_native {
+                Err(HRESULT(0x80000015_u32 as _))
+            } else {
+                Ok(false)
+            })
+        );
+        let mut expected = vec![
+            (CollectionChange::ItemInserted, Ok("Text".into()), 1),
+            (CollectionChange::ItemChanged, Ok("Text".into()), 1),
+            (CollectionChange::ItemInserted, Ok("Content".into()), 2),
+            (CollectionChange::ItemChanged, Ok("Text".into()), 2),
+        ];
+        if is_native {
+            expected.push((CollectionChange::Reset, Ok(HSTRING::new()), 0));
+        } else {
+            expected.push((CollectionChange::Reset, Err(E_BOUNDS), 0));
+            expected.push((CollectionChange::Reset, Err(E_BOUNDS), 0));
+        }
+        expected.push((CollectionChange::ItemInserted, Ok("outer".into()), 1));
+        if !is_native {
+            expected.push((CollectionChange::ItemInserted, Ok("inner".into()), 2));
+        }
+        assert_eq!(*events.lock().unwrap(), expected);
+    }
+    Ok(())
+}
+
 #[test]
 fn primitive() -> Result<()> {
     let m = IObservableMap::<i32, u64>::from(BTreeMap::from([]));

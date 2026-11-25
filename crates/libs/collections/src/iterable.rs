@@ -1,107 +1,72 @@
 use super::*;
+use immutable_vector::VectorOwner;
+use storage::*;
 use windows_core::*;
 
-struct StockIterable<T>
-where
-    T: RuntimeType + 'static,
-{
-    values: Vec<T::Default>,
+struct StockIterable<S: Storage> {
+    values: Vec<S::Stored>,
 }
 
 implement_decl! {
-    impl<T> StockIterable as StockIterable_Impl: [
-        IIterable<T>,
-    ]
-    where T: RuntimeType + 'static
+    impl<S> StockIterable as StockIterable_Impl: [IIterable<S::Value>]
+    where S: Storage
 }
 
-impl<T> IIterable_Impl<T> for StockIterable_Impl<T>
+impl<S: Storage> VectorOwner for StockIterable<S> {
+    type Storage = S;
+
+    fn values(&self) -> &[S::Stored] {
+        &self.values
+    }
+}
+
+impl<S: Storage> IIterable_Impl<S::Value> for StockIterable_Impl<S> {
+    fn First(&self) -> Result<IIterator<S::Value>> {
+        Ok(immutable_vector::iterator(self.to_object()))
+    }
+}
+
+impl<T: RuntimeType> From<Vec<T::Default>> for IIterable<T>
 where
-    T: RuntimeType,
+    T::Default: Send + Sync,
 {
-    fn First(&self) -> Result<IIterator<T>> {
-        Ok(ComObject::new(StockIterator {
-            owner: self.to_object(),
-            current: 0.into(),
+    /// Creates an iterable with directly stored, thread-safe values.
+    ///
+    /// Erased interfaces need runtime marshaling or an explicit unsafe storage contract.
+    ///
+    /// ```compile_fail
+    /// use windows_collections::IIterable;
+    /// use windows_core::IInspectable;
+    /// let _ = IIterable::<IInspectable>::from(vec![None]);
+    /// ```
+    fn from(values: Vec<T::Default>) -> Self {
+        // The retained values have a static cross-thread storage contract.
+        unsafe { Self::from_unchecked(values) }
+    }
+}
+
+impl<T: RuntimeType> IIterable<T> {
+    /// Creates an iterable with directly stored values.
+    ///
+    /// # Safety
+    ///
+    /// All retained values must support cloning, comparison, access, and release on every thread
+    /// and in every apartment where this collection or its derived objects are used. The caller
+    /// must enforce this for their complete lifetime; `IAgileObject` alone does not prove it.
+    pub unsafe fn from_unchecked(values: Vec<T::Default>) -> Self {
+        ComObject::new(StockIterable::<Direct<T>> { values }).into_interface()
+    }
+}
+
+impl<T: Interface + RuntimeType<Default = Option<T>>> IIterable<T> {
+    /// Creates an iterable retaining interface values through runtime marshaling.
+    ///
+    /// Nulls are preserved. Creation and access can fail; COM initialization and apartment
+    /// dispatch remain the caller's responsibility. Non-null values require Windows.
+    pub fn from_marshaled(values: Vec<Option<T>>) -> Result<Self> {
+        Ok(ComObject::new(StockIterable::<Marshaled<T>> {
+            values: prepare::<Marshaled<T>>(values)?,
         })
         .into_interface())
-    }
-}
-
-struct StockIterator<T>
-where
-    T: RuntimeType + 'static,
-{
-    owner: ComObject<StockIterable<T>>,
-    current: std::sync::atomic::AtomicUsize,
-}
-
-implement_decl! {
-    impl<T> StockIterator as StockIterator_Impl: [
-        IIterator<T>,
-    ]
-    where T: RuntimeType + 'static
-}
-
-impl<T> IIterator_Impl<T> for StockIterator_Impl<T>
-where
-    T: RuntimeType,
-{
-    fn Current(&self) -> Result<T> {
-        let owner: &StockIterable<T> = &self.owner;
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-
-        if self.owner.values.len() > current {
-            T::from_default(&owner.values[current])
-        } else {
-            Err(Error::from(E_BOUNDS))
-        }
-    }
-
-    fn HasCurrent(&self) -> Result<bool> {
-        let owner: &StockIterable<T> = &self.owner;
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-
-        Ok(owner.values.len() > current)
-    }
-
-    fn MoveNext(&self) -> Result<bool> {
-        let owner: &StockIterable<T> = &self.owner;
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-
-        if current < owner.values.len() {
-            self.current
-                .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        }
-
-        Ok(owner.values.len() > current + 1)
-    }
-
-    fn GetMany(&self, values: &mut [T::Default]) -> Result<u32> {
-        let owner: &StockIterable<T> = &self.owner;
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-
-        if current >= owner.values.len() {
-            return Ok(0);
-        }
-
-        let actual = std::cmp::min(owner.values.len() - current, values.len());
-        let (values, _) = values.split_at_mut(actual);
-        values.clone_from_slice(&owner.values[current..current + actual]);
-
-        self.current
-            .fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
-
-        Ok(actual as u32)
-    }
-}
-
-impl<T> From<Vec<T::Default>> for IIterable<T>
-where
-    T: RuntimeType,
-{
-    /// Creates an `IIterable<T>` that yields the given values.
-    fn from(values: Vec<T::Default>) -> Self {
-        ComObject::new(StockIterable { values }).into_interface()
     }
 }

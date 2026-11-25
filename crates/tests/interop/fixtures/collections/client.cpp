@@ -36,9 +36,20 @@ void test()
     check(index.Lookup(L"two") == 1);
 
     read_only_contract(widget);
-    read_only_retains_values(widget);
     read_only_marshaling_failure(widget);
-    read_only_resolution_failure(widget);
-    read_only_reentrant_iterator(widget);
-    read_only_concurrent_iterator(widget);
+    vector_storage_contract([&](array_view<Inspectable const> values) {
+        return widget.ReadOnly(values);
+    });
+    vector_storage_contract([&](array_view<Inspectable const> values) {
+        return widget.MarshaledVector(values);
+    });
+    vector_storage_contract([&](array_view<Inspectable const> values) {
+        return widget.MarshaledObservableVector(values).as<Vector>();
+    });
+    map_resolution_failure([&](array_view<Inspectable const> values) {
+        return widget.MarshaledMap(values);
+    });
+    map_resolution_failure([&](array_view<Inspectable const> values) {
+        return widget.MarshaledObservableMap(values).as<IMap<uint32_t, Inspectable>>();
+    });
 }

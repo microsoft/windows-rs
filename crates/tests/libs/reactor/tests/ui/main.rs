@@ -68,6 +68,7 @@ fn winui_read_only_vector_live_consumers() -> Result<()> {
         "collection-live-mutable",
         "collection-live-read-only",
         "collection-live-shared",
+        "collection-live-trusted",
     ] {
         process::run(fixture, |ui| {
             ui.name("state", "Mounted")?;

@@ -1,33 +1,31 @@
 use super::*;
+use std::collections::BTreeMap;
+use storage::*;
 use windows_core::*;
 
-struct StockObservableMap<K, V>
+struct StockObservableMap<K: RuntimeType + 'static, S: Storage>
 where
-    K: RuntimeType + 'static,
-    V: RuntimeType + 'static,
     K::Default: Ord,
 {
-    map: std::sync::RwLock<std::collections::BTreeMap<K::Default, V::Default>>,
-    handlers: Event<MapChangedEventHandler<K, V>>,
+    map: std::sync::RwLock<BTreeMap<K::Default, S::Stored>>,
+    handlers: Event<MapChangedEventHandler<K, S::Value>>,
 }
 
 implement_decl! {
-    impl<K, V> StockObservableMap as StockObservableMap_Impl: [
-        IObservableMap<K, V>,
-        IMap<K, V>,
-        IIterable<IKeyValuePair<K, V>>,
+    impl<K, S> StockObservableMap as StockObservableMap_Impl: [
+        IObservableMap<K, S::Value>,
+        IMap<K, S::Value>,
+        IIterable<IKeyValuePair<K, S::Value>>,
     ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Ord
+    where K: RuntimeType + 'static, S: Storage, K::Default: Ord
 }
 
-impl<K, V> IObservableMap_Impl<K, V> for StockObservableMap_Impl<K, V>
+impl<K: RuntimeType, S: Storage> IObservableMap_Impl<K, S::Value> for StockObservableMap_Impl<K, S>
 where
-    K: RuntimeType,
-    V: RuntimeType,
     K::Default: Ord,
 {
-    fn MapChanged(&self, vhnd: Ref<MapChangedEventHandler<K, V>>) -> Result<i64> {
-        self.handlers.add(vhnd.ok()?)
+    fn MapChanged(&self, handler: Ref<MapChangedEventHandler<K, S::Value>>) -> Result<i64> {
+        self.handlers.add(handler.ok()?)
     }
 
     fn RemoveMapChanged(&self, token: i64) -> Result<()> {
@@ -36,40 +34,36 @@ where
     }
 }
 
-impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockObservableMap_Impl<K, V>
+impl<K: RuntimeType, S: Storage> IIterable_Impl<IKeyValuePair<K, S::Value>>
+    for StockObservableMap_Impl<K, S>
 where
-    K: RuntimeType,
-    V: RuntimeType,
     K::Default: Ord,
 {
-    fn First(&self) -> Result<IIterator<IKeyValuePair<K, V>>> {
-        let snapshot: Vec<(K::Default, V::Default)> = self
+    fn First(&self) -> Result<IIterator<IKeyValuePair<K, S::Value>>> {
+        let snapshot = self
             .map
             .read()
             .unwrap()
             .iter()
             .map(|(k, v)| (k.clone(), v.clone()))
             .collect();
-        Ok(ComObject::new(StockObservableMapIterator::<K, V> {
-            snapshot,
-            current: 0.into(),
-        })
-        .into_interface())
+        Ok(map_view::iterator::<K, S>(snapshot))
     }
 }
 
-impl<K, V> IMap_Impl<K, V> for StockObservableMap_Impl<K, V>
+impl<K: RuntimeType, S: Storage> IMap_Impl<K, S::Value> for StockObservableMap_Impl<K, S>
 where
-    K: RuntimeType,
-    V: RuntimeType,
     K::Default: Ord,
 {
-    fn Lookup(&self, key: Ref<K>) -> Result<V> {
-        let map = self.map.read().unwrap();
-        let value = map
+    fn Lookup(&self, key: Ref<K>) -> Result<S::Value> {
+        let value = self
+            .map
+            .read()
+            .unwrap()
             .get(ref_as_default::<K>(&key))
+            .cloned()
             .ok_or_else(|| Error::from(E_BOUNDS))?;
-        V::from_default(value)
+        S::get_owned(value)
     }
 
     fn Size(&self) -> Result<u32> {
@@ -84,83 +78,82 @@ where
             .contains_key(ref_as_default::<K>(&key)))
     }
 
-    fn GetView(&self) -> Result<IMapView<K, V>> {
+    fn GetView(&self) -> Result<IMapView<K, S::Value>> {
         let snapshot = self.map.read().unwrap().clone();
-        Ok(IMapView::<K, V>::from(snapshot))
+        Ok(map_view::from_storage::<K, S>(snapshot))
     }
 
-    fn Insert(&self, key: Ref<K>, value: Ref<V>) -> Result<bool> {
-        let replaced = {
+    fn Insert(&self, key: Ref<K>, value: Ref<S::Value>) -> Result<bool> {
+        let key = ref_as_default::<K>(&key);
+        let value = S::prepare_ref(ref_as_default::<S::Value>(&value))?;
+        let retired = {
             let mut map = self.map.write().unwrap();
-            let replaced = map.contains_key(ref_as_default::<K>(&key));
-            map.insert(
-                ref_as_default::<K>(&key).clone(),
-                ref_as_default::<V>(&value).clone(),
-            );
-            replaced
+            if let Some(previous) = map.get_mut(key) {
+                Some(core::mem::replace(previous, value))
+            } else {
+                map.insert(key.clone(), value)
+            }
         };
+        let replaced = retired.is_some();
+        drop(retired);
         let change = if replaced {
             CollectionChange::ItemChanged
         } else {
             CollectionChange::ItemInserted
         };
-        self.fire_changed(change, Some(ref_as_default::<K>(&key).clone()));
+        self.fire_changed(change, Some(key.clone()));
         Ok(replaced)
     }
 
     fn Remove(&self, key: Ref<K>) -> Result<()> {
         let key_clone = ref_as_default::<K>(&key).clone();
-        {
-            let mut map = self.map.write().unwrap();
-            if map.remove(ref_as_default::<K>(&key)).is_none() {
-                return Err(Error::from(E_BOUNDS));
-            }
+        let retired = self
+            .map
+            .write()
+            .unwrap()
+            .remove_entry(ref_as_default::<K>(&key));
+        if retired.is_none() {
+            return Err(Error::from(E_BOUNDS));
         }
+        drop(retired);
         self.fire_changed(CollectionChange::ItemRemoved, Some(key_clone));
         Ok(())
     }
 
     fn Clear(&self) -> Result<()> {
-        self.map.write().unwrap().clear();
+        let retired = core::mem::take(&mut *self.map.write().unwrap());
+        drop(retired);
         self.fire_changed(CollectionChange::Reset, None);
         Ok(())
     }
 }
 
-impl<K, V> StockObservableMap_Impl<K, V>
+impl<K: RuntimeType, S: Storage> StockObservableMap_Impl<K, S>
 where
-    K: RuntimeType,
-    V: RuntimeType,
     K::Default: Ord,
 {
     fn fire_changed(&self, change: CollectionChange, key: Option<K::Default>) {
-        let observable: IObservableMap<K, V> = self.to_object().into_interface();
+        let observable: IObservableMap<K, S::Value> = self.to_object().into_interface();
         let args: IMapChangedEventArgs<K> =
             ComObject::new(StockMapChangedEventArgs { change, key }).into_interface();
         self.handlers
-            .call(|handler: &MapChangedEventHandler<K, V>| handler.Invoke(&observable, &args));
+            .call(|handler: &MapChangedEventHandler<K, S::Value>| {
+                handler.Invoke(&observable, &args)
+            });
     }
 }
 
-struct StockMapChangedEventArgs<K>
-where
-    K: RuntimeType + 'static,
-{
+struct StockMapChangedEventArgs<K: RuntimeType + 'static> {
     change: CollectionChange,
     key: Option<K::Default>,
 }
 
 implement_decl! {
-    impl<K> StockMapChangedEventArgs as StockMapChangedEventArgs_Impl: [
-        IMapChangedEventArgs<K>,
-    ]
+    impl<K> StockMapChangedEventArgs as StockMapChangedEventArgs_Impl: [IMapChangedEventArgs<K>]
     where K: RuntimeType + 'static
 }
 
-impl<K> IMapChangedEventArgs_Impl<K> for StockMapChangedEventArgs_Impl<K>
-where
-    K: RuntimeType,
-{
+impl<K: RuntimeType> IMapChangedEventArgs_Impl<K> for StockMapChangedEventArgs_Impl<K> {
     fn CollectionChange(&self) -> Result<CollectionChange> {
         Ok(self.change)
     }
@@ -173,98 +166,122 @@ where
     }
 }
 
-struct StockObservableMapIterator<K, V>
+impl<K: RuntimeType, V: RuntimeType> From<BTreeMap<K::Default, V::Default>> for IObservableMap<K, V>
 where
-    K: RuntimeType + 'static,
-    V: RuntimeType + 'static,
-    K::Default: Ord,
+    K::Default: Ord + Send + Sync,
+    V::Default: Send + Sync,
 {
-    snapshot: Vec<(K::Default, V::Default)>,
-    current: std::sync::atomic::AtomicUsize,
-}
-
-implement_decl! {
-    impl<K, V> StockObservableMapIterator as StockObservableMapIterator_Impl: [
-        IIterator<IKeyValuePair<K, V>>,
-    ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Ord
-}
-
-impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockObservableMapIterator_Impl<K, V>
-where
-    K: RuntimeType,
-    V: RuntimeType,
-    K::Default: Ord,
-{
-    fn Current(&self) -> Result<IKeyValuePair<K, V>> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        if let Some((key, value)) = self.snapshot.get(current) {
-            Ok(ComObject::new(key_value_pair::StockKeyValuePair {
-                key: key.clone(),
-                value: value.clone(),
-            })
-            .into_interface())
-        } else {
-            Err(Error::from(E_BOUNDS))
-        }
-    }
-
-    fn HasCurrent(&self) -> Result<bool> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        Ok(self.snapshot.len() > current)
-    }
-
-    fn MoveNext(&self) -> Result<bool> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let len = self.snapshot.len();
-
-        if current < len {
-            self.current
-                .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        }
-
-        Ok(len > current + 1)
-    }
-
-    fn GetMany(&self, items: &mut [Option<IKeyValuePair<K, V>>]) -> Result<u32> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-
-        if current >= self.snapshot.len() {
-            return Ok(0);
-        }
-
-        let actual = std::cmp::min(self.snapshot.len() - current, items.len());
-        let (items, _) = items.split_at_mut(actual);
-
-        for (item, (key, value)) in items.iter_mut().zip(self.snapshot[current..].iter()) {
-            *item = Some(
-                ComObject::new(key_value_pair::StockKeyValuePair {
-                    key: key.clone(),
-                    value: value.clone(),
-                })
-                .into_interface(),
-            );
-        }
-
-        self.current
-            .fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
-
-        Ok(actual as u32)
+    /// Creates an observable map with directly stored, thread-safe keys and values.
+    ///
+    /// Erased interfaces need runtime marshaling or an explicit unsafe storage contract.
+    ///
+    /// ```compile_fail
+    /// use windows_collections::IObservableMap;
+    /// use windows_core::IInspectable;
+    /// let _ = IObservableMap::<u32, IInspectable>::from(std::collections::BTreeMap::new());
+    /// ```
+    fn from(map: BTreeMap<K::Default, V::Default>) -> Self {
+        unsafe { Self::from_unchecked(map) }
     }
 }
 
-impl<K, V> From<std::collections::BTreeMap<K::Default, V::Default>> for IObservableMap<K, V>
+impl<K: RuntimeType, V: RuntimeType> IObservableMap<K, V>
 where
-    K: RuntimeType,
-    V: RuntimeType,
     K::Default: Ord,
 {
-    /// Creates an `IObservableMap<K, V>` from the given key/value pairs.
-    fn from(map: std::collections::BTreeMap<K::Default, V::Default>) -> Self {
-        ComObject::new(StockObservableMap {
+    /// Creates an observable map with directly stored keys and values.
+    ///
+    /// # Safety
+    ///
+    /// All retained keys and values must support cloning, comparison, access, and release on every
+    /// thread and in every apartment where this collection or its derived objects are used. This
+    /// includes all future insertions and replacements through any native or Rust writer. The
+    /// caller must enforce this for their complete lifetime. `IAgileObject` does not prove it.
+    pub unsafe fn from_unchecked(map: BTreeMap<K::Default, V::Default>) -> Self {
+        ComObject::new(StockObservableMap::<K, Direct<V>> {
             map: std::sync::RwLock::new(map),
             handlers: Event::new(),
         })
         .into_interface()
+    }
+}
+
+impl<K: RuntimeType, V: Interface + RuntimeType<Default = Option<V>>> IObservableMap<K, V>
+where
+    K::Default: Ord + Send + Sync,
+{
+    /// Creates an observable map retaining interface values through runtime marshaling.
+    ///
+    /// Keys are stored directly; null values are preserved. Creation and access can fail. COM
+    /// initialization and apartment dispatch remain the caller's responsibility.
+    /// Non-null values require Windows. Failed marshaling changes nothing and emits no
+    /// notification.
+    pub fn from_marshaled(map: BTreeMap<K::Default, Option<V>>) -> Result<Self> {
+        let map = map
+            .into_iter()
+            .map(|(key, value)| Ok((key, Marshaled::<V>::prepare(value)?)))
+            .collect::<Result<_>>()?;
+        Ok(ComObject::new(StockObservableMap::<K, Marshaled<V>> {
+            map: std::sync::RwLock::new(map),
+            handlers: Event::new(),
+        })
+        .into_interface())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::map_tests::*;
+
+    fn check(mutation: Mutation) {
+        let map = ComObject::new(StockObservableMap::<u32, Direct<IInspectable>> {
+            map: Default::default(),
+            handlers: Event::new(),
+        });
+        check_release(
+            map.to_interface(),
+            move || map.map.try_write().is_ok(),
+            mutation,
+            true,
+        );
+    }
+
+    fn check_key(mutation: Mutation) {
+        let map = ComObject::new(StockObservableMap::<OrderedKey, Direct<u32>> {
+            map: Default::default(),
+            handlers: Event::new(),
+        });
+        check_key_release(
+            map.to_interface(),
+            move || map.map.try_write().is_ok(),
+            mutation,
+            true,
+        );
+    }
+
+    #[test]
+    fn replacement_release_reenters() {
+        check(Mutation::Replace);
+    }
+
+    #[test]
+    fn removal_release_reenters() {
+        check(Mutation::Remove);
+    }
+
+    #[test]
+    fn clear_release_reenters() {
+        check(Mutation::Clear);
+    }
+
+    #[test]
+    fn removal_key_release_reenters() {
+        check_key(Mutation::Remove);
+    }
+
+    #[test]
+    fn clear_key_release_reenters() {
+        check_key(Mutation::Clear);
     }
 }

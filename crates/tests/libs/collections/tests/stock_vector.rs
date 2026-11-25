@@ -7,7 +7,8 @@ const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as _);
 fn get_many_does_not_release_output_storage() -> Result<()> {
     let item: IInspectable = IVector::<i32>::from(vec![1]).into();
     let sentinel: IInspectable = IVector::<i32>::from(vec![2]).into();
-    let vector = IVector::<IInspectable>::from(vec![Some(item.clone())]);
+    // The only retained object is a stock vector of integers.
+    let vector = unsafe { IVector::<IInspectable>::from_unchecked(vec![Some(item.clone())]) };
     let view = vector.GetView()?;
     let iterator = vector.First()?;
     for kind in 0..3 {
@@ -304,7 +305,8 @@ fn buffered_iterator_interface() {
                 .unwrap()
         })
         .collect();
-    let v = IVector::<IInspectable>::from(vec![]);
+    // Every insertion below is a stock vector of integers.
+    let v = unsafe { IVector::<IInspectable>::from_unchecked(vec![]) };
     for item in &source {
         v.Append(item).unwrap();
     }

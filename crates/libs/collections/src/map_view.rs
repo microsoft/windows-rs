@@ -1,56 +1,58 @@
 use super::*;
+use std::collections::BTreeMap;
+use std::sync::atomic::{AtomicUsize, Ordering};
+use storage::*;
 use windows_core::*;
 
-struct StockMapView<K, V>
+struct StockMapView<K: RuntimeType + 'static, S: Storage>
 where
-    K: RuntimeType + 'static,
-    V: RuntimeType + 'static,
     K::Default: Ord,
 {
-    map: std::collections::BTreeMap<K::Default, V::Default>,
+    map: BTreeMap<K::Default, S::Stored>,
 }
 
 implement_decl! {
-    impl<K, V> StockMapView as StockMapView_Impl: [
-        IMapView<K, V>,
-        IIterable<IKeyValuePair<K, V>>,
+    impl<K, S> StockMapView as StockMapView_Impl: [
+        IMapView<K, S::Value>,
+        IIterable<IKeyValuePair<K, S::Value>>,
     ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Ord
+    where K: RuntimeType + 'static, S: Storage, K::Default: Ord
 }
 
-impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockMapView_Impl<K, V>
+pub(crate) fn from_storage<K: RuntimeType, S: Storage>(
+    map: BTreeMap<K::Default, S::Stored>,
+) -> IMapView<K, S::Value>
 where
-    K: RuntimeType,
-    V: RuntimeType,
     K::Default: Ord,
 {
-    fn First(&self) -> Result<IIterator<IKeyValuePair<K, V>>> {
-        let snapshot: Vec<(K::Default, V::Default)> = self
-            .map
-            .iter()
-            .map(|(k, v)| (k.clone(), v.clone()))
-            .collect();
-        Ok(ComObject::new(StockMapViewIterator::<K, V> {
-            snapshot,
-            current: 0.into(),
-        })
-        .into_interface())
+    ComObject::new(StockMapView::<K, S> { map }).into_interface()
+}
+
+impl<K: RuntimeType, S: Storage> IIterable_Impl<IKeyValuePair<K, S::Value>>
+    for StockMapView_Impl<K, S>
+where
+    K::Default: Ord,
+{
+    fn First(&self) -> Result<IIterator<IKeyValuePair<K, S::Value>>> {
+        Ok(iterator::<K, S>(
+            self.map
+                .iter()
+                .map(|(k, v)| (k.clone(), v.clone()))
+                .collect(),
+        ))
     }
 }
 
-impl<K, V> IMapView_Impl<K, V> for StockMapView_Impl<K, V>
+impl<K: RuntimeType, S: Storage> IMapView_Impl<K, S::Value> for StockMapView_Impl<K, S>
 where
-    K: RuntimeType,
-    V: RuntimeType,
     K::Default: Ord,
 {
-    fn Lookup(&self, key: Ref<K>) -> Result<V> {
-        let value = self
-            .map
-            .get(ref_as_default::<K>(&key))
-            .ok_or_else(|| Error::from(E_BOUNDS))?;
-
-        V::from_default(value)
+    fn Lookup(&self, key: Ref<K>) -> Result<S::Value> {
+        S::get(
+            self.map
+                .get(ref_as_default::<K>(&key))
+                .ok_or_else(|| Error::from(E_BOUNDS))?,
+        )
     }
 
     fn Size(&self) -> Result<u32> {
@@ -61,101 +63,130 @@ where
         Ok(self.map.contains_key(ref_as_default::<K>(&key)))
     }
 
-    fn Split(&self, first: OutRef<IMapView<K, V>>, second: OutRef<IMapView<K, V>>) -> Result<()> {
+    fn Split(
+        &self,
+        first: OutRef<IMapView<K, S::Value>>,
+        second: OutRef<IMapView<K, S::Value>>,
+    ) -> Result<()> {
         _ = first.write(None);
         _ = second.write(None);
         Ok(())
     }
 }
 
-struct StockMapViewIterator<K, V>
-where
-    K: RuntimeType + 'static,
-    V: RuntimeType + 'static,
-    K::Default: Ord,
-{
-    snapshot: Vec<(K::Default, V::Default)>,
-    current: std::sync::atomic::AtomicUsize,
+struct StockMapIterator<K: RuntimeType + 'static, S: Storage> {
+    snapshot: Vec<(K::Default, S::Stored)>,
+    current: AtomicUsize,
 }
 
 implement_decl! {
-    impl<K, V> StockMapViewIterator as StockMapViewIterator_Impl: [
-        IIterator<IKeyValuePair<K, V>>,
+    impl<K, S> StockMapIterator as StockMapIterator_Impl: [
+        IIterator<IKeyValuePair<K, S::Value>>,
     ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Ord
+    where K: RuntimeType + 'static, S: Storage
 }
 
-impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockMapViewIterator_Impl<K, V>
-where
-    K: RuntimeType,
-    V: RuntimeType,
-    K::Default: Ord,
+pub(crate) fn iterator<K: RuntimeType, S: Storage>(
+    snapshot: Vec<(K::Default, S::Stored)>,
+) -> IIterator<IKeyValuePair<K, S::Value>> {
+    ComObject::new(StockMapIterator::<K, S> {
+        snapshot,
+        current: AtomicUsize::new(0),
+    })
+    .into_interface()
+}
+
+impl<K: RuntimeType, S: Storage> IIterator_Impl<IKeyValuePair<K, S::Value>>
+    for StockMapIterator_Impl<K, S>
 {
-    fn Current(&self) -> Result<IKeyValuePair<K, V>> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        if let Some((key, value)) = self.snapshot.get(current) {
-            Ok(ComObject::new(key_value_pair::StockKeyValuePair {
-                key: key.clone(),
-                value: value.clone(),
-            })
-            .into_interface())
-        } else {
-            Err(Error::from(E_BOUNDS))
-        }
+    fn Current(&self) -> Result<IKeyValuePair<K, S::Value>> {
+        let (key, value) = self
+            .snapshot
+            .get(self.current.load(Ordering::Relaxed))
+            .ok_or_else(|| Error::from(E_BOUNDS))?;
+        Ok(ComObject::new(key_value_pair::StockKeyValuePair::<K, S> {
+            key: key.clone(),
+            value: value.clone(),
+        })
+        .into_interface())
     }
 
     fn HasCurrent(&self) -> Result<bool> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        Ok(self.snapshot.len() > current)
+        Ok(self.current.load(Ordering::Relaxed) < self.snapshot.len())
     }
 
     fn MoveNext(&self) -> Result<bool> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let len = self.snapshot.len();
-
-        if current < len {
-            self.current
-                .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        }
-
-        Ok(len > current + 1)
+        Ok(move_next(&self.current, || self.snapshot.len()))
     }
 
-    fn GetMany(&self, pairs: &mut [Option<IKeyValuePair<K, V>>]) -> Result<u32> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-
-        if current >= self.snapshot.len() {
+    fn GetMany(&self, items: &mut [Option<IKeyValuePair<K, S::Value>>]) -> Result<u32> {
+        // Pairs retain storage without resolving values, so both policies can reserve first.
+        let Some(range) = reserve(&self.current, self.snapshot.len(), items.len()) else {
             return Ok(0);
-        }
-
-        let actual = std::cmp::min(self.snapshot.len() - current, pairs.len());
-        let (pairs, _) = pairs.split_at_mut(actual);
-
-        for (pair, (key, value)) in pairs.iter_mut().zip(self.snapshot[current..].iter()) {
-            *pair = Some(
-                ComObject::new(key_value_pair::StockKeyValuePair {
+        };
+        let count = range.len();
+        for (item, (key, value)) in items.iter_mut().zip(&self.snapshot[range]) {
+            *item = Some(
+                ComObject::new(key_value_pair::StockKeyValuePair::<K, S> {
                     key: key.clone(),
                     value: value.clone(),
                 })
                 .into_interface(),
             );
         }
-
-        self.current
-            .fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
-
-        Ok(actual as u32)
+        Ok(count as u32)
     }
 }
 
-impl<K, V> From<std::collections::BTreeMap<K::Default, V::Default>> for IMapView<K, V>
+impl<K: RuntimeType, V: RuntimeType> From<BTreeMap<K::Default, V::Default>> for IMapView<K, V>
 where
-    K: RuntimeType,
-    V: RuntimeType,
+    K::Default: Ord + Send + Sync,
+    V::Default: Send + Sync,
+{
+    /// Creates a read-only map with directly stored, thread-safe keys and values.
+    ///
+    /// Erased interfaces need runtime marshaling or an explicit unsafe storage contract.
+    ///
+    /// ```compile_fail
+    /// use windows_collections::IMapView;
+    /// use windows_core::IInspectable;
+    /// let _ = IMapView::<u32, IInspectable>::from(std::collections::BTreeMap::new());
+    /// ```
+    fn from(map: BTreeMap<K::Default, V::Default>) -> Self {
+        unsafe { Self::from_unchecked(map) }
+    }
+}
+
+impl<K: RuntimeType, V: RuntimeType> IMapView<K, V>
+where
     K::Default: Ord,
 {
-    /// Creates a read-only `IMapView<K, V>` from the given key/value pairs.
-    fn from(map: std::collections::BTreeMap<K::Default, V::Default>) -> Self {
-        ComObject::new(StockMapView { map }).into_interface()
+    /// Creates a read-only map with directly stored keys and values.
+    ///
+    /// # Safety
+    ///
+    /// All retained keys and values must support cloning, comparison, access, and release on every
+    /// thread and in every apartment where this collection or its derived objects are used. The
+    /// caller must enforce this for their complete lifetime. `IAgileObject` does not prove it.
+    pub unsafe fn from_unchecked(map: BTreeMap<K::Default, V::Default>) -> Self {
+        from_storage::<K, Direct<V>>(map)
+    }
+}
+
+impl<K: RuntimeType, V: Interface + RuntimeType<Default = Option<V>>> IMapView<K, V>
+where
+    K::Default: Ord + Send + Sync,
+{
+    /// Creates a read-only map retaining interface values through runtime marshaling.
+    ///
+    /// Keys are stored directly; null values are preserved. Creation and access can fail. COM
+    /// initialization and apartment dispatch remain the caller's responsibility.
+    /// Non-null values require Windows.
+    pub fn from_marshaled(map: BTreeMap<K::Default, Option<V>>) -> Result<Self> {
+        let map = map
+            .into_iter()
+            .map(|(key, value)| Ok((key, Marshaled::<V>::prepare(value)?)))
+            .collect::<Result<_>>()?;
+        Ok(from_storage::<K, Marshaled<V>>(map))
     }
 }

@@ -52,10 +52,11 @@ collection adaptation in ComboBox, AutoSuggestBox, and ItemsSourceView. Instrume
 distinguish direct indexed access from eager enumeration. Read-only vectors reject mutations with
 `E_NOTIMPL`; ComboBox selection is checked by index and object.
 
-`collection-live-mutable`, `collection-live-read-only`, and `collection-live-shared` compare stock
-mutable vectors, instrumented read-only vectors, and the shared `from_read_only` implementation in
-ComboBox, AutoSuggestBox, BreadcrumbBar, and RadioButtons. UI Automation exercises selection and
-invocation across source replacement and clearing. Instrumented sources must receive indexed
+`collection-live-mutable`, `collection-live-read-only`, `collection-live-shared`, and
+`collection-live-trusted` compare marshaled mutable vectors, instrumented read-only vectors, and both
+shared read-only storage modes in ComboBox, AutoSuggestBox, BreadcrumbBar, and RadioButtons.
+UI Automation exercises selection and invocation across source replacement and clearing.
+Instrumented sources must receive indexed
 reads and no mutation attempts, including during teardown. These cases do not measure performance,
 verify pixels, or test final native destruction on another thread.
 

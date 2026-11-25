@@ -62,6 +62,12 @@ jobs:
           com_results_tests::inout_query_keeps_incoming_storage residual_contracts_borrow_objects
       - name: Check COM object ownership and weak references
         run: cargo +nightly miri test --target ${{ matrix.target }} -p test_implement_core --lib
+      - name: Check collection storage and retirement
+        # Windows event tokens call EncodePointer, which Miri does not support.
+        if: contains(matrix.target, 'linux')
+        run: |
+          cargo +nightly miri test --target ${{ matrix.target }} -p windows-collections --lib
+          cargo +nightly miri test --target ${{ matrix.target }} -p test_collections --test storage
       - name: Check failed owning return storage
         if: contains(matrix.target, 'windows')
         env:

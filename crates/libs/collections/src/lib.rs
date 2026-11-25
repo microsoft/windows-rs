@@ -17,6 +17,8 @@ pub use buffered_iterator::*;
 const E_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8000000B_u32 as _);
 
 #[cfg(feature = "std")]
+mod immutable_vector;
+#[cfg(feature = "std")]
 mod iterable;
 #[cfg(feature = "std")]
 mod key_value_pair;
@@ -31,6 +33,13 @@ mod observable_vector;
 #[cfg(feature = "std")]
 mod read_only_vector;
 #[cfg(feature = "std")]
+mod storage;
+#[cfg(feature = "std")]
 mod vector;
 #[cfg(feature = "std")]
 mod vector_view;
+
+#[cfg(all(test, feature = "std"))]
+mod map_tests;
+#[cfg(all(test, feature = "std"))]
+mod vector_tests;

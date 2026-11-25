@@ -328,6 +328,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "collection-live-mutable" => collections::run_live(collections::Source::Mutable)?,
         "collection-live-read-only" => collections::run_live(collections::Source::ReadOnly)?,
         "collection-live-shared" => collections::run_live(collections::Source::Shared)?,
+        "collection-live-trusted" => collections::run_live(collections::Source::Trusted)?,
         "context" => App::run_component::<context::ContextFixture>(false)?,
         "context-virtual" => App::run_component::<context::ContextFixture>(true)?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,

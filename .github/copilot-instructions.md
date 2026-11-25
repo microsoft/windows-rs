@@ -278,6 +278,13 @@ Keep this section to current decisions, not a chronological account of rewrites.
   as `FocusError`. A dispatcher that rejects work is shutting down; drop the work rather than
   failing.
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
+- **Stock collection retirement**: Replacement, removal, clear, and whole-vector replacement
+  release retired entries after unlocking, before observable notifications. Destruction may reenter
+  and mutate the committed collection; nested insertions during clear or replacement must survive.
+- **Collection storage**: Safe direct factories constrain actual retained defaults to `Send + Sync`.
+  Unsafe direct factories cover all retained objects and future writes for the collection's entire
+  lifetime. Marshaled factories retain agile references through views, iterators, and pairs, resolving
+  outside structural locks. Preserve null outputs without converting resolver errors to null.
 - **No `thread_local!` in app code** - keep state in components and pass shared values through typed
   contexts. `thread_local!` is reserved for framework plumbing.
 - **Test naming**: Reactor unit tests live in `windows-reactor`. Public behavioral coverage belongs
@@ -412,6 +419,16 @@ coverage when a change affects consumers. Do not omit correct metadata to hide a
 
 Keep only unresolved questions here, with the affected file and symbol. Use focused GitHub issues
 for reproducible bugs. Remove resolved entries rather than appending a history of fixes.
+
+### Mutable COM collections
+
+- Direct stock storage still clones and compares values under structural locks, including map keys.
+  `Send + Sync` does not prohibit reentrant `Clone`, `AddRef`, or comparison. Reproduce the owning
+  path before changing storage; retirement safety does not establish arbitrary callback reentrancy.
+- Native `PropertySet` is not behaviorally identical to the stock observable map. The comparison
+  in `crates/tests/libs/collections/tests/stock_observable_map.rs::native_property_set_contract`
+  covers nulls, snapshot invalidation, reset notifications, and mutation during notification.
+  Native map behavior alone does not establish WinUI binding compatibility or apartment ownership.
 
 ### Metadata and tooling
 

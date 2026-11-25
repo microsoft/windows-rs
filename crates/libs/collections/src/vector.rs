@@ -1,225 +1,235 @@
 use super::*;
+use std::sync::atomic::{AtomicUsize, Ordering};
+use storage::*;
 use windows_core::*;
 
-struct StockVector<T>
-where
-    T: RuntimeType + 'static,
-    T::Default: PartialEq,
-{
-    values: std::sync::RwLock<Vec<T::Default>>,
+struct StockVector<S: Compare> {
+    values: VectorStorage<S>,
 }
 
 implement_decl! {
-    impl<T> StockVector as StockVector_Impl: [
-        IVector<T>,
-        IIterable<T>,
-    ]
-    where T: RuntimeType + 'static, T::Default: PartialEq
+    impl<S> StockVector as StockVector_Impl: [IVector<S::Value>, IIterable<S::Value>]
+    where S: Compare
 }
 
-impl<T> IIterable_Impl<T> for StockVector_Impl<T>
-where
-    T: RuntimeType,
-    T::Default: PartialEq,
-{
-    fn First(&self) -> Result<IIterator<T>> {
+impl<S: Compare> IIterable_Impl<S::Value> for StockVector_Impl<S> {
+    fn First(&self) -> Result<IIterator<S::Value>> {
         Ok(ComObject::new(StockVectorIterator {
             owner: self.to_object(),
-            current: 0.into(),
+            current: AtomicUsize::new(0),
         })
         .into_interface())
     }
 }
 
-impl<T> IVector_Impl<T> for StockVector_Impl<T>
-where
-    T: RuntimeType,
-    T::Default: PartialEq,
-{
-    fn GetAt(&self, index: u32) -> Result<T> {
-        let values = self.values.read().unwrap();
-        let item = values
-            .get(index as usize)
-            .ok_or_else(|| Error::from(E_BOUNDS))?;
-        T::from_default(item)
+impl<S: Compare> IVector_Impl<S::Value> for StockVector_Impl<S> {
+    fn GetAt(&self, index: u32) -> Result<S::Value> {
+        self.values.get(index as usize)
     }
 
     fn Size(&self) -> Result<u32> {
-        Ok(self.values.read().unwrap().len().try_into()?)
+        Ok(self.values.len().try_into()?)
     }
 
-    fn GetView(&self) -> Result<IVectorView<T>> {
-        let snapshot = self.values.read().unwrap().clone();
-        Ok(IVectorView::<T>::from(snapshot))
+    fn GetView(&self) -> Result<IVectorView<S::Value>> {
+        Ok(ComObject::new(vector_view::StockVectorView::<S> {
+            values: self.values.snapshot(),
+        })
+        .into_interface())
     }
 
-    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
-        let values = self.values.read().unwrap();
-        if let Some(index) = values
-            .iter()
-            .position(|element| element == ref_as_default::<T>(&value))
-        {
-            *result = index as u32;
-            Ok(true)
-        } else {
-            *result = 0;
-            Ok(false)
-        }
+    fn IndexOf(&self, value: Ref<S::Value>, result: &mut u32) -> Result<bool> {
+        self.values
+            .index(ref_as_default::<S::Value>(&value), result)
     }
 
-    fn SetAt(&self, index: u32, value: Ref<T>) -> Result<()> {
-        let mut values = self.values.write().unwrap();
-        let item = values
-            .get_mut(index as usize)
-            .ok_or_else(|| Error::from(E_BOUNDS))?;
-        *item = ref_as_default::<T>(&value).clone();
-        Ok(())
+    fn SetAt(&self, index: u32, value: Ref<S::Value>) -> Result<()> {
+        self.values
+            .set(index as usize, ref_as_default::<S::Value>(&value))
     }
 
-    fn InsertAt(&self, index: u32, value: Ref<T>) -> Result<()> {
-        let mut values = self.values.write().unwrap();
-        let index = index as usize;
-        if index > values.len() {
-            return Err(Error::from(E_BOUNDS));
-        }
-        values.insert(index, ref_as_default::<T>(&value).clone());
-        Ok(())
+    fn InsertAt(&self, index: u32, value: Ref<S::Value>) -> Result<()> {
+        self.values
+            .insert(index as usize, ref_as_default::<S::Value>(&value))
     }
 
     fn RemoveAt(&self, index: u32) -> Result<()> {
-        let mut values = self.values.write().unwrap();
-        if index as usize >= values.len() {
-            return Err(Error::from(E_BOUNDS));
-        }
-        values.remove(index as usize);
-        Ok(())
+        self.values.remove(index as usize)
     }
 
-    fn Append(&self, value: Ref<T>) -> Result<()> {
-        self.values
-            .write()
-            .unwrap()
-            .push(ref_as_default::<T>(&value).clone());
+    fn Append(&self, value: Ref<S::Value>) -> Result<()> {
+        self.values.append(ref_as_default::<S::Value>(&value))?;
         Ok(())
     }
 
     fn RemoveAtEnd(&self) -> Result<()> {
-        let mut values = self.values.write().unwrap();
-        if values.is_empty() {
-            return Err(Error::from(E_BOUNDS));
-        }
-        values.pop();
+        self.values.remove_last()?;
         Ok(())
     }
 
     fn Clear(&self) -> Result<()> {
-        self.values.write().unwrap().clear();
+        self.values.clear();
         Ok(())
     }
 
-    fn GetMany(&self, start_index: u32, items: &mut [T::Default]) -> Result<u32> {
-        let values = self.values.read().unwrap();
-        let current = start_index as usize;
-
-        if current >= values.len() {
-            return Ok(0);
-        }
-
-        let actual = std::cmp::min(values.len() - current, items.len());
-        let (items, _) = items.split_at_mut(actual);
-        items.clone_from_slice(&values[current..current + actual]);
-        Ok(actual as u32)
+    fn GetMany(&self, start: u32, items: &mut [<S::Value as Type>::Default]) -> Result<u32> {
+        self.values.many(start as usize, items)
     }
 
-    fn ReplaceAll(&self, items: &[T::Default]) -> Result<()> {
-        let mut values = self.values.write().unwrap();
-        values.clear();
-        values.extend_from_slice(items);
-        Ok(())
+    fn ReplaceAll(&self, items: &[<S::Value as Type>::Default]) -> Result<()> {
+        self.values.replace(items)
     }
 }
 
-struct StockVectorIterator<T>
-where
-    T: RuntimeType + 'static,
-    T::Default: PartialEq,
-{
-    owner: ComObject<StockVector<T>>,
-    current: std::sync::atomic::AtomicUsize,
+struct StockVectorIterator<S: Compare> {
+    owner: ComObject<StockVector<S>>,
+    current: AtomicUsize,
 }
 
 implement_decl! {
-    impl<T> StockVectorIterator as StockVectorIterator_Impl: [
-        IIterator<T>,
-    ]
-    where T: RuntimeType + 'static, T::Default: PartialEq
+    impl<S> StockVectorIterator as StockVectorIterator_Impl: [IIterator<S::Value>]
+    where S: Compare
 }
 
-impl<T> IIterator_Impl<T> for StockVectorIterator_Impl<T>
-where
-    T: RuntimeType,
-    T::Default: PartialEq,
-{
-    fn Current(&self) -> Result<T> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let values = self.owner.values.read().unwrap();
-
-        if let Some(item) = values.get(current) {
-            T::from_default(item)
-        } else {
-            Err(Error::from(E_BOUNDS))
-        }
+impl<S: Compare> IIterator_Impl<S::Value> for StockVectorIterator_Impl<S> {
+    fn Current(&self) -> Result<S::Value> {
+        self.owner.values.get(self.current.load(Ordering::Relaxed))
     }
 
     fn HasCurrent(&self) -> Result<bool> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let values = self.owner.values.read().unwrap();
-        Ok(values.len() > current)
+        Ok(self.current.load(Ordering::Relaxed) < self.owner.values.len())
     }
 
     fn MoveNext(&self) -> Result<bool> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let values = self.owner.values.read().unwrap();
-        let len = values.len();
-        drop(values);
-
-        if current < len {
-            self.current
-                .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        }
-
-        Ok(len > current + 1)
+        Ok(move_next(&self.current, || self.owner.values.len()))
     }
 
-    fn GetMany(&self, items: &mut [T::Default]) -> Result<u32> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let values = self.owner.values.read().unwrap();
-
-        if current >= values.len() {
-            return Ok(0);
-        }
-
-        let actual = std::cmp::min(values.len() - current, items.len());
-        let (items, _) = items.split_at_mut(actual);
-        items.clone_from_slice(&values[current..current + actual]);
-
-        self.current
-            .fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
-
-        Ok(actual as u32)
+    fn GetMany(&self, items: &mut [<S::Value as Type>::Default]) -> Result<u32> {
+        self.owner.values.iterator_many(&self.current, items)
     }
 }
 
-impl<T> From<Vec<T::Default>> for IVector<T>
+impl<T: RuntimeType> From<Vec<T::Default>> for IVector<T>
 where
-    T: RuntimeType,
+    T::Default: PartialEq + Send + Sync,
+{
+    /// Creates a mutable vector with directly stored, thread-safe values.
+    ///
+    /// Erased interfaces need runtime marshaling or an explicit unsafe storage contract.
+    ///
+    /// ```compile_fail
+    /// use windows_collections::IVector;
+    /// use windows_core::IInspectable;
+    /// let _ = IVector::<IInspectable>::from(vec![None]);
+    /// ```
+    ///
+    /// `Send` alone is insufficient for retained values.
+    ///
+    /// ```compile_fail
+    /// use windows_collections::IVector;
+    /// use windows_core::{RuntimeType, imp};
+    /// #[derive(Clone, PartialEq)]
+    /// struct Value(std::cell::Cell<u32>);
+    /// impl imp::TypeKind for Value { type TypeKind = imp::CloneType; }
+    /// impl RuntimeType for Value {
+    ///     const SIGNATURE: imp::ConstBuffer =
+    ///         imp::ConstBuffer::from_slice(b"struct(Example.Value;u4)");
+    /// }
+    /// fn assert_send<T: Send>() {}
+    /// assert_send::<Value>();
+    /// let _ = IVector::<Value>::from(Vec::new());
+    /// ```
+    ///
+    /// `Sync` alone is also insufficient.
+    ///
+    /// ```compile_fail
+    /// use windows_collections::IVector;
+    /// use windows_core::{RuntimeType, imp};
+    /// #[derive(Clone, PartialEq)]
+    /// struct Value(u32, std::marker::PhantomData<std::sync::MutexGuard<'static, ()>>);
+    /// impl imp::TypeKind for Value { type TypeKind = imp::CloneType; }
+    /// impl RuntimeType for Value {
+    ///     const SIGNATURE: imp::ConstBuffer =
+    ///         imp::ConstBuffer::from_slice(b"struct(Example.Value;u4)");
+    /// }
+    /// fn assert_sync<T: Sync>() {}
+    /// assert_sync::<Value>();
+    /// let _ = IVector::<Value>::from(Vec::new());
+    /// ```
+    fn from(values: Vec<T::Default>) -> Self {
+        unsafe { Self::from_unchecked(values) }
+    }
+}
+
+impl<T: RuntimeType> IVector<T>
+where
     T::Default: PartialEq,
 {
-    /// Creates a mutable `IVector<T>` containing the given values.
-    fn from(values: Vec<T::Default>) -> Self {
-        ComObject::new(StockVector {
-            values: std::sync::RwLock::new(values),
+    /// Creates a mutable vector with directly stored values.
+    ///
+    /// # Safety
+    ///
+    /// All retained values must support cloning, comparison, access, and release on every thread
+    /// and in every apartment where this collection or its derived objects are used. This includes
+    /// all future insertions and replacements through any native or Rust writer. The caller must
+    /// enforce this for their complete lifetime; `IAgileObject` alone does not prove it.
+    pub unsafe fn from_unchecked(values: Vec<T::Default>) -> Self {
+        ComObject::new(StockVector::<Direct<T>> {
+            values: VectorStorage::new(values),
         })
         .into_interface()
+    }
+}
+
+impl<T: Interface + RuntimeType<Default = Option<T>>> IVector<T> {
+    /// Creates a mutable vector retaining interface values through runtime marshaling.
+    ///
+    /// Nulls are preserved. Creation and access can fail; COM initialization and apartment
+    /// dispatch remain the caller's responsibility. Non-null values require Windows.
+    /// Every insertion or replacement is marshaled before changing the collection.
+    pub fn from_marshaled(values: Vec<Option<T>>) -> Result<Self> {
+        Ok(ComObject::new(StockVector::<Marshaled<T>> {
+            values: VectorStorage::new(prepare::<Marshaled<T>>(values)?),
+        })
+        .into_interface())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::vector_tests::*;
+
+    fn check(mutation: Mutation) {
+        let vector = ComObject::new(StockVector::<Direct<IInspectable>> {
+            values: VectorStorage::new(Vec::new()),
+        });
+        check_release(
+            vector.to_interface(),
+            move || vector.values.unlocked(),
+            mutation,
+            false,
+        );
+    }
+
+    #[test]
+    fn set_release_reenters() {
+        check(Mutation::Set);
+    }
+    #[test]
+    fn remove_release_reenters() {
+        check(Mutation::Remove);
+    }
+    #[test]
+    fn remove_last_release_reenters() {
+        check(Mutation::RemoveLast);
+    }
+    #[test]
+    fn clear_release_reenters() {
+        check(Mutation::Clear);
+    }
+    #[test]
+    fn replace_all_release_reenters() {
+        check(Mutation::ReplaceAll);
     }
 }

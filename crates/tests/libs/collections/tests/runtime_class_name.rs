@@ -89,7 +89,10 @@ fn observable_map_string_i32() {
 #[cfg(windows)]
 #[test]
 fn nested_vector_of_reference() {
-    let v = IVector::<IReference<f32>>::from(vec![Some(IReference::<f32>::from(2.5f32))]);
+    // The retained object is an immutable stock scalar box.
+    let v = unsafe {
+        IVector::<IReference<f32>>::from_unchecked(vec![Some(IReference::<f32>::from(2.5f32))])
+    };
     let inspectable: IInspectable = v.into();
     let name = inspectable.GetRuntimeClassName().unwrap();
     assert_eq!(

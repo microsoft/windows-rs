@@ -69,16 +69,20 @@ impl Fixture {
                 source_values((0..3).map(|index| format!("{name} {} {index}", self.revision)))?;
             let vector = match self.source {
                 Source::ReadOnly => ComObject::new(ReadOnlyVector(source.clone())).into_interface(),
-                Source::Mutable | Source::Shared => {
+                Source::Mutable | Source::Shared | Source::Trusted => {
                     let values = source
                         .values
                         .iter()
                         .map(|value| value.resolve().map(Some))
                         .collect::<Result<Vec<_>>>()?;
-                    if self.source == Source::Shared {
-                        IVector::from_read_only(values)?
-                    } else {
-                        IVector::from(values)
+                    match self.source {
+                        Source::Shared => IVector::from_read_only(values)?,
+                        Source::Trusted => {
+                            // source_values creates only immutable stock string boxes.
+                            unsafe { IVector::from_read_only_unchecked(values)? }
+                        }
+                        Source::Mutable => IVector::from_marshaled(values)?,
+                        Source::ReadOnly => unreachable!(),
                     }
                 }
             };
@@ -171,6 +175,7 @@ impl Component for Fixture {
             Source::Mutable => "collection-live-mutable",
             Source::ReadOnly => "collection-live-read-only",
             Source::Shared => "collection-live-shared",
+            Source::Trusted => "collection-live-trusted",
         };
         context.window_title(format!("Reactor UI fixture: {fixture}"));
         context.window_visuals(WindowVisuals::new().client_size(380.0, 400.0));

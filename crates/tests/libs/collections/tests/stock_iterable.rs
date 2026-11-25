@@ -8,7 +8,10 @@ const E_FAIL: HRESULT = HRESULT(0x80004005_u32 as _);
 
 #[test]
 fn generic_construction() -> Result<()> {
-    fn from_values<T: RuntimeType>(values: Vec<T::Default>) -> IIterable<T> {
+    fn from_values<T: RuntimeType>(values: Vec<T::Default>) -> IIterable<T>
+    where
+        T::Default: Send + Sync,
+    {
         values.into()
     }
 
@@ -201,7 +204,7 @@ fn stringable(value: &str) -> windows::Foundation::IStringable {
 #[test]
 fn defaulted() -> Result<()> {
     use windows::Foundation::IStringable;
-    let able = IIterable::<IStringable>::from(vec![]);
+    let able = unsafe { IIterable::<IStringable>::from_unchecked(vec![]) };
     let iter = able.First()?;
 
     assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
@@ -217,11 +220,14 @@ fn defaulted() -> Result<()> {
     values.resize(5, None);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    let able = IIterable::<IStringable>::from(vec![
-        Some(stringable("one")),
-        Some(stringable("two")),
-        Some(stringable("three")),
-    ]);
+    // Stringable contains only an immutable HSTRING.
+    let able = unsafe {
+        IIterable::<IStringable>::from_unchecked(vec![
+            Some(stringable("one")),
+            Some(stringable("two")),
+            Some(stringable("three")),
+        ])
+    };
     let iter = able.First()?;
 
     assert_eq!(iter.Current()?.ToString()?, "one");
