@@ -15,7 +15,7 @@ system = ["dep:windows-window"]
 reactor = ["dep:windows-reactor"]
 
 [dependencies]
-windows-core = { workspace = true }
+windows-core = { workspace = true, features = ["proc-macros"] }
 
 [dependencies.windows-reactor]
 workspace = true

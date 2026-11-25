@@ -77,5 +77,9 @@ fn main() {
         windows_window::run();
     }
 
+    drop(harness);
+    #[cfg(windows_cast_diagnostics)]
+    assert_eq!(windows_core::imp::live_objects(), Default::default());
+
     std::process::exit(if failures > 0 { 1 } else { 0 });
 }

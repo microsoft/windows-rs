@@ -102,7 +102,7 @@ impl CookieManager {
         handler: F,
     ) -> Result<()> {
         let uri = HSTRING::from(uri);
-        let handler = handler::GetCookiesCompleted::create(handler);
+        let handler = handler::GetCookiesCompleted::create(handler)?;
         unsafe { self.0.GetCookies(&uri, &handler) }.ok()
     }
 

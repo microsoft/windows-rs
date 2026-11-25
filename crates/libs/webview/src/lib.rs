@@ -12,6 +12,7 @@ mod event;
 mod handler;
 mod host;
 mod options;
+mod owner;
 mod profile;
 mod protocol;
 #[cfg(feature = "reactor")]

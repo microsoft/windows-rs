@@ -56,6 +56,11 @@ use pointer::*;
 type Result<T = ()> = std::result::Result<T, Box<dyn std::error::Error + Send + Sync>>;
 
 #[test]
+fn webview_callback_ownership() -> Result<()> {
+    process::run_to_exit("webview-callbacks")
+}
+
+#[test]
 fn winui_collection_source_contracts() -> Result<()> {
     process::run_to_exit("collection-contracts")
 }

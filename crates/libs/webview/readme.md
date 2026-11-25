@@ -83,6 +83,8 @@ the `WebView` once it is ready. Self-contained Reactor apps also need
 
 For a window you create yourself, use `WebViewHost::builder` with its `HWND`. Your code then owns
 the message loop and resizing, and closes the host before destroying the window.
+The thread must be initialized as a COM STA. Drop hosts, event registrations, and WebView objects
+before uninitializing COM.
 
 See the [raw window][raw] sample for a complete HWND host.
 

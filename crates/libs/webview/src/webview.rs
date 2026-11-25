@@ -261,7 +261,7 @@ impl WebView {
         handler: F,
     ) -> Result<()> {
         let javascript = HSTRING::from(javascript);
-        let handler = handler::ExecuteScriptCompleted::create(handler);
+        let handler = handler::ExecuteScriptCompleted::create(handler)?;
         unsafe { self.0.ExecuteScript(&javascript, &handler) }.ok()
     }
 
@@ -276,7 +276,7 @@ impl WebView {
     ) -> Result<()> {
         let method = HSTRING::from(method);
         let params = HSTRING::from(params_json);
-        let handler = handler::CallDevToolsProtocolMethodCompleted::create(handler);
+        let handler = handler::CallDevToolsProtocolMethodCompleted::create(handler)?;
         unsafe {
             self.0
                 .CallDevToolsProtocolMethod(&method, &params, &handler)
@@ -297,7 +297,7 @@ impl WebView {
     {
         let event_name = HSTRING::from(event_name);
         let receiver = unsafe { self.0.GetDevToolsProtocolEventReceiver(&event_name)? };
-        let handler = handler::DevToolsProtocolEventReceived::create(handler);
+        let handler = handler::DevToolsProtocolEventReceived::create(handler)?;
         let mut token = Default::default();
         unsafe {
             receiver
@@ -319,7 +319,7 @@ impl WebView {
     ) -> Result<()> {
         let javascript = HSTRING::from(javascript);
         let handler =
-            handler::AddScriptCompleted::create(move |result| handler(result.map(ScriptId)));
+            handler::AddScriptCompleted::create(move |result| handler(result.map(ScriptId)))?;
         unsafe {
             self.0
                 .AddScriptToExecuteOnDocumentCreated(&javascript, &handler)
@@ -360,7 +360,7 @@ impl WebView {
         &self,
         handler: F,
     ) -> Result<EventRegistration> {
-        let handler = handler::ContainsFullScreenElementChanged::create(handler);
+        let handler = handler::ContainsFullScreenElementChanged::create(handler)?;
         let mut token = Default::default();
         unsafe {
             self.0
@@ -417,7 +417,7 @@ impl WebView {
         &self,
         handler: F,
     ) -> Result<EventRegistration> {
-        let handler = handler::WindowCloseRequested::create(handler);
+        let handler = handler::WindowCloseRequested::create(handler)?;
         let mut token = Default::default();
         unsafe { self.0.add_WindowCloseRequested(&handler, &mut token).ok()? };
         let source = self.0.clone();
@@ -453,7 +453,7 @@ impl WebView {
         handler: F,
     ) -> Result<EventRegistration> {
         let source: ICoreWebView2_4 = self.0.cast()?;
-        let handler = handler::DownloadStarting::create(handler);
+        let handler = handler::DownloadStarting::create(handler)?;
         let mut token = Default::default();
         unsafe { source.add_DownloadStarting(&handler, &mut token).ok()? };
         Ok(EventRegistration::new(move || {
@@ -472,8 +472,8 @@ impl WebView {
     {
         let environment = unsafe { self.0.cast::<ICoreWebView2_2>()?.Environment()? };
         let filter = HSTRING::from(uri_filter);
+        let handler = protocol::WebResourceRequested::create(environment, handler)?;
         unsafe { protocol::add_requested_filter(&self.0, &filter)? };
-        let handler = protocol::WebResourceRequested::create(environment, handler);
         let mut token = Default::default();
         if let Err(err) = unsafe { self.0.add_WebResourceRequested(&handler, &mut token) }.ok() {
             unsafe {

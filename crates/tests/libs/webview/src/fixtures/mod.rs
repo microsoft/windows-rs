@@ -1,3 +1,4 @@
+pub mod callback_lifetime;
 pub mod controller;
 pub mod cookies;
 pub mod devtools;

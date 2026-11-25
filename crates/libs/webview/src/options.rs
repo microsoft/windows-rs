@@ -108,7 +108,7 @@ impl EnvironmentOptions {
         &self,
         handler: F,
     ) -> Result<()> {
-        let handler = handler::EnvironmentCompleted::create(handler);
+        let handler = handler::EnvironmentCompleted::create(handler)?;
         let options: ICoreWebView2EnvironmentOptions = OptionsObject::new(self).into();
 
         let browser = self.browser_executable_folder.as_deref().map(HSTRING::from);

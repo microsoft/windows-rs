@@ -1,6 +1,6 @@
 use super::*;
+use crate::owner::OwnerThread;
 use std::cell::RefCell;
-use windows_core::implement_decl;
 
 /// Filter context matching every resource type (`COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL`).
 pub(crate) const WEB_RESOURCE_CONTEXT_ALL: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 0;
@@ -156,29 +156,27 @@ impl WebResourceResponse {
 }
 
 /// Adapts a Rust request handler to WebView2's COM event interface.
-pub(crate) struct WebResourceRequested {
+#[implement(ICoreWebView2WebResourceRequestedEventHandler, Agile = false)]
+pub(crate) struct WebResourceRequested(OwnerThread<RequestHandler>);
+
+struct RequestHandler {
     handler: RefCell<Box<dyn FnMut(WebResourceRequest) -> Option<WebResourceResponse>>>,
     environment: ICoreWebView2Environment,
-}
-
-implement_decl! {
-    impl WebResourceRequested as pub(crate) WebResourceRequested_Impl:
-        [ICoreWebView2WebResourceRequestedEventHandler]
 }
 
 impl WebResourceRequested {
     pub(crate) fn create<F>(
         environment: ICoreWebView2Environment,
         handler: F,
-    ) -> ICoreWebView2WebResourceRequestedEventHandler
+    ) -> Result<ICoreWebView2WebResourceRequestedEventHandler>
     where
         F: FnMut(WebResourceRequest) -> Option<WebResourceResponse> + 'static,
     {
-        Self {
+        Ok(Self(OwnerThread::new(RequestHandler {
             handler: RefCell::new(Box::new(handler)),
             environment,
-        }
-        .into()
+        })?)
+        .into())
     }
 }
 
@@ -188,17 +186,19 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Impl for WebResourceRequested
         _sender: Ref<ICoreWebView2>,
         args: Ref<ICoreWebView2WebResourceRequestedEventArgs>,
     ) -> HRESULT {
-        args.ok()
-            .and_then(|args| {
-                let request = WebResourceRequest(unsafe { args.Request()? });
+        self.0.invoke(|state| {
+            args.ok()
+                .and_then(|args| {
+                    let request = WebResourceRequest(unsafe { args.Request()? });
 
-                if let Some(response) = (*self.handler.borrow_mut())(request) {
-                    let response = unsafe { response.into_response(&self.environment)? };
-                    unsafe { args.SetResponse(&response).ok()? };
-                }
+                    if let Some(response) = (*state.handler.borrow_mut())(request) {
+                        let response = unsafe { response.into_response(&state.environment)? };
+                        unsafe { args.SetResponse(&response).ok()? };
+                    }
 
-                Ok(())
-            })
-            .into()
+                    Ok(())
+                })
+                .into()
+        })
     }
 }

@@ -5,6 +5,30 @@ use windows_core::*;
 #[implement(IStringable)]
 struct Stringable;
 
+macro_rules! implement_nested {
+    ($interface:ident) => {
+        #[implement($interface, Agile = false)]
+        struct Nested;
+    };
+}
+
+implement_nested!(IStringable);
+
+impl IStringable_Impl for Nested_Impl {
+    fn ToString(&self) -> Result<HSTRING> {
+        Ok("nested".into())
+    }
+}
+
+#[test]
+fn nested_macro_query() {
+    let value: IStringable = Nested.into();
+    let unknown = value.cast::<IUnknown>().unwrap();
+    let value = unknown.cast::<IStringable>().unwrap();
+    assert_eq!(value.ToString().unwrap(), "nested");
+    assert!(value.cast::<IAgileObject>().is_err());
+}
+
 impl IStringable_Impl for Stringable_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         todo!()
