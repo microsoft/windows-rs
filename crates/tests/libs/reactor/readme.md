@@ -84,6 +84,13 @@ provider removal and reapplication, and row-local messages reading the latest sn
 
 ## Background cancellation
 
+`callback-lifetime` checks UI-owned captures retained by native delegates and a COM implementation.
+Calls from another thread must return `RPC_E_WRONG_THREAD` without touching UI state. Final release
+on a worker queues capture destruction on the owner thread. Shutdown cancels retained captures;
+later owner-thread calls return `RO_E_CLOSED`, and worker release must not destroy them again.
+The fixture exercises the shared adapter with a real dispatcher, not off-thread calls to WinUI's
+element factory or the native inner object of a composed application.
+
 `background` retains a worker and local timer across child replacement, observing timer-payload
 release before releasing the worker and checking its cancellation snapshot. `background-shutdown`
 keeps both handles and the worker gate outside the host. It records timer-payload release during
