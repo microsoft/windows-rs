@@ -115,7 +115,8 @@ fn box_property_value(
             let values = values
                 .iter()
                 .map(|value| Some(windows_reference::IReference::from(value.as_ref()).into()));
-            object(IVector::from_read_only(values))
+            // Stock string boxes support cross-thread access and release; the vector is immutable.
+            object(unsafe { IVector::from_read_only_unchecked(values) })
         }
         (PropertyValue::ThemeTransitions(values), _) => theme_transitions(values),
         (PropertyValue::SystemBackdrop(value), _) => {

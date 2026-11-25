@@ -82,7 +82,7 @@ impl WinUiAdapter {
                             Some(data_string("Visible")),
                         ),
                     ]);
-                    Handle::Data(values.into())
+                    Handle::Data(IObservableMap::from_marshaled(values)?)
                 }
                 _ => unreachable!("generated object was not created"),
             }

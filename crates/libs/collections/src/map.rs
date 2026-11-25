@@ -1,57 +1,52 @@
 use super::*;
+use std::collections::BTreeMap;
+use storage::*;
 use windows_core::*;
 
-struct StockMap<K, V>
+struct StockMap<K: RuntimeType + 'static, S: Storage>
 where
-    K: RuntimeType + 'static,
-    V: RuntimeType + 'static,
     K::Default: Ord,
 {
-    map: std::sync::RwLock<std::collections::BTreeMap<K::Default, V::Default>>,
+    map: std::sync::RwLock<BTreeMap<K::Default, S::Stored>>,
 }
 
 implement_decl! {
-    impl<K, V> StockMap as StockMap_Impl: [
-        IMap<K, V>,
-        IIterable<IKeyValuePair<K, V>>,
+    impl<K, S> StockMap as StockMap_Impl: [
+        IMap<K, S::Value>,
+        IIterable<IKeyValuePair<K, S::Value>>,
     ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Ord
+    where K: RuntimeType + 'static, S: Storage, K::Default: Ord
 }
 
-impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockMap_Impl<K, V>
+impl<K: RuntimeType, S: Storage> IIterable_Impl<IKeyValuePair<K, S::Value>> for StockMap_Impl<K, S>
 where
-    K: RuntimeType,
-    V: RuntimeType,
     K::Default: Ord,
 {
-    fn First(&self) -> Result<IIterator<IKeyValuePair<K, V>>> {
-        let snapshot: Vec<(K::Default, V::Default)> = self
+    fn First(&self) -> Result<IIterator<IKeyValuePair<K, S::Value>>> {
+        let snapshot = self
             .map
             .read()
             .unwrap()
             .iter()
             .map(|(k, v)| (k.clone(), v.clone()))
             .collect();
-        Ok(ComObject::new(StockMapIterator::<K, V> {
-            snapshot,
-            current: 0.into(),
-        })
-        .into_interface())
+        Ok(map_view::iterator::<K, S>(snapshot))
     }
 }
 
-impl<K, V> IMap_Impl<K, V> for StockMap_Impl<K, V>
+impl<K: RuntimeType, S: Storage> IMap_Impl<K, S::Value> for StockMap_Impl<K, S>
 where
-    K: RuntimeType,
-    V: RuntimeType,
     K::Default: Ord,
 {
-    fn Lookup(&self, key: Ref<K>) -> Result<V> {
-        let map = self.map.read().unwrap();
-        let value = map
+    fn Lookup(&self, key: Ref<K>) -> Result<S::Value> {
+        let value = self
+            .map
+            .read()
+            .unwrap()
             .get(ref_as_default::<K>(&key))
+            .cloned()
             .ok_or_else(|| Error::from(E_BOUNDS))?;
-        V::from_default(value)
+        S::get_owned(value)
     }
 
     fn Size(&self) -> Result<u32> {
@@ -66,123 +61,192 @@ where
             .contains_key(ref_as_default::<K>(&key)))
     }
 
-    fn GetView(&self) -> Result<IMapView<K, V>> {
+    fn GetView(&self) -> Result<IMapView<K, S::Value>> {
         let snapshot = self.map.read().unwrap().clone();
-        Ok(IMapView::<K, V>::from(snapshot))
+        Ok(map_view::from_storage::<K, S>(snapshot))
     }
 
-    fn Insert(&self, key: Ref<K>, value: Ref<V>) -> Result<bool> {
-        let mut map = self.map.write().unwrap();
-        let replaced = map.contains_key(ref_as_default::<K>(&key));
-        map.insert(
-            ref_as_default::<K>(&key).clone(),
-            ref_as_default::<V>(&value).clone(),
-        );
+    fn Insert(&self, key: Ref<K>, value: Ref<S::Value>) -> Result<bool> {
+        let key = ref_as_default::<K>(&key);
+        let value = S::prepare_ref(ref_as_default::<S::Value>(&value))?;
+        let retired = {
+            let mut map = self.map.write().unwrap();
+            if let Some(previous) = map.get_mut(key) {
+                Some(core::mem::replace(previous, value))
+            } else {
+                map.insert(key.clone(), value)
+            }
+        };
+        let replaced = retired.is_some();
+        drop(retired);
         Ok(replaced)
     }
 
     fn Remove(&self, key: Ref<K>) -> Result<()> {
-        let mut map = self.map.write().unwrap();
-        if map.remove(ref_as_default::<K>(&key)).is_none() {
+        let retired = self
+            .map
+            .write()
+            .unwrap()
+            .remove_entry(ref_as_default::<K>(&key));
+        if retired.is_none() {
             return Err(Error::from(E_BOUNDS));
         }
+        drop(retired);
         Ok(())
     }
 
     fn Clear(&self) -> Result<()> {
-        self.map.write().unwrap().clear();
+        let retired = core::mem::take(&mut *self.map.write().unwrap());
+        drop(retired);
         Ok(())
     }
 }
 
-struct StockMapIterator<K, V>
+impl<K: RuntimeType, V: RuntimeType> From<BTreeMap<K::Default, V::Default>> for IMap<K, V>
 where
-    K: RuntimeType + 'static,
-    V: RuntimeType + 'static,
-    K::Default: Ord,
+    K::Default: Ord + Send + Sync,
+    V::Default: Send + Sync,
 {
-    snapshot: Vec<(K::Default, V::Default)>,
-    current: std::sync::atomic::AtomicUsize,
-}
-
-implement_decl! {
-    impl<K, V> StockMapIterator as StockMapIterator_Impl: [
-        IIterator<IKeyValuePair<K, V>>,
-    ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Ord
-}
-
-impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockMapIterator_Impl<K, V>
-where
-    K: RuntimeType,
-    V: RuntimeType,
-    K::Default: Ord,
-{
-    fn Current(&self) -> Result<IKeyValuePair<K, V>> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        if let Some((key, value)) = self.snapshot.get(current) {
-            Ok(ComObject::new(key_value_pair::StockKeyValuePair {
-                key: key.clone(),
-                value: value.clone(),
-            })
-            .into_interface())
-        } else {
-            Err(Error::from(E_BOUNDS))
-        }
-    }
-
-    fn HasCurrent(&self) -> Result<bool> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        Ok(self.snapshot.len() > current)
-    }
-
-    fn MoveNext(&self) -> Result<bool> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let len = self.snapshot.len();
-        if current < len {
-            self.current
-                .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        }
-        Ok(len > current + 1)
-    }
-
-    fn GetMany(&self, items: &mut [Option<IKeyValuePair<K, V>>]) -> Result<u32> {
-        let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        if current >= self.snapshot.len() {
-            return Ok(0);
-        }
-
-        let actual = std::cmp::min(self.snapshot.len() - current, items.len());
-        let (items, _) = items.split_at_mut(actual);
-
-        for (item, (key, value)) in items.iter_mut().zip(self.snapshot[current..].iter()) {
-            *item = Some(
-                ComObject::new(key_value_pair::StockKeyValuePair {
-                    key: key.clone(),
-                    value: value.clone(),
-                })
-                .into_interface(),
-            );
-        }
-
-        self.current
-            .fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
-
-        Ok(actual as u32)
+    /// Creates a mutable map with directly stored, thread-safe keys and values.
+    ///
+    /// Erased interfaces need runtime marshaling or an explicit unsafe storage contract.
+    ///
+    /// ```compile_fail
+    /// use windows_collections::IMap;
+    /// use windows_core::IInspectable;
+    /// let _ = IMap::<u32, IInspectable>::from(std::collections::BTreeMap::new());
+    /// ```
+    ///
+    /// Keys must be `Sync` as well as `Send`.
+    ///
+    /// ```compile_fail
+    /// use windows_collections::IMap;
+    /// use windows_core::{RuntimeType, imp};
+    /// #[derive(Clone, PartialEq, Eq, PartialOrd, Ord)]
+    /// struct Key(std::cell::Cell<u32>);
+    /// impl imp::TypeKind for Key { type TypeKind = imp::CloneType; }
+    /// impl RuntimeType for Key {
+    ///     const SIGNATURE: imp::ConstBuffer =
+    ///         imp::ConstBuffer::from_slice(b"struct(Example.Key;u4)");
+    /// }
+    /// fn assert_send<T: Send>() {}
+    /// assert_send::<Key>();
+    /// let _ = IMap::<Key, u32>::from(std::collections::BTreeMap::new());
+    /// ```
+    ///
+    /// Keys must also be `Send`, even when they are `Sync`.
+    ///
+    /// ```compile_fail
+    /// use windows_collections::IMap;
+    /// use windows_core::{RuntimeType, imp};
+    /// #[derive(Clone, PartialEq, Eq, PartialOrd, Ord)]
+    /// struct Key(u32, std::marker::PhantomData<std::sync::MutexGuard<'static, ()>>);
+    /// impl imp::TypeKind for Key { type TypeKind = imp::CloneType; }
+    /// impl RuntimeType for Key {
+    ///     const SIGNATURE: imp::ConstBuffer =
+    ///         imp::ConstBuffer::from_slice(b"struct(Example.Key;u4)");
+    /// }
+    /// fn assert_sync<T: Sync>() {}
+    /// assert_sync::<Key>();
+    /// let _ = IMap::<Key, u32>::from(std::collections::BTreeMap::new());
+    /// ```
+    fn from(map: BTreeMap<K::Default, V::Default>) -> Self {
+        unsafe { Self::from_unchecked(map) }
     }
 }
 
-impl<K, V> From<std::collections::BTreeMap<K::Default, V::Default>> for IMap<K, V>
+impl<K: RuntimeType, V: RuntimeType> IMap<K, V>
 where
-    K: RuntimeType,
-    V: RuntimeType,
     K::Default: Ord,
 {
-    /// Creates a mutable `IMap<K, V>` from the given key/value pairs.
-    fn from(map: std::collections::BTreeMap<K::Default, V::Default>) -> Self {
-        ComObject::new(StockMap {
+    /// Creates a mutable map with directly stored keys and values.
+    ///
+    /// # Safety
+    ///
+    /// All retained keys and values must support cloning, comparison, access, and release on every
+    /// thread and in every apartment where this collection or its derived objects are used. This
+    /// includes all future insertions and replacements through any native or Rust writer. The
+    /// caller must enforce this for their complete lifetime. `IAgileObject` does not prove it.
+    pub unsafe fn from_unchecked(map: BTreeMap<K::Default, V::Default>) -> Self {
+        ComObject::new(StockMap::<K, Direct<V>> {
             map: std::sync::RwLock::new(map),
         })
         .into_interface()
+    }
+}
+
+impl<K: RuntimeType, V: Interface + RuntimeType<Default = Option<V>>> IMap<K, V>
+where
+    K::Default: Ord + Send + Sync,
+{
+    /// Creates a mutable map retaining interface values through runtime marshaling.
+    ///
+    /// Keys are stored directly; null values are preserved. Creation and access can fail. COM
+    /// initialization and apartment dispatch remain the caller's responsibility.
+    /// Non-null values require Windows. Every inserted value is marshaled before changing the map.
+    pub fn from_marshaled(map: BTreeMap<K::Default, Option<V>>) -> Result<Self> {
+        let map = map
+            .into_iter()
+            .map(|(key, value)| Ok((key, Marshaled::<V>::prepare(value)?)))
+            .collect::<Result<_>>()?;
+        Ok(ComObject::new(StockMap::<K, Marshaled<V>> {
+            map: std::sync::RwLock::new(map),
+        })
+        .into_interface())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::map_tests::*;
+
+    fn check(mutation: Mutation) {
+        let map = ComObject::new(StockMap::<u32, Direct<IInspectable>> {
+            map: Default::default(),
+        });
+        check_release(
+            map.to_interface(),
+            move || map.map.try_write().is_ok(),
+            mutation,
+            false,
+        );
+    }
+
+    fn check_key(mutation: Mutation) {
+        let map = ComObject::new(StockMap::<OrderedKey, Direct<u32>> {
+            map: Default::default(),
+        });
+        check_key_release(
+            map.to_interface(),
+            move || map.map.try_write().is_ok(),
+            mutation,
+            false,
+        );
+    }
+
+    #[test]
+    fn replacement_release_reenters() {
+        check(Mutation::Replace);
+    }
+
+    #[test]
+    fn removal_release_reenters() {
+        check(Mutation::Remove);
+    }
+
+    #[test]
+    fn clear_release_reenters() {
+        check(Mutation::Clear);
+    }
+
+    #[test]
+    fn removal_key_release_reenters() {
+        check_key(Mutation::Remove);
+    }
+
+    #[test]
+    fn clear_key_release_reenters() {
+        check_key(Mutation::Clear);
     }
 }

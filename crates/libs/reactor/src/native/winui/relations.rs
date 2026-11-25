@@ -463,12 +463,20 @@ impl WinUiAdapter {
             return Err(WinUiError::InvalidObject(object));
         };
         let previous = previous.clone();
-        let values = previous
-            .First()?
-            .map(|pair| Ok((pair.Key()?, pair.Value().ok())))
-            .collect::<Result<BTreeMap<_, _>, WinUiError>>()?;
+        let iterator = previous.First()?;
+        let mut values = BTreeMap::new();
+        while iterator.HasCurrent()? {
+            let pair = iterator.Current()?;
+            let value = match pair.Value() {
+                Ok(value) => Some(value),
+                Err(error) if error.code() == HRESULT(0) => None,
+                Err(error) => return Err(error.into()),
+            };
+            values.insert(pair.Key()?, value);
+            iterator.MoveNext()?;
+        }
+        let value = IObservableMap::<HSTRING, IInspectable>::from_marshaled(values)?;
         previous.Insert(&self.data_content_key, None)?;
-        let value: IObservableMap<HSTRING, IInspectable> = values.into();
         let inspectable: IInspectable = value.clone().into();
         if let Some(item) = self.event_queue.items.borrow_mut().get_mut(&object) {
             item.identity = com_identity(&inspectable)?;

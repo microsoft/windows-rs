@@ -12,6 +12,7 @@ pub(super) enum Source {
     Mutable,
     ReadOnly,
     Shared,
+    Trusted,
 }
 
 pub(super) fn run_live(source: Source) -> Result<()> {
@@ -103,7 +104,7 @@ fn check_sources() -> Result<()> {
         eprintln!("ItemsControl: mutable vector");
         let first = boxed("first");
         let replacement = boxed("replacement");
-        let vector = IVector::<IInspectable>::from(vec![Some(first.clone())]);
+        let vector = IVector::<IInspectable>::from_marshaled(vec![Some(first.clone())])?;
         control.SetItemsSource(&vector)?;
         assert_eq!(control.Items()?.GetAt(0)?, first);
         vector.SetAt(0, &replacement)?;

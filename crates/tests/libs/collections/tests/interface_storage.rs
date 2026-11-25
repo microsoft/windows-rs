@@ -1,5 +1,6 @@
 #![cfg(windows)]
 
+use std::collections::BTreeMap;
 use std::os::windows::io::{AsRawHandle, FromRawHandle, OwnedHandle};
 use std::sync::{Arc, atomic::*};
 use std::thread::{self, ThreadId};
@@ -28,7 +29,74 @@ impl Drop for Com {
 }
 
 type MakeVector = fn(Vec<Option<IInspectable>>) -> Result<IVector<IInspectable>>;
-const VECTORS: [MakeVector; 2] = [|values| Ok(values.into()), IVector::from_read_only];
+// The shared cases use stock value boxes or implementations with thread-safe state.
+const VECTORS: [MakeVector; 4] = [
+    |values| Ok(unsafe { IVector::from_unchecked(values) }),
+    IVector::from_marshaled,
+    IVector::from_read_only,
+    |values| unsafe { IVector::from_read_only_unchecked(values) },
+];
+
+type MakeIterable = fn(Vec<Option<IInspectable>>) -> Result<IIterable<IInspectable>>;
+const ITERABLES: [MakeIterable; 4] = [
+    |values| Ok(unsafe { IIterable::from_unchecked(values) }),
+    IIterable::from_marshaled,
+    |values| unsafe { IVectorView::<IInspectable>::from_unchecked(values) }.cast(),
+    |values| IVectorView::from_marshaled(values)?.cast(),
+];
+
+type MakeCollection = fn(Vec<Option<IInspectable>>) -> Result<IInspectable>;
+const MARSHAL_FACTORIES: [MakeCollection; 8] = [
+    |values| IIterable::<IInspectable>::from_marshaled(values).map(Into::into),
+    |values| IVectorView::<IInspectable>::from_marshaled(values).map(Into::into),
+    |values| IVector::<IInspectable>::from_marshaled(values).map(Into::into),
+    |values| IObservableVector::<IInspectable>::from_marshaled(values).map(Into::into),
+    |values| IMapView::<u32, IInspectable>::from_marshaled(keyed(values)).map(Into::into),
+    |values| IMap::<u32, IInspectable>::from_marshaled(keyed(values)).map(Into::into),
+    |values| IObservableMap::<u32, IInspectable>::from_marshaled(keyed(values)).map(Into::into),
+    |values| IVector::from_read_only(values).map(Into::into),
+];
+
+// Used only with thread-safe implementations or within one apartment for the complete lifetime.
+const DIRECT_FACTORIES: [MakeCollection; 8] = [
+    |values| Ok(unsafe { IIterable::<IInspectable>::from_unchecked(values) }.into()),
+    |values| Ok(unsafe { IVectorView::<IInspectable>::from_unchecked(values) }.into()),
+    |values| Ok(unsafe { IVector::<IInspectable>::from_unchecked(values) }.into()),
+    |values| Ok(unsafe { IObservableVector::<IInspectable>::from_unchecked(values) }.into()),
+    |values| Ok(unsafe { IMapView::<u32, IInspectable>::from_unchecked(keyed(values)) }.into()),
+    |values| Ok(unsafe { IMap::<u32, IInspectable>::from_unchecked(keyed(values)) }.into()),
+    |values| {
+        Ok(unsafe { IObservableMap::<u32, IInspectable>::from_unchecked(keyed(values)) }.into())
+    },
+    |values| unsafe { IVector::from_read_only_unchecked(values) }.map(Into::into),
+];
+
+fn keyed(values: Vec<Option<IInspectable>>) -> BTreeMap<u32, Option<IInspectable>> {
+    values
+        .into_iter()
+        .enumerate()
+        .map(|(index, value)| (index as u32, value))
+        .collect()
+}
+
+fn read_collection(kind: usize, collection: &IInspectable, index: u32) -> Result<IInspectable> {
+    match kind {
+        0 => {
+            let iterator = collection.cast::<IIterable<IInspectable>>()?.First()?;
+            for _ in 0..index {
+                iterator.MoveNext()?;
+            }
+            iterator.Current()
+        }
+        1 => collection.cast::<IVectorView<IInspectable>>()?.GetAt(index),
+        2 | 3 | 7 => collection.cast::<IVector<IInspectable>>()?.GetAt(index),
+        4 => collection
+            .cast::<IMapView<u32, IInspectable>>()?
+            .Lookup(index),
+        5 | 6 => collection.cast::<IMap<u32, IInspectable>>()?.Lookup(index),
+        _ => unreachable!(),
+    }
+}
 
 type MakeIterator = fn(IVector<IInspectable>) -> Result<BufferedIterator<IInspectable>>;
 const ITERATORS: [MakeIterator; 6] = [
@@ -102,7 +170,7 @@ macro_rules! assert_indexed {
 fn indexed_read_parity() -> Result<()> {
     let _com = Com::new(COINIT_MULTITHREADED as u32)?;
     let missing: IInspectable = IReference::from("missing").into();
-    let stock: IInspectable = IVector::<IInspectable>::from(vec![]).into();
+    let stock: IInspectable = unsafe { IVector::<IInspectable>::from_unchecked(vec![]) }.into();
     let name = stock.GetRuntimeClassName()?;
     for values in read_cases() {
         for make in VECTORS {
@@ -199,7 +267,9 @@ fn assert_iterator(
 fn iterator_read_parity() -> Result<()> {
     let _com = Com::new(COINIT_MULTITHREADED as u32)?;
     for values in read_cases() {
-        assert_iterator(&IIterable::from(values.clone()), &values)?;
+        for make in ITERABLES {
+            assert_iterator(&make(values.clone())?, &values)?;
+        }
         for make in VECTORS {
             let vector = make(values.clone())?;
             assert_iterator(&vector.cast::<IIterable<IInspectable>>()?, &values)?;
@@ -302,10 +372,92 @@ fn buffered_early_release_parity() -> Result<()> {
 }
 
 #[test]
+fn immutable_interface_surfaces() -> Result<()> {
+    let _com = Com::new(COINIT_MULTITHREADED as u32)?;
+    let no_interface = HRESULT(0x80004002_u32 as _);
+    for source in [
+        unsafe { IIterable::<IInspectable>::from_unchecked(vec![None]) },
+        IIterable::<IInspectable>::from_marshaled(vec![None])?,
+    ] {
+        assert_eq!(
+            source
+                .cast::<IVectorView<IInspectable>>()
+                .unwrap_err()
+                .code(),
+            no_interface
+        );
+        assert_eq!(
+            source.cast::<IVector<IInspectable>>().unwrap_err().code(),
+            no_interface
+        );
+        let object: IInspectable = source.into();
+        assert_eq!(
+            object.GetRuntimeClassName()?,
+            "Windows.Foundation.Collections.IIterable`1<Object>"
+        );
+    }
+    for view in [
+        unsafe { IVectorView::<IInspectable>::from_unchecked(vec![None]) },
+        IVectorView::<IInspectable>::from_marshaled(vec![None])?,
+        unsafe { IVector::<IInspectable>::from_unchecked(vec![None]) }.GetView()?,
+        IVector::<IInspectable>::from_marshaled(vec![None])?.GetView()?,
+        unsafe { IObservableVector::<IInspectable>::from_unchecked(vec![None]) }.GetView()?,
+        IObservableVector::<IInspectable>::from_marshaled(vec![None])?.GetView()?,
+    ] {
+        assert_eq!(
+            view.cast::<IVector<IInspectable>>().unwrap_err().code(),
+            no_interface
+        );
+        assert_eq!(
+            view.cast::<IObservableVector<IInspectable>>()
+                .unwrap_err()
+                .code(),
+            no_interface
+        );
+        assert_eq!(
+            view.cast::<IIterable<IInspectable>>()?
+                .cast::<IVectorView<IInspectable>>()?,
+            view
+        );
+        let object: IInspectable = view.into();
+        assert_eq!(
+            object.GetRuntimeClassName()?,
+            "Windows.Foundation.Collections.IVectorView`1<Object>"
+        );
+    }
+    for make in [VECTORS[2], VECTORS[3]] {
+        let vector = make(vec![None])?;
+        let view = vector.GetView()?;
+        assert_eq!(view.cast::<IVector<IInspectable>>()?, vector);
+        assert_eq!(vector.cast::<IUnknown>()?, view.cast::<IUnknown>()?);
+        assert_eq!(
+            vector
+                .cast::<IObservableVector<IInspectable>>()
+                .unwrap_err()
+                .code(),
+            no_interface
+        );
+        let object: IInspectable = view.into();
+        assert_eq!(
+            object.GetRuntimeClassName()?,
+            "Windows.Foundation.Collections.IVector`1<Object>"
+        );
+    }
+    Ok(())
+}
+
+#[test]
 fn read_only_contract() -> Result<()> {
     let _com = Com::new(COINIT_MULTITHREADED as u32)?;
+    for make in [VECTORS[2], VECTORS[3]] {
+        check_read_only_contract(make)?;
+    }
+    Ok(())
+}
+
+fn check_read_only_contract(make: MakeVector) -> Result<()> {
     let item: IInspectable = IReference::from("value").into();
-    let vector = IVector::from_read_only([Some(item.clone()), None])?;
+    let vector = make(vec![Some(item.clone()), None])?;
     for result in [
         vector.SetAt(0, &item),
         vector.InsertAt(0, &item),
@@ -369,16 +521,18 @@ fn identity_and_null_search() -> Result<()> {
     let first: IInspectable = object.to_interface::<IStringable>().into();
     let second: IInspectable = object.to_interface::<IClosable>().into();
     assert_ne!(first.as_raw(), second.as_raw());
-    let vector = IVector::from_read_only([None, Some(first)])?;
-    let mut index = 99;
-    assert!(vector.IndexOf(&second, &mut index)?);
-    assert_eq!(index, 1);
-    assert!(vector.GetView()?.IndexOf(None, &mut index)?);
-    assert_eq!(index, 0);
     let other: IInspectable = IReference::from("other").into();
-    index = 99;
-    assert!(!vector.IndexOf(&other, &mut index)?);
-    assert_eq!(index, 0);
+    for make in [VECTORS[2], VECTORS[3]] {
+        let vector = make(vec![None, Some(first.clone())])?;
+        let mut index = 99;
+        assert!(vector.IndexOf(&second, &mut index)?);
+        assert_eq!(index, 1);
+        assert!(vector.GetView()?.IndexOf(None, &mut index)?);
+        assert_eq!(index, 0);
+        index = 99;
+        assert!(!vector.IndexOf(&other, &mut index)?);
+        assert_eq!(index, 0);
+    }
     Ok(())
 }
 
@@ -399,13 +553,146 @@ fn unmarshalable_value_rejects_construction() -> Result<()> {
     let blocked: IStringable = NonMarshaled.into();
     let blocked: IInspectable = blocked.into();
     let expected = AgileReference::new(&blocked).unwrap_err().code();
-    let first: IInspectable = IReference::from("first").into();
-    assert_eq!(
-        IVector::from_read_only([Some(first), Some(blocked)])
-            .unwrap_err()
-            .code(),
-        expected
-    );
+    for (kind, make) in MARSHAL_FACTORIES.into_iter().enumerate() {
+        let dropped = Arc::new(AtomicUsize::new(0));
+        let first: IStringable = TrackedValue {
+            value: 0,
+            dropped: dropped.clone(),
+        }
+        .into();
+        assert_eq!(
+            make(vec![Some(first.into()), Some(blocked.clone())])
+                .unwrap_err()
+                .code(),
+            expected,
+            "factory {kind}"
+        );
+        assert_eq!(dropped.load(Ordering::Relaxed), 1, "factory {kind}");
+    }
+    Ok(())
+}
+
+#[test]
+fn direct_storage_accepts_caller_confined_objects() -> Result<()> {
+    let _com = Com::new(COINIT_APARTMENTTHREADED as u32)?;
+    let blocked: IStringable = NonMarshaled.into();
+    let blocked: IInspectable = blocked.into();
+    assert!(AgileReference::new(&blocked).is_err());
+    for (kind, make) in DIRECT_FACTORIES.into_iter().enumerate() {
+        let collection = make(vec![Some(blocked.clone()), None])?;
+        assert_eq!(read_collection(kind, &collection, 0)?, blocked);
+        assert_eq!(
+            read_collection(kind, &collection, 1).unwrap_err().code(),
+            HRESULT(0)
+        );
+    }
+    Ok(())
+}
+
+#[test]
+fn marshaled_nulls() -> Result<()> {
+    let _com = Com::new(COINIT_MULTITHREADED as u32)?;
+    for (kind, make) in MARSHAL_FACTORIES.into_iter().enumerate() {
+        let collection = make(vec![None])?;
+        assert_eq!(
+            read_collection(kind, &collection, 0).unwrap_err().code(),
+            HRESULT(0)
+        );
+        assert_eq!(
+            read_collection(kind, &collection, 1).unwrap_err().code(),
+            E_BOUNDS
+        );
+    }
+    Ok(())
+}
+
+#[test]
+fn failed_vector_ingress_preserves_contents_and_notifications() -> Result<()> {
+    let _com = Com::new(COINIT_APARTMENTTHREADED as u32)?;
+    let blocked: IStringable = NonMarshaled.into();
+    let blocked: IInspectable = blocked.into();
+    let expected = AgileReference::new(&blocked).unwrap_err().code();
+    let initial: IInspectable = IReference::from("initial").into();
+    let observable =
+        IObservableVector::<IInspectable>::from_marshaled(vec![Some(initial.clone()), None])?;
+    let events = Arc::new(AtomicUsize::new(0));
+    let capture = events.clone();
+    let _subscription = observable.VectorChanged(move |_, _| {
+        capture.fetch_add(1, Ordering::Relaxed);
+    })?;
+    for vector in [
+        IVector::from_marshaled(vec![Some(initial.clone()), None])?,
+        observable.cast::<IVector<IInspectable>>()?,
+    ] {
+        let before = events.load(Ordering::Relaxed);
+        for operation in 0..4 {
+            let dropped = Arc::new(AtomicUsize::new(0));
+            let result = match operation {
+                0 => vector.SetAt(0, &blocked),
+                1 => vector.InsertAt(0, &blocked),
+                2 => vector.Append(&blocked),
+                3 => {
+                    let prefix: IStringable = TrackedValue {
+                        value: 0,
+                        dropped: dropped.clone(),
+                    }
+                    .into();
+                    vector.ReplaceAll(&[Some(prefix.into()), Some(blocked.clone())])
+                }
+                _ => unreachable!(),
+            };
+            assert_eq!(result.unwrap_err().code(), expected);
+            assert_eq!(vector.Size()?, 2);
+            let mut values = [None, None];
+            assert_eq!(vector.GetMany(0, &mut values)?, 2);
+            assert_eq!(values, [Some(initial.clone()), None]);
+            assert_eq!(events.load(Ordering::Relaxed), before);
+            assert_eq!(dropped.load(Ordering::Relaxed), usize::from(operation == 3));
+        }
+        vector.SetAt(0, None)?;
+        assert_eq!(vector.GetAt(0).unwrap_err().code(), HRESULT(0));
+        vector.SetAt(0, &initial)?;
+        assert_eq!(vector.GetAt(0)?, initial);
+    }
+    assert_eq!(events.load(Ordering::Relaxed), 2);
+    Ok(())
+}
+
+#[test]
+fn failed_map_ingress_preserves_contents_and_notifications() -> Result<()> {
+    let _com = Com::new(COINIT_APARTMENTTHREADED as u32)?;
+    let blocked: IStringable = NonMarshaled.into();
+    let blocked: IInspectable = blocked.into();
+    let expected = AgileReference::new(&blocked).unwrap_err().code();
+    let initial: IInspectable = IReference::from("initial").into();
+    let observable = IObservableMap::<u32, IInspectable>::from_marshaled(keyed(vec![
+        Some(initial.clone()),
+        None,
+    ]))?;
+    let events = Arc::new(AtomicUsize::new(0));
+    let capture = events.clone();
+    let _subscription = observable.MapChanged(move |_, _| {
+        capture.fetch_add(1, Ordering::Relaxed);
+    })?;
+    for map in [
+        IMap::from_marshaled(keyed(vec![Some(initial.clone()), None]))?,
+        observable.cast::<IMap<u32, IInspectable>>()?,
+    ] {
+        let before = events.load(Ordering::Relaxed);
+        for key in [0, 2] {
+            assert_eq!(map.Insert(key, &blocked).unwrap_err().code(), expected);
+            assert_eq!(map.Size()?, 2);
+            assert_eq!(map.Lookup(0)?, initial);
+            assert_eq!(map.Lookup(1).unwrap_err().code(), HRESULT(0));
+            assert!(!map.HasKey(2)?);
+            assert_eq!(events.load(Ordering::Relaxed), before);
+        }
+        assert!(map.Insert(0, None)?);
+        assert_eq!(map.Lookup(0).unwrap_err().code(), HRESULT(0));
+        assert!(map.Insert(0, &initial)?);
+        assert_eq!(map.Lookup(0)?, initial);
+    }
+    assert_eq!(events.load(Ordering::Relaxed), 2);
     Ok(())
 }
 
@@ -429,6 +716,121 @@ impl Drop for ApartmentValue {
         assert_eq!(thread::current().id(), self.owner);
         assert!(unsafe { SetEvent(self.dropped.as_raw_handle()) }.as_bool());
     }
+}
+
+#[test]
+fn marshaled_derived_owners_preserve_apartment_and_final_release() -> Result<()> {
+    let _com = Com::new(COINIT_APARTMENTTHREADED as u32)?;
+    for (kind, make) in MARSHAL_FACTORIES.into_iter().enumerate() {
+        let handle = unsafe { CreateEventW(None, true, false, None) };
+        if handle.is_null() {
+            return Err(Error::from_thread());
+        }
+        let dropped = Arc::new(unsafe { OwnedHandle::from_raw_handle(handle) });
+        let calls = Arc::new(AtomicUsize::new(0));
+        let value: IStringable = ApartmentValue {
+            owner: thread::current().id(),
+            calls: calls.clone(),
+            dropped: dropped.clone(),
+        }
+        .into();
+        let value: IInspectable = value.into();
+        let collection = make(vec![Some(value.clone())])?;
+        match kind {
+            2 | 3 => {
+                let vector = collection.cast::<IVector<IInspectable>>()?;
+                vector.SetAt(0, &value)?;
+                vector.InsertAt(0, &value)?;
+                vector.Append(&value)?;
+                vector.ReplaceAll(&[Some(value.clone())])?;
+            }
+            5 | 6 => assert!(
+                collection
+                    .cast::<IMap<u32, IInspectable>>()?
+                    .Insert(0, &value)?
+            ),
+            _ => {}
+        }
+        drop(value);
+        // Create derived owners in the STA, before marshaling them to the worker.
+        let child: IInspectable = match kind {
+            0 => collection
+                .cast::<IIterable<IInspectable>>()?
+                .First()?
+                .into(),
+            1 => collection
+                .cast::<IVectorView<IInspectable>>()?
+                .First()?
+                .into(),
+            2 | 3 | 7 => collection
+                .cast::<IVector<IInspectable>>()?
+                .GetView()?
+                .First()?
+                .into(),
+            4 => collection
+                .cast::<IMapView<u32, IInspectable>>()?
+                .First()?
+                .Current()?
+                .into(),
+            5 | 6 => collection
+                .cast::<IMap<u32, IInspectable>>()?
+                .GetView()?
+                .First()?
+                .Current()?
+                .into(),
+            _ => unreachable!(),
+        };
+        let root = AgileReference::new(&collection)?;
+        let child_reference = AgileReference::new(&child)?;
+        drop(collection);
+        drop(child);
+        let worker = thread::spawn(move || -> Result<()> {
+            let _com = Com::new(COINIT_MULTITHREADED as u32)?;
+            let collection = root.resolve()?;
+            drop(root);
+            assert_eq!(
+                read_collection(kind, &collection, 0)?
+                    .cast::<IStringable>()?
+                    .ToString()?,
+                "apartment"
+            );
+            match kind {
+                2 | 3 => collection.cast::<IVector<IInspectable>>()?.Clear()?,
+                5 | 6 => collection.cast::<IMap<u32, IInspectable>>()?.Clear()?,
+                _ => {}
+            }
+            drop(collection);
+            let child = child_reference.resolve()?;
+            drop(child_reference);
+            let value = if (4..=6).contains(&kind) {
+                let pair = child.cast::<IKeyValuePair<u32, IInspectable>>()?;
+                assert_eq!(pair.Key()?, 0);
+                pair.Value()?
+            } else {
+                let iterator = child.cast::<IIterator<IInspectable>>()?;
+                let mut values = [None];
+                assert_eq!(iterator.GetMany(&mut values)?, 1);
+                assert!(!iterator.HasCurrent()?);
+                values[0].take().unwrap()
+            };
+            drop(child);
+            assert_eq!(value.cast::<IStringable>()?.ToString()?, "apartment");
+            Ok(())
+        });
+        unsafe {
+            CoWaitForMultipleHandles(
+                COWAIT_DISPATCH_CALLS as u32,
+                5_000,
+                1,
+                &mut dropped.as_raw_handle(),
+                &mut 0,
+            )
+            .ok()?;
+        }
+        worker.join().unwrap()?;
+        assert_eq!(calls.load(Ordering::Relaxed), 2, "factory {kind}");
+    }
+    Ok(())
 }
 
 #[test]

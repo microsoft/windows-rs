@@ -1,5 +1,6 @@
 use super::*;
-use std::sync::atomic::{AtomicUsize, Ordering};
+use immutable_vector::VectorOwner;
+use storage::*;
 use windows_core::*;
 
 impl IVector<IInspectable> {
@@ -8,85 +9,70 @@ impl IVector<IInspectable> {
     /// Values are resolved in the calling apartment on access. COM initialization and apartment
     /// dispatch remain the caller's responsibility; creating or resolving a reference can fail.
     /// Null values are preserved. Views and iterators share the immutable storage.
+    /// Non-null values require Windows.
     ///
     /// All mutation methods return `E_NOTIMPL`.
     pub fn from_read_only(values: impl IntoIterator<Item = Option<IInspectable>>) -> Result<Self> {
-        let values = values
-            .into_iter()
-            .map(|value| value.as_ref().map(AgileReference::new).transpose())
-            .collect::<Result<Vec<_>>>()?;
+        let values = prepare::<Marshaled<IInspectable>>(values)?;
         let _: u32 = values.len().try_into()?;
-        Ok(ComObject::new(ReadOnlyVector { values }).into_interface())
+        Ok(ComObject::new(ReadOnlyVector::<Marshaled<IInspectable>> { values }).into_interface())
+    }
+
+    /// Creates a read-only vector with directly stored interface values.
+    ///
+    /// Null values are preserved. Views and iterators share immutable storage, without a data lock
+    /// or runtime marshaling. All mutation methods return `E_NOTIMPL`.
+    ///
+    /// # Safety
+    ///
+    /// All retained values must support cloning, comparison, access, and release on every thread
+    /// and in every apartment where this collection or its derived objects are used. The caller
+    /// must enforce this for their complete lifetime; `IAgileObject` alone does not prove it.
+    pub unsafe fn from_read_only_unchecked(
+        values: impl IntoIterator<Item = Option<IInspectable>>,
+    ) -> Result<Self> {
+        let values: Vec<_> = values.into_iter().collect();
+        let _: u32 = values.len().try_into()?;
+        Ok(ComObject::new(ReadOnlyVector::<Direct<IInspectable>> { values }).into_interface())
     }
 }
 
-struct ReadOnlyVector {
-    values: Vec<Option<AgileReference<IInspectable>>>,
+struct ReadOnlyVector<S: Storage<Value = IInspectable>> {
+    values: Vec<S::Stored>,
 }
 
 implement_decl! {
-    impl ReadOnlyVector as ReadOnlyVector_Impl: [
+    impl<S> ReadOnlyVector as ReadOnlyVector_Impl: [
         IVector<IInspectable>,
         IVectorView<IInspectable>,
         IIterable<IInspectable>,
     ]
+    where S: Storage<Value = IInspectable>
 }
 
-impl ReadOnlyVector_Impl {
-    fn resolve_many(&self, start: usize, count: usize) -> Result<Vec<Option<IInspectable>>> {
-        self.values
-            .iter()
-            .skip(start)
-            .take(count)
-            .map(|value| value.as_ref().map(AgileReference::resolve).transpose())
-            .collect()
-    }
-}
-
-impl IVectorView_Impl<IInspectable> for ReadOnlyVector_Impl {
+impl<S: Storage<Value = IInspectable>> IVectorView_Impl<IInspectable> for ReadOnlyVector_Impl<S> {
     fn GetAt(&self, index: u32) -> Result<IInspectable> {
-        self.values
-            .get(index as usize)
-            .ok_or_else(|| Error::from(E_BOUNDS))?
-            .as_ref()
-            .ok_or_else(Error::empty)?
-            .resolve()
+        self.get_at(index as usize)
     }
 
     fn Size(&self) -> Result<u32> {
-        Ok(self.values.len() as u32)
+        self.size()
     }
 
     fn IndexOf(&self, value: Ref<IInspectable>, index: &mut u32) -> Result<bool> {
         *index = 0;
-        let identity = value
-            .as_ref()
-            .map(Interface::cast::<IUnknown>)
-            .transpose()?;
-        for (position, item) in self.values.iter().enumerate() {
-            let item = item
-                .as_ref()
-                .map(|item| item.resolve()?.cast::<IUnknown>())
-                .transpose()?;
-            if item == identity {
-                *index = position as u32;
-                return Ok(true);
-            }
-        }
-        Ok(false)
+        Ok(index_result(
+            identity_index::<IInspectable, S>(&self.values, value.as_ref())?,
+            index,
+        ))
     }
 
     fn GetMany(&self, start: u32, items: &mut [Option<IInspectable>]) -> Result<u32> {
-        let values = self.resolve_many(start as usize, items.len())?;
-        let count = values.len() as u32;
-        for (item, value) in items.iter_mut().zip(values) {
-            *item = value;
-        }
-        Ok(count)
+        self.get_many(start, items)
     }
 }
 
-impl IVector_Impl<IInspectable> for ReadOnlyVector_Impl {
+impl<S: Storage<Value = IInspectable>> IVector_Impl<IInspectable> for ReadOnlyVector_Impl<S> {
     fn GetAt(&self, index: u32) -> Result<IInspectable> {
         IVectorView_Impl::GetAt(self, index)
     }
@@ -138,66 +124,16 @@ impl IVector_Impl<IInspectable> for ReadOnlyVector_Impl {
 
 const E_NOTIMPL: HRESULT = HRESULT(0x80004001_u32 as _);
 
-impl IIterable_Impl<IInspectable> for ReadOnlyVector_Impl {
+impl<S: Storage<Value = IInspectable>> IIterable_Impl<IInspectable> for ReadOnlyVector_Impl<S> {
     fn First(&self) -> Result<IIterator<IInspectable>> {
-        Ok(ComObject::new(ReadOnlyVectorIterator {
-            owner: self.to_object(),
-            current: AtomicUsize::new(0),
-        })
-        .into_interface())
+        Ok(immutable_vector::iterator(self.to_object()))
     }
 }
 
-struct ReadOnlyVectorIterator {
-    owner: ComObject<ReadOnlyVector>,
-    current: AtomicUsize,
-}
+impl<S: Storage<Value = IInspectable>> VectorOwner for ReadOnlyVector<S> {
+    type Storage = S;
 
-implement_decl! {
-    impl ReadOnlyVectorIterator as ReadOnlyVectorIterator_Impl: [IIterator<IInspectable>]
-}
-
-impl IIterator_Impl<IInspectable> for ReadOnlyVectorIterator_Impl {
-    fn Current(&self) -> Result<IInspectable> {
-        IVectorView_Impl::GetAt(&*self.owner, self.current.load(Ordering::Relaxed) as u32)
-    }
-
-    fn HasCurrent(&self) -> Result<bool> {
-        Ok(self.current.load(Ordering::Relaxed) < self.owner.values.len())
-    }
-
-    fn MoveNext(&self) -> Result<bool> {
-        loop {
-            let current = self.current.load(Ordering::Relaxed);
-            if current == self.owner.values.len() {
-                return Ok(false);
-            }
-            if self
-                .current
-                .compare_exchange(current, current + 1, Ordering::Relaxed, Ordering::Relaxed)
-                .is_ok()
-            {
-                return Ok(current + 1 < self.owner.values.len());
-            }
-        }
-    }
-
-    fn GetMany(&self, items: &mut [Option<IInspectable>]) -> Result<u32> {
-        loop {
-            let start = self.current.load(Ordering::Relaxed);
-            let values = self.owner.resolve_many(start, items.len())?;
-            let count = values.len();
-            if self
-                .current
-                .compare_exchange(start, start + count, Ordering::Relaxed, Ordering::Relaxed)
-                .is_err()
-            {
-                continue;
-            }
-            for (item, value) in items.iter_mut().zip(values) {
-                *item = value;
-            }
-            return Ok(count as u32);
-        }
+    fn values(&self) -> &[S::Stored] {
+        &self.values
     }
 }

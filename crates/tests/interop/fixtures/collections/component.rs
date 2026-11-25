@@ -18,6 +18,42 @@ impl Collections::IWidget_Impl for Widget_Impl {
         IVector::from_read_only(values.iter().cloned())
     }
 
+    fn MarshaledVector(&self, values: &[Option<IInspectable>]) -> Result<IVector<IInspectable>> {
+        IVector::from_marshaled(values.to_vec())
+    }
+
+    fn MarshaledObservableVector(
+        &self,
+        values: &[Option<IInspectable>],
+    ) -> Result<IObservableVector<IInspectable>> {
+        IObservableVector::from_marshaled(values.to_vec())
+    }
+
+    fn MarshaledMap(&self, values: &[Option<IInspectable>]) -> Result<IMap<u32, IInspectable>> {
+        IMap::from_marshaled(
+            values
+                .iter()
+                .cloned()
+                .enumerate()
+                .map(|(index, value)| (index as u32, value))
+                .collect(),
+        )
+    }
+
+    fn MarshaledObservableMap(
+        &self,
+        values: &[Option<IInspectable>],
+    ) -> Result<IObservableMap<u32, IInspectable>> {
+        IObservableMap::from_marshaled(
+            values
+                .iter()
+                .cloned()
+                .enumerate()
+                .map(|(index, value)| (index as u32, value))
+                .collect(),
+        )
+    }
+
     fn Lookup(&self, map: Ref<IMapView<HSTRING, i32>>, key: &HSTRING) -> Result<i32> {
         map.ok()?.Lookup(key)
     }

@@ -1,32 +1,25 @@
 use super::*;
+use storage::*;
 use windows_core::*;
 
-pub(super) struct StockKeyValuePair<K, V>
-where
-    K: RuntimeType + 'static,
-    V: RuntimeType + 'static,
-{
+pub(super) struct StockKeyValuePair<K: RuntimeType + 'static, S: Storage> {
     pub(super) key: K::Default,
-    pub(super) value: V::Default,
+    pub(super) value: S::Stored,
 }
 
 implement_decl! {
-    impl<K, V> StockKeyValuePair as pub(super) StockKeyValuePair_Impl: [
-        IKeyValuePair<K, V>,
+    impl<K, S> StockKeyValuePair as pub(super) StockKeyValuePair_Impl: [
+        IKeyValuePair<K, S::Value>,
     ]
-    where K: RuntimeType + 'static, V: RuntimeType + 'static
+    where K: RuntimeType + 'static, S: Storage
 }
 
-impl<K, V> IKeyValuePair_Impl<K, V> for StockKeyValuePair_Impl<K, V>
-where
-    K: RuntimeType,
-    V: RuntimeType,
-{
+impl<K: RuntimeType, S: Storage> IKeyValuePair_Impl<K, S::Value> for StockKeyValuePair_Impl<K, S> {
     fn Key(&self) -> Result<K> {
         K::from_default(&self.key)
     }
 
-    fn Value(&self) -> Result<V> {
-        V::from_default(&self.value)
+    fn Value(&self) -> Result<S::Value> {
+        S::get(&self.value)
     }
 }

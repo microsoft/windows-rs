@@ -165,11 +165,12 @@ struct query_value final : impl::abi_t<Inspectable>
     }
 };
 
-void read_only_retains_values(Widget const& widget)
+template <typename F>
+void vector_retains_values(F const& make)
 {
     auto state = std::make_shared<query_state>();
     Inspectable value{ new query_value(state), take_ownership_from_abi };
-    auto vector = widget.ReadOnly({ value });
+    auto vector = make({ value });
     auto view = vector.GetView();
     auto iterator = vector.First();
     value = nullptr;
@@ -194,13 +195,14 @@ void read_only_marshaling_failure(Widget const& widget)
     fails_with(error, [&] { static_cast<void>(widget.ReadOnly({ first, failing })); });
 }
 
-void read_only_resolution_failure(Widget const& widget)
+template <typename F>
+void vector_resolution_failure(F const& make)
 {
     auto state = std::make_shared<query_state>();
     Inspectable failing{ new query_value(state), take_ownership_from_abi };
     auto first_value = new query_value(std::make_shared<query_state>());
     Inspectable first{ first_value, take_ownership_from_abi };
-    auto vector = widget.ReadOnly({ first, failing });
+    auto vector = make({ first, failing });
     auto view = vector.GetView();
     auto iterator = vector.First();
     com_ptr<impl::IAgileReference> control;
@@ -246,11 +248,12 @@ void read_only_resolution_failure(Widget const& widget)
     check(!iterator.HasCurrent());
 }
 
-void read_only_reentrant_iterator(Widget const& widget)
+template <typename F>
+void vector_reentrant_iterator(F const& make)
 {
     auto state = std::make_shared<query_state>();
     Inspectable value{ new query_value(state), take_ownership_from_abi };
-    auto vector = widget.ReadOnly({ value, box_value(1), box_value(2) });
+    auto vector = make({ value, box_value(1), box_value(2) });
     auto iterator = vector.First();
     bool called = false;
     {
@@ -270,7 +273,8 @@ void read_only_reentrant_iterator(Widget const& widget)
     check(!iterator.HasCurrent());
 }
 
-void read_only_concurrent_iterator(Widget const& widget)
+template <typename F>
+void vector_concurrent_iterator(F const& make)
 {
     struct mta_scope
     {
@@ -282,7 +286,7 @@ void read_only_concurrent_iterator(Widget const& widget)
     {
         input.push_back(box_value(value));
     }
-    auto vector = widget.ReadOnly(input);
+    auto vector = make(input);
     agile_ref<IIterator<Inspectable>> reference{ vector.First() };
     std::barrier start{ 4 };
     std::array<std::thread, 4> workers;
@@ -304,6 +308,7 @@ void read_only_concurrent_iterator(Widget const& widget)
                     {
                         results[index].push_back(unbox_value<int32_t>(items[i]));
                     }
+
                 }
             }
             catch (...)
@@ -331,4 +336,53 @@ void read_only_concurrent_iterator(Widget const& widget)
     {
         check(actual[index] == static_cast<int32_t>(index));
     }
+}
+
+template <typename F>
+void vector_storage_contract(F const& make)
+{
+    vector_retains_values(make);
+    vector_resolution_failure(make);
+    vector_reentrant_iterator(make);
+    vector_concurrent_iterator(make);
+}
+
+template <typename F>
+void map_resolution_failure(F const& make)
+{
+    auto state = std::make_shared<query_state>();
+    Inspectable failing{ new query_value(state), take_ownership_from_abi };
+    auto first = box_value(1);
+    auto map = make({ first, failing, nullptr });
+    auto view = map.GetView();
+    auto iterator = view.First();
+    check(iterator.MoveNext());
+    auto pair = iterator.Current();
+    check(pair.Key() == 1);
+    com_ptr<impl::IAgileReference> control;
+    check_hresult(impl::get_agile_reference(
+        guid_of<Inspectable>(), get_abi(failing), control.put_void()));
+    state->fail = true;
+    void* resolved{};
+    check(control->Resolve(guid_of<Inspectable>(), &resolved) == E_OUTOFMEMORY);
+    check(resolved == nullptr);
+    fails_with(E_OUTOFMEMORY, [&] { static_cast<void>(map.Lookup(1)); });
+    fails_with(E_OUTOFMEMORY, [&] { static_cast<void>(view.Lookup(1)); });
+    fails_with(E_OUTOFMEMORY, [&] { static_cast<void>(pair.Value()); });
+    check(view.Lookup(2) == nullptr);
+
+    // Deriving owners does not resolve their apartment-bound values.
+    auto snapshot = map.GetView();
+    std::array<IKeyValuePair<uint32_t, Inspectable>, 3> pairs;
+    check(map.First().GetMany(pairs) == 3);
+    map.Clear();
+    check(map.Size() == 0);
+    map = nullptr;
+    fails_with(E_OUTOFMEMORY, [&] { static_cast<void>(snapshot.Lookup(1)); });
+    fails_with(E_OUTOFMEMORY, [&] { static_cast<void>(pairs[1].Value()); });
+    state->fail = false;
+    check(pair.Value() == failing);
+    check(pairs[0].Value() == first);
+    check(pairs[1].Value() == failing);
+    check(pairs[2].Value() == nullptr);
 }

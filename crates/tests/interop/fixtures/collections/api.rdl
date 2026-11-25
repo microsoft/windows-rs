@@ -10,6 +10,10 @@ mod Collections {
     interface IWidget {
         fn Numbers(&self) -> Windows::Foundation::Collections::IVector<i32>;
         fn ReadOnly(&self, #[in] values: [Object]) -> Windows::Foundation::Collections::IVector<Object>;
+        fn MarshaledVector(&self, #[in] values: [Object]) -> Windows::Foundation::Collections::IVector<Object>;
+        fn MarshaledObservableVector(&self, #[in] values: [Object]) -> Windows::Foundation::Collections::IObservableVector<Object>;
+        fn MarshaledMap(&self, #[in] values: [Object]) -> Windows::Foundation::Collections::IMap<u32, Object>;
+        fn MarshaledObservableMap(&self, #[in] values: [Object]) -> Windows::Foundation::Collections::IObservableMap<u32, Object>;
         fn Lookup(&self, #[in] map: Windows::Foundation::Collections::IMapView<String, i32>, #[in] key: String) -> i32;
         fn Values(&self) -> Windows::Foundation::Collections::IIterable<String>;
 
