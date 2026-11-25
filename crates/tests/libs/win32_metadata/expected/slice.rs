@@ -368,7 +368,7 @@ impl Default for MONITORINFOEXA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MSG {
     pub hwnd: HWND,
     pub message: UINT,
@@ -376,6 +376,11 @@ pub struct MSG {
     pub lParam: LPARAM,
     pub time: DWORD,
     pub pt: POINT,
+}
+impl Default for MSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(target_arch = "aarch64")]
 pub type NEON128 = ARM64_NT_NEON128;
@@ -433,7 +438,7 @@ impl Default for STRRET_0 {
 pub type UINT = u32;
 pub type ULONGLONG = u64;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WNDCLASSEXA {
     pub cbSize: UINT,
     pub style: UINT,
@@ -447,6 +452,11 @@ pub struct WNDCLASSEXA {
     pub lpszMenuName: PCSTR,
     pub lpszClassName: PCSTR,
     pub hIconSm: HICON,
+}
+impl Default for WNDCLASSEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WNDPROC = Option<
     unsafe extern "system" fn(
