@@ -113,12 +113,7 @@ impl NameRules {
 
 impl Selection {
     #[track_caller]
-    pub fn resolve(
-        reader: &Reader,
-        entries: &[ResolvedFilter],
-        references: &References,
-        implements: Option<&Implements>,
-    ) -> Self {
+    pub fn resolve(reader: &Reader, entries: &[ResolvedFilter], references: &References) -> Self {
         let mut rules = NameRules::new(entries);
         let mut requests = HashMap::<TypeName, Request>::new();
         let mut selection = Self::default();
@@ -144,17 +139,6 @@ impl Selection {
             selection.explicit.insert(name);
             let request = requests.entry(name).or_default();
             if let Some(members) = members {
-                if !members.is_empty()
-                    && matches!(ty, Type::Interface(_) | Type::CppInterface(_))
-                    && implements.is_some_and(|implements| {
-                        !implements.is_empty() && implements.matches(name)
-                    })
-                {
-                    panic!(
-                        "method-level filter on `{name}` conflicts with `--implement`: \
-                         methods on implemented interfaces are always emitted"
-                    );
-                }
                 for member in members {
                     let resolved: Vec<_> = types
                         .iter()

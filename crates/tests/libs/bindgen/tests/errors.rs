@@ -417,6 +417,44 @@ fn invalid_target_bitfield_width() {
 }
 
 #[test]
+fn implemented_base_rejects_member_filters() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("implemented_base_member_filters");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/minimal_interfaces.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for (base, derived) in [
+        ("Test.Native.NativeBase", "Test.Native.NativeDerived"),
+        ("Test.Runtime.RuntimeBase", "Test.Runtime.RuntimeDerived"),
+    ] {
+        for prefix in ["", "!"] {
+            let error = std::panic::catch_unwind(|| {
+                windows_bindgen::builder()
+                    .input(&winmd)
+                    .filters([
+                        format!("{derived}::{{}}"),
+                        format!("{prefix}{base}::BaseValue"),
+                    ])
+                    .implement(derived)
+                    .output(scratch.join("bindings.rs"))
+                    .write();
+            })
+            .unwrap_err();
+            let message = error.downcast::<String>().unwrap();
+            assert!(
+                message.contains(&format!(
+                    "method-level filter on `{base}` conflicts with `--implement`"
+                )),
+                "{message}"
+            );
+        }
+    }
+}
+
+#[test]
 #[should_panic(expected = "failed to open file")]
 fn missing_filter_file_panics() {
     let missing = std::env::temp_dir().join("test_bindgen_missing_filter_file.txt");

@@ -38,13 +38,30 @@ impl BindingPlan {
         implements: Option<&Implements>,
         style: Style,
     ) -> Self {
-        let selection = Selection::resolve(reader, entries, &references, implements);
-        let types = TypeClosure::build(reader, &selection, &references, implements, style);
-        let implemented = types
-            .keys()
-            .copied()
-            .filter(|name| implements.is_some_and(|implements| implements.matches(*name)))
-            .collect();
+        let selection = Selection::resolve(reader, entries, &references);
+        let (types, implemented) =
+            TypeClosure::build(reader, &selection, &references, implements, style);
+        if let Some(implements) = implements.filter(|implements| !implements.is_empty()) {
+            for entry in entries {
+                if let filter_parser::ResolvedKind::Members {
+                    namespace,
+                    name,
+                    members,
+                } = &entry.kind
+                    && !members.is_empty()
+                {
+                    let ty = reader.with_full_name(namespace, name).next().unwrap();
+                    let name = ty.type_name();
+                    if matches!(ty, Type::Interface(_) | Type::CppInterface(_)) {
+                        assert!(
+                            !implements.matches(name) && !implemented.contains(&name),
+                            "method-level filter on `{name}` conflicts with `--implement`: \
+                             methods on implemented interfaces are always emitted"
+                        );
+                    }
+                }
+            }
+        }
         let external = references.into_external(&types);
         let mut plan = Self {
             selection,
