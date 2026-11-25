@@ -490,10 +490,15 @@ pub const CXChoice_Disabled: CXChoice = 2;
 pub const CXChoice_Enabled: CXChoice = 1;
 pub type CXClientData = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXCodeCompleteResults {
     pub Results: *mut CXCompletionResult,
     pub NumResults: u32,
+}
+impl Default for CXCodeCompleteResults {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CXCodeComplete_Flags = i32;
 pub const CXCodeComplete_IncludeBriefComments: CXCodeComplete_Flags = 4;
@@ -550,10 +555,15 @@ pub const CXCompletionContext_Unexposed: CXCompletionContext = 0;
 pub const CXCompletionContext_UnionTag: CXCompletionContext = 512;
 pub const CXCompletionContext_Unknown: CXCompletionContext = 8388607;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXCompletionResult {
     pub CursorKind: CXCursorKind,
     pub CompletionString: CXCompletionString,
+}
+impl Default for CXCompletionResult {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CXCompletionString = *mut core::ffi::c_void;
 #[repr(C)]
@@ -569,12 +579,17 @@ impl Default for CXCursor {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXCursorAndRangeVisitor {
     pub context: *mut core::ffi::c_void,
     pub visit: Option<
         unsafe extern "C" fn(*mut core::ffi::c_void, CXCursor, CXSourceRange) -> CXVisitorResult,
     >,
+}
+impl Default for CXCursorAndRangeVisitor {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CXCursorAndRangeVisitorBlock = *mut _CXCursorAndRangeVisitorBlock;
 pub type CXCursorKind = i32;
@@ -973,18 +988,28 @@ pub const CXIdxAttr_IBOutlet: CXIdxAttrKind = 2;
 pub const CXIdxAttr_IBOutletCollection: CXIdxAttrKind = 3;
 pub const CXIdxAttr_Unexposed: CXIdxAttrKind = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxBaseClassInfo {
     pub base: *const CXIdxEntityInfo,
     pub cursor: CXCursor,
     pub loc: CXIdxLoc,
 }
+impl Default for CXIdxBaseClassInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxCXXClassDeclInfo {
     pub declInfo: *const CXIdxDeclInfo,
     pub bases: *const *const CXIdxBaseClassInfo,
     pub numBases: u32,
+}
+impl Default for CXIdxCXXClassDeclInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CXIdxClientASTFile = *mut core::ffi::c_void;
 pub type CXIdxClientContainer = *mut core::ffi::c_void;
@@ -997,7 +1022,7 @@ pub struct CXIdxContainerInfo {
 }
 pub const CXIdxDeclFlag_Skipped: CXIdxDeclInfoFlags = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxDeclInfo {
     pub entityInfo: *const CXIdxEntityInfo,
     pub cursor: CXCursor,
@@ -1013,10 +1038,15 @@ pub struct CXIdxDeclInfo {
     pub numAttributes: u32,
     pub flags: u32,
 }
+impl Default for CXIdxDeclInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CXIdxDeclInfoFlags = i32;
 pub type CXIdxEntityCXXTemplateKind = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxEntityInfo {
     pub kind: CXIdxEntityKind,
     pub templateKind: CXIdxEntityCXXTemplateKind,
@@ -1027,6 +1057,11 @@ pub struct CXIdxEntityInfo {
     pub attributes: *const *const CXIdxAttrInfo,
     pub numAttributes: u32,
 }
+impl Default for CXIdxEntityInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CXIdxEntityKind = i32;
 pub const CXIdxEntityLang_C: CXIdxEntityLanguage = 1;
 pub const CXIdxEntityLang_CXX: CXIdxEntityLanguage = 3;
@@ -1035,7 +1070,7 @@ pub const CXIdxEntityLang_ObjC: CXIdxEntityLanguage = 2;
 pub const CXIdxEntityLang_Swift: CXIdxEntityLanguage = 4;
 pub type CXIdxEntityLanguage = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxEntityRefInfo {
     pub kind: CXIdxEntityRefKind,
     pub cursor: CXCursor,
@@ -1044,6 +1079,11 @@ pub struct CXIdxEntityRefInfo {
     pub parentEntity: *const CXIdxEntityInfo,
     pub container: *const CXIdxContainerInfo,
     pub role: CXSymbolRole,
+}
+impl Default for CXIdxEntityRefInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CXIdxEntityRefKind = i32;
 pub const CXIdxEntityRef_Direct: CXIdxEntityRefKind = 1;
@@ -1081,23 +1121,33 @@ pub const CXIdxEntity_Unexposed: CXIdxEntityKind = 0;
 pub const CXIdxEntity_Union: CXIdxEntityKind = 15;
 pub const CXIdxEntity_Variable: CXIdxEntityKind = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxIBOutletCollectionAttrInfo {
     pub attrInfo: *const CXIdxAttrInfo,
     pub objcClass: *const CXIdxEntityInfo,
     pub classCursor: CXCursor,
     pub classLoc: CXIdxLoc,
 }
+impl Default for CXIdxIBOutletCollectionAttrInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxImportedASTFileInfo {
     pub file: CXFile,
     pub module: CXModule,
     pub loc: CXIdxLoc,
     pub isImplicit: i32,
 }
+impl Default for CXIdxImportedASTFileInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxIncludedFileInfo {
     pub hashLoc: CXIdxLoc,
     pub filename: *const i8,
@@ -1105,6 +1155,11 @@ pub struct CXIdxIncludedFileInfo {
     pub isImport: i32,
     pub isAngled: i32,
     pub isModuleImport: i32,
+}
+impl Default for CXIdxIncludedFileInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1118,7 +1173,7 @@ impl Default for CXIdxLoc {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxObjCCategoryDeclInfo {
     pub containerInfo: *const CXIdxObjCContainerDeclInfo,
     pub objcClass: *const CXIdxEntityInfo,
@@ -1126,42 +1181,72 @@ pub struct CXIdxObjCCategoryDeclInfo {
     pub classLoc: CXIdxLoc,
     pub protocols: *const CXIdxObjCProtocolRefListInfo,
 }
+impl Default for CXIdxObjCCategoryDeclInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxObjCContainerDeclInfo {
     pub declInfo: *const CXIdxDeclInfo,
     pub kind: CXIdxObjCContainerKind,
+}
+impl Default for CXIdxObjCContainerDeclInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CXIdxObjCContainerKind = i32;
 pub const CXIdxObjCContainer_ForwardRef: CXIdxObjCContainerKind = 0;
 pub const CXIdxObjCContainer_Implementation: CXIdxObjCContainerKind = 2;
 pub const CXIdxObjCContainer_Interface: CXIdxObjCContainerKind = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxObjCInterfaceDeclInfo {
     pub containerInfo: *const CXIdxObjCContainerDeclInfo,
     pub superInfo: *const CXIdxBaseClassInfo,
     pub protocols: *const CXIdxObjCProtocolRefListInfo,
 }
+impl Default for CXIdxObjCInterfaceDeclInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxObjCPropertyDeclInfo {
     pub declInfo: *const CXIdxDeclInfo,
     pub getter: *const CXIdxEntityInfo,
     pub setter: *const CXIdxEntityInfo,
 }
+impl Default for CXIdxObjCPropertyDeclInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxObjCProtocolRefInfo {
     pub protocol: *const CXIdxEntityInfo,
     pub cursor: CXCursor,
     pub loc: CXIdxLoc,
 }
+impl Default for CXIdxObjCProtocolRefInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIdxObjCProtocolRefListInfo {
     pub protocols: *const *const CXIdxObjCProtocolRefInfo,
     pub numProtocols: u32,
+}
+impl Default for CXIdxObjCProtocolRefListInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CXInclusionVisitor = Option<
     unsafe extern "C" fn(
@@ -1181,7 +1266,7 @@ pub const CXIndexOpt_SkipParsedBodiesInSession: CXIndexOptFlags = 16;
 pub const CXIndexOpt_SuppressRedundantRefs: CXIndexOptFlags = 1;
 pub const CXIndexOpt_SuppressWarnings: CXIndexOptFlags = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXIndexOptions {
     pub Size: u32,
     pub ThreadBackgroundPriorityForIndexing: u8,
@@ -1189,6 +1274,11 @@ pub struct CXIndexOptions {
     pub _bitfield: u32,
     pub PreambleStoragePath: *const i8,
     pub InvocationEmissionPath: *const i8,
+}
+impl Default for CXIndexOptions {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CXLanguageKind = i32;
 pub const CXLanguage_C: CXLanguageKind = 1;
@@ -1319,22 +1409,37 @@ impl Default for CXSourceRange {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXSourceRangeList {
     pub count: u32,
     pub ranges: *mut CXSourceRange,
 }
+impl Default for CXSourceRangeList {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXString {
     pub data: *const core::ffi::c_void,
     pub private_flags: u32,
 }
+impl Default for CXString {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXStringSet {
     pub Strings: *mut CXString,
     pub Count: u32,
+}
+impl Default for CXStringSet {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CXSymbolRole = i32;
 pub const CXSymbolRole_AddressOf: CXSymbolRole = 128;
@@ -1352,11 +1457,16 @@ pub const CXTLS_Dynamic: CXTLSKind = 1;
 pub const CXTLS_None: CXTLSKind = 0;
 pub const CXTLS_Static: CXTLSKind = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXTUResourceUsage {
     pub data: *mut core::ffi::c_void,
     pub numEntries: u32,
     pub entries: *mut CXTUResourceUsageEntry,
+}
+impl Default for CXTUResourceUsage {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1608,11 +1718,16 @@ pub const CXUnaryOperator_PreDec: CXUnaryOperatorKind = 4;
 pub const CXUnaryOperator_PreInc: CXUnaryOperatorKind = 3;
 pub const CXUnaryOperator_Real: CXUnaryOperatorKind = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CXUnsavedFile {
     pub Filename: *const i8,
     pub Contents: *const i8,
     pub Length: u32,
+}
+impl Default for CXUnsavedFile {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
