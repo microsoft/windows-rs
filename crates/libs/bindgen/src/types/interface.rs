@@ -18,23 +18,6 @@ pub enum MethodOrName<M> {
     Name(MethodDef),
 }
 
-// Demote methods when filtered out or when direct dependencies are unavailable.
-pub fn method_is_skipped(
-    def: MethodDef,
-    type_name: TypeName,
-    signature: &Signature,
-    config: &Config,
-) -> bool {
-    let mut direct = TypeMap::new();
-    for ty in signature.types() {
-        direct.insert(ty.clone());
-    }
-    for ty in def.associated_enums(config.reader) {
-        direct.insert(ty);
-    }
-    !direct.included(config) || !config.includes_method(type_name, def)
-}
-
 // The two pieces a vtable/`_Impl` writer needs from a projected method, regardless of
 // whether it is a WinRT `Method` or a Win32/COM `CppMethod`. Lets the shared emitters
 // below iterate `MethodOrName<M>` without caring which generator produced it.
@@ -194,12 +177,11 @@ impl Interface {
     }
 
     pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName<Method>> {
-        let type_name = self.def.type_name();
         self.def
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if method_is_skipped(def, type_name, &method.signature, config) {
+                if !config.plan.includes_method(def, &self.generics) {
                     MethodOrName::Name(method.def)
                 } else {
                     MethodOrName::Method(method)
@@ -210,11 +192,9 @@ impl Interface {
 
     // `_Impl` emission is omitted when this interface or a base has skipped methods.
     pub fn has_skipped_methods(&self, config: &Config) -> bool {
-        let type_name = self.def.type_name();
-        self.def.methods().any(|def| {
-            let method = Method::new(def, &self.generics, config.reader);
-            method_is_skipped(def, type_name, &method.signature, config)
-        })
+        self.def
+            .methods()
+            .any(|def| !config.plan.includes_method(def, &self.generics))
     }
 
     fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
@@ -314,15 +294,12 @@ impl Interface {
                     let interfaces: Vec<_> = required_interfaces
                         .iter()
                         .filter(|ty| {
-                            !config.filter.uses_closure || {
-                                let name = Type::Interface((*ty).clone()).type_name();
-                                config.types.contains_key(&name)
-                                    && config.filter.includes_hierarchy(
-                                        type_name.namespace(),
-                                        type_name.name(),
-                                        ty,
-                                    )
-                            }
+                            config.provides(&Type::Interface((*ty).clone()))
+                                && config.plan.selection.includes_hierarchy(
+                                    type_name.namespace(),
+                                    type_name.name(),
+                                    ty,
+                                )
                         })
                         .map(|ty| ty.write_name(config))
                         .collect();
@@ -337,16 +314,12 @@ impl Interface {
                     let interfaces = required_interfaces
                         .iter()
                         .filter(|ty| {
-                            !config.filter.uses_closure
-                                || {
-                                    let name = Type::Interface((*ty).clone()).type_name();
-                                    config.types.contains_key(&name)
-                                        && config.filter.includes_hierarchy(
-                                            type_name.namespace(),
-                                            type_name.name(),
-                                            ty,
-                                        )
-                                }
+                            config.provides(&Type::Interface((*ty).clone()))
+                                && config.plan.selection.includes_hierarchy(
+                                    type_name.namespace(),
+                                    type_name.name(),
+                                    ty,
+                                )
                         })
                         .map(|ty| {
                     let ty = ty.write_name(config);
@@ -364,7 +337,7 @@ impl Interface {
             // Implementation-only interfaces need ABI slots and `_Impl`, not callable wrappers.
             let minimal = config.bindgen.style.is_minimal();
             let implementation_only = config.should_implement(type_name, false)
-                && matches!(config.filter.type_role(type_name), TypeRole::Shell);
+                && config.plan.selection.is_shell(type_name);
             let suppress_methods = minimal
                 && ((is_exclusive && self.is_factory(config.reader)) || implementation_only);
             let emit_methods = !suppress_methods && (!is_exclusive || minimal);
@@ -394,7 +367,13 @@ impl Interface {
                 }
 
                 for interface in &required_interfaces {
-                    if !config.bindgen.style.emit_inherited_forwarders() {
+                    if !config.bindgen.style.emit_inherited_forwarders()
+                        || !config.plan.selection.includes_hierarchy(
+                            type_name.namespace(),
+                            type_name.name(),
+                            interface,
+                        )
+                    {
                         continue;
                     }
                     for (method, vname) in named_methods(&interface.get_methods(config)) {
@@ -784,5 +763,29 @@ impl Dependencies for Interface {
                 }
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn definition_identity_agrees_across_collections() {
+        let reader = default_reader(false);
+        let Type::Interface(mut left) = reader
+            .with_full_name("Windows.Foundation.Collections", "IIterable`1")
+            .next()
+            .unwrap()
+        else {
+            panic!();
+        };
+        left.generics = vec![Type::String];
+        let mut right = left.clone();
+        right.generics = vec![Type::U32];
+        assert_eq!(left.cmp(&right), Ordering::Equal);
+        assert_eq!(left, right);
+        assert_eq!(HashSet::from([left.clone(), right.clone()]).len(), 1);
+        assert_eq!(BTreeSet::from([left, right]).len(), 1);
     }
 }

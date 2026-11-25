@@ -69,14 +69,8 @@ impl Config<'_> {
             return path.parse().unwrap();
         }
 
-        if let Some(reference) = {
-            if self.types.contains_key(&type_name) {
-                None
-            } else {
-                self.references.contains(type_name)
-            }
-        } {
-            path.push_str(&reference.name);
+        if let Some(reference) = self.plan.external.get(&type_name) {
+            path.push_str(reference);
             path.push_str("::");
             path.parse().unwrap()
         } else {

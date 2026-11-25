@@ -828,7 +828,7 @@ impl Method {
 
                     // Local minimal delegates accept void closures; other delegates need `Result`.
                     let delegate_is_local_minimal = config.bindgen.style.is_minimal()
-                        && config.references.contains(d.type_name()).is_none();
+                        && !config.plan.external.contains_key(&d.type_name());
 
                     // Replace the delegate slot with the local delegate's raw interface pointer.
                     let event_typed_args: Vec<TokenStream> = typed_args

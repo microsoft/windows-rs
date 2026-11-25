@@ -17,6 +17,20 @@ impl Class {
     pub fn write(&self, config: &Config) -> TokenStream {
         let required_interfaces = self.required_interfaces(config.reader);
         let type_name = self.def.type_name();
+        let get_methods = |interface: &Interface| {
+            interface
+                .get_methods(config)
+                .into_iter()
+                .map(|method| match method {
+                    MethodOrName::Method(method)
+                        if !config.plan.selection.includes_method(type_name, method.def) =>
+                    {
+                        MethodOrName::Name(method.def)
+                    }
+                    method => method,
+                })
+                .collect::<Vec<_>>()
+        };
         let name = to_ident(type_name.name());
         // Methods flattened onto the class live in `impl #name`, so references to the
         // class (e.g. constructor return types) are emitted as `Self`.
@@ -38,7 +52,7 @@ impl Class {
             let mut method_names = MethodNames::new();
 
             for interface in &required_interfaces {
-                for (method, vname) in named_methods(&interface.get_methods(config)) {
+                for (method, vname) in named_methods(&get_methods(interface)) {
                     let cfg = method.write_cfg(config, &class_cfg, false);
                     let def = method.def;
 
@@ -78,7 +92,7 @@ impl Class {
                 .iter()
                 .filter(|i| matches!(i.kind, InterfaceKind::Static | InterfaceKind::Composable))
             {
-                for (method, vname) in named_methods(&interface.get_methods(config)) {
+                for (method, vname) in named_methods(&get_methods(interface)) {
                     let cfg = method.write_cfg(config, &class_cfg, false);
 
                     let method = method.write(
@@ -103,10 +117,10 @@ impl Class {
         let vis = config.item_vis();
 
         let has_default_ctor = self.has_default_constructor(config.reader)
-            && (!config.bindgen.style.is_minimal()
-                || config
-                    .filter
-                    .is_activatable(type_name.namespace(), type_name.name()));
+            && config
+                .plan
+                .selection
+                .is_activatable(type_name.namespace(), type_name.name());
 
         let new = has_default_ctor.then(||
             quote! {
@@ -125,14 +139,9 @@ impl Class {
 
         let factories: Vec<_> = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
-                let has_methods = if config.bindgen.style.is_minimal() || config.filter.uses_closure {
-                    interface
-                        .get_methods(config)
-                        .iter()
-                        .any(|m| matches!(m, MethodOrName::Method(_)))
-                } else {
-                    interface.def.methods().next().is_some()
-                };
+                let has_methods = get_methods(interface)
+                    .iter()
+                    .any(|m| matches!(m, MethodOrName::Method(_)));
                 if !has_methods {
                     None
                 } else {
@@ -187,15 +196,12 @@ impl Class {
                             && matches!(ty.kind, InterfaceKind::None | InterfaceKind::Base)
                     })
                     .filter(|ty| {
-                        !config.filter.uses_closure || {
-                            let name = Type::Interface((*ty).clone()).type_name();
-                            config.types.contains_key(&name)
-                                && config.filter.includes_hierarchy(
-                                    self.def.namespace(),
-                                    self.def.name(),
-                                    ty,
-                                )
-                        }
+                        config.provides(&Type::Interface((*ty).clone()))
+                            && config.plan.selection.includes_hierarchy(
+                                self.def.namespace(),
+                                self.def.name(),
+                                ty,
+                            )
                     })
                     .map(|ty| ty.write_name(config))
                     .collect();
@@ -203,14 +209,7 @@ impl Class {
                 interfaces.extend(
                     self.bases(config.reader)
                         .iter()
-                        .filter(|ty| {
-                            if config.filter.uses_closure {
-                                let tn = Type::Class((*ty).clone()).type_name();
-                                config.types.contains_key(&tn)
-                            } else {
-                                true
-                            }
-                        })
+                        .filter(|ty| config.provides(&Type::Class((*ty).clone())))
                         .map(|ty| ty.write_name(config)),
                 );
 
@@ -357,7 +356,7 @@ impl Class {
         )
     }
 
-    fn bases(&self, reader: &Reader) -> Vec<Self> {
+    pub fn bases(&self, reader: &Reader) -> Vec<Self> {
         let mut bases = Vec::new();
         let mut def = self.def;
 

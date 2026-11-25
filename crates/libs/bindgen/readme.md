@@ -67,6 +67,8 @@ items; selecting the same name from two namespaces fails to compile unless you e
 | `GetTickCount64`, `S_OK`, `HWND` | A function, constant, or type |
 | `ISequentialStream` | An interface and its methods |
 | `ISequentialStream::{}` | The interface without its callable methods |
+| `Uri` | A runtime class, its methods, and its factories |
+| `Uri::{}` | The class identity and default interface without selecting its methods |
 | `Windows.Win32.GetTickCount64` | A qualified Win32 function |
 | `Windows.Foundation` | A namespace and its descendants |
 | `IDataReader::ReadByte` | One interface method |
@@ -93,6 +95,8 @@ you only pass, store, or cast the interface; it does not remove methods requeste
 
 Rule order does not matter: more specific type/namespace rules win, with exclusions winning ties.
 Member and variant selections narrow whole-type selections; excluded members and variants win.
+Exclusions do not repair dependent selections; contradictory filters can generate bindings that
+fail to compile.
 See [`Bindgen::filter`](https://docs.rs/windows-bindgen/latest/windows_bindgen/struct.Bindgen.html#method.filter)
 for details.
 

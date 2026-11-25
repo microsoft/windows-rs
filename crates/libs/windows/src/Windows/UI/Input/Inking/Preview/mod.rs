@@ -20,10 +20,6 @@ impl PalmRejectionDelayZonePreview {
         let this = &windows_core::Interface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    fn IPalmRejectionDelayZonePreviewStatics<R, F: FnOnce(&IPalmRejectionDelayZonePreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreviewStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
 }
 impl windows_core::RuntimeType for PalmRejectionDelayZonePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPalmRejectionDelayZonePreview>();

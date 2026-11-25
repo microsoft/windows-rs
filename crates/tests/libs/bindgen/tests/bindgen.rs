@@ -30,6 +30,48 @@ fn filter_contract_output(case: &str, style: &str, filters: &[&str]) -> String {
 }
 
 #[test]
+fn selected_variant_across_architectures() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("selected-arch-variant");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let metadata = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/arch_enum_sys.rdl")
+        .output(&metadata)
+        .write()
+        .unwrap();
+    let output = scratch.join("bindings.rs");
+    windows_bindgen::builder()
+        .input(metadata)
+        .filter("Test.ArchEnum::Arm64Only")
+        .sys()
+        .output(&output)
+        .write();
+    let source = std::fs::read_to_string(output).unwrap();
+    assert!(source.contains("pub const Arm64Only:"));
+    assert!(!source.contains("pub const First:"));
+    assert!(!source.contains("pub const X64Only:"));
+}
+
+#[test]
+fn namespace_exclusions_match_explicit_seeds() {
+    for style in ["minimal", "full", "sys"] {
+        let namespace = filter_contract_output(
+            "namespace-excluded-dependency",
+            style,
+            &["NamespaceSeeds", "!Other.Token"],
+        );
+        let explicit = filter_contract_output(
+            "explicit-excluded-dependency",
+            style,
+            &["NamespaceSeeds.Record", "!Other.Token"],
+        );
+        assert!(explicit.contains("pub struct Record"));
+        assert!(!explicit.contains("pub struct Token"));
+        assert_eq!(namespace, explicit, "{style}");
+    }
+}
+
+#[test]
 fn filter_preserves_slot_identity() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("filtered-slots");
     std::fs::create_dir_all(&scratch).unwrap();
@@ -70,7 +112,7 @@ fn filter_preserves_slot_identity() {
                     "!Slots.NativeProbe::get_Value",
                     "Slots.Widget::Value",
                     "!Slots.Widget::get_Value",
-                    "Slots.IRequired::{}",
+                    "Slots.IRequired",
                     "Slots.FactoryWidget::{Create,Value}",
                     "!Slots.FactoryWidget::{get_Create,get_Value}",
                 ],
@@ -414,6 +456,213 @@ fn filter_bundled_metadata_contracts() {
 }
 
 #[test]
+fn class_selection_preserves_shells_and_members() {
+    for style in ["minimal", "full"] {
+        let whole = filter_contract_output("whole-class", style, &["Slots.FactoryWidget"]);
+        assert!(whole.contains(" fn Create("));
+        assert!(whole.contains(" fn Value("));
+        let shell = filter_contract_output("class-shell", style, &["Slots.FactoryWidget::{}"]);
+        assert!(!shell.contains(" fn Create("));
+        assert!(!shell.contains(" fn Value("));
+        let member =
+            filter_contract_output("class-member", style, &["Slots.FactoryWidget::Create"]);
+        assert!(member.contains(" fn Create("));
+        assert!(!member.contains(" fn Value("));
+        let combined = filter_contract_output(
+            "class-combined",
+            style,
+            &["Slots.FactoryWidget", "Slots.FactoryWidget::Create"],
+        );
+        assert!(combined.contains(" fn Create("));
+        assert!(!combined.contains(" fn Value("));
+        let reversed = filter_contract_output(
+            "class-combined-reversed",
+            style,
+            &["Slots.FactoryWidget::Create", "Slots.FactoryWidget"],
+        );
+        assert_eq!(combined, reversed);
+        let combined = filter_contract_output(
+            "class-interface-combined",
+            style,
+            &["Test.Widget::Other", "Test.IWidget::get_Value"],
+        );
+        assert!(combined.contains(" fn Other("));
+        assert!(combined.contains(" fn get_Value("));
+        let excluded = filter_contract_output(
+            "class-excluded-member",
+            style,
+            &[
+                "Slots.FactoryWidget",
+                "!Slots.FactoryWidget::{get_Create,Create}",
+            ],
+        );
+        assert!(!excluded.contains(" fn Create("));
+        assert!(excluded.contains(" fn Value("));
+        let default = filter_contract_output("default-class", style, &["Slots.DefaultWidget"]);
+        assert!(default.contains(" fn new("));
+        let member = filter_contract_output(
+            "default-class-member",
+            style,
+            &["Slots.DefaultWidget", "Slots.DefaultWidget::Value"],
+        );
+        assert!(!member.contains(" fn new("));
+        let shell =
+            filter_contract_output("default-class-shell", style, &["Slots.DefaultWidget::{}"]);
+        assert!(!shell.contains(" fn new("));
+        let excluded = filter_contract_output(
+            "default-class-excluded",
+            style,
+            &[
+                "Slots.DefaultWidget",
+                "!Slots.DefaultWidget::CreateInstance",
+            ],
+        );
+        assert!(!excluded.contains(" fn new("));
+    }
+}
+
+#[test]
+fn class_methods_keep_declaring_identity() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("class-method-identity");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let metadata = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/narrow_iterable_names.rdl")
+        .output(&metadata)
+        .write()
+        .unwrap();
+    let output = scratch.join("bindings.rs");
+    windows_bindgen::builder()
+        .input(metadata)
+        .filter("Test.Items::First")
+        .full()
+        .output(&output)
+        .write();
+    let source = std::fs::read_to_string(output).unwrap();
+    assert!(source.contains("pub fn First(&self) -> windows_core::Result<u32>"));
+    assert!(!source.contains("impl IntoIterator for Items"));
+}
+
+#[test]
+fn whole_class_with_named_implementation() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("whole-class-implementation");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let metadata = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/filter_contracts.rdl")
+        .output(&metadata)
+        .write()
+        .unwrap();
+    windows_bindgen::builder()
+        .input(metadata)
+        .filter("Test.Widget")
+        .implement("Test.IWidget")
+        .output(scratch.join("bindings.rs"))
+        .write();
+}
+
+#[test]
+fn derived_class_does_not_select_base_factories() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("derived-class-factories");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let metadata = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/minimal_compose_target.rdl")
+        .output(&metadata)
+        .write()
+        .unwrap();
+    for full in [false, true] {
+        let output = scratch.join("bindings.rs");
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&metadata)
+            .filters(["Test.Derived", "Test.Base::{}"])
+            .output(&output);
+        if full {
+            builder.full();
+        }
+        builder.write();
+        let source = std::fs::read_to_string(output).unwrap();
+        assert!(source.contains("IDerivedFactory"));
+        assert!(!source.contains("IBaseFactory"));
+        assert_eq!(source.matches(" fn new(").count(), 1);
+    }
+}
+
+#[test]
+fn nested_generic_class_iteration() {
+    let output = std::path::Path::new(env!("OUT_DIR")).join("nested-generic-class-iteration.rs");
+    windows_bindgen::builder()
+        .filters([
+            "Windows.Foundation.Collections.StringMap",
+            "Windows.UI.Composition.ImplicitAnimationCollection::{}",
+        ])
+        .full()
+        .output(&output)
+        .write();
+    let source = std::fs::read_to_string(output).unwrap();
+    assert!(source.contains("impl IntoIterator for StringMap"));
+    assert!(source.contains("impl IntoIterator for &StringMap"));
+    assert!(!source.contains("impl IntoIterator for ImplicitAnimationCollection"));
+}
+
+#[test]
+fn reference_class_selection() {
+    let output = std::path::Path::new(env!("OUT_DIR")).join("reference-class-selection.rs");
+    for (filter, lookup, insert) in [
+        ("StringMap", true, true),
+        ("StringMap::{}", false, false),
+        ("StringMap::Insert", false, true),
+    ] {
+        windows_bindgen::builder()
+            .filter(filter)
+            .full()
+            .output(&output)
+            .write();
+        let source = std::fs::read_to_string(&output).unwrap();
+        assert_eq!(source.contains(" fn Lookup("), lookup, "{filter}");
+        assert_eq!(source.contains(" fn Insert("), insert, "{filter}");
+    }
+}
+
+#[test]
+fn interface_forwarders_respect_selected_hierarchy() {
+    let output = std::path::Path::new(env!("OUT_DIR")).join("interface-forwarders.rs");
+    for (filter, own_methods, inherited_methods) in [
+        ("Windows.Foundation.IAsyncAction::{}", false, false),
+        ("Windows.Foundation.IAsyncAction::GetResults", true, false),
+        ("Windows.Foundation.IAsyncAction", true, true),
+    ] {
+        windows_bindgen::builder()
+            .filter(filter)
+            .full()
+            .output(&output)
+            .write();
+        let source = std::fs::read_to_string(&output).unwrap();
+        assert_eq!(source.contains(" fn GetResults("), own_methods, "{filter}");
+        for method in ["Status", "Cancel"] {
+            assert_eq!(
+                source.contains(&format!(" fn {method}(")),
+                inherited_methods,
+                "{filter}: {method}"
+            );
+        }
+    }
+}
+
+#[test]
+fn interface_shell_does_not_forward_selected_base_methods() {
+    let source = filter_contract_output(
+        "interface-shell-forwarders",
+        "full",
+        &["Slots.IRequired::{}", "Slots.IProbe::Value"],
+    );
+    assert!(source.contains("impl IProbe {"));
+    assert!(source.contains(" fn Value("));
+    assert!(!source.contains("impl IRequired {"));
+}
+
+#[test]
 fn filter_mixed_class_dependencies_compile() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("filter-mixed-class");
     std::fs::create_dir_all(&scratch).unwrap();
@@ -422,50 +671,84 @@ fn filter_mixed_class_dependencies_compile() {
         .nth(3)
         .unwrap()
         .join("libs");
-    let manifest = scratch.join("Cargo.toml");
-    std::fs::write(
-        &manifest,
-        format!(
-            "[package]\nname = \"filter-mixed-class\"\nversion = \"0.0.0\"\n\
-             edition = \"2024\"\n[workspace]\n[lib]\npath = \"lib.rs\"\n\
-             [dependencies]\n\
-             windows-core = {{ path = '{}' }}\n\
-             windows-collections = {{ path = '{}' }}\n\
-             windows-numerics = {{ path = '{}' }}\n",
-            libs.join("core").display(),
-            libs.join("collections").display(),
-            libs.join("numerics").display(),
-        ),
-    )
-    .unwrap();
-    std::fs::write(
-        scratch.join("lib.rs"),
-        "#![allow(dead_code, nonstandard_style)]\nmod bindings;\n",
-    )
-    .unwrap();
-    for full in [true, false] {
-        let mut builder = windows_bindgen::builder();
-        builder
-            .filters(["Uri", "Windows.Foundation.Numerics"])
-            .implement_all()
-            .modules()
-            .output(scratch.join("bindings.rs"));
-        if full {
-            builder.full();
+    for package in [false, true] {
+        let output = scratch.join(if package { "package" } else { "modules" });
+        std::fs::create_dir_all(&output).unwrap();
+        let manifest = output.join("Cargo.toml");
+        for mixed in [false, true] {
+            for full in [true, false] {
+                std::fs::write(
+                    &manifest,
+                    format!(
+                        "[package]\nname = \"filter-mixed-class\"\nversion = \"0.0.0\"\n\
+                         edition = \"2024\"\n[workspace]\n[lib]\npath = \"lib.rs\"\n\
+                         [dependencies]\n\
+                         windows-core = {{ path = '{}' }}\n\
+                         windows-collections = {{ path = '{}' }}\n\
+                         windows-numerics = {{ path = '{}' }}\n\
+                         [features]\n# generated features\n",
+                        libs.join("core").display(),
+                        libs.join("collections").display(),
+                        libs.join("numerics").display(),
+                    ),
+                )
+                .unwrap();
+                let mut builder = windows_bindgen::builder();
+                builder.filter("Uri");
+                if mixed {
+                    builder
+                        .filter("Windows.Foundation.Numerics")
+                        .implement_all();
+                }
+                if package {
+                    builder.package().output(&output);
+                } else {
+                    builder.modules().output(output.join("bindings.rs"));
+                }
+                if full {
+                    builder.full();
+                }
+                builder.write();
+                let modules = if package {
+                    "#[path = \"src/Windows/mod.rs\"] mod Windows;"
+                } else {
+                    "mod bindings; use bindings::Windows;"
+                };
+                let uri = if full {
+                    "&windows_core::HSTRING::from(\"https://example.com\")"
+                } else {
+                    "\"https://example.com\""
+                };
+                std::fs::write(
+                    output.join("lib.rs"),
+                    format!(
+                        "#![allow(dead_code, nonstandard_style)]\n{modules}\n\
+                         fn create_uri() -> windows_core::Result<Windows::Foundation::Uri> {{\n\
+                             Windows::Foundation::Uri::CreateUri({uri})\n\
+                         }}\n"
+                    ),
+                )
+                .unwrap();
+                let result = std::process::Command::new("cargo")
+                    .args([
+                        "check",
+                        "--quiet",
+                        "--offline",
+                        "--all-features",
+                        "--manifest-path",
+                    ])
+                    .arg(&manifest)
+                    .arg("--target-dir")
+                    .arg(scratch.join("target"))
+                    .output()
+                    .unwrap();
+                assert!(
+                    result.status.success(),
+                    "package={package} mixed={mixed} full={full}: {}",
+                    String::from_utf8_lossy(&result.stderr)
+                );
+            }
         }
-        builder.write();
-        let result = std::process::Command::new("cargo")
-            .args(["check", "--quiet", "--offline", "--manifest-path"])
-            .arg(&manifest)
-            .arg("--target-dir")
-            .arg(scratch.join("target"))
-            .output()
-            .unwrap();
-        assert!(
-            result.status.success(),
-            "full={full}: {}",
-            String::from_utf8_lossy(&result.stderr)
-        );
     }
 }
 
@@ -876,9 +1159,10 @@ fn associated_enum_method_filtering() {
                 annotated,
                 "{style} {root}: {source}"
             );
+            // Namespace expansion selects this standalone constant even when its type is excluded.
             assert_eq!(
                 source.contains("pub const One:"),
-                annotated,
+                annotated || root == "Windows.Win32",
                 "{style} {root}: {source}"
             );
         }

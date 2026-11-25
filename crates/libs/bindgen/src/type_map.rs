@@ -1,12 +1,7 @@
 use super::*;
-use std::sync::Arc;
 
 #[derive(Default, Clone, Debug, PartialEq, Eq)]
-pub struct TypeMap(
-    HashMap<TypeName, HashSet<Type>>,
-    Arc<HashSet<TypeName>>,
-    HashMap<Type, i32>,
-);
+pub struct TypeMap(HashMap<TypeName, HashSet<Type>>, HashMap<Type, i32>);
 
 pub trait Dependencies {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader);
@@ -71,73 +66,15 @@ impl TypeMap {
         Self::default()
     }
 
-    #[track_caller]
-    pub fn filter(reader: &Reader, filter: &Filter, references: &References, sys: bool) -> Self {
-        let mut dependencies = Self::new();
-
-        // The references provide these types along with their dependencies, so the walk below
-        // stops at them.
-        let referenced = Arc::new(references.type_names(reader));
-
-        for namespace in reader.namespaces() {
-            if filter.includes_namespace(namespace) {
-                for type_name in reader.type_names(namespace) {
-                    let name = type_name.name();
-                    if let Some(filter_rule) = filter.includes_type_name(TypeName(namespace, name))
-                    {
-                        // A longer rule string means a more specific (fully-qualified) path.
-                        // Skip types already owned by a reference whose rule is more specific
-                        // (longer) than the filter rule that matched this type.
-                        if references
-                            .matching_rule(TypeName(namespace, name))
-                            .is_some_and(|reference_rule| reference_rule.len() > filter_rule.len())
-                        {
-                            continue;
-                        }
-
-                        // A referenced type that is also generated needs its own dependencies.
-                        let types = reader.types(type_name);
-                        let mut item_dependencies =
-                            if referenced.contains(&TypeName(namespace, name)) {
-                                Self::new()
-                            } else {
-                                Self(HashMap::new(), referenced.clone(), HashMap::new())
-                            };
-
-                        for ty in types.iter() {
-                            if sys && let Type::CppFn(function) = ty {
-                                function.combine_sys(&mut item_dependencies, reader);
-                            } else {
-                                ty.combine(&mut item_dependencies, reader);
-                            }
-                        }
-
-                        if item_dependencies.excluded(filter, references) {
-                            continue;
-                        }
-
-                        for ty in types.iter() {
-                            dependencies.insert(ty.clone());
-                        }
-
-                        dependencies.combine_references(&item_dependencies, references);
-                    }
-                }
-            }
-        }
-
-        dependencies
-    }
-
     /// Adds `ty` and returns whether its dependencies still need to be walked.
     pub fn insert(&mut self, ty: Type) -> bool {
         let name = ty.type_name();
-        self.0.entry(name).or_default().insert(ty) && !self.1.contains(&name)
+        self.0.entry(name).or_default().insert(ty)
     }
 
     /// Adds `ty` as reached from items on `arches` and returns whether any architecture is new.
     pub fn insert_reached(&mut self, ty: Type, arches: i32) -> bool {
-        let reached = self.2.entry(ty.clone()).or_default();
+        let reached = self.1.entry(ty.clone()).or_default();
         if *reached & arches == arches {
             return false;
         }
@@ -148,125 +85,23 @@ impl TypeMap {
 
     /// Returns the architectures whose selected items reach `ty`; unrecorded types are unrestricted.
     pub fn reached_arches(&self, ty: &Type) -> i32 {
-        self.2.get(ty).copied().unwrap_or(ALL_ARCHES)
-    }
-
-    pub fn combine_references(&mut self, other: &Self, references: &References) {
-        for (tn, types) in &other.0 {
-            if references.contains(*tn).is_none() {
-                let set = self.0.entry(*tn).or_default();
-                types.iter().for_each(|ty| {
-                    set.insert(ty.clone());
-                });
-            }
-        }
+        self.1.get(ty).copied().unwrap_or(ALL_ARCHES)
     }
 
     pub fn combine(&mut self, other: &Self) {
         for (name, types) in &other.0 {
             let set = self.0.entry(*name).or_default();
             for ty in types {
-                if let Some(arches) = self.2.get_mut(ty) {
+                if let Some(arches) = self.1.get_mut(ty) {
                     *arches |= other.reached_arches(ty);
-                } else if let Some(arches) = other.2.get(ty)
+                } else if let Some(arches) = other.1.get(ty)
                     && !set.contains(ty)
                 {
-                    self.2.insert(ty.clone(), *arches);
+                    self.1.insert(ty.clone(), *arches);
                 }
                 set.insert(ty.clone());
             }
         }
-    }
-
-    pub fn hierarchy_dependencies(&self, reader: &Reader, references: &References) -> Self {
-        let mut dependencies = Self(
-            HashMap::new(),
-            Arc::new(references.type_names(reader)),
-            HashMap::new(),
-        );
-        for ty in self.values().flatten() {
-            if matches!(ty, Type::Class(_) | Type::Interface(_)) {
-                ty.combine(&mut dependencies, reader);
-            }
-        }
-        let mut result = Self::new();
-        result.combine_references(&dependencies, references);
-        result
-    }
-
-    pub fn included(&self, config: &Config) -> bool {
-        if self.0.iter().any(|(tn, types)| {
-            Self::is_reference(*tn, config.references)
-                && types.iter().any(|ty| {
-                    ty.dependencies(config.reader)
-                        .excluded(config.filter, config.references)
-                })
-        }) {
-            return false;
-        }
-
-        // Reference-owned interface dependencies need not be locally available.
-        let covered = self.reference_provided_closure(config);
-
-        self.0.iter().all(|(tn, _)| {
-            // An empty namespace covers core types like `HRESULT`. This preserves methods
-            // that depend on core types that aren't explicitly included in the filter.
-            if tn.namespace().is_empty() {
-                return true;
-            }
-
-            if config.types.contains_key(tn) {
-                return true;
-            }
-
-            if config.references.contains(*tn).is_some() {
-                return true;
-            }
-
-            // Generic types have a tick suffix (e.g. `IReference`1`) that may not
-            // match reference filter rules. Try without the suffix.
-            if let Some(pos) = tn.name().find('`') {
-                let base_name: &str = &tn.name()[..pos];
-                let base_tn = TypeName(tn.namespace(), base_name);
-                if config.references.contains(base_tn).is_some() {
-                    return true;
-                }
-            }
-
-            covered.contains(tn)
-        })
-    }
-
-    /// Collects types encapsulated by reference-provided interfaces.
-    fn reference_provided_closure(&self, config: &Config) -> HashSet<TypeName> {
-        let mut covered = HashSet::new();
-
-        for (tn, types) in &self.0 {
-            if Self::is_reference(*tn, config.references) {
-                for ty in types {
-                    for dep_tn in ty.dependencies(config.reader).0.keys() {
-                        covered.insert(*dep_tn);
-                    }
-                }
-            }
-        }
-
-        covered
-    }
-
-    fn is_reference(tn: TypeName, references: &References) -> bool {
-        references.contains(tn).is_some()
-            || tn.name().find('`').is_some_and(|pos| {
-                references
-                    .contains(TypeName(tn.namespace(), &tn.name()[..pos]))
-                    .is_some()
-            })
-    }
-
-    fn excluded(&self, filter: &Filter, references: &References) -> bool {
-        self.0
-            .iter()
-            .any(|(tn, _)| filter.excludes_type_name(*tn) && references.contains(*tn).is_none())
     }
 }
 

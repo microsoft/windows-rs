@@ -41,11 +41,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(
-    CompositionAnimation,
-    ICompositionAnimationBase,
-    CompositionObject
-);
+windows_core::imp::required_hierarchy!(CompositionAnimation, CompositionObject);
 impl windows_core::RuntimeType for CompositionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionAnimation>();
@@ -74,11 +70,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(
-    CompositionAnimationGroup,
-    ICompositionAnimationBase,
-    CompositionObject
-);
+windows_core::imp::required_hierarchy!(CompositionAnimationGroup, CompositionObject);
 impl windows_core::RuntimeType for CompositionAnimationGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionAnimationGroup>();
@@ -301,11 +293,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(
-    CompositionDrawingSurface,
-    ICompositionSurface,
-    CompositionObject
-);
+windows_core::imp::required_hierarchy!(CompositionDrawingSurface, CompositionObject);
 impl windows_core::RuntimeType for CompositionDrawingSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDrawingSurface>();
@@ -2747,12 +2735,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(
-    KeyFrameAnimation,
-    ICompositionAnimationBase,
-    CompositionAnimation,
-    CompositionObject
-);
+windows_core::imp::required_hierarchy!(KeyFrameAnimation, CompositionAnimation, CompositionObject);
 impl windows_core::RuntimeType for KeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IKeyFrameAnimation>();
@@ -2837,7 +2820,6 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     ScalarKeyFrameAnimation,
-    ICompositionAnimationBase,
     KeyFrameAnimation,
     CompositionAnimation,
     CompositionObject
@@ -3021,7 +3003,6 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     Vector3KeyFrameAnimation,
-    ICompositionAnimationBase,
     KeyFrameAnimation,
     CompositionAnimation,
     CompositionObject

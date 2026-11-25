@@ -7,7 +7,10 @@ pub fn write_enum_constants(def: TypeDef, config: &Config) -> Vec<TokenStream> {
         .filter(|field| field.flags().contains(FieldAttributes::Literal))
         .filter(|field| {
             // When the filter lists specific variants for this enum, emit only those.
-            if let Some(variant_set) = config.filter.enum_variant_filter(tn.namespace(), tn.name())
+            if let Some(variant_set) = config
+                .plan
+                .selection
+                .enum_variant_filter(tn.namespace(), tn.name())
             {
                 return variant_set.includes(field.name());
             }

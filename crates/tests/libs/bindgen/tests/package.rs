@@ -1,4 +1,87 @@
 #[test]
+fn class_generic_hierarchy_features() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("class-generic-hierarchy");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/narrow_iterable_full.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let libs = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\libs");
+    for full in [false, true] {
+        let output = scratch.join(if full { "full" } else { "minimal" });
+        std::fs::create_dir_all(output.join("src")).unwrap();
+        let manifest = output.join("Cargo.toml");
+        std::fs::write(
+            &manifest,
+            format!(
+                "[package]\nname = \"class-generic-hierarchy\"\nversion = \"0.0.0\"\n\
+                 edition = \"2024\"\n[workspace]\n[dependencies]\n\
+                 windows-core = {{ path = '{}' }}\n\
+                 windows-collections = {{ path = '{}' }}\n\
+                 [lints.rust]\nwarnings = \"deny\"\nnonstandard_style = \"allow\"\n\
+                 [features]\nFoundation = []\n# generated features\n",
+                libs.join("core").display(),
+                libs.join("collections").display(),
+            ),
+        )
+        .unwrap();
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&winmd)
+            .filter("Windows.Test")
+            .package()
+            .output(&output);
+        if full {
+            builder.full();
+        }
+        builder.write();
+        let mut source = String::from(
+            "pub mod Windows;\nuse Windows::Test;\n\
+             #[cfg(feature = \"Other\")]\nuse Windows::Other;\n\
+             pub fn identity(value: Test::IItems) -> Test::IItems { value }\n\
+             #[cfg(feature = \"Other\")]\n\
+             pub fn hierarchy(value: Test::Items) {\n\
+                 fn required<T: windows_core::imp::CanInto<windows_collections::IIterable<Other::Item>>>(_: T) {}\n\
+                 required(value);\n\
+             }\n",
+        );
+        if full {
+            source.push_str(
+                "#[cfg(feature = \"Other\")]\n\
+                 pub fn iterate(value: &Test::Items) {\n\
+                     let _: windows_core::Result<windows_collections::IIterator<Other::Item>> = value.First();\n\
+                     let _: Option<Other::Item> = value.into_iter().next();\n\
+                 }\n",
+            );
+        }
+        std::fs::write(output.join("src\\lib.rs"), source).unwrap();
+        for features in ["Test", "Test,Other"] {
+            let result = std::process::Command::new("cargo")
+                .args([
+                    "check",
+                    "--quiet",
+                    "--offline",
+                    "--features",
+                    features,
+                    "--manifest-path",
+                ])
+                .arg(&manifest)
+                .arg("--target-dir")
+                .arg(scratch.join("build"))
+                .output()
+                .unwrap();
+            assert!(
+                result.status.success(),
+                "full={full} {features}: {}",
+                String::from_utf8_lossy(&result.stderr)
+            );
+        }
+    }
+}
+
+#[test]
 fn associated_enum_method_features() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("associated-enum-method-features");
     std::fs::create_dir_all(&scratch).unwrap();

@@ -4,9 +4,7 @@ use super::*;
 pub struct Config<'a> {
     pub bindgen: &'a Bindgen,
     pub reader: &'a Reader,
-    pub types: &'a TypeMap,
-    pub references: &'a References,
-    pub filter: &'a Filter,
+    pub plan: &'a BindingPlan,
     pub implement: Option<&'a Implements>,
     pub derive: &'a Derive,
     pub link: &'a str,
@@ -86,7 +84,7 @@ impl Config<'_> {
         let own = def.arches();
         let available = arch_mask(own);
         let arches = write_arch_bits(own);
-        if self.bindgen.dead_code && available & self.types.reached_arches(ty) != available {
+        if self.bindgen.dead_code && available & self.plan.types.reached_arches(ty) != available {
             quote! { #arches #[allow(dead_code)] }
         } else {
             arches
@@ -97,7 +95,7 @@ impl Config<'_> {
     pub fn should_implement(&self, name: TypeName, default: bool) -> bool {
         match self.implement {
             None => default && !self.bindgen.style.is_minimal(),
-            Some(implements) => implements.matches(name),
+            Some(_) => self.plan.implemented.contains(&name),
         }
     }
 
@@ -133,15 +131,9 @@ impl Config<'_> {
         }
     }
 
-    /// Returns `true` if the given method should be emitted (not demoted).
-    pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
-        // If `--implement` requests this interface, keep all methods.
-        if let Some(implements) = self.implement
-            && implements.matches(type_name)
-        {
-            return true;
-        }
-        self.filter.includes_method(type_name, method)
+    /// Whether `ty` and its generic arguments are generated here or provided by a reference.
+    pub fn provides(&self, ty: &Type) -> bool {
+        self.plan.provides(ty)
     }
 }
 

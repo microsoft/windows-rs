@@ -80,17 +80,12 @@ impl CppFn {
         }
     }
 
-    fn directly_selected(&self, config: &Config<'_>) -> bool {
-        config
-            .filter
-            .direct_types
-            .iter()
-            .any(|(namespace, name)| namespace == self.namespace && name == self.method.name())
-    }
-
     fn reject_variadic(&self, config: &Config<'_>, reason: &str) -> TokenStream {
         assert!(
-            !self.directly_selected(config),
+            !config
+                .plan
+                .selection
+                .names_type(self.namespace, self.method.name()),
             "windows-bindgen: selected variadic function `{}.{}` {reason}",
             self.namespace,
             self.method.name()
@@ -145,23 +140,6 @@ impl CppFn {
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {
         write_simple_cfg(self, config)
-    }
-
-    pub fn combine_sys(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let signature = self.method.method_signature(&[], reader);
-
-        for ty in signature.types() {
-            ty.combine_sys(dependencies, reader);
-        }
-        for ty in self.method.associated_enums(reader) {
-            ty.combine_sys(dependencies, reader);
-        }
-
-        if let Some(dependency) = self.window_long_dependency(reader) {
-            reader
-                .unwrap_full_name(self.namespace, dependency)
-                .combine_sys(dependencies, reader);
-        }
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {

@@ -1131,10 +1131,6 @@ impl CoreIndependentInputSourceController {
     pub fn SetControlledInputWithFilters(&self, inputtypes: CoreInputDeviceTypes, required: CoreIndependentInputFilters, excluded: CoreIndependentInputFilters) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetControlledInputWithFilters)(windows_core::Interface::as_raw(self), inputtypes, required, excluded).ok() }
     }
-    fn ICoreIndependentInputSourceControllerStatics<R, F: FnOnce(&ICoreIndependentInputSourceControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<CoreIndependentInputSourceController, ICoreIndependentInputSourceControllerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
 }
 impl windows_core::RuntimeType for CoreIndependentInputSourceController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreIndependentInputSourceController>();
