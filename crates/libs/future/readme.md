@@ -37,6 +37,12 @@ These styles also apply to `IAsyncAction` and the progress interfaces. Each deli
 `Result`. Choose one style per operation: WinRT permits assigning its completion handler only
 once. Do not block a UI thread with `join`.
 
+Operations created with `ready` or `spawn` transfer their successful result once, without cloning.
+Further calls to `GetResults` return `E_ILLEGAL_METHOD_CALL`; `Status` and `ErrorCode` remain available.
+This also applies to their progress-interface variants, which do not produce intermediate results.
+Results need `Send`, not `Sync`. Actions have no value to consume, and stored errors remain available.
+Native operations consumed through this crate retain their own result-retrieval contracts.
+
 `spawn` runs a `Send + 'static` closure on the Windows thread pool. It does not make apartment-bound
 objects safe to use there. Cancelling an operation created with `spawn` does not interrupt the
 closure. The progress variants of `spawn` do not report intermediate progress.

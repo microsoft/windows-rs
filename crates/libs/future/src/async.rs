@@ -29,6 +29,45 @@ impl<T> Once<T> {
     }
 }
 
+#[cfg(feature = "std")]
+pub(super) struct AsyncResult<T>(Result<Once<T>>);
+
+#[cfg(feature = "std")]
+impl<T> AsyncResult<T> {
+    pub(super) fn new(result: Result<T>) -> Self {
+        Self(result.map(Once::new))
+    }
+
+    pub(super) fn status(&self) -> AsyncStatus {
+        if self.0.is_ok() {
+            AsyncStatus::Completed
+        } else {
+            AsyncStatus::Error
+        }
+    }
+
+    // C# projects ErrorCode as an exception and reads the calling thread's error info.
+    pub(super) fn error_code(&self) -> HRESULT {
+        match &self.0 {
+            Ok(_) => HRESULT(0),
+            Err(error) => error.clone().into(),
+        }
+    }
+
+    pub(super) fn check(&self) -> Result<()> {
+        self.0.as_ref().map(|_| ()).map_err(Clone::clone)
+    }
+
+    pub(super) fn take(&self) -> Result<T> {
+        match &self.0 {
+            Ok(value) => value
+                .take()
+                .ok_or_else(|| Error::from_hresult(HRESULT(0x8000000Eu32 as i32))),
+            Err(error) => Err(error.clone()),
+        }
+    }
+}
+
 /// Represents a WinRT async execution object or type. There are precisely four
 /// such types:
 /// - [`IAsyncAction`]

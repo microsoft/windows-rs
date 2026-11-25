@@ -285,6 +285,10 @@ Keep this section to current decisions, not a chronological account of rewrites.
   Unsafe direct factories cover all retained objects and future writes for the collection's entire
   lifetime. Marshaled factories retain agile references through views, iterators, and pairs, resolving
   outside structural locks. Preserve null outputs without converting resolver errors to null.
+- **Stock async results**: `ready` and `spawn` transfer successful values once, including their
+  progress-interface variants, which do not produce intermediate results. Keep completion status
+  and error information independent of value consumption. Results need `Send`, not `Sync`; do not
+  clone values or access native error information under the completion-handler mutex.
 - **No `thread_local!` in app code** - keep state in components and pass shared values through typed
   contexts. `thread_local!` is reserved for framework plumbing.
 - **Test naming**: Reactor unit tests live in `windows-reactor`. Public behavioral coverage belongs
