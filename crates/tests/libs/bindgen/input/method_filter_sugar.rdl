@@ -1,7 +1,5 @@
 //! --filter Test.Widget::Value --full
-// Drives the bare-name property sugar branch of filter.rs expand_method_part: a
-// bare member name with no `get_`/`put_` prefix expands to both the getter and
-// setter accessors when they exist.
+// A property selection includes both its getter and setter.
 #[winrt]
 mod Test {
     #[guid(auto)]

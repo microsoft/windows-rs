@@ -7,16 +7,16 @@ pub struct TypeClosure;
 struct Walk<'a> {
     reader: &'a Reader,
     references: &'a References,
-    filter: &'a Filter,
+    filter: &'a Selection,
     style: Style,
 }
 
 impl TypeClosure {
-    /// Build the closure and add include rules for discovered types.
+    /// Build the dependency closure of the selected types and methods.
     #[track_caller]
     pub fn build(
         reader: &Reader,
-        filter: &Filter,
+        filter: &Selection,
         references: &References,
         implements: Option<&Implements>,
         style: Style,
@@ -29,17 +29,21 @@ impl TypeClosure {
             style,
         };
 
-        // Interface method seeds pull in only the requested signatures.
-        for (namespace, name) in filter.requested_interfaces.keys() {
-            for ty in reader.with_full_name(namespace, name) {
+        for name in &filter.roots {
+            for ty in reader.with_full_name(name.namespace(), name.name()) {
                 if filter.excludes_type_name(ty.type_name()) {
                     continue;
                 }
-                types.insert(ty.clone());
-                ty.combine_definition_closure(&mut types, &cx, ALL_ARCHES);
+                if filter.methods.contains_key(name) {
+                    types.insert(ty.clone());
+                    ty.combine_definition_closure(&mut types, &cx, ALL_ARCHES);
+                } else {
+                    ty.combine_root(&mut types, &cx);
+                    types.insert(ty.clone());
+                }
 
                 if let Type::Interface(iface) = &ty {
-                    if filter.includes_full_hierarchy(namespace, name) {
+                    if filter.includes_full_hierarchy(name.namespace(), name.name()) {
                         for required in iface.required_interfaces(reader) {
                             Type::Interface(required).combine_root(&mut types, &cx);
                         }
@@ -61,36 +65,6 @@ impl TypeClosure {
                             let sig = method.method_signature(&[], reader);
                             for dep_ty in sig.types() {
                                 dep_ty.combine_root(&mut types, &cx);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        for (namespace, name) in &filter.direct_types {
-            for ty in reader.with_full_name(namespace, name) {
-                if filter.excludes_type_name(ty.type_name()) {
-                    continue;
-                }
-                ty.combine_root(&mut types, &cx);
-                types.insert(ty.clone());
-
-                // Unscoped enum variants are standalone constants; include the requested set
-                // explicitly.
-                if let Type::CppEnum(e) = &ty
-                    && !e.def.has_attribute("ScopedEnumAttribute")
-                    && let Some(variant_set) =
-                        filter.enum_variant_filter(e.def.namespace(), e.def.name())
-                {
-                    for field in e.def.fields() {
-                        if field.flags().contains(FieldAttributes::Literal)
-                            && variant_set.includes(field.name())
-                        {
-                            for constant in reader.with_full_name(e.def.namespace(), field.name()) {
-                                if matches!(constant, Type::CppConst(_)) {
-                                    constant.combine_root(&mut types, &cx);
-                                }
                             }
                         }
                     }
@@ -345,8 +319,6 @@ impl CombineClosure for Type {
                 }
             }
             Self::Class(c) => {
-                // Classes pull in only the default interface unless other interfaces are
-                // explicit seeds.
                 for iface in c.required_interfaces(cx.reader) {
                     if matches!(
                         iface.kind,
@@ -354,18 +326,14 @@ impl CombineClosure for Type {
                     ) {
                         continue;
                     }
-                    if iface.kind != InterfaceKind::Default {
+                    if iface.kind != InterfaceKind::Default
+                        && !cx
+                            .filter
+                            .includes_hierarchy(c.def.namespace(), c.def.name(), &iface)
+                    {
                         continue;
                     }
-                    let iface_ty = Self::Interface(iface.clone());
-                    let iface_tn = iface_ty.type_name();
-                    if cx.references.contains(iface_tn).is_some() {
-                        for g in &iface.generics {
-                            g.combine_closure(types, cx, arches);
-                        }
-                        continue;
-                    }
-                    iface_ty.combine_closure(types, cx, arches);
+                    Self::Interface(iface).combine_closure(types, cx, arches);
                 }
 
                 let mut def = c.def;
@@ -458,7 +426,7 @@ mod tests {
                 .flat_map(filter_parser::parse_filter_entry)
                 .collect();
             let resolved = filter_parser::resolve_entries(reader, &parsed);
-            let filter = Filter::from_resolved(reader, &resolved);
+            let filter = Selection::resolve(reader, &resolved, &References::default(), None);
             let types =
                 TypeClosure::build(reader, &filter, &References::default(), None, Style::Full);
 
@@ -479,7 +447,7 @@ mod tests {
                 .flat_map(filter_parser::parse_filter_entry)
                 .collect();
             let resolved = filter_parser::resolve_entries(reader, &parsed);
-            let filter = Filter::from_resolved(reader, &resolved);
+            let filter = Selection::resolve(reader, &resolved, &References::default(), None);
             let types =
                 TypeClosure::build(reader, &filter, &References::default(), None, Style::Full);
 

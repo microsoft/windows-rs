@@ -3,6 +3,19 @@
 pub struct Class(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Class, windows_core::IUnknown, windows_core::IInspectable);
 impl Class {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Class, windows_core::imp::IGenericFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
     pub fn Create(value: i32) -> windows_core::Result<Self> {
         Self::IClassStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();

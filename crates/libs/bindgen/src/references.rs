@@ -16,62 +16,67 @@ impl ReferenceStage {
 
 #[derive(Debug)]
 pub struct Reference {
-    pub name: String,   // crate name like "windows_future"
-    pub filter: Filter, // what this reference provides
+    pub name: String, // crate name like "windows_future"
+    pub rules: NameRules,
 }
 
 #[derive(Debug, Default)]
-pub struct References(Vec<Reference>);
+pub struct References {
+    entries: Vec<Reference>,
+    provided: HashMap<TypeName, usize>,
+}
 
 impl References {
     pub fn new(reader: &Reader, stage: Vec<ReferenceStage>) -> Self {
-        Self(
-            stage
-                .into_iter()
-                .map(|stage| {
-                    let entries = filter_parser::parse_filter_entry(&stage.path);
-                    let resolved = filter_parser::resolve_entries(reader, &entries);
-                    let filter = Filter::from_resolved(reader, &resolved);
+        let entries: Vec<_> = stage
+            .into_iter()
+            .map(|stage| {
+                let entries = filter_parser::parse_filter_entry(&stage.path);
+                let resolved = filter_parser::resolve_entries(reader, &entries);
+                let rules = NameRules::new(&resolved);
 
-                    Reference {
-                        name: stage.name,
-                        filter,
-                    }
-                })
-                .collect(),
-        )
+                Reference {
+                    name: stage.name,
+                    rules,
+                }
+            })
+            .collect();
+        let mut provided = HashMap::new();
+        for namespace in reader.namespaces() {
+            let candidates: Vec<_> = entries
+                .iter()
+                .enumerate()
+                .filter(|(_, reference)| reference.rules.applies_to_namespace(namespace))
+                .collect();
+            if candidates.is_empty() {
+                continue;
+            }
+            for name in reader.type_names(namespace) {
+                if let Some((index, _)) = candidates
+                    .iter()
+                    .find(|(_, reference)| reference.rules.includes(name).is_some())
+                {
+                    provided.insert(name, *index);
+                }
+            }
+        }
+        Self { entries, provided }
     }
 
     pub fn contains(&self, name: TypeName) -> Option<&Reference> {
-        self.0
-            .iter()
-            .find(|reference| reference.filter.includes_type_name(name).is_some())
-    }
-
-    /// Returns the names of the types that the references provide.
-    pub fn type_names(&self, reader: &Reader) -> HashSet<TypeName> {
-        let mut names = HashSet::new();
-
-        for namespace in reader.namespaces() {
-            if self
-                .0
-                .iter()
-                .any(|reference| reference.filter.includes_namespace(namespace))
-            {
-                names.extend(
-                    reader
-                        .type_names(namespace)
-                        .filter(|name| self.contains(*name).is_some()),
-                );
-            }
-        }
-
-        names
+        self.provided.get(&name).map(|index| &self.entries[*index])
     }
 
     pub fn matching_rule(&self, name: TypeName) -> Option<&str> {
-        self.0
-            .iter()
-            .find_map(|reference| reference.filter.includes_type_name(name))
+        self.contains(name)
+            .and_then(|reference| reference.rules.includes(name))
+    }
+
+    pub fn into_external(self, types: &TypeMap) -> HashMap<TypeName, String> {
+        self.provided
+            .into_iter()
+            .filter(|(name, _)| !types.contains_key(name))
+            .map(|(name, index)| (name, self.entries[index].name.clone()))
+            .collect()
     }
 }

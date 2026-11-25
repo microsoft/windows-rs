@@ -15,4 +15,5 @@ pub struct DispatcherQueueOptions {
     pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
     pub apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
 }
+pub type PDISPATCHERQUEUE = *mut core::ffi::c_void;
 pub type PDISPATCHERQUEUECONTROLLER = *mut core::ffi::c_void;

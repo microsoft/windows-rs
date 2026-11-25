@@ -23,7 +23,6 @@ impl CppInterface {
     }
 
     pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName<CppMethod>> {
-        let type_name = self.def.type_name();
         if self.def.methods().any(|method| {
             method
                 .find_attribute("NativeOverrideSlotAttribute")
@@ -42,7 +41,7 @@ impl CppInterface {
             })
             .map(|def| {
                 let method = CppMethod::new(def, config.reader);
-                if method_is_skipped(def, type_name, &method.signature, config) {
+                if !config.plan.includes_method(def, &[]) {
                     MethodOrName::Name(method.def)
                 } else {
                     MethodOrName::Method(method)
@@ -122,11 +121,9 @@ impl CppInterface {
 
     // `_Impl` emission is omitted when this interface or a base has skipped methods.
     pub fn has_skipped_methods(&self, config: &Config) -> bool {
-        let type_name = self.def.type_name();
-        self.def.methods().any(|def| {
-            let method = CppMethod::new(def, config.reader);
-            method_is_skipped(def, type_name, &method.signature, config)
-        })
+        self.def
+            .methods()
+            .any(|def| !config.plan.includes_method(def, &[]))
     }
 
     fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
@@ -245,7 +242,7 @@ impl CppInterface {
             // Implementation-only interfaces need ABI slots and `_Impl`, not caller wrappers.
             let suppress_methods = config.bindgen.style.is_minimal()
                 && config.should_implement(self.def.type_name(), false)
-                && matches!(config.filter.type_role(self.type_name()), TypeRole::Shell);
+                && config.plan.selection.is_shell(self.type_name());
 
             let mut methods_tokens = quote! {};
 

@@ -1,12 +1,12 @@
 windows_core::imp::define_winrt_interface!(
     IItems,
     IItems_Vtbl,
-    0x8dfef4bd_8c6e_5d6d_9614_0aca51e6943b,
-    b"Test.IItems"
+    0x9e338b3a_5eb9_5b77_a540_541e53c3dcf5,
+    b"Windows.Test.IItems"
 );
 windows_core::imp::interface_hierarchy!(IItems, windows_core::IUnknown, windows_core::IInspectable);
 impl windows_core::RuntimeName for IItems {
-    const NAME: &'static str = "Test.IItems";
+    const NAME: &'static str = "Windows.Test.IItems";
 }
 pub trait IItems_Impl: windows_core::IUnknownImpl {}
 impl IItems_Vtbl {
@@ -26,62 +26,16 @@ pub struct IItems_Vtbl {
 windows_core::imp::define_winrt_interface!(
     Item,
     Item_Vtbl,
-    0x2d93fccb_fadf_52bd_a462_4bb301d551af,
-    b"Test.Item"
+    0x767a02ee_2f01_5886_a631_40ddb9957f8d,
+    b"Windows.Other.Item"
 );
 windows_core::imp::interface_hierarchy!(Item, windows_core::IUnknown, windows_core::IInspectable);
-impl Item {
-    pub fn Read(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Read)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-}
 impl windows_core::RuntimeName for Item {
-    const NAME: &'static str = "Test.Item";
-}
-pub trait Item_Impl: windows_core::IUnknownImpl {
-    fn Read(&self) -> windows_core::Result<i32>;
-}
-impl Item_Vtbl {
-    pub const fn new<Identity: Item_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Read<Identity: Item_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            result__: *mut i32,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match Item_Impl::Read(this) {
-                    Ok(ok__) => {
-                        result__.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => {
-                        result__.write_bytes(0, 1);
-                        err.into()
-                    }
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(),
-            Read: Read::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Item as windows_core::Interface>::IID
-    }
+    const NAME: &'static str = "Windows.Other.Item";
 }
 #[repr(C)]
 pub struct Item_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -116,7 +70,7 @@ unsafe impl windows_core::Interface for Items {
     const INSPECTABLE: bool = true;
 }
 impl windows_core::RuntimeName for Items {
-    const NAME: &'static str = "Test.Items";
+    const NAME: &'static str = "Windows.Test.Items";
 }
 impl IntoIterator for Items {
     type Item = Item;

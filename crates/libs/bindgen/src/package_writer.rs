@@ -17,7 +17,7 @@ impl Cfg {
             .filter_map(|tn| {
                 if *tn != Type::Pointer64Helper.type_name()
                     && *tn != Type::UnalignedHelper.type_name()
-                    && config.types.contains_key(tn)
+                    && config.plan.types.contains_key(tn)
                 {
                     Some(tn.namespace())
                 } else {

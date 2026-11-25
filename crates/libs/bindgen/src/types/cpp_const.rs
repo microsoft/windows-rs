@@ -60,9 +60,10 @@ impl CppConst {
             .field_type(enclosing, config.reader)
             .to_const_type();
         if self.is_enum_member
-            && (config.filter.excludes_type_name(self.type_name())
+            && (config.plan.selection.excludes_type_name(self.type_name())
                 || config
-                    .filter
+                    .plan
+                    .selection
                     .enum_variant_filter(
                         field_ty.type_name().namespace(),
                         field_ty.type_name().name(),

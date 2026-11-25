@@ -1,11 +1,11 @@
 #![doc = include_str!("../readme.md")]
 
 mod arches;
+mod binding_plan;
 mod cli;
 mod config;
 mod derive;
 mod derive_writer;
-mod filter;
 mod format;
 mod guid;
 mod implements;
@@ -14,6 +14,7 @@ mod package_writer;
 mod param;
 mod paths;
 mod references;
+mod selection;
 mod signature;
 mod tables;
 mod tokens;
@@ -25,17 +26,18 @@ mod value;
 mod winmd;
 
 use arches::*;
+use binding_plan::*;
 pub use cli::bindgen;
 use config::*;
 use derive::*;
 use derive_writer::*;
-use filter::*;
 use guid::*;
 use implements::*;
 use io::*;
 use package_writer::*;
 use param::*;
 use references::*;
+use selection::*;
 use signature::*;
 use std::cmp::Ordering;
 use std::collections::*;
@@ -665,7 +667,7 @@ impl Bindgen {
 
         let references = References::new(reader, references);
 
-        let (filter, types) = {
+        let plan = {
             let mut all_parsed = Vec::new();
             for entry in &include {
                 all_parsed.extend(filter_parser::parse_filter_entry(entry));
@@ -679,35 +681,22 @@ impl Bindgen {
             }
             let resolved = filter_parser::resolve_entries(reader, &all_parsed);
 
-            let mut filter = Filter::from_resolved(reader, &resolved);
-
-            // Namespace rules seed their types in full; the closure adds their dependencies.
-            let names =
-                TypeMap::namespace_selection(reader, &filter, &references, self.style.is_sys());
-            filter.seed_types(reader, &names);
-            let types = TypeClosure::build(
+            BindingPlan::new(
                 reader,
-                &filter,
-                &references,
+                &resolved,
+                references,
                 implements.as_ref(),
                 self.style,
-            );
-
-            (filter, types)
+            )
         };
 
-        let derive = Derive::new(reader, &types, &derive_str);
-        if let Some(implements) = &implements {
-            filter.validate_implements(implements);
-        }
+        let derive = Derive::new(reader, &plan.types, &derive_str);
 
-        let shadowed_prelude = Config::shadowed_prelude(&types);
+        let shadowed_prelude = Config::shadowed_prelude(&plan.types);
         let config = Config {
             bindgen: self,
             reader,
-            types: &types,
-            references: &references,
-            filter: &filter,
+            plan: &plan,
             derive: &derive,
             implement: implements.as_ref(),
             link,
@@ -723,15 +712,10 @@ impl Bindgen {
             event_only_delegates: &event_only_delegates,
             ..config
         };
-        let filter_config = Config {
-            implement: None,
-            ..config.clone()
-        };
-
         for target in &self.compose {
             let class = composition_target(reader, target);
             assert!(
-                types.contains_key(&class.type_name()),
+                plan.types.contains_key(&class.type_name()),
                 "composition target `{target}` is not selected by the filter"
             );
             assert!(
@@ -739,17 +723,18 @@ impl Bindgen {
                     .required_interfaces(reader)
                     .iter()
                     .filter(|interface| interface.kind == InterfaceKind::Composable)
-                    .filter(|interface| types.contains_key(&interface.def.type_name()))
-                    .any(|interface| interface
-                        .get_methods(&filter_config)
-                        .iter()
-                        .any(|method| matches!(method, MethodOrName::Method(_)))),
+                    .filter(|interface| plan.types.contains_key(&interface.def.type_name()))
+                    .any(|interface| interface.def.methods().any(|method| {
+                        plan.selection
+                            .includes_method(interface.type_name(), method)
+                            && plan.includes_method(method, &interface.generics)
+                    })),
                 "composition target `{target}` has no composable factory method selected by the \
                  filter"
             );
         }
 
-        let tree = TypeTree::new(&types, self.layout.is_flat());
+        let tree = TypeTree::new(&plan.types, self.layout.is_flat());
         config.write(tree, output);
     }
 }
@@ -867,7 +852,7 @@ fn compute_event_only_delegates(config: &Config) -> HashSet<TypeName> {
     let mut event_delegates: HashSet<TypeName> = HashSet::new();
     let mut non_event_delegates: HashSet<TypeName> = HashSet::new();
 
-    for type_set in config.types.values() {
+    for type_set in config.plan.types.values() {
         for ty in type_set {
             let (methods, generics): (Box<dyn Iterator<Item = MethodDef>>, &[Type]) = match ty {
                 Type::Interface(i) => (Box::new(i.def.methods()), &i.generics),
@@ -876,7 +861,7 @@ fn compute_event_only_delegates(config: &Config) -> HashSet<TypeName> {
 
             for method in methods {
                 let sig = method.method_signature(generics, config.reader);
-                if method_is_skipped(method, ty.type_name(), &sig, config) {
+                if !config.plan.includes_method(method, generics) {
                     continue;
                 }
                 let is_event_add = method.flags().contains(MethodAttributes::SpecialName)

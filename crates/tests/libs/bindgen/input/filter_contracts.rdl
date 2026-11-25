@@ -72,10 +72,17 @@ mod Other {
     }
 }
 #[winrt]
+mod NamespaceSeeds {
+    struct Record {
+        value: Other::Token,
+    }
+}
+#[winrt]
 mod Windows {
     mod Foundation {
         mod Metadata {
             attribute ActivatableAttribute {
+                fn(#[in] version: u32);
                 fn(#[in] r#type: Type, #[in] version: u32);
             }
             attribute StaticAttribute {
@@ -86,6 +93,10 @@ mod Windows {
 }
 #[winrt]
 mod Slots {
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    class DefaultWidget {
+        IProbe,
+    }
     #[guid(auto)]
     interface IProbe {
         #[special]

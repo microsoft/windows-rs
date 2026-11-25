@@ -1,4 +1,4 @@
-//! --filter Test --full
+//! --filter Windows.Test --full
 #[winrt]
 mod Windows {
     mod Foundation {
@@ -20,15 +20,19 @@ mod Windows {
     }
 }
 #[winrt]
-mod Test {
-    class Items {
-        IItems,
-        Windows::Foundation::Collections::IIterable<Item>,
+mod Windows {
+    mod Test {
+        class Items {
+            IItems,
+            Windows::Foundation::Collections::IIterable<Windows::Other::Item>,
+        }
+        #[guid(auto)]
+        interface IItems {}
     }
-    #[guid(auto)]
-    interface IItems {}
-    #[guid(auto)]
-    interface Item {
-        fn Read(&self) -> i32;
+    mod Other {
+        #[guid(auto)]
+        interface Item {
+            fn Read(&self) -> i32;
+        }
     }
 }
