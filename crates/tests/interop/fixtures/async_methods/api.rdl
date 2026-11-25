@@ -35,5 +35,10 @@ mod AsyncMethods {
         fn AwaitOperation(&self, #[in] operation: IAsyncOperation<i32>) -> IAsyncOperation<i32>;
         fn AwaitOperationWithProgress(&self, #[in] operation: IAsyncOperationWithProgress<i32, u32>)
             -> IAsyncOperationWithProgress<i32, u32>;
+
+        fn ReturnAction(&self, #[in] value: IAsyncAction, #[in] ready: bool)
+            -> IAsyncOperation<IAsyncAction>;
+        fn ReturnActionWithProgress(&self, #[in] value: IAsyncAction, #[in] ready: bool)
+            -> IAsyncOperationWithProgress<IAsyncAction, u32>;
     }
 }

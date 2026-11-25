@@ -19,6 +19,32 @@ fn check_value(value: i32) -> Result<i32> {
 }
 
 impl IWidget_Impl for Widget_Impl {
+    fn ReturnAction(
+        &self,
+        value: Ref<IAsyncAction>,
+        ready: bool,
+    ) -> Result<IAsyncOperation<IAsyncAction>> {
+        let value = value.ok()?.clone();
+        Ok(if ready {
+            IAsyncOperation::ready(Ok(value))
+        } else {
+            IAsyncOperation::spawn(move || Ok(value))
+        })
+    }
+
+    fn ReturnActionWithProgress(
+        &self,
+        value: Ref<IAsyncAction>,
+        ready: bool,
+    ) -> Result<IAsyncOperationWithProgress<IAsyncAction, u32>> {
+        let value = value.ok()?.clone();
+        Ok(if ready {
+            IAsyncOperationWithProgress::ready(Ok(value))
+        } else {
+            IAsyncOperationWithProgress::spawn(move || Ok(value))
+        })
+    }
+
     fn Action(&self, value: i32) -> Result<IAsyncAction> {
         Ok(match check_value(value) {
             Ok(_) => IAsyncAction::spawn(|| Ok(())),

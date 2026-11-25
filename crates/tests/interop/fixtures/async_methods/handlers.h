@@ -255,6 +255,164 @@ void apartment_completion(Make&& make)
     }
 }
 
+struct result_action final : impl::abi_t<IAsyncAction>, impl::abi_t<IAsyncInfo>
+{
+    std::atomic<uint32_t> references{ 1 };
+    std::shared_ptr<handler_observation> observation;
+
+    explicit result_action(std::shared_ptr<handler_observation> value)
+        : observation(std::move(value)) {}
+
+    int32_t __stdcall QueryInterface(guid const& id, void** result) noexcept final
+    {
+        *result = nullptr;
+        if (id == guid_of<IAsyncInfo>())
+        {
+            *result = static_cast<impl::abi_t<IAsyncInfo>*>(this);
+        }
+        else if (id == guid_of<IAsyncAction>() || id == guid_of<IInspectable>() ||
+            id == guid_of<Windows::Foundation::IUnknown>() || id == guid_of<impl::IAgileObject>())
+        {
+            *result = static_cast<impl::abi_t<IAsyncAction>*>(this);
+        }
+        else
+        {
+            return E_NOINTERFACE;
+        }
+        AddRef();
+        return S_OK;
+    }
+
+    uint32_t __stdcall AddRef() noexcept final
+    {
+        auto count = ++references;
+        ++observation->calls;
+        try
+        {
+            std::function<void()> prepare;
+            {
+                std::lock_guard guard(observation->lock);
+                prepare = std::move(observation->prepare);
+            }
+            if (prepare)
+            {
+                std::fputs("result AddRef entered\n", stderr);
+                prepare();
+            }
+        }
+        catch (...)
+        {
+            observation->failure = to_hresult();
+        }
+        return count;
+    }
+
+    uint32_t __stdcall Release() noexcept final
+    {
+        auto remaining = --references;
+        if (!remaining)
+        {
+            SetEvent(observation->destroyed.get());
+            delete this;
+        }
+        return remaining;
+    }
+
+    int32_t __stdcall GetIids(uint32_t* count, guid** values) noexcept final
+    {
+        *count = 0;
+        *values = nullptr;
+        return S_OK;
+    }
+
+    int32_t __stdcall GetRuntimeClassName(void** value) noexcept final
+    {
+        *value = nullptr;
+        return S_OK;
+    }
+
+    int32_t __stdcall GetTrustLevel(TrustLevel* value) noexcept final
+    {
+        *value = TrustLevel::BaseTrust;
+        return S_OK;
+    }
+
+    int32_t __stdcall put_Completed(void*) noexcept final { return E_NOTIMPL; }
+    int32_t __stdcall get_Completed(void** value) noexcept final
+    {
+        *value = nullptr;
+        return S_OK;
+    }
+    int32_t __stdcall GetResults() noexcept final { return S_OK; }
+    int32_t __stdcall get_Id(uint32_t* value) noexcept final { *value = 1; return S_OK; }
+    int32_t __stdcall get_Status(int32_t* value) noexcept final
+    {
+        *value = static_cast<int32_t>(AsyncStatus::Completed);
+        return S_OK;
+    }
+    int32_t __stdcall get_ErrorCode(hresult* value) noexcept final { *value = S_OK; return S_OK; }
+    int32_t __stdcall Cancel() noexcept final { return S_OK; }
+    int32_t __stdcall Close() noexcept final { return S_OK; }
+};
+
+template <typename Make>
+void transfer_result(Make&& make)
+{
+    auto observation = std::make_shared<handler_observation>();
+    IAsyncAction value{ static_cast<impl::abi_t<IAsyncAction>*>(new result_action(observation)),
+        take_ownership_from_abi };
+    auto identity = get_abi(value);
+    auto operation = make(value);
+    value = nullptr;
+    auto completed = std::make_shared<std::binary_semaphore>(0);
+    operation.Completed([completed](auto&&, auto status)
+    {
+        check(status == AsyncStatus::Completed);
+        completed->release();
+    });
+    check(completed->try_acquire_for(std::chrono::seconds(5)));
+    check(WaitForSingleObject(observation->destroyed.get(), 0) == WAIT_TIMEOUT);
+    auto copies = observation->calls.load();
+    {
+        std::lock_guard guard(observation->lock);
+        observation->prepare = [&]
+        {
+            check(operation.Status() == AsyncStatus::Completed);
+            check(operation.ErrorCode() == S_OK);
+        };
+    }
+    auto result = operation.GetResults();
+    check(get_abi(result) == identity);
+    check(observation->calls == copies);
+    check(observation->failure == S_OK);
+    {
+        std::lock_guard guard(observation->lock);
+        observation->prepare = nullptr;
+    }
+    try
+    {
+        (void)operation.GetResults();
+        check(false);
+    }
+    catch (hresult_illegal_method_call const&)
+    {
+    }
+    check(operation.Status() == AsyncStatus::Completed);
+    check(operation.ErrorCode() == S_OK);
+    result = nullptr;
+    check(WaitForSingleObject(observation->destroyed.get(), 0) == WAIT_OBJECT_0);
+
+    observation = std::make_shared<handler_observation>();
+    value = { static_cast<impl::abi_t<IAsyncAction>*>(new result_action(observation)),
+        take_ownership_from_abi };
+    operation = make(value);
+    value = nullptr;
+    operation.Completed([completed](auto&&, auto) { completed->release(); });
+    check(completed->try_acquire_for(std::chrono::seconds(5)));
+    operation = nullptr;
+    check(WaitForSingleObject(observation->destroyed.get(), 5000) == WAIT_OBJECT_0);
+}
+
 void test_handlers(Widget const& widget)
 {
     std::jthread watchdog([](std::stop_token stop)
@@ -269,6 +427,12 @@ void test_handlers(Widget const& widget)
             std::abort();
         }
     });
+
+    for (bool ready : { false, true })
+    {
+        transfer_result([&](auto const& value) { return widget.ReturnAction(value, ready); });
+        transfer_result([&](auto const& value) { return widget.ReturnActionWithProgress(value, ready); });
+    }
 
     apartment_completion<AsyncActionCompletedHandler>(
         [&](auto gate) { return widget.AwaitAction(gated_action(gate)); });
