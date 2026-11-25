@@ -1,5 +1,5 @@
 use super::*;
-use std::cell::Cell;
+use std::sync::Mutex;
 use std::sync::atomic::AtomicU32;
 use std::time::{Duration, Instant};
 use windows_core::{BOOL, Error, HRESULT, Interface, Ref, Result};
@@ -88,7 +88,7 @@ fn drag(completion: ComponentCompletion<Message>, cancelled: Arc<AtomicBool>) ->
         completion,
         cancelled,
         deadline,
-        feedback: Cell::new(None),
+        feedback: Mutex::new(None),
     }
     .into();
     let mut effect = 0;
@@ -132,7 +132,7 @@ struct Source {
     completion: ComponentCompletion<Message>,
     cancelled: Arc<AtomicBool>,
     deadline: Instant,
-    feedback: Cell<Option<u32>>,
+    feedback: Mutex<Option<u32>>,
 }
 
 #[allow(non_snake_case)]
@@ -156,7 +156,8 @@ impl IDropSource_Impl for Source_Impl {
             Ok(operation) => operation,
             Err(error) => return error.into(),
         };
-        if self.feedback.replace(Some(effect)) != Some(effect)
+        let previous = self.feedback.lock().unwrap().replace(effect);
+        if previous != Some(effect)
             && !self
                 .completion
                 .clone()

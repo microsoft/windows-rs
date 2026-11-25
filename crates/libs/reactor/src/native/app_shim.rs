@@ -1,6 +1,7 @@
 use super::*;
 use bindings::Application;
 use bindings::*;
+use std::sync::OnceLock;
 use windows_core::*;
 
 implement_decl! {
@@ -10,34 +11,36 @@ implement_decl! {
 }
 
 pub struct ReactorApplicationOverrides {
-    controls_provider: RefCell<Option<XamlControlsXamlMetaDataProvider>>,
-    on_launched: RefCell<Option<Box<dyn FnOnce() -> Result<()>>>>,
+    controls_provider: OnceLock<XamlControlsXamlMetaDataProvider>,
+    on_launched: local::Local<RefCell<Option<Box<dyn FnOnce() -> Result<()>>>>>,
 }
 
 impl ReactorApplicationOverrides {
     fn new(on_launched: Box<dyn FnOnce() -> Result<()>>) -> Self {
         Self {
-            controls_provider: RefCell::new(None),
-            on_launched: RefCell::new(Some(on_launched)),
+            controls_provider: OnceLock::new(),
+            on_launched: local::Local::new(RefCell::new(Some(on_launched))),
         }
     }
 
     fn provider(&self) -> Result<XamlControlsXamlMetaDataProvider> {
-        if let Some(provider) = self.controls_provider.borrow().as_ref() {
+        if let Some(provider) = self.controls_provider.get() {
             return Ok(provider.clone());
         }
         let provider = XamlControlsXamlMetaDataProvider::new()?;
-        *self.controls_provider.borrow_mut() = Some(provider.clone());
-        Ok(provider)
+        Ok(self.controls_provider.get_or_init(|| provider).clone())
     }
 }
 
 impl IApplicationOverrides_Impl for ReactorApplicationOverrides_Impl {
     fn OnLaunched(&self, _args: Ref<LaunchActivatedEventArgs>) -> Result<()> {
-        if let Some(on_launched) = self.on_launched.borrow_mut().take() {
-            on_launched()?;
-        }
-        Ok(())
+        self.on_launched.try_with(|on_launched| {
+            let on_launched = on_launched.borrow_mut().take();
+            if let Some(on_launched) = on_launched {
+                on_launched()?;
+            }
+            Ok(())
+        })?
     }
 }
 

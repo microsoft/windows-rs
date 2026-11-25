@@ -4,7 +4,7 @@ use std::{
     sync::{Arc, Mutex, OnceLock},
     thread::{self, ThreadId},
 };
-use windows_core::Event;
+use windows_core::*;
 use windows_reactor::*;
 
 #[allow(dead_code, nonstandard_style, clippy::all)]
@@ -22,6 +22,7 @@ struct State {
     drops: Mutex<Vec<(usize, usize, ThreadId)>>,
     retained: Mutex<Option<Event<bindings::DispatcherQueueHandler>>>,
     dispatcher: Mutex<Option<bindings::DispatcherQueue>>,
+    retained_probe: Mutex<Option<ComObject<LocalProbe>>>,
 }
 
 static STATE: OnceLock<Arc<State>> = OnceLock::new();
@@ -52,6 +53,25 @@ impl Drop for Capture {
         if let Some(completion) = self.completion.take() {
             assert!(completion.complete(()));
         }
+    }
+}
+
+interface_decl! {
+    unsafe trait ILocalProbe(ILocalProbe_Vtbl, ILocalProbe_Impl): IUnknown
+        = 0x96264ad8_741d_4dc3_a5d3_8cd9877c080a {
+        unsafe fn invoke(&self) -> HRESULT;
+    }
+}
+
+struct LocalProbe(local::Local<Capture>);
+
+implement_decl! {
+    impl LocalProbe as LocalProbe_Impl: [ILocalProbe]
+}
+
+impl ILocalProbe_Impl for LocalProbe_Impl {
+    unsafe fn invoke(&self) -> HRESULT {
+        self.0.try_with(Capture::invoke).into()
     }
 }
 
@@ -91,12 +111,34 @@ impl Component for Fixture {
                 }
             }
         }
+        let probe = ComObject::new(LocalProbe(local::Local::new(Capture {
+            id: 3,
+            value: Rc::new(Cell::new(0)),
+            completion: Some(context.completion()),
+        })));
+        unsafe { probe.to_interface::<ILocalProbe>().invoke().ok().unwrap() };
+        thread::spawn(move || {
+            assert_eq!(
+                unsafe { probe.to_interface::<ILocalProbe>().invoke() },
+                HRESULT(0x8001010Eu32 as i32),
+            );
+            drop(probe);
+        })
+        .join()
+        .unwrap();
+        assert!(!state.drops.lock().unwrap().iter().any(|drop| drop.0 == 3));
+        *state.retained_probe.lock().unwrap() =
+            Some(ComObject::new(LocalProbe(local::Local::new(Capture {
+                id: 4,
+                value: Rc::new(Cell::new(0)),
+                completion: None,
+            }))));
         Self(0)
     }
 
     fn update(&mut self, _: (), context: &ComponentContext<Self>) {
         self.0 += 1;
-        if self.0 == 2 {
+        if self.0 == 3 {
             assert!(context.close_window());
         }
     }
@@ -112,12 +154,13 @@ impl Drop for Fixture {
     }
 }
 
-pub(super) fn run() -> windows_core::Result<()> {
+pub(super) fn run() -> Result<()> {
     let state = Arc::new(State {
         owner: thread::current().id(),
         drops: Mutex::new(Vec::new()),
         retained: Mutex::new(None),
         dispatcher: Mutex::new(None),
+        retained_probe: Mutex::new(None),
     });
     assert!(STATE.set(state.clone()).is_ok());
     App::run_component::<Fixture>(())?;
@@ -128,7 +171,9 @@ pub(super) fn run() -> windows_core::Result<()> {
         [
             (0, 0, state.owner),
             (1, 1, state.owner),
-            (2, 0, state.owner)
+            (2, 0, state.owner),
+            (3, 1, state.owner),
+            (4, 0, state.owner),
         ]
     );
     let dispatcher = state.dispatcher.lock().unwrap().take().unwrap();
@@ -138,6 +183,12 @@ pub(super) fn run() -> windows_core::Result<()> {
     )?);
     let event = state.retained.lock().unwrap().take().unwrap();
     thread::spawn(move || drop(event)).join().unwrap();
-    assert_eq!(state.drops.lock().unwrap().len(), 3);
+    let probe = state.retained_probe.lock().unwrap().take().unwrap();
+    assert_eq!(
+        unsafe { probe.to_interface::<ILocalProbe>().invoke() },
+        HRESULT(0x80000013u32 as i32),
+    );
+    thread::spawn(move || drop(probe)).join().unwrap();
+    assert_eq!(state.drops.lock().unwrap().len(), 5);
     Ok(())
 }

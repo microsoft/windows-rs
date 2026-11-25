@@ -4,7 +4,9 @@ implement_decl! {
     impl NativeElementFactory as NativeElementFactory_Impl: [IElementFactory]
 }
 
-struct NativeElementFactory {
+struct NativeElementFactory(local::Local<NativeElementFactoryState>);
+
+struct NativeElementFactoryState {
     collection: ObjectId,
     queue: Rc<NativeEventQueue>,
     source: ComObject<NativeVirtualSource>,
@@ -30,13 +32,15 @@ impl NativeVirtualItems {
         let shells = Rc::new(RealizedShells::default());
         let source_revision = Rc::new(Cell::new(source_revision));
         let source = ComObject::new(NativeVirtualSource::new(Arc::clone(keys))?);
-        let factory: IElementFactory = ComObject::new(NativeElementFactory {
-            collection,
-            queue,
-            source: source.clone(),
-            source_revision: Rc::clone(&source_revision),
-            shells: Rc::clone(&shells),
-        })
+        let factory: IElementFactory = ComObject::new(NativeElementFactory(local::Local::new(
+            NativeElementFactoryState {
+                collection,
+                queue,
+                source: source.clone(),
+                source_revision: Rc::clone(&source_revision),
+                shells: Rc::clone(&shells),
+            },
+        )))
         .into_interface();
         let source_interface: IObservableVector<IInspectable> = source.to_interface();
         repeater.SetItemTemplate(&factory)?;
@@ -639,6 +643,22 @@ impl native::IElementFactory_Impl for NativeElementFactory_Impl {
         &self,
         args: Ref<native::ElementFactoryGetArgs>,
     ) -> windows_core::Result<native::UIElement> {
+        self.0.try_with(|state| state.get_element(args))?
+    }
+
+    fn RecycleElement(
+        &self,
+        args: Ref<native::ElementFactoryRecycleArgs>,
+    ) -> windows_core::Result<()> {
+        self.0.try_with(|state| state.recycle_element(args))?
+    }
+}
+
+impl NativeElementFactoryState {
+    fn get_element(
+        &self,
+        args: Ref<native::ElementFactoryGetArgs>,
+    ) -> windows_core::Result<native::UIElement> {
         let token = args
             .ok()?
             .Data()?
@@ -659,7 +679,7 @@ impl native::IElementFactory_Impl for NativeElementFactory_Impl {
         Ok(element)
     }
 
-    fn RecycleElement(
+    fn recycle_element(
         &self,
         args: Ref<native::ElementFactoryRecycleArgs>,
     ) -> windows_core::Result<()> {
