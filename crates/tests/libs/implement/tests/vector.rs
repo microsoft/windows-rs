@@ -24,12 +24,26 @@ where
     T: RuntimeType + 'static,
     <T as Type>::Default: PartialEq;
 
+// SAFETY: construction guarantees thread-safe values, including all future writes.
+unsafe impl<T: RuntimeType + 'static> Send for Vector<T> where T::Default: PartialEq {}
+unsafe impl<T: RuntimeType + 'static> Sync for Vector<T> where T::Default: PartialEq {}
+
 impl<T> Vector<T>
 where
     T: RuntimeType + 'static,
     <T as Type>::Default: PartialEq,
 {
-    fn new(vec: Vec<T::Default>) -> Self {
+    fn new(vec: Vec<T::Default>) -> Self
+    where
+        T::Default: Send + Sync,
+    {
+        unsafe { Self::new_unchecked(vec) }
+    }
+
+    /// # Safety
+    ///
+    /// Retained values and future writes must support access and release on every calling thread.
+    unsafe fn new_unchecked(vec: Vec<T::Default>) -> Self {
         Self(RwLock::new(vec))
     }
 }
@@ -182,10 +196,12 @@ fn GetAt() -> Result<()> {
     assert_eq!(v.GetAt(0)?, 123);
     assert_eq!(v.GetAt(1).unwrap_err().code(), E_BOUNDS);
 
-    let v: IVector<IStringable> = Vector::new(vec![
-        Some(Uri::CreateUri(&HSTRING::from("http://test/"))?.cast()?),
-        None,
-    ])
+    let v: IVector<IStringable> = unsafe {
+        Vector::new_unchecked(vec![
+            Some(Uri::CreateUri(&HSTRING::from("http://test/"))?.cast()?),
+            None,
+        ])
+    }
     .into();
     assert_eq!(v.GetAt(0)?.ToString()?, "http://test/");
     assert_eq!(v.GetAt(1).unwrap_err().code(), S_OK);
@@ -213,7 +229,8 @@ fn IndexOf() -> Result<()> {
     assert!(!(v.IndexOf(789, &mut index)?));
 
     let uri = Uri::CreateUri(&HSTRING::from("http://test/"))?;
-    let v: IVector<IStringable> = Vector::new(vec![Some(uri.cast()?), None]).into();
+    let v: IVector<IStringable> =
+        unsafe { Vector::new_unchecked(vec![Some(uri.cast()?), None]) }.into();
     assert!(v.IndexOf(&uri.cast::<IStringable>()?, &mut index)?);
     assert_eq!(index, 0);
     assert!(v.IndexOf(None, &mut index)?);
@@ -270,11 +287,13 @@ fn test() -> Result<()> {
     assert_eq!(2, index);
     assert!(!(v.IndexOf(&HSTRING::from("123"), &mut index)?));
 
-    let v: IVectorView<IStringable> = Vector::new(vec![
-        Some(Uri::CreateUri(&HSTRING::from("http://one/"))?.cast()?),
-        Some(Uri::CreateUri(&HSTRING::from("http://two/"))?.cast()?),
-        Some(Uri::CreateUri(&HSTRING::from("http://three/"))?.cast()?),
-    ])
+    let v: IVectorView<IStringable> = unsafe {
+        Vector::new_unchecked(vec![
+            Some(Uri::CreateUri(&HSTRING::from("http://one/"))?.cast()?),
+            Some(Uri::CreateUri(&HSTRING::from("http://two/"))?.cast()?),
+            Some(Uri::CreateUri(&HSTRING::from("http://three/"))?.cast()?),
+        ])
+    }
     .into();
 
     assert_eq!("http://one/", v.GetAt(0)?.ToString()?);
@@ -288,7 +307,7 @@ fn test() -> Result<()> {
 // Test for https://github.com/microsoft/windows-rs/issues/2759
 #[test]
 fn test_2759() -> Result<()> {
-    let v: IVector<IStringable> = Vector::new(vec![]).into();
+    let v: IVector<IStringable> = unsafe { Vector::new_unchecked(vec![]) }.into();
     let uri = Uri::CreateUri(h!("https://github.com/"))?;
     v.Append(&uri)?;
     let uri = Uri::CreateUri(h!("https://microsoft.com/"))?;

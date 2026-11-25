@@ -1,6 +1,6 @@
 use super::*;
 use Structs::*;
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 use windows_collections::{IIterable, IVectorView};
 use windows_reference::IReference;
 
@@ -9,14 +9,21 @@ pub fn factory(name: &str) -> Option<IActivationFactory> {
 }
 
 #[implement(Structs::Widget)]
-struct Widget(Mutex<Label>);
+struct Widget(Mutex<StoredLabel>);
+
+#[derive(Clone)]
+struct StoredLabel {
+    text: HSTRING,
+    position: Point,
+    width: Option<Arc<AgileReference<IReference<i32>>>>,
+}
 
 impl Default for Widget {
     fn default() -> Self {
-        Self(Mutex::new(Label {
-            Text: "label".into(),
-            Position: Point { X: 1, Y: 2 },
-            Width: None,
+        Self(Mutex::new(StoredLabel {
+            text: "label".into(),
+            position: Point { X: 1, Y: 2 },
+            width: None,
         }))
     }
 }
@@ -39,11 +46,31 @@ impl IWidget_Impl for Widget_Impl {
     }
 
     fn Label(&self) -> Result<Label> {
-        Ok(self.0.lock().unwrap().clone())
+        let value = self.0.lock().unwrap().clone();
+        Ok(Label {
+            Text: value.text,
+            Position: value.position,
+            Width: value
+                .width
+                .as_ref()
+                .map(|width| width.resolve())
+                .transpose()?,
+        })
     }
 
     fn SetLabel(&self, value: &Label) -> Result<()> {
-        *self.0.lock().unwrap() = value.clone();
+        let value = StoredLabel {
+            text: value.Text.clone(),
+            position: value.Position,
+            width: value
+                .Width
+                .as_ref()
+                .map(AgileReference::new)
+                .transpose()?
+                .map(Arc::new),
+        };
+        let retired = std::mem::replace(&mut *self.0.lock().unwrap(), value);
+        drop(retired);
         Ok(())
     }
 

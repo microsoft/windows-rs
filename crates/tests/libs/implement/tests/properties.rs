@@ -4,7 +4,7 @@ use test_implement::*;
 use windows_core::*;
 
 #[implement(IInitializeWithStream, IPropertyStore, IPropertyStoreCapabilities)]
-struct Object(std::sync::RwLock<PROPVARIANT>);
+struct Object(std::sync::RwLock<i32>);
 
 fn propvariant(value: i32) -> PROPVARIANT {
     PROPVARIANT {
@@ -40,12 +40,16 @@ impl IPropertyStore_Impl for Object_Impl {
     }
     fn GetValue(&self, _: *const PROPERTYKEY, value: *mut PROPVARIANT) -> HRESULT {
         let reader = self.0.read().unwrap();
-        unsafe { value.write(reader.clone()) };
+        unsafe { value.write(propvariant(*reader)) };
         S_OK
     }
     fn SetValue(&self, _: *const PROPERTYKEY, value: *const PROPVARIANT) -> HRESULT {
+        let value = unsafe { &*value };
+        if unsafe { value.Anonymous.Anonymous.vt } != VT_I4 as VARTYPE {
+            return E_INVALIDARG;
+        }
         let mut writer = self.0.write().unwrap();
-        *writer = unsafe { (*value).clone() };
+        *writer = propvariant_value(value);
         S_OK
     }
     fn Commit(&self) -> HRESULT {
@@ -71,6 +75,10 @@ fn test() -> Result<()> {
         assert!(count == 123);
 
         b.SetValue(std::ptr::null(), &propvariant(123)).ok()?;
+        assert_eq!(
+            b.SetValue(std::ptr::null(), &PROPVARIANT::default()),
+            E_INVALIDARG
+        );
         let mut value = PROPVARIANT::default();
         b.GetValue(std::ptr::null(), &mut value).ok()?;
         assert_eq!(123, propvariant_value(&value));

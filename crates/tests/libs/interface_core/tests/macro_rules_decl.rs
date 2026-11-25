@@ -92,12 +92,12 @@ struct Generic<T>(T);
 
 implement_decl! {
     impl<T> Generic as Generic_Impl: [ITest, IOther]
-    where T: Offset + 'static
+    where T: Offset + Send + Sync + 'static
 }
 
 impl<T> ITest_Impl for Generic_Impl<T>
 where
-    T: Offset + 'static,
+    T: Offset + Send + Sync + 'static,
 {
     unsafe fn Void(&self) {}
     unsafe fn Result(&self, code: HRESULT) -> Result<()> {
@@ -107,7 +107,7 @@ where
 
 impl<T> IOther_Impl for Generic_Impl<T>
 where
-    T: Offset + 'static,
+    T: Offset + Send + Sync + 'static,
 {
     unsafe fn Sum(&self, a: i32, b: i32, out: *mut i32) -> Result<()> {
         unsafe { *out = a + b + self.0.offset() };

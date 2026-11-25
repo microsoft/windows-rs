@@ -1,68 +1,59 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
+use std::sync::atomic::{AtomicBool, Ordering};
 use test_implement::*;
 use windows_core::*;
 
 #[derive(Default)]
 struct TestData {
-    GetData: bool,
-    GetDataHere: bool,
-    QueryGetData: bool,
-    GetCanonicalFormatEtc: bool,
-    SetData: bool,
-    EnumFormatEtc: bool,
-    DAdvise: bool,
-    DUnadvise: bool,
-    EnumDAdvise: bool,
+    GetData: AtomicBool,
+    GetDataHere: AtomicBool,
+    QueryGetData: AtomicBool,
+    GetCanonicalFormatEtc: AtomicBool,
+    SetData: AtomicBool,
+    EnumFormatEtc: AtomicBool,
+    DAdvise: AtomicBool,
+    DUnadvise: AtomicBool,
+    EnumDAdvise: AtomicBool,
 }
 
 #[implement(IDataObject)]
 #[derive(Default)]
-struct Test(std::cell::UnsafeCell<TestData>);
+struct Test(TestData);
 
 impl IDataObject_Impl for Test_Impl {
     fn GetData(&self, _: *const FORMATETC, medium: *mut STGMEDIUM) -> HRESULT {
         unsafe {
-            (*self.0.get()).GetData = true;
+            self.0.GetData.store(true, Ordering::Relaxed);
             medium.write(STGMEDIUM::default());
             S_OK
         }
     }
 
     fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> HRESULT {
-        unsafe {
-            (*self.0.get()).GetDataHere = true;
-            S_OK
-        }
+        self.0.GetDataHere.store(true, Ordering::Relaxed);
+        S_OK
     }
 
     fn QueryGetData(&self, _: *const FORMATETC) -> HRESULT {
-        unsafe {
-            (*self.0.get()).QueryGetData = true;
-            S_OK
-        }
+        self.0.QueryGetData.store(true, Ordering::Relaxed);
+        S_OK
     }
 
     fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> HRESULT {
-        unsafe {
-            (*self.0.get()).GetCanonicalFormatEtc = true;
-            S_OK
-        }
+        self.0.GetCanonicalFormatEtc.store(true, Ordering::Relaxed);
+        S_OK
     }
 
     fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> HRESULT {
-        unsafe {
-            (*self.0.get()).SetData = true;
-            S_OK
-        }
+        self.0.SetData.store(true, Ordering::Relaxed);
+        S_OK
     }
 
     fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
-        unsafe {
-            (*self.0.get()).EnumFormatEtc = true;
-            Err(Error::empty())
-        }
+        self.0.EnumFormatEtc.store(true, Ordering::Relaxed);
+        Err(Error::empty())
     }
 
     fn DAdvise(
@@ -73,24 +64,20 @@ impl IDataObject_Impl for Test_Impl {
         connection: *mut u32,
     ) -> HRESULT {
         unsafe {
-            (*self.0.get()).DAdvise = true;
+            self.0.DAdvise.store(true, Ordering::Relaxed);
             *connection = 0;
             S_OK
         }
     }
 
     fn DUnadvise(&self, _: u32) -> HRESULT {
-        unsafe {
-            (*self.0.get()).DUnadvise = true;
-            S_OK
-        }
+        self.0.DUnadvise.store(true, Ordering::Relaxed);
+        S_OK
     }
 
     fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
-        unsafe {
-            (*self.0.get()).EnumDAdvise = true;
-            Err(Error::empty())
-        }
+        self.0.EnumDAdvise.store(true, Ordering::Relaxed);
+        Err(Error::empty())
     }
 }
 
@@ -119,23 +106,23 @@ fn test() -> Result<()> {
         d.DAdvise(&Default::default(), 0, None, &mut connection)
             .ok()?;
 
-        let i = d.as_impl().0.get();
-        assert!((*i).GetData);
-        assert!((*i).GetDataHere);
-        assert!((*i).QueryGetData);
-        assert!((*i).GetCanonicalFormatEtc);
-        assert!((*i).SetData);
-        assert!((*i).EnumFormatEtc);
-        assert!((*i).DAdvise);
+        let i = &d.as_impl().0;
+        assert!(i.GetData.load(Ordering::Relaxed));
+        assert!(i.GetDataHere.load(Ordering::Relaxed));
+        assert!(i.QueryGetData.load(Ordering::Relaxed));
+        assert!(i.GetCanonicalFormatEtc.load(Ordering::Relaxed));
+        assert!(i.SetData.load(Ordering::Relaxed));
+        assert!(i.EnumFormatEtc.load(Ordering::Relaxed));
+        assert!(i.DAdvise.load(Ordering::Relaxed));
 
-        assert!(!(*i).DUnadvise);
-        assert!(!(*i).EnumDAdvise);
+        assert!(!i.DUnadvise.load(Ordering::Relaxed));
+        assert!(!i.EnumDAdvise.load(Ordering::Relaxed));
 
         d.DUnadvise(0).ok()?;
         _ = d.EnumDAdvise();
 
-        assert!((*i).DUnadvise);
-        assert!((*i).EnumDAdvise);
+        assert!(i.DUnadvise.load(Ordering::Relaxed));
+        assert!(i.EnumDAdvise.load(Ordering::Relaxed));
 
         Ok(())
     }

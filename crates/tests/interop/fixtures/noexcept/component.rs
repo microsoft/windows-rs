@@ -1,7 +1,7 @@
 use super::*;
 use Noexcept::*;
 use std::sync::{
-    Mutex,
+    Arc, Mutex,
     atomic::{AtomicI32, Ordering},
 };
 
@@ -56,7 +56,7 @@ impl IStaticValue_Impl for StaticValueFactory_Impl {
 
 #[implement(Noexcept::Widget, IValue)]
 #[derive(Default)]
-struct Widget(Mutex<(i32, HSTRING, Option<IValue>, i32)>);
+struct Widget(Mutex<(i32, HSTRING, Option<Arc<AgileReference<IValue>>>, i32)>);
 
 impl IWidget_Impl for Widget_Impl {
     fn Check(&self, value: Ref<IValue>) -> Result<()> {
@@ -112,11 +112,16 @@ impl IValue_Impl for Widget_Impl {
     }
 
     fn Next(&self) -> Option<IValue> {
-        self.0.lock().unwrap().2.clone()
+        let value = self.0.lock().unwrap().2.clone();
+        value.map(|value| value.resolve().unwrap())
     }
 
     fn SetNext(&self, value: Ref<IValue>) {
-        self.0.lock().unwrap().2 = value.cloned();
+        let value = value
+            .as_ref()
+            .map(|value| Arc::new(AgileReference::new(value).unwrap()));
+        let retired = std::mem::replace(&mut self.0.lock().unwrap().2, value);
+        drop(retired);
     }
 
     fn Limit(&self) -> i32 {
@@ -133,6 +138,7 @@ impl IValue_Impl for Widget_Impl {
     }
 
     fn Clear(&self) {
-        *self.0.lock().unwrap() = Default::default();
+        let retired = std::mem::take(&mut *self.0.lock().unwrap());
+        drop(retired);
     }
 }

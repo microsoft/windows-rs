@@ -3,11 +3,11 @@ use test_implement::{byte, *};
 use windows_core::*;
 
 #[implement(IBufferByteAccess)]
-struct TestBuffer(std::cell::UnsafeCell<Vec<u8>>);
+struct TestBuffer(std::sync::Mutex<Vec<u8>>);
 
 impl IBufferByteAccess_Impl for TestBuffer_Impl {
     fn Buffer(&self, value: *mut *mut byte) -> HRESULT {
-        unsafe { *value = (*self.0.get()).as_mut_ptr().cast() };
+        unsafe { *value = self.0.lock().unwrap().as_mut_ptr().cast() };
         S_OK
     }
 }
