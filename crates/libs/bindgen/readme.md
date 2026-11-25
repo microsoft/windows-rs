@@ -125,6 +125,18 @@ The bundled Win32 metadata uses `Windows.Win32`, not the umbrella crates' Cargo 
 
 For raw bindings, add `.sys()` and use `windows-link = "0.100.1"` instead of `windows-core`.
 `sys` and `full` are mutually exclusive. Add any focused support crates referenced by typed output.
+For example, generated async signatures use `windows-future`; add it as a runtime dependency
+(`windows-future = "0.101"`).
+
+When migrating from `windows`, `.full()` preserves the function wrappers that turn HRESULTs and
+output parameters into `Result` values. Minimal bindings expose raw Win32 function signatures;
+their WinRT methods use `&str` inputs and `String` outputs instead of `HSTRING`.
+The [COM URI sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/bindgen/com-uri)
+uses full bindings, while the
+[data-protection sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/bindgen/data-protection)
+uses minimal WinRT bindings and `windows-future`. Both scope native-name lint expectations to the
+generated bindings module.
+
 Full mode adds implementation traits for interfaces not marked `ExclusiveTo`. Otherwise select them
 with `.implement(name)` or `.implement_all()`; an explicit selection also replaces the full-mode
 default. Implementation selectors use dotted qualified names or namespace prefixes, not bare

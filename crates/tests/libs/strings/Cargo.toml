@@ -8,24 +8,19 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-strings]
+[dev-dependencies.windows-strings]
 workspace = true
 features = ["std"]
 
-[dependencies.windows-link]
+[target.'cfg(windows)'.dependencies.windows-core]
 workspace = true
 
-[target.'cfg(windows)'.dev-dependencies.windows]
+[build-dependencies.windows-bindgen]
 workspace = true
-features = [
-    "oleauto",
-    "winerror",
-    "winstring",
-    "wtypesbase",
-]
 
 [target.'cfg(windows)'.dev-dependencies]
 helpers = { workspace = true }
+windows-link = { workspace = true }
 
 [lints]
 workspace = true
